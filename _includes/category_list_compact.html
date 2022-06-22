@@ -1,0 +1,12 @@
+{% assign selectedIndex = include.selectedIndex %}
+<div class="category-list-compact dropdown-menu grid-x grid-margin-y align-center">
+    <div class = "cell medium-5 small-5">
+        <h3>Categories</h3>
+        <select onchange="location = this.options[this.selectedIndex].value">
+            {% for category in site.data.categories %}
+            <option {% if selectedIndex == forloop.index0 %}selected="selected"{% endif %}
+                    value="{{ site.baseurl }}{{ category.url }}">{{ category.title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.idea
+node_modules
+vendor
+_site
+*~
+.sass-cache
+.jekyll-metadata
+*.css.map
+.DS_Store
+Gemfile.lock

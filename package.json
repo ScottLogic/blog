@@ -1,0 +1,34 @@
+{
+  "name": "Scott-Logic-Blogs",
+  "version": "0.0.0",
+  "description": "The Scott Logic Blogs",
+  "author": "Scott Logic",
+  "dependencies": {
+    "applause-button": "^3.0.0",
+    "cookieconsent": "3",
+    "foundation-sites": "6.4.2"
+  },
+  "devDependencies": {
+    "globby": "^7.1.1",
+    "gray-matter": "^3.1.1",
+    "js-yaml": "^3.10.0",
+    "markdown-spellcheck": "^1.3.1",
+    "node-sass": "^4.5.3",
+    "uglify-js": "^2.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ScottLogic/blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ScottLogic/blog/issues"
+  },
+  "scripts": {
+    "test": "node lintPosts.js",
+    "spellcheck": "mdspell \"**/ceberhardt/_posts/*.md\" --en-gb -a -n -x -t",
+    "style": "node-sass --omit-source-map-url --include --include-path=node_modules/cookieconsent/build/ --include-path=node_modules/foundation-sites/scss/ --output-style=compressed scss/style.scss style.css",
+    "scripts": "uglifyjs scripts/initialise-menu.js  scripts/feed.js scripts/jquery-1.9.1.js scripts/jquery.jscroll-2.2.4.js scripts/load-clap-count.js scripts/elapsed.js scripts/graft-studio/header-scroll.js scripts/graft-studio/jquery.mmenu.all.js scripts/graft-studio/jquery.matchHeight.js scripts/load-google-tag-manager.js node_modules/applause-button/dist/applause-button.js node_modules/cookieconsent/build/cookieconsent.min.js -o script.js"
+  },
+  "homepage": "http://blog.scottlogic.com",
+  "private": true
+}

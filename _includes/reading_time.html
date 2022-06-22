@@ -1,0 +1,9 @@
+{% assign wordCount = include.post.content | number_of_words %}
+{% comment %}https://medium.com/the-story/read-time-and-you-bc2048ab620c#.1azgz6z6e{% endcomment %}
+{% assign readingSpeed = 275 %}
+{% assign minutes = wordCount | divided_by:readingSpeed %}
+{% if minutes == 0 %}
+  1 min read
+{% else %}
+  {{ minutes }} min read
+{% endif %}

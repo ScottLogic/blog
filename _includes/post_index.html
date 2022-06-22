@@ -1,0 +1,34 @@
+{% assign allPosts = include.posts %}
+{% assign categoryName = include.categoryName %}
+{% for category in site.data.categories %}
+    {% if categoryName == category.title %}
+        {% assign categoryIndex = forloop.index0 %}
+    {% endif %}
+{% endfor %}
+{% if include.paginated %}
+    {% assign paginated = include.paginated %}
+{% else %}
+    {% assign paginated = false %}
+{% endif %}
+<div class="post-index grid-container">
+  {% if categoryName == "Latest Articles" %}
+  <h1 class="super-title">Blog</h1>
+  <h2 class="cell sub-title">Our thoughts on technology and design</h2>
+  {% else %}
+  <h2 class="super-title"><a href="{{ site.github.url }}">Blog</a></h2>
+  <h1 class="sub-title">{{ categoryName }}</h1>
+  {% endif %}
+  <div class="hide-for-large">{% include category_list_compact.html selectedIndex=categoryIndex %}</div>
+  {% include featured_posts.html postsToFilter=allPosts categoryName=categoryName %}
+  <div class="cell grid-x">
+    <div class="cell large-7 large-offset-1">
+      {% include post_summary_list.html posts=allPosts paginated=paginated %}
+    </div>
+    <div class="side-lists cell large-2 large-offset-2 grid-padding-y grid-margin-y">
+      {% include category_list.html selectedIndex=categoryIndex %}
+      {% include author_list.html %}
+    </div>
+  </div>
+</div>
+
+{% include site-footer.html %}

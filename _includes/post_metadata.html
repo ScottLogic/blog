@@ -1,0 +1,18 @@
+{% assign post = include.post %}
+{% assign allContributors = post.contributors | join: '|' | prepend: '|' | prepend: post.author | split: '|' %}
+<div>
+  <span>
+    {% for contributorId in allContributors %}
+      {% assign contributor = site.data.authors.authors[contributorId] %}
+      <a href="{{ site.baseurl }}/{{ contributorId }}">{{ contributor.name }}</a>{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+    <span> &middot;</span>
+  </span>
+  <span class="timestamp" date-published="{{ post.date }}">
+    {% include format_date.html date=post.date %}
+  </span>
+  {% unless post.layout == 'video_post' %}
+  <span>&middot;</span>
+  <span>{% include reading_time.html post=post %}</span>
+  {% endunless %}
+</div>

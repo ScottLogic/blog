@@ -1,0 +1,25 @@
+{% assign post = include.post %}
+{% assign hideCategory = include.hideCategory %}
+{% assign author = site.data.authors.authors[post.author] %}
+<div class="post-summary grid-margin-y grid-padding-y {% include post_colour.html post=post %}">
+    <div class="post-summary cell grid-margin-y">
+        {% unless hideCategory %}
+            {% include category_display.html post = post %}
+        {% endunless %}
+        <div class="title">
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            {% include post_summary_social.html post=post %}
+        </div>
+        <div class="cell">
+            {% if post.summary %}
+            {{ post.summary }}
+            {% else %}
+            {{ post.content | strip_html | truncatewords:50 }}
+            {% endif %}
+        </div>
+        <div class="avatar-metadata cell">
+            {% include author_picture.html %}
+            {% include post_metadata.html post=post %}
+        </div>
+    </div>
+</div>

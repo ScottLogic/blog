@@ -1,0 +1,35 @@
+{% assign post = include.post %}
+{% assign read_more = include.read_more %}
+
+<span class="category">
+    {% for category in site.data.categories %}
+        {% assign post_category = post.categories[1] | downcase %}
+        {% assign category_title = category.title | downcase %}
+        {% if post_category == category_title %}
+            <a href="{{ site.baseurl }}{{ category.url }}">
+                {% if read_more %}
+                    View all {{ category.title }} articles
+                {% else %}
+                    {{ category.title }}
+                {% endif %}
+            </a>
+            {% break %}
+        {% endif %}
+        {% for subcategory in category.subcategories %}
+            {% if post_category == subcategory %}
+                <a href="{{ site.baseurl }}{{ category.url }}">
+                    {% if read_more %}
+                        View all {{ category.title }} articles
+                    {% else %}
+                        {{ category.title }}
+                    {% endif %}
+                </a>
+                {% break %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    {% if post.layout == 'video_post' %}
+    <span> &middot;</span>
+    <a href="{{ site.baseurl }}/category/videos.html">Video</a>
+    {% endif %}
+</span>

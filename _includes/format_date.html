@@ -1,0 +1,15 @@
+{% assign date = include.date | date: "%s" %}
+{% assign days = date | date: "%-d" %}
+{% case days %}
+  {% when "1" or "21" or "31" %}{{ days }}<sup>st</sup>&nbsp;
+  {% when "2" or "22" %}{{ days }}<sup>nd</sup>&nbsp;
+  {% when "3" or "23" %}{{ days }}<sup>rd</sup>&nbsp;
+  {% else %}{{ days }}<sup>th</sup>&nbsp;
+{% endcase %}
+{% assign year = date | date: "%Y" %}
+{% assign currentYear = 'now' | date: "%Y" %}
+{% if year == currentYear  %}
+  {{ date | date: "%b" }}
+{% else %}
+  {{ date | date: "%b %Y" }}
+{% endif %}

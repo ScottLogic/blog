@@ -1,0 +1,33 @@
+---
+layout: default
+paginated: false
+---
+{% assign author = site.data.authors.authors[page.author] %}
+{% assign featuredPosts = site.tags.featured | where: "author", page.author %}
+{% assign allPosts = site.posts | where: "author", page.author %}
+{% comment %} Also include posts where this author is a contributor {% endcomment %}
+{% for post in site.posts %}
+  {% if post.contributors contains page.author %}
+    {% assign allPosts = allPosts | push: post %}
+  {% endif %}
+{% endfor %}
+{% assign allPosts = allPosts | sort: 'date' | reverse | uniq %}
+<div class="default-author grid-container">
+    <div class="grid-padding-y">
+        <div class="cell">
+            {% include author.html author=author %}
+        </div>
+        <div class="cell">
+            {% include featured_posts.html postsToFilter=featuredPosts %}
+        </div>
+        <div class="cell grid-x grid-margin-x">
+            <div class="cell large-8 large-offset-1">
+                {% include post_summary_list.html posts=allPosts paginated=paginated %}
+            </div>
+            <div class="cell large-auto">
+                <div id="feed"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% include site-footer.html %}

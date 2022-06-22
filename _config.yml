@@ -1,0 +1,76 @@
+name: Scott Logic
+description: This feed is brought to you by Scott Logic's team of technical authors and bloggers, covering topics including HTML5, iOS, C#, process, UX and practically anything else relating to software development.
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+- scope:
+    path: ''
+    type: posts
+  values:
+    summary: a quick summary of your post
+    author: the name of the authers account
+    layout: default_post
+canonical:
+    url: https://blog.scottlogic.com
+scottlogic:
+    url: https://www.scottlogic.com
+permalink: /:year/:month/:day/:title.html
+safe: true
+twitter_handle: Scott_Logic
+
+plugins:
+  - jekyll-redirect-from
+
+kramdown:
+    input: kramdown
+
+paginate: 20
+
+excerpt_separator: ""
+
+emptyArray: []
+
+exclude:
+    - CNAME
+    - Gemfile
+    - Gemfile.lock
+    - lintPosts.js
+    - scss
+    - node_modules
+    - package.json
+    - README.md
+    - .spelling
+    # N.B. Not all scripts are excluded, as some are directly referenced, because:
+    # - jquery-1.9.1.js - some posts make use of this
+    - scripts/jquery-1.9.1.js
+    - scripts/jquery.jscroll-2.2.4.js
+    - scripts/tweet.js
+    - scripts/search.js
+    - scripts/feed.js
+    # The following is added because of an error on 'jekyll serve':
+    - vendor
+
+
+# For local use only
+# If building the site locally, you won't have access to the site.github namespace
+# Uncomment the lines below to have access to these variables when building locally
+
+# github:
+#    url: https://blog.scottlogic.com
+#    url: http://localhost:4000
+#    owner_name: ScottLogic
+
+
+# Uncomment the lines below to enable requried Jekyll plugins when building locally.
+# plugins:
+#    - jekyll-gist
+#    - jekyll-paginate
+# whitelist:
+#    - jekyll-gist
+#    - jekyll-paginate

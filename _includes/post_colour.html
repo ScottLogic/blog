@@ -1,0 +1,11 @@
+{% if include.post.colour %}
+  {{ include.post.colour }}
+{% else %}
+  {% assign colourIndex = include.post.title | size | modulo:4 %}
+  {% case colourIndex %}
+    {% when 0 %}teal
+    {% when 1 %}orange
+    {% when 2 %}pink
+    {% when 3 %}yellow
+  {% endcase %}
+{% endif %}

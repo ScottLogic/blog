@@ -1,0 +1,30 @@
+{% assign page = include.page %}
+{% assign post_category = page.categories[1] | downcase %}
+
+{% capture url %}
+    {% if post_category == 'testing' %}
+        job-family-testing
+    {% elsif post_category == 'ux design' %}
+        job-family-ux-design
+    {% else %}
+        job-family-development
+    {% endif %}
+{% endcapture %}
+
+{% capture family_name %}
+    {% if post_category == 'testing' %}
+        Test Engineers
+    {% elsif post_category == 'ux design' %}
+        UX Designers
+    {% else %}
+        Developers
+    {% endif %}
+{% endcapture %}
+
+<div class="cell grid-margin-y grid-padding-y grid-x">
+    <div class="cell grid-margin-y grid-padding-y grid-x">
+        <h2>Thinking of joining us?</h2>
+        If you enjoyed this blog post and are interested in working with smart {{ family_name | strip }} on challenging software projects,
+        <a href="https://www.scottlogic.com/careers/{{ url | strip}}">check out our current vacancies</a>.
+    </div>
+</div>

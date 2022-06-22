@@ -1,0 +1,15 @@
+{% assign posts = include.posts %}
+{% assign paginated = include.paginated %}
+{% assign hideCategory = include.hideCategory %}
+<div class="post-summary-list">
+    {% comment %} This container is used by jScroll. When the next page is fetched, the contents of this div are added to the bottom of the page {% endcomment %}
+    <div class="content">
+        {% for post in posts %}
+        {% include post_summary.html post=post hideCategory=hideCategory %}
+        {% endfor %}
+
+        {% if paginated %}
+        {% include pagination.html %}
+        {% endif %}
+    </div>
+</div>

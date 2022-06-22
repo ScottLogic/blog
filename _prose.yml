@@ -1,0 +1,488 @@
+prose:
+    rooturl: CURRENT_USER/_posts
+    media: CURRENT_USER/assets
+    metadata:
+        "":
+            -
+                name: author
+                field:
+                    element: hidden
+                    value: CURRENT_USER
+            -
+                name: title
+                field:
+                    element: text
+                    label: Title
+            -
+                name: published
+                field:
+                    element: hidden
+                    value: 'true'
+            -
+                name: layout
+                field:
+                    element: select
+                    label: 'Post Layout'
+                    value: default_post
+                    options:
+                        -
+                            name: 'Default Post'
+                            value: default_post
+            -
+                name: summary
+                field:
+                    element: text
+                    label: Summary
+                    value: ""
+                    help: 'The index pages for the blog and author pages includes summaries of each blog post. You can use summary to provide a summary for your blog post, otherwise the first 50 words of the post itself are used. When writing your own summary the mimimum is 130 characters (roughly two sentences).'
+            -
+                name: image
+                field:
+                    element: text
+                    label: Image
+                    value: ""
+                    placeholder: username/assets/foo.png
+                    help: 'The image used for social cards (Twitter/Facebook etc) and the ScottLogic image carousel when featured. The image path should be your username, the assets folder and name of your image (e.g. ceberhardt/assets/foo.png)'
+            -
+                name: tags
+                field:
+                    element: text
+                    label: Tags
+                    value: ""
+                    help: 'List of keywords that describe the blog post contents (Add the featured tag to have your article displayed in the blog''s featured carousel).'
+            -
+                name: category
+                field:
+                    element: select
+                    label: Category
+                    options:
+                        -
+                            name: Tech
+                            value: Tech
+                        -
+                            name: 'Data Engineering'
+                            value: 'Data Engineering'
+                        -
+                            name: 'UX Design'
+                            value: 'UX Design'
+                        -
+                            name: Testing
+                            value: Testing
+                        -
+                            name: Careers
+                            value: Careers
+                        -
+                            name: Delivery
+                            value: Delivery
+                        -
+                            name: News
+                            value: News
+                        -
+                            name: Resources
+                            value: Resources
+    users:
+        -
+            login: andyaiken
+            user: aaiken
+        -
+            login: mrspaceman
+            user: aaspellc
+        -
+            login: andrewcarrblue
+            user: acarr
+        -
+            login: DevAndyLee
+            user: alee
+        -
+            login: JohnEz
+            user: amjones
+        -
+            login: HelloUniverseNo31415
+            user: garora
+        -
+            login: alisd23
+            user: asheehan
+        -
+            login: awallis-scottlogic
+            user: awallis
+        -
+            login: bdimitrov-SL
+            user: bdimitrov-SL
+        -
+            login: bjedrzejewski
+            user: bjedrzejewski
+        -
+            login: ColinEberhardt
+            user: ceberhardt
+        -
+            login: chrisprice
+            user: cprice
+        -
+            login: oriondean
+            user: dkerr
+        -
+            login: demcnamee
+            user: dmcnamee
+        -
+            login: dtheasby
+            user: dtheasby
+        -
+            login: ebrown-SL
+            user: ebrown
+        -
+            login: godds
+            user: godds
+        -
+            login: gthompson-sl
+            user: gthompson
+        -
+            login: hgoody88
+            user: hgoode
+        -
+            login: isaac-lapworth
+            user: ilapworth
+        -
+            login: jayphi11ips
+            user: jayphi11ips
+        -
+            login: jdunkerley
+            user: jdunkerley
+        -
+            login: JMVHill
+            user: jhill
+        -
+            login: j-n-white
+            user: jwhite
+        -
+            login: jsvmelon
+            user: jmelon
+        -
+            login: matthewdunsdon
+            user: mdunsdon
+        -
+            login: markjose
+            user: mjose
+        -
+            login: mark-buhagiar-scottlogic
+            user: mbuhagiar
+        -
+            login: m-ili-m
+            user: mmathew
+        -
+            login: msinton
+            user: msinton
+        -
+            login: msuperina
+            user: msuperina
+        -
+            login: owennw
+            user: nowen
+        -
+            login: nwolverson
+            user: nwolverson
+        -
+            login: Rosalita
+            user: rhamilton
+        -
+            login: rrhodes
+            user: rrhodes
+        -
+            login: rwilliams-scottlogic
+            user: rwilliams
+        -
+            login: sionedbaker
+            user: sbaker
+        -
+            login: sh1989
+            user: shogarth
+        -
+            login: huntons
+            user: shunton
+        -
+            login: tamaramakarem
+            user: tmakarem
+        -
+            login: tlsim
+            user: tsimmons
+        -
+            login: WPFerg
+            user: wferguson
+        -
+            login: wloveland
+            user: wloveland
+        -
+            login: w-reilly
+            user: wreilly
+        -
+            login: ZinatWali
+            user: zwali
+        -
+            login: cmeehanSL
+            user: cmeehan
+        -
+            login: Geor23
+            user: gginghina
+        -
+            login: farzanehfarhadi
+            user: ffarhadi
+        -
+            login: dogle-scottlogic
+            user: dogle
+        -
+            login: blackmamo
+            user: mamos
+        -
+            login: CBurbidge
+            user: cburbidge
+        -
+            login: lpisani-SL
+            user: lpisani
+        -
+            login: hubinf
+            user: fhubin
+        -
+            login: charlotteroberts
+            user: croberts
+        -
+            login: laveenaramchandani01
+            user: lramchandani
+        -
+            login: brendanmacdonald
+            user: bmacdonald
+        -
+            login: msinton
+            user: msinton
+        -
+            login: paulinshekSL
+            user: pshek
+        -
+            login: eplmason
+            user: emason
+        -
+            login: harrymt
+            user: hmumford
+        -
+            login: MatdeB-SL
+            user: mdebeneducci
+        -
+            login: CianLMcCormack
+            user: cmcormack
+        -
+            login: carterh1
+            user: hcarter
+        -
+            login: DannyNicholas
+            user: dnicholas
+        -
+            login: paulhands
+            user: phands
+        -
+            login: LHamiltonSL
+            user: lhamilton
+        -
+            login: Brownie956
+            user: cbrown
+        -
+            login: CyuleSL
+            user: cyule
+        -
+            login: jiveace
+            user: jiveace
+        -
+            login: cainy393
+            user: wcaine
+        -
+            login: CamerAllan
+            user: callan
+        -
+            login: ms14981
+            user: masmith
+        -
+            login: dsmithsl
+            user: dsmith
+        -
+            login: willsalt-sl
+            user: wsalt
+        -
+            login: MagnusSmith
+            user: magnussmith
+        -
+            login: hashbyhayter
+            user: hashbyha
+        -
+            login: harryBedfordSL
+            user: hbedford
+        -
+            login: bborowski1
+            user: bborowski1
+        -
+            login: fbromley
+            user: fbromley
+        -
+            login: leeyuiwah-sl
+            user: clee
+        -
+            login: KhanP-SL
+            user: pkhan
+        -
+            login: cakehurstryan
+            user: cakehurstryan
+        -
+            login: AvrilFiddes
+            user: afiddes
+        -
+            login: Ro4052
+            user: rgraham
+        -
+            login: RobSmithScottLogic
+            user: robsmith
+        -
+            login: z-0
+            user: zrubin
+        -
+            login: sladenSL
+            user: sladen
+        -
+            login: dbarkey-scottlogic
+            user: dcastellano
+        -
+            login: huwsteele
+            user: huwsteele
+        -
+            login: jamesmporter
+            user: jporter
+        -
+            login: pgraham-sl
+            user: pgraham
+        -
+            login: jameswren-sl
+            user: jwren
+        -
+            login: AugusteBa
+            user: abagdonaite
+        -
+            login: Saikondru
+            user: skondru
+        -
+            login: pauldykes
+            user: pdykes
+        -
+            login: sbreingan
+            user: sbreingan
+        -
+            login: hwilliams-sl
+            user: hwilliams
+        -
+            login: chedler
+            user: chedler
+        -
+            login: jrhenderson1988
+            user: jhenderson
+        -
+            login: jmorris
+            user: jmorris
+        -
+            login: Adam-McDevitt
+            user: amcdevitt
+        -
+            login: adrian-sureshkumar
+            user: asureshkumar
+        -
+            login: moxon6
+            user: mmoxon
+        -
+            login: JonathanDHarris
+            user: jharris
+        -
+            login: mattstobbs
+            user: mstobbs
+        -
+            login: awojtczuk
+            user: awojtczuk
+        -
+            login: ElizaTWF
+            user: efiennes
+        -
+            login: tomhands1
+            user: thands
+        -
+            login: OliverForeman
+            user: oforeman
+        -
+            login: bobrippling
+            user: rpilling
+        -
+            login: BenedictQ
+            user: bquinn
+        -
+            login: sl-slaing
+            user: slaing
+        -
+            login: stevenwaterman
+            user: swaterman
+        -
+            login: mridene
+            user: mridene
+        -
+            login: JStrachanSL
+            user: jstrachan
+        -
+            login: akcshing
+            user: ashing
+        -
+            login: KyleADay
+            user: kday
+        -
+            login: jamesdgrant
+            user: jgrant
+        -
+            login: smangan360
+            user: smangan
+        -
+            login: samburnstone
+            user: sburnstone
+        -
+            login: awelsh
+            user: awelsh
+        -
+            login: phughes762
+            user: phughes
+        -
+            login: nickbetts90
+            user: nbetts
+        -
+            login: csanderson-scottlogic
+            user: csanderson
+        -
+            login: isugar-scottlogic
+            user: isugar
+        -
+            login: martinmcalroy
+            user: mmcalroy
+        -
+            login: aburgess-scottlogic
+            user: aburgess
+        -
+            login: ryanggrey
+            user: rgrey
+        -
+            login: grewdw
+            user: dgrew
+        -
+            login: codepb
+            user: pburgess
+        -
+            login: jevonbeck
+            user: jbeckles
+        -
+            login: kangelSL
+            user: kangel
+        -
+            login: DillonKeithDiep
+            user: ddiep
+        -
+            login: mjrichardsSL
+            user: mjrichards
+        -
+            login: cfisher-scottlogic
+            user: cfisher

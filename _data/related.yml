@@ -1,0 +1,2217 @@
+/02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html:
+  - /26/08/2014/StrongTypingWithAngularJS.html
+  - /2014/08/06/angular-knockout-e2e-testing.html
+/2010/10/11/white-paper-silverlight-wpf-and-windows-phone-7-cross-platform-development.html:
+  - /2015/10/11/white-paper-html5-migration.html
+  - /2011/05/05/flex-silverlight-html5-time-to-decide.html
+/2011/05/05/flex-silverlight-html5-time-to-decide.html:
+  - /2015/10/11/white-paper-html5-migration.html
+  - /2020/08/13/building-an-integrated-desktop-application-ecosystem.html
+/2012/12/17/jekyll-a-developers-wordpress.html:
+  - /2016/02/23/static-site.html
+  - /2014/11/28/bramble-mvc.html
+/2013/06/06/scala-macros-part-2.html:
+  - /2013/06/07/scala-macros-part-3.html
+  - /2013/06/17/scala-macros-part-4.html
+/2013/06/07/scala-macros-part-3.html:
+  - /2013/06/17/scala-macros-part-4.html
+  - /2013/06/06/scala-macros-part-2.html
+/2013/06/17/scala-macros-part-4.html:
+  - /2013/06/07/scala-macros-part-3.html
+  - /2013/06/06/scala-macros-part-2.html
+/2013/06/24/ux-scotland.html:
+  - /2015/06/26/ux-scotland-2015.html
+  - /2016/11/04/design-data-and-redux-at-bristech.html
+/2013/07/18/betamax-in-scala.html:
+  - /2013/07/29/spark-stream-analysis.html
+  - /2017/08/24/adding-webdriver-tests-to-create-react-app-generated-projects.html
+/2013/07/29/spark-stream-analysis.html:
+  - /2018/01/29/2018-01-29-apache-storm-taster.html
+  - /2015/11/15/stock-ticker.html
+/2013/08/08/interactive-dotnet-1.html:
+  - /2015/05/14/aspnet50-intro.html
+  - /2013/12/18/wpf-snoop-powershell.html
+/2013/08/09/the-science-behind-data-visualisation.html:
+  - /2013/11/27/javascript-object-creation-patterns.html
+  - /2022/04/06/web-ui-development-in-rust.html
+/2013/08/09/windows-phone-app-studio-first-impressions.html:
+  - /2015/03/26/react-native-retrospective.html
+  - /2014/10/27/xplatform-mobile-cordova-ionic.html
+/2013/08/15/interactive-dotnet-2.html:
+  - /2013/08/08/interactive-dotnet-1.html
+  - /2016/01/20/restful-api-with-aspnet50.html
+/2013/08/28/towtruck.html:
+  - /2016/01/06/audio-api-with-d3.html
+  - /2015/11/15/stock-ticker.html
+/2013/09/09/nullable-in-kepler.html:
+  - /2015/02/02/generators.html
+  - /2016/04/04/practical-kotlin.html
+/2013/09/10/typescript-0.9.html:
+  - /2015/02/02/generators.html
+  - /2019/04/05/jumping-from-java-to-javascript.html
+/2013/09/19/ios-book-published.html:
+  - /2014/01/29/ios7-by-tutorials-in-print.html
+  - /2014/09/18/swift-by-tutorials.html
+/2013/09/20/creating-a-custom-flip-view-controller-transition.html:
+  - /2013/09/26/tabbar-custom-transitions.html
+  - /2014/11/04/mutable-array-binding-reactivecocoa.html
+/2013/09/25/2D-Game-Development-With-SpriteKit.html:
+  - /2013/09/20/creating-a-custom-flip-view-controller-transition.html
+  - /2013/09/26/tabbar-custom-transitions.html
+/2013/09/26/tabbar-custom-transitions.html:
+  - /2013/09/20/creating-a-custom-flip-view-controller-transition.html
+  - /2014/05/11/reactivecocoa-tableview-binding.html
+/2013/10/14/assessing-android_fragmentation.html:
+  - /2019/04/24/cross-platform-design-a-look-at-challenger-bank-mobile-applications.html
+  - /2018/12/05/a-developers-intro-to-android.html
+/2013/10/18/getting-functional-at-dddnorth.html:
+  - /2015/10/27/destroying-monoliths-at-dddnorth.html
+  - /2016/11/04/design-data-and-redux-at-bristech.html
+/2013/11/27/javascript-object-creation-patterns.html:
+  - /2015/03/26/react-native.html
+  - /2010/10/11/white-paper-silverlight-wpf-and-windows-phone-7-cross-platform-development.html
+/2013/12/04/on-running-a-code-club.html:
+  - /2014/08/20/starting-from-scratch-2014-intern-project.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2013/12/05/counting-iterables.html:
+  - /2015/02/02/generators.html
+  - /2014/02/28/developing-large-scale-knockoutjs-applications.html
+/2013/12/06/JavaScript-MVC-frameworks.html:
+  - /2014/02/28/developing-large-scale-knockoutjs-applications.html
+  - /2016/09/08/why-can-no-one-agree-on-a-definition-of-mvc.html
+/2013/12/18/wpf-snoop-powershell.html:
+  - /2013/08/09/windows-phone-app-studio-first-impressions.html
+  - /2015/05/14/aspnet50-intro.html
+/2014/01/29/ios7-by-tutorials-in-print.html:
+  - /2013/09/19/ios-book-published.html
+  - /2014/09/18/swift-by-tutorials.html
+/2014/01/31/propertycross-1-3-released.html:
+  - /2013/10/14/assessing-android_fragmentation.html
+  - /2015/03/26/react-native-retrospective.html
+/2014/02/04/intro-to-ixd.html:
+  - /2020/05/29/specstravaganza.html
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+/2014/02/28/arrow-functions-in-knockoutjs.html:
+  - /2015/02/02/generators.html
+  - /2014/02/28/developing-large-scale-knockoutjs-applications.html
+/2014/02/28/developing-large-scale-knockoutjs-applications.html:
+  - /2013/12/06/JavaScript-MVC-frameworks.html
+  - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
+/2014/03/11/a-developers-intro-to-webgl.html:
+  - /2020/04/16/which-webgl-drawing-call-should-i-use.html
+  - /2014/03/12/native-code-emscripten-webgl-simmer-gently.html
+/2014/03/12/native-code-emscripten-webgl-simmer-gently.html:
+  - /2018/09/04/tensorflowjs-machine-learning-in-the-browser.html
+  - /2018/02/27/webassembly-death-of-javascript.html
+/2014/03/13/reactive-cocoa-tutorial.html:
+  - /2015/03/05/reactjs-in-swift.html
+  - /2014/07/07/mvvm-reactive-cocoa.html
+/2014/03/19/simulator-enhancements.html:
+  - /2015/03/05/reactjs-in-swift.html
+  - /2014/05/11/reactivecocoa-tableview-binding.html
+/2014/05/11/reactivecocoa-tableview-binding.html:
+  - /2014/11/04/mutable-array-binding-reactivecocoa.html
+  - /2015/03/05/reactjs-in-swift.html
+/2014/05/19/html5-at-enterprise-scale.html:
+  - /2016/10/10/unstoppable-html5.html
+  - /2015/10/11/white-paper-html5-migration.html
+/2014/06/26/swift-sequences.html:
+  - /2014/05/11/reactivecocoa-tableview-binding.html
+  - /2014/09/10/game-of-life-in-functional-swift.html
+/2014/07/07/mvvm-reactive-cocoa.html:
+  - /2014/05/11/reactivecocoa-tableview-binding.html
+  - /2015/05/15/mvvm-reactive-cocoa-3.html
+/2014/07/10/statistical-analysis-ios-android.html:
+  - /2013/10/14/assessing-android_fragmentation.html
+  - /2019/04/24/cross-platform-design-a-look-at-challenger-bank-mobile-applications.html
+/2014/07/23/frp-with-bacon-and-d3.html:
+  - /2016/01/06/audio-api-with-d3.html
+  - /2015/11/15/stock-ticker.html
+/2014/07/24/mvvm-reactivecocoa-swift.html:
+  - /2015/05/15/mvvm-reactive-cocoa-3.html
+  - /2015/03/05/reactjs-in-swift.html
+/2014/07/30/spa-angular-knockout.html:
+  - /2014/10/27/xplatform-mobile-cordova-ionic.html
+  - /2014/08/06/angular-knockout-e2e-testing.html
+/2014/07/31/hiphop.html:
+  - /2014/02/04/intro-to-ixd.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2014/08/01/swift-vs-objectivec.html:
+  - /2014/09/18/swift-by-tutorials.html
+  - /2019/09/02/swift-ui-a-new-player-in-ui-frameworks.html
+/2014/08/04/introducing-agile-development-to-client-projects.html:
+  - /2014/08/22/how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.html
+  - /2014/08/18/introducing-agile-upfront.html
+/2014/08/04/mongodb-vs-couchdb.html:
+  - /2014/08/08/sharded-clusters-mongodb-considerations.html
+  - /2017/10/06/cassandra-eventual-consistency.html
+/2014/08/06/angular-knockout-e2e-testing.html:
+  - /2014/07/30/spa-angular-knockout.html
+  - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
+/2014/08/08/sharded-clusters-mongodb-considerations.html:
+  - /2017/10/06/cassandra-eventual-consistency.html
+  - /2020/08/24/microservices-for-life.html
+/2014/08/08/signalr-typed.html:
+  - /26/08/2014/StrongTypingWithAngularJS.html
+  - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
+/2014/08/11/a-piecemeal-approach-to-introducing-agile.html:
+  - /2014/08/18/introducing-agile-upfront.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2014/08/15/using-akka-and-scala-to-render-a-mandelbrot-set.html:
+  - /2014/10/29/concurrent-functional-swift.html
+  - /2015/11/15/stock-ticker.html
+/2014/08/18/asp-angular-optimisation.html:
+  - /2014/07/30/spa-angular-knockout.html
+  - /2014/12/19/angular-hero-transitions.html
+/2014/08/18/introducing-agile-upfront.html:
+  - /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
+  - /2014/08/22/how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.html
+/2014/08/19/an-ohlc-chart-component-for-d3.html:
+  - /2014/09/19/d3-svg-chart-performance.html
+  - /2014/09/26/an-interactive-stock-comparison-chart-with-d3.html
+/2014/08/20/starting-from-scratch-2014-intern-project.html:
+  - /2016/01/06/audio-api-with-d3.html
+  - /2013/12/04/on-running-a-code-club.html
+/2014/08/22/how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.html:
+  - /2014/08/18/introducing-agile-upfront.html
+  - /2014/08/04/introducing-agile-development-to-client-projects.html
+/2014/08/26/two-line-components-for-d3-charts.html:
+  - /2014/08/28/bollinger.html
+  - /2014/10/31/fibonacci.html
+/2014/08/28/bollinger.html:
+  - /2014/08/26/two-line-components-for-d3-charts.html
+  - /2014/09/29/crosshairs.html
+/2014/08/29/foyer-screen.html:
+  - /2014/12/5/oyer-Screen-continued.html
+  - /2018/10/10/foyer-screen-2018-edinburgh-intern-project.html
+/2014/09/10/does-scrum-make-project-managers-redundant.html:
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+  - /2014/08/18/introducing-agile-upfront.html
+/2014/09/10/game-of-life-in-functional-swift.html:
+  - /2014/09/22/swift-memoization.html
+  - /2015/03/05/reactjs-in-swift.html
+/2014/09/10/node-webkit.html:
+  - /2020/07/22/web-or-desktop.html
+  - /2017/06/13/towards-a-responsive-desktop.html
+/2014/09/15/jekyll-d3js.html:
+  - /2014/11/28/bramble-mvc.html
+  - /2015/09/03/d3-without-d3.html
+/2014/09/18/swift-by-tutorials.html:
+  - /2013/09/19/ios-book-published.html
+  - /2014/01/29/ios7-by-tutorials-in-print.html
+/2014/09/18/the-agile-mindset.html:
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+  - /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
+/2014/09/19/d3-svg-chart-performance.html:
+  - /2014/08/19/an-ohlc-chart-component-for-d3.html
+  - /2014/09/26/an-interactive-stock-comparison-chart-with-d3.html
+/2014/09/19/interactive.html:
+  - /2014/10/31/fibonacci.html
+  - /2014/09/29/crosshairs.html
+/2014/09/22/swift-memoization.html:
+  - /2014/09/10/game-of-life-in-functional-swift.html
+  - /2014/10/29/concurrent-functional-swift.html
+/2014/09/24/swift-anyobject.html:
+  - /2014/11/20/swift-initialisation.html
+  - /2015/01/27/swift-exception-handling.html
+/2014/09/25/screenhero.html:
+  - /2020/12/17/sense-and-sustainability.html
+  - /2016/03/09/lonely-tester.html
+/2014/09/26/an-interactive-stock-comparison-chart-with-d3.html:
+  - /2014/08/19/an-ohlc-chart-component-for-d3.html
+  - /2014/09/19/d3-svg-chart-performance.html
+/2014/09/29/crosshairs.html:
+  - /2014/10/31/fibonacci.html
+  - /2014/09/19/interactive.html
+/2014/10/14/jekyll-pagination-and-infinite-scrolling.html:
+  - /2014/05/11/reactivecocoa-tableview-binding.html
+  - /2013/09/26/tabbar-custom-transitions.html
+/2014/10/20/ie-run-js-wrong-context.html:
+  - /2020/03/18/Investigating-Multi-Windowed-Apps.html
+  - /2018/07/17/achieving-cross-browser-testing-greatness.html
+/2014/10/27/xplatform-mobile-cordova-ionic.html:
+  - /2014/07/30/spa-angular-knockout.html
+  - /2015/10/02/ionic-master-detail.html
+/2014/10/28/Scala-Vs-Clojure.html:
+  - /2015/01/07/Scala-Vs-Clojure-Pt2.html
+  - /2016/04/04/a-functional-front-end-with-react.html
+/2014/10/29/concurrent-functional-swift.html:
+  - /2014/09/22/swift-memoization.html
+  - /2014/08/15/using-akka-and-scala-to-render-a-mandelbrot-set.html
+/2014/10/31/fibonacci.html:
+  - /2014/09/29/crosshairs.html
+  - /2014/09/19/interactive.html
+/2014/11/04/mutable-array-binding-reactivecocoa.html:
+  - /2014/05/11/reactivecocoa-tableview-binding.html
+  - /2015/03/05/reactjs-in-swift.html
+/2014/11/07/http-2-a-quick-look.html:
+  - /2014/08/19/an-ohlc-chart-component-for-d3.html
+  - /2014/09/19/d3-svg-chart-performance.html
+/2014/11/10/Video-Stitching-With-AVFoundation.html:
+  - /2020/02/06/Exploring-SwiftUI-4-redux-bindable.html
+  - /2013/09/20/creating-a-custom-flip-view-controller-transition.html
+/2014/11/14/d3_chartcomponents_rsi.html:
+  - /2014/10/31/fibonacci.html
+  - /2014/09/19/interactive.html
+/2014/11/20/swift-initialisation.html:
+  - /2014/12/08/swift-optional-pyramids-of-doom.html
+  - /2015/01/27/swift-exception-handling.html
+/2014/11/21/introducing-the-mean-stack.html:
+  - /2018/03/20/mock-the-backend-with-node.html
+  - /2016/11/22/spring-boot-and-mongodb.html
+/2014/11/25/ionic-sorter.html:
+  - /2015/10/02/ionic-master-detail.html
+  - /2014/12/19/angular-hero-transitions.html
+/2014/11/28/bramble-mvc.html:
+  - /2018/03/20/mock-the-backend-with-node.html
+  - /2022/04/06/web-ui-development-in-rust.html
+/2014/12/02/agile-projects-a-case-study.html:
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2014/12/08/swift-optional-pyramids-of-doom.html:
+  - /2014/11/20/swift-initialisation.html
+  - /2015/01/27/swift-exception-handling.html
+/2014/12/12/html5-android-optimisation.html:
+  - /2014/12/19/angular-hero-transitions.html
+  - /2015/10/02/ionic-master-detail.html
+/2014/12/19/angular-hero-transitions.html:
+  - /2014/12/12/html5-android-optimisation.html
+  - /2015/10/02/ionic-master-detail.html
+/2014/12/19/elk-3-things-i-wish-id-known.html:
+  - /2016/05/26/big-data-logging-elk-stack.html
+  - /2019/07/29/from-monolith-to-serverless-on-aws.html
+/2014/12/5/oyer-Screen-continued.html:
+  - /2014/08/29/foyer-screen.html
+  - /2014/07/30/spa-angular-knockout.html
+/2015/01/07/Scala-Vs-Clojure-Pt2.html:
+  - /2014/10/28/Scala-Vs-Clojure.html
+  - /2016/04/04/practical-kotlin.html
+/2015/01/08/automated-tests.html:
+  - /2020/02/10/continuous-testing.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2015/01/20/typescript-compiler-api.html:
+  - /2020/07/24/svelte-ts.html
+  - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
+/2015/01/27/swift-exception-handling.html:
+  - /2015/02/11/swift-kvo-alternatives.html
+  - /2015/02/05/swift-events.html
+/2015/02/02/generators.html:
+  - /2015/03/04/webdriverjs-and-promises.html
+  - /2013/12/05/counting-iterables.html
+/2015/02/02/svg-layout-flexbox.html:
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+  - /2018/09/21/d3-financial-chart.html
+/2015/02/05/swift-events.html:
+  - /2015/01/27/swift-exception-handling.html
+  - /2015/02/11/swift-kvo-alternatives.html
+/2015/02/11/swift-kvo-alternatives.html:
+  - /2015/01/27/swift-exception-handling.html
+  - /2015/02/05/swift-events.html
+/2015/02/13/rtl.html:
+  - /2015/02/02/generators.html
+  - /2017/06/13/towards-a-responsive-desktop.html
+/2015/02/19/rtl-plugin.html:
+  - /2021/09/06/how-to-write-an-es-lint-rule-for-beginners.html
+  - /2017/06/06/typescript-electron-webpack.html
+/2015/02/25/Using-Snapshot-with-Simulator-Status-Magic-to-generate-perfect-iOS-screenshots.html:
+  - /2021/03/04/Multiplatform-SwiftUI.html
+  - /2013/09/26/tabbar-custom-transitions.html
+/2015/03/04/webdriverjs-and-promises.html:
+  - /2015/02/02/generators.html
+  - /2018/07/17/achieving-cross-browser-testing-greatness.html
+/2015/03/05/reactjs-in-swift.html:
+  - /2014/07/24/mvvm-reactivecocoa-swift.html
+  - /2014/05/11/reactivecocoa-tableview-binding.html
+/2015/03/06/introduction-to-flight.html:
+  - /2013/12/06/JavaScript-MVC-frameworks.html
+  - /2015/12/07/angular-2.html
+/2015/03/06/localisation.html:
+  - /2015/03/26/react-native-retrospective.html
+  - /2018/12/12/bridging-ui-libraries-for-decoupled-long-lived-widely-reusable-components.html
+/2015/03/09/OAUTH2-Authentication-with-ADFS-3.0.html:
+  - /2015/11/19/oauth2-with-saml2.html
+  - /2018/03/20/mock-the-backend-with-node.html
+/2015/03/09/json-in-swift.html:
+  - /2015/04/24/first-look-reactive-cocoa-3.html
+  - /2015/03/05/reactjs-in-swift.html
+/2015/03/20/ZeroMQ-Quick-Intro.html:
+  - /2020/02/28/is-aeron-a-good-choice-for-a-messaging-solution.html
+  - /2014/08/08/signalr-typed.html
+/2015/03/25/var-multivar-anywherevar.html:
+  - /2015/02/02/generators.html
+  - /2018/02/23/javascript-closure.html
+/2015/03/26/react-native-retrospective.html:
+  - /2015/03/05/reactjs-in-swift.html
+  - /2017/11/22/developing-bristol-pound-an-open-source-react-native-app.html
+/2015/03/26/react-native.html:
+  - /2016/02/22/binding-with-bond.html
+  - /2013/11/27/javascript-object-creation-patterns.html
+/2015/04/03/generating-type-safe-emails.html:
+  - /2014/08/18/asp-angular-optimisation.html
+  - /2015/02/02/generators.html
+/2015/04/24/first-look-reactive-cocoa-3.html:
+  - /2015/04/28/reactive-cocoa-3-continued.html
+  - /2015/05/15/mvvm-reactive-cocoa-3.html
+/2015/04/28/reactive-cocoa-3-continued.html:
+  - /2015/04/24/first-look-reactive-cocoa-3.html
+  - /2015/05/15/mvvm-reactive-cocoa-3.html
+/2015/05/01/state-of-in-car-uis.html:
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+  - /2013/10/14/assessing-android_fragmentation.html
+/2015/05/08/making-technology-disappear.html:
+  - /2019/04/18/cloud-as-a-value-driver.html
+  - /2020/08/13/building-an-integrated-desktop-application-ecosystem.html
+/2015/05/14/aspnet50-intro.html:
+  - /2016/09/05/hosting-netcore-on-linux-with-docker.html
+  - /2016/01/21/aspnet5-to-aspnetcore.html
+/2015/05/15/mvvm-reactive-cocoa-3.html:
+  - /2015/04/24/first-look-reactive-cocoa-3.html
+  - /2014/07/24/mvvm-reactivecocoa-swift.html
+/2015/06/10/learn-es6-from-airbnb.html:
+  - /2021/09/06/how-to-write-an-es-lint-rule-for-beginners.html
+  - /2014/02/28/developing-large-scale-knockoutjs-applications.html
+/2015/06/19/aurelia-part-one.html:
+  - /2015/06/29/aurelia-part-two.html
+  - /2015/12/07/angular-2.html
+/2015/06/26/ux-scotland-2015.html:
+  - /2018/06/28/ux-scotland-2018.html
+  - /2016/06/17/ux-scotland-2016.html
+/2015/06/29/aurelia-part-two.html:
+  - /2015/06/19/aurelia-part-one.html
+  - /2017/11/01/webpack-source-map-options-quick-guide.html
+/2015/07/02/surprising-things-about-js.html:
+  - /2015/06/10/learn-es6-from-airbnb.html
+  - /2015/02/02/generators.html
+/2015/07/06/fixing-ldap-leak-jboss.html:
+  - /2018/02/23/javascript-monorepos.html
+  - /2016/06/13/code-reuse-in-microservices-architecture.html
+/2015/07/10/applying-styles-to-parent-elements-before-children-in-angularjs.html:
+  - /2014/12/19/angular-hero-transitions.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2015/07/14/meteor.html:
+  - /2018/03/20/mock-the-backend-with-node.html
+  - /2015/11/15/stock-ticker.html
+/2015/07/31/what-makes-a-good-cms.html:
+  - /2018/03/20/mock-the-backend-with-node.html
+  - /2014/11/28/bramble-mvc.html
+/2015/08/06/an-adventure-in-svg-filter-land.html:
+  - /2015/11/02/improving-low-barrel-performance.html
+  - /2016/03/18/d3fc-love-canvas.html
+/2015/08/10/ts-vs-proj.html:
+  - /2017/06/06/typescript-electron-webpack.html
+  - /2017/11/01/webpack-source-map-options-quick-guide.html
+/2015/09/03/d3-without-d3.html:
+  - /2020/10/09/charts-with-flexbox.html
+  - /2018/12/12/bridging-ui-libraries-for-decoupled-long-lived-widely-reusable-components.html
+/2015/09/15/internProject2015.html:
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2018/08/30/the-scott-logic-internship.html
+/2015/09/18/meteor-scroll.html:
+  - /2016/02/23/static-site.html
+  - /2015/07/14/meteor.html
+/2015/10/02/ionic-master-detail.html:
+  - /2014/11/25/ionic-sorter.html
+  - /2014/10/27/xplatform-mobile-cordova-ionic.html
+/2015/10/05/grunt-performance.html:
+  - /2015/12/07/angular-2.html
+  - /2016/01/25/angular2-time-travel-with-redux.html
+/2015/10/11/white-paper-html5-migration.html:
+  - /2011/05/05/flex-silverlight-html5-time-to-decide.html
+  - /2020/08/13/building-an-integrated-desktop-application-ecosystem.html
+/2015/10/15/react-native.html:
+  - /2022/04/06/web-ui-development-in-rust.html
+  - /2017/10/28/serverless-javascript.html
+/2015/10/27/destroying-monoliths-at-dddnorth.html:
+  - /2013/10/18/getting-functional-at-dddnorth.html
+  - /2016/11/04/design-data-and-redux-at-bristech.html
+/2015/11/02/improving-low-barrel-performance.html:
+  - /2015/08/06/an-adventure-in-svg-filter-land.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2015/11/15/stock-ticker.html:
+  - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
+  - /2015/07/14/meteor.html
+/2015/11/16/sampling-large-data-in-d3fc.html:
+  - /2017/08/23/market-profile.html
+  - /2018/09/21/d3-financial-chart.html
+/2015/11/18/d3-ascii.html:
+  - /2015/08/06/an-adventure-in-svg-filter-land.html
+  - /2018/09/21/d3-financial-chart.html
+/2015/11/19/oauth2-with-saml2.html:
+  - /2015/03/09/OAUTH2-Authentication-with-ADFS-3.0.html
+  - /2015/12/01/generalizing-odata.html
+/2015/12/01/generalizing-odata.html:
+  - /2019/04/11/domain-modelling-and-persistence-with-ef-core-part-1.html
+  - /2015/11/19/oauth2-with-saml2.html
+/2015/12/07/angular-2.html:
+  - /2016/01/05/angular2-with-immutablejs.html
+  - /2016/01/25/angular2-time-travel-with-redux.html
+/2015/12/16/an-introduction-to-continuous-delivery.html:
+  - /2020/02/10/continuous-testing.html
+  - /2017/05/17/what-it-means-to-be-agile.html
+/2015/12/16/devTools.html:
+  - /2018/07/17/achieving-cross-browser-testing-greatness.html
+  - /2015/06/10/learn-es6-from-airbnb.html
+/2015/12/17/recommended-reading-for-designers.html:
+  - /2014/02/04/intro-to-ixd.html
+  - /2016/05/21/recommended-reading-for-java-developers.html
+/2015/12/24/creating-an-angular-2-build.html:
+  - /2017/06/06/typescript-electron-webpack.html
+  - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
+/2016/01/05/angular2-with-immutablejs.html:
+  - /2016/01/25/angular2-time-travel-with-redux.html
+  - /2015/12/07/angular-2.html
+/2016/01/05/java-microservices-with-dropwizard-tutorial.html:
+  - /2016/11/22/spring-boot-and-mongodb.html
+  - /2016/06/13/code-reuse-in-microservices-architecture.html
+/2016/01/06/audio-api-with-d3.html:
+  - /2016/07/05/audio-api-electron.html
+  - /2014/08/20/starting-from-scratch-2014-intern-project.html
+/2016/01/13/introduction-to-hadoop-and-map-reduce.html:
+  - /2018/01/29/2018-01-29-apache-storm-taster.html
+  - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
+/2016/01/18/know-your-bugs.html:
+  - /2018/05/14/the-a-word-the-bad-a-word.html
+  - /2017/01/15/testing-trading.html
+/2016/01/20/restful-api-with-aspnet50.html:
+  - /2015/05/14/aspnet50-intro.html
+  - /2016/01/21/aspnet5-to-aspnetcore.html
+/2016/01/21/aspnet5-to-aspnetcore.html:
+  - /2015/05/14/aspnet50-intro.html
+  - /2015/12/07/angular-2.html
+/2016/01/24/apache-spark-intro.html:
+  - /2017/02/07/the-rise-of-big-data-streaming.html
+  - /2017/07/18/bp-big-data.html
+/2016/01/25/angular2-time-travel-with-redux.html:
+  - /2016/01/05/angular2-with-immutablejs.html
+  - /2015/12/07/angular-2.html
+/2016/01/25/playing-with-docker-compose-and-erlang.html:
+  - /2016/09/05/hosting-netcore-on-linux-with-docker.html
+  - /2016/06/17/docker-swarm.html
+/2016/01/27/a-case-for-hot-reloading.html:
+  - /2016/07/07/time-travel.html
+  - /2017/06/13/towards-a-responsive-desktop.html
+/2016/02/01/man-in-the-middle.html:
+  - /2016/02/11/SQL-injection.html
+  - /2016/02/29/Cross-site-scripting.html
+/2016/02/05/a-lazy-isomorphic-react-experiment.html:
+  - /2021/01/18/philosophy-of-svelte.html
+  - /2016/04/04/a-functional-front-end-with-react.html
+/2016/02/08/data-mocking.html:
+  - /2018/03/20/mock-the-backend-with-node.html
+  - /2020/02/04/GraduateGuideToAPITesting.html
+/2016/02/11/SQL-injection.html:
+  - /2016/02/29/Cross-site-scripting.html
+  - /2016/02/01/man-in-the-middle.html
+/2016/02/22/binding-with-bond.html:
+  - /2015/03/26/react-native.html
+  - /2014/05/11/reactivecocoa-tableview-binding.html
+/2016/02/23/d3v4-is-on-the-way.html:
+  - /2016/03/10/d3-path-what-is-it-good-for.html
+  - /2014/08/19/an-ohlc-chart-component-for-d3.html
+/2016/02/23/static-site.html:
+  - /2012/12/17/jekyll-a-developers-wordpress.html
+  - /2016/02/05/a-lazy-isomorphic-react-experiment.html
+/2016/02/29/Cross-site-scripting.html:
+  - /2016/02/11/SQL-injection.html
+  - /2016/02/01/man-in-the-middle.html
+/2016/03/03/modularizing-client-side-dependencies-with-jspm.html:
+  - /2014/07/30/spa-angular-knockout.html
+  - /2017/06/06/typescript-electron-webpack.html
+/2016/03/08/deconstructing-a-tweet-sized-d3-creation.html:
+  - /2015/08/06/an-adventure-in-svg-filter-land.html
+  - /2014/10/31/fibonacci.html
+/2016/03/08/interaction16.html:
+  - /2018/06/28/ux-scotland-2018.html
+  - /2016/11/04/design-data-and-redux-at-bristech.html
+/2016/03/09/As-It-Stands-Electron-Security.html:
+  - /2016/06/01/An-update-on-Electron-Security.html
+  - /2016/07/05/audio-api-electron.html
+/2016/03/09/lonely-tester.html:
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
+  - /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
+/2016/03/10/d3-path-what-is-it-good-for.html:
+  - /2016/03/18/d3fc-love-canvas.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2016/03/18/d3fc-love-canvas.html:
+  - /2016/03/10/d3-path-what-is-it-good-for.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2016/03/28/mondo-api.html:
+  - /2016/04/19/mondo-bank-webhook-to-pebble-watch-timeline-using-aws-labmda-functions.html
+  - /2020/09/10/open-your-eyes-to-apis.html
+/2016/04/04/a-functional-front-end-with-react.html:
+  - /2014/10/28/Scala-Vs-Clojure.html
+  - /2019/04/05/jumping-from-java-to-javascript.html
+/2016/04/04/jenny-from-the-blockchain.html:
+  - /2016/11/24/scottcoin-centralising-the-decentralised.html
+  - /2016/06/16/bitcoin-redeem-scripts.html
+/2016/04/04/practical-kotlin.html:
+  - /2013/09/09/nullable-in-kepler.html
+  - /2014/10/28/Scala-Vs-Clojure.html
+/2016/04/19/mondo-bank-webhook-to-pebble-watch-timeline-using-aws-labmda-functions.html:
+  - /2017/05/08/aws-lambda-github-bot.html
+  - /2018/06/19/step-functions.html
+/2016/04/25/UsingWebdriverIO-Part1.html:
+  - /2016/04/25/UsingWebdriverIO-Part2.html
+  - /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html
+/2016/04/25/UsingWebdriverIO-Part2.html:
+  - /2016/04/25/UsingWebdriverIO-Part1.html
+  - /2017/08/24/adding-webdriver-tests-to-create-react-app-generated-projects.html
+/2016/05/03/Account-management.html:
+  - /2016/02/11/SQL-injection.html
+  - /2016/02/29/Cross-site-scripting.html
+/2016/05/16/Data-visualisation-and-Scale-Leveraging-the-macro-and-the-micro.html:
+  - /2015/12/17/recommended-reading-for-designers.html
+  - /2021/09/14/120-years-timezone.html
+/2016/05/18/make-banking-talk.html:
+  - /2016/06/16/catch22-of-conversational-uis.html
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+/2016/05/19/redux-reducer-arrays.html:
+  - /2020/02/06/Exploring-SwiftUI-4-redux-bindable.html
+  - /2018/06/11/pros-cons-of-redux-form.html
+/2016/05/20/experiment-with-animation-and-ui.html:
+  - /2018/03/09/a-week-with-prototyping-tools.html
+  - /2016/05/23/an-animated-chart-with-html5-canvas.html
+/2016/05/21/recommended-reading-for-java-developers.html:
+  - /2014/09/18/swift-by-tutorials.html
+  - /2019/04/05/reflections-from-build-it-right.html
+/2016/05/23/an-animated-chart-with-html5-canvas.html:
+  - /2014/09/19/interactive.html
+  - /2016/05/20/experiment-with-animation-and-ui.html
+/2016/05/25/Body-as-Interface.html:
+  - /2018/03/23/when-technology-meets-the-arts.html
+  - /2016/03/08/interaction16.html
+/2016/05/26/big-data-logging-elk-stack.html:
+  - /2014/12/19/elk-3-things-i-wish-id-known.html
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+/2016/05/30/writing-a-docker-volume-plugin.html:
+  - /2016/09/05/hosting-netcore-on-linux-with-docker.html
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+/2016/06/01/An-update-on-Electron-Security.html:
+  - /2016/03/09/As-It-Stands-Electron-Security.html
+  - /2016/07/05/audio-api-electron.html
+/2016/06/05/why-its-difficult-to-hire-us.html:
+  - /2016/07/04/a-snapshot-of-testers-in-2016.html
+  - /2016/08/03/exploring-data-with-shiny-and-r.html
+/2016/06/10/six-tips-for-cleaner-promises.html:
+  - /2017/09/14/asynchronous-recursion.html
+  - /2020/09/16/typescript-builders.html
+/2016/06/13/code-reuse-in-microservices-architecture.html:
+  - /2020/08/24/microservices-for-life.html
+  - /2017/07/17/successful-microservices-with-12factor-app.html
+/2016/06/16/bitcoin-redeem-scripts.html:
+  - /2016/04/04/jenny-from-the-blockchain.html
+  - /2016/11/24/scottcoin-centralising-the-decentralised.html
+/2016/06/16/catch22-of-conversational-uis.html:
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+  - /2016/05/18/make-banking-talk.html
+/2016/06/17/docker-swarm.html:
+  - /2016/08/30/docker-1-12-swarm-mode-round-robin.html
+  - /2018/02/09/multi-dind-ci-boxes.html
+/2016/06/17/ux-scotland-2016.html:
+  - /2015/06/26/ux-scotland-2015.html
+  - /2018/06/28/ux-scotland-2018.html
+/2016/06/20/declarative-ci-cd-with-concourse.html:
+  - /2020/02/24/github-cd.html
+  - /2018/02/09/multi-dind-ci-boxes.html
+/2016/06/22/xslt-inspired-ast-transforms.html:
+  - /2021/09/06/how-to-write-an-es-lint-rule-for-beginners.html
+  - /2016/06/29/es6-iterators.html
+/2016/06/29/es6-iterators.html:
+  - /2020/04/22/Async-Iterators-Across-Execution-Contexts.html
+  - /2015/02/02/generators.html
+/2016/07/04/a-snapshot-of-testers-in-2016.html:
+  - /2016/06/05/why-its-difficult-to-hire-us.html
+  - /2018/12/21/so-you-heard-about-testing.html
+/2016/07/05/audio-api-electron.html:
+  - /2016/03/09/As-It-Stands-Electron-Security.html
+  - /2016/01/06/audio-api-with-d3.html
+/2016/07/07/time-travel.html:
+  - /2018/02/27/webassembly-death-of-javascript.html
+  - /2017/06/13/towards-a-responsive-desktop.html
+/2016/07/28/java-enums-how-to-use-them-smarter.html:
+  - /2021/06/28/union-types.html
+  - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
+/2016/08/03/exploring-data-with-shiny-and-r.html:
+  - /2018/01/31/looking-at-r.html
+  - /2016/12/19/spark-unaffordable-britain.html
+/2016/08/17/building-components-with-d3-data-join.html:
+  - /2020/10/22/fixing-the-d3-zoom-api.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2016/08/26/interview-question-explorer.html:
+  - /2017/12/07/newcastle-interns-2017-desk-directory.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2016/08/30/docker-1-12-swarm-mode-round-robin.html:
+  - /2016/06/17/docker-swarm.html
+  - /2016/09/05/hosting-netcore-on-linux-with-docker.html
+/2016/09/01/highlights-from-jsconfis.html:
+  - /2016/09/17/javascript-pebble-watchface.html
+  - /2016/11/04/design-data-and-redux-at-bristech.html
+/2016/09/01/using-d3-force-to-control-a-massive-display.html:
+  - /2017/10/30/migrating-d3-force-layout-to-webassembly.html
+  - /2014/03/19/simulator-enhancements.html
+/2016/09/02/reading-the-riot-act.html:
+  - /2015/03/26/react-native-retrospective.html
+  - /2015/09/03/d3-without-d3.html
+/2016/09/05/do-you-need-a-conversational-ui.html:
+  - /2016/06/16/catch22-of-conversational-uis.html
+  - /2016/05/18/make-banking-talk.html
+/2016/09/05/hosting-netcore-on-linux-with-docker.html:
+  - /2015/05/14/aspnet50-intro.html
+  - /2016/06/17/docker-swarm.html
+/2016/09/08/why-can-no-one-agree-on-a-definition-of-mvc.html:
+  - /2013/12/06/JavaScript-MVC-frameworks.html
+  - /2021/02/17/probably-dont-need-microfrontends.html
+/2016/09/17/javascript-pebble-watchface.html:
+  - /2016/09/01/highlights-from-jsconfis.html
+  - /2016/04/19/mondo-bank-webhook-to-pebble-watch-timeline-using-aws-labmda-functions.html
+/2016/09/19/inspire-europe.html:
+  - /2019/03/27/attending-Tech(k)now-london-2019.html
+  - /2015/06/26/ux-scotland-2015.html
+/2016/09/20/the-power-of-the-higher-order.html:
+  - /2020/05/01/demystifying-react-redux.html
+  - /2017/03/09/relogic-2.html
+/2016/09/27/learning-to-talk.html:
+  - /2018/06/06/we-need-to-talk.html
+  - /2016/10/25/testbash2016.html
+/2016/10/07/lets-have-a-conversation.html:
+  - /2016/05/18/make-banking-talk.html
+  - /2018/02/27/higher-lower-ml-in-js.html
+/2016/10/10/unstoppable-html5.html:
+  - /2014/05/19/html5-at-enterprise-scale.html
+  - /2020/08/13/building-an-integrated-desktop-application-ecosystem.html
+/2016/10/25/testbash2016.html:
+  - /2018/03/26/test-bash-newbie-heads-to-brighton.html
+  - /2022/04/29/grad-summit.html
+/2016/11/01/go-particle-simulation.html:
+  - /2017/06/02/creating-a-parallel-particle-simulation-in-go.html
+  - /2017/04/19/go-services.html
+/2016/11/03/the-hitchhikers-guide-to-redux.html:
+  - /2016/07/07/time-travel.html
+  - /2015/10/15/react-native.html
+/2016/11/04/design-data-and-redux-at-bristech.html:
+  - /2015/10/27/destroying-monoliths-at-dddnorth.html
+  - /2016/03/08/interaction16.html
+/2016/11/09/r-twitter-mining-and-sentiment-analysis.html:
+  - /2016/10/25/testbash2016.html
+  - /2018/02/15/scikit-machine-learning.html
+/2016/11/22/spring-boot-and-mongodb.html:
+  - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
+  - /2014/11/21/introducing-the-mean-stack.html
+/2016/11/22/using-rally-to-benchmark-elasticsearch.html:
+  - /2016/12/19/spark-unaffordable-britain.html
+  - /2017/10/13/MetOfficeKafka.html
+/2016/11/24/scottcoin-centralising-the-decentralised.html:
+  - /2016/04/04/jenny-from-the-blockchain.html
+  - /2016/06/16/bitcoin-redeem-scripts.html
+/2016/11/30/audiokit.html:
+  - /2015/03/26/react-native.html
+  - /2013/09/19/ios-book-published.html
+/2016/12/07/once-upon-a-time.html:
+  - /2014/08/19/an-ohlc-chart-component-for-d3.html
+  - /2014/09/19/d3-svg-chart-performance.html
+/2016/12/15/semantic-versioning-is-not-enough.html:
+  - /2018/11/22/default-values-in-code-and-configuration.html
+  - /2013/12/06/JavaScript-MVC-frameworks.html
+/2016/12/19/spark-unaffordable-britain.html:
+  - /2019/10/11/Exploring-dotnet-for-spark.html
+  - /2016/01/24/apache-spark-intro.html
+/2017/01/09/FiddlerAutoResponder.html:
+  - /2018/03/20/mock-the-backend-with-node.html
+  - /2021/12/09/Performance-Testing-with-JMeter.html
+/2017/01/10/consumer-driven-contracts-using-pact.html:
+  - /2020/09/18/to-rival-react-an-overvue.html
+  - /2018/12/09/about-dom-render-utilities.html
+/2017/01/10/efficient-svg-layout-with-d3.html:
+  - /2020/10/09/charts-with-flexbox.html
+  - /2018/09/21/d3-financial-chart.html
+/2017/01/11/Four-Tips-For-Achieving-Successful-UX-Workshops.html:
+  - /2018/07/05/sketching-tips-to-make-you-a-better-designer.html
+  - /2017/06/27/continuous-change-culture.html
+/2017/01/15/testing-trading.html:
+  - /2018/03/05/guide-don-t-let-testing-be-a-bottleneck.html
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
+/2017/01/26/london-marathon-visualising.html:
+  - /2017/02/28/london-marathon-training-visualisation.html
+  - /2015/11/16/sampling-large-data-in-d3fc.html
+/2017/02/07/the-rise-of-big-data-streaming.html:
+  - /2016/01/24/apache-spark-intro.html
+  - /2017/10/13/MetOfficeKafka.html
+/2017/02/20/initial-impressions-of-alteryx-11.html:
+  - /2015/05/14/aspnet50-intro.html
+  - /2014/12/19/elk-3-things-i-wish-id-known.html
+/2017/02/24/Sharing-Styling-Specs-With-Developers.html:
+  - /2017/07/03/Working-with-Type-Sketch-vs-Adobe-Illustrator.html
+  - /2020/06/25/Automated-design-tools.html
+/2017/02/27/streamsets-with-docker-an-example-hdfs-integration.html:
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+  - /2016/06/17/docker-swarm.html
+/2017/02/28/building-a-web-app-with-go.html:
+  - /2017/04/19/go-services.html
+  - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
+/2017/02/28/london-marathon-training-visualisation.html:
+  - /2017/01/26/london-marathon-visualising.html
+  - /2015/11/16/sampling-large-data-in-d3fc.html
+/2017/02/28/relogic.html:
+  - /2017/03/09/relogic-2.html
+  - /2018/06/11/pros-cons-of-redux-form.html
+/2017/03/01/cassandra-vs-mariadb.html:
+  - /2017/03/20/cassandra-vs-mariadb-scaling.html
+  - /2017/10/06/cassandra-eventual-consistency.html
+/2017/03/01/docker-secrets.html:
+  - /2016/08/30/docker-1-12-swarm-mode-round-robin.html
+  - /2016/05/30/writing-a-docker-volume-plugin.html
+/2017/03/09/relogic-2.html:
+  - /2016/01/25/angular2-time-travel-with-redux.html
+  - /2017/02/28/relogic.html
+/2017/03/20/cassandra-vs-mariadb-scaling.html:
+  - /2017/03/01/cassandra-vs-mariadb.html
+  - /2017/10/06/cassandra-eventual-consistency.html
+/2017/04/05/interactive-responsive-small-multiples.html:
+  - /2018/09/21/d3-financial-chart.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2017/04/19/go-services.html:
+  - /2016/11/01/go-particle-simulation.html
+  - /2017/02/28/building-a-web-app-with-go.html
+/2017/04/19/help-testers-succeed.html:
+  - /2016/09/27/learning-to-talk.html
+  - /2018/06/06/we-need-to-talk.html
+/2017/05/02/typescript-compiler-api-revisited.html:
+  - /2018/05/29/transpiling-webassembly.html
+  - /2018/12/09/about-dom-render-utilities.html
+/2017/05/05/making-agile-teams-more-productive-from-the-inside.html:
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
+  - /2020/02/10/continuous-testing.html
+/2017/05/08/aws-lambda-github-bot.html:
+  - /2017/07/16/clabot.html
+  - /2017/05/22/gifbot-github-integration.html
+/2017/05/15/insurance-a-customers-perspective.html:
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+/2017/05/17/what-it-means-to-be-agile.html:
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2017/05/22/gifbot-github-integration.html:
+  - /2017/05/08/aws-lambda-github-bot.html
+  - /2020/02/24/github-cd.html
+/2017/05/23/white-labelling-using-postcss-path-resolution.html:
+  - /2016/02/05/a-lazy-isomorphic-react-experiment.html
+  - /2014/12/19/angular-hero-transitions.html
+/2017/05/24/creating-semantic-components-in-angular-and-react.html:
+  - /2017/11/10/first-look-at-polymer-3.0.html
+  - /2014/10/27/xplatform-mobile-cordova-ionic.html
+/2017/05/25/devtoolsatscale-event.html:
+  - /2016/11/04/design-data-and-redux-at-bristech.html
+  - /2015/10/27/destroying-monoliths-at-dddnorth.html
+/2017/06/02/creating-a-parallel-particle-simulation-in-go.html:
+  - /2016/11/01/go-particle-simulation.html
+  - /2014/10/29/concurrent-functional-swift.html
+/2017/06/06/does-npm5-deprecate-yarn.html:
+  - /2015/05/14/aspnet50-intro.html
+  - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
+/2017/06/06/typescript-electron-webpack.html:
+  - /2015/08/10/ts-vs-proj.html
+  - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
+/2017/06/08/ALF-and-Conferences.html:
+  - /2018/03/26/test-bash-newbie-heads-to-brighton.html
+  - /2016/10/25/testbash2016.html
+/2017/06/13/towards-a-responsive-desktop.html:
+  - /2016/07/07/time-travel.html
+  - /2017/10/28/serverless-javascript.html
+/2017/06/22/a-developer's-test.html:
+  - /2021/12/09/Performance-Testing-with-JMeter.html
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+/2017/06/25/uk-place-names.html:
+  - /2018/01/15/currencies-then-and-now-d3-map.html
+  - /2018/01/12/playing-with-postgis.html
+/2017/06/27/continuous-change-culture.html:
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+  - /2014/08/18/introducing-agile-upfront.html
+/2017/06/29/change-presented-two-ways.html:
+  - /2019/09/11/Designing-with-accessibility-in-mind.html
+  - /2019/11/18/drawing-lines-with-webgl.html
+/2017/07/03/Working-with-Type-Sketch-vs-Adobe-Illustrator.html:
+  - /2017/02/24/Sharing-Styling-Specs-With-Developers.html
+  - /2021/06/24/types-vs-interfaces.html
+/2017/07/16/clabot.html:
+  - /2017/05/08/aws-lambda-github-bot.html
+  - /2017/05/22/gifbot-github-integration.html
+/2017/07/17/successful-microservices-with-12factor-app.html:
+  - /2018/04/30/devops-as-a-key-to-success-with-microservices-approach.html
+  - /2020/08/24/microservices-for-life.html
+/2017/07/18/bp-big-data.html:
+  - /2016/01/24/apache-spark-intro.html
+  - /2017/10/13/MetOfficeKafka.html
+/2017/07/20/MeetUps-and-SWT-Bristol.html:
+  - /2018/03/26/test-bash-newbie-heads-to-brighton.html
+  - /2016/10/25/testbash2016.html
+/2017/08/07/evolving-the-agile-revolution.html:
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+  - /2017/09/05/scaling-agile-in-the-public-sector.html
+/2017/08/23/market-profile.html:
+  - /2018/09/21/d3-financial-chart.html
+  - /2019/05/09/building-a-better-d3-axis.html
+/2017/08/24/adding-webdriver-tests-to-create-react-app-generated-projects.html:
+  - /2016/04/25/UsingWebdriverIO-Part2.html
+  - /2020/01/31/react-app-playwright.html
+/2017/08/31/graduate-induction-week.html:
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2019/08/22/keep-getting-better-because-there-s-no-limit-grad-week-2019.html
+/2017/09/01/apache-spark-meets-chess.html:
+  - /2018/01/12/playing-with-postgis.html
+  - /2016/12/19/spark-unaffordable-britain.html
+/2017/09/01/thoughts-on-jest-snapshots.html:
+  - /2021/01/18/philosophy-of-svelte.html
+  - /2018/03/20/mock-the-backend-with-node.html
+/2017/09/05/scaling-agile-in-the-public-sector.html:
+  - /2017/08/07/evolving-the-agile-revolution.html
+  - /2021/12/21/delivering-digital-transformation-with-the-scottish-government.html
+/2017/09/07/foyer-screen.html:
+  - /2014/08/29/foyer-screen.html
+  - /2018/10/10/foyer-screen-2018-edinburgh-intern-project.html
+/2017/09/14/asynchronous-recursion.html:
+  - /2020/04/22/Async-Iterators-Across-Execution-Contexts.html
+  - /2019/03/04/lambda-global-state.html
+/2017/09/19/how-big-is-a-story-point.html:
+  - /2018/02/16/how-much-does-a-story-point-cost.html
+  - /2017/11/04/agile-puzzle-detail-planning-and-tracking-in-agile.html
+/2017/09/25/mutation-testing.html:
+  - /2016/02/08/data-mocking.html
+  - /2020/10/01/reducer-builder.html
+/2017/10/06/cassandra-eventual-consistency.html:
+  - /2017/03/20/cassandra-vs-mariadb-scaling.html
+  - /2017/03/01/cassandra-vs-mariadb.html
+/2017/10/09/an-agile-life-in-gds-projects.html:
+  - /2017/08/07/evolving-the-agile-revolution.html
+  - /2014/09/18/the-agile-mindset.html
+/2017/10/10/junit-5.html:
+  - /2017/09/01/thoughts-on-jest-snapshots.html
+  - /2016/04/04/practical-kotlin.html
+/2017/10/13/MetOfficeKafka.html:
+  - /2018/04/17/comparing-big-data-messaging.html
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+/2017/10/17/wasm-mandelbrot.html:
+  - /2020/01/03/webassembly-sudoku-solver.html
+  - /2019/05/17/webassembly-compiler.html
+/2017/10/26/heriot-watt-bugathon.html:
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2017/08/31/graduate-induction-week.html
+/2017/10/28/serverless-javascript.html:
+  - /2022/04/06/web-ui-development-in-rust.html
+  - /2018/02/27/higher-lower-ml-in-js.html
+/2017/10/30/migrating-d3-force-layout-to-webassembly.html:
+  - /2017/10/17/wasm-mandelbrot.html
+  - /2016/09/01/using-d3-force-to-control-a-massive-display.html
+/2017/11/01/webpack-source-map-options-quick-guide.html:
+  - /2014/03/12/native-code-emscripten-webgl-simmer-gently.html
+  - /2018/11/22/default-values-in-code-and-configuration.html
+/2017/11/04/agile-puzzle-detail-planning-and-tracking-in-agile.html:
+  - /2018/02/16/how-much-does-a-story-point-cost.html
+  - /2017/08/07/evolving-the-agile-revolution.html
+/2017/11/10/first-look-at-polymer-3.0.html:
+  - /2017/05/24/creating-semantic-components-in-angular-and-react.html
+  - /2014/10/27/xplatform-mobile-cordova-ionic.html
+/2017/11/17/codemesh.html:
+  - /2015/10/27/destroying-monoliths-at-dddnorth.html
+  - /2019/03/27/attending-Tech(k)now-london-2019.html
+/2017/11/22/developing-bristol-pound-an-open-source-react-native-app.html:
+  - /2015/03/26/react-native-retrospective.html
+  - /2019/04/24/cross-platform-design-a-look-at-challenger-bank-mobile-applications.html
+/2017/12/07/newcastle-interns-2017-desk-directory.html:
+  - /2018/03/07/stock-watcher-newcastle-summer-graduate-project.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2017/12/13/chip8-emulator-webassembly-rust.html:
+  - /2020/08/26/codegen-6502-webassembly.html
+  - /2018/10/18/serverless-rust.html
+/2017/12/15/aws-fargate.html:
+  - /2018/10/23/exploring-kubernetes-on-the-google-cloud-platform.html
+  - /2020/01/27/labelling-images-in-google-cloud.html
+/2017/12/15/white-paper-optimising-data-lakes-for-financial-services.html:
+  - /2019/03/25/the-journey-to-devops.html
+  - /2015/10/11/white-paper-html5-migration.html
+/2017/12/18/difficult-people.html:
+  - /2020/08/04/how-to-deliver-a-difficult-message.html
+  - /2018/01/31/rules-values.html
+/2018/01/12/playing-with-postgis.html:
+  - /2017/06/25/uk-place-names.html
+  - /2019/04/23/perspective-plugin-api-how-to-build-a-new-plugin.html
+/2018/01/13/soft-skills-for-software-developers.html:
+  - /2017/05/05/making-agile-teams-more-productive-from-the-inside.html
+  - /2022/01/21/reminiscence-of-a-scrum-master-part-iv.html
+/2018/01/15/currencies-then-and-now-d3-map.html:
+  - /2017/06/25/uk-place-names.html
+  - /2019/04/23/perspective-plugin-api-how-to-build-a-new-plugin.html
+/2018/01/16/evaluating-redux-saga-test-libraries.html:
+  - /2017/03/09/relogic-2.html
+  - /2018/03/20/mock-the-backend-with-node.html
+/2018/01/29/2018-01-29-apache-storm-taster.html:
+  - /2017/10/13/MetOfficeKafka.html
+  - /2016/01/13/introduction-to-hadoop-and-map-reduce.html
+/2018/01/30/exploring-dynamic-programming.html:
+  - /2013/12/05/counting-iterables.html
+  - /2016/04/04/jenny-from-the-blockchain.html
+/2018/01/31/looking-at-r.html:
+  - /2016/08/03/exploring-data-with-shiny-and-r.html
+  - /2016/12/19/spark-unaffordable-britain.html
+/2018/01/31/rules-values.html:
+  - /2017/12/18/difficult-people.html
+  - /2018/02/16/how-much-does-a-story-point-cost.html
+/2018/02/01/how-to-use-java-optional-correctly.html:
+  - /2016/04/04/a-functional-front-end-with-react.html
+  - /2013/09/09/nullable-in-kepler.html
+/2018/02/07/another-reason-to-use-noopener.html:
+  - /2020/03/18/Investigating-Multi-Windowed-Apps.html
+  - /2016/03/09/As-It-Stands-Electron-Security.html
+/2018/02/07/three-steps-to-improving-customer-experience-through-testing.html:
+  - /2020/07/21/7-tips-for-transforming-testing.html
+  - /2018/08/20/the-pitfalls-of-sit.html
+/2018/02/09/multi-dind-ci-boxes.html:
+  - /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html
+  - /2016/06/17/docker-swarm.html
+/2018/02/13/npm-shrikwrap-merges-and-conflicts.html:
+  - /2018/05/30/avoiding-seeking-solving-source-control-conflicts.html
+  - /2019/03/04/retroactively-applying-prettier-to-existing-branches.html
+/2018/02/14/interaction18.html:
+  - /2016/03/08/interaction16.html
+  - /2016/06/17/ux-scotland-2016.html
+/2018/02/15/scikit-machine-learning.html:
+  - /2018/03/13/tensorflow-machine-learning.html
+  - /2018/10/25/a-developers-intro-tensorflow-and-keras.html
+/2018/02/16/how-much-does-a-story-point-cost.html:
+  - /2017/11/04/agile-puzzle-detail-planning-and-tracking-in-agile.html
+  - /2020/08/04/how-to-deliver-a-difficult-message.html
+/2018/02/19/-19-02-2018-why-women-make-great-testers.html:
+  - /2018/04/20/overlooked-aspects-of-being-a-tester.html
+  - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
+/2018/02/19/generic-platforms-the-rule-of-three.html:
+  - /2018/05/14/the-a-word-the-bad-a-word.html
+  - /2018/08/20/the-pitfalls-of-sit.html
+/2018/02/19/testing-with-cognitive-intelligence.html:
+  - /2019/07/03/Demystifying-test-automation.html
+  - /2018/12/21/so-you-heard-about-testing.html
+/2018/02/21/jvm-roundabout-microservices.html:
+  - /2019/05/10/aws-summit-london-2019.html
+  - /2015/10/27/destroying-monoliths-at-dddnorth.html
+/2018/02/23/javascript-closure.html:
+  - /2016/04/04/a-functional-front-end-with-react.html
+  - /2015/03/25/var-multivar-anywherevar.html
+/2018/02/23/javascript-monorepos.html:
+  - /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html
+  - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
+/2018/02/23/review-apps-beanstalk.html:
+  - /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html
+  - /2018/02/09/multi-dind-ci-boxes.html
+/2018/02/27/higher-lower-ml-in-js.html:
+  - /2017/10/28/serverless-javascript.html
+  - /2015/10/15/react-native.html
+/2018/02/27/hunting-typosquatters-on-npm.html:
+  - /2018/02/23/javascript-monorepos.html
+  - /2017/06/25/uk-place-names.html
+/2018/02/27/incorporate-security-testing-into-exploratory-testing.html:
+  - /2018/05/04/website-vulnerability-scanning-with-zap.html
+  - /2018/07/17/achieving-cross-browser-testing-greatness.html
+/2018/02/27/webassembly-death-of-javascript.html:
+  - /2019/04/27/webassembly-compiler.html
+  - /2018/04/24/the-web-assembles.html
+/2018/03/05/guide-don-t-let-testing-be-a-bottleneck.html:
+  - /2019/03/25/the-journey-to-devops.html
+  - /2020/03/10/think-small-to-deliver-big.html
+/2018/03/07/stock-watcher-newcastle-summer-graduate-project.html:
+  - /2017/12/07/newcastle-interns-2017-desk-directory.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html:
+  - /2018/04/16/a-hire-standard.html
+  - /2019/03/07/women-in-tech.html
+/2018/03/08/lean-in-speak-up-shout-out.html:
+  - /2019/03/07/women-in-tech.html
+  - /2020/03/06/international-women-s-day-2020.html
+/2018/03/09/a-week-with-prototyping-tools.html:
+  - /2016/05/20/experiment-with-animation-and-ui.html
+  - /2015/03/26/react-native-retrospective.html
+/2018/03/12/evolving-beyond-the-need-for-a-sprint-retrospective.html:
+  - /2017/06/27/continuous-change-culture.html
+  - /2022/02/18/reminiscence-of-a-scrum-master-part-v.html
+/2018/03/12/testing-confidence-engineering.html:
+  - /2018/08/24/is-test-driven-development-right-for-you.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2018/03/13/leadership-election-with-apache-curator.html:
+  - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
+  - /2016/06/17/docker-swarm.html
+/2018/03/13/organizations-journey-to-devops-culture.html:
+  - /2017/05/05/making-agile-teams-more-productive-from-the-inside.html
+  - /2018/04/30/devops-as-a-key-to-success-with-microservices-approach.html
+/2018/03/13/tensorflow-machine-learning.html:
+  - /2018/02/15/scikit-machine-learning.html
+  - /2018/10/25/a-developers-intro-tensorflow-and-keras.html
+/2018/03/14/Rabobank-Client-Story.html:
+  - /2019/11/15/has-your-project-hit-the-buffers.html
+  - /2019/08/13/clear-communication-the-key-to-a-career-in-tech.html
+/2018/03/14/apache-spark-question-everything.html:
+  - /2018/03/22/apache-spark-performance.html
+  - /2014/08/15/using-akka-and-scala-to-render-a-mandelbrot-set.html
+/2018/03/20/agile-monster-hunting.html:
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+  - /2017/11/04/agile-puzzle-detail-planning-and-tracking-in-agile.html
+/2018/03/20/mock-the-backend-with-node.html:
+  - /2014/11/21/introducing-the-mean-stack.html
+  - /2014/11/28/bramble-mvc.html
+/2018/03/22/apache-spark-performance.html:
+  - /2018/03/14/apache-spark-question-everything.html
+  - /2014/08/08/sharded-clusters-mongodb-considerations.html
+/2018/03/23/when-technology-meets-the-arts.html:
+  - /2016/05/25/Body-as-Interface.html
+  - /2016/03/08/interaction16.html
+/2018/03/26/test-bash-newbie-heads-to-brighton.html:
+  - /2016/10/25/testbash2016.html
+  - /2017/07/20/MeetUps-and-SWT-Bristol.html
+/2018/03/28/domain-driven-design.html:
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2018/04/05/npx-the-npm-package-runner.html:
+  - /2017/06/06/does-npm5-deprecate-yarn.html
+  - /2018/02/23/javascript-monorepos.html
+/2018/04/16/a-hire-standard.html:
+  - /2018/12/21/so-you-heard-about-testing.html
+  - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
+/2018/04/17/comparing-big-data-messaging.html:
+  - /2017/10/13/MetOfficeKafka.html
+  - /2021/05/28/what-actually-is-a-data-mesh-and-is-it-really-a-thing.html
+/2018/04/19/a-brief-foray-into-the-art-read-farce-of-multitasking.html:
+  - /2019/04/30/ten-commandments-of-agile.html
+  - /2018/01/13/soft-skills-for-software-developers.html
+/2018/04/20/overlooked-aspects-of-being-a-tester.html:
+  - /2018/02/19/-19-02-2018-why-women-make-great-testers.html
+  - /2018/04/16/a-hire-standard.html
+/2018/04/23/from-the-realms-of-the-katabasis.html:
+  - /2018/05/14/the-a-word-the-bad-a-word.html
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
+/2018/04/24/the-web-assembles.html:
+  - /2018/02/27/webassembly-death-of-javascript.html
+  - /2016/10/10/unstoppable-html5.html
+/2018/04/26/webassembly-by-hand.html:
+  - /2018/05/29/transpiling-webassembly.html
+  - /2020/11/23/ffmpeg-webassembly.html
+/2018/04/30/devops-as-a-key-to-success-with-microservices-approach.html:
+  - /2020/08/24/microservices-for-life.html
+  - /2017/07/17/successful-microservices-with-12factor-app.html
+/2018/05/04/website-vulnerability-scanning-with-zap.html:
+  - /2018/02/27/incorporate-security-testing-into-exploratory-testing.html
+  - /2016/02/29/Cross-site-scripting.html
+/2018/05/14/the-a-word-the-bad-a-word.html:
+  - /2018/08/20/the-pitfalls-of-sit.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2018/05/14/the-scaled-agile-framework.html:
+  - /2014/09/10/does-scrum-make-project-managers-redundant.html
+  - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
+/2018/05/17/4-tips-for-getting-a-job-offer-from-a-careers-fair.html:
+  - /2021/03/15/the-inside-track-how-established-talent-is-recruited-by-scott-logic.html
+  - /2018/08/30/the-scott-logic-internship.html
+/2018/05/29/transpiling-webassembly.html:
+  - /2017/05/02/typescript-compiler-api-revisited.html
+  - /2018/04/26/webassembly-by-hand.html
+/2018/05/30/avoiding-seeking-solving-source-control-conflicts.html:
+  - /2019/03/04/retroactively-applying-prettier-to-existing-branches.html
+  - /2018/11/22/default-values-in-code-and-configuration.html
+/2018/06/01/magical-domain-modelling-with-fsharp.html:
+  - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
+  - /2019/12/04/switching-swift.html
+/2018/06/06/we-need-to-talk.html:
+  - /2019/07/10/Thinking-out-loud.html
+  - /2016/09/27/learning-to-talk.html
+/2018/06/11/pros-cons-of-redux-form.html:
+  - /2017/03/09/relogic-2.html
+  - /2021/06/17/introduction-rtk-query.html
+/2018/06/19/step-functions.html:
+  - /2017/05/08/aws-lambda-github-bot.html
+  - /2016/04/19/mondo-bank-webhook-to-pebble-watch-timeline-using-aws-labmda-functions.html
+/2018/06/26/The-3-Types-of-Minimum-Viable-Products.html:
+  - /2017/05/17/what-it-means-to-be-agile.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2018/06/26/solid-principles.html:
+  - /2020/01/29/typescript-pick-n-mix.html
+  - /2016/07/28/java-enums-how-to-use-them-smarter.html
+/2018/06/27/How-UX-Designers-Can-Help-Users-Protect-Their-Data.html:
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+  - /2016/05/03/Account-management.html
+/2018/06/28/ux-scotland-2018.html:
+  - /2015/06/26/ux-scotland-2015.html
+  - /2016/03/08/interaction16.html
+/2018/07/05/sketching-tips-to-make-you-a-better-designer.html:
+  - /2017/01/11/Four-Tips-For-Achieving-Successful-UX-Workshops.html
+  - /2020/05/29/specstravaganza.html
+/2018/07/06/comparing-streaming-frameworks-pt1.html:
+  - /2018/01/29/2018-01-29-apache-storm-taster.html
+  - /2013/07/29/spark-stream-analysis.html
+/2018/07/09/Testers-In-a-Pressure-Cooker.html:
+  - /2016/03/09/lonely-tester.html
+  - /2017/05/05/making-agile-teams-more-productive-from-the-inside.html
+/2018/07/17/achieving-cross-browser-testing-greatness.html:
+  - /2018/08/20/the-pitfalls-of-sit.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2018/07/17/the-11k-gas-bill-customer-satisfaction-and-improved-interactions.html:
+  - /2017/07/18/bp-big-data.html
+  - /2018/02/19/testing-with-cognitive-intelligence.html
+/2018/07/20/wasm-future.html:
+  - /2021/06/21/state-of-wasm.html
+  - /2018/02/27/webassembly-death-of-javascript.html
+/2018/08/01/being-a-technically-adept-scrum-master.html:
+  - /2014/09/18/the-agile-mindset.html
+  - /2022/01/21/reminiscence-of-a-scrum-master-part-iv.html
+/2018/08/14/run-vstest-with-cake.html:
+  - /2015/05/14/aspnet50-intro.html
+  - /2020/02/24/github-cd.html
+/2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html:
+  - /2014/09/10/does-scrum-make-project-managers-redundant.html
+  - /2014/08/18/introducing-agile-upfront.html
+/2018/08/20/the-pitfalls-of-sit.html:
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+  - /2018/05/14/the-a-word-the-bad-a-word.html
+/2018/08/24/is-test-driven-development-right-for-you.html:
+  - /2018/03/12/testing-confidence-engineering.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2018/08/24/the-ux-of-consent-models-in-open-banking.html:
+  - /2018/11/19/ux-poland-2018.html
+  - /2016/03/28/mondo-api.html
+/2018/08/28/Good-code-practices-with-React-and-Redux.html:
+  - /2018/03/07/stock-watcher-newcastle-summer-graduate-project.html
+  - /2018/10/22/ruining-react-s-performance-with-redux.html
+/2018/08/28/finding-your-groove-as-they-are-not-finding-their-shoes.html:
+  - /2018/05/14/the-a-word-the-bad-a-word.html
+  - /2018/04/19/a-brief-foray-into-the-art-read-farce-of-multitasking.html
+/2018/08/30/the-scott-logic-internship.html:
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2018/12/21/joining-with-a-phd.html
+/2018/09/04/tensorflowjs-machine-learning-in-the-browser.html:
+  - /2014/03/12/native-code-emscripten-webgl-simmer-gently.html
+  - /2020/03/18/Investigating-Multi-Windowed-Apps.html
+/2018/09/16/becoming-a-trusted-adviser-as-a-tester.html:
+  - /2019/02/15/what-s-quality-got-to-do-with-it.html
+  - /2018/06/06/we-need-to-talk.html
+/2018/09/21/d3-financial-chart.html:
+  - /2017/08/23/market-profile.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2018/09/27/thoughts-from-the-software-testing-conference-north.html:
+  - /2019/04/05/reflections-from-build-it-right.html
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
+/2018/10/08/date-driven-delivery-vs-delivery-driven-dates.html:
+  - /2018/02/16/how-much-does-a-story-point-cost.html
+  - /2017/12/18/difficult-people.html
+/2018/10/08/infrastructure-as-code-getting-started-with-terraform.html:
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+  - /2020/04/21/starting-with-pulumi.html
+/2018/10/10/foyer-screen-2018-edinburgh-intern-project.html:
+  - /2014/08/29/foyer-screen.html
+  - /2017/12/07/newcastle-interns-2017-desk-directory.html
+/2018/10/16/cutting-development-costs-in-aws-with-cloud-custodian.html:
+  - /2017/05/08/aws-lambda-github-bot.html
+  - /2020/04/21/starting-with-pulumi.html
+/2018/10/18/serverless-rust.html:
+  - /2022/04/16/wasm-faas.html
+  - /2019/03/04/lambda-global-state.html
+/2018/10/19/living-in-an-accessible-world.html:
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+  - /2013/10/14/assessing-android_fragmentation.html
+/2018/10/22/ruining-react-s-performance-with-redux.html:
+  - /2020/02/17/minesweeper-optimisation.html
+  - /2017/03/09/relogic-2.html
+/2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html:
+  - /2018/10/08/infrastructure-as-code-getting-started-with-terraform.html
+  - /2016/05/26/big-data-logging-elk-stack.html
+/2018/10/23/exploring-kubernetes-on-the-google-cloud-platform.html:
+  - /2020/01/27/labelling-images-in-google-cloud.html
+  - /2016/06/17/docker-swarm.html
+/2018/10/25/a-developers-intro-tensorflow-and-keras.html:
+  - /2018/03/13/tensorflow-machine-learning.html
+  - /2018/02/15/scikit-machine-learning.html
+/2018/11/09/7-reasons-i-love-open-source.html:
+  - /2019/07/19/what-its-like-working-in-software-development.html
+  - /2021/09/30/Collective-Code-Ownership.html
+/2018/11/09/handling-technical-proficiency-differences-in-teams.html:
+  - /2018/05/14/the-scaled-agile-framework.html
+  - /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
+/2018/11/19/ux-poland-2018.html:
+  - /2018/06/27/How-UX-Designers-Can-Help-Users-Protect-Their-Data.html
+  - /2020/09/10/open-your-eyes-to-apis.html
+/2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html:
+  - /2018/08/30/the-scott-logic-internship.html
+  - /2021/03/15/the-inside-track-six-steps-to-graduate-programme-success.html
+/2018/11/22/crypto-charting-d3fc-perspective.html:
+  - /2019/04/18/building-a-perspective-plugin-with-d3fc.html
+  - /2017/08/23/market-profile.html
+/2018/11/22/default-values-in-code-and-configuration.html:
+  - /2018/12/12/bridging-ui-libraries-for-decoupled-long-lived-widely-reusable-components.html
+  - /2016/06/13/code-reuse-in-microservices-architecture.html
+/2018/11/27/what-did-i-learn-studying-for-aws-certification.html:
+  - /2019/07/03/getting-started-with-aws.html
+  - /2019/08/19/three-year-journey.html
+/2018/11/30/Big-Data-London.html:
+  - /2019/05/01/bcswomen-lovelace-colloquium-2019.html
+  - /2016/11/04/design-data-and-redux-at-bristech.html
+/2018/12/03/openfin-layouts.html:
+  - /2020/03/18/Investigating-Multi-Windowed-Apps.html
+  - /2019/04/18/building-a-perspective-plugin-with-d3fc.html
+/2018/12/05/a-developers-intro-to-android.html:
+  - /2013/10/14/assessing-android_fragmentation.html
+  - /2015/03/26/react-native-retrospective.html
+/2018/12/09/about-dom-render-utilities.html:
+  - /2017/05/02/typescript-compiler-api-revisited.html
+  - /2021/04/07/custom-swiftui-animation.html
+/2018/12/12/bridging-ui-libraries-for-decoupled-long-lived-widely-reusable-components.html:
+  - /2015/09/03/d3-without-d3.html
+  - /2018/11/22/default-values-in-code-and-configuration.html
+/2018/12/14/automation-and-bots-for-open-source.html:
+  - /2017/06/13/towards-a-responsive-desktop.html
+  - /2019/04/27/webassembly-compiler.html
+/2018/12/21/decent-code-a-concise-guide-to-writing-better-code.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2018/05/30/avoiding-seeking-solving-source-control-conflicts.html
+/2018/12/21/joining-with-a-phd.html:
+  - /2018/08/30/the-scott-logic-internship.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2018/12/21/so-you-heard-about-testing.html:
+  - /2018/04/16/a-hire-standard.html
+  - /2018/02/19/testing-with-cognitive-intelligence.html
+/2019/01/07/introduction-to-contract-testing-part-1.html:
+  - /2018/08/20/the-pitfalls-of-sit.html
+  - /2018/05/14/the-a-word-the-bad-a-word.html
+/2019/01/31/the-curious-case-of-disappeared-buses.html:
+  - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
+  - /2010/10/11/white-paper-silverlight-wpf-and-windows-phone-7-cross-platform-development.html
+/2019/02/06/tester-s-guide-during-agile-transition.html:
+  - /2019/03/22/a-tester-s-story-of-adapting-to-the-new-world-of-pipelines-ci-cd.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2019/02/14/4-things-I-learned-to-love-about-Swift.html:
+  - /2020/01/28/Exploring-SwiftUI-3-View-Updates.html
+  - /2016/07/28/java-enums-how-to-use-them-smarter.html
+/2019/02/15/what-s-quality-got-to-do-with-it.html:
+  - /2019/04/05/reflections-from-build-it-right.html
+  - /2018/06/06/we-need-to-talk.html
+/2019/02/25/how-diversity-and-inclusion-can-improve-testing.html:
+  - /2018/04/16/a-hire-standard.html
+  - /2020/03/06/international-women-s-day-2020.html
+/2019/03/04/lambda-global-state.html:
+  - /2017/09/14/asynchronous-recursion.html
+  - /2017/05/08/aws-lambda-github-bot.html
+/2019/03/04/retroactively-applying-prettier-to-existing-branches.html:
+  - /2018/05/30/avoiding-seeking-solving-source-control-conflicts.html
+  - /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html
+/2019/03/07/tips-for-effective-issue-tracker-usage.html:
+  - /2018/05/30/avoiding-seeking-solving-source-control-conflicts.html
+  - /2017/05/05/making-agile-teams-more-productive-from-the-inside.html
+/2019/03/07/women-in-tech.html:
+  - /2020/03/06/international-women-s-day-2020.html
+  - /2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html
+/2019/03/20/-not-only-tools-and-sources-you-need-more-than-know-how-and-technology-to-succeed-you-know-it-makes-sense.html:
+  - /2022/01/21/reminiscence-of-a-scrum-master-part-iv.html
+  - /2017/12/18/difficult-people.html
+/2019/03/21/securing-access-to-firebase-test-lab.html:
+  - /2020/01/27/labelling-images-in-google-cloud.html
+  - /2018/10/23/exploring-kubernetes-on-the-google-cloud-platform.html
+/2019/03/21/understanding-agility-and-process-optimisation.html:
+  - /2019/09/23/agile-is-not-a-solved-problem.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2019/03/22/a-tester-s-story-of-adapting-to-the-new-world-of-pipelines-ci-cd.html:
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
+  - /2020/02/10/continuous-testing.html
+/2019/03/22/sdig19.html:
+  - /2015/06/26/ux-scotland-2015.html
+  - /2019/07/22/UX-Scotland-2019.html
+/2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html:
+  - /2018/02/09/multi-dind-ci-boxes.html
+  - /2020/02/24/github-cd.html
+/2019/03/25/the-journey-to-devops.html:
+  - /2019/04/18/cloud-as-a-value-driver.html
+  - /2015/10/11/white-paper-html5-migration.html
+/2019/03/26/aws-builders-day-edinburgh.html:
+  - /2015/10/27/destroying-monoliths-at-dddnorth.html
+  - /2016/11/04/design-data-and-redux-at-bristech.html
+/2019/03/27/attending-Tech(k)now-london-2019.html:
+  - /2019/07/02/wosr.html
+  - /2019/05/01/bcswomen-lovelace-colloquium-2019.html
+/2019/04/03/upcoming-webhid-api.html:
+  - /2021/09/24/how-the-openai-codex-javascript-sandbox-works.html
+  - /2016/03/09/As-It-Stands-Electron-Security.html
+/2019/04/05/jumping-from-java-to-javascript.html:
+  - /2021/06/28/union-types.html
+  - /2016/04/04/a-functional-front-end-with-react.html
+/2019/04/05/reflections-from-build-it-right.html:
+  - /2018/03/13/organizations-journey-to-devops-culture.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2019/04/11/domain-modelling-and-persistence-with-ef-core-part-1.html:
+  - /2019/04/24/domain-modelling-and-persistence-with-ef-core-part-2.html
+  - /2015/12/01/generalizing-odata.html
+/2019/04/15/agile-in-the-city-my-personal-top-take-aways.html:
+  - /2018/03/26/test-bash-newbie-heads-to-brighton.html
+  - /2019/07/02/wosr.html
+/2019/04/18/building-a-perspective-plugin-with-d3fc.html:
+  - /2018/11/22/crypto-charting-d3fc-perspective.html
+  - /2019/04/23/perspective-plugin-api-how-to-build-a-new-plugin.html
+/2019/04/18/cloud-as-a-value-driver.html:
+  - /2015/05/08/making-technology-disappear.html
+  - /2019/03/25/the-journey-to-devops.html
+/2019/04/23/perspective-plugin-api-how-to-build-a-new-plugin.html:
+  - /2019/04/18/building-a-perspective-plugin-with-d3fc.html
+  - /2018/11/22/crypto-charting-d3fc-perspective.html
+/2019/04/24/cross-platform-design-a-look-at-challenger-bank-mobile-applications.html:
+  - /2013/10/14/assessing-android_fragmentation.html
+  - /2020/07/22/web-or-desktop.html
+/2019/04/24/domain-modelling-and-persistence-with-ef-core-part-2.html:
+  - /2019/04/11/domain-modelling-and-persistence-with-ef-core-part-1.html
+  - /2015/12/01/generalizing-odata.html
+/2019/04/26/FinTech-Design-Summit-2019-Designing-for-emotions-and-raising-financial-literacy.html:
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+  - /2018/11/19/ux-poland-2018.html
+/2019/04/27/webassembly-compiler.html:
+  - /2018/02/27/webassembly-death-of-javascript.html
+  - /2022/04/06/web-ui-development-in-rust.html
+/2019/04/29/kotlin-vs-java.html:
+  - /2016/04/04/practical-kotlin.html
+  - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
+/2019/04/30/how-to-train-your-xctest.html:
+  - /2015/03/26/react-native-retrospective.html
+  - /2018/07/17/achieving-cross-browser-testing-greatness.html
+/2019/04/30/ten-commandments-of-agile.html:
+  - /2014/09/18/the-agile-mindset.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2019/05/01/bcswomen-lovelace-colloquium-2019.html:
+  - /2020/03/06/international-women-s-day-2020.html
+  - /2019/03/07/women-in-tech.html
+/2019/05/01/building-a-serverless-comments-system.html:
+  - /2020/04/21/starting-with-pulumi.html
+  - /2017/05/22/gifbot-github-integration.html
+/2019/05/08/Clean-Design.html:
+  - /2020/05/29/specstravaganza.html
+  - /2018/11/22/default-values-in-code-and-configuration.html
+/2019/05/09/building-a-better-d3-axis.html:
+  - /2020/10/22/fixing-the-d3-zoom-api.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2019/05/09/by-the-hook-a-practical-introduction-to-react-hooks.html:
+  - /2020/05/01/demystifying-react-redux.html
+  - /2017/03/09/relogic-2.html
+/2019/05/10/aws-summit-london-2019.html:
+  - /2019/03/26/aws-builders-day-edinburgh.html
+  - /2022/04/07/cloud-sustainability-reach-net-zero.html
+/2019/05/11/spacy-ner.html:
+  - /2018/02/27/hunting-typosquatters-on-npm.html
+  - /2017/05/08/aws-lambda-github-bot.html
+/2019/05/14/building-a-more-flexible-d3-chart.html:
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+  - /2020/10/22/fixing-the-d3-zoom-api.html
+/2019/05/17/webassembly-compiler.html:
+  - /2017/10/17/wasm-mandelbrot.html
+  - /2022/04/16/wasm-faas.html
+/2019/05/21/analysing-electron-performance-chromium-tracing.html:
+  - /2018/02/07/another-reason-to-use-noopener.html
+  - /2016/03/09/As-It-Stands-Electron-Security.html
+/2019/05/28/drawing-2d-charts-with-webgl.html:
+  - /2020/05/01/rendering-one-million-points-with-d3.html
+  - /2016/03/10/d3-path-what-is-it-good-for.html
+/2019/05/30/hola-vs-hello-world.html:
+  - /2019/04/05/jumping-from-java-to-javascript.html
+  - /2016/04/04/a-functional-front-end-with-react.html
+/2019/05/31/react-vs-vue.html:
+  - /2020/09/22/vue-components.html
+  - /2017/05/24/creating-semantic-components-in-angular-and-react.html
+/2019/06/04/android-in-style.html:
+  - /2013/10/14/assessing-android_fragmentation.html
+  - /2018/12/05/a-developers-intro-to-android.html
+/2019/06/14/add-webassembly-to-react-app.html:
+  - /2022/04/16/wasm-faas.html
+  - /2018/10/18/serverless-rust.html
+/2019/06/17/what-brexit-can-teach-us-about-software-development.html:
+  - /2017/08/07/evolving-the-agile-revolution.html
+  - /2018/02/16/how-much-does-a-story-point-cost.html
+/2019/07/02/wosr.html:
+  - /2019/05/01/bcswomen-lovelace-colloquium-2019.html
+  - /2020/03/06/international-women-s-day-2020.html
+/2019/07/03/Demystifying-test-automation.html:
+  - /2020/02/10/continuous-testing.html
+  - /2018/08/20/the-pitfalls-of-sit.html
+/2019/07/03/getting-started-with-aws.html:
+  - /2022/04/07/cloud-sustainability-reach-net-zero.html
+  - /2019/03/26/aws-builders-day-edinburgh.html
+/2019/07/04/Be-inspired-by-Scott-Logic.html:
+  - /2019/08/19/three-year-journey.html
+  - /2018/08/30/the-scott-logic-internship.html
+/2019/07/10/Thinking-out-loud.html:
+  - /2018/06/06/we-need-to-talk.html
+  - /2018/03/08/lean-in-speak-up-shout-out.html
+/2019/07/15/Getting-to-grips-with-Spring.html:
+  - /2020/07/10/Spring-Profiles.html
+  - /2018/11/22/default-values-in-code-and-configuration.html
+/2019/07/15/multithreaded-webassembly.html:
+  - /2018/07/20/wasm-future.html
+  - /2021/06/21/state-of-wasm.html
+/2019/07/16/consistency-is-key.html:
+  - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2019/07/19/elasticsearch-clustering.html:
+  - /2016/06/17/docker-swarm.html
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+/2019/07/19/swift-the-beautiful-language.html:
+  - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
+  - /2019/12/04/switching-swift.html
+/2019/07/19/what-its-like-working-in-software-development.html:
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2019/08/30/from-university-to-industry-a-small-step-or-a-giant-leap.html
+/2019/07/19/why-java-developers-should-learn-c++.html:
+  - /2019/04/05/jumping-from-java-to-javascript.html
+  - /2014/10/28/Scala-Vs-Clojure.html
+/2019/07/22/UX-Scotland-2019.html:
+  - /2018/06/28/ux-scotland-2018.html
+  - /2015/06/26/ux-scotland-2015.html
+/2019/07/23/Testing-WebSockets-for-beginners.html:
+  - /2018/03/20/mock-the-backend-with-node.html
+  - /2018/07/17/achieving-cross-browser-testing-greatness.html
+/2019/07/25/what-type-of-tester-are-you.html:
+  - /2018/12/21/so-you-heard-about-testing.html
+  - /2018/04/20/overlooked-aspects-of-being-a-tester.html
+/2019/07/29/from-monolith-to-serverless-on-aws.html:
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+  - /2017/05/08/aws-lambda-github-bot.html
+/2019/08/06/why-scott-logic-celebrated-pride-month.html:
+  - /2022/01/05/new-normal-for-leadership.html
+  - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
+/2019/08/08/reactive-android.html:
+  - /2019/04/29/kotlin-vs-java.html
+  - /2016/04/04/practical-kotlin.html
+/2019/08/13/clear-communication-the-key-to-a-career-in-tech.html:
+  - /2018/08/30/the-scott-logic-internship.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2019/08/15/delta-requests-frequently-updated-application-bundles-2002-to-service-workers.html:
+  - /2016/02/05/a-lazy-isomorphic-react-experiment.html
+  - /2021/02/17/probably-dont-need-microfrontends.html
+/2019/08/16/an-internship-with-friendly-people-who-want-you-to-do-well.html:
+  - /2018/08/30/the-scott-logic-internship.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2019/08/19/LookingAtYou.html:
+  - /2017/12/07/newcastle-interns-2017-desk-directory.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2019/08/19/three-year-journey.html:
+  - /2018/08/30/the-scott-logic-internship.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2019/08/19/working-hard-and-playing-hard-that-s-a-career-in-tech.html:
+  - /2018/08/30/the-scott-logic-internship.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2019/08/22/entering-the-world-of-technology-as-a-mathematician.html:
+  - /2018/08/30/the-scott-logic-internship.html
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+/2019/08/22/keep-getting-better-because-there-s-no-limit-grad-week-2019.html:
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2017/08/31/graduate-induction-week.html
+/2019/08/27/declarative-3d-for-the-modern-web.html:
+  - /2020/03/19/offscreen-canvas.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2019/08/27/test-driving-tech-consultancy-as-a-career-option.html:
+  - /2019/08/30/from-university-to-industry-a-small-step-or-a-giant-leap.html
+  - /2019/08/19/working-hard-and-playing-hard-that-s-a-career-in-tech.html
+/2019/08/30/from-university-to-industry-a-small-step-or-a-giant-leap.html:
+  - /2019/08/19/working-hard-and-playing-hard-that-s-a-career-in-tech.html
+  - /2019/08/27/test-driving-tech-consultancy-as-a-career-option.html
+/2019/09/02/swift-ui-a-new-player-in-ui-frameworks.html:
+  - /2020/01/28/Exploring-SwiftUI-3-View-Updates.html
+  - /2015/03/05/reactjs-in-swift.html
+/2019/09/06/Introducing-React-Hooks-for-OpenFin.html:
+  - /2018/12/03/openfin-layouts.html
+  - /2020/05/01/demystifying-react-redux.html
+/2019/09/11/Designing-with-accessibility-in-mind.html:
+  - /2018/10/19/living-in-an-accessible-world.html
+  - /2020/07/02/6-most-common-accessibility-problems.html
+/2019/09/23/agile-is-not-a-solved-problem.html:
+  - /2014/09/18/the-agile-mindset.html
+  - /2019/03/21/understanding-agility-and-process-optimisation.html
+/2019/10/03/how-to-make-3d-charts-for-the-web-using-d3-and-x3dom.html:
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+  - /2017/08/23/market-profile.html
+/2019/10/08/Vscode-remotes.html:
+  - /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html
+  - /2018/02/09/multi-dind-ci-boxes.html
+/2019/10/11/Exploring-dotnet-for-spark.html:
+  - /2016/12/19/spark-unaffordable-britain.html
+  - /2016/01/24/apache-spark-intro.html
+/2019/10/17/sculpting-shapes-with-webgl-fragment-shader.html:
+  - /2020/04/16/which-webgl-drawing-call-should-i-use.html
+  - /2014/03/11/a-developers-intro-to-webgl.html
+/2019/10/23/On-the-dangers-of-sending-your-testers-to-conferences.html:
+  - /2016/12/07/once-upon-a-time.html
+  - /2014/08/19/an-ohlc-chart-component-for-d3.html
+/2019/10/25/How-we-run-our-first-Design-Sprint.html:
+  - /2018/07/05/sketching-tips-to-make-you-a-better-designer.html
+  - /2014/09/18/the-agile-mindset.html
+/2019/10/29/java-numeric-integer.html:
+  - /2013/12/05/counting-iterables.html
+  - /2020/09/23/To-quantum-computing-and-beyond!.html
+/2019/10/29/popout-windows-in-react.html:
+  - /2018/03/20/mock-the-backend-with-node.html
+  - /2015/03/05/reactjs-in-swift.html
+/2019/10/30/ir35-hits-now-don-t-wait-until-april-to-act.html:
+  - /2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html
+  - /2016/12/07/once-upon-a-time.html
+/2019/10/31/building-microservices-with-spring-boot.html:
+  - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
+  - /2016/06/13/code-reuse-in-microservices-architecture.html
+/2019/11/04/(Didn't)-Nail-Polish.html:
+  - /2015/10/15/react-native.html
+  - /2017/10/28/serverless-javascript.html
+/2019/11/06/vsonline-lambdas.html:
+  - /2017/05/08/aws-lambda-github-bot.html
+  - /2017/05/22/gifbot-github-integration.html
+/2019/11/15/has-your-project-hit-the-buffers.html:
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+  - /2020/06/05/the-future.html
+/2019/11/18/drawing-lines-with-webgl.html:
+  - /2020/04/16/which-webgl-drawing-call-should-i-use.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2019/11/18/talking-to-devs-about-testing.html:
+  - /2016/12/07/once-upon-a-time.html
+  - /2014/08/19/an-ohlc-chart-component-for-d3.html
+/2019/11/19/building-microservices-with-spring-boot-2.html:
+  - /2016/06/13/code-reuse-in-microservices-architecture.html
+  - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
+/2019/11/22/Redux-Hooks.html:
+  - /2016/05/19/redux-reducer-arrays.html
+  - /2016/09/20/the-power-of-the-higher-order.html
+/2019/11/26/webassembly-on-the-blockchain.html:
+  - /2021/06/21/state-of-wasm.html
+  - /2018/04/24/the-web-assembles.html
+/2019/11/27/drawing-area-polygons-with-webgl.html:
+  - /2020/04/16/which-webgl-drawing-call-should-i-use.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2019/11/28/email-digests-with-elasticsearch-via-a-serverless-architecture.html:
+  - /2019/05/01/building-a-serverless-comments-system.html
+  - /2016/05/26/big-data-logging-elk-stack.html
+/2019/12/02/Search-Data-Visualisation.html:
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+  - /2017/08/23/market-profile.html
+/2019/12/04/switching-swift.html:
+  - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
+  - /2019/07/19/swift-the-beautiful-language.html
+/2019/12/05/prettier-tips-and-tricks-for-large-codebases.html:
+  - /2019/03/04/retroactively-applying-prettier-to-existing-branches.html
+  - /2018/05/30/avoiding-seeking-solving-source-control-conflicts.html
+/2019/12/05/unit-test-your-architecture-with-archunit.html:
+  - /2016/06/13/code-reuse-in-microservices-architecture.html
+  - /2020/02/10/continuous-testing.html
+/2019/12/11/Exploring-SwiftUI-1.html:
+  - /2015/03/05/reactjs-in-swift.html
+  - /2020/01/28/Exploring-SwiftUI-3-View-Updates.html
+/2019/12/11/source-control-basics.html:
+  - /2018/12/21/decent-code-a-concise-guide-to-writing-better-code.html
+  - /2018/12/14/automation-and-bots-for-open-source.html
+/2019/12/13/debunking-cloud-myths.html:
+  - /2020/01/16/mapping-the-cloud-atlas.html
+  - /2020/10/12/oft-untapped-potential-of-apis.html
+/2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html:
+  - /2016/12/07/once-upon-a-time.html
+  - /2014/11/28/bramble-mvc.html
+/2019/12/16/regular-expressions-as-icebergs.html:
+  - /2020/08/06/datahelix-intro.html
+  - /2018/11/22/default-values-in-code-and-configuration.html
+/2019/12/17/performant-large-scale-web-applications.html:
+  - /2018/11/22/default-values-in-code-and-configuration.html
+  - /2020/08/24/microservices-for-life.html
+/2019/12/19/source-control-when.html:
+  - /2018/05/30/avoiding-seeking-solving-source-control-conflicts.html
+  - /2019/03/04/retroactively-applying-prettier-to-existing-branches.html
+/2019/12/24/webassembly-2019.html:
+  - /2021/06/21/state-of-wasm.html
+  - /2018/02/27/webassembly-death-of-javascript.html
+/2019/12/30/sustainability-in-software-development.html:
+  - /2017/05/05/making-agile-teams-more-productive-from-the-inside.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2020/01/03/rethinking-the-java-dto.html:
+  - /2016/06/13/code-reuse-in-microservices-architecture.html
+  - /2015/12/01/generalizing-odata.html
+/2020/01/03/webassembly-sudoku-solver.html:
+  - /2017/10/17/wasm-mandelbrot.html
+  - /2014/03/12/native-code-emscripten-webgl-simmer-gently.html
+/2020/01/06/Exploring-SwiftUI-2-React-comparison.html:
+  - /2020/01/28/Exploring-SwiftUI-3-View-Updates.html
+  - /2015/03/05/reactjs-in-swift.html
+/2020/01/07/source-control-fundamentals.html:
+  - /2018/05/30/avoiding-seeking-solving-source-control-conflicts.html
+  - /2016/04/04/jenny-from-the-blockchain.html
+/2020/01/08/What-Improv-can-teach-us-about-good-code-design.html:
+  - /2019/04/05/reflections-from-build-it-right.html
+  - /2022/01/21/reminiscence-of-a-scrum-master-part-iv.html
+/2020/01/08/creating-a-chart-with-d3fc-and-webgl.html:
+  - /2020/05/01/rendering-one-million-points-with-d3.html
+  - /2018/09/21/d3-financial-chart.html
+/2020/01/09/git-rebasing.html:
+  - /2019/03/04/retroactively-applying-prettier-to-existing-branches.html
+  - /2018/05/30/avoiding-seeking-solving-source-control-conflicts.html
+/2020/01/13/selenium-vs-puppeteer.html:
+  - /2018/07/17/achieving-cross-browser-testing-greatness.html
+  - /2020/01/31/react-app-playwright.html
+/2020/01/16/mapping-the-cloud-atlas.html:
+  - /2019/12/13/debunking-cloud-myths.html
+  - /2020/08/12/building-desktop-applications-with-finsemble.html
+/2020/01/16/performance-of-a-d3fc-webgl-chart.html:
+  - /2020/03/19/offscreen-canvas.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2020/01/16/planning-56-sprints-per-second-with-sat4j.html:
+  - /2018/02/16/how-much-does-a-story-point-cost.html
+  - /2017/09/19/how-big-is-a-story-point.html
+/2020/01/21/beginners-terraform-serverless.html:
+  - /2020/04/21/starting-with-pulumi.html
+  - /2018/10/08/infrastructure-as-code-getting-started-with-terraform.html
+/2020/01/22/react-app-puppeteer.html:
+  - /2020/01/31/react-app-playwright.html
+  - /2016/04/25/UsingWebdriverIO-Part1.html
+/2020/01/23/when-automated-tests-fail.html:
+  - /2020/04/01/testing-in-the-devops-world.html
+  - /2019/03/22/a-tester-s-story-of-adapting-to-the-new-world-of-pipelines-ci-cd.html
+/2020/01/27/labelling-images-in-google-cloud.html:
+  - /2018/10/23/exploring-kubernetes-on-the-google-cloud-platform.html
+  - /2019/03/21/securing-access-to-firebase-test-lab.html
+/2020/01/28/Exploring-SwiftUI-3-View-Updates.html:
+  - /2020/02/06/Exploring-SwiftUI-4-redux-bindable.html
+  - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
+/2020/01/29/typescript-pick-n-mix.html:
+  - /2021/06/24/types-vs-interfaces.html
+  - /2019/04/11/domain-modelling-and-persistence-with-ef-core-part-1.html
+/2020/01/31/react-app-playwright.html:
+  - /2020/01/22/react-app-puppeteer.html
+  - /2014/08/06/angular-knockout-e2e-testing.html
+/2020/02/04/GraduateGuideToAPITesting.html:
+  - /2020/09/04/Automating-tests-with-Postman-API.html
+  - /2017/05/22/gifbot-github-integration.html
+/2020/02/06/Exploring-SwiftUI-4-redux-bindable.html:
+  - /2020/01/28/Exploring-SwiftUI-3-View-Updates.html
+  - /2015/03/05/reactjs-in-swift.html
+/2020/02/10/continuous-testing.html:
+  - /2020/07/21/7-tips-for-transforming-testing.html
+  - /2019/03/22/a-tester-s-story-of-adapting-to-the-new-world-of-pipelines-ci-cd.html
+/2020/02/10/embrace-your-obsessions.html:
+  - /2020/01/16/planning-56-sprints-per-second-with-sat4j.html
+  - /2019/05/17/webassembly-compiler.html
+/2020/02/10/sprint-goals.html:
+  - /2021/12/17/reminiscence-of-a-scrum-master-part-iii.html
+  - /2014/09/18/the-agile-mindset.html
+/2020/02/11/8-out-of-10-qats-said-they-prefer-cypress.html:
+  - /2019/04/05/jumping-from-java-to-javascript.html
+  - /2017/06/06/typescript-electron-webpack.html
+/2020/02/12/technical-agility-vs-business-agility.html:
+  - /2021/03/01/developing-an-api-strategy.html
+  - /2019/04/18/cloud-as-a-value-driver.html
+/2020/02/17/minesweeper-optimisation.html:
+  - /2021/01/18/philosophy-of-svelte.html
+  - /2018/10/22/ruining-react-s-performance-with-redux.html
+/2020/02/24/github-cd.html:
+  - /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html
+  - /2020/01/22/react-app-puppeteer.html
+/2020/02/25/spring-autowiring-its-a-kind-of-magic.html:
+  - /2020/04/16/spring-autowiring-its-a-kind-of-magic-2.html
+  - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
+/2020/02/26/fostering-a-devops-culture.html:
+  - /2020/04/01/testing-in-the-devops-world.html
+  - /2018/12/14/automation-and-bots-for-open-source.html
+/2020/02/28/is-aeron-a-good-choice-for-a-messaging-solution.html:
+  - /2021/12/01/disruptor.html
+  - /2018/04/17/comparing-big-data-messaging.html
+/2020/02/29/agile-progress-and-quality-reporting.html:
+  - /2018/05/14/the-scaled-agile-framework.html
+  - /2019/03/21/understanding-agility-and-process-optimisation.html
+/2020/03/03/microbit-raytracer.html:
+  - /2020/03/27/microbit-optimisation.html
+  - /2016/09/01/using-d3-force-to-control-a-massive-display.html
+/2020/03/06/international-women-s-day-2020.html:
+  - /2019/05/01/bcswomen-lovelace-colloquium-2019.html
+  - /2019/03/07/women-in-tech.html
+/2020/03/10/raytracer-how-to.html:
+  - /2020/03/03/microbit-raytracer.html
+  - /2014/10/31/fibonacci.html
+/2020/03/10/think-small-to-deliver-big.html:
+  - /2019/03/25/the-journey-to-devops.html
+  - /2015/05/08/making-technology-disappear.html
+/2020/03/18/Investigating-Multi-Windowed-Apps.html:
+  - /2018/02/07/another-reason-to-use-noopener.html
+  - /2014/10/20/ie-run-js-wrong-context.html
+/2020/03/19/offscreen-canvas.html:
+  - /2020/05/01/rendering-one-million-points-with-d3.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2020/03/27/microbit-optimisation.html:
+  - /2020/03/03/microbit-raytracer.html
+  - /2014/03/12/native-code-emscripten-webgl-simmer-gently.html
+/2020/04/01/testing-in-the-devops-world.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2020/02/26/fostering-a-devops-culture.html
+/2020/04/07/creating-a-social-environment-under-lockdown.html:
+  - /2019/04/05/reflections-from-build-it-right.html
+  - /2014/09/18/the-agile-mindset.html
+/2020/04/09/how-to-connect-power-bi-with-azure-devops-and-jira.html:
+  - /2015/11/19/oauth2-with-saml2.html
+  - /2015/12/01/generalizing-odata.html
+/2020/04/16/spring-autowiring-its-a-kind-of-magic-2.html:
+  - /2020/02/25/spring-autowiring-its-a-kind-of-magic.html
+  - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
+/2020/04/16/which-webgl-drawing-call-should-i-use.html:
+  - /2014/03/11/a-developers-intro-to-webgl.html
+  - /2014/03/12/native-code-emscripten-webgl-simmer-gently.html
+/2020/04/21/starting-with-pulumi.html:
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+  - /2018/10/08/infrastructure-as-code-getting-started-with-terraform.html
+/2020/04/22/Async-Iterators-Across-Execution-Contexts.html:
+  - /2016/06/29/es6-iterators.html
+  - /2017/09/14/asynchronous-recursion.html
+/2020/05/01/demystifying-react-redux.html:
+  - /2017/03/09/relogic-2.html
+  - /2020/02/06/Exploring-SwiftUI-4-redux-bindable.html
+/2020/05/01/rendering-one-million-points-with-d3.html:
+  - /2020/10/22/fixing-the-d3-zoom-api.html
+  - /2018/09/21/d3-financial-chart.html
+/2020/05/04/solving-matt-parkers-coin-puzzle-in-alteryx.html:
+  - /2020/12/30/alteryxing-the-advent-of-code-2020-week-4.html
+  - /2016/04/04/jenny-from-the-blockchain.html
+/2020/05/15/beyond-covid.html:
+  - /2016/05/18/make-banking-talk.html
+  - /2018/02/19/testing-with-cognitive-intelligence.html
+/2020/05/18/cubic-spline-in-python-and-alteryx.html:
+  - /2020/03/10/raytracer-how-to.html
+  - /2018/02/15/scikit-machine-learning.html
+/2020/05/29/specstravaganza.html:
+  - /2020/06/25/Automated-design-tools.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2020/06/04/k-19-or-how-to-not-run-a-team.html:
+  - /2018/05/14/the-a-word-the-bad-a-word.html
+  - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
+/2020/06/05/the-future.html:
+  - /2020/05/15/beyond-covid.html
+  - /2019/04/18/cloud-as-a-value-driver.html
+/2020/06/17/Open-Banking.html:
+  - /2018/08/24/the-ux-of-consent-models-in-open-banking.html
+  - /2017/08/07/evolving-the-agile-revolution.html
+/2020/06/24/the-new-normal-for-your-desktop.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2019/12/13/debunking-cloud-myths.html
+/2020/06/25/Automated-design-tools.html:
+  - /2020/05/29/specstravaganza.html
+  - /2017/02/24/Sharing-Styling-Specs-With-Developers.html
+/2020/07/01/Tips-for-interviewing-developers.html:
+  - /2018/01/13/soft-skills-for-software-developers.html
+  - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
+/2020/07/02/6-most-common-accessibility-problems.html:
+  - /2018/10/19/living-in-an-accessible-world.html
+  - /2018/07/17/achieving-cross-browser-testing-greatness.html
+/2020/07/02/big-data-and-the-testing-challenge.html:
+  - /2020/02/10/continuous-testing.html
+  - /2018/08/20/the-pitfalls-of-sit.html
+/2020/07/03/There's-console.more-where-that-came-from!-Make-greater-use-of-console-in-JS.html:
+  - /2018/02/23/javascript-closure.html
+  - /2015/12/16/devTools.html
+/2020/07/08/building-desktop-applications-in-openfin.html:
+  - /2020/08/12/building-desktop-applications-with-finsemble.html
+  - /2018/02/27/higher-lower-ml-in-js.html
+/2020/07/10/Spring-Profiles.html:
+  - /2020/02/25/spring-autowiring-its-a-kind-of-magic.html
+  - /2016/06/13/code-reuse-in-microservices-architecture.html
+/2020/07/21/7-tips-for-transforming-testing.html:
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+  - /2020/02/10/continuous-testing.html
+/2020/07/22/web-or-desktop.html:
+  - /2020/08/20/think-workflow-not-app.html
+  - /2017/06/13/towards-a-responsive-desktop.html
+/2020/07/24/svelte-ts.html:
+  - /2021/01/18/philosophy-of-svelte.html
+  - /2015/01/20/typescript-compiler-api.html
+/2020/08/04/how-to-deliver-a-difficult-message.html:
+  - /2018/02/16/how-much-does-a-story-point-cost.html
+  - /2014/08/18/introducing-agile-upfront.html
+/2020/08/05/building-desktop-applications-with-glue42.html:
+  - /2020/08/12/building-desktop-applications-with-finsemble.html
+  - /2017/10/28/serverless-javascript.html
+/2020/08/06/datahelix-intro.html:
+  - /2018/03/20/mock-the-backend-with-node.html
+  - /2020/07/02/big-data-and-the-testing-challenge.html
+/2020/08/12/building-desktop-applications-with-finsemble.html:
+  - /2020/07/08/building-desktop-applications-in-openfin.html
+  - /2017/10/28/serverless-javascript.html
+/2020/08/13/building-an-integrated-desktop-application-ecosystem.html:
+  - /2015/10/11/white-paper-html5-migration.html
+  - /2019/03/25/the-journey-to-devops.html
+/2020/08/20/think-workflow-not-app.html:
+  - /2020/08/05/building-desktop-applications-with-glue42.html
+  - /2017/06/13/towards-a-responsive-desktop.html
+/2020/08/24/energy-transition-q3.html:
+  - /2017/07/18/bp-big-data.html
+  - /2019/07/04/Be-inspired-by-Scott-Logic.html
+/2020/08/24/microservices-for-life.html:
+  - /2018/04/30/devops-as-a-key-to-success-with-microservices-approach.html
+  - /2016/06/13/code-reuse-in-microservices-architecture.html
+/2020/08/26/codegen-6502-webassembly.html:
+  - /2017/12/13/chip8-emulator-webassembly-rust.html
+  - /2016/04/04/jenny-from-the-blockchain.html
+/2020/09/03/create-test-integrate-and-deploy-a-react-app-in-under-10-minutes.html:
+  - /2020/02/24/github-cd.html
+  - /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html
+/2020/09/04/Automating-tests-with-Postman-API.html:
+  - /2020/02/04/GraduateGuideToAPITesting.html
+  - /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html
+/2020/09/04/variableScopes.html:
+  - /2020/02/04/GraduateGuideToAPITesting.html
+  - /2018/11/22/default-values-in-code-and-configuration.html
+/2020/09/08/deconstructing-dynamo.html:
+  - /2017/10/06/cassandra-eventual-consistency.html
+  - /2014/08/08/sharded-clusters-mongodb-considerations.html
+/2020/09/09/legacy-containers.html:
+  - /2017/06/13/towards-a-responsive-desktop.html
+  - /2017/10/28/serverless-javascript.html
+/2020/09/10/covid-an-emerging-model.html:
+  - /2017/09/05/scaling-agile-in-the-public-sector.html
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+/2020/09/10/open-your-eyes-to-apis.html:
+  - /2019/04/18/cloud-as-a-value-driver.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2020/09/16/typescript-builders.html:
+  - /2020/10/01/reducer-builder.html
+  - /2019/04/05/jumping-from-java-to-javascript.html
+/2020/09/18/to-rival-react-an-overvue.html:
+  - /2017/01/10/consumer-driven-contracts-using-pact.html
+  - /2018/12/09/about-dom-render-utilities.html
+/2020/09/22/vue-components.html:
+  - /2017/11/10/first-look-at-polymer-3.0.html
+  - /2017/05/24/creating-semantic-components-in-angular-and-react.html
+/2020/09/23/To-quantum-computing-and-beyond!.html:
+  - /2016/04/04/jenny-from-the-blockchain.html
+  - /2016/11/24/scottcoin-centralising-the-decentralised.html
+/2020/09/25/Iterative-design-catseyes.html:
+  - /2018/03/12/testing-confidence-engineering.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2020/09/30/power-moves.html:
+  - /2019/04/18/cloud-as-a-value-driver.html
+  - /2016/05/18/make-banking-talk.html
+/2020/10/01/open-your-eyes-to-apis.html:
+  - /2019/03/25/the-journey-to-devops.html
+  - /2015/05/08/making-technology-disappear.html
+/2020/10/01/reducer-builder.html:
+  - /2021/07/27/union-types-react-components.html
+  - /2016/05/19/redux-reducer-arrays.html
+/2020/10/06/let-machines-talk-to-machines.html:
+  - /2019/04/18/cloud-as-a-value-driver.html
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+/2020/10/07/bug-bashes.html:
+  - /2017/10/26/heriot-watt-bugathon.html
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
+/2020/10/08/lets-build-snake-with-rust.html:
+  - /2021/04/07/custom-swiftui-animation.html
+  - /2018/04/26/webassembly-by-hand.html
+/2020/10/09/charts-with-flexbox.html:
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+  - /2015/09/03/d3-without-d3.html
+/2020/10/09/ergo-rabbit-hole.html:
+  - /2022/04/06/web-ui-development-in-rust.html
+  - /2014/11/28/bramble-mvc.html
+/2020/10/12/oft-untapped-potential-of-apis.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2019/12/13/debunking-cloud-myths.html
+/2020/10/15/van-halens-rider-and-software-development.html:
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+  - /2018/03/12/testing-confidence-engineering.html
+/2020/10/22/fixing-the-d3-zoom-api.html:
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+  - /2020/05/01/rendering-one-million-points-with-d3.html
+/2020/11/02/narration-studio-intro.html:
+  - /2014/03/12/native-code-emscripten-webgl-simmer-gently.html
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+/2020/11/13/no-excuses-guide-to-innovation-with-apis.html:
+  - /2017/09/05/scaling-agile-in-the-public-sector.html
+  - /2017/08/07/evolving-the-agile-revolution.html
+/2020/11/23/ffmpeg-webassembly.html:
+  - /2017/09/14/asynchronous-recursion.html
+  - /2018/10/18/serverless-rust.html
+/2020/11/26/the-good-the-bad-and-the-easy.html:
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+  - /2018/11/22/default-values-in-code-and-configuration.html
+/2020/12/02/remote-possibilities.html:
+  - /2019/04/05/reflections-from-build-it-right.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2020/12/07/alteryxing-the-advent-of-code-2020-week-1.html:
+  - /2016/04/04/jenny-from-the-blockchain.html
+  - /2020/01/03/webassembly-sudoku-solver.html
+/2020/12/07/on-openfin-and-interoperability.html:
+  - /2019/04/05/jumping-from-java-to-javascript.html
+  - /2018/11/22/crypto-charting-d3fc-perspective.html
+/2020/12/08/finite-state-machines.html:
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+  - /2018/11/22/default-values-in-code-and-configuration.html
+/2020/12/14/alteryxing-the-advent-of-code-2020-week-2.html:
+  - /2020/01/03/webassembly-sudoku-solver.html
+  - /2013/06/06/scala-macros-part-2.html
+/2020/12/15/financial-crash-open-source.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2020/12/22/software-crisis.html
+/2020/12/17/sense-and-sustainability.html:
+  - /2020/12/02/remote-possibilities.html
+  - /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
+/2020/12/22/alteryxing-the-advent-of-code-2020-week-3.html:
+  - /2020/01/03/webassembly-sudoku-solver.html
+  - /2018/01/31/looking-at-r.html
+/2020/12/22/software-crisis.html:
+  - /2020/12/15/financial-crash-open-source.html
+  - /2016/03/09/As-It-Stands-Electron-Security.html
+/2020/12/30/alteryxing-the-advent-of-code-2020-week-4.html:
+  - /2020/01/03/webassembly-sudoku-solver.html
+  - /2018/10/10/foyer-screen-2018-edinburgh-intern-project.html
+/2021/01/07/await-twice.html:
+  - /2015/02/02/generators.html
+  - /2018/02/23/javascript-closure.html
+/2021/01/11/Open-Finance.html:
+  - /2018/08/24/the-ux-of-consent-models-in-open-banking.html
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+/2021/01/18/philosophy-of-svelte.html:
+  - /2020/02/17/minesweeper-optimisation.html
+  - /2016/04/04/a-functional-front-end-with-react.html
+/2021/01/21/energy-panel-event.html:
+  - /2019/04/18/cloud-as-a-value-driver.html
+  - /2018/03/14/Rabobank-Client-Story.html
+/2021/01/22/APIs-as-a-value-generator-webinar.html:
+  - /2016/05/18/make-banking-talk.html
+  - /2018/02/27/higher-lower-ml-in-js.html
+/2021/01/26/on-the-importance-of-a-team-manifesto.html:
+  - /2020/12/02/remote-possibilities.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2021/02/01/Flutter-just-another-ui-framework.html:
+  - /2015/03/26/react-native-retrospective.html
+  - /2015/03/05/reactjs-in-swift.html
+/2021/02/17/probably-dont-need-microfrontends.html:
+  - /2020/08/24/microservices-for-life.html
+  - /2018/12/12/bridging-ui-libraries-for-decoupled-long-lived-widely-reusable-components.html
+/2021/02/24/how-to-build-mental-health-resilience.html:
+  - /2021/03/31/how-to-build-mental-health-resilience.html
+  - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
+/2021/03/01/APIs-making-gaap-a-reality.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2017/06/13/towards-a-responsive-desktop.html
+/2021/03/01/Open-APIs-compliance-or-opportunity.html:
+  - /2018/02/27/higher-lower-ml-in-js.html
+  - /2016/05/18/make-banking-talk.html
+/2021/03/01/a-fresh-look-at-taking-control-of-legacy.html:
+  - /2021/03/01/developing-an-api-strategy.html
+  - /2017/06/13/towards-a-responsive-desktop.html
+/2021/03/01/building-modern-web-apis.html:
+  - /2020/10/12/oft-untapped-potential-of-apis.html
+  - /2018/02/27/higher-lower-ml-in-js.html
+/2021/03/01/developing-an-api-strategy.html:
+  - /2021/03/01/a-fresh-look-at-taking-control-of-legacy.html
+  - /2018/12/14/automation-and-bots-for-open-source.html
+/2021/03/02/agile-approach-to-platform-development.html:
+  - /2017/09/05/scaling-agile-in-the-public-sector.html
+  - /2018/03/14/Rabobank-Client-Story.html
+/2021/03/04/Multiplatform-SwiftUI.html:
+  - /2020/02/06/Exploring-SwiftUI-4-redux-bindable.html
+  - /2015/03/05/reactjs-in-swift.html
+/2021/03/05/data-mesh-at-dwp.html:
+  - /2018/02/27/higher-lower-ml-in-js.html
+  - /2019/03/25/the-journey-to-devops.html
+/2021/03/11/Digital-Identity.html:
+  - /2017/09/05/scaling-agile-in-the-public-sector.html
+  - /2017/08/07/evolving-the-agile-revolution.html
+/2021/03/15/the-inside-track-how-established-talent-is-recruited-by-scott-logic.html:
+  - /2021/03/15/the-inside-track-six-steps-to-graduate-programme-success.html
+  - /2018/12/21/joining-with-a-phd.html
+/2021/03/15/the-inside-track-six-steps-to-graduate-programme-success.html:
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2018/08/30/the-scott-logic-internship.html
+/2021/03/18/open-energy-lessons-from-open-banking.html:
+  - /2018/02/27/higher-lower-ml-in-js.html
+  - /2020/01/16/mapping-the-cloud-atlas.html
+/2021/03/29/natwest-group-s-wendy-redshaw-looks-up-from-lockdown.html:
+  - /2019/07/02/wosr.html
+  - /2018/09/27/thoughts-from-the-software-testing-conference-north.html
+/2021/03/31/how-to-build-mental-health-resilience.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2017/06/13/towards-a-responsive-desktop.html
+/2021/04/07/custom-swiftui-animation.html:
+  - /2018/12/09/about-dom-render-utilities.html
+  - /2020/10/08/lets-build-snake-with-rust.html
+/2021/04/09/starting-out-remotely.html:
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2019/08/30/from-university-to-industry-a-small-step-or-a-giant-leap.html
+/2021/04/22/losing-the-fear.html:
+  - /2016/04/04/practical-kotlin.html
+  - /2019/04/05/jumping-from-java-to-javascript.html
+/2021/04/28/how-the-new-normal-is-taking-shape.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2018/02/27/higher-lower-ml-in-js.html
+/2021/04/28/look-up.html:
+  - /2019/08/19/three-year-journey.html
+  - /2019/11/15/has-your-project-hit-the-buffers.html
+/2021/05/24/is-officeless-to-business-agility-what-serverless-is-to-compute-agility.html:
+  - /2017/06/27/continuous-change-culture.html
+  - /2019/04/05/reflections-from-build-it-right.html
+/2021/05/28/what-actually-is-a-data-mesh-and-is-it-really-a-thing.html:
+  - /2020/08/24/microservices-for-life.html
+  - /2018/04/17/comparing-big-data-messaging.html
+/2021/06/03/pride-2021.html:
+  - /2022/01/05/new-normal-for-leadership.html
+  - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
+/2021/06/08/digital-government-looking-back-and-looking-forward.html:
+  - /2017/09/05/scaling-agile-in-the-public-sector.html
+  - /2017/08/07/evolving-the-agile-revolution.html
+/2021/06/17/introduction-rtk-query.html:
+  - /2018/06/11/pros-cons-of-redux-form.html
+  - /2020/05/01/demystifying-react-redux.html
+/2021/06/21/state-of-wasm.html:
+  - /2018/07/20/wasm-future.html
+  - /2022/04/16/wasm-faas.html
+/2021/06/24/types-vs-interfaces.html:
+  - /2021/06/28/union-types.html
+  - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
+/2021/06/28/union-types.html:
+  - /2021/06/24/types-vs-interfaces.html
+  - /2019/04/05/jumping-from-java-to-javascript.html
+/2021/07/03/github-copilot-first-thoughts.html:
+  - /2021/12/08/narrative-dashboard.html
+  - /2017/05/22/gifbot-github-integration.html
+/2021/07/16/UX-Migration-Strategy.html:
+  - /2014/08/18/introducing-agile-upfront.html
+  - /2014/09/10/does-scrum-make-project-managers-redundant.html
+/2021/07/27/union-types-react-components.html:
+  - /2020/10/01/reducer-builder.html
+  - /2018/06/11/pros-cons-of-redux-form.html
+/2021/08/18/hpc-in-cloud.html:
+  - /2014/08/08/sharded-clusters-mongodb-considerations.html
+  - /2018/04/17/comparing-big-data-messaging.html
+/2021/08/31/a-primer-on-the-openai-api-1.html:
+  - /2021/09/02/a-primer-on-the-openai-api-3.html
+  - /2017/05/22/gifbot-github-integration.html
+/2021/09/01/a-primer-on-the-openai-api-2.html:
+  - /2021/09/02/a-primer-on-the-openai-api-3.html
+  - /2018/02/15/scikit-machine-learning.html
+/2021/09/02/a-primer-on-the-openai-api-3.html:
+  - /2021/08/31/a-primer-on-the-openai-api-1.html
+  - /2016/06/16/catch22-of-conversational-uis.html
+/2021/09/06/how-to-write-an-es-lint-rule-for-beginners.html:
+  - /2016/06/22/xslt-inspired-ast-transforms.html
+  - /2015/06/10/learn-es6-from-airbnb.html
+/2021/09/14/120-years-timezone.html:
+  - /2018/01/15/currencies-then-and-now-d3-map.html
+  - /2017/02/28/london-marathon-training-visualisation.html
+/2021/09/22/covid19-and-the-Internet.html:
+  - /2018/04/19/a-brief-foray-into-the-art-read-farce-of-multitasking.html
+  - /2018/08/28/finding-your-groove-as-they-are-not-finding-their-shoes.html
+/2021/09/24/how-the-openai-codex-javascript-sandbox-works.html:
+  - /2021/08/31/a-primer-on-the-openai-api-1.html
+  - /2019/03/04/lambda-global-state.html
+/2021/09/30/Collective-Code-Ownership.html:
+  - /2018/11/09/7-reasons-i-love-open-source.html
+  - /2022/03/24/the-dependencies-reckoning.html
+/2021/10/11/Capturing-Intent-with-TypeScript.html:
+  - /2021/06/28/union-types.html
+  - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
+/2021/10/11/vpcs-aws.html:
+  - /2019/07/19/elasticsearch-clustering.html
+  - /2016/06/17/docker-swarm.html
+/2021/10/15/efficiently-loading-massive-d3-datasets-using-apache-arrow.html:
+  - /2020/05/01/rendering-one-million-points-with-d3.html
+  - /2015/11/02/improving-low-barrel-performance.html
+/2021/10/18/OSSF-London.html:
+  - /2019/07/02/wosr.html
+  - /2021/04/28/how-the-new-normal-is-taking-shape.html
+/2021/10/18/reminiscence-of-a-scrum-master-part-i.html:
+  - /2022/01/21/reminiscence-of-a-scrum-master-part-iv.html
+  - /2014/09/10/does-scrum-make-project-managers-redundant.html
+/2021/10/21/financial-services-open-source.html:
+  - /2018/11/09/7-reasons-i-love-open-source.html
+  - /2019/03/21/understanding-agility-and-process-optimisation.html
+/2021/10/28/enabling-the-government-data-strategy.html:
+  - /2017/09/05/scaling-agile-in-the-public-sector.html
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+/2021/11/05/Learning-Resources-for-Rust.html:
+  - /2019/12/24/webassembly-2019.html
+  - /2018/02/27/webassembly-death-of-javascript.html
+/2021/11/17/reminiscence-of-a-scrum-master-part-ii.html:
+  - /2022/02/18/reminiscence-of-a-scrum-master-part-v.html
+  - /2017/11/04/agile-puzzle-detail-planning-and-tracking-in-agile.html
+/2021/11/5/n-finding-purpose-nurturing-talent-and-building-a-sustainable-future.html:
+  - /2019/07/02/wosr.html
+  - /2018/02/14/interaction18.html
+/2021/12/01/disruptor.html:
+  - /2020/02/28/is-aeron-a-good-choice-for-a-messaging-solution.html
+  - /2015/02/02/generators.html
+/2021/12/08/narrative-dashboard.html:
+  - /2021/08/31/a-primer-on-the-openai-api-1.html
+  - /2018/02/15/scikit-machine-learning.html
+/2021/12/09/Performance-Testing-with-JMeter.html:
+  - /2020/02/04/GraduateGuideToAPITesting.html
+  - /2018/03/20/mock-the-backend-with-node.html
+/2021/12/17/reminiscence-of-a-scrum-master-part-iii.html:
+  - /2022/01/21/reminiscence-of-a-scrum-master-part-iv.html
+  - /2017/05/05/making-agile-teams-more-productive-from-the-inside.html
+/2021/12/20/open-source-sustainability.html:
+  - /2018/04/30/devops-as-a-key-to-success-with-microservices-approach.html
+  - /2018/11/09/7-reasons-i-love-open-source.html
+/2021/12/21/delivering-digital-transformation-with-the-scottish-government.html:
+  - /2021/03/02/agile-approach-to-platform-development.html
+  - /2017/09/05/scaling-agile-in-the-public-sector.html
+/2022/01/04/a-more-inclusive-future-together.html:
+  - /2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html
+  - /2019/07/04/Be-inspired-by-Scott-Logic.html
+/2022/01/04/managing-knowledge-zettelkasten.html:
+  - /2015/06/10/learn-es6-from-airbnb.html
+  - /2020/05/29/specstravaganza.html
+/2022/01/05/new-normal-for-leadership.html:
+  - /2022/01/04/a-more-inclusive-future-together.html
+  - /2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html
+/2022/01/20/empoweering-women.html:
+  - /2019/07/02/wosr.html
+  - /2019/05/01/bcswomen-lovelace-colloquium-2019.html
+/2022/01/20/noJS-making-a-calculator-in-pure-css-html.html:
+  - /2020/10/09/charts-with-flexbox.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2022/01/21/reminiscence-of-a-scrum-master-part-iv.html:
+  - /2021/10/18/reminiscence-of-a-scrum-master-part-i.html
+  - /2014/09/10/does-scrum-make-project-managers-redundant.html
+/2022/02/07/Sustainability-in-Software.html:
+  - /2022/04/07/cloud-sustainability-reach-net-zero.html
+  - /2018/02/19/testing-with-cognitive-intelligence.html
+/2022/02/15/replacing-docker-desktop-with-podman.html:
+  - /2016/09/05/hosting-netcore-on-linux-with-docker.html
+  - /2016/06/17/docker-swarm.html
+/2022/02/18/reminiscence-of-a-scrum-master-part-v.html:
+  - /2021/11/17/reminiscence-of-a-scrum-master-part-ii.html
+  - /2014/09/18/the-agile-mindset.html
+/2022/02/23/word-embedding-recommendations.html:
+  - /2021/12/08/narrative-dashboard.html
+  - /2018/02/15/scikit-machine-learning.html
+/2022/02/28/teaser.html:
+  - /2022/03/08/beyond-the-hype-microservices.html
+  - /2016/05/18/make-banking-talk.html
+/2022/03/08/beyond-the-hype-microservices.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2019/12/13/debunking-cloud-myths.html
+/2022/03/24/the-dependencies-reckoning.html:
+  - /2016/06/13/code-reuse-in-microservices-architecture.html
+  - /2021/12/20/open-source-sustainability.html
+/2022/04/01/reviving-googles-lost-fluid-engine.html:
+  - /2022/04/06/web-ui-development-in-rust.html
+  - /2019/04/27/webassembly-compiler.html
+/2022/04/05/beyond-the-hype-microfrontends.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2015/10/27/destroying-monoliths-at-dddnorth.html
+/2022/04/06/history-of-encryption.html:
+  - /2018/02/27/higher-lower-ml-in-js.html
+  - /2017/10/28/serverless-javascript.html
+/2022/04/06/web-ui-development-in-rust.html:
+  - /2019/04/27/webassembly-compiler.html
+  - /2018/02/27/webassembly-death-of-javascript.html
+/2022/04/07/cloud-sustainability-reach-net-zero.html:
+  - /2019/07/03/getting-started-with-aws.html
+  - /2019/04/18/cloud-as-a-value-driver.html
+/2022/04/16/wasm-faas.html:
+  - /2018/10/18/serverless-rust.html
+  - /2021/06/21/state-of-wasm.html
+/2022/04/29/grad-summit.html:
+  - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
+  - /2018/06/28/ux-scotland-2018.html
+/2022/05/03/beyond-the-hype-multicloud.html:
+  - /2019/12/13/debunking-cloud-myths.html
+  - /2020/01/16/mapping-the-cloud-atlas.html
+/2022/05/05/binary-trees-101.html:
+  - /2017/05/02/typescript-compiler-api-revisited.html
+  - /2018/12/09/about-dom-render-utilities.html
+/2022/05/16/passwordle.html:
+  - /2018/06/27/How-UX-Designers-Can-Help-Users-Protect-Their-Data.html
+  - /2016/04/04/jenny-from-the-blockchain.html
+/26/08/2014/StrongTypingWithAngularJS.html:
+  - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
+  - /2014/08/08/signalr-typed.html

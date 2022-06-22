@@ -1,0 +1,29 @@
+{% assign author = include.author %}
+<div class="author grid-x grid-margin">
+    <div class="cell large-2 avatar grid-x grid-margin-y">
+        <div class="cell large-offset-3">
+            {% include author_picture.html %}
+        </div>
+        {% if author.author-summary %}
+            <div class="author-name cell large-offset-3">
+                <div class="blog">Blog</div>
+                <h2>{{ author.name }}</h2>
+            </div>
+        {% endif %}
+    </div>
+
+    {% if author.author-summary %}
+    <div class="cell large-6 large-offset-1">
+        {{ author.author-summary }}
+    </div>
+    {% else %}
+    <div class="author-name cell large-6">
+        <h2 class="blog">Blog</h2>
+        <h1>{{ author.name }}</h1>
+    </div>
+    {% endif %}
+
+    <div class="cell large-2 links">
+        <a href="{{ site.baseurl }}/index.html">Back to all posts</a>
+    </div>
+</div>

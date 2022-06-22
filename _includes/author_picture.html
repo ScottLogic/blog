@@ -1,0 +1,11 @@
+{% if author.picture %}
+  {% if post.author %}
+  <img src="{{ site.baseurl }}/{{ post.author }}/{{ author.picture }}" alt="{{ author.name }}"/>
+  {% elsif page.author %}
+  <img src="{{ site.baseurl }}/{{ page.author }}/{{ author.picture }}" alt="{{ author.name }}"/>
+  {% else %}
+  <img src="{{ site.baseurl }}/assets/avatar.png" alt="{{ author.name }}"/>
+  {% endif %}
+{% else %}
+<img src="{{ site.baseurl }}/assets/avatar.png" alt="{{ author.name }}"/>
+{% endif %}

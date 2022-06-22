@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+     xmlns:sl="scott-logic">
+    <channel>
+        <title><![CDATA[{% if page.author %}{{ site.data.authors.authors[page.author].name }} at {% endif %}{{ site.name }}]]></title>
+        {% if page.author and site.data.authors.authors[page.author].feed-description %}
+          {% assign description = site.data.authors.authors[page.author].feed-description %}
+        {% else %}
+          {% assign description = site.description %}
+        {% endif %}
+        <description><![CDATA[{{ description }}]]></description>
+        <link>{{ site.url }}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}</link>
+        <atom:link href="{{ site.url }}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}/feed.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language>
+        <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+        <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+        {% if page.author %}
+          {% assign feed_posts = site.categories[page.author] %}
+        {% else %}
+          {% assign feed_posts = site.posts %}
+        {% endif %}
+        {% for post in feed_posts limit:20 %}
+        <item>
+            {% assign author = site.data.authors.authors[post.author] %}
+            <title><![CDATA[{{ post.title }} by {{ author.name }}]]></title>
+            <sl:title-short><![CDATA[{% if post.title-short %}{{ post.title-short }}{% else %}{{ post.title | truncatewords: 6 }}{% endif %}]]></sl:title-short>
+            <author>{% if author.email %}{{ author.email }} ({{ author.name }}){% else %}{{ author.name }}{% endif %}</author>
+            <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+            <description><![CDATA[{{ post.content }}]]></description>
+            <link>{{ post.url | absolute_url }}</link>
+            <guid isPermaLink="false">{{ post.url }}</guid>
+            {% for category in post.categories %}
+            <category><![CDATA[{{ category }}]]></category>
+            {% endfor %}
+            <comments>{{ site.scottlogicdisqusurl }}{{ post.title | downcase | replace:' ','_' }}</comments>
+        </item>
+        {% endfor %}
+        <sy:updatePeriod>hourly</sy:updatePeriod>
+        <sy:updateFrequency>1</sy:updateFrequency>
+    </channel>
+</rss>

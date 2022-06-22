@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"
+      xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+      xmlns:sl="scott-logic">
+    <title><![CDATA[{% if page.author %}{{ site.data.authors.authors[page.author].name }} at {% endif %}{{ site.name }}]]></title>
+    <link href="{{ site.url }}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}"/>
+    <link type="application/atom+xml" rel="self" href="{{ site.url }}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}/atom.xml"/>
+    {% if page.author and site.data.authors.authors[page.author].feed-description %}
+      {% assign description = site.data.authors.authors[page.author].feed-description %}
+    {% else %}
+      {% assign description = site.description %}
+    {% endif %}
+    <subtitle><![CDATA[{{ description }}]]></subtitle>
+    <updated>{{ site.time | date_to_xmlschema  }}</updated>
+    <id>{{ site.url }}{{ site.baseurl }}{% if page.author %}/{{ page.author }}{% endif %}</id>
+    {% if page.author %}
+      {% assign feed_posts = site.categories[page.author] %}
+    {% else %}
+      {% assign feed_posts = site.posts %}
+    {% endif %}
+    {% for post in feed_posts limit:20 %}
+    <entry>
+        <id>{{ post.url | absolute_url }}</id>
+        <link type="text/html" rel="alternate" href="{{ post.url | absolute_url }}"/>
+        <title><![CDATA[{{ post.title }}]]></title>
+        <sl:title-short><![CDATA[{% if post.title-short %}{{ post.title-short }}{% else %}{{ post.title | truncatewords: 6 }}{% endif %}]]></sl:title-short>
+        <published>{{ post.date | date_to_xmlschema }}</published>
+        <updated>{{ post.date | date_to_xmlschema }}</updated>
+        <summary><![CDATA[{% if post.summary %}{{ post.summary }}{% else %}{{ post.content | strip_html | truncatewords:50 | xml_escape }}{% endif %}]]></summary>
+        <content type="html"><![CDATA[{{ post.content }}]]></content>
+        {% assign author = site.data.authors.authors[post.author] %}
+        <author>
+            <name>{% if author.email %}{{ author.email }} ({{ author.name }}){% else %}{{ author.name }}{% endif %}</name>
+        </author>
+        {% for category in post.categories %}
+        <category term=" {{ category }} "/>
+        {% endfor %}
+    </entry>
+    {% endfor %}
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+</feed>

@@ -1,0 +1,61 @@
+{% if include.categoryName == "Latest Articles" %}
+  {% assign featuredPosts = site.tags.featured %}
+{% else %}
+  {% assign featuredPosts = site.emptyArray %}
+  {% for post in include.postsToFilter %}
+    {% if post.tags contains 'featured' %}
+      {% assign featuredPosts = featuredPosts | push: post %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% assign numPosts = featuredPosts | size %}
+{% if numPosts >= 2 %}
+<div class="featured-posts grid-x grid-margin-x grid-margin-y">
+  {% for post in featuredPosts limit:2 %}
+  <div class="featured-post {% include post_colour.html post=post %} cell large-6 grid-x">
+    <div class="summary cell large-8 medium-10 small-11 grid-y align-center">
+      <div class="cell">{% include category_display.html post = post %}</div>
+      <h3 class="cell">
+        <a href='{{ site.baseurl }}{{ post.url }}'>{{ post.title }}</a>
+        {% include post_summary_social.html post=post %}
+      </h3>
+      <div class="cell">{{ post.summary }}</div>
+      <div class="avatar-metadata cell">
+          {% assign author = site.data.authors.authors[post.author] %}
+          {% include author_picture.html %}
+          {% include post_metadata.html post=post %}
+      </div>
+    </div>
+    <div class="shape cell large-4 medium-2 small-1 grid-y align-center">
+      {% capture shape %}{% include post_shape.html post=post %}{% endcapture %}
+      {% assign shape = shape | strip %}
+      {% case shape %}
+        {% when "shape1" %}
+        <svg class="bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 465" preserveAspectRatio="none">
+          <polygon points="0 0 650 132.977 499.388 465 0 465"/>
+        </svg>
+        {% when "shape2" %}
+        <svg class="bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 410" preserveAspectRatio="none">
+          <polygon points="0 0 350 0 650 300 650 410 0 410"/>
+        </svg>
+        {% when "shape3" %}
+        <svg class="bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 410" preserveAspectRatio="none">
+          <polygon points="0 0 352 0 460 87 650 87 650 410 0 410"/>
+        </svg>
+        {% when "shape4" %}
+        <svg class="bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 410" preserveAspectRatio="none">
+          <path d="M0 0h542l108 87v183L420 465H0z" />
+        </svg>
+        {% else %}
+        <svg class="bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 410" preserveAspectRatio="none">
+          <polygon points="0 0 650 0 650 109.736 353 410 0 410"/>
+        </svg>
+      {% endcase %}
+      {% if post.image %}
+        <img class="cell show-for-large" src="{{ site.baseurl }}/{{post.image}}"/>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
