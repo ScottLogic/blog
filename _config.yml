@@ -1,6 +1,7 @@
 ---
 title: Scott Logic Blog
 timezone: UTC
+repository: ScottLogic/new-blog
 collections:
   posts:
     title: Posts
