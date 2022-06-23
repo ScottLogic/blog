@@ -1,9 +1,10 @@
 ---
-layout: default
 title: Testing
+layout: default
 summary: Scott Logic's thoughts and ideas relating to Test
-image: /assets/testing.jpg
+image: "/assets/testing.jpg"
 ---
+
 {% assign posts = site.categories["Testing"] %}
 {% if posts %}
   {% assign posts = posts | sort: 'date' | reverse | uniq %}

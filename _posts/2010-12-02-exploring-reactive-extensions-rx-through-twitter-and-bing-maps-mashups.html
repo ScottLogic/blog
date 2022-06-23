@@ -1,0 +1,58 @@
+---
+title: Exploring Reactive Extensions (Rx) through Twitter and Bing Maps Mashups
+date: 2010-12-02 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+id: 966
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2010/12/exploring-reactive-extensions-rx-through-twitter-and-bing-maps-mashups/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2010/12/exploring-reactive-extensions-rx-through-twitter-and-bing-maps-mashups/"
+---
+
+<p>The following are a couple of examples to accompany my <a href="https://www.codeproject.com/Articles/132966/Exploring-Reactive-Extensions-Rx-through-Twitter-a">codeproject article on Reactive Extensions</a>. You can read all about them, and download their source from the <a href="https://www.codeproject.com/Articles/132966/Exploring-Reactive-Extensions-Rx-through-Twitter-a">codeproject page</a>.</p>
+<h2>Twitter Instant</h2>
+<p>A Google Instant style twitter search, type in some text to search Twitter:</p>
+<div style="text-align: center; "><object width="400" height="400" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/12/TwitterRx.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>'powered' by the following Rx pipeline:</p>
+{% highlight csharp %}
+Observable.FromEvent<TextChangedEventArgs>(searchTextBox, "TextChanged")
+          .Select(e => ((TextBox)e.Sender).Text)
+          .Where(text => text.Length > 2)
+          .Do(s => searchResults.Opacity = 0.5)
+          .Throttle(TimeSpan.FromMilliseconds(400))
+          .ObserveOnDispatcher()
+          .Do(s => LoadingIndicator.Visibility = Visibility.Visible)
+          .SelectMany(txt => searchTwitter(txt))
+          .Select(searchRes => ParseTwitterSearch(searchRes))
+          .ObserveOnDispatcher()
+          .Do(s => LoadingIndicator.Visibility = Visibility.Collapsed)
+          .Do(s => searchResults.Opacity = 1)
+          .Subscribe(tweets => searchResults.ItemsSource = tweets);
+{% endhighlight %}
+<p><br/></p>
+<h2>UKsnow - Twitter / Bing Maps mashup</h2>
+<p>The application below gives a real-time view of the snow across the UK. To add a snow report to the map, tweet #uksnow with your postcode and the amount of snowfall out of ten (e.g. 7/10).</p>
+<div style="text-align: center; "><object width="600" height="550" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/12/TwitterRxUpdated2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p><br/>'powered' by the following Rx pipelines:</p>
+{% highlight csharp %}
+// the uksnow twitter / bing mashup pipeline
+Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(30))
+          .SelectMany(ticks => searchTwitter("%23uksnow", _lastTweetId))
+          .Select(searchResult => ParseTwitterSearch(searchResult))
+          .ObserveOnDispatcher()
+          .Do(tweet => AddTweets(tweet))
+          .Do(tweets => UpdateLastTweetId(tweets))
+          .SelectMany(tweets => tweets)
+          .SelectMany(tweet => ParseTweetToUKSnow(tweet))
+          .SelectMany(snowTweet => searchBing(snowTweet))
+          .ObserveOnDispatcher()
+          .Subscribe(geoTweet => AddSnow(geoTweet));
+
+// every 5 minutes remove old snow from the map
+Observable.Timer(TimeSpan.FromMinutes(5))
+          .ObserveOnDispatcher()
+          .Subscribe(i => RemoveOldSnowFromMap());
+{% endhighlight %}

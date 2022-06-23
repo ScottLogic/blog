@@ -1,0 +1,358 @@
+---
+title: A Simple Windows Phone 7 MVVM Tombstoning Example
+date: 2011-05-23 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- codeproject
+- mvvm
+- tombstoning
+- blog
+- windowsphone
+id: 1449
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/05/a-simple-windows-phone-7-mvvm-tombstoning-example/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/05/a-simple-windows-phone-7-mvvm-tombstoning-example/"
+---
+
+<p><em>This blog post shows how to implement tombstoning within a Windows Phone 7 application that following the Model-View-ViewModel pattern.</em></p>
+<p><b>UPDATE:</b> I have published a <a href="{{ site.baseurl }}/2011/10/03/a-windows-phone-7-1-mango-mvvm-tombstoning-example" title="A Windows Phone 7.1 (Mango) MVVM Tombstoning Example">update to this blog post to handle the new dormant state in Windows Phone 7.1 (Mango)</a>.</p>
+<div style="float:right; width:130px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://0.gravatar.com/avatar/458f2e0d08d4114f8b323798cfea141d?s=64&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G" style="float:left; margin:5px;">Colin Eberhardt is a Scott Logic technical Evangelist and a Technical Architect for Visiblox, suppliers of <a href="http://www.visiblox.com">high-performance WPF and Silverlight charts</a>.<a href="http://www.visiblox.com"><img src="{{ site.baseurl }}/archive/2012/04/visiblox-white.png"/></a></div>
+<p>I have to admit Windows Phone 7 tombstoning had me in a bit of a muddle for a while, so many places to store state, a confusing lifecycle and navigation model. Most of the blog posts I read either detailed tombstoning for non-MVVM applications, or described how to use or adapt an existing MVVM framework for the purposes of tombstoning. I only really understood the ins-and-outs of tombstoning after writing my own simple MVVM application. I thought I would share this application here in this blog in the hope that it might help other similarly confused developers!</p>
+<h2>What is tombstoning?</h2>
+<p>Mobile phones have limited resources compared to desktop computers, for that reason most smartphones OSs limit the number of applications that are currently loaded into memory and executing. For Windows Phone 7 this limit is one!</p>
+<p>If the user hits the phone start button while you application is running, the screen lock engages, or you invoke a chooser / launcher from your application, then your application is terminated. However, when the user navigates back to your app, the screen unlocks or the chooser / launcher closed, the user expects to see your application again in its original state. </p>
+<p>To support this, the WP7 OS maintains state information which allows you to 'restore' your application by starting a new application instance and using this state information to start the application in the same state as the one which was terminated. For a full overview of this process I would recommend reading the <a href="http://msdn.microsoft.com/en-us/library/ff817008(v=vs.92).aspx">Execution Model Overview for Windows Phone</a> on MSDN, or the three part series on the Windows Phone Developer Blog <a href="https://blogs.windows.com/buildingapps/2010/07/15/understanding-the-windows-phone-application-execution-model-tombstoning-launcher-and-choosers-and-few-more-things-that-are-on-the-way-part-1">(1)</a>, <a href="https://blogs.windows.com/buildingapps/2010/07/16/understanding-the-windows-phone-application-execution-model-tombstoning-launcher-and-choosers-and-few-more-things-that-are-on-the-way-part-2/">(2)</a>, <a href="https://blogs.windows.com/buildingapps/2010/07/20/understanding-the-windows-phone-application-execution-model-tombstoning-launcher-and-more-part-3/">(3)</a>.</p>
+<p>This probably sounds like a lot of work, and to be honest, it is. You might be wondering if the new multi-tasking capabilities that the Mango update will bring (demoed at the<a href="http://channel9.msdn.com/Events/MIX/MIX11/KEY02"> MIX11 day 2 keynote</a> and to be released probably late 2012) will mean the that tombstoning will disappear. I have not seen any official confirmation one way or the other, however, personally I think you will still need to tombstone in Mango. It is most likely that the number of concurrent applications will be limited and applications will still need to tombstone as a result.</p>
+<h2>The Example Application</h2>
+<p>The example application I am using for this blog post is illustrated below. The application displays a list of tweets, clicking on a tweet displays it full screen. Twitter applications are the new Hello World!</p>
+<p><img src="{{ site.baseurl }}/archive/2011/05/MVVMExampleApplication.png" alt="" title="MVVMExampleApplication" width="600" height="456" class="aligncenter size-full wp-image-1453" /></p>
+<h2>The ViewModel</h2>
+<p>The view model is pretty trivial, each tweet is represented by a FeedItemViewModel:</p>
+{% highlight csharp %}
+public class FeedItemViewModel
+{
+  public FeedItemViewModel()
+  {
+  }
+
+  public long Id { get; set; }
+
+  public string Title { get; set; }
+
+  public string Author { get; set; }
+
+  public DateTime Timestamp { get; set; }
+}
+{% endhighlight %}
+<p>The above view model does not change state, so there is no need to implement <code>INotifyPropertyChanged</code>.</p>
+<p>The top-level view model simply exposes a collection of the above feed items. It also has an <code>Update</code> method which populates this list by querying Twitter's search API for tweets that contain the #wp7 hashtag:</p>
+{% highlight csharp %}
+public class FeedViewModel
+{
+  // Twitter search for #WP7
+  private readonly string _twitterUrl = "http://search.twitter.com/search.atom?rpp=100&&q=%23wp7";
+
+  private WebClient _webClient = new WebClient();
+
+  private readonly ObservableCollection<FeedItemViewModel> _feedItems =
+                                             new ObservableCollection<FeedItemViewModel>();
+
+  public FeedViewModel()
+  {
+    _webClient.DownloadStringCompleted += WebClient_DownloadStringCompleted;
+  }
+
+  /// <summary>
+  /// Parses the response from our twitter request, creating a list of FeedItemViewModelinstances
+  /// </summary>
+  private void WebClient_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+  {
+    var doc = XDocument.Parse(e.Result);
+    var items = doc.Descendants(AtomConst.Entry)
+             .Select(entryElement => new FeedItemViewModel()
+             {
+                Title = entryElement.Descendants(AtomConst.Title).Single().Value,
+                Id = long.Parse(entryElement.Descendants(AtomConst.ID).Single().Value.Split(':')[2]),
+               Timestamp = DateTime.Parse(entryElement.Descendants(AtomConst.Published).Single().Value),
+               Author = entryElement.Descendants(AtomConst.Name).Single().Value
+             });
+
+    _feedItems.Clear();
+    foreach (var item in items)
+    {
+      _feedItems.Add(item);
+    }
+  }
+
+  /// <summary>
+  /// Gets the feed items
+  /// </summary>
+  public ObservableCollection<FeedItemViewModel> FeedItems
+  {
+    get { return _feedItems; }
+  }
+
+  /// <summary>
+  /// Gets a feed item by its Id
+  /// </summary>
+  public FeedItemViewModel GetFeedItem(long id)
+  {
+    return _feedItems.SingleOrDefault(item => item.Id == id);
+  }
+
+  /// <summary>
+  /// Update the feed items
+  /// </summary>
+  public void Update()
+  {
+    _webClient.DownloadStringAsync(new Uri(_twitterUrl));
+  }
+}
+{% endhighlight %}
+<h2>The View</h2>
+<p>The FeedView page that is used to render the FeedViewModel (i.e the list of tweets) is simply a <a href="{{ site.baseurl }}/2011/04/18/a-fast-loading-windows-phone-7-navigationlist-control">NavigationList</a> control (An <code>ItemsControl</code> optimised for WP7 navigation scenarious) that has an <code>ItemTemplate</code> which renders each item:</p>
+{% highlight xml %}
+<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+  <l:NavigationList x:Name="navigationControl"
+                    ItemsSource="{Binding FeedItems}"
+                    Navigation="NavigationList_Navigation">
+    <l:NavigationList.ItemTemplate>
+      <DataTemplate>
+        <StackPanel Orientation="Vertical"
+                    Height="100">
+          <TextBlock Text="{Binding Author}"
+                      Style="{StaticResource PhoneTextNormalStyle}"/>
+          <TextBlock Text="{Binding Title}"
+                      Margin="20,0,0,0"
+                      Style="{StaticResource PhoneTextSmallStyle}"
+                      TextWrapping="Wrap"/>
+        </StackPanel>
+      </DataTemplate>
+    </l:NavigationList.ItemTemplate>
+  </l:NavigationList>
+</Grid>
+{% endhighlight %}
+<p>The FeedItemView that is used to render the FeedItemViewModel is even simpler:</p>
+{% highlight xml %}
+<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+  <StackPanel Orientation="Vertical">
+    <TextBlock Text="{Binding Author}"
+                Style="{StaticResource PhoneTextLargeStyle}"
+                Foreground="{StaticResource PhoneAccentBrush}"/>
+    <TextBlock Text="{Binding Title}"
+                Style="{StaticResource PhoneTextLargeStyle}"
+                TextWrapping="Wrap"/>
+  </StackPanel>
+</Grid>
+{% endhighlight %}
+<p>Now that we have the ViewModels and their respective Views we need to bring them together by making the ViewModel the DataContext for each View. There are a number of different ways you can do this (Paul Stovell documents 8 different ways in his <a href="http://www.paulstovell.com/mvvm-instantiation-approaches">MVVM Instantiation Approaches</a> blogpost!), however, I find the simplest approach with WP7 applications is to associated the ViewModel with the application. Therefore, we add our view model as a property of the <code>App</code> class and instantiate it when the <code>Application_Launching</code> method (which handles the <code>Launching</code> lifecycle event) is invoked:</p>
+{% highlight csharp %}
+public partial class App : Application
+{
+
+  /// <summary>
+  /// Gets the ViewModel
+  /// </summary>
+  public FeedViewModel ViewModel { get; private set; }
+
+  ...
+
+  private void Application_Launching(object sender, LaunchingEventArgs e)
+  {
+    ViewModel = new FeedViewModel();
+    ViewModel.Update();
+
+    // set the frame DataContext
+    RootFrame.DataContext = ViewModel;
+  }
+
+  ...
+}
+{% endhighlight %}
+<p>The <code>DataContext</code> of the RootFrame is set to our 'top level' view model. The RootFrame is an instance of <code>PhoneApplicationFrame</code>, which contains the current <code>PhoneApplicationPage</code> instance, hence when you navigate from one page to the next the content of the <code>PhoneApplicationFrame</code> is replaced within the page that has been navigated to. As a result, each of your pages will inherit the <code>DataContext</code> from the application frame.</p>
+<h2>Navigation</h2>
+<p>The <code>DataContext</code> of the RootFrame is inherited by the FeedView page, so once the tweets are loaded they will be rendered in our <code>NavigationList</code>. In order to navigate to a tweet when a user clicks on it we need to handle the <code>Navigation</code> event:</p>
+{% highlight csharp %}
+public partial class FeedView : PhoneApplicationPage
+{
+  ...
+
+  private void NavigationList_Navigation(object sender, NavigationEventArgs e)
+  {
+    var selectedItem = e.Item as FeedItemViewModel;
+
+    // navigate to the feed items page
+    NavigationService.Navigate(new Uri("/FeedItemView.xaml?id=" + selectedItem.Id, UriKind.Relative));
+  }
+
+}
+{% endhighlight %}
+<p>The above code uses the <code>NavigationService</code> to navigate to the <code>FeedItemView</code> page. We use the querystring to pass the id of the selected tweet. We could have passed this information from View the ViewModel by adding a <code>SelectedItemId</code> property, however, we will find out later that there are some advantages to using the querystring.</p>
+<p>When the <code>FeedItemView</code> page is loaded we need to obtain this id from the querystring and use it to locate the correct <code>FeedItemViewModel</code> instance. This is done as follows:</p>
+{% highlight csharp %}
+public partial class FeedItemView : PhoneApplicationPage
+{
+  public FeedItemView()
+  {
+    InitializeComponent();
+  }
+
+  protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+  {
+    base.OnNavigatedTo(e);
+
+    // parse the querystring to extract the id
+    long feedItemId = long.Parse(NavigationContext.QueryString["id"]);
+
+    // obtain this item from the view model.
+    this.DataContext = App.Current.ViewModel.GetFeedItem(feedItemId);
+  }
+}
+{% endhighlight %}
+<h2>Tombstoning</h2>
+<p>With the above code our simple application works just fine, you can navigate the list of tweets, click on one to see it in the <code>FeedItemView</code> page, then use the back button to return to the original list of tweets. It would be great if our job was complete at this point, however, the application fails miserably if it is tombstoned. To test this, load the application, then hit the start button, followed by the back button to return to the application. This is what you are met with:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/05/TombstoningFail.png" alt="" title="TombstoningFail" width="700" height="343" class="aligncenter size-full wp-image-1465" /></p>
+<p>Tombstoning terminates the application, therefore the ViewModel and all the state it contains is lost. Hence we return to an empty list.</p>
+<p>So how do we fix this?</p>
+<p>When your application gets tombstoned a <code>Deactivated</code> event is fired before your application terminates, and when the user navigates back to your application, a new instance is created an the <code>Activated</code> event is fired. The Visual Studio WP7 application template helpfully adds event handlers for these events on your <code>App</code> class.</p>
+<p>Note that when an application is re-activeated the <code>Launching</code> event is not fired, therefore the code we added to construct a new view model is not executed in this case.</p>
+<p>The fix to this problem is rather simple, the framework provides a <code>PhoneApplicationService </code>class which has a <code>State</code> property which allows you to store your application state within a dictionary. The WP7 OS will persist this dictionary of state on your behalf when your application is tombstoned. You can place anything within this dictionary as long as it is serializable. Therefore a simple solution to this problem is to simply place our view model into this dictionary, retrieving it when the application is re-activated:</p>
+{% highlight csharp %}
+private readonly string ModelKey = "Key";
+
+private void Application_Deactivated(object sender, DeactivatedEventArgs e)
+{
+  PhoneApplicationService.Current.State[ModelKey] = ViewModel;
+}
+
+private void Application_Activated(object sender, ActivatedEventArgs e)
+{
+  if (PhoneApplicationService.Current.State.ContainsKey(ModelKey))
+  {
+    ViewModel = PhoneApplicationService.Current.State[ModelKey] as FeedViewModel;
+    RootFrame.DataContext = ViewModel;
+  }
+}
+{% endhighlight %}
+<p>With this simple change the application now returns to its previous state when the user hits the back button. Note that this also works when the application is tombstoned on the <code>FeedItemView</code> page:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/05/TombstoningWin.png" alt="" title="TombstoningWin" width="700" height="340" class="aligncenter size-full wp-image-1468" /></p>
+<p>This is because when the application is re-activated, the <code>NavigationService</code> Journal which records the pages that have been visited is also restored. The 'back stack' contains the URI of each page which in our case contains the querystring which holds the Id of the tweet which is currently being viewed.</p>
+<h2>Persisting State Between Sessions</h2>
+<p>In the above example, the application state was saved as tomstoned state. But what if the user simply hits the back button until they navigate back out of our application? In this context your application is closed, rather than tombstoned. The <code>PhoneApplicationService.Current.State</code> dictionary which we used to store our view model is not persisted in this context. For long-term persistence you should save your data to the phones isolated storage. </p>
+<p>We can serialize our view model to isolated storage when the application exits by adding code to the <code>Application_Closing</code> methods which handles the <code>Closing</code> event. In the example below I am using the framework <code>XmlSerializer</code>, which is the same serializer which is used to persist data in the application state dictionary. However, as you have full control over serialization, you might choose to use <a href="http://www.identitymine.com/forward/2010/11/loading-quickly-on-windows-phone-7-twitter-example/">a serializer with better performanc</a>e.</p>
+{% highlight csharp %}
+// Code to execute when the application is closing (eg, user hit Back)
+// This code will not execute when the application is deactivated
+private void Application_Closing(object sender, ClosingEventArgs e)
+{
+    // persist the data using isolated storage
+    using (var store = IsolatedStorageFile.GetUserStoreForApplication())
+    using (var stream = new IsolatedStorageFileStream("data.txt",
+                                                    FileMode.Create,
+                                                    FileAccess.Write,
+                                                    store))
+    {
+      var serializer = new XmlSerializer(typeof(FeedViewModel));
+      serializer.Serialize(stream, ViewModel);
+    }
+}
+{% endhighlight %}
+<p>The code for launching the application now needs to be modified to first try and load the data from isolated storage. If no data is found a new view model is created:</p>
+{% highlight csharp %}
+// Code to execute when the application is launching (eg, from Start)
+// This code will not execute when the application is reactivated
+private void Application_Launching(object sender, LaunchingEventArgs e)
+{
+  // load the view model from isolated storage
+  using (var store = IsolatedStorageFile.GetUserStoreForApplication())
+  using (var stream = new IsolatedStorageFileStream("data.txt", FileMode.OpenOrCreate, FileAccess.Read, store))
+  using (var reader = new StreamReader(stream))
+  {
+    if (!reader.EndOfStream)
+    {
+      var serializer = new XmlSerializer(typeof(FeedViewModel));
+      ViewModel = (FeedViewModel)serializer.Deserialize(reader);
+    }
+  }
+
+  // if the view model is not loaded, create a new one
+  if (ViewModel == null)
+  {
+    ViewModel = new FeedViewModel();
+    ViewModel.Update();
+  }
+
+  // set the frame DataContext
+  RootFrame.DataContext = ViewModel;
+}
+{% endhighlight %}
+<p>NOTE: This is no a fully functional twitter application, in a real application you would probably want to update the data that is loaded from isolated storage to add the latest tweets, however this blog post is about tomstoning, not twitter application development!</p>
+<h2>Tombstoning UI state</h2>
+<p>So, now our application saves state during tomstoning and to isolated storage when it exits. Surely we're all done now?</p>
+<p>Well ... almost.</p>
+<p>If you start the application and scroll down the list of tweets, then hit the start button, tomstoning the application, then hit the back button to re-activate it our tweets are all there, but our list is scrolled back to the top again:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/05/ScrollFail.png" alt="" title="ScrollFail" width="600" height="264" class="aligncenter size-full wp-image-1473" /></p>
+<p>Why is this? Well, when you simply navigate back to from one page within your application to another, the original page is still present in memory and as a result, any state held by the controls within the application UI is maintained. </p>
+<p>However, as we have seen already, when an application is tomstoned it is terminated. The only state that remains is that which you manually place into the <code>State</code> dictionary. Therefore, in order to maintain the scroll location, which we should do, we need to determine its location and store it in the tombstone state.</p>
+<p>A while back I blogged about <a href="{{ site.baseurl }}/2010/07/21/exposing-and-binding-to-a-silverlight-scrollviewers-scrollbars">exposing a <code>ScrollViewers</code> scroll location as an attached property</a> in order to permit databinding. This approach could be used here to bind the scroll location to a property on the view model. However, in this case I think something a bit more lightweight is more appropriate.</p>
+<p>In the previous sections we have used the application-level code>PhoneApplicationService.Current.State</code> for storing tombstone state. You can also store state on a page-level via the <code>PhoneApplicationPage.State</code> property. This is a much more appropriate place for storing state relating to UI controls within pages, rather than state which is more closely related with your applications business logic.</p>
+<p>It is still a little tricky to extract the required state information from list controls. The code below uses <a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> to locate the <code>VirtualizingStackPanel</code> that can be used to get / set the scroll position. The scroll location is placed in the <code>State</code> dictionary when the user navigates away from the page.</p>
+{% highlight csharp %}
+/// <summary>
+/// Gets the NavigationList ItemsPanel
+/// </summary>
+private VirtualizingStackPanel ItemsPanel
+{
+  get
+  {
+    return navigationControl.Descendants<VirtualizingStackPanel>()
+                            .Cast<VirtualizingStackPanel>()
+                            .SingleOrDefault();
+  }
+}
+
+private static readonly string ScrollOffsetKey = "ScrollOffsetKey";
+
+protected override void OnNavigatedFrom(System.Windows.Navigation.NavigationEventArgs e)
+{
+  base.OnNavigatedFrom(e);
+
+  // persist the scroll position within the page state
+  var scroll = ItemsPanel;
+  if (scroll != null)
+  {
+    State[ScrollOffsetKey] = ItemsPanel.ScrollOwner.VerticalOffset;
+  }
+}
+{% endhighlight %}
+<p>Restoring this state is simply a matter of checking for the existence of this key in the <code>State</code> dictionary when the page is navigated to:</p>
+{% highlight csharp %}
+protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+{
+  base.OnNavigatedTo(e);
+
+  // restore the scroll position
+  this.Loaded += (s, e2) =>
+    {
+        if (State.ContainsKey(ScrollOffsetKey))
+        {
+          var scroll = ItemsPanel;
+          if (scroll != null)
+          {
+            ItemsPanel.SetVerticalOffset((double)State[ScrollOffsetKey]);
+          }
+        }
+    };
+}
+{% endhighlight %}
+<p>Note that the state is restored after the Loaded event is fired because the <code>VirtualizingStackPanel</code> which manages the scroll location is defined within the <code>NavigationList</code> template and hence will not be present in the visual tree when the page is not initially constructed (the same is true if you use a <code>ListBox</code> as well).</p>
+<p>So ... finally, we are done!</p>
+<h2>Conclusions</h2>
+<p>This blog post feels like it has turned into something of an epic! as I mentioned in the introduction tomstoning within WP7 applications is complex and it is easy to get confused with all the various places where state can be stored (It even seems to have <a href="http://jesseliberty.com/2011/04/08/tombstoning-and-mvvm/">Silverlight guru Jesse Liberty in a bit of a muddle!</a>).</p>
+<p>It is worth noting that this example tombstones the entire ViewModel state, and in more complex applications it might be more appropriate to tombstone an abstraction of the ViewModel, especially if it is not serializable. However, I think the simple example that this blog presents is still a useful starting point for understanding the tombstoning process.</p>
+<p>You can download the sourcecode for this example application: <a href='{{ site.baseurl }}/archive/2011/05/WP7MVVMTombstone.zip'>WP7MVVMTombstone.zip</a></p>
+<p>Regards, Colin E.</p>

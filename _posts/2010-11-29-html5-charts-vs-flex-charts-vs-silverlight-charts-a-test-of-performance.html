@@ -1,0 +1,105 @@
+---
+title: HTML5 Charts vs Flex Charts vs Silverlight Charts - a Test of Performance
+date: 2010-11-29 00:00:00 Z
+categories:
+- cprice
+- Tech
+tags:
+- Closure
+- Javascript
+- HTML5
+- closure-library
+- Canvas
+- Closure Charts
+- SVG
+- VML
+- blog
+id: 56
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2010/11/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance/
+layout: default_post
+source: site
+disqus-id: "/2010/11/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance/"
+---
+
+<p><em>This post follows on from the comparisons by <a href="{{ site.baseurl }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2">Colin</a>, of two Silverlight chart libraries, and <a href="{{ site.baseurl }}/2010/11/29/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance.html">Graham</a>, of Flex and Silverlight chart libraries. In this post I add an HTML5 chart library into the mix. The results show that the HTML5 Charts perform easily as well as the others in HTML5 browsers (Chrome, FireFox, Safari, Opera, IE9*).</em><br/><small>* Note this is predicted performance in IE9 as the library does not yet support it during its preview phase, <a href="http://code.google.com/p/closure-charts/wiki/IE9Preview">there is work being done on this</a>.</small></p>
+<p>There's been some interest in how Flex, HTML5 and Silverlight stack up against each other, and whether there's any stand out reason to choose one technology over the others. To aid in this comparison I've reproduced the example from Colin and Grahams posts using an open-sourced charting library.</p>
+<h3>Closure Charts</h3>
+<p>The charting library is called Closure Charts, an open source project managed by Scott Logic aimed at producing fast and functional charts without requiring any browser plug-ins. It is built on top of the Closure Library framework and is fully annotated for use with the Closure Compiler. It has support for VML, SVG and canvas based rendering which means that it works on virtually all desktop web-browsers (including IE 6-8) and most smartphone browsers. For more information on the library visit the <a href="http://code.google.com/p/closure-charts/">website on Google Code</a>.</p>
+<h3>HTML5</h3>
+<p>I think at this point it would be helpful to share my personal definition of HTML5 as it's a highly overloaded term in much the same way as web 2.0 was/is-</p>
+<ul>
+<li>A  next generation  JavaScript engine  (10/100x performance improvement on the previous generation)</li>
+<li>New JavaScript APIs, e.g. WebWorkers, WebSockets, XDomain AJAX</li>
+<li>New standards CSS3 (brings with it layout concepts, transitions etc...), SVG (persistent mode graphics)</li>
+<li>New tags including Canvas (also Video, Audio but less relevant)</li>
+</ul>
+<p>The often quoted problem with HTML5 is the limited availability of the above features. Whilst is is true that support for most features is limited to the current versions of the non-IE browsers and the yet to be released IE 9, putting HTML5 support at approximatly 50% of desktop browsers and 60% of mobile browsers (<a href="http://gs.statcounter.com">statcounter.com</a>). It is not true to say that this means we can't start using those features, and in many cases drag the legacy browsers along for the ride. Abstraction libraries make it possible to target many HTML5 features and be confident of them running on legacy browsers. I'd recommend watching <a href="http://www.infoq.com/presentations/HTML5-Today">this video</a>, for a very passionate and informative talk on this very topic. (thanks Matt!). </p>
+<p>Unfortunately in this example we require functionality that is only provided by the canvas element, specifically Context2D.getImageData which allows the retrieval of pixel data from an image. For this reason the below example only works in browsers which support the canvas tag, so no IE 6-8 support. However, I think it's fair to blame the example rather than the technology here, as I'm struggling to think of a genuine need for pixel data extraction in most circumstances.</p>
+<h3>Implementation</h3>
+<p>Here are the examples of the three different technologies -</p>
+<table>
+<tr>
+<th style="text-align: center;">HTML5 Chart</th>
+<th style="text-align: center;">Flex Chart</th>
+<th style="text-align: center;"><a href="http://www.visiblox.com/">Visiblox Chart</a></th>
+</tr>
+<tr>
+<td style="text-align: center;" id="html5example"></td>
+<td style="text-align:center;">[kml_flashembed movie="{{ site.baseurl }}/archive/2010/11/FlexChartsPerformance.swf" height="380" width="280" /]</td>
+<td style="text-align:center;"> <object height="400" width="300" type="application/x-silverlight-2" data="data:application/x-silverlight,"><param value="{{ site.baseurl }}/archive/2010/11/HistogramVisiblox.xap" name="source"><a style="text-decoration: none;" href="http://go.microsoft.com/fwlink/?LinkID=124807"><br /> <img style="border-style: none;" alt="Get Microsoft Silverlight" src="http://go.microsoft.com/fwlink/?LinkId=108181"><br /> </a><br /> </object> </td>
+</tr>
+</table>
+<p><small>Image credit to<a href="http://www.flickr.com/photos/clevergrrl/218312595/sizes/s/in/photostream/">Clevergrrl</a></small></p>
+<style>	#imageDataComponentRootElement {		width: 280px;padding: 10px;	}	#chartcanvas {		height: 180px;		border: 1px solid #ededed;	}</style>
+<p><script type="text/javascript" src="{{ site.baseurl }}/archive/2010/11/compiled.js"></script><script type="text/javascript">bootstrap('html5example');</script></p>
+<p>The example is implemented as a Closure Component, an interesting snippet is the mouse move code which is very similar to the Flex example -</p>
+{% highlight javascript %}
+if (this.startPos) {
+	/** @type {goog.math.Coordinate} */
+	var canvasPos = goog.style.getClientPosition(this.canvas);
+	/** @type {goog.math.Coordinate} */
+	var endPos = new goog.math.Coordinate(e.clientX - canvasPos.x, e.clientY - canvasPos.y);
+	// compute length of line
+	/** @type {number} */
+	var length = Math.floor(Math.sqrt(Math.pow(this.startPos.x - endPos.x, 2) +
+				   Math.pow(this.startPos.y - endPos.y, 2)));
+	if (length > 1) {
+		// draw the visible line
+		this.ctx.drawImage(this.image, 0, 0);
+		this.ctx.beginPath();
+		this.ctx.moveTo(this.startPos.x, this.startPos.y);
+		this.ctx.lineTo(endPos.x, endPos.y);
+		this.ctx.closePath();
+		this.ctx.stroke();
+
+		// rebuild the chart data
+		goog.array.clear(this.seriesRed.points);
+		goog.array.clear(this.seriesGreen.points);
+		goog.array.clear(this.seriesBlue.points);
+		for (var i = 0; i < lineLength; i++) {
+		/** @type {number} */
+		var xIndex = Math.floor(this.startPos.x + (endPos.x - this.startPos.x) * i / lineLength);
+		/** @type {number} */
+		var yIndex = Math.floor(this.startPos.y + (endPos.y - this.startPos.y) * i / lineLength);
+		/** @type {number} */
+		var index = yIndex * this.size.width * 4 + xIndex * 4;
+		this.seriesRed.points.push([i,this.canvasPixelArray[index]]);
+		this.seriesGreen.points.push([i,this.canvasPixelArray[index + 1]]);
+		this.seriesBlue.points.push([i,this.canvasPixelArray[index + 2]]);
+		}
+
+		// update the chart display
+		this.chart.redraw();
+	}
+}
+{% endhighlight %}
+<h3>Conclusion</h3>
+<p>I'm able to conclude in much the same way as Graham, from the above examples it is apparent that there is little, if anything, to differentiate their relative performance once loaded. Furthermore, it would be fair to say that the outright technology choice of HTML5, Flex or Silverlight has not differentiated these examples. Rather, the choice of charting library in either technology is far more significant with respect to performance.</p>
+<p>However, I think a distinction can be drawn in terms of loading time. The HTML5 example initialising with the rest of the page, whereas both the plug-in based approaches have a noticeable loading lag, both network before they are cached, and plug-in initialisation once cached. Here, the HTML5 version has two clear advantages -</p>
+<ul>
+<li>The example itself weighs in at only ~65kB (including image, transferred size) versus ~225kB for Flash and ~285kB for Silverlight.</li>
+<li>There is no plug-in to initialise, a very big advantage of targeting the "native runtime".</li>
+</ul>
+<p>So in conclusion, if loading performance, cuteness or mobile support are crucial to your component/application then HTML5 is a very strong contender.</p>
+<p>Chris</p>

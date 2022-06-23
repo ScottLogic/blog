@@ -1,0 +1,129 @@
+---
+title: WinRT Transitions - Creating Fast and Fluid Metro UIs
+date: 2011-10-10 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- codeproject
+- WinRT
+id: 1735
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/10/winrt-transitions-creating-fast-and-fluid-metro-uis/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/10/winrt-transitions-creating-fast-and-fluid-metro-uis/"
+---
+
+<p><em>This blog post looks at the new concept of 'transitions' that WinRT, within Windows 8, introduces. This concept makes it very easy for you to create a fluid and interactive UI without going anywhere near storyboards!</em></p>
+<p>I have to admit it, I am a big fan of the <a href="http://en.wikipedia.org/wiki/Metro_(design_language)">Metro Design Language</a>; the clean chrome-free graphics, combined with typography inspired by signage and designed for maximum legibility, has given Windows Phone 7 an instantly recognisable style. However, whilst Silvelight applications developed for Windows Phone 7 look like the native metro phone apps, they do not move like them. Motion is an important part of metro, with one of the tenants being that it is "Alive In Motion". This lead me to publish a multi-part blog series, called Metro In Motion, which provided implementations of the various native animations and transitions (<a href="{{ site.baseurl }}/2011/03/22/metro-in-motion-fluid-list-animation">1</a>, <a href="{{ site.baseurl }}/2011/03/27/metro-in-motion-part-2-peel-animations">2</a>, <a href="{{ site.baseurl }}/2011/04/04/metro-in-motion-3-flying-titles">3</a>, <a href="{{ site.baseurl }}/2011/05/03/metro-in-motion-part-4-tilt-effect">4</a>, <a href="{{ site.baseurl }}/2011/05/16/metro-in-motion-5-sandwichflow">5</a>, <a href="{{ site.baseurl }}/2011/06/06/metro-in-motion-part-6-rolling-list-location-indicator">6</a> & <a href="{{ site.baseurl }}/2011/06/14/metro-in-motion-part-7-panorama-prettiness-and-opacity">7</a>).</p>
+<p>Windows 8 again is built using the Metro Design Language, and again the tools make it easy for you to create an application which has the Metro look. However, where Windows 8 differs from Windows Phone 7 is that developer APIs make it very easy for you to create applications that move like a Metro application. WinRT introduces a new XAML concept, transitions, which is the focus of this blog post. </p>
+<p>I was inspired to explore transitions after watching John Papa's excellent //build/ session <a href="http://channel9.msdn.com/Events/BUILD/BUILD2011/APP-494T">"Stand out with styling and animation in your XAML app"</a>, I would thoroughly encourage you to watch it!</p>
+<p>I have a (very shaky) video of the demo code included with this blog post below:</p>
+<p><iframe width="420" height="315" src="http://www.youtube.com/embed/6e-oP1QS23M" frameborder="0" allowfullscreen></iframe></p>
+<p>With WinRT UIElement, the base class for any element that is added to the visual tree (UI), has a <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.uielement.transitions(v=VS.85).aspx">Transitions</a> property. You can use this to specify a collection of transitions for an individual element:</p>
+{% highlight xml %}
+<Rectangle>
+    <Rectangle.Transitions>
+        <TransitionCollection>
+            <RepositionThemeTransition/>
+            <EntranceThemeTransition/>
+        </TransitionCollection>
+    </Rectangle.Transitions>
+</Rectangle>
+{% endhighlight %}
+<p>Each transitions is an animation that the WinRT framework plays in response to certain 'events'. We'll take a look at the various transitions in turn...</p>
+<h2>EntranceThemeTransition</h2>
+<p>When elements are added to the UI they appear instantly (as you might expect), however, with the <code>EntranceThemeTransition </code>elements gracefully fade and slide into location. <img class="aligncenter size-full wp-image-1738" title="EntranceTheme" src="{{ site.baseurl }}/archive/2011/10/EntranceTheme.png" alt="" width="134" height="274" />This animation will fire whenever your element is added to the UI, this could be as a result of:</p>
+<ul>
+<li>The application first loading, any element with this transitions specified will animate when the application starts.</li>
+<li>The element being added programatically or as a result of binding (e.g. within a bound list)</li>
+<li>The element being added as a child of another element</li>
+</ul>
+<p>Basically, you can rely on this animation being fired whene your element is first visible to the user.</p>
+<h2>ChildrenTransitions</h2>
+<p>If you add multiple elements to the UI at the same time, or a UserControl is loaded that contains a number of animated elements, their <code>EntranceThemeTransition </code>animations will fire at the same time. However, if you have a panel that contains a number of elements, you can make them appear in sequence by adding the <code>EntranceThemeTransition </code>to the <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls(v=VS.85).aspx">ChildrenTransitions</a> property of the panel. For example, any element added to the WrapGrid defined below, will animate as it appears:</p>
+{% highlight xml %}
+<WrapGrid>
+    <WrapGrid.ChildrenTransitions>
+        <TransitionCollection>
+            <EntranceThemeTransition/>
+        </TransitionCollection>
+    </WrapGrid.ChildrenTransitions>
+</WrapGrid>
+{% endhighlight %}
+<p>Here we can see nine rectangles being animated as they slide into location:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/ChildTransitions.png" alt="" title="ChildTransitions" width="500" height="231" class="aligncenter size-full wp-image-1743" /></p>
+<p>The animations are fired in sequence, no matter how the elements are added to the panel. For example, if you add a couple of elements in code-behind, they will appear in sequence.</p>
+<p>(As an aside, this is really quite cool, I can imagine how I might implement the animations on individual elements in WPF / Silverlight, however, the child-transitions concept would be vary hard to implement!)</p>
+<p>One thing to note is that the framework fires the animations in the order that elements appear in the <code>Panel.Children</code> collection, this is not necissarily the order they appear in the UI. For example, the following example shows elements added in a Grid, where the elements are defined in a random order within XAML:</p>
+<p><img class="aligncenter size-full wp-image-1737" title="ChildTransitions2" src="{{ site.baseurl }}/archive/2011/10/ChildTransitions2.png" alt="" width="373" height="336" /></p>
+<p>This doesn't look quite so good!</p>
+<h2>RepositionThemeTransition</h2>
+<p>When you change the positions of an element, either directly or as a result of its parent layout changing, it will move into its new location instantly. By adding a <code>RepositionsThemeTransition</code>, the WinRT framework will animate the element as its moves location.</p>
+<p>A few things I have observed:</p>
+<ul>
+<li>The <code>RepositionThemeTransition </code>is not fired when you apply a RenderTransform to an element, possibly because transitions are applied via render transforms</li>
+<li>The <code>RepositionThemeTransition </code>is not fired when an elements position within a Canvas changes. This is probably because Canvas.Left and Canvas.Top do not have any impact on layout.</li>
+<li>This transition, and none of the others discussed in this blog post, work when the elements are hosted within a <code>FlipView </code>(not sure why, this feels like a bug)</li>
+</ul>
+<p>Again, if you add a <code>RepositionThemeTransition </code>to the children of a panel via <code>ChildrenTransitions</code>, the animations are fired in sequence. In the below image an element has been removed from the top of a <code>WrapGrid</code>:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/Grid.png" alt="" title="Grid" width="500" height="305" class="aligncenter size-full wp-image-1740" /></p>
+<p>(Trust me - this looks much better in action! try running the sample code with this blog-post)</p>
+<p>One point of interest, you can simplify the XAML for adding <code>ChildrenTransitions </code>when using an <code>ItemsControl </code>(Or <code>ListBox</code>, <code>GridView </code>or other subclasses) from the following:</p>
+{% highlight xml %}
+<ItemsControl Grid.Row="1"
+                x:Name="itemsTwo">
+    <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+            <WrapGrid>
+                <WrapGrid.ChildrenTransitions>
+                    <TransitionCollection>
+                        <RepositionThemeTransition/>
+                    </TransitionCollection>
+                </WrapGrid.ChildrenTransitions>
+            </WrapGrid>
+        </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+</ItemsControl>
+{% endhighlight %}
+<p>By using the <code>ItemContainerTransitions </code>property as follows:</p>
+{% highlight xml %}
+<ItemsControl Grid.Row="1"
+                x:Name="itemsTwo">
+    <ItemsControl.ItemContainerTransitions>
+        <TransitionCollection>
+            <RepositionThemeTransition/>
+        </TransitionCollection>
+    </ItemsControl.ItemContainerTransitions>
+    <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+            <WrapGrid/>
+        </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+</ItemsControl>
+{% endhighlight %}
+<p>This property specifies a collection of transitions that will be set on the item-container.</p>
+<h2>AddDeleteThemeTransition</h2>
+<p>This transitions is intended for use with panels, it animates the process of adding / removing elements. This transitions is added to the <code>ChildrenTransitions </code>(or <code>ItemContainerTransitions</code>) just like the others. As items are added, they fade into place, and as they are removed they slide out and the other elements reposition themselves. One thing that is really cool about this transitions is that it 'understand' the layout of the panel. </p>
+<p>Here you can see elements being repositioned within a <code>WrapGrid</code> when the first element is being removed. You can see that the elements are moved in batches based on their row / column:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/WrapGrid.png" alt="" title="WrapGrid" width="613" height="270" class="aligncenter size-full wp-image-1739" /></p>
+<p>Very cool!</p>
+<h2>ContentThemeTransition</h2>
+<p>The final transition I want to look at is the <code>ContentThemeTransition</code>. For those of you who have worked with Silverlight or WP7, this provides the same functionality as the popular <code>TransitioningContentControl</code> from the Slverlight toolkit - now this feature is delivered by the framework itself (at last!)</p>
+<p>To enable this, add a <code>ContentThemeTransition </code>to the <code>ContentTransitions</code> property (note, not, the <code>Transitions </code>property!).</p>
+{% highlight xml %}
+<ContentControl x:Name="contentCtrl>
+    <ContentControl.ContentTransitions>
+        <TransitionCollection>
+            <ContentThemeTransition HorizontalOffset="200"/>
+        </TransitionCollection>
+    </ContentControl.ContentTransitions>
+</ContentControl>
+{% endhighlight %}
+<p>Whenever the content of this control is changed, either by setting the <code>Content </code>property directly, or as a result on the databound content changing, the new content gracefully slides into place.</p>
+<h2>Conclusions</h2>
+<p>Whilst WinRT borrows much from Silverlight and WPF, it brings some great new controls and features and transitions are probably one of my favourite new features. They really help you create fluid applications with minimum effort.</p>
+<p>I have covered all the theme-transitions except one, ReorderThemeTransition, I have not yet found out how to use this transition, I think this might be because of <a href="http://social.msdn.microsoft.com/Forums/en-AU/winappswithcsharp/thread/fc3705c1-ae0c-483e-a209-8c3aeefd02c8">a lack of sorting / filtering of collections in WinRT</a>. This is probably functionality that will be added at a later date.</p>
+<p>You can download the full sourcecode for this blog post: <a href='{{ site.baseurl }}/archive/2011/10/WinRTTransitions.zip'>WinRTTransitions.zip</a></p>
+<p>Regards, Colin E</p>

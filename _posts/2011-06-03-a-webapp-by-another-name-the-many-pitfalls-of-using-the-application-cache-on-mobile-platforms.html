@@ -1,0 +1,60 @@
+---
+title: A Webapp By Another Name - The many pitfalls of using the application cache
+  on mobile platforms
+date: 2011-06-03 00:00:00 Z
+categories:
+- cprice
+- Tech
+tags:
+- Javascript
+- HTML5
+- AppCache
+- Mobile
+- blog
+id: 168
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2011/06/a-webapp-by-another-name-the-many-pitfalls-of-using-the-application-cache-on-mobile-platforms/
+layout: default_post
+source: site
+disqus-id: "/2011/06/a-webapp-by-another-name-the-many-pitfalls-of-using-the-application-cache-on-mobile-platforms/"
+---
+
+<p><em>In this first installment, I'll introduce the appcache, talk about some gotchas of using the appcache and hopefully give some helpful hints for debugging it based on my experience.</em></p>
+<p><strong>Introduction</strong></p>
+<p>The appcache is a new DOM feature added in the unholy bundle we call HTML5. It aims to allow your webapp to be loaded even without a network connection, so your webapp no longer needs the web...Hang on, that means it's now an app!</p>
+<p>I set out to use the cache to create a single app that could run across all the modern mobile platforms, whilst minimising the amount of platform specific code that was needed. Obviously being able to work offline is a key part of a mobile application, so the plan was to create and maintain only a very small and lightweight wrapper for each platform, and invest most of the effort into creating the one offline-capable webapp. Each of the native wrappers would contain just enough code to show a chrome-less version of the native browser, which would in turn load the webapp (hopefully from the appcache). Against the alternative of creating and maintaining a different copy of the app for each platform, I hoped it would result in significantly less effort.</p>
+<p><strong>Back to the appcache</strong></p>
+<p>The appcache itself is controlled using a manifest file. Each webapp would normally define a single manifest which contains a list of resources that the browser should -</p>
+<ul>
+<li>Preemptively fetch and cache for offline use</li>
+<li>Lazily cache for offline use</li>
+<li>Never cache for offline use</li>
+<li>Preemptively fetch and cache to be used as the response for anything that isn't available when the user is offline</li>
+</ul>
+<p>I could go into more detail but I think <a href="http://diveintohtml5.org/offline.html">Mark Pilgrim</a> has covered it better than I ever could, and if that isn't enough for you then there's always the <a href="https://html.spec.whatwg.org/multipage/browsers.html#offline">specification</a> to keep you happy. I've reproduced below the manifest taken from Mark Pilgrim's Halma game example. It is a very simple manifest consisting of the required header, a comment and the list of resources to preemptively cache -</p>
+<p><code>CACHE MANIFEST# revision 9e63986halma.html../halma-localstorage.js</code></p>
+<p>I instead want to concentrate on my experience of developing a webapp with offline capabilites using the cache. The first thing to be aware of is that working with caches (especially debugging them) is an absolute nightmare! Unfortunately by virtue of what they do, it's very easy to get misled when you're debugging any cached content. Instead of making a change and there being two outcomes - it works or it doesn't, working with a cache means that there's now the third possibility to consider - that you're looking at an old cached version which itself may work or not.</p>
+<p><strong>Appcache gotchas</strong></p>
+<p>Most web developers are used to working with (and around) the standard browser cache during development. In my experience working with the appcache isn't actually any more challenging, it's just that you need to learn a new set of rules and debugging techniques.</p>
+<p><strong>1. Content type</strong></p>
+<p>The biggest thing to be aware of is that you must serve the appcache with a content type of text/cache-manifest. If you don't then the browser will not recognise the manifest as valid and just ignore it. Depending on your server of choice there are a variety of ways of configuring this, so I don't propose to cover each of them here.</p>
+<p><strong>2. Manifest expiration</strong></p>
+<p>Another thing to watch out for is that the up-to-date check on a manifest file is based not on any cache headers but on a binary diff of the old file against the new one. That means that simply pushing a new version of the app/manifest to the server will not cause the cache to be reloaded, you must make a change to the content of the manifest file itself. The most common way to force a reload of the manifest is to add a comment at the top of the file and increment it with each new revision e.g. -</p>
+<p><code>#rev 1.2.3</code></p>
+<p><strong>3. Missing resources</strong></p>
+<p>A third big gotcha is that if any of the resources in a cache file fail to download the entire cache will be dropped. That means that even if one insignificant image buried in your cache file fails to download, nothing will be cached. The best way to debug this situation is to use the appcache API to listen for errors, the developer tools in the browser or if all else fails watch the server logs for 404 responses.</p>
+<p><strong>4. Same-origin</strong></p>
+<p>Whilst you can list resources from other domains within the manifest file, the manifest file itself must be served from the same origin as the host page.</p>
+<p>&nbsp;</p>
+<p><strong>The appcache API</strong></p>
+<p>A nice feature of the appcache is the ability to get programmatic access to the cache update mechanism. That means that amongst other things, you can listen in to events raised by the cache as it performs the update. One example of that would be listening for the progress of each resource as it attempts to load it -</p>
+<p><code>function handleCacheError(e) { console.error(e); }applicationCache.addEventListener('progress', handleCacheError, false);</code></p>
+<p>The programmatic access also allows you to manually trigger an up-to-date check and also control when the new cache is switched in place of the old one, <a href="http://www.html5rocks.com/tutorials/appcache/beginner/#toc-updating-cache">HTML5 Rocks</a> have a good tutorial covering this.</p>
+<p><strong>Debugging using developer tools</strong></p>
+<p>Unfortunately as it's such a new feature the browser debug tools aren't up to much yet either e.g. in Chrome 11.0.696.71 there are buttons for refreshing and deleting the appcache - they just <a href="http://code.google.com/p/chromium/issues/detail?id=65714">don't work</a>. At least the development tools do have support for viewing the content of the appcache (Ctrl+Shift+J-&gt;Resources-&gt;Application Cache) which is a step in the right direction!</p>
+<p><img src="{{ site.baseurl }}/archive/2011/06/appcache-developer-tools.png" alt="" width="627px;" height="254px;" /></p>
+<p>When trying to dig out the bug report for the above issue I stumbled across an appcache debug page <a href="chrome://appcache-internals/">chrome://appcache-internals/</a> which does make it possible to clear the cache.</p>
+<p><img src="{{ site.baseurl }}/archive/2011/06/appcache-internals.png" alt="" width="468px;" height="296px;" /></p>
+<p><strong>Wrapping up</strong></p>
+<p>I started out stating that I was going to create a wrapped (web)app. In part 1, I've covered the basics of getting your webapp offline in the browser but so far I haven't touched on anything mobile. I'm going to follow this post up with another couple covering my experiences getting the appcache working in native apps as that turns out to be a lot more tricky than should be...</p>
+<p><a href="{{ site.baseurl }}/2011/06/10/a-webapp-by-another-name-ii-the-many-pitfalls-of-using-the-application-cache-on-mobile-platforms">Part II</a></p>

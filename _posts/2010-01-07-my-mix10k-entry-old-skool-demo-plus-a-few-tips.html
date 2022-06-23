@@ -1,0 +1,147 @@
+---
+title: My Mix10k entry - Old Skool demo - plus a few tips
+date: 2010-01-07 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- silverlight
+- WriteableBitmap
+- mix10k
+- blog
+id: 539
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2010/01/my-mix10k-entry-old-skool-demo-plus-a-few-tips/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2010/01/my-mix10k-entry-old-skool-demo-plus-a-few-tips/"
+---
+
+<p><em>This blog post is about my entry to the Mix10k code competition, and old-skool demo, plus a few tips about how to keep you code size to below 10k.</em></p>
+<p>The <a href="http://mix10k.visitmix.com/">mix10k challenge</a>, where you are given 10k to create a Silverlight / HTML5 application, has been on my mind for a while ... the Christmas vacation was the perfect excuse to put together my entry. Inspired by the demo's of the Amiga era, here is my mix10k old-skool demo entry:</p>
+<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="700" height="500" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/01/S.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can view my entry (and more importantly vote for it!) at the <a href="http://mix10k.visitmix.com/Entry/Details/147">mix10k gallery</a>.</p>
+<p>For me the greatest challenge was the music, not least for the fact that I am no good at writing the stuff myself! The mix10k rules are fairly relaxed, you can download content, such as images and music, allowing you to circumnavigate the 10k limit. However, I thought it would be a more interesting challenge to pack everything into 10k.</p>
+<p>Size-limited demos typically use synthesis rather than sampling for the musics. Unfortunately Silverlight isn't really geared towards sound synthesis, however, a few people have managed to create <a href="http://10rem.net/blog/2009/03/23/creating-sound-using-mediastreamsource-in-silverlight-3-beta">synthesized media sources</a>. I decided to go the sampling route and use an MP3 track for my music, the idea being to use a short, highly compressed MP3 track and loop it. I posted a message on the <a href="http://8bitcollective.com/">8bitcollective</a> forums and within a day had a funky, and highly compressed, 4 second MP3 clip for my demo. The MP3 filesize of 4,248 bytes left me 5,992 to play with.</p>
+<p>However, the next challenge was looping the audio, which is unfortunately something that is not supported out-of-the-box. For longer media clips it is acceptable to <a href="http://www.williablog.net/williablog/post/2007/10/30/How-to-Make-a-Media-Element-Loop-Indefinitely.aspx">catch the MediaEnded event, re-wind and re-start</a>. However, there is a delay of about half a second, which with a 4 second looped audio clip is pretty disruptive! Fortunately Silverlight does expose a lower level API for media via the abstract class MediaStreamSource, which has virtual methods which you can override to supply audio direct from a stream. The codeplex project <a href="http://code.msdn.microsoft.com/ManagedMediaHelpers">ManagedMediaHelpers</a> is a great place to start for information on how to load MP3 audio from a file. Typically the code to read and stream an MP3 file is over 10k, however, I was able to trim this down to roughly 1k by removing all the code for parsing the MP3 headers, replacing it with the hard-coded values for my specific MP3 file.</p>
+<p>Unfortunately, when the audio was looped, it just didn't sound right. The trouble is, within MP3 files, the audio is split into frames. Using a useful utility from <a href="http://www.codeproject.com/KB/audio-video/mpegaudioinfo.aspx">codeproject</a>, I found that my MP3 file consisted of 56 frames of ~67ms in length. However, the audio loop was not a multiple of 67ms. To rectify this, I downloaded a copy of the free audio editor <a href="https://audacity.sourceforge.net/">Audacity</a>, and 'stretched' the track to fit into an integer number of frames, and re-encoded in MP3 format via <a href="http://lame.sourceforge.net/">lame</a>. Finally, I had looping MP3 audio! (and 4,958 bytes left)</p>
+<p><a href="{{ site.baseurl }}/archive/2009/12/audacity.png"><img class="aligncenter size-medium wp-image-542" title="audacity" src="{{ site.baseurl }}/archive/2009/12/audacity-300x187.png" alt="audacity" width="300" height="187" /></a></p>
+<p>After the battle I had with the audio, constructing the visuals, the scrolling text, interference patterns, plasma and starfield was a piece of cake!</p>
+<p>Here are a few quick tips for keeping your filesize under 10k.</p>
+<ul>
+<li><strong>Use the <code>var</code> keyword wherever possible</strong>&nbsp;</li>
+<li><strong>Use the <code>using</code> for aliasing frequently used types</strong>
+<p>For example:</p>
+{% highlight csharp %}
+using K = System.Windows.Media.MediaSourceAttributesKeys;
+using J= System.Windows.Media.MediaStreamAttributeKeys;
+using M = System.Math;
+{% endhighlight %}
+<p>With type names as long as <code>MediaSourceAttributesKeys</code>, you only need to use them three times for a using alias to make sense!</p>
+</li>
+<li><strong><em>chain </em>initialisation of variables</strong>
+<p>The following code:</p>
+{% highlight csharp %}
+int x1 = sin1(8) + 200
+int y1 = sin1(3) * 10 + 100
+int g = (tx - x1) * (tx - x1);
+{% endhighlight %}
+<p>Can be shortened to:</p>
+{% highlight csharp %}
+int x1 = sin1(8) + 200, y1 = sin1(3) * 10 + 100, g = (tx - x1) * (tx - x1);
+{% endhighlight %}
+</li>
+<li><strong>Tabs not spaces</strong>
+<p>If you are not to bothered about squeezing the most out of those 10k bytes and want your code to look pretty, at least save yourself a bit of room by using Tabs!</p>
+</li>
+<li><strong>Choose wisely between XAML and C#</strong>
+<p>One big advantage that XAML has over C# is its use of value converters, compare the following XAML:</p>
+{% highlight xml %}
+<Ellipse Fill="White"/>
+{% endhighlight %}
+<p>to its equivalent in C#:</p>
+{% highlight csharp %}
+var el = new Ellipse()
+{
+   Fill = new SolidColorBrush(Color.FromArgb(255,255,255,255))
+};
+{% endhighlight %}
+<p>In this case, XAML is a clear winner.</p>
+</li>
+<li><strong>Use lambda expressions for event handlers</strong>
+<p>You can achieve great savings by including your event handling logic within anonymous delegates (via lambda expressions), it also means that you can move variables from class scope (i.e. files) to method scope and use the <code>var</code> keyword. Compare:</p>
+{% highlight csharp %}
+WriteableBitmap bitmap = new WriteableBitmap(200,200);
+
+MyPage()
+{
+	var t = new DispatcherTimer();
+	t.Tick +=new EventHandler(t_Tick);
+}
+
+void  t_Tick(object sender, EventArgs e)
+{
+	// do stuff with the bitmap
+	bitmap.Invalidate();
+}
+{% endhighlight %}
+<p>to:</p>
+{% highlight csharp %}
+MyPage()
+{
+	var bitmap = new WriteableBitmap(200,200);
+	var t = new DispatcherTimer();
+	t.Tick += (s,e) =>
+		{
+			// do stuff with the bitmap
+			bitmap.Invalidate();
+		};
+}
+{% endhighlight %}
+</li>
+<li><strong>Ditch that App!</strong>
+<p>The <code>App.xaml</code> and <code>App.xaml.cs</code> full of template code that you do not need. Simply ditch these files entirely and replace with a minimal application that indicates the page to display: </p>
+{% highlight csharp %}
+public class A : Application
+{
+    public A()
+    {
+        Startup += (i, j) => RootVisual = new MainPage();
+    }
+}
+{% endhighlight %}
+</li>
+<li><strong>Minify your code</strong>
+<p>Perhaps the greatest savings can be achieved by 'minifying' your code, i.e. removing any extra whitespace and reducing variable, method, types names to single characters. The problem is that in doing so, your code will become unreadable!</p>
+<p>In order to minify my code yet maintain readability I created a very simple console application that read my application source and performed a bunch of string replacements in order to reduce its size ...</p>
+{% highlight csharp %}
+static Dictionary<string, string> reps = new Dictionary<string, string>()
+{
+  {System.Environment.NewLine, ""},
+  {"  ", " "},
+  {" = ", "="},
+  {" == ", "=="},
+  {" * ", "*"},
+  {" > ", ">"},
+  {" < ", "<"},
+  ...
+
+  // methods
+  {"Timer_Tick", "T"},
+  {"CreateLine", "g"},
+  {"DrawLines", "ln"},
+  ...
+
+  // xaml
+  {"grid", "q"},
+  {"image", "o"},
+  {"canvas", "c"},
+  {"MainPage", "Y"},
+  ...
+};
+{% endhighlight %}
+<p>The output of this console application is sent to another project which builds my final entry. The result of this was to make my reasonably compact code <strong>47%</strong> smaller!</li>
+</ul>
+<p>You can download my thoroughly messy and unreadable code: <a href='{{ site.baseurl }}/archive/2010/01/mix10ksrc.zip'>mix10ksrc.zip</a></p>
+<p>And vote for it on the <a href="http://mix10k.visitmix.com/Entry/Details/147">mix10k site</a> (Did I say that already?)</p>
+<p>Regards, Colin E.</p>

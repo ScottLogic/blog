@@ -1,0 +1,42 @@
+---
+title: You can build feature-rich apps with HTML5, but should you?
+date: 2012-08-29 00:00:00 Z
+categories:
+- cprice
+- Tech
+tags:
+- blog
+id: 157912
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2012/08/you-can-build-feature-rich-apps-with-html5-but-should-you/
+layout: default_post
+source: site
+disqus-id: "/2012/08/you-can-build-feature-rich-apps-with-html5-but-should-you/"
+---
+
+<p><a style="float: right; margin-left: 16px;" href="{{ site.baseurl}}/cprice/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.baseurl }}/archive/2012/03/me1.png" alt="" /></a><em>HTML5 versus native (iOS:Obj-C, Android:Java) mobile development is a hot topic at the moment, with Facebook's ditching of a hybrid HTML5/Obj-C app in favour of an Obj-C-only app the latest blow to land. However, independent observers will already have noted that the battle, as always, is not without it's fair share of FUD. </p>
+<p>This FUD-free technical article will side-step the debate, assume that you've chosen to go with HTML5, and ask - what level of real-life performance can you expect if you build an HTML5 app and deploy it across multiple-platforms?</em></p>
+<h2>Background</h2>
+<p>The app was designed with two objectives, to demonstrate the performance of basic user interactions (i.e. scrolling, selection and navigation) and to do this within a justifiable business context (i.e. not a <a href="http://todomvc.com/">todo list</a>). In addition, to make sure that we didn't miss the 90% of effort that invariably goes into the last 10% of tasks, we added a final objective to finish the app with the same level of polish as any client project.</p>
+<p style="text-align:center"><em>The rest of this section walks through the business context of the app, skip to the next section if this doesn't interest you.</em></p>
+<p>The Wealth Manager app represents the type of functionality wealth managers and financial advisers would use to manage a client portfolio and sales relationship. Whilst not as complete in functionality as a commercial app would be, it demonstrates how some of the key functions in such an app can be realised.</p>
+<p>The entry point for the app is an overview of all the managed clients, with immediate access to fundamental information regarding their portfolio and contact details. The list can be filtered to show only recent client appointments, upcoming appointments or overdue appointments that need to be scheduled. From here, the portfolio of an individual client can be selected for analysis using the tools in the app. Analysis provides sector and regional interactive analytic views, selecting an item in either of the visualisations highlights the corresponding item in the other visualisation.</p>
+<h2>Implementation</h2>
+<p>GWT provides structure to the project and the guts of the code, it allowed us to produce a maintainable, well-tested app without bloating the run-time performance. This is achieved by the Java to JavaScript compiler which performs optimisations not normally possible with vanilla JavaScript, such as using type information from the Java code to perform dead-code elimination or inlining property accessor methods. It also follows the general principle of trying to do as much work as possible at compile-time rather than run-time, a good thing when targeting low power mobile devices.. </p>
+<p>The GWT DOM abstraction and widget library were also used where possible to provide <a href="https://developers.google.com/web-toolkit/doc/latest/DevGuideUiBinder">XML-based UI layout</a>. Certain newer browser features e.g. CSS3 transitions for smooth animation aren't currently supported out the box, but this was easily fixed by dropping down to <a href="https://developers.google.com/web-toolkit/doc/latest/DevGuideCodingBasicsJSNI">JSNI</a>. Other CSS3 features such as font-face, to include a custom font, and media-queries, to change the layout based on device pixel width, were used to further enhance the app.</p>
+<p>One of the big features missing from the current crop of mobile browsers (standalone or natively-wrapped) is overflow:scroll/auto. Currently this will render either as overflow:hidden or as expected but with a vastly inferior bounce-less, marker-less scroll behaviour. <a href="http://cubiq.org/iscroll-4">iScroll</a> is a polyfill which does it's best to emulate the native behaviour in platform specific ways. We incorporated the library into the project for the client list screen, again utilising JSNI to interface with it.</p>
+<p>The final piece of the puzzle is another open source project called <a href="http://phonegap.com/">PhoneGap</a>/<a href="http://incubator.apache.org/cordova/">Cordova</a>, best considered as a native shell around the HTML5 app. The project maintains a native app per supported platform, with each being no more than the platform equivalent of a full-screen browser control. By utilising it and the PhoneGap Build service, we were able to set the name, icon, splash screen, orientation, target device-type and app permissions in one config file and have the service automatically return a native app for each target platform. We then further automated this using the phonegap-build-maven-plugin which gave us continous integration of the build and maven managed releases.</p>
+<h2>Performance</h2>
+<p>The following video showcases the performance of the app running on a Samsung Galaxy Tab 10.1 (Android 3.1) and an iPad 2 (iOS5). </p>
+<p><iframe width="560" height="315" src="http://www.youtube.com/embed/l6Iv635PL4M" frameborder="0" allowfullscreen></iframe></p>
+<h2>Conclusion</h2>
+<p>The app demonstrates two clear conclusions -</p>
+<ul>
+<li>You can produce a functional, good-looking app in HTML5 that can be deployed to the platform app stores without writing any native code.</li>
+<li>There are unavoidable performance problems when trying to implement specific UI features on specific versions of specific platforms on specific devices.</li>
+</ul>
+<p>You may read that as a general conclusion, that any app will be a compromise if you write it in HTML5, indeed initially that was our conclusion. However, we now believe a better conclusion is to ask; by using HTML5, to what extent would you have to compromise <strong>your</strong> app running on <strong>your</strong> user's devices? </p>
+<p>Your app has unique requirements that may or may not be well suited to an HTML5 implementation. The only way to find out the best technology for your requirements is to build a cut-down but representative app, and to then test it across the range of devices you expect your users to have. </p>
+<p><a class="twitter-share-button" href="https://twitter.com/share" data-via="100pxls">Tweet</a><script type="text/javascript">// <![CDATA[!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");// ]]></script></p>
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+<p><script type="text/javascript">// <![CDATA[  (function() {    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;    po.src = 'https://apis.google.com/js/plusone.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);  })();// ]]></script></p>

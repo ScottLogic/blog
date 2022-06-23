@@ -1,0 +1,231 @@
+---
+title: Adding a Smoothed Line Series (B&eacute;zier curve) to a Visiblox Chart
+date: 2010-11-22 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- charts
+- visiblox
+- spline
+- Bezier
+- codeproject
+id: 939
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2010/11/adding-a-smoothed-line-series-bezier-curve-to-a-visiblox-chart/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2010/11/adding-a-smoothed-line-series-bezier-curve-to-a-visiblox-chart/"
+---
+
+<p><i>In this blog post I look at how to add a new series type to the Visiblox charts by creating my own series type which renders a smoothed line using a B&eacute;zier curve.</i></p>
+<p>This blog post describes how to create a new series type for the <a href="http://www.visiblox.com">Visiblox</a> charts, a spline series. The example below shows the new series type in action, with the various spline control points rendered (just for fun!):</p>
+<div style="text-align: center; "><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/11/VisibloxSplineSeriesFour2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p><br/></p>
+<h2>Creating a New Series Type</h2>
+<p>The visual representation of a Visiblox <code>DataSeries</code> is the responsibility of a chart series, as defined by the <code>IChartSeries</code> interface. However, the abstract baseclass <code>ChartSeriesBase</code> is most often the best place to start when creating a new series type.</p>
+<p>The first step towards creating my smoothed series type is to create a <code>ChartSeries</code> subclass. The only abstract method that we must implement is <code>InvalidateInternal</code>, and it is here that we will place our logic to create the series:</p>
+{% highlight csharp %}
+public class SplineSeries : ChartSeriesBase
+{
+
+  public SplineSeries()
+  {
+    DefaultStyleKey = typeof(SplineSeries);
+  }
+
+  protected override void InvalidateInternal()
+  {
+    // render logic goes here
+  }
+}
+{% endhighlight %}
+<p>A template also has to be supplied for the series in the generic.xaml file. The <code>ChartSeriesBase</code> requires that a <code>ZoomCanvas</code> element is located within the template as follows:</p>
+{% highlight xml %}
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:VisibloxSplineSeries"
+    xmlns:visPrim="clr-namespace:Visiblox.Charts.Primitives;assembly=Visiblox.Charts">
+
+  <Style TargetType="local:SplineSeries">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="local:SplineSeries">
+          <visPrim:ZoomCanvas x:Name="LayoutRoot" />
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+</ResourceDictionary>
+{% endhighlight %}
+<p>That's all the boiler plate code out of the way with, let's get down to writing our series implementation.</p>
+<h2>A Simple Line Series</h2>
+<p>We'll start by creating a straight-line implementation. Within the <code>UpdateInternal</code> method the following code constructs a Path instance and adds it to the <code>ZoomCanvas</code>:</p>
+{% highlight csharp %}
+protected override void InvalidateInternal()
+{
+  RootZoomCanvas.Children.Clear();
+
+  Path path = new Path();
+  PathGeometry geometry = new PathGeometry();
+  PathFigure figure = new PathFigure();
+
+  var renderPoints = GetRenderPoints();
+  figure.StartPoint = renderPoints.First();
+  foreach (var renderPoint in renderPoints.Skip(1))
+  {
+    figure.Segments.Add(new LineSegment()
+    {
+      Point = renderPoint
+    });
+  }
+
+  geometry.Figures.Add(figure);
+  path.Data = geometry;
+  path.StrokeThickness = 2;
+  path.Stroke = new SolidColorBrush(Colors.Black);
+
+  ZoomCanvas.SetIsScaledPath(path, true);
+
+  RootZoomCanvas.Children.Add(path);
+}
+
+public List<Point> GetRenderPoints()
+{
+  var renderPoints = new List<Point>();
+  foreach (IDataPoint point in this.DataSeries)
+  {
+    double xPos = XAxis.GetDataValueAsRenderPositionWithoutZoom(point.X);
+    double yPos = YAxis.GetDataValueAsRenderPositionWithoutZoom(point.Y);
+    renderPoints.Add(new Point(xPos, yPos));
+  }
+  return renderPoints;
+}
+{% endhighlight %}
+<p>Let's look at this code in detail. The method <code>GetRenderPoints</code> creates a list of points which indicate the location where each datapoint should be rendered on the chart. The series has a property <code>DataSeries</code> which is the data being rendered and we enumerate over each of the points in this series. The chart series also has a relationship to the X & Y axes, and it is each axis which is responsible for the converting the X & Y components of our data into a 'screen' coordinate. This is performed via the (succinctly named!)  <code>GetDataValueAsRenderPositionWithoutZoom</code> method (more on this later).</p>
+<p>The list of points returned by the <code>GetRenderPoints</code> method are used to define a path (a path is defined by a geometry which is defined by one or more figures which themselves are defined by one or more segments ... phew!). This path is styled and added to the <code>RootZoomCanvas</code>, with the attached property <code>IsScaledPath</code> set to true.</p>
+<p>The net result of the above code is that we now have a fully functional line series which integrates with the Visiblox behaviours such as pan & zoom:</p>
+<div style="text-align: center; "><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/11/VisibloxSplineSeriesOne.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>Now back to this ZoomCanvas ... </p>
+<p>The Visiblox charts have been optimised for performance and providing user interactions. A common requirement for interactive charts is the ability to pan and zoom. Both of these can be implemented by changing the range of the X and Y axes (for example a pan operation would result in a fixed offset being applied to the axis range), however this would result in the chart having to recomputed the location of all of each of the points being rendered. As an alternative, the Visiblox axes have a Zoom property which is handled by the <code>ZoomCanvas</code> directly. When a Zoom is applied, the required <code>RenderTransform</code>s are applied to the elements in the canvas, i.e. the series, resulting in a rapid update of chart. When using the <code>ZoomCanvas</code> you have to indicate whether the element added is based on a geometry, which should be transformed (i.e. a zoom makes the geometry appear bigger), or whether the element location should simply by updated to reflect the current zoom, for example, when you zoom in to a chart typically you would want the datapoints to maintain a fixed size.</p>
+<p>Gergely Orosz describes the ZoomCanvas in more detail in his recent post on <a href="http://www.visiblox.com/blog/2010/11/zooming-panning-in-silverlight-using-visiblox-charts">Panning &amp; Zooming</a> the charts.</p>
+<p>To illustrate how this works, we will add points to our series which are not scaled as we zoom into the chart. The <code>InvalidateInternal</code> method is updated with the additional code to render the points, note that the ellipses have a <code>RenderTransform</code> applied so that their centre is anchored to the correct location on the <code>ZoomCanvas</code>:</p>
+{% highlight csharp %}
+protected override void InvalidateInternal()
+{
+  // ... code for rendering the path
+
+  foreach (var renderPoint in renderPoints)
+  {
+    Ellipse el = new Ellipse()
+    {
+      Stroke = new SolidColorBrush(Colors.Black),
+      StrokeThickness = 2.0,
+      Fill = new SolidColorBrush(Colors.White),
+      Width = 9,
+      Height = 9,
+      RenderTransform = new TranslateTransform()
+      {
+        X = -4,
+        Y = -4
+      }
+    };
+    RootZoomCanvas.Children.Add(el);
+    ZoomCanvas.SetElementPosition(el, renderPoint);
+  }
+}
+{% endhighlight %}
+<p>You can see the series in action below:</p>
+<div style="text-align: center; "><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/11/VisibloxSplineSeriesTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<h2>Creating a Smoothed Curve</h2>
+<p>So far we have created a simple line series; however the aim of this article is to create a smoothed line series. The <code>Figure</code> within our <code>PathGeometry</code> is currently composed of a number of straight line segments, in order to create a smoothed line we need to use curved segments. Silverlight and WPF both support B&eacute;zier curves and these can be used to specify a curved path geometry. A  B&eacute;zier curve has four points, a start point, an end point and two control points which define the curvature:</p>
+<p><img src="{{ site.baseurl }}/archive/2010/11/mapbezier1.png" alt="" title="mapbezier1" width="215" height="321" class="aligncenter size-full wp-image-944" /></p>
+<p>In order to create a curved path for our series we need to determine suitable control points for our B&eacute;zier segments. After a bit of googling I stumbled upon an excellent article by Kerem Kat which describes how to use <a href="http://www.codeproject.com/KB/silverlight/MapBezier.aspx">B&eacute;zier curves with Bing Maps</a>. The article sourcecode has a method that will return the data points required to render a smoothed line as a B&eacute;zier Curve, using <a href="http://www.mvps.org/directx/articles/catmull/">Catmull-Rom</a> splines. </p>
+<p>Modifying our series to use B&eacute;zier Curves, via the <code>GetBezierPoints</code> method described in the above article, is pretty straightforward:</p>
+{% highlight csharp %}
+protected override void InvalidateInternal()
+{
+  RootZoomCanvas.Children.Clear();
+
+  Path path = new Path();
+  PathGeometry geometry = new PathGeometry();
+  PathFigure figure = new PathFigure();
+
+  // obtain the render position of each point
+  var renderPoints = GetRenderPoints();
+
+  // create the bezier points as per:
+  // http://www.codeproject.com/KB/silverlight/MapBezier.aspx
+  PointCollection bezierPoints = GetBezierPoints(renderPoints, Tension);
+
+  // create the figure composed of bezier segments
+  figure.StartPoint = bezierPoints[0];
+  for (int i = 1; i < bezierPoints.Count; i += 3)
+  {
+    figure.Segments.Add(new BezierSegment()
+    {
+      Point1 = bezierPoints[i],
+      Point2 = bezierPoints[i + 1],
+      Point3 = bezierPoints[i + 2]
+    });
+  }
+
+  geometry.Figures.Add(figure);
+  path.Data = geometry;
+  path.StrokeThickness = 2;
+  path.Stroke = new SolidColorBrush(Colors.Black);
+  ZoomCanvas.SetIsScaledPath(path, true);
+
+  RootZoomCanvas.Children.Add(path);
+}
+{% endhighlight %}
+<p>Note the <code>Tension</code> property which is passed to the <code>GetBezierPoints</code> method, this is a property of Catmull-Rom splines which describes how 'smoothed' the line should be. The <code>SplineSeries</code> exposes this as a dependency property, as shown in the example below:</p>
+{% highlight xml %}
+<vis:Chart x:Name="chart" LegendVisibility="Collapsed">
+  <vis:Chart.Series>
+    <local:SplineSeries Tension="{Binding Path=Value, ElementName=tensionSlider}"/>
+  </vis:Chart.Series>
+</vis:Chart>
+
+<StackPanel Orientation="Horizontal" Grid.Row="1">
+  <TextBlock Text="Tension:"/>
+  <Slider x:Name="tensionSlider"
+        Maximum="5.0" Minimum="1.0" Value="2.0"
+        Width="100"/>
+  <TextBlock Text="{Binding Path=Value, ElementName=tensionSlider}"
+              Width="18"/>
+</StackPanel>
+{% endhighlight %}
+<p>You can see the effect of changing the tension on the spline:</p>
+<div style="text-align: center; "><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/11/VisibloxSplineSeriesThree2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<h2>For a Bit Of Fun ...</h2>
+<p>I thought it would be fun to visualise the Catmull-Rom spline construction by also rendering the control points for each B&eacute;zier curve. You can see the results below:</p>
+<div style="text-align: center; "><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/11/VisibloxSplineSeriesFour2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download the full sourcecode for the article here: <a href='{{ site.baseurl }}/archive/2010/11/VisibloxSplineSeries.zip'>VisibloxSplineSeries.zip</a></p>
+<p>To run the examples you will also need to download the Visiblox charts from <a href="http://www.visiblox.com">www.visiblox.com</a>.</p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,147 @@
+---
+title: Capturing Windows Phone 7 Panorama Images
+date: 2011-07-21 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- codeproject
+- Windows Phone 7
+- blog
+- windowsphone
+id: 1608
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/07/capturing-windows-phone-7-panorama-images/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/07/capturing-windows-phone-7-panorama-images/"
+---
+
+<p>The Windows Phone 7 Panorama control is widely used in applications and to many has come to symbolise the Metro Design Language. Search for <a href="http://www.google.co.uk/search?tbm=isch&q=windows+phone+7+panorama">panorama images</a> and you will find numerous promo-shots of Windows Phone 7 applications which display the panoramic contents of the application hub, with an image of a phone above it illustrating how the panorama slides through your viewport.</p>
+<p>The image below shows a promo-shot for XAMLFinance, an application I have been working on:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/07/XAMLFinancePanoramaSmall.png" alt="" title="XAMLFinancePanoramaSmall" width="650" height="338" class="aligncenter size-full wp-image-1610" /> </p>
+<p>Creating images like the one above takes a bit of work, fortunately you can turn off the parallax scrolling effect of the control allowing for easier image stitching, however the process is still quite manual.</p>
+<p>For a bit of fun I thought it would be nice to template the <code>Panorama</code> control itself in order to display the full panorama contents on the emulator within a single screen, so that I can create my promo-shot with a single screengrab.</p>
+<p>Unfortunately, the <code>Panorama</code> control is a little too tightly coupled to its template to allow this kind of radical re-design, so the next best options is to create a new page that hosts my <code>PanoramaItems</code> within an <code>ItemsControl</code> and style that.</p>
+<p>So, we'll start with a page which hosts our items within an <code>ItemsControl</code>:</p>
+{% highlight xml %}
+<ItemsControl Style="{StaticResource ItemsControlStyle}">
+    <ItemsControl.Background>
+        <ImageBrush ImageSource="PanoramaBackground.jpg" Opacity="0.5"/>
+    </ItemsControl.Background>
+
+    <!--Panorama item one-->
+    <controls:PanoramaItem Header="item1" Style="{StaticResource PanoramaItemStyle}">
+        <Grid>
+            ...
+        </Grid>
+    </controls:PanoramaItem>
+
+    <!--Panorama item two-->
+    <controls:PanoramaItem Header="item2"  Style="{StaticResource PanoramaItemStyle}">
+        <Grid>
+            ...
+        </Grid>
+    </controls:PanoramaItem>
+
+    <!--Panorama item three-->
+    <controls:PanoramaItem Header="item3"  Style="{StaticResource PanoramaItemStyle}">
+        <Grid>
+            ...
+        </Grid>
+    </controls:PanoramaItem>
+</ItemsControl>
+{% endhighlight %}
+<p>We need to shrink each of those <code>PanoramaItem</code> instances so that they all fit on a single screen. We can easily shrink them with a <code>ScaleTransform</code>, however Silverlight only supports render transforms, what we really need here is a transform that affects layout also (for a brief overview of the difference see <a href="{{ site.baseurl }}/2008/12/19/layouttransform-vs-rendertransform-whats-the-difference">this blog post</a>). Fortunately the <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a> has a LayoutTransformer class which emulates this behaviour, and whilst it is not available in the WP7 release, copying the code across I found it to be entirely compatible with the Silverlight WP7 version.</p>
+<p>We can shrink our PanoramaItems as follows:</p>
+{% highlight xml %}
+<system:Double x:Key="Scale">0.5</system:Double>
+
+<Style x:Key="PanoramaItemStyle" TargetType="controls:PanoramaItem">
+  <Setter Property="Width" Value="260"/>
+  <Setter Property="Height" Value="290"/>
+  <Setter Property="Template">
+    <Setter.Value>
+      <ControlTemplate TargetType="controls:PanoramaItem">
+        <!-- apply a LayoutTransform to the content in order to scale it -->
+        <local:LayoutTransformer>
+          <local:LayoutTransformer.LayoutTransform>
+            <ScaleTransform ScaleX="{StaticResource Scale}"
+                                            ScaleY="{StaticResource Scale}"/>
+          </local:LayoutTransformer.LayoutTransform>
+
+          <!-- the original content of the template follows -->
+          <Grid Background="{TemplateBinding Background}" Margin="12,0,0,0">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="auto"/>
+              <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ContentControl x:Name="header"
+                            ContentTemplate="{TemplateBinding HeaderTemplate}"
+                            Content="{TemplateBinding Header}"
+                            FontSize="{StaticResource PhoneFontSizeExtraExtraLarge}"
+                            FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                            HorizontalAlignment="Left" Margin="10,-2,0,26">
+              <ContentControl.RenderTransform>
+                <TranslateTransform x:Name="headerTransform"/>
+              </ContentControl.RenderTransform>
+            </ContentControl>
+            <ContentPresenter Content="{TemplateBinding Content}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Margin="{TemplateBinding Padding}" Grid.Row="1"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+          </Grid>
+        </local:LayoutTransformer>
+      </ControlTemplate>
+    </Setter.Value>
+  </Setter>
+</Style>
+{% endhighlight %}
+<p>Now we need to styles and template the <code>ItemsControl</code> so that it looks like a Panorama. This is done as follows:</p>
+{% highlight xml %}
+<Style TargetType="ItemsControl" x:Key="ItemsControlStyle">
+  <Setter Property="VerticalAlignment" Value="Center"/>
+  <Setter Property="HorizontalAlignment" Value="Center"/>
+  <Setter Property="ItemsPanel">
+    <Setter.Value>
+      <ItemsPanelTemplate>
+        <tk:WrapPanel Orientation="Horizontal"/>
+      </ItemsPanelTemplate>
+    </Setter.Value>
+  </Setter>
+  <Setter Property="Template">
+    <Setter.Value>
+      <!-- create a template for the ItemControl that makes it look like a panorama-->
+      <ControlTemplate>
+        <!-- the grid which displays the  panorama background -->
+        <Grid Background="{TemplateBinding Background}">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+
+          <!-- the title, scaled to match the PanoramatItems-->
+          <local:LayoutTransformer>
+            <local:LayoutTransformer.LayoutTransform>
+              <ScaleTransform ScaleX="{StaticResource Scale}"
+                              ScaleY="{StaticResource Scale}"/>
+            </local:LayoutTransformer.LayoutTransform>
+            <TextBlock Text="{TemplateBinding Tag}"
+                       FontSize="180"
+                       FontFamily="{StaticResource PhoneFontFamilySemiLight}"
+                       HorizontalAlignment="Left" Margin="10,-2,0,26"/>
+          </local:LayoutTransformer>
+
+          <!-- the rendered items -->
+          <ItemsPresenter Grid.Row="1"/>
+        </Grid>
+      </ControlTemplate>
+    </Setter.Value>
+  </Setter>
+</Style>
+{% endhighlight %}
+<p>The end result is that we can see the entire panorama contents in a screen-shot ready state:</p>
+<p><a href="{{ site.baseurl }}/archive/2011/07/Panorama.png"><img src="{{ site.baseurl }}/archive/2011/07/PanoramaSmall.png" alt="" title="PanoramaSmall" width="600" height="330" class="aligncenter size-full wp-image-1612" /></a></p>
+<p>The big advantage of this approach is that any changes to the application can be reflected in the promo-shot very swiftly. It is also quite good fun having a fully functioning version of your panoramic hub in miniature!</p>
+<p>You can download the sourcecode here: <a href='{{ site.baseurl }}/archive/2011/07/PanoramaShot.zip'>PanoramaShot.zip</a></p>
+<p>Regards, Colin E.</p>

@@ -1,0 +1,280 @@
+---
+title: Modal dialogs in cross-platform WPF/Silverlight applications
+date: 2010-06-18 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- WPF
+- silverlight
+- modal dialog
+- cross-platform
+- codeproject
+id: 706
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2010/06/modal-dialogs-in-cross-platform-wpfsilverlight-applications/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2010/06/modal-dialogs-in-cross-platform-wpfsilverlight-applications/"
+---
+
+<p><em>This blog post looks at the problem of showing modal dialog windows in applications that target both the Silverlight and WPF platforms. A solution is provided which allows modal dialogs to be written that work well for both technologies.</em></p>
+<p>Silverlight is, roughly speaking, a subset of Windows Presentation Foundation (WPF). This means that it is possible to write applications that target both frameworks, allowing you to develop applications that work both on the desktop and on the web using the same codebase.</p>
+<p>However, Silverlight is not a strict subset of WPF, the differences between the two frameworks can be summed up as follows:</p>
+<ol>
+<li>Things that WPF has that Silverlight does not</li>
+<li>Things that Silverlight has that WPF has not</li>
+<li>Things that both framework have but are different!</li>
+</ol>
+<p>There are a great many things that the WPF framework has that Silverlight does not, mostly due to the size constraints of Silverlight being a browser plugin (1). There are a few things that Silverlight has, such as Out Of Browser (OOB) support and local storage which are not in WPF because they relate to the browser context (2). If these areas are avoided, the creation of a cross-platform application can be straightforward, however it is point (3) that causes problems.</p>
+<p style="text-align: center;"><img class="aligncenter size-full wp-image-707" title="frameworks" src="{{ site.baseurl }}/archive/2010/06/frameworks.png" alt="" width="359" height="205" /></p>
+<p>When developing an application which targets both frameworks it makes sense to do most of your development primarily in Silverlight in order to avoid accidentally using WPF features. In practical terms the way most people  achieve this is to create two projects, one Silverlight, one WPF. The WPF project will include links to the files within the Silverlight project (This is achieved by selecting "Add existing item ...", then selecting the "Add as link" option). The following diagram highlights the linked files in the attached project:</p>
+<p><img class="aligncenter size-full wp-image-711" title="project" src="{{ site.baseurl }}/archive/2010/06/project.png" alt="" width="252" height="201" /></p>
+<p>The first obstacle to overcome is the entry point into the application. Silverlight applications render a single <code>UserControl</code> as the <code>RootVisual</code> of the instantiated application, wheres WPF applications will create a <code>Window</code> instance when launched. This problem is easily solved by simply hosting the <code>UserControl</code>, which is the starting point for the Silverlight application, within a <code>Window</code>:</p>
+{% highlight csharp %}
+<Window x:Class="ModalDialogDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ModalDialogDemo"
+        Title="Modal dialog demo" SizeToContent="WidthAndHeight">
+    <Grid>
+        <local:MainControl/>
+    </Grid>
+</Window>
+{% endhighlight %}
+<p>With this small obstacle cleared, you can create some pretty decent cross-framework applications (as long as you avoid the temptation of looking at all the WPF controls you are missing out on!).</p>
+<p>I have created quite a few WPF / Silverlight applications in this manner, and the process, although a little clunky (I usually have two Visual Studio instances open so that I can keep the two versions in synch), works pretty well. However, the next major obstacle I experienced is that of creating a modal dialog. This falls firmly into category (3).</p>
+<p>Modal dialog functionality was <a href="http://www.wintellect.com/CS/blogs/jprosise/archive/2009/04/29/silverlight-3-s-new-child-windows.aspx">added in Silverlight 3</a>. To pop-up a modal dialog, create a page which inherits from <code>ChildWindow</code> (rather than the usual <code>UserControl</code>). This class provides a <code>Show</code> method which pops up the dialog, and a <code>Closed</code> event which is raised when the user hits the OK or Cancel. For example, you might create an error dialog and use it as follows:</p>
+{% highlight csharp %}
+ErrorDialog dlg = new ErrorDialog ();
+dlg.Closed += new EventHandler(OnErrorDialogClosed);
+dlg.Show();
+{% endhighlight %}
+<p>Visual Studio has a template for the creating of modal dialogs via <code>ChildWindow</code>:</p>
+<p><img src="{{ site.baseurl }}/archive/2010/06/childwindow.png" alt="" title="childwindow" width="423" height="124" class="aligncenter size-full wp-image-716" /></p>
+<p>However, with WPF things are a bit different. Whilst Silverlight modal dialogs are constrained to live within the Silverlight container on your web page, WPF dialogs are proper windows that you can move around your desktop (Interestingly, someone on stackoverflow has <a href="http://stackoverflow.com/questions/2225654/silverlight-childwindow-for-wpf">emulated Silverlight's ChildWindow in WPF</a>, although I am not convinced that this will look right on a desktop application). Visual Studio does not have a template for creating modal dialogs in WPF, however, there is more than enough documentation regarding the <a href="http://msdn.microsoft.com/en-us/library/aa969773.aspx">various types of dialog</a> on MSDN.</p>
+<p>With WPF a <code>Window</code> can be shown as modal as follows:</p>
+{% highlight csharp %}
+ErrorDialog dlg = new ErrorDialog ();
+dlg.ShowDialog();
+{% endhighlight %}
+<p>There are a few differences here, firstly <code>Window</code> has a <code>Show</code> method just like Silverlight's <code>ChildWindow</code>, however, this will result in showing a modeless window. Instead we invoke the <code>ShowDialog</code> method which shows a modal dialog, but there is another subtle difference, whilst <code>ChildWindow.Show</code> returns immediately, with an event handler required to capture the modal dialog being closed, WPF's <code>Window.ShowDialog</code> blocks until the dialog is closed.</p>
+<p>So ... each framework has different classes for modal dialogs, and different interfaces for each. How do we resolve these differences?</p>
+<p>Early in this blog post we saw how the <code>UserControl</code> which is the entry point into our Silverlight application can be hosted in a WPF <code>Window</code>. The same approach can be used for modal dialogs. We can create our modal dialog as a <code>UserControl</code>:</p>
+{% highlight xml %}
+<UserControl x:Class="ModalDialogDemo.ModalDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid x:Name="LayoutRoot">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="What is your favourite colour? " VerticalAlignment="Center"/>
+        <TextBox x:Name="colourInput" Grid.Column="1" VerticalAlignment="Center" Width="80"/>
+    </Grid>
+</UserControl>
+{% endhighlight %}
+<p>With the above control hosted in a <code>ChildWindow</code> or <code>Window</code> depending on the platform. The problem is, we cannot explicitly make reference to either of these types in our common code (i.e. the code shared by WPF / Silverlight via file linking). This problem can be solved by employing the Gang of Four <a href="http://en.wikipedia.org/wiki/Adapter_pattern">Adapter pattern</a>.</p>
+<p>We define an interface that gives the functionality that we require for hosting our <code>UserControl</code> as a modal dialog:</p>
+{% highlight csharp %}
+/// <summary>
+/// An interface which provides a host for some content which should be rendered
+/// as a modal dialog
+/// </summary>
+public interface IModalDialogHost
+{
+    /// <summary>
+    /// Gets or sets the content to host
+    /// </summary>
+    UserControl HostedContent { get; set; }
+
+    /// <summary>
+    /// Gets the dialog title
+    /// </summary>
+    string Title { set; }
+
+    /// <summary>
+    /// Gets the dialog result (i.e. OK, Cancel)
+    /// </summary>
+    bool? DialogResult { get; }
+
+    /// <summary>
+    /// Shows the dialog, invoking the given callback when it is closed
+    /// </summary>
+    void Show(DialogClosed closedCallback);
+}
+
+/// <summary>
+/// A callback which is invoked when a modal dialog is closed.
+/// </summary>
+public delegate void DialogClosed(IModalDialogHost host);
+{% endhighlight %}
+<p>Within the Silverlight project we create a concrete implementation of this interface based on <code>ChildWindow</code>:</p>
+{% highlight xml %}
+<controls:ChildWindow x:Class="ModalDialogDemo.ModalDialogHost"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:local="clr-namespace:ModalDialogDemo"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- the hosted content -->
+        <ContentPresenter x:Name="contentHost"/>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75"
+                Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23"
+                HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</controls:ChildWindow>
+{% endhighlight %}
+<p>With the interface implemented in code-behind as follows:</p>
+{% highlight csharp %}
+/// <summary>
+/// A Silverlight implementation of IModalDialogHost
+/// </summary>
+public partial class ModalDialogHost : ChildWindow, IModalDialogHost
+{
+    ...
+
+    public UserControl HostedContent
+    {
+        get
+        {
+            return (UserControl)contentHost.Content;
+        }
+        set
+        {
+            contentHost.Content = value;
+        }
+    }
+
+    public void Show(DialogClosed closedCallback)
+    {
+        Show();
+
+        // handle the Closed event, invoking the callback provided by the client
+        Closed += (s, e) =>
+            {
+                closedCallback(this);
+            };
+    }
+
+    public new string Title
+    {
+        set { base.Title = value; }
+    }
+}
+{% endhighlight %}
+<p>Within WPF we have a similar implementation based on <code>Window</code>:</p>
+{% highlight xml %}
+<Window x:Class="ModalDialogDemo.ModalDialogHost"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        SizeToContent="WidthAndHeight"
+        ShowInTaskbar="False">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- the hosted content -->
+        <ContentPresenter x:Name="contentHost" Margin="10"/>
+
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75"
+                Height="23" HorizontalAlignment="Right" Margin="0,12,0,0" Grid.Row="1" />
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75"
+                Height="23" HorizontalAlignment="Right" Margin="0,12,79,0" Grid.Row="1" />
+    </Grid>
+</Window>
+{% endhighlight %}
+<p>Note that with WPF we have a few extra configuration options to consider, such as the <code>ShowInTaskbar</code> property. The code-behind again implements our adapter interface:</p>
+{% highlight csharp %}
+/// <summary>
+/// A WPF implementation of IModalDialogHost
+/// </summary>
+public partial class ModalDialogHost : Window, IModalDialogHost
+{
+    ...
+
+    public UserControl HostedContent
+    {
+        get
+        {
+            return (UserControl)contentHost.Content;
+        }
+        set
+        {
+            contentHost.Content = value;
+        }
+    }
+
+    public void Show(DialogClosed closedCallback)
+    {
+        ShowDialog();
+
+        // invoke the callback when the dialog is closed
+        closedCallback(this);
+    }
+}
+{% endhighlight %}
+<p>So, within each project we have a framework specific implementation of this host. This allows us to create modal dialogs from the common / core code as follows:</p>
+{% highlight csharp %}
+IModalDialogHost dlg = new ModalDialogHost();
+dlg.Title = "Pick a Colour";
+dlg.HostedContent = new ModalDialog();
+dlg.Show(DialogClosedHandler);
+
+...
+
+private void DialogClosedHandler(IModalDialogHost dialogHost)
+{
+    string colour = ((ModalDialog)dialogHost.HostedContent).SelectedColour;
+    resultTextBox.Text = colour;
+}
+{% endhighlight %}
+<p>Here is a Silverlight application with a dialog implemented using this hosting concept:</p>
+<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="360" height="220" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/06/ModalDialogDemo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>And here is a screenshot of the equivalent WPF application, where you can see the modal dialog is popped up as a window:</p>
+<p><img src="{{ site.baseurl }}/archive/2010/06/wpfmodal.png" alt="" title="wpfmodal" width="462" height="317" class="aligncenter size-full wp-image-719" /></p>
+<p>(You can download the sourcecode below if you want to have a go with the WPF app)</p>
+<p>One final note ... I have deliberately steered clear of the whole patterns business in this blog post. As you are probably aware, the Model-View-ViewModel (MVVM) pattern is very popular within Silverlight and WPF, and often other patterns such as Service Locator and Dependency Injection are thrown into the mix. However, the community has been struggling a little with how best to model modal dialog behaviours from within an MVVM ViewModel. Interestingly a couple of developers have supplied solutions <a href="http://www.codeproject.com/KB/silverlight/MVVMPopUp.aspx">on codeproject</a> and <a href="http://blog.roboblob.com/2010/01/19/modal-dialogs-with-mvvm-and-silverlight-4/">personal blogs</a>, both faced questions and even criticisms that their approaches were not correct and unit testable (one of the central tenets of MVVM) and quickly followed up with articles demonstrating that you could in fact unit test their code (published <a href="http://www.codeproject.com/KB/silverlight/SMVVMUnitTest.aspx">here</a> and <a href="http://blog.roboblob.com/2010/04/21/unit-testing-modal-dialogs-in-mvvm-and-silverlight-4/">here</a>)</p>
+<p>Whilst the use of a pattern such as MVVM which enforces a strong separation of application logic from the view will certainly help to solve problems such as WPF / Silverlight framework differences, in this particular instance I wanted to show a simple technical solution rather than walk into the awaiting patterns minefield!</p>
+<p>You can download the full sourcecode for this article here: <a href='{{ site.baseurl }}/archive/2010/06/ModalDialogDemo.zip'>ModalDialogDemo.zip</a></p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

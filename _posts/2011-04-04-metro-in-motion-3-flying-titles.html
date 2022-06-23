@@ -1,0 +1,254 @@
+---
+title: 'Metro In Motion Part #3 - Flying Titles!'
+date: 2011-04-04 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- codeproject
+- WP7
+- metro
+- blog
+id: 1347
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/04/metro-in-motion-3-flying-titles/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/04/metro-in-motion-3-flying-titles/"
+---
+
+<p><i>In this blog post I look at how to implement the fly-out fly-in effect seen in native Windows Phone 7 applications. This effect is seen in the native mail application; when you click on a message, the title flies out of the list then flies back in as the title of the message page.</i></p>
+<p>This is the third in my "Metro In Motion" series where I am looking at how to re-create some of the stylish transitions and animations found in native Windows Phone 7 applications. As a Silverlight developer we have controls that adhere to the static Metro styling, but apart from Pivot and Panorama, the more dynamic features of the Metro style are something we have to come up with ourselves. So far previous posts have provided re-useable implementations for the <a href="{{ site.baseurl }}/2011/03/22/metro-in-motion-fluid-list-animation">fluid list animations between pivot pages</a> and the <a href="{{ site.baseurl }}/2011/03/27/metro-in-motion-part-2-peel-animations">'peel' animation</a> seen when applications exit. In this blog post I provide a simple re-useable implementation of the title fly-out and fly-in effect. This effect is not that easy to describe, so we'll let the following picture do the talking ...</p>
+<p><img src="{{ site.baseurl }}/archive/2011/04/FlyOut.png" alt="" title="FlyOut" width="550" height="333" class="aligncenter size-full wp-image-1351" /></p>
+<p>Here is a video of this effect recorded on the emulator. This code has also been tested on a real device, and performs just fine.</p>
+<p><iframe title="YouTube video player" width="480" height="390" src="http://www.youtube.com/embed/hATXaLAk6VE?rel=0" frameborder="0" allowfullscreen></iframe></p>
+<p>Unfortunately because the animations are quite snappy, a YouTube video doesn't do them justice. Best viewed on a real phone!</p>
+<p>Let's look at how this effect is implemented ... </p>
+<p>Starting with the fly-out effect, the general principle is that when the user selects an item in the list, we handle some event in code behind. We must identify the on-screen element that flies off screen and animate its location using a storyboard, whilst fading everything else from view. When this animation has completed, we navigate to the next page. When the user returns to the same page, this element must be animated to return to its original location. </p>
+<p>In order to make the code re-useable I have created a class which you present with the element to animate, it takes care of the fly-out effect, and then the fly-in which returns the UI to the original state.</p>
+<p>Let's take a look at the code ...</p>
+<h2>Using This Effect</h2>
+<p>Firstly, we need to identify the elements which we wish to animate, so here we give them a name:</p>
+{% highlight xml %}
+<StackPanel Orientation="Vertical">
+  <TextBlock Text="{Binding Title}"
+          x:Name="Title"
+          Style="{StaticResource PhoneTextLargeStyle}"/>
+  <TextBlock Text="{Binding Summary}"
+          Style="{StaticResource PhoneTextSmallStyle}"
+          local:MetroInMotion.AnimationLevel="1"/>
+  <TextBlock Text="{Binding Date}"
+          Style="{StaticResource PhoneTextSmallStyle}"
+          local:MetroInMotion.AnimationLevel="2"/>
+</StackPanel>
+{% endhighlight %}
+<p>The page needs an instance of the class which manages this animation effect. When the ListBox raises its SelectionChanged event we use a bit of <a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> to locate the element named above, then invoke <code>ItemFlyOut</code>, providing an 'action' which is called when the animation completes.</p>
+{% highlight csharp %}
+private ItemFlyInAndOutAnimations _flyOutAnimation = new ItemFlyInAndOutAnimations();
+
+private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+{
+  ListBox list = sender as ListBox;
+
+  // find the selected ListBoxItem
+  var selectedContainer = list.ItemContainerGenerator.ContainerFromItem(list.SelectedItem);
+
+  // grab the Title element
+  var exitAnimationElement = selectedContainer.Descendants()
+                                              .OfType<FrameworkElement>()
+                                              .SingleOrDefault(el => el.Name == "Title");
+
+  if (exitAnimationElement != null)
+  {
+    // animate the element, navigating to the new page when the animation finishes
+    _flyOutAnimation.ItemFlyOut(exitAnimationElement, () =>
+      {
+        FrameworkElement root = Application.Current.RootVisual as FrameworkElement;
+        root.DataContext = list.SelectedItem;
+        NavigationService.Navigate(new Uri("/DetailsPage.xaml", UriKind.Relative));
+      });
+  }
+}
+{% endhighlight %}
+<p>When the user navigates back to the page, you simple invoke ItemFlyIn, and this class takes care of animating the title element back into view:</p>
+{% highlight csharp %}
+private void MainPage_Loaded(object sender, RoutedEventArgs e)
+{
+  // fly-in animation called via the dispatcher in order to ensure the page is fully rendered.
+  Dispatcher.BeginInvoke(() => _flyOutAnimation.ItemFlyIn() );
+}
+{% endhighlight %}
+<p>This class also has a static method which can be used to animate the page title into view. With the page title named in XAML, it is as easy to use as this ...</p>
+{% highlight csharp %}
+public partial class DetailsPage : PhoneApplicationPage
+{
+  public DetailsPage()
+  {
+    InitializeComponent();
+
+    ItemFlyInAndOutAnimations.TitleFlyIn(PageTitle);
+  }
+}
+{% endhighlight %}
+<p>So, this aptly named <code>ItemFlyInAndOutAnimations</code> does a good job of making this effect re-useable. Let's look under the covers to see how it works ...</p>
+<h2>How It Works</h2>
+<p>Probably the trickiest part of this effect for me was working out how to fade the page, via its opacity, without fading out the element being animated. The opacity property is inherited from an element to its children, therefore, if you set the opacity of the page, every element within it will have their opacity set also. To avoid this, the solution I came up with 'clones' the element that is being animated and places it in a popup, the popup also contains a full-screen rectangle which is used to fade-out the background.</p>
+<p><img src="{{ site.baseurl }}/archive/2011/04/PopUp.png" alt="" title="PopUp" width="500" height="493" class="aligncenter size-full wp-image-1353" /></p>
+<p>The class which performs the animation constructs a <code>Popup</code> and a <code>Canvas</code> which is the popup's child element:</p>
+{% highlight csharp %}
+/// <summary>
+/// Animates an element so that it flies out and flies in!
+/// </summary>
+public class ItemFlyInAndOutAnimations
+{
+  private Popup _popup;
+  private Canvas _popupCanvas;
+  private FrameworkElement _targetElement;
+  private Point _targetElementPosition;
+  private Image _targetElementClone;
+  private Rectangle _backgroundMask;
+  private static TimeSpan _flyInSpeed = TimeSpan.FromMilliseconds(200);
+  private static TimeSpan _flyOutSpeed = TimeSpan.FromMilliseconds(300);
+
+  public ItemFlyInAndOutAnimations()
+  {
+    // construct a popup, with a Canvas as its child
+    _popup = new Popup();
+    _popupCanvas = new Canvas();
+    _popup.Child = _popupCanvas;
+  }
+
+ ...
+}
+{% endhighlight %}
+<p>The fly-out animation creates a full-screen rectangle which masks everything on the screen, it then clones the visuals of the element being animated using a <code>WriteableBitmap</code> and places this in the popup also. A number of <code>DoubleAnimations</code> are constructed, one which animates the X location, one for the Y and one which animates the rectangle opacity to gradually fade-out the background. Note, the curved path that the animated element follows is achieved by using a <code>EaseOut</code> on the Y animation, and an <code>EaseIn</code> on the X:</p>
+{% highlight csharp %}
+/// <summary>
+/// Animate the given element so that it flies off screen, fading
+/// everything else that is on screen.
+/// </summary>
+public void ItemFlyOut(FrameworkElement element, Action action)
+{
+  _targetElement = element;
+  var rootElement = Application.Current.RootVisual as FrameworkElement;
+
+  _backgroundMask = new Rectangle()
+  {
+    Fill = new SolidColorBrush(Colors.Black),
+    Opacity = 0.0,
+    Width = rootElement.ActualWidth,
+    Height = rootElement.ActualHeight
+  };
+  _popupCanvas.Children.Add(_backgroundMask);
+
+  _targetElementClone = new Image()
+  {
+    Source = new WriteableBitmap(element, null)
+  };
+  _popupCanvas.Children.Add(_targetElementClone);
+
+  _targetElementPosition = element.GetRelativePosition(rootElement);
+  Canvas.SetTop(_targetElementClone, _targetElementPosition.Y);
+  Canvas.SetLeft(_targetElementClone, _targetElementPosition.X);
+
+  var sb = new Storyboard();
+
+  // animate the X position
+  var db = CreateDoubleAnimation(_targetElementPosition.X, _targetElementPosition.X + 500,
+      new SineEase() { EasingMode = EasingMode.EaseIn },
+      _targetElementClone, Canvas.LeftProperty, _flyOutSpeed);
+  sb.Children.Add(db);
+
+  // animate the Y position
+  db = CreateDoubleAnimation(_targetElementPosition.Y, _targetElementPosition.Y + 50,
+      new SineEase() { EasingMode = EasingMode.EaseOut },
+      _targetElementClone, Canvas.TopProperty, _flyOutSpeed);
+  sb.Children.Add(db);
+
+  // fade out the other elements
+  db = CreateDoubleAnimation(0, 1,
+      null, _backgroundMask, UIElement.OpacityProperty, _flyOutSpeed);
+  sb.Children.Add(db);
+
+  sb.Completed += (s, e2) =>
+    {
+      action();
+
+      // hide the popup, by placing a task on the dispatcher queue, this
+      // should be executed after the navigation has occurred
+      element.Dispatcher.BeginInvoke(() =>
+      {
+        _popup.IsOpen = false;
+      });
+    };
+
+  // hide the element we have 'cloned' into the popup
+  element.Opacity = 0.0;
+
+  // open the popup
+  _popup.IsOpen = true;
+
+  // begin the animation
+  sb.Begin();
+}
+
+private static DoubleAnimation CreateDoubleAnimation(double from, double to, IEasingFunction easing,
+  DependencyObject target, object propertyPath, TimeSpan duration)
+{
+  var db = new DoubleAnimation();
+  db.To = to;
+  db.From = from;
+  db.EasingFunction = easing;
+  db.Duration = duration;
+  Storyboard.SetTarget(db, target);
+  Storyboard.SetTargetProperty(db, new PropertyPath(propertyPath));
+  return db;
+}
+{% endhighlight %}
+<p>Animating the element back into view is a little easier, here we remove the background mask and animate our cloned element back to its original location. Once the animation has completed we hide the popup and destroy our temporary visuals, and finally set the opacity of the original element back to '1.0' returning the UI to its original state:</p>
+{% highlight csharp %}
+/// <summary>
+/// Animate the previously 'flown-out' element back to its original location.
+/// </summary>
+public void ItemFlyIn()
+{
+  if (_popupCanvas.Children.Count != 2)
+    return;
+
+  _popup.IsOpen = true;
+  _backgroundMask.Opacity = 0.0;
+
+  Image animatedImage = _popupCanvas.Children[1] as Image;
+
+  var sb = new Storyboard();
+
+  // animate the X position
+  var db = CreateDoubleAnimation(_targetElementPosition.X - 100, _targetElementPosition.X,
+      new SineEase(),
+      _targetElementClone, Canvas.LeftProperty, _flyInSpeed);
+  sb.Children.Add(db);
+
+  // animate the Y position
+  db = CreateDoubleAnimation(_targetElementPosition.Y - 50, _targetElementPosition.Y,
+      new SineEase(),
+      _targetElementClone, Canvas.TopProperty, _flyInSpeed);
+  sb.Children.Add(db);
+
+  sb.Completed += (s, e) =>
+    {
+      // when the animation has finished, hide the popup once more
+      _popup.IsOpen = false;
+
+      // restore the element we have animated
+      _targetElement.Opacity = 1.0;
+
+      // and get rid of our clone
+      _popupCanvas.Children.Clear();
+    };
+
+  sb.Begin();
+}
+{% endhighlight %}
+<p>And there we have it, Metro style flying titles!</p>
+<p>You can download the full sourcecode here: <a href='{{ site.baseurl }}/archive/2011/04/MetroInMotion3.zip'>MetroInMotion3.zip</a></p>
+<p>Regards, Colin E.</p>

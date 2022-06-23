@@ -1,0 +1,53 @@
+---
+title: Windows Phone 7 Performance Measurements - Emulator vs. Hardware
+date: 2011-02-11 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- codeproject
+- Windows Phone 7
+- performance
+- blog
+- windowsphone
+id: 1214
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/02/windows-phone-7-performance-measurements-emulator-vs-hardware/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/02/windows-phone-7-performance-measurements-emulator-vs-hardware/"
+---
+
+<p><em>This blog post presents a few performance measurements that detail the relative performance of ItemsControl, ListBox and manual addition of elements to the UI. These performance measurements are also compared when ran on the emulator and the real hardware.</em></p>
+<p>My early experiences of moving from the WP7 emulator to the real hardware revealed that performance is something that needs to be considered when developing an application. The complexity of the UI has a noticeable impact on the time to render a page. These findings lead me to develop the <a href="{{ site.baseurl }}/2011/01/28/windows-phone-7-deferredloadcontentcontrol">DeferredLoadContentControl</a> which I blogged about a few days ago. In this blog post I want to explore various ways in which a UI may be constructed and their relative performance.</p>
+<p>The test I constructed was quite simple, the MainPage has a number of buttons, each of which navigates to a new page. When the navigation is initiated, the timer starts, and when the Loaded event fires on the target page, the timer is stopped. This accurately records the wait that the user experiences in navigating.</p>
+<p>My tests each construct a number of buttons and add them to the UI. Each test is run twice, once to construct 10 buttons, and another time to create 100. The tests are briefly described below:</p>
+<ol>
+<li>Buttons created in XAML</li>
+<li>Buttons created in code-behind and added to the visual tree.</li>
+<li>Buttons created via a <code>ListBox</code> (bound to a list of strings).</li>
+<li>Buttons created in code and added to a <code>ListBox</code> as its <code>ItemsSource</code>.</li>
+<li>Buttons created via a <code>ItemsControl</code> (bound to a list of strings), with a <code>StackPanel</code> as the <code>ItemsPanel</code>.</li>
+<li>Buttons created via a <code>ItemsControl</code> (bound to a list of strings), with a <code>VirtualizingStackPanel</code> as the <code>ItemsPanel</code>.</li>
+<li>And finally, an empty page!</li>
+</ol>
+<p>Each test was performed 5 times, with an average result taken. Here are my findings, where the tests are being executed on a Samsung Omnia WP7 device:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/02/performance.png" alt="" title="performance" width="612" height="335" class="aligncenter size-full wp-image-1220" /></p>
+<p>I also ran the tests for populating the UI with 100 buttons on the emulator:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/02/performance2.png" alt="" title="performance2" width="561" height="339" class="aligncenter size-full wp-image-1221" /></p>
+<p>My conclusions are as follows:</p>
+<ul>
+<li>Constructing the UI in code-behind or via XAML takes the same amount of time. Use whichever works best for you.</li>
+<li>Using an <code>ItemTemplate</code> to construct the buttons doesn't have a performance impact, taking the same amount of time to render the UI as if the buttons are added directly as children of the <code>ListBox</code> (or other items control).</li>
+<li>Virtualization makes the rendering of a large number of items much faster, 1322ms vs. 685ms, for the <code>ItemsControl</code>. NOTE: The ListBox default template uses the <code>VirtualizingStackPanel</code>.</li>
+<li>Virtualization makes the rendering of a small number of items a <i>little</i> bit slower.</li>
+<li>An <code>ItemsControl</code> (when virtualizing) is faster at rendering 100 buttons than a <code>ListBox</code>, 982ms vs. 685ms.</li>
+<li>The emulator is approximately four times faster than the real hardware!</li>
+</ul>
+<p>I will certainly use the above information to guide the way that I develop WP7 applications, hopefully this data will help others too.</p>
+<p>A few take-home messages ...</p>
+<p>Firstly, because the <code>ItemsControl</code>  (when virtualizing) is faster than the <code>ListBox</code>, don't use a <code>ListBox</code> for navigation ... I have seen a number of examples where a <code>ListBox</code> is used to render items such as email messages, with the <code>SelectionChanged</code> event being used to initiate navigation. Use an <code>ItemsControl</code>, and handled the bubbled events instead!</p>
+<p>Secondly, use techniques such as the <a href="{{ site.baseurl }}/2011/01/28/windows-phone-7-deferredloadcontentcontrol">DeferredLoadContentControl</a>, or the <a href="http://blogs.msdn.com/b/delay/archive/2010/09/08/never-do-today-what-you-can-put-off-till-tomorrow-deferredloadlistbox-and-stackpanel-help-windows-phone-7-lists-scroll-smoothly-and-consistently.aspx">DeferredLoadListBox</a> to reduce the amount of UI elements added to the screen before its initial render.</p>
+<p>Finally, test on real hardware!</p>
+<p>You can download the code I used to make these measurements here: <a href='{{ site.baseurl }}/archive/2011/02/WindowsPhonePerformanceTests.zip'>WindowsPhonePerformanceTests.zip</a></p>
+<p>Regards,Colin E.</p>

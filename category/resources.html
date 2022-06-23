@@ -1,9 +1,10 @@
 ---
-layout: default
 title: Resources
+layout: default
 summary: Scott Logic's white papers and guides
-image: /assets/resources.jpg
+image: "/assets/resources.jpg"
 ---
+
 {% assign posts = site.categories["Resources"] %}
 {% if posts %}
   {% assign posts = posts | sort: 'date' | reverse | uniq %}

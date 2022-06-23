@@ -1,0 +1,154 @@
+---
+title: Using ObservableCollection with WinRT (via a little shim!)
+date: 2011-10-06 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- cross-platform
+- WinRT
+- ObservableCollection
+- blog
+id: 1725
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/10/using-observablecollection-with-winrt-via-a-little-shim/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/10/using-observablecollection-with-winrt-via-a-little-shim/"
+---
+
+<p><em>WInRT introduces a new interface for collection change notification, IObservableVector, which means ObservableCollection no longer works with this framework. In this blog post I will show how you can use ObservableCollection, via a simple adapter, within you WInRT applications.</em></p>
+{% highlight xml %}
+<ItemsControl ItemsSource="{Binding Path=MyCollection, Converter={StaticResource ObservableCollectionAdapter}}"/>
+{% endhighlight %}
+<p>Developers are slowly starting to get their heads around the differences between the old (Silverlight, WPF, WP7) and the new - WinRT. Whilst the it has a familiar feel, with the UI defined in XAML and an API that is very similar to .NET, there are a great many differences. For an overview of some of these differences see:</p>
+<ul>
+<li><a href="{{ site.baseurl }}/2011/09/16/tweetsearch-a-cross-platform-metro-ui-winrt-and-silverlight-application">TweetSearch</a> - A Cross platform Metro UI WinRT</li>
+<li>Morten Nielsen's blog series on <a href="http://www.sharpgis.net/post/2011/09/15/WinRT-vs-Silverlight-Part-0.aspx">WInRT vs. Silverlight differences</a></li>
+</ul>
+<p>A number of <a href="http://social.msdn.microsoft.com/Forums/en-AU/winappswithcsharp/thread/054913c2-6ad4-4b54-a349-c7ae846d4f8e">developers have discovered</a> that while WinRT has the <code>ObservableCollection</code> class, when bound to the UI, lists / grids fail to update as items are added / removed. This is because while the same interfaces are being used for collections (<code>ILIst</code>, <code>IEnumerable</code> etc ...), there is a new interface for notification of collection changes, <code>IObservableVector</code>. Because <code>ObservableCollection </code>implements <code>IEnumerable </code>its contents will be rendered in the UI, however it implements the 'old' interface for change notification - <code>INotifyCollectionChanged</code>.</p>
+<p>The WinRT SDK samples include classes that implement <code>IObservableVector </code>to demonstrate binding with collection change handling, however, what if you have some old code using <code>ObservableCollection</code> that you want to port over? Or, what if you want to code-share between Silverlight and WInRT?</p>
+<p>A few days ago I saw a blog post by Avi Pilosof where he <a href="http://blogs.msdn.com/b/avip/archive/2011/09/18/windows-8-development-tidbits-observablecollection-doesn-t-work.aspx">created a class that implements both the INotifyCollectionChanged and IObservableVector interfaces</a>. This will certainly do the job, however there is a simpler way ...</p>
+<p>Using the Gang of Four Adapter pattern, we can create a class which wraps <code>ObservableCollection</code>, to implement <code>IObservableVector</code>:</p>
+{% highlight csharp %}
+/// <summary>
+/// Adapts an ObservableCollection to implement IObservableVector
+/// </summary>
+public class ObservableCollectionShim<T> : IObservableVector<T>
+{
+  private ObservableCollection<T> _adaptee;
+
+  public ObservableCollectionShim(ObservableCollection<T> adaptee)
+  {
+    _adaptee = adaptee;
+    _adaptee.CollectionChanged += Adaptee_CollectionChanged;
+  }
+  ...
+}
+{% endhighlight %}
+<p><code>IObservableVector </code>extends various list interfaces (ILIst etc ...) so we have to implement these on <code>ObservableCollectionShim</code> via straight-through adapter methods ...</p>
+{% highlight csharp %}
+public int IndexOf(T item)
+{
+  return _adaptee.IndexOf(item);
+}
+
+public void Insert(int index, T item)
+{
+  _adaptee.Insert(index, item);
+}
+
+public void RemoveAt(int index)
+{
+  _adaptee.RemoveAt(index);
+}
+
+// etc ...
+
+{% endhighlight %}
+<p>Now, the interesting part! The change notification is implemented by handling <code>CollectionChanged </code>events, and re-emitting them as <code>VectorChanged </code>events:</p>
+{% highlight csharp %}
+/// <summary>
+/// Handles and adapts CollectionChanged events
+/// </summary>
+private void Adaptee_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+{
+  VectorChangedEventArgs args = new VectorChangedEventArgs();
+
+  switch (e.Action)
+  {
+    case NotifyCollectionChangedAction.Add:
+      args.CollectionChange = CollectionChange.ItemInserted;
+      args.Index = (uint)e.NewStartingIndex;
+      break;
+
+    case NotifyCollectionChangedAction.Remove:
+      args.CollectionChange = CollectionChange.ItemRemoved;
+      args.Index = (uint)e.OldStartingIndex;
+      break;
+
+    case NotifyCollectionChangedAction.Replace:
+      args.CollectionChange = CollectionChange.ItemChanged;
+      args.Index = (uint)e.NewStartingIndex;
+      break;
+
+    case NotifyCollectionChangedAction.Reset:
+    case NotifyCollectionChangedAction.Move:
+      args.CollectionChange = CollectionChange.Reset;
+      break;
+    }
+  OnVectorChanged(args);
+}
+{% endhighlight %}
+<p>Note, there does not seem to be an equivalent for <code>NotifyCollectionChangedAction.Move</code>, however, I am pretty sure <code>ObservableCollection</code> never raises that change type anyway!</p>
+<p>We can now make use of our 'shim' class within a view-model as follows:</p>
+{% highlight csharp %}
+private ObservableCollection<string> _items;
+
+public IObservableVector<string> Items
+{
+  get
+  {
+    return  new ObservableCollectionShim<string>_items;
+  }
+}
+{% endhighlight %}
+<p>However, if we were using this view-model within a cross-platform application, this would still cause problems, because <code>IObservableCollection </code>does not exist in Silveright / WPF. A more elegant solution is to wrap the <code>ObservableCollection </code>in the shim class within a value converter. Firstly, we need a way to create a shim without specifying the generic type argument (<code>IValueConverter </code>is not strongly typed, your bound values are presented as the type 'object'):</p>
+{% highlight csharp %}
+public static class ExtensionMethods
+{
+  /// <summary>
+  /// Creates an ObservableCollectionShim that adapts this ObservableCollection.
+  /// </summary>
+  public static object ToObservableVector(this INotifyCollectionChanged collection)
+  {
+    Type genericItemType = collection.GetType().GenericTypeArguments[0];
+    Type shimType = typeof(ObservableCollectionShim<>);
+    Type genericShimType = shimType.MakeGenericType(new Type[] { genericItemType });
+    return Activator.CreateInstance(genericShimType, new object[] { collection });
+  }
+}
+{% endhighlight %}
+<p>This can then be used within a value converter as follows:</p>
+{% highlight csharp %}
+public class ObservableCollectionAdapter : IValueConverter
+{
+  public object Convert(object value, string typeName, object parameter, string language)
+  {
+    return ((INotifyCollectionChanged)value).ToObservableVector();
+  }
+
+  public object ConvertBack(object value, string typeName, object parameter, string language)
+  {
+    throw new NotImplementedException();
+  }
+}
+{% endhighlight %}
+<p>This allows us to adapt an <code>ObservableCollection</code> for use with WinRT simply by applying a value-converter within the View:</p>
+{% highlight xml %}
+<ItemsControl ItemsSource="{Binding Path=MyCollection, Converter={StaticResource ObservableCollectionAdapter}}"/>
+{% endhighlight %}
+<p>A nice side-effect of this approach is that if we replace the <code>ObservableCollection </code>within our view-model with a new instance, the binding framework will take care of creating a new 'shim' via the value converter.</p>
+<p>This technique allows us to write cross-platform view-models using <code>ObservableCollection</code> for our collections of objects.</p>
+<p>You can download the sourcecode with a simple example here: <a href='{{ site.baseurl }}/archive/2011/10/ObservableCollectionShim.zip'>ObservableCollectionShim.zip</a></p>
+<p>Regards, Colin E.</p>

@@ -1,0 +1,37 @@
+---
+title: Does delete walk the prototype chain?
+date: 2012-03-06 00:00:00 Z
+categories:
+- cprice
+- Tech
+tags:
+- blog
+id: 146132
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2012/03/does-delete-walk-the-prototype-chain/
+layout: default_post
+source: site
+disqus-id: "/2012/03/does-delete-walk-the-prototype-chain/"
+---
+
+<p><a style="float:right; margin-left: 16px;" href="{{ site.baseurl }}/cprice/"><img style="border:1px solid black" src="{{ site.baseurl }}/archive/2012/03/me1.png" alt="" title="Chris Price" class="aligncenter size-full wp-image-145833" /></a><em>This is a quick post relating to a Rhino bug I've just fallen foul of. This probably isn't very interesting for most folk, but if you've come here from Google then hopefully I can help you out!</em></p>
+<p style="clear:both">Let's start with a <a href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/delete">definition</a> (from the excellent MDN) of how the delete operator should behave in relation to properties found on the prototype</p>
+<blockquote><p>"You cannot delete a property on an object that it inherits from a prototype (although you can delete it directly on the prototype)."</p></blockquote>
+<p>It even goes on to give an example -</p>
+{% highlight javascript %}function Foo(){}
+Foo.prototype.bar = 42;
+var foo = new Foo();
+delete foo.bar; // but doesn't do anything
+alert(foo.bar); // alerts 42, property inherited
+delete Foo.prototype.bar; // deletes property on prototype
+alert(foo.bar); // alerts "undefined", property no longer inherited
+{% endhighlight %}
+<p>Unfortunately, after lots of head scratching, it turns out this is not how things work in Rhino (&lt;=1.7R2). The above code, modified to print rather than alert, prints "undefined", "undefined". Rhino is walking the prototype chain to find the property and then deleting it from the prototype. This is because of the following bug <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=510504">Bug 510504 - delete foo.prop should not walk the property chain to find prop</a>.</p>
+<p>The bug was fixed and released in 1.7R3 which can be found at a slightly different location from 1.7R2 -</p>
+{% highlight xml %}
+<dependency>
+	<groupId>org.mozilla</groupId>
+	<artifactId>rhino</artifactId>
+	<version>1.7R3</version>
+</dependency>{% endhighlight %}
+<p>Upgrading to that version prints "42", "undefined" - success!</p>

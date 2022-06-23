@@ -1,9 +1,11 @@
 ---
-layout: default
 title: Beyond the Hype Podcast
-summary: Beyond the Hype is a monthly podcast from the Scott Logic team where we cast a practical eye over what is new and exciting in software development
-image: /assets/blog.png
+layout: default
+summary: Beyond the Hype is a monthly podcast from the Scott Logic team where we cast
+  a practical eye over what is new and exciting in software development
+image: "/assets/blog.png"
 ---
+
 {% assign posts = site.categories["Podcast"] %}
 {% if posts %}
   {% assign posts = posts | sort: 'date' | reverse | uniq %}

@@ -1,0 +1,142 @@
+---
+title: BindingGroups for Total View Validation
+date: 2009-01-26 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- validation
+- WPF
+- blog
+- wpf
+- codeproject
+id: 91
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2009/01/bindinggroups-for-total-view-validation/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2009/01/bindinggroups-for-total-view-validation/"
+---
+
+<p>Over the weekend Sacha published a new article on codeproject, <a href="http://www.codeproject.com/KB/WPF/GlobalWPFValidation.aspx">Total View Validation</a> (does Sacha ever sleep?).  This article addresses some of the perceived problems with the WPF binding framework, firstly, that the standard solution of using the <a href="http://msdn.microsoft.com/en-us/library/system.windows.data.binding.validatesondataerrors.aspx">ValidatesOnDataErrors</a> property forces you to place validation logic into your bound business objects, and secondly, that there is no way to perform validation across multiple objects. His solution to both these problems was to construct a view model which contains the validation rules and applies them to all the objects within the form. A collection of validation failures are associated with the view model. These can either be rendered in their entirety or each control within the view can render errors relating to their context.</p>
+<p>This blog post describes how BindingGroups can be used to address the problem of applying validation rules to multiple objects.</p>
+<p>BindingGroups were introduced as part of .NET 3.5 SP1, Vincent Sibal provides a good introduction to this new features <a href="http://blogs.msdn.com/vinsibal/archive/2008/08/11/wpf-3-5-sp1-feature-bindinggroups-with-item-level-validation.aspx">on his blog</a>. I have previously blogged on the subject of BindingGroups, where I demonstrated how they can be used to provide <a href="{{ site.baseurl }}/2008/11/28/using-bindinggroups-for-greater-control-over-input-validation"> improved error messages when type conversion fails during the binding process</a>.</p>
+<p>In this post I will take the application from Sacha's article and modify it to use BindingGroups. The following is a screenshot of the application:</p>
+<p><img class="alignnone size-full wp-image-93" title="form" src="{{ site.baseurl }}/archive/2009/01/form.png" alt="form" width="302" height="415" /></p>
+<p>The form displays the details of two People (two instances of the Person class). The user inputs data using the above controls then clicks the Validate button to run all the Form's validation rules. Most of the validation rules relate to a single property of the bound object, e.g. FullName cannot be empty. However there is one trick validation rule:</p>
+<p><strong>"If Person 1's age is less than 18, Person 2's age cannot be zero"</strong></p>
+<p>This rule cannot be evaluated by assocaiting it with the Age property of either person. It requires access to both Person instances, hence it really belongs at the scope of the form itself. This is where BindingGroups come in ...</p>
+<p>The XAML below shows our form which consists of a pair of StackPanels that contain fields bound to our Person instances by setting their DataContext properties in the code-behind. The 'root' element of the Window contains our BindingGroup.</p>
+{% highlight xml %}
+<StackPanel Name="RootElement" Orientation="Vertical">
+    <!-- the binding group for this form -->
+    <StackPanel.BindingGroup>
+        <BindingGroup Name="FormBindingGroup">
+            <BindingGroup.ValidationRules>
+                <local:PersonValidationRule
+                            ValidationStep="CommittedValue"/>
+            </BindingGroup.ValidationRules>
+        </BindingGroup>
+    </StackPanel.BindingGroup>
+
+    <Border>
+
+        <StackPanel Orientation="Vertical">
+
+            <!-- Person One fields -->
+            <StackPanel Name="personOnePanel" Orientation="Vertical">
+                <Label Content="Person1"/>
+
+                <!-- FirstName Property-->
+                <StackPanel Orientation="Horizontal" >
+                    <Label Content="FirstName" />
+                    <TextBox Text="{Binding Path=FirstName,
+                                           BindingGroupName=FormBindingGroup,
+                                           ValidatesOnDataErrors=true}" />
+                </StackPanel>
+
+                <!-- LastName Property-->
+                ...
+            </StackPanel>
+
+            <!-- Person Twofields -->
+            <StackPanel Name="personTwoPanel"  Orientation="Vertical">
+                <Label Content="Person2"/>
+
+                <!-- FirstName Property-->
+                <StackPanel Orientation="Horizontal" >
+                    <Label Content="FirstName" />
+                    <TextBox Text="{Binding Path=FirstName,
+                                           BindingGroupName=FormBindingGroup,
+                                           ValidatesOnDataErrors=true}" />
+                </StackPanel>
+
+                <!-- LastName Property-->
+                ...
+            </StackPanel>
+
+        </StackPanel>
+
+    </Border>
+
+    <StackPanel Orientation="Vertical">
+
+        <Button x:Name="btnValidate" Content="Validate" Margin="5"  />
+
+    </StackPanel>
+</StackPanel>
+{% endhighlight %}
+<p>Rules associated with a BindingGroup have access to both their associated binding expressions, and the source objects used by these bindings. A BindingGroup becomes associated with a collection of binding expressions if it shares the same DataContext. However, in the above example we have a pair of objects, therefore we cannot share a DataContext across all the elements in our XAML (this is not strictly true, we could construct a view model for this purpose, however I really want to illustrate one of the other features of BindingGroups). BindingGroups can also be explicitly associated with a Binding via its BindingGroupName property.</p>
+<p>So just what exactly can we do with our BindingGroup? It is possible to execute this rule at various different steps of the binding process, for example, it is possible to evaluate the rule before type conversion has occurred. In this instance, we are only interested in the converted value, hence the ValidationStep property is set to CommittedValue. The rule itself is very simple:</p>
+{% highlight csharp %}
+public class PersonValidationRule : ValidationRule
+{
+    public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+    {
+        BindingGroup bindingGroup = (BindingGroup)value;
+
+        // extract the two bound Person instances.
+        Person personOne = bindingGroup.Items[0] as Person;
+        Person personTwo = bindingGroup.Items[1] as Person;
+
+        if (personTwo.Age==0 && personOne.Age<18)
+        {
+            return new ValidationResult(false,
+                     "Person 2 Age can't be zero if Person1 Age < 18");
+        }
+
+        return ValidationResult.ValidResult;
+    }
+}
+{% endhighlight %}
+<p>We simply retrieve both Person instances, apply our rule raising an error if our condition is not met. Any validation errors returned by the BindingGroup become associated with the <a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.validation.errors.aspx">Validation.Errors</a> attached property of the element which the BindingGroup is associated with. Therefore they can be accessed and styled in the 'standard' way, for example:</p>
+{% highlight xml %}
+<Style TargetType="{x:Type TextBox}">
+    <Style.Triggers>
+        <Trigger Property="Validation.HasError" Value="true">
+            <Setter Property="ToolTip"
+                Value="{Binding RelativeSource={RelativeSource Self},
+                       Path=(Validation.Errors)[0].ErrorContent}"/>
+        </Trigger>
+    </Style.Triggers>
+</Style>
+{% endhighlight %}
+<p>See the excellent article <a href="http://www.codeproject.com/KB/WPF/wpfvalidation.aspx">Validation in WPF</a> for details. </p>
+<p>However, BindingGroups offer one further advantage, validation errors from the associated binding expressions are also placed in the Validation.Errors collection, therefore we can output all the validation errors for our form by binding to this property as follows:</p>
+{% highlight xml %}
+<ItemsControl ItemsSource="{Binding Path=(Validation.Errors), ElementName=RootElement}">
+    <ItemsControl.ItemTemplate>
+        <DataTemplate>
+            <Label Foreground="Red" Content="{Binding Path=ErrorContent}"/>
+        </DataTemplate>
+    </ItemsControl.ItemTemplate>
+</ItemsControl>
+{% endhighlight %}
+<p>The following screenshot shows the form where multiple validation errors are present:</p>
+<p><img src="{{ site.baseurl }}/archive/2009/01/errors.png" alt="errors" title="errors" width="292" height="484" class="alignnone size-full wp-image-95" /></p>
+<p><b>Conclusions</b></p>
+<p>So ... which approach is better? BindingGroups or Sacha's ViewModel technique?</p>
+<p>Personally, I don't think there is one best approach - and this blog post is certainly not an attack on Sacha's article, which presents an elegant solution. My intention is to simply show that it is possible to perform validation on multiple objects at a 'wider' scope with the standard WPF framework. </p>
+<p>To quote Mike Hillberg, the <a href="http://blogs.msdn.com/mikehillberg/archive/2008/05/21/Model-see_2C00_-model-do.aspx">Poo is Optional</a>.</p>
+<p>A sample project with the code from this post is available for download: <a href="{{ site.baseurl }}/archive/2009/01/bindinggroupsglobalvalidation.zip">bindinggroupsglobalvalidation.zip</a>.</p>
+<p>Regards, Colin E.</p>

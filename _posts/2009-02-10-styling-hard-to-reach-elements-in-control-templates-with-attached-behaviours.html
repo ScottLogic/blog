@@ -1,0 +1,176 @@
+---
+title: Styling hard-to-reach elements in control templates with attached behaviours
+date: 2009-02-10 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- DataGrid
+- WPF
+- styling
+- templates
+- blog
+- wpf
+id: 118
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2009/02/styling-hard-to-reach-elements-in-control-templates-with-attached-behaviours/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2009/02/styling-hard-to-reach-elements-in-control-templates-with-attached-behaviours/"
+---
+
+<p>OK, the title of this blog post is not very snappy, but it is not an easy problem to describe in a few short words. Here's the rub, the WPF DataGrid has a select-all button located in the top-left corner, just like Excel and many other grid controls / applications. However, with the default style, this button is barely visible and I would not be surprised if a user of the grid failed to see it.</p>
+<p><a href="{{ site.baseurl }}/archive/2009/02/select-all.png"><img class="alignnone size-full wp-image-119" title="select-all" src="{{ site.baseurl }}/archive/2009/02/select-all.png" alt="select-all" width="418" height="220" /></a></p>
+<p>Unfortunately restyling this button is not all that straightforward. The more complex WPF controls like the DataGrid and ListView typically expose the template used to construct, and the style applied to their various visual elements.  However, the DataGrid does not expose a style or template for the select-all button.</p>
+<p>Fortunately, all is not lost. With WPF, if a control does not expose a style for one of its component parts, you can replicate and replace its entire template. Sometimes this approach feels a little heavy-handed ... "I can't seem to find a way to fit those flashy alloy wheels to my car, so I'll just by a new car that already has the wheels I like".</p>
+<p>I want to explore a more lightweight approach.</p>
+<p>Whilst it is usually preferable to modify a controls template from XAML, in cases like this, I prefer the more concise approach of modifying them in code-behind. In order to do this, you need to handle the <a href="http://msdn.microsoft.com/en-us/library/system.windows.frameworkelement.loaded.aspx">FrameworkElement.Loaded</a> event on the control whos template you wish to modify. This event is fired after the control's visual tree has been constructed, to verify this add a breakpoint in the event handler and inspect the visual tree with <a href="http://www.codeproject.com/KB/WPF/MoleForWPF.aspx">Mole</a>. The image below shows the visual tree of my DataGrid which I have expanded to locate the select-all button.</p>
+<p><a href="{{ site.baseurl }}/archive/2009/02/datagrid-mole.png"><img class="alignnone size-full wp-image-120" title="datagrid-mole" src="{{ site.baseurl }}/archive/2009/02/datagrid-mole.png" alt="datagrid-mole" width="343" height="297" /></a></p>
+<p>You can see that the button is the first element, four steps down the visual tree, therefore it should be easy to locate by walking the visual tree. Once it has been reached we can simply replace its template to the one which we desire:</p>
+{% highlight csharp %}
+private void Grid_Loaded(object sender, RoutedEventArgs e)
+{
+    DependencyObject dep = sender as DependencyObject;
+
+    // Navigate down the visual tree to the button
+    while (!(dep is Button))
+    {
+        dep = VisualTreeHelper.GetChild(dep, 0);
+    }
+    Button button = dep as Button;
+
+    // apply our new template
+    object res = FindResource("SelectAllButtonTemplate");
+    button.Template = res as ControlTemplate
+}
+{% endhighlight %}
+<p>The template SelectAllButtonTemplate is simply defined as a resource of our Window.</p>
+<p>This works just fine for our single grid, but what if we want to use the same trick on multiple DataGrids? (Besides, we have code-behind, which in WPF is a bit of a dirty word!).</p>
+<p>The <a href="http://www.codeproject.com/KB/WPF/AttachedBehaviors.aspx">Attached Behaviour</a> pattern is a useful WPF pattern that proves very useful in this situation. In brief, attached properties add state to a your WPF elements, whereas attached behaviours add behaviour. When an attached property becomes associated with a dependency object, an event is raised. We can handle this event and register handlers on the events of the object being attached to, in this case, our DataGrid's Loaded event.</p>
+<p>The following code is our attached behaviour in its entirety:</p>
+{% highlight csharp %}
+public static class DataGridStyleBehaviour
+{
+    #region attached property
+
+    public static ControlTemplate GetSelectAllButtonTemplate(DataGrid obj)
+    {
+        return (ControlTemplate)obj.GetValue(SelectAllButtonTemplateProperty);
+    }
+
+    public static void SetSelectAllButtonTemplate(DataGrid obj, ControlTemplate value)
+    {
+        obj.SetValue(SelectAllButtonTemplateProperty, value);
+    }
+
+    public static readonly DependencyProperty SelectAllButtonTemplateProperty =
+        DependencyProperty.RegisterAttached("SelectAllButtonTemplate",
+        typeof(ControlTemplate), typeof(DataGridStyleBehaviour),
+        new UIPropertyMetadata(null, OnSelectAllButtonTemplateChanged));
+
+    #endregion
+
+    #region property behaviour
+
+    // property change event handler for SelectAllButtonTemplate
+    private static void OnSelectAllButtonTemplateChanged(
+        DependencyObject depObj, DependencyPropertyChangedEventArgs e)
+    {
+        DataGrid grid = depObj as DataGrid;
+        if (grid == null)
+            return;
+
+        // handle the grid's Loaded event
+        grid.Loaded += new RoutedEventHandler(Grid_Loaded);
+    }
+
+    // Handles the DataGrid's Loaded event
+    private static void Grid_Loaded(object sender, RoutedEventArgs e)
+    {
+        DataGrid grid = sender as DataGrid;
+        DependencyObject dep = grid;
+
+        // Navigate down the visual tree to the button
+        while (!(dep is Button))
+        {
+            dep = VisualTreeHelper.GetChild(dep, 0);
+        }
+        Button button = dep as Button;
+
+        // apply our new template
+        ControlTemplate template = GetSelectAllButtonTemplate(grid);
+        button.Template = template;
+    }
+
+    #endregion
+}
+{% endhighlight %}
+<p>This attached property can be used as illustrated below, where we apply the SelectAllButtonTemplate from our Window's resources to a DataGrid:</p>
+{% highlight xml %}
+<Window ...
+    Title="BBC News RSS" Height="300" Width="400">
+
+    <Window.Resources>
+        <XmlDataProvider x:Key="NewsFeed"
+                     Source="http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml"
+                     XPath="//item" />
+
+        <ControlTemplate x:Key="SelectAllButtonTemplate" TargetType="{x:Type Button}">
+            <Grid>
+                <Rectangle  x:Name="Border"
+                            Fill="Pink"
+                            SnapsToDevicePixels="True" />
+                <Polygon   x:Name="Arrow"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Bottom"
+                           Margin="8,8,3,3"
+                           Opacity="0.15"
+                           Fill="Black"
+                           Stretch="Uniform"
+                           Points="0,10 10,10 10,0" />
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Grid>
+        <dg:DataGrid Name="dataGrid" AutoGenerateColumns="False"
+                     local:DataGridStyleBehaviour.SelectAllButtonTemplate="{StaticResource SelectAllButtonTemplate}"
+                     ItemsSource="{Binding Source={StaticResource NewsFeed}}" RowHeaderWidth="25">
+            <dg:DataGrid.Columns>
+                <dg:DataGridTextColumn Header="Title" Binding="{Binding XPath=title}" Width="*"/>
+                <dg:DataGridHyperlinkColumn   Header="Url" Binding="{Binding XPath=link}" Width="*"/>
+                <dg:DataGridTextColumn Header="Date" Binding="{Binding XPath=pubDate}" Width="*"/>
+            </dg:DataGrid.Columns>
+        </dg:DataGrid>
+    </Grid>
+</Window>
+{% endhighlight %}
+<p>The result is a beautiful pink select-all button that I don't think any user would miss in a hurry:</p>
+<p><a href="{{ site.baseurl }}/archive/2009/02/pinkbutton.png"><img class="alignnone size-full wp-image-121" title="pinkbutton" src="{{ site.baseurl }}/archive/2009/02/pinkbutton.png" alt="pinkbutton" width="368" height="205" /></a></p>
+<p>And a clean code-behind file for our Window :-)</p>
+<p>You can download the demo project for this blog post in the following zip file, <a href="{{ site.baseurl }}/archive/2009/02/wpfstylinghiddenelements.zip">wpfstylinghiddenelements</a>.</p>
+<p>One last thing ... if you are implementing a WPF / Silverlight control, please expose the styles and templates for all component parts of your control!</p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

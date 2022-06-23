@@ -1,0 +1,187 @@
+---
+title: Exposing Bindings as Properties of a Control
+date: 2009-06-19 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- WPF
+- silverlight
+- binding
+- blog
+- codeproject
+id: 333
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2009/06/exposing-bindings-as-properties-of-a-control/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2009/06/exposing-bindings-as-properties-of-a-control/"
+---
+
+<p><a href="{{ site.baseurl }}/archive/2009/06/card.png"><img src="{{ site.baseurl }}/archive/2009/06/card.png" alt="card" title="card" width="228" height="128" class="aligncenter size-full wp-image-336" /></a></p>
+<p>I must admit that the title of this post is not entirely clear, however I couldn't find a way to sum up the content in one short sentence, so we'll dive straight into an example. Let's say for example you have developed a funky little business-card as illustrated above, using the simple XAML below:</p>
+{% highlight xml %}
+<Border BorderBrush="LightGray" Background="White"  BorderThickness="1.5" CornerRadius="20"
+        Width="220" Height="120">
+    <Border Margin="5" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="15">
+        <Border.Background>
+            <ImageBrush>
+                <ImageBrush.ImageSource>
+                    <BitmapImage UriSource="back.jpg" />
+                </ImageBrush.ImageSource>
+            </ImageBrush>
+        </Border.Background>
+
+        <StackPanel Orientation="Vertical" Margin="10">
+            <TextBlock Text="{Binding Name}"
+                       FontSize="15" FontWeight="Bold" />
+            <Rectangle Stroke="DarkGray" HorizontalAlignment="Stretch"
+                       StrokeThickness="0.5" Fill="Black" Height="1"/>
+            <TextBlock Margin="0,10,0,0"  Text="{Binding Company}"/>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="e: " FontSize="10"/>
+                <TextBlock Text="{Binding Email}" FontSize="10"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="w: " FontSize="10"/>
+                <HyperlinkButton Content="{Binding Web}" FontSize="10"
+                             NavigateUri="{Binding Web}"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Border>
+{% endhighlight %}
+<p>The above XAML creates a simple visual layout that binds to the Name, Email, Web and Company properties of the data object which is presented to the inherited DataContext. Nice and simple.</p>
+<p>Now, let's say you want to re-use this XAML markup in a number of places across your application. The obvious solution is to package it within a UserControl. However, elsewhere within the application contact details are stored in different types, with different properties, perhaps the property Web is used in some places, whereas the property URL is used elsewhere. If our UserControl simply contains the XAML markup given above, the binding paths are hard-coded and inflexible. So, how do we package the above markup for re-use whilst maintaining flexibility?</p>
+<p>In UI frameworks which do not support databinding the obvious choice would be to define an interface IContactDetails, which defines a compile-time contract that clients of the control must implement on their business objects. This would allow us to enforce the presence of properties with specific names. However, with WPF / Silverlight the binding framework removes the need for controls to demand the presence of a certain interface and life is now much better as a result!</p>
+<p>So ... what we really want here is to allow the clients of our ContactDetails user control to provide bindings for the various framework elements within the user control itself. </p>
+<p>Bindings can be constructed in code-behind by invoking the SetBinding method defined on DependencyObject as show in the example below:</p>
+{% highlight csharp %}
+// create a binding with a given source and property-path
+Binding binding = new Binding();
+binding.Source = myClass;
+binding.Path = new PropertyPath("WindowTitle");
+// bind the button's Content property
+button.SetBinding(Button.ContentProperty, binding);
+{% endhighlight %}
+<p>Therefore, if we were to expose the various Bindings as properties of the control (hence this blog post's title), we could set the name, email, web elements binding accordingly using the Setbinding method.</p>
+<p>The first time I tried this I added a NameBinding dependency property of type Binding to my UserControl, so that the client XAML looked as follows:</p>
+{% highlight xml %}
+<local:ContactDetailsControl
+    NameBinding="{Binding Name}"/>
+{% endhighlight %}
+<p>However, this didn't quite have the desired effect. When the XAML reader processes the above markup it creates the Binding object that we are after, however it does not set the NameBinding property value to this binding. Instead, it uses it to <em>bind</em> the NameBinding property. </p>
+<p>The solution to the problem is to make NameBinding a standard CLR property. This time when the XAML reader encounters the above markup it once again creates the Binding object, but since NameBinding is not a dependency property it does not use it to bind the property, it simply sets the property value.</p>
+<p>The code-behind of our ContactDetails user control looks like this:</p>
+{% highlight csharp %}
+public partial class ContactDetailsControl : UserControl
+{
+    public Binding NameBinding { get; set; }
+    public Binding CompanyBinding { get; set; }
+    public Binding WebBinding { get; set; }
+    public Binding EmailBinding { get; set; }
+
+    public ContactDetailsControl()
+    {
+        InitializeComponent();
+    }
+
+    private void Border_Loaded(object sender, RoutedEventArgs e)
+    {
+        nameText.SetBinding(TextBlock.TextProperty, NameBinding);
+        webText.SetBinding(HyperlinkButton.ContentProperty, WebBinding);
+        webText.SetBinding(HyperlinkButton.NavigateUriProperty, WebBinding);
+        companyText.SetBinding(TextBlock.TextProperty, CompanyBinding);
+        emailText.SetBinding(TextBlock.TextProperty, EmailBinding);
+    }
+}
+{% endhighlight %}
+<p>The four bindings are exposed as CLR properties. When the UI is Loaded, we use them to bind the various elements within the control. The net result is that we now have a re-useable control whilst maintaining the flexibility provided by the binding framework, as illustrated by its usage below:</p>
+{% highlight xml %}
+<local:ContactDetailsControl
+    NameBinding="{Binding FullName}"
+    WebBinding="{Binding Website}"
+    CompanyBinding="{Binding Company}"
+    EmailBinding="{Binding Email}"/>
+{% endhighlight %}
+<p>Now for another example and a bit more fun ...</p>
+<div id="slPluginHost" > <object id="SilverlightPlugin" width="200" height="200" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/06/slbindingproperties.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>The above Silverlight application shows a number of particles exhibiting <a href="http://en.wikipedia.org/wiki/Brownian_motion">Brownian motion</a>. </p>
+<p>This application creates 50 instances of a Particle object within an ObservableCollection:</p>
+{% highlight csharp %}
+class Particle : INotifyPropertyChanged
+{
+    public double XLocation { ... }
+    public double YLocation { ... }
+    public double Excitement { ... }
+}
+{% endhighlight %}
+<p>The particles are rendered by a ScatterControl, which is a UserControl:</p>
+{% highlight xml %}
+<Border BorderBrush="LightGray" BorderThickness="1">
+    <!-- ItemsSource property set in code-behind -->
+    <local:ScatterControl x:Name="scatterControl"
+                      XValueBinding="{Binding Path=XLocation}"
+                      YValueBinding="{Binding Path=YLocation}"
+                      FillBinding="{Binding Path=Excitement,
+                            Converter={StaticResource FillConverter}}"/>
+</Border>
+{% endhighlight %}
+<p>This control has an ItemsSource property of type IEnumerable, and exposes three other properties of type Binding.</p>
+<p>The markup for this control is given below:</p>
+{% highlight xml %}
+<UserControl ... >
+
+    <ItemsControl x:Name="itemsControl">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <Canvas/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Canvas>
+                    <Ellipse Width="10" Height="10" Fill="Red"
+                             Loaded="Ellipse_Loaded"/>
+                </Canvas>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>
+{% endhighlight %}
+<p>The particles are rendered using an ItemsControl, which creates an instance of an Ellipse for each bound particle and places it within a Canvas (As defined by the ItemsControl.ItemsPanel property). As each ellipse is loaded, we set the bindings in code-behind:</p>
+{% highlight csharp %}
+private void Ellipse_Loaded(object sender, RoutedEventArgs e)
+{
+    Ellipse ellipse = sender as Ellipse;
+    ellipse.SetBinding(Canvas.LeftProperty, XValueBinding);
+    ellipse.SetBinding(Canvas.TopProperty, YValueBinding);
+    ellipse.SetBinding(Ellipse.FillProperty, FillBinding);
+}
+{% endhighlight %}
+<p>Again, by exposing Bindings as properties this user control is just as flexible as if its markup was included in the page directly. This example also illustrates another interesting point, the Bindings that the client provided have been re-used for each Ellipse that was created by the ItemsControl. This is made possible because when SetBinding is invoked on our Ellipse, the Binding is not associated with the Ellipse, rather, it is used to create an instance of a <a href="http://msdn.microsoft.com/en-us/library/system.windows.data.bindingexpression(VS.85).aspx">BindingExpression</a>. Binding is used to declare a binding, whereas BindingExpression is the implementation, i.e. it does the heavy-lifting of copying data to-and-from from source to target (and vice-versa).</p>
+<p>You can download the full source for both examples: <a href='{{ site.baseurl }}/archive/2009/06/bindingproperties.zip'>bindingproperties.zip</a></p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

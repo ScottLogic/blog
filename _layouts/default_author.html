@@ -2,6 +2,7 @@
 layout: default
 paginated: false
 ---
+
 {% assign author = site.data.authors.authors[page.author] %}
 {% assign featuredPosts = site.tags.featured | where: "author", page.author %}
 {% assign allPosts = site.posts | where: "author", page.author %}

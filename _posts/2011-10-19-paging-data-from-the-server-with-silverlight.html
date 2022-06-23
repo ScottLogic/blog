@@ -1,0 +1,266 @@
+---
+title: Paging Data from the Server with Silverlight
+date: 2011-10-19 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- IPagedCollectionView
+- JSON
+- codeproject
+id: 1757
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/10/paging-data-from-the-server-with-silverlight/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/10/paging-data-from-the-server-with-silverlight/"
+---
+
+<p><em>This blog post provides an implementation of IPagedCollectionView which allows paging of data from the server. An IPagedDataSource is introduced that allows any paged data source to be plugged in, with the standard controls such as DataPager making it easy to create paging applications.</em></p>
+<p>With web-based applications, bandwidth constraints often mean that when querying large datasets, the results must be paged, i.e. split into discrete pages each containing a small number of results, with an API available for moving forwards / backwards or to a specific page. There are numerous APIs available on the web that expose this type of interface, for example:</p>
+<ul>
+<li><a href="https://dev.twitter.com/rest/public/search">Twitter Search API</a></li>
+<li><a href="http://www.nestoria.co.uk/help/api">Nestoria API</a> for searching houses for sale</li>
+<li>Any of the <a href="http://www.odata.org/ecosystem/">OData producers</a></li>
+</ul>
+<p>With paging being a common application requirement, Silverlight has the functionality to deal with this scenario built-in. The System.Windows.Data assembly contains the <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.ipagedcollectionview%28VS.95%29.aspx">IPagedCollectionView</a> interface, which defines the following methods, properties and events, allowing navigation of paged data:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/PagedCollectionView.png" alt="" title="PagedCollectionView" width="154" height="211" class="aligncenter size-full wp-image-1756" /></p>
+<p>The <code>System.Windows.Controls</code> assembly contains a <a href="http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datapager.aspx">DataPager</a> control, that collaborates with this interface to provide a UI for paging the dataset. Simply set the Source property of this control to an instance of <code>IPagedCollectionView</code> and your user can page through the data:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/DataPager.png" alt="" title="DataPager" width="312" height="33" class="aligncenter size-full wp-image-1755" /></p>
+<p>NOTE: The <code>Source</code> property of <code>DataPager</code> is of type <code>IEnumerable</code>, which is a little odd, because it doesn't really need to enumerate the collection of items being displayed. Internally it probes the object you supply as the Source to see if it implements <code>IPagedCollectionView</code>, and if it does, the control becomes 'active'.</p>
+<p>This control gives you quite a bit of functionality for free, the buttons become enabled / disabled based on whether navigation forwards / backwards is possible. It respects the CanChangePage property, computes the total number of pages etc ...</p>
+<p>So, how do you make use of this interface and control?</p>
+<p>The <code>System.Windows.Data</code> assembly also contains a concrete implementation of the paging interface, <a href="http://msdn.microsoft.com/en-us/library/system.windows.data.pagedcollectionview%28VS.95%29.aspx">PagedCollectionView</a>. This class gives much more than just paging, it also implements grouping, sorting and filtering of a source collection (<code>IEnumerable</code>). To make use of this class simply construct an instance based on your collection of data and use that as your <code>DataContext</code>:</p>
+{% highlight csharp %}
+List<MyDataObject> sourceCollection = ParseData(serverResponse);
+var collectionView = new PagedCollectionView(sourceCollection);
+this.DataContext = collectionView;
+{% endhighlight %}
+<p>The problem is <code>PagedCollectionView</code> allows you to sort, group and page a collection of data that is already held in memory. What I want to do, and what I think is a more common use-case, is page data that is supplied by the server. I don't want to have to fetch all the data up-front then page it on the client, this would defeat the object of paging in the first place ... to improve performance!</p>
+<p>I discovered that there is an <code>IPagedCollectionView</code> implementation as part of RIA Services that provides this functionality, the <code>DomainCollectionView</code>. However, if I want to page data form a simple JSON formatted web service, adding a dependency to RIA Services seems like overkill. So I decided to create my own simple implementation of this interface.</p>
+<p>In order to make a generic/ re-useable implementation of this paging interface, I first created an interface that would act as the source of the data:</p>
+{% highlight csharp %}
+/// <summary>
+/// Defines a source of data that can be paged.
+/// </summary>
+public interface IPagedDataSource<TDataType>
+{
+  /// <summary>
+  /// Asynchronously returns the data for the given page
+  /// </summary>
+  void FetchData(int pageNumber, Action<PagedDataResponse<TDataType>> responseCallback);
+}
+
+/// <summary>
+/// The items returned as a result of a paged data request.
+/// </summary>
+public class PagedDataResponse<TDataType>
+{
+  /// <summary>
+  /// The items contained within the requested page
+  /// </summary>
+  public List<TDataType> Items { get; set; }
+
+  /// <summary>
+  /// The total count of all available items
+  /// </summary>
+  public int TotalItemCount { get; set; }
+}
+{% endhighlight %}
+<p>This interface is very simple, having a single method that fetches data for the given page. The result is returned asynchronously, providing both the items within the given page and the total item count.</p>
+<p>My paging collection view extends <code>ObservableCollection</code> and takes an instance of <code>IPagedDataSource</code> in its constructor:</p>
+{% highlight csharp %}
+public class ServerSidePagedCollectionView<T> : ObservableCollection<T>,
+  IPagedCollectionView
+{
+  IPagedDataSource<T> _pagedDataSource;
+
+  public ServerSidePagedCollectionView(IPagedDataSource<T> pagedDataSource)
+  {
+    _pagedDataSource = pagedDataSource;
+  }
+
+  ...
+}
+{% endhighlight %}
+<p>As an aside, aren't generics great?</p>
+<p>The various properties defined in <code>IPagedCollectionView</code> (<code>CanChangePage</code>, <code>TotalPages</code>, etc ...) are implemented as standard field-backed properties that notify changes via <code>INotifyPropertyChanged</code> which is inherited via <code>ObservableCollection</code>, I am not going to show them here.</p>
+<p>The various methods that permit navigation are all implemented using the same pattern:</p>
+{% highlight csharp %}
+public bool MoveToFirstPage()
+{
+  RefreshData(0);
+  return true;
+}
+
+public bool MoveToLastPage()
+{
+  RefreshData(TotalPages - 1);
+  return true;
+}
+
+public bool MoveToNextPage()
+{
+  RefreshData(PageIndex + 1);
+  return true;
+}
+
+public bool MoveToPage(int pageIndex)
+{
+  RefreshData(pageIndex);
+  return true;
+}
+
+public bool MoveToPreviousPage()
+{
+  RefreshData(PageIndex - 1);
+  return true;
+}
+{% endhighlight %}
+<p>With the <code>RefreshData</code> method doing all the work, it is the only method that uses the supplied <code>IPagedDataSource</code> interface and is shown below:</p>
+{% highlight csharp %}
+/// <summary>
+/// Fetches the data for the given page
+/// </summary>
+private void RefreshData(int newPageIndex)
+{
+  // set the pre-fetch state
+  CanChangePage = false;
+  OnPageChanging(newPageIndex);
+
+  _pagedDataSource.FetchData(newPageIndex, response =>
+    {
+      // process the received data
+      DataReceived(response);
+
+      // set the post-fetch state
+      PageIndex = newPageIndex;
+      OnPageChanged();
+      CanChangePage = true;
+    });
+}
+{% endhighlight %}
+<p>With the simple implementation of <code>IPagedCollectionView</code> given above I can now page data from a range of web services by simply implementing <code>IPagedDataSource</code>. For example, to page data from NetFlix you can use the following implementation:</p>
+{% highlight csharp %}
+/// <summary>
+/// A paged NetFlix movies search datasource.
+/// </summary>
+public class NetFlixDataSource : IPagedDataSource<SyndicationItem>
+{
+  private string _searchString;
+
+  private int _pageSize = 10;
+
+  public NetFlixDataSource(string searchString)
+  {
+    _searchString = searchString;
+  }
+
+  public void FetchData(int pageNumber, Action<PagedDataResponse<SyndicationItem>> responseCallback)
+  {
+    WebClient client = new WebClient();
+
+    // create a url for fetching movies with a name that contains the search string
+    string url = string.Format("http://odata.netflix.com/Catalog/Titles?"
+      + "$top={0}&$orderby=Name&$select=Name&$inlinecount=allpages&$skip={1}&$filter=indexof(Name,'{2}') ne -1",
+      _pageSize, pageNumber * _pageSize, _searchString);
+
+    client.DownloadStringCompleted += (s, e) =>
+    {
+      // parse the response using SyndaicationFeed
+      XmlReader reader = XmlReader.Create(new StringReader(e.Result));
+      SyndicationFeed feed = SyndicationFeed.Load(reader);
+
+      // locate the item count
+      var itemCount = feed.ElementExtensions[0].GetObject<XElement>().Value;
+
+      // invoke the response callback
+      responseCallback(new PagedDataResponse<SyndicationItem>()
+      {
+        Items = feed.Items.ToList(),
+        TotalItemCount = int.Parse(itemCount)
+      });
+    };
+    client.DownloadStringAsync(new Uri(url));
+  }
+}
+{% endhighlight %}
+<p>As you can see, this simple implementation of our paging data source constructs the required URL based on the search string and request page number. It also uses the 'syndication' APIs which are able to parse the response from the NetFlix OData APIs.</p>
+<p>To test out this implementation of the paged search interface I have created a very simple movie search application. The view model for this application has a <code>SearchString</code> property, exposes the results as <code>SearchResults</code> property and has a single command which initiates a new search. The important parts of this class are shown below:</p>
+{% highlight csharp %}
+/// <summary>
+/// Gets the paged search results
+/// </summary>
+public ServerSidePagedCollectionView<SyndicationItem> SearchResults
+{
+  get
+  {
+    return _searchResults;
+  }
+  private set
+  {
+    SetField(ref _searchResults, value, "SearchResults");
+  }
+}
+
+/// <summary>
+/// Gets a command which executes the search
+/// </summary>
+public ICommand ExecuteSearchCommand
+{
+  get
+  {
+    return new DelegateCommand(() =>
+    {
+      SearchResults = new ServerSidePagedCollectionView<SyndicationItem>(
+        new NetFlixDataSource(SearchText));
+    });
+  }
+}
+{% endhighlight %}
+<p>When <code>ExecuteSearchCommand</code> is invoked, we create a new <code>ServerSidePagedCollectionView</code>, providing it with the NetFlix data source.  From here on, the <code>ServerSidePagedCollectionView</code> is responsible for the paging of data.</p>
+<p>The view is as follows:</p>
+{% highlight xml %}
+<Grid x:Name="LayoutRoot" Background="LightGray"
+      Width="400" Height="360">
+  <Grid.RowDefinitions>
+    <RowDefinition Height="Auto"/>
+    <RowDefinition Height="Auto"/>
+    <RowDefinition Height="Auto"/>
+  </Grid.RowDefinitions>
+
+  <StackPanel Orientation="Horizontal"
+              Margin="4">
+    <TextBox Text="{Binding SearchText, Mode=TwoWay}"
+                Width="150"/>
+    <Button Command="{Binding ExecuteSearchCommand}"
+            Content=" Search Movies ..."
+            Margin="5,0,0,0"/>
+  </StackPanel>
+
+  <ItemsControl ItemsSource="{Binding SearchResults}"
+                Grid.Row="1"
+                Height="300"
+                ItemTemplate="{StaticResource MovieTemplate}">
+    <ItemsControl.ItemsPanel>
+      <ItemsPanelTemplate>
+        <StackPanel Orientation="Vertical"/>
+      </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+  </ItemsControl>
+  <Rectangle Fill="White" Grid.Row="1"
+            Opacity="0.5"
+            Visibility="{Binding Path=SearchResults.CanChangePage, Converter={StaticResource BoolToVisibilityConverter}}"/>
+
+  <sdk:DataPager  PageSize="10"
+                  Source="{Binding SearchResults}"
+                  Grid.Row="2"/>
+
+</Grid>
+{% endhighlight %}
+<p>The DataPager simply binds to the <code>SearchResults</code> as does the ItemsControl. I have also added a <code>Rectangle</code> element which grays-out the current search results when a new page is being fetched.</p>
+<p>You can see the application in action below:</p>
+<div style="text-align: center;"><object width="500" height="400" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2011/10/PagedCollectionViewExample.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>So in summary, by implementing <code>IPagedCollectionView</code> with a pluggable datasource, <code>IPagedDataSource</code>, it is possible to very quickly and easily create an application that pages data from the server.</p>
+<p>You can download the full sourcecode here: <a href='{{ site.baseurl }}/archive/2011/10/PagedCollectionViewExample.zip'>PagedCollectionViewExample.zip</a></p>
+<p>Regards, Colin E.</p>

@@ -1,0 +1,102 @@
+---
+title: TypeScript versus Closure
+date: 2012-10-02 00:00:00 Z
+categories:
+- cprice
+- Tech
+tags:
+- blog
+id: 160198
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2012/10/typescript-versus-closure/
+image: cprice/assets/featured/typescript-closure.jpg
+summary: How does Microsoft's TypeScript, the new kid on the block, compare to Google's
+  Closure?
+layout: default_post
+source: site
+disqus-id: "/2012/10/typescript-versus-closure/"
+---
+
+<p><a style="float: right; margin-left: 16px;" href="{{ site.baseurl }}/cprice/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.baseurl }}/archive/2012/03/me1.png" alt="" /></a><em>TypeScript is a recently released JavaScript superset which adds compile-time type-checking to the language, available with Intellisense as a VS2012 editor plugin and as a node.js command-line utility. That may be a mouthful but it's an exciting mouthful, let me explain why.</em></p>
+<h2>What is it?</h2>
+<p>Announced yesterday, the <a href="http://www.typescriptlang.org/">official website</a> describes TypeScript as -</p>
+<blockquote><p>TypeScript is a language for application-scale JavaScript development.TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.Any browser. Any host. Any OS. Open Source.</p></blockquote>
+<h2>Where does it stand?</h2>
+<p>If I were backed into a corner, after all we're almost comparing apples and oranges here, I'd probably come up with the following matrix -</p>
+<table border=1 style="width:100%;text-align:center">
+<colgroup><col width="150" /><col width="100" /><col width="100" /><col width="100" /><col width="100" /><col width="100" /></colgroup>
+<tbody>
+<tr>
+<th></th>
+<td>JavaScript</td>
+<td>CoffeeScript</td>
+<td>Closure</td>
+<td>TypeScript</td>
+<td>Dart</td>
+</tr>
+<tr>
+<th>Requires "compilation"</th>
+<td>✗</td>
+<td>✓</td>
+<td>✗*1</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<th>Compile-time type checking</th>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<th>Run-time type checking</th>
+<td>✗</td>
+<td>✗</td>
+<td>✓*4</td>
+<td>✗</td>
+<td>✓</td>
+</tr>
+<tr>
+<th>Editor auto-completion</th>
+<td>✓*2</td>
+<td>✗</td>
+<td>✓*3</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<th>Refactor tooling</th>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<p>*1 The code itself does not require compilation but the module dependencies may/may not depending on how you are using the library.*2 In the form of Intellisense (other brands are available) which works but certainly not as reliably as other languages e.g. C#.*3 <del datetime="2012-10-29T10:32:18+00:00">Again only in the form of Intellisense (other brands are available), I don't know of any IDE which makes use of the type information nor is able to hint when adding the type information.</del> As John points out in the comments, <a href="http://blog.jetbrains.com/webide/2012/08/closure-syntax/">WebStorm now supports most of the Closure syntax</a>.*4 Again as John points out in the comments, it is possible to have the compiler insert runtime type assertions by <a href="http://code.google.com/p/closure-compiler/source/browse/trunk/src/com/google/javascript/jscomp/CompilerOptions.java?spec=svn2281&r=2281#1332">enabling the runtimeTypeCheck flag on CompilerOptions</a>. </p>
+<p>From the matrix you can see for me that TypeScript lands roughly somewhere between Closure and Dart. Where exactly between these two is much harder to say. Personally I see it more as a modernisation of Closure rather than a cut-down Dart as it has been <a href="https://groups.google.com/a/dartlang.org/forum/?fromgroups=#!topic/misc/T4LY5cHLAUM">described elsewhere</a>.</p>
+<h2>Why do we need it?</h2>
+<p>Closure has some great features but as with most things that have been around for a while, it's structure is now more a product of evolution than design.The benefit TypeScript has in starting from scratch is that the best features can be kept and enhanced, while the legacy features can be dropped without fear of breaking anything.</p>
+<p>A good example of this is how each toolkit approaches dependency management. Closure is built around the functions require/provide and a bunch of Python scripts (or Plovr). Whereas, TypeScript has module/import baked into the language which can output either AMD and CommonJS compatible modules. This isn't a bash at Closure it has a very good reason for it's approach, it pre-dates both CommonJS and AMD by a good number of years, but does show the advantages of starting from scratch.</p>
+<p>One big frustration with Closure though was the lack of IDE integration, going to the effort of adding and maintaining huge swathes of JSDoc comments but not having your editor able to make any use of them felt like such a waste. There are various hints in the compiler source code that someone has at some point played around with the idea, but sadly it has never seen the light of day.</p>
+<p><del datetime="2012-11-06T09:25:05+00:00">Another frustration came about when trying to migrate an existing codebase to Closure. The compiler has two modes, simple which provides no type checking but imposes no constraints on your JavaScript and advanced which does the opposite. The big advantage of starting to use the compiler is being able to static type check your code however, because of the constraints imposed on the code by advanced mode, you need to invest a lot of effort to JSDoc-ify your code up front before you can get any benefit. There simply isn't an easy way to transition to using the compiler.</del> </p>
+<p>As pointed out by Fredrik in the comments below, both the simple and advanced modes of the compiler do support type checking if you bump the warning level up to verbose. Advanced mode does still require extensive JSDoc but is only required if you want the <a href="https://developers.google.com/closure/compiler/docs/compilation_levels">more aggressive renaming, dead-code elimination and global inlining</a>.</p>
+<p>I think Closure is a great toolkit but it hasn't really hit the mainstream so why should TypeScript? I believe these issues had a lot to do with Closure's poor adoption and I'm happy to see that TypeScript doesn't suffer from these issues, it already has the IDE integration, and being a superset of JavaScript migration should be much easier.</p>
+<h2>What is it like?</h2>
+<p><img src="{{ site.baseurl }}/archive/2012/10/modules.png" alt="" title="modules" width="600" height="466" class="alignnone size-full wp-image-160215" /></p>
+<p>My first impressions are pretty positive -</p>
+<ul>
+<li>The module pattern works well both inside Visual Studio for Intellisense but also from the command line when compiling the modules into either AMD or CommonJS format.</li>
+<li>The types syntax feels quite natural and is supported by Intellisense. Implicit typing also seems to do a decent job.</li>
+<li>Declaring external types e.g. from libraries is currently relatively painless but laborious. I'm sure a repository of declarations for common libraries will turn up soon. However, it is unfortunate that the only way of referencing external libraries is to fall back to the VSDoc reference pattern.</li>
+<li>Renaming properties using the refactor option in VS works perfectly, as does the Find All References command. On a large codebase these features could make a huge difference.</li>
+</ul>
+<p>It's not all positive though, there are a few rough edges both to the plugin and the language itself. E.g. the code comprehension seems a bit slow, the completion doesn't work quite as expected and supplementing interfaces doesn't seem to work as described. However, for something that launched yesterday I'm willing to give it the benefit of the doubt.</p>
+<h2>Conclusion</h2>
+<p>As great as it is to see a project like this, and as much as it has already achieved, I think it's worth holding back from using it just yet. Things seem a little bit unpolished and the specification document still has a few holes to be filled. I'm sure these issues will be fixed soon though, so I'll definitely be keeping my eye on it.</p>
+<p><a class="twitter-share-button" href="https://twitter.com/share" data-via="100pxls">Tweet</a><script type="text/javascript">// <![CDATA[ !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");// ]]></script></p>
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+<p><script type="text/javascript">// <![CDATA[   (function() {     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;     po.src = 'https://apis.google.com/js/plusone.js';     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);   })();// ]]></script></p>

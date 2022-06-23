@@ -1,0 +1,136 @@
+---
+title: 'Metro In Motion #8 - AutoCompleteBox Reveal Animation'
+date: 2011-06-20 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- codeproject
+- metro
+- windows ph
+id: 1554
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/06/metro-in-motion-8-autocompletebox-reveal-animation/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/06/metro-in-motion-8-autocompletebox-reveal-animation/"
+---
+
+<p>When I started the Metro In Motion series, I thought I would probably post three or four articles and be done. However, every time I use my Windows Phone 7 I seem to spot a new 'native' fluid UI effect which I would like to use in my own code. Also, these posts have proven very popular, there appears to be a real developer 'need' for this sort of information.</p>
+<p>In this instalment of Metro In Motion I will show how to implement the fluid auto-complete effect that can be seen in the Windows Phone 7 email client. You can see a 'storyboard' for this effect below; the items within the auto-complete popup slide gracefully into view when the popup initially renders:</p>
+<p><a href="{{ site.baseurl }}/archive/2011/06/AutoCompleteSlide.png"><img src="{{ site.baseurl }}/archive/2011/06/AutoCompleteSlide.png" alt="" title="AutoCompleteSlide" width="650" height="172" class="aligncenter size-full wp-image-1555" /></a></p>
+<p>This effect uses the <code>AutoCompleteBox</code> which is part of the <a href="http://silverlight.codeplex.com/releases/view/60291">Silverlight for Windows Phone Toolkit</a>. I have implemented this effect as a Blend Behaviour, allowing it to be easily added to an AutoCompleteBox either via drag and drop within Expression Blend, or by simply adding the XAML below:</p>
+{% highlight xml %}
+<tk:AutoCompleteBox VerticalAlignment="Top"
+                    ItemsSource="{Binding}"
+                    ValueMemberPath="Surname">
+  <!-- add the metro in motion effect -->
+  <i:Interaction.Behaviors>
+    <behaviour:AutoCompleteSlideBehaviour/>
+  </i:Interaction.Behaviors>
+</tk:AutoCompleteBox>
+{% endhighlight %}
+<p>Let's take a look at how this behaviour is implemented ...</p>
+<p>In order for this effect to work, we need to handle the <code>Opening</code> event raised by the <code>Popup</code> control that is part of the <code>AutoCompleteBox</code> template. When this event fires, each of the elements within the <code>ListBox</code> that the <code>Popup</code> contains are animated. The first task is to locate the <code>ListBox</code> and the <code>Popup</code>, this is performed when the behaviour is attached:</p>
+{% highlight csharp %}
+protected override void OnAttached()
+{
+  base.OnAttached();
+
+  // locate the listBox, if this fails, the AutoCOmpleteBox is not loaded,
+  // so try again after the Loaded event.
+  if (!TryFindListBox())
+  {
+    RoutedEventHandler onLoaded = null;
+    onLoaded = (s, e) =>
+        {
+          TryFindListBox();
+          AssociatedObject.Loaded -= onLoaded;
+        };
+    AssociatedObject.Loaded += onLoaded;
+  }
+}
+
+/// <summary>
+/// Tries to locate the Listbox within the auto-completes Popup.
+/// </summary>
+private bool TryFindListBox()
+{
+  // locate the auto-complete  popup
+  _popup = AssociatedObject.Descendants<Popup>().SingleOrDefault() as Popup;
+  if (_popup == null)
+    return false;
+
+  _popup.Opened += Popup_Opened;
+
+  // locate the ListBox
+  _popUpListbox = _popup.Child.Descendants<ListBox>().SingleOrDefault() as ListBox;
+  return true;
+}
+{% endhighlight %}
+<p>The above code uses some simple <a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> to locate these elements. Notice that the approach taken first tries to locate these elements, if this fails, the <code>Loaded</code> event is handled, which is fired when elements (and their template components) are added to the visual tree.</p>
+<p>The animation is fired each time the <code>Popup</code> is opened. Creating the animation itself is quite simple, the items within the <code>ListBox</code> are iterated over, with a <code>TranslateTransform</code> created for each, with delayed <code>Storyboard</code> animations used to fire the animations sequentially. However, the container's (i.e. <code>ListBoxItem</code> instances) may not have been created when the <code>Opened</code> event fires. In order to handle this, the code below checks for the container of the item at the first index. If this container has not yet been generated, the code which creates the animations is deferred until after the next <code>LayoutUpdated</code> event. This should ensure that the containers are now present. The code is shown below:</p>
+{% highlight csharp %}
+/// <summary>
+/// Handle the Opened even on the Popup in order to animate the contents
+/// </summary>
+private void Popup_Opened(object sender, System.EventArgs e)
+{
+  if (_popUpListbox.Items.Count == 0)
+    return;
+
+  // an action which fires the required animation for each element
+  Action fireAnimations = () =>
+  {
+    // locate all the ListBoxItems
+    var itemContainers = _popUpListbox.Items
+        .Select(i => _popUpListbox.ItemContainerGenerator.ContainerFromItem(i))
+        .Where(i => i != null)
+        .Cast<ListBoxItem>();
+
+    // animate each item
+    double startTime = 0;
+    foreach (var listBoxItem in itemContainers)
+    {
+      // add a render transform that offsets the element
+      var trans = new TranslateTransform()
+          {
+            Y = -50
+          };
+      listBoxItem.RenderTransform = trans;
+      listBoxItem.Opacity = 0.0;
+
+      var sb = new Storyboard();
+      sb.BeginTime = TimeSpan.FromMilliseconds(startTime);
+      sb.Children.Add(TiltBehaviour.CreateAnimation(null, 0, 0.2, "Y", trans));
+      sb.Children.Add(TiltBehaviour.CreateAnimation(null, 1, 0.5, "Opacity", listBoxItem));
+      sb.Begin();
+
+      startTime += 100;
+    }
+  };
+
+  // check if the item container for the first item has been generated
+  if (_popUpListbox.ItemContainerGenerator.ContainerFromIndex(0) == null)
+  {
+    // if not, wait for the next LayoutUpdated event
+    EventHandler updateHandler = null;
+    updateHandler = (s, e2) =>
+    {
+      fireAnimations();
+      _popUpListbox.LayoutUpdated -= updateHandler;
+    };
+    _popUpListbox.LayoutUpdated += updateHandler;
+  }
+  else
+  {
+    // otherwise, fire the animations now
+    fireAnimations();
+  }
+}
+{% endhighlight %}
+<p>The full sourcecode for this behaviour can be found in the <a href="http://wp7contrib.codeplex.com/">WP7Contrib project</a>, within the <code>WP7Contrib.View.Controls</code> assembly.</p>
+<p>You can download a simple working example here: <a href='{{ site.baseurl }}/archive/2011/06/MetroInMotionEight.zip'>MetroInMotionEight.zip</a></p>
+<p>I have of course updated the Sandwich Flow, Metro In Motion demo application to include this effect. Again, this is available via the <a href="http://wp7contrib.codeplex.com/">WP7Contrib project</a>:</p>
+<p><iframe width="640" height="510" src="http://www.youtube.com/embed/TtVWLxDDhiE" frameborder="0" allowfullscreen></iframe></p>
+<p>Regards,Colin E.</p>

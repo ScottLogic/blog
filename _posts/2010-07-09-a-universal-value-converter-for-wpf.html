@@ -1,0 +1,168 @@
+---
+title: A Universal Value Converter for WPF
+date: 2010-07-09 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- WPF
+- valueconverter
+- wpf
+- codeproject
+id: 726
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2010/07/a-universal-value-converter-for-wpf/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2010/07/a-universal-value-converter-for-wpf/"
+---
+
+<p><em>This post provides a simple IValueConverter implementation that makes use of the framework type converters in order to convert between a large range of source / target types. This converter can be used both within bindings and in code-behind to give more concise property setters.</em></p>
+<h2>Introduction</h2>
+<p>One of the great features of the XAML language is that it is flexible, concise and expressive (yes, I know that XML can be a little verbose, but if you try to create a complex UI purely in code-behind I think you will agree with my observations!). For example, you can set the fill of a rectangle by simply specifying the named color:</p>
+{% highlight xml %}
+<Rectangle Fill="Green"/)
+{% endhighlight %}
+<p>or ... you can specify the RGB values directly:</p>
+{% highlight xml %}
+<Rectangle Fill="#00FF00"/)
+{% endhighlight %}
+<p>Looking at the above examples, you might be fooled into thinking that the Fill property is of type Color. People who are new to WPF often find that this is not the case the first time they try to bind a property of type Color to the Fill property (they would never set the Fill property directly in code behind, because that would be a cardinal sin!). The Fill property is actually of type Brush, and the XAML parser is performing some cunning type conversions in order to make the above markup work.</p>
+<p>The solution to this problem of binding a Color to the Fill property is to create a value converter:</p>
+{% highlight csharp %}
+public class ColorToBrushConverter : IValueConverter
+{
+  public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+  {
+    if (value is Color)
+    {
+      return new SolidColorBrush((Color)value);
+    }
+    return null;
+  }
+
+  public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+  {
+    throw new Exception("The method or operation is not implemented.");
+  }
+}
+{% endhighlight %}
+<p>Which can be used as follows:</p>
+{% highlight xml %}
+<Rectangle Fill="{Binding Path=MyColorProperty,
+                                  Converter={StaticResource ColorToBrushConverter}} "/)
+{% endhighlight %}
+<p>If you search google for <a href="http://www.google.co.uk/search?q=colortobrushconverter">ColorToBrushConverter</a>, you can see that there are a great many people who have implemented this simple little converter. But what happens if you want to bind to a string representation of color? or you want to bind to a stroke dash property or path geometry? Whilst value converters are simple to implement, it is a shame that you have to create so many of them!</p>
+<h2>A Universal Value Converter</h2>
+<p><img src="{{ site.baseurl }}/archive/2010/07/816000_pocket_knife.jpg" alt="" title="816000_pocket_knife" width="300" height="199" class="aligncenter size-full wp-image-728" /></p>
+<p>Wouldn't it be great to have a single value converter that has the same flexibility as the XAML parser? It is actually very simple to create such as converter (and after creating probably my 5th ColorToBrushConverter I have no idea why it took so long before I realised this!). The .NET framework has had an API for conversion between different types via <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.typeconverter.aspx">TypeConverters</a> for a long time. They used extensively in .NET technologies for databinding and designer support, and much more.</p>
+<p>A value converter can obtain a suitable TypeConverter for the target property then perform the required conversion:</p>
+{% highlight csharp %}
+public class UniversalValueConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        // obtain the conveter for the target type
+        TypeConverter converter = TypeDescriptor.GetConverter(targetType);
+
+        try
+        {
+            // determine if the supplied value is of a suitable type
+            if (converter.CanConvertFrom(value.GetType()))
+            {
+                // return the converted value
+                return converter.ConvertFrom(value);
+            }
+            else
+            {
+                // try to convert from the string representation
+                return converter.ConvertFrom(value.ToString());
+            }
+        }
+        catch (Exception)
+        {
+            return value;
+        }
+
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
+}
+{% endhighlight %}
+<p>Note, that this value converter first tries to convert directly from the source to the target type, if this is not possible it then tried to convert via a string representation (I am not sure whether it is more correct to obtain a TypeConverter for the String type, then use this rather that invoking ToString on the value being converted, but the above works for me :-) ).</p>
+<p>You can see this converter in action below where a range of type conversions are demonstrated:</p>
+{% highlight xml %}
+<TextBlock Text="Converting String to Brush ...."/>
+<Rectangle Fill="{Binding ElementName=colorTextBox, Path=Text, Converter={StaticResource UniversalValueConverter}}"/>
+<TextBox x:Name="colorTextBox"
+             Text="Red"/>
+
+<TextBlock Text="Converting String to Geometry ...."/>
+<Path Data="{Binding ElementName=geometryText, Path=Text, Converter={StaticResource UniversalValueConverter}}"/>
+<TextBox x:Name="geometryText"
+             Text="M 10,20 C 10,2.5 40,35 40,17 H 28"/>
+
+<TextBlock Text="Converting String to DoubleCollection (stroke dash) ...."/>
+<Line StrokeDashArray="{Binding ElementName=dashText, Path=Text, Converter={StaticResource UniversalValueConverter}}"/>
+<TextBox x:Name="dashText"
+            Text="2 2 4 5"/>
+{% endhighlight %}
+<p><img src="{{ site.baseurl }}/archive/2010/07/universal.png" alt="" title="universal" width="395" height="345" class="aligncenter size-full wp-image-735" /></p>
+<p>For the first conversion, string to brush, you can use named colors, and the hex notation in its range of abbreviated forms (#AF7, #AAFF77, #FFAAFF77 ...). You can also use this converter to convert from string to their corresponding enum values, for example binding the string "Collapsed" to the Visbility property.</p>
+<h2>Value conversion in code behind</h2>
+<p>The above converter really is swiss army knife for bindings, but what about code-behind? You are still constrained by the type requirements of the property being set:</p>
+{% highlight csharp %}
+rect1.Fill = new SolidColorBrush()
+{
+    Color = Colors.Red
+};
+{% endhighlight %}
+<p>Value converters, whilst typically used in binding, can also be used directly in code-behind. The following extension method extends <code>SetValue</code> method for setting dependency properties to make use of the above value converter:</p>
+{% highlight csharp %}
+/// <summary>
+/// Sets the given dependency property, applying type conversion where required
+/// </summary>
+public static void SetValueEx(this DependencyObject element, DependencyProperty property, object value)
+{
+    var conv = new UniversalValueConverter();
+    var convertedValue = conv.Convert(value, property.PropertyType, null, CultureInfo.InvariantCulture);
+    element.SetValue(property, convertedValue);
+}
+{% endhighlight %}
+<p>Which provides a more flexible mechanism for setting property values:</p>
+{% highlight csharp %}
+rect1.SetValueEx(Rectangle.FillProperty, Colors.Red);
+rect2.SetValueEx(Rectangle.FillProperty, "Blue");
+rect3.SetValueEx(Rectangle.FillProperty, "#FFEE55");
+rect4.SetValueEx(Rectangle.FillProperty, new SolidColorBrush(Colors.Orange));
+{% endhighlight %}
+<h2>... and Silverlight?</h2>
+<p>Unfortunately Silverlight lacks the TypeDescriptor class which is used to obtain TypeConveters. I am guessing that type conversion within Silverlight is 'baked-in' to the XAML parser, which means that it is not possible to re-use this logic :-(</p>
+<p>You can download the full source for this blog post: <a href='{{ site.baseurl }}/archive/2010/07/UniversalValueConverter.zip'>UniversalValueConverter.zip</a></p>
+<p>Regards,Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

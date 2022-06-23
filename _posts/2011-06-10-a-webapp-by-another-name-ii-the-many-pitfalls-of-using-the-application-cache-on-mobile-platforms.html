@@ -1,0 +1,66 @@
+---
+title: A Webapp By Another Name II - The many pitfalls of using the application cache
+  on mobile platforms
+date: 2011-06-10 00:00:00 Z
+categories:
+- cprice
+- Tech
+tags:
+- Javascript
+- HTML5
+- AppCache
+- Mobile
+- blog
+id: 205
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2011/06/a-webapp-by-another-name-ii-the-many-pitfalls-of-using-the-application-cache-on-mobile-platforms/
+layout: default_post
+source: site
+disqus-id: "/2011/06/a-webapp-by-another-name-ii-the-many-pitfalls-of-using-the-application-cache-on-mobile-platforms/"
+---
+
+<p><em>In <a href="{{ site.baseurl }}/2011/06/03/a-webapp-by-another-name-the-many-pitfalls-of-using-the-application-cache-on-mobile-platforms">part one</a> I discussed my objective to create a "web-less webapp" which could masquerade as a native application on all modern mobile platforms. I covered the gotchas of developing with the cache, but stopped short of discussing the problems that come about when you wrap it up for each platform. In this post I'll cover the problems I encountered when wrapping the application up for iOS.</em></p>
+<p><strong>Introduction</strong></p>
+<p>You may remember from last time that we were looking to create a wrapper for each mobile platform such that -</p>
+<p>Each of the wrappers would contain just enough code to show a chrome-less version of the native browser. Into that browser it would then load the webapp code, hopefully from the application cache.</p>
+<p>A bit of research revealed that most of this work is already done for us, as all of the modern mobile platforms provide a chrome-less browser control. It's just a case of -</p>
+<ul>
+<li>Downloading the appropriate SDK</li>
+<li>Creating the application</li>
+<li>Adding a browser control to it</li>
+<li>Pointing the browser at the webapp</li>
+</ul>
+<p>If even that seems like too much work, then you'll be glad to hear about a project called <a href="http://www.phonegap.com/">PhoneGap. </a>It aims to maintains open source application templates for each platform which do all the above for you.</p>
+<p><strong>PhoneGap</strong></p>
+<p><strong> </strong>From the PhoneGap download package, I installed the iOS package. Once installed a new user project template is made available in xCode called PhoneGap. Creating a new project is as simple as choosing it in the wizard and giving it a name. Aside from giving the project a name, there are a few other things you will probably want to tweak -</p>
+<p><strong>1. Application name</strong></p>
+<p>This is set to equal the target build setting "Product Name" (a.k.a. ${PRODUCT_NAME}). To modify it navigate to the target settings by expanding Targets in the Groups and Files panel and double clicking on the target (which by default will be called the project name). Go to build then search for "Product Name" and edit the value as appropriate.</p>
+<p><strong>2. Home screen icon</strong></p>
+<p>There are three icons in the Resources/icons folder which can be customised. Which icon is used depends on the device (taken from <a href="http://aralbalkan.com/3314">Aral Balkan's blog</a>) -</p>
+<ul>
+<li>Icon.png (57x57 - for iPhone and iPod Touch)</li>
+<li>Icon@2x.png (114x114 - for iPhone 4)</li>
+<li>Icon-72.png (72x72 - for iPad)</li>
+</ul>
+<p><strong>3. Loading splash screen image</strong></p>
+<p>There are three images in the Resources/splash folder (depending on the target device) which can be customised. The Default.png image is used for the iPhone and iPod Touch, the landscape and portrait versions are used by the iPad depending on the orientation of the home screen.</p>
+<p><strong>4. Webapp URL</strong></p>
+<p>As I've chosen not to package any application code with the app, www/index.html should be changed such that the contents are as follows (obviously changing <a href="http://example.com/">example.com</a> as appropriate) -</p>
+<p><code>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta name="refresh" content="0;http://example.com"/&gt;&lt;/head&gt;&lt;/html&gt;</code></p>
+<p><em>There are advantages to storing some of the application code as packaged resources. An obvious one is to reduce the network loading time the first time the application is loaded. However the big disadvantage is that a new version of the application would be required in order to update the bundled resources. That means updating each of the wrappers in turn and then uploading each to each platform's app store. Personally, I prefer the idea of managing it from one location as you would any standard webapp.</em></p>
+<p>With that done, we can now build and test our application on the iOS simulator that comes with the SDK. And all that without writing any ObjectiveC!</p>
+<p><strong>Prevent the default browser launching</strong></p>
+<p>Almost...it turns out that the default behaviour of the UIWebView control which is being used by PhoneGap is to launch links in a new browser window instead of to navigate to them itself. To force them to launch in place the following <a href="http://www.midnightryder.com/technology-blog/a-quick-phonegap-fix-for-http-https-external-browser-launch-problem">snippet of code</a> needs to be added to shouldStartLoadWithRequest -</p>
+<p><code>// We want the HTTP requests to stay in the app, rather than be launched in the external browser.// Analyse the request URL here and ensure we return true if we're looking at an HTTP(s) request.NSURL *url = [request URL];</code></p>
+<p><code> </code></p>
+<p><code>if( [ [url scheme] isEqualToString:@"http"] || [ [url scheme] isEqualToString:@"https"] ) {return YES;} else {return [ super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType ];}</code></p>
+<p><strong>Adding application cache support to an iOS application</strong></p>
+<p>A key factor to making this all work is making sure that we can load the application while offline using the appcache. If you read the documentation on the <a href="about:blank">Apple developer center website</a> you'd be forgiven for thinking that NSURLCache would take care of that for you. Unfortunately you'd be wrong...</p>
+<p>For some reason that isn't well known Apple decided to remove caching to disk from iOS in such a way that it will fail silently. This has been widely reported e.g. <a href="http://stackoverflow.com/questions/1870004/does-nsurlconnection-take-advantage-of-nsurlcache">here</a>, <a href="http://stackoverflow.com/questions/2338171/nsurlcache-problem-with-cache-response">here </a>and <a href="http://blog.mro.name/2009/07/nsurlcache-joke-iphone/">here</a>. Obviously without disk caching of the resources, as soon as your app is closed (or at any time that the OS sees fit to clear the memory cache) the offline support will be lost. Things are not looking good for our web-less webapp!</p>
+<p><strong>SDURLCache</strong></p>
+<p>Luckily, a comment in the last link pointed me in the direction of <a href="http://github.com/rs/SDURLCache">SDURLCache </a>which is a project that aims to recreate the functionality of NSURLCache but without the crippled disk caching behaviour. It works because NSURLCache allows you to register a replacement cache to be used by your application.</p>
+<p>Once you've downloaded SDURLCache and included it in your project, the following code tells your app to start using it -</p>
+<p><code>SDURLCache *urlCache = [[SDURLCache alloc] initWithMemoryCapacity:1024*1024   // 1MB mem cachediskCapacity:1024*1024*5 // 5MB disk cachediskPath:[SDURLCache defaultCachePath]];[NSURLCache setSharedURLCache:urlCache];[urlCache release];</code></p>
+<p>With this snippet added our application initialisation logic, we finally have offline support in our iOS app!</p>
+<p><strong>All wrapped up</strong></p>
+<p>So in the end I did have to get my hands dirty and write (copy/paste) some ObjectiveC but compared to the scale of the application, the amount of native code to enable the cache was trivial. Now we have a webapp running offline in the desktop browsers, iOS browsers and in an iOS native application. Up next Android!</p>

@@ -1,0 +1,123 @@
+---
+title: Adding a Location Crosshair to Silverlight charts (again!)
+date: 2009-03-23 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- charts
+- silverlight
+- blog
+- codeproject
+id: 220
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2009/03/adding-a-location-crosshair-to-silverlight-charts-again/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2009/03/adding-a-location-crosshair-to-silverlight-charts-again/"
+---
+
+<p>Silverlight is moving fast. Really fast. The recent <a href="http://live.visitmix.com/">MIX09</a> conference saw the release of Silverlight 3 (Beta) and also a new release of the <a href="http://blogs.msdn.com/delay/archive/2009/03/19/silverlight-charting-is-faster-and-better-than-ever-silverlight-toolkit-march-09-release-now-available.aspx">Silverlight Toolkit</a>. All this change is making it hard for us bloggers to keep up!</p>
+<p>Just over a month ago I posted an article on this blog about how to add <a href="{{ site.baseurl }}/2009/02/04/adding-a-location-crosshair-to-silverlight-charts">a location crosshair</a> to the Silverlight Toolkit Charts. This blog post briefly discusses how the charts have changed with the release last week, and updates the code accordingly.</p>
+<p>If you want to know how the general approach works, I would recommend reading the <a href="{{ site.baseurl }}/2009/02/04/adding-a-location-crosshair-to-silverlight-charts">previous blog post</a>, this post serves as an update and discussion on how the chart template has changed.</p>
+<p>There have been a number of minor changes to the charts that affect my previous implementation, including a change of namespace and orientation type on the chart axes. However, the biggest change is in the template of the chart control itself. Previously the chart template was structured via a Grid as shown below:</p>
+{% highlight xml %}
+<ControlTemplate TargetType="charting:Chart">
+    <Grid Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}">
+
+        <!-- ##### chart control adds column / row definitions and axes here #### -->
+
+        <Grid Height="250" x:Name="PlotArea" Style="{TemplateBinding PlotAreaStyle}">
+
+            <!-- the standard chart template components -->
+            <Grid x:Name="GridLinesContainer" />
+            <Grid x:Name="SeriesContainer"/>
+            <Border BorderBrush="#FF919191" BorderThickness="1" />
+
+            <!-- ##### I added cross hair and legend here #### -->
+        </Grid>
+    </Grid>
+</ControlTemplate>
+{% endhighlight %}
+<p>After loading the template the chart adds the axes and the appropriate column / row definitions. This leaves us free to add new visual content withing the 'PlotArea' grid. Inspecting the visual tree, with <a href="http://silverlightspy.com/silverlightspy/">Silverlight Spy</a>, it look like the following:</p>
+<p><a href="{{ site.baseurl }}/archive/2009/03/visualtree-before.png"><img src="{{ site.baseurl }}/archive/2009/03/visualtree-before.png" alt="visualtree-before" title="visualtree-before" width="292" height="220" class="alignnone size-full wp-image-221" /></a></p>
+<p>The content I added in order to construct a crosshair and legend are highlighted in red.</p>
+<p>The March release of the Silverlight toolkit modifies the way in which axes are added to the chart by the introduction of a new layout panel, the EdgePanel (think DockPanel!). This panel allows you to locate (or dock) elements at one of the four edges of a panel or the panel centre. The modified control template is show below:</p>
+{% highlight xml %}
+<ControlTemplate TargetType="charting:Chart" x:Key="ChartTemplate">
+    <Grid x:Name="ChartRoot" Style="{TemplateBinding PlotAreaStyle}">
+
+        <chartingprimitives:EdgePanel x:Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}">
+
+            <Grid Canvas.ZIndex="1" Style="{TemplateBinding PlotAreaStyle}" />
+            <Border Canvas.ZIndex="1" BorderBrush="#FF919191" BorderThickness="1" />
+
+            <!-- ##### I added cross hair and legend here #### -->
+
+            <!-- ##### chart control adds column / row definitions and axes here #### -->
+
+        </chartingprimitives:EdgePanel>
+    </Grid>
+</ControlTemplate>
+{% endhighlight %}
+<p>I have indicated the location where I add my own visual content and also the location where the chart control adds the axes. The resulting visual tree is shown below:</p>
+<p><a href="{{ site.baseurl }}/archive/2009/03/visualtree-after.png"><img src="{{ site.baseurl }}/archive/2009/03/visualtree-after.png" alt="visualtree-after" title="visualtree-after" width="340" height="256" class="alignnone size-full wp-image-223" /></a></p>
+<p>The significant difference here is that all the components of our chart are contained within the same EdgePanel, with their location dictated by their EdgePanel.Edge property. One problem this does introduce for us is that of Z-ordering, previously our additional content was top of the stack, now it sits somewhere in between. Fortunately EdgePanel honours the Canvas.ZIndex attached property allowing us to push our content to the top. The modified template is given below in full:</p>
+{% highlight xml %}
+<ControlTemplate TargetType="charting:Chart" x:Key="ChartTemplate">
+    <Grid x:Name="ChartRoot" Style="{TemplateBinding PlotAreaStyle}">
+
+        <chartingprimitives:EdgePanel x:Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}">
+
+            <Grid Canvas.ZIndex="-1" Style="{TemplateBinding PlotAreaStyle}" />
+            <Border Canvas.ZIndex="3" BorderBrush="#FF919191" BorderThickness="1" />
+
+            <!-- a location crosshair -->
+            <Grid Name="CrosshairContainer" Canvas.ZIndex="1" Background="Transparent"
+                 MouseMove="CrosshairContainer_MouseMove" MouseEnter="CrosshairContainer_MouseEnter"
+                 MouseLeave="CrosshairContainer_MouseLeave" >
+                <Grid Name="Crosshair">
+                    <Line Name="Vertical" X1="{Binding Path=X}" Y1="0" X2="{Binding Path=X}" Y2="400" Stroke="Black"/>
+                    <Line Name="Horizontal" X1="0" Y1="{Binding Path=Y}" X2="400" Y2="{Binding Path=Y}" Stroke="Black"/>
+                </Grid>
+            </Grid>
+
+            <!-- a location 'legend' -->
+            <Border Canvas.ZIndex="2" Name="LocationIndicator" Visibility="Collapsed" Style="{StaticResource LocationLegendStyle}">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <TextBlock Text="Location: "/>
+                    <TextBlock Text="{Binding Path=Key,
+                                Converter={StaticResource FormattingConverter}, ConverterParameter=hh:mm:ss}"/>
+                    <TextBlock Text=", "/>
+                    <TextBlock Text="{Binding Path=Value,
+                                Converter={StaticResource FormattingConverter}, ConverterParameter=0.00}"/>
+                </StackPanel>
+            </Border>
+
+        </chartingprimitives:EdgePanel>
+    </Grid>
+</ControlTemplate>
+{% endhighlight %}
+<p>One more subtle point, the event handlers for MouseMove, MouseLeave etc.. when associated with a Grid only work if the background is not null, hence the need for a transparent background. I have no idea why, believe me ... it just works!</p>
+<p>One final important change is the method used to translate points from screen coordinates into a position within the chart coordinate system. Previously I used a method called <code>GetPlotAreaCoordinateValueRange</code> on the 'hidden <code>IRangeAxis</code> interface. This has now been renamed to <code>GetValueAtPosition</code> and returns and takes a <code>UnitValue</code> type as its input (presumably for API consistency with the pie charts). Here is the code:</p>
+{% highlight csharp %}
+/// <summary>
+/// Transforms the supplied position on the plot area grid into a point within
+/// the plot area coordinate system
+/// </summary>
+private KeyValuePair<DateTime, double> GetPlotAreaCoordinates(Point position)
+{
+    IComparable yAxisHit = ((IRangeAxis)YAxis).GetValueAtPosition(
+        new UnitValue(PlotArea.ActualHeight - position.Y, Unit.Pixels));
+
+    IComparable xAxisHit = ((IRangeAxis)XAxis).GetValueAtPosition(
+        new UnitValue(position.X, Unit.Pixels));
+
+    return new KeyValuePair<DateTime, double>((DateTime)xAxisHit, (double)yAxisHit);
+}
+{% endhighlight %}
+<p>With these changes in place, our crosshair is fully functional once more:</p>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/03/sllinechartcrosshair.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>... until the next release of the toolkit ;-)</p>
+<p>You can download the project sourcecode: <a href='{{ site.baseurl }}/archive/2009/03/sllinechartcrosshairupdated.zip'>sllinechartcrosshairupdated.zip</a>.</p>
+<p>Regards, Colin E.</p>

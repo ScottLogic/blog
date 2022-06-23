@@ -1,0 +1,233 @@
+---
+title: Silverlight as an alternative to PowerPoint
+date: 2010-10-13 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- presentation
+- WP7
+- blog
+id: 837
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2010/10/silverlight-as-an-alternative-to-powerpoint/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2010/10/silverlight-as-an-alternative-to-powerpoint/"
+---
+
+<p><em>Recently I gave a presentation on cross platform application development with Silverlight, WPF and WP7. I wanted to move away from the standard PowerPoint bullet-point driven presentation style, so decided to create a presentation as a Silverlight application running in full-screen mode. This blog post describes the steps I took to create this.</em></p>
+<p>PowerPoint is a very popular tool for the rapid creation of presentations, however, PowerPoint presentations have the problem that they tend to look-alike, due to them being built upon 'stock' templates, clip art and animated transitions. Interestingly data visualisation guru Edward Tufte goes further that just criticising the cosmetics of PowePoint. In his book "<a href="http://www.ibm.com/developerworks/rational/library/2051.html">The Cognitive Style of PowerPoint</a>", he claims that the bullet-point, abbreviated-text style of PowerPoint foreshortens evidence and thought!</p>
+<p>For my presentation at a recent <a href="{{ site.baseurl }}/archive/2010/10/WPF-and-Silverlight-Unification.pdf">Scott Logic / Microsoft</a> event I wanted to avoid using bullet-points as much as possible. I decided to make my presentation mostly graphical, putting more emphasis on the verbal delivery of the content. The subject of the talk was how <a href="{{ site.baseurl }}/2010/10/11/white-paper-silverlight-wpf-and-windows-phone-7-cross-platform-development">Silverlight and WPF are unifying cross platform development</a>, so I thought, why not use a full-screen Silverlight application to deliver the presentation?</p>
+<p>Taking inspiration from the <a href="http://en.wikipedia.org/wiki/Metro_Design_Language">Metro Design Language</a> and the Windows Phone 7 <a href="http://en.wikipedia.org/wiki/Metro_Design_Language">Panorama control</a>, here is the presentation I created:</p>
+<div style="text-align: center; "><object width="500" height="350" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/10/Presentation2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p><em>Mouse-over to see the forward / back / full-screen controls, also left / right mouse button clicks navigate forwards / backwards</em></p>
+<p>Whilst it is graphically quite rich, and includes animated transitions, I feel that by writing the presentation as a Silverlight application, it further re-enforces the contents of the talk. (at least that is my excuse for not following Edward Tufte's teachings to the letter!).</p>
+<p>The presentation also works just fine on Windows Phone 7, with just a few tweaks required for the small differences in user interaction:</p>
+<div style="text-align: center; "><object width="425" height="344"><param name="movie" value="http://www.youtube.com/v/nIuGJQZcsTY?fs=1&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/nIuGJQZcsTY?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="425" height="344"></embed></object></div>
+<p><em>With the WP7 version, you navigate by clicking on either the left or right hand side of the phone's screen.</em></p>
+<p><br/><br/>The following section is a small collection of notes on the implementation of this presentation and the sourcecode is given at the end of this post.</p>
+<p>The basic structure of the presentation is quite simple, with the individual slides created as user controls. These control each wrap their content in a <a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.viewbox%28VS.95%29.aspx">Viewbox</a> control so that the entire slide is scaled when the presentation is run in full-screen mode. (Note, WP7 does not have a Viewbox control, however it has a fixed screen resolution, so each slide has a hard-coded width / height).</p>
+<p>The slides are contained with a presenter which is responsible for displaying a single slide and animating their transitions:</p>
+{% highlight xml %}
+<local:PanormicSlidePresenter Title="WPF and Silvelight; Unification" SelectedIndex="0">
+  <slide:FrontPage/>
+  <slide:Timeline/>
+  <slide:PlatformDifferences/>
+  <slide:SeparateTeams/>
+  <slide:UnifiedTeams/>
+</local:PanormicSlidePresenter>
+{% endhighlight %}
+<p>The PanormicSlidePresenter is a subclass of ListBox, which provides the ability to select a single slide, with the PanormicSlidePresenter ensuring that only the selected slide is visible. The template for the PanormicSlidePresenter uses a horizontal stack panel as the container for the slides. It also has a TextBlock which renders the title of the slide deck. These elements each have a Storyboard which is triggered in code-behind to animate the slides into view.</p>
+{% highlight xml %}
+<Style TargetType="local:PanormicSlidePresenter">
+  <!-- a ListBoxItem style that removes that removes the selected / enabled state elements -->
+  <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemStyle}"/>
+  <Setter Property="ItemsPanel">
+    <Setter.Value>
+      <ItemsPanelTemplate>
+        <StackPanel Orientation="Horizontal"/>
+      </ItemsPanelTemplate>
+    </Setter.Value>
+  </Setter>
+  <Setter Property="Template">
+    <Setter.Value>
+      <ControlTemplate TargetType="local:PanormicSlidePresenter">
+        <Grid local:Clip.ToBounds="True">
+          <!-- the title for this slide presenter -->
+          <Canvas VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Viewbox x:Name="Title">
+              <Viewbox.Resources>
+                <Storyboard x:Key="animation">
+                  <DoubleAnimation  Storyboard.TargetProperty="(Canvas.Left)"
+                                    To="360" Duration="0:0:0.5">
+                    <DoubleAnimation.EasingFunction>
+                      <SineEase EasingMode="EaseOut" />
+                    </DoubleAnimation.EasingFunction>
+                  </DoubleAnimation>
+                </Storyboard>
+              </Viewbox.Resources>
+              <TextBlock Text="{TemplateBinding Title}" Foreground="#444"/>
+            </Viewbox>
+          </Canvas>
+
+          <!-- the presenter which renders the slides-->
+          <Canvas >
+            <ItemsPresenter x:Name="ItemsPresenter">
+              <ItemsPresenter.Resources>
+                <Storyboard x:Key="animation">
+                  <DoubleAnimation  Storyboard.TargetProperty="(Canvas.Left)"
+                                      To="360" Duration="0:0:0.5">
+                    <DoubleAnimation.EasingFunction>
+                      <SineEase EasingMode="EaseOut" />
+                    </DoubleAnimation.EasingFunction>
+                  </DoubleAnimation>
+                </Storyboard>
+              </ItemsPresenter.Resources>
+            </ItemsPresenter>
+          </Canvas>
+        </Grid>
+      </ControlTemplate>
+    </Setter.Value>
+  </Setter>
+</Style>
+{% endhighlight %}
+<p>The code for the PanormicSlidePresenter is pretty simple, it basically performs two tasks. Firstly, it ensures that the size of each of the slides it contains matches its own size, this ensures that each slide fills the entire screen. Secondly, when selection changes, it applies an offset to the  StackPanel which contains each of the slides, to bring the correct slide into view. It also applies a suitable offset to the title element to give a parallax scrolling effect which is one of the distinctive features of the Windows Phone 7 Panorama control.</p>
+{% highlight csharp %}
+/// <summary>
+/// Renders a collection of elements, with animated transitions between each.
+/// </summary>
+public class PanormicSlidePresenter : ListBox
+{
+  private ItemsPresenter _itemsPresenter;
+
+  private FrameworkElement _title;
+
+  #region Title Dependency Property
+
+  public string Title
+  {
+    get { return (string)GetValue(TitleProperty); }
+    set { SetValue(TitleProperty, value); }
+  }
+
+  public static readonly DependencyProperty TitleProperty = DependencyProperty.Register("Title",
+    typeof(string), typeof(PanormicSlidePresenter), new PropertyMetadata(""));
+
+  #endregion
+
+  public PanormicSlidePresenter()
+  {
+    DefaultStyleKey = typeof(PanormicSlidePresenter);
+
+    this.SelectionChanged += PanormicSlidePresenter_SelectionChanged;
+    this.SizeChanged += PanormicSlidePresenter_SizeChanged;
+  }
+
+  public override void OnApplyTemplate()
+  {
+    base.OnApplyTemplate();
+
+    _itemsPresenter = this.GetTemplateChild("ItemsPresenter") as ItemsPresenter;
+    _title = this.GetTemplateChild("Title") as FrameworkElement;
+  }
+
+  /// <summary>
+  /// Handle size changed events, scaling the slides and setting the required offsets
+  /// </summary>
+  private void PanormicSlidePresenter_SizeChanged(object sender, SizeChangedEventArgs e)
+  {
+    // scale each slide
+    foreach (FrameworkElement element in Items)
+    {
+      SetElementSize(element);
+    }
+
+    // offset to display the correct slide
+    Canvas.SetLeft(_itemsPresenter, GetSlideOffset());
+
+    // scale and offset the title
+    _title.Width = ActualWidth * 1.5;
+    Canvas.SetLeft(_title, GetTitleOffset());
+  }
+
+  /// <summary>
+  /// Compute the offset of the title base on the current selection
+  /// </summary>
+  private double GetTitleOffset()
+  {
+    return -((ActualWidth / 2) * SelectedIndex / (Items.Count-1));
+  }
+
+  /// <summary>
+  ///  Compute the offset required to bring the selected slide into view
+  /// </summary>
+  private double GetSlideOffset()
+  {
+    return -SelectedIndex * ActualWidth;
+  }
+
+  /// <summary>
+  /// Animates the current slide into view
+  /// </summary>
+  private void ShowCurrentSlide()
+  {
+    AnimateElementTo(_itemsPresenter, GetSlideOffset());
+    AnimateElementTo(_title, GetTitleOffset());
+  }
+
+  /// <summary>
+  /// Animates the given element to the given canvas offset
+  /// </summary>
+  private void AnimateElementTo(FrameworkElement element, double canvasLeft)
+  {
+    Storyboard anim = element.Resources["animation"] as Storyboard;
+
+    var dblAnim = anim.Children[0] as DoubleAnimation;
+    dblAnim.From = Canvas.GetLeft(element);
+    dblAnim.To = canvasLeft;
+    anim.Stop();
+
+    Storyboard.SetTarget(anim, element);
+    anim.Begin();
+  }
+
+  /// <summary>
+  /// Handle selection changed to animate the slide into viee
+  /// </summary>
+  private void PanormicSlidePresenter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+  {
+    if (_itemsPresenter == null)
+      return;
+
+    ShowCurrentSlide();
+  }
+
+  /// <summary>
+  /// As slide are added, set their size
+  /// </summary>
+  protected override void PrepareContainerForItemOverride(DependencyObject element, object item)
+  {
+    base.PrepareContainerForItemOverride(element, item);
+
+    // scale the elements as they are added
+    SetElementSize(item as FrameworkElement);
+  }
+
+  /// <summary>
+  /// Sets the size of the given element to match the size of this container
+  /// </summary>
+  private void SetElementSize(FrameworkElement element)
+  {
+    element.Width = this.ActualWidth;
+    element.Height = this.ActualHeight;
+  }
+}
+{% endhighlight %}
+<p>The presentation shown above also has another 'slide presenter' which animates transitions between its child control by spinning each into view using a RotateTransform. The code for this presenter, WheelSlidePresenter, is very similar to the panorama presenter described above. If you are interested, the sourecode is available to download below.</p>
+<p>As an aside, I really like the way that the Visual Studio designed shows the positions of the off-screen slides. You can even change the SelectedIndex of the presenter elements in XAML and watch the animated transitions:</p>
+<p><img src="{{ site.baseurl }}/archive/2010/10/slidePresenters.png" alt="" title="slidePresenters" width="595" height="366" class="aligncenter size-full wp-image-854" /></p>
+<p>In conclusion, I think Silverlight provides an interesting alternative to PowerPoint for presentations (although creating Silverlight presentations requires coding skills, so it is not suitable for the masses!).</p>
+<p>You can download the full sourcecode for this presentation below:</p>
+<p>Sourcecode for Web version: <a href='{{ site.baseurl }}/archive/2010/10/SilverlightPresentationWeb.zip'>SilverlightPresentationWeb.zip</a>Sourcecode for Windows Phone 7 version: <a href='{{ site.baseurl }}/archive/2010/10/SilverlightPresentationMobile.zip'>SilverlightPresentationMobile.zip</a></p>
+<p>Regards,Colin E.</p>

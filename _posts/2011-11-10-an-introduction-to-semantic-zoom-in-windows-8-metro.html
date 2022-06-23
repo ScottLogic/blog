@@ -1,0 +1,197 @@
+---
+title: An Introduction to Semantic Zoom in Windows 8 Metro
+date: 2011-11-10 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- WinRT
+- blog
+id: 1803
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/11/an-introduction-to-semantic-zoom-in-windows-8-metro/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/11/an-introduction-to-semantic-zoom-in-windows-8-metro/"
+---
+
+<p>With the new Metro UI, Windows 8 has firmly embraced the tablet form-factor, with the interface tailored for touch and multi-touch interactions. Many of the Metro concepts familiar to Windows Phone 7 (WP7) developers are also present in Windows 8. Watching the vieos from the //build/ conference you can see how the team responsible for Win8 Metro have really thought about the tablet experience, with new concepts such as <a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh465299(v=VS.85).aspx">cross-slide</a> and <a href="{{ site.baseurl }}/2011/10/10/winrt-transitions-creating-fast-and-fluid-metro-uis">transitions</a> being added to the familiar XAML environment.</p>
+<p>One of the most intersting new concepts introduced at build was 'semantic zoom', where a pinch gesture, which is more usually assocaited with optical zoom, is used to switch between different view of the same data. Because a pinch is conceptually a zoom operation, this is most typically used for switching from a more detailed view to a summary, or top-level view. Interestingly, with WP7 we have already seen the semantic zoom concept (minus the pinch gesture). The <a href="{{ site.baseurl }}/2011/01/20/a-windows-phone-7-jump-list-control">jump list control</a> provides a mechanism for jumping from one location within a list to another, via jump-buttons. This solves the problem of navigating long lists using swipe gestures. However, semantic zoom does not have to be restricted to jump-list style scenarios, for more ideas see the <a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh465319(v=VS.85).aspx#scroll_jump">Microsoft Guidelines for Semantic Zoom</a>.</p>
+<p>I thought that a fun way to familiarise myself with semantic zoom would be to use it to create a WP7 style jump list experience in Win8 Metro, you can see a (very poorly filmed) video of my creation below ...</p>
+<p><iframe width="420" height="315" src="http://www.youtube.com/embed/dn4-fhLro8U" frameborder="0" allowfullscreen></iframe></p>
+<p>The <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.jumpviewer">JumpViewer</a> control provides semantic zoom functionality. This control allows you to specify two views, which would most typically be as follows:</p>
+<ul>
+<li><code>ContentView </code>- the detail view. </li>
+<li><code>JumpView </code>- the top-level, or category view.</li>
+</ul>
+<p>However, you can provide any two views of your data, as long as there is some meaningful (or semantic!) relationship between the two.Both views must implement <a href="http://msdn.microsoft.com/en-us/library/windows/apps/windows.ui.xaml.controls.ijumpviewerinfo">IJumpViewerInfo</a> (As an aside, WinRT makes much better use of interfaces than the .NET XAML UIs), which has methods that allows the <code>JumpViewer</code> to instruct a view to make a certain item visible. This allows the two views to colaborate in order to allow navigation. The <code>GridView </code>control, which is part of the WinRT framework, implements this interface, so is a suitable control to use for both views. </p>
+<h2>The ContentView</h2>
+<p>So let's create a content view that renders a jump-list style control. You specify each of the view as follows:</p>
+{% highlight xml %}
+<JumpViewer x:Name="jumpViewer">
+  <JumpViewer.JumpView>
+    <GridView>
+      ...
+    </GridView>
+  </JumpViewer.JumpView>
+  <JumpViewer.ContentView>
+    <GridView>
+       ...
+    </GridView>
+  <JumpViewer.ContentView>
+</JumpViewer>
+{% endhighlight %}
+<p>The <code>JumpViewer </code>requires that you supply a <code>CollectionViewSource </code>to the <code>JumpView</code> in order to render the top-level view. Also, I have found that whereas the <code>ContentView </code>inherits the <code>JumpViewer</code> <code>DataContext</code>, making databinding possible, the <code>JumpView</code> does not. This results in a rather clumsy syntax for supplying data to this control:</p>
+{% highlight csharp %}
+var cvs = new CollectionViewSource();
+cvs.Source = source;
+jumpViewer.DataContext = cvs;
+(jumpViewer.JumpView as ListViewBase).ItemsSource = cvs.View.CollectionGroups;
+{% endhighlight %}
+<p>It would be possible to wrap up the above code in an attached behaviour, to allow binding without code-behind, but it is not really worth the effort. I am sure this will be tidied up in future versions!</p>
+<p>The <code>ContentView</code> is a <code>GridView</code> which by default scrolls its content horizontally. For my jump-list I wanted to scroll vertically, this can be achieved by setting the following attached properties:</p>
+<pre lang=="xml">
+<GridView ItemsSource="{Binding}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.HorizontalScrollMode="Disabled"
+            ScrollViewer.VerticalScrollMode="Enabled">
+
+</pre>
+<p>The template for each item, and the panel that the <code>GridView </code>uses to host the items it generates are specified as follows:</p>
+{% highlight xml %}
+<GridView.ItemTemplate>
+    <!-- the template for each data item -->
+    <DataTemplate>
+        <StackPanel Orientation="Horizontal" Width="500">
+            <TextBlock Text="{Binding Path=Surname}" FontSize="35"/>
+            <TextBlock Text=", " FontSize="35"/>
+            <TextBlock Text="{Binding Path=Forename}" FontSize="35"/>
+        </StackPanel>
+    </DataTemplate>
+</GridView.ItemTemplate>
+<GridView.ItemsPanel>
+    <!-- the top-level container -->
+    <ItemsPanelTemplate>
+        <StackPanel Orientation="Vertical" />
+    </ItemsPanelTemplate>
+</GridView.ItemsPanel>
+{% endhighlight %}
+<p>The <code>GridView </code>has built-in support for grouping. In order to use this, the data supplied to the <code>ItemsSource </code>must be a collection of <code>IGroupInfo</code> instances. The WinRT framework does not supply a default implementation of this interface, however, it is very easy to implement by extending a list to add a Key property:</p>
+{% highlight csharp %}
+public class GroupInfoList : List<object>, IGroupInfo
+{
+  public GroupInfoList(object key, IEnumerable<object> values)
+  {
+    Key = key;
+    AddRange(values);
+  }
+
+  public object Key { get; set; }
+
+  public new IEnumerator<object> GetEnumerator()
+  {
+    return (System.Collections.Generic.IEnumerator<object>)base.GetEnumerator();
+  }
+}
+{% endhighlight %}
+<p>This example renders <code>Person </code>instances (which have <code>Surname</code> and <code>Forename</code> properties). We can group them using a Linq query, to create a sorted list of <code>IGroupInfo </code>instances as follows:</p>
+{% highlight csharp %}
+var source = people.GroupBy(person => person.Surname.Substring(0, 1),
+                               (key, items) => new GroupInfoList(key, items))
+                   .OrderBy(group => group.Key);
+
+{% endhighlight %}
+<p>When supplied with grouped data, you can configure how the <code>GridView</code> renders it via the <code>GroupStyle </code>property:</p>
+{% highlight xml %}
+<GridView.GroupStyle>
+    <GroupStyle>
+        <GroupStyle.HeaderTemplate>
+            <!-- the header for each grup -->
+            <DataTemplate>
+                <Button Content="{Binding Name}"
+                        Width="80" Height="80"
+                        Foreground="Green" BorderBrush="Green"
+                        FontSize="40"
+                        VerticalContentAlignment="Bottom"
+                        Click="Button_Click"/>
+            </DataTemplate>
+        </GroupStyle.HeaderTemplate>
+        <GroupStyle.ContainerStyle>
+            <!-- the 'body' of each group -->
+            <Style TargetType="GroupItem">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="GroupItem">
+                            <StackPanel Orientation="Vertical">
+                                <!-- renders the header -->
+                                <ContentPresenter Content="{TemplateBinding Content}" />
+                                <!-- renders the items within this group -->
+                                <ItemsControl x:Name="ItemsControl2" ItemsSource="{Binding GroupItems}" />
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </GroupStyle.ContainerStyle>
+        <GroupStyle.Panel>
+            <!-- the panel used to render the items within the group -->
+            <ItemsPanelTemplate>
+                <VariableSizedWrapGrid Orientation="Horizontal"   MaximumRowsOrColumns="1"/>
+            </ItemsPanelTemplate>
+        </GroupStyle.Panel>
+    </GroupStyle>
+</GridView.GroupStyle>
+{% endhighlight %}
+<p>This rather complex block of XAML is composed of three parts, the best way to understand how they relate to the rendered output is via a picture:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/11/ContentView.png" alt="" title="ContentView" width="600" height="406" class="aligncenter size-full wp-image-1804" /></p>
+<h2>The JumpView</h2>
+<p>The jump-view is again a <code>GridView</code>, however, this view is much simpler because it does not render a grouped view. The <code>ItemsSource</code> for the <code>GridView </code>is set to the <code>CollectionViewSource.View.CollectionGroups</code> property. At runtime this property is populated with a collection of DependencyObjects which have a <code>Name </code>property which exposes the <code>Key </code>of each group.</p>
+<p>The XAML for the <code>JumpView</code> is given below:</p>
+{% highlight xml %}
+<GridView Foreground="White"
+            HorizontalAlignment="Center" VerticalAlignment="Center">
+    <GridView.ItemContainerTransitions>
+        <!-- disable the default entrance transitions -->
+        <TransitionCollection/>
+    </GridView.ItemContainerTransitions>
+    <GridView.ItemTemplate>
+        <!-- the template for each 'category' button -->
+        <DataTemplate>
+            <TextBlock  Text="{Binding Name}"
+                        FontFamily="Segoe UI Light"
+                        FontSize="55"
+                        Foreground="White" />
+        </DataTemplate>
+    </GridView.ItemTemplate>
+    <GridView.ItemsPanel>
+        <ItemsPanelTemplate>
+            <WrapGrid ItemWidth="120" ItemHeight="120"
+                        Orientation="Horizontal"
+                        MaximumRowsOrColumns="4" VerticalChildrenAlignment="Center" />
+        </ItemsPanelTemplate>
+    </GridView.ItemsPanel>
+    <GridView.ItemContainerStyle>
+        <Style TargetType="ListViewItem">
+            <Setter Property="Margin" Value="4" />
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Background" Value="Green" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+    </GridView.ItemContainerStyle>
+</GridView>
+{% endhighlight %}
+<p>The JumpViewer handles the pinch zoom, hiding the ContentView and showing the JumpView, which looks as follows:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/11/JumpView.png" alt="" title="JumpView" width="491" height="484" class="aligncenter size-full wp-image-1805" /></p>
+<p>When you click on one of the items displayed in the above view, the <code>JumpViewer </code>detects the item that has been clicked, it then shows the <code>ContentView </code>and instructs it to scroll to show the first item within the clicked group. This works regardless of the layout you define for the <code>ContentView</code>, i.e. it will scroll vertically or horizontally depending on the layout.</p>
+<p>The WP7 jump-list switches to the jump-view when the user clicks a category heading. The final step in emulating this control is to handle the click on the category heading and programmatically switch views as follows:</p>
+{% highlight csharp %}
+private void Button_Click(object sender, RoutedEventArgs e)
+{
+  jumpViewer.IsContentViewActive = false;
+}
+{% endhighlight %}
+<p>In summary, the <code>JumpViewer </code>is a powerful and flexible control which makes it easy to provide semantic-zoom within Metro applications.</p>
+<p>You can download the full sourcecode: <a href='{{ site.baseurl }}/archive/2011/11/SemanticZoomExample.zip'>SemanticZoomExample.zip</a></p>
+<p>Regards, Colin E.</p>

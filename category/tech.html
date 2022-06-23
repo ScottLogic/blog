@@ -1,9 +1,10 @@
 ---
-layout: default
 title: Tech
+layout: default
 summary: Scott Logic's thoughts and ideas relating to Tech
-image: /assets/tech.jpg
+image: "/assets/tech.jpg"
 ---
+
 {% assign posts = site.categories["Tech"] %}
 {% if posts %}
   {% assign posts = posts | sort: 'date' | reverse | uniq %}

@@ -1,0 +1,161 @@
+---
+title: 'Metro In Motion #5 - SandwichFlow'
+date: 2011-05-16 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- codeproject
+- WP7
+- metro
+- sandwiches
+- blog
+id: 1475
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/05/metro-in-motion-5-sandwichflow/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/05/metro-in-motion-5-sandwichflow/"
+---
+
+<p>For the past few months I have been writing a Metro-In-Motion blog series which describes how to recreate some of the fluid effects found in native Windows Phone 7 applications within your own applications. So far I have covered <a href="{{ site.baseurl }}/2011/03/22/metro-in-motion-fluid-list-animation">fluid list animations</a>, <a href="{{ site.baseurl }}/2011/03/27/metro-in-motion-part-2-peel-animations">'peel' animations</a>, <a href="{{ site.baseurl }}/2011/04/04/metro-in-motion-3-flying-titles">flying titles</a> and a <a href="{{ site.baseurl }}/2011/05/03/metro-in-motion-part-4-tilt-effect">'tilt' effect</a> - and now ... I am all out of ideas!</p>
+<p>The previous blog posts used a pretty simple little application to demonstrate their functionality, so I thought it might be fun to put these effects together within a more meaningful application. Rather than simply re-hashing an old idea, like a Twitter app, I decided to create something original, something inspiring, something which explores a subject area close to my heart - and stomache. This is how I came up with the (entirely original) SandwichFlow ... an application for the sandwich aficionado!!!</p>
+<p>SandwichFlow - As good as sandwiches get on a mobile ... Brought to you by Team Distraction and ColinDoesIt(AsWell): </p>
+<p><iframe width="640" height="510"  src="http://www.youtube.com/embed/dBmXAhZyJ7I" frameborder="0" allowfullscreen></iframe></p>
+<h2>Random Points Of Interest</h2>
+<p>The important bits of this application are covered in the previous Metro-In_motion blog posts, so the following is just a random bunch of things that your might find interesting about this application:</p>
+<h2>Recipe Thief</h2>
+<p>The recipes were scraped from the fantastic <a href="http://www.bbc.co.uk/food/sandwich">BBC Food</a> web-pages, which are published in XHTML format, making it easy for me to grab the various component parts of each recipe. The scraped output was saved as an XML file which the application uses to build a view model using Linq to XML:</p>
+{% highlight csharp %}
+XDocument doc = XDocument.Parse(xml);
+Sandwiches = doc.Descendants("sandwich")
+                .Select(el => new Sandwich()
+                {
+                  Title = el.Attribute("title").Value,
+                  Id = id++,
+                  Keywords = el.Descendants("keyword")
+                                .Select(l => Regex.Replace(l.Value, @"\b(\w)", m => m.Value.ToUpper()))
+                                .ToList(),
+                  Ingredients = el.Descendants("ingredient")
+                                  .Select(l => l.Value)
+                                  .ToList(),
+                  Instructions = el.Descendants("instruction")
+                                  .Select(l => new InstructionStep()
+                                  {
+                                    Text = l.Value,
+                                    Step = l.ElementsBeforeSelf().Count() + 1
+                                  })
+                                  .ToList()
+
+                })
+                .ToList();
+{% endhighlight %}
+<h2>Jump then slide</h2>
+<p>The front-page of the application uses the <a href="{{ site.baseurl }}/2011/01/20/a-windows-phone-7-jump-list-control">JumpList control</a> I wrote a few months back, with DataTemplates supplied for rending recipes or keywords that have the MetroInMotion.AnimationLevel property set on various elements so that they slide gracefully as the pivot control is animated from one item to the next:</p>
+{% highlight xml %}
+<DataTemplate x:Key="SandwichTemplate">
+  <StackPanel Orientation="Vertical"
+              Margin="0,5,0,5"
+              mim:MetroInMotion.Tilt="3">
+    <TextBlock  Text="{Binding Title}"
+                mim:MetroInMotion.AnimationLevel="1"
+                x:Name="Title"
+                Foreground="Black"
+                FontSize="{StaticResource PhoneFontSizeLarge}"/>
+    <TextBlock Text="{Binding KeywordSummary}"
+                mim:MetroInMotion.AnimationLevel="2"
+                FontSize="{StaticResource PhoneFontSizeNormal}"
+                Foreground="#888"/>
+  </StackPanel>
+</DataTemplate>
+{% endhighlight %}
+<h2>Bring it back</h2>
+<p>I originally added the background image to each page, then I realised a better place to put this is the application frame:</p>
+{% highlight csharp %}
+<Style x:Key="mainFrameStyle"
+    TargetType="phone:PhoneApplicationFrame">
+  <Setter Property="Template">
+    <Setter.Value>
+      <ControlTemplate TargetType="phone:PhoneApplicationFrame">
+        <Grid Background="White">
+          <!-- background image -->
+          <Image Source="background.jpg"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"/>
+          <Border x:Name="ClientArea"
+                  BorderBrush="{TemplateBinding BorderBrush}"
+                  BorderThickness="{TemplateBinding BorderThickness}"
+                  Background="{TemplateBinding Background}"
+                  HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                  VerticalAlignment="{TemplateBinding VerticalAlignment}">
+            <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Margin="{TemplateBinding Padding}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+          </Border>
+        </Grid>
+      </ControlTemplate>
+    </Setter.Value>
+  </Setter>
+</Style>
+{% endhighlight %}
+<p>The application frame remains throughout the application lifetime, it hosts the currently displayed page. I have a feeling that the application frame is a little under-used. Rather than adding your application title to each page, why not add it to the frame?</p>
+<h2>The same but different</h2>
+<p>The code to find similar sandwiches uses an interesting Linq method which I have not used before, <code>Intersect</code>. It is always good to learn something new!</p>
+{% highlight csharp %}
+// locate related sandwiches
+foreach (var sandwich in Sandwiches)
+{
+  sandwich.Similar = Sandwiches.Where(s => s != sandwich)
+                      .Select(s =>
+                        new
+                        {
+                          Sandwich = s,
+                          Score = KeywordCorrelation(s.Keywords, sandwich.Keywords)
+                        })
+                      .OrderBy(s => s.Score).Reverse()
+                      .Take(5)
+                      .Select(s => s.Sandwich)
+                      .ToList();
+}
+
+private double KeywordCorrelation(List<string> keywordsOne, List<string> keywordsTwo)
+{
+  var commonKeywords = keywordsOne.Intersect(keywordsTwo);
+  var allKeywords = keywordsOne.Union(keywordsTwo).Distinct();
+  return (double)commonKeywords.Count() / (double)allKeywords.Count();
+}
+{% endhighlight %}
+<p>The <code>KeywordCorrelation</code> methods finds the number of keywords that both sandwiches have in common, then divides this by the distinct collection of keywords for both sandwiches. Yummy.</p>
+<h2>Slippery Ingredients</h2>
+<p>When you view a recipe, the ingredients slide in from the right. I didn't really have time to find images for all of the ingredients on the web, so each recipe has the ingredients of my favourite - the cheese and pickle sandwich. Each ingredient slides in using a storyboard, with their <code>BeginTime</code> staggered:</p>
+{% highlight xml %}
+<Image Source="tom.png"
+        Margin="150,70,0,0"
+        mim:MetroInMotion.AnimationLevel="2">
+  <Image.RenderTransform>
+    <TranslateTransform x:Name="tomTrans"
+                          X="400"/>
+  </Image.RenderTransform>
+  <Image.Triggers>
+    <EventTrigger RoutedEvent="Image.Loaded">
+      <BeginStoryboard>
+        <Storyboard BeginTime="00:00:0.2">
+          <DoubleAnimation Duration="00:00:0.7"
+                            Storyboard.TargetName="tomTrans"
+                            Storyboard.TargetProperty="X"
+                            From="400" To="0">
+            <DoubleAnimation.EasingFunction>
+              <SineEase EasingMode="EaseOut"/>
+            </DoubleAnimation.EasingFunction>
+          </DoubleAnimation>
+        </Storyboard>
+      </BeginStoryboard>
+    </EventTrigger>
+  </Image.Triggers>
+</Image>
+{% endhighlight %}
+<p>They also have the <code>MetroInMotion.AnimationLevel</code> attached property set so that they slide with the pivot control. </p>
+<p>You can grab the code here: <a href='{{ site.baseurl }}/archive/2011/05/SandwichFlow.zip'>SandwichFlow.zip</a></p>
+<p>Regards, Colin E.<a href="{{ site.baseurl }}/archive/2011/05/SplashScreenImage.jpg"><img src="{{ site.baseurl }}/archive/2011/05/SplashScreenImage.jpg" alt="" title="SplashScreenImage" width="480" height="800" class="aligncenter size-full wp-image-1499" /></a></p>

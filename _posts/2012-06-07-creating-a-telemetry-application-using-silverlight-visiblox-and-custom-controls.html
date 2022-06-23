@@ -1,0 +1,106 @@
+---
+title: Creating a Telemetry Application using Silverlight, Visiblox and Custom Controls
+date: 2012-06-07 00:00:00 Z
+categories:
+- cgrant
+- Tech
+tags:
+- blog
+id: 152464
+author: cgrant
+oldlink: http://www.scottlogic.co.uk/2012/06/creating-a-telemetry-application-using-silverlight-visiblox-and-custom-controls/
+layout: default_post
+source: site
+disqus-id: "/2012/06/creating-a-telemetry-application-using-silverlight-visiblox-and-custom-controls/"
+---
+
+<h2>Introduction</h2>
+<p>About a month ago, I was using the <a href="http://www.motec.com.au/i2/i2overview/">MoTeC i2 Data Analysis</a> software to look through some telemetry data that I had exported from a popular racing simulator game. Although MoTeC is feature rich and a great tool for motor racing professionals and enthusiasts, I had the idea to create a simplified, styled version using Silverlight. I had been looking for an interesting idea to test out my newfound Silverlight skills for a while, and this seemed like the perfect opportunity. </p>
+<p>Before reading the rest of the article, you may like to view the sample application, located at the <a href="#application">bottom of this post</a>.</p>
+<p><a href="{{ site.baseurl }}/archive/2012/06/silvertrack.png"><img src="{{ site.baseurl }}/archive/2012/06/silvertrack.png" alt="" title="silvertrack" width="500" height="458" class="aligncenter size-full wp-image-152490" /></a></p>
+<h2>Using the Code</h2>
+<h3>Architecture</h3>
+<p>The application as it is presented here is not the first version that I created. I had worked on an initial version before this which did not use the MVVM pattern. As a result of this, making changes were difficult, duplicate strings representing the same series name were littered throughout the application, the code behind was duplicated for each of the three chart components, and performance was far less than optimal. In my defense, the application I first envisioned was a single, simple chart with one series and no further information. But when I started to expand the application, all of these issues arose and started to get progressively worse.</p>
+<p> So I decided to start again, switching to a cleaner, more manageable architecture that made use of data binding and limited code behind. The code is now structured using the <a href="http://www.codeproject.com/Articles/100175/Model-View-ViewModel-MVVM-Explained"> MVVM architectural pattern </a>. This should hopefully be clear by examining the solution and source code provided alongside the article. </p>
+<h4>Model</h4>
+<p>When creating the model, the aim was for it to be as reusable as possible. Originally I had dependencies on the Visiblox Charting Component (see the Charts section). However, these were removed, in favour of a model with simple lists of values. It would be the responsibility of the ViewModel to convert these values into the appropriate format before they were displayed by the charts in the view. </p>
+<p>The model in the solution provided is in the <code>TelemetryData </code>Project. This project reads and parses the <em>.csv</em> values exported from MoTeC. <code>TelemetryDataProvider</code> implements <code>ITelemetryDataProvider</code> and creates and populates a list of <code>TelemetrySeries</code> in its constructor. One of the main goals when creating the <code>TelemetryDataProvider</code> was for it to be as generic as possible. Users of the model can therefore obtain a list of <code>string</code>s representing the names of all the series by reading the <code>SeriesList</code> property. This means the <code>string </code>representations of the series names do not need to be replicated anywhere else in the code. Users can also obtain a particular telemetry series by calling the <code>FindSeriesFromName</code> method and passing a <code>string </code>representation of the <code>TelemetrySeries</code>.</p>
+<p>A <code>TelemetrySeries</code> represents a series of <code>TimestampedDataPoints</code> along with the Name of the series and the index of the column in the csv file that the series data is stored in.</p>
+<p>The next challenge was how to populate the <code>SeriesList</code> in <code>TelemetryDataProvider</code>. In the <code>ReadFile(StreamReader)</code> method, the provider creates a <code>TelemetrySeriesDictionaryPopulator</code>, passing its constructor the location of the .csv file and the <code>SeriesList</code>. For every valid line in the <em>.csv</em> file, the <code>TelemetrySeriesDictionaryPopulator</code> will call its <code>FillFromCSV</code> method, which will add the relevant values to each <code>AllSeries</code> entry, based on the entry's <code>IndexInCSV </code>value.</p>
+<p>One of my favourite things about the way <code>TelemetryDataProvider</code> is implemented is how easy it is to add new Series data to the application. To add a <code>TelemetrySeries</code> to the application, only one line of code is required:</p>
+{% highlight csharp %}
+_allSeries.Add(new TelemetrySeries("Series_Name", IndexInCSVFile));
+{% endhighlight %}
+<p>This will add a series to the application, and no other references in the project need to be updated for the series to be visible. The <code>FillFromCSV</code> method mentioned earlier will also need no modifications. I chose to display the 10 data sets which I saw to be most appropriate, but this is easily configurable through <code>TelemetryDataProvider</code>. There are 115 columns to choose from in the exported MoTeC file.</p>
+<h4>View</h4>
+<p>The View presents the data provided by the View Model. Both the View and View Model are located in the <code>TelemetryPrototype </code>project. There is very little code behind in the <em>.xaml</em> view files. The only code that is present is strictly necessary and could not be easily achieved through XAML. <code>TelemetryChannelCollectionView</code> for example, rebuilds the <code>ChannelView </code>grid depending on how many <code>ChannelView</code>s are currently being displayed. Through reducing the code behind, I was able to ensure that the <code>View </code>and the <code>ViewModel </code>became almost independent of each other. This allows other Views to be attached to the same ViewModel in future, without any loss of functionality.</p>
+<p>The views are attached to the view model through the use of <em>.xaml</em> bindings, which update automatically when the respective property in the ViewModel changes.The <code>TelemetryView</code>, <code>TelemetryChannelCollectionView</code> and <code>TelemetryChannelView</code> have their Data Contexts set to their ViewModels upon initialisation, which are described in the section below.</p>
+<h4>ViewModel</h4>
+<p>I wanted all of the logic of the application to be contained in the ViewModel and not inside of the Model or the View. The ViewModel therefore abstracts from the View and provides a binding between the View and the Model. Any commands from the View are simply passed to the ViewModel via an <code>ICommand</code> object, which will cause some property on the ViewModel to update. Through bindings, this will then update the view accordingly.</p>
+<p><code>TelemetryViewModel</code> provides the top level data context, and contains a <code>TelemetryChannelCollectionViewModel</code> which stores and displays the <code>ChannelViewModels</code> currently added to the application. It also holds properties for the custom controls in the bottom panel, which are updated in <code>ViewModelBase</code> as well as Commands for playback speed, restart, full data, play/pause, import data and add chart.</p>
+<p>Another of its main responsibilities is to update the charts during live playback of the data. The <code>UpdateChannelViewModels</code> method is called by a dispatcher timer every 50ms.It calculates the time elapsed since the last update, and then calls <code>updateChart </code>on the <code>ChannelViewModel</code>s in the <code>ChannelViewModel </code>collection. The widgets are also updated based on the counter. If the chart is paused, the widgets are updated based on the selected index of the top chart (which should be synchronised with the other charts in the application).</p>
+<p>The <code>TelemetryChannelViewModel</code> contains the properties and values required to display a chart. It provides the data context for a <code>TelemetryChannelView</code> and contains two data series to display on the chart from that view. It also contains behaviours and operations to modify, remove and add data series to the chart.</p>
+<h3>Charts</h3>
+<h4>Custom Zoom Behaviour</h4>
+<p>To add the charts to the application, I used <a href="http://www.visiblox.com/download">Visiblox Silverlight Charts</a>. I chose to use Visiblox as I was looking for a high performance charting component. I knew I would be plotting a lot of data on the charts and the performance comparisons on Colin Eberhardt's blog <a href="{{ site.baseurl }}/2010/12/10/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison">here</a>, as well as opinions on <a href="http://stackoverflow.com/">Stack Overflow</a> led me to select Visiblox. I found the <a href="http://www.visiblox.com/examples">examples</a> to be a great help when setting up the charts for the application.</p>
+<p>Sticking to the MVVM architecture for the charts, the data for the charts comes from the Model, is converted by the ViewModel and displayed by the View, using the following method. Each chart is populated by its <code>TelemetryChannelViewModel</code>, which obtains data for the two series from the <code>GetChannelData</code> method in <code>TelemetryViewModel</code>. This method retrieves the relevant <code>TelemetrySeries</code> from the Data Provider in the Model, and calls <code>TelemetryDataToVisibloxDataSeries</code>, which adds each point in the <code>TelemetrySeries</code> to a <code>Visiblox DataSeries<DateTime, double></code> type. The <code>Visiblox LineSeries</code>' <code>DataSeries </code>in <code>TelemetryChannelView </code>then has a binding to the <code>TelemetryChannelViewModel</code>'s <code>LivePrimaryChartDataSeries</code>/<code>LiveSecondaryChartDataSeries </code>property.</p>
+{% highlight xml %}<visi:LineSeries DataSeries="{Binding Path=LivePrimaryChartDataSeries}" ...{% endhighlight %}
+<p>To keep the data series on each of the charts in context, I decided it would be a good idea to restrict the zoom behaviours to the X-Axis. There is no way to restrict the standard Visiblox <code>ZoomBehaviour</code> to the X-Axis, so I had to define a new one. <code>XAxisZoomBehaviour</code> implements the Visiblox <code><a href="https://www.visiblox.com/docs/Visiblox/4.0/WPF/Index.html">BehaviourBase</a></code> abstract Class. The <code>MouseLeftButtonDown</code> method sets a zoom rectangle to the height of the chart, and when the <code>MouseMove</code> method is called, the width of this rectangle is modified to the value of the mouse position minus the start position. The method also checks if the rectangle covers a large enough area on the chart to allow a zoom. By checking this, it stops the zoom area from becoming too small.If the mouse is released and the zoom area is large enough, the <code>ZoomTo</code> method is called.</p>
+{% highlight csharp %}
+Storyboard sb = new Storyboard();
+DoubleAnimation b = new DoubleAnimation() { From = Chart.XAxis.Zoom.Scale, To = zoom.Scale };
+b.Duration = new Duration(new TimeSpan(0, 0, 0, 0, milliseconds));
+sb.Children.Add(b);
+Storyboard.SetTarget(b, Chart.XAxis.Zoom);
+Storyboard.SetTargetProperty(b, new PropertyPath("(Scale)"));
+
+DoubleAnimation b2 = new DoubleAnimation() { From = Chart.XAxis.Zoom.Offset, To = zoom.Offset };
+b2.Duration = new Duration(new TimeSpan(0, 0, 0, 0, milliseconds));
+sb.Children.Add(b2);
+Storyboard.SetTarget(b2, Chart.XAxis.Zoom);
+Storyboard.SetTargetProperty(b2, new PropertyPath("(Offset)"));
+{% endhighlight %}
+<p>This code from <code>ZoomTo</code> creates two double animations, one for the Scale, and one for the Offset of the zoom. This is the code which actually modifies the offset and scale of the chart when the storyboard <code>sb</code> begins.</p>
+<h3>Controls</h3>
+<p>When the charts were added to the application, I still felt like it was missing something. I had the idea to add widget-style custom controls below the chart to add more interest and interactivity. Each of the controls is defined in its own class in the <code>TelemetryPrototype.controls</code> namespace within the <em>controls</em> folder. They all have at least one dependency property and subscribe to <code>onPropertyChanged</code> events, which allows the controls to automatically update whenever one of their dependency properties is modified. The layout and elements of all the controls are defined in the <em>Generic.xaml</em> file.</p>
+<h3>ThrottleBrakeControl.cs</h3>
+<p>Dependency Properties:Throttle, Brake</p>
+<p><a href="{{ site.baseurl }}/archive/2012/06/throttlebrake.png"><img src="{{ site.baseurl }}/archive/2012/06/throttlebrake.png" alt="" title="throttlebrake" width="143" height="160" class="aligncenter size-full wp-image-152492" /></a></p>
+<p>The throttle Control is a three column grid, with a throttle indicator on the left, a brake indicator on the right and labels in the centre. The indicators are created by displaying a rectangle inside of a border. The rectangles are styled appropriately (green for throttle and red for brake) and their height is bound to their respective dependency property.</p>
+<h3>CarLocationControl.cs</h3>
+<p><em>Dependency Properties:Position</em></p>
+<p>The car location control shows where the car currently is on the track.The track itself was created in Microsoft Expression Blend 4 using a path. The <code>Microsoft.Expression.Controls</code> and <code>Microsoft.Expression.Drawing</code> <em>.dll</em> files are therefore included in the references of this project. A <code>PathListBox</code> then binds its <code>LayoutPath SourceElement</code> to this path. The car itself is simply an ellipse inside of this <code>PathListBox</code>. By binding the <code>Start</code> property of the <code>LayoutPath</code> to the <code>Position</code> dependency property, the ellipse will move around the path. <code>Position</code> must therefore be a percentage value. To calculate the percentage completion of a lap, it is necessary to have the start and end distance, which are calculated in the <em>TelemetryDataProvider.cs</em> when the data is first read into the application.</p>
+<h3>GForceControl.cs</h3>
+<p><em>Dependency Properties:Lateral, Long</em></p>
+<p><a href="{{ site.baseurl }}/archive/2012/06/gchart.png"><img src="{{ site.baseurl }}/archive/2012/06/gchart.png" alt="" title="gchart" width="184" height="157" class="aligncenter size-full wp-image-152489" /></a></p>
+<p>There is slightly more code for the G-Force control and no bindings for the values on the chart, as these are set manually whenever a property changes in the <code>OnLateralPropertyChanged</code> and <code>OnLongPropertyChanged</code> methods. Within the <code>OnApplyTemplate()</code> method of the control, a <code>DataPoint </code>is created and added to a line series. This line series is then added to the chart.</p>
+<p>The G-Force chart has also been retemplated to remove the border and to hide any axis values. The template is contained in <em>App.xaml</em>, with a target type of Chart. It has a key value of Gchart, which is referenced in the control's layout in the <em>Generic.xaml</em> by <code>"Template="{StaticResource Gchart}"</code>.</p>
+<h3>SpeedometerControl.cs</h3>
+<p><a href="{{ site.baseurl }}/archive/2012/06/speedo.png"><img src="{{ site.baseurl }}/archive/2012/06/speedo.png" alt="" title="speedo" width="143" height="158" class="aligncenter size-full wp-image-152491" /></a></p>
+<p>The speedometer control is a modified version of the gauge control developed by Colin Eberhardt as part of a blog post entitled "<a href="http://www.codeproject.com/Articles/103035/Developing-a-very-Lookless-Silverlight-Radial-Gaug.aspx">Developing a (very) Lookless Silverlight Radial Gauge Control</a>". The only modifications from the original source code from the article are the styles, layout and namespace declarations. The style is defined at the bottom of the <em>generic.xaml</em> file in the <em>Themes</em> folder of the <code>SilverTrack </code>project.</p>
+<h3>Util/Other Classes</h3>
+<h4>Data Context Changed Handler</h4>
+<p>In order to register change events on the Data Context within the Telemetry Application, Jeremy Likeness' <a href="http://www.codeproject.com/Articles/38559/Silverlight-DataContext-Changed-Event.aspx"><code>DataContextChangedHelper</code></a> class was used.</p>
+<h4>App.xaml</h4>
+<p>The styles, brushes, and custom templates for the charts are all defined in the <em>App.xaml</em> file.</p>
+<h4>Generic.xaml</h4>
+<p>The layout for the controls and the templates are defined in the <em>Generic.xaml</em> file.</p>
+<h2>Points of Interest</h2>
+<p>This was the first time I had used the MVVM architecture, and I will certainly use it again in the future. I had developed a prototype version of this application without MVVM. I had planned on building on this to create the final version, but found that it was much harder to modify and add additional functionality to. Mixing UI code with Logic code is bad practice, and it is something I will now be keen to avoid in the future.</p>
+<p>It was also the first time I had used a charting component in Silverlight, other than the toolkit version. I decided on <a href="http://www.visiblox.com/">Visiblox</a> after reading this <a href="{{ site.baseurl }}/2010/12/10/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison">article</a> from Colin Eberhardt and others like it, as well as reading charting recommendations from members of <a href="http://stackoverflow.com/">Stack Overflow</a>.</p>
+<h4>Exporting Data From MoTeC</h4>
+<p>Using the import data button in the top left of the application, it is possible to load your own MoTeC data into SilverTrack. If you do not wish to use the sample files provided, and have your own way to import telemetry data to MoTeC, exporting to the <em>.csv</em> format used by the application is relatively straightforward:</p>
+<ul>
+<li>Open a Log File, then select Export Data...</li>
+<li>Set current range to a single lap, and output format as CSV.</li>
+<li>Performance is optimal with sample rate of 20Hz.</li>
+<li>Include Time Stamp and Distance Data.</li>
+</ul>
+<p><strong>NOTE</strong>: The car location control will only operate correctly if you load data from the <a href="http://en.wikipedia.org/wiki/Calder_Park_Raceway">Calder Road Course</a>.</p>
+<p><a name="application"></a></p>
+<div id="silverlightControlHost" style="width: 940px; position: relative; position: absolute;"><object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="940px" height="700px"><param name="source" value="{{ site.baseurl }}/archive/2012/06/SilverTrack.xap"/><param name="onError" value="onSilverlightError" /><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.50826.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none"><img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/></a></object><iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></div>
+<div style="height:730px;"> Silverlight </div>
+<h3>Download</h3>
+<ul>
+<li><a href="{{ site.baseurl }}/archive/2012/06/SilverTrack.zip">Download source code for SilverTrack - 474.34 K</a></li>
+</ul>

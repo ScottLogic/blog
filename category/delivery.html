@@ -1,9 +1,10 @@
 ---
-layout: default
 title: Delivery
+layout: default
 summary: Scott Logic's thoughts and ideas relating to Delivery
-image: /assets/delivery.jpg
+image: "/assets/delivery.jpg"
 ---
+
 {% assign posts = site.categories["Delivery"] %}
 {% if posts %}
   {% assign posts = posts | sort: 'date' | reverse | uniq %}

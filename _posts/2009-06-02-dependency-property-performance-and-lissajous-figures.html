@@ -1,0 +1,97 @@
+---
+title: Dependency Property Performance and Lissajous Figures
+date: 2009-06-02 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- silverlight
+- binding
+- dependency properties
+- codeproject
+id: 317
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2009/06/dependency-property-performance-and-lissajous-figures/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2009/06/dependency-property-performance-and-lissajous-figures/"
+---
+
+<div id="slPluginHost" > <object id="SilverlightPlugin" width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/06/silverlightdpperformance.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>A few night ago I was working on a Siverlight control which renders some quite complex Paths, the geometry of which is determined from a number of dependency properties. In order to gain UI coolness points I wanted to animate the dependency properties in order to see a smooth transition of the Path geometry between the old and new values. The animation itself was easy to implement, but the resultant animation was distinctly choppy.</p>
+<p>Now, I cannot share the code of the Silverlight control I was working on, so I have decided to illustrate the point via a <a href="http://en.wikipedia.org/wiki/Lissajous_curve">Lissajous Figure</a>. These curves are plotted using the following simple formula:</p>
+<p><img src="{{ site.baseurl }}/archive/2009/06/e42779229cd3e650bf8122e0cef4e09f.png" width="288" height="20" class="aligncenter size-full wp-image-318" /></p>
+<p>A simple Lissajous Figure can be constructed by creating a UserControl which dependency properties for the various parameters in the above equations. The control contains a single path whose Data property will be set to a suitable geometry in code behind, and a 'container' element for our path which we use to determine the width / height of our curve.</p>
+{% highlight xml %}
+<UserControl ...>
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid x:Name="PathContainer" Margin="5">
+            <Path x:Name="lissajousFigure" Stroke="#9EFFFF" StrokeThickness="1"/>
+        </Grid>
+    </Grid>
+</UserControl>
+{% endhighlight %}
+<p>The points that are used to construct the geometry are calculated from the ActualXFrequency, ActualYFrequency, ActualPhase properties of our user control, together with the ActualWidth and ActualHeight of the container in order to scale the curve appropriately.</p>
+{% highlight csharp %}
+for(double t = 0; t < Math.PI * 10; t += Math.PI / 36)
+{
+    points.Add(new Point()
+    {
+        X = PathContainer.ActualWidth * Math.Sin(t * ActualXFrequency) / 2
+            + ActualWidth / 2,
+        Y = PathContainer.ActualHeight * Math.Cos(t * ActualYFrequency + ActualPhase) / 2
+            + PathContainer.ActualHeight / 2
+    });
+}
+{% endhighlight %}
+<p>When I investigating the choppy animation performance in my Silverlight control I concentrated initially on other parts of the application; the construction of the paths, the property changed events and the resultant chain reaction of event which can result in a spiders-web of method invocations. It was not until a little later that I focussed on the code that constructed the geometry, which looks not too dissimilar to the above. </p>
+<p>At first sight, the code looks just fine, we are performing a number of simple operations on a few simple properties. However, this is not the case, these properties are not simple CLR properties backed by value or reference types. These are Dependency Properties, which are much more complex beasts!</p>
+<p>A quick change to the above code to ensure that the DP accessors are called only once, rather than 360 times, resulted in code which ran ~400 times faster!</p>
+{% highlight csharp %}
+double actualWidth = PathContainer.ActualWidth;
+double actualHeight = PathContainer.ActualHeight;
+double actualXFrequency = ActualXFrequency;
+double actualPhase = ActualPhase;
+double actualYFrequency = ActualYFrequency;
+
+for(double t = 0; t < Math.PI * 10; t += Math.PI / 36)
+{
+    points.Add(new Point()
+    {
+        X = actualWidth * Math.Sin(t * actualXFrequency) / 2
+            + actualWidth / 2,
+        Y = actualHeight * Math.Cos(t * actualYFrequency + actualPhase) / 2
+            + actualHeight / 2
+    });
+}
+{% endhighlight %}
+<p>When you think about the features that the DP framework provides (databinding, animation, inheritance etc ...), it is not at all surprising that this is at some performance cost. And I will forgive the reader if they tell me that I am stating the obvious! However, in code behind, where DPs are accessed via their CLR wrappers it is easy to forget this. It should also be noted that DPs are far from slow. It is only when they are used as part of a complex iterative calculations that the performance-hit will be felt.</p>
+<p>Anyhow, this is a small lesson in what is possibly obvious! However, I must admit, I had far too much fun creating the Lissajous Figure example application as you can see from the app. at the start of this article ... it takes me back to Physics lab at University!</p>
+<p>A few other points of interest:</p>
+<ul>
+<li>The code uses <a href="{{ site.baseurl }}/2009/02/22/elementname-binding-in-silverlight-via-attached-behaviours">ElementName binding attached behaviour</a> I created in an earlier blog post. As a result, there is no code-behind in the main page (I may be flirting with Silverlight but my WPF credibility remains intact!)</li>
+<li>The various dependency properties for the Lissajous Figure user control are defined using T4 templates as described in this <a href="http://www.codeproject.com/KB/WPF/DependencyPropertyCodeGen.aspx">codeproject article</a>.</ul>
+<p>I also really like the way that when one of the DPs such as Phase is updated, a storyboard is used to animate the accompanying ActualPhase  DP to the updated value.</p>
+{% highlight csharp %}
+partial void OnPhasePropertyChanged(DependencyPropertyChangedEventArgs e)
+{
+    AnimateProperty("ActualPhase", Phase, 100);
+}
+
+private void AnimateProperty(string propertyName, double targetValue, int milliseconds)
+{
+    Storyboard sb = new Storyboard();
+
+    DoubleAnimation b = new DoubleAnimation() { To = targetValue };
+    b.Duration = new Duration(new TimeSpan(0, 0, 0, 0, milliseconds));
+    sb.Children.Add(b);
+    Storyboard.SetTarget(b, this);
+    Storyboard.SetTargetProperty(b, new PropertyPath("(" + propertyName + ")"));
+
+    sb.Begin();
+}
+{% endhighlight %}
+<p>This means that even though the slider controls bound to the DPs move in discrete steps, the above animation gives the illusion of the steps being continuous.</p>
+<p>You can download the full project source here: <a href='{{ site.baseurl }}/archive/2009/06/silverlightdpperformance.zip'>silverlightdpperformance.zip</a>.</p>
+<p>[Oscilloscope image reproduced from <a href="http://en.wikipedia.org/wiki/File:Tektronix_465_Oscilloscope.jpg">Wikipedia</a> under Creative Commons Licence]</p>
+<p>Regards, Colin E.</p>

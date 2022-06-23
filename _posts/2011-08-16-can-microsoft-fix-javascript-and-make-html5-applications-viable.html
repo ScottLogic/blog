@@ -1,0 +1,76 @@
+---
+title: Can Microsoft 'fix' JavaScript and make HTML5 applications viable?
+date: 2011-08-16 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- silverlight
+- HTML5
+- JavaScript
+- blog
+id: 1642
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/08/can-microsoft-%e2%80%98fix%e2%80%99-javascript-and-make-html5-applications-viable/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/08/can-microsoft-%e2%80%98fix%e2%80%99-javascript-and-make-html5-applications-viable/"
+---
+
+<p><em>Microsoft's recent change in stance over Silverlight, promoting HTML5 as "<a href="http://www.zdnet.com/blog/microsoft/microsoft-our-strategy-with-silverlight-has-shifted/7834">the only true cross-platform solution for everything</a>", seems to have sidelined Silverlight as a niche framework. This has understandably caused a great deal of upset and confusion in the .NET development community. Despite this, Microsoft are remaining steadfast and tight-lipped about their vision for tighter integration of HTML5 into Windows 8 (and as a result just how side-lined Silverlight will be), until the <a href="http://www.buildwindows.com/">BUILD conference</a> next month. Recently I have read numerous blog posts about the difference between HTML5 and Silverlight, and how to select the right technology for your development, however almost all of them seem to ignore the great-big thorn in HTML5s side ... JavaScript. In this blog post I will explain why JavaScript is such a big issue for Microsoft and what it could do to solve this.</em></p>
+<p>That HTML5 will be a huge success is a given. The specification is not finished yet; the parts that are finished are not fully-rolled out, however it is making technology headlines on a daily basis. The HTML5 buzz has also been felt by both technical and non-technical managers, who you will often find asking, <em>"why aren't we creating HTML5 applications?"</em>. Pointing at the unfinished specification is a little unfair on HTML5, you can reliably use a number of the APIs right now, and they will certainly provide a 'boost' to your current web-offerings.</p>
+<p>HTML5 is a real mixed-bag of features, from the complex, such as canvas and video, to simple semantic markup improvements and a powerful set of CSS features. Because HTML5 provides a spectrum of features from the simple to the complex, I don't doubt that every new site will be using HTML5 in a few years time, you simply have to add rounded borders or a <code>&lt;header&gt;</code> tag to earn yourself the coveted HTML5 badge!</p>
+<p>One concept that underpins the HTML5 specification(s) is that of client-side web-applications. The server-side web-application, where business logic and presentation logic reside on the server, spitting out markup (sprinkled with a bit of JavaScript) are becoming an architecture of the past. The model where the server exposes business logic as a service makes it much easier to provide a front-end on a range of devices (mobile, tablet, desktop), a range of operating systems (Windows, iOS, Android), allows the effective use of client CPU, and provides a more accessible service that customers can integrate into their own application. From my perspective the most significant undertone of the HTML5 specification is that it supports this model. </p>
+<p>The problem is that the name 'HTML5' can be a little misleading. Whilst the specification has much to do with HTML, it has much more to do with JavaScript. In fact, many of the HTML5 APIs have nothing to do with presentation or layout. Any article which compares HTML5 and Silverlight, without focussing on JavaScript is really missing the point.</p>
+<p>So, what is my big issue with JavaScript?</p>
+<p><img src="{{ site.baseurl }}/archive/2011/08/broken_glass.jpg" alt="" title="SONY DSC" width="500" height="333" class="aligncenter size-full wp-image-1643" /><small>Image used under Creative Commons Licence from <a href="http://www.flickr.com/photos/hanne_exurban/4423655940/sizes/m/in/photostream/">Flickr</a></small></p>
+<p>JavaScript was hastily developed as a language for scripting the web. Unfortunately it has not evolved much since its inception. Certainly the APIs that surround it have evolved, including the DOM APIs, HTML5 and popular libraries such as jQuery, however the language itself remains largely unchanged.</p>
+<p>The big issue with JavaScript is that it is not well suited for the development of large applications, and if we shift to a model where the server provides a service which is consumed by the client web-application, this necessitates a lot of JavaScript code. I don't want to go into all the gory details of the problems with JavaScript, but here are a few:</p>
+<ul>
+<li>Many language quirks and gotchas (see this <a href="http://www.codeproject.com/KB/scripting/javascript-gotchas.aspx">article on codeproject</a>) </li>
+<li>A lack of 'familiar' object-oriented concepts (I am not going to make the mistake of saying it is not an OO language!)</li>
+<li>A lack of dependency management</li>
+<li>A lack of organisational structure (namespaces)</li>
+<li>A very small 'base' library (for example no event support, string formatting, etc...)</li>
+<li>It is not strongly-typed</li>
+<li>A confusing array of patterns for solving some of the above!</li>
+</ul>
+<p>This list is certainly not exhaustive; rather it is just a brief illustration of some of the obstacles that JavaScript presents to the developer of complex applications. Many of the items listed above are features of the language that are advantageous in a simple, scripting context, but when used to develop complex applications they are quite troublesome. </p>
+<p>Another issue with JavaScript is not so much the language itself, more the attitude of developers towards the language. Because of its quirks and its predominant usage as a language for scripting web-pages (with the usual "google → cut → paste" approach) many developers simply don't bother learning how it works. I have interviewed many job candidates who list 'JavaScript' as one of their skills, yet they cannot describe the difference between the binding of the 'this' variable between JavaScript and C#/Java.</p>
+<p>There are numerous JavaScript frameworks that go some way towards solving the above issues ... filling in the gaps. This is an area that Microsoft has dabbled in before, with the Microsoft Ajax Library adding inheritance patterns and .NET style libraries (albeit with a very clumsy, verbose and convention-heavy syntax!). </p>
+<p>Whilst the list of issues above presents a challenge to the JavaScript developer, they provide just as great a challenge to the tool providers. Many features of existing IDEs, Intellisense (auto-completion) and structured views of the code rely on language features that are absent from JavaScript. Again, Microsoft has provided some innovations in this area, with <a href="http://weblogs.asp.net/scottgu/archive/2010/04/08/javascript-intellisense-improvements-with-vs-2010.aspx">pseudo-execution of JavaScript code providing some Intellisense support</a>. Unfortunately this neat feature, which works well if you have all your code in a single JavaScript file, is less easy to manage on a large, more complex application. From personal experience I find Visual Studio adds little value to my JavaScript development experience, I am equally happy with Notepad++ and JSLint!</p>
+<p>So when Microsoft announces their tighter integration of HTML5 / JavaScript into Windows 8, what innovations are they going to announce?</p>
+<p><img src="{{ site.baseurl }}/archive/2011/08/build_logo.png" alt="" title="build_logo" width="252" height="90" class="aligncenter size-full wp-image-1644" /></p>
+<p>Personally, I think if Microsoft is serious about HTML5 and its potential for client-side application development they need to do much more than just add CSS3, canvas and video support to ASP.NET. They need to support the client-side application model, where ASP.NET no longer has a stake. To fully support this they need to 'fix' the problems with JavaScript.</p>
+<p>One of Microsoft's most prized assets is Visual Studio, their investment in tool-support allows you to use the same quality tooling for developing in a wide range of languages (C#, VB.NET, C++, F#, ...) and frameworks (WinForms, MFC, WPF, Silverlight, ASP.NET, ...). To fully embrace HTML5 / JavaScript it has to be fully embraced by Visual Studio. But therein lies the problem, the lack of namespacing, familiar object oriented concepts, strong-typing and base 'class' framework makes this a challenge.I think the worst thing Microsoft could do is add their own JavaScript framework to the mix, further fragmenting the JavaScript development experience. Thankfully they recently adopted jQuery within their ASP.NET framework, showing signs that they are willing to work with existing open-source frameworks. So if they do not announce a new JavaScript framework, what could they provide instead?</p>
+<p><img src="{{ site.baseurl }}/archive/2011/08/gears.jpg" alt="" title="Gears" width="500" height="375" class="aligncenter size-full wp-image-1645" /><small>Image used under Creative Commons Licence from <a href="http://www.flickr.com/photos/hanne_exurban/4423655940/sizes/m/in/photostream/">Flickr</a></small></p>
+<p>Microsoft's Scott Henselmann has published a couple of interesting blog posts about the concept of JavaScript being the <a href="http://www.hanselman.com/blog/JavaScriptIsAssemblyLanguageForTheWebSematicMarkupIsDeadCleanVsMachinecodedHTML.aspx">assembly language of the web</a> (or the JVM of the web depending on your perspective). His <a href="http://www.hanselman.com/blog/JavaScriptisAssemblyLanguagefortheWebPart2MadnessorjustInsanity.aspx">second blog post</a> included comments from a number of JavaScript thought leaders including its creator Brendan Eich who said <em>"Believe it or not, classical OOP languages -- especially ones with not-very-expressive static type systems -- are not the only way to build large apps. It can be done in JS, but it's harder than it ought to be"</em>.</p>
+<p>Google have already made some innovations in this area, the first is Google Web Toolkit (GWT), which allows developers to write Java code (using the powerful Eclipse IDE), which is compiled into JavaScript. The second is Google Closure Compiler, a JavaScript to JavaScript compiler / optimiser that provides type checking via annotated comments. It is this area that I think Microsoft should be investing in.</p>
+<p>Microsoft could create a C# (or VB.NET etc...) to JavaScript compiler with an accompanying set of .NET base-class libraries. This would significantly boost Microsoft's JavaScript offering in that it would be fully supported by Visual Studio, providing the developer with the quality tooling that they are used to when developing using other .NET frameworks. Furthermore, the C# to JavaScript compiler could be used to compile the existing .NET base-class library giving developers a large suite of familiar libraries for use within their code. You could event support C# to jQuery using a fluent Linq-style API!</p>
+<p>So how would this work a runtime? When used on the internet to write applications for the browser or mobile browser, a set of C# DOM APIs could be created that compile to the 'native' JavaScript equivalent. HTML and CSS3 could of course be included directly within the project as resources.</p>
+<p>On the desktop there are a few options, HTML could certainly be used as the presentation technology, but there is of course another option ... XAML. Microsoft has clearly indicated that XAML will be part of Windows 8, considering that Silverlight 1.0 was XAML + JavaScript, it is clearly possible to have a XAML UI backed by JavaScript code. Although, it would seem a bit convoluted to compile C# to JavaScript to interact with the UI generated from XAML when C# APIs exist already!</p>
+<p>In summary, I feel the current focus on HTML5 whilst ignoring the very real JavaScript issue is going to cause adopters of this technology a lot of pain. Whilst this technology set gives a fantastic boost to interactive websites, using JavaScript for the development of large client-side applications is an expensive option. My hope is that if Microsoft really embrace HTML5 they look beyond simply adding tag support and tooltips and address the real problem ... JavaScript.</p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,12 +1,13 @@
 ---
-layout: default
 title: People
+layout: default
 summary: Scott Logic's thoughts and ideas relating to People
-image: /assets/people.jpg
+image: "/assets/people.jpg"
 redirect_from:
-  - /category/careers.html
-  - /category/diversity.html
+- "/category/careers.html"
+- "/category/diversity.html"
 ---
+
 {% assign posts = site.categories["People"] %}
 {% if posts %}
   {% assign posts = posts | sort: 'date' | reverse | uniq %}

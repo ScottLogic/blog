@@ -1,9 +1,10 @@
 ---
-layout: default
 title: Data Engineering
+layout: default
 summary: Scott Logic's thoughts and ideas relating to Data Engineering
-image: /assets/data-engineer.jpg
+image: "/assets/data-engineer.jpg"
 ---
+
 {% assign posts = site.categories["Data Engineering"] %}
 {% if posts %}
   {% assign posts = posts | sort: 'date' | reverse | uniq %}

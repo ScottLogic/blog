@@ -1,0 +1,274 @@
+---
+title: Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)
+date: 2011-10-24 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- codeproject
+- mvvm
+- WP7
+- tombstoning
+- PhoneGap
+- windowsphone
+id: 1782
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2011/10/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs/"
+---
+
+<p>A few weeks back I wrote <a href="{{ site.baseurl }}/2011/09/29/developing-windows-phone-7-html5-apps-with-phonegap" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">a blog post</a> about how the recent announcement of PhoneGap support for Windows Phone 7 (WP7) which makes it possible to develop HTML5-based applications. In my previous blog post I showed the development of a simple HTML5 / JavaScript application which PhoneGap wraps up within a Silverlight application 'shell' allowing it to be deployed to your phone and potentially submitted to the Marketplace.</p>
+<p>However, in order to pass the various Marketplace requirements and gain certification, your application must correctly handle the application lifecycle. With the recent Mango release, the lifecycle has become a little more complicated (although better! in that it adds multi-tasking / fast-app switching). I have also covered the lifecycle in a previous blog post and demonstrated how you can  <a href="{{ site.baseurl }}/2011/10/03/a-windows-phone-7-1-mango-mvvm-tombstoning-example" title="A Windows Phone 7.1 (Mango) MVVM Tombstoning Example">handle the various lifecycle events within an MVVM application</a>. </p>
+<p>The most tricky part of the application lifecycle that as a developer you need to handle is the tombstoned state, where your application is terminated (i.e. stopped and removed from memory). It is your responsibility to save enough state in order that when your tombstoned application is restarted, it looks to the user as if your application never stopped running, i.e. you restore your application UI to its original state. </p>
+<p>The Mango application lifecycle is illustrated below:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/WP7Lifecycle1.png" alt="" title="WP7Lifecycle" width="600" height="475" class="aligncenter size-full wp-image-1785" /></p>
+<p>The <a href="http://docs.phonegap.com/en/1.0.0/phonegap_events_events.md.html">PhoneGap events</a> API includes pause and resume events, which can be used to detect when the application transitions to and from the dormant state, however, for WP7 these events do not give us enough information. When resuming, we need to know whether it has resumed from a dormant or a tombstoned state. Considering that the tombstoned state is peculiar to WP7 (Android, and iPhone simply have a suspend / resume model), I don't think it makes sense for the PhoneGap APIs to change in order to accommodate this. In this blog post I will show how the WP7 PhoneGap application host can be modified in order to support tombstoning.</p>
+<p>But before we get there, I want to digress a while and look at using the MVVM pattern with JavaScript ...</p>
+<h2>Using the MVVM pattern in JavaScript</h2>
+<p>Handling tombstoning is much easier if you have a good separation between your view and your logic, with the MVVM pattern being a sensible choice for achieving this. When your application is tombstoned (and your application terminated), then re-activated, it is your responsibility to recreate the original state. Your view-model, is a model-of-a-view, so technically should provide all the information required to fulfil this requirement. See my <a href="{{ site.baseurl }}/2011/10/03/a-windows-phone-7-1-mango-mvvm-tombstoning-example">previous blog</a> post for details.</p>
+<p>There are numerous JavaScript UI frameworks available (MVC, MVP, MVVM), however, because I feel tombstoning lends itself particularly well to the MVVM pattern, I decided to give <a href="http://knockoutjs.com/">KnockoutJS</a> a try. When reading about this framework you will find references to WPF and Silverlight, it is clear that it has been heavily inspired by the Microsoft XAML frameworks.</p>
+<p>The application I have built to demonstrate tombstoning is a very simple, single page twitter search application.</p>
+<p>The Knockout view model is a JavaScript object where the properties are defined as 'observables'. These are JavaScript functions which provide change notification, much like CLR properties with <code>INotifyPropergtyChanged</code> within Silverlight / WPF.</p>
+<h3>The View-Model</h3>
+<p>The view model for my twitter search application is shown below:</p>
+{% highlight javascript %}
+/// <summary>
+/// A view model for searching twitter for a given term
+/// </summary>
+function TwitterSearchViewModel() {
+
+  var that = this;
+
+  // --- properties
+
+  this.isSearching = ko.observable(false);
+
+  this.searchTerm = ko.observable("#wp7dev");
+
+  this.tweets = ko.observableArray();
+
+  // --- functions
+
+  // search twitter for the given string
+  this.search = function () {
+    if (that.searchTerm() != "") {
+
+      that.isSearching(true);
+      var url = "http://search.twitter.com/search.json?q=" +
+            encodeURIComponent(that.searchTerm());
+
+      $.ajax({
+        dataType: "jsonp",
+        url: url,
+        success: function (response) {
+          // clear the results
+          that.tweets.removeAll();
+          // add the new items
+          $.each(response.results, function () {
+            var tweet = new TweetViewModel(this);
+            that.tweets.push(tweet);
+          });
+
+          that.isSearching(false);
+        }
+      });
+    }
+  }
+}
+{% endhighlight %}
+<p>It comprises a few simple properties and a search function. Note, the <code>items</code> property is an <code>observableArray</code>, this is analogous to the WPF / Silverlight <code>ObservableCollection</code>, which raises events when its contents are modified, allowing the UI to update automatically. The <code>search</code> function queries the twitter APIs to find matching tweets, updating the observable <code>items</code> array with the results.</p>
+<p>The <code>TwitterSearchViewModel</code> <code>items</code> collection is populated with <code>TweetViewModel</code> instances:</p>
+{% highlight javascript %}
+/// <summary>
+/// A view model that represents a single tweet
+/// </summary>
+function TweetViewModel(tweet) {
+
+    // --- properties
+
+    this.author = tweet.from_user,
+    this.text = tweet.text,
+    this.time = parseDate(tweet.created_at);
+    this.thumbnail = tweet.profile_image_url;
+
+    // --- functions
+
+    // parses the tweet date to give a more readable format
+    function parseDate(date) {
+      var diff = (new Date() - new Date(date)) / 1000;
+
+      if (diff < 60) {
+        return diff.toFixed(0) + " seconds ago";
+      }
+
+      diff = diff / 60;
+      if (diff < 60) {
+        return diff.toFixed(0) + " minutes ago";
+      }
+
+      diff = diff / 60;
+      if (diff < 10) {
+        return diff.toFixed(0) + " hours ago";
+      }
+
+      diff = diff / 24;
+      return diff.toFixed(0) + " days ago";
+    }
+};
+{% endhighlight %}
+<p>Note, here the properties are <em>not</em> observables, again much like WPF / Silverlight you can bind to a property that does not notify of changes if this is not required.</p>
+<p>Also, the Knockout documentation typically defines view-models as literal objects. I prefer to use <a href="http://groups.google.com/group/knockoutjs/browse_thread/thread/78ec2119146f6571">constructor functions</a>, allowing the creation of multiple instances of the same view model.</p>
+<h3>The View</h3>
+<p>With Knockout the view is defined in HTML, you can create it directly, or via a template. I have created the following templates:</p>
+{% highlight xml %}
+<script type=text/x-jquery-tmpl" charset="utf-8" id="twitterSearchView">
+  <form data-bind="submit: search">
+      <input data-bind="value: searchTerm, valueUpdate: 'afterkeydown'" />
+      <button type="submit" data-bind="enable: searchTerm().length > 0 &amp;&amp; isSearching() == false">Go</button>
+  </form>
+  <ul data-bind="template: {name: 'tweetView', foreach: tweets}"> </ul>
+</script>
+{% endhighlight %}
+{% highlight xml %}
+<script type="text/x-jquery-tmpl" charset="utf-8" id="tweetView">
+  <li class="tweet">
+    <div class="thumbnailColumn">
+      <img data-bind="attr: { src: thumbnail }" class="thumbnail"/>
+    </div>
+    <div class="detailsColumn">
+      <div class="author" data-bind="text: author"/>
+      <div class="text" data-bind="text: text"/>
+      <div class="time" data-bind="text: time"/>
+    </div>
+  </li>
+</script>
+{% endhighlight %}
+<p>The <code>data-bind</code> attribute is used by Knockout to set up the various bindings, connecting your view model properties and observables to the UI.It also defines functions to invoke when DOM events are raised, in much the same way as commands do in WPF / Silverlight.</p>
+<h3>The application code</h3>
+<p>Instantiating the view-model and the view is as simple as the following:</p>
+{% highlight javascript %}
+$(document).ready(function () {
+  document.addEventListener("deviceready", onDeviceReady, false);
+});
+
+// phonegap is initialised
+function onDeviceReady() {
+
+  // create the view model
+  twitterSearchViewModel = new TwitterSearchViewModel();
+
+  // create an instance of the view
+  $("#twitterSearchView").tmpl("").appendTo("#app");
+
+  // wire-up
+  ko.applyBindings(twitterSearchViewModel)
+}
+{% endhighlight %}
+<p>Originally I wanted to have the HTML for each view within a separate file, loading them via jQuery as <a href="http://www.knockmeout.net/2011/03/using-external-jquery-template-files.html">described in this blog post</a>. However, I just couldn't get this to work within the embedded WP7 browser.</p>
+<p>The <code>tweetView</code> tempate is used via the <code>template </code>/ <code>foreach</code> Knockout binding, mimicking the Silverlight / WPF <code>ItemsControl.ItemTemplate</code> concept.</p>
+<p>The application, after a bit of styling, looks like this:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/PhoneGapTwitterSearch.png" alt="" title="PhoneGapTwitterSearch" width="300" height="546" class="aligncenter size-full wp-image-1793" /></p>
+<h2>Tombstoning</h2>
+<p>Now that the application has a decent structure, we can tackle the application-lifecycle. We need a way to store the view model state when the application transitions into a dormant state. Fortunately Knockout makes this very easy by supplying a <code>toJSON</code> function, which can create a JSON representation of your view-model graph (minus the observables). I have added a <code>getState</code> function to the <code>TwitterSearchViewModel</code> as follows:</p>
+{% highlight javascript %}
+// gets the view model state as a JSON string
+this.getState = function () {
+  return ko.toJSON(this);
+}
+{% endhighlight %}
+<p>Now we need a way to invoke this function when the application pauses. PhoneGap provides a <code>pause</code> lifecycle event, however, we need to store the output of this function in the WP7 <code>PhoneApplicationService.Current.State</code> dictionary. Because this is a very much WP7 specific feature, I decided to do this outside of the PhoneGap lifecycle events.</p>
+<p>My handler for the <code>Deactivated </code>event simply invokes the above method, storing the state in the application state dictionary:</p>
+{% highlight csharp %}
+private void Application_Deactivated(object sender, DeactivatedEventArgs e)
+{
+  var viewModelState = PhoneGapView.Browser.InvokeScript("getState") as string;
+  PhoneApplicationService.Current.State[ModelKey] = viewModelState;
+}
+{% endhighlight %}
+<p>Note, to do this I have had to modify the current PhoneGap WP7 library to provide access to the underlying WebBrowser control.</p>
+<p>The application now stores it state when it becomes dormant, the next step is to use this state when an application is activated from a tombstoned state. Within the <code>Activated</code> handler we can read this state as follows:</p>
+{% highlight csharp %}
+/// <summary>
+/// Gets the state that has been retrieved from isolated storage
+/// in order to re-activated after tombstoning.
+/// </summary>
+public string TombstoneState { get; private set; }
+
+private void Application_Activated(object sender, ActivatedEventArgs e)
+{
+  if (!e.IsApplicationInstancePreserved)
+  {
+    if (PhoneApplicationService.Current.State.ContainsKey(ModelKey))
+    {
+      var viewModelState = PhoneApplicationService.Current.State[ModelKey] as string;
+      TombstoneState = viewModelState;
+    }
+  }
+}
+{% endhighlight %}
+<p>Note, we check <code>IsApplicationInstancePreserved</code>, if this is true, we do not need to use the state that was saved during deactivation, this allows for fast-application switching. </p>
+<p>Unfortunately as this point our UI has not been created and our JavaScript application code is not running, which is why the tombstoned state is simply stored in a public property of our application. To pick this state up, we add a new step to our JavaScript view model creation code:</p>
+{% highlight javascript %}
+// phonegap is initialised
+function onDeviceReady() {
+
+  // create the view model
+  twitterSearchViewModel = new TwitterSearchViewModel();
+
+  // ---> check for tombstoned state
+  window.external.Notify("getState");
+
+  // instantiate the view an bind
+  $("#twitterSearchView").tmpl("").appendTo("#app");
+  ko.applyBindings(twitterSearchViewModel)
+}
+{% endhighlight %}
+<p>When the PhoneGap view is created, we add a handler to the <code>ScriptNotify</code> event, allowing us to handle this <code>getState </code>notification:</p>
+{% highlight csharp %}
+// Constructor
+public MainPage()
+{
+  InitializeComponent();
+
+  phoneGapView.Browser.ScriptNotify += Browser_ScriptNotify;
+}
+
+
+private void Browser_ScriptNotify(object sender, NotifyEventArgs e)
+{
+  string commandStr = e.Value;
+
+  if (commandStr == "getState" && App.Current.TombstoneState != null)
+  {
+    phoneGapView.Browser.InvokeScript("setState", new string[] { App.Current.TombstoneState });
+  }
+}
+{% endhighlight %}
+<p>This checks for the presence of tombstone state, and if found, invokes setState back on our JavaScript view model:</p>
+{% highlight javascript %}
+// sets the view model state based on the given JSON string.
+this.setState = function (stateString) {
+  var state = $.parseJSON(stateString),
+      that = this;
+
+  this.isSearching(state.isSearching);
+  this.searchTerm(state.searchTerm);
+
+  this.tweets.removeAll();
+  $.each(state.tweets, function () {
+    that.tweets.push(this);
+  });
+}
+{% endhighlight %}
+<p>Note, re-creating our view-model form JSON data is a little more involved than the opposite. I have also cheated a little here, rather than re-creating each <code>TweetViewModel</code> I am using the JSON representation, because this view model has no public functions (i.e. commands).</p>
+<h2>Conclusions</h2>
+<p>With the above code the PhoneGap application now successfully handles all of the WP7 lifecycle states and transitions. There are a couple of things to note if you try to run this code yourself:</p>
+<ol>
+<li>You can force tombstoning via the Debug properties, "Tombstone upon deactiviation while debugging".</li>
+<li>I have fund that the WebBrowser on the emulator does not tombstone correctly, when your application resumes the WebBrowser control fails to execute <strong>any</strong> JavaScript! Fortunately on  a real device it works just fine.</li>
+</ol>
+<p>Now that I can tombstone a PhoneGap application, I feel that it is one step closer to be a viable solution for application development. The final thing that I still haven't quite worked out yet is navigation and back-button support. Fortunately Knockout has a lot to offer in this area as well, but more on that later ...</p>
+<p>You can download the full sourcecode (including PhoneGap library mods) here: <a href='{{ site.baseurl }}/archive/2011/10/PhoneGapExample.zip'>PhoneGapExample.zip</a></p>
+<p>Regards, Colin E.</p>

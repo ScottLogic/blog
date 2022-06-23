@@ -1,0 +1,27 @@
+---
+title: UKSnow Silverlight - An Rx powered Twitter, Bing Maps mashup.
+date: 2010-11-29 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- blog
+id: 955
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2010/11/uksnow-silverlight-an-rx-powered-twitter-bing-maps-mashup/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2010/11/uksnow-silverlight-an-rx-powered-twitter-bing-maps-mashup/"
+---
+
+<p><strong>UPDATE:</strong> I have published an article on codeproject "<a href="https://www.codeproject.com/Articles/132966/Exploring-Reactive-Extensions-Rx-through-Twitter-a">Exploring Reactive Extensions (Rx) through Twitter and Bing Maps Mashups</a>", which has the full sourcecode for this mashup.</p>
+<p>A week ago a colleague of mine posted an interesting article on <a href="{{ site.baseurl }}/2010/11/16/introduction-to-parallelism-in-net-4-0">parallelism in .NET 4.0</a> which included a few different libraries for asynchronous / parallel processing. Being  a bit of a Linq fan, the <a href="http://msdn.microsoft.com/en-us/devlabs/ee794896.aspx">Reactive Extensions</a> jumped out at me.</p>
+<p>With the heavy snow in the UK, I was inspired to have a go at creating a Silverlight version of <a href="http://uksnowmap.com/">Ben Marsh's UKSnow</a> twitter / maps mashup. </p>
+<p>The application below gives a real-time view of the snow across the UK. To add a snow report to the map, tweet #uksnow with your postcode and the amount of snowfall out of ten (e.g. 7/10).</p>
+<div style="text-align: center; "><object width="600" height="550" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/11/TwitterRx.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p><br/></p>
+<p>The application above uses Rx to coordinate requests to the Twitter and Bing maps REST APIs, with the tweets being parsed to extract the postcode, which is then geocoded via bing. Snow is added to the map with an opacity based on the amount (out of ten) in the given tweet.</p>
+<p>If it has stopped snowing when you look at the map above, this is what it looked like at around midday today (12:00 GMT, 29<sup>th</sup> November, 2010):</p>
+<p><a href="{{ site.baseurl }}/archive/2010/11/uksnow.jpg"><img src="{{ site.baseurl }}/archive/2010/11/uksnow-300x270.jpg" alt="" title="uksnow" width="300" height="270" class="aligncenter size-medium wp-image-963" /></a></p>
+<p>I plan to write a codeproject article on Rx with a few other examples, however I just couldn't wait to put this online because the example is much more powerful when it is actually snowing!</p>
+<p>Regards,Colin E.</p>

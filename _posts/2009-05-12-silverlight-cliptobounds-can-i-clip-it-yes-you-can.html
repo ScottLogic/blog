@@ -1,0 +1,174 @@
+---
+title: Silverlight ClipToBounds - Can I Clip It?, Yes You Can!
+date: 2009-05-12 00:00:00 Z
+categories:
+- ceberhardt
+- Tech
+tags:
+- silverlight
+- attached behaviour
+- blog
+- codeproject
+id: 292
+author: ceberhardt
+oldlink: http://www.scottlogic.co.uk/blog/colin/2009/05/silverlight-cliptobounds-can-i-clip-it-yes-you-can/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/colin/2009/05/silverlight-cliptobounds-can-i-clip-it-yes-you-can/"
+---
+
+<p>With Silverlight, Panels do not clip their contents by default. See the following example:</p>
+<p><a href="{{ site.baseurl }}/archive/2009/05/noclip.png"><img class="aligncenter size-full wp-image-293" title="noclip" src="{{ site.baseurl }}/archive/2009/05/noclip.png" alt="noclip" width="292" height="187" /></a></p>
+<p>Where we have a Grid containing another Grid which itself contains an ellipse, and a Canvas which contains an ellipse:</p>
+{% highlight xml %}
+<Grid x:Name="LayoutRoot" Background="White">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+
+    <Grid Grid.Column="0" Background="Blue" Margin="20">
+        <Grid Background="Yellow" Margin="20,40,-20,20">
+            <Ellipse Fill="LightGreen" Width="80" Height="80" Margin="-40, -40, 0, 0"/>
+        </Grid>
+    </Grid>
+
+    <Canvas Grid.Column="1"  Background="Aqua" Margin="20" >
+        <Ellipse Fill="Red" Canvas.Top="-10" Canvas.Left="-10" Width="130" Height="130"/>
+    </Canvas>
+</Grid>
+{% endhighlight %}
+<p>Often this is not the desired effect (although it is actually quite a useful feature of Canvas; You can simply add a Canvas to your visual tree without explicitly or implicitly setting its Size and use it as a mechanism for absolute positioning its children).</p>
+<p>Fortunately Silverlight provides a Clip property on UIElement, allowing you to provide the clipping geometry for the element:</p>
+{% highlight xml %}
+<Grid Width="200" Height="100">
+    <Grid.Clip>
+        <RectangleGeometry Rect="0, 0, 200, 100"/>
+    </Grid.Clip>
+</Grid>
+{% endhighlight %}
+<p>The above example creates a clipping geometry which matches the rectangular geometry of the Grid itself. Clearly more funky clipping geometries can be created, allowing for really cool effects, however most of the time I simply want my Panel clipped so that its children cannot escape!</p>
+<p>The above example has a few problems, Firstly, it is a bit long-winded having to explicitly create the geometry each time I want to clip; Secondly, if my Grid's size is calculated from its parent's layout, how can I define the clip geometry in my XAML?; Finally, if my Grid's geometry changes, its clipped geometry does not change.</p>
+<p>In order to solve this problem I created a simple little <a href="http://www.codeproject.com/KB/WPF/AttachedBehaviors.aspx">attached behaviour</a>, which allows you to define the clipping using the attached property Clip.ToBounds as illustrated below:</p>
+{% highlight xml %}
+<UserControl x:Class="SilverlightClipToBounds.Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:util="clr-namespace:Util" Width="300" Height="200">
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="Blue" Margin="20" util:Clip.ToBounds="true">
+            <Grid Background="Yellow" Margin="20,40,-20,20" util:Clip.ToBounds="true">
+                <Ellipse Fill="LightGreen" Width="80" Height="80" Margin="-40, -40, 0, 0"/>
+            </Grid>
+        </Grid>
+
+        <Canvas Grid.Column="1"  Background="Aqua" Margin="20" util:Clip.ToBounds="true">
+            <Ellipse Fill="Red" Canvas.Top="-10" Canvas.Left="-10" Width="130" Height="130"/>
+        </Canvas>
+    </Grid>
+</UserControl>
+{% endhighlight %}
+<p>The result can be seen below:</p>
+<p><a href="{{ site.baseurl }}/archive/2009/05/crop.png"><img src="{{ site.baseurl }}/archive/2009/05/crop.png" alt="crop" title="crop" width="277" height="179" class="aligncenter size-full wp-image-296" /></a></p>
+<p>And here is the code for the attached behaviour itself:</p>
+{% highlight csharp %}
+public class Clip
+{
+    public static bool GetToBounds(DependencyObject depObj)
+    {
+        return (bool)depObj.GetValue(ToBoundsProperty);
+    }
+
+    public static void SetToBounds(DependencyObject depObj, bool clipToBounds)
+    {
+        depObj.SetValue(ToBoundsProperty, clipToBounds);
+    }
+
+    /// <summary>
+    /// Identifies the ToBounds Dependency Property.
+    /// <summary>
+    public static readonly DependencyProperty ToBoundsProperty =
+        DependencyProperty.RegisterAttached("ToBounds", typeof(bool),
+        typeof(Clip), new PropertyMetadata(false, OnToBoundsPropertyChanged));
+
+
+    private static void OnToBoundsPropertyChanged(DependencyObject d,
+        DependencyPropertyChangedEventArgs e)
+    {
+        FrameworkElement fe = d as FrameworkElement;
+        if (fe != null)
+        {
+            ClipToBounds(fe);
+
+            // whenever the element which this property is attached to is loaded
+            // or re-sizes, we need to update its clipping geometry
+            fe.Loaded += new RoutedEventHandler(fe_Loaded);
+            fe.SizeChanged += new SizeChangedEventHandler(fe_SizeChanged);
+
+        }
+    }
+
+    /// <summary>
+    /// Creates a rectangular clipping geometry which matches the geometry of the
+    /// passed element
+    /// </summary>
+    private static void ClipToBounds(FrameworkElement fe)
+    {
+        if (GetToBounds(fe))
+        {
+            fe.Clip = new RectangleGeometry()
+            {
+                Rect = new Rect(0, 0, fe.ActualWidth, fe.ActualHeight)
+            };
+        }
+        else
+        {
+            fe.Clip = null;
+        }
+    }
+
+    static void fe_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        ClipToBounds(sender as FrameworkElement);
+    }
+
+    static void fe_Loaded(object sender, RoutedEventArgs e)
+    {
+        ClipToBounds(sender as FrameworkElement);
+    }
+}
+{% endhighlight %}
+<p>When the <code>ToBounds</code> property is associated with an element, <code>ClipToBounds</code> is invoked to create a rectangular clip geometry. We also add event handlers for <code>Loaded</code>, which is a very useful event which is fired when an element has been laid out and rendered, in other words it's size will have been computed, and <code>SizeChanged</code>. In the event handlers for both we simply update the clipping geometry.</p>
+<p>This can be seen in action here, where clicking on the Grids or Canvas increases their size, with the clipping geometry growing accordingly:</p>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/05/silverlightcliptobounds.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download a demo project here: <a href='{{ site.baseurl }}/archive/2009/05/sliverlightcliptobounds.zip'>sliverlightcliptobounds.zip</a></p>
+<p>Can I Clip It?, Yes You Can!</p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
