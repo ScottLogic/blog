@@ -1,10 +1,10 @@
 ---
-published: true
-author: jporter
 title: ''
+author: jporter
 layout: default_post
 category: Tech
 ---
+
 # markdown-spellcheck spelling configuration file
 # Format - lines beginning # are comments
 # global dictionary is at the start, file overrides afterwards

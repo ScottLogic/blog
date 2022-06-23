@@ -1,0 +1,227 @@
+---
+title: 'Web Workers Part 3: Creating a Generic Worker'
+date: 2011-02-24 00:00:00 Z
+categories:
+- jcardy
+- Tech
+tags:
+- Algorithms
+- Javascript
+- Web Workers
+- blog
+id: 108201
+author: jcardy
+oldlink: http://www.scottlogic.co.uk/2011/02/web-workers-part-3-creating-a-generic-worker/
+layout: default_post
+source: site
+disqus-id: "/2011/02/web-workers-part-3-creating-a-generic-worker/"
+---
+
+<p>In the previous post we set up a Web Worker helper function that allowed us to create a worker file, and call it using code like this:</p>
+{% highlight javascript %}$.work({file: 'primes.js', args: { from: 1, to: 100000 }}).then(function(data) {
+	//Worker completed successfully
+	console.log(data);
+});{% endhighlight %}
+<p>Now, wouldn't it be nice if you didn't even have to write the worker file?  To achieve this we must overcome the fact that Web Workers need to be constructed with a file name containing the Worker definition, as opposed to the function to be run.  To get around this problem we just create a Web Worker that takes, as a message, a function definition and arguments, all encoded as a JSON-string.</p>
+<p>This technique adds some code to our mission: to convert a function to and from a string requires a little bit of effort. To convert a function to a string we simply do this:</p>
+{% highlight javascript %}var funcStr = func.toString();{% endhighlight %}
+<p>But the reverse - getting the function back from a string - is more difficult.  We could try using eval:</p>
+{% highlight javascript %}var funcStr = func.toString();
+eval("var func = " + funcStr);{% endhighlight %}
+<p>However if you try that you will find that the performance of running the function in Chrome is abysmal: the function doesn't get precompiled and the net result is that execution time is more than 10x slower.  Another alternative is constructing the function using the <strong>new Function </strong>syntax.  In the following table I compare the performance of each (all in milliseconds - lower is better):</p>
+<table>
+<tbody>
+<tr>
+<th></th>
+<th>Native</th>
+<th>Eval</th>
+<th>new Function</th>
+</tr>
+<tr>
+<td>Chrome 9</td>
+<td>207</td>
+<td>2955</td>
+<td>204</td>
+</tr>
+<tr>
+<td>IE 8</td>
+<td>4078</td>
+<td>4890</td>
+<td>4047</td>
+</tr>
+<tr>
+<td>Opera 11</td>
+<td>240</td>
+<td>1080</td>
+<td>240</td>
+</tr>
+<tr>
+<td>Firefox 3.6</td>
+<td>341</td>
+<td>342</td>
+<td>336</td>
+</tr>
+</tbody>
+</table>
+<p>In all cases, constructing the function using new Function gives the same performance as a natural JavaScript function, so we'll use that instead of eval.  In the following code we see how to convert a string-encoded function to a real function using the Function constructor.  It just involves manipulating the function's string to get the function body, and name of the function's argument, and then pass those to the Function constructor.</p>
+{% highlight javascript %}//Get the name of the argument. We know there is a single argument
+//in the worker function, between the first '(' and the first ')'.
+var argName = funcStr.substring(funcStr.indexOf("(") + 1, funcStr.indexOf(")"));
+
+//Now get the function body - between the first '{' and the last '}'.
+funcStr = funcStr.substring(funcStr.indexOf("{") + 1, funcStr.lastIndexOf("}"));
+
+//Construct the new Function
+var newFunc = new Function(argName, funcStr);{% endhighlight %}
+<p>And combining this knowledge into a "generic" Web Worker, we have the following code:</p>
+{% highlight javascript %}self.addEventListener('message', function (event) {
+	//Get the action from the string-encoded arguments
+	var action = self.getFunc(event.data.action);
+
+	//Execute the newly-defined action and post result back to the callee
+	self.postMessage(action(event.data.args));
+
+}, false);
+
+//Gets a Function given an input function string.
+self.getFunc = function (funcStr) {
+	//Get the name of the argument. We know there is a single argument
+	//in the worker function, between the first '(' and the first ')'.
+	var argName = funcStr.substring(funcStr.indexOf("(") + 1, funcStr.indexOf(")"));
+
+	//Now get the function body - between the first '{' and the last '}'.
+	funcStr = funcStr.substring(funcStr.indexOf("{") + 1, funcStr.lastIndexOf("}"));
+
+	//Construct the new Function
+	return new Function(argName, funcStr);
+};{% endhighlight %}
+<p>Note that in the above worker we attach to the message event using the standard addEventListener syntax.  That is much nicer than the old school method of adding a function to the onmessage property, and allows us to attach multiple listeners if needed.</p>
+<p>To consume this Web Worker we must serialise the a function to be run, and its arguments, so they can be passed in a message.  Our $.work function can do that for us. We'll also add one other detail: make it cross-browser compatible by synchronously executing the action when there is no Worker definition.</p>
+{% highlight javascript %}$.work = function(action, args) {
+	var def = $.Deferred(function(dfd) {
+		if (window.Worker) {
+			var worker = new Worker('worker.js');
+			worker.addEventListener('message', function(event) {
+				//Resolve the Deferred when the Web Worker completes
+				def.resolve(event.data);
+			}, false);
+
+			worker.addEventListener('error', function(event) {
+				//Reject the Deferred if the Web Worker has an error
+				def.reject(item);
+			}, false);
+
+			//Start the worker
+			worker.postMessage({
+				action: action.toString(),
+				args: args
+			});
+		} else {
+			//If the browser doesn't support workers then execute synchronously.
+			//This is done in a setTimeout to give the browser a chance to execute
+			//other stuff before starting the hard work.
+			setTimeout(function(){
+				try {
+					var result = action(args);
+					dfd.resolve(result);
+				} catch(e) {
+					dfd.reject(e);
+				}
+			}, 0);
+		}
+	});
+
+	//Return the promise to do this work at some point
+	return def.promise();
+};{% endhighlight %}
+<p>To define the code, you can write any function that takes a single parameter:</p>
+{% highlight javascript %}//Define a function to be run in the worker.
+//Note that this function will not be run in the window context, and therefore cannot see any global vars!
+//Anything this function uses must be passed to it through its args object.
+var findPrimes = function (args) {
+	var divisor, isPrime, result = [],
+		current = args.from;
+	while (current < args.to) {
+		divisor = parseInt(current / 2, 10);
+		isPrime = true;
+		while (divisor > 1) {
+			if (current % divisor === 0) {
+				isPrime = false;
+				divisor = 0;
+			} else {
+				divisor -= 1;
+			}
+		}
+		if (isPrime) {
+			result.push(current);
+		}
+		current += 1;
+	}
+	return result;
+}{% endhighlight %}
+<p>And running it then becomes this succinct beauty:</p>
+{% highlight javascript %}$.work({action: findPrimes, args: { from:2, to:50000 }}).then(function(data) {
+	alert('all done');
+}).fail(function(data){
+	alert('oops');
+});{% endhighlight %}
+<h2>Performance</h2>
+<p>To try out the performance I'm going to do the following 3 tests in the usual 4 browsers:</p>
+<ol>
+<li>Run the findPrimes function in the UI thread (no workers involved)</li>
+<li>Run the findPrimes function in a Web Worker (keeping the UI thread free)</li>
+<li>Run the findPrimes function in two Web Workers (splitting the calculation into two equal parts)</li>
+</ol>
+<table>
+<tbody>
+<tr>
+<th></th>
+<th>UI thread</th>
+<th>One worker</th>
+<th>Two workers</th>
+<th>Observations</th>
+</tr>
+<tr>
+<td>Chrome 9</td>
+<td>4915</td>
+<td>4992</td>
+<td>3268</td>
+<td>CPU at 50% with 1 worker, 100% with 2</td>
+</tr>
+<tr>
+<td>Firefox 3.6</td>
+<td>7868</td>
+<td>7862</td>
+<td>5289</td>
+<td>CPU at 50% with 1 worker, 100% with 2</td>
+</tr>
+<tr>
+<td>Opera 11</td>
+<td>5754</td>
+<td>5780</td>
+<td>5676</td>
+<td>CPU at 50% in both cases (but UI thread is free)</td>
+</tr>
+<tr>
+<td>IE 8</td>
+<td>108689</td>
+<td>same</td>
+<td>same</td>
+<td>CPU at 50% in all cases (UI thread is always used)</td>
+</tr>
+</tbody>
+</table>
+<p>In the above tests we can see that execution always takes the same time in a Web Worker as in the UI thread.  In Chrome and Firefox, we see that executing Web Workers concurrently gives a nice performance improvement by taking advantage of multiple CPUs on the user's machine.  These are very positive results, especially considering the overhead in constructing and messaging the Web Workers.</p>
+<h2>Chrome</h2>
+<p>This technique of wrapping Web Workers works really well in Google Chrome, even though, as we saw in <a href="{{ site.baseurl }}/2011/02/18/web-workers-part-1-performance">Part 1</a>, Chrome has the largest overhead in constructing a Web Worker object.  As you would expect, Chrome makes use of multiple cores by running the Web Workers in separate threads and we can achieve a good speed-up in performance on multi-core machines vs single-core machines.</p>
+<h2>Firefox</h2>
+<p>Firefox also has great performance.  There is a good speed-up on multi-core machines, and additionally, Firefox has a low overhead in constructing Web Worker objects.</p>
+<h2>Opera</h2>
+<p>Although Opera does support Web Workers, it doesn't seem to run them in their own threads - in the table above we can see that the performance when running multiple workers is no better than running a single worker, when on a multi-core machine.  I noted that the CPU usage maxed out at 50% on my dual-core machine even though I was running multiple workers.  I'm sure Opera will resolve this in the future though, and using Web Workers still frees up the UI thread and makes the browser responsive during long-running calculations.</p>
+<h2>Internet Explorer</h2>
+<p>In IE, since we are executing exclusively in the UI thread, long-running calculations will result in the message "A script on this page is causing Internet Explorer to run slowly".  This will occur if your worker function executes more than 5 million statements.  By way of workaround I can only suggest the following:</p>
+<ul>
+<li>Split the worker into multiple smaller workers to ensure the 5 million-statement limit is not reached.  You should endeavour to provide user feedback regularly to let the user know that the application has not crashed.</li>
+<li>If you have control over the client's registry (eg. a company internal application) then <a href="https://support.microsoft.com/en-us/help/175500/error-message-a-script-on-this-page-is-causing-internet-explorer-to-run-slowly">the limit can be changed</a>, although that is a bad idea because the browser will be unresponsive for a long time.</li>
+<li>Offer an alternative version of your application to IE users, which is not as computationally intensive.  Inform the users that they can use the full version in another browser.</li>
+</ul>

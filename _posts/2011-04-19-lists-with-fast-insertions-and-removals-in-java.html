@@ -1,0 +1,176 @@
+---
+title: Lists with Fast Insertions and Removals in Java
+date: 2011-04-19 00:00:00 Z
+categories:
+- mrhodes
+- Tech
+tags:
+- Data Structures
+- Java
+- blog
+id: 114761
+author: mrhodes
+oldlink: http://www.scottlogic.co.uk/2011/04/lists-with-fast-insertions-and-removals-in-java/
+layout: default_post
+source: site
+disqus-id: "/2011/04/lists-with-fast-insertions-and-removals-in-java/"
+---
+
+<p><em>This post describes the implementation of a List in Java which allows log time removals and insertions.</em></p>
+<p>Lists are probably the most useful data structures in programming.  Java provides a number of ways of creating a list out of the box with regular arrays, and the <code>ArrayList</code>, <code>LinkedList</code> and <code>Vector</code> classes in the java.util package.  However, none of these structures allow elements to be removed or added to the middle of the list in sub-linear time*, which for some applications can be useful.  <em>(* - the LinkedList allows elements to be removed (inserted) via a <a href="http://download.oracle.com/javase/6/docs/api/java/util/ListIterator.html"><code>ListIterator</code></a> in constant time, but requires that the element (position) is located first, which takes linear time).</em></p>
+<p><a href="http://en.wikipedia.org/wiki/Self-balancing_binary_search_tree">Balanced search trees</a> and <a href="http://en.wikipedia.org/wiki/Skip_list">skip lists</a> allow this behaviour, but these work on the principle that the data is stored in some fixed order - there is no way to preserve the order in which the elements were added.  They also do not usually provide the ability to access elements by their index in the data structure, which is a key feature of a list.</p>
+<p>In this post I'll go through the implementation of an "unsorted" balanced search tree (<code>UnsortedList</code>), which allows the elements to be located, added and removed by index in logarithmic time, but function exactly like an <code>ArrayList</code>.  The trick is that the list compares the elements in it on their index in the list itself.  The <code>UnsortedList</code> extends the <code>SortedList</code> class I wrote for a <a href="{{ site.baseurl }}">previous post</a>, which provides a relatively efficient implementation of an <a href="http://en.wikipedia.org/wiki/AVL_tree">AVL tree</a> that allows elements to quickly found by their index.  I had to make a few tweaks to that code so that the required inner class and methods are exposed to overriding classes; the latest version, together with all the source code described in this blog is available here: <a href='{{ site.baseurl }}/archive/2011/04/mr-scottlogic-utils-1.01.zip'>data structures source</a>.</p>
+<p>The signature of the <code>UnsortedList</code> class and it's constructor are a bit odd and look like this:</p>
+{% highlight java %}
+public class UnsortedList<T> extends SortedList<T> {
+
+    //a dummy comparator which works on any object and simply returns 0..
+   private static Comparator<Object> DUMMY_COMPARATOR = new Comparator<Object>(){
+        @Override
+        public int compare(Object a, Object b){
+            return 0;
+       }
+    };
+
+    public UnsortedList(){
+        super(DUMMY_COMPARATOR);
+    }
+    ...
+{% endhighlight %}
+<p>Firstly, it's a bit weird that an <code>UnsortedList</code> is a <code>SortedList</code>, but nevermind (perhaps I should have come up with a better name)!  The <code>SortedList</code> requires that a <a href="http://download.oracle.com/javase/6/docs/api/java/util/Comparator.html"><code>Comparator</code></a> be provided, which it uses to determine where values in the list should be located.  However, since the actual values of the elements stored at each index is not important in an <code>UnsortedList</code>, we simply provide a dummy implementation which returns 0, no matter what's put in; it doesn't matter as it won't be used anyway!</p>
+<p>So how are comparisons made?  The <code>SortedList</code> class doesn't call the given <code>Comparator</code> directly, but calls the <code>compare</code> method on it's inner <code>Node</code> class (which implements <code>Comparable</code>); the implementation of the Node's <code>compare</code> method then uses this <code>Comparator</code>.  This mechanism is used to enable multiple equal elements to be stored, for more details see the <a href="{{ site.baseurl }}/2010/12/22/sorted_lists_in_java">previous blog post</a>).  So, to get the <code>UnsortedList</code> to work, it's this inner node's <code>compare</code> method that needs to be replaced; which is done by overriding the class itself.  The <code>UnsortedList</code>'s inner node class (<code>UnsortedNode</code>) which extends the <code>SortedList</code>'s <code>Node</code> class is where most of the logic for the <code>UnsortedList</code> lies.  The start of the class looks like this:</p>
+{% highlight java %}
+private class UnsortedNode extends Node {
+    //"cached" index of this node in the list and the modCount when it was set..
+    private int indexInList;
+    private int modCountWhenIndexSet;
+
+    //Constructs a new Node object which should be positioned at the
+    //given index when inserted into the tree..
+    UnsortedNode(T obj, int initialIndex){
+        super(obj);
+        indexInList = initialIndex;
+        modCountWhenIndexSet = modCount;
+    }
+    ...
+{% endhighlight %}
+<p>Note that each <code>UnsortedNode</code> stores its index in the list itself; which is what is used when comparing them. However, the problem is that each time an element is added or removed from the list, this value might become out of date.  These index values can't be kept up to date all the time because that would require linear time when inserting or removing (which is what happens in a regular list).  To tell whether the value is out of date or not, the list also stores the <code>modcount</code> at the time the index variable is set, this variable is incremented each time the list is altered (see <a href="http://download.oracle.com/javase/6/docs/api/java/util/AbstractList.html"><code>AbstractList</code></a>, which is the subclass of <code>SortedList</code>).</p>
+<p>The code to get the correct index for a given <code>UnsortedNode</code> is the only tricky bit.  This works by first figuring out the correct index for the parent node (if there is one) and uses the fact that each node knows the size of the sub-tree rooted at that point (i.e. the number of elements in the whole list is the size of the sub-tree rooted at the root node).  The code for the method looks like this:</p>
+{% highlight java %}
+private int getIndexInList(){
+    //go up the tree till we find a fresh parent or get to the root and store the path on a stack..
+    LinkedList<UnsortedNode> path = new LinkedList<UnsortedNode>();
+    UnsortedNode current = this;
+    while(current != null && current.modCountWhenIndexSet != modCount){
+        path.push(current);
+        current = (UnsortedNode) current.getParent();
+    }
+    //pop elements off the stack updating them as you go..
+    while(!path.isEmpty()){
+        current = path.pop();
+        UnsortedNode parent = (UnsortedNode) current.getParent(); //parent is fresh or null..
+        if(parent == null){ //root case..
+            Node leftChild = current.getLeftChild();
+            current.indexInList = (leftChild == null) ? 0 : leftChild.sizeOfSubTree();
+        } else { //non-root case..
+            if(current.isLeftChildOfParent()){
+                Node rightChild = current.getRightChild();
+                current.indexInList = parent.indexInList - (rightChild == null ? 1 : 1 + rightChild.sizeOfSubTree());
+            } else { //current is right child of parent case..
+                Node leftChild = current.getLeftChild();
+                current.indexInList = parent.indexInList + (leftChild == null ? 1 : 1 + leftChild.sizeOfSubTree());
+            }
+       }
+       //register it as being fresh..
+       current.modCountWhenIndexSet = modCount;
+    }
+    //on the last iteration of the above loop this is set correctly..
+    return indexInList;
+}
+{% endhighlight %}
+<p>The code is complicated by the fact that it uses iteration over recursion for efficiency.  It works by simply returning the cached value if it's fresh and otherwise calculating it from it's closest "fresh" ancestor.  The important lines in this method, where the actual calculation of the index takes place, are 15, 19 and 22.  Each deals with one of the three possible cases: when the node is the root, when it's the left child of its parent and when it's the right child of its parent respectively.</p>
+<p>The runtime of the above method is actually constant when it's being used in the program.  This is because the <code>Node</code> class's <code>sizeOfSubTree</code> method takes constant time and when it's called within the program, the parent node is always either null or fresh.  This is due to the fact that it's only called in the <code>UnsortedNode</code>'s <code>compare</code> method which in turn is only called when the tree is searching for an element.  These searches (like all binary tree searches) work from the root down; so when the <code>compare</code> method is called on a non-root node, it must be that it was just called on its parent node.</p>
+<p>With the ability to get the index of each <code>UnsortedNode</code> in place, it's fairly straight forward to implement the required <code>compare</code> method.  The code for this method look like this:</p>
+{% highlight java %}
+//Determines whether this node is actually in the tree already..
+private boolean isInTree(){
+    return getParent() != null || getRoot() == this;
+}
+
+public int compareTo(Node other){
+    UnsortedNode otherUS = (UnsortedNode) other;
+    int cmp = getIndexInList() - otherUS.getIndexInList();
+    if(cmp == 0){ //indices are equal..
+        if(isInTree()){
+            if(!otherUS.isInTree()){
+                cmp = 1; //treat this as larger..
+            }
+        } else {
+            if(otherUS.isInTree()){
+                cmp = -1; //treat this as smaller..
+            }
+        }
+    }
+    return cmp;
+}
+{% endhighlight %}
+<p>This method essentially just returns the difference in the indices of the nodes; the only slight complication is that nodes that are already in the tree need to be considered as smaller than those already in the list with the same index.  This is so that if you insert an element at some given index in the middle of the list, the newly added element gets the required index and the element that was at that index previously is moved up.</p>
+<p>That's pretty much it, the only other methods that are required to be overridden in the <code>UnsortedList</code> class are straight forward.  These are the <code>add</code> method (so that the <code>UnsortedNode</code> class is used instead of the base <code>Node</code> class), and the <code>contains</code> and <code>remove(Object)</code> methods (since these use binary search, which doesn't work in an <code>UnsortedList</code>!).</p>
+<p><strong>Performance</strong>I've tested the <code>UnsortedList</code> empirically and the results are as you'd expect; the performance is vastly better than the <code>ArrayList</code> when elements need to be added and/or removed from arbitrary positions in the list; however, it's not as quick or as memory efficient in carrying out other operations.  The asymptotic running times for various operations across the different list implementations are given below:</p>
+<table class="blogTable">
+<thead>
+<tr>
+<th></th>
+<th colspan="3" style="text-align: center">Adding To By Index</th>
+<th colspan="3" style="text-align: center">Removing From By Index</th>
+<th></th>
+</tr>
+<tr>
+<th></th>
+<th>Front</th>
+<th>Middle</th>
+<th>End</th>
+<th>Front</th>
+<th>Middle</th>
+<th>End</th>
+<th>Get by Index</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LinkedList</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>ArrayList/Vector</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(1)*</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(1)*</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>UnsortedList</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(log(n))</td>
+</tr>
+<tr>
+<td colspan="8"><em>(* amortized constant time - running the method n times takes O(n) time).</em></td>
+</tr>
+</tbody>
+</table>
+<p>I've written a number of unit tests for both the <code>UnsortedList</code> and <code>SortedList</code> classes, the source for which is included in: <a href="{{ site.baseurl }}/archive/2011/04/mr-scottlogic-utils-1.01.zip">mr-scottlogic-utils.zip</a>.  If you spot a bug not covered in the unit tests let me know!</p>
+<p>In the next post I'll show how to adapt this data structure to improve the runtime of all the method in the above table.</p>

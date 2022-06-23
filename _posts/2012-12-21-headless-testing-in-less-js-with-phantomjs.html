@@ -1,0 +1,199 @@
+---
+title: Headless testing in less.js with PhantomJS
+date: 2012-12-21 00:00:00 Z
+categories:
+- lpage
+- Tech
+tags:
+- testing
+- less.js
+- phantomjs
+- blog
+id: 165676
+author: lpage
+oldlink: http://www.scottlogic.co.uk/2012/12/headless-testing-in-less-js-with-phantomjs/
+layout: default_post
+source: site
+disqus-id: "/2012/12/headless-testing-in-less-js-with-phantomjs/"
+---
+
+<h3>Introduction</h3>
+<p>Less.js can be run in two ways, firstly through node and secondly in the browser. A great deal of the code is shared, but not all of it - particularly the way it deals with imports, paths and url's differs. Whilst typing "make test" in the node less.js repository will run unit tests for the node part, there is nothing testing browser execution. Recently I merged a commit which I later found broke the error handling in the browser and that was when I decided we needed some way to test the browser code to stop obvious regressions.</p>
+<h3>What testing framework?</h3>
+<p>I looked around at what headless testing frameworks existed around and I came up with two which were high on the search list - <a href="http://zombie.labnotes.org/">Zombie</a> and <a href="http://phantomjs.org/">PhantomJS</a>.</p>
+<h4>Zombie</h4>
+<ul><li>+ Runs in node (so, cross OS)</li>
+<li>- Requires building, so on windows you need python, visual studio &amp; visual studio paths setup</li>
+</ul>
+<h4>PhantomJS</h4>
+<ul><li>+ available for Windows, Mac, Linux</li>
+<li>+ very popular</li>
+</ul>
+<p>I went for PhantomJS - it is difficult enough to get people to run unit tests before submitting patches, so I wanted the path to entry to be as simple as possible.</p>
+<h3>How would it work?</h3>
+<p>The node version of less.js has a folder full of less files and a folder full of css files, sub-folders are ignored and contain imported files. A custom node tester iterates through every file in the less directory, compiles it and then compares it to a file of the same name in the css folder. If it's different then it uses <a href="https://github.com/kpdecker/jsdiff">js diff (through node)</a> to output a diff of the files. A similar process is employed for errors, except the error produced is compared to a file of the same name ending in .txt.</p>
+<p><img src="{{ site.baseurl }}/archive/2012/12/node-tests.png" alt="" title="node tests" class="alignnone size-medium wp-image-165716" /></p>
+<p>My first job was to get the existing tests running in the headless browser - I didn't think it would detect any errors, but it was a good proof that the browser tests were going to work.</p>
+<p>I didn't want to mantain two copies for the tests, so a testing framework should load all of the css files, get all of the converted css and then compare them. I went for jasmine as I thought in the future we may have more 'normal' unit tests and it would mean I could use the PhantomJS jasmine examples in order to get PhantomJS to run the tests. We can always switch Jasmine out if we find ourselves not using it.</p>
+<p>My initial idea runs along these lines...</p>
+<p><img src="{{ site.baseurl }}/archive/2012/12/less-test-23.png" alt="" title="less test 2" width="703" height="265" class="alignnone size-full wp-image-165732" /></p>
+<p>All communication would be over the file system and it would just work.</p>
+<h3>XHR requests on the file system</h3>
+<p>I started by making up a test page and running it locally. Immediately I hit the problem that for security reasons you cannot do an XHR request on the filesystem. In <a href="https://github.com/cloudhead/less.js/issues/357">IE you have to use a different mechanism which less.js doesn't yet support</a> and <a href="http://peter.sh/experiments/chromium-command-line-switches/">in chrome you have to pass a command line parameter</a> (--allow-file-access-from-files) to enable it. So, probably, not too many people are using less.js this way and I found <a href="https://groups.google.com/forum/?fromgroups=#!topic/phantomjs/EG5XEl7Fcdo">some problems with enabling it in PhantomJS</a>.</p>
+<p>The conlusion was that I would need a webserver. Luckily, PhantomJS includes a webserver! This would allow me to automate the tests without requiring that someone starts a webserver. There are included examples for <a href="https://github.com/ariya/phantomjs/blob/master/examples/server.js">a contrived "fake web server"</a>, but surprisingly none for a web server that can server any file in a subset of the filesystem. Turns out however that adapting the example is easy..</p>
+{% highlight javascript %}
+var page = require('webpage').create();
+var server = require('webserver').create();
+var system = require('system');
+var fs = require('fs');
+var host, port = 8081;
+
+var listening = server.listen(port, function (request, response) {
+    //console.log("Requested "+request.url);
+
+    var filename = ("test/" + request.url.slice(1)).replace(/[\\\/]/g, fs.separator);
+
+    if (!fs.exists(filename) || !fs.isFile(filename)) {
+        response.statusCode = 404;
+        response.write("<html><head></head><body><h1>File Not Found</h1><h2>File:"+filename+"</h2></body></html>");
+        response.close();
+        return;
+    }
+
+    // we set the headers here
+    response.statusCode = 200;
+    response.headers = {"Cache": "no-cache", "Content-Type": "text/html"};
+
+    response.write(fs.read(filename));
+
+    response.close();
+});
+if (!listening) {
+    console.log("could not create web server listening on port " + port);
+    phantom.exit();
+}
+{% endhighlight %}
+<p>and testing it in the browser showed that it worked fine. Because this is asyncronous I can start this off inside phantomjs and in the same script instance I can do the testing of the page - this stops having to mess around with starting a process up and then finding the process id so I could kill it at the end of the tests. Next, I added in the jasmine example to call the page</p>
+{% highlight javascript %}
+page.open("http://localhost:8081/browser/test-runner-main.htm", function (status) {
+    if (status !== "success") {
+        console.log("Unable to access network");
+        phantom.exit();
+    } else {
+        waitFor(function(){
+            return page.evaluate(function(){
+                return document.body.querySelector('.symbolSummary .pending') === null &&
+                    document.body.querySelector('.results') !== null;
+            });
+        }, function(){
+            page.onConsoleMessage = function (msg) {
+                console.log(msg);
+            };
+            var exitCode = page.evaluate(function(){
+               console.log('');
+...
+{% endhighlight %}
+<p>You can see the basic concept.. you </p>
+<ul><li>setup a web server</li>
+<li>setup a PhantomJS page</li>
+<li>which requests from the webserver</li>
+<li>then it tests the dom in that page</li>
+<li>if it isn't there, wait and try again</li>
+<li>once it is there, retrieve the result</li>
+</ul>
+<p>However, this fails.</p>
+<p>The reason is that less.js runs it's xhr requests synchronously - it does this purposefully so that the page is blocked from rendering until it has all the css in place. It seems that PhantomJS's webserver can't deal with a synchronous xhr request because it will never break off and allow PhantomJS to to process the request in my phantom webserver. It would be nice if the two JavaScript environments (page and PhantomJS script) were separate and a synchronous request from the page didn't block the script.</p>
+<p>So, I added the following to make less.js asyncronous (it is the current way of setting parameters, you create a less object with the right parameters and then put the less.js file link after it) -and the initial test page worked.</p>
+{% highlight html %}
+<script type="text/javascript">
+/*if not async then phantomjs fails to run the webserver and the test concurrently*/
+less = { async: true};
+</script>
+{% endhighlight %}
+<h3>Automating all the files</h3>
+<p>Next up I wrote a node JavaScript file that went through the less files in the less folder and wrote them out as links in the page, so they would be processed by less.js. This means that when we add new tests to the node tester, they will automatically be run by the PhantomJS runner.</p>
+{% highlight javascript %}
+var path = require('path'),
+    fs = require('fs'),
+    sys = require('util');
+
+var createTestRunnerPage = function(dir, exclude, testSuiteName) {
+    var output = '<html><head>\n';
+
+    fs.readdirSync(path.join("test", dir, 'less')).forEach(function (file) {
+        if (! /\.less/.test(file)) { return; }
+
+        var name = path.basename(file, '.less');
+
+        if (exclude && name.match(exclude)) { return; }
+
+        output += '<link id="original-less:' + (dir ? dir+'-' : "") +'less-'+name+'" rel="stylesheet/less" type="text/css" href="http://localhost:8081/' + path.join(dir, 'less', name) + '.less' +'">\n';
+        output += '<link id="expected-less:' + (dir ? dir+'-' : "") +'less-'+name+'" rel="stylesheet" type="text/css" href="http://localhost:8081/' + path.join(dir, 'css', name) + '.css' + '">\n';
+    });
+
+    output += String(fs.readFileSync(path.join('test/browser', 'template.htm'))).replace("{runner-name}", testSuiteName);
+
+    fs.writeFileSync(path.join('test/browser', 'test-runner-'+testSuiteName+'.htm'), output);
+};
+
+createTestRunnerPage("", /javascript|urls/, "main");
+createTestRunnerPage("browser", null, "browser");
+{% endhighlight %}
+<p>Next up we just required a test runner that will look through all the links in the page and then load the css file using an xhr request and compare the sheets created by less.js with those loaded as expected output..</p>
+{% highlight javascript %}
+var testLessEqualsInDocument = function() {
+    var links = document.getElementsByTagName('link'),
+        typePattern = /^text\/(x-)?less$/;
+
+    for (var i = 0; i < links.length; i++) {
+        if (links[i].rel === 'stylesheet/less' || (links[i].rel.match(/stylesheet/) &&
+           (links[i].type.match(typePattern)))) {
+            testSheet(links[i]);
+        }
+    }
+};
+
+var testSheet = function(sheet) {
+    it(sheet.id + " should match the expected output", function() {
+        var lessOutputId = sheet.id.replace("original-", ""),
+            expectedOutputId = "expected-" + lessOutputId,
+            lessOutput = document.getElementById(lessOutputId).innerText,
+            expectedOutputHref = document.getElementById(expectedOutputId).href,
+            expectedOutput = loadFile(expectedOutputHref);
+
+        waitsFor(function() {
+            return expectedOutput.loaded;
+        }, "failed to load expected outout", 10000);
+
+        runs(function() {
+            // use sheet to do testing
+            expect(lessOutput).toEqual(expectedOutput.text);
+        });
+    });
+};
+{% endhighlight %}
+<h3>Conclusion</h3>
+<p>It wasn't much work and now we have the huge benefit of basic, automated browser testing without having to loading one. This work was added in <a href="https://github.com/cloudhead/less.js/commit/6554117643cfdf87f159a8a5a3d3dd42f953c5fe">two</a> <a href="https://github.com/cloudhead/less.js/commit/c35b6d733e048a3344ce95f5f225ee815a12f014">commits</a> and you can run "make browser-test" which runs the PhantomJS tests (it builds the browser distributable, builds the test pages and then runs PhantomJS). If you want to debug the tests "make browser-test-server" starts the PhantomJS web server without running any tests, so you can navigate to the test causing the problem and see it in your browser.<img src="{{ site.baseurl }}/archive/2012/12/less-test-3.png" alt="" title="less test 3" width="309" height="182" class="alignnone size-full wp-image-165741" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

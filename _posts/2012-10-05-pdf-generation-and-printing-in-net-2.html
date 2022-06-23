@@ -1,0 +1,273 @@
+---
+title: PDF Generation and Printing in .NET
+date: 2012-10-05 00:00:00 Z
+categories:
+- rbaxter
+- Tech
+tags:
+- C#
+- pdf
+- ".Net"
+- blog
+id: 160187
+author: rbaxter
+oldlink: http://www.scottlogic.co.uk/2012/10/pdf-generation-and-printing-in-net-2/
+layout: default_post
+source: site
+disqus-id: "/2012/10/pdf-generation-and-printing-in-net-2/"
+---
+
+<p style="text-align: justify;"><em>In this post I'm going to talk about creating PDF documents in C#. I will primarily focus on the PdfSharp and MigraDoc libraries, which are free C# libraries available from <a href="http://www.pdfsharp.net/">http://www.pdfsharp.net/</a>. I recently became acquainted with them while investigating .NET exporting functionality and wanted to blog about my experience and add some praise for these excellent libraries.</em></p>
+<h3>Choice of Library</h3>
+<p style="text-align: justify;">To provide a little context - my interest in these libraries stemmed from a desire to export a .NET DataGridView component. Unlike DataTables, which are purely data containers (and often used as an underlying data source), DataGridViews are visual components that allow display formatting attributes to be applied (e.g. font type, size, style, etc.). However, rather than rendering a DataGridView to the screen, my goal was to be able to render the component to both a printer and PDF document.</p>
+<p style="text-align: justify;">My initial research into this subject identified the excellent <a href="http://www.codeproject.com/Articles/18042/Another-DataGridView-Printer">DGVPrinter</a> library, which renders DataGridViews to a printer by drawing on a Graphics context provided by the .NET Framework's System.Drawing.Printing.PrintDocument class. The library provides an extensive set of formatting options to allow the developer to tune the printing operation. However, the library does not contain any inherent ability to export to PDF.</p>
+<p style="text-align: justify;">Further research identified a number of .NET libraries focused on PDF document generation. Three libraries in particular (iTextSharp, PdfSharp and MigraDoc) stood out from this group as being the most complete, feature-rich and well documented options.</p>
+<p style="text-align: justify;">The <a href="http://www.itextpdf.com">iTextSharp</a> library is a C# port of iText;  a well known and long established Java library for PDF creation. iTextSharp is free for non-commercial use but requires a license for commercial development. Although my research probably wouldn't have counted as commercial development, I was sufficiently motivated to experiment with PdfSharp and Migradoc first, which are released under the MIT license (free for any use). In doing so I established that these two libraries were very well written, easy to use and very well documented. The objective of this post is thus to publicise my experience with these libraries and to encourage their use by other developers requiring PDF export functionality.</p>
+<h3>An API to suit the developer</h3>
+<p style="text-align: justify;">The key difference between PdfSharp and Migradoc is the level of control available to the developer. In PdfSharp you are responsible for controlling every aspect of the rendering process which is done by drawing lines, strings and shapes at specified coordinates on a PDF graphics context. The library authors have mimicked the Microsoft GDI+ interface (see <a href="http://msdn.microsoft.com/en-us/library/d420az6e(v=vs.110).aspx">here</a> for further details) and thus many of the method names and objects will be familiar to developers with GDI+ experience.</p>
+<p style="text-align: justify;">The only drawback with PdfSharp is that it requires the developer to do a lot of work. For some applications the level of control required by the developer will necessitate the use of this library, but for other occasions, the MigraDoc library is here to help. Migradoc provides a domain model for document generation and allows you to construct a document using sections, paragraphs and tables, etc. This library vastly simplifies document generation by automating many of the rendering tasks, with the obvious limitation of reduced rendering control. For simple documents this may not be a problem, but can be an issue if more complex output is required. For example, my experimentation with Migradoc found that the edges of a wide table were truncated if the columns did not fit onto a single page. I thus implemented a more sophisticated rendering mechanism loosely based on the algorithms found in <a href="http://www.codeproject.com/Articles/18042/Another-DataGridView- Printer">DGVPrinter</a>, which separates a table's columns onto multiple pages.</p>
+<p style="text-align: justify;">The most appropriate library to use is thus very much dependent on the task at hand. If you are performing simple PDF rendering Migradoc may well suit your needs. However, for those more complex situations the lower-level PdfSharp library is always available. Because the two libraries are so closely related you can also render a single document by using a combination of both libraries, although I did encounter some limitations with this (to be discussed later).</p>
+<h3>Excellent Documentation</h3>
+<p style="text-align: justify;">The availability of documentation was a considerable factor in deciding to experiment with PdfSharp and Migradoc. The numerous examples available on the support <a href="http://www.pdfsharp.net/Support.ashx">website</a> provide an excellent developer resource when combined with the extensive sample applications bundled with the libraries. In my opinion the same cannot be said of iTextSharp, which largely relies on the Java-based iText documentation and a commercially published book. Furthermore, because Migradoc is built upon PdfSharp this is another excellent source for examples.</p>
+<h3>Document Generation</h3>
+<p>In this section I will briefly illustrate how a PDF document is generated using PdfSharp and Migradoc, highlighting both the overall simplicity and some of the differences between the two approaches.</p>
+<h4><em>PdfSharp</em></h4>
+<p style="text-align: justify;">PdfSharp utilises a PdfDocument object, to which we add and render individual pages. In the example below I create a new document and set some of the available document information properties before adding a single A4 page. I then proceed by obtaining an XGraphics object and render to it using low-level methods. In the example I draw two strings of text in roughly the centre of the page using a specified font. I then draw two horizontal lines above and below the text, save the document and display it to the user.</p>
+{% highlight csharp %}// Create a new document and add a page
+
+PdfDocument document = new PdfDocument();
+document.Info.Author = "Rolf Baxter";
+document.Info.Keywords = "PdfSharp, Examples, C#";
+
+PdfPage page = document.AddPage();
+page.Size = PageSize.A4;
+
+// Obtain an XGraphics object to render to
+XGraphics gfx = XGraphics.FromPdfPage(page);
+
+// Create a font
+double fontHeight = 36;
+XFont font = new XFont("Times New Roman", fontHeight, XFontStyle.BoldItalic);
+
+// Get the centre of the page
+double y = page.Height/2;
+int lineCount = 0;
+double linePadding = 10;
+
+// Create a rectangle to draw the text in and draw in it
+XRect rect = new XRect(0, y, page.Width, fontHeight);
+gfx.DrawString("Hello, World! ", font,
+               XBrushes.Black, rect, XStringFormats.Center);
+lineCount++;
+y += fontHeight;
+
+rect = new XRect(0, y, page.Width, fontHeight);
+gfx.DrawString("This is some long text that will not auto-wrap when the
+               edge of the page is reached",
+               font, XBrushes.Black,
+               rect, XStringFormats.TopLeft);
+lineCount++;
+y += fontHeight;
+
+double topY = y - (lineCount * fontHeight) - linePadding;
+
+// Draw a line below the text
+gfx.DrawLine(XPens.Black, 0, y, page.Width, y + linePadding);
+
+// Draw a line above the text
+gfx.DrawLine(XPens.Black, 0, topY, page.Width, topY);
+
+// Save and show the document
+document.Save("TestDocument.pdf");
+Process.Start("TestDocument.pdf");{% endhighlight %}
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>The output of this document looks as follows:</p>
+<p><a href="{{ site.baseurl }}/archive/2012/10/PdfSharpCapture2.png"><img class="size-full wp-image-160303 aligncenter" title="Pdf Sharp Sample Document" src="{{ site.baseurl }}/archive/2012/10/PdfSharpCapture2.png" alt="Pdf Sharp Sample Document" width="239" height="334" /></a></p>
+<p style="text-align: justify;">As can be seen, one of the drawbacks of PdfSharp is that features such as text-wrapping are not implemented.  To achieve text wrapping one must manually measure the lengths of strings and wrap the text accordingly.  Furthermore, the current document y position must also be tracked as rendering is performed.  In this simple example tracking the y position is trivial, although rendering does become slightly more challenging when more complex rendering is performed (e.g. drawing a custom table of data).</p>
+<h4><em>Migradoc</em></h4>
+<p style="text-align: justify;">Re-generating the above document in Migradoc is useful for demonstrating both the pros and cons of each library.  Unlike PdfSharp, Migradoc uses a Document object to which document elements (e.g. paragraphs) are added. The document is rendered using a PdfDocumentRenderer.  However, complications arise when one tries to do anything out of the ordinary.  For example, individual lines cannot be drawn in MigraDoc so the only way to re-produce the example above is to use a table containing a single column and enabling/disabling different cell borders.  Similarly, there is no way to position the table in a specific location (i.e. half way down the page), and thus one can only achieve this by applying a large 'top' margin to the section. However, Migradoc does perform text-wrapping for us, which is clearly beneficial when rendering large amounts of text.</p>
+{% highlight csharp %}Document document = new Document();
+document.Info.Author = "Rolf Baxter";
+document.Info.Keywords = "MigraDoc, Examples, C#";
+
+// Get the A4 page size
+Unit width, height;
+PageSetup.GetPageSize(PageFormat.A4, out width, out height);
+
+// Add a section to the document and configure it such that it will be in the centre
+// of the page
+Section section = document.AddSection();
+section.PageSetup.PageHeight = height;
+section.PageSetup.PageWidth = width;
+section.PageSetup.LeftMargin = 0;
+section.PageSetup.RightMargin = 0;
+section.PageSetup.TopMargin = height/2;
+
+// Create a table so that we can draw the horizontal lines
+Table table = new Table();
+table.Borders.Width = 1; // Default to show borders 1 pixel wide Column
+column = table.AddColumn(width);
+column.Format.Alignment = ParagraphAlignment.Center;
+
+double fontHeight = 36;
+Font font = new Font("Times New Roman", fontHeight);
+
+// Add a row with a single cell for the first line
+Row row = table.AddRow();
+Cell cell = row.Cells[0];
+
+cell.Format.Font.Color = Colors.Black;
+cell.Format.Font.ApplyFont(font);
+cell.Borders.Left.Visible = false;
+cell.Borders.Right.Visible = false;
+cell.Borders.Bottom.Visible = false;
+
+cell.AddParagraph("Hello, World!");
+
+// Add a row with a single cell for the second line
+row = table.AddRow();
+cell = row.Cells[0];
+
+cell.Format.Font.Color = Colors.Black;
+cell.Format.Alignment = ParagraphAlignment.Left;
+cell.Format.Font.ApplyFont(font);
+cell.Borders.Left.Visible = false;
+cell.Borders.Right.Visible = false;
+cell.Borders.Top.Visible = false;
+
+cell.AddParagraph("This is some long text that *will* auto-wrap when the
+                   edge of the page is reached");
+
+document.LastSection.Add(table);
+
+// Create a renderer
+PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
+
+// Associate the MigraDoc document with a renderer
+pdfRenderer.Document = document;
+
+// Layout and render document to PDF
+pdfRenderer.RenderDocument();
+
+// Save and show the document
+pdfRenderer.PdfDocument.Save
+
+("TestDocument.pdf");
+Process.Start("TestDocument.pdf");{% endhighlight %}
+<p>This produces the following output:</p>
+<p><a href="{{ site.baseurl }}/archive/2012/10/MigradocCapture2.png"><img class="size-full wp-image-160307 aligncenter" title="Migradoc example document" src="{{ site.baseurl }}/archive/2012/10/MigradocCapture2.png" alt="" width="238" height="329" /></a></p>
+<p style="text-align: justify;">One can clearly see that the best library to use will depend on the output you wish to produce. However, do keep in mind that mixing both libraries is also possible (see the PdfSharp Samples project or <a href="http://www.pdfsharp.com/PDFsharp/index.php?option=com_content&amp;task=view&amp;id=34&amp;Itemid=45">here</a> for an example).</p>
+<h3>Document Printing</h3>
+<p style="text-align: justify;">As mentioned previously, my interest in PdfSharp stemmed from a desire to export a DataGridView via both PDF and printing.  Correspondingly, part of my investigation focused on the printing aspects of PdfSharp, for which I identified two options.  The first approach I considered was the PdfFilePrinter component of the PdfSharp library, which uses the Adobe Acrobat reader to print a document.  This approach is particularly neat and simple, as demonstrated by the following example:</p>
+{% highlight csharp %}// Define or otherwise determine the path of the Adobe reader
+PdfFilePrinter.AdobeReaderPath = @"C:\Program Files\Adobe\Reader 9.0\Reader\AcroRd32.exe";
+
+// Present a Printer settings dialog to the user so that they may select the printer
+// to use.
+PrinterSettings settings = new PrinterSettings();
+settings.Collate = false;
+PrintDialog printerDialog = new PrintDialog();
+printerDialog.AllowSomePages = false;
+printerDialog.ShowHelp = false;
+printerDialog.PrinterSettings = settings;
+printerDialog.AllowPrintToFile = true;
+printerDialog.PrinterSettings.PrintToFile = true;
+DialogResult result = printerDialog.ShowDialog();
+
+if (result == DialogResult.OK)
+{
+   // Print the document on the selected printer (We are ignoring all other print
+   // options here
+   PdfFilePrinter printer = new PdfFilePrinter("HelloWorld.pdf", settings.PrinterName);
+
+   try
+   {
+      printer.Print();
+   }
+   catch (Exception ex)
+   {
+      Console.WriteLine("Error: " + ex.Message);
+   }
+}{% endhighlight %}
+<p style="text-align: justify;">In this example we present a printer dialog to the user so that they may select the printing device to use, and then use the PdfFilePrinter to print the document on their chosen printer.  When printing in this way the PdfFilePrinter invokes the Adobe Acrobat reader, but unfortunately this also has the side effect of opening the PDF file in an Adobe window while printing.</p>
+<p style="text-align: justify;">I was unhappy with this side-effect and looked inside the PdfFilePrinter class to see if the operation could be tweaked.  I identified a number of flags that could be passed to Adobe Reader to requestthat it hide its window while printing, although experimenting with these flags did not yield a better experience. I don't believe I ever succeeded in getting Adobe to respond to all of the parameters specified.</p>
+<p style="text-align: justify;">Unsatisfied with the above approach I investigated further options for PDF printing.  The next technique actually comes from within the Migradoc library (MigraDoc.Rendering.Printing.MigraDocPrintDocument ) itself and is the approach I recommend.  The class provides a simplified printing process for MigraDoc documents and fundamentally, it integrates with the .NET framework's printing provisions, rendering the PDF one page at a time on a Graphics object. This is possible because PdfSharp has a particularly useful feature: the ability to wrap a GDI+ Graphics object (as used by the .NET framework).  This means that you can render PDF components to a PDF file, a printer or even to the screen (e.g. to create a 'preview').  This is a greatlittle feature, and incidentally, is not one that is present in iTextSharp.</p>
+<p style="text-align: justify;">There are two steps to printing a PDF document using this approach.  The first step is to obtain the target printer settings.  This can be done using a PrintDialog as shown previously. However, the key difference from the previous approach is that we now utilise a PrintDocument object rather than a PdfFilePrinter.  This is shown in the example below:</p>
+{% highlight csharp %}PrintDialog printerDialog = new PrintDialog();
+
+printerDialog.AllowSomePages = true;
+printerDialog.ShowHelp = false;
+printerDialog.PrinterSettings = settings;
+printerDialog.AllowPrintToFile = true;
+printerDialog.PrinterSettings.PrintToFile = true;
+
+DialogResult result = printerDialog.ShowDialog();
+
+if (result == DialogResult.OK)
+{
+   var printDoc = new PrintDocument();
+   printDoc.PrintPage += printDoc_PrintPage;
+   printDoc.PrinterSettings = printerDialog.PrinterSettings;
+   printDoc.Print();
+}{% endhighlight %}
+<p style="text-align: justify;">Note that we subscribe to the PrintPage event just as we would if we were handling regular document printing.  The code extract below shows that the PrintPage delegate is called with a set of System.Drawing.Printing.PrintPageEventArgs, from which a System.Drawing.Graphics objects can be extracted.</p>
+<p style="text-align: justify;">The Graphics object must then be wrapped by an instance of Pdf Sharp's XGraphics object.  During this process we ensure that the graphics context is trimmed to adhere to any physical limitations of the printer, which can be determined by calling the Windows API function GetDeviceCaps. One can then render to the XGraphics object in the same way irrespective of whether the source is a PDF document, printer or screen.</p>
+<p style="text-align: justify;">It is important to note that we set the 'HasMorePages' property of the PrintPageEventArgs before the method exits because this property it used to determine when printing is complete.  The PrintPage event will continue to be raised until this property is set to false and thus it is essential that you can determine when your rendering process is complete.</p>
+{% highlight csharp %}[DllImport("gdi32.dll")]
+static extern int GetDeviceCaps(IntPtr hdc, int capability);
+private const int PHYSICALOFFSETX = 112; // Physical Printable Area x margin
+private const int PHYSICALOFFSETY = 113; // Physical Printable Area y margin
+.
+.
+.
+private void printDoc_PrintPage(object sender, PrintPageEventArgs e)
+{
+   // Get an XGraphics object for the page
+   Graphics graphics = e.Graphics;
+   IntPtr hdc = graphics.GetHdc();
+   int xOffset = GetDeviceCaps(hdc, PHYSICALOFFSETX);
+   int yOffset = GetDeviceCaps(hdc, PHYSICALOFFSETY);
+
+   graphics.ReleaseHdc(hdc);
+   float hardMarginX = xOffset * 100 / graphics.DpiX;
+   float hardMarginY = yOffset * 100 / graphics.DpiY;
+   graphics.TranslateTransform(-hardMarginX, -hardMarginY);
+
+   // Recall: Width and Height are exchanged when settings.Landscape is true.
+   XSize pageSize = new XSize(e.PageSettings.Bounds.Width / 100.0 * 72,
+                              e.PageSettings.Bounds.Height / 100.0 * 72);
+   float scale = 100f / 72f; // Taken from the MigraDoc/PdfSharp documentation
+   graphics.ScaleTransform(scale, scale);
+
+   XGraphics gfx = XGraphics.FromGraphics(graphics, pageSize);
+   e.HasMorePages = Render(gfx);
+}{% endhighlight %}
+<h3>Limitations</h3>
+<p style="text-align: justify;">Although my experimentation with these libraries has not been exhaustive one problem I did encounter was the integration of Migradoc and PdfSharp. As mentioned earlier, the two libraries can be jointly employed to render a single document, however, there seems to be some incompatibility between each library's core document object which means some components of Migradoc cannot be used under some conditions.</p>
+<p style="text-align: justify;">For example, I wanted to use PdfSharp to construct a document and to then use the document preview User Control provided by Migradoc. When rendering a document with PdfSharp a PdfSharp.PdfDocument.PdfDocument object is used, however, MiigraDoc uses the Migradoc.DocumentObjectModel.Document object and the preview control requires such a document. Because PdfSharp does not use a document object model (you can render anything anywhere), there is no way of converting from one document type to another and thus one cannot utilise the Migradoc preview control in this way. In this scenario I do not believe there is any reason for requiring a document object model for rendering a preview, and I suspect that there are other components of Migradoc that cannot be used for similar reasons. Either way, anybody intending to mix the two libraries should keep in mind that such problems do arise, and thus one cannot assume that the two libraries can be fully integrated.</p>
+<h3>Closing Remarks</h3>
+<p style="text-align: justify;">Drawing this post to a close I want to reiterate that my experiences with PdfSharp and Migradoc have been largely positive. I would not hesitate to use them again in the future and I would encourage their use by any developer requiring .NET PDF export functionality. Without performing a side-by-side comparison of PdfSharp and Migradoc with other solutions (e.g. iTextSharp) I cannot comment on their relative merits, however, I will say that one should not be put off by the fact that PdfSharp and Migradoc are free. My experience with these libraries has shown them to be very well written and documented and I expect that very little would be gained by opting for a commercially licensed solution.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,221 @@
+---
+title: Implementing eqeq in JavaScript using eqeqeq
+date: 2010-10-26 00:00:00 Z
+categories:
+- lpage
+- Tech
+tags:
+- Javascript
+- eqeqeq
+- blog
+id: 73642
+author: lpage
+oldlink: http://www.scottlogic.co.uk/2010/10/implementing-eqeq-in-javascript-using-eqeqeq/
+layout: default_post
+source: site
+disqus-id: "/2010/10/implementing-eqeq-in-javascript-using-eqeqeq/"
+---
+
+<h3>Introduction</h3>
+<p>So, in a previous post I pointed out some == coercing that was far from obvious. But despite gradually picking up edge cases, I've never had a true understanding of the various cases where x == y. So, prompted by Jonathan's link to <a href="http://www.mozilla.org/js/language/E262-3.pdf">the specification</a> explanation and figuring that code is going to be easier to understand than a series of steps.</p>
+<h3>Delving Into the Spec</h3>
+<p>So first off, here is how the specification says to do a == comparison.</p>
+<pre>
+1. If Type(x) is different from Type(y), go to step 14.
+2. If Type(x) is Undefined, return true.
+3. If Type(x) is Null, return true.
+4. If Type(x) is not Number, go to step 11.
+5. If x is NaN, return false.
+6. If y is NaN, return false.
+7. If x is the same number value as y, return true.
+8. If x is +0 and y is -0, return true.
+9. If x is -0 and y is +0, return true.
+10. Return false.
+11. If Type(x) is String, then return true if x and y are exactly the same sequence of characters (same length and
+same characters in corresponding positions). Otherwise, return false.
+12. If Type(x) is Boolean, return true if x and y are both true or both false. Otherwise, return false.
+13. Return true if x and y refer to the same object or if they refer to objects joined to each other (section 13.1.2).
+Otherwise, return false.
+14. If x is null and y is undefined, return true.
+15. If x is undefined and y is null, return true.
+16. If Type(x) is Number and Type(y) is String,
+return the result of the comparison x == ToNumber(y).
+17. If Type(x) is String and Type(y) is Number,
+return the result of the comparison ToNumber(x) == y.
+18. If Type(x) is Boolean, return the result of the comparison ToNumber(x) == y.
+19. If Type(y) is Boolean, return the result of the comparison x == ToNumber(y).
+20. If Type(x) is either String or Number and Type(y) is Object,
+return the result of the comparison x == ToPrimitive(y).
+21. If Type(x) is Object and Type(y) is either String or Number,
+return the result of the comparison ToPrimitive(x) == y.
+22. Return false.
+</pre>
+<p>First - The second part of step 13 talks of detecting joined up of functions. However it is just an implementation detail that can even be used or unused. It isn't necessary to implement detection because === also finds two joined functions to be equivalent. </p>
+<p>Second, looking at the implementation of === we can also determine that steps 2 to 13 are already implemeted, so we don't have to detect +0 and -0 or make NaN !== NaN.</p>
+<p>Third I'm going to assume that ToNumber is equivalent to doing using Number(x).</p>
+<p>Next we'll deal with primitive values of objects. The text relating to this is below.</p>
+<pre>
+Return a default value for the Object. The default value of an object is
+retrieved by calling the internal [[DefaultValue]] method of the object,
+passing the optional hint PreferredType. The behaviour of the
+[[DefaultValue]] method is defined by this specification for all native
+ECMAScript objects (section 8.6.2.6).
+</pre>
+<p>For everything apart from Object we return the value, then for objects we retrieve the DefaultValue. This text relating to this is below.</p>
+<pre>
+8.6.2.6 [[DefaultValue]] (hint)
+
+When the [[DefaultValue]] method of O is called with hint String, the following steps are taken:
+1. Call the [[Get]] method of object O with argument "toString".
+2. If Result(1) is not an object, go to step 5.
+3. Call the [[Call]] method of Result(1), with O as the this value and an empty argument list.
+4. If Result(3) is a primitive value, return Result(3).
+5. Call the [[Get]] method of object O with argument "valueOf".
+6. If Result(5) is not an object, go to step 9.
+7. Call the [[Call]] method of Result(5), with O as the this value and an empty argument list.
+8. If Result(7) is a primitive value, return Result(7).
+9. Throw a TypeError exception.
+
+When the [[DefaultValue]] method of O is called with hint Number, the following steps are taken:
+1. Call the [[Get]] method of object O with argument "valueOf".
+2. If Result(1) is not an object, go to step 5.
+3. Call the [[Call]] method of Result(1), with O as the this value and an empty argument list.
+4. If Result(3) is a primitive value, return Result(3).
+5. Call the [[Get]] method of object O with argument "toString".
+6. If Result(5) is not an object, go to step 9.
+7. Call the [[Call]] method of Result(5), with O as the this value and an empty argument list.
+8. If Result(7) is a primitive value, return Result(7).
+9. Throw a TypeError exception.
+
+When the [[DefaultValue]] method of O is called with no hint, then it behaves as if the hint were Number, unless O is
+a Date object (section 15.9), in which case it behaves as if the hint were String.
+
+The above specification of [[DefaultValue]] for native objects can return only primitive values. If a host object
+implements its own [[DefaultValue]] method, it must ensure that its [[DefaultValue]] method can return only primitive
+values.
+</pre>
+<h3>Implementing the JavaScript</h3>
+<p>So lets implement our own ToPrimitive() (which is mostly an implementation of DefaultValue).</p>
+{% highlight javascript %}
+var ToPrimitive = function(o) {
+    var primitive,
+        funcCalls,
+        funcName,
+        i;
+
+    if  (typeof(o) === "object") {
+        if  (o instanceof Date) {
+            funcCalls = ["toString", "toValue"];
+        } else {
+            funcCalls = ["toValue", "toString"];
+        }
+
+        for(i = 0; i < funcCalls.length; i++) {
+            funcName = funcCalls[i];
+            if (typeof(o[funcName]) === "function") {
+                primitive = o[funcName]();
+                if  (typeof(primitive) === "string" ||
+                     typeof(primitive) === "number" ||
+                     typeof(primitive) === "boolean") {
+                    return primitive;
+                }
+            } 
+        }
+        throw new Error("Cannot retrieve DefaultValue of Object");
+    }
+    return o;
+};
+{% endhighlight %}
+<p>Next the specification says "If Type(x) is Null" - when typeof(null) returns "object". It also refers to objects in a way that includes functions, when typeof(function) is "function". So I've created a sanitised TypeOf()...</p>
+{% highlight javascript %}
+var TypeOf = function (o) {
+    if (o === null) {
+        return "null";
+    }
+    if  (typeof(o) === "function") {
+        return "object";
+    }
+    return typeof(o);
+};
+{% endhighlight %}
+<p>And now, our Equals function.</p>
+{% highlight javascript %}
+var Equals = function(x, y) {
+    var typeX = TypeOf(x),
+        typeY = TypeOf(y);
+
+    if  (typeX === typeY) { // Step 1
+	
+        // Steps 2->13 now covered by === since null is of type "null"
+        return x === y; // Step 13:
+    }
+
+    //Step 14, 15
+    if  ((x === null || y === null) && 
+         (x === undefined || y === undefined)) {
+        return true;
+    }
+    //Step 16
+    if  (typeX === "number" && typeY === "string") {
+        return Equals(x, Number(y));
+    }
+    // Step 17
+    if  (typeX === "string" && typeY === "number") {
+        return Equals(Number(x), y);
+    }
+    //Step 18
+    if  (typeX === "boolean") {
+        return Equals(Number(x), y);
+    }
+    //Step 19
+    if  (typeY === "boolean") {
+        return Equals(x, Number(y));
+    }
+    //Step 20
+    if  ((typeX === "string" || typeX === "number") && typeY === "object") {
+        return Equals(x, ToPrimitive(y));
+    }
+    //Step 21
+    if  (typeX === "object" && (typeY === "string" || typeY === "number")) {
+        return Equals(ToPrimitive(x), y);
+    }
+    //Step 22.. Not convinced this will ever happen
+    return false;
+};
+{% endhighlight %}
+<h3>Unit Tests</h3>
+<p>And finally, rather than put more guess what's == paragraphs, I present some unit tests...</p>
+<style type="text/css">table#ForUnitTests tr:nth-child(odd) td { background-color: #FAFAFF;}table#ForUnitTests tr {border-top: 1px black solid;}table#ForUnitTests {border: 1px black solid;margin-top: 10px;}table#ForUnitTests TH {padding: 2px;}</style>
+<p><input type="button" value="Run Unit Tests" onClick="return runUnitTests();" /></p>
+<table id="ForUnitTests" >
+<thead>
+<th>Test</th>
+<th>==</th>
+<th>Equals</th>
+</thead>
+<tbody></tbody>
+</table>
+<p><script type="text/javascript"><!--//TypeOf = function (o) {	if (o === null)		return "null";	if  (typeof(o) === "function")		return "object";	return typeof(o);};ToPrimitive = function(o) {    var primitive,        funcCalls,        funcName,        i;    if  (typeof(o) === "object") {        if  (o instanceof Date) {            funcCalls = ["toString", "toValue"];        } else {            funcCalls = ["toValue", "toString"];        }        for(i = 0; i < funcCalls.length; i++) {            funcName = funcCalls[i];            if (typeof(o[funcName]) == "function") {                primitive = o[funcName]();                if  (typeof(primitive) === "string" ||                     typeof(primitive) === "number" ||                     typeof(primitive) === "boolean") {                    return primitive;                }            }         }        throw new Error("Cannot retrieve DefaultValue of Object");    }    return o;};Equals = function(x, y) {	var typeX = TypeOf(x),	    typeY = TypeOf(y);	if  (typeX === typeY) { // Step 1		// Steps 2->13 now covered by === since null is of type "null"		return x === y; // Step 13:	}	//Step 14, 15	if  ((x === null || y === null) && 	     (x === undefined || y === undefined)) {		return true;	}	//Step 16	if  (typeX === "number" && typeY === "string") {		return Equals(x, Number(y));	}	// Step 17	if  (typeX === "string" && typeY === "number") {		return Equals(Number(x), y);	}	//Step 18	if  (typeX === "boolean") {		return Equals(Number(x), y);	}	//Step 19	if  (typeY === "boolean") {		return Equals(x, Number(y));	}	//Step 20	if  ((typeX === "string" || typeX === "number") && typeY === "object") {		return Equals(x, ToPrimitive(y));	}	//Step 21	if  (typeX === "object" && (typeY === "string" || typeY === "number")) {		return Equals(ToPrimitive(x), y);	}	//Step 22.. Not convinced this will ever happen	return false;};String.prototype.trim = function () {    return this.replace(/^s*/, "").replace(/s*$/, "");}Tag = function(tag, end) {  return "< ".trim() + (end?"/" : "")+tag;}runUnitTests = function() {    var forUnitTests = $("#ForUnitTests tbody");    forUnitTests.empty();    $.each([                ["null", "undefined"],                ["undefined", "null"],                ["NaN", "NaN"],                ["Infinity", "Infinity"],                ["NaN", "null"],                ["""", "false"],                ["[0]", "0"],                ["[0]", "false"],                ["[1]", "true"],                ["[2]", "true"],                ["[1, 1]", "true"],                ["[1, 1]", ""1,1""],                ["1", ""1""],                ["[1]", ""1""],                ["["1"]", "1"],                ["["1"]", true],                ["false", ""false""],                ["true", ""true""],                [""1e10"", "10000000000"],                ["["1e0"]", "1"],                ["new Date(2000)", "new Date(2000)"],                ["new Date(2000)", "new Date(2000).toString()"],                ["new Date(2000)", "2000"],                ["{toString: function(){ return this; }}", """"]               ],        function(i, value) {            var expected, got;            try { expected = eval(value[0]) == eval(value[1]); } catch(e) { expected = "Exception"; }            try { got = Equals(eval(value[0]), eval(value[1]));} catch(e) { got = "Exception"; }	    $(Tag("tr")+">"+Tag("td")+">"+value[0] +" == " + value[1] + Tag("td", true)+">"+Tag("td")+">"+expected+Tag("td", true)+">"+Tag("td")+" style='color: "+((expected===got) ? "green" : "red")+"'>"+ got +Tag("td", true)+">"+Tag("tr", true)+">").appendTo(forUnitTests);	}    );    return false;};//--></script></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

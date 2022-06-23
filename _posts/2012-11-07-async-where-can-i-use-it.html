@@ -1,0 +1,98 @@
+---
+title: Async, where can I use it?
+date: 2012-11-07 00:00:00 Z
+categories:
+- nwolverson
+- Tech
+tags:
+- blog
+id: 162749
+author: nwolverson
+oldlink: http://www.scottlogic.co.uk/2012/11/async-where-can-i-use-it/
+image: nwolverson/assets/featured/async.jpg
+image-attribution: image courtesy of stockmonkeys.com
+layout: default_post
+source: site
+disqus-id: "/2012/11/async-where-can-i-use-it/"
+---
+
+<p>With the recent release of Windows 8 and VS 2012, you've probably heard of the bold move in the WinRT API (that is, the target platform for Windows Store apps) to only offer asynchronous versions of operations which take any significant time (ie 50ms+) - and the corresponding <a href="http://msdn.microsoft.com/en-us/library/hh191443.aspx">async/await</a> feature in C#5 and VB11. That's great, but not everybody is about to go out and make the switch today - so where can I use this cool new feature?</p>
+<p><!--more--></p>
+<p>I'm not going to explain async/await here - there are plenty of explanations out there which are better than I could write. This is just a quick summary note on using async features against various different targets (including the recently released <a href="http://www.microsoft.com/en-us/download/details.aspx?id=35471">WP8 SDK</a>).</p>
+<h3>VS 2012</h3>
+<p>It's worth making absolutely clear at this point the requirement to move to Visual Studio 2012 for async features. The initial <a href="http://www.microsoft.com/en-us/download/details.aspx?id=9983" title="Async CTP">Async CTP</a> was for VS2010, which is in fact licensed for production use. However it is definitely recommended not to use this, and it could only be said to be an interim solution if you've yet to obtain VS2012 and want to dip a toe in the water. However there are various Express versions of VS2012 available, so the main requirement here is not to be stuck on XP.</p>
+<h3>WinRT, .NET 4.5, and WP8</h3>
+<p>The easy answer is that as well as WinRT, async/await is available on .NET 4.5, and can be used in any .NET 4.5 application. I'll use an example of "download a webpage and count the total number of characters". In WinRT this is as follows:</p>
+{% highlight csharp %}
+public async Task<int> Test()
+{
+    var page = await new HttpClient().GetStringAsync(new Uri("http://example.com"));
+    return page.Length;
+}
+{% endhighlight %}
+<p>With .NET 4.5 new methods have been added to the BCL to leverage async, though the existing methods remain - synchronous versions and those supporting the <a href="http://msdn.microsoft.com/en-us/library/jj152938.aspx">earlier asynchronous models</a>. For example, <a href="http://msdn.microsoft.com/en-us/library/tt0f69eh.aspx">WebClient</a> contains methods <a href="http://msdn.microsoft.com/en-us/library/ms144200.aspx"><code>DownloadString</code></a> (synchronous), <a href="http://msdn.microsoft.com/en-us/library/ms144202.aspx"><code>DownloadStringAsync</code></a> (<a href="http://msdn.microsoft.com/en-us/library/ms228969.aspx">EAP</a> - Event-based Asynchronous Pattern with corresponding event <code>DownloadStringCompleted</code>), and now <a href="http://msdn.microsoft.com/en-us/library/hh194294.aspx"><code>DownloadStringTaskAsync</code></a>:</p>
+{% highlight csharp %}
+var page = new WebClient().DownloadStringTaskAsync(new Uri("http://example.com"));
+return page.Length;
+{% endhighlight %}
+<p>(The <a href="http://msdn.microsoft.com/en-us/library/system.net.http.httpclient.aspx"><code>HttpClient</code></a> class is also added in .NET 4.5, as per the WinRT version above).</p>
+<p>The new WP8 SDK also supports async/await, but doesn't come with the library updates to add Task-based asynchronous methods to existing classes like WebClient. You can wrap them up in an extension method yourself (an example is <a href="http://stackoverflow.com/a/13174270/513410">here</a>), or it has been done for you in <a href="https://nuget.org/packages/Microsoft.Bcl.Async/1.0.12-beta">this library</a> (but more on this below).</p>
+<h3>Portable Library: WinRT, .NET 4.5, and WP8</h3>
+<p><a href="{{ site.baseurl }}/archive/2012/11/PCL-async.png"><img src="{{ site.baseurl }}/archive/2012/11/PCL-async-281x300.png" alt="" title="PCL-async" width="281" height="300" class="alignright size-medium wp-image-162773" /></a>Another feature added with VS2012 is the portable class library. This allows creation of an assembly targeting multiple .NET platforms, making use of the subset of functionality common to both (with some fancy type forwarding mapping features that are present in different guises).</p>
+<p>In this case, if the portable library is configured to only target those platforms that natively support await/async, then the compiler will recognise this, and allow the use of those keywords (and the associated classes/methods which are common to both).</p>
+<p>For WinRT+.NET 4.5, the previous example still works:</p>
+{% highlight csharp %}
+var page = await new HttpClient().GetStringAsync(new Uri("http://example.com"));
+return page.Length;
+{% endhighlight %}
+<p>But on WP8, this class doesn't exist. To use this functionality in a portable library, you might create a platform-services interface, exposing the various platform-specific Task-based methods that you require for use in your portable code.</p>
+<h3>.NET 4, Silverlight 4-5, WP7.5</h3>
+<p>Async/await requires two things, compiler support, and API support in the target platform. This API support is of course not available in versions released before the feature existed - so Microsoft released the <a href="http://www.microsoft.com/en-us/download/details.aspx?id=29576">Async Targetting Pack</a> to allow targeting .NET 4.0 and Silverlight 5. I started writing this blog post with the understanding that there were some problems with this - in particular, the lack of support for using async within portable libraries was very disappointing, a real shame that the two new exciting features didn't work together convincingly.</p>
+<p>Fortunately the ATP is being updated as <a href="https://nuget.org/packages/Microsoft.Bcl.Async">Microsoft.Bcl.Async</a>, currently in pre-release and available from NuGet. Not only does this support .NET 4.0 and Silverlight 5 as per the previous ATP, it extends support to SL4, and WP7.5 too. When this required API support is present, Visual Studio will recognise that the await/async keywords are valid, and the compiler will generate the appropriate output.</p>
+<p><a href="{{ site.baseurl }}/archive/2012/11/PCL-target-async.png"><img src="{{ site.baseurl }}/archive/2012/11/PCL-target-async-300x292.png" alt="" title="PCL-target-async" width="300" height="292" class="alignright size-medium wp-image-162774" /></a></p>
+<p>The killer feature is that this support extends to portable class libraries targeting those platforms. Just install this with NuGet and Visual Studio will recognise the async/await keywords in your portable library. What's more, as well as adding the Task type to those platforms where it was not already present, extension methods are added to existing types to provide Task-based versions of existing methods (eg when targeting WP or .NET 4.0, the WebClient method mentioned above). The TaskEx class is also provided to add the various utilities present on Task on the new platforms, for example:</p>
+{% highlight csharp %}
+public async Task<int> Test()
+{
+    await TaskEx.Delay(1000); // We should probably do some real work
+    return 25;
+}
+{% endhighlight %}
+<p>We can't rewrite the above WebClient/HttpClient example in a portable library directly - though the basic functionality is available on all platforms, and so can be provided to your portable library code if required via some interface.</p>
+<p>As a slightly more interesting example of portable async code enabled by <a href="https://nuget.org/packages/Microsoft.Bcl.Async">Microsoft.Bcl.Async</a>, here we get the length of a stream's contents using the extension method <code>ReadToEndAsync</code>:</p>
+{% highlight csharp %}
+public async Task<int> Test(Stream s)
+{
+    using (var sr = new StreamReader(s))
+    {
+        var content = await sr.ReadToEndAsync();
+        return content.Length;
+    }
+}
+{% endhighlight %}
+<h3>Conclusion</h3>
+<p>I love the addition of language features in C# to support asynchronous programming, just as I thought they were great in the earlier incarnation of <a href="http://msdn.microsoft.com/en-us/library/dd233250.aspx">F# async workflows</a>. I'm sure people will run into plenty of gotchas, as it's no magic bullet - you still need to understand asynchronous programming to structure your application correctly, not just sprinkle some new keywords into your source. But it certainly makes life simpler and more pleasant if you do know what you're doing, and encourages the use of asynchronous calls in places where it might have seemed like "not worth the effort for now". </p>
+<p>It's great to see that with the <a href="https://nuget.org/packages/Microsoft.Bcl.Async">updated targeting pack</a> these new language features can be rolled out sooner to existing projects, and I'm looking forward to being able to use async in portable libraries in the future.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

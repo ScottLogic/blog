@@ -1,0 +1,260 @@
+---
+title: Converting between jQuery Deferred and Rx Observable
+date: 2011-05-10 00:00:00 Z
+categories:
+- jcardy
+- Tech
+tags:
+- blog
+id: 116640
+author: jcardy
+oldlink: http://www.scottlogic.co.uk/2011/05/converting-between-jquery-deferred-and-rx-observable/
+layout: default_post
+source: site
+disqus-id: "/2011/05/converting-between-jquery-deferred-and-rx-observable/"
+---
+
+<p><em>In this post I am going to look at the similarities between jQuery Deferred and Microsoft Reactive Extensions, and supply code which will convert between the two. Although Deferred and Rx have vast differences, there are some similarities which one may wish to take advantage of. For those who have no prior knowledge of the two technologies, I'll give a quick introduction to the basics.</em></p>
+<h2>jQuery Deferred</h2>
+<p>The jQuery Deferred concept is a pretty simple one. When you want to perform an asynchronous operation, such as an ajax request or an animation, you can get a synchronous response which is a Deferred object. This object simply represents the state of that asynchronous operation.</p>
+<p>What does one do with this Deferred object? Well, a few things:</p>
+<ul>
+<li>Register for a notification when the asynchronous operation has completed (the Deferred object is "resolved")</li>
+<li>Combine a number of Deferred objects into a single Deferred object</li>
+<li>Perform a specific action when the completion notification is received</li>
+<li>Do something special when an error occurs during the asynchronous operation</li>
+</ul>
+<p>A typical Deferred code snippet might look like the following, where we do something when an ajax request is complete:</p>
+{% highlight javascript %}var deferred = $.ajax("hello.html");
+deferred.complete(function(result){
+	//This function is called when the request is complete
+});{% endhighlight %}
+<p>Note that this only applies to jQuery 1.5 - it is the first version to include Deferred, and the ajax function has been modified to return a Deferred object.</p>
+<p>You can also create a custom Deferred object for something asynchronous, like for example an animation:</p>
+{% highlight javascript %}function fadeIn(selector) {
+	//Create a Deferred object to represent the animation
+	var deferred = $.Deferred();
+
+	//Fade in, and resolve the Deferred obj when the fade is complete
+	$(selector).fadeIn( 1000, deferred.resolve );
+
+	//Return the "promise" - a read-only version of the Deferred object
+	return deferred.promise();
+}{% endhighlight %}
+<h2>Microsoft Rx</h2>
+<p>Reactive Extensions is a much larger library and brings with it a whole new way of programming - "reactive" programming. This revolves around the idea of having an Observable source of items, as opposed to an Enumerable source. Therefore, we react to a new item in the collection instead of requesting one - the Observable is a 'push' collection as opposed to the traditional Enumerable 'pull' collection. I could sum up the key features as follows:</p>
+<ul>
+<li>Ability to listen to a source of events (an Observable) - these could be, but aren't restricted to, actual events</li>
+<li>Ability to filter that Observable using a LINQ-like syntax</li>
+<li>Ability to modify the items in the Observable, eg. select a particular attribute of an event parameter</li>
+<li>Combine a number of sources into a single source</li>
+<li>Subscribe to the Observable source and react when an item is received</li>
+<li>Handle errors as they occur during the above processing.</li>
+</ul>
+<p>Below is a sample piece of Rx code. This listens to three events - mouse down, mouse move and mouse up, combining them using the LINQ-like selectors to produce a "composite" stream of events - one which represents mouse moves that occur between a mouse down and mouse up. We then react to those by drawing a simple line.</p>
+{% highlight javascript %}var canvas = document.getElementById("rxCanvas");
+
+//Transform the mouse move event into an observable source of screen coordinates
+var mouseMoveEvent = Rx.Observable.FromHtmlEvent(canvas, "mousemove");
+
+//Create observable sources from the left button events
+var mouseLeftButtonDown = Rx.Observable.FromHtmlEvent(canvas, "mousedown");
+var mouseLeftButtonUp = Rx.Observable.FromHtmlEvent(document.body, "mouseup");
+
+//Create a 'drag event', which takes the delta in mouse movements
+//when the left button is down.
+var draggingEvents = mouseMoveEvent.SkipUntil(mouseLeftButtonDown)
+                                   .TakeUntil(mouseLeftButtonUp)
+                                   .Let(function(mm) {
+                                        return mm.Zip(mm.Skip(1), function(prev, cur) {
+                                            return {
+                                              X2: cur.offsetX,
+                                              X1: prev.offsetX,
+                                              Y2: cur.offsetY,
+                                              Y1: prev.offsetY
+                                            };
+                                        })
+                                    })
+                                   .Repeat();
+
+var context = canvas.getContext("2d");
+
+//Subscribe to the observable source and draw lines
+draggingEvents.Subscribe(function(p){
+	context.moveTo(p.X1,p.Y1);
+	context.lineTo(p.X2,p.Y2);
+	context.stroke();
+});{% endhighlight %}
+<h2>Deferred vs Rx</h2>
+<p>Let's compare the two technologies.</p>
+<table border="1" cellpadding="5">
+<tbody>
+<tr>
+<th></th>
+<th>Deferred</th>
+<th>Rx</th>
+</tr>
+<tr>
+<td>Ability to listen for an event and react</td>
+<td><img src="{{ site.baseurl }}/archive/2011/05/tick.gif" alt="" /></td>
+<td><img src="{{ site.baseurl }}/archive/2011/05/tick.gif" alt="" /></td>
+</tr>
+<tr>
+<td>Ability to listen to a sequence of occurrences of that event</td>
+<td><img src="{{ site.baseurl }}/archive/2011/05/cross.gif" alt="" /></td>
+<td><img src="{{ site.baseurl }}/archive/2011/05/tick.gif" alt="" /></td>
+</tr>
+<tr>
+<td>Use a linq-like syntax to filter and transform a sequence of occurrences</td>
+<td><img src="{{ site.baseurl }}/archive/2011/05/cross.gif" alt="" /></td>
+<td><img src="{{ site.baseurl }}/archive/2011/05/tick.gif" alt="" /></td>
+</tr>
+<tr>
+<td>Combine multiple sources to produce a single source</td>
+<td><img src="{{ site.baseurl }}/archive/2011/05/tick.gif" alt="" /></td>
+<td><img src="{{ site.baseurl }}/archive/2011/05/tick.gif" alt="" /></td>
+</tr>
+<tr>
+<td>Handle errors in a special way</td>
+<td><img src="{{ site.baseurl }}/archive/2011/05/tick.gif" alt="" /></td>
+<td><img src="{{ site.baseurl }}/archive/2011/05/tick.gif" alt="" /></td>
+</tr>
+</tbody>
+</table>
+<p>We can clearly see from this comparison one glaring difference: Rx is designed for the handling of a stream of multiple events, and jQuery Deferred handles just a single occurrence.</p>
+<p>Given that difference, we can conclude that we can translate between Rx and Deferred in the following way:</p>
+<ul>
+<li>A Deferred object can be represented as an Rx Observable with a single item</li>
+<li>Likewise, an Rx Observable with a single item can be represented as a Deferred object</li>
+<li>An Rx Observable with multiple items can be packaged up into a Deferred object if it is finite (ie. we know it will complete, and on completion, we can resolve the Deferred)</li>
+<li>A continuous Observable that does not complete, eg. mouse move events, cannot be represented as a Deferred because we would not know when to resolve the Deferred.</li>
+</ul>
+<h2>Converting Deferred to Rx</h2>
+<p>As pointed out above, this conversion is pretty simple: a Deferred object can be represented as an Rx Observable that spits out a single item and then is completed.</p>
+{% highlight javascript %}function DeferredAsObservable(deferred) {
+
+	//Create a new observable.  The AsyncSubject class is a type of Cold observable,
+	//which means that when a user subscribes to the observable, they get items that
+	//occurred before the subscription.
+	var observable = new Rx.AsyncSubject();
+
+	//When the Deferred is complete, push an item through the Observable
+	deferred.done(function(){
+
+		//Get the arguments as an array
+		var args = Array.prototype.slice.call(arguments);
+
+		//Call the observable OnNext with the same parameters
+		observable.OnNext.apply(observable, args);
+
+		//Complete the Observable to indicate that there are no more items.
+		observable.OnCompleted();
+	});
+
+	//If the Deferred errors, push an error through the Observable
+	deferred.fail(function(){
+
+		//Get the arguments as an array
+		var args = Array.prototype.slice.call(arguments);
+
+		//Call the observable OnError with the args array
+		observable.OnError.apply(observable, args);
+		observable.OnCompleted();
+	});
+
+	return observable;
+}{% endhighlight %}
+<p>We can consume this conversion function as follows:</p>
+{% highlight javascript %}//Get some sort of Deferred
+var deferred = $.ajax({ url: "test.html" });
+//Convert to Observable
+var observable = $.DeferredAsObservable(deferred);
+//Subscribe to the Observable
+observable.Subscribe(function(result){
+	console.log(result);
+});{% endhighlight %}
+<h2>Converting Rx to Deferred</h2>
+<p>The conversion from Obervable to Deferred is a little more complicated since there could be multiple items in the Observable. To get around this, we collect all of the items that the Observable 'pushes' out until we get a Complete notification. Then we resolve the Deferred with all of those items.</p>
+{% highlight javascript %}function ObservableAsDeferred(observable) {
+	var deferred = $.Deferred();
+	var results = [];
+
+	observable.Subscribe(function(){
+
+		//This is the OnNext callback. Get the arguments and save them.
+		var args = Array.prototype.slice.call(arguments);
+
+		//If there are multiple args, use the array - otherwise just push the single arg.
+		results.push(args.length === 1 ? args[0] : args);
+
+	}, function(e){
+
+		//This is the OnError callback.  Reject the Deferred with the arguments.
+		var args = Array.prototype.slice.call(arguments)
+		deferred.reject.apply(deferred, args);
+
+	}, function(){
+
+		//This is the OnComplete callback, so we can now resolve the Deferred.
+		deferred.resolve(results);
+	});
+
+	//Return the promise.
+	return deferred.promise();
+}{% endhighlight %}
+<p>We can use the earlier example of the drawing applcation to show this conversion. Notice the call to '<code>Repeat()</code>' at the end of the <code>draggingEvents</code> Observable - this caused us to repeatedly listen for mouse moves that occurred between a <code>mousedown</code> and a <code>mouseup</code>. If we omit that, then we can just listen to a single line draw (a finite sequence) and convert that to a Deferred object:</p>
+{% highlight javascript %}//Create the draggingEvents observable as above - but without the call to Repeat
+var draggingEvents = mouseMoveEvent.SkipUntil(mouseLeftButtonDown)
+                                   .TakeUntil(mouseLeftButtonUp)
+                                   .Let(function(mm) {
+                                        return mm.Zip(mm.Skip(1), function(prev, cur) {
+                                            return {
+                                              X2: cur.offsetX,
+                                              X1: prev.offsetX,
+                                              Y2: cur.offsetY,
+                                              Y1: prev.offsetY
+                                            };
+                                        })
+                                    });
+//Convert to Deferred
+var def = $.ObservableAsDeferred(draggingEvents);
+def.done(function(mousemoves){
+	//All done - dump out the mouse move events
+	console.log(mousemoves);
+}).fail(function(e){
+	console.log('error!', e);
+});{% endhighlight %}
+<p>But what if we left in the call to <code>Repeat()</code>, and the Observable doesn't complete? That type of Observable doesn't translate to the Deferred concept - what use is a Deferred object that is never resolved? In this case we can only assume that the programmer has made a mistake. Unfortunately, <a href="http://en.wikipedia.org/wiki/Halting_problem">there is no way to detect this scenario</a> so we'll just let the programmer work it out the hard way!</p>
+<h2>Rx for jQuery</h2>
+<p>While we're on the topic of combining Rx and jQuery, I should point out that Microsoft have already provided us with a library of helper functions to perform the most common tasks - rx.jQuery.js. It extends jQuery with the following functions:</p>
+<ul>
+<li>Eventing: <strong>toObservable/toLiveObservable</strong> convert a jQuery event to an Observable (using 'bind' and 'live' respectively)</li>
+<li>Animation: <strong>hideAsObservable, showAsObservable, animateAsObservable, fadeInAsObservable, fadeOutAsObservable, slideDownAsObservable, slideUpAsObservable, slideToggleAsObservable</strong> - these all provide animations as observables</li>
+<li>Ajax: <strong>ajaxAsObservable, getJSONAsObservable, getScriptAsObservable, postAsObservable, loadAsObservable</strong>: perform ajax functions as observables.</li>
+</ul>
+<p>In the above scenarios, rx.jQuery.js provides us with Observable versions of a number of places where you may otherwise have the implement the Deferred to Rx code I have given above. Unfortunately they aren't brilliantly documented but it is easy enough to inspect the functions in a debugger to deduce their parameters.</p>
+<h2>The End</h2>
+<p>I hope you've enjoyed this largely academic guide to conversion between Rx and Deferred. Have fun!<script type="text/javascript" src="{{ site.baseurl }}/archive/2011/05/rx.js"></script><script type="text/javascript" src="{{ site.baseurl }}/archive/2011/05/rx.html.js"></script><script type="text/javascript" src="{{ site.baseurl }}/archive/2011/05/rx.jQuery.js"></script><script type="text/javascript" src="{{ site.baseurl }}/archive/2011/05/demo.js"></script><a style="display: none;" href="http://www.codeproject.com/script/Articles/BlogFeedList.aspx?amid=1042231" rel="tag">CodeProject</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
