@@ -1,0 +1,21 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - sduncan/_posts/2014-02-04-intro-to-ixd.md
+’content’
+content’
+’content
+ - sduncan/_posts/2014-07-31-hiphop.md
+Homies
+Disses
+Hova
+Kanye
+Yeezy
+Yeezus
+Shakur
+B.I.G.
+2Pac
+thinkin
+Sharpiez

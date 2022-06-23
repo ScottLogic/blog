@@ -1,0 +1,17 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - sobrien/_posts/2018-06-28-ux-scotland-2018.md
+Folkes
+Shopify
+Fanduel
+3000-mile
+anymore
+Bayfield
+E-VR
+Loqui
+VRs
+Kovalcsik's
+Kovalcsik

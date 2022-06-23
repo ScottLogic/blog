@@ -1,0 +1,62 @@
+---
+id: 156302
+author: tbaker
+title: GWT Super Dev Mode - A New Kind of Hero?
+oldlink: 'http://www.scottlogic.co.uk/2012/08/gwt-super-dev-mode-a-new-kind-of-hero/'
+tags: null
+categories:
+  - Tech
+layout: default_post
+source: scottlogic
+disqus-id: /2012/08/gwt-super-dev-mode-a-new-kind-of-hero/
+---
+<h2 dir="ltr">A Hero is Born</h2>
+<p>Recently, I've had the opportunity to have a bit of a play with GWT's upcoming and excitingly titled "<a href="https://developers.google.com/web-toolkit/articles/superdevmode">Super Dev Mode</a>".</p>
+<p>Super Dev Mode will eventually replace the current plugin based development mode that GWT developers will no doubt be familiar with. Google's main reasoning for replacing the original development mode seems to be focussed on the difficulty of developing and maintaining the necessary browser plugins. However, they do list a number of other tantalising advantages:</p>
+<ul>
+<li>Debugging on mobile phones and tablets will be made much simpler.</li>
+<li>Improved performance debugging javascript heavy code.</li>
+<li>No need to recompile for multi-page apps.</li>
+</ul>
+<p>On the flip side though, currently Super Dev Mode has only been tested in Chrome and Firefox and there are still some stability issues and other bugs that are yet to be ironed out.</p>
+<h2>Learning to Fly</h2>
+<p>All this sounds great! So, how do we use it?</p>
+<p>That's where things start to get a little tricky. Super Dev Mode is still only available to those using the GWT 2.5 Release Candidate, and there is very little official documentation about it and how to use it.</p>
+<p>In the end, I found that the easiest way to use Super Dev Mode was via the Maven GWT Plugin which, in typical Maven fashion, makes life much much simpler.</p>
+<p>The first step is to download the <a href="https://developers.google.com/web-toolkit/download">GWT 2.5.0.rc1 SDK</a> and to install it to a sensible place. You can add the SDK to Eclipse via the dialogue in Window &gt; Preferences &gt; Google &gt; Web Toolkit, which will ensure that your eclipse projects play nicely with it.</p>
+<p>Next, we need to bump the version of the Maven GWT Plugin (or add it if you're not currently using it). Add the following to your project's POM dependencies.</p>
+<pre>&lt;dependency&gt;
+    &lt;groupId&gt;com.google.gwt&lt;/groupId&gt;
+    &lt;artifactId&gt;gwt-user&lt;/artifactId&gt;
+    &lt;version&gt;2.5.0-rc1&lt;/version&gt;
+    &lt;scope&gt;compile&lt;/scope&gt;
+&lt;/dependency&gt;</pre>
+<p>And add the following to the plugins section (or update the version if you have it already):</p>
+<pre>&lt;plugin&gt;
+    &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+    &lt;artifactId&gt;gwt-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;2.5.0-rc1&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;compile&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;</pre>
+<p>A quick build should pull in your new dependencies. Now, we're ready to enable Super Dev Mode. By default it is disabled due to its experimental nature. Add the following to your module.xml file:</p>
+<pre>&lt;add-linker name="xsiframe"/&gt;
+&lt;set-configuration-property name="devModeRedirectEnabled" value="true"/&gt;</pre>
+<p>While we're in the module.xml file, there is a quick gotcha that caught me out. Super Dev Mode will not work if you have any &lt;script&gt; dependencies in your module.xml file. To get around this, just move these scripts to the HTML page that you're GWT application will be running on (make sure that the imports are before the GWT import though!).</p>
+<p>Our project will now be built with the latest GWT version and Super Dev Mode has been enabled. The next step, is to actually run it! Navigate to the root of your project using the command prompt, and run the following, replacing the module with the fully qualified name of your application's GWT module:</p>
+<pre>mvn gwt:run-codeserver -Dgwt.bindAddress=0.0.0.0 -Dgwt.module=com.your.project.goes.here.ModuleName</pre>
+<p>This will start CodeServer which will host your application's code. If all was successful, you will get a message telling you that the codeserver is ready, and it will provide a URL for you to visit. Do as it suggests, and follow the instructions on the page to create your Super Dev Mode bookmarklets.</p>
+<p>Finally, visit a page that contains a GWT module, and click the "Dev Mode On" bookmarklet, and click compile.</p>
+<p>If there are no listed modules to be recompiled, then the chances are you are using the compiled nocache.js file. Super Dev Mode requires the hosted nocache.js file to be able to run. The quickest and easiest way I have found to ensure that you're running the hosted version is to launch standard dev mode in Eclipse, and then hit the url that standard dev mode is running on. This forces the hosted nocache.js file to be copied across, allowing you to recompile it successfully with your Super Dev Mode bookmarklet.</p>
+<p>You are now running Super Dev Mode!</p>
+<h2>Fighting Crime</h2>
+<p>So, now we have Super Dev Mode running, what can we actually do with it? This next bit assumes you are running Google Chrome as your browser of choice. Open up the development tools (F12, or Ctrl+Shift+i). Ensure that you have Source Maps enabled by clicking the settings 'cog' in the bottom right hand corner, and checking the relevant check-box. Refresh your page and visit the script tag. If everything has gone as it should, you should see a list of all the the Java source for your application. From here you can place breakpoints, step through code and inspect the values of variables, just like you can in your standard IDE debugger.</p>
+<p>While you play with it, you'll begin to realise the potential of this tool. It enables you to inspect generated code files (e.g. UIBinder files), and step through JSNI methods, which is not possible using a standard debugger. However, the disadvantages are that you cannot inspect fields, and it is more difficult to navigate through code files (at least, in Chrome, the layout of the files is currently poor - but this may improve with time).</p>
+<p>Hopefully, this has given a bit of insight in how to set up Super Dev Mode and, if you have had a chance to play with it, you can see the potential a tool like this has. However, it is a little tricky to set up, which may put some people off. In some cases, it may be worth waiting for a little bit more support to become available before switching away from the standard development mode.</p>
+<p>Its the Dev Mode we deserve, but not the one we need right now.</p>
+<p><img class="aligncenter size-medium wp-image-156326" title="batpod" src="/archive/2012/07/batpod-300x271.jpg" alt="" width="300" height="271" /></p>

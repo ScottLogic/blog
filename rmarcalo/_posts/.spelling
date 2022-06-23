@@ -1,0 +1,14 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - rmarcalo/_posts/2015-06-26-ux-scotland-2015.md
+Saffer
+seeked
+Jono
+ - rmarcalo/_posts/2018-03-09-a-week-with-prototyping-tools.md
+Atomic.io
+Proto.io
+Flinto
+namings

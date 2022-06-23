@@ -1,0 +1,62 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - zwali/_posts/2017-06-22-a-developer's-test.md
+un-minified
+normalizeParams
+generateHmac
+ - zwali/_posts/2017-10-06-cassandra-eventual-consistency.md
+DataStax
+dc1
+dc2
+5-node
+datacentres
+gc
+_grace
+_seconds
+_QUORUM
+gc_grace_seconds
+LOCAL_QUORUM
+EACH_QUORUM
+superfast
+DeepRacer
+I3en
+EC2
+capex
+AstraZeneca
+GuardDuty
+Kubernetes
+Depop
+autoscaling
+ALBIngressController
+Kubernetes-Autoscaler
+Kube2Iam
+Macie
+CloudWatch
+PagerDuty
+Frank Munz
+AWS
+inferentia
+exomes
+spaCy
+lxml
+pdfminer
+Lok Sabha
+text1
+text2
+ORG
+Modi
+Lok Sabha 24 ORG
+miscategorisation
+Karren
+Brady
+Salanki
+Gail
+Orenstein
+Mosul
+Gintare 
+Urbone
+Etherium
+olds

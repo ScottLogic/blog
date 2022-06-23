@@ -1,0 +1,135 @@
+---
+published: true
+author: rgraham
+layout: default_post
+category: Tech
+title: How to create a continuous colour range legend using D3 and d3fc
+summary: >-
+  D3 and d3fc are powerful tools for creating charts in JavaScript. This post
+  will look at one way to create a continuous colour range legend to annotate
+  one of these charts.
+tags:
+  - d3
+  - d3fc
+  - data
+  - chart
+  - browser
+  - javascript
+  - js
+  - perspective
+---
+<p>During the past few months, I’ve been working on a collaborative open-source project with JP Morgan called <a href="https://github.com/jpmorganchase/perspective">Perspective</a>. Recently, we implemented a <a href="https://d3js.org/">D3</a>/<a href="https://d3fc.io/">d3fc</a> heatmap chart and it was necessary to develop a new legend to represent the data. As a heatmap represents data using a continuous colour scale it, was no longer appropriate to use a discrete legend. The approach we decided on was to use d3fc to create a plot that would represent the same colour range used in the chart. D3 and d3fc are powerful open-source tools for creating charts in JavaScript. D3 is a great library for producing data visualisations in the browser, with d3fc providing a collection of components for common use cases.</p>
+<p style="text-align: center">
+  <img src="{{ site.baseurl }}/rgraham/assets/fig1.gif">
+  <figcaption style="text-align: center">Iterations of the colour range legend</figcaption>
+</p>
+<h3>Drawing the legend bar</h3>
+<p>I decided to start developing the legend by creating a bar to represent the colour range without any annotations. In our case, when this legend is drawn we have access to a <a href="https://github.com/d3/d3-scale#sequential-scales">D3 sequential scale</a> (used when drawing the chart) which provides us with the domain of our data and maps data to colours. This is all we need to begin drawing the legend.</p>
+<p>We can start by setting up the D3 scales we need to draw the legend. We’ll be using a band scale for the x-axis, as we want a single bar, and a linear scale for the y-axis, representing a linear colour scale. We can then use the <code>seriesSvgBar</code> and <code>autoBandwidth</code> components from d3fc to draw the bar. This element is drawn as a bar series with each bar being one pixel high, filling the entire plot area. The colour of each line is determined using the provided D3 scale and applied using the d3fc decorate function. To ensure the lines are all the right height and don’t overlap, the previous value in the dataset will be used as the base value.</p>
+<pre>
+  <code>
+    // Band scale for x-axis
+    const xScale = d3
+      .scaleBand()
+      .domain([0, 1])
+      .range([0, width]);
+    
+    // Linear scale for y-axis
+    const yScale = d3
+      .scaleLinear()
+      .domain(domain)
+      .range([height, 0]);
+  </code>
+</pre>
+<p>The coloured bar is now ready to be drawn by D3. To do this we need to append an <code>SVG</code>, create a <code>g</code> element inside it and get D3 to draw the bar.</p>
+<pre>
+  <code>
+    // An array interpolated over our domain where height is the height of the bar
+    const expandedDomain = d3.range(min, max, (max - min) / height);
+
+    // Defining the legend bar
+    const svgBar = fc
+      .autoBandwidth(fc.seriesSvgBar())
+      .xScale(xScale)
+      .yScale(yScale)
+      .crossValue(0)
+      .baseValue((_, i) => (i > 0 ? expandedDomain[i - 1] : 0))
+      .mainValue(d => d)
+      .decorate(selection => {
+        selection.selectAll("path").style("fill", d => colourScale(d));
+      });
+
+    // Drawing the legend bar
+    const legendSvg = container.append("svg");
+    const legendBar = legendSvg
+      .append("g")
+      .datum(expandedDomain)
+      .call(svgBar);
+  </code>
+</pre>
+<p style="text-align: center">
+  <img src="{{ site.baseurl }}/rgraham/assets/fig2.png">
+  <figcaption style="text-align: center">Basic legend bar with no labelling</figcaption>
+</p>
+<h3>Drawing the label</h3>
+<p>As it is, the legend might look nice, but it’s not very useful! We need to add a label that tells us the range that these colours represent. I decided that the nicest way to do this was to label the extents and middle value of the domain. I also decided that the most simple way to approach this was to draw the axis separately and translate it to the right position.</p>
+<p>We can use the <a href="https://d3fc.io/api/axis-api.html"><code>d3fc-axis</code></a> component with <code>axisRight</code> from d3fc to draw our label. We can then provide the same y scale as we used when drawing the bar and tell it to show whatever tick values we like. The next thing to do with this label is to translate it so that it appears on the right-hand side of the bar. We’ll create a new <code>g</code> element to draw the label and translate it to the right by the width of the bar.</p>
+<pre>
+  <code>
+    // Defining our label
+    const axisLabel = fc
+      .axisRight(yScale)
+      .tickValues([...domain, (domain[1] + domain[0]) / 2]);
+
+    // Drawing and translating the label
+    const barWidth = Math.abs(legendBar.node().getBoundingClientRect().x);
+    legendSvg.append("g")
+      .attr("transform", `translate(${barWidth})`)
+      .datum(expandedDomain)
+      .call(axisLabel);
+  </code>
+</pre>
+<p style="text-align: center">
+  <img src="{{site.baseurl}}/rgraham/assets/fig3.png">
+  <figcaption style="text-align: center">Legend with label before and after translation</figcaption>
+</p>
+<h3>Making it look pretty</h3>
+<p>There were a few changes I made to the legend to improve usability and provide more consistent styling with the rest of the project. The first was to apply a little padding to the data range of the legend. This means extent labels have a little extra space at the top and bottom of the legend (and also prevents them from being clipped). To make this work for different domain sizes, we can use a percentage padding with <code>extentLinear</code>. This gives us what we want, however, we still have ticks at the very top and bottom of the legend, which now lie outside our domain. This is easily fixed using <code>tickSizeOuter(0)</code> on our <code>axisRight</code> label to hide the ticks at the extents.</p>
+<pre>
+  <code>
+    // Padding the domain by 10%
+    <b>const paddedDomain = fc.extentLinear()
+      .pad([0.1, 0.1])
+      .padUnit("percent")(domain);
+    const [min, max] = paddedDomain;
+    const expandedDomain = d3.range(min, max, (max - min) / height);</b>
+
+    // Removing the outer ticks
+    const axisLabel = fc
+      .axisRight(yScale)
+      .tickValues([...domain, (domain[1] + domain[0]) / 2])
+      <b>.tickSizeOuter(0);</b>
+  </code>
+</pre>
+<p style="text-align: center">
+  <img src="{{site.baseurl}}/rgraham/assets/fig4.png">
+  <figcaption style="text-align: center">Legend before and after padding the domain</figcaption>
+</p>
+<p>There is one other minor styling change that I wanted to make to finish off this legend. I want to see the ticks on the legend but not the vertical line that runs up the side of our bar. We can hide this by selecting the <code>.domain</code> class in the label and setting <code>visibility</code> to <code>hidden</code>.</p>
+<pre>
+  <code>
+    // Hiding the vertical line
+    legendSvg.append("g")
+      .attr("transform", `translate(${barWidth})`)
+      .datum(expandedDomain)
+      .call(axisLabel)
+      <b>.select(".domain")
+      .attr("visibility", "hidden");</b>
+  </code>
+</pre>
+<p style="text-align: center">
+  <img src="{{site.baseurl}}/rgraham/assets/fig5.png">
+  <figcaption style="text-align: center">Final legend with vertical line removed</figcaption>
+</p>
+<h3>Conclusion</h3>
+<p>This approach makes good use of d3fc to reduce the amount of D3 code we need to write. This is just one way to draw this type of legend and is the approach that we decided on for our project. I’m sure there are other ways to achieve the similar results. You can look at my <a href="https://bl.ocks.org/Ro4052/caaf60c1e9afcd8ece95034ea91e1eaa">block</a> to see a working example of this legend.</p>

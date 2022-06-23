@@ -1,0 +1,87 @@
+@mixin featured-colours($bg-colour, $fg-colour) {
+  .summary {
+    background-color: $bg-colour;
+    a:hover {
+      color: $fg-colour;
+    }
+  }
+  .shape {
+    svg.bg {
+      fill: $bg-colour;
+    }
+  }
+}
+
+.avatar-metadata {
+  z-index: 1;
+  margin-top: 0.75rem;
+  div, img {
+      display: inline-block;
+      vertical-align: middle;
+  }
+  img {
+      border-radius: 50%;
+      max-height: 3rem;
+      margin-right: 0.25rem;
+      filter: grayscale(100%);
+  }
+  @include breakpoint(large) {
+    margin-right: -75%;
+  }
+}
+
+.featured-posts {
+
+  margin-bottom: 1rem;
+
+  .featured-post {
+    height: 100%;
+
+    .summary {
+      padding: 2rem;
+
+      h3 > a {
+        margin-right: 1.5rem;
+      }
+    }
+
+    h3 > a {
+      margin-right: 1.5rem;
+    }
+
+    .shape {
+      position: relative;
+      height: 100%;
+
+      svg.bg {
+        position: absolute;
+        height: 100%;
+        width: 80%;
+        top: 0;
+        left: 0;
+      }
+      img {
+        z-index: 1;
+      }
+    }
+
+    .post-summary-social {
+      font-size: 1rem;
+      display: inline-block;
+      > .dq-comment-count {
+        margin-left: 0.5rem;
+      }
+    }
+
+    @include featured-colours($light-teal, $teal);
+    &.pink {
+      @include featured-colours($light-pink, $pink);
+    }
+    &.orange {
+      @include featured-colours($light-orange, $orange);
+    }
+    &.yellow {
+      @include featured-colours($light-yellow, $yellow);
+    }
+  }
+}

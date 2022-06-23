@@ -1,0 +1,11 @@
+.read-more {
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: -15%;
+    height: 100%;
+    z-index: -5;
+  }
+}

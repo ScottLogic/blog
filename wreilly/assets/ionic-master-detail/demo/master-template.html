@@ -1,0 +1,7 @@
+﻿<ion-view>
+    <ion-content>
+        <div class="item" ng-class="{'selected-item': item.selected}" ng-repeat="item in items" ui-sref=".detail({ id: item.id })">
+            <span>{{item.title}}</span>
+        </div>
+    </ion-content>
+</ion-view>

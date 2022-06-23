@@ -1,0 +1,48 @@
+
+.post-index {
+
+	padding-top: 80px;
+	@include breakpoint(large) {
+		padding-top: 150px;
+	}
+
+	h1, h2 {
+		text-align: center;
+	}
+
+	h2 {
+		font-weight: $font-regular;
+	}
+
+	.sub-title {
+		margin-bottom: 2rem;
+		@include breakpoint(large) {
+			margin-bottom: 3rem;
+		}
+	}
+
+	h2.super-title {
+		font-size: $baseFontSize;
+		> a {
+			color: $teal;
+			&:hover {
+				color: $white;
+				background-color: $teal;
+			}
+		}
+	}
+
+	.main-content > div {
+		display: inline-block;
+	}
+
+  .active {
+    border-bottom: 3px solid $teal;
+  }
+
+  .category-list-compact {
+    h3 {
+      text-align: center;
+    }
+  }
+}

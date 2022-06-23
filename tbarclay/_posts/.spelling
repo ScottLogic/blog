@@ -1,0 +1,69 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - tbarclay/_posts/2015-07-14-meteor.md
+collections.js
+autopublish
+publish.js
+subscribe.js
+body.js
+Spacebars
+stock.html
+methods.js
+stock.js
+Meteor.methods
+reactive-vars
+stockDetail.html
+stockDetail.js
+ - tbarclay/_posts/2015-09-17-meteor-scroll.md
+Spluxr
+jumpscroll.meteor.com
+OrionJS
+router.js
+mainPage
+_page.html
+header.html
+main.html
+dictionary.js
+section.js
+publications.js
+autoform
+sections.js
+section.html
+loading.html
+_logic
+_page.js
+header.js
+autoforms
+pexels.com
+
+ - tbarclay/_posts/2015-09-18-meteor-scroll.md
+Spluxr
+jumpscroll.meteor.com
+mainPage
+_page.html
+header.html
+main.html
+dictionary.js
+section.js
+publications.js
+autoform
+sections.js
+section.html
+loading.html
+_logic
+_page.js
+header.js
+autoforms
+pexels.com
+main_page.html
+template_logic
+main_page.js
+ - tbarclay/_posts/2016-02-23-static-site.md
+Surge.sh
+page.js
+Gimme
+Wordpresses
+Squarespaces

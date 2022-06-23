@@ -1,0 +1,20 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - soneill/_posts/2014-11-21-introducing-the-mean-stack.md
+MEAN.IO
+Mean.io
+mean.io
+MongoLab
+_modules
+node-to-mongoDB
+contrib
+app.js
+csslint
+ArticlesController
+ArticleController
+currentUser
+MEAN.IO.
+unpublish

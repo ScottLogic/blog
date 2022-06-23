@@ -1,0 +1,89 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - rwilliams/_posts/2014-02-28-developing-large-scale-knockoutjs-applications.md
+ko.mapping
+noConflict
+subscribable
+ - rwilliams/_posts/2015-07-10-applying-styles-to-parent-elements-before-children-in-angularjs.md
+ui-grid
+ - rwilliams/_posts/2017-11-01-webpack-source-map-options-quick-guide.md
+nosources-source-map
+minifier
+publically
+SourceMapDevToolPlugin
+- rwilliams/_posts/2018-01-15-currencies-then-and-now-d3-map.md
+2010s
+bl.ocks.org
+currencylayer
+microlibrary
+microlibraries
+Renminbi
+Ruble
+- rwilliams/_posts/2018-02-13-npm-shrikwrap-merges-and-conflicts.md
+3-way
+gitattributes
+lockfiles
+polyfilla
+shrinkwraps
+- rwilliams/_posts/2018-05-30-avoiding-seeking-solving-source-control-conflicts.md
+Checkstyle
+orderable
+KDiff
+- rwilliams/_posts/2018-11-22-default-values-in-code-and-configuration.md
+960x500px
+Moment.js
+browserslist
+- rwilliams/_posts/2018-12-12-bridging-ui-libraries-for-decoupled-long-lived-widely-reusable-components.md
+dropdowns
+jQueryUI
+teardown
+ - rwilliams/_posts/2019-03-04-retroactively-applying-prettier-to-existing-branches.md
+setups
+ - rwilliams/_posts/2019-03-07-tips-for-effective-issue-tracker-usage.md
+MYPROJ-123
+antipatterns
+- rwilliams/_posts/2019-04-03-upcoming-webhid-api.md
+awesome-webhid
+Fugu
+navigator.hid
+permissioning
+WebHID
+WebUSB
+- rwilliams/_posts/2019-05-21-analysing-electron-performance-chromium-tracing.md
+10-second
+aw
+donut
+MemoryInfra
+omnibox
+standalone
+swimlane
+swimlanes
+- rwilliams/_posts/2019-08-15-delta-requests-frequently-updated-application-bundles-2002-to-service-workers.md
+Brotli
+frontends
+jsdiff
+lockstep
+new-ish
+poc
+precompute
+sw-delta
+vcdiff
+- rwilliams/_posts/2019-12-17-performant-large-scale-web-applications.md
+100ms
+700ms
+ad-hoc
+deprioritisation
+devserver
+firehose
+frontends
+GraphQL
+Moment.js
+performantly
+reflow
+retrospecting
+small-ish
+transactionality
+webpack

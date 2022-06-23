@@ -1,0 +1,83 @@
+@mixin article-colour-scheme($primary-colour, $contrast-colour) {
+
+  .social {
+    color: $primary-colour;
+    fill: $primary-colour;
+  }
+
+  .side-lists {
+
+    a:hover {
+      border-bottom: 3px solid $primary-colour;
+    }
+
+    .back, .author-social-media-link {
+
+      a {
+        color: $primary-colour;
+      }
+
+      a:hover {
+        background-color: $primary-colour;
+        color: $contrast-colour;
+      }
+    }
+  }
+
+
+  .post-content {
+
+    a {
+      border-bottom: 3px solid $primary-colour;
+    }
+
+    a:hover {
+      background-color: $primary-colour;
+      color: $contrast-colour;
+    }
+
+    code {
+      a, a:hover, a:visited {
+        text-decoration: none;
+        color: black;
+        border: none;
+        background-color: transparent;
+      }
+    }
+  }
+
+  .active-author {
+    border-bottom: 3px solid $primary-colour;
+  }
+}
+
+@mixin hero-colour-scheme($bg-colour, $fg-colour, $fg-inverse-colour) {
+  .hero {
+    > .content {
+      background-color: $bg-colour;
+    }
+    > .shape {
+      svg.bg {
+        fill: $bg-colour;
+      }
+      svg.fg {
+        fill: $fg-colour;
+        .inverse {
+          fill: $fg-inverse-colour;
+        }
+      }
+    }
+    .category > a:hover {
+      color: $fg-colour;
+    }
+    .cta > a:hover {
+      color: $fg-colour;
+    }
+  }
+
+  .read-more {
+    svg {
+      fill: $bg-colour;
+    }
+  }
+}

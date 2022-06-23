@@ -1,0 +1,40 @@
+﻿# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - shogarth/_posts/2013-10-18-getting-functional-at-dddnorth.md
+Oftentimes
+Crofton
+1930s
+Trelford's
+Stovin
+LINQ-style
+C#5's
+MailboxProcessor
+Westgarth
+ - shogarth/_posts/2015-10-27-destroying-monoliths-at-dddnorth.md
+DeveloperDeveloperDeveloper
+2s
+Anyways
+Higgs
+Farmar
+dependents
+Elamin
+ - shogarth/_posts/2013-12-04-on-running-a-code-club.md
+_I_
+ - shogarth/_posts/2016-11-03-the-hitchhikers-guide-to-redux.md
+Hashnode
+Holdstock-Brown
+Pearce
+Staltz
+kellabyte
+Alfoni
+Jørgensen
+Timandra
+Harkness
+Jez
+Farley
+bodge
+wagile
+ArchUnit

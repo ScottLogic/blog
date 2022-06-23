@@ -1,0 +1,149 @@
+---
+id: 69113
+author: shall
+title: Closure Library on the Server
+oldlink: "http://www.scottlogic.co.uk/2010/09/closure-library-on-the-server/"
+tags:
+  - Closure
+  - Google
+  - Java
+  - Javascript
+  - rhino
+  - closure-library
+  - envjs
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2010/09/closure-library-on-the-server/
+---
+<p>Over the past few months I've been using the <a href="{{ site.baseurl }}/2010/09/06/introducing-closure-tools" target="_blank">Closure Library</a> to create my own JavaScript library that carries out some graphical processing. This is done entirely in JavaScript, using Closure's <strong>graphics</strong> package.</p>
+<p>An important factor in the development of this library was compatibility. I wanted assurance that, no matter what browser the user hit the page from, the graphic would be displayed. The Library's graphics package is already very good at this; determining the browser from the User-Agent header and then deciding whether to produce an SVG, VML or Canvas drawing context.  However, some devices either don't support any of these drawing methods, or cannot process the JavaScript involved.</p>
+<p>The solution to this problem was to move the processing of the JavaScript and rendering of any graphics to the server. Should the client attempt to access the site from an unsupported browser, the page could then fetch an image representation of the graphic.</p>
+<p>This blog article will explain the changes I had to make to the Library to make this possible, as well as a brief look into the Servlet handling the processing of the JavaScript.</p>
+<h2>At the Server</h2>
+<p>The purpose of the Servlet was to process the JavaScript on the page, and produce an image of the interactive element. To do this, it had to provide access to a CanvasRenderingContext2D object which in turn provided drawing functionality.</p>
+<h3>CanvasRenderingContext2D</h3>
+<p>CanvasRenderingContext2D had to provide the drawing methods that the HTML5 canvas implementation provides, and then convert them into the equivalent Graphics2D drawing methods. The aim was to create the following transition:<a href="{{ site.baseurl }}/archive/2010/09/Untitled1.png"><img class="aligncenter size-full wp-image-69372" src="{{ site.baseurl }}/archive/2010/09/Untitled1.png" alt="" width="609" height="335" /></a></p>
+<p>The emphasis here is that the function calls in the JavaScript code haven't changed; the only difference is the ctx reference.</p>
+<p>The context also had to provide a function to get the image of the Graphics2D object. The Servlet could then return this once it had finished processing and rendering.</p>
+<h3>Server-side JavaScript</h3>
+<h4>Rhino</h4>
+<p><a href="http://www.mozilla.org/rhino/" target="_blank">Rhino</a> is a package developed by the Mozilla Foundation that allows the execution of JavaScript in a Java environment. Rhino was at the heart of the Servlet, allowing me to move any JavaScript processing from the client (which may not be capable), to the server.</p>
+<p>It also allowed me to inject references into the JavaScript code, so that an instance of CanvasRenderingContext2D may be accessed.</p>
+<h4>Envjs</h4>
+<p><a href="www.envjs.com/" target="_blank">Envjs</a> is a browser environment written in JavaScript, which is used in many server-side Java applications. The reasoning behind using Envjs in my implementation was two-fold:</p>
+<ol>
+<li>Provide a browser environment for the DOM references in the libraries</li>
+<li>Provide a User-Agent field to determine when the JavaScript is running on a server</li>
+</ol>
+<h3>Processing the JavaScript</h3>
+<p>Rhino provides static methods to process JavaScript source from a file, which is the equivalent of a browser reading a script tag. It's done like this:</p>
+{% highlight java %}  // Process Envjs
+  Main.processSource(cx, "http://www.envjs.com/dist/env.rhino.1.2.js");
+
+  // Process the compiled file including the Closure Library and my library
+  Main.processSource(cx, "http://localhost/closure/compiled.js");{% endhighlight %}
+<p>Processing the JavaScript in this order ensures that when I run compiled.js, which contains the library sources, Envjs has finished processing and has implemented a browser environment.</p>
+<h3>Talking to the Java from the JavaScript</h3>
+<p>Rhino allowed me to inject references to the Java into the JavaScript through global variables. This was done like so:</p>
+{% highlight java %}  Global global = Main.getGlobal(); // gets the global object in the JS
+  // initialize the Global object on the context here
+  global.put("adapter", global, this);{% endhighlight %}
+<p>This puts a variable on the Global object, called adapter, which references 'this' ('this' being the Servlet object itself), allowing me to access the Java methods on the Servlet from the JavaScript. I then supplied methods to get the CanvasRenderingContext2D like so:</p>
+{% highlight java %}  public CanvasRenderingContext2D getGraphicsAdapter() {
+    return new CanvasRenderingContext2D();
+  }{% endhighlight %}
+<p>And then in the JavaScript:</p>
+{% highlight javascript %}  var ctx = adapter.getGraphicsAdapter(); // ctx is of (Java) type CanvasRenderingContext2D{% endhighlight %}
+<p>Rhino also provides a convenient way of accessing properties of JavaBeans, so we could actually write:</p>
+{% highlight javascript %}  var ctx = adapter.graphicsAdapter; // automatically calls getGraphicsAdapter(){% endhighlight %}
+<p>ctx was then a reference to the Java object which provided the drawing methods. This meant that any function calls on ctx would equate to method calls on an instance of CanvasRenderingContext2D.</p>
+<h2>Canvas2D and Graphics2D</h2>
+<p>The next step was to extend AbstractGraphics in a way that would allow me to draw to a Server. I was aiming to implement SeverGraphics in the following way:</p>
+<p><a href="{{ site.baseurl }}/archive/2010/09/abstractGraphicsClass1.png"><img class="aligncenter size-full wp-image-69368" src="{{ site.baseurl }}/archive/2010/09/abstractGraphicsClass1.png" alt="" width="730" height="370" /></a></p>
+<h3>CanvasGraphics and ServerGraphics</h3>
+<p>I recognised that the graphics mode of Canvas2D and Java's Graphics2D were both immediate, making CanvasGraphics an ideal place to start. I could then create the same interface in CanvasRenderingContext2D, to bridge the gap between the JavaScript and Graphics2D.</p>
+<p>This is done in the getContext function of CanvasGraphics, which is the only place I need to change.  Once I modify getContext to return a reference to my Java object (which, remember, provides the same functions as a Canvas context), all function calls will go directly to the Java code. I changed getContext to read the following (similar to the example above):</p>
+{% highlight javascript %}  goog.graphics.ServerGraphics.prototype.getContext = function() {
+    // only get the graphics adapter once -- we don't want multiple copies
+    if (!this.context_) {
+      // remember adapter on the global object?
+      this.context_ = adapter.getGraphicsAdapter(this.width, this.height);
+    }
+    return this.context_;
+  }{% endhighlight %}
+<p>Provided the methods I implement maintain the logic of the Canvas methods, I can safely change this reference and rely on the existing logic of CanvasGraphics to ensure that the correct behaviour will occur.</p>
+<h3>The Problem of Text</h3>
+<p>To say CanvasGraphics doesn't rely on the DOM and uses JavaScript functions entirely isn't strictly true. Although the newer version of the Canvas supports it, Closure's implementation doesn't use the canvas object to draw text; it uses the DOM.</p>
+<h4>CanvasTextElement</h4>
+<p>This is all done using a separate object in the Closure Library, called CanvasTextElement. The purpose of this object is to create a DIV element on the DOM with the text as the inner HTML, and then style the DIV based on the parameters to the element.  This wouldn't work on the server, as there is no browser to display the text.</p>
+<h4>ServerTextElement</h4>
+<p>I created a ServerTextElement, which is almost identical to CanvasTextElement save the following:</p>
+<ul>
+<li>The constructor of the element doesn't create a DOM element</li>
+<li>There is no updating of Styles - just one draw function</li>
+</ul>
+<p>The draw function makes a call to the context and performs its drawing processing as if it were any other element. A simple implementation of this method would be as follows:</p>
+{% highlight javascript %}  goog.graphics.ServerTextElement.prototype.draw(ctx){
+    // makes a call to the server with the parameters -- server does the rest
+    ctx.drawText(this.text, this.x1, this.y1, this.x2, this.y2, this.align, this.stroke);
+  }{% endhighlight %}
+<p>.. but that's not the best solution. The <a href="https://html.spec.whatwg.org/multipage/scripting.html#the-canvas-element" target="_blank">Canvas API</a> does provide methods to draw text, so we should use those:</p>
+{% highlight javascript %}  goog.graphics.ServerTextElement.prototype.draw(ctx){
+    // uses the standard css notation for fonts
+    ctx.font = this.font_.family + ' ' + this.font_.size + 'px';
+    ctx.align = this.align_;
+    ctx.strokeText(this.text_, this.x1_, this.y1_);
+  }{% endhighlight %}
+<p>This allows us to create a patch for CanvasGraphics, updating it to use the Canvas element to draw text, rather than the DOM.</p>
+<h4>Measuring Text</h4>
+<p>Graphics2D also provides a TextMetrics object to get the measured width of a String in pixels; something which the Closure Library is lacking.</p>
+<p>Similarly, measureText is specified by the Canvas2D API, so was implemented in my Java adapter. I could then add this functionality to ServerGraphics like so:</p>
+{% highlight javascript %}  goog.graphics.ServerGraphics.prototype.getTextWidth = function(text, font) {
+    ctx.font = font.family + ' ' + font.size + 'px';  // set the font of the context
+    // measureText returns a TextMetrics object, containing the width in a property
+    return ctx.measureText(text).width;
+  }{% endhighlight %}
+<h2>User Agents</h2>
+<p>The final step was to configure Closure Library to recognise when it was running in a Server environment, and to react in an appropriate way.</p>
+<p>Closure Library has its own user agent analysis; it determines which browser the viewer is using and their platform, using the User-Agent HTTP header. For example, if you're using Google Chrome, your User-Agent header may be something like this:</p>
+{% highlight html %}Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/534.3 (KHTML, like Gecko) Chrome/6.0.472.55 Safari/534.3{% endhighlight %}
+<p>Closure will then pick up on the key word 'WebKit', and flag that you're running a WebKit browser. Other aspects of the Library code can then use this information. For example, a basic implementation of the createGraphics function in the graphics package would look something like this:</p>
+{% highlight javascript %}goog.graphics.createGraphics = function() {
+  if(goog.userAgent.IE) {
+    // return a VML graphics implementation
+  } else if (goog.userAgent.MOBILE) {
+    // return a Canvas graphics implementation
+  } else {
+    // return an SVG graphics implementation
+  }
+}{% endhighlight %}
+<h3>Creating and Using the User Agent</h3>
+<p>The user agent module of the Closure Library had to be extended so that it could recognise when it was being executed from a server environment. This was done by analysing the User-Agent header when ran through Rhino, which is the following:</p>
+{% highlight html %}Envjs/1.6 (Rhino; U; Windows XP x86 5.1; en-US; rv:1.7.0.rc2) Resig/20070309 PilotFish/1.2.13{% endhighlight %}
+<p>Using the keyword 'Rhino', we can assert that we are running in a server. The first step to incorporating this information into the Library was to mimic the behaviour for other user agents in useragent.js, but for Rhino. This involved appending the following to the check in useragent.js:</p>
+{% highlight javascript %}  if(userAgentString.indexOf('Rhino') !== -1) {
+    goog.userAgent.RHINO = true;
+  }{% endhighlight %}
+<p>The second step was to incorporate the new Rhino user agent defined in the first step, into the createGraphics function, so that a ServerGraphics object will be created. I extended Closure's original code by adding the following statement in the above conditional statement:</p>
+{% highlight javascript %}  // code above to check whether to use VML or Canvas
+  if (goog.userAgent.RHINO) {
+    // use ServerGraphics
+  }
+  // code below to use svg{% endhighlight %}
+<h2>Support for the NodeList Interface</h2>
+<p>There was one additional problem I experienced when running the Library on the server.</p>
+<p>I was trying to convert a Java XML Document (<a href="https://docs.oracle.com/javase/7/docs/api/org/w3c/dom/Document.html" target="_blank">org.w3c.dom.Document</a>) into a <a href="http://www.w3.org/TR/2004/REC-DOM-Level-3-Core-20040407/" target="_blank">JavaScript Document object</a>, using XMLDataSource, which has one difference; the way the JavaScript NodeList interface retrieves Nodes by index.</p>
+{% highlight javascript %}  /** @type {NodeList} */
+  var nodeList = element.getChildNodes();
+  for(var i = 0; i < nodeList.length; i++) {
+    alert(nodeList[i]); // javascript-specific object literal notation, doesn't work in Java!
+  }{% endhighlight %}
+<p>.. the solution was simple:</p>
+{% highlight javascript %}  goog.userAgent.RHINO ? nodeList.item(i) : nodeList[i];{% endhighlight %}
+<p>The problem only occurred in XMLDataSource, and was simple to fix, making it an ideal patch submission!</p>
+<h2>Conclusion</h2>
+<p>I was very surprised at how well the Closure Library ported over to a server environment. With the exception of some DOM methods, which were easily solved using Envjs, and the NodeList interface, there were no problems in moving the Library to the server.</p>
+<p>Server-side JavaScript is a very interesting topic; one that I feel will become more prevalent in the future. To know that Google's Closure Library is well on its way to being fully compliant with standards to the point it can be executed on a server, is a very good sign.</p>

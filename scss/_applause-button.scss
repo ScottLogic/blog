@@ -1,0 +1,27 @@
+applause-button {
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: sticky;
+  top: 100px;
+  width: 60px;
+  height: 60px;
+
+  .count {
+    color: inherit;
+    width: 60px !important;
+  }
+
+  .style-root:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    background-color: white;
+  }
+}
