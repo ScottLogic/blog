@@ -1,0 +1,164 @@
+---
+id: 152898
+author: mrhodes
+title: Efficient Map Initialization in Java
+oldlink: "http://www.scottlogic.co.uk/2012/08/efficient-map-initialization-in-java/"
+tags:
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/08/efficient-map-initialization-in-java/
+---
+<p><em>This post looks at how to construct Java's built-in hash based <code>Map</code> implementations to ensure they have sufficient, but not excessive capacity.</em></p>
+<p>Hash based maps are one of the most commonly used data structures in programming and Java provides two different implementations of these - the commonly used <a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashMap.html"><code>HashMap</code></a> and the older synchronized <a href="http://docs.oracle.com/javase/7/docs/api/java/util/Hashtable.html"><code>Hashtable</code></a>.</p>
+<p>A hash map is essentially a wrapper for an array containing linked lists of the items in it.  Each item is allocated an index in the array based on its hash code (the value returned by invoking the <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#hashCode()"><code>hashCode()</code></a> method) and the length of the array.  This means that so long number of items stored in the map is small in comparison to the length of the backing array, and the hash codes allow the items to be evenly distributed throughout it, it can performs many operations (e.g. finding/adding/removing elements) in constant time.  However, as more and more items are added, it needs to ensure that an acceptable ratio between the number of items it's storing and the length of the underlying array is maintained.  In order to do this, it periodically creates an entirely new, larger backing array and moves all the existing items over to it</p>
+<p>The reallocation of elements to a new backing array is an expensive operation (at best linear time in the number of items in the map) so it's best to avoid having to do it if at all possible.  To help do this, you can pass the initial size of the underlying array as a argument when constructing your hash map.  This is only really useful if you know (or at least can have a good guess at) the number of items your new map is going to store, which is often the case.  For example, one common use case of a hash map is to store the elements of an array against some id of the elements, e.g. I've seen something like the following code many times over:</p>
+{% highlight java %}
+Map<String, CustomObj> objectById = new HashMap<String, CustomObj>();
+for(CustomObj obj : listOfCustomObjs){
+   objectById.put(obj.getId(), obj)
+}
+{% endhighlight %}
+<p>The use of the default constructor in the above code means that it's possible that the map will have to unnecessarily reallocate the elements to ever larger backing arrays numerous times before it's finished the loop.  However, the snag is that it's not entirely obvious what you should set the initial size of the backing array to be in order to prevent the map needing to do this and so that you don't use an excessive amount of memory.  After trawling through the source code of the two hash map implementations and creating some unit tests, it looks like the a good initial value is defined by:</p>
+{% highlight java %}
+(int) Math.ceil(requiredCapacity / loadFactor);
+{% endhighlight %}
+<p>Here, <code>loadFactor</code> is the threshold ratio between the number of items in the map (<em>n</em>) and the size of the backing array (<em>s</em>), i.e. if <em>n</em> > <code>loadFactor</code> * <em>s</em>, a new larger backing array is created and the elements added to it.  The default load factor for both implementations is .75.  Therefore the above code could be more efficiently written like so:</p>
+{% highlight java %}
+int initSize = (int) Math.ceil(listOfCustomObjs.size() / 0.75);
+Map<String, CustomObj> objectById = new HashMap<String, CustomObj>(initSize);
+// as before...
+{% endhighlight %}
+<p>The same trick also works for instances of Java's commonly used <a href="http://docs.oracle.com/javase/7/docs/api/java/util/HashSet.html"><code>HashSet</code></a> class, as a <code>HashSet</code> is these are effectively just a wrapper for <code>HashMap</code> instance.  For example the following code instantiates an <code>HashSet</code> which can hold at least 100 <code>Strings</code> without requiring a reallocating of elements to a new backing array:</p>
+{% highlight java %}
+int initSize = (int) Math.ceil(100 / 0.75);
+Set<String> someStrings = new HashSet<String>(initSize);
+{% endhighlight %}
+<p><strong>Testing it Works</strong>In order to verify that initializing hash maps in this way works as expected, I wrote some <a href="http://www.junit.org/">JUnit</a> tests, the source for which is available here: <a href="{{ site.baseurl }}/archive/2012/08/initialisingHashMapUnitTestSource.zip">JUnit test source</a>.  Since we are interested in the state of the underlying backing arrays, which are private in both the <code>HashMap</code> and <code>Hashtable</code> classes, these tests need to use <a href="http://java.sun.com/developer/technicalArticles/ALT/Reflection/">reflection</a> to see what's going on.  In order to reduce the amount of duplicate code, I made use of the <a href="http://en.wikipedia.org/wiki/Abstract_factory_pattern">abstract factory pattern</a>, so that the main bulk of the testing code doesn't need to know the specifics of how the map instances it's testing are constructed.</p>
+<p>The interface for the factory which provides instances to verify is as follows:</p>
+{% highlight java %}
+interface TestInstanceFactory {
+    //Returns the instance of the Map being tested using the given initial
+    //capacity and load factor.
+     Map<Integer, Integer>> createTestInstance(int requiredCapacity, float loadFactor);
+
+    //Returns an a new map instance which should be guaranteed to have a
+    //table which is smaller than or equal to instances returned from the
+    //getTestInstance method when called with the same parameters.
+    //Note: the returned instance need not actually have the given required capacity.
+     Map<Integer, Integer>> createSmallerMapInstance(int requiredCapacity, float loadFactor);
+}
+{% endhighlight %}
+<p>The idea is that test code gets two map instances of the implementation to be tested - one provided by each of these methods, passing in the same values.  It then adds the given number of elements to each and verifies that the backing array of the instance provided by the <code>createTestInstance</code> method didn't resize and remains no larger than the one provided by <code>createSmallerMapInstance</code> method.  The implementation of the <code>TestInstanceFactory</code> for verifying the initialization of <code>HashMap</code>s is an anonymous inner class that looks like so:</p>
+{% highlight java %}
+new TestInstanceFactory() {
+    @Override
+    public HashMap<Integer, Integer> createTestInstance(int requiredCapacity, float loadFactor) {
+        int initialCapacity = (int) Math.ceil(requiredCapacity / loadFactor);
+        return new HashMap<Integer, Integer>(initialCapacity, loadFactor);
+    }
+
+    //Returns a map which always has the smallest possible initial capacity (1).
+    @Override
+    public HashMap<Integer, Integer> createSmallerMapInstance(
+            int initialCapacity, float loadFactor) {
+        return new HashMap<Integer, Integer>(0, loadFactor);
+    }
+}
+{% endhighlight %}
+<p>The actual test method, which takes a <code>TestInstanceFactory</code> as a parameter and verifies the behaviour is as as follows:</p>
+{% highlight java %}
+//Verifies that instances provided by the given factory do not increase their internal tables
+//and that their capacities are not overly large, for a range of load factors and sizes..
+@SuppressWarnings("unchecked")
+private <T> void testMapInit(TestInstanceFactory instanceFactory) throws
+	    IllegalArgumentException, IllegalAccessException,
+	    SecurityException, NoSuchFieldException {
+
+    // Whether or not at least one instance provided by the createSmallerMapInstance method
+    //had to resize it's backing array..
+    boolean smallerCapMapResized = false;
+
+    float [] loadFactors = { 0.25f, 0.5f, 0.75f /* default */, 1, 5 };
+    for(int f = 0; f < loadFactors.length; f++){
+        float loadFactor = loadFactors[f];
+    	for(int i = 0; i < 1026; i++){
+            Map<Integer, Integer> map = instanceFactory.createTestInstance(i,  loadFactor);
+            Map<Integer, Integer> smallerCapMap =
+                    instanceFactory.createSmallerMapInstance(i, loadFactor);
+
+            //make it so that we can see the private fields..
+            Field tableField = map.getClass().getDeclaredField("table");
+            tableField.setAccessible(true);
+            Field thresholdField = map.getClass().getDeclaredField("threshold");
+            thresholdField.setAccessible(true);
+
+            Map.Entry<Integer, Integer>[] table =
+                    (Map.Entry<Integer, Integer>[]) tableField.get(map);
+            Map.Entry<Integer, Integer>[] smallCapTable =
+                    (Map.Entry<Integer, Integer>[]) tableField.get(smallerCapMap);
+            //check "small one" really is no larger..
+            assertTrue(table.length >= smallCapTable.length);
+
+            //add entries to the maps..
+            int startSize = table.length;
+            for(int j = 0; j < i; j++){
+                map.put(j, j);
+                smallerCapMap.put(j, j);
+            }
+
+            //check to see if the smallCapTable is different..
+            if(smallCapTable != tableField.get(smallerCapMap)){
+            	smallerCapMapResized = true;
+            }
+
+            //check that the map has not had to resize it's table..
+            table = (Map.Entry<Integer, Integer>[]) tableField.get(map);
+            assertEquals(startSize, table.length);
+
+            //check that the map is not too large..
+            Map.Entry<Integer, Integer>[] smallerMapTable =
+            		(Map.Entry<Integer, Integer>[]) tableField.get(smallerCapMap);
+            int smallestCapMapThreshold = (int) thresholdField.get(smallerCapMap);
+            if(smallestCapMapThreshold >= smallerCapMap.size()){
+                assertTrue(smallerMapTable.length >= table.length);
+            }
+        }
+    }
+    //if no smaller cap map resized then we could be allocating too much memory sometimes..
+    assertTrue(smallerCapMapResized);
+}
+{% endhighlight %}
+<p>The test is by no means perfect as it requires a sensible implementation of the <code>TestInstanceFactory</code> and it's never going to be that generic due to the use of reflection, but it gives a fair level of confidence that things are working as expected.  It's worth noting that if you were to alter the implementation of the <code>createTestInstance</code> method of the factory for <code>HashMap</code>s to be:</p>
+{% highlight java %}
+public HashMap<Integer, Integer> createTestInstance(int requiredCapacity, float loadFactor) {
+    int initialCapacity = (int) (requiredCapacity / loadFactor) + 1
+    return new HashMap<Integer, Integer>(initialCapacity, loadFactor);
+}
+{% endhighlight %}
+<p>which is effectively what is used within the <code>HashCode</code> source, the test code fails in the case that <code>requiredCapacity / loadFactor</code> is an exact power of two, as it allocates twice the required memory for the backing array.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

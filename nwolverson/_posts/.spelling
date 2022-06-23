@@ -1,0 +1,107 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - nwolverson/_posts/2013-08-08-interactive-dotnet-1.md
+EN.URB.LCTY
+cmdlet
+pipelining
+FSharp.Data
+XmlProvider
+typedef
+alt-enter
+alt
+ - nwolverson/_posts/2013-08-15-interactive-dotnet-2.md
+LINQ-like
+ - nwolverson/_posts/2013-09-10-typescript-0.9.md
+noImplicitAny
+any.ts
+Enumerable.Repeat
+ - nwolverson/_posts/2013-12-18-wpf-snoop-powershell.md
+DataContext
+appdomains
+non-wpf
+snoopui
+datacontext
+cmdlet
+ - nwolverson/_posts/2014-08-08-signalr-typed.md
+Hubs.tt
+F#-to-JavaScript
+SignalRProvider
+ - nwolverson/_posts/2015-01-20-typescript-compiler-api.md
+_
+val
+int
+Test.factorial
+System.IComparable
+System.IFormattable
+System.IConvertible
+System.IEquatable
+System.ValueType
+getNodes
+ts.SourceFile
+ts.Node
+allNodes
+ts.forEachChild
+nodes.push
+ES6-related
+rec
+ - nwolverson/_posts/2015-08-10-ts-vs-proj.md
+_references.ts
+NoLib
+tsconfig.json
+TypeScriptEnabled
+ - nwolverson/_posts/2015-09-03-d3-without-d3.md
+react.animate
+tweening
+ - nwolverson/_posts/2017-05-02-typescript-compiler-api-revisited.md
+TSTypeInfo
+ts-simple-ast
+dts-dom
+- nwolverson/_posts/2017-11-17-codemesh.md
+CodeMesh
+Smalltalk
+mathsy
+Amin
+finitizing
+- nwolverson/_posts/2014-09-15-jekyll-d3js.md
+Webkit
+headlessly
+domjs
+ - nwolverson/_posts/2017-12-15-aws-fargate.md
+Fargate
+Cloud9
+vCPU
+t2.nano
+t2.micro
+t2.small
+t2.medium
+container-task-service-cluster
+CloudFormation
+EC2-based
+CLIs
+ - nwolverson/_posts/2018-01-12-playing-with-postgis.md
+PostGIS
+Voronoi
+polyline
+Postgres
+leaflet.js
+mdillon
+postgis
+ogr2ogr
+1.7m
+lat
+lng
+
+ - nwolverson/_posts/2018-02-09-multi-dind-ci-boxes.md
+CodeBuild
+Gitlab
+olde
+3d
+webserver
+dind
+AWS-provided
+
+- nwolverson/_posts/2018-02-23-review-apps-beanstalk.md
+Bitbucket

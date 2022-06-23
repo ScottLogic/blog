@@ -1,0 +1,214 @@
+---
+id: 144978
+author: nwolverson
+title: 'Mapping in WPF, Silverlight and WP7'
+oldlink: 'http://www.scottlogic.co.uk/2012/05/mapping-in-wpf-silverlight-and-wp7/'
+tags:
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/05/mapping-in-wpf-silverlight-and-wp7/
+---
+<p>In this article I show a simple example of integrating Bing and Google mapping into in WPF, Silverlight, and Windows Phone applications. I was inspired to investigate how easy it is to get up and running with maps on these platforms when I saw how similar the Bing APIs are in each case. While Google does not provide specific mapping controls for Silverlight/WPF, it's still quite straightforward to integrate the browser version, once you know where to start.</p>
+<p><!--more--></p>
+<h3>Overview</h3>
+<div>
+<table rules="all">
+<tbody>
+<tr>
+<td></td>
+<td>WPF</td>
+<td>Silverlight</td>
+<td>WP7</td>
+<td>Metro</td>
+</tr>
+<tr>
+<td>Bing</td>
+<td><a href="http://msdn.microsoft.com/en-us/library/hh750210.aspx">Bing Maps WPF Control</a></td>
+<td><a href="http://msdn.microsoft.com/en-us/library/ee681884.aspx">Bing Maps Silverlight Control</a></td>
+<td><a href="http://msdn.microsoft.com/en-us/library/ff941096(v=VS.92).aspx">Bing Maps Silverlight Control for Windows Phone</a></td>
+<td><a href="http://msdn.microsoft.com/en-us/library/hh846481.aspx">Bing Maps for Metro Style Apps (Beta)</a></td>
+</tr>
+<tr>
+<td>Google</td>
+<td><a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.webbrowser.aspx">WebBrowser</a> +<a href="http://code.google.com/apis/maps/documentation/javascript/">Maps JavaScript API</a><br>(or <a href="http://code.google.com/apis/maps/documentation/flash/">Maps API for Flash</a>)</td>
+<td><a href="http://code.google.com/apis/maps/documentation/javascript/">Maps JavaScript API</a> + <br>OOB:<a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.webbrowser(v=vs.95).aspx">WebBrowser</a><br>In Browser:HTML overlay (windowless)</td>
+<td><a href="http://msdn.microsoft.com/en-us/library/microsoft.phone.controls.webbrowser(v=vs.92).aspx">WebBrowser</a> + <a href="http://code.google.com/apis/maps/documentation/javascript/">Maps JavaScript API</a></td>
+<td>WebView + JavaScript API?</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Microsoft provide Bing mapping controls for Silverlight, Windows Phone 7, WPF, with a very similar API (and by very similar I mean in most cases there is just a different namespace). There is also an AJAX version, but there's no real reason to use that here.</p>
+<p>Google provide a JavaScript API which can be used by hosting in a browser control, which works well in WPF, WP7 and Silverlight out-of-browser; in Silverlight in the browser, hosting HTML content is not possible, so I'll demonstrate overlaying HTML on top of the Silverlight app. For WPF (or WinForms) applications there's also the option of embedding the Google Maps Flash control, but I'll stick with the web version as it spans these different platforms.</p>
+<p>In both cases there are "reasonable use" limits for free use of the service, which seem to me quite... reasonable. In the case of Google Maps there is a restriction around using the service for free if your app is not also free, and it's not clear to me exactly what this means, while Bing does not impose such a restriction, which might be relevant if you're publishing a WP7 app.</p>
+<h3>Data</h3>
+<p>As a data source I'll import data in the GPX format (an XML format for exchange of GPS data). I'll just pull out a sequence of locations from this, which we can then plot on the map. GPX files contain two types of locations, "track points" (part of a "track" which is meant to be logged GPS data), and "way points" (which are more meant to be part of a plotted course or significant locations), here we'll just play dumb and extract everything in a flattened format.</p>
+<p>I'm just embedding a few GPX files in the app resources for this example. I've chosen a few running routes which you can see in the examples below, no prizes will be awarded for guessing which one I logged myself.</p>
+{% highlight csharp %}
+private void LoadTrack(string track)
+{
+    using (var streamReader = new StreamReader(StreamForTrack(track)))
+    {
+        XDocument doc = XDocument.Parse(streamReader.ReadToEnd());
+        var ns = doc.Root.GetDefaultNamespace();
+
+        Locations  = doc.Descendants()
+            .Where(el => el.Name == ns + "wpt" || el.Name == ns + "trkpt")
+            .Select(trkpt =>
+                new Location
+                {
+                    Latitude = double.Parse(trkpt.Attribute("lat").Value),
+                    Longitude = double.Parse(trkpt.Attribute("lon").Value)
+                });
+            .ToLocationCollection();
+    };
+}
+
+/// Work around annoying LocationCollection - which contains no AddRange method or collection constructor
+public static LocationCollection ToLocationCollection(this IEnumerable<Location> locations)
+{
+    var locs = new LocationCollection();
+    foreach (var loc in locations)
+    {
+       locs.Add(loc);
+    }
+    return locs;
+}
+{% endhighlight %}
+<p>Lastly I'll expose the available tracks as a property <code>AllTracks</code> and the selected track as <code>Track</code>:</p>
+{% highlight csharp %}
+private string _track;
+public string Track
+{
+    get { return _track;}
+    set
+    {
+        if (value == _track) return;
+        _track = value;
+        LoadTrack(_track);
+        OnPropertyChanged("Track");
+    }
+}
+{% endhighlight %}
+<h3>Bing - Silverlight</h3>
+<p>It's refreshingly simple to create a map to display our route. Setting the DataContext to the class described above, the following XAML displays a map of the route:</p>
+{% highlight xml %}
+<!--Need to set CredentialsProvider=...-->
+<Grid>
+    <Grid.DataContext>
+        <local:GpxPath />
+    </Grid.DataContext>
+    <bing:Map x:Name="Map" Mode="Aerial">
+        <bing:MapPolyline Locations="{Binding Locations}"  Stroke="Red" StrokeThickness="1" />
+    </bing:Map>
+</Grid>
+{% endhighlight %}
+<p>On top of this it's nice to actually show the relevant part of the map, so lets set the view based on the bounding rectangle of the given locations. I wanted to do this in XAML, but unfortunately this is a method on the Map class. First step, wrap this in an attached property:</p>
+{% highlight csharp %}
+public static class Mapping
+{
+    // ...
+    public static readonly DependencyProperty ViewProperty =
+        DependencyProperty.RegisterAttached("View", typeof(LocationRect), typeof(Mapping), new PropertyMetadata(OnViewPropertyChanged));
+
+    private static void OnViewPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        Map map = d as Map;
+        var rect = e.NewValue as LocationRect;
+        if (map != null && rect != null)
+        {
+            map.SetView(rect);
+        }
+    }
+}
+{% endhighlight %}
+<p>Then we can make a converter to get the bounding LocationRect of our Locations collection:</p>
+{% highlight csharp %}
+public class LocationsViewConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    {
+        var locs = value as IEnumerable<Location>;
+        if (locs == null || !locs.Any()) { return null; }
+        return new LocationRect(locs.Max(l => l.Latitude), locs.Min(l => l.Longitude),  // N, W
+                                locs.Min(l => l.Latitude), locs.Max(l => l.Longitude)); // S, E
+    }
+    // ...
+}
+{% endhighlight %}
+<p>It's quite nice to see pushpins for the route start/end, so lets add them. Just as MapPolyline is analogous to Polyline, MapItemsControl is to ItemsControl. So I can add pushpins by binding to the appropriate collection. Add a property and update it when loading a new track:</p>
+{% highlight csharp %}
+public IEnumerable<Location> PushPins { get; set; } // Really add property changed notification
+// ...
+    PushPins = new List<Location> { locations.First(), locations.Last() };
+{% endhighlight %}
+<p> Here's the updated XAML with the view setting and push pins:</p>
+{% highlight xml %}
+<bing:Map Mode="Aerial"
+          local:Mapping.View="{Binding Locations, Converter={StaticResource LocationsViewConverter}}">
+    <bing:MapLayer>
+        <bing:MapPolyline Locations="{Binding Locations}"  Stroke="Red" StrokeThickness="1" />
+    </bing:MapLayer>
+    <bing:MapItemsControl ItemsSource="{Binding PushPins}">
+        <bing:MapItemsControl.ItemTemplate>
+            <DataTemplate>
+                <bing:Pushpin Location="{Binding}" />
+            </DataTemplate>
+        </bing:MapItemsControl.ItemTemplate>
+    </bing:MapItemsControl>
+</bing:Map>
+{% endhighlight %}
+<p>And the end result:<object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="400" height="400"><param name="source" value="{{ site.baseurl }}/archive/2012/03/MapsDemo.Bing_.SL_.xap"/><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.60310.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none">        <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>    </a></object></p>
+<h3>Bing - WPF</h3>
+<p>The WPF Bing control follows the Silverlight control API very closely, and other than the namespace there's little difference. Some options are different for the surrounding UI, but the main API is the same. It literally is as simple as using the same code files with:</p>
+{% highlight csharp %}
+#if SILVERLIGHT
+using Microsoft.Maps.MapControl;
+#else
+using Microsoft.Maps.MapControl.WPF;
+#endif
+{% endhighlight %}
+<p>The XAML is very similar - see the project at the end of the post for other details.</p>
+<p><a href="{{ site.baseurl }}/archive/2012/02/WPF-Bing.png"><img src="{{ site.baseurl }}/archive/2012/02/WPF-Bing.png" alt="" title="WPF-Bing" width="436" height="352" class="alignright size-full wp-image-145167" /></a></p>
+<h3>Bing - WP7</h3>
+<p>Again the WP7 API is similar, although in this case there are some differences. An obvious one is the Location class is supplemented with the Geolocation class - for example LocationCollection is now an ObservableCollection&lt;Geolocation&gt;. In fact there are implicit conversions between Location and Geolocation, so in most cases we can again get away with the same C# code with some careful use of types - other than some conditional includes:</p>
+{% highlight csharp %}
+#if WINDOWS_PHONE
+using Microsoft.Phone.Controls.Maps;
+using Microsoft.Phone.Controls.Maps.Platform;
+#elif SILVERLIGHT
+using Microsoft.Maps.MapControl;
+#else
+using Microsoft.Maps.MapControl.WPF;
+#endif
+{% endhighlight %}
+<p>Of course the end result looks somewhat different:<a href="{{ site.baseurl }}/archive/2012/02/WP7-Bing.png"><img src="{{ site.baseurl }}/archive/2012/02/WP7-Bing-158x300.png" alt="" title="WP7-Bing" width="158" height="300" class="alignright size-medium wp-image-145438" /></a></p>
+<h3>And finally</h3>
+<p>The various projects with the above code can be <a href="{{ site.baseurl }}/archive/2012/03/MapsDemo.Bing_.zip">downloaded here</a>. If I was going to create the same thing again I'd keep references to Bing namespaces entirely out of the common code with some more aggressive use of converters, rather than dancing around the differences, but as an exploration of the APIs I found it interesting to see how little had to change.</p>
+<p>I'm going to pause for there and show the Google Maps version in another installment. There there will be some more interesting issues to consider.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+WebComponents
+ - nowen/_posts/2018-03-23-when-technology-meets-the-arts.md
+miraikan
+ - nowen/_posts/2017-05-23-white-labelling-using-postcss-path-resolution.md
+a-stylin
+colors.css
+theme.css
+ - nowen/_posts/2017-05-24-creating-semantic-components-in-angular-and-react.md
+_ERRORS
+_SCHEMA
+v1
+app.module
+_do_
+NO_ERRORS_SCHEMA
+ - nowen/_posts/2017-06-06-does-npm5-deprecate-yarn.md
+neato
+5x
+1m15.6s
+58.1s
+1m7.7s
+1m3.3s
+30.3s
+0m55.5s
+26.6s
+0m49.3s

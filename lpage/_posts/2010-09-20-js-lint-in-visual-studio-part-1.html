@@ -1,0 +1,171 @@
+---
+id: 69829
+author: lpage
+title: JSLint in Visual Studio Part 1
+oldlink: "http://www.scottlogic.co.uk/2010/09/js-lint-in-visual-studio-part-1/"
+tags:
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2010/09/js-lint-in-visual-studio-part-1/
+---
+<h3>Introduction</h3>
+<p><a href="http://www.jslint.com/">Js Lint is a tool created by Douglas Crockford</a> to parse JavaScript, report errors and ensure good coding practices. If you write JavaScript, it's a good idea to at least have read and understood the rules - quite often they are because something that is common in a language like C# could have unintended consequences because of the nuances of JavaScript, which is why its particularly important to Asp.NET developers where Microsoft has specifically attempted to make an API that is familiar to .NET developers new to JavaScript. It's written in JavaScript and parses the file, ensures its validity, checks the rules you have switched on and can also report unused but defined variables.</p>
+<p>I had been using the wsh (Windows Script Host) version of the file and executing it as a visual studio external tool, with the output going to the output window - which is fine except that after a while pressing Ctrl+G for each error got annoying. When it turned out I would be taking a train trip across France, it seemed the perfect opportunity to have a look at creating a Visual Studio 2010 plug-in.</p>
+<h3>Failed Attempts</h3>
+<p>Firstly, there is an <a href="http://jslint.codeplex.com/">existing plug-in for 2008</a> and my first port of call was to try upgrading this, so I followed the instructions but it seemed the plug-in was written a while ago and didn't follow a standard project structure. When I looked at how it worked - which was to execute the wsh executable and parse the console result, I wasn't satisfied. It might be more fun to try and run the JavaScript directly - no temporary files, no JSLint file location and quicker execution time.</p>
+<p>My initial thought was to try to invoke windows script host directly, so I started looking at the Microsoft script compilers (thinking I could create whatever is used by wsh and run it in the same process). But JSLint came up with compile errors and I quickly realised that I was trying to run it as <a href="https://en.wikipedia.org/wiki/JScript">JScript</a> which is a Microsoft relative of JavaScript.</p>
+<h3>JavaScript Engines In Dot NET</h3>
+<p>So, I found two JavaScript interpreters for C# - <a href="http://jint.codeplex.com/">Jint</a>, a parser written from scratch with the help of <a href="http://www.antlr.org">ANTLR</a> and <a href="http://javascriptdotnet.codeplex.com/">JavaScript.NET</a> which was using the <a href="http://code.google.com/apis/v8/">Google V8</a> JavaScript engine - used in chrome and the fastest JavaScript engine (as far as I know). Jint has better support for integrating between C# and JavaScript, but JavaScript.NET used V8, so I felt it more likely to handle anything thrown at it. So I went with JavaScript.NET and the V8 JavaScript engine.</p>
+<p>So firstly, I embed the <a href="https://github.com/douglascrockford/JSLint/blob/master/jslint.js">full JSLint JavaScript file</a>, create a JavaScript context and run the JSLint code in order that JSLint can be ready for linting.</p>
+{% highlight csharp %}
+/// <summary>
+///  Constructs an object capable of linting JavaScript files and return
+/// </summary>
+public class JsLinter
+{
+    private JavascriptContext _context;
+
+    public JsLinter()
+    {
+        _context = new JavascriptContext();
+		string jslint = "";
+		using (Stream jslintStream = Assembly.GetExecutingAssembly()
+						     .GetManifestResourceStream(
+							@"JsLintDotNet.fulljslint.js"))
+		{
+			using (StreamReader sr = new StreamReader(jslintStream))
+			{
+				jslint = sr.ReadToEnd();
+			}
+		}
+
+        _context.Run(jslint);
+{% endhighlight %}
+<p>My hope is that I can run the JSLint and then execute it multiple times in order to save time parsing the JSLint JavaScript for each individual Lint. So next, I create a JavaScript function that I also run - this will call JSLint and then pass the results to a C# function. Already I know I would like to use the data() function - JSLint doesn't give you errors on unused variables, so I'd like to get all the errors and all the unused variables and process everything myself into C# objects.</p>
+{% highlight javascript %}
+lintRunner = function (dataCollector, javascript, options) {
+	JSLINT(javascript, options);
+	var data = JSLINT.data();
+	dataCollector.ProcessData(data);
+};
+{% endhighlight %}
+<p>So, now that everything is setup I can create a function to lint JavaScript</p>
+{% highlight csharp %}
+public JsLintResult Lint(string javascript, JsLintConfiguration configuration)
+{
+    lock (_lock)
+    {
+        LintDataCollector dataCollector = new LintDataCollector();
+        // Setting the externals parameters of the context
+        _context.SetParameter("dataCollector", dataCollector);
+        _context.SetParameter("javascript", javascript);
+        _context.SetParameter("options", configuration.ToJsOptionVar());
+
+        // Running the script
+        _context.Run("lintRunner(dataCollector, javascript, options);");
+
+        JsLintResult result = new JsLintResult() { Errors = dataCollector.Errors };
+
+        return result;
+    }
+}
+{% endhighlight %}
+<p>Voila! I have to set globals each time (ideally I'd be able to invoke a JavaScript function and pass C# parameters) and then run the function, passing the global variables in as parameters. I thought I'd keep it this way so I can switch it if JavaScript.NET provides that functionality in the future.</p>
+<p>It also worked out when I discovered a bug in JavaScript.NET that throws an exception if an object contains fields that are numbers, e.g.</p>
+{% highlight javascript %}
+var breaksDotNet = {};
+breaksDotNet[1] = true;
+{% endhighlight %}
+<p>Which JSLint can produce when creating it's reports. So a work-around for the time being is to pass a new object made up of errors and unused to my process data command.</p>
+{% highlight javascript %}
+dataCollector.ProcessData({errors: data.errors, unused: data.unused});
+{% endhighlight %}
+<p>In my data collector class, everything is provided as arrays and dictionaries. There is the possibility that the variable is set to null, so I just attempt to cast and try to iterate the errors and unused variables. I put it in a private class as the method has to be public in order the JavaScript be able to see it.</p>
+{% highlight csharp %}
+private class LintDataCollector
+{
+	private List<jslintdata> _errors = new List<jslintdata>();
+
+	public List<jslintdata> Errors
+	{
+		get { return _errors; }
+	}
+
+	public void ProcessData(object data)
+	{
+		Dictionary<string , object> dataDict = data as Dictionary<string , object>;
+
+		if (dataDict != null)
+		{
+			if (dataDict.ContainsKey("errors"))
+			{
+				ProcessListOfObject(dataDict["errors"], (error) =>
+				{
+					JsLintData jsError = new JsLintData();
+					if (error.ContainsKey("line"))
+					{
+						jsError.Line = (int)error["line"];
+					}
+
+					if (error.ContainsKey("character"))
+					{
+						jsError.Character = (int)error["character"];
+					}
+
+					if (error.ContainsKey("reason"))
+					{
+						jsError.Reason = (string)error["reason"];
+					}
+
+					_errors.Add(jsError);
+				});
+			}
+
+			if (dataDict.ContainsKey("unused"))
+			{
+				ProcessListOfObject(dataDict["unused"], (unused) =>
+				{
+					JsLintData jsError = new JsLintData();
+					if (unused.ContainsKey("line"))
+					{
+						jsError.Line = (int)unused["line"];
+					}
+
+					if (unused.ContainsKey("name"))
+					{
+						jsError.Reason = string.Format("Unused Variable : {0}", unused["name"]);
+					}
+
+					_errors.Add(jsError);
+				});
+			}
+		}
+	}
+
+	private void ProcessListOfObject(object obj, Action<dictionary <string, object>> processor)
+	{
+		object[] array = obj as object[];
+
+		if (array != null)
+		{
+			foreach (object objItem in array)
+			{
+				Dictionary<string , object> objItemDictionary = objItem as Dictionary<string , object>;
+
+				if (objItemDictionary != null)
+				{
+					processor(objItemDictionary);
+				}
+			}
+		}
+	}
+}
+{% endhighlight %}
+<h3>Finally..</h3>
+<p>Finally, I've added some unit tests to make sure it processed multiple files correctly with different options and then I added a command line application that can invoke JSLint over multiple files and recursively scan directories, which should make it easier for anyone wishing to use it in their build process.</p>
+<p>Source code for library and executable are available <a href='{{ site.baseurl }}/archive/2010/09/JsLintDotNet.zip'>here</a>.</p>
+<p>The next part will be to look at creating an extension in VS 2010.</p>
+<p>Update: I've since seen <a href="http://jslint4vs2010.codeplex.com">an extension for 2010</a> which means I shall have to decide whether for the next post to integrate this work and some other enhancements I have in mind or I start a new project.</dictionary></p>

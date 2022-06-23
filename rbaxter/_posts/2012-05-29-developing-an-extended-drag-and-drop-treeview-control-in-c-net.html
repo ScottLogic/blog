@@ -1,0 +1,116 @@
+---
+id: 151883
+author: rbaxter
+title: 'Developing an extended Drag And Drop TreeView control in C# .Net'
+oldlink: >-
+  http://www.scottlogic.co.uk/2012/05/developing-an-extended-drag-and-drop-treeview-control-in-c-net/
+tags:
+  - 'C#'
+  - Drag and Drop
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/05/developing-an-extended-drag-and-drop-treeview-control-in-c-net/
+---
+<p><em>This blog post talks about developing an extended Drag and Drop TreeView control in C#.  I say extended because the .Net framework already provides simple drag and drop functionality, but the visual feedback during the drag operation is somewhat lacking.  I found a number of TreeView extensions on CodeProject, some of which work quite nicely.  However, people have tended to focus on moving folder structures in 'Windows Explorer' type clones, while I wanted to focus on restructuring generic trees.  In that spirit, this control shows the substructure of the data you are moving during the drag operation, as opposed to a moving folder image.</em></p>
+<h3>Overview</h3>
+<p>Until recently I had never really used the drag and drop functionality of the .Net framework so wanted to experiment a little.  In pondering the 'time and the place' to use drag and drop I found an interesting article by Leisa Reichelt (<a title="here" href="http://www.disambiguity.com/when-to-use-drag-drop-some-informal-research-results/" target="_blank">here</a>).  Her research suggested that users generally preferred to use drag and drop during data manipulation problems such as organising items relative to each other.  Indeed, most of us have made extensive use of drag and drop in Windows Explorer to move files around, and thus the .Net TreeView control seemed like an excellent test subject on which I could experiment.</p>
+<p>Given the prominence of drag and drop within windows I was somewhat surprised to find that the .Net Framework's TreeView control supplied only basic drag and drop provisions, and having quickly grown bored of this functionality extending the control became the object of my experimentation.  Where the control particularly lacks provision is in re-structuring a tree <em>within</em> a control, which you simply cannot do.  Furthermore, although you can drag data from one control to another using the Drag and Drop API, the visual feedback is severely limited and fails to communicate what datais being dragged. It was these two aspects in particular that I focused on during my experimentation.  In this post I'll talk about a couple of interesting elements of my experience, while the full control and sample application is available <a href="{{ site.baseurl }}/archive/2012/05/DDTreeView1.zip">here</a>.</p>
+<p>To illustrate the end result, Figure 1 shows <em>Branch 0 - Sub-branch 1</em> as it is dragged into <em>Branch 1,</em> and we can show the same feedback when dragging from one control to another to replace the distinctly unimpressive feedback given by standard Drag and Drop.<img class="aligncenter size-full wp-image-151887" title="Extended Drag and Drop TreeView" src="{{ site.baseurl }}/archive/2012/05/screenshot.png" alt="Screenshot of the Extended Drag and Drop TreeView" width="754" height="233" /></p>
+<p>&nbsp;</p>
+<h3>Displaying the dragged data &amp; dragging between controls</h3>
+<p>While experimenting with various ways of showing the data being dragged, I decided that using a borderless form with a partial treeview provided a simple but effective solution.  The extended TreeView uses a member variable to keep track of the TreeNode being dragged, so building a second TreeView to illustrate its structure in a popup is trivial.</p>
+<p>For dragging between controls you can hook into the standard drag and drop API.  The great thing about this is that by listening to the DragEnter event we can directly access the data being dragged (the TreeNode), so it is simple to initialise a new popup window when our control's DragEnter event fires. The resulting event handler looks as follows:</p>
+{% highlight csharp %}private void OnDragEnter(object sender,
+                         System.Windows.Forms.DragEventArgs e)
+{
+   if (e.Data.GetDataPresent(typeof(TreeNode)))
+   {
+      e.Effect = DragDropEffects.Move;
+      TreeNode tn =
+          (TreeNode)e.Data.GetData(typeof(TreeNode).FullName, true);
+      if (!CompareNodeTagState(_nodeBeingMoved, tn))
+      {
+         _nodeBeingMoved = tn;
+         ReInitMovingDataWindow(_nodeBeingMoved);
+      }
+      // We have some valid data in _previousSelectedNode,
+      // so change the curser back
+      this.TopLevelControl.Cursor = Cursors.Default;
+      this.Focus();
+   }
+   else
+   {
+      e.Effect = DragDropEffects.None;
+      _nodeBeingMoved = null;
+   }
+}{% endhighlight %}
+<p>The other great thing about hooking into the drag and drop API is that it exposes the actual objects being moved rather than a serialised copy.  This means that when it comes time to change the TreeNode's parent, we just call <code>TreeNode.Remove()</code> and then add the node to its new parent.  This automatically removes the node from the source control (where the drag started) and leads to a very neat solution.</p>
+<h3>Node Highlighting</h3>
+<p>One of the other things I wanted to do was to use node highlighting to identify restructured tree components. The figure above shows that the data being dragged is highlighted blue in addition to the popup window. Furthermore, once the data is dropped into a new location the data is highlighted green. One can allow the user to restructure the data through multiple drag and drop operations by persisting state information until a save operation is called.</p>
+<p>I chose to persist state information by using the TreeNode Tag property to hold a simple NodeState structure, and the helper function 'GetNodeTagState' was useful for accessing a TreeNode's state. These are shown below:</p>
+{% highlight csharp %}struct NodeState
+{
+   Public bool Moving;
+   Public bool Moved;
+   public int Id;
+};
+
+...
+
+private static NodeState GetNodeTagState(TreeNode node)
+{
+   if (node == null)
+   {
+      throw new Exception("Cannot get tag state from null node");
+   }
+
+   NodeState state;
+   if (node.Tag != null) state = (NodeState)node.Tag;
+   else
+   {
+      state = new NodeState();
+      state.Id = node.GetHashCode();
+   }
+   return state;
+}{% endhighlight %}
+<p>The states of TreeNodes are primarily manipulated during the ItemDrag and DragDrop event handlers, and similarly, TreeNode BackColor is driven from the TreeNode tag state in similar locations. One could add in further events to automatically change the TreeNode BackColor whenever the node's state changes, although I have not done this in the example code.</p>
+<h3>Auto-scrolling during drag</h3>
+<p>Another interesting aspect I investigated was how to enable auto-scrolling when the cursor is near the top or bottom of the tree during a drag operation. This task is made slightly more challenging by the fact that the cursor may be over another control (not the source).</p>
+<p>This problem was solved by identifying the control under the mouse during the OnGiveFeedback event, and using a timer to auto-scroll that control while the cursor remained near its border. To identify the control under the cursor we can use the GetChildAtPoint method, as shown below:</p>
+{% highlight csharp %}Point topLevelPoint = this.TopLevelControl.PointToClient(Control.MousePosition);
+Control ctl = this.TopLevelControl.GetChildAtPoint(topLevelPoint);
+
+if (ctl != null &amp;&amp; ctl.GetType().FullName.Equals(this.GetType().FullName) &amp;&amp; ctl.AllowDrop)
+{
+   _controlUnderMouse = ctl;
+}{% endhighlight %}
+<p>Once we have the control, checking if the cursor is near its edge can be done as follows (a _controlBorderTollerance of 30 pixels seemed to work well):</p>
+{% highlight csharp %}Point controlPoint = _controlUnderMouse.PointToClient(Control.MousePosition);
+PositionByBorder nearEdge = LocationNearControlEdge(_controlUnderMouse, controlPoint.Y, _controlBorderTollerance);
+
+...
+
+public static PositionByBorder LocationNearControlEdge(Control control, int y, int tollerance)
+{
+   int width = control.Width;
+   int height = control.Height;
+
+   if (Math.Abs(0 - y) &lt; tollerance) return PositionByBorder.Top;
+   if (Math.Abs(height - y) &lt; tollerance) return PositionByBorder.Bottom;
+
+   return PositionByBorder.None;
+}{% endhighlight %}
+<p>To actually send a scroll request the SendMessage interface from the Windows API is available. To use this we need to define the following member variables:</p>
+{% highlight csharp %}private const int WM_VSCROLL = 0x115;
+private const int SB_LINEDOWN = 1;
+private const int SB_LINEUP  = 0;
+
+[DllImport("user32.dll", CharSet = CharSet.Auto)]
+private static extern int SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam,IntPtr lParam);{% endhighlight %}
+<p>And finally, within the timer scroll up event (the timer runs whenever the cursor is near the control's border) we simply call:</p>
+{% highlight csharp %}SendMessage(_controlUnderMouse.Handle, WM_VSCROLL, (IntPtr)SB_LINEUP, IntPtr.Zero);{% endhighlight %}
+<p>N.B. Use SB_LINEDOWN in the scroll down tick event.</p>
+<p>To keep this post brief I'll leave the discussion of the details there, but feel free to browse and re-use the full source code and test application <a href="{{ site.baseurl }}/archive/2012/05/DDTreeView1.zip">here</a>.</p>

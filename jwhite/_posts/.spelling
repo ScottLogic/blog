@@ -1,0 +1,27 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - jwhite/_posts/2017-03-20-cassandra-vs-mariadb-scaling.md
+Galera
+sharding
+15ms
+NewSQL
+fezzes
+ - jwhite/_posts/2017-09-25-mutation-testing.md
+com
+FullMutationCoverage
+isIntegerGreaterThanOrLessThanZero
+RuntimeException
+FooTest
+TestFoo
+unmutated
+mutationCoverage
+historyInputFile
+historyOutputFile
+excludedClasses
+excludedMethods
+ - jwhite/_posts/2017-10-10-junit-5.md
+Surefire
+Netbeans

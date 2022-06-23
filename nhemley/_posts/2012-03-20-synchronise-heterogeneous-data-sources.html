@@ -1,0 +1,309 @@
+---
+id: 147146
+author: nhemley
+title: Synchronise Heterogeneous Data Sources
+oldlink: "http://www.scottlogic.co.uk/2012/03/synchronise-heterogeneous-data-sources/"
+tags:
+  - Java
+  - Graph database
+  - Neo4j
+  - JMS
+  - JBoss
+  - blog
+categories:
+  - Data Engineering
+layout: default_post
+source: site
+disqus-id: /2012/03/synchronise-heterogeneous-data-sources/
+---
+<p><em>With non-relational database implementations (key-store, graph, etc.) entering the mainstream, the necessity has arisen to synchronise relational databases to their non-relational cousins. Furthermore, a non-relational data source may be fitted retrospectively to an existing RDBMS deployment to leverage the benefits of a non-relational schema with only minor 'integration disturbance' to the original code-base.</em></p>
+<p>In this blog, I will outline an approach for adding a graph-based data store to an existing relational application through the use of a JQuery plugin, JSON-based MVC and JMS.</p>
+<p>The existing application is a very basic content management system, to which I will be adding the ability for users to add comments (or yakkety yak!) to content.</p>
+<p>In this way, the legacy 'entity' domain of the RDBMS is augmented by a 'comment' domain, held as a graph of nodes in a Neo4J Graph database.</p>
+<p>The graph-based web-app, based on user comments, I have called 'Yakkety Yak' for obvious reasons.</p>
+<h2>Lines, boxes and handwaving</h2>
+<p>The overall architecture of the solution is shown as a series of lines and boxes below. It is based around an application container in which two separate deployments are made - the first deployment is the vanilla database webapp. The second is the yakkety yak graph-based webapp.</p>
+<p style="text-align: center;"><a href="{{ site.baseurl }}/archive/2012/03/yakketyyak_architecture1.png"><img class="size-full wp-image-147159 aligncenter" title="yakketyyak_architecture" src="{{ site.baseurl }}/archive/2012/03/yakketyyak_architecture1.png" alt="" width="451" height="424" /></a></p>
+<p>The overall application has the following features:</p>
+<ul>
+<li>Orthogonality i.e. the two webapps must be able to exist independently of each other</li>
+<li>Synchronisation i.e. the two webapps must be able to communicate, despite their heterogeneous nature</li>
+</ul>
+<h2>Adding Comments to Content</h2>
+<p>As mentioned before, the existing application is a simple database-backed store of content that is rendered on a single page in the browser.</p>
+<p>The back end is written in Java.</p>
+<p>For example, the content entities are defined as sub-classes of a common base class as follows:</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight java %}
+public class ExampleEntity extends AEntity {
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+}{% endhighlight %}
+</div>
+</div>
+<p>The ID of each entity must be unique and is stored in the implementation of AEntity.</p>
+<p>The entities are delivered using Spring MVC to the front-end (via a DAO, exampleEntityDAO):</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight java %}
+@RequestMapping(value={"/", "*"}, method = RequestMethod.GET)
+public ModelAndView getForm() {
+    final ModelAndView modelAndView = modelAndView("defaultView");
+
+    List entityList = exampleEntityDAO.getAll();
+    modelAndView.addObject(DEFAULT_MODEL_KEY, entityList);
+
+    return modelAndView;
+}{% endhighlight %}
+</div>
+</div>
+<p>In order to allow users to comment on each item of content, we now require an 'Add Comment' link to be added by each item of content.</p>
+<p>This can be achieved using a JQuery plugin that will detect the presence of a custom attribute i.e. data-contentKey</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight java %}<td data-contentKey='$entity.id'>$entity.content</td>{% endhighlight %}
+</div>
+</div>
+<p>In this way, the unique id of the entity is 'embedded' in the HTML for future use.</p>
+<p>The salient code from the JQuery plugin which creates the 'Add Comment' links is as follows:</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight javascript %}
+function createLinks() {
+    $this.find('[' + dataContentKey + ']').each(function() {
+        $(this).append('<a href="#" class="' + addCommentLink + '"><img src="' + imageSrc + '" /></a>;');
+    });
+};{% endhighlight %}
+</div>
+</div>
+<p>When rendered, this gives us the 'Add Comment' images as follows:</p>
+<p><a href="{{ site.baseurl }}/archive/2012/03/yakketyyak2.png"><img class="size-full wp-image-147150 aligncenter" title="yakketyyak2" src="{{ site.baseurl }}/archive/2012/03/yakketyyak2.png" alt="" width="233" height="231" /></a></p>
+<h2>REST assured</h2>
+<p>So far so good. But how do we now enable comments to actually be added?</p>
+<p>The answer to this is to expose our graph-database in a RESTful manner.</p>
+<p>A concrete implementation of a REST Web service follows four basic design principles:</p>
+<ul>
+<li>Use HTTP methods explicitly.</li>
+<li>Be stateless.</li>
+<li>Expose directory structure-like URIs.</li>
+<li>Transfer XML, JavaScript Object Notation (JSON), or both.</li>
+</ul>
+<p>So although our solution is not entirely stateless (since we have state held in the graph database), it will expose methods via HTTP and also allow use to view specific nodes using a well-known URL</p>
+<p>For example to get per-content comments and make new comments, we expose the following methods in a JSON-enabled controller (i.e. servlet) in the graph domain:</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight java %}
+@RequestMapping(value="getComments", method=RequestMethod.GET, headers = {"Accept=application/json"})
+public @ResponseBody List getComments(@RequestParam(value = "contentKey", required = true) String contentKey) {
+    List commentList = commentDAO.getAllCommentsByContentKey(contentKey);
+    return commentList;
+}
+
+@RequestMapping(value="addComment", method = RequestMethod.POST, headers = {"Accept=application/json"})
+public @ResponseBody void addComment(CommentFormModel commentFormModel) {
+    commentDAO.addUserCommentOnContent(commentFormModel.getUsername(), commentFormModel.getContentKey(), commentFormModel.getComment());
+}{% endhighlight %}
+</div>
+</div>
+<p>These JSON-enabled methods are called from the dialog box that is part of our JQuery plugin (below).</p>
+<p style="text-align: center;"><a href="{{ site.baseurl }}/archive/2012/03/yakketyyak31.png"><img class="size-full wp-image-147156 aligncenter" title="yakketyyak3" src="{{ site.baseurl }}/archive/2012/03/yakketyyak31.png" alt="" width="587" height="236" /></a></p>
+<p>When the comment is submitted, our new comment is stored in the graph-database.</p>
+<p>Under the covers, we have modelled the comment as a relationship that joins user nodes and content nodes, as follows:</p>
+<p><a href="{{ site.baseurl }}/archive/2012/03/UserCommentContent.png"><img class="size-medium wp-image-147147 aligncenter" title="UserCommentContent" src="{{ site.baseurl }}/archive/2012/03/UserCommentContent-300x168.png" alt="" width="300" height="168" /></a></p>
+<p>Note that the relationship is uni-directional i.e. Users can make comments on Content but not vice versa</p>
+<p>In terms of implementation, we can abstract away from the actual underlying graph store by using a DAO layer, for example:</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight java %}
+public interface ICommentDAO extends IBaseDAO {
+    IComment getCommentById(String commentId) throws RelationshipNotFoundException;
+    void removeComment(String commentId) throws RelationshipNotFoundException;
+    void removeAllComments();
+
+    boolean hasComments(String contentKey);
+    void removeUserCommentsOnContent(String username, String contentKey) throws NodeNotFoundException;
+    List getAllCommentsByContentKey(String contentKey);
+    void addUserCommentOnContent(String username, String contentKey, String comment);
+}{% endhighlight %}
+</div>
+</div>
+<p>Obviously, we are able to then expose this DAO via a web service or MVC presentation layer.</p>
+<p>This approach is entirely orthogonal to the original RDBMS approach, since we can also use the ID of a content or comment node, to 'view' the node directly.</p>
+<p>For example, the URL:</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight xml %}http://localhost:8080/yakketyyak/content/345345345{% endhighlight %}
+</div>
+</div>
+<p>would display the node with id 345345345 in the browser; in this case it displays the content node along with its concomitant comments.The important point to note is that this is outwith the existing RDBMS and we are displaying only data held in the graph database.</p>
+<p>For example, we can display the comments using a JQuery JSON request:</p>
+<p style="text-align: center;"><a href="{{ site.baseurl }}/archive/2012/03/yakketyyak41.png"><img class="size-full wp-image-147157 aligncenter" title="yakketyyak4" src="{{ site.baseurl }}/archive/2012/03/yakketyyak41.png" alt="" width="517" height="285" /></a></p>
+<h2>Tell the world of the creation!</h2>
+<p>The next task is the non-trivial part - to fully synchronize the two data sources.</p>
+<p>When content or users are added, we can implicitly add nodes, yet we would still need to be able to inform the (slave) data source of deletion events so that nodes (and their relationships) can be removed.</p>
+<p>Integration can be achieved using JMS by generating messages whenever an entity is created or removed.</p>
+<p>In the DAO Layer of the RDBMS domain we can inject a  JMS message producer as follows:</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight java %}
+public class AEntityDAO {
+    private IJMSProducer jmsProducer;
+
+    public AEntityDAO(IJMSProducer jmsProducer) {
+        this.jmsProducer = jmsProducer;
+    }
+
+    public IEntity addEntity(IEntity entity) {
+        // tell the world of the creation
+        getJmsProducer().sendEntityCreationMessage(entity.getClass().getCanonicalName(), entity.getId().toString(), entity.toMap());
+        return entity;
+    }
+
+    public IJMSProducer getJmsProducer() {
+        return jmsProducer;
+    }
+}{% endhighlight %}
+</div>
+</div>
+<p>This ensures that any addEntity(...) event will generate a message on the JMS Queue, which can be subsequently consumed by a 'listener' in the graph-database domain.</p>
+<p>The actual queue itself is configured within JBoss 7.1.x since it ships with the redoubtable HornetQ. A second remote queue is also configured since JBoss will allow a remote JNDI connection to a remotely-configured queue, which is ideal for testing.This set-up is configured in the standalone.xml file of JBoss as follows:</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight xml %}
+<jms-destinations>
+  <jms-queue name="testRemoteQueue">
+    <entry name="java:jboss/exported/jms/queue/test"/>
+  </jms-queue>
+  <jms-queue name="testLocalQueue">
+    <entry name="jms/queue/test"/>
+  </jms-queue>
+</jms-destinations>{% endhighlight %}
+</div>
+</div>
+<p>Note - the initial context factory setting as used in the client code will be different for remote and local queue access. The remote setting is 'org.jboss.naming.remote.client.InitialContextFactory' whereas the local setting is 'org.jboss.as.naming.InitialContextFactory'. There is more on this topic in the references below or email me for more info.</p>
+<p>Finally, we need to consume the JMS messages and act upon them. The JMSConsumer itself is beyond the scope of this blog, suffice to say it has the following API:</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight java %}
+public interface IJMSConsumer {
+    IEntityActionMessage receiveMessage();
+    void resetConnection();
+    void close();
+    void setTimeout(long millis);
+}{% endhighlight %}
+</div>
+</div>
+<p>Where the IEntityActionMessage is the interface for all messages being passed.</p>
+<p>Crucially, it has a getContentKey() so that we can pass the unique ID of the entity that was created or deleted.</p>
+<p>But for a given entity in the RDBMS domain (e.g. com.entity.ExampleEntity), how do we know how to map this to a DAO in the graph domain?</p>
+<h2>Mapping entities to nodes</h2>
+<p>The solution can be found in a callback mechanism for message handling.</p>
+<p>The DAO layer in the graph domain is augmented with a new interface - IEntityToNodeMappingHandler - which handles the incoming messages from the JMS Consumer.</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight java %}
+public interface IEntityToNodeMappingHandler {
+    String getMappedEntityFullyQualifiedClassName();
+    void handleMessage(IEntityActionMessage message);
+}{% endhighlight %}
+</div>
+</div>
+<p>For example the content DAO implements the interface as follows:</p>
+<div class="wp_syntax">
+<div class="code">
+{% highlight java %}
+/*
+ * Call-back method in IEntityToNodeMappingHandler
+ */
+public void handleMessage(IEntityActionMessage message) {
+    String contentKey = message.getContentKey();
+    String content = message.getEntityPropertyMap().get("content");
+
+    if (message instanceof CreateEntityMessage) {
+        addContent(contentKey, content);
+    } else if (message instanceof DeleteEntityMessage) {
+        try {
+            removeContent(contentKey);
+        } catch (NodeNotFoundException e) {
+            log.error("An error occurred.", e);
+        }
+    }
+}
+...
+public String getMappedEntityFullyQualifiedClassName() {
+    return "com.example.entity.ExampleEntity";
+}{% endhighlight %}
+</div>
+</div>
+<p>This new interface gives us a handle on the incoming IEntityActionMessage messages and also states explicitly which entity will be handled by the DAO.</p>
+<h2>The Mapping Dispatcher</h2>
+<p>When a DAO in the graph domain is autowired by Spring, a mapping dispatcher is also passed in as a constructor parameter. It is this code which performs the actual mapping from entity class to DAO.</p>
+<p>For example, the Content DAO will <strong>register itself</strong> to handle all messages that originate from a specific class of entity, as follows:</p>
+<div class="wp_syntax">
+<div class="code">
+<pre>mappingDispatcher.registerEntityToNodeMappingHandler(this);</pre>
+</div>
+</div>
+<p>All that remains is for us to specify the entity class in the relational domain when the JMS call originates.</p>
+<p>So in the RDBMS domain, we generate messages as follows:</p>
+<div class="wp_syntax">
+<div class="code">
+<pre>getJmsProducer().sendEntityCreationMessage(entity.getClass().getCanonicalName(), entity.getId().toString(), entity.toMap());</pre>
+</div>
+</div>
+<p>Here we can see that the first argument is the class of the entity, which then maps onto our content DAO. The second parameter is the entity id and the third is a map of entity properties i.e. the entity as a set of key/value pairs. Obviously this scheme only allows for string properties, but the scheme could easily be extended.</p>
+<p>One obvious extension is to store binary data (i.e. an image) on a per-content basis, but this would probably require a slightly different back-end (maybe a scaleable solution like Apache Cassandra), but this may potentially be the subject of a further blog.</p>
+<p>So we have now seen how we are able to act upon both creation and deletion events and keep the data sources in step.</p>
+<p>Note - this is currently implemented as a one way master-slave relationship but the approach could be adapted to allow two-way communication.</p>
+<h2>Final thoughts</h2>
+<p>Graph databases are ideal for data that is a natural tree of nodes connected with relationships; both nodes and relationships may hold data.</p>
+<p>In this example we have used the relatively trivial example of comments made by users on content, but the approach is valid for more complex data structures. For example, more complex trees with complicated traversal patterns. One good example is where we need to perform top-down or bottom-up graph traversals, for example, optimization problems such as financial portfolio optimization.</p>
+<p>However, there are some obvious further extensions to this more simple example:</p>
+<ul>
+<li>Allow the storage of binary data when creating content nodes</li>
+<li>Add access restrictions through some kind of ACL or user-roles</li>
+<li>Extend the graph schema into a specific application domain by adding more specific node and relationship types</li>
+</ul>
+<div>Overall, we have seen that it is relatively straight forward to use JMS for middleware synchronisation between data sources; other database replication or clustering solutions usually only operate in a homogeneous manner.</div>
+<h2>Credit and references</h2>
+<ul>
+<li>Special thanks to Ben Mumford for development of the JQuery plugin</li>
+</ul>
+<ul>
+<li><a href="http://www.jboss.org/jbossas/downloads">JBoss 7.1.x</a></li>
+<li><a href="https://docs.jboss.org/author/display/AS71/EJB+invocations+from+a+remote+client+using+JNDI">Remote JBoss Client Using JNDI</a></li>
+<li><a href="http://neo4j.org/">Neo4J graph database</a></li>
+<li><a href="https://github.com/tinkerpop/gremlin/wiki/">Gremlin Graph Traversal</a></li>
+<li>For a zip of the source code, please contact nhemley@scottlogic.co.uk</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

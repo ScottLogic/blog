@@ -1,0 +1,287 @@
+---
+id: 76695
+author: mrhodes
+title: Sorted Lists in Java
+oldlink: "http://www.scottlogic.co.uk/2010/12/sorted_lists_in_java/"
+tags:
+  - Algorithms
+  - Data Structures
+  - Java
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2010/12/sorted_lists_in_java/
+---
+<p><em>This post goes through an implementation a SortedList in Java which ensures its elements are kept in order and guarantees O(log(n)) run time for all the basic operations: get, contains, remove and add.</em>  The source code, javadoc, unit tests and class files for this post are available here: <a href="{{ site.baseurl }}/archive/2011/06/scottlogic-utils-mr-1.4.zip"><strong>scottlogic-utils-mr-1.4.zip</strong></a>.</p>
+<p>Sorting is one of the most common operations applied to lists and as such Java has built in mechanisms for doing it, like the <code>Comparable</code> and <code>Comparator</code> interfaces and the <code>Collections.sort</code> methods.  These are great when you have a static list that needs to be ordered, but sometimes you want the list to remain sorted after some altering operations have been applied to it (e.g. if you add an element to an ArrayList which you've sorted, chances are that it's no longer in the right order).  For some reason, the <code>java.util</code> package is lacking a proper <code>SortedList</code>, and since they're quite handy, I thought I write my own.</p>
+<p><strong>Alternatives</strong>As with all data structures, whether a <code>SortedList</code> the right tool for the job depends on how the data is going to be used.  The <code>java.util</code> package contains a host of different data structures, all of which have their place, but unfortunately it (at least at the moment) is missing the <code>SortedList</code>.  A comparison between some of the the Java's built in data structures and a <code>SortedList</code> is given below:</p>
+<table class="blogTable">
+<thead>
+<tr>
+<th></th>
+<th>add(Object elem)</th>
+<th>remove(Object elem)</th>
+<th>get(int index)</th>
+<th>contains(Object elem)</th>
+<th>multiple equal elements</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ArrayList</td>
+<td><em>O(1)*</em></td>
+<td><em>O(n)</em></td>
+<td><em>O(1)</em></td>
+<td><em>O(n)</em></td>
+<td>YES</td>
+</tr>
+<tr>
+<td>LinkedList</td>
+<td><em>O(1)</em></td>
+<td><em>O(n)</em></td>
+<td><em>O(n)</em></td>
+<td><em>O(n)</em></td>
+<td>YES</td>
+</tr>
+<tr>
+<td>TreeSet</td>
+<td><em>O(log(n))</em></td>
+<td><em>O(log(n))</em></td>
+<td>N/A</td>
+<td><em>O(log(n))</em></td>
+<td>NO</td>
+</tr>
+<tr>
+<td>PriorityQueue</td>
+<td><em>O(log(n))</em></td>
+<td><em>O(n)</em></td>
+<td>N/A</td>
+<td><em>O(n)</em></td>
+<td>YES</td>
+</tr>
+<tr>
+<td>SortedList</td>
+<td><em>O(log(n))</em></td>
+<td><em>O(log(n))</em></td>
+<td><em>O(log(n))</em></td>
+<td><em>O(log(n))</em></td>
+<td>YES</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="6">* -  <em>amortized constant time</em> (inserting <em>n</em> objects takes <em>O(n)</em> time).</td>
+</tr>
+</tfoot>
+</table>
+<p>If you're not likely to change the data structure much, you might want to just use an ArrayList or a regular array and sort it when you need, which can be done relatively quickly (<em>O(n*log(n))</em>), using Java's <code>Collections.sort</code> or <code>Arrays.sort</code> methods respectively.  So long as you don't need to sort it too often, there's no problem.</p>
+<p>If you're not sure how many times you'll need to sort it, it's quicker to ensure that the data is always kept in order.  If you don't need to store multiple equal elements and don't need random access to the data (i.e. you don't need to run <code>get(int index)</code>) then it's probably best to use Java's <code>TreeSet</code>.  If you need to store multiple equal elements but don't need random access to the data, or quick contains/remove methods then Java's <code>PriorityQueue</code> might be the way to go.  If these cases don't apply, then a <code>SortedList</code> might be what you want.</p>
+<p><strong>Implementing a custom <code>List</code> in Java</strong>All Lists in Java should implement the <code>java.util.List</code> interface, however, rather than implement this directly, the easiest way to start off writing your own <code>List</code> class is have it extend the <code>AbstractList</code> class instead.  This class implements the <code>List</code> interface and provides default implementations of the methods, reducing the amount of code you need to write.  Most of these default implementations just throws an <code>UnsupportedOperationException</code>, but some are useful. For example, the default <code>listIterator</code> and <code>iterator </code> methods provide you with working iterators once you've provided an implementation for the <code>get(int index)</code> method.</p>
+<p>It's also easy to configure the iterators provided by the <code>AbstractList</code> to exhibit <em>fail-fast</em> behaviour.  This means that if the list is modified after the iterator has been created, other than through the iterator itself, then calling any method other than <code>hasNext()</code> on the iterator will (hopefully!) cause the cause a <code>ConcurrentModificationException</code> to be thrown, as is standard for all of Java's non-synchronized Collection classes.  To do this, you just need to increment the <code>modCount</code> variable whenever you add or remove an element from the list.  For example, the <code>add</code> method in the given implementation has the following structure:</p>
+{% highlight java %}
+public boolean add(T object){
+    boolean treeAltered;
+    if(object != null){
+         //add the object to the list..
+         ...
+         treeAltered = true;
+         modCount++;
+    }
+    return treeAltered;
+}
+{% endhighlight %}
+<p>Here I took the decision not to allow <code>null</code> values to be added in the list, just to simplify the other methods and since on the vast majority of applications this is what you want.  If you really need to add a <code>null</code> value you can always just add a special singleton instance of type <code>T</code> which you know represents <code>null</code> instead of <code>null</code> itself.  The effect of the calling <code>modCount++;</code> in the add method is that the following code will now throw a <code>ConcurrentModificationException</code>.</p>
+{% highlight java %}
+SortedList<Integer> list = new SortedList<Integer>();
+Iterator<Integer> itr = list.iterator();
+list.add(1);
+itr.next();
+{% endhighlight %}
+<p>Another thing to consider when writing a custom <code>List</code> class (as with any class!) is how you are going to define its type and the constructors.  Since a <code>SortedList</code> needs a way of comparing the elements it stores, I've decided to leave the type definition simple but only supply a constructor which takes a <code>Comparator</code>, this constructor has the following signature:</p>
+{% highlight java %}
+public SortedList(Comparator<? super T> comparator)
+{% endhighlight %}
+<p>If you're not used to Java generics then this line might look a bit odd!  The type definition, "<code>&lt;? super T&gt;&gt;</code>" just says that the given comparator must be capable of comparing elements of type <code>T</code>, which is the type of element that the list is able to store.</p>
+<p>This might seem like a weird decision, since Java's built in <code>TreeSet</code> doesn't enforce the same restriction; it also allows a no-argument constructor.  The reason is that this no-argument constructor is used to create a <code>TreeSet</code> which orders elements by their <em>natural order</em>; i.e. the order you get if you use the <code>compareTo</code> method on the set's elements.  The draw back of this design decision is that there is no way to say that either the elements must be <code>Comparable</code>, or you need to supply a <code>Comparator</code>, so you need to add a runtime check for this (i.e. note the <code>ClassCastException</code> thrown by the <a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html#add(E)"><code>TreeSet</code>'s  <code>add</code></a> method).</p>
+<p>If you need this behaviour with this <code>SortedList</code>, you can you implement a very simple subclass of it which passes in a <code>Comparator</code> providing this natural ordering.  An example implementation of this is shown below:</p>
+{% highlight java %}
+public class SortedListNatural<T extends Comparable<? super T>> extends SortedList<T> {
+	public SortedListNatural(){
+		super(new Comparator<T>(){
+			public int compare(T one, T two){
+				return one.compareTo(two);
+			}
+		});
+	}
+}
+{% endhighlight %}
+<p>Note that the type definition restricts the class so that only comparable objects can be stored in it; removing the need for any runtime check.</p>
+<p><strong>AVL Trees as Sorted Lists</strong>In order to obtain the logarithmic run times for the standard operations, the SortedList needs to be based on some kind of balanced tree structure.  I've used an <a href="https://en.wikipedia.org/wiki/AVL_tree">AVL tree</a>, which is pretty much the simplest form of balanced tree you can have (so less chance of mistakes!) and since it ensures the tree remains very balanced (more so than say a <a href="https://en.wikipedia.org/wiki/Red-black_tree">Red-Black Tree</a>), it means that that the <code>get</code> and <code>contains</code> methods always run efficiently.</p>
+<p>An AVL tree is a <a href="https://en.wikipedia.org/wiki/Binary_search_tree">binary search tree</a>, which rebalances itself whenever the height of any node's subtree becomes at least two larger than it's other subtree.  The rebalancing requires implementing just two methods - the <a href="https://en.wikipedia.org/wiki/Tree_rotation">left and the right tree rotations</a>.  I won't go into all the details here, but if you're interested, a pretty easy to follow introduction to AVL trees is available at: <a href="http://www.cse.cuhk.edu.hk/~taoyf/course/2100s11/lec9.pdf">lecture1</a>, <a href="http://www.cse.cuhk.edu.hk/~taoyf/course/2100sum11/lec10.pdf">lecture2 </a>and <a href="http://www.cse.cuhk.edu.hk/~taoyf/course/2100sum11/lec11.pdf">lecture3</a>.</p>
+<p>When it comes to actually implementing an AVL tree, the most obvious way to do it in Java is to have an inner <code>Node</code> class to represent the individual positions in the tree, and then have the main class hold a reference to the root <code>Node</code> of the tree.  The <code>Node</code> class needs to be defined somewhat recursively, as each Node needs to maintain references to both the children nodes and their parent node.  In order to use an AVL tree as a <code>SortedList</code>, you need this Node class to be slightly different than in a standard implementation, the changes required are that:</p>
+<ol>
+<li>Allow more than one node to store values that are equal in terms of the given comparator.</li>
+<li>Nodes need to remember the total number of children they have</li>
+</ol>
+<p>The first alteration is required so that the tree can be used as a <code>List</code> rather than as a <code>Set</code> and the second in order to implement the <code>get(int index)</code> method efficiently.</p>
+<p>The start of the Node class in the implementation looks like this:</p>
+{% highlight java %}
+private int NEXT_NODE_ID = Integer.MIN_VALUE;
+
+private class Node implements Comparable<Node> {
+    final int id = NEXT_NODE_ID++; //get the id and increment it..
+    T value; //the data value being stored at this node
+
+    Node leftChild;
+    Node rightChild;
+    Node parent;
+
+    //The "cached" values used to speed up methods..
+    int height;
+    int numChildren;
+
+    //Compares the t values using the comparator, if they are equal it uses the
+    //node it - older nodes considered to be smaller..
+    public int compareTo(Node other){
+        int comparison = comparator.compare(value, other.value);
+        return (comparison == 0) ? (id-other.id) : comparison;
+    }
+    ...
+{% endhighlight %}
+<p>As the <code>Node</code> class is an inner class there is no need to "parameterise" the type definition, it automatically inherits the definition of the <code>T</code> from the <code>SortedList</code> parent class.  The list allows multiple values to be stored by giving each node a unique id, which is incremented as each element is added.  The <code>Node</code>'s <code>compareTo</code> method then uses this when comparing values, so that nodes with the same value according to the comparator, are distinguished by their unique id.  The <code>height</code> and <code>numChildren</code> fields are really just cached values, since their values could be obtained by examining the child nodes.  It's up to the implementation to ensure that these values are maintained as changes are made to the tree.  In the given implementation, this is all done in the <code>updateCachedValues</code> method of the <code>Node</code> class:</p>
+{% highlight java %}
+private void updateCachedValues(){
+	Node current = this;
+	while(current != null){
+		if(current.isLeaf()){
+			current.height = 0;
+			current.numChildren = 0;
+		} else {
+			//deal with the height..
+			int leftTreeHeight = (current.leftChild == null) ? 0 : current.leftChild.height;
+			int rightTreeHeight = (current.rightChild == null) ? 0 : current.rightChild.height;
+			current.height = 1 + Math.max(leftTreeHeight, rightTreeHeight);
+
+			//deal with the number of children..
+			int leftTreeSize = (current.leftChild == null) ? 0 : current.leftChild.sizeOfSubTree();
+			int rightTreeSize = (current.rightChild == null) ? 0 : current.rightChild.sizeOfSubTree();
+			current.numChildren = leftTreeSize + rightTreeSize;
+		}
+	   //propagate up the tree..
+	   current = current.parent;
+	}
+}
+{% endhighlight %}
+<p>So long as this method is called on the appropriate node each time the tree is structurally altered, the values will remain correct.  It's not always obvious which node constitutes the "appropriate one", but it should always be the node which was altered with the lowest height in the resulting tree (it's always the case that there is one such node).</p>
+<p>The only key method that is missing from a standard AVL tree implementation that is required to make it work as a <code>List</code> is the <code>get(int index)</code> method.  As I mentioned before, this method is going to make use of the <code>numChildren</code> field of the <code>Node</code> class to so that it can be implemented efficiently.  Once this field is in place, it's not difficult to implement - the method just needs to traverse the tree, making sure that it remembers how many smaller values there are than those at the current node; this effectively tells you the index of the first value stored at the current node.  In the provided implementation, the code look like this:</p>
+{% highlight java %}
+@Override
+public T get(int index){
+	return findNodeAtIndex(index).value;
+}
+
+private Node findNodeAtIndex(int index){
+	if(index < 0 || index >= size()){
+		throw new IllegalArgumentException(index + " is not valid index.");
+	}
+	Node current = root;
+	//the the number of smaller elements of the current node as we traverse the tree..
+	int totalSmallerElements = (current.leftChild == null) ? 0 : current.leftChild.sizeOfSubTree();
+	while(current!= null){  //should always break, due to constraint above..
+		if(totalSmallerElements == index){
+			break;
+		}
+		if(totalSmallerElements > index){ //go left..
+			current = current.leftChild;
+			totalSmallerElements--;
+			totalSmallerElements -= (current.rightChild == null) ? 0 : current.rightChild.sizeOfSubTree();
+		} else { //go right..
+			totalSmallerElements++;
+			current = current.rightChild;
+			totalSmallerElements += (current.leftChild == null) ? 0 : current.leftChild.sizeOfSubTree();
+		}
+	}
+	return current;
+}
+{% endhighlight %}
+<p>Here the <code>sizeOfSubTree</code> method just returns one plus the number of children values of the node.  The <code>totalSmallerElements</code> variable effectively stores the index of the current node is maintained in lines as the tree is traversed. </p>
+<p><strong>Doing without recursion</strong>You might have noticed that the code so far has been iterative rather than recursive.  Generally, most operations involving trees are written using recursion, but since iterative solutions tend to be quicker, I've stuck to using iteration throughout the implementation (the only exception is with the <code>structurallyEqualTo</code> method which is just there for testing).  For methods where you just need to traverse the tree, like the <code>get</code> or <code>contains</code> methods, turning it from a recursive method to a iterative one is just a case of adding a while loop and keeping a reference to the current Node that you're looking at.  For example, you go from something like:</p>
+{% highlight java %}
+void method(){
+    if(/*some condition holds for this node*/){
+       return this;
+    } else if(/*need to traverse left*/){
+        return leftChild.method();
+    } else {  //need to traverse right..
+        return rightChild.method();
+    }
+}
+{% endhighlight %}
+<p>to something like:</p>
+{% highlight java %}
+void method(){
+    Node currentPosition = this;
+    while(currentPosition != null){
+        if(/*some condition holds for currentPosition*/){
+            return currentPosition;
+        } else if(/*need to traverse left*/){
+            currentPosition = leftChild;
+        } else {  //need to traverse right..
+            currentPosition = rightChild;
+        }
+}
+{% endhighlight %}
+<p>The only difficulty comes when the method needs to go back to nodes that have previously been visited, (i.e. those that can't be written with just simple <a href="http://stackoverflow.com/questions/33923/what-is-tail-recursion">tail recursion</a>).  For instance, if you want to print all the elements in the tree in order; with recursion this is just a few lines:</p>
+{% highlight java %}
+void printAll(){
+    if(leftChild != null){
+        leftChild.printAll();
+    }
+    printValues(); //prints the values at this node..
+    if(rightChild != null){
+        rightChild.printAll();
+    }
+}
+{% endhighlight %}
+<p>This could then be invoked on the root node to print the whole tree.  It's really not obvious how to do this without using recursion!  To overcome this, the <code>Node</code> class in the implementation defines a couple of handy iterative methods - the <code>smallestNodeInSubTree</code>, which finds the smallest node in the sub-tree rooted at the node and <code>successor</code>, which find the next largest node in the tree (so returns <code>null</code> for the node storing the largest values in the tree).  They are defined like this:</p>
+{% highlight java %}
+public Node smallestNodeInSubTree(){
+     Node current = this;
+     while(current != null){
+         if(current.leftChild == null){
+             break;
+         } else {
+            current = current.leftChild;
+        }
+    }
+    return current;
+}
+
+public Node successor(){
+   Node successor = null;
+   if(rightChild != null){
+	   successor = rightChild.smallestNodeInSubTree();
+   } else if(parent != null){
+	   Node current = this;
+	   while(current != null && current.isRightChildOfParent()){
+		   current = current.parent;
+	   }
+	   successor = current.parent;
+   }
+   return successor;
+}
+{% endhighlight %}
+<p>With these in place, you could write an iterative version of the printAll method like this:</p>
+{% highlight java %}
+void printAll(){
+    Node current = this.smallestNodeInSubTree();
+    while(current != null){
+        current.printValues(); //prints the values at the current node..
+        current = current.successor();
+    }
+}
+{% endhighlight %}
+<p><strong>Unit Tests</strong>I always find that when writing code like this, it's really easy to make a mistake, so to build up some confidence in it I wrote some <a href="http://www.junit.org/">junit</a> tests for the SortedList class which are included in the download.  If you find a problem with it that's not covered by them please let me know.</p>
+<p>Mark Rhodes</p>

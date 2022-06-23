@@ -1,0 +1,37 @@
+---
+published: true
+author: jporter
+title: ''
+layout: default_post
+category: Tech
+---
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+
+#Android specific words
+Jetpack
+LiveData
+MutableLiveData
+MediatorLiveData
+viewLifeCycleOwner
+lifeCycleOwner
+RecyclerView
+Intellij
+Lombok
+Evernote
+AirBnB
+Trello
+Hoare
+c'est
+px
+dp
+sp
+OnePlus
+wireframing
+TextView
+EditText
+colorPrimary
+PascalCase
+TextAppearance

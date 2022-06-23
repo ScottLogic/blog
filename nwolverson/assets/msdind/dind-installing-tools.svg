@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="337px" preserveAspectRatio="none" style="width:170px;height:337px;" version="1.1" viewBox="0 0 170 337" width="170px" zoomAndPan="magnify"><defs><filter height="300%" id="f1l4zqh00r2ozv" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster dind--><polygon fill="#FFFFFF" filter="url(#f1l4zqh00r2ozv)" points="22,34,32,24,148,24,148,315,138,325,22,325,22,34" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="138" x2="147" y1="34" y2="25"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="138" y1="34" y2="34"/><line style="stroke: #000000; stroke-width: 1.5;" x1="138" x2="138" y1="34" y2="325"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="31" x="65.5" y="51.5332">dind</text><!--entity tools--><rect fill="#FEFECE" filter="url(#f1l4zqh00r2ozv)" height="37.6094" style="stroke: #000000; stroke-width: 1.5;" width="90" x="40" y="65"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="70" x="50" y="89.5332">install tools</text><!--entity build--><rect fill="#FEFECE" filter="url(#f1l4zqh00r2ozv)" height="37.6094" style="stroke: #000000; stroke-width: 1.5;" width="50" x="60" y="163"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="30" x="70" y="187.5332">build</text><!--entity package--><polygon fill="#FEFECE" filter="url(#f1l4zqh00r2ozv)" points="38,271,48,261,132,261,132,298.6094,122,308.6094,38,308.6094,38,271" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="122" x2="131" y1="271" y2="262"/><line style="stroke: #000000; stroke-width: 1.5;" x1="38" x2="122" y1="271" y2="271"/><line style="stroke: #000000; stroke-width: 1.5;" x1="122" x2="122" y1="271" y2="308.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="54" x="53" y="295.5332">package</text><!--link tools to build--><path d="M85,103.057 C85,118.513 85,140.865 85,157.673 " fill="none" id="tools-build" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="85,162.698,89,153.698,85,157.698,81,153.698,85,162.698" style="stroke: #A80036; stroke-width: 1.0;"/><!--link build to package--><path d="M85,201.057 C85,216.175 85,238.019 85,255.4959 " fill="none" id="build-package" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="85,260.7672,89,251.7672,85,255.7672,81,251.7672,85,260.7672" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml dind-installing-tools
+skinparam defaultTextAlignment center
+
+node dind {
+    rectangle tools [
+        install tools
+    ]
+    rectangle build
+    node package
+    tools - -> build
+    build - -> package
+}
+@enduml
+
+PlantUML version 1.2018.01(Sun Jan 28 18:08:22 GMT 2018)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_161-b12
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

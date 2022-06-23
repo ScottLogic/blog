@@ -1,0 +1,185 @@
+---
+id: 145083
+author: mrhodes
+title: Blake 512 in Javascript
+oldlink: "http://www.scottlogic.co.uk/2012/02/blake-512-in-javascript/"
+tags:
+  - Javascript
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/02/blake-512-in-javascript/
+---
+<p><script src="{{ site.baseurl }}/archive/2012/02/blake512.js"></script><script src="{{ site.baseurl }}/archive/2012/02/testBlakeHash.js"></script><em>This post describes an implementation of the Blake 512 hashing algorithm in JavaScript.  This algorithm is one of the finalists for the <a href="http://csrc.nist.gov/groups/ST/hash/sha-3/index.html">SHA-3 competition</a> due to be completed in the next month or so.  The source code for the implementation is available here: <a href="{{ site.baseurl }}/archive/2012/02/blake512.js">blake512.js</a></em></p>
+<p>You can try it yourself by putting in a string to hash below:</p>
+<style>    #blakeTestArea {       width: 80%;       margin: 20px auto;       font-family: Arial;    }    #blakeTestArea .note {        font-size: 9px;    }    #blakeTestArea label {        font-size: 12px;       }    #blakeHashButton {        padding: 2px 5px;    }</style>
+<div id="blakeTestArea">    <label for="blake512Input">Message: </label>    <textarea id="blake512Input" name="blake512Input" cols="70" rows="5"></textarea>    <label for="blake512Salt">Salt: </label><input id="blake512Salt" name="blake512Salt" type="text" length="16" />    <span class="note">(Note: if specified, this needs to be a 16 character string)</span>    <input id="blakeHashButton" type="button" onclick="testBlakeHash()" value="Hash!" /></div>
+<p><strong>The Algorithm</strong><br />The specification of the Blake 512 algorithm is available online here: <a href="http://www.131002.net/blake/blake.pdf">blake.pdf</a>.  This document also includes a reference C implementation, together with some test values against which to verify an implementation's correctness.  If you're interested in what the algorithm actually does and how it works; that's the place to start reading!  The only valid test case from the spec you can use with this implementation is the sample "2-block message" which encodes a sequence of 1152 zeros, using the standard salt (which is a sequence of 256 zeros).  To run this test in your browser, open the developer console and enter:</p>
+{% highlight javascript %}
+var testCase = '';
+for(var i = 0; i < 72; ++i){
+    testCase += 'u0000';
+}
+blake512(testCase, null, true);
+{% endhighlight %}
+<p>Hopefully, the output should be:</p>
+<pre>
+313717D608E9CF75 8DCB1EB0F0C3CF9F C150B2D500FB33F5 1C52AFC99D358A2F
+1374B8A38BBA7974 E7F6EF79CAB16F22 CE1E649D6E01AD95 89C213045D545DDE.
+</pre>
+<p>It must be said that JavaScript is certainly not the best language to implement this kind of hashing algorithm, and that this implementation is significantly slower than the reference C implementation.  However, it should be quick enough for general usage and takes less than 1ms to encode a 2-block message on a modern browser.</p>
+<p><strong>Handling the Input</strong><br />Since there is no native binary data type in JavaScript, this implementation uses JavaScript Strings to encode the message to hash.  It follows the lead of <a href="https://github.com/drostie/sha3-js/blob/master/blake32.js">Chris Drost's blake 32 (256) implementation</a>, which treats the given message as a UCS-2 encoded binary sequence (i.e. JavaScript's native string encoding); e.g. the string '\uB210\u0061' ('눐a') encodes the hex sequence: B210 0061.  The upside of encoding like this is that it's (hopefully) natural for the user and pretty easy to work with. Unfortunately however, it means that you can only encode messages whose length are multiples of 16 bits.  Also, since the maximum possible string length is 2^32 bits (8GB), this limits the length of messages you can encode (the maximum message length the algorithm permits is actually 2^128 bits).  This could probably be overcome by using arrays of string instead; as I can't be bothered - I'll leave that as a task for the interested reader!</p>
+<p><strong>Javascript and Numbers</strong><br />The Blake algorithm requires a lot of bit level manipulation, so whilst it's appropriate to initially encode the given message as a JavaScript string, when it comes to actually manipulating it, it's far easier to convert this string into an array of numbers.  The algorithm has an initial padding phase in which the given message is broken into sections of 1024 bit "blocks".  Each block is considered to be comprised of a sequence of 16 64-bit "words".  The bit-wise operations are then done on the individual words.  Therefore, in a natural encoding, a "word" is an unsigned 64-bit integer, a block is an array of 16 words, and the message is just an array of blocks.</p>
+<p>Unfortunately, there is no native 64-bit integer type in JavaScript.  In JavaScript there is only one number type which stores them using a 64 bit floating point representation.  This representation can only safely store integers values up to 2^53, see the 64 bit binary type on the <a href="https://en.wikipedia.org/wiki/IEEE_floating_point#IEEE_754-2008">wikipedia article</a> for a reference on this (assuming no-one has maliciously altered it!).</p>
+<p>Crucially, the binary operators such as and (<code>&</code>), exclusive-or (<code>^</code>) and shift (<code><<</code>, <code>>>></code>) required by the algorithm are supported by JavaScript.  It performs these operations by converting the given numbers to 32 bit signed two's complement big-endian integer representations of them, performing the operation on these integers, then converting them back.  An excellent reference on these operators is available from <a href="https://developer.mozilla.org/en/JavaScript/Reference/Operators/Bitwise_Operators">Mozilla</a>.  A side effect of this conversion in and out of 32 bit integers, is that the operation will only work if the number can be represented in this way.  Also, another gotcha is that the bit-shift operators only work on the 5 least significant bits of the number to shift, so shifting by 32 bits (i.e. 100000), gives you the same result as shifting by 0 bits (i.e. a no-op).  This can lead to some confusing code, for example, in Chris Drost's's 32 bit implementation, there is a line of code to get the number <code>2^32</code> which is written like so:</p>
+{% highlight javascript %}
+var two32 = 4 * (1 << 30);
+{% endhighlight %}
+<p>Although this looks bizarre at first, it actually quite sensible as you can't do <code>1 << 32</code> since you just get 1 back, nor can you do: <code>(1 << 16) << 16</code> as you get 0.</p>
+<p>So, without 64 bit integers, we're forced to hack them in some way, the standard way of doing this is to use an 2 element array of 32 bit integers to represent a single 64 bit integer, then implementing all the required operations yourself.  e.g. you could represent the number: 2^64-1 (a sequence of 64 one's) as:</p>
+{% highlight javascript %}
+var highBits = 0XFFFFFFFF; var lowBits = 0XFFFFFFFF;
+{% endhighlight %}
+<p>There are several implementations that you can use to do this, the most notable being Google's closure library's <a href="https://google.github.io/closure-library/api/goog.math.Long.html">Long</a>.  However, since that code is part of the closure library, which I don't want a dependancy on, I wrote my own 64 bit number class called <code>Word</code> (i.e. as it represents a single 64  bit "word" in the algorithm).  This version also supports the required "bit rotation" operation and is more light-weight, in that all operations alter the state of the <code>Word</code> on which it is called, rather than returning a new instance each time.</p>
+<p>Although this <code>Word</code> class is private within the algorithm's code, it might be useful for other applications.  The code for it as follows:</p>
+{% highlight javascript %}
+//Constructor..
+function Word(high, low) {
+    //note: doing "or 0", truncates to 32 bit signed
+    //big-endian 2's complement int..
+    this._high = high | 0;
+    this._low = low | 0;
+}
+//Given another word add it to this one..
+Word.prototype.add = function(oWord) {
+    var lowest, lowMid, highMid, highest; //four parts of the whole 64 bit number..
+    //need to add the respective parts from each number and the carry if on is present..
+    lowest = (this._low & 0XFFFF) + (oWord._low & 0XFFFF);
+    lowMid = (this._low >>> 16) + (oWord._low >>> 16) + (lowest >>> 16);
+    highMid = (this._high & 0XFFFF) + (oWord._high & 0XFFFF) + (lowMid >>> 16);
+    highest = (this._high >>> 16) + (oWord._high >>> 16) + (highMid >>> 16);
+
+    //now set the hgih and the low accordingly..
+    this._low = (lowMid << 16) | (lowest & 0XFFFF);
+    this._high = (highest << 16) | (highMid & 0XFFFF);
+    return this; //for chaining..
+};
+//Shifts this word by the given number of bits (max 32)..
+Word.prototype.shiftLeft = function(bits) {
+    var toMoveUp = this._low >>> 32 - bits;
+    this._low = this._low << bits;
+    this._high = (this._high << bits) | toMoveUp;
+    return this; //for chaining..
+};
+//Shifts this word by the given number of bits to the right (max 32)..
+Word.prototype.shiftRight = function(bits) {
+    var bitsOff32 = 32 - bits,
+        toMoveDown = this._high << bitsOff32 >>> bitsOff32;
+    this._high = this._high >>> bits;
+    this._low = this._low >>> bits | toMoveDown;
+    return this; //for chaining..
+};
+//Rotates the bits of this word round to the left (max 32)..
+Word.prototype.rotateLeft = function(bits) {
+    var newHigh;
+    if(bits === 32){ //just switch high and low over in this case..
+        newHigh = this._low;
+        this._low = this._high;
+        this._high = newHigh;
+    } else {
+        newHigh = (this._high << bits) | (this._low >>> (32-bits));
+        this._low = (this._low << bits) | (this._high >>> (32-bits));
+        this._high = newHigh;
+    }
+    return this; //for chaining..
+};
+//Rotates the bits of this word round to the right (max 32)..
+Word.prototype.rotateRight = function(bits) {
+    var newHigh;
+    if(bits === 32){ //just switch high and low over in this case..
+        newHigh = this._low;
+        this._low = this._high;
+        this._high = newHigh;
+    } else {
+        newHigh = (this._low << (32-bits)) | (this._high >>> bits);
+        this._low = (this._high << (32-bits)) | (this._low >>> bits);
+        this._high = newHigh;
+    }
+    return this; //for chaining..
+};
+//Xors this word with the given other..
+Word.prototype.xor = function(oWord) {
+    this._high = this._high ^ oWord._high;
+    this._low = this._low ^ oWord._low;
+    return this; //for chaining..
+};
+//Ands this word with the given other..
+Word.prototype.and = function(oWord) {
+    this._high = this._high & oWord._high;
+    this._low = this._low & oWord._low;
+    return this; //for chaining..
+};
+//Converts this word to a string representing it's encoding as 4 UTF2 16 bit
+//characters..
+Word.prototype.toString = function () {
+    var str = "", high = this._high, low = this._low;
+    str += String.fromCharCode(high >>> 16);
+    str += String.fromCharCode(high << 16 >>> 16);
+    str += String.fromCharCode(low >>> 16);
+    str += String.fromCharCode(low << 16 >>> 16);
+    return str;
+};
+//Creates a deep copy of this Word..
+Word.prototype.clone = function () {
+    return new Word(this._high, this._low);
+};
+//Given a string a a starting index, returns a new Word which encodes the
+//four characters starting from index up to index + 3.
+Word.fromChars = function(str, index) {
+    var low, high;
+    //pairs of UTF2 chars need to be stored as one 32 bit int..
+    high = (str.charCodeAt(index) << 16) + str.charCodeAt(index + 1);
+    low = (str.charCodeAt(index + 2) << 16) + str.charCodeAt(index + 3);
+    return new Word(high, low);
+};
+{% endhighlight %}
+<p>The rest of the code is pretty much a straight implementation of the specification and is available for free use, if there's something you think's odd about it please let me know!</p>
+<p><strong>Using the Algorithm</strong><br />The code exposes only a single global variable - the function <code>blake512</code> which expects up to 3 parameters, and has the following definition:</p>
+{% highlight javascript %}
+function(string, saltStr, outputHex) ...
+{% endhighlight %}
+<p>The parameters are expected to be as follows:</p>
+<style>  .parameterTable td {    padding: 5px;    vertical-align: top;  }</style>
+<table class="parameterTable">
+<tr>
+<td><code>string</code></td>
+<td>(string, required) the message to hash, encoded as previously described.</td>
+</tr>
+<td><code>saltStr</code></td>
+<td>(string, optional) the <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">salt</a> to use when hashing.  If this is defined must be a string of length 16 which is treated as a 256 bit binary sequence, encoded in the same manner as the message.  If this is not defined, the default salt, consisting of a sequence of 256 zero's is used.</td>
+<tr>
+<td><code>outputHex</code></td>
+<td> (boolean, optional) whether the output should be a string encoded in the same manner as the message (the default behavior) or a hexadecimal sequence.</td>
+</tr>
+</table>
+<p>The in the case that <code>outputHex</code> is <code>true</code>, the following (probably non-optimal!) code is used to convert the encoded string to a hex sequence:</p>
+{% highlight javascript %}
+function stringToHex(str){
+    //Gets the hex encoding of the given character..
+    function hexStrForChar(c){
+        var hex = c.charCodeAt(0).toString(16).toUpperCase();
+        while (hex.length < 4) {
+            hex = "0" + hex;
+        }
+        return hex;
+    }
+    var hex = "", i , len;
+    for(i = 0, len = str.length; i < len; ++i){
+        hex += hexStrForChar(str.charAt(i));
+    }
+    return hex;
+}
+{% endhighlight %}
+<p>I don't think there'll be any cross browser issues or other problems but if you spot something please let me know and I'll try to fix the problem (time permitting)!</p>

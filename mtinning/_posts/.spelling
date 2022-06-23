@@ -1,0 +1,13 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - mtinning/_posts/2016-04-04-a-functional-front-end-with-react.md
+Ramda
+ImmutableJS
+Angular2
+MVC
+HelloWorld
+ClojureScript
+stateful

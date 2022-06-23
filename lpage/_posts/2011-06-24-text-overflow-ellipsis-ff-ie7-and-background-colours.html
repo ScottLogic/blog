@@ -1,0 +1,93 @@
+---
+id: 121041
+author: lpage
+title: "Text Overflow Ellipsis - FF, IE7 and background colours"
+oldlink: "http://www.scottlogic.co.uk/2011/06/text-overflow-ellipsis-ff-ie7-and-background-colours/"
+tags:
+  - CSS
+  - HTML
+  - text-overflow
+  - ellipsis
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2011/06/text-overflow-ellipsis-ff-ie7-and-background-colours/
+---
+<h3>Introduction</h3>
+<p>This post is inspired by the news that text overflow ellipsis capabilities have reached the mozilla code base trunk (see <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=312156#c305">bug</a>). This should be in Firefox 7, which thanks to the new 6 week release cycles, won't be long.</p>
+<p>So, what is text overflow and why do I care? Since I started web application development 5 years ago, there has always been the need for a grid or table of some sort. In every case the end user wanted to see fixed width columns, fixed height rows and have data that overflows the cell content. However, it isn't particularly user friendly to have...</p>
+<p><table style="table-layout: fixed; width: 60px;border: black 1px solid;"><tr><td style="border: black 1px solid; width: 60px; overflow: hidden; white-space:nowrap;">Lots of data, data, data</td>
+</tr>
+</table>
+<p>The text here is "Lots of data, data, data" but if it is cut off just before the first comma, the user can't see that there is more in the cell contents than they expect. With text overflow, we get this instead..</p>
+<p><table style="table-layout: fixed; width: 60px;border: black 1px solid;"><tr><td style="width: 60px; overflow: hidden; white-space:nowrap;text-overflow: ellipsis;border: black 1px solid;">Lots of data, data, data</td>
+</tr>
+</table>
+<p>If you are an IE7 user (more on that later) or Firefox user, the rest of us are seeing... <img src="{{ site.baseurl }}/archive/2011/06/text-overflow.png" alt="" title="text-overflow" width="72" height="25" style="display:inline-block;" /></p>
+<h3>IE7 Workaround</h3>
+<p>This nice functionality does not work on IE7, because in IE7 (and IE6) text overflow does not work on table cells. the HTML for the above looks like this..</p>
+{% highlight html %}
+<table style="table-layout: fixed; width: 60px;border: black 1px solid;">
+  <tr>
+    <td style="width: 60px; overflow: hidden; white-space:nowrap;text-overflow: ellipsis;border: black 1px solid;">
+      Lots of data, data, data
+    </td>
+  </tr>
+</table>
+{% endhighlight %}
+<p>but to get it to work in IE7 we need to introduce a div that has the overflow set on it.</p>
+{% highlight html %}
+<table style="table-layout: fixed; width: 60px;border: black 1px solid;">
+  <tr>
+    <td style="width: 60px; border: black 1px solid;">
+      <div style="width:100%;overflow: hidden;text-overflow: ellipsis;white-space:nowrap;height:1em; ">
+         Lots of data, data, data
+      </div>
+    </td>
+  </tr>
+</table>
+{% endhighlight %}
+<table style="table-layout: fixed; width: 60px;border: black 1px solid;"><tr><td style="width: 60px; white-space:nowrap;border: black 1px solid;"><div style="width:100%;overflow: hidden;text-overflow: ellipsis; ">Lots of data, data, data</div>
+</td>
+</tr>
+</table>
+<h3>Background Colours</h3>
+<p>I was recently setting some background colours on text that was being clipped with an ellipsis added and found that although the text was removed, the background remains. E.g.</p>
+<p>No ellipsis...</p>
+<div style="overflow: hidden; width:40px;white-space:nowrap;border: black 1px solid;"><span style="background-color: red;">N</span><span style="background-color: green;color: white;">e</span><span style="background-color: blue;color: white;">w</span><span style="background-color: yellow;"> </span><span style="background-color: pink;">Z</span><span style="background-color: brown;color: white;">e</span><span style="background-color: red;">a</span><span style="background-color: green;color: white;">l</span><span style="background-color: blue;color: white;">a</span><span style="background-color: yellow;">n</span><span style="background-color: pink;">d</span></span></div>
+<p>Ellipsis...</p>
+<div style="overflow: hidden; text-overflow:ellipsis; width:40px;white-space:nowrap;border: black 1px solid;"><span style="background-color: red;">N</span><span style="background-color: green;color: white;">e</span><span style="background-color: blue;color: white;">w</span><span style="background-color: yellow;"> </span><span style="background-color: pink;">Z</span><span style="background-color: brown;color: white;">e</span><span style="background-color: red;">a</span><span style="background-color: green;color: white;">l</span><span style="background-color: blue;color: white;">a</span><span style="background-color: yellow;">n</span><span style="background-color: pink;">d</span></span></div>
+<p>One issue with this is that the text color is not inherited from the character that is obscured, so you can see the last dot is kept black and thus obscured. So, maybe that was a contrived example, but what If I am trying to highlight a word and that word is just out of view, then</p>
+<div style="overflow: hidden; text-overflow:ellipsis;width:40px;white-space:nowrap;border: black 1px solid;">New Z<span style="background-color: red;">el</span>land</span></div>
+<p>it looks wrong. The explanation from the spec is that text overflow will...<a href="http://dev.w3.org/csswg/css3-ui/#text-overflow">"Hide characters and atomic inline-level elements at the end edge of the line as necessary to fit the ellipsis."</a></p>
+<p>and an atomic element is one which is not inline - so basically just inline-block elements that appear after the text that is being truncated. </p>
+<p>But because text-overflow works on inline text and not elements, even if we wrap every character in an individual inline block span, we just remove the effect, not the background colour.</p>
+<div style="overflow: hidden; width:40px;white-space:nowrap;border: black 1px solid;"><span style="background-color: red;display:inline-block;">N</span><span style="background-color: green;color: white;display:inline-block;">e</span><span style="background-color: blue;color: white;display:inline-block;">w</span><span style="background-color: yellow;display:inline-block;"> </span><span style="background-color: pink;display:inline-block;">Z</span><span style="background-color: brown;color: white;display:inline-block;">e</span><span style="background-color: red;display:inline-block;">a</span><span style="background-color: green;color: white;display:inline-block;">l</span><span style="background-color: blue;color: white;display:inline-block;">a</span><span style="background-color: yellow;display:inline-block;">n</span><span style="background-color: pink;display:inline-block;">d</span></span></div>
+<h3>Conclusion</h3>
+<p>Regardless however with my qualms over the exact implementation, this is a great CSS feature now available across all the major browsers. Hurray!</p>
+<p>More information is available on the <a href="https://developer.mozilla.org/en/CSS/text-overflow">Mozilla information page</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

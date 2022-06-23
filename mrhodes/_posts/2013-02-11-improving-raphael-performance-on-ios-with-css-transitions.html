@@ -1,0 +1,81 @@
+---
+id: 168503
+author: mrhodes
+title: Improving Raphael performance on iOS with CSS transitions
+oldlink: >-
+  http://www.scottlogic.co.uk/2013/02/improving-raphael-performance-on-ios-with-css-transitions/
+categories:
+  - Tech
+tags:
+  - blog
+layout: default_post
+source: scottweb
+disqus-id: /2013/02/improving-raphael-performance-on-ios-with-css-transitions/
+---
+<p><em>In this post I'll run through the development of <a href="https://github.com/MarkRhodes/DOM-Raphael">DOM-Raphael</a>, a basic CSS3 based JavaScript library which acts as a replacement for <a href="https://en.wikipedia.org/wiki/Rapha%C3%ABl_(JavaScript_library)">Raphael</a> and can be used to improve performance when running on iOS.  The source code for the JavaScript for this post is available on <a href="https://github.com/MarkRhodes/DOM-Raphael">GitHub</a>.</em></p>
+<p>The driver behind the creation of this library was that we'd finished developing a new Raphael based web application, "tradestack" (see below for a screenshot), and found that the animation on the iPad (tested on all but the "newest" iPad Retina) was pretty jerky.  Instead of altering the application itself, we came up with the idea of creating a replacement for Raphael, which would implement exactly the same interface as far as the application was concerned but render in a completely different way (i.e. no SVG) to be performant on the iPad.  </p>
+<p><img src="{{ site.baseurl }}/archive/2013/02/tradeStackImpl.png" style="width: 75%; margin-left: 12.5%;" /></p>
+<p>In this application, each bar represents the trading volume for a stock, using the <a href="https://developer.mozilla.org/en-US/docs/WebSockets">WebSocket API</a>, it is notified of live incoming trades which are represented as falling blocks.  When the blocks reach the top of their bars, they flash white, the labels shows up, then they fade away and are absorbed.  The colour of each bar represents the difference between the average trading volume and the current trading volume up to that point in the day.</p>
+<p>Since we wanted the application to remain web-based (instead of making it a native app), we ruled out the possibility of using an <a href="https://developer.mozilla.org/en-US/docs/DOM/HTMLCanvasElement">HTML Canvas</a>, as again, the performance of canvas based animations isn't that great on an iPad without the use of a some form of native wrapper like <a href="http://impactjs.com/ejecta">Ejecta</a>.  The alternative was to switch out SVG elements for regular DOM elements and use hardware-accelerated <a href="https://developer.mozilla.org/en-US/docs/CSS/Tutorials/Using_CSS_transitions">CSS transitions</a> instead.</p>
+<p><strong>Switching from SVG and HTML/CSS</strong>Fortunately, tradestack only makes use of simple text and rectangle elements, both of which can be easily mocked with regular HTML elements; it would have made things extremely tricky had there been any complex paths being rendered!  The animation it uses too - although relatively complex with a number of phases, could be pulled off animating only the <code>opacity</code>, <code>x</code>, <code>y</code>, <code>width</code> and <code>height</code> SVG attributes - this turned out to be crucial when it came to rendering performance with CSS transitions. </p>
+<p>In DOM-Raphael, each Raphael element is represented by an instance of a JavaScript class and a simple HTML <code>div</code> element; the canvas is represented by a relatively positioned div with it's overflow hidden, rectangle elements are simply absolutely positioned <code>div</code>s and text elements become the HTML structure:</p>
+{% highlight html %}
+<div>
+    <div style="-webkit-transform: translate(-50%, -50%)">
+        The Text to Show
+    </div>
+</div>
+{% endhighlight %}
+<p>The transform applied to the inner div is so that be easily centered around a given point (as text elements are with Raphael).</p>
+<p>When an attribute is obtained/set on a Raphael element, a call to get/set an "equivalent" CSS property on its corresponding <code>div</code> is made.  In the most basic, default case, we just set the CSS property with the same name as the given attribute, however, there a few special cases where the mapping is non-trivial:</p>
+<style type="text/css">  #svgToCss {    width: 100%;      }  #svgToCss th, #svgToCss td {    padding: 8px;    vertical-align: top;    border: 1px #d9d9d9 solid;  }  #svgToCss th {    color: #037;    font-weight: bold;    font-size: 108%;  }</style>
+<table id="svgToCss">
+<thead>
+<tr><th>SVG Attribute</th>
+<th>CSS Property</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>x</td>
+<td>translate-x property of WebKitCSSTransform ("e")</td>
+</tr>
+<tr><td>y</td>
+<td>translate-y property of WebKitCSSTransform  ("f")</td>
+</tr>
+<tr><td>width</td>
+<td>scale-x property of WebKitCSSTransform ("a")</td>
+</tr>
+<tr><td>height</td>
+<td>scale-y property of WebKitCSSTransform ("d")</td>
+</tr>
+<tr><td>fill</td>
+<td>"color" for Text elements, "background-color" otherwise</td>
+</tr>
+<tr><td>stroke</td>
+<td>border-color</td>
+</tr>
+<tr><td>stroke-width</td>
+<td>border-width</td>
+</tr>
+<tbody></table>
+<p>The mapping for opacity is also altered but for a bug fix - it turns out that setting it to a value of zero prevents it transitioning; therefore when an attempt is made to set the value to zero, we set it to some small positive "eplison" value which is small enough to render the element invisible but prevents it breaking.</p>
+<p><strong>CSS Transitions</strong>The mapping in the table above may not seem the most obvious; you may ask - why don't the SVG attributes <code>x</code>, <code>y</code>, <code>width</code> and <code>height</code> just map to <code>top</code>, <code>left</code>, <code>width</code>, <code>height</code> respectively?</p>
+<p>The reason for this is two fold - firstly, only certain properties can be transitioned efficiently using hardware acceleration (opacity and webkit transform included) and by having the same property animate both dimension and secondly, position, we can ensure that they stay in sync.  This last point is important for tradestack - when a bar gets too big, all the bars are rescaled; when this happens the bars must change their size and position at exactly the same rate or else they move around unpredictably.  The following example (note: webkit only!) shows the difference between transitioning on top and height (the red box) and making the same change via changing just the transform (the blue box).</p>
+<style type="text/css">            .box {                margin: 10px;                height: 10px;                width: 10px;                position: absolute;                top: 80px;                -webkit-backface-visibility: hidden;                -webkit-transform: translate(0, 0);            }            #box1 {                left: 0px;                background-color: red;                -webkit-transition: height 2s linear, top 2s linear;            }            #box2 {                left: 40px;                background-color: blue;                -webkit-transform-origin: 0 0;                -webkit-transition: -webkit-transform 2s linear;            }        </style>
+<p>        <script>            function makeBoxesBigger (button) {                var box1 = document.getElementById("box1");                box1.style.top = "30px";                box1.style.height = "60px";                 var box2 = document.getElementById("box2");                box2.style.webkitTransform = "translate(0, -50px) scale(1, 6)";                button.setAttribute("disabled", "true");                setTimeout(function () {                    var boxes = [box1, box2];                    [box1, box2].forEach(function(box) {                        box.style.webkitTransform = "translate(0, 0)";                        box.style.removeProperty("height");                        box.style.removeProperty("top");                    });                    button.removeAttribute("disabled");                }, 1500);            }        </script>  </p>
+<div style="position: relative; height: 120px;">
+<div class="box "id="box1"></div>
+<div class="box "id="box2"></div>
+<p>        <button onclick="makeBoxesBigger(this)">Make Boxes Bigger</button>    </div>
+<p>Note that (on Chrome v. 22 at least!) the bottom of the red box sometimes flickers slightly, whereas the base of the blue box remains in a constant position; it may not seem that bad here but when there are many bars (a la trackstack) it's really obvious.</p>
+<p><strong>Improving Performance</strong>  Application performance isn't always as simple to judge as simply "good" or "bad".  When using CSS transitions this is certainly the case - what you are doing is off loading some of the rendering work to the GPU so you can achieve smooth animations, but, it comes at a cost - the time spent executing your JavaScript code can decrease.</p>
+<p>This is exactly what we saw after an initial version of the library was swapped in for Raphael.  The animation of a block falling has several steps - firstly the block falls, when it reaches the bottom, another transition fires and it's opacity is set to one, then it waits, then it's opacity is set to zero and finally the element is removed.  With the Raphael implementation the whole thing was jerky - the blocks moved in stutters but it was consistent and updated at the correct time.  When we switched in an initial version of DOM-Raphael, the blocks fell in a super smooth fashion - great, but ... when they got to the bottom, nothing happened.. then about 2 seconds later the next step of the animation kicked in.</p>
+<p>After investigating via the debugger timeline feature, it seemed that the system was so busy creating / removing hardware layers and recalculating styles that there was little time for the JavaScript to get a look in.  To see where the different hardware rendered layers are in your page you can use the "Composited render layer border tool", which is available in both Chrome (via the "chrome:flags" page) and in Safari (via the debug menu which can be seen after running: <code>defaults write com.apple.Safari \IncludeInternalDebugMenu 1</code> in a console).  If you see that an element's green border is flickering, it means that a new layer is being created many times over.</p>
+<p>In the end we managed to get the animation consistently smooth on both Desktop and iPad; something I think would have been infeasible using SVG.  A few things that helped were:</p>
+<ul>
+<li>Only triggering hardware rendering on an element when it's strictly required - i.e. to ensure a smooth transition.  This can be done consistently on different versions by setting the <code>webkitBackfaceVisibility</code> to <code>hidden</code> for an element with a transform on it (even a 2d one now).</li>
+<li>Ensure that once an element is hardware rendered it remains that way - don't remove the transform or the webkitBackfaceVisibility property and check with the layout debug tool that nothing odd is going on</li>
+<li>Ensure that your not getting / setting styles too often or altering the DOM. This causes styles to be computed which is an expensive operation.  Take a look at the webkit debugger timeline - if you've got lots or purple "rendering" bars then you maybe causing unnecessary style calculations.  In DOM-Raphael we cache the state of the webkit transform and ensure that we only make a single call to request computed styles when necessary.</li>
+<li>Remember to clear unnecessary timeouts and intervals.  Doing a clearTimeout / clearInterval on something which is <code>undefined</code> or already cancelled is a no-op and preferable to allowing the function to execute even if it just to check whether it needs to run.</li>
+</ul>
+<p>For the DOM-Raphael source code see: <a href="https://github.com/MarkRhodes/DOM-Raphael">GitHub</a>.</p>

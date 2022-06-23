@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <script type="text/javascript">
+	window.myApp = {
+		syncCall: function() {
+			this.sequence.push("Running Sync Call");
+			this.sequence.push(getStack());
+			return "Sync";
+		},
+		asyncCall: function(callback) {
+			var that = this;
+			this.sequence.push("Running ASync Call");
+			setTimeout(function timeoutOnMainPage() {
+				that.sequence.push("Running Timeout");
+				callback("async");
+				that.sequence.push("Finished Running Timeout");
+			}, 0);
+		},
+		sequence: []
+	};
+	function getStack() {
+		var stack;
+		try { throw new Error("Test"); }
+		catch (e) {
+			stack = e.stack;
+		}
+		if (!stack) {
+			return "no stack - not supported by browser";
+		}
+		return stack.split("\n").slice(2).join("\n");
+	}
+  </script>
+ </head>
+ <body>
+   Click the link and then you will see the result of the test in the opened popup.
+   <a onclick="popup = window.open('testpopup.htm'); return false;" href="javascript:void();">Open Popup</a>
+ </body>
+</html>

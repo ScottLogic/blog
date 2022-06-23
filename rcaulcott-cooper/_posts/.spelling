@@ -1,0 +1,14 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - rcaulcott-cooper/_posts/2015-09-15-internProject2015.md
+jsfiddle
+linearTimeSeries
+1hr
+5mins
+1min
+main.js
+navbar
+D3.js.

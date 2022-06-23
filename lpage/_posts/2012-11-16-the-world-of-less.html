@@ -1,0 +1,223 @@
+---
+id: 162480
+author: lpage
+title: The world of LESS
+oldlink: 'http://www.scottlogic.co.uk/2012/11/the-world-of-less/'
+image: lpage/assets/featured/less.jpg
+summary: 'Luke Page, one of the project leads, gives an introduction to less.'
+tags:
+  - CSS
+  - less
+  - dotless
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/11/the-world-of-less/
+---
+<h3>The world of Less</h3>
+<p>This post is an introduction to less, the css superset macro language, then a meandering discussion of various features and work I've been involved in in less.js and dotless. I've wanted to write a blog post about why I haven't written anything in a while. The answer is that supporting 3 open source projects doesn't leave much time for writing about them. In this post I'd like to talk about some of things I've been working on and the direction that less is taking.</p>
+<h2>What is less?</h2>
+<p>Less is a superset of CSS which allows you to write CSS succinctly.. E.g. in its simplest form, the following less...</p>
+{% highlight css %}
+.class_one {
+    .class_two, .class_three {
+       background-color: black;
+    }
+}
+{% endhighlight %}
+<p>becomes this css...</p>
+{% highlight css %}
+.class_one .class_two,
+.class_one .class_three {
+   background-color: black;
+}
+{% endhighlight %}
+<p>You can write mixins (css functions), guards (if conditions for mixins), variables, functions (for color manipulation and math), direct math, string interpolation and a whole load of other things. Take a look at <a href="http://www.lesscss.org">lesscss.org</a> which has more examples and the most up-to-date language reference.</p>
+<p>Less was not the first of the CSS meta languages (I believe that was Sass), but it was the first to make the language a superset of CSS - in other words all valid CSS should compile in less (Sass was then influenced to release scss following similar principles). This makes migration easy and the format easier to understand for non-programmers. </p>
+<p>An important foundation of less is that it is declarative, meaning that you write what you want to be output rather than writing how you want to generate your output. This means that the features have more to do with a functional language (recursion instead of loops, guards instead of if statements). In a programming language these tend to make the code more concise and accurate but more difficult to write, but in CSS where the output does not need complicated logic, I think the styles suit each other well.</p>
+<p>Originally the less compiler was written in Ruby, however the primary compiler is now written in JavaScript (This can run in node/rhino/browser - but browser side is <a href="https://github.com/cloudhead/less.js/issues/422">heavily discouraged</a>), but there are ports written in .NET, PHP and Java...</p>
+<h4>dotless</h4>
+<p>dotless is a port of less, written in C# .NET and was how I first got involved in less. Like <a href="https://github.com/cloudhead/less.js">less.js</a> it is <a href="https://github.com/dotless/dotless">all hosted on github</a> and pull requests are actively encouraged. You may think it's strange I got involved in this project, not less.js, considering I write more JavaScript than C# in my day job, but I got involved outside of work when a client started using it serverside. The advantage of serverside is that the css is compiled before it is sent to the client (required if you want to be performant) and the advantage of it being the same serverside language means that you can communicate with and alter the css that is being delivered dynamically, without it being a performance concern for the end-user.. Of course the best case would be to run javascript in node.js serverside and browser-side, then you could code-share with the server and use less.js.</p>
+<p>So, my first moves in dotless were around supporting CSS, because although less is meant to be a superset, in reality the parser is built from scratch (instead of being generated from a regular expression and grammar) and it doesn't cope with a lot of things. The most obvious problems were some CSS hacks which centered around using comments.. So I expanded the parser to consume comments in a lot more places and then (mostly) spit them out again in the right place. This meant CSS hacks did not need to be re-written.</p>
+<p>One great thing about dotless is that it has unit tests that cover almost every aspect of the language, which lets you work in TDD manor - Every time you want a feature you spec out the feature using tests and then code away until they all pass. Very quickly you see if a refactoring you did causes any significant harm - for instance <a href="https://github.com/dotless/dotless/blob/master/src/dotless.Test/Specs/SelectorsFixture.cs">here is the spec on selectors</a>.</p>
+<p>Next up, I was interested in expanding the way dotless could be used server-side in order solve two real world problems.. conversion of CSS from a LTR (left-to-right) language to a RTL (right-to-left) language and the generation of sprites (collections of images, served as a single file to reduce bandwidth). Neither feature made sense to build in to the language, so I took some early work that had been done by another dotless developer and extended dotless to allow plugins.</p>
+<h4>RTL Plugin</h4>
+<p>I developed the RTL plugin as a second proof of concept for dotless, to show how less could be extended. The first proof of concept had been written by the developer who started the work and "spun" each color around its hue in order that you might theme every colour in a stylesheet.</p>
+<p>First off - what is the problem? How do you go about styling a page containing a RTL language like Arabic? Your initial thought might be that the page should look exactly the same, with only text adjusted, but imagine reading from the right to the left, then scanning right towards the context.. It isn't very fluid. When the direction of a page is set to RTL, this alters the direction property of all inline and inline-block elements (so if you design your site with heavy use of inline-block they will automatically get reversed) - however you will not get margins, borders, padding and floats reversed, meaning the site might look "half-reversed" and not very visually appealing. The solution in many cases would be to maintain 2 seperate stylesheets or one override stylesheet which resets and reverses these properties. Both solutions mean that each time a rule is changed, the person doing so needs to remember to look and test in the opposite place - not a very maintainable solution.</p>
+<p>Google Closure solves this with comments - these add hints (as they do in JavaScript) to the compiler about whether the property should be reversed for RTL.</p>
+<p>Within less there are a few ways that might work out of the box..</p>
+<p>Mixins</p>
+{% highlight css %}
+.class {
+    .margin-right(12px);
+}
+{% endhighlight %}
+<p>The disadvantages are that (a) it doesn't look like CSS (b) you have to remember to use the mixin, not the property.</p>
+<p>Functions</p>
+{% highlight css %}
+.class {
+    margin: rtl-reverse(0px, 3px, 2px, 5px);
+}
+{% endhighlight %}
+<p>The disadvantage here is that you can't use longhand properties like margin-right and that you still have to remember to use the function.</p>
+<p>So, I needed a way to modify the CSS based on comments or some other way. I wanted it to be possible for less to reverse all the properties without any strange CSS being written - this required the ability to extend less.</p>
+<h4>Plugins</h4>
+<p>The plugins were architected to allow either an <a href="https://github.com/dotless/dotless/blob/master/src/dotless.Core/Plugins/IFunctionPlugin.cs">IFunctionPlugin</a>, which provided one or more functions (so you write a C# function that accepts one or more CSS values and outputs one or more CSS values) and an <a href="https://github.com/dotless/dotless/blob/master/src/dotless.Core/Plugins/IVisitorPlugin.cs">IVisitorPlugin</a>.</p>
+<p>To understand the visitor plugin you must first understand how dotless converts less to CSS.</p>
+<ol>
+<li>Tokenizer - This is a very simple version of a tokenizer, it just detects comments and breaks up the strings so that later regular expressions have a smaller string to work on for performance.</li>
+<li>Parser - <a href="https://github.com/dotless/dotless/blob/master/src/dotless.Core/Parser/Parsers.cs">This is a class with a function per node</a> (e.g. primary, block, rule, value etc.) and each function attempts to parse its node out of the current context by absorbing text and calling other functions, which then do the same. It returns null when it fails and resets the current index back to when the function was entered. If it succeeds then it returns a node which contains extracted text and any sub nodes from functions recursively called. If the process succeeds, then the first function call returns a root node, which contains an array of rulesets, which contain selectors and rules etc. This could be called an abstract syntax tree - it is a tree of nodes that describe the parsed less code entirely.</li>
+<li>Evaluation - The next stage we call evaluation - this visits each node and transforms the AST from one describing a less file, into one which describes a CSS file. Because less is a superset of CSS, the nodes returned are of the same type, they just don't include less nodes which are not valid css (e.g. a mixin call is expanded to be selectors and a ruleset, a rule referencing a variable is converted to a rule referencing the value that was in the variable).</li>
+<li>Creation of CSS - After this, each node is given a StringBuilder and asked to output itself.</li>
+</ol>
+<p>The visitor plugin is designed to run either before or after the evaluation step, on the AST and it allows you to modify the tree and therefore the css that is output. Using this I could have read comments on all nodes before a rule and then used that to modify the nodes, but it would introduce a precedent of comments being important and I didn't want to introduce such a concept (and a dependency from the plugin to the code).</p>
+<p>Instead I decided to use property names in a similar way to vendor prefixes. I wanted the plugin to work in a backwards compatible way so it would have 2 modes of working..</p>
+<ol><li>Backwards compatible - Only properties marked with rule prefixes would be reversed or removed</li>
+<li>In addition to (1), all appropriate float/margin/padding/border/text-align properties would be reversed (without needing any special property names)</li>
+</ol>
+<p>The prefixes are simple</p>
+{% highlight css %}
+.class {
+    -rtl-property: this rule will only be output in RTL
+    -ltr-property: this rule will only be output in LTR
+    -rtl-reverse-property: this rule will be output in LTR and reversed in RTL
+    -ltr-reverse-property: this rule will be output in RTL and reversed in LTR
+}
+{% endhighlight %}
+<p>So, for example,</p>
+{% highlight css %}
+.class {
+    -rtl-reverse-border-width-left: 4px;
+    -ltr-float: left;
+    -ltr-reverse-text-align: left;
+    -rtl-margin-right: 3px;
+}
+{% endhighlight %}
+<p>will become..</p>
+{% highlight css %}
+// in RTL
+.class {
+    border-width-right: 4px;
+    text-align: left;
+    margin-right: 3px;
+}
+{% endhighlight %}
+{% highlight css %}
+// in LTR
+.class {
+    border-width-left: 4px;
+    float: left;
+    text-align: right;
+}
+{% endhighlight %}
+<p>The <a href="https://github.com/dotless/dotless/blob/master/src/dotless.Core/Plugins/RtlPlugin.cs">plugin was simple</a> - it implements a visitor pattern, waits until the node is a rule that is not a variable, then it performs transformations on its child nodes if it matches the criteria above.</p>
+<h4>Sprite Generator</h4>
+<p>The next thing I wanted to create was a sprite generator, inspired by <a href="http://compass-style.org/">compass</a>, which is built on SASS. The intention was that the user could write</p>
+{% highlight css %}
+background-image: SpriteBackgroundImage("images/flower.png", Left);
+background-position: SpriteBackgroundPosition("images/flower.png");
+{% endhighlight %}
+<p>or</p>
+{% highlight css %}
+background: SpriteBackground("images/flower.png", Left);
+{% endhighlight %}
+<p>and that depending on a setting, the CSS could output (in debug mode)</p>
+{% highlight css %}
+background-image: url("images/flower.png");
+background-position: 0 0;
+{% endhighlight %}
+<p>and in release</p>
+{% highlight css %}
+background-image: url("sprite-handler.ashx?id=1");
+background-position: -44px -12px;
+{% endhighlight %}
+<p>It would work by using a function plugin, providing sprite functions which would return it's own sprite node, during evaluation and then the first time a sprite node was asked to output, the node would know (from the function call) all the nodes that had been referenced during stage 1 (so it knew what images it had to include), it could generate the image and the mapping from image to position and then output the correct positions.Through the use of caches and configuration it would generate the images once (with the option of doing it during build) and then reference the pre-created map.</p>
+<p>This <a href="https://github.com/lukeapage/Sprite-dotless">plugin I created</a> outside of dotless and it is in an incomplete stage - unfortunately I decided to allow images to be specified as having to be next to one of the 4 sides or 4 corners or even specifying it was a horizontal image that had to be tied to 2 edges - whilst my algorithm bin packs images that can be anywhere, it is yet to pass <a href="https://github.com/lukeapage/Sprite-dotless/blob/master/src/spritedotless.test/Tests/BinPackingFixture.cs#L782">my unit tests</a> (which use a pre-set seed and random numbers in order to try out 1000's of different combinations of positions, parse the output and then check every image is in its right place and not overlapping). Hopefully I'll get some time to finish it soon.</p>
+<p>It was around this time that I saw that there was <a href="https://github.com/cloudhead/less.js/issues/867">a large amount of frustration</a> around less.js. Requests for new language features and bug fixes weren't being addressed. Unfortunately, although dotless is great on its own, without less having an overall high market share, dotless would become non-viable and niche to new adoption.</p>
+<h4>less.js contributions</h4>
+<p>So, less.js appeared the most important thing to work on and I offered to help out clear up the issues and pull requests and take the language forward.. Through 4 or 5 weekends of work I have managed to close a lot of duplicate and non-bugs, fix a large number of bugs, introduce some of the other enhancements I did for dotless (more powerful support of the parent referencing selector '&') and finally, last weekend, I got push access to the website <a href="http://lesscss.org">lesscss.org</a> and published <a href="https://github.com/cloudhead/less.js/blob/master/CHANGELOG.md">1.3.1</a>.</p>
+<p>Here are a few of the issues myself and other less.js community members have discussed and decided to change and enhance.</p>
+<h4>Selector Interpolation</h4>
+<p>I managed to get approval (from cloudhead the original author and other contributors) for a new form of selector interpolation (using variables inside selectors). In 1.4.0, we will stop supporting the old format of</p>
+{% highlight css %}
+~("@{var}") {
+    background: red;
+}
+{% endhighlight %}
+<p>and move to</p>
+{% highlight css %}
+@{var} {
+    background: green;
+}
+{% endhighlight %}
+<p>Which is cleaner and also now official (the first form is used in twitter bootstrap but has never been officially recognized as valid less). You can start using this in 1.3.1.</p>
+<h4>Maths</h4>
+<p>We have always had a problem with font because the font-size part of the short hand property can be of the form font-size/line-height. In addition we now have the calc function, where people can use maths to work out what 100% minus a certain pixel size might be. These looks like this...</p>
+{% highlight css %}
+.a {
+  font-size: 9px/2;
+  width: calc(100% - 5px);
+}
+{% endhighlight %}
+<p>But, in less any operation is treated as maths, so you have to write this at the moment.</p>
+{% highlight css %}
+.a {
+  font-size: ~"9px/2";
+  width: calc(~"100% - 5px");
+}
+{% endhighlight %}
+<p>Putting the ~ in front of the string essentially outputs the string without quote marks.</p>
+<p>We decided that the way to fix this would be to force all maths to be within brackets. <a href="https://github.com/cloudhead/less.js/pull/915">dmcass has submitted a pull request</a> which will mean that less only handles maths if it is in parenthesis. This will keep less from changing (most) css that is copied into less and will be a breaking change in 1.4.0.</p>
+<h4>Relative Paths</h4>
+<p>This has always been a hotly debated issue - if you import css from a folder, should that folder be pre-pended to all url's contained in the import?</p>
+<p>E.g.</p>
+<p>main.less -</p>
+{% highlight css %}
+@import "a/b.less";
+{% endhighlight %}
+<p>a/b.less</p>
+{% highlight css %}
+@import "c/d.less"; // Note - relative path
+{% endhighlight %}
+<p>a/c/d.less</p>
+{% highlight css %}
+.e {
+  f: url("file.jpg");
+}
+{% endhighlight %}
+<p>should the output css, which is output at the top level be adjusted? e.g.</p>
+{% highlight css %}
+.e {
+  f: url("a/c/file.jpg");
+}
+{% endhighlight %}
+<p> Imports themselves work like this (each one is relative to its own file location), but things get quite complicated when you have a chain of imports including use of "..". This was further complicated in that the browser version adjusts all the paths to be relative to the page and actually ends up adjusting the url's like the above.</p>
+<p>For the moment we have compromised with not adjusting URL's and then expanding the browser version to allow specification of a base path for all resources.. This is because the typical use-case for adjusting url's will be including a library that references resources.. but in this case you can either put the resources at the base level or prepend every url with the path you have put the libraries resources under.</p>
+<h4>variable imports</h4>
+<p>A hotly requested feature yet to be written is variable imports, there the variable is evaluated to determine what to import. Since getting files can be asynchronous and at the moment the evaluation part of the process is synchronous, this will involve some work.</p>
+<h4>Extending Classes</h4>
+<p>The latest hotly debated topic is how to add class extending to less. Here you can say that you want to extend a class so that another class will have all the properties of the previous class.. for instance</p>
+{% highlight css %}
+.a.b {
+  background: red;
+}
+.c:extend(.a) {
+  background: green;
+}
+{% endhighlight %}
+<p>becomes</p>
+{% highlight css %}
+.a.b,
+.a.c {
+  background: red;
+}
+.c {
+  background: green;
+}
+{% endhighlight %}
+<p>This is particularly useful when you want to add things to a library and you can't just go in and modify the selectors, you just want a new class to follow the same selectors as is currently used.</p>
+<p>This is a work in progress for 1.4.0 - <a href="https://github.com/cloudhead/less.js/issues/1014">There are still some questions</a> over more complicated chaining of selectors.</p>
+<h4>The future</h4>
+<p>Unfortunately there is lots to do and as well as people demanding new features in less we also have to cope with changes to the CSS specification which we have to support. If anyone reading this thinks it sounds interesting and wants to help out, please get in touch!</p>
