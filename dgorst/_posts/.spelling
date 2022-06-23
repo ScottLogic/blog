@@ -1,0 +1,16 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - dgorst/_posts/2014-07-23-frp-with-bacon-and-d3.md
+fromEventTarget
+onValue
+newuser
+frp-with-bacon
+updatesOverTime
+Voisen's
+ - dgorst/_posts/2014-08-04-mongodb-vs-couchdb.md
+NoSQL
+mongod
+telemetryDb.js

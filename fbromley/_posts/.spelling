@@ -1,0 +1,10 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+
+#- fbromley/_posts/2018-12-17-so-you-heard-about-testing.md
+samey
+technodexterous
+baddest

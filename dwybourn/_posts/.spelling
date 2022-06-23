@@ -1,0 +1,62 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - dwybourn/_posts/2016-01-13-introduction-to-hadoop-and-map-reduce.md
+nk
+_SUCCESS
+movies.txt
+SNAPSHOT.jar
+com.scottlogic.reviewsanalyser.ReviewAnalyser
+path-to-movies
+mvn
+part-r-00000
+quickstart
+datanodes
+datanode
+namenode
+args.length
+System.exit
+System.err.println
+args
+ClassNotFoundException
+txt
+blocksize
+LongWritable
+context.write
+IOException
+InterruptedException
+ReviewsMapper
+ReviewsReducer
+ReviewsAnalyser
+Cloudera's
+textinputformat.record.delimiter
+ReviewsAnalyser-0
+Roadmap
+_Data
+_Start
+OWIN-like
+C#6
+_ENV
+launchSettings.json
+api
+ControllerBase
+unRESTful
+URIs
+Autofac
+WebApi2
+x-www-form-urlencoded
+serilog
+Framework.Logging
+SourceContext
+Microsoft.AspNet.Server.Kestrel
+appsettings.json
+IncludeScopes
+LogLevel
+LogLevels
+MvcLibrary-YYYYMMYY
+MvcLibrary.Controllers.BooksController
+Soper
+expressjs
+v1.0.0.

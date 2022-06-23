@@ -1,0 +1,21 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+permissioning
+yolt
+greenview
+fca-approved
+lloyds
+danske
+santander
+pincode
+tpps
+href
+cyule
+png
+rbs-thin-min
+ - cyule/_posts/2019-04-24-cross-platform-design-a-look-at-challenger-bank-mobile-applications.md
+Revolut
+microcopy

@@ -1,0 +1,35 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - dogle/_posts/2017-03-01-cassandra-vs-mariadb.md
+MariaDB
+RabbitMQ
+HikariCP
+executeAsync
+seedable
+Datastax
+PowerBI
+noSQL
+keyspace
+lineItems
+_item
+_items
+_by
+_order
+_items
+vNodes
+
+ -dogle/_posts/2018-02-23-javascript-closure.md
+Lexing
+myFunction
+line_item_id
+order_id
+line_items_by_order
+line_items
+_1_
+_2_
+_4_
+_n_
+myClass

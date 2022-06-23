@@ -1,0 +1,44 @@
+---
+id: 90
+author: godds
+title: Flex Sparkline
+oldlink: 'http://www.scottlogic.co.uk/blog/graham/2010/02/flex-sparkline/'
+tags:
+  - Flex
+  - Charts
+  - Visualisation
+  - flex
+  - visualisation
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/graham/2010/02/flex-sparkline/
+---
+<p><a href='http://en.wikipedia.org/wiki/Sparkline'>Sparklines</a> are described by their inventor, <a href='http://www.edwardtufte.com/tufte/'>Edward Tufte</a>, as "data-intense, design-simple, word-sized graphics".  They are an ideal tool for displaying trends for single entries within large data sets, for example stock prices.  As well as the standard miniature line series, <a href='http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR&topic_id=1'>Tufte's original specification</a> introduces a ternary sparkline, a.k.a. win-loss sparkline, where small columns are used to indicate "win" or "loss" and no column to indicate "draw".</p>
+<p>This article is intended to present, and distribute, <a href='http://www.adobe.com/products/flex/'>Flex</a> <a href='{{ site.baseurl }}/archive/2010/02/Sparkline.zip'>implementations of sparklines, win-loss sparklines and another common variation, column sparklines</a>.  The Flex 3 version of the code and documentation can be obtained from <a href='{{ site.baseurl }}/archive/2010/02/Sparkline.zip'>here</a>, while the Flex 4 version can be found <a href='{{ site.baseurl }}/archive/2011/04/Sparkline.zip'>here</a>.  The following is an example showing some of the variations available:</p>
+<p><br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="sparklines" width="445" height="85" align="center">
+<param name="movie" value="{{ site.baseurl }}/archive/2010/02/SparklineApp.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2010/02/SparklineApp.swf" width="445" height="85" align="center">
+<!--<![endif]-->
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<br /></p>
+<p>The <code>Sparkline</code>, <code>TernarySparkline</code> and <code>ColumnSparkline</code> classes are all implemented using core <a href=''>Flex</a> functionality, i.e. there are no dependencies.  They all implement <a href='https://flex.apache.org/asdoc/spark/components/listClasses/IListItemRenderer.html'>IListItemRenderer</a> and <a href='https://flex.apache.org/asdoc/mx/controls/listClasses/IDropInListItemRenderer.html'>IDropInListItemRenderer</a> interfaces, so can readily be used as standalone components or as item renderers in a <a href='https://flex.apache.org/asdoc/spark/components/DataGrid.html'>DataGrid</a> or other list control.  Based on the <a href='http://www.edwardtufte.com/bboard/q-and-a-fetch-msg?msg_id=0001OR&topic_id=1'>original specification</a>, the <code>Sparkline</code> allows the user to optionally show a normal range, x-axis min and max points and y-axis min and max points.  All of these features and the line itself can be styled.  Similarly, the <code>TernarySparkline</code> and <code>ColumnSparkline</code> allow the user to specify the "zero" value, and style positive, negative and zero styles independently.  A final feature of the sparklines is that they will update automatically based on <code>dataProvider</code> updates, as shown in the following example, which plots a constantly-updating, randomly generated series of numbers:</p>
+<p><br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100" height="25" align="center">
+<param name="movie" value="{{ site.baseurl }}/archive/2010/02/SparklineUpdatingApp.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2010/02/SparklineUpdatingApp.swf" width="100" height="25" align="center">
+<!--<![endif]-->
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<br /> </p>
+<p>It is worth noting that there are a number of alternative <a href='http://www.adobe.com/products/flex/'>Flex</a> implementations available.  However, they all have further dependencies, potentially making them more heavyweight.  For example, <a href='http://www.brightpointinc.com/flexdemos/360flex/MicroChartsSample.html'>Tom Gonzalez</a> and <a href='http://www.insideria.com/2008/04/degrafa-data-part-2-the-sparkl.html'>Andrew Trice</a> both present implementations using the <a href='http://www.degrafa.org/'>Degrafa</a> graphics framework.  Because of their use of <a href='http://www.degrafa.org/'>Degrafa</a>, these implementations inherently allow users to easily use any number of extravagant styling.  Although potentially initially appealing, this goes against the good data visualisation practices suggested by experts such as <a href='http://www.perceptualedge.com'>Stephen Few</a> and <a href='http://www.edwardtufte.com/tufte/'>Tufte</a> himself; "eloquence through simplicity"[<a href='http://books.google.co.uk/books?id=NomqOzZfHqoC&pg=PA96&lpg=PA96&dq=eloquence+through+simplicity&source=bl&ots=LQ2czEgImI&sig=7lvX-7V8fjEI7rCsLhC1oKsuJVk&hl=en&ei=LzJwS5zpMYT60wT0wq3UBA&sa=X&oi=book_result&ct=result&resnum=3&ved=0CBAQ6AEwAg#v=onepage&q=eloquence%20through%20simplicity&f=false'>ref</a>].  <a href='http://aheadofthewave.wordpress.com/2007/08/20/sparklines-in-flex/'>Lucas Pereira</a> presents an implementation using the <a href='http://www.adobe.com/devnet/flex/articles/data_visualization.html'>Flex Data Visualization</a> library.  The charts contained in the library are wonderfully feature-rich and flexible.  However, this means that they are also rather heavyweight components and, therefore, using a large number of these as item renderers in an application is likely to use a lot of memory and/or make the application non-performant.  A final potential alternative are the micro-charts available in the <a href='http://code.google.com/p/birdeye/'>BirdEye</a> visualisation library.  Much like the examples using the <a href='http://www.adobe.com/devnet/flex/articles/data_visualization.html'>Flex Data Visualization</a> library, these can be perfect in situations where small numbers of instances are present, but again they introduce features that cause them to be more heavyweight than necessary.</p>
+<p>The components are being made available under the <a href='http://www.gnu.org/licenses/gpl.html'>GNU General Public License</a> and can be obtained from <a href='{{ site.baseurl }}/archive/2010/02/Sparkline.zip'>here (Flex 3)</a> or <a href='{{ site.baseurl }}/archive/2011/04/Sparkline.zip'>here (Flex 4)</a>.  The zips also include some documentation and a pre-compiled swc of components, using the namespace <code>http://www.scottlogic.com/sparkline</code>.</p>
+<p><strong>UPDATE 19/04/2011:</strong> I have created an updated version of the library that is Flex 4 compatible.  This is available <a href='{{ site.baseurl }}/archive/2011/04/Sparkline.zip'>here</a> and a short article detailing the migratory changes can be found <a href="{{ site.baseurl }}/2011/04/19/updating-flex-sparkline-to-flex-4" target="_blank">here</a>.</p>
+<p><strong>UPDATE 13/09/2013:</strong> I have added the codebase to <a href="https://github.com/godds/flex-sparkline">GitHub</a>.</p>

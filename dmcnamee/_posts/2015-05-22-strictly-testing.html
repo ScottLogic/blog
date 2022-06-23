@@ -1,0 +1,126 @@
+---
+author: dmcnamee
+title: Strictly Testing
+summary: "How we develop software has changed dramatically, more so in the last 8 years since smartphones came to prominence. How software is tested, arguably hasn’t. Or has changed so much, that some don’t see the need for testers at all."
+tags:
+  - testing
+  - bugs
+  - testers
+  - blog
+categories:
+  - Testing
+layout: default_post
+---
+<p><img src="https://lh3.googleusercontent.com/-owXPNNr6toc/UdCWrzARfbI/AAAAAAAAqAk/vWpGSGk1Lfs/w1120-h554-no/marsdenbay-10.jpg" alt="Marsden Rock" title=""></p>
+
+<p>With TDD, BDD and tools providing code coverage, automated checking, continuous integration, continuous delivery, one could argue that testers are no longer needed. A developer can do both, can&#8217;t they?</p>
+
+<p>Whilst I&#8217;d love to believe that every developer working on an application took time to look over the whole application after delivering some functionality, within large scale agile enterprise development, given tight timescales, this is unlikely. Even testing their area rigorously enough in a way that pushes the boundaries would be a novelty for some. </p>
+
+<p>Automating various checks will validate positively and provide confidence that the software works as intended, but plenty of bugs will slip through. This, in part is due to attempting to write down your thoughts whilst solving problems. You won&#8217;t get the coverage required to find every issue. So having someone dedicated to looking for problems reduces the number of unknowns considerably, but can also provide product owners with the confidence that they are getting the software they expect. </p>
+
+<blockquote>
+  <p>Liz: What do I want? I&#8217;ll tell you what I want! I want Ken Railings to walk in here right now, and say &#39;Pam Shortt&#8217;s broken both her legs, and I wanna dance with YOU!&#39; <br>
+  [the door flies open. It&#8217;s Ken] <br>
+  Ken: Pam Shortt&#8217;s broken both her legs, and I wanna dance with you. <br>
+  Kylie: That was unexpected.</p>
+</blockquote>
+
+<p>With testers involved, expect the unexpected.</p>
+
+<h2 id="in-the-real-world">/ In the real world</h2>
+
+<p>In our experience of developing trading applications for various clients, the interactions involved are numerous and complex. This experience has shown that having dedicated test resource has enabled the identification of thousands of issues, the majority of which would not be found with just automation, developer testing and business acceptance testing.</p>
+
+<p>The complex interactions required of a system that has multiple interactions and multiple states, requires a much greater level of testing to identify risks and issues and ultimately produce a quality product. This is not something developers alone can do unless you sacrifice features, time to market and stability.</p>
+
+<p>Testers find important, critical issues early, providing tight feedback to developers so they can be fixed quickly, making each iteration more stable, more usable and more shippable. This gives confidence to the Product Owner that your development team is working well and that once the software is live, there will be a minimum of problems for the intended users.</p>
+
+<h2 id="but-testers-dont-find-all-the-bugs">/ But, testers don&#8217;t find all the bugs</h2>
+
+<p>Having testers constantly questioning the software and asking questions of the developers gives rise to others not only thinking critically about something they perhaps hadn&#8217;t before, but also thin-slicing without realising.  Sub-conscious thin-slicing, also known as a <a href="http://blog.scottlogic.com/2015/03/03/blink.html">Blink test</a>, can occur when people ask questions.  How many times, as a tester, or developer, have you asked someone to take a look at an issue and the other person spots a different one? Their sub-conscious is activated by the conscious act of questioning, leading to new problems being discovered.</p>
+
+<p>This is a regular occurrence when you have testers as part of your development team. </p>
+
+<h2 id="testers-question-premises-and-when-premises-are-questioned-unintended-consequences-can-materialise">/ Testers question premises and when premises are questioned, unintended consequences can materialise</h2>
+
+<p>Carl Sagan said: </p>
+
+<blockquote>
+  <p>&#34;There are naive questions, tedious questions, ill-phrased questions, questions put after inadequate self-criticism. But every question is a cry to understand the world. There is no such thing as a dumb question&#34;</p>
+</blockquote>
+
+<p>And Colin Powell said: </p>
+
+<blockquote>
+  <p>&#34;there is no such thing as a stupid question, only stupid answers&#34;</p>
+</blockquote>
+
+<p>Whilst not specific to software, an example of this is the iPhone 6+ &#39;bendgate&#39;. The premise that because the phone had been put under a <a href="http://en.wikipedia.org/wiki/Three_point_flexural_test">3 point flexural test</a>, it wouldn&#8217;t bend under normal circumstances was one that was questioned by <a href="http://unboxtherapy.com/">Unbox Therapy</a>. Here&#8217;s the original video as a reminder.  <a href="https://www.youtube.com/watch?v=znK652H6yQM">https://www.youtube.com/watch?v=znK652H6yQM</a></p>
+
+<p>Now this isn&#8217;t &#39;normal&#39; circumstances per se, <a href="http://www.cultofmac.com/302004/one-nine-refutes-apples-bendgate-claims-hundreds-bend-iphones/">though there have been sites dedicated to the bending</a>, but the premise was questioned.  As it turned out, Unbox Therapy had applied a <a href="http://en.wikipedia.org/wiki/Four_point_flexural_test">four point flexural test</a> which produced markedly different results. </p>
+
+<p>Asking questions can lead to different tests that will produce different, important outcomes.</p>
+
+<h2 id="tester-interactions-lead-to-better-outcomes">/ Tester interactions lead to better outcomes</h2>
+
+<p>Staying on the problems with iPhones, another issue that I&#8217;m sure most people remember is “antennagate”. Here was a phone that couldn&#8217;t make phone calls when you held it in a particular way. Now, it may have been this problem was identified by testers. If it happened to other phones, which Apple was more than happy to point out, then it&#8217;s likely this issue was well known by experienced device testers. However, once it hit the mainstream media, the problem was amplified. In the end it may have <a href="http://mashable.com/2010/07/20/antennagate-cases-cost/">cost Apple in excess of  $175m</a>. Small change for them. A princely sum for others. </p>
+
+<p>There was an upshot though. That costly interaction led to a better outcome. Redesigned antennas that don&#8217;t exhibit the same issues, no matter which way you hold it.</p>
+
+<h2 id="bugs-bugs-bugs">/ Bugs, bugs, bugs</h2>
+
+<p>The above two iPhone <em>features</em> demonstrate a point, but they do little harm to the provider or user; Here are some examples that demonstrate the extreme end of problems that can occur and in a few cases, could have led to horrific consequences.</p>
+
+<h3 id="hatford-civic-center-johnson-usa">/ Hatford Civic Center, Johnson, USA. </h3>
+
+<p>What happens when something isn&#8217;t built to the specification and not tested? Well, here, complete collapse of the structure due the loads being underestimated and a lack of testing during construction. <br>
+<a href="https://failures.wikispaces.com/Hartford+Civic+Center+%28Johnson%29">https://failures.wikispaces.com/Hartford+Civic+Center+%28Johnson%29</a></p>
+
+<blockquote>
+  <p>A system of checks and balances needed to be preformed. The use of traditional design factors of safety, used with nontraditional methods is something that should never be overlooked. However, such a large error in design cannot be compensated by an arbitrary design factor of safety increase. The computer is simply an analytical tool and can never guarantee the correct solution. The operator should be experienced and competent about all information that is put into the model and fully understand all of the information given out. Assumptions should be checked and compared to the as-built conditions to verify that field measurements match those of the original design. In general terms, it was noted that there was confusion over a number of design and construction responsibility issues that contributed to the collapse but could have been avoided.</p>
+</blockquote>
+
+<h3 id="how-about-automation-being-relied-upon">/ How about automation being relied upon? </h3>
+
+<p><a href="http://www.investopedia.com/features/crashes/crashes6.asp">http://www.investopedia.com/features/crashes/crashes6.asp</a> <br>
+In this first case, it caused huge financial loss. $500 billion was lost in one day in 1987</p>
+
+<blockquote>
+  <p>As people began the mass exodus out of the market, the computer programs began to kick in. The programs put a stop loss on stocks and sent a sell order to DOT (designated order turnaround), the NYSE computer system. The instantaneous transmission of so many sell orders overwhelmed the printers for DOT and caused the whole market system to lag, leaving investors on every level (institutional to individual) effectively blind. </p>
+</blockquote>
+
+<h3 id="an-even-worse-possibility-was-averted-in-1983-had-the-automated-system-been-relied-upon">/ An even worse possibility was averted in 1983 had the automated system been relied upon.</h3>
+
+<p><a href="http://archive.wired.com/science/discoveries/news/2007/09/dayintech_0926">http://archive.wired.com/science/discoveries/news/2007/09/dayintech_0926</a></p>
+
+<blockquote>
+  <p>1983: A Soviet ballistics officer draws the right conclusion &#45; that a satellite report indicating incoming U.S. nuclear missiles is, in fact, a false alarm &#45; thereby averting a potential nuclear holocaust.</p>
+</blockquote>
+
+<h3 id="this-is-however-a-great-example-of-how-waterfall-can-fail-spectacularly">/ This is however, a great example of how Waterfall can fail spectacularly. </h3>
+
+<p><a href="http://www.zdnet.com/article/child-support-it-failures-savaged/">http://www.zdnet.com/article/child-support-it-failures-savaged/</a></p>
+
+<blockquote>
+  <p>The NAO report also found that although all the software fixes in the last year have been delivered successfully and on time, there are still 500 faults with CS2 that have to be dealt with, three years after the system went live.</p>
+</blockquote>
+
+<p>I worked on this project, seems like eons ago, initially as a tester, then as a developer. With such a large project and a big bang approach it was destined to be problematic, even with the hundreds of people working on it.</p>
+
+<h3 id="and-finally">/ And finally</h3>
+
+<p>A slightly less alarming, fairly amusing bug caused an
+    &#39;epidemic&#39; in World of Warcraft. The fact that when testing this, nobody thought to test anything remotely related to trying to spread the disease shows that the testers weren&#8217;t asking the right questions. <br>
+<a href="http://en.wikipedia.org/wiki/Corrupted_Blood_incident">http://en.wikipedia.org/wiki/Corrupted_Blood_incident</a></p>
+
+<p>It may well have led to a better outcome, should a real incident occur.</p>
+
+<blockquote>
+  <p>The conditions and reactions of the event attracted the attention of epidemiologists for its implications of how human populations could react to a real-world epidemic. Anti-terrorism officials also took notice of the event, noting the implications of some players planning and perpetrating a virtual biological attack.</p>
+</blockquote>
+
+<p>So when developing software, including testers as part of the team should be a natural addition. But how they go about testing is just as important.</p>
+
+<p><small><a href="http://listverse.com/2012/12/24/10-seriously-epic-computer-software-bugs/">http://listverse.com/2012/12/24/10-seriously-epic-computer-software-bugs/</a> <br>
+<a href="http://www.devtopics.com/20-famous-software-disasters/">http://www.devtopics.com/20-famous-software-disasters/</a></small></p>

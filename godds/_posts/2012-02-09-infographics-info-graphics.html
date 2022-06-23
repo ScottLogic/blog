@@ -1,0 +1,66 @@
+---
+id: 625
+author: godds
+title: Infographics - info = graphics
+oldlink: "http://www.scottlogic.co.uk/blog/graham/2012/02/infographics-info-graphics/"
+image: godds/assets/featured/infographics.png
+summary: This article presents a concern I have regarding the development of infographics and shows an example of the kind of critical thinking I believe the world of infographics is unfortunately all too often missing.
+tags:
+  - Charts
+  - Visualisation
+  - design
+  - Infographics
+  - visualisation
+  - ui design
+categories:
+  - UX Design
+layout: default_post
+source: wordpress
+disqus-id: /blog/graham/2012/02/infographics-info-graphics/
+---
+<p><em>This article presents a concern I have regarding the development of infographics and shows an example of the kind of critical thinking I believe the world of infographics is unfortunately all too often missing.</em></p>
+<p>In recent years, numerical <a href="https://en.wikipedia.org/wiki/Infographic" target="_blank">infographics</a> have become prevalent in print and on the web.  There are even popular sites dedicated to aggregating and archiving them, such as <a href="http://visual.ly/" target="_blank">Visual.ly</a> and <a href="http://dailyinfographic.com/" target="_blank">Daily Infographic</a>.  The sheer number of numerical infographics being produced inevitably means there is disparity in quality, but it is important that an overall quality is maintained to ensure the format remains compelling and, more importantly, trusted.  Unfortunately,  due to the primarily design backgrounds of most producers of infographics, including high-profile proponents such as <a href="http://www.davidmccandless.com/" target="_blank">David McCandless</a>, the critical focus appears to be on aesthetic quality rather than numerical or analytical quality.  By definition, infographics are the graphical communication of information, so if the either the information or communication elements fail under scrutiny then all we're left with is a pretty, meaningless picture.</p>
+<h2>If the UK were a village of 100 people, it would have a population of 108...</h2>
+<p>I recently came across a collection of numerical infographics, <a href="http://theavamovement.com/Britistics_Matthew_Rowett_PDF.pdf" target="_blank">Britistics</a>, by a talented graphic designer called <a href="http://matthewrowett.com/" target="_blank">Matthew Rowett</a>.  At first glance the collection is an attractive and engaging proposition because of its wonderfully simple style and interesting subject matter.</p>
+<p>However, on slightly closer inspection some serious problems with the information are apparent.  In the first visualisation in the collection, a view on the UK population is presented by reducing it to 100 people grouped by age and gender:</p>
+<p style="text-align: center;"><img src="{{ site.baseurl }}/archive/2012/02/age_and_gender.png" alt="Britistics - Age and Gender" title="Britistics - Age and Gender" style="width: 70%" /></p>
+<p>Unfortunately, a quick bit of maths shows that 10 + 10 + 36 + 9 + 7 = 108, i.e. the 100 people have somehow become 108.  After assuming I had misinterpreted the visualisation somehow and trying to figure out what was going on, including running it past colleagues, we were none the wiser.  Tracing the data source seemed like the best option and, luckily, Matthew had followed the good practice of including data references.  In this particular case the data came from an <a href="http://www.independent.co.uk/life-style/health-and-families/features/if-the-uk-were-a-village-of-100-people-1754307.html" target="_blank">article in the Independent</a>.  Strangely, the data presented there suggested altogether different figures, with 17 youths mentioned.  Furthermore, the numbers appear to not match in other ways as well.  It is, of course, entirely possible that the numbers in the source article have changed since being sourced.</p>
+<p><em>In case you are interested, a check against a genuine primary source, in this case the <a href="http://www.ons.gov.uk/ons/taxonomy/index.html?nscl=Population+Estimates+by+Age+and+Sex" target="_blank">Office for National Statistics</a>, suggests the following breakdown:</em></p>
+<table style="width: 200px">
+<tr>
+<td rowspan="2" style="padding-bottom: 5px;">0-15 years</td>
+<td>Male</td>
+<td style="text-align: right;">9.54%</td>
+</tr>
+<tr>
+<td style="padding-bottom: 5px;">Female</td>
+<td style="text-align: right; padding-bottom: 5px;">9.10%</td>
+</tr>
+<tr>
+<td rowspan="2" style="padding-bottom: 5px;">Adults</td>
+<td>Male</td>
+<td style="text-align: right;">32.39%</td>
+</tr>
+<tr>
+<td style="padding-bottom: 5px;">Female</td>
+<td style="text-align: right; padding-bottom: 5px;">32.41%</td>
+</tr>
+<tr>
+<td rowspan="2" style="padding-bottom: 5px;">65+ years</td>
+<td>Male</td>
+<td style="text-align: right;">7.28%</td>
+</tr>
+<tr>
+<td style="padding-bottom: 5px;">Female</td>
+<td style="text-align: right; padding-bottom: 5px;">9.27%</td>
+</tr>
+</table>
+<p>The issue here is that unlike most other design, data visualisation relies on factual accuracy that cannot be toyed with.  If the underlying numbers are no good then the visualisation is fundamentally flawed, no matter how pretty it is.  Furthermore, basic numerical mistakes in one graphic undermine all confidence in any associated material.  In the case of <a href="http://theavamovement.com/Britistics_Matthew_Rowett_PDF.pdf" target="_blank">Britistics</a>, the various slipups - the aforementioned population breakdown issue is by no means the only numerical error - rather unfortunately cripple the entire piece.</p>
+<h2>Visualisation Design</h2>
+<p>Numerical issues aside, <a href="http://theavamovement.com/Britistics_Matthew_Rowett_PDF.pdf" target="_blank">Britistics</a> also exhibits the other worrying trend in numerical infographics: an apparent ignorance of the design fundamentals of data visualisation and human perception.  That is the communicative, analytical element of the visuals are too readily compromised in favour of aesthetics, thereby at best merely frustrating those seeking to absorb the information or at worst distorting it or making it incomprehensible.  The common result is that the graphic becomes little more than an awkwardly presented data table.</p>
+<p style="text-align: center"><img src="{{ site.baseurl }}/archive/2012/02/religion.png" alt="Britistics - Religion" title="Britistics - Religion" style="width: 100%"/></p>
+<p>The Religion section of <a href="http://theavamovement.com/Britistics_Matthew_Rowett_PDF.pdf" target="_blank">Britistics</a>, for example, presents a religious breakdown of the UK population.  Although there is a bar chart of sorts, it is relegated in favour of the more attention-grabbing religious symbols used to label the chart.  However, despite their prominence, the symbols and associated labels have been equally sized and therefore do not aid our understanding of the information in any immediate way.  The bar chart itself has been "stacked" to represent 100%, thereby making it all but impossible to accurately compare segments since they do not share a common baseline.  The result of this rather convoluted diagram is that although it seems interesting to a cursory glance, all we can usefully do when looking more closely is read the labels and values presented, i.e. it is no better than a simple table in assisting our analytical understanding of the information, and, arguably, even makes this worse than a table by introducing useless distraction.</p>
+<p><em>An exceptionally useful starting point to gaining a suitable understanding of visualisation (and table!) design, I recommend a copy of <a href="http://www.amazon.co.uk/Show-Me-Numbers-Designing-Enlighten/dp/0970601999/ref=sr_1_1?ie=UTF8&qid=1328804105&sr=8-1" target="_blank">Show Me The Numbers</a>.</em></p>
+<h2>A critical eye?</h2>
+<p>It is perhaps unfair of me to have focused entirely on a single example by an upcoming designer, but both the <a href="http://theavamovement.com/Britistics_Matthew_Rowett_PDF.pdf" target="_blank">Britistics</a> collection and the reaction to it embody my concern about the direction numerical infographics are heading in.  <a href="http://www.davidmccandless.com/" target="_blank">David McCandless</a> highlighted the work <a href="http://www.informationisbeautiful.net/2011/great-infographics-no-13/" target="_blank">on his blog</a>, describing it as "soothingly nostalgic and fascinatingly simple", but apparently failed to recognise either the numerical or visualisation design issues.  Maybe the piece fell into McCandless' <a href="http://www.informationisbeautiful.net/about/" target="_blank">"it can just look cool"</a> category.  Similarly, <a href="http://www.behance.net/gallery/Britistics-a-UK-Infographics/1457231" target="_blank">other comments about the work</a> are all (justifiably) positive, but appear to amount to "it's pretty" rather than an evaluation against its full intended purpose: to beautifully <b>and effectively</b> communicate <b>real</b> data stories.</p>
+<p>Infographics lie on the boundary between the scientific and artistic realms.  Unfortunately this means they must adhere to the principles of both worlds.  Therefore, a deeply critical eye must be cast over both the numeric <b>and</b> aesthetic aspects of a design.  This is the only way to ensure the infographic format remains relevant and trusted.  Ultimately, I suspect that due to the somewhat conflicting disciplines involved, the most effective, insightful and beautiful numerical infographics will come from collaborations between scientific and artistic individuals rather than the largely design-led examples we see churned out so regularly these days.</p>

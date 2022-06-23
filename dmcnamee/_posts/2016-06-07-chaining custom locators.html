@@ -1,0 +1,106 @@
+---
+author: dmcnamee
+title: "Chaining Custom Locators"
+summary: "Custom locators are great for when you need to roll your own, but they can require some tweaking when an application starts to get more complex. Here I'll look at how to chain custom locators. "
+image: "dmcnamee/assets/complex.jpg"
+tags:
+  - testing
+  - rapid
+  - software
+  - blog
+  - locators
+  - elements
+categories:
+  - Testing
+layout: default_post
+---
+
+<p><img src="{{ site.baseurl }}/dmcnamee/assets/complex.jpg" alt="complex" title="complex" width="100%"></p>
+<h2>A brief history</h2>
+<p><a href="http://blog.scottlogic.com/2016/03/11/independent-testers-question.html">I have previously written here</a> about how test ids can help with UI automation and that using custom locators enable more readable code. Something I didn’t tackle was the chaining of elements. Sometimes, you wanted to get a nested element where there are test ids that are the same. In our previous case, the locator will get the first element it finds and this may not be the one we require.</p>
+
+<p>Consider this example:</p>
+
+<pre><code>&lt;div class="near-leg" test-id="near-leg"&gt;
+    &lt;div class="buy" test-id="amount-input"&gt;
+    &lt;div class="sell" test-id="amount-input"&gt;
+&lt;div class="far-leg" test-id="far-leg"&gt;
+    &lt;div class="buy" test-id="amount-input"&gt;
+    &lt;div class="sell" test-id="amount-input"&gt;
+</code></pre>
+
+<p>We could easily determine which amount input we want in two ways.</p>
+
+<ol>
+<li>Get the first and last of an element.all.</li>
+<li>Chain elements using the containing element.</li>
+</ol>
+
+<p>The first would look something like:</p>
+
+<pre><code>var nearLegBuy = element.all(by.css('.buy').first();
+var nearLegSell = element.all(by.css('.sell').first();
+var farLegBuy = element.all(by.css('.buy').last();
+var farLegSell = element.all(by.css('.sell').last();
+</code></pre>
+
+<p>The second would look something like:</p>
+
+<pre><code>var nearLegBuy = element(by.css('.near-leg')).element(by.css('.buy'));
+var nearLegSell = element(by.css('.near-leg')).element(by.css('.sell'));
+var farLegBuy = element(by.css('.far-leg')).element(by.css('.buy'));
+var farLegSell = element(by.css('.far-leg')).element(by.css('.sell'));
+</code></pre>
+
+<p>Great. They work. What’s the problem?</p>
+
+<p>This is a simple example. Consider what happens when the complexity of the app increases. These objects my be used in many places, the nesting could be multiple levels, there could be many more repeatedly named objects. Thus, the possibility of making mistakes when adding new objects increases. The time taken to debug increases. The lack of reusable content makes updating, maintaining and extending that much more difficult.</p>
+
+<h2>How do we make that easier?</h2>
+
+<p>Firstly by using a custom locator.</p>
+
+<pre><code>by.addLocator('testId', function(value, parentElement){
+parentElement = parentElement || document;
+var nodes = parentElement.querySelectorAll('[test-id]');
+return Array.prototype.filter.call(nodes, function(node){
+    return (node.getAttribute('test-id') === value;
+])[0];
+;
+</code></pre>
+
+<p>For the first example, it looks fairly similar, just replacing the css locator with our testId locator.</p>
+
+<p>However, for the second example, if we try to chain the elements this doesn’t work. The locator will only return the first instance. </p>
+
+<h2>What can we do? </h2>
+<p>We could amend the custom locator to return all instances, rather than the first one in the array. Then, providing we know which one we want, we could select it. That could get messy. And doesn’t enable easy reuse. And if the order changes for some reason, well, there’s all our objects broken.</p>
+
+<p>Instead, using a helper function, we can utilise our custom locator and chain as many elements as we like. <br>
+Here’s the code:</p>
+
+<pre><code>var findTestId = function findTestId(){
+    this.findElements = function() {
+        var currentArgument = arguments;
+        return function() {
+            var myElement = element(by.testId(currentArgument[0]));
+            for (var i =1; i &lt; newArgument.length; i++) {
+                myElement = myElement.element(by.testId(currentArgument[i]));
+            }
+            return myElement;
+        };
+    };
+};
+</code></pre>
+
+<p>So now we can use:</p>
+
+<pre><code>var nearLegBuy = findTestId.findElements('near-leg','buy'));
+var nearLegSell = findTestId.findElements('near-leg','sell'));
+var farLegBuy = findTestId.findElements('far-leg','buy'));
+var farLegSell = findTestId.findElements('far-leg','sell'));
+</code></pre>
+
+<p>This is now easier to read, maintain and extend. If we add another container or another leg with buy and sell fields, updating these will require less work.</p>
+
+<p>Sometimes, examples like this don’t manifest until you start adding complexity. Sometimes, you may not need this and the first options will do. But if you don’t have test ids in your app and you are automating, well, there is your starting point.</p>

@@ -1,0 +1,30 @@
+---
+author: dmcnamee
+categories:
+  - People
+date: 2016-05-05 13:35
+layout: default_post
+published: 'true'
+summary: An insight into how software testers at Scott Logic work.
+title: 'Software Testing at Scott Logic: An Insight into how we work'
+---
+<p>In the last post, I talked about and hopefully dispelled some of the <a href="//smarter.scottlogic.com/careers/tacklingthemythsaroundasoftwaretestingcareer">myths about a career in testing</a>. Here, I’ll go into a bit more depth about current and past projects I've worked on, hopefully giving some insight into how testers work at Scott Logic.</p>
+<p>Since starting my current role in 2013, I’ve been involved in a few projects. In the first, I joined mid way through the application's development, but even joining late, I was able to shape future ways of working and promote a better way of testing. I also learnt a lot, using technologies in depth that I had only briefly used before. I've been able to take that knowledge and experience to the project I'm currently working on, where I became involved much earlier.</p>
+<h2>So what about some of those myths?</h2>
+<p>What do testers do, if it's not writing and executing scripts?</p>
+<p>At Scott Logic, our testers are part of the development team and this is the case for my current project. I'm sat in the beating heart of the project team. We work with clients worldwide, although remotely from our UK-based offices. This makes communication a very important part of day to day work, from a morning scrum call, to conversing throughout the day with local or remote developers and business owners.</p>
+<p>My current project works to a loose Scrum method with the aim of producing working software, rather than documentation, so I test within each sprint; as the development of features and fixes is finished, you are able to test them. By test, I mean "...the process of evaluating a product by learning about it through exploration and experimentation, which includes to some degree: questioning, study, modeling, observation, inference, etc."</p>
+<p>Each test informs me of the current state of the software being developed and I’m able to use that information to generate new ideas and tests. I use various heuristics to uncover possible problems and I report on those problems either by creating bugs or talking to the right person, which goes to the heart of one of the values of the <a href="http://agilemanifesto.org/">agile manifesto</a>: </p>
+<p><em>“individuals and interactions over process and tools”</em></p>
+<p>Of course, we do use process and tools. It's not a chaotic jumble of random stuff. We have a flow of developed features and bugs tracked in a JIRA board. </p>
+<p><img src='{{ site.baseurl }}/dmcnamee/assets/jira-board.jpg' title="jira-board.jpg" alt="jira-board.jpg" /></p>
+<p>This gives a view of the current sprint and this enables me, as a tester, to plan and move quickly. We use a branching strategy that enables me to test new features and fixes in isolation or altogether in a test branch. This test branch will contain all the changes that have been merged into development but is only built when I'm ready to continue testing. This way, I get a stable environment to test against, rather than developers pushing changes to the development branch and impacting the environment without my immediate knowledge.</p>
+<h2>Where do I start?</h2>
+<p>Generally, I'll look at bug fixes first. They can often be quicker to validate and in most cases, don't have as great an impact as new features, so less problems are likely to be found. Of course, that isn't always the case, particularly if a bug fix fundamentally changes the behaviour of some functionality, or the code change is complex and wide ranging. In this case, a quick chat with the developer may be needed. However, working within the sprint, sitting in the project team, I’ve been able to get developers to note on the bug what impact this change is likely to have as a good approach for them to take, to make my, and their work easier. </p>
+<h2>Delving a little deeper</h2>
+<p>For new features, a more comprehensive look is needed. I often start with the acceptance criteria on the feature. Then, depending on what the new feature is, start exploring with some <a href="https://en.wikipedia.org/wiki/Heuristic">heuristics</a>: <a href="http://www.satisfice.com/articles/sfdpo.shtml">SFDPOT</a>, <a href="http://blog.scottlogic.com/2015/03/03/blink.html">blink test</a>, <a href="http://www.satisfice.com/blog/archives/467">steeplechase, galumphing, creep and leap</a>, <a href="http://www.developsense.com/blog/2009/04/of-testing-tours-and-dashboards/">tours</a> or <a href="http://blog.scottlogic.com/2016/03/09/lonely-tester.html">pair testing</a>. I use my experience and knowledge of the application, and my lack of knowledge(!) in some cases, to spot patterns and check things I know have failed previously with similar features. For this, I keep a JIRA query of 'high risk failures'; bugs and features that I may want to keep re-checking regularly. I also use JIRA to mark features and bugs that I want to write automated checks for.</p>
+<p><img src='{{ site.baseurl }}/dmcnamee/assets/ticket.jpg' title="ticket.jpg" alt="ticket.jpg" /></p>
+<p>As we are using the Angular framework, this end-to-end automation is done using Protractor. And here is where I write scripts using JavaScript and the Jasmine notation, or more accurately, specs. Since starting on the project, this is something I work on intermittently but progressively, from setting up the small checks that ran initially, to the fully laid out framework of config files, page objects, helpers, data and specs that we have now.</p>
+<p>Since my first project, we have hired more great testers and we work with the same ethos:</p>
+<p><em>"Creatively and with context".</em></p>
+<p>The work certainly isn't boring; it can be technically challenging and as for respect, well, ask any of our developers or clients that we’ve provided testers for.</p>

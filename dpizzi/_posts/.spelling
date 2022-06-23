@@ -1,0 +1,45 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - dpizzi/_posts/02-06-2015-StrongTypingWithKnockoutJSAndRequireJS.md
+app.css
+app.ts
+requirejs.TypeScript.DefinitelyTyped
+Jarrett
+knockout.TypeScript.DefinitelyTyped
+index.html
+requireConfig.ts
+ko.applyBindings
+main.ts
+PersonTable
+IPerson.ts
+Person.ts
+PersonViewModel.ts
+PersonViewModel
+PersonTableViewModel.ts
+PersonTableView.html
+ko.components.register
+PageViewModel.ts
+ - dpizzi/_posts/26-08-2014-StrongTypingWithAngularJS.md
+d.ts
+angular.d.ts
+AppStorage.ts
+app.js
+appStorage
+appCtrl
+AppStorage
+AppCtrl
+AppCtrl.ts
+ng.IScope
+changeName
+ng.IDirective
+changeName.ts
+IAppCtrlScope
+mouseenter
+mouseleave
+ngResource
+Iffland
+_ng_
+app.ts

@@ -1,0 +1,155 @@
+---
+id: 368
+author: godds
+title: Flex Charts vs Silverlight Charts - a test of Performance
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/graham/2010/11/flex-charts-vs-silverlight-charts-a-test-of-performance/
+tags:
+  - Flex
+  - Charts
+  - Performance
+  - Silverlight
+  - flex
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/graham/2010/11/flex-charts-vs-silverlight-charts-a-test-of-performance/
+---
+<p><em>This post follows on from the <a href="{{ site.baseurl }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2" target="_blank">comparison of two Silverlight chart libraries</a> produced by my colleague, <a href="{{ site.baseurl }}/ceberhardt/" target="_blank">Colin Eberhardt</a>, by adding an implementation of the simple image processing tool in <a href="http://www.adobe.com/devnet/flex.html" target="_blank">Flex</a> using the <a href="http://help.adobe.com/en_US/flex/using/WS2db454920e96a9e51e63e3d11c0bf65518-7ff9.html" target="_blank">Flex Charting</a> library to the comparison.  The results show that the Flex Charts perform easily as well as the Visiblox charts without the need to specifically consider performance.</em></p>
+<p>Since <a href="{{ site.baseurl }}/ceberhardt/" target="_blank">Colin</a> produced his comparison of the <a href="http://www.silverlight.net/content/samples/sl2/toolkitcontrolsamples/run/default.html" target="_blank">Silverlight Toolkit</a> and <a href="http://www.visiblox.com/" target="_blank">Visiblox</a> charts there has been some noted interest in how <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash</a> stacks up against them.  This seems to be part of a general drive across the development community to gain a better understanding of the relative strengths of Flash/Flex, Silverlight and HTML5.  In order to contribute a little to this, I produced a comparable application to those of Colin using the charting library that is part of the free, open-source <a href="http://opensource.adobe.com/wiki/display/flexsdk/Download+Flex+4" target="_blank">Flex 4 SDK</a>.</p>
+<p>Here are my Flex application and the "winning" application from Colin's investigation side-by-side.  Click and drag a line across the image to plot the RGB pixel intensities along the line in the chart above.  From these examples, it is clear that there is little to differentiate them performance-wise.</p>
+<table>
+<tr>
+<th style="text-align: center;">Flex Chart</th>
+<th style="text-align: center;">Visiblox Chart</th>
+</tr>
+<tr>
+<td style="text-align:center;"><br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="280" height="380">
+<param name="movie" value="{{ site.baseurl }}/archive/2010/11/FlexChartsPerformance.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2010/11/FlexChartsPerformance.swf" width="280" height="380">
+<!--<![endif]-->
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<br /></td>
+<td style="text-align:center;"><object height="400" width="300" type="application/x-silverlight-2" data="data:application/x-silverlight,"><param value="{{ site.baseurl }}/archive/2010/11/HistogramVisiblox.xap" name="source"><a style="text-decoration: none;" href="http://go.microsoft.com/fwlink/?LinkID=124807"><img style="border-style: none;" alt="Get Microsoft Silverlight" src="http://go.microsoft.com/fwlink/?LinkId=108181"></a></object></td>
+</tr>
+</table>
+<p><span style="font-size: 0.8em;">[Squirrel image used royalty free from <a href="http://www.sxc.hu/photo/1079708" target="_blank">stock.xchng</a>; hare image used under CC licence from <a href="http://www.flickr.com/photos/heliocentric/2643028940/" target="_blank">flickr</a>]</span></p>
+<h2>Implementation</h2>
+<p>For details of the implementation of the Visiblox example above, see <a href="{{ site.baseurl }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2">the original post</a>.  The mark-up for the Flex example above is as follows:</p>
+{% highlight xml %}
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:s="library://ns.adobe.com/flex/spark"
+               xmlns:mx="library://ns.adobe.com/flex/mx" >
+    <s:layout>
+        <s:VerticalLayout />
+    </s:layout>
+
+    <fx:Declarations>
+        <s:SolidColorStroke id="axisStroke" color="#cccccc" weight="1" />
+    </fx:Declarations>
+
+    <s:Group width="100%" height="100%">
+        <mx:CartesianChart id="chart" width="100%" height="100%" visible="false">
+            <mx:horizontalAxis>
+                <mx:LinearAxis id="xAxis" />
+            </mx:horizontalAxis>
+            <mx:horizontalAxisRenderers>
+                <mx:AxisRenderer axis="{xAxis}" axisStroke="{axisStroke}"
+                                 showLabels="false" tickPlacement="none" />
+            </mx:horizontalAxisRenderers>
+            <mx:verticalAxis>
+                <mx:LinearAxis id="yAxis" />
+            </mx:verticalAxis>
+            <mx:verticalAxisRenderers>
+                <mx:AxisRenderer axis="{yAxis}" axisStroke="{axisStroke}"
+                                 tickPlacement="outside" tickStroke="{axisStroke}" />
+            </mx:verticalAxisRenderers>
+            <mx:series>
+                <mx:LineSeries yField="red">
+                    <mx:lineStroke>
+                        <s:SolidColorStroke color="#aa0000" weight="1" />
+                    </mx:lineStroke>
+                </mx:LineSeries>
+                <mx:LineSeries yField="green">
+                    <mx:lineStroke>
+                        <s:SolidColorStroke color="#00aa00" weight="1" />
+                    </mx:lineStroke>
+                </mx:LineSeries>
+                <mx:LineSeries yField="blue">
+                    <mx:lineStroke>
+                        <s:SolidColorStroke color="#0000aa" weight="1" />
+                    </mx:lineStroke>
+                </mx:LineSeries>
+            </mx:series>
+        </mx:CartesianChart>
+
+        <s:Label id="instructions" visible="{!chart.visible}"
+                 horizontalCenter="0" verticalCenter="0"
+                 fontSize="9" color="#cccccc"
+                 text="Use the mouse to 'drag' a line across the image below." />
+    </s:Group>
+
+    <s:Group>
+        <mx:Image id="image"
+                  source="@Embed(source='squirrel.jpg')"
+                  mouseDown="imageMouseDownHandler(event)"
+                  mouseUp="imageMouseUpHandler(event)"
+                  mouseMove="imageMouseMoveHandler(event)" />
+        <s:Line id="line">
+            <s:stroke>
+                <s:SolidColorStroke color="#000000" weight="3" />
+            </s:stroke>
+        </s:Line>
+    </s:Group>
+</s:Application>
+{% endhighlight %}
+<p>The above mark-up creates two <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/spark/components/Group.html" target="_blank">Groups</a>: one containing the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/charts/chartClasses/CartesianChart.html" target="_blank">CartesianChart</a> and instructions, and the other the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/controls/Image.html" target="_blank">Image</a> and <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/spark/primitives/Line.html" target="_blank">Line</a>.  This is remarkably similar to the mark-up of Colin's Silverlight examples, if slightly more verbose.  The verboseness is the result of both <a href="http://www.adobe.com/devnet/flex.html" target="_blank">Flex</a> technicalities and my overriding the rather ugly default styles axis styles for aesthetic reasons.  Note that the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/charts/chartClasses/CartesianChart.html" target="_blank">CartesianChart</a> was used rather than <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/charts/LineChart.html" target="_blank">LineChart</a> purely because of the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/charts/LineChart.html" target="_blank">LineChart</a> using the ugly <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/charts/renderers/ShadowLineRenderer.html" target="_blank">ShadowLineRenderer</a> by default for <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/charts/series/LineSeries.html" target="_blank">LineSeries</a> (the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/charts/chartClasses/CartesianChart.html" target="_blank">CartesianChart</a> uses the simple <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/charts/renderers/LineRenderer.html" target="_blank">LineRenderer</a>).</p>
+<p>Unlike in Silverlight, there is no need to do anything <a href="{{ site.baseurl }}/2010/06/14/throttling-silverlight-mouse-events-to-keep-the-ui-responsive" target="_blank">funky</a> with mouse event handling Flex, as the Flex component lifecycle means the UI will always have a chance to render.  This means a simple mouse move event handler can be used to construct the chart's data:</p>
+{% highlight actionscript3 %}
+private function imageMouseMoveHandler(event:MouseEvent):void
+{
+	if (!_mouseDown)
+		return;
+
+	line.xTo = event.localX;
+	line.yTo = event.localY;
+
+	// compute length of line
+	var length:int = Math.sqrt(Math.pow(line.xFrom - line.xTo, 2) +
+				   Math.pow(line.yFrom - line.yTo, 2));
+
+	// build the chart data
+	var bitmapData:BitmapData = Bitmap(image.content).bitmapData;
+	var chartData:Array = [];
+	var xIndex:int;
+	var yIndex:int;
+	var pixel:uint;
+	var point:Object;
+	for (var i:int = 0; i < length; i++)
+	{
+		point= {};
+		xIndex = line.xFrom + (line.xTo - line.xFrom) * i / length;
+		yIndex = line.yFrom + (line.yTo - line.yFrom) * i / length;
+		pixel = bitmapData.getPixel(xIndex, yIndex);
+		point.red = pixel & 0xff;
+		pixel >>= 8;
+		point.green = pixel & 0xff;
+		pixel >>= 8;
+		point.blue = pixel & 0xff;
+		chartData.push(value);
+	}
+
+	chart.dataProvider = chartData;
+}
+{% endhighlight %}
+<p>Once again, this code is very similar to that used in the Silverlight examples to construct chart data.  However, notice that here we can choose to take advantage of ActionScript 3's dynamic objects to drive our chart for simplicity's sake.  Furthermore, there has also been no need to pre-process the image data to obtain pixel information since the <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/controls/Image.html" target="_blank">Image</a>, <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Bitmap.html" target="_blank">Bitmap</a> and <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/BitmapData.html" target="_blank">BitmapData</a> classes are designed and optimised for exactly this kind of pixel-level manipulation.</p>
+<h2>Conclusions</h2>
+<p>From the above examples it is apparent that there is little, if anything, to differentiate their relative performance.  Furthermore, it would be fair to say that the outright technology choice of Flash/Flex or Silverlight has not differentiated these examples.  Rather, the choice of charting library in either technology is far more significant with respect to performance.  Therefore, in this case, the technology choice would have to be driven by some other factor than performance, for example, plug-in penetration, cost or existing developer expertise.</p>
+<p>However, at a more technical level there are some interesting points to consider alongside the comparative performance of the two applications.  The Silverlight examples were created with specific techniques for improving their performance.  The implication is that a naive Silverlight implementation of the application is likely to have noticeable performance issues.  In contrast, the Flex example has purposefully been created without any of the known performance improvement techniques, yet is still as responsive.</p>
+<p>It is also worthwhile contrasting the respective charting libraries.  The Visiblox charting library has specifically been designed for performance over flexibility, where as the Flex charting library is the opposite.  The result is that although they are roughly equal in performance, the Flex charting library has many more options for customisation and extension than the Visiblox charting library.  However, it should be noted that the Flex charting library is relatively mature (~4 years old) compared to the Visiblox charts (~2 months old).</p>
+<p>You can download the full source code for the Flex example given in this blog post here: <a href="{{ site.baseurl }}/archive/2010/11/FlexChartPerformance.zip" target="_blank">FlexChartPerformance.zip</a>; and the full source code for the Silverlight examples given in Colin's blog post here: <a href="{{ site.baseurl }}/archive/2010/10/ChartPerformance.zip" target="_blank">ChartPerformance.zip</a></p>
