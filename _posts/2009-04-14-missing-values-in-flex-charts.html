@@ -1,0 +1,48 @@
+---
+title: Missing values in Flex charts
+date: 2009-04-14 00:00:00 Z
+categories:
+- godds
+- Tech
+tags:
+- Flex
+- Charts
+- flex
+id: 57
+author: godds
+oldlink: http://www.scottlogic.co.uk/blog/graham/2009/04/missing-values-in-flex-charts/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/graham/2009/04/missing-values-in-flex-charts/"
+---
+
+<p>An oddness in default behaviour that can throw those new to Flex Charting is that segments in charts that should correspond to a data point are missing.  By this I mean charts like those in the following example:<br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="filterdataon" width="600" height="300" align="center" name="filterdataon">
+<param name="movie" value="{{ site.baseurl }}/archive/2009/04/filterdataon.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2009/04/filterdataon.swf" width="600" height="300" align="center" name="filterdataon">
+<!--<![endif]-->
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<br /> When what is actually desired is the following:<br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="filterdataoff" width="600" height="300" align="center" name="filterdataoff">
+<param name="movie" value="{{ site.baseurl }}/archive/2009/04/filterdataoff.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2009/04/filterdataoff.swf" width="600" height="300" align="center" name="filterdataoff">
+<!--<![endif]-->
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<br /> This is achieved by setting the <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html#filterData" target="_blank">filterData</a> property on the <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html" target="_blank">Series</a> to false, for example:</p>
+{% highlight xml %}
+<mx:LineSeries filterData="false" />
+{% endhighlight %}
+<p>However, it is worth understanding the functionality that ties in with this property to appreciate the potential consequences.  Adobe states: </p>
+<blockquote><p><em>When possible, set the filterData property to false. In the transformation from data to screen coordinates, the various series types filter the incoming data to remove any missing values that are outside the range of the chart; missing values would render incorrectly if drawn to the screen. For example, a chart that represents vacation time for each week in 2003 might not have a value for the July fourth weekend because the company was closed. If you know your data model will not have any missing values at run time, or values that fall outside the chart's data range, you can instruct a series to explicitly skip the filtering step by setting its filterData property to false.</em> <a href="http://help.adobe.com/en_US/flex/using/WS2db454920e96a9e51e63e3d11c0bf67110-7fc6.html" target="_blank">[ref]</a></p></blockquote>
+<p>What is actually happening under the covers is that the series a collection of "all the data points" and a collection of "all the data points I think I want to draw".  When <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html#filterData" target="_blank">filterData</a> is <em>true</em>, i.e. by default, the series creates the collection of "all the data points I think I want to draw" by iterating through the collection of "all the data points" and throwing away any that are <em>null</em> or <em>NaN</em> or that fall outside the axes minimum and maximum values.  By contrast, when <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html#filterData" target="_blank">filterData</a> is <em>false</em>, the two collections are identical.  Knowing this it is obvious why the segments are missing in the example above: with the <a href="https://flex.apache.org/asdoc/mx/charts/series/LineSeries.html" target="_blank">LineSeries</a> if a data point is not to be drawn then the line segments to that data point will not be drawn; with the <a href="https://flex.apache.org/asdoc/mx/charts/series/ColumnSeries.html" target="_blank">ColumnSeries</a> if a data point is not to be drawn then the column representing that data point will not be drawn.</p>
+<p>Performance-wise, it is worth noting that performance gained by the removal of data point filtering step by setting the <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html#filterData" target="_blank">filterData</a> property to false will be offset against the performance lost by drawing data points that have no bearing on the view of the chart, i.e. data points that are one or two data points removed from those around the axes maximums.  As such, the performance gain/loss and appearance gain/loss should be considered on a case by case basis.</p>
+<p>An approach that can be used to get the best of both worlds is to extend the applicable series class and override the <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html#updateFilter()" target="_blank">updateFilter</a> method to ensure that data points that have no bearing on the view of the chart are filtered out, but any others aren't.  This could, for example, amount to filtering out any data points that do not lie in the range of the x-axis and that are not adjacent in the x-axis to a data point that does lie in the range of the x-axis.</p>
+<p>An unfortunate note about the <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html#filterData" target="_blank">filterData</a> property is that there is a bug when setting it to <em>false</em> on a <a href="https://flex.apache.org/asdoc/mx/charts/series/LineSeries.html" target="_blank">LineSeries</a> no data tips will show on the series (as can be seen in the example above).  The bug has been <a href="https://issues.apache.org/jira/browse/FLEX-32295" target="_blank">filed with Adobe</a> and has recently been marked fixed, however, the fix has not yet been released.  The <a href="https://issues.apache.org/jira/browse/FLEX-32295" target="_blank">bug report</a> details the relatively simple but somewhat nasty workaround that can be used in the meantime.</p>
+<p>At <a href="http://www.scottlogic.com" target="_blank">Scott Logic</a> the functionality relating to the <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/Series.html#filterData" target="_blank">filterData</a> property as well as the property itself have been carefully manipulated to produce the various zooming and panning capabilities in our Hindsight application and the research charts available through our Market Overview pages.</p>
+<p>The <a href='{{ site.baseurl }}/archive/2009/04/filterdata_source.zip'>source code</a> is now available.</p>

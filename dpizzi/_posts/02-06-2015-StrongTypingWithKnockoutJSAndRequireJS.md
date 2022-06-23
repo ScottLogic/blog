@@ -1,17 +1,14 @@
 ---
-author: dpizzi
 title: Strong Typing With KnockoutJS and RequireJS
+author: dpizzi
 layout: default_post
-summary: >-
-  This article demonstrates a successful integration of TypeScript with
-  KnockoutJS and RequireJS to provide a strongly-typed environment for
-  development of HTML5 apps.
+summary: This article demonstrates a successful integration of TypeScript with KnockoutJS
+  and RequireJS to provide a strongly-typed environment for development of HTML5 apps.
 image: dpizzi/assets/featured/Strong.png
-oldlink: >-
-  http://www.scottlogic.com/blog/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
-disqus-id: /2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
+oldlink: http://www.scottlogic.com/blog/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html
+disqus-id: "/2015/06/02/StrongTypingWithKnockoutJSAndRequireJS.html"
 categories:
-  - Tech
+- Tech
 ---
 
 Following my previous post on [Strong Typing With AngularJS]({{ site.baseurl }}/2014/08/26/StrongTypingWithAngularJS.html), this article presents the integration of TypeScript with an other client MVC framework: _KnockoutJS_. We will also integrate RequireJS that allows the use of the [Asynchronous Module Definition](https://github.com/amdjs/amdjs-api/wiki/AMD) (AMD) API.  

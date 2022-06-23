@@ -1,0 +1,98 @@
+---
+title: Custom data tips in stacked Flex charts
+date: 2009-03-24 00:00:00 Z
+categories:
+- godds
+- Tech
+tags:
+- Flex
+- Charts
+- flex
+id: 24
+author: godds
+oldlink: http://www.scottlogic.co.uk/blog/graham/2009/03/custom-data-tips-in-stacked-flex-charts/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/graham/2009/03/custom-data-tips-in-stacked-flex-charts/"
+---
+
+<p>The number of frustrating decisions in Flex's charting API is minimal, but high up on my list is a strange decision that prevents developers from accessing information that is frequently desirable for custom data tips in stacked area, bar and column charts.  The default data tips for stacked charts display, amongst other things, the total of the values for all the series at a specific point along the x-axis and the percentage the highlighted segment forms of this total, as shown in the following example (<a href='{{ site.baseurl }}/archive/2009/03/chartsettotals.zip'>source code</a>):<br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="stacked_default" width="400" height="300" align="center" name="stacked_default">
+<param name="movie" value="{{ site.baseurl }}/archive/2009/03/chartsettotals.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2009/03/chartsettotals.swf" width="400" height="300" align="center" name="stacked_default">
+<!--<![endif]-->
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<br />If you wanted to customise the data tips and still include information such as the total and percentage values then you would be out of luck.  This why I consider the decision to give the necessary information protected scope in the relevant classes in the charting API as strange.  Fortunately circumnavigating this issue only requires a little bit of dirty work...</p>
+<p>But first, a brief diversion to provide a little background...The code used to create a stacked column chart generally takes the following form:</p>
+{% highlight xml %}
+<mx:ColumnChart type="stacked">
+    <mx:series>
+        <mx:ColumnSeries />
+        ...
+    </mx:series>
+</mx:ColumnChart>
+{% endhighlight %}
+<p>This is in fact a shortcut syntax.  The ColumnChart automatically wraps the array of series into a ColumnSet with type "stacked", as it is the ColumnSet class that takes care of the stacking and associated behaviour rather than the ColumnChart class.  The same pattern occurs in stacked AreaChart or BarChart.  Consequently, the following MXML produces the same end result:</p>
+{% highlight xml %}
+<mx:ColumnChart>
+    <mx:series>
+        <mx:ColumnSet type="stacked">
+            <mx:ColumnSeries />
+            ...
+        </mx:ColumnSet>
+    </mx:series>
+</mx:ColumnChart>
+{% endhighlight %}
+<p>When wanting to create more complex combinations of stacking, clustering and overlaying in charts, this can only be achieved by explicitly introducing (and nesting) sets - as in the second code snippet.</p>
+<p>To be able to display customised data tips that include information relating to the stacking in a stacked ColumnChart, BarChart or AreaChart we can take one of two approaches.  Both approaches involve extending the <a href="https://flex.apache.org/asdoc/mx/charts/series/ColumnSet.html" target="_blank">ColumnSet</a>, <a href="" target="_blank">BarSet</a> or <a href="" target="_blank">AreaSet</a> class (depending on the desired chart type) as it is the protected-scoped <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/StackedSeries.html#negTotalsByPrimaryAxis" target="_blank">negTotalsByPrimaryAxis</a>, <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/StackedSeries.html#posTotalsByPrimaryAxis" target="_blank">posTotalsByPrimaryAxis</a>, <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/StackedSeries.html#stackedMaximum" target="_blank">stackedMaximum</a> and <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/StackedSeries.html#stackedMinimum" target="_blank">stackedMinimum</a> properties that contain the interesting information.  The first approach is to override the <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/StackedSeries.html#formatDataTip()" target="_blank">formatDataTip</a> method in the extended class, resulting in something along the following lines:</p>
+{% highlight actionscript3 %}
+/**
+ * ColumnSet extension to introduce custom data tips.
+ */
+public class ColumnSet extends mx.charts.series.ColumnSet
+{
+    /**
+     * @inheritDoc
+     */
+    override protected function formatDataTip(hd:HitData):String
+    {
+        // build up the custom data tip
+        var tip:String = "";
+        ...
+        return tip;
+    }
+}
+{% endhighlight %}
+<p>However, I think that this approach is slightly short-sighted because it means that for every customisation of the data tips you would create a new extension.  The other, and in my opinion more reusable, approach is to expose the aforementioned properties publicly in extensions to the <a href="https://flex.apache.org/asdoc/mx/charts/series/ColumnSet.html" target="_blank">ColumnSet</a>, <a href="" target="_blank">BarSet</a> and <a href="" target="_blank">AreaSet</a> classes.  By creating these extensions, the standard approach to customising data tips can be used, i.e. a method with the appropriate signature is passed to the chart's <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/ChartBase.html" target="_blank">dataTipFunction</a> property.  The classes resulting from this approach would be something along the following lines:</p>
+{% highlight actionscript3 %}
+/**
+ * ColumnSet extension to expose the stack totals for public
+ * use, e.g. in a data tip function.
+ */
+public class ColumnSet extends mx.charts.series.ColumnSet
+{
+    /**
+     * @see StackedSeries.posTotalsByPrimaryAxis
+     */
+    public function get positiveTotalsByAxis():Dictionary
+    {
+        return posTotalsByPrimaryAxis;
+    }
+
+    ...
+}
+{% endhighlight %}
+<p>The minor downside to this approach is that the shortcut syntax for achieving stacked series, as used in the first example and explained above, cannot be used.  The explicit syntax must be used to ensure that the extended version of the relevant <a href="https://flex.apache.org/asdoc/mx/charts/chartClasses/StackedSeries.html" target="_blank">StackedSeries</a> extension is used.</p>
+<p>The following example uses the approach presented above to provide customised data tips in the chart.  The <a href='{{ site.baseurl }}/archive/2009/03/chartsettotals1.zip'>source code</a> for the example includes the necessary extensions to the <a href="https://flex.apache.org/asdoc/mx/charts/series/ColumnSet.html" target="_blank">ColumnSet</a>, <a href="" target="_blank">BarSet</a> and <a href="" target="_blank">AreaSet</a> classes, so feel free to use them.<br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="stacked_custom" width="400" height="300" align="center" name="stacked_custom">
+<param name="movie" value="{{ site.baseurl }}/archive/2009/03/chartsettotalscustom.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2009/03/chartsettotalscustom.swf" width="400" height="300" align="center" name="stacked_custom">
+<!--<![endif]-->
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<br /> </p>

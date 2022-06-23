@@ -1,10 +1,10 @@
 ---
-published: true
+title: ".spelling"
 author: dcastellano
 layout: default_post
 category: Tech
-title: .spelling
 ---
+
 # markdown-spellcheck spelling configuration file
 # Format - lines beginning # are comments
 # global dictionary is at the start, file overrides afterwards

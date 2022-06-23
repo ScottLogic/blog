@@ -1,0 +1,136 @@
+---
+title: Independent testers question
+date: 2016-03-11 00:00:00 Z
+categories:
+- dmcnamee
+- Testing
+tags:
+- testing
+- automation
+- checking
+- software
+- blog
+- elements
+- locators
+author: dmcnamee
+summary: Automation of user interactions in browsers can be difficult. Even more so
+  when you have to hunt for elements in a single page application. How can we ensure
+  reliable location of these and reduce flaky checking?
+image: dmcnamee/assets/stones.jpg
+layout: default_post
+---
+
+<p><img src="{{ site.baseurl }}/dmcnamee/assets/lamps.jpg" alt="lamplight" title="lamplight" width="100%"></p>
+
+<h2>/ Question, tell me how you feel about this?</h2>
+
+<p>One of the most time consuming, sometimes frustrating things about automating checks in a browser is the hunt for the correct element. Some are easier than others, but if you have an ng-repeat, non-unique ids, a table or tags nested 10 levels deep, things can get a bit messy.</p>
+
+<p>Responses on queries posted to various sites where questions asked along the lines of: <br>
+‘Help! Text isn’t being entered into the text field, why?’ or <br>
+‘Element is not being identified, how do I select the correct one?’ <br>
+are quite often; your xpath is wrong, use relative xpath, or some other fix involving using the locators with the existing elements. <br>
+Rarely is the answer the solution, just a temporary fix for the problem. </p>
+
+<p>In these situations, as testers, preferably before work has started on an application, we should be promoting testability, or in perhaps in this case, checkability. And for automation, a good way to do this is by using test id’s. </p>
+
+<p>Here is an example of a custom angular FX trading date selector, where elements are reused and selectable dates are updated based on currency selected.</p>
+
+<pre><code>&lt;div&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th ng-click="prev()"&gt;&lt;/th&gt;
+                &lt;th ng-click="month()"&gt;March 2016&lt;/th
+                &lt;th ng-click="next()"&gt;&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr ng-repeat="week in weeks&gt;
+                &lt;td ng-repeat="day in week"&gt;
+                    &lt;span ng-class="some stuff" role="button" tabindex="0"&gt;07&lt;/span&gt;
+                &lt;td ng-repeat="day in week"&gt;
+                    &lt;span ng-class="some stuff" role="button" tabindex="0"&gt;08&lt;/span&gt;
+                &lt;td ng-repeat="day in week"&gt;
+                    &lt;span ng-class="some stuff" role="button" tabindex="0"&gt;09&lt;/span&gt;
+                    ....
+            &lt;/tr&gt;
+            &lt;tr ng-repeat="week in weeks&gt;
+                &lt;td ng-repeat="day in week"&gt;
+                    &lt;span ng-class="some stuff" role="button" tabindex="0"&gt;14&lt;/span&gt;
+                &lt;td ng-repeat="day in week"&gt;
+                    &lt;span ng-class="some stuff" role="button" tabindex="0"&gt;15&lt;/span&gt;&gt;
+                &lt;td ng-repeat="day in week"&gt;
+                    &lt;span ng-class="some stuff" role="button" tabindex="0"&gt;16&lt;/span&gt;
+                    ...
+            &lt;/tr&gt;
+</code></pre>
+
+<p>Here, we have multiple elements all of the same class within repeats.</p>
+
+<p>Which would lead to something like this as a page object:</p>
+
+<pre><code>tile.prototype = Object.create({}, {
+previousMonth: {get: function() {return element(by.css('[ng-click="prev()'));}},
+nextMonth: {get: function() {return element(by.css('[ng-click="next()"'));}},
+weekday: {get: function() {return errr...????????);}}
+</code></pre>
+
+<p>While the previous and next month looks fairly simple, if the names of these change, those page objects are no longer going to work. And when it comes to selecting a day of the week in the calendar, we would have to return an array of elements, check that we are on the correct month, know how many days are in that month and then find the correct one to select, or have some monolithic flaky element locator.</p>
+
+<p>This kind of SPA implementation makes selecting the correct elements reliably quite difficult and the page objects unwieldy, unreadable and inelegant.</p>
+
+<h2>/ Question, how’d you like this knowledge that I brought?</h2>
+
+<p>Here’s an example of the same elements with test ids.</p>
+
+<pre><code>&lt;div&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th ng-click="prev()" test-id="previous"&gt;&lt;/th&gt;
+                &lt;th ng-click="month()" test-id="current-month"&gt;March 2016&lt;/th
+                &lt;th ng-click="next()" test-id="next"&gt;&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr ng-repeat="week in weeks&gt;
+                &lt;td ng-repeat="day in week"&gt;
+                    &lt;span ng-class="some stuff" role="button" tabindex="0" test-id="day-7"&gt;7&lt;/span&gt;
+                &lt;td ng-repeat="day in week"&gt;
+                    &lt;span ng-class="some stuff" role="button" tabindex="0" test-id="day-8&gt;8&lt;/span&gt;
+                &lt;td ng-repeat="day in week"&gt;
+                    &lt;span ng-class="some stuff" role="button" tabindex="0" test-id="day-9"&gt;9&lt;/span&gt;
+                        ....
+            &lt;/tr&gt;
+</code></pre>
+
+<p>These id’s can be generated by the application and we can then write a bit of code for a custom locator into the OnPrepare method to find these ids. e.g.</p>
+
+<pre><code>by.addLocator('testId', function(value, parentElement){
+    parentElement = parentElement || document;
+    var nodes = parentElement.querySelectorAll('[test-id]');
+    return Array.prototype.filter.call(nodes, function(node){
+        return (node.getAttribute('test-id') === value;
+    ])[0];
+});
+</code></pre>
+
+<p>Then, our page object can use these to find the exact element we need.</p>
+
+<pre><code>calendar.prototype = Object.create({}, {
+nextMonth: {get: function() {return element(by.testId('next'));}},
+previousMonth: {get: function() {return element(by.testId('previous'));}},
+currentMonth: {get: function() {return element(by.testId('current-month'));}},
+weekday01: {get: function() {return element(by.testId('day-1'));}},
+weekday02: {get: function() {return element(by.testId('day-2'));}},
+....
+</code></pre>
+
+<p>Now we will always be able to select the correct weekday for the current month, whichever one it is.  <br>
+We can also check whether the current month displays the correct days without element chaining or looping through an array. <br>
+We can select a known trading day, or validate the days are not selectable for non-trading days. And we can use the same page object no matter which month we are in, enabling us to run these checks any day of the week or month.</p>
+
+<p>This also makes our checks easier to read and maintain. </p>
+
+<p>So if you’re asked to add automation, make sure that you are able to locate elements easily. Add a task to your sprint, bring it up in a scrum, repeatedly. Whichever way works. This will save you having to ask the same questions that everyone else is.</p>

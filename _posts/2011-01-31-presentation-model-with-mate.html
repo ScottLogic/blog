@@ -1,0 +1,304 @@
+---
+title: Presentation Model (or MVVM) with Mate
+date: 2011-01-31 00:00:00 Z
+categories:
+- godds
+- Tech
+tags:
+- Flex
+- Flash
+- Mate
+- Code Structure
+- Testing
+- flex
+id: 432
+author: godds
+oldlink: http://www.scottlogic.co.uk/blog/graham/2011/01/presentation-model-with-mate/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/graham/2011/01/presentation-model-with-mate/"
+---
+
+<p><em>This post introduces the <a href="http://martinfowler.com/eaaDev/PresentationModel.html" target="_blank">Presentation Model</a> (or <a href="http://en.wikipedia.org/wiki/Model_View_ViewModel" target="_blank">MVVM</a>) architectural pattern as one approach for creating "better" large-scale <a href="http://www.adobe.com/devnet/flex.html" target="_blank">Flex</a> applications and shows how the <a href="http://mate.asfusion.com/" target="_blank">Mate Framework</a> can be leveraged to not only achieve this pattern but increase <a href="http://en.wikipedia.org/wiki/Separation_of_concerns" target="_blank">separation of concerns</a> above that of a "standard" <a href="http://www.adobe.com/devnet/flex.html" target="_blank">Flex</a> application.</em></p>
+<h2>Background</h2>
+<p>One of the great advantages <a href="http://www.adobe.com/devnet/flex.html" target="_blank">Flex</a> is that it makes creating applications very quick and easy by allowing ad-hoc mixing of <a href="http://en.wikipedia.org/wiki/MXML" target="_blank">MXML</a> and <a href="http://en.wikipedia.org/wiki/ActionScript" target="_blank">ActionScript</a>.  This is ideal for rapid prototyping and can be all that is required for small applications.  It also means anyone new to the technology can easily get started and relatively quickly put together quite rich applications.  However, this architectural pattern, termed <a href="http://martinfowler.com/eaaDev/AutonomousView.html" target="_blank">Autonomous View</a>, does not scale well for larger, real-world projects.  Fortunately, there are a numerous other architectural patterns - most famously(?) <a href="http://en.wikipedia.org/wiki/Model_view_controller" target="_blank">Model-View-Controller (MVC)</a> - that attempt to directly address these concerns.  Furthermore, various frameworks have been developed for Flex that specifically target these patterns.  For example, both <a href="" target="_blank">Cairngorm</a> and <a href="" target="_blank">PureMVC</a> were designed for developing applications using the MVC architecture.  There are many <a href="http://www.codeproject.com/KB/aspnet/ArchitectureComparison.aspx" target="_blank">articles</a> on the web considering <a href="http://blogs.adobe.com/paulw/" target"_blank">the merits of different architectural patterns</a> (and related Flex-specific <a href="http://robsondesign.com/blog/index.php/2009/04/02/puremvc-vs-cairngorm-revisited/">frameworks</a>).  This article focuses on the <a href="http://martinfowler.com/eaaDev/PresentationModel.html" target="_blank">Presentation Model</a> architectural pattern, and a specific implementation of it using the <a href="http://mate.asfusion.com/" target="_blank">Mate Framework</a>, as a particularly useful approach to application development in Flex.  Note that Mate is not designed to target any particular architectural pattern and that I am merely introducing its use with the Presentation Model pattern as one of many possible approaches, not a definitive or necessarily best one.</p>
+<h4>Presentation Model (or Model-View-ViewModel)</h4>
+<p><a href="http://martinfowler.com/eaaDev/PresentationModel.html" target="_blank">Presentation Model</a> is an architectural pattern derived from <a href="http://en.wikipedia.org/wiki/Model_view_controller" target="_blank">Model-View-Controller (MVC)</a> and originally introduced by <a href="http://martinfowler.com/" target="_blank">Martin Fowler</a>.  Since then, Microsoft has introduced the <a href="http://en.wikipedia.org/wiki/Model_View_ViewModel" target="_blank">Model View ViewModel (MVVM)</a> pattern as a specialisation of Presentation Model that extends the original concept by adding a Model to make it more relevant to modern application development.  I have adopted the MVVM terminology as I believe it better defines the entities involved in the pattern (purely because of its name).</p>
+<p>The key features of the pattern are:</p>
+<ul>
+<li>Model is the object model representation of state (whether as real state or as a data-access layer representation of the state)</li>
+<li>View is the GUI elements</li>
+<li>View model contains all GUI state and logic</li>
+<li>View observes the view model and updates accordingly</li>
+<li>View is "aware" of the view model</li>
+<li>View model has no knowledge of the view</li>
+</ul>
+<p>The observation required by the view is one of the reasons Flex is particularly suited to this pattern, as its <a href="http://help.adobe.com/en_US/flex/using/WS2db454920e96a9e51e63e3d11c0bf64c3d-7fff.html" target="_blank">binding functionality</a> is simple and powerful implementation of observation.  Additionally, the pattern ties in neatly to the relative merits of Flex's two languages, creating a simple conceptual model for developers:</p>
+<ul>
+<li>View = MXML = components & layout</li>
+<li>ViewModel = ActionScript = behaviour & state</li>
+</ul>
+<p>The main advantages of Presentation Model (or MVVM) are the clear code separation between GUI layout and behaviour and the testability this inherently introduces (compared to Autonomous View and similar).  As well as the advantages this brings in all object-oriented technologies, in Flex this is particularly useful when its <a href="http://www.flexafterdark.com/docs/Flex-Modules" target="_blank">Module</a> functionality is leveraged, as it creates clear and easy cut points.  The disadvantages of this pattern is that it can be relatively verbose and sometimes requires information to be passed through view model instances in order to appropriately traverse the display tree.  However, as I'll show in the worked example below, the <a href="http://mate.asfusion.com/" target="_blank">Mate framework</a> provides some mechanisms that can drastically reduce the latter problem.</p>
+<h4>Mate</h4>
+<p><a href="http://mate.asfusion.com/" target="_blank">Mate</a> is an event-driven Flex framework that provides both <a href="http://en.wikipedia.org/wiki/Dependency_injection" target="_blank">dependency injection</a> and mechanisms to "glue" your code together, thereby enabling you to produce very loosely coupled code.  The worked example below assumes some basic understanding of how Mate works, so if it is unfamiliar I recommend at least running through their <a href="http://mate.asfusion.com/page/documentation/getting-started" target="_blank">Getting Started</a> tutorial.  There are also other excellent <a href="" target="_blank">introductory articles</a> and <a href="http://mate.asfusion.com/page/examples" target="_blank">examples</a>.</p>
+<h2>Worked Example</h2>
+<p>Here follows a worked example showing how the <a href="http://mate.asfusion.com/" target="_blank">Mate framework</a> can be leveraged to not only use the <a href="http://martinfowler.com/eaaDev/PresentationModel.html" target="_blank">Presentation Model</a> architectural pattern, but also add further elegance by using some of its core features.</p>
+<p>The example below applies the Presentation Model (or MVVM) architectural pattern to an application with a global count that can be increased and decreased both directly and by manipulating a dynamic number of counters.  Each counter maintains a sub-total that is the sum of its two sub-counters.  Additionally, there is a global countdown that on reaching 0 resets all counts at all levels.</p>
+<p><br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="705" height="600" align="center">
+<param name="movie" value="{{ site.baseurl }}/archive/2011/01/MatePresentationModel.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2011/01/MatePresentationModel.swf" width="705" height="600" align="center">
+<!--<![endif]-->
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<br /><span style="font-size: 0.8em; font-style: italic;"><a href='{{ site.baseurl }}/archive/2011/01/MatePresentationModel-src.zip'>Source code</a></span></p>
+<h4>Core code</h4>
+<p>In order to not get too bogged down in application specifics and better focus on how Presentation Model (or MVVM) and Mate are used, I will focus on the sub-counter block of the user interface and logic.  As shown in the class diagram below, the entities involved are: the view, <code>SubCounterView</code>; the view model interface, <code>ISubCounterViewModel</code>; and, an implementation of the view model interface, <code>SubCounterViewModel</code>.  The diagram also shows how I have added some unifying interfaces for views and view models and a base class for view models containing some common functionality (more detail on this later when explaining the Mate-related specifics).</p>
+<p><em>The observant among you will have spotted that there are no model classes mentioned.  This is because in this particular example the models are the integer counts and as such do not require a custom class type.  In more real-world applications it would be normal to have custom model classes that are used by the view models to maintain state.</em></p>
+<p><img src="{{ site.baseurl }}/archive/2011/01/presentation_model.png" alt="Presentation Model UML" title="presentation_model" width="701" height="415" class="aligncenter size-full wp-image-460" /><span style="font-size: 0.8em; font-style: italic;">Class diagram abstractly showing presentation model example</span></p>
+<p>The <code>SubCounterView</code> MXML consists of the viewModel property, a Mate <a href="http://mate.asfusion.com/page/documentation/tags/localeventmap" target="_blank">map</a> (more detail on this later when explaining the Mate-related specifics), a <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/containers/Grid.html" target"_blank">Grid</a> to neatly lay out the local and sub-total counts and a couple of buttons to increase and decrease the local count.  All state, such as the two count labels, is observed from the view model using binding and all logic/behaviour, such as the count increasing and decreasing, is delegated to the view model:</p>
+{% highlight xml %}
+<?xml version="1.0" encoding="utf-8"?>
+<mx:VBox
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:map="maps.*"
+    implements="views.IView"
+>
+    <mx:Script>
+        <![CDATA[
+            import viewModels.ISubCounterViewModel;
+            import viewModels.IViewModel;
+
+            [Bindable]
+            private var _viewModel:ISubCounterViewModel;
+            /**
+             * @see IView.viewModel
+             */
+            public function get viewModel():IViewModel
+            {
+                return _viewModel;
+            }
+            /**
+             * @private
+             */
+            public function set viewModel(value:IViewModel):void
+            {
+                if (!(value is ISubCounterViewModel))
+                {
+                    throw new Error("ISubCounterViewModel instance expected");
+                }
+                _viewModel = ISubCounterViewModel(value);
+            }
+        ]]>
+    </mx:Script>
+
+    <map:SubCounterViewMap dispatcher="{this}" />
+
+    <mx:Grid width="100%">
+        <mx:GridRow>
+            <mx:GridItem>
+                <mx:Label text="Subtotal:"/>
+            </mx:GridItem>
+            <mx:GridItem>
+                <mx:Label text="{_viewModel.subTotal}"/>
+            </mx:GridItem>
+        </mx:GridRow>
+        <mx:GridRow>
+            <mx:GridItem>
+                <mx:Label text="Amount:"/>
+            </mx:GridItem>
+            <mx:GridItem>
+                <mx:Label text="{_viewModel.count}"/>
+            </mx:GridItem>
+        </mx:GridRow>
+    </mx:Grid>
+
+    <mx:HBox>
+        <mx:Button label="+" click="_viewModel.increaseCount()"/>
+        <mx:Button label="-" click="_viewModel.decreaseCount()"/>
+    </mx:HBox>
+
+</mx:VBox>
+{% endhighlight %}
+<p>As can be seen in the above code and class diagram, the view is tied to a view model interface rather than concrete class.  Although this may seem unnecessarily verbose it brings some powerful benefits.  it allows different view models, and therefore different logic and behaviour, to be used with the same view (i.e. <a href="http://en.wikipedia.org/wiki/Inversion_of_control" target="_blank">inversion of control</a>).  This is both a relatively common code requirement and a useful mechanism for activities such as testing.  It allows for the potential case of a single view model being shared across multiple views.  A final (more arguable) benefit is that it encourages the developer to focus solely on the view rather than be distracted by behavioural details.</p>
+<p>The <code>ISubCounterViewModel</code> interface looks like this:</p>
+{% highlight actionscript %}
+/**
+ * Interface for any presentation model that is to be used
+ * with the SubCounterView view.
+ */
+public interface ISubCounterViewModel extends IViewModel
+{
+	[Bindable("subTotalChanged")]
+	/**
+	 * The total of all grouped sub-counter's counts.
+	 */
+	function get subTotal():int;
+	/**
+	 * @private
+	 */
+	function set subTotal(value:int):void;
+
+	[Bindable("countChanged")]
+	/**
+	 * The local count.
+	 */
+	function get count():int;
+
+	/**
+	 * Increases the local count.
+	 */
+	function increaseCount():void;
+
+	/**
+	 * Decreases the local count.
+	 */
+	function decreaseCount():void;
+}
+{% endhighlight %}
+<p>The implementation of the interface, <code>SubCounterViewModel</code>, then looks like this:</p>
+{% highlight actionscript %}
+/**
+ * Default implementation of ISubCounterViewModel.
+ */
+public class SubCounterViewModel extends ViewModelBase implements ISubCounterViewModel
+{
+	private static const SUB_TOTAL_CHANGED:String = "subTotalChanged";
+	private static const COUNT_CHANGED:String = "countChanged";
+
+	//------------------------------------
+	//
+	//           Constructor
+	//
+	//------------------------------------
+
+	/**
+	 * Constructor
+	 */
+	public function SubCounterViewModel(dispatcher:IEventDispatcher)
+	{
+		super(dispatcher);
+	}
+
+
+	//------------------------------------
+	//
+	//           Properties
+	//
+	//------------------------------------
+
+	//----------------------------------
+	//  subTotal
+	//----------------------------------
+
+	private var _subTotal:int;
+	[Bindable("subTotalChanged")]
+	/**
+	 * @see ISubCounterViewModel.subTotal
+	 */
+	public function get subTotal():int
+	{
+		return _subTotal;
+	}
+	/**
+	 * @private
+	 */
+	public function set subTotal(value:int):void
+	{
+		if (value != _subTotal)
+		{
+			_subTotal = value;
+			dispatchEvent(new Event(SUB_TOTAL_CHANGED));
+		}
+	}
+
+	//----------------------------------
+	//  count
+	//----------------------------------
+
+	private var _count:int;
+	[Bindable("countChanged")]
+	/**
+	 * @see ISubCounterViewModel.count
+	 */
+	public function get count():int
+	{
+		return _count;
+	}
+	/**
+	 * @private
+	 */
+	public function set count(value:int):void
+	{
+		if (value != _count)
+		{
+			_count = value;
+			dispatchEvent(new Event(COUNT_CHANGED));
+		}
+	}
+
+
+	//------------------------------------
+	//
+	//           Functions
+	//
+	//------------------------------------
+
+	/**
+	 * @see ISubCounterViewModel.increaseCount
+	 */
+	public function increaseCount():void
+	{
+		count++;
+		subTotal++;
+
+		// inform everyone else that the count has changed
+		dispatchEvent(new CountEvent(CountEvent.LOCAL_UPDATE, _subTotal));
+	}
+
+	/**
+	 * @see ISubCounterViewModel.decreaseCount
+	 */
+	public function decreaseCount():void
+	{
+		count--;
+		subTotal--;
+
+		// inform everyone else that the count has changed
+		dispatchEvent(new CountEvent(CountEvent.LOCAL_UPDATE, _subTotal));
+	}
+}
+{% endhighlight %}
+<p>The <code>count</code> and <code>subTotal</code> properties are straightforward <a href="http://help.adobe.com/en_US/flex/using/WS2db454920e96a9e51e63e3d11c0bf69084-7cc5.html" target="_blank">Bindable</a> properties with custom binding events.  The <code>increaseCount</code> and <code>decreaseCount</code> methods are also very simple: they increase or decrease both the local count and the sub-total and then dispatch an event to inform that the sub-total has changed.  The assumption here is that its local knowledge of the sub-total is correct and that it will appropriately be informed if that sub-total is changed elsewhere (much as it informs "others" of any change it makes, by dispatching the <code>CountEvent</code>).  By making this assumption and using events for functional communication rather than explicit method calls we introduce loose coupling by using the <a href="http://en.wikipedia.org/wiki/Observer_pattern" target="_blank">observer pattern</a>.  Normally this would require some quite messy code to introduce and handle, but, as I will show, the Mate framework provides mechanisms that elegantly support this approach.</p>
+<h4>Glueing everything together</h4>
+<p>At this point we have all the constituent parts of the application, but they are not actually combined together in any functional way.  Mate's <a href="http://mate.asfusion.com/page/documentation/tags/eventmap" target="_blank">EventMap</a> and <a href="http://mate.asfusion.com/page/documentation/tags/localeventmap" target="_blank">LocalEventMap</a> components are a powerful mechanism whereby this glue code can be introduced with minimal impact on any of the core code and easily swapped in and out.  As exemplified in the <code>SubCounterView</code> code, maps are introduced as a simple MXML tag and beyond that are entirely self-contained.  They leverage Flex's <a href="http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3_Flex/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e4f.html" target="_blank">event mechanism</a> by hooking into an application's <a href="http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3_Flex/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e26.html" target="_blank">display tree</a>, either at the global <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/Stage.html" target="_blank">stage</a> level in the case of EventMap or at the level of a specific <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/display/DisplayObject.html" target="_blank">DisplayObject</a> in the case of LocalEventMap (see how the <a href="http://mate.asfusion.com/api_docs/com/asfusion/mate/core/LocalEventMap.html#dispatcher" target="_blank">dispatcher</a> of the <code>SubCounterViewMap</code> in the <code>SubCounterView</code> above is set to be the view).  To achieve better separation of concerns (and to avoid coding using what can quickly become little more than a global variable mechanism) LocalEventMaps are always preferable to EventMaps.</p>
+<p>The first part of pulling the parts of the application together is to appropriately combine views with their view model instances.  Mate's map components allow us to inject these dependencies <a href="http://mate.asfusion.com/page/documentation/tags/injectors" target="_blank">Injectors</a> tags.  The Injectors component can target any class instance that is added to the <a href="http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3_Flex/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e26.html" target="_blank">display tree</a> below the map's dispatcher or that is created within the scope of the map.  With this hook, an <a href="http://mate.asfusion.com/page/documentation/tags/objectbuilder" target="_blank">ObjectBuilder</a> is used to create the desired view model before being injected into the view using the <a href="http://mate.asfusion.com/page/documentation/tags/propertyinjector" target="_blank">PropertyInjector</a>.  This way we can very specifically target (and easily change) any desired view/view-model combinations.  Here is what combining the <code>SubCounterView</code> with its <code>SubCounterViewModel</code> looks like in the <code>SubCounterViewMap</code>:</p>
+{% highlight xml %}
+<mate:Injectors target="{SubCounterView}">
+    <mate:ObjectBuilder
+        generator="{SubCounterViewModel}"
+        constructorArguments="{scope.dispatcher}"
+    />
+    <mate:PropertyInjector source="{lastReturn}" targetKey="viewModel" />
+</mate:Injectors>
+{% endhighlight %}
+<p>The second part of glue code required for the fully functional application is to turn the event communication assumption(s) of the view models (see <code>SubCounterViewModel</code> code and explanation above) into reality.  Once again, Mate's map components form the basis, but here it is the <a href="http://mate.asfusion.com/page/documentation/tags/eventhandlers" target="_blank">EventHandlers</a> tag that provides the desired hook.  The EventHandlers component allows a response to any event <a href="http://help.adobe.com/en_US/ActionScript/3.0_ProgrammingAS3_Flex/WS5b3ccc516d4fbf351e63e3d118a9b90204-7e4f.html" target="_blank">bubbled</a> past the map's dispatcher (or globally, depending on both the map type and the EventHandlers own <a href="http://mate.asfusion.com/api_docs/com/asfusion/mate/actionLists/AbstractHandlers.html#dispatcherType" target="_blank">dispatcherType</a>).  This response can be any sequence of <a href="http://mate.asfusion.com/api_docs/com/asfusion/mate/actions/IAction.html" target="_blank">actions</a>, such as invoking a method on a class (<a href="http://mate.asfusion.com/page/documentation/tags/methodinvoker" target="_blank">MethodInvoker</a>), setting a property (<a href="http://mate.asfusion.com/api_docs/com/asfusion/mate/actions/builders/PropertySetter.html" target="_blank">PropertySetter</a>) or even creating another event (<a href="http://mate.asfusion.com/page/documentation/tags/eventannouncer" target="_blank">EventAnnouncer</a>).  An example from the application above is the reset event that is dispatched when the countdown reaches zero and all counters should be reset.  For the <code>SubCounterViewModel</code> this is handled by setting the zero value from the reset as its local count value, as shown in the following code snippet from <code>SubCounterViewMap</code>:</p>
+{% highlight xml %}
+<mate:EventHandlers type="{CountEvent.RESET}" dispatcherType="global">
+    <mate:PropertySetter
+        generator="{SubCounterViewModel}"
+        source="event"
+        sourceKey="newCount"
+        targetKey="count"
+    />
+</mate:EventHandlers>
+{% endhighlight %}
+<p><em>As shown in the class diagram and <code>SubCounterViewModel</code> code above (and highlighted by the ObjectBuilder in the view/view-model injection code above), the view model classes all require a reference to an <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/IEventDispatcher.html" target="_blank">IEventDispatcher</a> instance to act as its event dispatcher despite themselves also being IEventDispatcher implementations.  This is the compromise required to use Presentation Model in conjunction with Mate.  As previously mentioned, Mate's key components, EventMap and LocalEventMap, hook into the display tree's event hierarchy.  Therefore, the view model classes must dispatch their events into the display tree to appropriately tie in with the maps.  Hence the IEventDispatcher reference required by all view models.  Fortunately this functionality is easily captured by a common base class for all view models in such a way that this becomes all but transparent to specific view model types.  See the <a href='{{ site.baseurl }}/archive/2011/01/MatePresentationModel-src.zip'>source code</a> for the worked example for further details.</em></p>
+<p>And there you have it, the Presentation Model (or MVVM) building blocks and how to combine them into an application using the Mate framework in such a way that the various concerns of the code are cleanly separated.</p>
+<h4>Testing</h4>
+<p>As mentioned in the background information, testability is one of the strong drivers behind the Presentation Model (or MVVM) architectural pattern.  To highlight this, the <a href='{{ site.baseurl }}/archive/2011/01/MatePresentationModel-src.zip'>source code</a> for the example above includes unit tests (using <a href="http://opensource.adobe.com/wiki/display/flexunit/FlexUnit" target="_blank">FlexUnit</a>) for, amongst others, the view model classes, thereby showing how the pattern allows testing of view-related logic.  By appropriately using interfaces and <a href="http://en.wikipedia.org/wiki/Inversion_of_control" target="_blank">inversion of control</a> throughout, the testability of the code is further enhanced as this allows us to leverage <a href="http://en.wikipedia.org/wiki/Mock_object" target="_blank">mock objects</a> in the unit tests.  I have used <a href="http://code.google.com/p/mock4as/" target="_blank">Mock4AS</a> because I happened to have it to hand, but there are several other good mocking libraries for ActionScript, such as <a href="http://asmock.sourceforge.net/" target="_blank">asMock</a> and <a href="http://mockolate.org/mockolate.html" target="_blank">Mockolate</a>, so take a look at the different ones and pick your favourite (I don't have one yet).</p>
+<h2>Summary</h2>
+<p>Hopefully this article has highlighted the reason to consider the design of your Flex application in order to improve its maintainability and testability, and has introduced the <a href="http://martinfowler.com/eaaDev/PresentationModel.html" target="_blank">Presentation Model</a> pattern coupled with the <a href="http://mate.asfusion.com/" target="_blank">Mate Framework</a> as one of the potential approaches to solving these problems.  I have only introduced a small sub-set of Mate's components and their capabilities so would encourage you to delve deeper into the <a href="http://mate.asfusion.com/page/documentation" target="_blank">documentation</a>, <a href="http://mate.asfusion.com/page/resources" target="_blank">tutorials</a> and <a href="http://mate.asfusion.com/page/examples" target="_blank">examples</a> to gain a better understanding of the full Mate framework and its subtleties even if you are not interested in the Presentation Model pattern.</p>
+<p>You can download the full source code for the Flex example given in this blog post here: <a href='{{ site.baseurl }}/archive/2011/01/MatePresentationModel-src.zip'>MatePresentationModel-src.zip</a>.</p>

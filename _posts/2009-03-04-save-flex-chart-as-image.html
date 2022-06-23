@@ -1,0 +1,47 @@
+---
+title: Save Flex chart as image
+date: 2009-03-04 00:00:00 Z
+categories:
+- godds
+- Tech
+tags:
+- Flex
+- Charts
+- flex
+id: 3
+author: godds
+oldlink: http://www.scottlogic.co.uk/blog/graham/2009/03/save-flex-chart-as-image/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/graham/2009/03/save-flex-chart-as-image/"
+---
+
+<p>The ability to allow a user to save a Flex chart, or in fact any Flex UI component, as an image has popped up on my radar several times over the last few years.  Solutions to the problem have generally involved producing a pop-up window with the UI component as an image that the user can then save, either by bouncing the information off a server (<a href="http://www.jamesward.com/blog/2006/08/16/flex-paint-flex-display-object-to-png/" target="_blank">James Ward - RIA Cowboy</a> and <a href="http://www.adobe.com/cfusion/communityengine/index.cfm?event=showdetails&amp;postId=5021&amp;productId=2&amp;loc=en_US" target="_blank">Flex Cookbook</a>) or interacting with JavaScript (<a href="http://dougmccune.com/blog/2007/06/03/save-a-snapshot-image-of-a-flex-app-without-a-server/" target="_blank">Doug McCune</a>).  However, additions made to the framework in Flex 3 combined with new features of Flash Player 10 have made these cumbersome techniques redundant.  It is now possible to provide this functionality directly from your Flex application in two simple steps.</p>
+<p>The first step involves capturing the UI component's bitmap information.  The Flex 3 API introduced the <a href="https://flex.apache.org/asdoc/mx/graphics/ImageSnapshot.html" target="_blank">ImageSnapshot class</a> specifically to simplify this process.  The following line of code is sufficient to capture the image data:</p>
+{% highlight actionscript3 %}ImageSnapshot.captureImage(myChart);{% endhighlight %}
+<p>However, we are able to control the image capturing more precisely by using some of the method's optional parameters.  These allow us to specify the target resolution in dots per inch and the image encoder to use (the Flex 3 API provides a <a href="https://flex.apache.org/asdoc/mx/graphics/codec/PNGEncoder.html" target="_blank">PNGEncoder</a> and a <a href="https://flex.apache.org/asdoc/mx/graphics/codec/JPEGEncoder.html" target="_blank">JPEGEncoder</a>).   So, for example, the following line of code would capture a chart as a PNG image at a  resolution of 300dpi:</p>
+{% highlight actionscript3 %}ImageSnapshot.captureImage(myChart, 300, new PNGEncoder());{% endhighlight %}
+<p>Now that we have captured the image data all that remains is the second, and last, step: saving the image data to the user's file-system.  Flash Player 10 introduced a number of changes to its security sandbox, principally the ability to programmatically prompt the userto save a file to their file-system.  This is done using the FileReference class, as shown in the following lines of code:</p>
+{% highlight actionscript3 %}var file:FileReference = new FileReference();
+file.save(image.data, "chart.png");{% endhighlight %}
+<p>So, putting the steps together results in a method along the lines of the following code snippet:</p>
+{% highlight actionscript3 %}/**
+ * Attempts to save the chart to the user's file-system.
+ */
+private function saveChart():void
+{
+    var image:ImageSnapshot = ImageSnapshot.captureImage(myChart, 300, new PNGEncoder());
+    var file:FileReference = new FileReference();
+    file.save(image.data, "chart.png");
+}{% endhighlight %}
+<p>The application below shows this code in action.  The values in the data grid can be changed,with the changes reflected in the chart (just to show that I'm not cheating).<br /><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="savechartobj" width="600" height="500" align="center">
+<param name="movie" value="{{ site.baseurl }}/archive/2009/03/savechartimage.swf" />
+<!--[if !IE]>-->
+<object type="application/x-shockwave-flash" data="{{ site.baseurl }}/archive/2009/03/savechartimage.swf" width="600" height="500" align="center">
+<!--<![endif]-->
+<!--[if !IE]>-->
+</object>
+<!--<![endif]-->
+</object>
+<br /></p>
+<p>The <a href='{{ site.baseurl }}/archive/2009/03/SaveChartImage.zip'>source code</a> is now available.</p>

@@ -1,0 +1,41 @@
+---
+title: Pretty pictures don't always tell the whole truth
+date: 2012-07-12 00:00:00 Z
+categories:
+- godds
+- UX Design
+tags:
+- Visualisation
+- design
+- Infographics
+- critique
+- visualisation
+- ux design
+- featured
+id: 725
+author: godds
+oldlink: http://www.scottlogic.co.uk/blog/graham/2012/07/pretty-pictures/
+image: godds/assets/featured/uk-habitats.png
+layout: default_post
+source: wordpress
+summary: A critical appraisal of my 'If Broad Habitats In The UK Were Clustered...'
+  visualisation, highlighting some of its shortcomings and issues in the underlying
+  data source that the 'pretty picture' does a good job of masking.
+disqus-id: "/blog/graham/2012/07/pretty-pictures/"
+---
+
+<p>I <a href="{{ site.baseurl }}/2012/07/06/uk-habitats" target="_blank">published a graphic</a> last week that tried to put habitat figures from the <a href="http://uknea.unep-wcmc.org/" target="_blank">UK National Ecosystem Assessment</a> into some kind of understandable context.  It has got a fair bit of attention since then, largely because <a href="http://twitter.com/BBCMarkEaston" target="_blank">Mark Easton</a> kindly tweeted about it, resulting in the BBC website linking to it in various high-profile places.  As may be evident from my blog, I like to <a href="{{ site.baseurl }}/2011/09/23/a-critique-of-radar-charts" target="_blank">critically</a> <a href="{{ site.github.com }}/2012/02/09/infographics-info-graphics" target="_blank">appraise</a> <a href="{{ site.baseurl }}/2012/06/14/how-to-undermine-a-good-design" target="_blank">visualisations</a>, so it would be hypocritical not to openly do the same for my own creation.</p>
+<p><img src="{{ site.baseurl }}/archive/2012/07/uk_no_borders.png" alt="If broad habitats in the UK were clustered..." title="If broad habitats in the UK were clustered..." width="469" height="494" class="aligncenter size-full wp-image-730" /></p>
+<p>By representing the total habitat areas on a commonly recognised geographic map the graphic immediately provides a rough, but more comprehensible, context for the figures.  However, the graphic doesn't effectively support any real analysis beyond this.  The complexity of shapes on geographic maps means that attempts to compare areas is cumbersome and error-prone, meaning that we actually just read and compare the percentage figures labels rather than the areas themselves.  Even then, the arbitrary, scattered layout of the labels make it cumbersome to scan across them and difficult to get an overall collective view of the numbers.</p>
+<p>One way I think the visualisation would have been improved is if the map regions were given more explicit context to better communicate the total area of each habitat.  This could be achieved by showing the county borders around which the regions were designed, as below.  As a result it is easier to recognise that, for example, the 6.8% urban area of the country is roughly equivalent to an area covering Greater London, Surrey, Kent, West Sussex, East Sussex, Essex and Hertfordshire.</p>
+<p><img src="{{ site.baseurl }}/archive/2012/07/borders.png" alt="If broad habitats in the UK were clustered... (with borders)" title="If broad habitats in the UK were clustered... (with borders)" width="464" height="494" class="aligncenter size-full wp-image-733" /></p>
+<p>What also becomes clearer when the county borders are shown is that in designing the graphic I chose to sacrifice accuracy in favour of clearer stories.  For example, the coastal margins habitat is represented as the same area as Cornwall.  However, the actual area for coastal margins given in <a href="{{ site.baseurl }}/archive/2012/07/28_06_12_uk_national_ecosystem.pdf" target="_blank">the report</a> is 336,000ha where as <a href="http://en.wikipedia.org/wiki/List_of_English_counties" target="_blank">Wikipedia</a> (and Google Maps) give the area of Cornwall as 354,900ha.  This is a not insignificant discrepancy, but given that the values in the report are rounded estimates and derivations, I believe the explanation that coastal margins in the UK roughly equate to the area of Cornwall is far more meaningful to most people than 336,000ha.</p>
+<p><em>Note that where county sizes could not be roughly match to habitat areas I opted to use smaller administrative regions.  Where even that didn't suffice, as is the case in Scotland and North Ireland maps, completely artificial, straight-line borders were created as appropriate.</em></p>
+<p>Ultimately, if accuracy and any more detailed analysis is desired, I believe a simple table is the best way to present the information in this case.  The <a href="{{ site.baseurl }}/archive/2012/07/28_06_12_uk_national_ecosystem.pdf" target="_blank">original report</a> does a half-decent job of this:</p>
+<p><img src="{{ site.baseurl }}/archive/2012/07/report_table.png" alt="UK NEA broad habitat data table" title="UK NEA broad habitat data table" style="width: 100%" class="aligncenter size-full wp-image-737" /></p>
+<p>However, after taking a closer look at the data presented in the report's table something doesn't seem entirely right.  As I've highlighted in the table below, the figures don't appear to add up.  The report indicates the values were derived and estimated from a couple of different sources, so one can only assume these anomalies result from whatever method was used.  The way the data is presented in the table, with totals and percentages, immediately suggests to the reader that this is part-to-whole information, and few people would actually do the arithmetic to spot that this isn't quite the case.  However, the tabular representation of the data does make it much easier to potentially spot this issue than my map graphic because it inherently encourages and supports scanning across multiple values with minimal effort.</p>
+<p><img src="{{ site.baseurl }}/archive/2012/07/table.png" alt="Broad habitat figures as table" title="Broad habitat figures as table" style="width: 100%" class="aligncenter size-full wp-image-727" /></p>
+<p>To make matters worse, the report goes on to further mislead about the data (<em>probably unintentionally!</em>) by complementing the data table with everyone's favourite graphic for presenting part-to-whole data: pie charts.  Ignoring that pie charts are a somewhat flawed visualisation (<em>see <a href="http://www.perceptualedge.com" target="_blank">Stephen Few</a>'s <a href="http://www.perceptualedge.com/articles/08-21-07.pdf" target="_blank">Save the Pies for Dessert</a> paper for an explanation</em>), their design is such that the complete circle represents the whole, i.e. the total or 100%, and the slices represent the parts.  However, as highlighted above, the individual broad habitat values do not add up to the total, so either the total represented by the pie charts do not represent the totals in the data table they are linked to or the segments are not accurate reflections of the habitat proportions.</p>
+<p><img src="{{ site.baseurl }}/archive/2012/07/pies.png" alt="Broad habitat pie charts" title="Broad habitat pie charts" style="width: 100%" class="aligncenter size-full wp-image-726" /></p>
+<p><em>Apologies for the slight side-track, but I think it is worth highlighting issues like the pie charts above to remind everyone that visualisations should always be viewed with some skepticism because it is very easy to put all sorts of misinformation in them, whether intentionally or unintentionally.</em></p>
+<p>So do I think my visualisation is any good?  Well, yes and no.  It does a reasonable job of specifically addressing the question it was originally intended to answer &#8212; what does "6.8% of the UK's land area is now classified as urban" actually mean in real terms? &#8212; in an attractive way, but does little to support any other meaningful analysis, to the point that some data quirks are almost completely hidden.</p>
