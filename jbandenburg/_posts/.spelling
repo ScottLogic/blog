@@ -1,0 +1,13 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - jbandenburg/_posts/2014-09-25-screenhero.md
+cjsmithie
+ - jbandenburg/_posts/2015-02-02-generators.md
+Promise.then
+task.js
+ES5-compatible
+Huzzah
+Async

@@ -1,0 +1,52 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - hpowell/_posts/2014-10-28-Scala-Vs-Clojure.md
+Read-Eval-Print-Loop
+core.typed
+toString
+DSLs
+www.scala
+lang.org
+docu
+ScalaReference.pdf
+www.infoq.com
+ - hpowell/_posts/2015-01-07-Scala-Vs-Clojure-Pt2.md
+Clojures
+Perlis
+defrecords
+deftype
+TweetSet
+TweetList
+ISeq
+IPersistentSet
+deftypes
+Clojurians
+ISequable
+seqs
+Webtreats
+webtreats
+Tambako
+lazy-seq
+CodeTree
+ - hpowell/_posts/2015-03-20-ZeroMQ-Quick-Intro.md
+ZeroMQ
+1950-era
+ØMQ
+20-odd
+NetMQ
+JeroMQ
+pom.xml
+zeromq.node
+iMatix
+cc-by-sa
+HelloWorld
+Hintjens
+mori
+immutable.js
+inproc
+ipc
+epgm
+pgm

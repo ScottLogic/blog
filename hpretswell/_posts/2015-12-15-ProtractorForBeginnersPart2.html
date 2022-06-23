@@ -1,0 +1,273 @@
+---
+author: hpretswell
+title: Protractor For Beginners Part 2
+summary: "This is the second post in a series of simple and short tutorials for automating tests using Protractor. In this post we will look at the difference between isPresent and isDisplayed, and we will use getText and the matchers toContain and toEqual to create some tests."
+title-short: Protractor For Beginners
+image: hpretswell/assets/featured/protractor.jpg
+tags:
+  - featured
+  - testing
+  - automation
+  - protractor
+categories:
+  - Testing
+layout: default_post
+---
+
+<style>
+    li {
+        margin-bottom: 10px
+    }
+    pre {
+        font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace;
+        color: #000000;
+        background-color: #eee;
+        font-size: 12px;
+        border: 1px dashed #999999;
+        line-height: 14px;
+        padding: 5px;
+        overflow: auto;
+        width: 100%
+    }
+    code {
+        color:#000000;
+        word-wrap:normal;
+    }
+</style>
+
+<p>In this second part of the Protractor for Beginners tutorial, we will cover two tasks.  The first task will recap what you learnt in <a href="http://blog.scottlogic.com/2015/11/06/ProtractorForBeginnersPart1.html">Task 1.1</a> with a bit more information about the matchers <code>isDisplayed</code> and <code>isPresent</code>, and the second task will cover some new things: how to enter text, and the jasmine matchers <code>toEqual</code> and <code>toContain</code>.</p>
+
+<p>Remember if you get stuck at all to use the example code <a href="https://github.com/hannimator/angularjs.org_protractor">here</a>.</p>
+
+<h3>Task 1.2: Describe “Download button should open up a download modal”</h3>
+
+<p>
+    In Task 1.1 you learnt how to use the <code>isDisplayed</code> matcher, so in this second task you will be using it alongside the matcher <code>isPresent</code>. You will be checking that the download button modal is present as well as displayed, and the differences between the two.</p>
+
+<ol>
+    <li>Open up the angularjs.org site.</li>
+
+    <li>When the download modal is open, right click on the modal and inspect the element. Hover over the different levels of divs until the full modal is highlighted (hover over <code>classname =  “modal fade download-modal in” </code>).</li>
+
+    <li>Using the class <code>download-modal</code>, create a variable called <code>DownloadModal</code> and within it create a page object for the download modal:
+        <pre><code>
+            var DownloadModal = function() {
+                this.downloadModal = element(by.css(".download-modal"));
+            }
+        </code></pre>
+    </li>
+
+    <li>Create a new <code>describe</code> suite and <code>it</code> spec:
+        <pre><code>
+            describe('Download button', function() {
+
+                beforeEach(function() {
+                            browser.get('https://angularjs.org/');
+                });
+
+                it('should open up a download modal', function() {
+
+                });
+            });
+        </code></pre>
+    </li>
+
+    <li>Within the <code>describe</code>, call the <code>homePage</code> and <code>downloadModal</code> variables (<code>homePage = new HomePage();</code> etc )</li>
+
+    <li>For this test, we need to prove that the modal is non-existent before the button is pressed, and is visible after it is pressed. To do this we need to use <code>isPresent</code> when the modal is not visible. This is because when an item is not present in the DOM or present on the page, <code>isDisplayed</code> will throw an exception error.</li>
+
+    <li>In the <code>it</code> create an expect to show that the download modal is not present in the DOM:
+<code>expect(downloadModal.downloadModal.isPresent()).toBe(false);</code></li>
+
+    <li>Underneath this, tell protractor to click on the download button by using <code>.click</code>:
+<code>homePage.downloadButton.click();</code></li>
+
+    <li>After the click, create an expect to show that download modal is now present both in the DOM and on the screen:
+<code>expect(downloadModal.downloadModal.isDisplayed()).toBe(true);</code></li>
+
+    <li>Run the test.</li>
+
+    <li>Did both pass? If not, check the code is correct here:
+        <pre><code>
+            describe('Download button', function() {
+                var homePage = new HomePage();
+                var downloadModal = new DownloadModal();
+
+                beforeEach(function() {
+                    browser.get('https://angularjs.org/');
+                });
+
+                it('should open up a download modal', function() {
+                    expect(downloadModal.downloadModal.isPresent()).toBe(false);
+                    homePage.downloadButton.click();
+                    expect(downloadModal.downloadModal.isDisplayed()).toBe(true);
+                });
+            });
+        </code></pre>
+    </li>
+</ol>
+
+<p>Note: Remember to double check that the opposites also fail, to ensure you aren’t getting an false positives:
+    <code>expect(downloadModal.downloadModal.isPresent()).toBe(true)</code>
+    before the <code>.click</code> and
+    <code>expect(downloadModal.downloadModal.isDisplayed()).toBe(false);</code>
+    after the <code>.click</code>.
+</p>
+
+
+<p>
+    Now we want to see how <code>isDisplayed</code> differs from <code>isPesent</code>:
+</p>
+
+<ol>
+    <li>
+        In the <code>it</code> function, create an <code>expect</code> for <code>isDisplayed</code> to be <code>false</code> underneath <code>expect(downloadModal.downloadModal.isPresent()).toBe(false)</code>.
+    </li>
+
+    <li>
+        Run the test.
+    </li>
+
+    <li>
+        Observe an error appears in the console, which says "No element found using...". This happens because the download modal doesn't appear in the DOM until it is selected and opened, so the matcher <code>isDisplayed</code> cannot find the element, causing it to throw an unsightly error.
+    </li>
+</ol>
+
+<p>
+    What have you learnt from this task?
+    <ul>
+        <li>How to use the <code>.click</code> method.</li>
+        <li>The difference between <code>isDisplayed</code> and <code>isPresent</code> and when to use them.</li>
+    </ul>
+</p>
+
+<h3>Task 1.3: Describe "In The Basics tutorial, entering a name should output 'Hello [name]'"</h3>
+
+<p>
+    In this task we will be looking at ‘The Basics’ section of the angularjs.org page. Scroll down to it and have a play about with it to get an idea of what it involves.
+For this task we will be inputting a name in to the Name field, and checking that the output after ‘Hello’ is correct. To do this we can use the matchers <code>toEqual</code> and <code>toContain</code>. There is a small difference between <code>toEqual</code> and <code>toContain</code>. <code>toEqual</code> is a matcher that compares the values exactly. For example, using <code>toEqual</code> to compare “hell” to “hello” would fail, but comparing “hello” and “hello” would pass. <code>toContain</code> is a matcher that compares the values and passes if the compared value simply contains part of the expected value. For example, comparing “hell” to “hello” would pass since “hell” is a part of “hello”.</p>
+
+<ol>
+    <li>Right click on the part of the page surrounding The Basics and select ‘Inspect element’. Navigate through the divs until you find the one that highlights the entire ‘The Basics’ section of the page.</li>
+
+    <li>The code for The Basics section is <code>class="row example"</code> , so type in to the console <code>$(‘.row.example’)</code> and press enter. Observe multiple elements with the name <code>row example</code> appear, but you only need the first one.</li>
+
+    <li>Right click on the Name field, and select ‘Inspect element’. The highlighted HTML code says that the Name field is <code>ng-model="yourName"</code></li>
+
+    <li>Right click on the ‘Hello !’ text. The highlighted HTML code says that the Hello ! text is <code>class=ng-binding</code>, however there will be many many <code>ng-binding</code>s on the page. Double check this by typing <code>$(‘.ng-binding’)</code> in to the console and pressing Enter. So we will use the tag <code>h1</code> by using <code>element.tagName(“h1”)</code>.       </li>
+
+    <li>Using the model and class locators, create a page object for The Basics:
+        <pre><code>
+            var TheBasics = function() {
+
+                this.helloBox = element.all(by.css(".row.example")).get(0);
+                this.nameField = this.helloBox.element(by.model("yourName"));
+                this.helloOutput = this.helloBox.element(by.tagName("h1"));
+            }
+        </code></pre>
+    </li>
+
+    <li>In your spec file, disable the other <code>describe</code> suites by putting an ‘x’ in front of them: <code>xdescribe</code>. You can also disable individual specs by putting an ‘x’ in front of them: <code>xit</code>. Putting an x in front of the other <code>describe</code> suites will stop those suites from running whilst you might only want one to run.</li>
+
+    <li>Create the <code>describe</code> suite and the <code>it</code> spec for this test:
+        <pre><code>
+            describe('In "The Basics" tutorial', function() {
+                var homePage = new HomePage();
+                var theBasics = new TheBasics();
+
+                beforeEach(function() {
+                    browser.get('https://angularjs.org/');
+                });
+
+                it('entering a name should output "Hello Name"', function() {
+
+                });
+            });
+        </code></pre>
+    </li>
+
+    <li>First thing you want to do in the <code>it</code> spec is send keys to the name field. Do this using the <code>sendKeys</code> method and use your own name as a string:
+        <pre><code>
+            theBasics.nameField.click();
+            theBasics.nameField.sendKeys('yourname');
+        </code></pre>
+    </li>
+
+    <li>Run the test. Watch the test run and observe “Hello yourname!” appears in the output box.</li>
+
+    <li>Now you want to check that ‘yourname’ appears in the text using the method <code>.getText</code>:
+        <pre><code>
+            expect(theBasics.helloOutput.getText()).toContain('yourname');
+        </code></pre>
+    </li>
+
+    <li>Run the test and it should pass! If it doesn't, check your code against this:</li>
+
+        <pre><code>
+            theBasics.nameField.click();
+            theBasics.nameField.sendKeys('yourname');
+            expect(theBasics.helloOutput.getText()).toContain('yourname');
+        </code></pre>
+
+    <li>Use <code>toEqual</code> to create the next test:
+        <pre><code>
+            expect(theBasics.helloOutput.getText()).toEqual('Hello yourname!');
+        </code></pre>
+    </li>
+    <li>Run the test to see if it passes!</li>
+
+    <li>It is good practice to place things like strings or numbers in their own variables. If something is hardcoded in but needs changing later on, and especially if it will be used multiple times, it takes much more effort to change them all individually. Creating variables to contain these at the top of each test (or even in page objects depending where they are needed) instead of hardcoding them can save a lot of headache later on.</li>
+
+    <li>Create a variable called name, and make it equal to a string of your name:
+        <pre><code>
+            var name = 'yourname';
+            theBasics.nameField.click();
+            theBasics.nameField.sendKeys(name);
+            expect(theBasics.helloOutput.getText()).toContain(name);
+            expect(theBasics.helloOutput.getText()).toEqual('Hello' + ' ' + name + '!');
+        </code></pre>
+    </li>
+
+    <li>Place it all together:
+        <pre><code>
+            describe('In "The Basics" tutorial', function() {
+                var homePage = new HomePage();
+                var theBasics = new TheBasics();
+
+                beforeEach(function() {
+                    browser.get('https://angularjs.org/');
+                });
+
+                it('entering a name should output "Hello Name"', function() {
+                    var name = 'yourname';
+
+                    theBasics.nameField.click();
+                    theBasics.nameField.sendKeys('yourname');
+
+                    expect(theBasics.helloOutput.getText()).toEqual('Hello yourname!');
+                    expect(theBasics.helloOutput.getText()).toContain('yourname');
+
+                    theBasics.nameField.click();
+                    theBasics.nameField.sendKeys(name);
+                    expect(theBasics.helloOutput.getText()).toContain(name);
+                    expect(theBasics.helloOutput.getText()).toEqual('Hello' + ' ' + name + '!');
+                });
+            });
+        </code></pre>
+    </li>
+
+    <li>Run this to ensure it passes. You can now play around with different combinations of strings and matchers to create your own tests.</li>
+
+</ol>
+
+<p> What have you learnt from this task?
+    <ul>
+        <li>The different between <code>toEqual</code> and <code>toContain</code></li>
+        <li>Practicing using the <code>sendKeys</code> method</li>
+        <li>Touched on some good practices when working with hardcoded strings. Variables are your friend!</li>
+    </ul>
+</p>
+
+<p>
+    In the next tutorial we will be using <code>getText</code> a bit more, and we will cover how to use <code>.count</code> to find the number of items in a list.
+</p>
