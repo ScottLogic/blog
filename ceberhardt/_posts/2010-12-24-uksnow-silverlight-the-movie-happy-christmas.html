@@ -1,0 +1,142 @@
+---
+id: 1061
+author: ceberhardt
+title: "#uksnow #silverlight The Movie! - Happy Christmas."
+oldlink: "http://www.scottlogic.co.uk/blog/colin/2010/12/uksnow-silverlight-the-movie-happy-christmas/"
+tags:
+  - charts
+  - visiblox
+  - twitter
+  - uksnow
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2010/12/uksnow-silverlight-the-movie-happy-christmas/
+---
+<p>It's Christmas Eve and time for some fun! A few weeks back <a href="{{ site.baseurl }}/2010/11/29/uksnow-silverlight-an-rx-powered-twitter-bing-maps-mashup">I published an article on Reactive Extensions</a> where I created a Bing Maps / Twitter mashup that plotted the geolocation of #uksnow twitter tags. This twitter hashtag was popularised by <a href="http://uksnowmap.com/">Ben Marsh</a> and is used by us weather obsessed brits to give a realtime update of snowfall. To use this hashtag tweet #uksnow with your postcode and the amount of snowfall out of ten (e.g. 7/10).</p>
+<p>The snow has continued to fall in record quantities across the uk, so I thought it might be fun to create "#uksnow The Movie", where you can replay the snowfall across the UK. You can see the finished app below. Hit the 'play' button, or drag the time indicator on the chart to replay the snowfall and re-live the fun! You can also mouse-over the snowflakes to see the original #uksnow tweet.</p>
+<div style="text-align: center;margin: 0 0 40px 0 "><object width="500" height="600" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/12/UKSnowTheMovie1.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>To create this application I modified my original app to extract as many #uksnow tweets from twitter as possible. Unfortunately the public search API only server tweets from the last ~ 7 days. If anyone knows of a free historic service, please let me know!</p>
+<p>The application above contains an XML file with all the historic tweets. When it starts up, it parses the XML file.The chart displays the tweets 'binned' in 30 minute intervals, which is achieved via a simple <code>GroupBy</code> query:</p>
+{% highlight csharp %}
+// parse the XML file
+_tweets = doc.Descendants("tweet").Select(el => new GeoCodedUKSnowTweet()
+                                  {
+                                    Author = el.Attribute("author").Value,
+                                    Title = el.Attribute("title").Value,
+                                    ProfileImageUrl = el.Attribute("profile").Value,
+                                    Location = StringToPoint(el.Attribute("loc").Value),
+                                    SnowFactor = int.Parse(el.Attribute("snowfactor").Value),
+                                    Timestamp = DateTime.Parse(el.Attribute("timestamp").Value)
+                                  })
+                                  .OrderBy(t => t.Timestamp)
+                                  .ToList();
+
+// total the tweets per 30 minute interval
+var groupedByHour = _tweets.GroupBy(t => RoundDateToMinutes(t.Timestamp, 30))
+                          .Select(group =>
+                            new TweetsPerHour() {
+                              Hour = group.Key,
+                              Tweets = group.Count()
+                            }).ToList();
+
+// associate the above with the chart
+chart.Series[0].YAxis = chart.SecondaryYAxis;
+((BindableDataSeries)chart.Series[0].DataSeries).ItemsSource = groupedByHour;
+{% endhighlight %}
+<p>I used the <a href="http://www.visiblox.com/">free Visiblox chart</a> to display the tweet frequency. A <code>LineSeries</code> with a <code>BindableDataSeries</code> is used to render the results of the query above using databinding.</p>
+{% highlight xml %}
+<vis:LineSeries.DataSeries>
+  <vis:BindableDataSeries
+         XValueBinding="{Binding Path=Hour}"
+         YValueBinding="{Binding Path=Tweets}"/>
+</vis:LineSeries.DataSeries>
+{% endhighlight %}
+<p>The Visiblox chart has a pluggable behaviour concept which allows you to add interactivity to the chart. The vertical line that indicates the current time uses this behaviour framework. When the user interacts with the chart via mouse movements, these interactions are directed to any active behaviours, which can then update their state, possibly interacting with the chart or its axes. For example, when the code which updates the date as the user drags the line is shown below:</p>
+{% highlight csharp %}
+public override void MouseLeftButtonDown(Point position)
+{
+  base.MouseLeftButtonDown(position);
+  _mouseDown = true;
+}
+
+public override void MouseLeftButtonUp(Point position)
+{
+  base.MouseLeftButtonUp(position);
+  _mouseDown = false;
+}
+
+public override void MouseMove(Point position)
+{
+  if (_mouseDown)
+  {
+    CurrentDate = (DateTime)Chart.XAxis.GetRenderPositionAsDataValueWithZoom(position.X);
+  }
+}
+{% endhighlight %}
+<p>For the sake of simplicity, the calendar and clock controls are implemented as UserControls, for example the calendar has the following markup:</p>
+{% highlight xml %}
+<Grid x:Name="LayoutRoot" Background="Transparent">
+  <Border CornerRadius="8"
+            Background="White"
+            Margin="5">
+    <Border.Effect>
+      <DropShadowEffect Color="LightGray"
+                        Opacity="0.8"
+                        ShadowDepth="2"/>
+    </Border.Effect>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="15"/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Border CornerRadius="8,8,0,0"
+              BorderThickness="0">
+        <Border.Background>
+          <LinearGradientBrush StartPoint="0,0"
+                                EndPoint="0,1">
+            <GradientStop Color="White" Offset="0"/>
+            <GradientStop Color="Red" Offset="0.9"/>
+            <GradientStop Color="DarkRed" Offset="1"/>
+          </LinearGradientBrush>
+        </Border.Background>
+      </Border>
+      <TextBlock Text="Friday"
+                  x:Name="DayOfWeek"
+                  FontWeight="Bold"
+                  FontSize="8"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"/>
+      <TextBlock Text="28"
+                  x:Name="Day"
+                  Grid.Row="1"
+                  FontWeight="Bold"
+                  FontSize="20"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"/>
+    </Grid>
+  </Border>
+</Grid>
+{% endhighlight %}
+<p>And the following minimal code-behind:</p>
+{% highlight csharp %}
+public partial class CalendarControl : UserControl
+{
+  public CalendarControl()
+  {
+    InitializeComponent();
+  }
+
+  public void SetDate(DateTime date)
+  {
+    DayOfWeek.Text = date.ToString("ddd");
+    Day.Text = date.ToString("dd");
+  }
+}
+{% endhighlight %}
+<p>The clock control is very similar, using a few concepts that I wrote abut in my <a href="{{ site.baseurl }}/2010/08/19/developing-a-very-lookless-silverlight-radial-gauge-control">gauge control blog post</a> a few weeks back. It is good to see that Silverlight allows quick and direct implementations of controls, you do not always have to use MVVM, lookless controls and dependency properties. If it is Christmas Eve, and you are itching to get home and grab a drink, anything goes ;-)</p>
+<p>You can download the full sourcecode here: <a href='{{ site.baseurl }}/archive/2010/12/UKSnowTheMovie.zip'>UKSnowTheMovie.zip</a></p>
+<p>Right ... I'm off home.</p>
+<p>Regards, Colin E.</p>

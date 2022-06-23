@@ -1,0 +1,68 @@
+---
+id: 152124
+author: aaylett
+title: 'Building Web-Services Using Guice '
+oldlink: 'http://www.scottlogic.co.uk/2012/05/building-web-services-using-guice/'
+tags:
+  - Java
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/05/building-web-services-using-guice/
+---
+<p>I've recently had the opportunity to investigate building web services using Java.  I think it's fair to say that Spring is the most commonly used dependency injection framework for Java, and it comes with a lot of other useful tools too, but I have no experience using it so I decided to investigate <a title="Google Guice" href="https://github.com/google/guice">Guice</a>, a dependency injection framework written by Google and used in their AdWords back-end.  It doesn't provide any of the extras that Spring gives you, but does strive to be a lightweight and simple to use framework.</p>
+<p>If you're using Guice to build servlets, you probably want to make use of the <a href="https://github.com/google/guice/wiki/Servlets">guice-servlet</a> extension.  This builds on the dependency injection core of Guice, adding <code lang="java">@RequestScoped</code>, an annotation which allows injected objects to last for the duration of a request (as opposed to having ephemeral or singleton scope), and the GuiceServletContextListener, which is what ties Guice in to the request pipeline.  Piping requests through Guice lets you avoid having to define routing in web.xml, and is required for injection to work correctly as the injector can't inject into an object which it did not construct.  It's perfectly possible to continue to serve non-Guice servlets at the same time as Guice-provided servlets.</p>
+<p>I'm going to build a simple example web application; if you want to follow along then you can find full sources on Github in my <a title="Github repository for my example source." href="https://github.com/andrewaylett/guice-webapp-example">guice-webapp-example</a> repository.</p>
+<p>So, in your <code>web.xml</code>, you need to define two objects.  Firstly, a <code>&lt;filter&gt;</code>, provided by Guice, which captures requests and delivers them according to configuration (set up in a custom module, as we'll see later).  A mapping defines which requests are captured, usually all of them.  Secondly, a <code>&lt;listener&gt;</code>, which provides a service to the servlet container -- the container will call the functions <code>contextInitialised()</code> and <code>contextDestroyed()</code> at the appropriate times, and these provide the hooks required to initialise the injector and provide the configuration to the filter.  A sample web.xml follows, the only customisation required in a new project is the class name of the listener.</p>
+{% highlight xml %}<web-app>
+  <filter>
+    <filter-name>guiceFilter</filter-name>
+    <filter-class>com.google.inject.servlet.GuiceFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>guiceFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <listener>
+    <listener-class>com.scottlogic.aaylett.guice_webapp_example.ServletConfig</listener-class>
+  </listener>
+</web-app>{% endhighlight %}
+<p>As the filter is a Guice-provided class, we don't need any customisation there.  We will, though, need to provide the <code>ServletConfig</code> class.</p>
+<p>Our <code>ServletConfig</code> class inherits from <code>GuiceServletContextListener</code>.  As the super-class handles registering the injector into the servlet context, all we need to do is to override the (abstract) <code>getInjector()</code> method, calling <code>Guice.createInjector()</code> as you would in a regular application:</p>
+{% highlight java %}public class ServletConfig extends GuiceServletContextListener {
+    @Override
+    protected Injector getInjector() {
+        return Guice.createInjector(new ServletModule() {
+            @Override
+            protected void configureServlets() {
+                super.configureServlets();
+
+                serve("/").with(TestServlet.class);
+            }
+        });
+    }
+}{% endhighlight %}
+<p>You'll see we use a <code>ServletModule</code> to drive the injection, binding a servlet to a route.  We're not making much use of Guice yet -- there's nothing here that couldn't be done very easily with <code>web.xml</code> -- but we'll get on to bindings when we define our servlet.</p>
+<p>I don't want to do much in the servlet, as this is just an example, so we'll just output a greeting:</p>
+{% highlight java %}@Singleton
+public class TestServlet extends HttpServlet {
+	private static final long serialVersionUID = 7528373021106530918L;
+
+	private String greeting;
+	@Inject public void setGreeting(String greeting) {
+		this.greeting = greeting;
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		resp.getOutputStream().print(greeting);
+	}
+}{% endhighlight %}
+<p>Here, we have a bit more Guice in evidence: we're going to inject our greeting, and the class is marked as a singleton.  The singleton annotation means that Guice will only create a single instance of the servlet, no matter how often the servlet is injected.  The greeting is only injected when the class is created -- usually, we'd inject a class with actual behaviour (or even a provider of a class) rather than a string, or we'd tag the injection site to make sure we get the right string, but for the purposes of the example you can add <code>bind(String.class).toInstance("Hello, World!");</code> to <code>configureServlets()</code> in <code>ServletConfig</code> to always inject a cheerful greeting.</p>
+<p>We've now got enough code to serve our test string: if you've cloned the git repository, you should have an Eclipse project and a Maven pom to play with: the latter will build you a <code>war</code>, the former should be able to deploy to a Tomcat server if you set one up -- you may need to install the Java EE tools first.</p>
+<p>In later instalments we'll look at injection scopes and testing using dependency injection.</p>

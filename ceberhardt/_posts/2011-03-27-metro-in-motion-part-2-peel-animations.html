@@ -1,0 +1,170 @@
+---
+id: 1327
+author: ceberhardt
+title: 'Metro In Motion Part #2 - ''Peel'' Animations'
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-part-2-peel-animations/
+tags:
+  - codeproject
+  - Windows Phone 7
+  - WP7
+  - metro
+  - blog
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/03/metro-in-motion-part-2-peel-animations/
+---
+<p><i>This blog post is part #2 of my Metro In Motion series. In this post I demonstrate how to implement the animated 'peel' effect seen when native Windows Phone 7 applications exit.</i></p>
+<p><img src="{{ site.baseurl }}/archive/2011/03/peel.jpg" alt="" title="peel" width="603" height="232" class="aligncenter size-full wp-image-1330" /></p>
+<p>In <a href="{{ site.baseurl }}/2011/03/22/metro-in-motion-fluid-list-animation">my previous blog post</a> I discussed how the Metro Design Language that heavily influences the Windows Phone 7 style is not just about static graphics, it is also about fluid transitions. In that post I demonstrated a technique for making items within lists slide gracefully as the user moves between pivot pages. The post was pretty popular, so I have decided to turn it into a series, looking at how to implement the various fluid animations that are present in Windows Phone 7 native applications.</p>
+<p>A feature found in most native Windows Phone 7 applications is the 'peel' effect where when the application is exited, the various components peel away from the top of the screen to the bottom. You can see my implementation of this effect in action in the video below. You might have to watch it a few times, the animation comes right at the end as is over pretty quickly!</p>
+<p><iframe title="YouTube video player" width="480" height="390" src="http://www.youtube.com/embed/jRYWX_UV9q0?rel=0" frameborder="0" allowfullscreen></iframe></p>
+<p>The implementation of this effect has to be pretty generic - each application user interface is different, and for the peel effect to be useable, it cannot be tightly coupled to a specific UI layout.</p>
+<p>The approach I have come up with is to define an extension method that can be applied to a list of <code>FrameworkElements</code>. This method creates a suitable <code>Storyboard</code> for each element and fires them in order. An Action is invoked when the last animation completes (more on that later!):</p>
+{% highlight csharp %}
+/// <summary>
+/// Animates each element in order, creating a 'peel' effect. The supplied action
+/// is invoked when the animation ends.
+/// </summary>
+public static void Peel(this IEnumerable<FrameworkElement> elements, Action endAction)
+{
+  var elementList = elements.ToList();
+  var lastElement = elementList.Last();
+
+  // iterate over all the elements, animating each of them
+  double delay = 0;
+  foreach (FrameworkElement element in elementList)
+  {
+    var sb = GetPeelAnimation(element, delay);
+
+    // add a Completed event handler to the last element
+    if (element.Equals(lastElement))
+    {
+      sb.Completed += (s, e) =>
+        {
+          endAction();
+        };
+    }
+
+    sb.Begin();
+    delay += 50;
+  }
+}
+{% endhighlight %}
+<p>The peel animation itself works by associating a <code>PlaneProjection</code> with each element and animating its rotation and offset properties:</p>
+{% highlight csharp %}
+/// <summary>
+/// Creates a PlaneProjection and associates it with the given element, returning
+/// a Storyboard which will animate the PlaneProjection to 'peel' the item
+/// from the screen.
+/// </summary>
+private static Storyboard GetPeelAnimation(FrameworkElement element, double delay)
+{
+  Storyboard sb;
+
+  var projection = new PlaneProjection()
+  {
+    CenterOfRotationX = -0.1
+  };
+  element.Projection = projection;
+
+  // compute the angle of rotation required to make this element appear
+  // at a 90 degree angle at the edge of the screen.
+  var width = element.ActualWidth;
+  var targetAngle = Math.Atan(1000 / (width / 2));
+  targetAngle = targetAngle * 180 / Math.PI;
+
+  // animate the projection
+  sb = new Storyboard();
+  sb.BeginTime = TimeSpan.FromMilliseconds(delay);
+  sb.Children.Add(CreateAnimation(0, -(180 - targetAngle), 0.3, "RotationY", projection));
+  sb.Children.Add(CreateAnimation(0, 23, 0.3, "RotationZ", projection));
+  sb.Children.Add(CreateAnimation(0, -23, 0.3, "GlobalOffsetZ", projection));
+  return sb;
+}
+
+private static DoubleAnimation CreateAnimation(double from, double to, double duration,
+  string targetProperty, DependencyObject target)
+{
+  var db = new DoubleAnimation();
+  db.To = to;
+  db.From = from;
+  db.EasingFunction = new SineEase();
+  db.Duration = TimeSpan.FromSeconds(duration);
+  Storyboard.SetTarget(db, target);
+  Storyboard.SetTargetProperty(db, new PropertyPath(targetProperty));
+  return db;
+}
+{% endhighlight %}
+<p>Thanks to the genius Charles Petzold for <a href="http://groups.google.com/group/wpf-disciples/msg/d30cb6eb660d0061">explaining to me how PlaneProjections work</a>! rotating an element around any point other than its centre is not quite as easy as it might seem!</p>
+<p>As an aside, I would love to come up with an animation that more closely matches the native applications. I think what I have come up with is close, but noticeably different. If anyone is up for a challenge, please have a go at tweaking this animation and let me know what you come up with!</p>
+<p>The above code gives us all we need in order to peel our UI, however, we now need to work out how to apply this in practice. Using the application developed in the previous post, we can see that the UI is composed of three discrete parts, the title, the pivot header and the list which resides within the currently visible pivot-item:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/03/uiComponents.jpg" alt="" title="uiComponents" width="300" height="545" class="aligncenter size-full wp-image-1334" /></p>
+<p>We'll start with the trickiest part -the list. In my previous blog post I showed how it was possible to enumerate all the items which are currently visible within a <code>ListBox</code> (or <code>ItemsControl</code>). To make this code more re-useable I have refactored it as an extension method on ItemsControl:</p>
+{% highlight csharp %}
+/// <summary>
+/// Enumerates all the items that are currently visible in am ItemsControl.
+/// This implementation assumes that a VirtualizingStackPanel is
+/// being used as the ItemsPanel.
+/// </summary>
+public static IEnumerable<FrameworkElement> GetItemsInView(this ItemsControl itemsControl)
+{
+    // locate the stack panel that hosts the items
+  VirtualizingStackPanel vsp = itemsControl.Descendants<VirtualizingStackPanel>()
+                                           .First() as VirtualizingStackPanel;
+
+  // iterate over each of the items in view
+  int firstVisibleItem = (int)vsp.VerticalOffset;
+  int visibleItemCount = (int)vsp.ViewportHeight;
+  for (int index = firstVisibleItem; index <= firstVisibleItem + visibleItemCount + 1; index++)
+  {
+    var item = itemsControl.ItemContainerGenerator.ContainerFromIndex(index) as FrameworkElement;
+    if (item == null)
+      continue;
+
+    yield return item;
+  }
+}
+{% endhighlight %}
+<p>When the back button is pressed, we can locate the list which is located in the visible pivot-item, using <a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a>, and use the extension method above to extract its visible items:</p>
+{% highlight csharp %}
+var listInView = ((PivotItem)pivot.SelectedItem).Descendants().OfType<ItemsControl>().Single();
+var listItems = listInView.GetItemsInView().ToList();
+{% endhighlight %}
+<p>By inspecting the <code>Pivot</code> control's template, we can see that the header is named "HeadersListElement", making it easy to locate using Linq again:</p>
+{% highlight csharp %}
+var header = this.Descendants().OfType<FrameworkElement>()
+                  .Single(d => d.Name == "HeadersListElement");
+{% endhighlight %}
+<p>Finally, the small text which indicates the name of the application is a named element in the XAML markup, so we already have a reference to this one. Putting all the above together, with a simple Linq <code>Union</code>, gives the following:</p>
+{% highlight csharp %}
+protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+{
+  e.Cancel = true;
+
+  // obtain the list from the current pivot item - and the items currently visible in this list
+  var listInView = ((PivotItem)pivot.SelectedItem).Descendants().OfType<ItemsControl>().Single();
+  var listItems = listInView.GetItemsInView().ToList();
+
+  // locate the pivot control  header
+  var header = this.Descendants().OfType<FrameworkElement>()
+              .Single(d => d.Name == "HeadersListElement");
+
+  // create the list of items to peel
+  var peelList = new FrameworkElement[] { TitlePanel, header }.Union(listItems);
+
+  peelList.Peel(() =>
+    {
+      App.Quit();
+    });
+
+  base.OnBackKeyPress(e);
+}
+{% endhighlight %}
+<p>The final twist is that when the back 'key' is pressed the application exits immediately. To avoid this, we cancel the event. However, we need a way to exit the application when the animation has finished. Unfortunately Silverlight for WP7 does not have a mechanism for programatically exiting! This has been <a href="http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/8961eac4-880d-4c61-9bd5-8771347514ab">the subject of much debate</a>. I opted for the popular throw-an-unhandled-exception</a> route. Yes it is ugly, no, I do not like it, but let's not get distracted. The 'peel' effect is now done!</p>
+<p>To use this code in your own application, you will have to assemble your own list of elements based on your UI, however, this does give a lot of flexibility.</p>
+<p>You can download the project sourcecode here: <a href='{{ site.baseurl }}/archive/2011/03/MetroInMotion2.zip'>MetroInMotion2.zip</a></p>
+<p>Regards,Colin E.</p>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<data seriesName="Lloyds TSB" colour="2">
+	<value label="04" price="473.75" percentage="9.35" cap="21.32"/>
+	<value label="05" price="488.00" percentage="8.97" cap="21.96"/>
+	<value label="06" price="571.50" percentage="9.32" cap="25.72"/>
+	<value label="07" price="475.25" percentage="10.01" cap="21.39"/>
+	<value label="08" price="174.10" percentage="7.41" cap="10.57"/>
+</data>

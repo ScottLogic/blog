@@ -1,0 +1,22 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - awallis/_posts/2015-07-06-fixing-ldap-leak-jboss.md
+PermGen
+undeployed
+OutOfMemoryError
+PoolCleaner
+LDAPLeakPreventer
+standalone.xml
+HttpClient
+JreMemoryLeakPreventionListener
+ - awallis/_posts/2016-04-04-practical-kotlin.md
+Kotlin
+Kotlin's
+8's
+LINQ
+ReSharper
+reification
+

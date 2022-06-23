@@ -1,0 +1,350 @@
+---
+id: 1243
+author: ceberhardt
+title: MVVM Charting - Binding Multiple Series to a Visiblox Chart
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/03/mvvm-charting-binding-multiple-series-to-a-visiblox-chart/
+tags:
+  - codeproject
+  - mvvm
+  - visiblox
+  - blog
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/03/mvvm-charting-binding-multiple-series-to-a-visiblox-chart/
+---
+<p><em>This post describes a method of using attached properties to bind a ViewModel which contains multiple data series to a Visiblox chart without any code-behind.</em></p>
+<p><img src="{{ site.baseurl }}/archive/2011/03/harmonic.png" alt="" title="harmonic" width="389" height="253" class="aligncenter size-full wp-image-1247" /><br/>The <a href="http://www.visiblox.com">Visiblox chart</a> supports databinding in both WPF and Silverlight, where the X and Y values for each datapoint are bound to properties on an underlying model. However, there is no interface for binding a varying number of series (i.e a collection of collections). The solution provided here is similar to the one which Jeremiah Morrill published for <a href="http://jmorrill.hjtcentral.com/Home/tabid/428/EntryId/351/Silverlight-Charts-Binding-multiple-Series.aspx">binding multiple series to the Silverlight Toolkit charts</a>, but with a few added extras, like series title binding and series type selection.</p>
+<p>The solution is surprisingly simple, so I am going to dive straight into the code (note, I have collapsed the verbose attached property definitions so that just the interesting bits are shown below!)</p>
+{% highlight csharp %}
+public static class MultiSeries
+{
+  #region TitlePath attached property
+
+  #region ItemsSourcePath attached property
+
+  #region XValuePath attached property
+
+  #region YValuePath attached property
+
+  #region ChartTypeProvider attached property
+
+  #region Source attached property
+
+  /// <summary>
+  /// Handles property changed event for the Source property
+  /// </summary>
+  private static void OnSourcePropertyChanged(DependencyObject d,
+                                                      DependencyPropertyChangedEventArgs e)
+  {
+    Chart targetChart = d as Chart;
+
+    SynchroniseChartWithSource(targetChart);
+
+    IEnumerable Source = GetSource(targetChart);
+    INotifyCollectionChanged incc = Source as INotifyCollectionChanged;
+    if (incc != null)
+    {
+      incc.CollectionChanged += (s, e2) => SynchroniseChartWithSource(targetChart);
+    }
+
+  }
+
+  private static void SynchroniseChartWithSource(Chart chart)
+  {
+    chart.Series.Clear();
+
+    IEnumerable Source = GetSource(chart);
+    if (Source == null)
+      return;
+
+    // iterate over each source series
+    foreach (object seriesDataSource in Source)
+    {
+      // create a visiblox chart series
+      IChartSeries chartSeries = GetChartTypeProvider(chart).GetSeries(seriesDataSource);
+
+      // resolve the ItemsSource path (if present).
+      var itemsSourcePath = GetItemsSourcePath(chart);
+      IEnumerable itemsSource = null;
+      if (!string.IsNullOrEmpty(itemsSourcePath))
+      {
+        itemsSource = seriesDataSource.GetPropertyValue<IEnumerable>(itemsSourcePath);
+      }
+      else
+      {
+        // if not present, assume this is a collection of collections
+        itemsSource = seriesDataSource as IEnumerable;
+      }
+
+      // resolve the title path
+      var titlePath = GetTitlePath(chart);
+      var seriesTitle = "";
+      if (!string.IsNullOrEmpty(titlePath))
+      {
+        seriesTitle = seriesDataSource.GetPropertyValue<string>(titlePath);
+      }
+
+      // create the data series, and add to the chart.
+      chartSeries.DataSeries = new BindableDataSeries()
+      {
+        XValueBinding = new Binding(GetXValuePath(chart)),
+        YValueBinding = new Binding(GetYValuePath(chart)),
+        ItemsSource = itemsSource,
+        Title = seriesTitle
+      };
+      chart.Series.Add(chartSeries);
+    }
+  }
+
+  /// <summary>
+  /// Gets the value of the named property.
+  /// </summary>
+  public static T GetPropertyValue<T>(this object source, string propertyName)
+  {
+    var property = source.GetType().GetProperty(propertyName);
+    if (property == null)
+    {
+      throw new ArgumentException(string.Format("The property {0} does not exist on the type {1}",
+        propertyName, source.GetType()));
+    }
+    return (T)property.GetValue(source, null);
+  }
+}
+{% endhighlight %}
+<p>The <code>MultiSeries</code> class defines a number of attached properties, <code>Source</code> is used to bind the collection of series, this property must be an <code>IEnumerable</code>, but if it also implements <code>INotifyCollectionChanged</code>, we handle the <code>CollectionChanged </code>events to update the chart (adding or removing series). The optional <code>ItemsSourcePath</code> is used to provide the path to the nested collection (more on this later) and the optional <code>TitlePath</code> binds the chart title. The <code>XValuePath</code> and <code>YValuePath</code> properties are used to bind the X & Y values of the chart. Finally, <code>ChartTypeProvider</code> is used to determine the series type (Line, Bar, Column ...) for each of the bound series. The provider must implement the following interface:</p>
+{% highlight csharp %}
+/// <summary>
+/// An interface for providing Visiblox chart series.
+/// </summary>
+public interface IChartTypeProvider
+{
+  /// <summary>
+  /// Creates a suitable chart series for the given data
+  /// </summary>
+  IChartSeries GetSeries(object boundObject);
+}
+{% endhighlight %}
+<p>In most MVVM chart binding applications, you will probably want all the series to have the same type. To achieve this, we can create a simple implementation of this interface which always returns the same chart type:</p>
+{% highlight csharp %}
+/// <summary>
+/// A ChartTypeProvider that always returns the Visiblox series
+/// type that was supplied in the constructor.
+/// </summary>
+public class DefaultChartTypeProvider : IChartTypeProvider
+{
+  private Type _seriesType;
+
+  public DefaultChartTypeProvider(Type seriesType)
+  {
+    _seriesType = seriesType;
+  }
+
+  public IChartSeries GetSeries(object boundObject)
+  {
+    var ctr = _seriesType.GetConstructor(new Type[] { });
+    return (IChartSeries)ctr.Invoke(new object[] { });
+  }
+}
+{% endhighlight %}
+<p>In order to simplify the usage of this provider in XAML, we can provide a type converter which allows us to specify the required series type as a string, e.g. <code>ChartTypeProvider="LineSeries"</code>, this makes use of the same framework mechanisms that allow you to specify a <code>Fill</code> as a string, e.g. <code>Fill="Red"</code>, where the result will be to create the following, <code>new SolidColorBrush() { Color = Colors.Red }</code>, a suitable type converter is shown below:</p>
+{% highlight csharp %}
+[TypeConverter(typeof(StringToChartTypeProvider))]
+public interface IChartTypeProvider
+{
+   ...
+}
+
+/// <summary>
+/// A type converter that converts a string into a FixedChartTypeProvider. For example
+/// "LineSeries" is converted into a FixedChartTypeProvider which
+/// always returns Visblox.Chart.LineSeries instances
+/// </summary>
+public class StringToChartTypeProvider : TypeConverter
+{
+  public override object ConvertFrom(ITypeDescriptorContext context,
+    CultureInfo culture, object value)
+  {
+    if (value is string)
+    {
+      var visibloxAssembly = typeof(Chart).Assembly;
+      var seriesType = visibloxAssembly.GetType("Visiblox.Charts." + value.ToString());
+      return new DefaultChartTypeProvider(seriesType);
+    }
+    return base.ConvertFrom(context, culture, value);
+  }
+
+  public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
+  {
+    if (sourceType == typeof(string))
+      return true;
+
+    return base.CanConvertFrom(context, sourceType);
+  }
+}
+{% endhighlight %}
+<h2>A Simple Example</h2>
+<p>We'll start with a simple example, binding a collection of collections, in this case the <a href="https://en.wikipedia.org/wiki/Harmonic">harmonic vibrations of a string</a>. The series are created as follows:</p>
+{% highlight csharp %}
+  public MainPage()
+  {
+    InitializeComponent();
+
+    // a collection of collections
+    var harmonics = new List<List<Point>>();
+
+    // plot each harmonic frequency
+    for (int frequency = 1; frequency < 5 ;frequency++)
+    {
+      // create the upper and lower component
+      var upperHarmonic = new List<Point>();
+      var lowerHarmonic = new List<Point>();
+      for (double phase = 0; phase < Math.PI; phase+= (Math.PI / 100))
+      {
+        upperHarmonic.Add(new Point(phase, Math.Sin(phase * frequency) + frequency * 2.5));
+        lowerHarmonic.Add(new Point(phase, Math.Sin(phase * frequency + Math.PI) + frequency * 2.5));
+      }
+
+      // add each to the collection
+      harmonics.Add(upperHarmonic);
+      harmonics.Add(lowerHarmonic);
+    }
+
+    this.DataContext = harmonics;
+  }
+}
+{% endhighlight %}
+<p>We can then use the attached properties defined above to bind this data to the chart. Note, because the bound data is a collection of collections (rather than a collection of items which expose the child collection via a property), the optional <code>ItemsSourcePath</code> is not required:</p>
+{% highlight xml %}
+<UserControl.Resources>
+  <vis:Palette x:Key="palette">
+    <Style TargetType="vis:LineSeries">
+      <Setter Property="LineStroke" Value="Black"/>
+    </Style>
+    <Style TargetType="vis:LineSeries">
+      <Setter Property="LineStroke" Value="Black"/>
+    </Style>
+    <Style TargetType="vis:LineSeries">
+      <Setter Property="LineStroke" Value="Red"/>
+    </Style>
+    <Style TargetType="vis:LineSeries">
+      <Setter Property="LineStroke" Value="Red"/>
+    </Style>
+  </vis:Palette>
+</UserControl.Resources>
+
+<Grid x:Name="LayoutRoot" Background="White">
+  <vis:Chart x:Name="chart"
+              Palette="{StaticResource palette}"
+              LegendVisibility="Collapsed"
+              Title="Modes of a vibrating string"
+              local:MultiSeries.ChartTypeProvider="LineSeries"
+              local:MultiSeries.XValuePath="X"
+              local:MultiSeries.YValuePath="Y"
+              local:MultiSeries.Source="{Binding}"/>
+</Grid>
+{% endhighlight %}
+<p>Whilst the <code>MultiSeries</code> class allows you to specify the chart type via <code>ChartTypeProvider</code>, it does not provide a mechanism for styling the various series which it produces based on the supplied <code>Source</code>. However, styling can be achieved using the chart's <code>Palette</code>, which is a collection of <code>Style</code> instances which are applied to the series in order.</p>
+<p>The resulting chart is shown below:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/03/harmonic.png" alt="" title="harmonic" width="389" height="253" class="aligncenter size-full wp-image-1247" /></p>
+<h2>A More Complex MVVM Example</h2>
+<p>In this example, rather than binding a collection of collections, the following model is bound:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/03/MultiBindingExample.png" alt="" title="MultiBindingExample" width="600" height="208" class="aligncenter size-full wp-image-1254" /></p>
+<p><code>CompanySalesViewModel</code> has a collection of <code>SalesTeamViewModel</code> instances, each of these has a name, <code>TeamName</code>, and a collection of <code>SalesInRegionViewModel</code> instances. Note, <code>SalesTeamViewModel</code> also has a string indexer property which will be used to bind this model to a <code>DataGrid</code>.</p>
+<p>A custom <code>ChartTypeProvider</code> is used so that we can select chart types based on the bound <code>SalesTeamViewModel</code>:</p>
+{% highlight csharp %}
+public class SalesTypeProvider : IChartTypeProvider
+{
+  public IChartSeries GetSeries(object boundObject)
+  {
+    var viewModel = boundObject as SalesTeamViewModel;
+    if (viewModel.TeamName == "Target")
+      return new LineSeries();
+    else
+      return new ColumnSeries();
+  }
+}
+{% endhighlight %}
+<p>The view model is bound to a chart and is also bound to a <code>DataGrid</code> as follows. Note this time the <code>ItemsSourcePath</code> is used to bind the <code>TeamSales</code> property of each <code>SalesTeamViewModel</code>:</p>
+{% highlight xml %}
+<UserControl.Resources>
+  <DropShadowEffect x:Key="shadow" Opacity="0.3"/>
+
+  <Style TargetType="UIElement" x:Key="collapsedStyle">
+    <Setter Property="Visibility" Value="Collapsed"/>
+  </Style>
+
+  <!-- a base style for column series -->
+  <Style TargetType="vis:ColumnSeries" x:Key="columnBaseStyle">
+    <Setter Property="PointStroke" Value="White"/>
+    <Setter Property="PointStrokeThickness" Value="0.5"/>
+    <Setter Property="Effect" Value="{StaticResource shadow}"/>
+  </Style>
+
+  <!-- a Visiblox palette -->
+  <vis:Palette x:Key="palette">
+    <Style TargetType="vis:ColumnSeries"
+            BasedOn="{StaticResource columnBaseStyle}">
+      <Setter Property="PointFill" Value="#4f81bd"/>
+    </Style>
+    <Style TargetType="vis:ColumnSeries"
+            BasedOn="{StaticResource columnBaseStyle}">
+      <Setter Property="PointFill" Value="#c0504d"/>
+    </Style>
+    <Style TargetType="vis:ColumnSeries"
+            BasedOn="{StaticResource columnBaseStyle}">
+      <Setter Property="PointFill" Value="#9bbb59"/>
+    </Style>
+    <Style TargetType="vis:LineSeries">
+      <Setter Property="LineStroke" Value="#8064a2"/>
+      <Setter Property="LineStrokeThickness" Value="4"/>
+      <Setter Property="Effect" Value="{StaticResource shadow}"/>
+    </Style>
+  </vis:Palette>
+</UserControl.Resources>
+
+<Grid x:Name="LayoutRoot" Background="White"
+      util:GridUtils.RowDefinitions=",Auto">
+  <vis:Chart x:Name="chart"
+              Title="Global Team Sales"
+              LegendTitle="Team"
+              Palette="{StaticResource palette}"
+              local:MultiSeries.XValuePath="Region"
+              local:MultiSeries.YValuePath="Sales"
+              local:MultiSeries.TitlePath="TeamName"
+              local:MultiSeries.ItemsSourcePath="TeamSales"
+              local:MultiSeries.Source="{Binding SalesTeams}">
+    <local:MultiSeries.ChartTypeProvider>
+      <local:SalesTypeProvider/>
+    </local:MultiSeries.ChartTypeProvider>
+    <vis:Chart.XAxis>
+      <vis:CategoryAxis GridlineStyle="{StaticResource collapsedStyle}" />
+    </vis:Chart.XAxis>
+  </vis:Chart>
+
+  <sdk:DataGrid Grid.Row="1"
+                ItemsSource="{Binding SalesTeams}"
+                AutoGenerateColumns="False">
+    <sdk:DataGrid.Columns>
+      <sdk:DataGridTextColumn Binding="{Binding TeamName}"
+                              Header="Team"
+                              IsReadOnly="True"/>
+      <sdk:DataGridTextColumn Binding="{Binding [US]}"
+                              Header="US"/>
+      <sdk:DataGridTextColumn Binding="{Binding [UK]}"
+                              Header="UK"/>
+      <sdk:DataGridTextColumn Binding="{Binding [Germany]}"
+                              Header="Germany"/>
+      <sdk:DataGridTextColumn Binding="{Binding [Japan]}"
+                              Header="Japan"/>
+    </sdk:DataGrid.Columns>
+  </sdk:DataGrid>
+</Grid>
+{% endhighlight %}
+<p>The result is show below, note that updating the data in the grid causes the chart to update accordingly:</p>
+<div style="text-align: center;"><object width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2011/03/VisibloxMultiSeriesBinding.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download the full sourcecode for this example: <a href='{{ site.baseurl }}/archive/2011/03/VisibloxMultiSeriesBinding2.zip'>VisibloxMultiSeriesBinding.zip</a></p>
+<p>Regards, Colin E.</p>

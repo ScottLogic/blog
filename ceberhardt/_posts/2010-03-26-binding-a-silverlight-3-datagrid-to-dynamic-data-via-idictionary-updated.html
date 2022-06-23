@@ -1,0 +1,136 @@
+---
+id: 611
+author: ceberhardt
+title: Binding a Silverlight 3 DataGrid to dynamic data via IDictionary (Updated)
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/03/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated/
+tags:
+  - DataGrid
+  - silverlight
+  - binding
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2010/03/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated/
+---
+<p><em>In this post I demonstrate a method for binding a Silverlight 3 DataGrid to dynamic data, i.e. data which does not have properties that are known at design time. This technique results in a bound grid which is sortable and editable. This blog post is a bug fix (due to differences between SL2 and SL3) and expansion on my previous posts on this subject.</em></p>
+<p>WinForms, WPF and ASP.NET are all perfectly capable of binding to dynamic data via a DataGrid, or custom <a href="http://msdn.microsoft.com/en-us/library/ms171819.aspx">TypeDescriptors</a>. However Silverlight has neither of these features. Around one year ago I published a pair of articles that demonstrated a technique that could be used to bind a DataGrid to dynamic data presented as a list of dictionaries. The <a href="{{ blog.scottlogic.com }}/2009/04/17/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary">first article</a> detailed how to use a ValueConverter to access the cell values within a dictionary and how a custom CollectionView could be created to permit sorting. The <a href="{{ site.baseurl }}/2009/04/22/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged">second article</a> showed how to extend this solution to enable editing within the grid.</p>
+<p>These two blog posts have proven very popular, with <strong>84 comments</strong> between them :-). However I have seen a recurring theme in the comments to these posts which I will now address:</p>
+<ol>
+<li><strong>SL3 Sorting</strong> - I have had a number of reports that indicate sorting is broken in Silverlight 3</li>
+<li><strong>SL3 Editing</strong> - It looks like editing is also broken in SL3 :-(</li>
+<li><strong>Adding columns in code behind</strong> - My examples configured columns in XAML, but for truly dynamic data this would have to be done in code-behind. A number of readers have had difficulty with converting the XAML into the required C# code.</li>
+</ol>
+<p>This blog post will address these specific issues, providing a solution that works for SL3. If you are interested in the technical solution you might want to read the <a href="{{ site.github.com }}/2009/04/17/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary">first</a> and <a href="{{ site.baseurl }}/2009/04/22/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged">second</a> blog posts before you read this one. The solution for SL3 is essentially the same, it is just a few subtle differences in the DataGrid that cause these issues.</p>
+<p>Starting with the first of the SL3 problems, sorting. The DataGrid uses the SortDescriptions property of our collection which implements <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.icollectionview%28VS.95%29.aspx">ICollectionView</a>  in order to sort the data. This remains unchanged in SL3. However, the ICollectionView implementation that I presented in the previous blog post did not implement all the methods on this interface, leaving out the ones that the SL2 DataGrid does not use. </p>
+<p>When the SL3 DataGrid performs a sort or group operation, it first calls the DeferRefresh method on ICollectionView. This is quite a neat little method; what it does is allow you to suppress the events that the collection would typically raise whilst you make a number of changes, for example, applying a sort then a grouping, then raises a single collection changed event. This results in much less work being performed by the UI as it now handles a single event rather than multiple events. You can find a good example of how this works on <a href="https://blogs.msdn.microsoft.com/matt/2008/08/28/collectionview-deferrefresh-my-new-best-friend/">Matt Manela's blog</a>. DeferRefresh is implemented by returning in IDisposable object, the implementation is quite trivial:</p>
+{% highlight csharp %}
+public class SortableCollectionDeferRefresh : IDisposable
+{
+    private readonly SortableCollectionView _collectionView;
+
+    internal SortableCollectionDeferRefresh(SortableCollectionView collectionView)
+    {
+        _collectionView = collectionView;
+    }
+
+    public void Dispose()
+    {
+        // refresh the collection when disposed.
+        _collectionView.Refresh();
+    }
+}
+{% endhighlight %}
+<p>It is used by our collection as follows:</p>
+{% highlight csharp %}
+public class SortableCollectionView : ObservableCollection<Row>, ICollectionView
+{
+  ...
+  public IDisposable DeferRefresh()
+  {
+      return new SortableCollectionDeferRefresh(this);
+  }
+  ...
+}
+{% endhighlight %}
+<p>That solves the sorting issue :-)</p>
+<p>The lack of editing issue was a but odd, someone on the Silverlight forums indicated that they think this is an <a href="http://forums.silverlight.net/forums/p/113143/254948.aspx">undocumented breaking change</a>. With a SL3 DataGrid if you bind to a property of type object, the column becomes read-only, even if the DataGrid itself is not read-only. The solution is simply to set the IsReadOnly of each column to false.</p>
+<p>With these few changes we now how a fully functioning DataGrid bound to our dynamic data:</p>
+<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/03/SilverlightTable.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>The final recurring question to my previous blog posts is how to create the bound DataGrid columns in code-behind. To illustrate how this is done I will create an example where the DataGrid is bound to some XML that sits in a TextBox underneath the grid.</p>
+<p>The example looks like this:</p>
+<div id="slPluginHost2" > <object id="SilverlightPlugin2" width="300" height="470" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/03/SilverlightTable2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>The two buttons in the centre allow you to synchronise the DataGrid and the XML, one formats the current grid contents in XML, the other takes the XML and dynamically binds the contents to the grid. You can try editing the data, then updating the XML and vice-versa. You can even add new columns to the XML data (hopefully the XML structure is pretty self explanatory - there is no error checking so take care ;-)). The DataGrid is of course editable and sortable.</p>
+<p>The interesting part of the code is the method that takes the XML contents and binds it to the grid. It is as follows:</p>
+{% highlight csharp %}
+/// <summary>
+/// Copies the XML contents of the textbox into the DataGrid
+/// </summary>
+private void XmlToGrid()
+{
+  // clear the grid
+  _dataGrid.ItemsSource = null;
+  _dataGrid.Columns.Clear();
+
+  // grab the xml into a XDocument
+  XDocument xmlDoc = XDocument.Parse(_xmlInput.Text);
+
+  // find the columns
+  List<string> columnNames = xmlDoc.Descendants("column")
+                                   .Attributes("name")
+                                   .Select(a => a.Value)
+                                   .ToList();
+
+  // add them to the grid
+  foreach (string columnName in columnNames)
+  {
+    _dataGrid.Columns.Add(CreateColumn(columnName));
+  }
+
+  SortableCollectionView data = new SortableCollectionView();
+
+  // add the rows
+  var rows = xmlDoc.Descendants("row");
+  foreach (var row in rows)
+  {
+    Row rowData = new Row();
+    int index = 0;
+    var cells = row.Descendants("cell");
+    foreach(var cell in cells)
+    {
+      rowData[columnNames[index]] = cell.Value;
+      index++;
+    }
+    data.Add(rowData);
+  }
+
+  _dataGrid.ItemsSource = data;
+}
+{% endhighlight %}
+<p>The above code clears the grid, then uses a bit of Linq to XML to query the XML within the TextBox, creating the SortableCollectionView and Row instances which are the data objects for our dynamic data as described in the previous blog posts. The columns are created in code behind as follows:</p>
+{% highlight csharp %}
+private RowIndexConverter _rowIndexConverter = new RowIndexConverter();
+
+private DataGridColumn CreateColumn(string property)
+{
+  return new DataGridTextColumn()
+  {
+    CanUserSort = true,
+    Header = property,
+    SortMemberPath = property,
+    IsReadOnly = false,
+    Binding = new Binding("Data")
+    {
+      Converter = _rowIndexConverter,
+      ConverterParameter = property
+    }
+  };
+}
+{% endhighlight %}
+<p>This is really no different to the technique that you use when creating the column definitions in XAML. There is nothing special about XAML, it is essentially just an XML markup for creating objects.</p>
+<p>Hopefully this blog post will help answer the recurring questions, and reduce the number of "it doesn't work in SL3" mails I get. Perhaps I will just get 84 "Thank you" comments instead :-)</p>
+<p>You can download the full sourcecode for this blog post: <a href='{{ site.baseurl }}/archive/2010/03/SilverlightTable.zip'>SilverlightTable.zip</a></p>
+<p>Regards, Colin E.</p>

@@ -1,0 +1,117 @@
+---
+id: 1840
+author: ceberhardt
+title: >-
+  Suppressing Zoom and Scroll interactions in the Windows Phone 7 WebBrowser
+  Control
+image: ceberhardt/assets/featured/suppress.jpg
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control/
+tags:
+  - Windows Phone 7
+  - HTML5
+  - PhoneGap
+  - WebBrowser
+  - blog
+  - windowsphone
+  - featured-windowsphone
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2011/11/suppressing-zoom-and-scroll-interactions-in-the-windows-phone-7-browser-control/
+---
+<p><i>This blog post describes a simple helper class that can be used to supress scrolling and pinch zoom of the Windows Phone 7 WebBrowser control.</i></p>
+<div style="float:right; width:130px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://0.gravatar.com/avatar/458f2e0d08d4114f8b323798cfea141d?s=64&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G" style="float:left; margin:5px;">Colin Eberhardt is a Scott Logic technical Evangelist and a Technical Architect for Visiblox, suppliers of <a href="http://www.visiblox.com">high-performance WPF and Silverlight charts</a>.<a href="http://www.visiblox.com"><img src="{{ site.baseurl }}/archive/2012/04/visiblox-white.png"/></a></div>
+<p>Developers of Windows Phone 7 application have the full power of IE9 at their disposal in the shape of the <code>WebBrowser </code>control. This control allows you to render both local and remote HTML and JavaScript content within your Silverlight applications. You will find this control used to great effect in RSS readers and Twitter applications such as <a href="https://twitter.com/rowiapp">Rowi</a>, where websites are viewed from within the application rather than by launching the full-blown IE. The WebBrowser control is also used as the host / container for HTML5 based applications, such as <a href="{{ site.baseurl }}/2011/09/29/developing-windows-phone-7-html5-apps-with-phonegap">Property Finder, the PhoneGap-based application I developed recently</a>.</p>
+<p>One problem them people frequently hit against with the <code>WebBrowser </code>control is managing the manipulation events. For example, if you place a WebBrowser control within a Pivot control, how can you pass the horizontal swipe gesture form the WebBrowser to the <a href="http://stackoverflow.com/questions/5417293/wp7-pivot-control-and-a-webbrowser-control">Pivot</a>?</p>
+<p>With HTML5 applications you have a certain amount of control over the browser's pan and zoom behaviour via the viewport metadata HTML element:</p>
+{% highlight xml %}
+<meta name="viewport" content="user-scalable=no" />
+{% endhighlight %}
+<p>Adding the above meta-tag to a HTML page will prohibit the user from zooming via the pinch gesture. However, it does this in a rather clumsy way - the user can still pinch the page, but when they release, it snaps back to its original scale. </p>
+<p>Whilst this might be OK in some contexts, for a HTML5 application where intention is to replicate the feel of a native application as closely as possible, this is just not good enough. Another little browser quirk that has a similar effect is the scroll behaviour. Even if a page fits entirely within the area occupied by the WebBrowser control, they can still scroll the content. Again, it simply snaps back to its original location.</p>
+<h2>The Solution</h2>
+<p>I initially thought that there would be no way for me to control the behaviour of the <code>WebBrowser </code>control, it is after-all a very thin .NET wrapper around a native control. However, I stumbled across some StackOveflow answers from <a href="http://stackoverflow.com/users/717732/quetzalcoatl">quetzalcoatl</a> who had done some digging around in the .NET wrapper and had identified an interesting control called the <code>PanZoomContainer</code>.</p>
+<p>If you inspect the visual tree of the <code>WebBrowser </code>control you will find that it is assembled as follows:</p>
+<pre>
+\-WebBrowser
+  \-Border
+    \-Border
+      \-PanZoomContainer
+        \-Grid
+          \-Border (*)
+            \-ContentPresenter
+              \-TileHost
+</pre>
+<p>(visual tree dump generated via the oh-so-useful <a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree">Linq to VisualTree</a> utility!)</p>
+<p>The visual tree is quite simple, composed of a few grids and borders. The significant parts are the <code>TileHost</code>, which is the native IE9 component, and the <code>PanZoomContainer</code>. The TileHost does not handle the mouse manipulation events, these are instead handled by the <code>PanZoomContainer</code>, where they are then translated into gestures (i.e. pinch-zoom) with the result fed back to the <code>TileHost</code>.</p>
+<p>What this means is that we can intercept the manipulation events as they bubble up to the <code>PanZoomContainer</code>, cancelling them before they are turned into gestures.</p>
+<p>The utility class which I have written handles the events on the <code>Border </code>indicated above. When events are received various conditions are checked to identify pan or scroll interactions, with the events being cancelled accordingly.</p>
+<p>The complete class is given below:</p>
+{% highlight csharp %}
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using LinqToVisualTree;
+using Microsoft.Phone.Controls;
+
+/// <summary>
+/// Suppresses pinch zoom and optionally scrolling of the WebBrowser control
+/// </summary>
+public class WebBrowserHelper
+{
+  private WebBrowser _browser;
+
+  /// <summary>
+  /// Gets or sets whether to suppress the scrolling of
+  /// the WebBrowser control;
+  /// </summary>
+  public bool ScrollDisabled { get; set; }
+
+  public WebBrowserHelper(WebBrowser browser)
+  {
+    _browser = browser;
+    browser.Loaded += new RoutedEventHandler(browser_Loaded);
+  }
+
+  private void browser_Loaded(object sender, RoutedEventArgs e)
+  {
+    var border = _browser.Descendants<Border>().Last() as Border;
+
+    border.ManipulationDelta += Border_ManipulationDelta;
+    border.ManipulationCompleted += Border_ManipulationCompleted;
+  }
+
+  private void Border_ManipulationCompleted(object sender,
+                                            ManipulationCompletedEventArgs e)
+  {
+    // suppress zoom
+    if (e.FinalVelocities.ExpansionVelocity.X != 0.0 ||
+        e.FinalVelocities.ExpansionVelocity.Y != 0.0)
+      e.Handled = true;
+  }
+
+  private void Border_ManipulationDelta(object sender,
+                                        ManipulationDeltaEventArgs e)
+  {
+    // suppress zoom
+    if (e.DeltaManipulation.Scale.X != 0.0 ||
+        e.DeltaManipulation.Scale.Y != 0.0)
+      e.Handled = true;
+
+    // optionally suppress scrolling
+    if (ScrollDisabled)
+    {
+      if (e.DeltaManipulation.Translation.X != 0.0 ||
+        e.DeltaManipulation.Translation.Y != 0.0)
+        e.Handled = true;
+    }
+  }
+}
+{% endhighlight %}
+<p>Within Property Finder, my HTML5 application, as the user navigates from one page to the next, the JavaScript code notifies the Silverlight container whether the current page should have scrolling disabled, setting the <code>ScrollDisabled </code>property of the above helper class accordingly.</p>
+<p>I hope other people find this simple utility class useful. To use it, just cut and paste the code given above. Note, it uses <a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree">Linq to VisualTree</a> to navigate the <code>WebBrowser </code>visual tree, so you will need to go and grab that also.</p>
+<p>Regards, Colin E.</p>

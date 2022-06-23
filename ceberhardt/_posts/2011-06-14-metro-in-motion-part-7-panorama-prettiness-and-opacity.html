@@ -1,0 +1,129 @@
+---
+id: 1539
+author: ceberhardt
+title: 'Metro In Motion Part #7 - Panorama Prettiness and Opacity'
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/06/metro-in-motion-part-7-panorama-prettiness-and-opacity/
+tags:
+  - codeproject
+  - metro
+  - blog
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/06/metro-in-motion-part-7-panorama-prettiness-and-opacity/
+---
+<p><em>This blog post details a simple metro-in-motion behaviour which reduces the Panorama control's contents while the user slides from item-to-item so that they can really appreciate your fancy background graphic!</em></p>
+<p>For those of you who have not been following my Metro-In-Motion series, I'll briefly recap. My aim is to provide an implementation of the 'fluid' UI transitions and effects seen in native Windows Phone 7 applications but absent from the Silverlight APIs. So far I have covered <a href="{{ site.baseurl }}/2011/03/22/metro-in-motion-fluid-list-animation">fluid list animations</a>, <a href="{{ site.baseurl }}/2011/03/27/metro-in-motion-part-2-peel-animations">'peel' animations</a>, <a href="{{ site.baseurl }}/2011/04/04/metro-in-motion-3-flying-titles">flying titles</a>, a <a href="{{ site.baseurl }}/2011/05/03/metro-in-motion-part-4-tilt-effect">'tilt' effect</a> and a <a href="{{ site.baseurl }}/2011/06/06/metro-in-motion-part-6-rolling-list-location-indicator">rolling list location indicator</a>. In this post I look at a very simple and subtle effect, reducing the opacity of your Panorama contents when the user slides from item-to-item.</p>
+<p>The Panorama is probably the prettiest of all the Windows Phone 7 controls, it really embodies what the<a href="http://en.wikipedia.org/wiki/Metro_(design_language)"> Metro Design Language</a> is all about. Typically a pretty graphic is used as a background for the Panorama as follows:</p>
+{% highlight xml %}
+<controls:Panorama Title="Panorama">
+  <controls:Panorama.Background>
+    <ImageBrush ImageSource="PanoramaBackground.jpg" Opacity="0.5"/>
+  </controls:Panorama.Background>
+
+  <!-- panorama content goes here -->
+
+</controls:Panorama>
+{% endhighlight %}
+<p><img src="{{ site.baseurl }}/archive/2011/06/Panorama.jpg" alt="" title="Panorama" width="220" height="400" class="aligncenter size-full wp-image-1542" /></p>
+<p>Note, in the example above, the opacity of the image is reduced to 0.5 in order that it is not too bold and overpowering.</p>
+<p>Unfortunately, our beautiful background graphic is almost entirely obscured by the panorama contents. The native applications, such as the pictures and games hubs, use a cunning little trick to allow the user to enjoy the background, whilst the user is sliding the Panorama, the contents become opaque, making the background visible behind the various tiles. That is the effect I will re-create in this blog post.</p>
+<p>The code to achieve this effect is very simple. It is a basic Blend Behaviour, which handles the <code>Panorama</code> <code>ManipulationDelta</code> event in order to set the item's <code>Opacity</code>, with the <code>ManipulationCompleted</code> event handler resetting the <code>Opacity</code> to 1.0.</p>
+<p>The behaviour is show in its entirety below:</p>
+{% highlight csharp %}
+/// <summary>
+/// This behaviour, when associated with a Panorama control, will reduce the opacity
+/// of each PanoramaItem while the user slides the control.
+/// </summary>
+public class PanoramaOpacityBehaviour : Behavior<Panorama>
+{
+    #region DPs
+
+    /// <summary>
+    /// Gets or sets the opacity used for the panorama items whilst the user is 'sliding'
+    /// </summary>
+    [Description("Indicates the opacity used for the panorama items whilst the user is 'sliding'")]
+    [Category("Appearance")]
+    public double Opacity
+    {
+        get { return (double)GetValue(OpacityProperty); }
+        set { SetValue(OpacityProperty, value); }
+    }
+
+    /// <summary>
+    /// Identifies the Opacity dependency property
+    /// </summary>
+    public static readonly DependencyProperty OpacityProperty =
+        DependencyProperty.Register("Opacity", typeof(double),
+        typeof(PanoramaOpacityBehaviour), new PropertyMetadata(0.7));
+
+    #endregion
+
+
+    #region overrides
+
+    protected override void OnAttached()
+    {
+        base.OnAttached();
+
+        AssociatedObject.ManipulationDelta += Panorama_ManipulationDelta;
+        AssociatedObject.ManipulationCompleted += Panorama_ManipulationCompleted;
+    }
+
+    protected override void OnDetaching()
+    {
+        base.OnDetaching();
+
+        AssociatedObject.ManipulationDelta -= Panorama_ManipulationDelta;
+        AssociatedObject.ManipulationCompleted -= Panorama_ManipulationCompleted;
+    }
+
+    #endregion
+
+    #region private
+
+    private void Panorama_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
+    {
+        foreach (FrameworkElement fe in AssociatedObject.Items)
+        {
+            // restore the previous opacity
+            fe.Opacity = 1.0;
+        }
+    }
+
+    private void Panorama_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
+    {
+        foreach (FrameworkElement fe in AssociatedObject.Items)
+        {
+            // store the opacity and set the new value
+            fe.Opacity = Opacity;
+        }
+    }
+
+    #endregion
+}
+{% endhighlight %}
+<p>This behaviour can be applied programmatically as follows:</p>
+{% highlight xml %}
+<controls:Panorama Title="Panorama">
+  <i:Interaction.Behaviors>
+    <WP7Contrib_View_Controls_Behaviors:PanoramaOpacityBehaviour/>
+  </i:Interaction.Behaviors>
+  <controls:Panorama.Background>
+    <ImageBrush ImageSource="PanoramaBackground.jpg" Opacity="0.5"/>
+  </controls:Panorama.Background>
+
+  <!-- panorama content goes here -->
+
+</controls:Panorama>
+{% endhighlight %}
+<p>Or applied by drag and drop within Expression Blend:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/06/PanoramaBehaviour.jpg" alt="" title="PanoramaBehaviour" width="367" height="450" class="aligncenter size-full wp-image-1546" /></p>
+<p>With this behaviour applied, the user can now fully appreciate your Panorama control's beautiful background graphic:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/06/Panorama2.jpg" alt="" title="Panorama2" width="220" height="400" class="aligncenter size-full wp-image-1547" /></p>
+<p>You can download the sourcecode for this behaviour and an example project here: <a href='{{ site.baseurl }}/archive/2011/06/MetroInMotionSeven.zip'>MetroInMotionSeven.zip</a></p>
+<p>I have also added this behaviour to the <a href="http://wp7contrib.codeplex.com/">WP7Contrib project on codeplex</a>. I would recommend that anyone doing WP7 development should download the WP7Contrib code, it is packed full of useful utilities.</p>
+<p>Regards, Colin E.</p>

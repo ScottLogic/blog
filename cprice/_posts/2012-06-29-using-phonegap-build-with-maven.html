@@ -1,0 +1,93 @@
+---
+id: 154150
+author: cprice
+title: Using PhoneGap Build with Maven
+oldlink: "http://www.scottlogic.co.uk/2012/06/using-phonegap-build-with-maven/"
+tags:
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/06/using-phonegap-build-with-maven/
+---
+<p><a style="float: right; margin-left: 16px;" href="{{ site.baseurl }}/cprice/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.baseurl }}/archive/2012/03/me1.png" alt="" /></a><em>This post introduces a Maven plugin for easily building native PhoneGap apps for iOS, Android, WP7 (and more) from any WAR project, in any environment. It assumes that you are familiar with using Maven and have a WAR project you wish to build. In return, when you run your build you'll get native binaries automatically built then installed/deployed to your repository. Best of all because it's all part of your standard Maven build, your CI server can handle your one-click release builds signed with your distribution keys ready for app store distribution.<em></em></em></p>
+<h2 style="clear: both;">Introduction</h2>
+<p>PhoneGap Build is a hosted service which wraps HTML5 applications into native applications. The plugin connects to the service, uploads the exploded WAR directory, waits for the builds to complete and then downloads the native binaries installing/deploying them as attached artifacts.</p>
+<p style="text-align:center"><a href="https://build.phonegap.com/"><img src="{{ site.baseurl }}/archive/2012/06/phonegap-build.png" alt="" title="phonegap-build" width="216" height="154" class="alignnone size-full wp-image-154185" /></a></p>
+<h2 style="clear: both;">Building your first native app</h2>
+<p>First of all you're going to need to visit the <a href="https://build.phonegap.com/">PhoneGap Build website</a> and <a href="https://build.phonegap.com/people/adobeid">sign up</a> for an Adobe account (GitHub doesn't work with the API unfortunately). Test out your shiny new credentials by running the following command from a terminal -</p>
+{% highlight bash %}
+mvn com.github.chrisprice:phonegap-build-maven-plugin:list -Dphonegap-build.username=[USERNAME] -Dphonegap-build.password=[PASSWORD]
+{% endhighlight %}
+<p>If everything works as planned then you should see all your applications and keys that are currently hosted on the service (empty that is, if you just signed up!). If there's a problem then double check the command and also check that your credentials work on the website.</p>
+<h4 style="clear: both;">Including the plugin in your project</h4>
+<p>Now for something more exciting! You'll need to make two additions to your project, firstly to configure maven to use the plugin during the build lifecycle, and secondly to customise how PhoneGap Build should wrap your application. Start by adding the following to the project&gt;build&gt;plugins section of your POM -</p>
+{% highlight xml %}
+<plugin>
+	<groupId>com.github.chrisprice</groupId>
+	<artifactId>phonegap-build-maven-plugin</artifactId>
+	<version>0.0.2</version>
+	<executions>
+		<execution>
+			<id>phonegap-build</id>
+			<!-- the goals are lifecycle bound by default -->
+			<goals>
+				<goal>clean</goal>
+				<goal>build</goal>
+			</goals>
+			<configuration>
+				<platforms>
+					<platform>android</platform>
+				</platforms>
+			</configuration>
+		</execution>
+	</executions>
+</plugin>
+{% endhighlight %}
+<p>Now create a file called config.xml in src/main/phonegap-build which contains a few key details about your application. The config.xml file also gives you fine control over the configuration of the PhoneGap wrappers, <a href="http://docs.phonegap.com/phonegap-build/configuring/">documented in detail here</a> however, for now just copy the following -</p>
+{% highlight xml %}
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0"
+        id="[GROUP-ID].[ARTIFACT-ID]" version="[VERSION]">
+    <name>PhoneGap Build Sample</name>
+    <description>
+        A sample for phonegap-build-maven-plugin.
+    </description>
+    <author href="{{ site.baseurl }}/cprice/" email="cprice@scottlogic.co.uk">
+        Chris Price
+    </author>
+</widget>
+{% endhighlight %}
+<p>At the minimum you'll need to change GROUP-ID, ARTIFACT-ID and VERSION to correspond to the maven project co-ordinates, feel free to change the author etc. but it isn't required at this point. </p>
+<h4 style="clear:both">Running the build</h4>
+<p>When you've made the changes to the config.xml, you should be able to run the following -</p>
+{% highlight bash %}
+mvn clean install -Dphonegap-build.username=[USERNAME] -Dphonegap-build.password=[PASSWORD]
+{% endhighlight %}
+<p>You should see your application being packaged locally and then uploaded to the service. After a short wait, the service needs some time to perform the actual build, the native Android apk file will be downloaded and installed in your local repository. Simples!</p>
+<h4 style="clear:both">Multiple platforms</h4>
+<p>You now have an Android binary without having to mess around with the SDK or any PhoneGap project templates, impressive, but what about if we now get a requirement for a WP7 binary?</p>
+<p>If we tweak the plugin configuration in your POM like so -</p>
+{% highlight xml %}
+<platforms>
+    <platform>android</platform>
+    <platform>winphone</platform>
+</platforms>
+{% endhighlight %}
+<p>And re-run the command above -</p>
+{% highlight bash %}
+mvn clean install -Dphonegap-build.username=[USERNAME] -Dphonegap-build.password=[PASSWORD]
+{% endhighlight %}
+<p>You'll see not only an Android version downloaded and installed but sat alongside it is now a WP7 xap. Building for webOS (webos), BlackBerry (blackberry) and Symbian (symbian) follows exactly the same pattern. iOS (ios) requires a little more configuration, you need to supply your developer certificate and provisioning profile, but once configured a single Maven build can produce native binaries for all the major mobile platforms and install/deploy them straight into your repository.</p>
+<p><em>Configuring the plugin to build for a platform will cause the build to fail if there is an error building for that platform so be sure to only include the ones you are interested in e.g. don't attempt to build for iOS without configuring your developer certificate and provisioning profile.</em></p>
+<h4 style="clear: both;">Storing your credentials somewhere more secure</h4>
+<p><a style="float: right; margin: 0 0 0 16px;" href="http://www.youtube.com/watch?v=ue8TvvYik74"><img src="{{ site.baseurl }}/archive/2012/06/snake-plissken.jpeg" alt="" title="snake-plissken" width="195" height="141" class="alignnone size-medium wp-image-154188" /></a>One of the things you'll likely want to change if you start using the plugin in your project is how the service credentials are passed to the plugin. Passing them in on the command line is laborious and worse still very insecure. The best way to do this is to store them as a <a href="http://chrisprice.github.com/phonegap-build/phonegap-build-maven-plugin/index.html#Authentication">server in your settings.xml</a>. This has the major advantage of allowing different developers to use their own credentials whilst still sharing the same project. It also allows the passwords to be encrypted if that floats your boat.</p>
+<h4 style="clear: both;">Signing your Android build for distribution</h4>
+<p><a style="float:left; margin: 0 16px 16px 0" href="http://play.google.com"><img src="{{ site.baseurl }}/archive/2012/06/google-play_00FA000001228971.jpg" alt="" title="google-play_00FA000001228971" width="206" height="53" class="alignnone size-medium wp-image-154198" /></a>When it comes to distributing your application to the Play Store, the developer certificate that by default the service signs Android binaries with just isn't going to cut it. You'll need to follow a few steps to generate a self-signed (i.e. free!) private signing key and then configure the plugin to use it. This process is detailed on the <a href="http://chrisprice.github.com/phonegap-build/phonegap-build-maven-plugin/signing-for-android.html">plugin website</a>.</p>
+<h2 style="clear: both;">Conclusion</h2>
+<p>This part covered configuring the plugin to build PhoneGap Android applications for development, and also signed distribution builds ready for the app store. In the next part I'll cover building applications for iOS (which is slightly trickier because you'll need to configure your developer certificate and provisioning profile). </p>
+<p>Until then if you get stuck, please check-out the <a href="https://github.com/chrisprice/phonegap-build/tree/master/sample">sample application</a> or <a href="https://github.com/chrisprice/phonegap-build/issues?state=open">post an issue on the bug tracker</a>, if you want to customise the Android PhoneGap wrapper be sure to revisit the <a href="http://docs.phonegap.com/phonegap-build/configuring/#example">config.xml settings</a> and if you want to skip ahead, there's also more detailed <a href="http://chrisprice.github.com/phonegap-build/phonegap-build-maven-plugin/index.html">documentation on the plugin site</a>, including instructions for <a href="http://chrisprice.github.com/phonegap-build/phonegap-build-maven-plugin/signing-for-ios.html">building for iOS</a>.</p>
+<h2 style="clear: both;"></h2>
+<p><a class="twitter-share-button" href="https://twitter.com/share" data-via="100pxls">Tweet</a><script type="text/javascript">// <![CDATA[!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");// ]]></script></p>
+<p><script type="text/javascript">// <![CDATA[  (function() {    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;    po.src = 'https://apis.google.com/js/plusone.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);  })();// ]]></script></p>

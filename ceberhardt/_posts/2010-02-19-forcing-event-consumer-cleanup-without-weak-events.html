@@ -1,0 +1,110 @@
+---
+id: 568
+author: ceberhardt
+title: Forcing Event Consumer Cleanup without Weak Events
+oldlink: "http://www.scottlogic.co.uk/blog/colin/2010/02/forcing-event-consumer-cleanup-without-weak-events/"
+tags:
+  - memory leaks
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2010/02/forcing-event-consumer-cleanup-without-weak-events/
+---
+<p><em>This blog post describes a simple technique for ensuring that consumers of events unsubscribe their event handlers without the need for weak events.</em></p>
+<p>I think the concept of managed memory, where the cleanup of unused objects from the heap is performed by a garbage collector, is a fantastic idea. It means that developers working with Java or C# (or other CLR languages) can often forget all about memory allocation, concentrating on more interesting tasks. However, whereas in the Java language the concept of memory leaks has almost completely vanished, they unfortunately rear their ugly head all to often when developing applications for the Microsoft Common Language Runtime (CLR). This is almost entirely down to one thing, events.</p>
+<p>The problem with events is that they form a strong reference (i.e. a link between two object instances that prohibits garbage collection) in a manner that is not immediately obvious due to the syntax that event subscription uses. When subscribing to an event, the following syntax is used:</p>
+{% highlight csharp %}
+// subscribe to an event
+textBox.TextChanged += new EventHandler(TextBox_TextChanged);
+// or
+textBox.TextChanged += TextBox_TextChanged;
+
+// remove the subscription
+textBox.TextChanged -= new EventHandler(TextBox_TextChanged);
+// or
+textBox.TextChanged -= TextBox_TextChanged;
+{% endhighlight %}
+<p>Note the second examples use the shortened syntax where the delegate instance, <a href="http://msdn.microsoft.com/en-us/library/system.eventhandler.aspx">EventHandler</a>, is not explicitly constructed but added by the compiler, there is <a href="http://stackoverflow.com/questions/550703/c-difference-between-anevent-and-new-eventhandleranevent/550711">no difference semantically</a>.</p>
+<p>By subscribing to an event the following relationships are constructed, with the direction of reference as indicated:</p>
+<p><a href="{{ site.baseurl }}/archive/2010/02/NormalEvent.png"><img src="{{ site.baseurl }}/archive/2010/02/NormalEvent.png" alt="" title="NormalEvent" width="294" height="54" class="aligncenter size-full wp-image-581" /></a></p>
+<p>As you can see from the above, adding an handler to an event creates a strong reference from <strong>source</strong> to <strong>listener</strong>. This does not cause significant problems if the listener has a shorter or the same lifecycle that the source, as is the case where you add event handlers for controls in a Windows Form for example. However, if the source has a longer lifecycle than the listener, and the listener fails to remove its event subscription, a memory leak will occur.</p>
+<p>In practice this kind of problem often occurs in modular applications where there exists some sort of Shell or Environment that raises events or acts as a <a href="http://en.wikipedia.org/wiki/Mediator_pattern">mediator</a>. Within this hosting environment their exists numerous loosely coupled modules which by necessity have a shorter lifecycle than their container. If a module subscribes to events from the Shell but fails to unsubscribe at the end of its life a memory leak occurs. In complex systems this happens surprisingly often!</p>
+<p>A common solution to this problem is to use Weak Events. These are events where either the reference between source and listener is <a href="http://en.wikipedia.org/wiki/Weak_reference">weak</a>, meaning that listener can be garbage collected if it is only referenced via this event handler.  An early implementation of this pattern was developed for WPF and is provided by <a href="http://blogs.msdn.com/greg_schechter/archive/2004/05/27/143605.aspx">Greg Schechter on his blog</a>. There is also an excellent <a href="http://www.codeproject.com/KB/cs/WeakEvents.aspx">codeproject article by Daniel Grunwald</a> which details many different approaches to creating weak event listeners and sources.</p>
+<p>However, whilst liberally sprinkling weak events about your code will solve potential memory leaks, it should not be used as a replacement for proper event subscription clean-up. What if a module's event handler performs non-trivial logic? Do you really want this to occur after the module is supposed to have been destroyed? So, how do you ensure that events are being unsubscribed? This can be done by code-review, or by making use of heap profiling tools such as <a href="http://www.jetbrains.com/profiler/">dotTrace</a>. With these tools you can run your application, create and destroy modules, garbage collect then inspect your heap to see that the modules and their related objects have been removed. If not, you can trace the object references to find the offending event handler. However, this is a time consuming process.</p>
+<p>An alternative is to make use of the fact that events are simply delegates with a highly restrictive interface applied. However, within the class where the event is defined you can treat it as an delegate, allowing you to inspect its invocation list to find all the event handlers. Therefore, if you have a long-lived service component that raises events which are handled by shorter lived modules, you can check the event invocation list after all the modules have been destroyed at application shutdown to ensure that all modules have correctly unsubscribed. This can be achieved as follows:</p>
+{% highlight csharp %}
+/// <summary>
+/// An event which indicates that some stock price has changed
+/// </summary>
+public event EventHandler<StockPriceUpdateEventArgs> StockPriceUpdate;
+
+public void Dispose(object sender, EventArgs e)
+{
+    // check that when this service is destroyed, that there are no event
+    // subscriptions
+    CheckEventHasNoSubscribers(StockPriceUpdate);
+}
+
+/// <summary>
+/// Detects whether an event has any subscribers
+/// </summary>
+[Conditional("DEBUG")]
+private void CheckEventHasNoSubscribers(Delegate eventDelegate)
+{
+    if (eventDelegate != null)
+    {
+        // if the event has any subscribers, create an informative error message.
+        if (eventDelegate.GetInvocationList().Length != 0)
+        {
+            int subscriberCount = eventDelegate.GetInvocationList().Length;
+
+            // determine the consumers of this event
+            StringBuilder subscribers = new StringBuilder();
+            foreach (Delegate del in eventDelegate.GetInvocationList())
+            {
+                subscribers.Append((subscribers.Length != 0 ? ", " : "") + del.Target.ToString());
+            }
+
+            // name and shame them!
+            Debug.WriteLine(string.Format("Event: {0} still has {1} subscribers, with the following targets [{2}]",
+                eventDelegate.Method.Name, subscriberCount, subscribers.ToString()));
+        }
+    }
+}
+{% endhighlight %}
+<p>Here we have an event which our service raises, on disposal we check that the event has no subscribers. If any modules have failed to cleanup properly we see the following message:</p>
+<pre>
+Event: PriceService_StockPriceUpdate still has 2 subscribers, with the following targets:
+[MemoryLeakExamples.StockPriceViewer, Text: StockPriceViewer,
+MemoryLeakExamples.StockPriceViewer, Text: StockPriceViewer]
+</pre>
+<p>This message tells us how many classes still have referenced event handlers, and their type. This should make it very easy to pinpoint the memory leak.</p>
+<p>The sourcecode for this blog post includes a very simple WinForms application where a Stock Price service raises events that are handled by simple UI modules that can be created and destroyed by the user. Run it in DEBUG mode to see the memory leaks! Look in StockPriceViewer to see how to fix the problem.</p>
+<p><a href="{{ site.baseurl }}/archive/2010/02/leak.png"><img src="{{ site.baseurl }}/archive/2010/02/leak-300x178.png" alt="" title="leak" width="300" height="178" class="aligncenter size-medium wp-image-583" /></a></p>
+<p>Download the sourcecode: <a href='{{ site.baseurl }}/archive/2010/02/MemoryLeakExample.zip'>MemoryLeakExample.zip</a></p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,152 @@
+---
+id: 1304
+author: ceberhardt
+title: 'Metro In Motion Part #1 - Fluid List Animation'
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/03/metro-in-motion-fluid-list-animation/
+tags:
+  - codeproject
+  - Windows Phone 7
+  - WP7
+  - metro
+  - blog
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/03/metro-in-motion-fluid-list-animation/
+---
+<p><em>This blog post presents an attached behaviour that gracefully slides the contents of a list into view when used in conjunction with a Pivot control, emulating the Windows Phone 7 email application.</em></p>
+<p>The Windows Phone 7 user interface is based on the <a href="http://en.wikipedia.org/wiki/Metro_Design_Language">Metro Design Language</a>, which favours clear typography, content over chrome and simplicity. If you want to see practical applications of the Metro approach to design, I would highly recommend visiting Scott Barnes' blog over at <a href="http://www.riagenic.com/">riagenic</a>. </p>
+<p><img src="{{ site.baseurl }}/archive/2011/03/metro.jpg" alt="" title="metro" width="500" height="357" class="aligncenter size-full wp-image-1316" /></p>
+<p>Silverlight for Windows Phone 7 provides a basic Metro styling for elements such as Buttons and Checkboxes, it also has a few phone specific controls such as Pivot and Panorama. These controls make it easy to create a basic Metro interface, although again, I refer you to Scott Barnes' blog, Metro is not all about black and white! However, when using a WP7 phone you will probably notice that the native applications, email, maps and settings, have a bit more 'flair', lists gracefully slide into view, or 'peel' off the screen when an item is selected. Metro is not just about static style, it is "alive in motion". </p>
+<p>The code in this blog post replicates the graceful slide effect seen in WP7 native applications when a moves from one list to another within a pivot as seen below. The code has been tested on real phone hardware to ensure that it performs well.</p>
+<p><iframe title="YouTube video player" width="480" height="390"  class="margin-left: auto; margin-right: auto;" src="http://www.youtube.com/embed/Ib4ijoYaTZo?rel=0" frameborder="0" allowfullscreen></iframe></p>
+<p>To use this code set the attached property <code>ListAnimation.IsPivotAnimated</code> to true for the <code>ListBox</code> (or <code>ItemsControl</code>) contained within a <code>PivotItem</code>. Then apply the <code>ListAnimation.AnimationLevel</code> to any element which you wish to animate as the list slides into view. The animation level describes the delay before each element is animated, for example, the markup below causes the summary to slide in just after the title, with the date following behind.</p>
+{% highlight xml %}
+<controls:PivotItem Header="BBC News">
+  <!-- animating an ListBox -->
+  <ListBox x:Name="bbcNews"
+        local:ListAnimation.IsPivotAnimated="True">
+    <ListBox.ItemTemplate>
+      <DataTemplate>
+        <StackPanel Orientation="Vertical">
+          <TextBlock Text="{Binding Title}"
+                  Style="{StaticResource PhoneTextLargeStyle}"/>
+          <TextBlock Text="{Binding Summary}"
+                  Style="{StaticResource PhoneTextSmallStyle}"
+                  local:ListAnimation.AnimationLevel="1"/>
+          <TextBlock Text="{Binding Date}"
+                  Style="{StaticResource PhoneTextSmallStyle}"
+                  local:ListAnimation.AnimationLevel="2"/>
+        </StackPanel>
+      </DataTemplate>
+    </ListBox.ItemTemplate>
+  </ListBox>
+</controls:PivotItem>
+{% endhighlight %}
+<p>The code that achieves this effect is relatively straightforward, so I am going to present it all in one go (omitting all the usual attached property boiler-plate code):</p>
+{% highlight csharp %}
+// handles changes in the IsPivotAnimated attached property
+private static void OnIsPivotAnimatedChanged(DependencyObject d,
+                                                  DependencyPropertyChangedEventArgs args)
+{
+  ItemsControl list = d as ItemsControl;
+
+  list.Loaded += (s2, e2) =>
+    {
+      // locate the pivot control that this list is within
+      Pivot pivot = list.Ancestors<Pivot>().Single() as Pivot;
+
+      // and its index within the pivot
+      int pivotIndex = pivot.Items.IndexOf(list.Ancestors<PivotItem>().Single());
+
+      bool selectionChanged = false;
+
+      pivot.SelectionChanged += (s3, e3) =>
+        {
+          selectionChanged = true;
+        };
+
+      // handle manipulation events which occur when the user
+      // moves between pivot items
+      pivot.ManipulationCompleted += (s, e) =>
+        {
+          if (!selectionChanged)
+            return;
+
+          selectionChanged = false;
+
+          if (pivotIndex != pivot.SelectedIndex)
+            return;
+
+          // determine which direction this tab will be scrolling in from
+          bool fromRight = e.TotalManipulation.Translation.X <= 0;
+
+          // locate the stack panel that hosts the items
+          VirtualizingStackPanel vsp = list.Descendants<VirtualizingStackPanel>().First()
+                                                      as VirtualizingStackPanel;
+
+          // iterate over each of the items in view
+          int firstVisibleItem = (int)vsp.VerticalOffset;
+          int visibleItemCount = (int)vsp.ViewportHeight;
+          for (int index = firstVisibleItem; index <= firstVisibleItem + visibleItemCount; index++)
+          {
+            // find all the item that have the AnimationLevel attached property set
+            var lbi = list.ItemContainerGenerator.ContainerFromIndex(index);
+            if (lbi == null)
+              continue;
+
+            vsp.Dispatcher.BeginInvoke(() =>
+              {
+                var animationTargets = lbi.Descendants()
+                                       .Where(p => ListAnimation.GetAnimationLevel(p) > -1);
+                foreach (FrameworkElement target in animationTargets)
+                {
+                  // trigger the required animation
+                  GetAnimation(target, fromRight).Begin();
+                }
+              });
+          };
+        };
+    };
+}
+{% endhighlight %}
+<p>When the <code>IsPivotAnimated</code> property is first attached, <a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> is used to locate the parent <code>PivotControl</code> in order to handle <code>SelectionChanged</code> events. However, this is where things get tricky! If a <code>Pivot</code> control contains just two <code>PivotItems</code>, a change in selection is not enough to determine whether the pivot is scrolling to the left or the right! Therefore, we need to handle the <code>ManipulationCompleted</code> event that is fired after the <code>SelectionChanged</code> event to determine the direction of movement.</p>
+<p>Once this is done, we can iterate over all of the items in the list, this assumes that the items are being hosted within a <code>VirtualizingStackPanel</code> which is true for a <code>ListBox</code>. For each item that is visible, another Linq query is used to find any that have the <code>AnimationLevel</code> attached property set on them. For each element the animation is created an fired.</p>
+<p><code>Dispatcher.BeginInvoke</code> is used to start each group of animations in order to lessen the impact of starting 10-20 animations simultaneously. Without the use of the <code>Dispatcher</code>, when testing on real hardware there was a small, but noticeable, judder in the sideways scrolling of the Pivot control at the point where the animations were fired. The use of <code>Dispatcher.BeginInvoke</code> means that the construction and firing of the animations are now packaged as separate 'tasks' for each element in the list. This means that they do not have to be executed as a single unit of work, allowing the phone to fire a few animations, then perform other tasks. The net result is that the <code>Pivot</code> control still scrolls smoothly between the <code>PivotItems</code>.</p>
+<p>The code which creates the required animation is given below, it simply adds a <code>TranslateTransform</code> to the element and creates the required animation / storyboard. </p>
+{% highlight csharp %}
+/// <summary>
+/// Creates a TranslateTransform and associates it with the given element, returning
+/// a Storyboard which will animate the TranslateTransform with a SineEase function
+/// </summary>
+private static Storyboard  GetAnimation(FrameworkElement element, bool fromRight)
+{
+  double from = fromRight ? 80 : -80;
+
+  Storyboard sb;
+  double delay = (ListAnimation.GetAnimationLevel(element)) * 0.1 + 0.1;
+
+  TranslateTransform trans = new TranslateTransform() { X = from };
+  element.RenderTransform = trans;
+
+  sb = new Storyboard();
+  sb.BeginTime = TimeSpan.FromSeconds(delay);
+
+  DoubleAnimation db = new DoubleAnimation();
+  db.To = 0;
+  db.From = from;
+  db.EasingFunction = new SineEase();
+  sb.Duration = db.Duration = TimeSpan.FromSeconds(0.8);
+  sb.Children.Add(db);
+  Storyboard.SetTarget(db, trans);
+  Storyboard.SetTargetProperty(db, new PropertyPath("X"));
+
+  return sb;
+}
+{% endhighlight %}
+<p>Interestingly I tried using the <a href="http://artefactanimator.codeplex.com/">Artefact Animator</a>, which has a nice concise API for creating animations in code-behind. However, because it animates elements by setting properties directly, it does not perform well on Windows Phone 7, which can execute storyboards on the <a href="http://msdn.microsoft.com/en-us/library/ff967560%28VS.92%29.aspx">composition thread</a> in order to improve performance.</p>
+<p>You can download the full sourcecode here: <a href='{{ site.baseurl }}/archive/2011/03/ListAnimation.zip'>ListAnimation.zip</a></p>
+<p>Regards,Colin E.</p>

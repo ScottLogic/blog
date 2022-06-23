@@ -1,0 +1,255 @@
+---
+id: 755
+author: ceberhardt
+title: >-
+  Silverlight MultiBinding updated, adding support for ElementName and TwoWay
+  binding
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/08/silverlight-multibinding-updated-adding-support-for-elementname-and-twoway-binding/
+tags:
+  - WPF
+  - silverlight
+  - binding
+  - multibinding
+  - virtual branch
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2010/08/silverlight-multibinding-updated-adding-support-for-elementname-and-twoway-binding/
+---
+<p><em>This blog post describes an update to the Silverlight 4 MultiBinding technique I blogged about a couple of months ago to add support for ElementName binding and TwoWay binding.</em></p>
+<p>A few months ago I posted an update to my MultiBinding solution for Silverlight 4. This technique allows you to perform the same kind of multibindings which are possible in WPF, where a property value is bound to multiple sources via a special value converter that implements the IMultiValueConverter interface, which describes how these values are combined. This update proved popular once again, and I received a few requests to add support for ElementName and TwoWay binding. I like challenge! This blog post describes how these two features were implemented, but if you just want to grab the code, you will find the link at the end of this article.</p>
+<p><strong>A brief recap</strong></p>
+<p>Before I go into the implementation details for the new features I will provide a brief recap of how my multibinding solution works. The XAML for creating a multibinding looks like the following:</p>
+{% highlight xml %}
+<TextBlock Foreground="White"
+  <local:BindingUtil.MultiBindings>
+    <local:MultiBindings>
+      <local:MultiBinding TargetProperty="Text"
+                          Converter="{StaticResource TitleConverter}">
+        <local:BindingCollection>
+          <Binding Path="Surname"/>
+          <Binding Path="Forename"/>
+        </local:BindingCollection>
+      </local:MultiBinding>
+      <local:MultiBinding TargetProperty="ToolTipService.ToolTip"
+                          Converter="{StaticResource TitleConverter}">
+        <local:BindingCollection>
+          <Binding Path="Surname"/>
+          <Binding Path="Forename"/>
+        </local:BindingCollection>
+      </local:MultiBinding>
+    </local:MultiBindings>
+  </local:BindingUtil.MultiBindings>
+</TextBlock>
+{% endhighlight %}
+<p>Here the Text property and attached ToolTip property of the TextBlock are bound to both the Surname and Forename property of the business object which is set as the DataContext of our view.</p>
+<p>The value converter is as follows:</p>
+{% highlight csharp %}
+public class TitleConverter : IMultiValueConverter
+{
+
+  public object Convert(object[] values, Type targetType,
+    object parameter, CultureInfo culture)
+  {
+    string forename = values[0] as string;
+    string surname = values[1] as string;
+
+    return string.Format("{0}, {1}", surname, forename);
+  }
+
+  ...
+}
+{% endhighlight %}
+<p>In the example below you can see that as you change the forename or surname, the title text and tooltip are updated by the multibinding.</p>
+<div> <object width="200" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/08/SLMultiBindingOne.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>So how does this work?</p>
+<p>When a multibinding is created and added to an element via the BindingUtil.MultiBindings attached property, the MultiBinding instance is added to a virtual-branch, this is a branch of the visual tree that obtains the DataContext of the element to which it is bound, but is not added to the visual tree itself. The MultiBinding then creates a BindingSlave instance for each of the given Bindings. These 'slave' elements inherit the MultiBinding DataContext and are used to evaluate each of the individual Bindings. The MultiBinding instance aggregate the results of each binding with the IMultiValueConverter used to compute the ConvertedValue property which is bound to the target property on the element to which this MultiBinding as attached.</p>
+<p><img src="{{ site.baseurl }}/archive/2009/06/virtualbranch.png" alt="" title="virtualbranch" width="604" height="394" class="aligncenter size-full wp-image-355" /></p>
+<p><strong>ElementName binding</strong></p>
+<p>So why does the above solution not work if one of the multibindings uses ElementName to locate the source rather than using the inherited DataContext? The problem here is that the MultiBinding and its BindingSlave instances are located in a virtual branch and are therefore not in the same <a href="http://msdn.microsoft.com/en-us/library/cc189026%28VS.95%29.aspx">namescope</a> as the target element. As a result, they cannot perform look up of named elements.</p>
+<p>In order to solve this problem I created a BindingSlave subclass specifically for ElementName binding. This slave locates the source element named via the ElementName property and sets it as the Source of the binding it uses to compute its Value property.</p>
+<p>The only minor complication I encountered is that the MultiBinding might be constructed before the element referenced via ElementName. For this reason the binding slave must handle LayoutUpdated events to ensure that the named element is located if it is constructed after the multibinding.</p>
+{% highlight csharp %}
+public class ElementNameBindingSlave : BindingSlave
+{
+  private FrameworkElement _multiBindingTarget;
+
+  /// <summary>
+  /// The source element named in the ElementName binding
+  /// </summary>
+  private FrameworkElement _elementNameSource;
+
+  private Binding _binding;
+
+  public ElementNameBindingSlave(FrameworkElement target, Binding binding)
+  {
+    _multiBindingTarget = target;
+    _binding = binding;
+
+    // try to locate the named element
+    ResolveElementNameBinding();
+
+    _multiBindingTarget.LayoutUpdated += MultiBindingTarget_LayoutUpdated;
+  }
+
+  /// <summary>
+  /// Try to locate the named element. If the element can be located, create the required
+  /// binding.
+  /// </summary>
+  private void ResolveElementNameBinding()
+  {
+    _elementNameSource = _multiBindingTarget.FindName(_binding.ElementName) as FrameworkElement;
+    if (_elementNameSource != null)
+    {
+      SetBinding(BindingSlave.ValueProperty, new Binding()
+      {
+        Source = _elementNameSource,
+        Path = _binding.Path,
+        Converter = _binding.Converter,
+        ConverterParameter = _binding.ConverterParameter
+      });
+    }
+  }
+
+  private void MultiBindingTarget_LayoutUpdated(object sender, EventArgs e)
+  {
+    // try to locate the named element
+    ResolveElementNameBinding();
+  }
+}
+{% endhighlight %}
+<p>The example below demonstrates element name binding by binding the Value of two Slider elements to a TextBlock which displays the sum of the two values.</p>
+<div> <object width="200" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/08/SLMultiBindingTwo.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+{% highlight xml %}
+<TextBlock Grid.Column="1">
+  <local:BindingUtil.MultiBindings>
+    <local:MultiBindings>
+      <local:MultiBinding TargetProperty="Text"
+                          Converter="{StaticResource SliderValueConverter}">
+        <local:BindingCollection>
+          <Binding ElementName="sliderOne" Path="Value"/>
+          <Binding ElementName="sliderTwo" Path="Value"/>
+        </local:BindingCollection>
+      </local:MultiBinding>
+    </local:MultiBindings>
+  </local:BindingUtil.MultiBindings>
+</TextBlock>
+
+<Slider x:Name="sliderOne" Value="10"/>
+
+<Slider x:Name="sliderTwo"  Value="20"/>
+{% endhighlight %}
+<p>Here is the value converter that is used to compute the sum:</p>
+{% highlight csharp %}
+public class SliderValueConverter : IMultiValueConverter
+{
+
+  public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+  {
+    if (values.Length != 2 ||
+        values[0] == null ||
+        values[1] == null)
+      return null;
+
+    return (double)values[0] + (double)values[1];
+  }
+
+  ...
+}
+{% endhighlight %}
+<p>You could of course use element name binding to combine the surname / forename in the first example in this blog post, but in this context it is more likely that you will want to back your UI with a business object. It is also possible to mix element name and regular (i.e. Source=DataContext) binding.</p>
+<p>I find multibindings which use ElementName references most useful when creating complex UI layouts that do not lend themselves to being implemented using Panels. For a good example see my article on <a href="http://www.codeproject.com/KB/WPF/WpfWinFormsBulletGraphs.aspx">the implementation of a BulletGraph control </a>which makes extensive use of this technique in order that the layout of the control is performed entirely within XAML.</p>
+<p><strong>TwoWay Binding</strong></p>
+<p>A two-way multibinding must be able to handle updates to the combined value and split it up into its constituent parts in order to update the multiple source bindings. In the first example where a forename and surname property are combined into a "surname, forename" string it is possible to convert back the other way, but in the example above where the values of two Sliders are combined a reverse conversion is not possible.</p>
+<p>Modifying this multibinding solution to permit two way binding was relatively straightforward. A property changed event handler was added to the MultiBindig.ConverterValue (which is bound to the multi binding target) so that we can determine when changes have been made. This handler then uses the IMultiValueConverter to convert the value into the multiple source properties and updates the binding slaves accordingly:</p>
+{% highlight csharp %}
+/// <summary>
+/// Handles property changes for the ConvertedValue property
+/// </summary>
+private void OnConvertedValuePropertyChanged()
+{
+    OnPropertyChanged("ConvertedValue");
+
+    // if the value is being updated, but not due to one of the multibindings
+    // then the target property has changed.
+    if (!_updatingConvertedValue)
+    {
+      // convert back
+      object[] convertedValues = Converter.ConvertBack(ConvertedValue, null,
+          ConverterParameter, CultureInfo.InvariantCulture);
+
+      // update all the binding slaves
+      if (Children.Count == convertedValues.Length)
+      {
+        for (int index = 0; index < convertedValues.Length; index++)
+        {
+          ((BindingSlave)Children[index]).Value = convertedValues[index];
+        }
+      }
+    }
+}
+{% endhighlight %}
+<p>In order to use two way multibinding both the multibinding mode <em>and</em> the bindings within the BindingCollection must be set to TwoWay. See the example given below:</p>
+{% highlight xml %}
+<TextBlock Text="Surname:"/>
+<TextBox  Grid.Column="1" Text="{Binding Path=Surname, Mode=TwoWay}"/>
+
+<TextBlock Grid.Row="1" Text="Forename:"/>
+<TextBox Grid.Row="1"  Grid.Column="1" Text="{Binding Path=Forename, Mode=TwoWay}"/>
+
+<TextBlock Grid.Row="2" Text="Combined:"/>
+<TextBox Grid.Row="2"  Grid.Column="1" >
+  <local:BindingUtil.MultiBindings>
+    <local:MultiBindings>
+      <local:MultiBinding TargetProperty="Text"
+                        Converter="{StaticResource TitleConverter}"
+                        Mode="TwoWay">
+        <local:BindingCollection>
+          <Binding Path="Surname" Mode="TwoWay"/>
+          <Binding Path="Forename" Mode="TwoWay"/>
+        </local:BindingCollection>
+      </local:MultiBinding>
+    </local:MultiBindings>
+  </local:BindingUtil.MultiBindings>
+</TextBox>
+{% endhighlight %}
+<p>You can have  try of two way multibinding below where the values of the forename and surname text boxes are combined in the box below. However, you ca also make updates to the combined result which will then be converted back into its constituent parts:</p>
+<div> <object width="300" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/08/SLMultiBindingThree.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>And here is the value converter:</p>
+{% highlight csharp %}
+public class TitleConverter : IMultiValueConverter
+{
+  #region IMultiValueConverter Members
+
+  public object Convert(object[] values, Type targetType,
+    object parameter, System.Globalization.CultureInfo culture)
+  {
+    string forename = values[0] as string;
+    string surname = values[1] as string;
+
+    return string.Format("{0}, {1}", surname, forename);
+  }
+
+  public object[] ConvertBack(object value, Type[] targetTypes,
+    object parameter, System.Globalization.CultureInfo culture)
+  {
+    string source = value as string;
+    var pos = source.IndexOf(", ");
+
+    string forename = source.Substring(pos + 2);
+    string surname = source.Substring(0, pos);
+
+    return new object[] { forename, surname };
+  }
+
+  #endregion
+}
+{% endhighlight %}
+<p>So, there you have it, two-way and element name multibinding :-)</p>
+<p>You can download the full source, including a WPF build (thanks to <a href="https://twitter.com/stefanolson">Stefan Olson</a>) here: <a href='{{ site.baseurl }}/archive/2010/08/SLMultiBindingUpdated.zip'>SLMultiBindingUpdated.zip</a> </p>
+<p>Now ... go forth and multibind.</p>
+<p>Regards, Colin E.</p>

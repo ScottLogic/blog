@@ -1,0 +1,169 @@
+---
+id: 251
+author: ceberhardt
+title: Binding a Silverlight DataGrid to dynamic data via IDictionary
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/
+tags:
+  - DataGrid
+  - silverlight
+  - binding
+  - blog
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary/
+---
+<p>This post demonstrates a technique for binding a Silverlight DataGrid to dynamic data, the structure of which is not know at compile-time ... </p>
+<p><b>UPDATE #1</b>: I have extended this technique to add include change notification so that the DataGrid can be made editable. Read all about it in <a href="{{ site.baseurl }}/2009/04/22/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged">part two</a>.</p>
+<p><strong>UPDATE #2</strong>: This blog post was written with a SL2 DataGrid, for SL3, please see my <a href="{{ site.baseurl }}/2010/03/26/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated">updated blog post</a>.</p>
+<p>With Silverlight binding data to a DataGrid is a very straightforward process. With an XML datasource, you can simply parse your data via Linq to SQL into an anonymous type then bind the resulting collection to the grid. Just a few simple lines of code. But, what if the data you want to bind to your grid is dynamic? That is, at compile time you do not know how many columns are required, or what their contents is. This is a common problem that Silverlight users have faced <a href="http://silverlight.net/forums/p/54804/187532.aspx">again</a>, and <a href="http://silverlight.net/themes/silverlight/forums/thread.aspx?ThreadID=11570">again</a>, and <a href="http://stackoverflow.com/questions/685513/displaying-a-dynamic-data-structure-in-silverlight-datagrid">again</a> and <a href="http://stackoverflow.com/questions/681495/array-binding-xaml-by-position-silverlight-on-datagrid">again</a>!</p>
+<p>The most obvious solution to this problem is to create a dictionary for each row of your DataGrid, and bind your columns to your values via the dictionary's string indexer:</p>
+<p><code>Binding="{Binding Path=[Name]}"</code></p>
+<p>However, unfortunately the PropertyPath syntax used for binding does not understand indexers, making it impossible to bind to a dictionary. </p>
+<p>Vladimir Bodurov presents <a href="http://blog.bodurov.com/How-to-bind-Silverlight-DataGrid-from-IEnumerable-of-IDictionary">an ingenious solution to this problem</a> by dynamically generating a new Type based on the values present within the dictionary, i.e. If the dictionary contains the keys "Name" and "Age", a Type will be generated that has properties of Name and Age. Crazy stuff! Here I would like to show an alternative method that does not use intermediate Language or other black magic!</p>
+<p>We will start with a simple example of a class which can be used to store 'dynamic' data for rendering in our DataGrid:</p>
+{% highlight csharp %}
+public class Row
+{
+  private Dictionary<string, object> _data = new Dictionary<string, object>();
+  public object this [string index]
+  {
+    get { return _data[index]; }
+    set { _data[index] = value; }
+  }
+}
+{% endhighlight %}
+<p>We can populate a collection of these objects and associate them with a DataGrid as follows:</p>
+{% highlight csharp %}
+Random rand = new Random();
+
+var rows = new ObservableCollection<Row>();
+for (int i = 0; i < 200; i++)
+{
+  Row row = new Row();
+  row["Forename"] = s_names[rand.Next(s_names.Length)];
+  row["Surname"] = s_surnames[rand.Next(s_surnames.Length)];
+  row["Age"] = rand.Next(40) + 10;
+  row["Shoesize"] = rand.Next(10) + 5;
+  rows.Add(row);
+}
+
+_dataGrid.ItemsSource = rows;
+{% endhighlight %}
+<p>However, as mentioned earlier, we cannot create a binding path that accesses our Rows indexer, so just how do we bind the columns to our data? </p>
+<p>The classic .NET solution to this problem would be to create a custom property descriptor. When databinding, the properties of an object are not accessed directly, rather they are accessed via their associated property descriptor. A custom property descriptor can be supplied for our Row class, via the ICustomTypeDescriptor interface for example, that exposes properties which when accessed invoke our indexer. This is how the .NET DataRowView exposes its properties. Unfortunately there is one small snag here ... Silverlight does not include the required interfaces to create custom properties.</p>
+<p>A simple workaround to this problem is to use a binding that binds each row directly to each Row item rather than a specific property of the item, then use a value converter to access the indexer and extract the required value. Here is an example:</p>
+{% highlight xml %}
+<data:DataGrid Name="_dataGrid" AutoGenerateColumns="False" Height="300" IsReadOnly="False">
+  <data:DataGrid.Columns>
+    <data:DataGridTextColumn Header="Forename" Binding="{Binding Converter={StaticResource RowIndexConverter}, ConverterParameter=Forename}"/>
+    <data:DataGridTextColumn Header="Surname" Binding="{Binding Converter={StaticResource RowIndexConverter}, ConverterParameter=Surname}"/>
+    <data:DataGridTextColumn Header="Age" Binding="{Binding Converter={StaticResource RowIndexConverter}, ConverterParameter=Age}"/>
+    <data:DataGridTextColumn Header="Shoesize" Binding="{Binding Converter={StaticResource RowIndexConverter}, ConverterParameter=Shoesize}"/>
+  </data:DataGrid.Columns>
+</data:DataGrid>
+{% endhighlight %}
+<p>And here is the value converter:</p>
+{% highlight csharp %}
+public class RowIndexConverter : IValueConverter
+{
+  public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+  {
+    Row row = value as Row;
+    string index = parameter as string;
+    return row[index];
+  }
+
+  public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+  {
+    throw new NotImplementedException();
+  }
+}
+{% endhighlight %}
+<p>In the above XAML, the binding expression does not have a Path specified, therefore, the binding source is our Row instance rather than a property of the Row. The RowIndexConverter value converter simply uses the supplied ConverterParameter for each column to access the Row indexer and extract the correct value. This works quite nicely, and we are able to see our data within the grid:</p>
+<p><a href="{{ site.baseurl }}/archive/2009/04/grid.png"><img src="{{ site.baseurl }}/archive/2009/04/grid.png" alt="grid" title="grid" width="296" height="296" class="alignnone size-full wp-image-253" /></a></p>
+<p>However, there is one problem here, if you click on the column headers the grid does not sort the data. The columns of a DataGrid have CanUserSort and SortMemberPath properties, however setting these will not help because the DataGrid will expect the bound object to have a property with the given name which of course it does not! To solve this problem (without resorting to dynamically generated types) we need to delve a little deeper into the way in which the DataGrid binds to the data.</p>
+<p>A lot of insight can be gained from the documentation of <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.icollectionview(VS.95).aspx">ICollectionView</a>:</p>
+<p><i style="margin-left:15px">The DataGrid control uses this interface to access the indicated functionality in the data source assigned to its ItemsSource property. If the ItemsSource implements IList, but does not implement ICollectionView, the DataGrid wraps the ItemsSource in an internal ICollectionView implementation. </i></p>
+<p>The ICollectionView interface is responsible for filtering, sorting and grouping of the data bound to the DataGrid. WPF also has the <a href="http://msdn.microsoft.com/en-us/library/system.componentmodel.icollectionview.aspx">ICollectionView</a>interface, you can read a good overview of its features on <a href="http://marlongrech.wordpress.com/2008/11/22/icollectionview-explained/">Marlon Grech's blog</a>. However, whereas WPF wraps the DataContext itself in a view which is shared across multiple controls, it would appear that Silverlight restricts its usage to the DataGrid. This causes problems if, for example, you want to synchronize the current item between controls (However, Laurent Bugnion has a novel solution for <a href="http://geekswithblogs.net/lbugnion/archive/2009/02/18/simulating-issynchronizedwithcurrentitem-in-silverlight-part-2.aspx">emulating this behaviour</a>).</p>
+<p>So, it is the ICollectionView which is responsible for sorting our data. The internal implementation of this interface which the DataGrid creates will expects our object to expose the bound properties, which explains why it does not work. However, if we supply our own ICollectionView interface, we can take control of sorting and implement it ourselves, accessing our 'property' values via the Row's string indexer.</p>
+<p>The ICollectionView interface has a lot of methods, events and properties, fortunately I was able to find a suitable implementation of this interface on Manish Dalal's blog. He had implemented this interface, on a class which extends ObservableCollection, in order to bind a DataGrid to a collection where the data from the server is being paged, hence sorting must be done server side. This gives us pretty much everything we need here, a collection class which is able to manage sorting itself. The only change required is to the ICollectiomView.Refresh() method which is responsible for refreshing the view after the SortDescriptions have changed.</p>
+<p>The implementation of this method is as follows:</p>
+{% highlight csharp %}
+public class SortableCollectionView : ObservableCollection<Row>, ICollectionView
+{
+
+  ...
+  public void Refresh()
+  {
+      IEnumerable<Row> rows = this;
+      IOrderedEnumerable<Row> orderedRows = null;
+
+      // use the OrderBy and ThenBy LINQ extension methods to
+      // sort our data
+      bool firstSort = true;
+      for (int sortIndex = 0; sortIndex < _sort.Count; sortIndex++)
+      {
+          SortDescription sort = _sort[sortIndex];
+          Func<Row, object> function = row => row[sort.PropertyName];
+          if (firstSort)
+          {
+              orderedRows = sort.Direction == ListSortDirection.Ascending ?
+                  rows.OrderBy(function) : rows.OrderByDescending(function);
+
+              firstSort = false;
+          }
+          else
+          {
+              orderedRows = sort.Direction == ListSortDirection.Ascending ?
+                  orderedRows.ThenBy(function) : orderedRows.ThenByDescending(function);
+          }
+      }
+
+      _suppressCollectionChanged = true;
+
+      // re-order this collection based on the result if the above
+      int index = 0;
+      foreach (var row in orderedRows)
+      {
+          this[index++] = row;
+      }
+
+      _suppressCollectionChanged = false;
+
+      // raise the required notification
+      this.OnCollectionChanged(
+          new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+   }
+
+  ...
+}
+{% endhighlight %}
+<p>When the user clicks on a grid view header, it modifies the bounds ICollectionView.SortDescription to reflect this change in state. The implementation of ICollectiomView from Manish's blog invokes the Refresh method whenever the ICollectionView.SortDescription collection changes. In the above implementation we use the OrderBy and ThenBy LINQ extension methods to order the data. Interestingly, OrderBy is a method on IEnumerable, whereas ThenBy is a methods on the IOrderedEnumerable, hence the funny looking logic involving 'firstSort'. Once the sorting has been performed, the underlying collection is re-ordered to match. The only subtle part is that we use a boolean field, _suppressCollectionChanged to suppress the numerous CollectionChanged events that would be fired by ObservableCollection during this process. Finally we raise NotifyCollectionChanged, resulting in the DataGrid updating to reflect the sort order.</p>
+<p>Putting it all together, we simply populate our SortableCollectionView and bind this to the DataGrid, modifying the XAML to explicitly inform the grid that it can sort and which property each column sorts on (usually this is inferred from the Binding Path):</p>
+{% highlight xml %}
+<data:DataGrid Name="_dataGrid" AutoGenerateColumns="False"  IsReadOnly="False" Margin="5">
+    <data:DataGrid.Columns>
+        <data:DataGridTextColumn Header="Forename" CanUserSort="True" SortMemberPath="Forename"
+                                  Binding="{Binding Converter={StaticResource RowIndexConverter},
+                                    ConverterParameter=Forename}"/>
+        <data:DataGridTextColumn Header="Surname" CanUserSort="True" SortMemberPath="Surname"
+                                 Binding="{Binding Converter={StaticResource RowIndexConverter},
+                                    ConverterParameter=Surname}"/>
+        <data:DataGridTextColumn Header="Age" CanUserSort="True" SortMemberPath="Age"
+                                 Binding="{Binding Converter={StaticResource RowIndexConverter},
+                                    ConverterParameter=Age}"/>
+        <data:DataGridTextColumn Header="Shoesize" CanUserSort="True" SortMemberPath="Shoesize"
+                                 Binding="{Binding Converter={StaticResource RowIndexConverter},
+                                    ConverterParameter=Shoesize}"/>
+    </data:DataGrid.Columns>
+</data:DataGrid>
+{% endhighlight %}
+<p>And here it is in action:</p>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/04/silverlighttable.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download the complete solution here: <a href='{{ site.baseurl }}/archive/2009/04/silverlightdynamicbinding.zip'>silverlightdynamicbinding.zip</a>.</p>
+<p>Regards,Colin E.</p>

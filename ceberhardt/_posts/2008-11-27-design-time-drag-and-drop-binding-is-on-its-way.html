@@ -1,0 +1,27 @@
+---
+id: 25
+author: ceberhardt
+title: Design time drag-and-drop binding is on its way
+oldlink: "http://www.scottlogic.co.uk/blog/colin/2008/11/design-time-drag-and-drop-binding-is-on-its-way/"
+tags:
+  - News
+  - WPF
+  - blog
+  - wpf
+  - C#
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2008/11/design-time-drag-and-drop-binding-is-on-its-way/
+---
+<p>In my opinion the lack of decent design-time tool support is currently hampering the adoption of WPF, that and the relatively small number of controls available to the developer out-of-the-box. The later is being addressed to a certain extent by the developer community, notably by Marlon Grech's <a href="http://marlongrech.wordpress.com/avalon-controls-library/">Avalon Controls Library</a> and the <a href="http://www.codeplex.com/wpf">WPF Toolkit</a>. The former, design-time support, is something that is harder for the developer community to address, however Karl Shifflet's <a href="https://marketplace.visualstudio.com/items?itemName=KarlShifflettkdawg.XAMLPowerToysforVisualStudio2015">XAML Power Toys</a>, which add drag and drop form generation make a pretty good stab at it.</p>
+<p>Despite this, people are adopting WPF even though it is <a href="http://joshsmithonwpf.wordpress.com/2008/04/21/why-use-wpf-if-it-is-not-rad-yet/">not RAD yet</a>.</p>
+<p>However; there are interesting developments at Microsoft, a video on Channel 9 reveals that<a href="http://channel9.msdn.com/posts/funkyonex/Drag-Drop-Data-Binding-Comes-to-WPF-in-Visual-Studio-2010/"> Drag-Drop Data Binding will com to WPF in Visual Studio 2010</a>. Exciting news indeed!</p>
+<p>The screenshot below shows a Window which contains two ListViews in a master-detail configuration, which was entirely developed by drag and drop (minus a few code tweaks due to minor bugs in the VS 2010 CTP):</p>
+<p><a href="http://wpfadventures.files.wordpress.com/2008/11/dragdropbinding.jpg"><img class="alignnone size-full wp-image-26" title="dragdropbinding" src="http://wpfadventures.files.wordpress.com/2008/11/dragdropbinding.jpg" alt="dragdropbinding" width="313" height="242" /></a></p>
+<p>The demonstration details how DataSets, ADO.NET Entities, or Objects can be bound - with master-detail view achieved by 'chaining' CollectionViewSources, in the same way that you would a Windows Forms BindingSource. All this will sound familiar (and cosy) to a Windows Forms developer.</p>
+<p>I am guessing that VS2010 will also provide the same drag and drop support for the WPF DataGrid.</p>
+<p>While this looks like excellent news, drag and drop is not the be-all and end-all of RAD application development. Once you have dragged your UI elements onto the Window you would also want to be able to re-configure the source of the bindings, or the bound properties without having to touch the XAML. I do hope that VS 2010 brings this functionality also.</p>
+<p>Either way, VS 2010 should open up WPF to a whole new audience.</p>
+<p>Regards, Colin E.</p>

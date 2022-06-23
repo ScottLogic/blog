@@ -1,0 +1,30 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - asheehan/_posts/2016-02-05-a-lazy-isomorphic-react-experiment.md
+webpack
+sass
+id
+url
+urls
+redux
+server/app.tsx
+client/app.tsx
+app.tsx
+img
+scss
+base64
+App.tsx
+ - asheehan/_posts/2016-09-01-the-power-of-the-higher-order.md
+PureComponent
+FetchDataComponent
+currentProps
+nextProps
+MyComponent
+ - asheehan/_posts/2016-09-20-the-power-of-the-higher-order.md
+currentProps
+nextProps
+FetchDataComponent
+PureComponent

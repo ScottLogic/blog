@@ -1,0 +1,378 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+serialiser
+rollup
+GitLab
+Cyclos
+voila
+Airbnb
+AndroidManifest
+XCode
+Haversine
+FlatList
+modals
+CHIP-8
+Kraftwerk’s
+Haas
+VSCode
+wat
+wabt
+i32
+LaMetric
+DynamoDb
+antipattern
+GByte
+MBytes
+100ms
+8-fold
+WebAPIs
+BigInt
+BigInts
+long.js.
+SIMD.js
+float32
+128bit
+wasm-bindgen
+ImmutableJS
+D3v5
+ethereum
+js-sys
+reddit
+StockFlux
+OpenFin
+Hadouken
+un-docking
+hotkey
+undocks
+SaaS
+whitespace
+WinForms
+SharedArrayBuffer
+base64
+websocket
+thead
+sharding
+perlin
+tron
+spacemesh
+testnet
+nearlib
+finjs
+blazor
+deserialise
+chiptunes
+wasmer
+composable
+suduko
+opencv
+tensorflow
+sudoko
+thresholding
+opencv.js
+haar
+cnns
+1000s
+shader
+t-sne
+callout
+straightforwards
+ - ceberhardt/_posts/2014-01-31-propertycross-1-3-released.md
+v1.3
+Remi
+Grumeau
+Phillpotts
+mitserpotes
+ - ceberhardt/_posts/2014-03-13-reactive-cocoa-tutorial.md
+Linq-to-ObjectiveC
+ - ceberhardt/_posts/2014-05-11-reactivecocoa-tableview-binding.md
+ViewModels
+UITableViews
+Wenderlich's
+init
+ - ceberhardt/_posts/2014-06-26-swift-sequences.md
+Fib#1
+ - ceberhardt/_posts/2014-07-10-statistical-analysis-ios-android.md
+3.5x
+avg
+3x
+ - ceberhardt/_posts/2014-07-24-mvvm-reactivecocoa-swift.md
+ViewController
+ViewModels
+Yusef
+Napora
+ - ceberhardt/_posts/2014-08-01-swift-vs-objectivec.md
+4x
+3x
+ - ceberhardt/_posts/2014-09-24-swift-anyobject.md
+AnyObject
+saySomething
+ - ceberhardt/_posts/2014-10-29-concurrent-functional-swift.md
+x4
+ - ceberhardt/_posts/2014-11-20-swift-initialisation.md
+super.init
+UIDynamicAnimator
+un-wrapped
+ - ceberhardt/_posts/2015-01-27-swift-exception-handling.md
+Wolverson
+ba-dum-tish
+ - ceberhardt/_posts/2015-02-02-svg-layout-flexbox.md
+Bostock
+ - ceberhardt/_posts/2015-02-05-swift-events.md
+NSNotification
+typealias
+Lammert
+Westerhoff
+Ole
+Begemann
+ - ceberhardt/_posts/2015-02-11-swift-kvo-alternatives.md
+INotifyPropertyChanged
+non-ObjC
+ - ceberhardt/_posts/2015-03-05-reactjs-in-swift.md
+Tero
+Parviainen
+200-line
+60fps
+ - ceberhardt/_posts/2015-03-26-react-native-retrospective.md
+CALayer
+Spolsky
+ - ceberhardt/_posts/2015-04-24-first-look-reactive-cocoa-3.md
+ErrorType
+
+ - ceberhardt/_posts/2015-04-28-reactive-cocoa-3-continued.md
+flatMap
+takeUntil
+ - ceberhardt/_posts/2015-05-15-mvvm-reactive-cocoa-3.md
+mtable
+ - ceberhardt/_posts/2015-07-08-yahoo-finance-chart.md
+bl.ocks.
+ - ceberhardt/_posts/2014-10-14-jekyll-pagination-and-infinite-scrolling.md
+unwantedtext
+ - ceberhardt/_posts/2015-07-22-yahoo-finance-chart-part-two.md
+bl.ocks.
+ - ceberhardt/_posts/2015-10-05-grunt-performance.md
+linted
+14s
+componentCheck
+100s
+ruleset
+ - ceberhardt/_posts/2015-12-07-angular-2.md
+todo-list
+1.x
+Eisenberg's
+Todo
+todo
+ngModel
+ng-conf
+ - ceberhardt/_posts/2015-12-24-creating-an-angular-2-build.md
+TSLint
+lite-server
+gulpfile
+gulp-tslint
+gulp.task
+tslint
+node-uuid
+node-uuid-1
+2.3.d.ts
+Globbing
+tsd
+node-uuid-global
+node-uuid-base
+immutable.js
+crytpo
+tsconfig-glob
+ - ceberhardt/_posts/2016-01-05-angular2-with-immutablejs.md
+Immutable.js.
+keypress
+OnPush
+zone.js
+uuid
+ - ceberhardt/_posts/2016-01-25-angular2-time-travel-with-redux.md
+rollbacks
+localStorage
+ - ceberhardt/_posts/2016-03-28-mondo-api.md
+Mondo
+realtime
+GotMondo
+ChiericiAlberto
+minimist
+ejs
+Pret
+Foursquare
+webhook
+ - ceberhardt/_posts/2016-05-19-redux-reducer-arrays.md
+bindActionCreators
+ - ceberhardt/_posts/2016-06-10-six-tips-for-cleaner-promises.md
+tonicdev
+v6
+ - ceberhardt/_posts/2016-06-22-xslt-inspired-ast-transforms.md
+Shuhei
+Kagawa
+XSLT-inspired
+JSPath
+nodeset
+ - ceberhardt/_posts/2016-11-30-audiokit.md
+AudioKit
+Csound
+Novachord
+ - ceberhardt/_posts/2016-12-15-semantic-versioning-is-not-enough.md
+roadmap
+v.4
+MAJOR.MINOR.PATCH
+0.x
+shrinkwrap
+v12
+Eidhof
+ - ceberhardt/_posts/2017-01-26-london-marathon-visualising.md
+6mph
+sub-3
+Flink
+IoT
+ - ceberhardt/_posts/2017-02-28-london-marathon-training-visualisation.md
+parkruns
+parkrun
+ - ceberhardt/_posts/2017-05-08-aws-lambda-github-bot.md
+CLAs
+PRs
+clabot
+cla-assistant
+CLAHub
+cla
+2xx
+ursa
+ - ceberhardt/_posts/2017-05-22-gifbot-github-integration.md
+gifbot
+GIFs
+ReadmeCritic
+jsonwebtoken
+ - ceberhardt/_posts/2017-06-25-uk-place-names.md
+Geo
+Topo
+1x
+20MBytes
+geo2topo
+toposimplify
+topo2geo
+topomerge
+topoquantize
+Geoprojection
+24Mb
+1.7Mb
+bl.ock
+ - ceberhardt/_posts/2017-07-16-clabot.md
+ContainerJS
+JSFoundation
+ - ceberhardt/_posts/2017-08-23-market-profile.md
+timeframes
+timeframe
+brownian
+d3.stack
+autobandwidth
+ - ceberhardt/_posts/2017-10-17-wasm-mandelbrot.md
+toolchains
+LLVM-based
+fastcomp
+llc
+asm.js.
+BinaryEn
+wasm-toolchain
+TurboScript
+speedy.js
+x84
+asm
+x86-64
+standalone
+ - ceberhardt/_posts/2017-10-30-migrating-d3-force-layout-to-webassembly.md
+Misérables
+ - ceberhardt/_posts/2017-12-13-chip8-emulator-webassembly-rust.md
+1980s
+Weisbecker
+4k
+2-bytes
+16-key
+wasm-gc
+_opcode
+rAF
+500Hz
+runloop
+60Hz
+Cpu
+_memory
+programMemory
+0x1
+_static
+process_opcode
+get_memory
+execute_opcode
+lazy_static
+ - ceberhardt/_posts/2016-10-10-unstoppable-html5.md
+formfactor
+ - ceberhardt/_posts/2018-04-26-webassembly-by-hand.md
+webassemblyjs
+Mauro
+Bringolf
+64KiB
+axel
+ - ceberhardt/_posts/2018-10-18-serverless-rust.md
+v8.10
+ - ceberhardt/_posts/2019-03-04-lambda-global-state.md
+ElastiCache
+AWS-hosted
+ - ceberhardt/_posts/2019-05-17-webassembly-compiler.md
+FullStackNYC
+param
+tokenizer
+whitespace
+ - ceberhardt/_posts/2019-05-17-webassembly-compiler copy.md
+FullStackNYC
+param
+tokenizer
+ - ceberhardt/_posts/2019-07-11-multithreaded-webassembly.md
+Davidlohr
+Bueso
+davidlohr
+wat2wasm
+ - ceberhardt/_posts/2017-11-22-developing-bristol-pound-an-open-source-react-native-app.md
+PureComponent
+ - ceberhardt/_posts/2018-11-22-crypto-charting-d3fc-perspective.md
+coinbase
+ - ceberhardt/_posts/2019-07-15-multithreaded-webassembly.md
+Davidlohr
+Bueso
+post-MVP
+davidlohr
+ - ceberhardt/_posts/2019-11-26-webassembly-on-the-blockchain.md
+dApps
+v2.0
+256-bit
+eWASM
+FinWASM
+ - ceberhardt/_posts/2019-12-24-webassembly-2019.md
+pic.twitter.com
+1HtX6OgJ2w
+WebAssemblyWeekly
+WasmWeekly
+wouldn
+Hykes
+solomonstre
+Citybound
+CityBound
+Pyodide
+WebAssembly.sh
+ - ceberhardt/_posts/2020-01-03-webassembly-sudoku-solver.md
+9x9
+32bit
+4.x
+70KByte
+rollifying
+transputing
+polyfudging
+70ms
+ - ceberhardt/_posts/2020-03-31-rendering-one-million-points-with-d3.md
+Hathi
+1m
+70MBytes
+75MBytes
+flatbush

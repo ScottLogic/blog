@@ -1,0 +1,206 @@
+---
+id: 460
+author: ceberhardt
+title: The mini-ViewModel pattern
+oldlink: "http://www.scottlogic.co.uk/blog/colin/2009/08/the-mini-viewmodel-pattern/"
+tags:
+  - WPF
+  - silverlight
+  - binding
+  - mvvm
+  - blog
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2009/08/the-mini-viewmodel-pattern/
+---
+<p><em>The construction of a ViewModel is often seen as the standard technique for solving binding problems within WPF and Silverlight. However, the addition of a ViewModel adds complexity to your code. This post describes an alternative method where a mini-ViewModel is applied directly to the problem areas in the view, leaving the rest to use simpler, straightforward binding to business objects. </em></p>
+<p>One of the features of WPF / Silverlight that appealed to me immediately when I started to learn it was the flexibility of the binding framework. The concepts of DataContext inheritence and flexibility of the value converters results in a lot less glue-code, which makes me a happy developer! However, it does not take long before you start finding examples that just dont fit with the framework and things start to get just little more complex. This blog post describes one such example.</p>
+<p>The example used in this blog post is of a very simple application which displays a business card. The business object rendered by the application, <code>ContactDetails</code>, has a number of simple CLR properties. Constructing a UI for viewing this business object is very easy, simply create an instance of this object (in a real application this object might come from a database or web service) and set it as the DataContext of the view:</p>
+{% highlight csharp %}
+public Page()
+{
+    InitializeComponent();
+
+    ContactDetails details = new ContactDetails()
+    {
+        Company = "Scott Logic Ltd.",
+        Email = "ceberhardt@scottlogic.com",
+        URL = "http://www.scottlogic.com",
+        Country = "UK",
+        FullName = "Colin Eberhardt",
+        PhoneNumber = 4408452241930
+    };
+
+    this.DataContext = details;
+}
+{% endhighlight %}
+<p>We then create some simple XAML with UI elements that bind to the various propeties of our object ...</p>
+{% highlight xml %}
+<Grid x:Name="LayoutRoot" Background="White">
+    <Border BorderBrush="LightGray" Background="White"  BorderThickness="1.5" CornerRadius="20"
+        VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Border Margin="5" BorderBrush="LightGray" BorderThickness="1.5" CornerRadius="15">
+            <Border.Background>
+                <ImageBrush>
+                    <ImageBrush.ImageSource>
+                        <BitmapImage UriSource="back.jpg" />
+                    </ImageBrush.ImageSource>
+                </ImageBrush>
+            </Border.Background>
+
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBlock Text="{Binding FullName}"
+                           FontSize="15"
+                           FontWeight="Bold" />
+                <Rectangle Stroke="DarkGray" HorizontalAlignment="Stretch"
+                           StrokeThickness="0.5" Height="1"/>
+                <TextBlock Text="{Binding Company}" Margin="0,10,0,0"/>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="e: "/>
+                    <TextBlock Text="{Binding Email}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="w: "/>
+                    <HyperlinkButton Content="{Binding URL}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="p: "/>
+                    <TextBlock Text="{Binding PhoneNumber}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Border>
+</Grid>
+{% endhighlight %}
+<p>And we get a lovely looking business card:</p>
+<p><img src="{{ site.baseurl }}/archive/2009/07/card.png" alt="card" title="card" width="196" height="129" class="aligncenter size-full wp-image-462" /></p>
+<p>One problem with the above example is the phone number, outputting the raw number '4408452241930' is not terribly readable, besides phone numbers have a standard format, in this case, the phone number would be represented as '+44 (0)845 2241930'. Also, let's make the problem more interesting; you might want to highlight the international dialing code in a different colour, or, if the application is being used by a UK client, display the number in a local format without the international code '0845 2241930'. So just how do we achieve this?</p>
+<p>In order to break the number up into different blocks of text, with different colours (i.e. styles), we need to modify our view to have multiple TextBlocks mapped to the PhoneNumber property of our business object. The part of our view which renders the phone number is modified as follows:</p>
+{% highlight xml %}
+<StackPanel Orientation="Horizontal">
+    <TextBlock Text="p: "/>
+    <TextBlock Text="... country code ..." Foreground="LightGray"/>
+    <TextBlock Text="... area code ..."/>
+    <TextBlock Text="... local number ..."/>
+</StackPanel>
+{% endhighlight %}
+<p>But just how exactly do we bind the properties of these business objects?</p>
+<p>One approach would be to use a value converter for each binding in order to extract the required part of the number, for example a CountryCodeValueConverter could be implemented which grabs the first 2 digits of the number. However, this approach is a little inelligent in that it fragments our logic into a number of separate classes, furthermore, if we want country specific formatting this requires the use of multibindings, which can be rather cumbersome if over-used (for a Silverlight implementation of multi bindings see <a href="{{ site.baseurl }}/2009/06/25/silverlight-multibindings-how-to-attached-mutiple-bindings-to-a-single-property">my blog post</a> from earlier this year). </p>
+<p>Another approach which is often used to tackle tricky binding problems is the use of the Model-View-ViewModel (MVVM) pattern. With this pattern, our ContactDetails object is the Model, we construct a ViewModel which is a UI-oriented abstraction of the Model and it is this which we bind to the View. WPF guru Josh Smith describes MVVM as <a href="http://joshsmithonwpf.wordpress.com/2008/12/01/the-philosophies-of-mvvm/">"a value converter on steroids"</a> in order to highlight the usefulness of the pattern in this context.</p>
+<p>The basic approach used here is to bind your View to a ViewModel rather than binding it to the business object directly. The ViewModel is specific to the view and wraps the business object (i.e. Model), forwarding the property values and change notification to the View. This extra layer allows us to supplement the properties of the Model object, adding new computed properties which are specific to the View. In this case, these computed properties can be used to expose 'country code', 'area code', etc... to our View. </p>
+<p><em>(This is a common pattern so I am not going to reproduce the code required here, however, if you are interested, the attached sourcecode accompanying this article contains a regular ViewModel version as well as a mini-ViewModel implementation)</em></p>
+<p>Whilst this approach works, my issue with it is that it adds quite a bit of boiler-plate code for wrapping properties, forwarding events etc ... The removal of this glue-code is the exact reason that I like WPF/Silverlight so much! The MVVM pattern is primarily for supporting the designer-developer paradigm and enabling unit testing of UI applications, in my opinion the use of MVVM for anything else is just plain wrong!</p>
+<p>So, how can we solve the problem of providing a nicely formatted phone number without the pain of bashing out line-after-line line of boiler-plate MVVM code? My solution to the problem isn't to dispose of the MVVM pattern altogether, rather, it is to localise its usage to just the problem area. The first step is to encapsulate the rendering of the phone number as a user control:</p>
+{% highlight xml %}
+...
+<StackPanel Orientation="Horizontal">
+    <TextBlock Text="p: "/>
+    <local:PhoneNumberControl Number="{Binding PhoneNumber}" />
+</StackPanel>
+...
+{% endhighlight %}
+<p>... which probably makes sense anyway from a perspective of good design and code re-use!</p>
+<p>Now that we have moved the phone number property within the <code>PhoneNumberControl</code> we have isolated the problem and can deal with it locally. We can create a <code>PhoneNumberControlViewModel</code> which splits the phone number up into its various components and bind this to the <code>PhoneNumberControl</code>.</p>
+<p>The control's ViewModel looks something like this:</p>
+{% highlight csharp %}
+public class PhoneNumberControlViewModel : INotifyPropertyChanged
+{
+    public PhoneNumberControlViewModel(PhoneNumberControl ctrl)
+    {
+        _ctrl = ctrl;
+        ComputeProperties();
+
+        // listen to property changes in the control (we are interested
+        // in just the Number property)
+        _ctrl.PropertyChanged += Control_PropertyChanged;
+    }
+
+    private PhoneNumberControl _ctrl;
+
+    private string _countryCodeText;
+
+    private string _areaCodeText;
+
+    private string _localNumberText;
+
+    public string CountryCodeText
+    {
+        get { return _countryCodeText; }
+        set { _countryCodeText = value; OnPropertyChanged("CountryCodeText");  }
+    }
+
+    public string AreaCodeText
+    {
+        get { return _areaCodeText; }
+        set { _areaCodeText = value; OnPropertyChanged("AreaCodeText"); }
+    }
+
+    public string LocalNumberText
+    {
+        get { return _localNumberText; }
+        set { _localNumberText = value; OnPropertyChanged("LocalNumberText"); }
+    }
+
+    private void Control_PropertyChanged(object sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName == "Number" || e.PropertyName == "Country")
+        {
+            ComputeProperties();
+        }
+    }
+
+    private void ComputeProperties()
+    {
+        string formattedNumber = _ctrl.Number.ToString();
+        CountryCodeText = "+" + formattedNumber.Substring(0, 2);
+        AreaCodeText = " (" + formattedNumber.Substring(2, 1) + ")" + formattedNumber.Substring(3, 3);
+        LocalNumberText = " " + formattedNumber.Substring(6);
+    }
+}
+{% endhighlight %}
+<p>Note that here the ViewModel is 'wrapping' the <code>PhoneNumberControl</code> rather than an instance of some Business / Model object.</p>
+<p>Now we just set our ViewModel as the DataContext for the View, as per the typical usage of this pattern:</p>
+{% highlight csharp %}
+public PhoneNumberControl()
+{
+    InitializeComponent();
+
+    this.DataContext = new PhoneNumberControlViewModel(this);
+}
+{% endhighlight %}
+<p>... and it doesn't work. If you try the above, you will find that the binding on the <code>PhoneNumberControl</code>s Number property no longer works. So why is this? if you look back at where the <code>PhoneNumberControl</code> instance is defined in our business card's XAML markup you see that its Number property is bound as follows:</p>
+{% highlight xml %}
+<local:PhoneNumberControl Number="{Binding PhoneNumber}" />
+{% endhighlight %}
+<p>The source of this binding is not explicitly set, so will default to using the DataContext of the <code>PhoneNumberControl</code> instance. However, we have just changed this DataContext in our constructor to something else ... oops!</p>
+<p>Solving this problem is actually quite simple, the <code>PhoneNumberControl</code> markup is as follows:</p>
+{% highlight xml %}
+<UserControl x:Class="SLMiniViewModel.PhoneNumberControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel x:Name="LayoutRoot" Orientation="Horizontal">
+        <TextBlock Text="{Binding CountryCodeText}" Foreground="DarkGray"/>
+        <TextBlock Text="{Binding AreaCodeText}"/>
+        <TextBlock Text="{Binding LocalNumberText}"/>
+    </StackPanel>
+</UserControl>
+{% endhighlight %}
+<p>If we modify our binding to the ViewModel as follows:</p>
+{% highlight csharp %}
+public PhoneNumberControl()
+{
+    InitializeComponent();
+
+    LayoutRoot.DataContext = new PhoneNumberControlViewModel(this);
+}
+{% endhighlight %}
+<p>The subtle difference being that the ViewModel is now bound to the StackPanel which is the root of our visual tree within the control. This means that the <code>PhoneNumberControl</code> DataContext is still inherited from the business card and is our business object instance, the DataContext switch to the ViewModel is now neatly tucked just within the <code>PhoneNumberControl</code>s visual tree, and it is this DataContext which our TextBlocks will inherit and bind to.</p>
+<p>The result is that we can now use our mini-ViewModel embedded within the <code>PhoneNumberControl</code> to expose properties which are more amenable to binding to our View:</p>
+<p><img src="{{ site.baseurl }}/archive/2009/08/card2.png" alt="card2" title="card2" width="210" height="143" class="aligncenter size-full wp-image-485" /></p>
+<p>Whilst this is a quite trivial example, in real-world applications, more complex examples where the data representation within the View is dependant on a number of properties are quite common. The source code accompanying this article extends the example a little further by making the formatting dependant on a second property of the business object. This is the sort of problem that would either push you towards multi-binding and numerous fragmented value converters, or a ViewModel.</p>
+<p><strong>In conclusion</strong>, the use of a mini-ViewModel which is embedded within a <code>UserControl</code> allows you to solve tricky binding problems without being weighed down by rolling out the MVVM pattern across your entire View. I am not against the MVVM pattern in itself, however I do firmly believe that it should only be used to solve the problems which it is was specifically designed for, i.e. supporting the designer-developer workflow and unit testing.</p>
+<p>You can download the source-code for this article: <a href='{{ site.baseurl }}/archive/2009/08/SLMiniViewModel.zip'>SLMiniViewModel.zip</a> - this project contains both MVVM and mini-MVVM implementations (count the number of lines in the ViewModel and contrast it with the mini-ViewModel).</p>
+<p>Regards, Colin E.</p>

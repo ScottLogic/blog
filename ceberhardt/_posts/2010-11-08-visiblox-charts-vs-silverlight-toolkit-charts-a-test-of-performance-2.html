@@ -1,0 +1,283 @@
+---
+id: 914
+author: ceberhardt
+title: Visiblox Charts vs. Silverlight Toolkit Charts - a test of Performance
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2/
+tags:
+  - charts
+  - visiblox
+  - performance
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2010/11/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2/
+---
+<p><em>This blog post compares the performance of the Visiblox and Silverlight Toolkit charts using a simple image processing tool to test and illustrate their differences in performance. The results show that the Visiblox charts are approximately 50 - 100 times faster that the Silverlight Toolkit charts.</em></p>
+<div style="background-color:#ddd; margin:10px; padding:20px;"><b>UPDATE:</b> I have published a more up-to-date and <a href="{{ site.baseurl }}/2012/04/24/wpf-charting-performance-comparisons-the-battle-continues">extensive test of WPF charting components in a more recent blog post</a>. This new test looks at how raster-graphics can be used to significantly enhance performance.</div>
+<p>I was recently asked by my friends at <a href="http://www.visiblox.com/">Visiblox</a> to test out the latest release of their charts for WPF and Silverlight. One of the key features of the Visiblox charts is their performance; they have been designed to both render and update rapidly in response to changes in the underlying data. I decided to put their latest release to the test in a head-to-head against the Silverlight Toolkit charts.</p>
+<p>Microsoft announced the release of the Silverlight Toolkit charts in late 2008 and have since released a number of updates, some of which have <a href="http://blogs.msdn.com/b/delay/archive/2009/03/19/silverlight-charting-is-faster-and-better-than-ever-silverlight-toolkit-march-09-release-now-available.aspx">focussed on performance</a>. I would anticipate that the relatively mature Silverlight Toolkit charts are probably most developer's first choice when they need to display data graphically within their application.</p>
+<p>Before we get into the details of my investigation, here are the two applications working side-by-side, one using the Visiblox chart and the other using the Toolkit charts. Click and drag a line across the image to plot the RGB pixel intensities along the line in the chart above. This is a reasonably tough challenge for the chart, with three series rendered of up to 400 points each. From the examples below you can see that the Visiblox charts are clearly faster.</p>
+<table>
+<tr>
+<th style="text-align: center; ">Visiblox Chart</th>
+<th style="text-align: center; ">Silverlight Toolkit Chart</th>
+</tr>
+<tr>
+<td>
+<div style="text-align: center; "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/11/HistogramVisiblox.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+</td>
+<td>
+<div style="text-align: center; "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/10/HistogramToolkit.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+</td>
+</tr>
+</table>
+<p><small>[Hare image used under CC licence from <a href="http://www.flickr.com/photos/heliocentric/2643028940/">flickr</a>, tortoise used royalty free from <a href="http://www.sxc.hu/photo/695928">stock.xchng</a>]</small></p>
+<p>I have had quite a bit of experience with the Silverlight Toolkit in the past and have written a few blog posts which detail how to <a href="{{ site.baseurl }}/2009/03/23/adding-a-location-crosshair-to-silverlight-charts-again">add interactivity to the charts</a>. The early releases were pretty slow, due to the large number of 'Control' instances that the chart constructs, (there are un-official guidelines that you should limit the number of control instances to a few hundred for WPF & Silverlight). However, subsequent releases were quite a bit faster. David Anson also published a number of very useful hints and tips on <a href="http://blogs.msdn.com/b/delay/archive/2010/01/13/i-feel-the-need-the-need-for-speed-seven-simple-performance-boosting-tweaks-for-common-silverlight-wpf-charting-scenarios.aspx">maximising chart performance</a> on his blog. I have followed all of David's guidelines to provide a fair comparison.</p>
+<p>The following sections will provide a little more detail regarding the implementation of this application and how it differs between the Visiblox and Toolkit versions.</p>
+<h2>Visiblox Charts</h2>
+<p>The markup for the above application is quite simple:</p>
+{% highlight xml %}
+<StackPanel Orientation="Vertical" x:Name="LayoutRoot">
+  <Grid Height="180">
+
+    <chart:Chart x:Name="chart"
+                LegendVisibility="Collapsed"
+                Margin="5,0,5,5">
+      <chart:Chart.XAxis>
+        <!-- a 'hidden' X axis -->
+        <chart:LinearAxis ShowAxis="False"
+                          GridlineStyle="{StaticResource GridLineStyle}"
+                          IsMarginEnabled="False"/>
+      </chart:Chart.XAxis>
+      <chart:Chart.YAxis>
+        <!-- A Y axis with labels within the chart area -->
+        <chart:LinearAxis ShowLabels="True"
+                          LabelsPosition="Inside"
+                          GridlineStyle="{StaticResource GridLineStyle}"
+                          ShowMajorTicks="False"
+                          ShowMinorTicks="False"/>
+      </chart:Chart.YAxis>
+      <chart:Chart.Series>
+        <!-- the series used to render the RGB components -->
+        <chart:LineSeries LineStroke="#A00"/>
+        <chart:LineSeries LineStroke="#0A0"/>
+        <chart:LineSeries LineStroke="#00A"/>
+      </chart:Chart.Series>
+    </chart:Chart>
+    <TextBlock x:Name="instructions"
+                Text="Use the mouse to 'drag' a line across the image below ..."
+                FontSize="10" Foreground="#333333" Margin="50" TextWrapping="Wrap"/>
+  </Grid>
+
+  <Grid x:Name="grid"
+        MouseLeftButtonUp="Grid_MouseLeftButtonUp"
+        MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Image Width="300" Height="200" x:Name="image"
+                    Source="/hare.jpg"/>
+    <Line Stroke="Black" StrokeThickness="3"
+                  x:Name="line"/>
+  </Grid>
+
+</StackPanel>
+{% endhighlight %}
+<p>The above markup constructs a Chart, Image and a Line within a <code>StackPanel</code>. The code-behind loads the image into a <code>WriteableBitmap</code> in order to access its pixel values, and the mouse event handlers attached to the grid are used to detect when the user drags the line. The technique I published previously on <a href="{{ site.baseurl }}/2010/06/14/throttling-silverlight-mouse-events-to-keep-the-ui-responsive">throttling mouse events</a> is used to handle the mouse move event in order to construct the chart data:</p>
+{% highlight csharp %}
+private void ThrottledEvent_ThrottledMouseMove(object sender, MouseEventArgs e)
+{
+  if (!lButtonDown)
+    return;
+
+  line.X2 = e.GetPosition(grid).X;
+  line.Y2 = e.GetPosition(grid).Y;
+
+  // compute distance between the points
+  double distance = Math.Sqrt((line.X1 - line.X2) * (line.X1 - line.X2) +
+      (line.Y1 - line.Y2) * (line.Y1 - line.Y2));
+
+  // create the Visiblox dataseries for the R, G & B components
+  var dataR = new DataSeries<double, double>("R");
+  var dataG = new DataSeries<double, double>("G");
+  var dataB = new DataSeries<double, double>("B");
+
+  // build the charts
+  for (double pt = 0; pt < distance; pt++)
+  {
+    double xPos = line.X1 + (line.X2 - line.X1) * pt / distance;
+    double yPos = line.Y1 + (line.Y2 - line.Y1) * pt / distance;
+
+    int xIndex = (int)xPos;
+    int yIndex = (int)yPos;
+
+    int pixel = pixelData[xIndex + yIndex * 300];
+
+    // the RGB values are 'packed' into an int, here we unpack them
+    byte B = (byte)(pixel & 0xFF);
+    pixel >>= 8;
+    byte G = (byte)(pixel & 0xFF);
+    pixel >>= 8;
+    byte R = (byte)(pixel & 0xFF);
+    pixel >>= 8;
+
+    // add each datapoint
+    dataR.Add(new DataPoint<double, double>(pt, R));
+    dataG.Add(new DataPoint<double, double>(pt, G));
+    dataB.Add(new DataPoint<double, double>(pt, B));
+  }
+
+  // set the data for each series
+  chart.Series[0].DataSeries = dataR;
+  chart.Series[1].DataSeries = dataG;
+  chart.Series[2].DataSeries = dataB;
+}
+{% endhighlight %}
+<p>The Visiblox series (which implement <code>IChartSeries</code>) require date to be presented as an <code>IDataSeries</code>, which is a collection of <code>IDataPoint</code> instances. In the above code the chart data is copied directly into a <code>DataSeries</code>. Databinding is also possible via <code>BindableDataSeries</code>, however, for maximum performance it is always better to use <code>DataSeries</code> and copy the data across directly.</p>
+<h2>Silverlight Toolkit Charts</h2>
+<p>The Toolkit version of the application is much the same as the Visiblox one. The only difference in the application markup is for the chart itself, as shown below:</p>
+{% highlight xml %}
+<ControlTemplate x:Key="SimplifiedDataPoint" TargetType="tk:LineDataPoint">
+</ControlTemplate>
+...
+<tk:Chart x:Name="chart"
+          LegendStyle="{StaticResource CollapsedLegendStyle}"
+          TitleStyle="{StaticResource CollapsedStyle}">
+
+  <!-- define the line series -->
+  <tk:LineSeries ItemsSource="{Binding}"
+                  TransitionDuration="0"
+                  DependentValueBinding="{Binding Intensity}"
+                  IndependentValueBinding="{Binding Location}">
+    <tk:LineSeries.DataPointStyle>
+      <Style TargetType="tk:LineDataPoint">
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="Template" Value="{StaticResource SimplifiedDataPoint}"/>
+        <Setter Property="Background" Value="#A00"/>
+      </Style>
+    </tk:LineSeries.DataPointStyle>
+  </tk:LineSeries>
+
+  <tk:LineSeries ItemsSource="{Binding}"
+                  TransitionDuration="0"
+                  DependentValueBinding="{Binding Intensity}"
+                  IndependentValueBinding="{Binding Location}">
+    <tk:LineSeries.DataPointStyle>
+      <Style TargetType="tk:LineDataPoint">
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="Template" Value="{StaticResource SimplifiedDataPoint}"/>
+        <Setter Property="Background" Value="#0A0"/>
+      </Style>
+    </tk:LineSeries.DataPointStyle>
+  </tk:LineSeries>
+
+  <tk:LineSeries ItemsSource="{Binding}"
+                  TransitionDuration="0"
+                  DependentValueBinding="{Binding Intensity}"
+                  IndependentValueBinding="{Binding Location}">
+    <tk:LineSeries.DataPointStyle>
+      <Style TargetType="tk:LineDataPoint">
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="Template" Value="{StaticResource SimplifiedDataPoint}"/>
+        <Setter Property="Background" Value="#00A"/>
+      </Style>
+    </tk:LineSeries.DataPointStyle>
+  </tk:LineSeries>
+
+  <!-- configure the axes -->
+  <tk:Chart.Axes>
+    <tk:LinearAxis Orientation="X" Height="0">
+    </tk:LinearAxis>
+  </tk:Chart.Axes>
+</tk:Chart>
+{% endhighlight %}
+<p>The markup here is a little more complex, in part because I am following the advice given by David Anson in his <a href="http://blogs.msdn.com/b/delay/archive/2010/01/13/i-feel-the-need-the-need-for-speed-seven-simple-performance-boosting-tweaks-for-common-silverlight-wpf-charting-scenarios.aspx">charting performance blog post</a> in order to maximise the chart performance. With reference to David's post, the following tips have been implemented:</p>
+<ol>
+<li>Turn off the fade in/out VSM animations - the template used by the <code>DataPoint</code> in my example has no visual states, hence will not be animated</li>
+<li>Change to a simpler <code>DataPoint</code> Template - the template in the example is as simple as possible, it is empty!</li>
+<li>Add the points more efficiently - the <code>ItemsSource</code> for each series are being updated via an 'atomic' re-assignment.</li>
+<li>Disable the data change animations - the <code>TransitionDuration</code> property has been set to zero as per David's recommendation.</li>
+</ol>
+<p>The other three tips in the blog post were not relevant to this test scenario.</p>
+<p>The code-behind for the Toolkit chart version of this application is again much the same as for the Visiblox charts, the main difference is due to the Toolkit chart binding to business objects rather than having its own series type. Here is the implementation of the (throttled) mouse move event handler, and the business object which is bound to the chart.</p>
+{% highlight csharp %}
+/// <summary>
+/// Handles mouse move to draw the line and intensity histograms
+/// </summary>
+private void ThrottledEvent_ThrottledMouseMove(object sender, MouseEventArgs e)
+{
+  if (!lButtonDown)
+    return;
+
+  line.X2 = e.GetPosition(grid).X;
+  line.Y2 = e.GetPosition(grid).Y;
+
+  // compute distance between the points
+  double distance = Math.Sqrt((line.X1 - line.X2) * (line.X1 - line.X2) +
+      (line.Y1 - line.Y2) * (line.Y1 - line.Y2));
+
+  // create the series for the R, G &amp; B components
+  var dataR = new List<DataPoint>();
+  var dataG = new List<DataPoint>();
+  var dataB = new List<DataPoint>();
+
+  // build the charts
+  for (double pt = 0; pt < distance; pt++)
+  {
+    double xPos = line.X1 + (line.X2 - line.X1) * pt / distance;
+    double yPos = line.Y1 + (line.Y2 - line.Y1) * pt / distance;
+
+    int xIndex = (int)xPos;
+    int yIndex = (int)yPos;
+
+    int pixel = pixelData[xIndex + yIndex * 300];
+
+    // the RGB values are 'packed' into an int, here we unpack them
+    byte B = (byte)(pixel & 0xFF);
+    pixel >>= 8;
+    byte G = (byte)(pixel & 0xFF);
+    pixel >>= 8;
+    byte R = (byte)(pixel & 0xFF);
+    pixel >>= 8;
+
+    // add each datapoint to the series
+    dataR.Add(new DataPoint(pt, R));
+    dataG.Add(new DataPoint(pt, G));
+    dataB.Add(new DataPoint(pt, B));
+  }
+
+  // add each series to the chart
+  ((LineSeries)chart.Series[0]).ItemsSource = dataR;
+  ((LineSeries)chart.Series[1]).ItemsSource = dataG;
+  ((LineSeries)chart.Series[2]).ItemsSource = dataB;
+}
+
+...
+
+/// <summary>
+/// A value object used to present the data to the chart
+/// </summary>
+public class DataPoint
+{
+  public double Location { get; private set; }
+  public double Intensity { get; private set; }
+
+  public DataPoint(double location, double intensity)
+  {
+    Location = location;
+    Intensity = intensity;
+  }
+}
+{% endhighlight %}
+<h2>Conclusions</h2>
+<p>From the above example application we can see that the Visiblox charts performs approximately 50 - 100 times faster than the Silverlight Toolkit charts. This is of course a limited test that focuses on a specific mode of operation, however, the Visiblox charts have been designed with a focus on performance, so I would expect a similar result in other performance test cases.</p>
+<p>The difference in speed between the two charting components can be broadly attributed to three key differences in design:</p>
+<ol>
+<li><strong>Lightweight visuals</strong> - as mentioned in the introduction, the Toolkit charts are 'control' heavy, pushing the limits of the framework guidelines, in order to provide flexible styling and templating. The Visiblox charts use a much more lightweight approach, however, if templating is required a TemplatedLineSeries can be used.</li>
+<li><strong>Databinding as an option</strong> - with Visiblox it is possible to present the data directly to the chart using the DataSeries class, whilst with the Toolkit charts you have to use databinding which brings with it a performance overhead. Again, with Visiblox you can use databinding to business objects if you wish. With the above Visiblox example application the performance is approximately halved by using databinding, this is still 25-50 times faster than the toolkit charts! (The sourcecode download includes the databinding Visiblox vesion).</li>
+<li><strong>Optimised handling of changes</strong> - the Visiblox charts are optimised in such a way as to minimise the impact of changes in the data or other properties of the chart. You can update datapoints, entire series, or change the various properties of an axis and be guaranteed that the chart will only re-computed its layout once.</li>
+</ol>
+<p>You can download the full sourcecode for the example applications given in this blog post here: <a href='{{ site.baseurl }}/archive/2010/10/ChartPerformance.zip'>ChartPerformance.zip</a></p>
+<p>For the Visiblox examples you will need to visit <a href="http://www.visiblox.com/">www.visiblox.com</a> to download their chart component, and for the Toolkit examples you will need to download and install the <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a>.</p>
+<p>Regards, Colin E.</p>

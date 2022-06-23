@@ -1,0 +1,96 @@
+html * {
+    box-sizing: border-box;
+}
+
+#chart {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 660px;
+}
+
+.chart .axis text {
+    font: 10px sans-serif;
+}
+
+.chart .axis .domain,
+.chart .axis .tick line {
+    fill: none;
+    stroke: black;
+}
+
+.chart .bar path {
+    stroke-width: 1.5;
+}
+
+.chart .bar.up-day path {
+    stroke: green;
+}
+
+.chart .bar.down-day path {
+    stroke: red;
+}
+
+.chart .bar.up-day rect {
+    fill: green;
+}
+
+.chart .bar.down-day rect {
+    fill: red;
+}
+
+.chart .gridlines {
+    fill: none;
+    stroke: lightgrey;
+}
+
+.chart .overlay {
+    stroke-width: 0px;
+    fill-opacity: 0;
+}
+
+.chart line.crosshairs {
+    fill: none;
+    stroke: blue;
+    stroke-width: 1;
+    stroke-opacity: 0.5;
+}
+
+.chart circle.crosshairs {
+    fill: none;
+    stroke: blue;
+    stroke-width: 1;
+    stroke-opacity: 0.5;
+}
+
+.chart text.crosshairs {
+    font: 10px sans-serif;
+}
+
+.chart line.fibonacci-fan {
+    fill: none;
+    stroke: grey;
+    stroke-width: 2;
+    stroke-opacity: 0.5;
+}
+
+.chart line.fibonacci-fan.source {
+    stroke: blue;
+    stroke-width: 1.5;
+}
+
+.chart line.fibonacci-fan.b {
+    stroke-opacity: 0.4;
+}
+
+.chart circle.fibonacci-fan {
+    fill: none;
+    stroke: blue;
+    stroke-width: 1;
+    stroke-opacity: 0.5;
+}
+
+.chart polygon.fibonacci-fan.area {
+    fill: lightgrey;
+    fill-opacity: 0.5;
+    stroke-width: 0;
+}

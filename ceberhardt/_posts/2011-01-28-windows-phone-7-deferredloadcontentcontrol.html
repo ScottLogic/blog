@@ -1,0 +1,139 @@
+---
+id: 1160
+author: ceberhardt
+title: Windows Phone 7 DeferredLoadContentControl
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/01/windows-phone-7-deferredloadcontentcontrol/
+tags:
+  - codeproject
+  - Windows Phone 7
+  - blog
+  - codeproject
+  - windowsphone
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/01/windows-phone-7-deferredloadcontentcontrol/
+---
+<p><em>This blog post describes a simple content control that can be used to defer the rendering of its contents in order to provide a better user experience on Windows Phone 7.</em></p>
+<p>I think anyone who has made the transition from Emulator to Hardware with developing for Windows Phone 7 has experienced the same performance headaches. a couple of areas where performance hits hard is the rendering of ListBoxes and Images downloaded from the web. Thankfully there are a number of blog posts describing a variety of ways to mitigate the problem. The <a href="http://blogs.msdn.com/b/slmperf/archive/2010/10/06/silverlight-for-windows-phone-7-listbox-scroll-performance.aspx">ListBox performance tips</a> page on the Silverlight WP7 team blog provides links to many useful resources on this topic.</p>
+<p>The bottom line is that real WP7 devices take quite a bit longer to render the visual tree, and as developers we have to work around that.</p>
+<p>One area I think the user experience really suffers is when the user navigates to a new page. If the page contains a reasonably complex UI (perhaps a list of 100 items), it can take quite a long time for the new page to appear. This gives the impression that the phone has locked up and become unresponsive (which I guess it has to a certain extent!). The guys at Telerik noted that using the <a href="http://blogs.telerik.com/blogs/posts/10-11-01/windows_phone_7_performance_-_emulator_vs_physical_device.aspx">Panorama control caused a load time of ~1.6 seconds</a>. Whilst the splash screen will be displayed when you application initially loads, giving the user a feeling that the phone is doing something, subsequent page navigations lack any visual cue to indicate that the phone is doing something and hasn't just died!</p>
+<h2>DeferredLoadContentControl</h2>
+<p>The <code>DeferredLoadContentControl</code> provides a simple solution to this problem, the content that is placed within this control is initially hidden by setting its <code>Visibility</code> to <code>Collapsed</code>. Elements that are collapsed do not occupy any layout space, and hence if an element with a long 'render' time is collapsed, this time is no longer consumed. When the <code>DeferredLoadContentControl</code> is initially loaded, it displays a 'loading...' indicator, then sets the visibility of its contents to Visible. When the content is rendered, the loading indicator is hidden.</p>
+<p>The images below compare the user experience with and without the <code>DeferredLoadContentControl</code>:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/01/LoadTime.png" alt="" title="LoadTime" width="700" height="292" class="aligncenter size-full wp-image-1162" /></p>
+<p><img src="{{ site.baseurl }}/archive/2011/01/DeferredLoad.png" alt="" title="DeferredLoad" width="700" height="292" class="aligncenter size-full wp-image-1161" /></p>
+<p>Whilst this control does not make the page load any quicker, and the phone cannot be interacted with whilst the content is loading, it does mean that the page itself loads much more quickly and hence gives the user the impression that the phone is more responsive.</p>
+<p>The code for the <code>DeferredLoadContentControl</code> is a very simple extension of <code>ContentControl</code>. The template for this control is shown below:</p>
+{% highlight xml %}
+<Style TargetType="local:DeferredLoadContentControl">
+  <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+  <Setter Property="verticalContentAlignment" Value="Stretch"/>
+  <Setter Property="Template">
+    <Setter.Value>
+      <ControlTemplate TargetType="local:DeferredLoadContentControl">
+        <Grid>
+          <ContentPresenter  x:Name="contentPresenter"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Margin="{TemplateBinding Padding}"/>
+          <TextBlock x:Name="loadingIndicator"
+                      Text="Loading ..."
+                      VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        </Grid>
+      </ControlTemplate>
+    </Setter.Value>
+  </Setter>
+</Style>
+{% endhighlight %}
+<p>The template contains a <code>ContentPresenter</code> which is responsible for displaying the controls content, and a <code>TextBlock</code> which displays a discrete message while the content is loading. You can of course re-template this control to add a graphical loading indicator, as long as your element has the name <code>"loadingIndicator"</code> it will be shown / hidden.</p>
+<p>The code is also quite simple, here it is in its entirety:</p>
+{% highlight csharp %}
+public class DeferredLoadContentControl : ContentControl
+{
+  private ContentPresenter _contentPresenter;
+
+  private FrameworkElement _loadingIndicator;
+
+
+  public DeferredLoadContentControl()
+  {
+    this.DefaultStyleKey = typeof(DeferredLoadContentControl);
+
+    if (!DesignerProperties.IsInDesignTool)
+    {
+      this.Loaded += DeferredLoadContentControl_Loaded;
+    }
+  }
+
+  public override void OnApplyTemplate()
+  {
+    base.OnApplyTemplate();
+
+    _contentPresenter = this.GetTemplateChild("contentPresenter") as ContentPresenter;
+    _loadingIndicator = this.GetTemplateChild("loadingIndicator") as FrameworkElement;
+
+    if (!DesignerProperties.IsInDesignTool)
+    {
+      _contentPresenter.Visibility = Visibility.Collapsed;
+    }
+    else
+    {
+      // in design-mode show the contents 'grayed out'
+      _contentPresenter.Opacity = 0.5;
+    }
+  }
+
+  private void DeferredLoadContentControl_Loaded(object sender, RoutedEventArgs e)
+  {
+    // content has loaded, now show our content presenter
+    _contentPresenter.Visibility = Visibility.Visible;
+    _contentPresenter.LayoutUpdated += ContentPresenter_LayoutUpdated;
+  }
+
+  private void ContentPresenter_LayoutUpdated(object sender, EventArgs e)
+  {
+    // the content presenter has been rendered, hide the loading indicator
+    _contentPresenter.LayoutUpdated -= ContentPresenter_LayoutUpdated;
+    _loadingIndicator.Visibility = Visibility.Collapsed;
+  }
+}
+{% endhighlight %}
+<p>As you can see from the above, the content presenter is initially hidden, when the loaded event is fired, the content is shown. When the <code>LayoutUpdated</code> event is fired we know that the content has now been rendered and hide the loading indicator.</p>
+<p>Using the control couldn't be simpler. Just place your slow-to-load content inside the  <code>DeferredLoadContentControl</code>:</p>
+{% highlight xml %}
+<local:DeferredLoadContentControl>
+  ... your content goes here ...
+</local:DeferredLoadContentControl>
+{% endhighlight %}
+<p>One nice feature of this control is that when used within the designer, the content contained within the <code>DeferredLoadContentControl</code> is not hidden, instead it is rendered with a 50% and the loading indicator is shown:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/01/DesignTime.png" alt="" title="DesignTime" width="250" height="445" class="aligncenter size-full wp-image-1165" /></p>
+<p>You can download the full sourcecode for this control: <a href='{{ site.baseurl }}/archive/2011/01/DeferredLoadContentControl.zip'>DeferredLoadContentControl.zip</a></p>
+<p>Regards,Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

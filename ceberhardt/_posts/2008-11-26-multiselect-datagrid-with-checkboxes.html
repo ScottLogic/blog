@@ -1,0 +1,75 @@
+---
+id: 6
+author: ceberhardt
+title: Multiselect DataGrid with CheckBoxes
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2008/11/multiselect-datagrid-with-checkboxes/
+tags:
+  - DataGrid
+  - WPF
+  - blog
+  - wpf
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2008/11/multiselect-datagrid-with-checkboxes/
+---
+<p>I am currently very interested in the new WPF DataGrid which was released on <a href="http://www.codeplex.com/wpf">codeplex</a> recently. Someone posted an interesting question in the <a href="http://wpf.codeplex.com/discussions">codeplex forums</a> asking about whether it would be possible to configure the DataGrid so that a user can make multiple row selections via checkboxes which are associated with each row. I thought that this sounded like an excellent idea - afterall, the standard behaviour of ctrl-leftclick might be intuitive to the computer savvy, however you can bet the average user (which is certainly the majority) does not know this.</p>
+<p>Fortunately the solution is quite simple to implement in WPF:</p>
+{% highlight xml %}<dg:DataGrid ItemsSource="{Binding}">
+  <dg:DataGrid.RowHeaderTemplate>
+    <DataTemplate>
+      <Grid>
+        <CheckBox IsChecked="{Binding Path=IsSelected, Mode=TwoWay,
+                  RelativeSource={RelativeSource FindAncestor,
+                  AncestorType={x:Type dg:DataGridRow}}}"/>
+      </Grid>
+    </DataTemplate>
+  </dg:DataGrid.RowHeaderTemplate>
+</dg:DataGrid>{% endhighlight %}
+<p>The above code provides a DataTemplate for the RowHeader allowing us to render a CheckBox for each row. The IsChecked property uses a RelativeSource binding which navigates the Visual Tree to locate the first ancestor of type DataGridRow. From here the IsSelected property which dictates that the selected state of the row is available. The binding is TwoWay so that ctrl-leftclick behaviour is still visible.</p>
+<p>The result is illustrated below:</p>
+<p><a href="http://wpfadventures.files.wordpress.com/2008/11/multiselect.png"><img class="alignnone size-full wp-image-8" title="multiselect" src="http://wpfadventures.files.wordpress.com/2008/11/multiselect.png" alt="multiselect" width="215" height="196" /></a></p>
+<p>The above example is a concise illustration of the beauty of WPF. Performing the above customisation of the DataGridView in Windows Forms would be at least an afternoons work. However the solution is not without its problems, if you try the above you will find that the checkboxes are rather difficult to click on because the mouse cursor will be displaying the up-down arrow that indicates that it is currently over the gripper that allows you to specify the row height.</p>
+<p>Finding the cause of this means delving deep into the DataGrid control templates ...</p>
+<p>The template for the DataGridRowHeader is given below (in edited form):</p>
+{% highlight xml %}<Style x:Key="{x:Type dgp:DataGridRowHeader}"
+       TargetType="{x:Type dgp:DataGridRowHeader}">
+  <Setter Property="Template">
+    <Setter.Value>
+      <ControlTemplate TargetType="{x:Type dgp:DataGridRowHeader}">
+        <Grid>
+          ... snipped header content + validation error indicator ...
+          <Thumb x:Name="PART_TopHeaderGripper"
+                 VerticalAlignment="Top"
+                 Style="{StaticResource RowHeaderGripperStyle}"/>
+          <Thumb x:Name="PART_BottomHeaderGripper"
+                 VerticalAlignment="Bottom"
+                 Style="{StaticResource RowHeaderGripperStyle}"/>
+        </Grid>
+      </ControlTemplate>
+    </Setter.Value>
+  </Setter>
+</Style>{% endhighlight %}
+<p>The header template includes a pair of grippers. The visible state of these is toggled depending on the row's location (i.e. there is no top gripper on the first row), and whether the DataGrid CanResizeRows is true.</p>
+<p>The RowHeaderGripperStyle specifies a Transparent background for the grippers which renders them invisible. If we change this to Green we can see the culprits:</p>
+<p><a href="http://wpfadventures.files.wordpress.com/2008/11/datagridselectproblem.png"><img class="alignnone size-full wp-image-9" title="datagridselectproblem" src="http://wpfadventures.files.wordpress.com/2008/11/datagridselectproblem.png" alt="datagridselectproblem" width="214" height="210" /></a></p>
+<p>In order to allow our Checkboxes to be clickable, we simply reduce the height of the grippers as follows:</p>
+{% highlight xml %}<Style x:Key="RowHeaderGripperStyle" TargetType="{x:Type Thumb}">
+  <Setter Property="Height" Value="2"/>
+  <Setter Property="Background" Value="Green"/>
+  <Setter Property="Cursor" Value="SizeNS"/>
+  <Setter Property="Template">
+    <Setter.Value>
+      <ControlTemplate TargetType="{x:Type Thumb}">
+        <Border Padding="{TemplateBinding Padding}"
+                Background="{TemplateBinding Background}"/>
+      </ControlTemplate>
+    </Setter.Value>
+  </Setter>
+</Style>{% endhighlight %}
+<p>Unfortunately this means that we have to duplicate the DataGrid parts; the DataGridRowHeader template and the above style, in order to perform this customisation. The Beauty of XAML and a Beast of a control template!</p>
+<p>You can download the demo project, <a href="http://wpfadventures.files.wordpress.com/2008/11/wpfdatagridmultiselect.doc">wpfdatagridmultiselect</a>, changing the file extension from .doc to .zip.</p>
+<p>Regards, Colin E.</p>
+<p>P.S. You can achieve the same effect with a ListView as detailed in <a href="http://weblogs.asp.net/marianor/archive/2008/02/04/multiselect-listview-with-checkboxes-in-wpf.aspx">this blog post</a>.</p>

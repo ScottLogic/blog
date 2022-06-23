@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html style="height: 100%; width: 100%">
+  <head>
+    <title>Circle: X3DOM</title>
+    <script type="text/javascript" src="x3dom-full.js"></script>
+    <link rel="stylesheet" type="text/css" href="x3dom.css">
+    <style>x3d > canvas { display: block; }</style>
+  </head>
+  <body style="height: 100%; width: 100%; margin: 0px">
+    <x3d style="height: 100%; width: 100%">
+      <scene>
+        <orthoviewpoint></orthoviewpoint>
+        <shape>
+          <appearance>
+            <material diffuseColor="1 0 0"></material>
+          </appearance>
+          <disk2d outerRadius="0.5"></disk2d>
+        </shape>
+        <shape>
+          <appearance>
+            <material emissiveColor="0 0 0"></material>
+          </appearance>
+          <circle2d radius="0.5"></circle2d>
+        </shape>
+      </scene>
+    </x3d>
+  </body>
+</html>

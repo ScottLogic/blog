@@ -1,0 +1,146 @@
+---
+id: 1617
+author: ceberhardt
+title: Implementing a Windows Phone 7 Conversation View Part Two
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/08/implementing-a-windows-phone-7-conversation-view-part-two/
+tags:
+  - codeproject
+  - Windows Phone 7
+  - codeproject
+  - windowsphone
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/08/implementing-a-windows-phone-7-conversation-view-part-two/
+---
+<p><em>This blog post describes how to implement a conversation / messaging style application with Windows Phone 7. It covers how to style the speech bubbles and the scrolling of the conversation list view when the phone keyboard is shown.</em></p>
+<p>A couple of weeks ago I wrote a blog post which described the creation of a <a href="{{ site.baseurl }}/2011/07/15/a-wp7-conversation-view" title="Implementing a Windows Phone 7 Conversation View">Windows Phone 7 ConversationView</a>, a view which renders a list of messages so that they look like a conversation. In this blog post I am going to extend the concept further, by adding an input text field allowing you to have a conversation with ELIZA, an A.I. chatterbot. This blog post will look at some of the tricky issue regarding scrolling the list of messages so that the most recent is always visible when responding.</p>
+<p>You can see a video of this code in action below:</p>
+<p><iframe width="425" height="349" src="http://www.youtube.com/embed/cu2pw98tjZc" frameborder="0" allowfullscreen></iframe></p>
+<p>I hoped that I could find a decent C# <a href="http://en.wikipedia.org/wiki/ELIZA">ELIZA</a> (a classic chatter application that takes on the role of a therapist) implementation on the internet, however, the only one <a href="http://www.codeproject.com/KB/library/ProjectEliza.aspx">I found was rather basic</a>. If you know of any alternatives, pleas let me know!</p>
+<p>In my previous blog post I created a <code>UserControl</code> which renders each <code>Message</code> instance, where the template used to render the message is dependant on which side of the conversation it relates to. Refer to <a href="{{ site.baseurl }}/2011/07/15/a-wp7-conversation-view" title="Implementing a Windows Phone 7 Conversation View">my previous blog post</a> for implementation details.</p>
+<p><img src="{{ site.baseurl }}/archive/2011/07/WP7ConversationDesignTime.png" alt="" title="WP7ConversationDesignTime" width="600" height="328" class="aligncenter size-full wp-image-1604" /></p>
+<p>The layout for my simple chat application uses an instance of the <code>ConversationView</code> user control, with a text input located at the bottom of the screen:</p>
+{% highlight xml %}
+<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+  <Grid contribControls:GridUtils.RowDefinitions=",Auto">
+
+    <ScrollViewer x:Name="ConversationScrollViewer">
+        <!-- conversation view -->
+        <local:ConversationView x:Name="conversationView"/>
+      </StackPanel>
+    </ScrollViewer>
+
+    <!-- the text input field -->
+    <Grid Grid.Row="1"
+          contribControls:GridUtils.RowDefinitions=",,"
+          Margin="0,10,0,0">
+      <Rectangle Fill="White"
+                  Grid.RowSpan="2"/>
+      <txt:WatermarkedTextBox Watermark="type a message"
+                              TextWrapping="Wrap"
+                              AcceptsReturn="True"
+                              Padding="0"
+                              x:Name="TextInput"
+                              GotFocus="TextInput_GotFocus"
+                              LostFocus="TextInput_LostFocus"/>
+      <Path Data="m 0,0 l 16,0 l 0,16 l -16,-16"
+            Fill="White"
+            Margin="0,0,5,0"
+            HorizontalAlignment="Right"
+            Grid.Row="2"/>
+    </Grid>
+  </Grid>
+</Grid>
+{% endhighlight %}
+<p>Note the simplified <code>Grid</code> markup from the <a href="http://wp7contrib.codeplex.com/">WP7Contrib codeplex project</a>, where the string <code>",Auto"</code> is used in place of the more verbose <code>RowDefinition</code> XAML elements.</p>
+<p><img src="{{ site.baseurl }}/archive/2011/08/ConversationViewLayout.png" alt="" title="ConversationViewLayout" width="190" height="350" class="aligncenter size-full wp-image-1622" /></p>
+<p>The <code>WatermarkedTextBox</code> is <a href="http://www.windowsphonegeek.com/articles/WP7-WatermarkedTextBox-custom-control">from an article by WindowsPhoneGeek</a> (and it works like a charm - thanks!). A simple <code>Path</code> and <code>Rectangle</code> are added to the layout so that the input field looks like a speech bubble.</p>
+<p>When the user clicks on the input TextBlock the phone keyboard will be revealed, allowing them to enter their message. This is where we stumble upon our first major problem!</p>
+<p>When the phone keyboard is displayed, your application content is 'pushed' upwards to make space for the keyboard. Unfortunately, this results in the message which the user is replying to being pushed off the top of the screen ...</p>
+<p><img src="{{ site.baseurl }}/archive/2011/08/KeyboardIssue.png" alt="" title="KeyboardIssue" width="450" height="386" class="aligncenter size-full wp-image-1620" /></p>
+<p>Because our <code>ConversationView</code> sits within a <code>ScrollViewer</code> we can scroll to push the message further down the screen, however, this would require a negative scroll offset, which isn't possible! </p>
+<p>To circumnavigate this issue, we can add an element which is used to 'push' the top message downwards so that it is located at the bottom of the <code>ScrollViewer</code>. The following markup adds a <code>Rectangle</code> which sits above the <code>ConversationView</code>, with two Storyboards that expand / collapse the <code>Rectangle</code> allowing us to push the messages down when we need them:</p>
+{% highlight xml %}
+<ScrollViewer x:Name="ConversationScrollViewer">
+  <StackPanel Orientation="Vertical"
+              x:Name="ConversationContentContainer"
+              VerticalAlignment="Top">
+    <!-- padding element -->
+    <Rectangle Width="100"
+                Height="0"
+                x:Name="PaddingRectangle">
+      <Rectangle.Resources>
+        <Storyboard x:Name="PaddingRectangleShowAnim">
+          <DoubleAnimation Storyboard.TargetName="PaddingRectangle"
+                Storyboard.TargetProperty="(Height)"
+                To="400"  Duration="00:00:00.3"/>
+        </Storyboard>
+        <Storyboard x:Name="PaddingRectangleHideAnim">
+          <DoubleAnimation Storyboard.TargetName="PaddingRectangle"
+                Storyboard.TargetProperty="(Height)"
+                To="0"  Duration="00:00:00.3"/>
+        </Storyboard>
+      </Rectangle.Resources>
+    </Rectangle>
+
+    <!-- conversation view -->
+    <local:ConversationView x:Name="conversationView"/>
+  </StackPanel>
+</ScrollViewer>
+{% endhighlight %}
+<p>We can detect when the input <code>TextBlock</code> receives focus to determine when the keyboard will be revealed. Using the <a href="{{ site.baseurl }}/2009/09/26/helpful-extension-methods-for-show-hide-animations-in-silverlight" title="Helpful extension methods for Show / Hide animations in Silverlight">Show / Hide extension methods I blogged about a while back</a>, we can fire the animations which make this padding rectangle grow or shrink when the keyboard is shown or hidden:</p>
+{% highlight csharp %}
+private void TextInput_GotFocus(object sender, RoutedEventArgs e)
+{
+  PaddingRectangle.Show();
+  ApplicationBar.IsVisible = true;
+}
+
+private void TextInput_LostFocus(object sender, RoutedEventArgs e)
+{
+  PaddingRectangle.Hide();
+  ApplicationBar.IsVisible = false;
+}
+{% endhighlight %}
+<p>If we fill the rectangle so that it is visible, you can see how it pushes down the content as shown below:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/08/KeyboardIssueFix.png" alt="" title="KeyboardIssueFix" width="450" height="388" class="aligncenter size-full wp-image-1623" /></p>
+<p>The next step is to ensure that the <code>ConversationView</code> is always scrolled so that the most recent message is visible. The <code>ScrollViewer</code> has a <code>ScrollToVerticalOffset</code> method which can be used to programmatically scroll the content, however, because this is not a dependency property it cannot be animated via  <code>Storyboard</code>.</p>
+<p>Here I am using the same trick I employed for the Windows Phone 7 Jump List control, where a private dependency property that sets the scroll offset value in its change handler is used as a target for the scrolling Storyboard:</p>
+{% highlight csharp %}
+/// <summary>
+/// VerticalOffset, a private DP used to animate the scrollviewer
+/// </summary>
+private DependencyProperty VerticalOffsetProperty = DependencyProperty.Register("VerticalOffset",
+  typeof(double), typeof(MainPage), new PropertyMetadata(0.0, OnVerticalOffsetChanged));
+
+private static void OnVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+{
+  MainPage app = d as MainPage;
+  app.OnVerticalOffsetChanged(e);
+}
+
+private void OnVerticalOffsetChanged(DependencyPropertyChangedEventArgs e)
+{
+  ConversationScrollViewer.ScrollToVerticalOffset((double)e.NewValue);
+}
+{% endhighlight %}
+<p>Using this dependency property we can create a simple <code>Storyboard</code> and <code>DoubleAnimation</code> that scrolls to reveal the latest message:</p>
+{% highlight csharp %}
+private void ScrollConvesationToEnd()
+{
+  // start from the current position
+  scrollViewerScrollToEndAnim.From = ConversationScrollViewer.VerticalOffset;
+
+  // set the scroll position to the the height of the contained content
+  scrollViewerScrollToEndAnim.To = ConversationContentContainer.ActualHeight;
+
+  // go!
+  scrollViewerStoryboard.Begin();
+}
+{% endhighlight %}
+<p>And there you have it, a fully functional conversation application. Enjoy!</p>
+<p>You can download the complete sourcecode: <a href='{{ site.baseurl }}/archive/2011/08/WP7ConversationView.zip'>WP7ConversationView.zip</a> </p>
+<p>Regards, Colin E.</p>

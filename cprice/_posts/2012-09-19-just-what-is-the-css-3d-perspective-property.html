@@ -1,0 +1,29 @@
+---
+id: 159180
+author: cprice
+title: Just what is the CSS 3D perspective property?
+oldlink: "http://www.scottlogic.co.uk/2012/09/just-what-is-the-css-3d-perspective-property/"
+tags:
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/09/just-what-is-the-css-3d-perspective-property/
+---
+<p><a style="float: right; margin-left: 16px;" href="{{ site.baseurl }}/cprice/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.baseurl }}/archive/2012/03/me1.png" alt="" /></a><em>Most of us have had a play with CSS3 3D transforms, stacked a few elements, rotated them, maybe even made a cube out of them. And somewhere along the way, you'll probably have set the perspective property, tweaked it, wondered what it did, tweaked it some more, figured it looked ok and then forgot about it.</em></p>
+<p>With some time on my hands I thought I'd dig into the problem and see if I couldn't relate perspective back to the more common 3D camera properties of subject distance and field of view. So I created a simple 3D scene in CSS, added a slider to adjust the perspective and then set about creating a WebGL equivalent.<br/></p>
+<h4>CSS</h4>
+<p><iframe style="margin-left: 45px; width:610px; height:410px; border:none;" src="http://chrisprice.github.com/dolly-zoom/css3.htm"></iframe></p>
+<p><br/></p>
+<h4>WebGL</h4>
+<p><iframe style="margin-left: 45px; width:610px; height:410px; border:none;" src="http://chrisprice.github.com/dolly-zoom/webgl.htm"></iframe></p>
+<p><br/></p>
+<p>As the examples prove, the perspective property is in fact just the subject distance but with one additional feature: whenever the subject distance is changed the field of view is <a href="https://github.com/chrisprice/dolly-zoom/blob/master/scripts/webgl.js#L12">automatically adjusted</a> such that the size of any element on the z=0 plane remains constant.</p>
+<p>If this sounds like something you've seen before, the likelihood is you probably have! Commonly employed when the director wants to create an unsettiling sense of unease, the <a href="http://en.wikipedia.org/wiki/Dolly_zoom">dolly-zoom</a> effect has been used in films such as <a href="http://www.youtube.com/watch?v=svEPWBxpYjo">Jaws</a> and <a href="http://www.youtube.com/watch?v=sgpnJpgX-Hw&amp;feature=player_detailpage#t=13s">Vertigo</a>.</p>
+<p><br/><iframe style="margin-left: 45px; width:610px; height:410px; border: none;" src="http://www.youtube.com/embed/svEPWBxpYjo"></iframe><br/></p>
+<p>The source code to all of this can be found on <a href="https://github.com/chrisprice/dolly-zoom">Github</a>.</p>
+<p>Happy hacking!</p>
+<p><a class="twitter-share-button" href="https://twitter.com/share" data-via="100pxls">Tweet</a><script type="text/javascript">// <![CDATA[!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");// ]]></script></p>
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+<p><script type="text/javascript">// <![CDATA[  (function() {    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;    po.src = 'https://apis.google.com/js/plusone.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);  })();// ]]></script></p>

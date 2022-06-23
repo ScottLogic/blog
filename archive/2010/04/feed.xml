@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<data seriesNames="HSBC|Barclays|Lloyds TSB|RBS|HBOS" barType="stacked">
+	<value label="2004" total="228.11" series0="84.00" series1="33.42" series2="21.32" series3="58.65" series4="30.72"/>
+	<value label="2005" total="244.89" series0="89.92" series1="34.84" series2="21.96" series3="58.45" series4="39.72"/>
+	<value label="2006" total="275.97" series0="93.18" series1="44.94" series2="25.72" series3="66.43" series4="45.71"/>
+	<value label="2007" total="213.75" series0="88.40" series1="30.39" series2="21.39" series3="44.40" series4="29.17"/>
+	<value label="2008" total="142.59" series0="96.21" series1="19.47" series2="10.57" series3="12.08" series4="4.27"/>
+</data>

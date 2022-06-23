@@ -1,0 +1,137 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="{{ site.github.url }}/archive/2010/12/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  addHover($("td"));
+  $("#insertRow").click(function() {
+	var tbl = document.getElementById('tbl'),
+	  newRow = tbl.rows[0].cloneNode(true);
+    addHover(jQuery(newRow.childNodes[0]));
+	tbl.rows[0].parentNode.insertBefore(newRow, tbl.rows[0]);
+  });
+});
+var addHover = function(cells) {
+  cells.hover(function(e) {
+    var jqEl = $(e.target), timeoutId = jqEl.data("timeoutId");
+    jqEl.removeClass("animate").addClass("over");
+    if  (timeoutId) {
+	  clearTimeout(timeoutId);
+	  jqEl.data("timeoutId", null);
+    }
+  },
+  function(e) {
+    var jqEl = $(e.target);
+    jqEl.addClass("animate");
+    setTimeout(function() {
+      jqEl.removeClass("over");
+      jqEl.data("timeoutId", setTimeout(function() {
+        jqEl.removeClass("animate");
+      }, 10000));
+    }, 0); 
+  });
+};
+</script>
+</head>
+<body>
+<style type="text/css">
+tr:nth-child(odd) td {
+  background-color: #ccc;
+}
+
+tr td {
+  background-color: white;
+}
+
+tr td.animate {
+  -webkit-transition-property: background;
+  -webkit-transition-duration: 10s;
+  -moz-transition-property: background;
+  -moz-transition-duration: 10s;
+  transition-property: background;
+  transition-duration: 10s;
+}
+
+tr td.over {	
+  background-color: red;
+}
+</style>
+<table id="tbl"><tbody><tr><td>row 1</td></tr><tr><td>row 2</td>
+</tr></tbody>
+</table>
+<br/>
+<br />
+<a href="#" id="insertRow">Insert Row</a><br />
+HTML...
+<pre>
+&lt;table id="tbl"&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;row 1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;row 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
+CSS...
+<pre>
+tr:nth-child(odd) td {
+  background-color: #ccc;
+}
+
+tr td {
+  background-color: white;
+}
+
+tr td.animate {
+  -webkit-transition-property: background;
+  -webkit-transition-duration: 10s;
+  -moz-transition-property: background;
+  -moz-transition-duration: 10s;
+  transition-property: background;
+  transition-duration: 10s;
+}
+
+tr td.over {	
+  background-color: red;
+}
+</pre>
+JavaScript
+<pre>
+$(document).ready(function() {
+  addHover($("td"));
+  $("#insertRow").click(function() {
+	var tbl = document.getElementById('tbl'),
+	  newRow = tbl.rows[0].cloneNode(true);
+    addHover(jQuery(newRow.childNodes[0]));
+	tbl.rows[0].parentNode.insertBefore(newRow, tbl.rows[0]);
+  });
+});
+var addHover = function(cells) {
+  cells.hover(function(e) {
+    var jqEl = $(e.target), timeoutId = jqEl.data("timeoutId");
+    jqEl.removeClass("animate").addClass("over");
+    if  (timeoutId) {
+	  clearTimeout(timeoutId);
+	  jqEl.data("timeoutId", null);
+    }
+  },
+  function(e) {
+    var jqEl = $(e.target);
+    jqEl.addClass("animate");
+    setTimeout(function() {
+      jqEl.removeClass("over");
+      jqEl.data("timeoutId", setTimeout(function() {
+        jqEl.removeClass("animate");
+      }, 10000));
+    }, 0); 
+  });
+};
+</pre>
+</body>
+</html>

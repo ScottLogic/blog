@@ -1,0 +1,58 @@
+div#f1 {
+	background-color: black;
+	padding: 15px 0px 15px 50px;
+	width: 300px;
+	margin:auto;
+}
+#f1 table {
+	border-collapse:collapse;
+	width: 250px;
+	margin: 0px;
+	padding: 0px;
+	background-color: black;
+	color: white;
+	font-size: 11px;
+	font-family: Arial;
+	
+}
+#f1 tr {
+	border-bottom: 1px solid white;
+}
+#f1 td {
+	margin: 0px;
+	padding: 5px;
+}
+#f1 th.position {
+	width: 50px; 
+}
+#f1 th.driverName {
+	width: 150px;
+}
+#f1 th.pointsTotal {
+	width: 50px;
+}
+#f1 th.hidden {
+	padding: 0px;
+	height: 0px;
+	margin: 0px;
+	border: 0px;
+}
+#f1 div.footer {
+	width: 250px;
+	text-align: right;
+	color: gray;
+	font-size: 8px;
+	font-family: Arial;
+	background-color: black;
+	padding-top: 5px;
+	padding-bottom: 2px;
+}
+#f1 a {
+	outline: none;
+	text-decoration: none;
+}
+#f1 img {
+	border: 0px;
+	margin: 0px;
+}
+

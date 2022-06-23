@@ -1,0 +1,35 @@
+---
+id: 1652
+author: ceberhardt
+title: Dart - will Google make HTML5 applications viable?
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/09/dart-will-google-make-html5-applications-viable/
+tags:
+  - JavaScript
+  - Dart
+  - Google
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/09/dart-will-google-make-html5-applications-viable/
+---
+<p><em>Just a few weeks ago I wrote a blogpost <a href="{{ site.baseurl }}/2011/08/16/can-microsoft-fix-javascript-and-make-html5-applications-viable">"Can Microsoft 'fix' JavaScript and make HTML5 applications viable?"</a>, where I described some of the issues with JavaScript and how these could be solved by Microsoft if they wrote a C# to JavaScript compiler. Just a couple of days ago it was announced that Google have been working on a new language that they hope will replace JavaScript and its deficiencies. This new language is called 'Dart'.</em></p>
+<p>To briefly recap my earlier blogpost; HTML5 is causing a lot of buzz at the moment, proving itself to be a serious threat to Silverlight and Flash / Flex. When meeting with out current and potential customers, who work within the financial domain, almost all of them have aspirations to migrate their desktop and web applications to HTML5. There is no doubt that HTML5 and CSS3 bring some fantastic new features to the web, making it possible to develop the kind of complex application that previously required a plugin. However, the fundamental problem with HTML5 is JavaScript, which is not an ideal language for enterprise application development.</p>
+<p>Google recognises this issue. An <a href="https://gist.github.com/1208618">internal email from Nov 2010</a> that outlines their strategy for 'Dart', says:</p>
+<blockquote><p>"Complex web apps--the kind that Google specializes in--are struggling against the platform and working with a language that cannot be tooled and has inherent performance problems"</p></blockquote>
+<p>In the past Google has used Java to JavaScript compilation (GWT) and annotated-JavaScript to JavaScript compilation (Closure) to overcome these problems. In my previous blogpost I speculated that Microsoft could use a similar approach, offering a C# / VB.NET to JavaScript compiler, allowing HTML5 developers to use the full power of Visual Studio. However, with Dart Google are looking to go one step further:</p>
+<blockquote><p>"The goal of the Dash effort is ultimately to replace JavaScript as the lingua franca of web development on the open web platform." </p></blockquote>
+<p>That's quite an ambituous goal!</p>
+<p><img src="{{ site.baseurl }}/archive/2011/09/darts.jpg" alt="" title="darts" width="500" height="333" class="aligncenter size-full wp-image-1654" /></p>
+<p>In terms of strategy, Google have adopted a two-pronged approach. They are still participating in the standards-based evolution of JavaScript, as part of the <a href="http://www.ecma-international.org/memento/TC39.htm">ECMA committee</a>. In parallel that have been developing Dart, which looks like it will be unveiled in one month's time at the <a href="http://gotocon.com/aarhus-2011/presentation/Opening%20Keynote:%20Dart,%20a%20new%20programming%20language%20for%20structured%20web%20programming">GOTO conference</a>.</p>
+<p>The goals for Dart are; <strong>Performance</strong>, <strong>Developer Usability</strong> and <strong>Tooling</strong>. The language will maintain the dynamic nature of JavaScript, which has made it such a popular scripting language for the web. However, it will be more easily tooled, with optional types, allowing refactoring and IDE code-comprehension (which gives Intellisense etc...) - vital features for enterprise application development.</p>
+<p>Dart is designed to run on a VM within the browser, just as JavaScript does. It can also be run within a browser that does not have a Dart VM by compiling it to JavaScript. I think this is essential to the success of the language, allowing it to be used across any browser, regardless of whether the manufacturer chooses to support the Dart VM.</p>
+<p>For enterprise application development, where quality tooling is very important, I am very keen on the idea of writing code using a more enterprise-centric langauges like Java or C# then compiling it to JavaScript. What I like about Google's Dart initiative is that they are proposing to fix the issue directly at source, by replacing JavaScript.</p>
+<p><strong>Why not evolve JavaScript?</strong> Brandon Eich, the inventor of JavaScript, is <a href="http://brendaneich.com/2011/08/my-txjs-talk-twitter-remix/">clearly not happy about Dart</a>, favouring evolution of the language via standards and committee. Personally I don't think this is working at the moment for a couple of reasons. Firstly, HTML5 is upon us and gaining popularity fast, JavaScript desperately needs some attention, fast! Secondly, non-backward-compatible or breaking changes are not possible via evolution, there are features of JavaScript that really need to be broken in order to fix them. </p>
+<p><strong>What about jQuery and other popular libraries?</strong> If Dart is really going to fix JavaScript, I would imagine that existing JavaScript libraries will not work with it. The web developer community will probably find it hard to accept Dart without jQuery.</p>
+<p><strong>Will everyone adopt it?</strong> This is probably the most important question of all. It is clearly Google's aim that everyone does adopt Dart, then they will pass it over to committee, just as JavaScript was passed over to ECMA. The problem is, what's in it for the other browser manufacturers? How will they benefit by adopting Dart? To be honest, I can't see any benefict for Mozilla, Microsoft or anyone else. Lars (Google Tech Lead) has promised to Lars to "sweet talk" the other browser vendors, which in acknowledges the issue they face, but since when has sweet talking been part of the browser wars?</p>
+<p>Personally, looking at the team behind Dart and their aim for the language, I have every faith that it will be a great language. I would love to see JavaScript replaced with something better, whilst maintaining some of its more elegant features.</p>
+<p>With so many people looking to use HTML5 as part of their future web strategy and as more complex applications are built on the web, Dart could be a good thing for all of us.</p>
+<p>Regards, Colin E.</p>

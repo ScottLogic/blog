@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Torus - Single Segment (Rotated)</title>
+    <script src="x3dom-full.js"></script>
+    <link rel="stylesheet" href="x3dom.css">
+    <style>
+        html { height: 100%; width: 100%; }
+        body { height: 100%; width: 100%; margin: 0px; }
+        x3d { height: 100%; width: 100%; }
+        x3d > canvas { display: block; }
+    </style>
+  </head>
+  <body>
+    <x3d>
+      <scene>
+        <transform rotation="0 0 1 1.571">
+          <shape>
+            <appearance>
+              <material diffuseColor="1 0 0"></material>
+            </appearance>
+            <torus angle="2.094"></torus>
+          </shape>
+        </transform>
+      </scene>
+    </x3d>
+  </body>
+</html>

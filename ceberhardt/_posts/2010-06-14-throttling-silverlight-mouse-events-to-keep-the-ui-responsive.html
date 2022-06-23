@@ -1,0 +1,281 @@
+---
+id: 663
+author: ceberhardt
+title: Throttling Silverlight Mouse Events to Keep the UI Responsive
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/06/throttling-silverlight-mouse-events-to-keep-the-ui-responsive/
+tags:
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2010/06/throttling-silverlight-mouse-events-to-keep-the-ui-responsive/
+---
+<p><em>If your Silverlight application performs intensive updates to the UI during mouse events, the UI can freeze because it is invalidated before it has a chance to render. This post describes a technique for 'throttling' mouse events to ensure that each time an event occurs, the UI has the opportunity to render.</em></p>
+<p><b>Introduction - the problem</b></p>
+<p>The visual tree of a Silverlight / WPF uses the <a href="http://en.wikipedia.org/wiki/Retained_mode">retained mode</a> graphics  rendering style, where the tree forms a model of the graphics which are rendered to the screen. Any changes that are made to the visual tree by adding / removing objects or changing the properties of an object within the tree, are automatically rendered to your computer screen at some point in the future.</p>
+<p>This graphics style makes the development of complex graphics far easier than with the <a href="http://en.wikipedia.org/wiki/Immediate_mode">immediate mode</a> counterpart. You add objects, make changes to them, and these changes are reflect on the screen by some background magic. This works just fine most of the time, however, if you continually make changes to the visual tree, without yielding, the 'process' which updates the UI does not have the opportunity to run, and your UI is starved.</p>
+<p>I have found that this problem occurs most often when handling mouse events, particularly <code>MouseMove</code> and <code>MouseWheel</code>. Both of these events have the opportunity to fire very rapidly. If, when handling one of these events you make some change to the visual tree, there is the possibility that the event may be raised again before these changes are reflected on the screen. For a demonstration of this, have a play with the following simple example:</p>
+<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/06/SilverlightEventNoThrottling.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>The application above creates funky patterns that track the current mouse position:</p>
+{% highlight csharp %}
+private void MainPage_MouseMove(object sender, MouseEventArgs e)
+{
+  AddNewLine(e.GetPosition(this));
+}
+
+/// <summary>
+/// Adds a new line at the given position
+/// </summary>
+private void AddNewLine(Point position)
+{
+  if (_lastPosition != null)
+  {
+    // find the angle in which the mouse is moving
+    double angleOfMovement = RaidansToRadians(Math.Atan2(
+        _lastPosition.Value.Y - position.Y, _lastPosition.Value.X - position.X)) + 90;
+
+    // move our current angle slightly in this direction
+    double diff = DifferenceBetweenAngles(_angle, angleOfMovement);
+    _angle = _angle + DifferenceBetweenAngles(_angle, angleOfMovement) / 10;
+
+    // create a line
+    double dx = Math.Sin(DegreesToRadians(_angle)) * diff;
+    double dy = Math.Cos(DegreesToRadians(_angle)) * diff;
+    Line line = new Line()
+    {
+      X1 = position.X + dx,
+      Y1 = position.Y + dy,
+      X2 = position.X - dx,
+      Y2 = position.Y - dy,
+      Opacity = 0.7,
+      Stroke = new SolidColorBrush(Colors.Black),
+      Tag = new Data() { Angle = _angle, Length = diff, Position = position }
+    };
+
+    // add to canvas
+    LineContainer.Children.Add(line);
+
+    // rotates all the lines that are currently displayed
+    RotateLines();
+  }
+  _lastPosition = position;
+}
+{% endhighlight %}
+<p>Everything works just fine when there are &lt; 1000 lines on screen, however as more lines are added, the act of adding a new line to the visual tree becomes more expensive. As a result, the work needed to handle each event becomes so great that the UI is starved. If you move the mouse rapidly across the display, you will find that nothing happens until you stop moving your mouse, then all of a sudden the new lines appear.</p>
+<p>Interestingly the background animation (which is performed on the <code>Tick</code> of a <code>DispatcherTimer</code>) does not starve the UI.</p>
+<p><b>Throttling - the solution!</b></p>
+<p>So, what to do? The answer is to throttle the event.</p>
+<p><img src="{{ site.baseurl }}/archive/2010/06/throttle.png" alt="" title="throttle" width="249" height="161" class="aligncenter size-full wp-image-664" /></p>
+<p>No, I don't mean that kind of throttle, I mean throttle as in "to suppress or regulate the flow of".</p>
+<p>What we need to do is ensure that the changes we make to the visual tree within our <code>MouseMove</code> event are reflected in the UI before we make a subsequent change. Fortunately the Silverlight / WPF frameworks expose a static <a href="http://msdn.microsoft.com/en-us/library/system.windows.media.compositiontarget.rendering%28VS.95%29.aspx"><code>CompositionTarget.Rendering</code></a> event which can be used for this purpose. This event is fired just before a frame is rendered. Therefore, to throttle the effect of the mouse event, we set a flag to indicate that we are waiting for a change to be rendered, then reset this flag just before rendering occurs.</p>
+<p>I have wrapped this concept up in a simple class that provides a <code>ThrottledMouseMove</code> event:</p>
+{% highlight csharp %}
+/// <summary>
+/// Creates a 'throttled' MouseMove event which ensures that the UI
+/// rendering is not starved.
+/// </summary>
+public class ThrottledMouseMoveEvent
+{
+  private bool _awaitingRender = false;
+
+  private UIElement _element;
+
+  public ThrottledMouseMoveEvent(UIElement element)
+  {
+    _element = element;
+    element.MouseMove += new MouseEventHandler(Element_MouseMove);
+  }
+
+  public event MouseEventHandler ThrottledMouseMove;
+
+  private void Element_MouseMove(object sender, MouseEventArgs e)
+  {
+    if (!_awaitingRender)
+    {
+      // if we are not awaiting a render as a result of a previously handled event
+      // raise a ThrottledMouseMove event, and add a Rendering handler so that
+      // we can determine when this event has been acted upon.
+      OnThrottledMouseMove(e);
+      _awaitingRender = true;
+      CompositionTarget.Rendering += CompositionTarget_Rendering;
+    }
+  }
+
+  private void CompositionTarget_Rendering(object sender, EventArgs e)
+  {
+    _awaitingRender = false;
+    CompositionTarget.Rendering -= CompositionTarget_Rendering;
+  }
+
+  /// <summary>
+  /// Raises the ThrottledMouseMove event
+  /// </summary>
+  protected void OnThrottledMouseMove(MouseEventArgs args)
+  {
+    if (ThrottledMouseMove!=null)
+    {
+      ThrottledMouseMove(_element, args);
+    }
+  }
+}
+{% endhighlight %}
+<p>The <code>_awaitingRender</code> flag ensure that we do not starve the UI. Note, the <code>CompositionTarget.Rendering</code> event handler removes itself after handling the event, this is because the presence of the handler causes Silverlight to <a href="http://msdn.microsoft.com/en-us/library/bb613584.aspx#CompositionTarget_Rendering_Event">continuously animate</a>.</p>
+<p>To use this code simply substitute the regular <code>MouseMove</code> event handler with our throttled event:</p>
+{% highlight csharp %}
+// standard mouse move event handling
+MouseHandler.MouseMove += new MouseEventHandler(MainPage_MouseMove);
+
+// Replace with ...
+
+// throttled mouse move event handling
+var throttledEvent = new ThrottledMouseMoveEvent(MouseHandler);
+throttledEvent.ThrottledMouseMove += new MouseEventHandler(ThrottledEvent_ThrottledMouseMove);
+{% endhighlight %}
+<p>As a result, the UI remains responsive:</p>
+<div id="slPluginHost2" > <object id="SilverlightPlugin2" width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/06/SilverlightEventThrottling.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p><b>Throttling the Mouse Wheel event</b></p>
+<p>The <code>MouseWheel</code> event is another mouse event that fires very rapidly and can result in the UI becoming frozen. Again, the same technique can be used to throttle this event. However, with the <code>MouseMove</code> event, the event arguments carry the current mouse position, the <code>MouseWheel</code> event carries just the mouse wheel position delta. If we simply suppress events that occur before render, the UI will not respond correctly, with a smaller delta being applied than is required. </p>
+<p>The code shown below is a slightly more complex class for throttling the <code>MouseWheel</code> event. This class aggregates all the <code>MouseWheel</code> events that occur before the UI is rendered, supplying a total delta:</p>
+{% highlight csharp %}
+ /// <summary>
+/// A class that adapts the MouseWheel event for a UIElement to ensure that
+/// multiple events are not handled and acted upon without the UI being re-rendered.
+/// </summary>
+public class ThrottledMouseWheelEvent
+{
+  #region fields
+
+  /// <summary>
+  /// Source element for the MouseWheel event
+  /// </summary>
+  private UIElement _source;
+
+  /// <summary>
+  /// The combined mouse-wheel delta
+  /// </summary>
+  private int _combinedDelta;
+
+  /// <summary>
+  /// A flag that indicates that a ThrottledMouseWheel event has been raised and we are waiting for
+  /// the next Rendering event.
+  /// </summary>
+  private bool _awaitingRender = false;
+
+  #endregion
+
+  #region public API
+
+  /// <summary>
+  /// A 'throttled' MouseWheel event
+  /// </summary>
+  public event EventHandler<ThrottledMouseWheelEventArgs> ThrottledMouseWheel;
+
+
+  public ThrottledMouseWheelEvent(UIElement source)
+  {
+    _source = source;
+    _source.MouseWheel += new MouseWheelEventHandler(Source_MouseWheel);
+  }
+
+  #endregion
+
+  #region private methods
+
+  private void CompositionTarget_Rendering(object sender, EventArgs e)
+  {
+    Debug.WriteLine("CompositionTarget.Rendering Fired");
+
+    if (_awaitingRender)
+    {
+      // if we have stored delta values, raise another ThrottledMouseWheel events
+      if (_combinedDelta != 0)
+      {
+        OnThrottledMouseWheel(_combinedDelta);
+      }
+      _combinedDelta = 0;
+      _awaitingRender = false;
+    }
+
+    CompositionTarget.Rendering -= CompositionTarget_Rendering;
+  }
+
+  /// <summary>
+  /// Handles mouse wheel events from the source, either firing the ThrottledMouseWheel event,
+  /// or queueing the event until a render has occured.
+  /// </summary>
+  private void Source_MouseWheel(object sender, MouseWheelEventArgs e)
+  {
+    Debug.WriteLine("Mousewheel Event e.Delta: " + e.Delta.ToString());
+    if (!_awaitingRender)
+    {
+      // if we are not awaiting a render as a result of a previously handled event
+      // raise a ThrottledMouseWheel event, and add a Rendering handler so that
+      // we can determine when this event has been acted upon.
+      OnThrottledMouseWheel(e.Delta);
+      _combinedDelta = 0;
+      _awaitingRender = true;
+      CompositionTarget.Rendering += CompositionTarget_Rendering;
+    }
+    else
+    {
+      // if we are awaiting a render, store this delta value
+      _combinedDelta += e.Delta;
+    }
+  }
+
+  /// <summary>
+  /// Raises the ThrottledMouseWheel event.
+  /// </summary>
+  protected void OnThrottledMouseWheel(int delta)
+  {
+    if (ThrottledMouseWheel != null)
+    {
+      ThrottledMouseWheel(_source, new ThrottledMouseWheelEventArgs()
+      {
+        Delta = delta
+      });
+    }
+  }
+
+  #endregion
+}
+
+/// <summary>
+/// Provides data for the ThrottledMouseWheel event.
+/// </summary>
+public class ThrottledMouseWheelEventArgs : EventArgs
+{
+  public int Delta { get; internal set; }
+}
+{% endhighlight %}
+<p>The following application combines both of these throttled mouse event handlers:</p>
+<div id="slPluginHost3" > <object id="SilverlightPlugin3" width="500" height="250" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/06/SilverlightEventThrottling2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p><script type="text/javascript">function hookEvent(element, eventName, callback){  if(typeof(element) == "string")    element = document.getElementById(element);  if(element == null)    return;  if(element.addEventListener)  {    if(eventName == 'mousewheel')      element.addEventListener('DOMMouseScroll', callback, false);      element.addEventListener(eventName, callback, false);  }  else if(element.attachEvent)    element.attachEvent("on" + eventName, callback);}function cancel(e){    e.preventDefault();}hookEvent('slPluginHost3', 'mousewheel', cancel);</script></p>
+<p>You can download the full source for this blog post: <a href='{{ site.baseurl }}/archive/2010/06/SilverlightEventThrottling.zip'>SilverlightEventThrottling.zip</a></p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

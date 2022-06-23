@@ -1,0 +1,355 @@
+---
+id: 1674
+author: ceberhardt
+title: TweetSearch - A Cross platform Metro UI WinRT and Silverlight Application
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/09/tweetsearch-a-cross-platform-metro-ui-winrt-and-silverlight-application/
+tags:
+  - silverlight
+  - cross-platform
+  - Windows 8
+  - WinRT
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2011/09/tweetsearch-a-cross-platform-metro-ui-winrt-and-silverlight-application/
+---
+<p>With the Windows 8 preview release earlier this week, developers are now faced with a whole new and exciting Microsoft stack. The Windows 8 architecture has something of a split-personality, incorporating a completely new runtime, WinRT together with the older Win32 and .NET framework. However, these sit on different sides of a physical divide in both the architecture and the user interface. For more details of this, <a href="{{ site.baseurl }}/2011/09/15/windows-8-an-os-of-two-halves" title="Windows 8 - An OS of two halves.">see my earlier article</a>.</p>
+<p>The new WinRT APIs support both C# and XAML, having an interface that is very similar to its .NET counterparts. However, there are a number of differences, most importantly much of the UI now resides in a new namespace. It is clear that transitioning from Silverlight, WP7 or WPF development to using WinRT will be quite easy.</p>
+<p>I am sure there exists classes of application that sit best in the Win8 Metro UI, for which you will use WinRT for development. There will also be classes of application that sit best in the Win8 classic desktop, for which you will still be using WPF and Silverlight to develop.</p>
+<p>However ... there will certainly exist a class of application that sits well in <em>both</em> the Metro and Desktop environment. In the Win8 preview IE does just this. </p>
+<p>This introduces a problem, how can we share code between our Silverlight Desktop and WinRT Metro applications?</p>
+<p>I have previously <a href="{{ site.baseurl }}/2011/07/01/silverlight-uk-user-group-presentation-on-cross-platform-xaml" title="Silverlight UK User Group Presentation on Cross Platform XAML">presented talks</a> and <a href="{{ site.baseurl }}/2010/10/11/white-paper-silverlight-wpf-and-windows-phone-7-cross-platform-development" title="White Paper: Silverlight, WPF and Windows Phone 7 cross platform development">written articles</a> on cross-platform application development. So I thought I would grab myself a copy of the Win8 preview release and see how easy it is to code-share between a Silverlight and WinRT Metro application.</p>
+<p>This blog post describes a simple TwitterSearch application, the Silverlight version is shown below. Simply type in a search string to see the results retrieved from twitter:</p>
+<div style="text-align: center;"><object width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2011/09/SilverlightTwitterApp.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>A screenshot of the TwitterSearch application built for WinRT Metro is shown below:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/09/MetroTwitter.png" alt="" title="MetroTwitter" width="513" height="566" class="aligncenter size-full wp-image-1678" /></p>
+<p>When code-sharing between WPF, Silverlight and WP7 applications separation of concerns and solid design patterns are essential in order to navigate the framework differences. For that reason I use the Model-View-ViewModel pattern, this makes it easy to specialise the view for each platform, where they typically differ the most. I will use this same approach for WinRT.</p>
+<p>The code is shared between the Silverlight and Win8 Metro application by having two separate solutions which both share files via the Visual Studio file linking feature.</p>
+<p>The <code>TwitterSearchViewModel</code> which backs this application simply exposes a search string property and a list of tweets:</p>
+{% highlight csharp %}
+public partial class TwitterSearchViewModel : INotifyPropertyChanged
+{
+  private TweetViewModelCollection _tweets = new TweetViewModelCollection();
+
+  private IMarshalInvoke _marshalInvoke;
+
+  private string _searchText = "WinRT";
+
+  public TwitterSearchViewModel(IMarshalInvoke marshalInvoke)
+  {
+    _marshalInvoke = marshalInvoke;
+  }
+
+  /// <summary>
+  /// Gets / sets the search term
+  /// </summary>
+  public string SearchText
+  {
+    get {  return _searchText;  }
+    set
+    {
+      _searchText = value;
+      OnPropertyChanged("SearchText");
+    }
+  }
+
+  /// <summary>
+  /// Gets the search results
+  /// </summary>
+  public TweetViewModelCollection Tweets
+  {
+    get { return _tweets; }
+    set { _tweets = value; }
+  }
+
+  /// <summary>
+  /// Gets a command that executes the search
+  /// </summary>
+  public ICommand ExecuteSearchCommand
+  {
+    get
+    {
+      return new DelegateCommand(() => ExecuteSearch());
+    }
+  }
+}
+{% endhighlight %}
+<p>The <code>IMarshalInvoke</code> interface allows the view model to perform asynchronous calls via the Dispatcher, without being dependant on this UI class, more on this later.</p>
+<p>It is here that I hit the first problem, WinRT has <code>ICommand</code>, but it lives in a different namespace! Time to add a WinRT compilation symbol to my WinRT project and throw in a pre-compiler directive:</p>
+{% highlight csharp %}
+#if WINRT
+
+using Windows.UI.Xaml.Input;
+
+#else
+
+using System.Windows.Input;
+
+#endif
+{% endhighlight %}
+<p>Now my view model compiles just fine. However, when I hooked it up with the view, my bindings were only working in one direction. After appealing to Twitter, the MSDN forums and the WPF Disciples, <a href="http://www.galasoft.ch/">Laurent Bugnion</a> kindly informed me that WinRT has two different INotifyPropertyChanged interfaces. One within <code>System.ComponentModel</code> and the other in <code>Windows.UI.Xaml.Data</code>, if you use the one from <code>System.ComponentModel</code> it is ignored by the WinRT binding framework. Very confusing!</p>
+<p>Fixing this is simply a matter of adding more platform specific namespaces:</p>
+{% highlight csharp %}
+#if WINRT
+
+// used for ICommand
+using Windows.UI.Xaml.Input;
+
+// used for INotifyPropertyChanged
+using Windows.UI.Xaml.Data;
+
+#else
+
+using System.ComponentModel;
+using System.Windows.Input;
+
+#endif
+{% endhighlight %}
+<p>My original code used <code>WebClient</code>, which is not present in WinRT. Fortunately <code>HttpWebRequest </code>is present in both, so I changed my code to use that, hence the need for the <code>IMarshalInvoke</code> interface to marshal execution back onto the UI thread.</p>
+<p>As a result, much of the core logic, which makes use of Linq-to-XML, in the view model is shared between both applications:</p>
+{% highlight csharp %}
+/// <summary>
+/// Parses the response from our twitter request, creating a list of TweetViewModel instances
+/// </summary>
+private void ParseXMLResponse(string xml)
+{
+  var doc = XDocument.Parse(xml);
+  var items = doc.Descendants(AtomConst.Entry)
+                  .Select(entryElement => new TweetViewModel()
+                  {
+                    Title = entryElement.Descendants(AtomConst.Title).Single().Value,
+                    Id = long.Parse(entryElement.Descendants(AtomConst.ID).Single().Value.Split(':')[2]),
+                    ProfileImageUrl =  entryElement.Descendants(AtomConst.Link).Skip(1).First().Attribute("href").Value,
+                    Timestamp = DateTime.Parse(entryElement.Descendants(AtomConst.Published).Single().Value),
+                    Author = entryElement.Descendants(AtomConst.Name).Single().Value
+                  });
+
+  _tweets.Clear();
+  foreach (var item in items)
+  {
+    _tweets.Add(item);
+  }
+}
+
+/// <summary>
+/// Searches for the given term
+/// </summary>
+private void ExecuteSearch()
+{
+  IsSearching = true;
+
+  // perform the search
+  string uri = _twitterUrl + SearchText;
+  HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(new Uri(uri));
+  request.BeginGetResponse(new AsyncCallback(ReadCallback), request);
+}
+
+/// <summary>
+/// A callback that receives the search results
+/// </summary>
+private void ReadCallback(IAsyncResult asynchronousResult)
+{
+  HttpWebRequest request = (HttpWebRequest)asynchronousResult.AsyncState;
+  HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asynchronousResult);
+  using (StreamReader streamReader1 = new StreamReader(response.GetResponseStream()))
+  {
+    string resultString = streamReader1.ReadToEnd();
+
+    // marshall onto the UI thread and parse
+    _marshalInvoke.Invoke(() =>
+      {
+        Tweets.Clear();
+        ParseXMLResponse(resultString);
+        IsSearching = false;
+      });
+  }
+}
+{% endhighlight %}
+<p>This makes me happy :-)</p>
+<p>On a side note, whilst WinRT does not have <code>WebClient</code>, it actually has something much better via classes such as <code>SyndicationFeed </code> which make use of the new C# <code>async </code>and <code>await</code> pattern for dealing with asynchrony. Of course, using these new APIs reduces the amount of code you share with the Silverlight .NET code.</p>
+<p>The <code>DelegateCommand </code>implementation again hits the same problem of the same interface being located in a different namespace, yet despite this, most of the code is shared:</p>
+{% highlight csharp %}
+#if WINRT
+
+// used for ICommand
+using Windows.UI.Xaml.Input;
+
+#else
+
+using System.Windows.Input;
+
+#endif
+
+namespace SLUGUK.ViewModel
+{
+  public class DelegateCommand : ICommand
+  {
+    private Action _action;
+
+    public DelegateCommand(Action action)
+    {
+      _action = action;
+    }
+
+    public bool CanExecute(object parameter)
+    {
+      return true;
+    }
+
+#if WINRT
+    public event Windows.UI.Xaml.EventHandler CanExecuteChanged;
+#else
+    public event EventHandler CanExecuteChanged;
+#endif
+
+    public void Execute(object parameter)
+    {
+      _action();
+    }
+  }
+}
+{% endhighlight %}
+<p>Despite the various XAML UI controls being in a different C# namespace, they use the same URIs for their XML namespace mappings. This makes it possible to share XAML as well as C# code between your applications.</p>
+<p>However, in much the same way as it makes little sense to share XAML between WP7 and Silverlight due to differences in form-factor and user-experience, I don't think it makes sense to share XAML between Silverlight and Metro WinRT. The primary focus of the Win8 Metro applications is the touch-first tablet form factor, hence you would expect it to be quite different from a desktop application.</p>
+<p>The following is the XAML for my Metro UI application:</p>
+{% highlight xml %}
+<UserControl x:Class="WinRTMetroTwitter.View.TwitterSearchView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:WinRTMetroTwitter.View"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <local:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        <local:ImageConverter x:Key="ImageConverter"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="#FF0C0C0C">
+        <Grid Margin="50"
+              Width="400"
+              HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="{Binding Path=SearchText, Mode=TwoWay}"
+                     Width="200"/>
+                <Button Command="{Binding Path=ExecuteSearchCommand}"
+                    Content="Go!"/>
+                <TextBlock VerticalAlignment="Center"
+                     Visibility="{Binding Path=IsSearching, Converter={StaticResource BoolToVisibilityConverter}}"
+                     Text="Searching ..."
+                     Margin="20,0,0,0"
+                     FontSize="15"/>
+            </StackPanel>
+
+            <!-- renders the search results -->
+            <ItemsControl x:Name="itemsControl"
+                          Grid.Row="2">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="5">
+                           <Image Source="{Binding ProfileImageUrl, Converter={StaticResource ImageConverter}}"
+                                  Width="96" Height="96"
+                                  Stretch="UniformToFill"
+                                  Margin="2"
+                                  VerticalAlignment="Top"/>
+
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Title}"
+                                           TextWrapping="Wrap"
+                                           FontSize="15"
+                                           Width="300"
+                                           HorizontalAlignment="Left"/>
+                                <StackPanel Orientation="Horizontal">
+
+                                    <TextBlock FontWeight="Bold"
+                                               Text="{Binding Path=Author}"
+                                               FontSize="15"/>
+
+                                    <TextBlock Margin="10,0,0,0"
+                                              Text="{Binding Path=Timestamp}"
+                                               FontSize="15"
+                                              Foreground="#333"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Rectangle Fill="#FF0C0C0C"
+                   Opacity="0.5"
+                   Grid.Row="1"
+                   Visibility="{Binding Path=IsSearching, Converter={StaticResource BoolToVisibilityConverter}}"/>
+        </Grid>
+    </Grid>
+</UserControl>
+{% endhighlight %}
+<p>If you are a Silverlight developer you will notice that<em> everything here</em> is standard Silverlight, it is just wired-up to different classes via the XAML namespace mappings.</p>
+<p>I did discover that the IValueConverter signature within WinRT is a bit different. Within this application, the value conversion logic is so simple it is hardly worth code-sharing, however, it would be a very simple exercise if you wished to do so.</p>
+{% highlight csharp %}
+namespace WinRTMetroTwitter.View
+{
+  public class BoolToVisibilityConverter : IValueConverter
+  {
+    public object Convert(object value, string typeName, object parameter, string language)
+    {
+      return (bool)value ? Visibility.Visible : Visibility.Collapsed;
+    }
+
+    public object ConvertBack(object value, string typeName, object parameter, string language)
+    {
+      throw new NotImplementedException();
+    }
+  }
+}
+{% endhighlight %}
+<p>Finally, I did hit against one further problem. With WinRT it seems that there is a currently a bug which prevents <code>ItemsControl </code>binding to collections via <code>INotifyCollectionChanged </code>from working. This has been raised in the <a href="http://social.msdn.microsoft.com/Forums/en-US/winappswithcsharp/thread/aec84969-0947-4fe8-bcf6-ab533e7ab894">MSDN forums</a> and I am sure it will be fixed. As a simple workaround I added the following code-behind (gasp!):</p>
+{% highlight csharp %}
+public sealed partial class TwitterSearchView : UserControl
+{
+  private TwitterSearchViewModel feedViewModel;
+
+  public TwitterSearchView()
+  {
+    InitializeComponent();
+
+    this.Loaded += ResultsView_Loaded;
+  }
+
+  private void ResultsView_Loaded(object sender, RoutedEventArgs e)
+  {
+    feedViewModel = this.DataContext as TwitterSearchViewModel;
+
+    // detect collection changed
+    feedViewModel.Tweets.CollectionChanged += FeedItems_CollectionChanged;
+  }
+
+
+  private void FeedItems_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+  {
+    // manually 'refresh' the UI
+    itemsControl.ItemsSource = null;
+    itemsControl.ItemsSource = feedViewModel.Tweets;
+  }
+}
+{% endhighlight %}
+<h2>Conclusions</h2>
+<p>Creating a cross-platform WinRT / Silverlight application is entirely possible, using the same techniques that we currently employ for cross-platform Silverlight / WPF / WP7 applications. There are further complications relating to classes living in different namespaces and there will of course be other detail-level differences that this simple example does not touch upon. However, I think this presents a feasible and promising route for re-using existing Silverlight/ WPF code, and for developing applications that target the Win8 tablet, WP7 phone and Silverlight (or WPF) desktop with a single code-base.</p>
+<p>You can download the full sourcecode: <a href='{{ site.baseurl }}/archive/2011/09/CrossPlatformTwitter.zip'>CrossPlatformTwitter.zip</a></p>
+<p>Regards, Colin E.</p>

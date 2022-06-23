@@ -1,0 +1,387 @@
+---
+id: 230
+author: ceberhardt
+title: Silverlight Dependency Property Code Generation
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2009/04/silverlight-dependency-property-code-generation/
+tags:
+  - silverlight
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2009/04/silverlight-dependency-property-code-generation/
+---
+<p>This blog details a technique for generating Silverlight dependency properties from an XML file via a T4 template. If you just want to grab the code, scroll to the bottom of this article and download the sourcecode or cut and paste the templates. If you want to find out how and why I created this template, please read on ...</p>
+<p>Personally I find one of the most frustrating aspects of Silverlight and WPF development is working with the dependency property framework. They are beautiful in concept, but completely ugly in their implementation!</p>
+<p>Take for example the following dependency property declaration:</p>
+{% highlight csharp %}
+public double Maximum
+{
+    get { return (double)GetValue(MaximumProperty); }
+    set { SetValue(MaximumProperty, value); }
+}
+
+public static readonly DependencyProperty MaximumProperty =
+    DependencyProperty.Register("Maximum", typeof(double),
+    typeof(RangeControl), new PropertyMetadata(0.0, OnMaximumPropertyChanged));
+
+
+private static void OnMaximumPropertyChanged(DependencyObject d,
+    DependencyPropertyChangedEventArgs e)
+{
+    RangeControl myClass = d as RangeControl;
+    myClass.OnMaximumPropertyChanged(e);
+}
+
+private void OnMaximumPropertyChanged(DependencyPropertyChangedEventArgs e)
+{
+    // do something
+}
+{% endhighlight %}
+<p>The above code defines a dependency property, Maximum, providing a type and default value, a CLR property wrapper and a method which is invoked on property change. We have 21 lines of quite densely packed code, which does so little! Furthermore, dependency property declarations can be quite error prone; if incorrectly specified the error can easily go undetected and unreported, wasting precious hours ...</p>
+<p>A few people have created code snippets which help automate the construction of this ghastly boiler-plate code. They are a few snippets available for <a href="http://blog.nerdplusart.com/archives/silverlight-code-snippets">Silverlight</a> and whole host available <a href="http://drwpf.com/blog/category/silverlight/">WPF</a> courtesy of the good Dr. These certainly help you get started, however, when refactoring or re-organising code you are back to a more manual approach. </p>
+<p>Before I describe my approach, I want to briefly explain why dependency properties (DP) have to be this way. An obvious beginner question is, why can't CLR properties behave like DPs? The difference is that CLR properties are understood by the compiler, they are part of the language. Whereas DPs are purely implementation, an implementation which is restricted by the .NET language.</p>
+<p>So, if we can't change the language itself, what can we do? I toyed with the idea of Aspect Oriented Programming, enhancing the compiled bytecode in order to add DPs for CLRs marked with attributes, however whichever way I looked at the problem I could not find a solution that fits. This lead me onto code generation, the basic idea being that my DPs would be generated from a concise description of my Dependency Objects. This investigation lead me to one of Visual Studios best kept secrets, <a href="http://msdn.microsoft.com/en-us/library/bb126445.aspx">T4 templates</a> (T4 = Text Template Transformation Toolkit!).</p>
+<p>T4 template are available in Visual Studio 2008, however they are not listed when you select 'Add => New Item' on you project. To add a new template, simply create a new file with an extension of 'tt'. You will then see something that looks like the following:</p>
+<p><a href="{{ site.baseurl }}/archive/2009/04/t4template.png"><img src="{{ site.baseurl }}/archive/2009/04/t4template.png" alt="t4template" title="t4template" width="171" height="61" class="alignnone size-full wp-image-231" /></a></p>
+<p>Your template file is visible within the solution explorer along with the file that it generates. The templates themselves are executed before Visual Studio compiles your project, so in the example above HelloWorld.cs, our generated file, is compiled just like any other 'cs' file. Here's a simple example, the following template (which has a ASP.NET-like syntax) creates a .cs file, whilst the template language itself is C#.</p>
+<pre>
+<span style="background: #ddf"/>&lt;#@ output extension="cs" #&gt;
+&lt;#@ template language="C#" #&gt;</span>
+public class HelloWorld
+{
+	public string GetTime()
+	{
+		return "<span style="background: #ddf"/>&lt;#= DateTime.Now.ToString() #&gt;</span>";
+	}
+}
+</pre>
+<p>And here is the output:</p>
+{% highlight csharp %}
+public class HelloWorld
+{
+	public string GetTime()
+	{
+		return "01/04/2009 16:05:59";
+	}
+}
+{% endhighlight %}
+<p>Note that the <code>DateTime.Now.ToString()</code> has been evaluated by the template engine, resulting in a string literal in the generated file. For an excellent and detailed overview of T4 templates I would recommend heading over to  Oleg Sych's blog where he has a whole host of <a href="http://olegsych.com/T4Toolbox/">articles on T4 templates</a>.</p>
+<p>Now, how do we add generated DPs to a class? Fortunately this is a problem that has been solved before, and the answer is partial classes. In the same way that your XAML editor (and DataSet editor, ASP.NET editor ...) creates a partial class, we can create a partial class which just contains our DP declarations. A suitable template might look something like this:</p>
+<pre>
+public partial class <span style="background: #ddf">&lt;#= className #&gt;</span>
+{
+<span style="background: #ddf">&lt;#
+foreach(var dp in dps)
+{
+	string propertyName = dp.Name;
+	string propertyType = dp.Type;
+	string defaultValue = dp.DefaultValue;
+	#&gt;</span>
+
+	#region <span style="background: #ddf">&lt;#= propertyName #&gt;</span>
+
+	public <span style="background: #ddf">&lt;#= propertyType #&gt;</span> <span style="background: #ddf">&lt;#= propertyName #&gt;</span>
+        {
+            get { return (<span style="background: #ddf">&lt;#= propertyType #&gt;</span>)GetValue(<span style="background: #ddf">&lt;#= propertyName #&gt;</span>Property); }
+            set { SetValue(<span style="background: #ddf">&lt;#= propertyName #&gt;</span>Property, value); }
+        }
+
+        public static readonly DependencyProperty <span style="background: #ddf">&lt;#= propertyName #&gt;</span>Property =
+            DependencyProperty.Register("<span style="background: #ddf">&lt;#= propertyName #&gt;</span>", typeof(<span style="background: #ddf">&lt;#= propertyType #&gt;</span>),
+            typeof(<span style="background: #ddf">&lt;#= className #&gt;</span>), new PropertyMetadata(<span style="background: #ddf">&lt;#= defaultValue #&gt;</span>));
+
+        #endregion
+<span style="background: #ddf">&lt;#
+} // end foreach dps
+#&gt;</span>
+}
+</pre>
+<p>The next problem is how to specif the DPs in a concise and simple manner. I decided that the simplest approach would be to have a single XML fie within the project which specifies all the generated classes and their DPs. For this purpose I created an XML schema (which is found in the sourcecode zip file and at the end of this post). Here is an example instance document which details a class and its DPs:</p>
+{% highlight xml %}
+<?xml version="1.0" encoding="utf-8" ?>
+<dependencyObjects
+  xmlns="http://www.scottlogic.co.uk/DependencyObject"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <dependencyObject type="SilverlightTemplates.RangeControl"
+                    base="UserControl" notifyPropertyChanged="true" >
+    <dependencyProperty type="double" defaultValue="0.0"
+                        name="Maximum" propertyChangedCallback="true"/>
+    <dependencyProperty type="double" defaultValue="0.0"
+                        name="Minimum" propertyChangedCallback="true"/>
+  </dependencyObject>
+
+</dependencyObjects>
+{% endhighlight %}
+<p>The XML schema serves two purposes, firstly Visual Studio will auto-complete making the construction of this document a breeze, secondly, ensuring that the document is valid means that the template itself does not have to be programmed in such a 'defensive' style.</p>
+<p>Notice also a few other goodies here, the <code>propertyChangedCallback</code> attribute indicates that a property changed event handler will be added to the code as a partial method. Furthermore, the <code>notifyPropertyChanged</code> attribute indicates that the class will implemented <code>INotifypropertyChanged</code>, raising the <code>PropertyChanged</code> event whenever a DP changes. More boiler-plate code eradicated!</p>
+<p>The complete template that builds classes from the XML file contains a class feature block, called <code>GenerateClass</code>, which takes two parameters. The first is the fully qualified name of the class, the second is the location of the XML file:</p>
+<pre>
+<span style="background:#ddf">&lt;#@ include file="DependencyObjectTemplate.tt" #&gt;
+&lt;#
+	GenerateClass("SilverlightTemplates.RangeControl",
+		@"C:\Projects\Visual Studio\ ... \SilverlightTemplates\MyTemplate.xml");
+#&gt;</span>
+</pre>
+<p>Unfortunately, the when code templates are executed their working directory is not the location of the template file itself. This explains the use of the absolute file path in the above example. Here is the file generated from the above XML:</p>
+{% highlight csharp %}
+
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.ComponentModel;
+
+namespace SilverlightTemplates
+{
+    public partial class RangeControl : UserControl, INotifyPropertyChanged
+    {
+
+        #region Maximum
+
+        public double Maximum
+        {
+            get { return (double)GetValue(MaximumProperty); }
+            set { SetValue(MaximumProperty, value); }
+        }
+
+        public static readonly DependencyProperty MaximumProperty =
+            DependencyProperty.Register("Maximum", typeof(double),
+            typeof(RangeControl), new PropertyMetadata(0.0, OnMaximumPropertyChanged));
+
+
+        private static void OnMaximumPropertyChanged(DependencyObject d,
+            DependencyPropertyChangedEventArgs e)
+        {
+            RangeControl myClass = d as RangeControl;
+            myClass.OnPropertyChanged("Maximum");
+            myClass.OnMaximumPropertyChanged(e);
+        }
+
+        partial void OnMaximumPropertyChanged(DependencyPropertyChangedEventArgs e);
+
+        #endregion
+
+        #region Minimum
+
+        public double Minimum
+        {
+            get { return (double)GetValue(MinimumProperty); }
+            set { SetValue(MinimumProperty, value); }
+        }
+
+        public static readonly DependencyProperty MinimumProperty =
+            DependencyProperty.Register("Minimum", typeof(double),
+            typeof(RangeControl), new PropertyMetadata(0.0, OnMinimumPropertyChanged));
+
+
+        private static void OnMinimumPropertyChanged(DependencyObject d,
+            DependencyPropertyChangedEventArgs e)
+        {
+            RangeControl myClass = d as RangeControl;
+            myClass.OnPropertyChanged("Minimum");
+            myClass.OnMinimumPropertyChanged(e);
+        }
+
+        partial void OnMinimumPropertyChanged(DependencyPropertyChangedEventArgs e);
+
+        #endregion
+
+
+        #region INotifyPropertyChanged Members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
+
+    }
+}
+{% endhighlight %}
+<p>So much code, from such a small XML file!</p>
+<p>I have created a simple example project with a user control which contains a pair of DPs, which you can download: <a href='{{ site.baseurl }}/archive/2009/04/silverlighttemplate.zip'>silverlighttemplate.zip</a>.</p>
+<p>If you find this template useful, please let me know. Also if you find any mistakes or think of a clever way to extend it further, give me a shout.</p>
+<p>Regards, Colin E.</p>
+<p><b>APPENDIX</b></p>
+<p><b>T4 template</b></p>
+<p>Note: the T4 template engine is executed under the same environment as the project itself. Therefore, when developing Silverlight, the T4 engine code is not available, hence we reference the required DLLs explicitly. </p>
+<div class="wp_syntax">
+<div class="code">
+<pre class="csharp" style="font-family: monospace;">
+&lt;#@ output extension="cs" #&gt;
+&lt;#@ template language="C#v3.5" #&gt;
+&lt;#@ assembly name="C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\System.dll" #&gt;
+&lt;#@ assembly name="C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.5\System.Core.dll" #&gt;
+&lt;#@ assembly name="C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.5\System.Xml.FLinq.dll" #&gt;
+&lt;#@ assembly name="C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\System.Xml.dll" #&gt;
+&lt;#@ import namespace="System.Linq" #&gt;
+&lt;#@ import namespace="System.Xml.Linq" #&gt;
+&lt;#+
+
+private void GenerateClass(string classFullName, string xmlFileLocation)
+{
+    string classNamespace = classFullName.Substring(0, classFullName.LastIndexOf('.'));
+    string className = classFullName.Substring(classFullName.LastIndexOf('.') + 1);
+
+    XNamespace ns = "http://www.scottlogic.co.uk/DependencyObject";
+	XDocument xmlFile = XDocument.Load(xmlFileLocation);
+
+	var dps =	from dp in xmlFile.Descendants(ns + "dependencyProperty")
+				where dp.Parent.Attribute("type").Value == classFullName
+				select dp;
+
+
+	var depObj = (from c in xmlFile.Descendants(ns + "dependencyObject")
+					where c.Attribute("type").Value == classFullName
+					select c).Single();
+
+	bool classRaisesPropertyChanged = depObj.Attribute("notifyPropertyChanged")!=null &&
+			(depObj.Attribute("notifyPropertyChanged").Value == "1" || depObj.Attribute("notifyPropertyChanged").Value == "true");
+
+	string baseType = depObj.Attribute("base").Value;
+#&gt;
+using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.ComponentModel;
+
+namespace &lt;#= classNamespace #&gt;
+{
+	public partial class &lt;#= className #&gt; : &lt;#= baseType #&gt;&lt;#+ if(classRaisesPropertyChanged){ #&gt;, INotifyPropertyChanged&lt;#+ } #&gt;
+	{
+&lt;#+
+	foreach(var dp in dps)
+	{
+		string propertyName = dp.Attribute("name").Value;
+		string propertyType = dp.Attribute("type").Value;
+		string defaultValue = dp.Attribute("defaultValue").Value;
+		string typeConverter = dp.Attribute("typeConverter")!=null ? dp.Attribute("typeConverter").Value : null;
+		bool propertyChangedCallback = dp.Attribute("propertyChangedCallback")!=null &&
+			(dp.Attribute("propertyChangedCallback").Value == "1" || dp.Attribute("propertyChangedCallback").Value == "true");
+		#&gt;
+
+		#region &lt;#= propertyName #&gt;
+		&lt;#+
+		if (typeConverter!=null)
+		{
+		#&gt;
+		[TypeConverter(&lt;#= typeConverter #&gt;)]
+		&lt;#+
+		}
+		#&gt;
+		public &lt;#= propertyType #&gt; &lt;#= propertyName #&gt;
+        {
+            get { return (&lt;#= propertyType #&gt;)GetValue(&lt;#= propertyName #&gt;Property); }
+            set { SetValue(&lt;#= propertyName #&gt;Property, value); }
+        }
+        &lt;#+
+        if (!propertyChangedCallback && !classRaisesPropertyChanged)
+		{
+        #&gt;
+
+        public static readonly DependencyProperty &lt;#= propertyName #&gt;Property =
+            DependencyProperty.Register("&lt;#= propertyName #&gt;", typeof(&lt;#= propertyType #&gt;),
+            typeof(&lt;#= className #&gt;), new PropertyMetadata(&lt;#= defaultValue #&gt;));
+
+        &lt;#+
+		}
+		else
+		{
+		#&gt;
+
+		public static readonly DependencyProperty &lt;#= propertyName #&gt;Property =
+            DependencyProperty.Register("&lt;#= propertyName #&gt;", typeof(&lt;#= propertyType #&gt;),
+            typeof(&lt;#= className #&gt;), new PropertyMetadata(&lt;#= defaultValue #&gt;, On&lt;#= propertyName #&gt;PropertyChanged));
+
+
+		private static void On&lt;#= propertyName #&gt;PropertyChanged(DependencyObject d,
+            DependencyPropertyChangedEventArgs e)
+        {
+			&lt;#= className #&gt; myClass = d as &lt;#= className #&gt;;
+			myClass.OnPropertyChanged("&lt;#= propertyName #&gt;");
+			myClass.On&lt;#= propertyName #&gt;PropertyChanged(e);
+        }
+
+        partial void On&lt;#= propertyName #&gt;PropertyChanged(DependencyPropertyChangedEventArgs e);
+		&lt;#+
+		} // end else if (!propertyChangedCallback && !classRaisesPropertyChanged)
+		#&gt;
+        #endregion
+	&lt;#+
+	} // end foreach dps
+
+	if (classRaisesPropertyChanged)
+	{
+	#&gt;
+
+		#region INotifyPropertyChanged Members
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		protected void OnPropertyChanged(string propertyName)
+		{
+			if (PropertyChanged != null)
+			{
+				PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		#endregion
+	&lt;#+
+	}
+	#&gt;
+	}
+}
+
+&lt;#+
+}
+#&gt;
+</pre>
+</div>
+</div>
+<p><b>The XML Schema</b></p>
+{% highlight xml %}
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+    targetNamespace="http://www.scottlogic.co.uk/DependencyObject"
+    elementFormDefault="qualified"
+    xmlns="http://www.scottlogic.co.uk/DependencyObject"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="dependencyObjects" type="dependencyObjectsType"/>
+
+  <xs:complexType name="dependencyObjectsType">
+    <xs:sequence>
+      <xs:element name="dependencyObject" type="dependencyObjectType"  maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="dependencyObjectType">
+    <xs:sequence>
+      <xs:element name="dependencyProperty" type="dependencyPropertyType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="type"/>
+    <xs:attribute name="notifyPropertyChanged" type="xs:boolean" use="optional"/>
+    <xs:attribute name="base" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="dependencyPropertyType">
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="type" type="xs:string" use="required"/>
+    <xs:attribute name="typeConverter" type="xs:string" use="optional"/>
+    <xs:attribute name="defaultValue" type="xs:string" use="required"/>
+    <xs:attribute name="propertyChangedCallback" type="xs:boolean" use="optional"/>
+    <xs:attribute name="notifyPropertyChanged" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+
+</xs:schema>
+{% endhighlight %}

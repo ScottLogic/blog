@@ -1,0 +1,147 @@
+---
+id: 1710
+author: ceberhardt
+title: A Windows Phone 7.1 (Mango) MVVM Tombstoning Example
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/10/a-windows-phone-7-1-mango-mvvm-tombstoning-example/
+tags:
+  - mvvm
+  - Windows Phone 7
+  - tombstoning
+  - Mango
+  - codeproject
+  - windowsphone
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/10/a-windows-phone-7-1-mango-mvvm-tombstoning-example/
+---
+<p><i>In this blog post I look at the new application lifecycle model that Windows Phone 7.1 (Mango) introduces, and show how to handle the various lifecycle events in a simple MVVM application.</i></p>
+<p>In a <a href="{{ site.baseurl }}/2011/05/23/a-simple-windows-phone-7-mvvm-tombstoning-example" title="A Simple Windows Phone 7 MVVM Tombstoning Example">previous blog post</a> I described the development of a simple Windows Phone 7 application using the Model-View-ViewModel (MVVM) pattern and how to handle application lifecycle events, specifically tombstoning. In this blog post I will look at updating this sample for Windows Phone 7.1 (Mango) to handle fast-app switching and the new Dormant state.</p>
+<p>As an aside, I have bumped into a number of developers who were under the impression that <strong>Mango removes the need to tombstone</strong>. I'm afraid that <strong>this is not the case</strong>!</p>
+<h2>Introduction and a Recap</h2>
+<p>The WP7 application lifecycle model is designed to allow the user to move fluidly between applications whilst minimising the memory that these applications consume. Neither WP7 or WP7.1 (Mango) allow true multi-tasking, where more than one application is running at the same time. Instead, they employ a number of techniques to give the illusion of multi-tasking. As a developer you are exposed to this via the application lifecycle.</p>
+<p>The WP7 (pre-Mango) application lifecycle, with the events that are fired for each transition, is illustrated below:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/WP7Lifecycle.png" alt="" title="WP7Lifecycle" width="600" height="476" class="aligncenter size-full wp-image-1711" /></p>
+<p>You can see the tasks that you must perform under each state transition.</p>
+<p>When the user pressed the Start button, your application stops running and becomes tombstoned. It is your responsibility to save your application state such that when the user pressed the back-button (navigating the back-stack) to return to your application, it is in the same state as when they left it. This involves saving both the state of your application logic, within the application <code>PhoneApplicationService.State</code> dictionary and the UI state (e.g list scroll position) within the <code>PhoneApplicationPage.State</code> dictionary for each page. I described how you can achieve this in my <a href="{{ site.baseurl }}/2011/05/23/a-simple-windows-phone-7-mvvm-tombstoning-example" title="A Simple Windows Phone 7 MVVM Tombstoning Example">previous blog post</a>. I also want to point out that the rather tricky task of saving UI state can be made much simpler by using things like Matt Lacey's popular <a href="http://tombstonehelper.codeplex.com/">Tombstoning Helper</a> utilities.</p>
+<p>One other thing that the <a href="http://msdn.microsoft.com/en-us/library/ff817008(VS.92).aspx">Execution Model Overview on MSDN</a> does not make terribly clear is that the back-stack has a limited size. What this means is that your tombstoned application state will not necessarily be re-activated. You can test this by running your application with the debugger attached, if you create a long enough back-stack (by repeatedly hitting the Start button and starting a new application), your debugging session will eventually terminate. This occurs when your application state has been pushed off the back-stack.</p>
+<p>The upshot of this is that when your application is tombstoned you must save your state to isolated storage as well as the <code>State</code> dictionary (because your application might never get closed). Although, as it is recommended that your application tombstones swiftly, you might want to store application state to isolated storage at more regular intervals.</p>
+<h2>Windows Phone 7.1 Lifecycle</h2>
+<p>Windows Phone 7.1 (Mango) introduces a much more convincing illusion of multi-tasking, where the user can press and hold the back-button to rapidly switch between a small number of apparently concurrently running applications. However, again this is not true multitasking.</p>
+<p>To achieve this, WP7.1 introduces a new state in the application lifecycle, the Dormant state:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/WP7MangoLifecycle.png" alt="" title="WP7MangoLifecycle" width="600" height="461" class="aligncenter size-full wp-image-1713" /></p>
+<p>When you application is in a Dormant state it is still in memory, however it is not executing. This allows the phone to re-start your application much more rapidly than when it is in a tombstoned state.</p>
+<p>The phone can only store a limited number of dormant applications, as a result it might choose to move your application from a dormant to a tombstoned state. You do not receive any notification that this has occurred. However, the tombstoning and re-activiation process is the same as that for WP7.0, where you re-activate your application from the data saved in the <code>State</code> dictionary.</p>
+<p>Again, there is always the possibility that your tombstoned data will be pushed out of the back-stack and lost.</p>
+<p>Notice that there have not been any new events added to indicate that your application has returned from a Dormant state, your application will always receive <code>Activated </code>event when it is restarted regardless of whether it was dormant or tombstoned. This is good news, because it is backwards compatible with WP7.0.</p>
+<h2>Handling the Dormant State</h2>
+<p>So how do you handle this new state in your application? In order to maintain backwards compatibility you don't strictly have to, however it is actually very simple to do.</p>
+<p>The event arguments passed to the <code>Activated</code> event now have a new <code>IsApplicationInstancePreserved</code> argument which is true if your application has been re-started from a dormant state and false if it has been restarted from a tombstoned state. If this argument returns true, you simply do nothing! This ensures that you do not perform any redundant actions and helps your application restart faster.</p>
+<p>The code below is all of the lifecycle code (apart from per-page UI state) that my MVVM example application contains. You can see that the code for a re-activated dormant state does nothing.</p>
+{% highlight csharp %}
+// Code to execute when the application is launching (eg, from Start)
+// This code will not execute when the application is reactivated
+private void Application_Launching(object sender, LaunchingEventArgs e)
+{
+  Debug.WriteLine("Launching");
+
+  LoadViewModelFromIsolatedStorage();
+
+  // if the view model is not loaded, create a new one
+  if (ViewModel == null)
+  {
+    ViewModel = new FeedViewModel();
+    ViewModel.Update();
+  }
+
+  // set the frame DataContext
+  RootFrame.DataContext = ViewModel;
+}
+
+// Code to execute when the application is activated (brought to foreground)
+// This code will not execute when the application is first launched
+private void Application_Activated(object sender, ActivatedEventArgs e)
+{
+  if (e.IsApplicationInstancePreserved)
+  {
+    Debug.WriteLine("Activated From Dormant State");
+  }
+  else
+  {
+    Debug.WriteLine("Activated From Tombstoned State");
+
+    LoadViewModelFromAppState();
+
+    RootFrame.DataContext = ViewModel;
+  }
+}
+
+// Code to execute when the application is deactivated (sent to background)
+// This code will not execute when the application is closing
+private void Application_Deactivated(object sender, DeactivatedEventArgs e)
+{
+  Debug.WriteLine("Deactivated");
+  SaveViewModelToAppState();
+  SaveViewModelToIsolatedStorage();
+}
+
+// Code to execute when the application is closing (eg, user hit Back)
+// This code will not execute when the application is deactivated
+private void Application_Closing(object sender, ClosingEventArgs e)
+{
+  Debug.WriteLine("Closing");
+  SaveViewModelToIsolatedStorage();
+}
+
+private void SaveViewModelToAppState()
+{
+  PhoneApplicationService.Current.State[ModelKey] = ViewModel;
+}
+
+private void LoadViewModelFromAppState()
+{
+  if (PhoneApplicationService.Current.State.ContainsKey(ModelKey))
+  {
+    ViewModel = PhoneApplicationService.Current.State[ModelKey] as FeedViewModel;
+  }
+}
+
+private void LoadViewModelFromIsolatedStorage()
+{
+  // load the view model from isolated storage
+  using (var store = IsolatedStorageFile.GetUserStoreForApplication())
+  using (var stream = new IsolatedStorageFileStream("data.txt", FileMode.OpenOrCreate, FileAccess.Read, store))
+  using (var reader = new StreamReader(stream))
+  {
+    if (!reader.EndOfStream)
+    {
+      var serializer = new XmlSerializer(typeof(FeedViewModel));
+      ViewModel = (FeedViewModel)serializer.Deserialize(reader);
+    }
+  }
+}
+
+private void SaveViewModelToIsolatedStorage()
+{
+  // persist the data using isolated storage
+  using (var store = IsolatedStorageFile.GetUserStoreForApplication())
+  using (var stream = new IsolatedStorageFileStream("data.txt",
+                                                    FileMode.Create,
+                                                    FileAccess.Write,
+                                                    store))
+  {
+    var serializer = new XmlSerializer(typeof(FeedViewModel));
+    serializer.Serialize(stream, ViewModel);
+  }
+}
+{% endhighlight %}
+<h2>Debugging Dormant and Tombstoned state</h2>
+<p>Because the application now has a couple of states that it can be in when it is not running, you need to employ a few tricks to be able to force the application into these states while developing. Typically the emulator will always place your application into a dormant state when you hit the Start button.The fast-app switch UI is not enabled on the emulator by default, however you can enable it with a bit of hackery as described on <a href="http://forum.xda-developers.com/showthread.php?t=1121188">this forum thread</a>.</p>
+<p>So, if your application always moves into a dormant state, how do you test your tombstoning code? Fortunately there is a build setting which you can enable which will ensure that your application is always tombstoned rather than placed in a dormant state:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/ForceTombstone.png" alt="" title="ForceTombstone" width="444" height="241" class="aligncenter size-full wp-image-1716" /></p>
+<p>You should test your application with this setting enabled and disabled to ensure that it accommodates tombstoning and dormant state.</p>
+<p>I hope this blog post has helps understand the slightly complex application lifecycle that Mango introduces. It is clear that this delivers the best performance to the user, however it <i>is</i> a little complex for the developer!</p>
+<p>You can download my updated MVVM example here: <a href='{{ site.baseurl }}/archive/2011/10/WindowsPhoneMVVMExample.zip'>WindowsPhoneMVVMExample.zip</a></p>
+<p>Regards, Colin E.</p>

@@ -1,0 +1,197 @@
+---
+id: 127
+author: ceberhardt
+title: ElementName binding in Silverlight via Attached Behaviours
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2009/02/elementname-binding-in-silverlight-via-attached-behaviours/
+tags:
+  - silverlight
+  - attached behaviour
+  - binding
+  - blog
+  - wpf
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2009/02/elementname-binding-in-silverlight-via-attached-behaviours/
+---
+<p>As a relative newcomer to Silverlight I was happily greeted by the warm feeling of familiarity when I started developing. It is surprisingly easy to make the transition from WPF to Silverlight developer, with most of the core concepts being just the same. However, there are some parts of the WPF framework that you start to miss. One of those is ElementName binding. </p>
+<p>For those of you not familiar with the concept I will give a very brief overview. When binding the properties of your visual elements within XAML, the source of this binding will be the object associated with the elements DataContext. This works just fine for binding your business objects to the UI that exposes their properties. However, with WPF, binding gives you so much more than just a mechanism for exposing your business data, it also allows you to bind properties between visual elements. This is a powerful concept that allows you to create complex layouts, beyond that which is possible by the framework provided Panels (for some examples of this, see my article on creating a <a href="http://www.codeproject.com/KB/WPF/WpfWinFormsBulletGraphs.aspx">Bullet Graph</a>). In order to enable this, WPF provides ElementName and RelativeSource bindings, giving you a powerful mechanism for locating other elements within your visual tree to bind to. A simple example, where a rectangle's Width is bound to a named slider is given below:</p>
+{% highlight xml %}
+<Rectangle Width="{Binding Path=Value, ElementName=MySlider}" Height="20" Fill="Green"/>
+<Slider x:Name="MySlider" Value="25" Minimum="0" Maximum="300"/>
+{% endhighlight %}
+<p>Unfortunately Silverlight does not have this capability. </p>
+<p>My first thought was to simply point the DataContext of the target element to the source element in order to allow property binding between them. However, much to my surprise, Silverlight dependency properties <a href="http://silverlight.net/forums/p/20783/72428.aspx">do not support property changed notification</a>. </p>
+<p>A common solution to this problem is to employ a Relay Object, as described in <a href="http://www.thejoyofcode.com/Workaround_for_missing_ElementName_in_Silverlight_2_0_Binding.aspx">a number of blog posts</a>. An object with a single property, Value, which implement INotifyPropertyChanged is bound to the two visual elements. A simple example is illustrated below:</p>
+{% highlight xml %}
+<UserControl.Resources>
+    <local:RelayObject x:Key="Relay">
+        <local:RelayObject.Value>
+            <system:Double>20</system:Double>
+        </local:RelayObject.Value>
+    </local:RelayObject>
+</UserControl.Resources>
+
+<StackPanel x:Name="LayoutRoot" Background="White">
+    <Rectangle Width="{Binding Path=Value, Source={StaticResource Relay}, Mode=TwoWay" Height="20" Fill="Green"/>
+    <Slider Value="{Binding Path=Value, Source={StaticResource Relay}, Mode=TwoWay}" Minimum="0" Maximum="300"/>
+</StackPanel>
+{% endhighlight %}
+<p>Here an instance of our RelayObject is bound to both the Rectangle's Width and the Slider's Value, effectively binding these to properties together. This works just fine, however it does not really feel like the WPF ElementName binding, furthermore, you have to add a new RelayObject instance for each binding. </p>
+<p>My solution makes use of the <a href="http://www.codeproject.com/KB/WPF/AttachedBehaviors.aspx">Attached Behaviour</a> pattern which is becoming very popular in WPF and Silverlight. First we define an attached property which uses a type which contains the information we need to create our binding, i.e source and target properties, and the name of the element which we wish to bind to.</p>
+{% highlight csharp %}
+public class BindingProperties
+{
+    public string SourceProperty { get; set; }
+    public string ElementName { get; set; }
+    public string TargetProperty { get; set; }
+}
+
+public static class BindingHelper
+{
+    public static BindingProperties GetBinding(DependencyObject obj)
+    {
+        return (BindingProperties)obj.GetValue(BindingProperty);
+    }
+
+    public static void SetBinding(DependencyObject obj, BindingProperties value)
+    {
+        obj.SetValue(BindingProperty, value);
+    }
+
+    public static readonly DependencyProperty BindingProperty =
+        DependencyProperty.RegisterAttached("Binding", typeof(BindingProperties), typeof(BindingHelper),
+        new PropertyMetadata(null, OnBinding));
+
+
+    /// <summary>
+    /// property change event handler for SelectAllButtonTemplate
+    /// </summary>
+    private static void OnBinding(
+        DependencyObject depObj, DependencyPropertyChangedEventArgs e)
+    {
+        FrameworkElement targetElement = depObj as FrameworkElement;
+
+        targetElement.Loaded += new RoutedEventHandler(TargetElement_Loaded);
+    }
+
+    private static void TargetElement_Loaded(object sender, RoutedEventArgs e)
+    {
+        FrameworkElement targetElement = sender as FrameworkElement;
+
+        // get the value of our attached property
+        BindingProperties bindingProperties = GetBinding(targetElement);
+
+        // perform our 'ElementName' lookup
+        FrameworkElement sourceElement = targetElement.FindName(bindingProperties.ElementName) as FrameworkElement;
+
+        // bind them
+        CreateRelayBinding(targetElement, sourceElement, bindingProperties);
+    }
+}
+{% endhighlight %}
+<p>What the above code does is it defines the attached property of type BindingProperties. The OnBinding method is invoked whenever this property is attached to a dependency object. Within this event handler, we add a handler to the element's Loaded event. This event occurs when the element is laid out within the visual tree and ready for action, it is at this point that we can perform our ElementName lookup.</p>
+<p>Within the TargetElement_Loaded event handler we use the <a href="http://msdn.microsoft.com/en-us/library/system.windows.frameworkelement.findname(VS.95).aspx">FrameworkElement.FindName</a> to look-up the named source element for our binding. This method locates any element with the given name that is within the same <a href="http://msdn.microsoft.com/en-us/library/cc189026(VS.95).aspx">XAML namescope</a> as itself. Interestingly, this is the same method that Visual Studio uses for creating member variables within your code-behind file from the named elements within your XAML. Once, the named element has been located, a relay binding is constructed between them, as follows:</p>
+{% highlight csharp %}
+private static readonly BindingFlags dpFlags = BindingFlags.Public | BindingFlags.Static | BindingFlags.FlattenHierarchy;
+
+private static void CreateRelayBinding(FrameworkElement targetElement, FrameworkElement sourceElement,
+    string targetProperty, string sourceProperty, IValueConverter converter)
+{
+     // create a relay binding between the two elements
+     ValueObject relayObject = new ValueObject();
+
+     // find the source dependency property
+     FieldInfo[] sourceFields = sourceElement.GetType().GetFields(dpFlags);
+     FieldInfo sourceDependencyPropertyField = sourceFields.First(i => i.Name == sourceProperty + "Property");
+     DependencyProperty sourceDependencyProperty = sourceDependencyPropertyField.GetValue(null) as DependencyProperty;
+
+     // initialise the relay object with the source dependency property value
+     relayObject.Value = sourceElement.GetValue(sourceDependencyProperty);
+
+     // create the binding for our target element to the relay object, this binding will
+     // include the value converter
+     Binding targetToRelay = new Binding();
+     targetToRelay.Source = relayObject;
+     targetToRelay.Path = new PropertyPath("Value");
+     targetToRelay.Mode = BindingMode.TwoWay;
+     targetToRelay.Converter = converter;
+
+     // find the target dependency property
+     FieldInfo[] targetFields = targetElement.GetType().GetFields(dpFlags);
+     FieldInfo targetDependencyPropertyField = targetFields.First(i => i.Name == targetProperty + "Property");
+     DependencyProperty targetDependencyProperty = targetDependencyPropertyField.GetValue(null) as DependencyProperty;
+
+     // set the binding on our target element
+     targetElement.SetBinding(targetDependencyProperty, targetToRelay);
+
+     // create the binding for our source element to the relay object
+     Binding sourceToRelay = new Binding();
+     sourceToRelay.Source = relayObject;
+     sourceToRelay.Path = new PropertyPath("Value");
+     sourceToRelay.Mode = BindingMode.TwoWay;
+
+     // set the binding on our source element
+     sourceElement.SetBinding(sourceDependencyProperty, sourceToRelay);
+}
+{% endhighlight %}
+<p>The above code simply creates our relay object, initialising its value from the sourtce element, then constructs the bindings from relay-to-source and relay-to-target. The only 'tricky' part of the above code is the use of reflection to locate the static dependency properties of each element.</p>
+<p>Using the above attached property (behaviour), an element name binding can be constructed as follows:</p>
+{% highlight xml %}
+<Rectangle Height="20" Fill="Green">
+    <local:BindingHelper.Binding>
+        <local:BindingProperties ElementName="Slider" SourceProperty="Value" TargetProperty="Width"/>
+    </local:BindingHelper.Binding>
+</Rectangle>
+<Slider x:Name="Slider" Value="20" Minimum="0" Maximum="300"/>
+{% endhighlight %}
+<p>The advantages of this approach are twofold, firstly, we do not have to explicitly create a relay object for each ElementName bindings, secondly, the source property value is used to initialise the relay object directly. It is also straightforward exercise to extend the above to add ValueConverters into the binding. </p>
+<p>But what if we want to bind two different properties to our slider? If for example we want to bind the Widths of two rectangles, we would need to ensure that a single relay object is constructed which is shared by the Slider and both Rectangles. A simple solution to this problem is to maintain a dictionary of the source bindings to their associated relay objects. If we bind more than one target property to a particular source property, the relay object is re-used. Any value converters are specified on the target binding, therefore we can bind multiple properties to the source with different converters.</p>
+<p>The following example shows a couple of Rectangles bound to our slider where their Widths are scaled by different factors:</p>
+{% highlight xml %}
+<Rectangle Height="20" Fill="Green">
+    <local:BindingHelper.Binding>
+        <local:BindingProperties ElementName="Slider" SourceProperty="Value"
+            TargetProperty="Width" Converter="{StaticResource ScalingConverter}" ConverterParameter="2"/>
+    </local:BindingHelper.Binding>
+</Rectangle>
+<Rectangle Height="20" Fill="Green">
+    <local:BindingHelper.Binding>
+        <local:BindingProperties ElementName="Slider" SourceProperty="Value"
+            TargetProperty="Width" Converter="{StaticResource ScalingConverter}" ConverterParameter="4"/>
+    </local:BindingHelper.Binding>
+</Rectangle>
+<Slider x:Name="Slider" Value="20" Minimum="0" Maximum="300"/>
+{% endhighlight %}
+<p>And here is a demonstration of the above implemented both manually with relay objects and with this attached behaviour:</p>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="400" height="200" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/02/silverlightbinding.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>For details of the above, please refer to the attached <a href='{{ site.baseurl }}/archive/2009/02/silverlightelementnamebinding.zip'>project download</a>.</p>
+<p>This approch does have a few downsides - unfortunately the syntax is a little verbose. Also, in its present form you can only create on element name binding per visual element. However, the interesting feature of this technique is that it could be readily adapted to search for the source element in other ways, for example emulating the WPF relative source bindings. Perhaps I will have a go at that one next week ....</p>
+<p>You can download the <a href='{{ site.baseurl }}/archive/2009/02/silverlightelementnamebinding.zip'>sourcecode</a> for this blog post.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+---
+layout: default
+title: Open Source
+summary: Scott Logic's thoughts and ideas relating to Open Source
+image: /assets/blog.png
+---
+{% assign posts = site.categories["Open Source"] %}
+{% if posts %}
+  {% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% endif %}
+{% include post_index.html posts=posts categoryName="Open Source" %}

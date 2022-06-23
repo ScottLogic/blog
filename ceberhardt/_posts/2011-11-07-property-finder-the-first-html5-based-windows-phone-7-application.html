@@ -1,0 +1,63 @@
+---
+id: 1810
+author: ceberhardt
+title: Property Finder - the first HTML5-based Windows Phone 7 Application
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/11/property-finder-the-first-html5-based-windows-phone-7-application/
+tags:
+  - HTML5
+  - JavaScript
+  - PhoneGap
+  - blog
+  - windowsphone
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2011/11/property-finder-the-first-html5-based-windows-phone-7-application/
+---
+<p>Last week I submitted Property Finder, a simple application that searches for properties based in the UK, to the Windows Phone 7 Marketplace. I was happy to receive confirmation that this application had been certified and published just two days later.</p>
+<p>You can <a href="http://www.windowsphone.com/en-GB/apps/0349adf6-d6b3-404f-84ea-63ef97c12b79">download the application from the marketplace</a> now. </p>
+<p><img src="{{ site.baseurl }}/archive/2011/11/PropertyFinder.jpg" alt="" title="PropertyFinder" width="650" height="241" class="aligncenter size-full wp-image-1811" /></p>
+<p>You can also watch a video of <a href="http://www.youtube.com/watch?v=QyYsri9kKUI">Property Finder on YouTube</a>.</p>
+<p>Property Finder isn't your regular Silverlight-based application, it is written with HTML5 / JavaScript. It was made possible by the following technologies and APIs:</p>
+<ul>
+<li><a href="http://phonegap.com/">PhoneGap</a> - a framework that hosts JavaScript / HTML code within a native wrapper. This wrapper allows you to write cross-platform mobile applications which can be distributed within the Windows, Apple and Android marketplaces.</li>
+<li><a href="http://knockoutjs.com/">KnockoutJS</a> - An MVVM framework. The structuring that this framework imposes makes it much easier to handle tombstoning and persistence.</li>
+<li><a href="http://www.nestoria.co.uk/help/api">Nestoria APIs</a> - A property search API which provides a JSON interface.</li>
+<li><a href="http://jquery.com/">jQuery</a> - everyone's favourite JavaScript UI framework.</li>
+<li><a href="http://code.google.com/p/jquery-jsonp/">jQuery-JSONP</a> - A very small library that provides a much better JSONP implementation than the one provided by jQuery.</li>
+</ul>
+<p>I have already written a couple of blog posts about PhoneGap / Windows Phone 7, including <a href="{{ site.baseurl }}/2011/09/29/developing-windows-phone-7-html5-apps-with-phonegap" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">one which introduces the basic concepts</a>, and a second one which <a href="{{ site.baseurl }}/2011/10/24/tombstoning-with-phonegap-for-windows-phone-7-and-knockoutjs" title="Tombstoning with PhoneGap for Windows Phone 7 (and KnockoutJS)">tackles the problem of tombstoning</a>. I plan to write a few more blog posts about how Property Finder was implemented, covering topics such as back-stack handling and how to disable the WebBrowser control's pinch / scroll behaviours.</p>
+<h2 id="why">Why HTML5?</h2>
+<p>So why did I go to all this bother of implementing this application using HTML5? Why not write it in Silverlight instead?</p>
+<p>There is one simple answer to that question - HTML5 is cross-platform. The code I have written for this application will work eqally well on a desktop browser, or within a browser-control on other mobile phoen devices (Android, iPhone, ...). If you look at the current smartphone market-share, Android has suddenly leaped into the lead with WP7 a long way behind. Fortunately for WP7 developers, <a href="{{ site.baseurl }}/2011/04/08/gartner-predicts-a-promising-future-for-windows-phone-7-developers" title="Gartner Predicts a Promising Future for Windows Phone 7 Developers">Gartner predicts a promising future, with a significant market-share by 2015</a>. Also, recent analysis predicts <a href="http://www.computerworld.com.au/article/406060/windows_phone_tipped_rival_blackberry_by_2016_ovum/">WP7 will make a lot of impact in the enterprise</a>. </p>
+<p>However, whether these predictions are right or wrong, the one thing you can be sure of is that the future smartphone market will not be dominated by a single OS. Now and in the future, if you want to make your applications available to smartphone users in general, rather than the users of a specific smartphone model, you have to either write your application multiple times, once for each OS, or use a cross-platform technology.</p>
+<h2 id="ux">Will the user-experience suffer?</h2>
+<p>This is a big question. Developing WP7 applications with Silverlight makes it easy to create the authentic Metro theme, however, most of the libraries for creating HTML5-mobile UIs focus on immitating the iPhone look and feel.</p>
+<p>The easy option when creating a cross-platform HTML5 mobile application is to use the same UI across each platform. Whilst I can imagine Android users being happy with the iPhone look that jQuery Mobile presents, I have a feeling that WP7 users would reject it. I wanted to see how close I could get to something which looks authentic. Opinions so far seem to indicate that I have come close ...</p>
+<p><a href="http://twitter.com/#!/GergelyOrosz/status/133150520788529154"><img src="{{ site.baseurl }}/archive/2011/11/GergelyQuote.png" alt="" title="GergelyQuote" width="500" height="219" class="aligncenter size-full wp-image-1812" /></a></p>
+<p>But perhaps not close enough ...</p>
+<p><a href="http://twitter.com/#!/andrewje_home/status/133307785650769922"><img src="{{ site.baseurl }}/archive/2011/11/AndrewQuote.png" alt="" title="AndrewQuote" width="500" height="228" class="aligncenter size-full wp-image-1813" /></a></p>
+<p>The phrase <a href="http://www.ericsink.com/bos/Platforms.html">"the user's dog is barking"</a> was new to me, but I think describes Property Finder quite well!</p>
+<p>With the use of KnockoutJS the presentation (View) is separate from the logic (ViewModel), which means that it should be possible to change the view for Property Finder to make it look like an iOS application, with minimal effort. This is something I plan to do in the near future, releasing it on iTunes for Apple devices shortly.</p>
+<p>Regarding productivity, once I got into the swing of JavaScipt / Knockout development, I found that I was quite productive. Most of the development work takes place within the browser, in my case, using FireFox and Firebug. Whilst the developer tooling is not great, the process itself is quite rapid; you can edit your code and have it up and running within your browser in less than a seconds!</p>
+<h2 id="loose">Loose ends</h2>
+<p>Property Finder shows a lot of promise, however, it is not quite ready for putting in front of end users yet. There are a couple of technical issues that still need to be resolved before this application, and HTML5-based WP7 applications in general, are ready for prime-time:</p>
+<p><b>The IE9 gray-boxes</b></p>
+<p>If you download the application, or <a href="http://www.youtube.com/watch?v=QyYsri9kKUI">watch the video closely</a>, you will notice that every time you click on a button, and image or the app-bar, a small gray rectangular overlay is render. This totally spoils the illusion I am trying to create! I have asked on the Microsoft <a href="http://blogs.windows.com/buildingapps/2011/09/22/ie9-mobile-developer-overview/">Windows Phone Blog</a>, and asked on  <a href="http://stackoverflow.com/questions/6378008/windows-phone-7-browser-turn-off-the-gray-shading-when-links-are-clicked">StackOverflow</a>, but to no avail.</p>
+<p>If someone from Microsoft is reading this, please address this issue! It will seriously hamper the use of HTML5 for web-applications on Windows Phone 7. (And after you have fixed that, please add CSS 3D transforms, and transitions - thanks!)</p>
+<p><b>Device capabilities</b></p>
+<p>Before submitting my application to the marketplace I was careful to detail its capabilities, listing it as requiring:</p>
+<blockquote><p>Network access, Web browser, geolocation</p></blockquote>
+<p>However, one of the first people to download the application informed me that the <a href="http://twitter.com/#!/andyschwarz1979/status/133108681851158528">'my location' button was not working</a>. On checking my listing on the marketplace I discovered the following list of application capabilities:</p>
+<blockquote><p>data services, movement and directional sensor, microphone, music and video library, owner identity, camera, contacts, camera, compass</p></blockquote>
+<p>All kinds of phone features that I was not using, minus geolocation, which I was! So what is going on here?</p>
+<p>When your application is submitted to the marketplace, static code analysis is used to determine the phone capabilities used. Because my application includes the PhoneGap assembly, which provides JavaScript APIs for camera, compass, contacts etc ... my application was listed as using these phone features, even though my application doesn't actually use them!</p>
+<p>So why is geolocation not listed? This is because PhoneGap does not supply a geolocation API, instead I am using the HTML5 geolocation APIs which are supported by the WebBrowser control directly. It appears that the tools the marketplace team use to detect application capabilities does not 'understand' that a <code>WebBrowser </code>control can use the phones geolocation capabilities. </p>
+<p>I am sure these issues can be resolved ... I'll keep you posted!</p>
+<h2>Conclusions</h2>
+<p>I am happy to see that my first attempt at a HTML5-based WP7 application was accepted by the Windows Marketplace. I am sure that HTML5 will play a significant part in the future of mobile application development and it is re-assuring that Windows Phone 7 can be a part of it.</p>
+<p>More blog posts and technical details to follow ...</p>
+<p>Regards, Colin E.</p>

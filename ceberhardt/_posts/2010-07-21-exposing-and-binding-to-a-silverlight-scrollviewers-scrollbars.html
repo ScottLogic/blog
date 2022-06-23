@@ -1,0 +1,161 @@
+---
+id: 740
+author: ceberhardt
+title: Exposing and Binding to a Silverlight ScrollViewer's Scrollbars
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/07/exposing-and-binding-to-a-silverlight-scrollviewer%e2%80%99s-scrollbars/
+tags:
+  - silverlight
+  - attached behaviour
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2010/07/exposing-and-binding-to-a-silverlight-scrollviewer%e2%80%99s-scrollbars/
+---
+<p><em>The Silverlight ScrollViewer exposes readonly properties which indicate the current vertical and horizontal scroll offset, and methods for setting the current offset. In this blog post I demonstrate a simple attached behaviour that exposes these offsets as read / write dependency properties allowing them to be bound to.</em></p>
+<p>The Silverlight ScrollViewer is a very useful control, if you have some content that is larger than the space available in your application, just sit it inside a ScrollViewer and it will automatically add vertical or horizontal scrollbars as required. Simple.</p>
+<p>The ScrollViewer exposes readonly properties which indicate the current vertical and horizontal scroll offset. I have been used a ScrollViewer on many occasions without finding this to be an issue, however, recently I was creating an MVVM application which contained a list of items within a ScrollViewer. When the user clicks on an item, they are taken to its 'details' page, they then have the option to return to the list. I wanted the list to have the same state when the user returned to it, i.e. the same scroll location. Naturally, with this being an MVVM application, the scroll position belongs on the ViewModel and should be relayed to the View via a binding. However, with the offset properties on the ScrollViewer being readonly, this was not possible. Time to get creative!</p>
+<p>The template of the ScrollViewer contains two ScrollBar instances, one horizontal and one vertical. The basic idea behind my solution is to add an attached behaviour (i.e. an attached property, that on attachment performs some logic on the target element) which walks the visual tree to find these scrollbars exposing their offset values.</p>
+<p>Firstly, we'll start by defining an attached property called VerticalOffset, which will be used to expose the position of the vertical scrollbar. Dependency property boiler plate code follows:</p>
+{% highlight csharp %}
+public static class ScrollViewerBinding
+{
+  #region VerticalOffset attached property
+
+  /// <summary>
+  /// Gets the vertical offset value
+  /// </summary>
+  public static double GetVerticalOffset(DependencyObject depObj)
+  {
+    return (double)depObj.GetValue(VerticalOffsetProperty);
+  }
+
+  /// <summary>
+  /// Sets the vertical offset value
+  /// </summary>
+  public static void SetVerticalOffset(DependencyObject depObj, double value)
+  {
+    depObj.SetValue(VerticalOffsetProperty, value);
+  }
+
+  /// <summary>
+  /// VerticalOffset attached property
+  /// </summary>
+  public static readonly DependencyProperty VerticalOffsetProperty =
+      DependencyProperty.RegisterAttached("VerticalOffset", typeof(double),
+      typeof(ScrollViewerBinding), new PropertyMetadata(0.0, OnVerticalOffsetPropertyChanged));
+
+  #endregion
+}
+{% endhighlight %}
+<p>We'll also define a private attached property of type ScrollBar, which will be used to store a reference to the scrollbar once it has been located within the ScrollViewers visual tree:</p>
+{% highlight csharp %}
+/// <summary>
+/// An attached property which holds a reference to the vertical scrollbar which
+/// is extracted from the visual tree of a ScrollViewer
+/// </summary>
+private static readonly DependencyProperty VerticalScrollBarProperty =
+    DependencyProperty.RegisterAttached("VerticalScrollBar", typeof(ScrollBar),
+    typeof(ScrollViewerBinding), new PropertyMetadata(null));
+{% endhighlight %}
+<p>Because this attached property is private, I haven't bothered to create CLR property accessors which are only used for convenience.</p>
+<p>The VerticalOffset attached property has a changed event handler. When the property is first attached to a ScrollViewer, this allows us to walk the visual tree constructed from the ScrollViewer's template and extract the scrollbars. It is this extra logic that adds new functionality to the ScrollViewer which is what makes this an <a href="http://www.codeproject.com/KB/WPF/AttachedBehaviors.aspx">attached behaviour</a>, as opposed to a regular attached property which merely holds state.</p>
+<p>When an attached property is first associated with its target, the visual tree described by the target's template has not yet been constructed. With WPF, you would typically register for the <a href="http://msdn.microsoft.com/en-us/library/system.windows.frameworkelement.loaded.aspx">Loaded</a> event on the target, and on handling this event walk the visual tree that will have been constructed. However, in Silverlight there is a very subtle difference, apparently <a href="http://blogs.msdn.com/b/silverlight_sdk/archive/2008/10/24/loaded-event-timing-in-silverlight.aspx">the Loaded event is not guaranteed to occur after the template is applied</a>. Oh dear. The only other alternative is to handle the <a href="http://msdn.microsoft.com/en-us/library/system.windows.uielement.layoutupdated.aspx">LayoutUpdated</a> which is fired whenever changes are made to the visual tree. However, there is another complication! The LayoutUpdated event always has a null sender, this might look like a bug, but it is actually <a href="http://connect.microsoft.com/VisualStudio/feedback/details/293803/wpf-layoutupdated-has-sender-always-null">by design</a>. This means that if we handle the LayoutUpdated event on the ScrollViewer element which the property is attached to, the method invoked as the event handler no longer has a reference to the ScrollViewer!</p>
+<p>In order to get around this problem, the attached property changed handler is as follows:</p>
+{% highlight csharp %}
+/// <summary>
+/// Invoked when the VerticalOffset attached property changes
+/// </summary>
+private static void OnVerticalOffsetPropertyChanged(DependencyObject d,
+    DependencyPropertyChangedEventArgs e)
+{
+  ScrollViewer sv = d as ScrollViewer;
+  if (sv != null)
+  {
+    // check whether we have a reference to the vertical scrollbar
+    if (sv.GetValue(VerticalScrollBarProperty) == null)
+    {
+      // if not, handle LayoutUpdated, which will be invoked after the
+      // template is applied and extract the scrollbar
+      sv.LayoutUpdated += (s, ev) =>
+        {
+          if (sv.GetValue(VerticalScrollBarProperty) == null)
+          {
+            GetScrollBarsForScrollViewer(sv);
+          }
+        };
+    }
+    else
+    {
+      // update the scrollviewer offset
+      sv.ScrollToVerticalOffset((double)e.NewValue);
+    }
+  }
+}
+{% endhighlight %}
+<p>Firstly, we check whether we have already got a reference to the scrollbar, if not, we attached a LayoutUpdated event handler. But instead of defining this handler as a method, it is written as an  lambda expression (i.e. an anonymous delegate), so that the ScrollViewer reference is captured using closure.</p>
+<p>When the LayoutUpdated event is fired the following method is invoked:</p>
+{% highlight csharp %}
+/// <summary>
+/// Attempts to extract the scrollbars that are within the scrollviewers
+/// visual tree. When extracted, event handlers are added to their ValueChanged events.
+/// </summary>
+private static void GetScrollBarsForScrollViewer(ScrollViewer scrollViewer)
+{
+  ScrollBar scroll = GetScrollBar(scrollViewer, Orientation.Vertical);
+  if (scroll != null)
+  {
+    // save a reference to this scrollbar on the attached property
+    scrollViewer.SetValue(VerticalScrollBarProperty, scroll);
+
+    // scroll the scrollviewer
+    scrollViewer.ScrollToVerticalOffset(
+      ScrollViewerBinding.GetVerticalOffset(scrollViewer));
+
+
+    // handle the changed event to update the exposed VerticalOffset
+    scroll.ValueChanged += (s, e) =>
+      {
+        SetVerticalOffset(scrollViewer, e.NewValue);
+      };
+  }
+}
+
+/// <summary>
+/// Searches the descendants of the given element, looking for a scrollbar
+/// with the given orientation.
+/// </summary>
+private static ScrollBar GetScrollBar(FrameworkElement fe, Orientation orientation)
+{
+  return fe.Descendants()
+            .OfType<ScrollBar>()
+            .Where(s => s.Orientation == orientation)
+            .SingleOrDefault();
+
+}
+{% endhighlight %}
+<p>The GetScrollBar method is invoked, which then uses <a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree">Linq-to-VisualTree</a> to walk the descendants of the ScrollViewer in an attempt  to find scrollbars of a given orientation. If one is found, it is stored in the private attached property. We also subscribe to the events which the scrollbar raises when its value changes, in order to update the VerticalOffsetProperty. Again, a lambda expression is used to capture the ScrollViewer which this scrollbar is associated with, so that we do not have to store a relationship from scrollbar to scrollviewer.</p>
+<p>As an aside, it would have been a bit more elegant to use binding to connect our VerticalScrollOffset to the scrollbar value as follows:</p>
+{% highlight csharp %}
+scroll.SetBinding(ScrollBar.ValueProperty,
+  new Binding("(ScrollViewerBinding.VerticalOffset)")
+  {
+    Source = scrollViewer
+  });
+{% endhighlight %}
+<p>However, it appears that there is a <a href="http://forums.silverlight.net/forums/p/153389/342703.aspx">bug in Silverlight</a> which makes binding to custom attached properties in code behind fail with a critical error. Until this is fixed, we have to take care of the 'binding', by handling change events from both properties, manually.</p>
+<p>Using this attached behaviour is as simple as the following:</p>
+{% highlight xml %}
+<ScrollViewer
+    local:ScrollViewerBinding.VerticalOffset="{Binding YPosition, Mode=TwoWay}"
+    local:ScrollViewerBinding.HorizontalOffset="{Binding XPosition, Mode=TwoWay}">
+    <!-- Big content goes here! -->
+</ScrollViewer>
+{% endhighlight %}
+<p>The following little demo binds the X & Y offset of the scrollviewer to two CLR properties (with property changed notifications) defined in code behind. These same properties are bound to the text fields below:</p>
+<div id="slPluginHost1" > <object id="SilverlightPlugin1" width="400" height="180" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/07/ScrollOffsetBinding.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download the complete sourcecode for this blog post: <a href='{{ site.baseurl }}/archive/2010/07/ScrollOffsetBinding.zip'>ScrollOffsetBinding.zip</a></p>
+<p>Regards, Colin E.</p>

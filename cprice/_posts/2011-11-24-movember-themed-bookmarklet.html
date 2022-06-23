@@ -1,0 +1,32 @@
+---
+id: 136107
+author: cprice
+title: Movember Themed Bookmarklet
+oldlink: "http://www.scottlogic.co.uk/2011/11/movember-themed-bookmarklet/"
+tags:
+  - Javascript
+  - bookmarklet
+  - movember
+  - blog
+categories:  [ 'Tech' ]
+layout: default_post
+source: site
+disqus-id: /2011/11/movember-themed-bookmarklet/
+---
+<p>I recently came across the <a title="mustachify.me service" href="http://mustachify.me/">mustachify.me</a> service. Inspired by <a href="http://uk.movember.com/">Movember</a>, I just had to spread the mo-ssage. One <a href="http://en.wikipedia.org/wiki/Bookmarklet">bookmarklet</a> later, I can now man-up any page* I deem appropriate.</p>
+<p>I've picked some likely stooges from Scott Logic for you to test the link out on. Admire them first with their frankly boyish faces, before clicking this link to <a title="Manify!" href="javascript:void((function(){var imgs=document.getElementsByTagName('IMG'),i=0,img;while(img=imgs[i++])img.src='http://mustachify.me/?src='+img.src;}()));">Mustachify!</a> them into real men.</p>
+<p style="text-align:center"><a href="{{ site.baseurl }}/godds/"><img class="aligncenter" title="Graham" src="{{ site.baseurl }}/archive/2010/04/developers-graham.jpg" alt="" width="100" height="100" /></a>  <a href="{{ site.baseurl }}/ceberhardt/"><img class="aligncenter" title="Colin" src="{{ site.baseurl }}/archive/2011/07/colin.jpg" alt="" width="100" height="100" /></a>  <a href="http://www.scottlogic.com/about/management_team/"><img class="aligncenter" title="Gary" src="{{ site.baseurl }}/archive/2010/04/management-team-gary.jpg" alt="" width="100" height="100" /></a></p>
+<p>To use the link on another site, just drag it onto you favorites/bookmarks toolbar, visit the site and click the favorite/bookmark*. I can recommend the BBC's <a href="http://www.bbc.co.uk/news/entertainment_and_arts/">entertainment news</a> and <a href="http://www.bbc.co.uk/news/politics/">politics news</a> websites as good candidates!</p>
+<p>On a slightly more serious note, there's a few guys from the office who have put in a sterling face effort. You can check out their <a title="Scott Mo'gic" href="http://uk.movember.com/mospace/1667648/">Mospace page</a> if you'd like to donate to the cause.</p>
+<p style="text-align:center"><a href="http://uk.movember.com/mospace/1667648/"><img class="alignnone" title="Paul" src="http://static.movember.com/uploads/2011/profiles/7c4/da9/7c4da9db888435779c72353951904c50-4ec9869fc1ca7.jpg" alt="" width="140" height="140" /></a>  <a href="http://uk.movember.com/mospace/1796058/"><img class="alignnone" title="Simon" src="http://static.movember.com/uploads/2011/profiles/ae0/958/ae095874f2f442d97fb2f4acf006ffb0-4eca55e325ea0.jpg" alt="" width="140" height="140" /></a>  <a href="http://uk.movember.com/mospace/1955078/"><img class="alignnone" title="Adrian" src="http://static.movember.com/uploads/posts/3/3227/3227162.jpg" alt="" width="104" height="174" /></a></p>
+<p><em>* the bookmarklet will only work on sites containing images that are hosted publicly and not behind a login etc.. This is a limitation of mustachify and well the internet!</em></p>
+<p style="text-align:center"><a href="http://en.wikipedia.org/wiki/File:Steven_seagalpa.jpg"><img class="size-medium wp-image-136138" title="Steven Seagal" src="{{ site.baseurl }}/archive/2011/11/Steven_seagalpa-220x300.jpg" alt="" width="220" height="300" /></a>In keeping with the 80-90s film legends in blog posts theme (Author:Samantha Murphy)</p>
+<p>For anyone interested in how the bookmarklet works it is trivially simple thanks to the API moustachify exposes -</p>
+{% highlight javascript %}void((function () { // standard bookmarklet faire
+    var imgs = document.getElementsByTagName("IMG"), // grab all the img tags from the page
+        i = 0,
+        img;
+    // swap out the source of each image with a moustachified URL
+    while (img = imgs[i++]) img.src = "http://mustachify.me/?src=" + img.src;
+}())); // standard bookmarklet faire{% endhighlight %}
+<p>Digging a bit deeper into how <a href="https://github.com/afeld/mustachio">mustachio</a> works, led me to <a href="http://face.com">face.com</a> and this <a href="http://developers.face.com/tools/#faces/detect">API example</a>. There have got to be a million awesome uses of that, and it's free!</p>

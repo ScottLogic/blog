@@ -1,0 +1,93 @@
+---
+id: 1662
+author: ceberhardt
+title: Windows 8 - An OS of two halves.
+oldlink: "http://www.scottlogic.co.uk/blog/colin/2011/09/windows-8-an-os-of-two-halves/"
+tags:
+  - News
+  - WPF
+  - silverlight
+  - Windows Phone 7
+  - Windows 8
+  - blog
+categories:  [ 'Tech' ]
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/09/windows-8-an-os-of-two-halves/
+---
+<p><em>In this blog post I take a look at Windows 8 on the outside, from a user perspective; and on the inside, from a developer perspective to see how it will change the way we develop with Windows on tablets, smartphones and the desktop when it is released next year.</em></p>
+<p>In Anaheim, California, the Microsoft //build/ conference is drawing to a close. And as the attendees head for home, with their shiny new Samsung tablets under their arms, the news of Windows 8 and the impact it has on end-users and developers is starting to sink in around the globe.</p>
+<p>There is no doubt that the impact of Windows 8 is going to be very large, it heralds the biggest change in the Windows architecture since 1993 and from an end-user perspective it is like no other version of Windows before it.</p>
+<p>So why such a radical change to both the UI and the architecture? and why now? The answer to this question is quite simple ... <strong>tablets</strong>. Previous versions of Windows have been targeted primarily at the desktop, laptop and netbook form-factors where the primary input devices are mouse and keyboard, and memory, disk-space, CPU performance is aplenty. Tablets have made the odd cameo appearance in the history of computing, but it is only recently with the launch of the iPad that they have suddenly become mainstream.</p>
+<p>To take the Windows OS to a tablet it needs to be stripped-down, made faster and support multi-touch (or touch-first - a new Microsoft buzzword) and with Windows 8 Microsoft have done just that. With the requirements of a tablet interface being so different to a desktop, how have Microsoft reconciled these differences? The answer is a little surprising ... <em> they haven't</em>! They could have launched a dedicated Tablet Windows OS, just as they have done on the mobile with Windows Phone 7, but instead they have launched a single OS that works for both tablet and desktop. As a result it has something of a split personality. You can choose to run either the Metro or the 'classic' desktop UI on your tablet computer and you have exactly the same choice on your desktop.</p>
+<h2>An end-user perspective</h2>
+<p>The Windows 8 user interface uses the same Metro style that Microsoft introduced with Windows Phone 7, bright colours, clean edges, a lack of drop-shadows and other adornments. The style is heavily influenced by fonts and designs used for road and street-signs. The same concepts of clarity-at-a-distance translates very well to a small smartphone screen and should be equally at home on the tablet.</p>
+<p><img src="{{ site.baseurl }}/archive/2011/09/windows8.jpg" alt="" title="windows8" width="560" height="315" class="aligncenter size-full wp-image-1663" /></p>
+<p>When applications are launched they run full-screen, with a similar multi-tasking model to Windows Phone 7 where  hidden applications are suspended. These features, combined with the fast shutdown / restart times make sense for tablet users where limiting the work that the processor does will significantly enhance battery life.</p>
+<p>You can run multiple applications side-by-side in a split-screen mode:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/09/windows-8-split-screen.jpg" alt="" title="windows-8-split-screen" width="560" height="335" class="aligncenter size-full wp-image-1664" /></p>
+<p>The current preview of Windows 8 has a few of the familiar applications available in the new Metro-desktop, these include IE which is now chromeless, i.e. it is permanently in full-screen mode. Gestures are used to reveal the open tabs or URL. Notably the Metro IE does not support any plugins, i.e. Flash, Silverlight - more on this later!</p>
+<p>Metro applications for Windows 8 are distributed via the Windows Marketplace in much the same way as they are for Windows Phone (and iPad, Android etc...). </p>
+<p>The Windows 8 UI clearly has tablets in mind and recent reviews by <a href="http://www.engadget.com/2011/09/13/windows-8-for-tablets-hands-on-preview/">Engadget</a> and <a href="http://gizmodo.com/5839665/windows-8-slate-hands-on-its-fantastic-but-dont-sell-your-ipad">Gizmodo</a> seem to indicate that the experience is very good and agree that when released it could be a serious competitor to the iPad.</p>
+<p>However, hidden behind the glossy Windows 8 UI sits the more traditional Windows 7 style desktop. Simply click (or touch) the desktop button and the old-familiar Windows desktop appears. It almost feels like the desktop is an app running within the new Metro UI - you can also run a split screen which combines the Metro and desktop UIs:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/09/MetroDesktop.jpg" alt="" title="MetroDesktop" width="560" height="315" class="aligncenter size-full wp-image-1666" /></p>
+<p>Interestingly if you <em>want </em>to run IE with plugins, there is a fully-featured version of IE present on the desktop. Try explaining these differences to your grandmother!</p>
+<p>For a tablet, Windows 8 gives you the best of both worlds, an immersive and tactile Metro interface, plus the old-familiar Windows desktop.</p>
+<p>On the desktop, Windows 8 does feel a bit strange. Metro applications are designed to work with the mouse and the keyboard, so it functions just fine, however, on a desktop monitor the Metro UI feels like a bit large and a touch gimmicky. The Metro concepts work well for small screens, but in my opinion are less effective on a large desktop monitor, especially in the absence of touch. I doubt it will make a big impact for desktop users, but at least they have the choice! When used on a PC with multiple monitors the new Metro UI is confined to a single screen, again further illustrating its tablet focus.</p>
+<h2>A developer perspective</h2>
+<p>Windows 8 marks a radical change from the outside, but what about on the inside? What is the developer story?</p>
+<p>One of the most important diagrams revealed in the keynote is the Windows 8 architecture diagram:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/09/Windows8Architecture.jpg" alt="" title="Windows8Architecture" width="550" height="309" class="aligncenter size-full wp-image-1667" /></p>
+<p>It is clear that the split personality of Windows 8 runs very deep. In this diagram you can see that Metro style apps and desktop apps share the kernel, but nothing else. This is a pretty significant change in Windows architecture; Metro apps are finally free of the Win32 APIs which .NET has been built upon.</p>
+<p>The APIs for developing Metro apps reside within the WinRT. A few keys things to know about this new architecture are:</p>
+<ul>
+<li>WinRT applications are chromless, fullscreen, with no pop-up or modal dialogs</li>
+<li>WinRT is an Object Oriented replacement for Win32</li>
+<li>WinRT is very similar to .NET, however a number of APIs such as file I/O, security etc... are not present.</li>
+<li>You can develop with C++, or C# etc... in much the same way as .NET applications</li>
+<li>The UI defined using XAML, as per WPF and Silverlight</li>
+<li>You can potentially port Silverlight applications to WinRT by changing a few namespaces</li>
+<li>JavaScript is a first-class citizen of Windows 8, using a HTML UI</li>
+</ul>
+<p>The above already tells us a lot about WinRT and Metro applications. My first thoughts are that they are much more similar to Windows Phone 7 applications than desktop WPF applications. They live within a sandbox which uses a restricted subset of APIs, you certainly cannot write a virus checked or hard disk partitioning tool with WinRT!</p>
+<p>Furthermore, when developing Metro UI apps, Visual Studio 'deploys' your application too your Windows 8 Metro desktop in exactly the same way as it does with the WP7 phone.</p>
+<p>So what about existing .NET applications? The important thing to know is that all the 'old' APIs are still there. Your WPF, Silverlight and WinForms applications are safe! There were also a few new WPF features announced at //build/ as part of .NET4.5, but they are not very interesting, it is clear that Microsoft has been putting its energy into other things.</p>
+<p>The JavaScript / HTML5 story is a bit of an odd one. Clearly Microsoft has embraced these technologies, with JavaScript having full access to the WinRT. Furthermore, they have added <a href="http://msdn.microsoft.com/en-us/library/windows/apps/br211385">APIs for creating Metro UIs</a> with HTML. However, I am not sure why someone would want to use JavaScript to create Windows 8 Metro applications? The main strength of JavaScript and HTML5 is the portability due to its support on a wide range of browsers, tablets, phones, etc... The Windows 8 JavaScript Metro apps are 'tied' to WinRT so are in no way portable.</p>
+<h2>Questions ...</h2>
+<p>Lots of questions ... the rather complicated nature of Windows 8 has resulted in quite a lot of confusion. </p>
+<p><strong>Is Silverlight Dead?</strong> - this was probably the most oft asked question before //build/ and it is still being asked. The news that the<a href="http://blogs.msdn.com/b/b8/archive/2011/09/14/metro-style-browsing-and-plug-in-free-html5.aspx"> Metro IE10 will not run Silverlight</a> is certainly not good news for the technology, however, it does not mean it is dead - Silverlight is still present in the desktop IE10 browser (as is Flash). Recently Silverlight has been re-positioned as the technology of choice for more complex line-of-business applications, the types of application which sit better in the Windows 8 'classic' desktop. Furthermore, whilst the Metro UI is leading the push into tablet computing, I doubt it will take off on the desktop. So, no, Silverlight is not dead, but it has unfortunately missed out on being part of the Metro UI for tablets.</p>
+<p>There is a relatively simple migration path for <a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh465136%28v=VS.85%29.aspx">Silverlight and Windows Phone 7 applications to the new Metro WinRT</a>. This might work for full-screen Silverlight applications, but will not work for applications that mix HTML and Silverlight content within a browser.</p>
+<p><strong>Is WPF Dead?</strong> - Again, for much the same reasons as Silerlight the answer is "no". WPF is a framework intended for line-of-business applications, and those belong on the Windows 8 desktop.</p>
+<p><strong>How does this impact Windows Phone 7?</strong> - it doesn't. The next version of WP7 is going RTM shortly and there has been no change to these plans. In fact for WP7 developers Windows 8 is a great opportunity. The WinRT seems most closely related to Silverlight for WP7, so your skills and code are readily portable to the tablet.</p>
+<p><strong>Should I write my app as a desktop or Metro app?</strong> - this is probably the single hardest question that the Windows 8 preview has raised. As application developers we now have two very different ways which we can deliver applications to the desktop and tablet, either the new Metro UI, powered by the (deliberately) limited WinRT; or desktop applications using WPF or Silverlight. I think it will be very interesting to see how Microsoft tackles this problem with its own applications. So far the Windows 8 preview has Metro UI based Twitter, Weather and Social Networking applications and a desktop based Visual Studio. There is also IE which is available in both desktop and Metro, albeit with quite different functionality. Where will Outlook, Word, Excel sit in the new Windows 8?</p>
+<p>I think there are rather a lot of applications that will want to make use of both Metro and desktop UIs. Take Outlook for example, you could imagine a simplified Metro interface sitting on one of your monitors, but a more feature rich desktop version available on the other.</p>
+<p>One other point worth considering is 'reach'. It will take a long time before everyone is running a Windows 8 PC, so if you choose to deliver your application as a Metro app, you are restricting yourself just to the Windows 8 user-base. However, if you are targeting the Windows tablet, you can of course guarantee that they will run Windows 8.</p>
+<h2>Conclusions</h2>
+<p>Windows 8 presents a significant change in the way we develop Windows applications.  The split personality of the Windows 8 user interface and architecture is going to cause confusion on many levels.</p>
+<p><img src="{{ site.baseurl }}/archive/2011/09/TwoHeaded.jpg" alt="" title="TwoHeaded" width="461" height="318" class="aligncenter size-full wp-image-1668" /></p>
+<p>The technical implications of WinRT and how it relates to .NET are slowly starting to become clear, thanks to great blog posts like <a href="http://tirania.org/blog/archive/2011/Sep-15.html">"WinRT Demystified"</a>.</p>
+<p>Personally what I think will take a little bit longer to understand is how we design applications for Windows 8, as we start to discover what works well in Metro, what should remain on the desktop and what we deliver to both.</p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

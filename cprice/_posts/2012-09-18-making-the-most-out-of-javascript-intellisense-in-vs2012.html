@@ -1,0 +1,25 @@
+---
+id: 159126
+author: cprice
+title: Making the most out of JavaScript Intellisense in VS2012
+oldlink: "http://www.scottlogic.co.uk/2012/09/making-the-most-out-of-javascript-intellisense-in-vs2012/"
+tags:
+  - Intellisense
+  - Javascript
+  - Visual Studio 2010
+  - Mobile
+  - Visual Studio 2012
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/09/making-the-most-out-of-javascript-intellisense-in-vs2012/
+---
+<p>Intellisense for JavaScript has always felt to me like an unfinished addition to Visual Studio, something that promises so much but <a href="/2010/08/27/vs-2010-vs-doc-and-javascript-intellisense">doesn't deliver for larger projects</a>. Manually adding and then maintaining another set of dependency references just for Intellisense has just never seemed worth it. However, with the launch of Visual Studio 2012 Intellisense has had a refresh, does this mean it's now worth another look?</p>
+<p><a href="http://www.codeproject.com/Articles/460836/Making-the-most-out-of-JavaScript-Intellisense-in"><img src="{{ site.baseurl }}/archive/2012/09/Untitled.png" title="Read the full article on Code Project" width="650" height="251" class="alignnone size-full wp-image-159127" /></a></p>
+<p>In this post I've taken <a href="http://www.codeproject.com/Articles/445361/Property-Finder-a-Cross-Platform-HTML5-Mobile-App">Colin Eberhardt's HTML5 Property Finder</a> app and enhanced it with AMD (Asynchronous Module Definitions) allowing each JavaScript file to define it's own dependencies, much like C#. This one source of dependency data is then used when writing the code to automatically provide Intellisense, during debugging in the browser to load each JavaScript file in the correct order (no more long lists of script tags!) and when releasing to build a single optimised JavaScript file.</p>
+<p><a href="http://www.codeproject.com/Articles/460836/Making-the-most-out-of-JavaScript-Intellisense-in">Read the full article on Code Project</a></p>
+<p><a class="twitter-share-button" href="https://twitter.com/share" data-via="100pxls">Tweet</a><script type="text/javascript">// <![CDATA[!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");// ]]></script></p>
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+<p><script type="text/javascript">// <![CDATA[  (function() {    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;    po.src = 'https://apis.google.com/js/plusone.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);  })();// ]]></script></p>

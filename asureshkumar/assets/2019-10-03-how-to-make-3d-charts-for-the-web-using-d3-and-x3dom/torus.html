@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Torus</title>
+    <script src="x3dom-full.js"></script>
+    <link rel="stylesheet" href="x3dom.css">
+    <style>
+        html { height: 100%; width: 100%; }
+        body { height: 100%; width: 100%; margin: 0px; }
+        x3d { height: 100%; width: 100%; }
+        x3d > canvas { display: block; }
+    </style>
+  </head>
+  <body>
+    <x3d>
+      <scene>
+        <shape>
+          <appearance>
+            <material diffuseColor="1 0 0"></material>
+          </appearance>
+          <torus></torus>
+        </shape>
+      </scene>
+    </x3d>
+  </body>
+</html>

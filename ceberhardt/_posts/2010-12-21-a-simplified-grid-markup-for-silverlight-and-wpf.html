@@ -1,0 +1,253 @@
+---
+id: 1050
+author: ceberhardt
+title: A Simplified Grid Markup for Silverlight and WPF
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/12/a-simplified-grid-markup-for-silverlight-and-wpf/
+tags:
+  - attached behaviour
+  - grid
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2010/12/a-simplified-grid-markup-for-silverlight-and-wpf/
+---
+<p><em>The WPF / Silverlight syntax is long and cumbersome. This blog post describe a simple attached property that allows you to specify row and column widths / heights as a simple comma separated list, e.g. RowDefinitions="Auto,,3*,,,,2*"</em></p>
+<p>The Grid is probably one of the most useful and versatile layouts that Silverlight and WPF offers. However, if you hand craft your XAML, as I do, you will probably start to find the Grid markup for defining rows and columns to be verbose and cumbersome. If we look at the following example, which uses a mixture of Auto, Star and Pixel widths / heights:</p>
+<p><img class="aligncenter size-full wp-image-1051" title="gridExample" src="{{ site.baseurl }}/archive/2010/12/gridExample.png" alt="" width="290" height="241" /></p>
+<p>Despite this being a simple example, the required row and column definitions are highly verbose:</p>
+{% highlight xml %}
+<Grid>
+  <Grid.RowDefinitions>
+    <RowDefinition Height="Auto"/>
+    <RowDefinition/>
+    <RowDefinition/>
+    <RowDefinition/>
+    <RowDefinition/>
+    <RowDefinition/>
+    <RowDefinition Height="2*"/>
+  </Grid.RowDefinitions>
+  <Grid.ColumnDefinitions>
+    <ColumnDefinition Width="100"/>
+    <ColumnDefinition/>
+  </Grid.ColumnDefinitions>
+
+  <TextBlock Text="User Details" FontSize="20"
+          HorizontalAlignment="Center"
+          Grid.ColumnSpan="2"/>
+
+  <TextBlock Text="Forename:"
+              Grid.Row="1"/>
+  <TextBox Text="Jeremy"
+            Grid.Column="1" Grid.Row="1"/>
+
+  <TextBlock Text="Surname:"
+              Grid.Row="2"/>
+  <TextBox Text="James"
+            Grid.Column="1" Grid.Row="2"/>
+
+  <TextBlock Text="Age:"
+              Grid.Row="3"/>
+  <TextBox Text="24"
+            Grid.Column="1" Grid.Row="3"/>
+
+  <TextBlock Text="Phone:"
+              Grid.Row="4"/>
+  <TextBox Text="+44 191 555467"
+            Grid.Column="1" Grid.Row="4"/>
+
+  <TextBlock Text="Notes:"
+              Grid.Row="5"/>
+  <TextBox Text="A multi-line block of text ..."
+            TextWrapping="Wrap"
+            Grid.Row="6" Grid.ColumnSpan="2"/>
+</Grid>
+{% endhighlight %}
+<p>To provide a simpler alternative, I have created attached properties, one for the column definitions, and the other for the rows. These attached properties allow you to specify the columns / rows as a comma separated list of heights and widths.</p>
+<p>Using this technique, the above example becomes:</p>
+{% highlight xml %}
+<Grid local:GridUtils.ColumnDefinitions="100,"
+      local:GridUtils.RowDefinitions="Auto,,,,,,2*">
+
+  <TextBlock Text="User Details" FontSize="20"
+          HorizontalAlignment="Center"
+          Grid.ColumnSpan="2"/>
+
+  <TextBlock Text="Forename:"
+              Grid.Row="1"/>
+  <TextBox Text="Jeremy"
+            Grid.Column="1" Grid.Row="1"/>
+
+  <TextBlock Text="Surname:"
+              Grid.Row="2"/>
+  <TextBox Text="James"
+            Grid.Column="1" Grid.Row="2"/>
+
+  <TextBlock Text="Age:"
+              Grid.Row="3"/>
+  <TextBox Text="24"
+            Grid.Column="1" Grid.Row="3"/>
+
+  <TextBlock Text="Phone:"
+              Grid.Row="4"/>
+  <TextBox Text="+44 191 555467"
+            Grid.Column="1" Grid.Row="4"/>
+
+  <TextBlock Text="Notes:"
+              Grid.Row="5"/>
+  <TextBox Text="A multi-line block of text ..."
+            TextWrapping="Wrap"
+            Grid.Row="6" Grid.ColumnSpan="2"/>
+</Grid>
+{% endhighlight %}
+<p>The comma separated list defines the widths / heights of each column / row. The number of items in this list defined the number of rows / column that are generated. This notation supports pixel, star and auto widths / heights. Also, if you want a row or column with the default size, just leave the value blank, i.e. a row definition of ",,," will create four rows of default height.</p>
+<p>The code to achieve this is pretty simple, involving a couple of attached properties and string parsing in their changed event handlers. The complete code for the GridUtils class is given below, feel free to copy and paste it into your project:</p>
+{% highlight csharp %}
+using System.Windows;
+using System.Windows.Controls;
+
+namespace SimplifiedGrid
+{
+  public class GridUtils
+  {
+    #region RowDefinitions attached property
+
+    /// <summary>
+    /// Identified the RowDefinitions attached property
+    /// </summary>
+    public static readonly DependencyProperty RowDefinitionsProperty =
+        DependencyProperty.RegisterAttached("RowDefinitions", typeof(string), typeof(GridUtils),
+            new PropertyMetadata("", new PropertyChangedCallback(OnRowDefinitionsPropertyChanged)));
+
+    /// <summary>
+    /// Gets the value of the RowDefinitions property
+    /// </summary>
+    public static string GetRowDefinitions(DependencyObject d)
+    {
+      return (string)d.GetValue(RowDefinitionsProperty);
+    }
+
+    /// <summary>
+    /// Sets the value of the RowDefinitions property
+    /// </summary>
+    public static void SetRowDefinitions(DependencyObject d, string value)
+    {
+      d.SetValue(RowDefinitionsProperty, value);
+    }
+
+    /// <summary>
+    /// Handles property changed event for the RowDefinitions property, constructing
+    /// the required RowDefinitions elements on the grid which this property is attached to.
+    /// </summary>
+    private static void OnRowDefinitionsPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+      Grid targetGrid = d as Grid;
+
+      // construct the required row definitions
+      targetGrid.RowDefinitions.Clear();
+      string rowDefs = e.NewValue as string;
+      var rowDefArray = rowDefs.Split(',');
+      foreach (string rowDefinition in rowDefArray)
+      {
+        if (rowDefinition.Trim() == "")
+        {
+          targetGrid.RowDefinitions.Add(new RowDefinition());
+        }
+        else
+        {
+          targetGrid.RowDefinitions.Add(new RowDefinition()
+          {
+            Height = ParseLength(rowDefinition)
+          });
+        }
+      }
+    }
+
+    #endregion
+
+
+    #region ColumnDefinitions attached property
+
+    /// <summary>
+    /// Identifies the ColumnDefinitions attached property
+    /// </summary>
+    public static readonly DependencyProperty ColumnDefinitionsProperty =
+        DependencyProperty.RegisterAttached("ColumnDefinitions", typeof(string), typeof(GridUtils),
+            new PropertyMetadata("", new PropertyChangedCallback(OnColumnDefinitionsPropertyChanged)));
+
+    /// <summary>
+    /// Gets the value of the ColumnDefinitions property
+    /// </summary>
+    public static string GetColumnDefinitions(DependencyObject d)
+    {
+      return (string)d.GetValue(ColumnDefinitionsProperty);
+    }
+
+    /// <summary>
+    /// Sets the value of the ColumnDefinitions property
+    /// </summary>
+    public static void SetColumnDefinitions(DependencyObject d, string value)
+    {
+      d.SetValue(ColumnDefinitionsProperty, value);
+    }
+
+    /// <summary>
+    /// Handles property changed event for the ColumnDefinitions property, constructing
+    /// the required ColumnDefinitions elements on the grid which this property is attached to.
+    /// </summary>
+    private static void OnColumnDefinitionsPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+      Grid targetGrid = d as Grid;
+
+      // construct the required column definitions
+      targetGrid.ColumnDefinitions.Clear();
+      string columnDefs = e.NewValue as string;
+      var columnDefArray = columnDefs.Split(',');
+      foreach (string columnDefinition in columnDefArray)
+      {
+        if (columnDefinition.Trim() == "")
+        {
+          targetGrid.ColumnDefinitions.Add(new ColumnDefinition());
+        }
+        else
+        {
+          targetGrid.ColumnDefinitions.Add(new ColumnDefinition()
+          {
+            Width = ParseLength(columnDefinition)
+          });
+        }
+      }
+    }
+
+    #endregion
+
+    /// <summary>
+    /// Parses a string to create a GridLength
+    /// </summary>
+    private static GridLength ParseLength(string length)
+    {
+      length = length.Trim();
+
+      if (length.ToLowerInvariant().Equals("auto"))
+      {
+        return new GridLength(0, GridUnitType.Auto);
+      }
+      else if (length.Contains("*"))
+      {
+        length = length.Replace("*","");
+        if (string.IsNullOrEmpty(length)) length = "1";
+        return new GridLength(double.Parse(length), GridUnitType.Star);
+      }
+
+      return new GridLength(double.Parse(length), GridUnitType.Pixel);
+    }
+  }
+}
+
+{% endhighlight %}
+<p>The code which parses the row and column strings is also executed by the Visual Studio designer, so you can see your new rows / columns immediately. It also works just fine in WPF and Silverlight.</p>
+<p>You can download example projects in both technologies: <a href='{{ site.baseurl }}/archive/2010/12/SimplifiedGrid.zip'>SimplfiedGrid.zip</a></p>
+<p>(Thanks to Rob Newsome for coming up with this idea in the first place!)</p>
+<p>Regards, Colin E.</p>

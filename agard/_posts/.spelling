@@ -1,0 +1,14 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - agard/_posts/2017-09-07-foyer-screen.md
+Arran
+Rashid
+Api
+airlink
+30s
+DAOs
+aspx
+glanceable

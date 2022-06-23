@@ -1,0 +1,100 @@
+---
+id: 38
+author: ceberhardt
+title: WPF DataGrid - Committing changes cell-by-cell
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2009/01/wpf-datagrid-committing-changes-cell-by-cell/
+tags:
+  - DataGrid
+  - IEditableObject
+  - WPF
+  - blog
+  - wpf
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2009/01/wpf-datagrid-committing-changes-cell-by-cell/
+---
+<p>In my recent <a href="http://www.codeproject.com/KB/WPF/WPFDataGridExamples.aspx">codeproject article on the DataGrid</a> I described a number of techniques for handling the updates to DataTables which are bound to the grid. These examples all worked on the assumption that you want to keep your database synchronised with the DataGrid, with changes being committed on a row-by-row basis, i.e. when the user finishes editing a row the changes are written to the database. The WPF DataGrid operates in a row-oriented manner making this a relatively straightforward scenario to implement.</p>
+<p>However, what if you want to commit changes on a cell-by-cell basis? Firstly, lets have a look at the problem in a bit more detail. The following code displays a DataGrid, together with a 'details' view. Note that IsSynchronizedWithCurrentItem is set to true so that the details view and currently selected item within the grid will remain synchronised:</p>
+{% highlight xml %}<DockPanel DataContext="{Binding Source={StaticResource PersonData}}">
+
+  <Border DockPanel.Dock="Bottom" Padding="10">
+    <Grid x:Name="RootElement">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="1.8*"/>
+      </Grid.ColumnDefinitions>
+
+      <Grid.RowDefinitions>
+        <RowDefinition/>
+        <RowDefinition/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+
+      <Label Content="Forename:"/>
+      <TextBox Grid.Column="1" Text="{Binding Forename}"/>
+
+      <Label Grid.Row="1" Content="Surname:"/>
+      <TextBox  Grid.Row="1" Grid.Column="1" Text="{Binding Surname}"/>
+
+      <Label Grid.Row="2"  Content="Age:"/>
+      <TextBox Grid.Row="2"   Grid.Column="1" Text="{Binding Age}"/>
+    </Grid>
+  </Border>
+
+  <dg:DataGrid ItemsSource="{Binding}" Name="dataGrid"
+         IsSynchronizedWithCurrentItem="true"/>
+</DockPanel>{% endhighlight %}
+<p>The 'PersonData' in this case is a DataTable that is constructed in the code-behind.</p>
+<p>Now, with this example, if you make changes to a persons surname, then click on the age cell and make changes there, the changes in surname are not reflected in the details view below:</p>
+<p><a href="http://wpfadventures.files.wordpress.com/2008/11/rownotcommitted.png"><img class="alignnone size-full wp-image-39" title="rownotcommitted" src="http://wpfadventures.files.wordpress.com/2008/11/rownotcommitted.png" alt="rownotcommitted" width="299" height="299" /></a></p>
+<p>In the above example the user has entered the surname "Blunt" and has moved onto the age cell, however the changes are not reflected in the details view below.</p>
+<p>Why is this?</p>
+<p>The reason is that when you bind to a DataTable, you are actually binding to your DataTable's DefaultView, which is of type DataView. As a result, each row of your table will be bound to a DataRowView. If you look at the documentation for <a href="http://msdn.microsoft.com/en-us/library/system.data.datarowview.aspx">DataRowView</a> you will find that it implements the <a href="http://www.google.co.uk/url?sa=t&amp;source=web&amp;ct=res&amp;cd=1&amp;url=http%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fsystem.componentmodel.ieditableobject.aspx&amp;ei=SQ4wSZy0KIbgwgHOmPWNCw&amp;usg=AFQjCNHpZx0Bm5eAgfjjXYEC125a0PnBKQ&amp;sig2=A8KtQWJwPJjE8t91q_0lFA">IEditableObject</a> interface which is the significant factor here. This interface allows you to perform trasnactional changes to your object, i.e. you can change the object's properties within a 'transaction', then commit then all in a single atomic action. By default, when you bind to a DataGrid this occurs when the user finishes editing a row, either by moving focus or hitting Enter. In order to allow cell-by-cell changes, we need to commit each time the user moves from one cell to the next in the currently selected row.</p>
+<p>The DataGrid exposes a CellEditEnding event which looks like a good candidate for this, from the event arguments we can locate the current EditingElement (i.e. the TextBox which now occupies or cell that is in edit mode), the cell's Column and Row, and from here we can locate the Row.Item whcih is our bound DataRowView. You might think that we can just commit the change in this event handler, however, this is an 'Ending' event, not an 'Ended' event. In other words the value has not yet been written to the row. This catches me out far too often - as does its RowEditEnding counterpart!</p>
+<p>So, if we cannot commit the edit here, how about the CurrentCellChanged event? however this event does not tell us which cell we just left. Although a simple combination of the two provides the effect we are after:</p>
+{% highlight csharp %}private DataRowView rowBeingEdited = null;
+
+private void dataGrid_CellEditEnding(object sender,
+                                  DataGridCellEditEndingEventArgs e)
+{
+    DataRowView rowView = e.Row.Item as DataRowView;
+    rowBeingEdited = rowView;
+}
+
+private void dataGrid_CurrentCellChanged(object sender, EventArgs e)
+{
+    if (rowBeingEdited != null)
+    {
+        rowBeingEdited.EndEdit();
+    }
+}{% endhighlight %}
+<p>With this change in place, changes are committed cell-by-cell and the two view remain synchronised:</p>
+<p><a href="http://wpfadventures.files.wordpress.com/2008/11/cellsynchronized.png"><img class="alignnone size-full wp-image-40" title="cellsynchronized" src="http://wpfadventures.files.wordpress.com/2008/11/cellsynchronized.png" alt="cellsynchronized" width="299" height="299" /></a></p>
+<p>You can download an example project, <a href="http://wpfadventures.files.wordpress.com/2008/11/wpfdatagridcellbycellcommits.doc">wpfdatagridcellbycellcommits</a>, changing the file extension from .doc to .zip.</p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

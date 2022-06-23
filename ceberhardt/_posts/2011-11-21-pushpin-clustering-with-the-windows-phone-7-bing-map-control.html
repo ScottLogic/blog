@@ -1,0 +1,219 @@
+---
+id: 1845
+author: ceberhardt
+title: Pushpin Clustering with the Windows Phone 7 Bing Map control
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/11/pushpin-clustering-with-the-windows-phone-7-bing-map-control/
+tags:
+  - Windows Phone 7
+  - bing maps
+  - blog
+  - windowsphone
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2011/11/pushpin-clustering-with-the-windows-phone-7-bing-map-control/
+---
+<p><em>This blog post provides a simple utility class that will cluster pushpins on a Bing Map control. This utility provides a way to achieve great performance with 1000s of pushpins.</em></p>
+<p>The Bing Map control for Windows Phone 7 is a versatile control, allowing you to provide your users with an interactive map. The control has some very useful features such as <code>Pushpins</code>, which you can anchor to a map coordinate so that they move automatically as the user pans / zooms the map. However, I have found that in practice, if you have more than ~30 pushpins visible on a map, the pan / zoom performance starts to degrade (on a real device). Therefore, in order to provide the best user-experience, it is advisable to only render a handful of pushpins on the map at any one time. </p>
+<p>This blog post describes a simple approach to clustering pushpins, as shown in the video below, which renders the location of ~500 juggling clubs worldwide:</p>
+<p><iframe width="560" height="315" src="http://www.youtube.com/embed/1Cpx1cHFKvo" frameborder="0" allowfullscreen></iframe></p>
+<p>The clustering code is very easy to use; just create a <code>PushpinClusterer </code>instance, pass your <code>Pushpins</code>, the map and the template to use for the clusters marker:</p>
+{% highlight csharp %}
+var clusterer = new PushpinClusterer(map, pins,
+        this.Resources["ClusterTemplate"] as DataTemplate);
+{% endhighlight %}
+<p>And that's it!</p>
+<h2>The Implementation</h2>
+<p>Clustering of map markers is a common problem. Searching the internet I found a number of blog posts describing techniques for clustering Google Maps markers, one such blog post described a simple algorithm which <a href="http://www.appelsiini.net/2008/11/introduction-to-marker-clustering-with-google-maps">clusters points that are within a fixed pixel distance from each other</a>. I decided to take this algorithm and apply it to the Silverlight Bing Maps control.</p>
+<p>The clusterer is a pretty simple class, whenever the map view changes (which occurs after pan or zoom), the clusterer iterates over all the pins, any that are closer than 50 pixels to each other, are merged together.</p>
+<p>Once the pins have been clustered, only those which would currently be visible (based on the map viewport) are added to the map:</p>
+{% highlight csharp %}
+/// <summary>
+/// Clusters the given pins on the supplied map
+/// </summary>
+public PushpinClusterer(Map map, List<Pushpin> pins, DataTemplate clusterTemplate)
+{
+  _map = map;
+  _pins = pins;
+  ClusterTemplate = clusterTemplate;
+
+  _map.ViewChangeEnd += (s, e) => RenderPins();
+}
+
+
+/// <summary>
+/// Re-render the pushpins based on the current zoom level
+/// </summary>
+private void RenderPins()
+{
+  List<PushpinContainer> pinsToAdd = new List<PushpinContainer>();
+
+  // consider each pin in turn
+  foreach (var pin in _pins)
+  {
+    var newPinContainer = new PushpinContainer(pin,
+      _map.LocationToViewportPoint(pin.Location));
+
+    bool addNewPin = true;
+
+    // determine how close they are to existing pins
+    foreach(var pinContainer in pinsToAdd)
+    {
+      double distance = ComputeDistance(pinContainer.ScreenLocation, newPinContainer.ScreenLocation);
+
+      // if the distance threshold is exceeded, do not add this pin, instead
+      // add it to a cluster
+      if (distance < DistanceThreshold)
+      {
+        pinContainer.Merge(newPinContainer);
+        addNewPin = false;
+        break;
+      }
+    }
+
+    if (addNewPin)
+    {
+      pinsToAdd.Add(newPinContainer);
+    }
+  }
+
+  // asynchronously update the map
+  _map.Dispatcher.BeginInvoke(() =>
+    {
+      _map.Children.Clear();
+      foreach (var projectedPin in pinsToAdd.Where(pin => PointIsVisibleInMap(pin.ScreenLocation, _map)))
+      {
+        _map.Children.Add(projectedPin.GetElement(ClusterTemplate));
+      }
+    });
+
+}
+
+/// <summary>
+/// Gets whether the given point is within the map bounds
+/// </summary>
+private static bool PointIsVisibleInMap(Point point, Map map)
+{
+  return point.X > 0 && point.X < map.ActualWidth &&
+          point.Y > 0 && point.Y < map.ActualHeight;
+}
+
+/// <summary>
+/// Computes the cartesian distance between points
+/// </summary>
+private double ComputeDistance(Point p1, Point p2)
+{
+  return Math.Sqrt((p1.X - p2.X) * (p1.X - p2.X) + (p1.Y - p2.Y) * (p1.Y - p2.Y));
+}
+{% endhighlight %}
+<p>The <code>PushpinContainer</code> is a class that holds a <code>Pushpin</code>, however, if one or more additional <code>Pushpins</code> are added to it, it will become a cluster. The class is given in full below:</p>
+{% highlight csharp %}
+/// <summary>
+/// A container for one or more pushpins at a given screen coordinate.
+/// </summary>
+public class PushpinContainer
+{
+  private List<Pushpin> _pushpins = new List<Pushpin>();
+
+  /// <summary>
+  /// Creates a container for the given pushpin
+  /// </summary>
+  public PushpinContainer(Pushpin pushpin, Point location)
+  {
+    _pushpins.Add(pushpin);
+    ScreenLocation = location;
+  }
+
+  /// <summary>
+  /// Adds the pins from the given container
+  /// </summary>
+  public void Merge(PushpinContainer pinContainer)
+  {
+    foreach (var pin in pinContainer._pushpins)
+    {
+      _pushpins.Add(pin);
+    }
+  }
+
+  /// <summary>
+  /// Gets or sets the current screen location of this container
+  /// </summary>
+  public Point ScreenLocation { get; private set; }
+
+  /// <summary>
+  /// Gets the visual representation of the contents of this container. If it is
+  /// a single pushpin, the pushpin itself is returned. If multiple pushpins are present
+  /// a pushpin with the given clusterTemplate is returned.
+  /// </summary>
+  public FrameworkElement GetElement(DataTemplate clusterTemplate)
+  {
+    if (_pushpins.Count == 1)
+    {
+      return _pushpins[0];
+    }
+    else
+    {
+      return new Pushpin()
+      {
+        Location = _pushpins.First().Location,
+        Content = _pushpins.Select(pin => pin.DataContext).ToList(),
+        ContentTemplate = clusterTemplate,
+        Background = new SolidColorBrush(Colors.Red)
+      };
+    }
+  }
+}
+{% endhighlight %}
+<p>The <code>GetElement</code> method will either return the <code>Pushpin</code>, if it has not been clustered, or a new <code>Pushpin </code>with the <code>ClusterTemplate </code>applied. Note, the <code>Content</code> property of the clustered pin is a list of the <code>DataContext</code> properties of all the pins it 'contains'.</p>
+<p>The example application, which renders the location of ~500 juggling clubs, uses a very simple cluster template which simply indicates the number of points that have been clustered:</p>
+{% highlight xml %}
+<DataTemplate x:Key="ClusterTemplate">
+  <TextBlock Text="{Binding Count}"/>
+</DataTemplate>
+{% endhighlight %}
+<p>However, I am sure that with a bit of creativity, a more interesting template could be created!</p>
+<p>Finally, the example application handles left mouse-clicks on the map, inspecting the <code>DataContext </code>of the clicked element in order to render the juggling club or cluster of juggling clubs which were clicked upon:</p>
+{% highlight csharp %}
+private void Map_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+{
+  var fe = e.OriginalSource as FrameworkElement;
+  if (fe.DataContext is string)
+  {
+    itemList.ItemsSource = new List<string>() { (string)fe.DataContext };
+  }
+
+  if (fe.DataContext is IEnumerable<object>)
+  {
+    itemList.ItemsSource = (fe.DataContext as IEnumerable<object>).Cast<string>();
+  }
+}
+{% endhighlight %}
+<p>Let me know if you find this code useful, or you apply it in your application.</p>
+<p>You can download the full sourcecode here: <a href='{{ site.baseurl }}/archive/2011/11/MarkerClustering.zip'>MarkerClustering.zip</a></p>
+<p>Regards, Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

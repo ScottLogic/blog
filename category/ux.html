@@ -1,0 +1,11 @@
+---
+layout: default
+title: UX Design
+summary: Scott Logic's thoughts and ideas relating to UX Design
+image: /assets/ux-design.jpg
+---
+{% assign posts = site.categories["UX Design"] %}
+{% if posts %}
+  {% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% endif %}
+{% include post_index.html posts=posts categoryName="UX Design" %}

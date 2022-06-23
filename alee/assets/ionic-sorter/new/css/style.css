@@ -1,0 +1,44 @@
+
+.pane, .view {
+    background-color: #e0e0e0;
+}
+
+.item-avatar .item-content > img:first-child {
+    width: 40px;
+    max-width: 40px;
+    height: 65px;
+    max-height: 65px;
+    margin-top: 12px;
+}
+
+.item-avatar .item-content .item-text-wrap {
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+
+.item-light .item-divider {
+    background-color: white;
+}
+.item-complex.item-light > .item-content.active, .item-complex.item-light > .item-content:active {
+    background-color: white;
+}
+
+.dragging {
+    -moz-transform: scale(1.05, 1.05);
+    -ms-transform: scale(1.05, 1.05);
+    -o-transform: scale(1.05, 1.05);
+    -webkit-transform: scale(1.05, 1.05);
+    transform: scale(1.05, 1.05);
+
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder {
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}

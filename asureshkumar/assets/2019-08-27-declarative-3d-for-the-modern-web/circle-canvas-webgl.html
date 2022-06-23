@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html style="height: 100%; width: 100%">
+  <head>
+    <title>Circle: Canvas (WebGL)</title>
+  </head>
+  <body style="height: 100%; width: 100%; margin: 0px">
+    <canvas id="my-canvas" style="height: 100%; width: 100%; display: block"></canvas>
+    <script>
+      const canvas = document.getElementById("my-canvas");
+      const context = canvas.getContext("webgl");
+
+      const redColor = new Float32Array([1.0, 0.0, 0.0, 1.0]);
+      const blackColor = new Float32Array([0.0, 0.0, 0.0, 1.0]);
+
+      // Use an orthogonal projection matrix as we're rendering in 2D.
+      const projectionMatrix = new Float32Array([
+        1.0, 0.0, 0.0, 0.0,
+        0.0, 1.0, 0.0, 0.0,
+        0.0, 0.0, 0.0, 0.0,
+        0.0, 0.0, 0.0, 1.0,
+      ]);
+
+      // Define positions of the vertices of the circle (in clip space).
+      const radius = 0.5;
+      const segmentCount = 360;
+      const positions = [0.0, 0.0];
+      for (let i = 0; i < segmentCount + 1; i++) {
+      	positions.push(radius * Math.sin(2 * Math.PI * i / segmentCount));
+        positions.push(radius * Math.cos(2 * Math.PI * i / segmentCount));
+      }
+
+      const positionBuffer = context.createBuffer();
+      context.bindBuffer(context.ARRAY_BUFFER, positionBuffer);
+      context.bufferData(context.ARRAY_BUFFER, new Float32Array(positions), context.STATIC_DRAW);
+
+      // Create shaders and program.
+      const vertexShader = context.createShader(context.VERTEX_SHADER);
+      context.shaderSource(vertexShader, `
+        attribute vec4 position;
+        uniform mat4 projection;
+
+        void main() {
+          gl_Position = projection * position;
+        }
+      `);
+      context.compileShader(vertexShader);
+      
+      const fragmentShader = context.createShader(context.FRAGMENT_SHADER);
+      context.shaderSource(fragmentShader, `
+        uniform lowp vec4 color;
+
+        void main() {
+          gl_FragColor = color;
+        }
+      `);
+      context.compileShader(fragmentShader);
+
+      const program = context.createProgram();
+      context.attachShader(program, vertexShader);
+      context.attachShader(program, fragmentShader);
+      context.linkProgram(program);
+
+      const positionAttribute = context.getAttribLocation(program, 'position');
+
+      const colorUniform = context.getUniformLocation(program, 'color');
+      const projectionUniform = context.getUniformLocation(program, 'projection');
+      
+      function render() {
+        // Size the drawing surface to match the actual element (no stretch).
+        canvas.height = canvas.clientHeight;
+        canvas.width = canvas.clientWidth;
+
+        context.viewport(0, 0, canvas.width, canvas.height);
+
+        context.useProgram(program);
+
+        // Scale projection to maintain 1:1 ratio between height and width on canvas.
+        projectionMatrix[0] = canvas.width > canvas.height ? canvas.height / canvas.width : 1.0;
+        projectionMatrix[5] = canvas.height > canvas.width ? canvas.width / canvas.height : 1.0;
+        context.uniformMatrix4fv(projectionUniform, false, projectionMatrix);
+
+        const vertexSize = 2;
+        const vertexCount = positions.length / vertexSize;
+
+        context.bindBuffer(context.ARRAY_BUFFER, positionBuffer);
+        context.vertexAttribPointer(positionAttribute, vertexSize, context.FLOAT, false, 0, 0);
+        context.enableVertexAttribArray(positionAttribute);
+
+        context.uniform4fv(colorUniform, redColor);
+        context.drawArrays(context.TRIANGLE_FAN, 0, vertexCount);
+
+        context.uniform4fv(colorUniform, blackColor);
+        context.drawArrays(context.LINE_STRIP, 1, vertexCount - 1);
+      }
+
+      render();
+      addEventListener("resize", render);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,357 @@
+---
+id: 979
+author: ceberhardt
+title: 'Visiblox, Visifire, DynamicDataDisplay - Charting Performance Comparison'
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/12/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison/
+tags:
+  - charts
+  - visiblox
+  - performance
+  - visifire
+  - toolkit
+  - D3
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2010/12/visiblox-visifire-dynamicdatadisplay-charting-performance-comparison/
+---
+<p>A few weeks ago I <a href="{{ site.baseurl }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2">published a blog post</a> which compared the performance of the <a href="http://www.visiblox.com/">Visiblox</a> charts and the <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a> charts. The results indicated that the Visblox charts are considerably faster than the Toolkit charts, however Microsoft's David Anson did point out that the Toolkit charts were not designed <a href="{{ site.github.com }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2#comment-932620486">with performance in mind</a>, and that a comparison would be more fair if the 'FastLineSeries' series that has been on the TODO list for a while were implemented.</p>
+<div style="background-color:#ddd; margin:10px; padding:20px;"><b>UPDATE:</b> I have published a more up-to-date and <a href="{{ site.baseurl }}/2012/04/24/wpf-charting-performance-comparisons-the-battle-continues">extensive test of WPF charting components in a more recent blog post</a>. This new test looks at how raster-graphics can be used to significantly enhance performance.</div>
+<p>I have been asked by a few people to extend the performance test to include a few other Silverlight charts to see how they compare. I have refactored the test code so that different charts can be plugged in more easily. This not only makes it easier to test the performance of other charting components, but has also allowed me to compare the different charting APIs more easily. </p>
+<p>This blog post compares the performance of <a href="http://www.visiblox.com/">Visiblox</a>, <a href="http://www.visifire.com/">Visifire</a>, <a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a> and <a href="http://dynamicdatadisplay.codeplex.com/">Dynamic Data Display</a> (D<sub>3</sub>) charts. I also compared a few other charting components, however the terms of their trial license prohibit me from publishing the results.</p>
+<p>A summary of the performance measurement is given below, where each chart is used to plot rapidly changing data, with the framerate being used as a measure of performance.</p>
+<p><img src="{{ site.baseurl }}/archive/2010/12/performance.png" alt="" title="performance" width="520" height="313" class="aligncenter size-full wp-image-1026" /></p>
+<p>The test clients running with each of the different charts are shown below:</p>
+<table>
+<tr>
+<th style="text-align: center; ">Visiblox Chart</th>
+<th style="text-align: center; ">Visifire Chart</th>
+</tr>
+<tr>
+<td>
+<div style="text-align: center;margin: 0 0 40px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/12/HistogramVisiblox.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+</td>
+<td>
+<div style="text-align: center;margin: 0 0 40px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/12/HistogramVisifire.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+</td>
+</tr>
+<tr>
+<th style="text-align: center; ">Silverlight Toolkit Chart</th>
+<th style="text-align: center; ">D<sub>3</sub> Chart</th>
+</tr>
+<tr>
+<td>
+<div style="text-align: center; margin: 0 0 20px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/12/HistogramToolkit.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+</td>
+<td>
+<div style="text-align: center; margin: 0 0 20px 0 "><object width="300" height="430" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/12/HistogramDDD.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+</td>
+</tr>
+</table>
+<p><small>[cheetah image courtesy of <a href="http://www.flickr.com/photos/38485387@N02/3580728177/sizes/m/in/photostream/">flickrfavorites</a>, snail image courtesy of <a href="http://www.flickr.com/photos/powi/749366522/sizes/m/in/photostream/">Per Ola Wiberg</a>, tortoise image courtesy of <a href="http://www.flickr.com/photos/wwarby/4011400171/sizes/m/in/photostream/">wwarby</a>, horse image courtesy of <a href="http://www.flickr.com/photos/greendalen/1428399622/sizes/m/in/photostream/">Linn&eacute;a Gröndalen</a>]</small></p>
+<p>We'll look at the XAML markup for each chart and the code-behind used to add data to each chart in the following sections:</p>
+<h2>Visiblox</h2>
+<p>The XAML markup for the Visiblox charts is reasonably concise, with the X & Y axes configured and styled and the three LineSeries added to the chart:</p>
+{% highlight xml %}
+<UserControl.Resources>
+  <Style TargetType="Line" x:Key="GridLineStyle">
+    <Setter Property="Stroke" Value="#dddddd" />
+    <Setter Property="StrokeThickness" Value="1" />
+  </Style>
+</UserControl.Resources>
+
+<Grid x:Name="LayoutRoot" Background="White">
+  <chart:Chart x:Name="chart"
+                  LegendVisibility="Collapsed"
+                  Margin="5,0,5,5">
+    <chart:Chart.XAxis>
+      <!-- a 'hidden' X axis -->
+      <chart:LinearAxis ShowAxis="False"
+                            GridlineStyle="{StaticResource GridLineStyle}"/>
+    </chart:Chart.XAxis>
+    <chart:Chart.YAxis>
+      <!-- A Y axis with labels within the chart area -->
+      <chart:LinearAxis ShowLabels="True"
+                            LabelsPosition="Inside"
+                            GridlineStyle="{StaticResource GridLineStyle}"
+                            ShowMajorTicks="False"
+                            ShowMinorTicks="False"/>
+    </chart:Chart.YAxis>
+    <chart:Chart.Series>
+      <!-- the series used to render the RGB components -->
+      <chart:LineSeries LineStroke="#A00"/>
+      <chart:LineSeries LineStroke="#0A0"/>
+      <chart:LineSeries LineStroke="#00A"/>
+    </chart:Chart.Series>
+  </chart:Chart>
+</Grid>
+{% endhighlight %}
+<p>The code-behind is also reasonably concise with the list of <code>DataPoint</code> objects returned by the test-harness converted into Visiblox <code>DataSeries</code> via a Linq <code>Select</code> projection.</p>
+{% highlight csharp %}
+protected override void RenderDataToChart(List<List<Histogram.DataPoint>> rgbData)
+{
+  _chart.Chart.Series[0].DataSeries = ListToSeries(rgbData[0]);
+  _chart.Chart.Series[1].DataSeries = ListToSeries(rgbData[1]);
+  _chart.Chart.Series[2].DataSeries = ListToSeries(rgbData[2]);
+}
+
+private DataSeries<double, double> ListToSeries(List<Histogram.DataPoint> data)
+{
+  return new DataSeries<double, double>(data.Select(pt =>
+    new DataPoint<double, double>(pt.Location, pt.Intensity)));
+}
+{% endhighlight %}
+<h2>Visifire</h2>
+<p>Visifire also has a reasonably concise XAML markup, however in order to provide maximum performance, there are a number of chart features that need to be disabled. The Visifire charts have a Line series which could be used for this comparison, however they recently released a <a href="http://www.visifire.com/documentation/Visifire_Documentation/Charts/Chart_Types/QuickLine_Chart.htm">QuickLine</a> series type which removes certain features to provide better performance.</p>
+{% highlight xml %}
+<Grid x:Name="LayoutRoot" Background="White">
+  <vc:Chart x:Name="chart"
+                AnimationEnabled="False"
+                ScrollingEnabled="False">
+
+    <vc:Chart.Legends>
+      <vc:Legend Enabled="False"/>
+    </vc:Chart.Legends>
+
+    <!-- the series used to render the RGB components -->
+    <vc:Chart.Series>
+      <vc:DataSeries RenderAs="QuickLine"
+                      Color="#A00" LineThickness="1"
+                      MarkerEnabled="False" ShadowEnabled="False" />
+      <vc:DataSeries RenderAs="QuickLine"
+                      Color="#0A0" LineThickness="1"
+                      MarkerEnabled="False" ShadowEnabled="False" />
+      <vc:DataSeries RenderAs="QuickLine"
+                      Color="#00A" LineThickness="1"
+                      MarkerEnabled="False" ShadowEnabled="False" />
+    </vc:Chart.Series>
+
+    <!-- a 'hidden' X axis -->
+    <vc:Chart.AxesX>
+      <vc:Axis Enabled="False">
+        <vc:Axis.Grids>
+          <vc:ChartGrid Enabled="True"
+                        LineColor="#ddd" LineThickness="1"/>
+        </vc:Axis.Grids>
+      </vc:Axis>
+    </vc:Chart.AxesX>
+
+    <vc:Chart.PlotArea>
+      <vc:PlotArea ShadowEnabled="False"/>
+    </vc:Chart.PlotArea>
+  </vc:Chart>
+</Grid>
+{% endhighlight %}
+<p>The code-behind required to add data to the chart is straightforward. However, you cannot simply create a new <code>DataPointCollection</code> and replace the current <code>Series.DataPoints</code>, instead you have to <a href="http://www.visifire.com/forums/index.php?showtopic=2315">clear the existing collection, then rebuild it</a>.</p>
+{% highlight csharp %}
+protected override void RenderDataToChart(List<List<Histogram.DataPoint>> rgbData)
+{
+  AddDataToSeries(_chart.Chart.Series[0], rgbData[0]);
+  AddDataToSeries(_chart.Chart.Series[1], rgbData[1]);
+  AddDataToSeries(_chart.Chart.Series[2], rgbData[2]);
+}
+
+private void AddDataToSeries(DataSeries series, List<Histogram.DataPoint> list)
+{
+  series.DataPoints.Clear();
+  foreach (var pt in list)
+  {
+    series.DataPoints.Add(new Visifire.Charts.DataPoint()
+    {
+      XValue = pt.Location,
+      YValue = pt.Intensity
+    });
+  }
+}
+{% endhighlight %}
+<h2>Silverlight Toolkit</h2>
+<p>The Silverlight Toolkit XAML is quite verbose, mostly due to the performance enhancements described in my <a href="{{ site.baseurl }}/2010/11/08/visiblox-charts-vs-silverlight-toolkit-charts-a-test-of-performance-2">previous blog post</a>.</p>
+{% highlight xml %}
+<UserControl.Resources>
+  <Style TargetType="dataVis:Legend" x:Key="CollapsedLegendStyle">
+    <Setter Property="Visibility" Value="Collapsed"/>
+    <Setter Property="Width" Value="0"/>
+  </Style>
+
+  <Style TargetType="Control" x:Key="CollapsedStyle">
+    <Setter Property="Visibility" Value="Collapsed"/>
+  </Style>
+
+  <ControlTemplate x:Key="SimplifiedDataPoint" TargetType="tk:LineDataPoint">
+  </ControlTemplate>
+</UserControl.Resources>
+
+<Grid x:Name="LayoutRoot" Background="White">
+  <tk:Chart x:Name="chart"
+        LegendStyle="{StaticResource CollapsedLegendStyle}"
+        TitleStyle="{StaticResource CollapsedStyle}">
+
+    <!-- define the line series -->
+    <tk:LineSeries ItemsSource="{Binding}"
+                TransitionDuration="0"
+                DependentValueBinding="{Binding Intensity}"
+                IndependentValueBinding="{Binding Location}">
+      <tk:LineSeries.DataPointStyle>
+        <Style TargetType="tk:LineDataPoint">
+          <Setter Property="Visibility" Value="Collapsed"/>
+          <Setter Property="Template" Value="{StaticResource SimplifiedDataPoint}"/>
+          <Setter Property="Background" Value="#A00"/>
+        </Style>
+      </tk:LineSeries.DataPointStyle>
+    </tk:LineSeries>
+
+    <tk:LineSeries ItemsSource="{Binding}"
+                TransitionDuration="0"
+                DependentValueBinding="{Binding Intensity}"
+                IndependentValueBinding="{Binding Location}">
+      <tk:LineSeries.DataPointStyle>
+        <Style TargetType="tk:LineDataPoint">
+          <Setter Property="Visibility" Value="Collapsed"/>
+          <Setter Property="Template" Value="{StaticResource SimplifiedDataPoint}"/>
+          <Setter Property="Background" Value="#0A0"/>
+        </Style>
+      </tk:LineSeries.DataPointStyle>
+    </tk:LineSeries>
+
+    <tk:LineSeries ItemsSource="{Binding}"
+                TransitionDuration="0"
+                DependentValueBinding="{Binding Intensity}"
+                IndependentValueBinding="{Binding Location}">
+      <tk:LineSeries.DataPointStyle>
+        <Style TargetType="tk:LineDataPoint">
+          <Setter Property="Visibility" Value="Collapsed"/>
+          <Setter Property="Template" Value="{StaticResource SimplifiedDataPoint}"/>
+          <Setter Property="Background" Value="#00A"/>
+        </Style>
+      </tk:LineSeries.DataPointStyle>
+    </tk:LineSeries>
+
+    <!-- configure the axes -->
+    <tk:Chart.Axes>
+      <tk:LinearAxis Orientation="X" Height="0">
+      </tk:LinearAxis>
+    </tk:Chart.Axes>
+  </tk:Chart>
+</Grid>
+{% endhighlight %}
+<p>However, the code-behind is the most concise of all the charts I tested because the chart databinds directly to the properties of the <code>DataPoint</code> business objects.</p>
+{% highlight csharp %}
+protected override void RenderDataToChart(List<List<DataPoint>> rgbData)
+{
+  ((LineSeries)_chart.Chart.Series[0]).ItemsSource = rgbData[0];
+  ((LineSeries)_chart.Chart.Series[1]).ItemsSource = rgbData[1];
+  ((LineSeries)_chart.Chart.Series[2]).ItemsSource = rgbData[2];
+}
+{% endhighlight %}
+<h2>Dynamic Data Display</h2>
+<p>The D<sub>3</sub> charts are quite different to the others which I have tested. These charts were developed by a Microsoft team based in Russia and are released on codeplex. They claim outstanding performance with large volumes of data, and are often recommended on sites such as stackoverflow when questions relating to charting performance arise</a>.</p>
+<p>The XAML markup for the D<sub>3</sub> charts is pretty minimal! </p>
+{% highlight xml %}
+<Grid x:Name="LayoutRoot" Background="White">
+  <d3:ChartPlotter Name="plotter">
+  </d3:ChartPlotter>
+</Grid>
+{% endhighlight %}
+<p>However, this is because the D<sub>3</sub> charts do not support configuration via markup. It took me quite a while to work out how to configure the charts in code-behind, the  D<sub>3</sub> APIs are not very intuitive. I am not the only one to have noticed this; Lee Campbell, in his "<a href="http://leecampbell.blogspot.com/2010/01/my-wpf-charting-comparisons.html">WPF Charting Comparisons</a>" blog post stated " ... it took me hours of reading forums, looking at samples and coding to just get my Model showing on the screen". Oh dear!</p>
+<p>I had to resort to navigating the visual tree (using<a href="{{ site.baseurl }}/2010/03/04/linq-to-visual-tree"> Linq to VisualTree</a>) to locate the pan and zoom controls which are added to the chart by default, and remove them.</p>
+<p>However, in fairness, the <a href="http://dynamicdatadisplay.codeplex.com/wikipage?title=DynamicDataDisplay%20Silverlight&referringTitle=Home">Silverlight version of D<sub>3</sub> charts</a> is a partial port of the WPF version, but both share a similar programmatic style of usage. </p>
+<p>The following code is used to configure the chart in code-behind:</p>
+{% highlight csharp %}
+public DDDChart()
+{
+  InitializeComponent();
+
+  this.Loaded += new RoutedEventHandler(DDDChart_Loaded);
+}
+
+private LineGraph InitGraph(Color color)
+{
+  var animatedX = new List<double>();
+  var animatedY = new List<double>();
+
+  // add some points, otherwise we get some layout-related exception
+  animatedX.Add(0);
+  animatedY.Add(0);
+
+  // create the X & Y sources
+  _xSource = new EnumerableDataSource<double>(animatedX);
+  _xSource.SetXMapping(x => x);
+  _ySource = new EnumerableDataSource<double>(animatedY);
+  _ySource.SetYMapping(y => y);
+
+  // Adding graph to plotter
+  var graph = new LineGraph(new CompositeDataSource(_xSource, _ySource), "");
+  graph.LineColor = color;
+  graph.LineThickness = 1;
+  plotter.Children.Add(graph);
+
+  return graph;
+}
+
+private void DDDChart_Loaded(object sender, RoutedEventArgs e)
+{
+  // remove the mouse pan and zoom controls
+  var navigationControl = plotter.Children.OfType<MouseNavigation>().Single();
+  plotter.Children.Remove(navigationControl);
+
+  var zoomControl = plotter.Descendants().OfType<buttonsNavigation>().Single();
+  ((Panel)zoomControl.Ancestors().First()).Children.Remove(zoomControl);
+
+  _graphOne = InitGraph(Color.FromArgb(255,200,0,0));
+  _graphTwo = InitGraph(Color.FromArgb(255, 0, 200, 0));
+  _graphThree = InitGraph(Color.FromArgb(255, 0, 0, 200));
+
+  // Force everything plotted to be visible
+  plotter.FitToView();
+
+  plotter.Legend.Visibility = Visibility.Collapsed;
+
+}
+{% endhighlight %}
+<p>The following code is used to change the data for each series. Again, the D<sub>3</sub> APIs are a little complex. Also, the chart does not have a mode where the X & Y axes compute their range based on the data. Instead, this is performed programatically via <code>FitToView</code>.</p>
+{% highlight csharp %}
+protected override void RenderDataToChart(List<List<DataPoint>> rgbData)
+{
+  RenderDataToGraph(_chart.LineGraphR, rgbData[0]);
+  RenderDataToGraph(_chart.LineGraphG, rgbData[1]);
+  RenderDataToGraph(_chart.LineGraphB, rgbData[2]);
+
+  // re-scale the chart based on the rendered data
+  _chart.Plotter.FitToView();
+}
+
+private void RenderDataToGraph(LineGraph graph, List<DataPoint> histogram)
+{
+  var source = graph.DataSource as CompositeDataSource;
+
+  // obtain the two sources which the composite is composed of
+  var xSource = source.DataParts.ElementAt(0) as EnumerableDataSource<double>;
+  var ySource = source.DataParts.ElementAt(1) as EnumerableDataSource<double>;
+
+  var dataX = new List<double>();
+  var dataY = new List<double>();
+  foreach(var point in histogram)
+  {
+    dataX.Add(point.Location);
+    dataY.Add(point.Intensity);
+  }
+  xSource.Data = dataX;
+  ySource.Data = dataY;
+}
+{% endhighlight %}
+<h2>Conclusions</h2>
+<p>In summary, the Visiblox and Visifire charts seem to have the cleanest API, with concise XAML markup to define the charts and little code-behind required to update the series. The Silverlight Toolkit charts XAML markup is a bit verbose, mostly due to performance optimisation. Finally, the D<sub>3</sub> charts have a complex and difficult to follow API. In terms of performance, the Visiblox and D<sub>3</sub> charts give similar results, the Visifire charts are a little behind with, with a frame rate that is approximately 1/3 of the leading charts, and the Silverlight Toolkit charts come last.</p>
+<p>You can download the full sourcecode of this comparison here: <a href='{{ site.baseurl }}/archive/2010/12/ChartPerformance.zip'>ChartPerformance.zip</a></p>
+<p>NOTE: To build the examples you need to download the charting components from their respective web pages:</p>
+<ul>
+<li><a href="http://www.visiblox.com/">Visiblox</a></li>
+<li><a href="http://www.visifire.com/download_silverlight_charts.php">Visifire</a></li>
+<li><a href="http://silverlight.codeplex.com/">Silverlight Toolkit</a></li>
+<li><a href="http://dynamicdatadisplay.codeplex.com/releases/view/42438">D<sub>3</sub></a></li>
+</ul>
+<p>Finally, a couple of my colleagues have created similar charting tests using other technologies, you might be interested in <a href="{{ site.baseurl }}/2010/11/16/flex-charts-vs-silverlight-charts-a-test-of-performance">Graham's Flex implementation</a>, or <a href="{{ site.baseurl }}/2010/11/29/html5-charts-vs-flex-charts-vs-silverlight-charts-a-test-of-performance">Chris's cute HTML5 implementation</a>.</p>
+<p>Regards, Colin E.</p>

@@ -1,0 +1,107 @@
+---
+id: 1231
+author: ceberhardt
+title: Google Sky on Windows Phone 7
+oldlink: 'http://www.scottlogic.co.uk/blog/colin/2011/02/google-sky-on-windows-phone-7/'
+tags:
+  - codeproject
+  - Windows Phone 7
+  - maps
+  - bing maps
+  - google sky
+  - blog
+  - codeproject
+  - windowsphone
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/02/google-sky-on-windows-phone-7/
+---
+<p><i>This blog post shows just how easy it is to use Google Sky as a tile source for Bing Maps, bringing the universe to Windows Phone 7!</i></p>
+<p><iframe title="YouTube video player" width="480" height="390" src="http://www.youtube.com/embed/a_NIm6baP_s?rel=0" frameborder="0" allowfullscreen></iframe></p>
+<p>Personally I think mapping is one of the most exciting forms of application for mobile devices - the fantastic imagery available from Bing and Google maps, coupled with GPS technology, results in some pretty amazing tools. As a Windows Phone 7 developer, I have spent a fair bit of time poking round the <a href="http://msdn.microsoft.com/en-us/library/ff955762.aspx">Silverlight Bing Maps APIs</a>. A really cool feature of the Bing Maps control is that it accepts custom tile-sources. You can find code elsewhere that explains how to use this to render<a href="http://www.codeproject.com/KB/windows-phone-7/mapcode.aspx"> Google Maps data via a Bing maps chart control</a>. For a bit of fun I decided to use this approach to render Google Sky on WP7 ...</p>
+<p>Finding the correct URL format is as easy as opening up firebug and looking at the HTTP traffic when using Google Sky:</p>
+<p><a href="{{ site.baseurl }}/archive/2011/02/googlesky.png"><img src="{{ site.baseurl }}/archive/2011/02/googlesky-300x276.png" alt="" title="googlesky" width="300" height="276" class="aligncenter size-medium wp-image-1232" /></a></p>
+<p>With this knowledge, creating a custom tile source for Bing maps is pretty trivial</p>
+{% highlight csharp %}
+public class GoogleTile : Microsoft.Phone.Controls.Maps.TileSource
+{
+    public GoogleTile()
+    {
+        UriFormat = @"http://mw1.google.com/mw-planetary/sky/skytiles_v1/{0}_{1}_{2}.jpg";
+    }
+
+    public override Uri GetUri(int x, int y, int zoomLevel)
+    {
+        if (zoomLevel > 0)
+        {
+            var Url = string.Format(UriFormat, x, y, zoomLevel);
+            return new Uri(Url);
+        }
+        return null;
+    }
+}
+{% endhighlight %}
+<p>And associating your tile source with a map control is as simple as this ...</p>
+{% highlight xml %}
+<map:Map Name="map"
+    CopyrightVisibility="Collapsed" LogoVisibility="Collapsed" ScaleVisibility="Collapsed"
+    ZoomLevel="2"
+    CredentialsProvider="-- YOUR API KEY GOES HERE!!! ---">
+    <map:Map.Mode>
+        <mapCore:MercatorMode/>
+    </map:Map.Mode>
+    <map:MapTileLayer>
+        <map:MapTileLayer.TileSources>
+            <local:GoogleTile/>
+        </map:MapTileLayer.TileSources>
+    </map:MapTileLayer>
+</map:Map>
+{% endhighlight %}
+<p>When exploring the sky, funnily enough, it becomes pretty obvious that most of it is black! In order to make this a more interesting application I added a little 'menu' across the bottom that allows you to select from the list of <a href="http://en.wikipedia.org/wiki/Messier_object">110 Messier Objects</a>, a catalogue of interesting astronomical objects that are not comets. The thumbnail images for each object were scraped from <a href="http://en.wikipedia.org/wiki/List_of_Messier_objects">Wikipedia</a>, and the coordinates retrieved from the <a href="http://simbad.u-strasbg.fr/simbad/">SIMBAD astronomical database</a> via a little C# command line app. </p>
+<p>They are rendered in the UI via an ItemsControl:</p>
+{% highlight xml %}
+<ItemsControl x:Name="MessierObjects"
+                Grid.Row="2">
+    <ItemsControl.ItemsPanel>
+        <ItemsPanelTemplate>
+            <StackPanel Orientation="Horizontal"/>
+        </ItemsPanelTemplate>
+    </ItemsControl.ItemsPanel>
+    <ItemsControl.ItemTemplate>
+        <DataTemplate>
+            <Grid Width="100" Height="100"
+                    MouseLeftButtonUp="Grid_MouseLeftButtonUp">
+                <Image Source="{Binding Path=ThumbSource}"
+                        Stretch="Fill" Margin="5"/>
+                <TextBlock Text="{Binding Path=Name}"
+                            Margin="5"
+                            FontSize="25" FontWeight="Bold"
+                            Foreground="LightGray"
+                            Opacity="0.5"/>
+            </Grid>
+        </DataTemplate>
+    </ItemsControl.ItemTemplate>
+    <ItemsControl.Template>
+        <ControlTemplate>
+            <ScrollViewer HorizontalScrollBarVisibility="Visible">
+                <ItemsPresenter/>
+            </ScrollViewer>
+        </ControlTemplate>
+    </ItemsControl.Template>
+</ItemsControl>
+{% endhighlight %}
+<p>With a click handler that navigates the map control to the correct location:</p>
+{% highlight csharp %}
+private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+{
+    var messier = ((FrameworkElement)sender).DataContext as MessierObject;
+
+    map.SetView(messier.Coords, 11);
+}
+{% endhighlight %}
+<p>I would love to build this application further, however, usage of Google Maps tiles outside of their service is a violation of their terms and conditions. For that reason, this code is shown just for a bit of fun, it shows easy it is to bring together two different technologies, Bing Maps and the Google Sky tile imagery, to create something cool with very few lines of code.</p>
+<p>As an aside, I would have liked to have used the data from the less well know <a href="http://en.wikipedia.org/wiki/WorldWide_Telescope">Microsoft WorldWide Telescope</a>, which is accessible through Bing Maps, but just couldn't work out the tile URL format. This is a shame, I would be happier building this application further based on a Microsoft datasource.</p>
+<p>You can download the sourcecode here: <a href='{{ site.baseurl }}/archive/2011/02/GoogleSkyWP7.zip'>GoogleSkyWP7.zip</a></p>
+<p>Regards,Colin E.</p>

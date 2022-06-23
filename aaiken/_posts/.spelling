@@ -1,0 +1,13 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - aaiken/_posts/2014-08-26-two-line-components-for-d3-charts.md
+callout
+line.y
+movingAverage
+ - aaiken/_posts/2014-09-29-crosshairs.md
+callout
+10pt
+stylable

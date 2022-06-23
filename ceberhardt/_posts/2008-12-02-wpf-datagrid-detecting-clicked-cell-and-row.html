@@ -1,0 +1,123 @@
+---
+id: 59
+author: ceberhardt
+title: 'WPF DataGrid - detecting the column, cell and row that has been clicked'
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2008/12/wpf-datagrid-detecting-clicked-cell-and-row/
+tags:
+  - DataGrid
+  - WPF
+  - blog
+  - wpf
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2008/12/wpf-datagrid-detecting-clicked-cell-and-row/
+---
+<p>The WPF DataGrid is a very flexible tool, however in its current state certain simple tasks can prove to be rather tricky. A fairly common task when working with DataGrid is detecting which row, or cell a user has clicked on, or whether they clicked a column header. You might expect this information to be readily available in the form of events, after all, the Windows Forms DataGridView has <a href="http://msdn.microsoft.com/en-us/library/system.windows.forms.datagridview.cellclick.aspx">CellClicked</a> and <a href="http://msdn.microsoft.com/en-us/library/system.windows.forms.datagridview.columnheadermouseclick.aspx">ColumnHeaderMouseClick</a> events (among many others). However, sadly this is not the case. In order to implement this behaviour you have to understand the visual tree of the DataGrid and how it can be navigated.</p>
+<p>Let's say for example you wanted to find the DataGrid item (cell, row, header) that was clicked when the right mouse button is released. Firstly, we add an event handler for the mouse click in our code-behind:</p>
+<p>XAML:</p>
+{% highlight xml %}<dg:DataGrid Name="DataGrid"
+             MouseRightButtonUp="DataGrid_MouseRightButtonUp"/>{% endhighlight %}
+<p>C#:</p>
+{% highlight csharp %}private void DataGrid_MouseRightButtonUp(object sender,
+                                        MouseButtonEventArgs e)
+{
+}{% endhighlight %}
+<p>The above event is a 'bubbling' event, which means that it it started on the element that was originally clicked (for example a TextBlock which renders the cell's value within a DataGridCell), then bubbled up the logical tree until it reaches our event handler in the Window. The e.OriginalSource property gives us access to the element that initiated this event.</p>
+<p>The problem is that while we have access to the lement which was clicked on, this element is part of the control or data template of the element that we are really interested, the cell or header. The WPF rich-content model means that our cells could contain all sorts of visual element, therefore we have no way of guessing exactly what e.OriginalSource will be. However, the one thing of which we can be certain is that this element is a child of the element which we are interested in.</p>
+<p>If you place a bearkpoint within yoru event handler, you can then use the excellent <a href="https://oceanware.wordpress.com/mole-visual-studio-debugger-visualizer/">Mole</a> debug visualiser to locate the clicked element within the visual tree as illustrated below:</p>
+<p><a href="http://wpfadventures.files.wordpress.com/2008/12/dgvisualtree.png"><img class="alignnone size-full wp-image-60" title="dgvisualtree" src="http://wpfadventures.files.wordpress.com/2008/12/dgvisualtree.png" alt="dgvisualtree" width="450" height="428" /></a></p>
+<p>As you can see, the visual tree is a complex beast! I have highlighted the items of interest:</p>
+<ol>
+<li>The <strong>TextBlock</strong>, which is the element I clicked on, which is e.OriginalSource parameter.</li>
+<li>The <strong>DataGridCell</strong>, the cell which was clicked on.</li>
+<li>The <strong>DataGridRow </strong>which the cell belongs to.</li>
+<li>And finally, the <strong>DataGrid</strong>.</li>
+</ol>
+<p>Therefore, in order to locate the cell and row that was clicked on we must navigate up the Visual Tree, searching by type:</p>
+{% highlight csharp %}private void DataGrid_MouseRightButtonUp(object sender,
+                                                  MouseButtonEventArgs e)
+{
+    DependencyObject dep = (DependencyObject)e.OriginalSource;
+
+    // iteratively traverse the visual tree
+    while ((dep != null) &amp;&amp;
+            !(dep is DataGridCell) &amp;&amp;
+            !(dep is DataGridColumnHeader))
+    {
+        dep = VisualTreeHelper.GetParent(dep);
+    }
+
+    if (dep == null)
+        return;
+
+    if (dep is DataGridColumnHeader)
+    {
+        DataGridColumnHeader columnHeader = dep as DataGridColumnHeader;
+        // do something
+    }
+
+    if (dep is DataGridCell)
+    {
+        DataGridCell cell = dep as DataGridCell;
+        // do something
+    }
+}{% endhighlight %}
+<p>Fantastic, we have now have our header and cell. All that's left to do is extract the cell's row and column indices, and cell value. Wait a minute ... where are the cell.RowIndex and cell.ColumnIndex properties? It looks like there's more work to be done.</p>
+<p>Once we have navigated up the tree to the DataGridCell, we can continue our journey upwards to obtain the DataGridRow:</p>
+{% highlight csharp %}if (dep is DataGridCell)
+{
+    DataGridCell cell = dep as DataGridCell;
+
+    // navigate further up the tree
+    while ((dep != null) &amp;&amp; !(dep is DataGridRow))
+    {
+        dep = VisualTreeHelper.GetParent(dep);
+    }
+
+    DataGridRow row = dep as DataGridRow;
+}{% endhighlight %}
+<p>Does the DataGridRow have a RowIndex property? I think you can guess the answer to that question.</p>
+<p>The DataGrid is an <a href="http://msdn.microsoft.com/en-us/library/system.windows.controls.itemscontrol.aspx">ItemsControl</a> - WPF users are probably most familiar with the ListView which is also an ItemsControl whcih has a number of similarities with the DataGrid. In the ItemsControl terminology, the DataGridRow is an ItemContainer and the DataGrid has an ItemContainerGenerator associated with it for generating the rows. I don't want to go into the details of how ItemContainers work, Dr. WPF has a good <a href="http://www.drwpf.com/blog/ItemsControlSeries/tabid/59/Default.aspx">series on the ItemsControl</a> for those who are interested. The following code can be used to determine the index of a row:</p>
+{% highlight csharp %}private int FindRowIndex(DataGridRow row)
+{
+    DataGrid dataGrid =
+        ItemsControl.ItemsControlFromItemContainer(row)
+        as DataGrid;
+
+    int index = dataGrid.ItemContainerGenerator.
+        IndexFromContainer(row);
+
+    return index;
+}{% endhighlight %}
+<p>Now that we have the row index, the column index is thankfully a little easier to locate, cell.Column.DisplayIndex does the trick. The final piece of information which we might like is the cell value. Is there a cell.Value properly? don't make me laugh!</p>
+<p>The following method determines the property binding for the cells column, then extracts the value from the data items associated with the row:</p>
+{% highlight csharp %}private object ExtractBoundValue(DataGridRow row,
+                                 DataGridCell cell)
+{
+    // find the column that this cell belongs to
+    DataGridBoundColumn col =
+       cell.Column as DataGridBoundColumn;
+
+    // find the property that this column is bound to
+    Binding binding = col.Binding as Binding;
+    string boundPropertyName = binding.Path.Path;
+
+    // find the object that is related to this row
+    object data = row.Item;
+
+    // extract the property value
+    PropertyDescriptorCollection properties =
+        TypeDescriptor.GetProperties(data);
+
+    PropertyDescriptor property = properties[boundPropertyName];
+    object value = property.GetValue(data);
+
+    return value;
+}{% endhighlight %}
+<p>Putting it all together, this blog post has a small smaple application which displays the header index and value, or cell's row/column indices and value in response to a right mouse click:</p>
+<p><a href="http://wpfadventures.files.wordpress.com/2008/12/clickedvalue.png"><img class="alignnone size-full wp-image-61" title="clickedvalue" src="http://wpfadventures.files.wordpress.com/2008/12/clickedvalue.png" alt="clickedvalue" width="299" height="299" /></a></p>
+<p>The sample project can be download, <a href="http://wpfadventures.files.wordpress.com/2008/12/wpfdatagridmouseclicks.doc">wpfdatagridmouseclicks</a>, changing the file extension from .doc to .zip.</p>
+<p>Regards, Colin E.</p>

@@ -1,0 +1,174 @@
+---
+id: 347
+author: ceberhardt
+title: >-
+  Silverlight MultiBindings, How to attached multiple bindings to a single
+  property.
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2009/06/silverlight-multibindings-how-to-attached-mutiple-bindings-to-a-single-property/
+tags:
+  - silverlight
+  - binding
+  - multibinding
+  - blog
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: >-
+  /blog/colin/2009/06/silverlight-multibindings-how-to-attached-mutiple-bindings-to-a-single-property/
+---
+<p><em>This blog posts describes a technique for associating multiple bindings with a single dependency property within Silverlight applications. WPF already has this functionality in the form of MultiBindings, the code in this post emulates this function.</em></p>
+<p><b>UPDATE:</b> Silverlight 4, attached properties and multiple property bindings are all supported in my <a href="{{ site.baseurl }}/2010/05/10/silverlight-multibinding-solution-for-silverlight-4">latest update here</a>.</p>
+<p>The simple application below demonstrates this technique, where there are three data-entry text boxes bound to the individual properties of a simple Person object, with the title text block being bound to <strong>both</strong> the Forename and Surname properties. Try editing the surname or forename fields and watch as the title is updated.</p>
+<div id="slPluginHost" > <object id="SilverlightPlugin" width="200" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/06/SLMultiBinding.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>The XAML for this application looks something like this (superfluous properties/ elements removed for clarity):</p>
+{% highlight xml %}
+<TextBlock Foreground="White" FontSize="13">
+    <local:BindingUtil.MultiBinding>
+        <local:MultiBinding TargetProperty="Text" Converter="{StaticResource TitleConverter}">
+            <Binding Path="Surname"/>
+            <Binding Path="Forename"/>
+        </local:MultiBinding>
+    </local:BindingUtil.MultiBinding>
+</TextBlock>
+
+<TextBlock Text="Surname:"/>
+<TextBox  Text="{Binding Path=Surname, Mode=TwoWay}"/>
+
+<TextBlock Text="Forename:"/>
+<TextBox Text="{Binding Path=Forename, Mode=TwoWay}"/>
+
+<TextBlock Text="Age:"/>
+<TextBox Text="{Binding Path=Age, Mode=TwoWay}"/>
+{% endhighlight %}
+<p><strong>The Solution</strong></p>
+<p>My solution to the problem of multi-binding was to introduce a class, MultiBinding which is associated with the element which has out multi-binding target property via the BindingUtil.MultiBinding attached property. The following diagram details my idea:</p>
+<p><a href="{{ site.baseurl }}/archive/2009/06/multibinding.png"><img src="{{ site.baseurl }}/archive/2009/06/multibinding.png" alt="multibinding" title="multibinding" width="402" height="207" class="aligncenter size-full wp-image-353" /></a></p>
+<p>The Forename and Surname bindings are bound to properties of the MultiBinding (Exactly which properties we will get onto in a minute). The MultiBinding has an associated Converter of type <a href="http://msdn.microsoft.com/en-us/library/system.windows.data.imultivalueconverter.aspx">IMultiValueConverter</a>, this client supplied class implements the conversion process, as shown below:</p>
+{% highlight csharp %}
+public class TitleConverter : IMultiValueConverter
+{
+
+  public object Convert(object[] values, Type targetType,
+    object parameter, System.Globalization.CultureInfo culture)
+  {
+    string forename = values[0] as string;
+    string surname = values[1] as string;
+
+    return string.Format("{0}, {1}", surname, forename);
+  }
+}
+{% endhighlight %}
+<p>The IMultiValueConverter interface is much the same as the IValueConverter, except in this case an array of objects are passed to the converter, with each object containing the current bound value for each of our bindings in order.</p>
+<p>With this value converter, the MultiBinding class can detect changes in the two bindings, then, recompute the ConvertedValue which is bound to the target property of our TextBlock. This was my initial idea, and it certainly sound quite simple, however it was not quite as easy as it seams on first inspection! </p>
+<p><strong>Hijacking the DataContext</strong></p>
+<p>Typically when defining a binding we omit the Source property, e.g. {Binding Path=Forename}. When the Binding which this expression represents is associated with an element, the binding source will be the (possibly inherited) DataContext of the target element. Therefore, in order to allow binding on the MultiBinding class, it must be a FrameworkElement, this gives us the DataContext property and the SetBinding() method.</p>
+<p>However, there is a problem; each element's DataContext is inherited from its parent within the visual tree. Our MultiBinding is not within the visual tree and we do not want it to be, therefore it will not participate in DataContext inheritance. What we need to do is ensure that when DataContext changes on the element which the MultiBinding is associated with it, that we 'push' this DataContext onto the MultiBinding. With WPF this is easy, FrameWorkElement exposes a DataContextChanged event, (for DPs that do not expose events there's always the <a href="https://msdn.microsoft.com/en-us/library/system.componentmodel.dependencypropertydescriptor(v=vs.110).aspx">DependencyPropertyDescriptor</a>). However, with Silverlight, neither of these options are available. </p>
+<p>My solution here is to create a new attached property and attach it to the target element (our TextBlock in this case), which piggy-backs the DataContext. The code below is from the BindingUtil class, when the MultiBinding class is associated with the target element as an attached property, we also bind its attached DataContextPiggyBack property. We define a static method which is invoked whenever the DatatContext of the target element changes, and here we 'push' this new DataContext to the MultiBinding class.</p>
+{% highlight csharp %}
+/// <summary>
+/// Invoked when the MultiBinding property is set on a framework element
+/// </summary>
+private static void OnMultiBindingChanged(DependencyObject depObj,
+  DependencyPropertyChangedEventArgs e)
+{
+  FrameworkElement targetElement = depObj as FrameworkElement;
+
+  // bind the target elements DataContext, to our DataContextPiggyBack property
+  // this allows us to get property changed events when the targetElement
+  // DataContext changes
+  targetElement.SetBinding(BindingUtil.DataContextPiggyBackProperty, new Binding());
+}
+
+
+public static readonly DependencyProperty DataContextPiggyBackProperty =
+    DependencyProperty.RegisterAttached("DataContextPiggyBack",
+        typeof(object), typeof(BindingUtil), new PropertyMetadata(null,
+              new PropertyChangedCallback(OnDataContextPiggyBackChanged)));
+
+public static object GetDataContextPiggyBack(DependencyObject d)
+{
+  return (object)d.GetValue(DataContextPiggyBackProperty);
+}
+
+public static void SetDataContextPiggyBack(DependencyObject d, object value)
+{
+  d.SetValue(DataContextPiggyBackProperty, value);
+}
+
+/// <summary>
+/// Handles changes to the DataContextPiggyBack property.
+/// </summary>
+private static void OnDataContextPiggyBackChanged(DependencyObject d,
+                                                              DependencyPropertyChangedEventArgs e)
+{
+  FrameworkElement targetElement = d as FrameworkElement;
+
+  // whenever the targeElement DataContext is changed, copy the updated property
+  // value to our MultiBinding.
+  MultiBinding relay = GetMultiBinding(targetElement);
+  relay.DataContext = targetElement.DataContext;
+}
+{% endhighlight %}
+<p><strong>Creating targets for the bindings</strong></p>
+<p>The MultiBinding class needs to have a property which is a collection of type Binding:</p>
+{% highlight csharp %}
+[ContentProperty("Bindings")]
+public class MultiBinding : Panel, INotifyPropertyChanged
+{
+
+  ...
+
+  /// <summary>
+  /// The bindings, the result of which are supplied to the converter.
+  /// </summary>
+  public ObservableCollection<Binding> Bindings { get; set; }
+
+  ...
+}
+{% endhighlight %}
+<p>(Note the use of the ContentProperty attribute, which means that we do not have to explicitly detail Binding collection in XAML using the property element syntax). The problem is, in order for these bindings to be evaluated, they need to be bound to a target property. We could add a number of 'dummy' properties to MultiBinding, PropertyOne, PropertyTwo, etc ... and bind to these, however this approach is cumbersome and limited. </p>
+<p>The solution here is to make MultiBinding a Panel, this allows it to have child elements, each of which will inherit its DataContext. When the MultiBinding class is initialised at the point it is attached, the Initialise method is invoked. This method creates an instance of BindingSlave, a simple FrameworkElement subclass with a single Value property which raises PropertyChanged events when this property changes, for each binding:</p>
+{% highlight csharp %}
+/// <summary>
+/// Creates a BindingSlave for each Binding and binds the Value
+/// accordingly.
+/// </summary>
+internal void Initialise()
+{
+  foreach (Binding binding in Bindings)
+  {
+    BindingSlave slave = new BindingSlave();
+    slave.SetBinding(BindingSlave.ValueProperty, binding);
+    slave.PropertyChanged += new PropertyChangedEventHandler(Slave_PropertyChanged);
+    Children.Add(slave);
+  }
+}
+{% endhighlight %}
+<p>Whenever a slave property changes, the MultiBinding event handler obtains the current bound values and uses them to re-evaluate the converter:</p>
+{% highlight csharp %}
+/// <summary>
+/// Invoked when any of the BindingSlave's Value property changes.
+/// </summary>
+private void Slave_PropertyChanged(object sender, PropertyChangedEventArgs e)
+{
+  List<object> values = new List<object>();
+  foreach (BindingSlave slave in Children)
+  {
+    values.Add(slave.Value);
+  }
+  ConvertedValue = Converter.Convert(values.ToArray(), typeof(object), ConverterParameter,
+    CultureInfo.CurrentCulture);
+}
+{% endhighlight %}
+<p>The ConvertedValue property is bound to the target property of the target element, and will be updated to reflect this change.</p>
+<p>This method is very similar to one which Josh Smith described in his codeproject article on the concept of <a href="http://www.codeproject.com/KB/WPF/AttachingVirtualBranches.aspx">Virtual Branches</a>. The MultiBinding and BindingSlave instances can be thought of as a virtual branch to our visual tree: </p>
+<p><a href="{{ site.baseurl }}/archive/2009/06/virtualbranch.png"><img src="{{ site.baseurl }}/archive/2009/06/virtualbranch.png" alt="virtualbranch" title="virtualbranch" width="604" height="394" class="aligncenter size-full wp-image-355" /></a></p>
+<p><strong>Download Sources</strong></p>
+<p>You can download the full sourcecode for this project here: <a href='{{ site.baseurl }}/archive/2009/06/slmultibinding.zip'>slmultibinding.zip</a></p>
+<p><strong>A final word on MVVM</strong></p>
+<p>The MVVM pattern is very popular in Silverlight and WPF application development. With this pattern, your view's DataContext is bound to your view-model. With this pattern in place, the need for multi-bindings can be removed (Josh Smith goes further to moot the concept of <a href="http://joshsmithonwpf.wordpress.com/2008/12/01/the-philosophies-of-mvvm">removing value converters altogether</a>). In our example the PersonViewModel class would simply expose a Title property which performs the same function as the TitleConverter. So does this render my technique completely redundant?</p>
+<p>I don't think so. Whilst MVVM is a great pattern, there are times where adding another layer to your application may be undesirable, especially if your primary aim is simplicity. Furthermore, I do not like being forced into using a specific pattern simply because the framework itself is lacking in functionality. The MVVM pattern is great for building skinnable applications, and allowing UI unit testing, however, if I do not need either of these features, I would prefer not to MVVM.</p>
+<p>Regards, Colin E.</p>

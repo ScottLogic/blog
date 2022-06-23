@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<data seriesName="HSBC" colour="0">
+	<value label="04" price="884.25" percentage="36.83" cap="84.00"/>
+	<value label="05" price="946.50" percentage="37.72" cap="89.92"/>
+	<value label="06" price="931.75" percentage="33.76" cap="93.18"/>
+	<value label="07" price="884.00" percentage="41.36" cap="88.40"/>
+	<value label="08" price="801.75" percentage="67.47" cap="96.21"/>
+</data>

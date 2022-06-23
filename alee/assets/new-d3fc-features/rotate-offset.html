@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- include polyfills for custom event, Symbol and Custom Elements -->
+  <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.js"></script>
+  <script src="https://unpkg.com/custom-event-polyfill@0.3.0/custom-event-polyfill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/1.8.0/document-register-element.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+
+  <script src="https://unpkg.com/d3@5.5.0"></script>
+  <script src="https://unpkg.com/d3fc@14.0.39"></script>
+
+  <style>
+    .demo {
+      background: #fff;
+    }
+    .chart {
+      height: 100%;
+    }
+    d3fc-group.cartesian-chart {
+      background-color: #f9f2f4;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: auto;
+    }
+    .bar {
+      fill: rgba(100, 0, 0, 0.4);
+    }
+    .bar .hover {
+      fill: rgba(100, 80, 80, 0.8);
+    }
+    .options {
+      z-index: 100;
+      position: absolute;
+      top: 10px;
+      left: 80px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .options li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="demo">
+      <ul class="options">
+        <li><input id="opt_rotate" name="opts" type="radio" checked/><label for="opt_rotate">Rotate</label></li>
+        <li><input id="opt_offset" name="opts" type="radio"/><label for="opt_offset">Offset</label></li>
+      </ul>
+      <div class="chart"></div>
+    </div>
+  </div>
+
+  <script type="text/babel" src="demo.js"></script>
+  <link href="demo.css" rel="stylesheet">
+
+  <script type='text/babel'>
+    let n = 0;
+    setInterval(() => {
+      n += 0.025;
+      const value = Math.min(Math.max(Math.sin(n), -0.7), 0.7) + 0.7;
+      const chart = d3.select('.cartesian-chart').style("right", `${value * 200}px`);
+      chart.node().requestRedraw();
+    }, 25);
+  
+    const selectOffsetMode = on => {
+      offsetMode = on;
+      d3.select('.chart').html('');
+      render();
+    }
+  
+    d3.select('#opt_rotate').on('change', (d, i, n) => {
+      d3.select(n[i]).attr("checked", true);
+      selectOffsetMode(false);
+    });
+    d3.select('#opt_offset').on('change', (d, i, n) => {
+      d3.select(n[i]).attr("checked", true);
+      selectOffsetMode(true);
+    });
+  </script>
+  
+  <script id="data.js" type='text/babel'>
+  const data = [
+    { name: 'August', value: 51 },
+    { name: 'September', value: 48 },
+    { name: 'October', value: 37 },
+    { name: 'November', value: 46 },
+    { name: 'December', value: 78 },
+    { name: 'January', value: 65 },
+    { name: 'February', value: 40 },
+    { name: 'March', value: 65 },
+    { name: 'April', value: 80 },
+    { name: 'May', value: 72 }
+  ];
+  </script>
+
+  <script id="chart.js" type='text/babel'>
+  let offsetMode = false;
+  const hoverFn = hovering =>
+    (d, i, n) => {
+      d3.select(n[i]).classed("hover", hovering);
+    };
+
+  const series = fc.autoBandwidth(fc.seriesSvgBar())
+    .crossValue(d => d.name)
+    .mainValue(d => d.value)
+    .align("left")
+    .decorate((s, d, index) => {
+      s.enter().select('path')
+        .on("mouseover", hoverFn(true))
+        .on("mouseout", hoverFn(false))
+    });
+
+  const render = () => {
+    // pick which adapter to use
+    const adapter = offsetMode
+      ? fc.axisLabelOffset
+      : fc.axisLabelRotate;
+
+    const chart = fc.chartCartesian({
+      xScale: d3.scaleBand(),
+      yScale: d3.scaleLinear(),
+      xAxis: {
+        // bottom axis uses one of the two adapters
+        bottom: scale => adapter(fc.axisOrdinalBottom(scale))
+      },
+      yAxis: {
+        left: fc.axisLeft
+      }
+    })
+      .xPaddingInner(0.5)
+      .xPaddingOuter(0.25)
+      .xAxisHeight('60px')
+      .xTickSize(4)
+      .xTickPadding(6)
+      .yAxisWidth('30px')
+      .yDomain([30, 90])
+      .xDomain(data.map(d => d.name))
+      .yOrient('left')
+      .svgPlotArea(series);
+
+    d3.select('.chart').datum(data).call(chart);
+  }
+  render();
+  </script>
+
+</body>
+</html>

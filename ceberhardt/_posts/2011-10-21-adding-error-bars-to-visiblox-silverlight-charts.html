@@ -1,0 +1,237 @@
+---
+id: 1766
+author: ceberhardt
+title: Adding Error Bars to Visiblox Silverlight Charts
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2011/10/adding-error-bars-to-visiblox-silverlight-charts/
+tags:
+  - charts
+  - visiblox
+  - databinding
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/10/adding-error-bars-to-visiblox-silverlight-charts/
+---
+<p>Having spent a number of years studying Physics at university, I have had the importance of error bars well and truly drummed into me! Within physics, or any experimental science, there are always going to be errors in the measurements you make. The more repeat measurements you make, the more confident you can be in the mean value, however you cannot remove the errors altogether. Error bars provide a way to represent the spread of experimental observations graphically, without them, it is hard to have any confidence in the conclusions drawn from the observations!</p>
+<p>In this blog post I will show how to implement a custom <a href="http://www.visiblox.com/">Visiblox</a> chart series to render error bars:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/VisibloxErrorBars.png" alt="" title="VisibloxErrorBars" width="499" height="240" class="aligncenter size-full wp-image-1767" /></p>
+<p>(The data in the above chart is from a page which details how to calculate the <a href="http://www.ncsu.edu/labwrite/res/gt/gt-stat-home.html">standard error from experimental results</a>).</p>
+<h2>Creating a Custom Series</h2>
+<p>As described in my previous blog post on <a href="{{ site.baseurl }}/2010/11/22/adding-a-smoothed-line-series-bezier-curve-to-a-visiblox-chart" title="Adding a Smoothed Line Series (B&eacute;zier curve) to a Visiblox Chart">creating a spline series</a>, to create a new series type, you sub-class one of the Visiblox base-classes, in this case <code>MultiValueSeriesBase </code>is a suitable starting point:</p>
+{% highlight csharp %}
+public class ErrorBarSeries : MultiValueSeriesBase
+{
+  protected override FrameworkElement CreatePoint(IDataPoint dataPoint)
+  {
+    throw new NotImplementedException();
+  }
+
+  protected override void RenderDataLabels()
+  {
+    throw new NotImplementedException();
+  }
+}
+{% endhighlight %}
+<p>I don't want data labels, so the only method I need to implement is <code>CreatePoint</code>, which takes the (multi-valued) point to be rendered as its only argument. The lifecycle of point creating and destruction is taken care of by the base-class.</p>
+<p>The <code>IDataPoint </code>has a string indexer which is used to retrieve multiple Y values for multi-valued series. It is a good idea to define these in a single place, here we define the three y-values required for an error-bar series:</p>
+{% highlight csharp %}
+public static readonly string ErrorUp = "ErrorUp";
+
+public static readonly string ErrorDown = "ErrorDown";
+
+public static readonly string Value = "Value";
+{% endhighlight %}
+<p>The <code>CreatePoint</code> implementation for this series creates a Path as follows:</p>
+{% highlight csharp %}
+protected override FrameworkElement CreatePoint(IDataPoint dataPoint)
+{
+  var lineGeometry = BuildGeometry(dataPoint);
+
+  Path line = new Path();
+  line.Stroke = new SolidColorBrush(Colors.Black);
+  line.Fill = new SolidColorBrush(Colors.Gray);
+  line.StrokeThickness = 1.0;
+  line.StrokeLineJoin = PenLineJoin.Bevel;
+  line.Data = lineGeometry;
+  line.SetValue(ZoomCanvas.IsScaledPathProperty, true);
+
+  return line;
+}
+{% endhighlight %}
+<p>The <code>BuildGeometry</code> method does most of the work, extracting the values from the IDataPoint, transforming them (via the axis) to the required coordinate system, then creating a suitable geometry:</p>
+{% highlight csharp %}
+/// <summary>
+/// Creates the geometry for the given datapoint
+/// </summary>
+private PathGeometry BuildGeometry(IDataPoint dataPoint)
+{
+  var halfWidth = SuggestedPointWidth * WidthFactor;
+
+  // obtain the data values
+  var topDataValue = dataPoint[ErrorUp] as IComparable;
+  var middleDataValue = dataPoint[Value] as IComparable;
+  var bottomDataValue = dataPoint[ErrorDown] as IComparable;
+
+  // convert to a the required render coordinates
+  double topRenderPos = YAxis.GetDataValueAsRenderPositionWithoutZoom(topDataValue);
+  double middleRenderPos = YAxis.GetDataValueAsRenderPositionWithoutZoom(middleDataValue);
+  double bottomRenderPos = YAxis.GetDataValueAsRenderPositionWithoutZoom(bottomDataValue);
+
+  double xMiddleRenderPos = XAxis.GetDataValueAsRenderPositionWithoutZoom(dataPoint.X);
+  double xRightRenderPos = xMiddleRenderPos - halfWidth;
+  double xLeftRenderPos = xMiddleRenderPos + halfWidth;
+
+  // build a suitable gemoetry
+  PathGeometry lineGeometry = new PathGeometry();
+
+  PathFigure upperVerticalLine = CreateLineFigure(
+    new Point(xMiddleRenderPos, middleRenderPos - halfWidth),
+    new Point(xMiddleRenderPos, topRenderPos));
+  lineGeometry.Figures.Add(upperVerticalLine);
+
+  PathFigure lowerVerticalLine = CreateLineFigure(
+    new Point(xMiddleRenderPos, bottomRenderPos),
+    new Point(xMiddleRenderPos, middleRenderPos + halfWidth));
+  lineGeometry.Figures.Add(lowerVerticalLine);
+
+  PathFigure upperBar = CreateLineFigure(
+    new Point(xLeftRenderPos, topRenderPos),
+    new Point(xRightRenderPos, topRenderPos));
+  lineGeometry.Figures.Add(upperBar);
+
+  PathFigure lowerBar = CreateLineFigure(
+    new Point(xLeftRenderPos, bottomRenderPos),
+    new Point(xRightRenderPos, bottomRenderPos));
+  lineGeometry.Figures.Add(lowerBar);
+
+  PathFigure center = CreateLineFigure(
+    new Point(xMiddleRenderPos - halfWidth, middleRenderPos),
+    new Point(xMiddleRenderPos, middleRenderPos + halfWidth),
+    new Point(xMiddleRenderPos + halfWidth, middleRenderPos),
+    new Point(xMiddleRenderPos, middleRenderPos - halfWidth)
+  );
+  lineGeometry.Figures.Add(center);
+
+  return lineGeometry;
+}
+
+/// <summary>
+/// Create a line figure that connects the given points
+/// </summary>
+private PathFigure CreateLineFigure(params Point[] points)
+{
+  // add all the points (except the first)
+  var pointCollection = new PointCollection();
+  foreach (var point in points.Skip(1))
+  {
+    pointCollection.Add(point);
+  }
+
+  // create a figure, using the first point as the StartPoint.
+  return new PathFigure()
+  {
+    IsClosed = true,
+    StartPoint = points.First(),
+    Segments = new PathSegmentCollection()
+    {
+      new PolyLineSegment
+      {
+        Points = pointCollection
+      }
+    }
+  };
+}
+{% endhighlight %}
+<p>We can now create an instance of this series in XAML:</p>
+{% highlight xml %}
+<vis:Chart x:Name="chart">
+  <vis:Chart.Series>
+    <local:ErrorBarSeries/>
+  </vis:Chart.Series>
+</vis:Chart>
+{% endhighlight %}
+<p>Supplying data to the chart via <code>MultiValuedDataPoint</code> as follows:</p>
+{% highlight csharp %}
+public MainPage()
+{
+  InitializeComponent();
+
+  var data = new DataSeries<double, double>();
+  data.Add(CreatePoint(-195, 1.4, 0.2));
+  data.Add(CreatePoint(0, 62.2, 9.3));
+  data.Add(CreatePoint(20, 70.4, 6.5));
+  data.Add(CreatePoint(100, 77.4, 1.9));
+
+  chart.Series[0].DataSeries = data;
+}
+
+private MultiValuedDataPoint<double, double> CreatePoint(double x, double y, double error)
+{
+  var point = new MultiValuedDataPoint<double, double>(x,
+    new Dictionary<object, double>()
+    {
+      { ErrorBarSeries.ErrorUp, y + error },
+      { ErrorBarSeries.ErrorDown, y - error },
+      { ErrorBarSeries.Value, y }
+    });
+  return point;
+}
+{% endhighlight %}
+<p>This results in the following chart:</p>
+<p><img src="{{ site.baseurl }}/archive/2011/10/VisibloxErrorBars2.png" alt="" title="VisibloxErrorBars2" width="476" height="293" class="aligncenter size-full wp-image-1772" /></p>
+<h2>Binding to a Multi-valued Series</h2>
+<p>In the previous example we created instances of <code>MultiValuedDataPoint</code>, a Visiblox type for representing multi-valued points. As an alternative, we can create model objects to represent each point, rendering them in the chart via databinding.</p>
+<p>We first modify the code to create a collection of <code>Measurement</code> instances (a simple model object that implements <code>INotifyPropertyChanged</code>):</p>
+{% highlight csharp %}
+public MainPage()
+{
+  InitializeComponent();
+
+  var data = new ObservableCollection<Measurement>();
+  data.Add(CreateMeasurement(-195, 1.4, 0.2));
+  data.Add(CreateMeasurement(0, 62.2, 9.3));
+  data.Add(CreateMeasurement(20, 70.4, 6.5));
+  data.Add(CreateMeasurement(100, 77.4, 1.9));
+  this.DataContext = data;
+}
+
+private Measurement CreateMeasurement(double x, double y, double error)
+{
+  return new Measurement()
+    {
+      XValue = x,
+      YValue = y,
+      YValueErrorUp = y + error,
+      YValueErrorDown = y - error
+    };
+}
+{% endhighlight %}
+<p>The markup for the chart is modified to use a <code>BindableDataSeries</code>, with bindings specified for the various component of the error bar series. Also, the <code>ItemsSource </code>of the <code>BindableDataSeries</code> is bound to the inherited <code>DataContext</code>:</p>
+{% highlight csharp %}
+<local:ErrorBarSeries>
+  <local:ErrorBarSeries.DataSeries>
+    <vis:BindableDataSeries ItemsSource="{Binding}"
+                            XValueBinding="{Binding XValue}">
+      <vis:BindableDataSeries.YValueBindings>
+        <vis:YValueBinding YValueKey="Value" Binding="{Binding YValue}"/>
+        <vis:YValueBinding YValueKey="ErrorUp" Binding="{Binding YValueErrorUp}"/>
+        <vis:YValueBinding YValueKey="ErrorDown"  Binding="{Binding YValueErrorDown}"/>
+      </vis:BindableDataSeries.YValueBindings>
+    </vis:BindableDataSeries>
+  </local:ErrorBarSeries.DataSeries>
+</local:ErrorBarSeries>
+{% endhighlight %}
+<p>We can also display our data in a DataGrid, allowing us to manipulate the values (not that I condone manipulation of scientific data!), with the changes being reflected in the chart:</p>
+{% highlight xml %}
+<sdk:DataGrid Grid.Row="1"
+              x:Name="grid"
+              ItemsSource="{Binding}"/>
+{% endhighlight %}
+<p>This gives us the following application:</p>
+<div style="text-align: center;"><object width="500" height="400" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2011/10/VisibloxErrorBarSeries.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can edit the values, with the changes reflected immediately in the chart above.</p>
+<p>You can download the sourcecode for the above example here:  <a href='{{ site.baseurl }}/archive/2011/10/VisibloxErrorBarSeries.zip'>VisibloxErrorBarSeries.zip</a></p>
+<p>Regards, Colin E.</p>

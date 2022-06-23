@@ -1,0 +1,63 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - alee/_posts/2014-07-30-spa-angular-knockout.md
+searchModel
+rateLimit
+backEndServer
+beforeEach
+httpBackend
+MockJax
+dist
+gulp-angular-templatecache
+TemplateCache
+fadeVisible
+ - alee/_posts/2014-08-06-angular-knockout-e2e-testing.md
+HttpGet
+ - alee/_posts/2014-08-18-asp-angular-optimisation.md
+AppSettings
+testSPA
+ - alee/_posts/2014-10-27-xplatform-mobile-cordova-ionic.md
+popover
+ - alee/_posts/2014-11-25-ionic-sorter.md
+1px
+ - alee/_posts/2019-04-18-building-a-perspective-plugin-with-d3fc.md
+_blank
+highcharts
+abc
+datetime
+crossvalues
+mainvalues
+treemap
+bollinger
+ - alee/_posts/2019-04-23-perspective-plugin-api-how-to-build-a-new-plugin.md
+openlayers
+openstreetmap
+citibike
+sw
+openflights
+ - alee/_posts/2019-05-09-building-a-better-d3-axis.md
+xScale
+Centering
+yScale
+ - alee/_posts/2019-05-14-building-a-more-flexible-d3-chart.md
+d3fc-flexi-chart
+seriesMulti
+flexiChart
+ - alee/_posts/2019-05-28-drawing-2d-charts-with-webgl.md
+shader
+TRIANGLE_STRIP
+TRIANGLE_FAN
+d1
+d2
+r1
+r2
+d3fc-webgl-proc
+SegmentCount
+ - alee/_posts/2019-06-14-add-webassembly-to-react-app.md
+emscripten
+docs.assemblyscript.org
+asinit
+index.js

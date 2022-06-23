@@ -1,0 +1,19 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - bdimitrov-SL/_posts/2015-11-19-oauth2-with-saml2.md
+SAMLIdentityProvider
+SAMLLibrary
+AuthorisationServer
+ClientController.cs
+OAuthRequestHandler
+SAMLController.cs
+ClientRedirect
+OAuthRedirect
+OAuthController.cs
+Startup.Auth.cs
+ResourceController.cs
+ComponentSpace's
+DotNetOpenAuth

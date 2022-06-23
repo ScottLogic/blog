@@ -1,0 +1,32 @@
+---
+id: 144750
+author: cprice
+title: A TodoMVC Closure Example
+oldlink: "http://www.scottlogic.co.uk/2012/02/a-todomvc-closure-example/"
+tags:
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/02/a-todomvc-closure-example/
+---
+<p>I recently had a need to create a demonstration application showcasing some of the features of the Closure toolkit. Whilst I was trying to think of a suitable example to implement, I remembered coming across a project called <a href="https://github.com/tastejs/todomvc">TodoMVC</a>.</p>
+<p>TodoMVC is a GitHub project which aims to re-create the same simple to-do list application using a multitude of different JavaScript frameworks. Each example features (close to) identical functionality as opposed to the examples available form the framework's homepages, which showcase differing functionality highlighting the strengths over the weaknesses of the framework. </p>
+<p>The application itself is a very simple to-do list, featuring adding items, editing items, toggling the done state of an item and removing items. For my Closure implementation I split the UI up as follows -</p>
+<p><img src="{{ site.baseurl }}/archive/2012/02/todomvc-closure.png" alt="" title="todomvc-closure" width="517" height="427" class="aligncenter size-full wp-image-144752" /></p>
+<ol>
+<li>A plain HTML input Element </li>
+<li>A custom <a href="http://code.google.com/p/closure-library/source/search?q=goog.ui.container&origq=goog.ui.container&btnG=Search+Trunk">goog.ui.Container</a> implementation and renderer - ToDoItemContainer(Renderer)</li>
+<li>A custom <a href="http://code.google.com/p/closure-library/source/search?q=goog.ui.control&origq=goog.ui.control&btnG=Search+Trunk">goog.ui.Control</a> implementation and renderer - ToDoItemControl(Renderer), making use of the following <a href="http://code.google.com/p/closure-library/source/search?q=goog.ui.component.state&origq=goog.ui.component.state&btnG=Search+Trunk">goog.ui.Component.State</a>s -
+<ol>
+<li style='list-style-type: lower-alpha'>n.a.</li>
+<li style='list-style-type: lower-alpha'>CHECKED</li>
+<li style='list-style-type: lower-alpha'>SELECTED (on reflection this should probably have been FOCUSED)</li>
+<li style='list-style-type: lower-alpha'>HOVER</li>
+</ol>
+</li>
+<li>A custom <a href="http://code.google.com/p/closure-library/source/search?q=goog.ui.controlrenderer&origq=goog.ui.controlrenderer&btnG=Search+Trunk">goog.ui.ControlRenderer</a> using the default goog.ui.Control.</li>
+<li>A custom <a href="http://code.google.com/p/closure-library/source/search?q=goog.ui.controlrenderer&origq=goog.ui.controlrenderer&btnG=Search+Trunk">goog.ui.ControlRenderer</a> using the default goog.ui.Control and ACTION event.</li>
+</ol>
+<p>All of the UI elements are rendered by some simple soy templates and backed by an array of model.ToDoItem beans. The controller/application logic is contained in main.js, this is primarily logic which takes events from the UI and pushes the values back into the model. Unfortunately Closure doesn't feature any in-built binding framework so this is a very code heavy implementation. </p>

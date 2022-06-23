@@ -1,0 +1,11 @@
+---
+layout: default
+title: Resources
+summary: Scott Logic's white papers and guides
+image: /assets/resources.jpg
+---
+{% assign posts = site.categories["Resources"] %}
+{% if posts %}
+  {% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% endif %}
+{% include post_index.html posts=posts categoryName="Resources" %}

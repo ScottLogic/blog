@@ -1,0 +1,11 @@
+---
+layout: default
+title: Tech
+summary: Scott Logic's thoughts and ideas relating to Tech
+image: /assets/tech.jpg
+---
+{% assign posts = site.categories["Tech"] %}
+{% if posts %}
+  {% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% endif %}
+{% include post_index.html posts=posts categoryName="Tech" %}

@@ -1,0 +1,184 @@
+---
+id: 275
+author: ceberhardt
+title: Binding a Silverlight DataGrid to dynamic data Part 2 - editable data and INotifyPropertyChanged
+oldlink: "http://www.scottlogic.co.uk/blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged/"
+tags:
+  - DataGrid
+  - silverlight
+  - binding
+  - blog
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2009/04/binding-a-silverlight-datagrid-to-dynamic-data-part-2-editable-data-and-inotifypropertychanged/
+---
+<p><strong>UPDATE</strong>: This blog post was written with a SL2 DataGrid, for SL3, please see my <a href="{{ site.baseurl }}/2010/03/26/binding-a-silverlight-3-datagrid-to-dynamic-data-via-idictionary-updated">updated blog post</a>.</p>
+<p>In my <a href="{{ site.baseurl }}/2009/04/17/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary">previous blog post</a> I described a method for solving the commonly faced problem of binding a Silverlight DataGrid to dynamic data, the form of which is not know at compile time. This blog post extends on the method previously described, adding change notification, allowing the DataGrid to synchronise the UI with changes to the bound data and to allow the user to edit the DataGrid's contents.</p>
+<p>To briefly recap my previous post, the dynamic data is copied to a collection of Rows:</p>
+{% highlight csharp %}
+public class Row
+{
+  private Dictionary<string, object> _data = new Dictionary<string, object>();
+
+  public object this [string index]
+  {
+    get { return _data[index]; }
+    set { _data[index] = value; }
+  }
+}
+{% endhighlight %}
+<p>Where the row 'properties' which are implemented via the string indexer bound to the grid via a ValueConverter. The XAML for the DataGrid looks like the following:</p>
+{% highlight xml %}
+<data:DataGrid Name="_dataGrid" AutoGenerateColumns="False"  IsReadOnly="False" Margin="5">
+    <data:DataGrid.Columns>
+        <data:DataGridTextColumn Header="Forename"
+                                 Binding="{Binding Converter={StaticResource RowIndexConverter},
+                                    ConverterParameter=Forename}"/>
+        <data:DataGridTextColumn Header="Surname"
+                                 Binding="{Binding Converter={StaticResource RowIndexConverter},
+                                    ConverterParameter=Surname}"/>
+        ...
+    </data:DataGrid.Columns>
+</data:DataGrid>
+{% endhighlight %}
+<p>Where the ValueConverter takes the ConverterParameter and uses it to index the bound Row instance:</p>
+{% highlight csharp %}
+public class RowIndexConverter : IValueConverter
+{
+  public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+  {
+    Row row = value as Row;
+    string index = parameter as string;
+    return row[index];
+  }
+}
+{% endhighlight %}
+<p>It is important to note that the Binding does not have a Path defined. As a result, the binding source is the Row instance itself rather than a property of the Row as would more normally be the case when binding data. The rest of the post described how to create a collection view which sorts the collection via the Row's string indexer. You can read about this in full in my <a href="{{ site.baseurl }}/2009/04/17/binding-a-silverlight-datagrid-to-dynamic-data-via-idictionary">previous blog post</a>.</p>
+<p>Now, one question a few people have asked me is how to implement INotifyPropertyChanged on the Row class in order to make the DataGrid editable. Simply implementing INotifyPropertyChanged on the Row class, with events raised from the index setter, will not make the grid editable or synchronised with the bound data. The underlying problem here is that the Binding does not have a Path specified, therefore, the binding framework does not know which property name to look out for when handling PropertyChanged events. Interestingly I would expect the above bindings to be updated if a PropertyChanged event were raised with a null or empty PropertyName string, however they do not.</p>
+<p>So if the Binding framework needs a Path for the binding in order for change notification to work, we will have to fabricate one for this purpose! We can modify the Row class as follows, adding a Data property which is simply a reference to the Row instance itself:</p>
+{% highlight csharp %}
+public class Row : INotifyPropertyChanged
+{
+    private Dictionary<string, object> _data = new Dictionary<string, object>();
+
+    public object this [string index]
+    {
+        get
+        {
+            return _data[index];
+        }
+        set
+        {
+            _data[index] = value;
+
+            OnPropertyChanged("Data");
+        }
+    }
+
+    public object Data
+    {
+        get
+        {
+            return this;
+        }
+    }
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected void OnPropertyChanged(string property)
+    {
+        if (PropertyChanged!=null)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+    }
+}
+{% endhighlight %}
+<p>In order to bind this class we modify our bindings so that the source Path points to the Data property:</p>
+{% highlight xml %}
+...
+<data:DataGridTextColumn Header="Forename"
+                           Binding="{Binding Path=Data, Converter={StaticResource RowIndexConverter},
+                           ConverterParameter=Forename}"/>
+<data:DataGridTextColumn Header="Forename"
+                           Binding="{Binding Path=Data, Converter={StaticResource RowIndexConverter},
+                           ConverterParameter=Surname}"/>
+...
+{% endhighlight %}
+<p>With this change in place, all of our bindings are bound to the Row's Data property. Again, the Row's indexer is being accessed via our value converter. However, if any 'property' change via the string indexer setter will result in all of our bindings being updated for that Row. I know, it is not the most efficient solution - but at least it work!</p>
+<p>The next problem is making the DataGrid editable. The problem we face here is that all of our bindings are to the same property, Data. When a cell is edited, the binding framework will quite happily call the Data properties setter, with the updated value. However, how do we know which property of the Row was really being set? The only place we hold this information is in the ConverterParameter which is fed to our RowIndexConverter value converter. Fortunately, there is a solution to this problem, when the binding framework updates the bound object, it will first invoke the ConvertBack method on our value converter. This gives us the opportunity to 'capture' the converter parameter and feed it into the setter of our Data property, as shown below:</p>
+{% highlight csharp %}
+public class RowIndexConverter : IValueConverter
+{
+    ...
+
+    public object ConvertBack(object value, Type targetType,
+        object parameter, CultureInfo culture)
+    {
+        return new PropertyValueChange(parameter as string, value);
+    }
+}
+{% endhighlight %}
+<p>Where PropertyValueChanged is a simple value object:</p>
+{% highlight csharp %}
+public class PropertyValueChange
+{
+    private string _propertyName;
+    private object _value;
+
+    public object Value
+    {
+        get { return _value; }
+    }
+
+    public string PropertyName
+    {
+        get { return _propertyName; }
+    }
+
+    public PropertyValueChange(string propertyName, object value)
+    {
+        _propertyName = propertyName;
+        _value = value;
+    }
+}
+{% endhighlight %}
+<p>The setter for the Data property will now be invoked with an instance of PropertyValueChanged, giving it all the information it requires to invoke the string indexer with the correct 'property' name:</p>
+{% highlight csharp %}
+public class Row : INotifyPropertyChanged
+{
+    ...
+
+    public object Data
+    {
+        get { return this; }
+        set
+        {
+            PropertyValueChange setter = value as PropertyValueChange;
+            _data[setter.PropertyName] = setter.Value;
+        }
+    }
+    ...
+}
+{% endhighlight %}
+<p>With this change in place, we the user is able to edit the data bound to the DataGrid, and the binding ensures that the DataGrid UI is synchronised with any changes to the bound data that may happen elsewhere in our code.</p>
+<p>One final thought that struck me is that this technique uses the Binding's associated ValueConverter to access the Row's string indexer, but what if we wanted to use a ValueConverter for something else like formatting? Fortunately it is a pretty straightforward process to nest one value converter inside another. For details, see the attached project. For now, have quick play with the grid below, where all the columns are editable and the button click event sets the Row's Age property demonstrating how the DataGrid is synchronised:</p>
+{% highlight csharp %}
+private void Button_Click(object sender, RoutedEventArgs e)
+{
+    // demonstrate the property changes from code-behind still work.
+    Random rand = new Random();
+    foreach (var row in _rows)
+    {
+        row["Age"] = rand.Next(10) + 5;
+    }
+}
+{% endhighlight %}
+<p>Also, the Age column has a value converter associated ...</p>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/04/silverlighttable1.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>So there you have it, binding to dynamic data with INotifyPropertyChanged implemented and an editable DataGrid. The only reservation I have with this technique is that I am really bending the binding framework to achieve the results, having a Data property which expects different types for the getter and setter is a little ugly ... use with caution!</p>
+<p>You can download the project sourcecode: <a href='{{ site.baseurl }}/archive/2009/04/silverlightdynamicbinding2.zip'>silverlightdynamicbinding2.zip</a></p>
+<p>Regards, Colin E.</p>

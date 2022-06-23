@@ -1,0 +1,180 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="{{ site.github.url }}/archive/2010/12/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#insertTable").click(function() {
+    var div = document.getElementById('grid'); 
+    var txt = "<table><tbody>", i, j;
+	
+    for(i = 0; i < 100; i++) {
+      txt += "<tr>";
+      for(j = 0; j < 100; j++) {
+	    txt += "<td></td>";
+      }
+      txt += "</tr>";
+    }
+	
+    txt += "</tbody></table>";
+    div.innerHTML = txt;
+    addHover($("td"));
+  });
+});
+
+var addHover = function(cells) {
+  cells.hover(function(e) {
+    var jqEl = $(e.target), timeoutId = jqEl.data("timeoutId");
+    jqEl.removeClass("animate").addClass("over");
+    if  (timeoutId) {
+	  clearTimeout(timeoutId);
+	  jqEl.data("timeoutId", null);
+    }
+  },
+  function(e) {
+    var jqEl = $(e.target);
+    jqEl.addClass("animate");
+    jqEl.data("timeoutId", setTimeout(function() {
+      jqEl.removeClass("over");
+      jqEl.data("timeoutId", setTimeout(function() {
+        jqEl.removeClass("animate");
+      }, 10000));
+    }, 0)); 
+  });
+};
+</script>
+</head>
+<body>
+<style type="text/css">
+table {
+	border-collapse: collapse;
+}
+
+td {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	width: 3px;
+	height: 3px;
+}
+
+tr:nth-child(odd) td {
+  background-color: lightgrey;
+}
+
+tr td {
+  background-color: white;
+}
+
+tr td.animate {
+  -webkit-transition-property: background;
+  -webkit-transition-duration: 10s;
+  -moz-transition-property: background;
+  -moz-transition-duration: 10s;
+  transition-property: background;
+  transition-duration: 10s;
+}
+
+tr td.over {	
+  background-color: red;
+}
+</style>
+<div id="grid">
+</div>
+<br/>
+<br />
+<a href="#" id="insertTable">Insert Scribble Table</a><br />
+HTML...
+<pre>
+&lt;table id="tbl"&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;row 1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;row 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
+CSS...
+<pre>
+table {
+	border-collapse: collapse;
+}
+
+td {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	width: 3px;
+	height: 3px;
+}
+
+tr:nth-child(odd) td {
+  background-color: lightgrey;
+}
+
+tr td {
+  background-color: white;
+}
+
+tr td.animate {
+  -webkit-transition-property: background;
+  -webkit-transition-duration: 10s;
+  -moz-transition-property: background;
+  -moz-transition-duration: 10s;
+  transition-property: background;
+  transition-duration: 10s;
+}
+
+tr td.over {	
+  background-color: red;
+}
+</pre>
+JavaScript
+<pre>
+$(document).ready(function() {
+  $("#insertTable").click(function() {
+    var div = document.getElementById('grid'); 
+    var txt = "&lt;table&gt;&lt;tbody&gt;", i, j;
+	
+    for(i = 0; i < 100; i++) {
+      txt += "&lt;tr&gt;";
+      for(j = 0; j < 100; j++) {
+	    txt += "&lt;td&gt;&lt;/td&gt;";
+      }
+      txt += "&lt;/tr&gt;";
+    }
+	
+    txt += "&lt;/tbody&gt;&lt;/table&gt;";
+    div.innerHTML = txt;
+    addHover($("td"));
+  });
+});
+
+var addHover = function(cells) {
+  cells.hover(function(e) {
+    var jqEl = $(e.target), timeoutId = jqEl.data("timeoutId");
+    jqEl.removeClass("animate").addClass("over");
+    if  (timeoutId) {
+	  clearTimeout(timeoutId);
+	  jqEl.data("timeoutId", null);
+    }
+  },
+  function(e) {
+    var jqEl = $(e.target);
+    jqEl.addClass("animate");
+    jqEl.data("timeoutId", setTimeout(function() {
+      jqEl.removeClass("over");
+      jqEl.data("timeoutId", setTimeout(function() {
+        jqEl.removeClass("animate");
+      }, 10000));
+    }, 0)); 
+  });
+};
+</pre>
+</body>
+</html>

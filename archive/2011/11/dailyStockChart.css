@@ -1,0 +1,30 @@
+/* Styles for the daily stock chart - this styles the mini-legend.. */
+.dailyStockChart  {
+	position: relative;
+}
+.dailyStockChart .miniLegend {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+	font: 10px Arial;
+	background-color: white;
+	color: #999999;
+}
+.dailyStockChart .miniLegend div {
+    float:left;
+}
+.dailyStockChart .miniLegend .time {
+	margin-right: 8px;
+}
+.dailyStockChart .miniLegend .marker {
+    width: 10px;
+    height: 10px;
+    margin-top: 1px;
+    margin-right: 5px;
+}
+.dailyStockChart .miniLegend .value {
+    padding-left: 3px;
+    width: 50px;
+    display: inline-block;
+    text-align:left;
+}

@@ -1,0 +1,58 @@
+---
+id: 650
+author: ceberhardt
+title: Silverlight MultiBinding solution for Silverlight 4
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2010/05/silverlight-multibinding-solution-for-silverlight-4/
+tags:
+  - silverlight
+  - binding
+  - multibinding
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2010/05/silverlight-multibinding-solution-for-silverlight-4/
+---
+<p><em>In this post I describe an update to the Silverlight MultiBinding solution I presented last year. This update includes support for Silverlight 4, attached properties and multiple bindings on a single object.</em></p>
+<p><b>UPDATE:</b> I have updated this code to include ElementName and TwoWay binding. <a href="{{ site.baseurl }}/2010/08/12/silverlight-multibinding-updated-adding-support-for-elementname-and-twoway-binding">Grab the latest copy here</a>.</p>
+<p>MultiBinding is a WPF feature that allows you to bind a single property to a number of sources, with the source values being combined by a value converter. This is a feature that is missing from Silverlight. About a year ago I developed a <a href="{{ site.baseurl }}/2009/06/25/silverlight-multibindings-how-to-attached-mutiple-bindings-to-a-single-property">MultiBinding solution for Silverlight</a>, which has proven very popular! I even had an email from an Microsoft Attorney asking if they could use it in the <a href="http://www.silverlight.net/content/samples/apps/facebookclient/sfcquickinstall.aspx">Silverlight Facebook client</a> (How cool is that :-) ). I was also very happy when <a href="https://twitter.com/stefanolson">Stefan Olson</a> made a few updates to this code to allow multiple MultiBindings on a single object and spotted the SL4 issue. This blog post is a quick demonstration of these new features ...</p>
+<p>The following application is an example of MultiBindings in action:</p>
+<div id="slPluginHost" > <object id="SilverlightPlugin" width="200" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2010/05/SLMultiBinding.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=149156"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>In the above application, the TextBox at the top of the page is bound to both the surname and forename properties of our data-object via converter that takes the first letter of the forename and the surname. If you edit the surname or forename (hitting enter or changing focus to commit), the title is updated automatically. The title tooltip is bound to the all three object properties via a different value converter that  concatenates all three.</p>
+<p>The XAML for this binding is show below:</p>
+{% highlight xml %}
+<TextBlock x:Name="Block" Foreground="White" FontSize="13" Margin="5,0,0,0">
+    <local:BindingUtil.MultiBindings>
+        <local:MultiBindings>
+            <local:MultiBinding TargetProperty="Text"
+                                Converter="{StaticResource TitleSummaryConverter}">
+                <local:MultiBinding.Bindings>
+                    <local:BindingCollection>
+                        <Binding Path="Surname"/>
+                        <Binding Path="Forename"/>
+                        </local:BindingCollection>
+                </local:MultiBinding.Bindings>
+            </local:MultiBinding>
+            <local:MultiBinding TargetProperty="ToolTipService.ToolTip"
+                                Converter="{StaticResource TitleConverter}">
+                <local:MultiBinding.Bindings>
+                    <local:BindingCollection>
+                        <Binding Path="Surname"/>
+                        <Binding Path="Forename"/>
+                        <Binding Path="Age"/>
+                    </local:BindingCollection>
+                </local:MultiBinding.Bindings>
+            </local:MultiBinding>
+        </local:MultiBindings>
+    </local:BindingUtil.MultiBindings>
+</TextBlock>
+{% endhighlight %}
+<p>In the above you can see that our TextBlock has two multibindings, one on Forename and Surname, and the other which includes all three properties. Note, the second multibinding is on the ToolTipService.ToolTip attached property.</p>
+<p>You can download the source for Silverlight MultiBinding here: <a href='{{ site.baseurl }}/archive/2010/05/SLMultiBindingUpdate.zip'>SLMultiBindingUpdate.zip</a> - thanks again to Stefan Olson who added WPF support to this technique.</p>
+<p>If you are interested in the technical details of how this works, I refer you to the <a href="{{ site.baseurl }}/2009/06/25/silverlight-multibindings-how-to-attached-mutiple-bindings-to-a-single-property">original article</a> which describes how the code builds a 'virtual' branch on the visual tree in order to evaluate your bindings:</p>
+<p><a href="{{ site.baseurl }}/archive/2009/06/virtualbranch.png"><img src="{{ site.baseurl }}/archive/2009/06/virtualbranch.png" alt="" title="virtualbranch" width="604" height="394" class="aligncenter size-full wp-image-355" /></a></p>
+<p>I hope this update is of use to SL4 developers. If you have any feedback, please leave a comment below.</p>
+<p>You can download the source for Silverlight MultiBinding here: <a href='{{ site.baseurl }}/archive/2010/05/SLMultiBindingUpdate.zip'>SLMultiBindingUpdate.zip</a></p>
+<p>Regards, Colin E.</p>

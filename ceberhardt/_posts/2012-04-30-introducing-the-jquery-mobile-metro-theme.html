@@ -1,0 +1,294 @@
+---
+id: 2114
+author: ceberhardt
+title: Introducing the jQuery Mobile Metro Theme
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2012/04/introducing-the-jquery-mobile-metro-theme/
+tags:
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+summary: >-
+  This blog post introduces the new jQuery Mobile Metro theme and demonstrates
+  how to create a web UI that detects the device it is being viewed on, to
+  render a Metro UI on WP7 and iOS on other devices
+disqus-id: /blog/colin/2012/04/introducing-the-jquery-mobile-metro-theme/
+---
+
+
+<p>This blog post introduces the new jQuery Mobile Metro theme and demonstrates how to create a web UI that detects the device it is being viewed on, to render a Metro UI on WP7 and iOS on other devices:</p>
+<div style="float:right; width:130px; margin:10px; padding:10px; border: solid 1px #aaa; font-size:0.8em;"><img src="http://0.gravatar.com/avatar/458f2e0d08d4114f8b323798cfea141d?s=64&d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D64&r=G" style="float:left; margin:5px;">Colin Eberhardt is a Scott Logic technical Evangelist and a Technical Architect for Visiblox, suppliers of <a href="http://www.visiblox.com">high-performance WPF and Silverlight charts</a>.<a href="http://www.visiblox.com"><img src="{{ site.baseurl }}/archive/2012/04/visiblox-white.png"/></a></div>
+<p><iframe width="460" height="264" src="http://www.youtube.com/embed/tB6UFcvRMrY" frameborder="0" allowfullscreen></iframe></p>
+<p><em>Apologies for the terrible video quality, I really am going to have to work out how to do this properly one day!</em></p>
+<p>You can view the mobile web site shown above <a href="http://colineberhardt.github.com/jqm/index.html">on your own device from here</a>. Note, on a WP7 device, set your IE to render the 'mobile version' of websites to see the Metro theme.</p>
+<h2>Introduction</h2>
+<p>A couple of weeks ago Microsoft announced the formation of <a href="http://blogs.msdn.com/b/interoperability/archive/2012/04/12/announcing-one-more-way-microsoft-will-engage-with-the-open-source-and-standards-communities.aspx">Microsoft Open Technologies Inc.</a> which will contribute to open source projects, standards and interoperability. For Windows Phone 7 developers, where the mobile OS market is highly fragmented, any efforts to push standards and interoperability are a very good thing. The first project backed by the Open Tech interop team was Apache Cordova (PhoneGap) allowing you to run HTML5 applications on your WP7, as covered in <a href="{{ site.baseurl }}/2011/09/29/developing-windows-phone-7-html5-apps-with-phonegap">one of my previous blog posts</a>. A few days ago, the team announced another release, jQuery Mobile (jQM) Metro. In this blog post we'll take a look at what jQM is and how it helps you build HTML5-based mobile applications.</p>
+<p>HTML5 is becoming an increasingly popular technology for the creation of mobile applications, allowing developers to leverage their existing JavaScript and CSS skills, regardless of the native language requirements of the mobile platform being targeted (WP7, iOS, Android etc ...). One of the greatest challenges for developers of HTML5-based mobile applications is the creation of user-interfaces that mimic the native look and feel. This is where technologies like <a href="http://jquerymobile.com/">jQuery Mobile</a> come in handy, this framework provides a standard set of styles and markup for creating a wide range of mobile layouts, controls and transitions.</p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/jquery-mobile-devices-beta.png" alt="" title="jquery-mobile-devices-beta" width="380" height="377" class="aligncenter size-full wp-image-2116" /></p>
+<p>If you look at the jQM website you will find that the interface quite closely mimics the iOS look and feel. A couple of months ago <a href="https://blog.jquerymobile.com/2011/03/31/jquery-mobile-alpha-4-released/">the jQM team announced WP7 support</a>, however, this release simply allowed the iOS-style interface to render on a WP7 device. </p>
+<p>The more recent release from MS Open Tech allows you to <a href="http://blogs.msdn.com/b/interoperability/archive/2012/04/26/more-news-from-ms-open-tech-announcing-the-open-source-metro-style-theme.aspx">use jQM to produce Metro interfaces using HTML5</a>. This makes use of the pre-existing jQM theme support, and as a result, you can use the same markup for both iOS and Metro themed UIs, with only a change in stylesheet being required.</p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/jQM-Metro.png" alt="" title="jQM-Metro" width="600" height="287" class="aligncenter size-full wp-image-2115" /></p>
+<p>The jQM Metro Theme is not an official part of jQM yet and is currently <a href="http://sgrebnov.github.com/jqmobile-metro-theme/">available via its own github page</a>. I anticipate that it will make its way into the core jQM shortly. In the current release you will also see quite a few references to Apache Cordova (previously called PhoneGap), it is worth mentioning that Cordova and jQM are quite independent frameworks. Cordova provides a mechanism for deploying HTML5 applications within a native wrapper (see <a href="{{ site.baseurl }}/2011/09/29/developing-windows-phone-7-html5-apps-with-phonegap" title="Developing Windows Phone 7 HTML5 apps with PhoneGap">my previous blog post</a>), and does not require you to use jQM - in fact you can use any UI framework your please (or roll your own).</p>
+<p>This blog post will provide a brief introduction to jQM, demonstrating how you can create a mobile website that detects the mobile browser being used, delivering a Metro UI to WP7 devices and iOS to others. I will not be using Cordova for this example, just to keep it simple!</p>
+<h2>Introducing jQuery Mobile</h2>
+<p>The easiest way to understand jQM is via a simple example, a page with a heading and one line of text:</p>
+{% highlight xml %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="themes/default/jquery.mobile.css" title="default" />
+
+  <script type="text/javascript" charset="utf-8" src="lib/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="lib/jquery.mobile-1.0.js"></script>
+</head>
+<body>
+  <div data-role="page">
+    <div data-role="header" >
+      <h1>jQM</h1>
+    </div>
+    <div data-role="content">
+      Hello from jQuery Mobile!
+     <button data-role="button">I am a button</button>
+    </div>
+  </div>
+</body>
+</html>
+{% endhighlight %}
+<p>You can see in the above HTML the following elements:</p>
+<ul>
+<li>The jQM CSS file</li>
+<li>Two JavaScript files, jQuery and jQueryMobile</li>
+<li>Some HTML content that is 'annotated' using data-role attributes.</li>
+</ul>
+<p>Loading this into the browser (and shrinking it to a mobile-esque size) yields the following:</p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/one.png" alt="" title="one" width="350" height="427" class="aligncenter size-full wp-image-2117" /></p>
+<p>Which is a pretty decent replica of a native iOS UI, complete with gradients, button states and other chrome.</p>
+<p>Considering that jQM is all about styling, why do we have JavaScript files as well as CSS files in our project? If you look at the source of the rendered page, you will see why. The simple button in our source HTML is now the following:</p>
+{% highlight xml %}
+<div data-theme"c" class="ui-btn ui-btn-corner-all ui-shadow ui-btn-up-c" aria-disabled="false">
+  <span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true">
+    <span class="ui-btn-text">I am a button</span>
+  </span>
+  <button data-role="button" class="ui-btn-hidden ui-btn ui-btn-corner-all ui-shadow ui-btn-up-c"
+           aria-disabled="false" data-theme="c">
+   <span class="ui-btn-inner ui-btn-corner-all" aria-hidden="true">
+     <span class="ui-btn-text">I am a button</span>
+   </span>
+  </button>
+</div>
+{% endhighlight %}
+<p>That's quite a lot of extra HTML! What's all this extra junk doing in my page?</p>
+<p>Unfortunately CSS isn't quite powerful enough to radically transform the way which the standard HTML elements are rendered. When the page is loaded the jQM JavaScript runs through the page, looking for the various data-role attributes, adding in the structural HTML required to support the described style.</p>
+<p>This is a bit of a shame really. The way that jQM 'enhances' your HTML can cause problems when trying to integrate with other frameworks such as KnockoutJS which dynamically insert elements into the DOM. </p>
+<p>To be fair, the jQM JavaScript isn't only required to give CSS a helping hand. It also does clever things such as load pages that the user clicks on using AJAX (yuck - I <em>hate</em> that term!) so that it can be rendered off screen then slid into view, mimicking the slick iOS page transitions. </p>
+<p>jQM has a wide range of built in styles covering all the common mobile controls. For creating mobile UIs, jQM is a massive time saver. I really wouldn't want to write (and test) all this CSS myself!</p>
+<h2>Go Metro!</h2>
+<p>We've seen how to build a simple iOS style mobile UI, but what about this new Metro theme? To use it, simply change the CSS to reference the Metro theme:</p>
+{% highlight xml %}
+<link rel="stylesheet" href="themes/metro/jquery.mobile.metro.theme.css" title="default" />
+{% endhighlight %}
+<p>I've also explicitly targeted the 'dark' theme by adding the following attribute to the page:</p>
+{% highlight xml %}
+<div data-role="page" data-theme="a">
+{% endhighlight %}
+<p>(Without this, the UI doesn't quite look right, I think this is a bug ... I'll raise a ticket on github shortly). </p>
+<p>With this simple change our UI is now Metro:</p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/two.png" alt="" title="two" width="350" height="399" class="aligncenter size-full wp-image-2121" /></p>
+<p>The above page uses the WP7 Segoe font, has a lower caps title, is authentically digital, favours content over chrome ... etc ... isn't it lovely?</p>
+<p>Building UIs with jQM is really quite simple, your markup is simple and clean, annotated with the various <code>data-</code> attributes. The jQM framework is really quite expansive, providing pretty much everything you might need for a standard mobile application.</p>
+<p>For the rest of this article we'll look at building a more complex example, that dynamically picks the theme based on the device viewing it.</p>
+<h2>SandwichFlow</h2>
+<p>I'll re-use the data I collected for my <a href="{{ site.baseurl }}/2011/05/16/metro-in-motion-5-sandwichflow" title="Metro In Motion #5 - SandwichFlow">SandwichFlow</a> application to create a HTML5-based webpage where you can browse sandwich recipes. The index page is simply a list of sandwiches, sorted alphabetically:</p>
+{% highlight xml %}
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- CSS and JS files included as above -->
+</head>
+<body>
+  <div data-role="page">
+    <div data-role="header" >
+      <h1>Sandwich Flow</h1>
+    </div>
+    <div data-role="content">
+      <ul data-role="listview">
+        <li data-role="list-divider" class="ui-index">C</li>
+        <li><a href="1.html">Chargrilled salmon open sandwich</a></li>
+        <li><a href="2.html">Chicken, pesto and rocket sandwich</a></li>
+        <li><a href="3.html">Christmas club sandwich</a></li>
+        <li><a href="4.html">Cream cheese and cucumber sandwiches</a></li>
+        <li data-role="list-divider" class="ui-index">D</li>
+        <li><a href="5.html">Duck breast with mushroom and onion sandwich, puree of leeks
+          and orange and balsamic sauce</a></li>
+        <li data-role="list-divider" class="ui-index">E</li>
+        <li><a href="6.html">Egg and cress finger sandwiches</a></li>
+        ...
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
+{% endhighlight %}
+<p>The above code uses a list-divider, which renders as follows with the iOS theme:</p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/three.png" alt="" title="three" width="300" height="443" class="aligncenter size-full wp-image-2120" /></p>
+<p>Whereas, with the metro theme, it gives the appearance of a jump list:</p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/four.png" alt="" title="four" width="300" height="444" class="aligncenter size-full wp-image-2123" /></p>
+<p>Sadly the list isn't a real jump list, those buttons aren't clickable. Perhaps the jQM Metro team might be interested in <a href="http://www.codeproject.com/Articles/219370/From-Silverlight-To-HTML5">the HTML5 jump list I wrote a while back</a>?</p>
+<h2>Automatically Choosing a Theme</h2>
+<p>What I'd like to do is deliver an interface that is appropriate for the device it is being viewed on, so this means the Metro theme on a WP7 device and the iOS theme on others (sorry Android!). We can detect a WP7 device via the user agent string:</p>
+{% highlight javascript %}
+var isWindowsPhone = navigator.userAgent.indexOf("Windows Phone OS 7.5") != -1;
+{% endhighlight %}
+<p>The web page will include both CSS files, with the Metro theme being included as an alternate:</p>
+{% highlight xml %}
+<link rel="stylesheet" href="themes/default/jquery.mobile.css"
+      title="default" />
+<link rel="alternate stylesheet" href="themes/metro/jquery.mobile.metro.theme.css"
+      title="metro" />
+{% endhighlight %}
+<p>Then if a WP7 device is detected, we use a bit of JavaScript to activate our metro theme (courtesy of <a href="http://www.alistapart.com/articles/alternate/">a list apart</a>):</p>
+{% highlight javascript %}
+if (isWindowsPhone) {
+  setActiveStyleSheet("metro");
+}
+
+function setActiveStyleSheet(title) {
+  var i, a, main;
+  for (i = 0; (a = document.getElementsByTagName("link")[i]); i++) {
+    if (a.getAttribute("rel").indexOf("style") != -1 && a.getAttribute("title")) {
+      a.disabled = true;
+      if (a.getAttribute("title") == title) a.disabled = false;
+    }
+  }
+}
+{% endhighlight %}
+<h2>The Recipes</h2>
+<p>My previous SandwichFlow application was written using Silverlight and contained an XML file with the various recipes. To re-use this within a jQM application I need to turn each recipe into an individual HTML file. Now, I am not keen on doing this sort of thing manually, so I wrote a T4 template that reads this XML file, and spits out an HTML file for each recipe:</p>
+<pre>
+&lt;#@ template language="C#" hostSpecific="true" debug="true" #&gt;
+
+&lt;#@ template language="C#v3.5" #&gt;
+
+&lt;#@ include file="Util.tt" #&gt;
+&lt;#@ include file="EnvDTE.tt" #&gt;
+&lt;#
+
+var project = FindProjectHost();
+
+int lastSlash = project.FileName.LastIndexOf(@"\");
+string projectPath = project.FileName.Substring(0,lastSlash);
+
+XDocument xmlFile = XDocument.Load(projectPath + "\\CodeGen\\sandwiches.xml");
+
+int index=1;
+var sarnies = xmlFile.Descendants("sandwich")
+                     .OrderBy(sarnie =&gt; sarnie.Attribute("title").Value);
+foreach(var sarnie in sarnies)
+{
+  GenerateSandwichFile(sarnie, project,
+    projectPath + "\\www\\" + index.ToString() + ".html", xmlFile);
+  index++;
+}
+#&gt;
+&lt;#+
+
+private void GenerateSandwichFile(XElement sarnie, Project project, string filename, XDocument xmlFile)
+{
+#&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;My Page&lt;/title&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+
+  &lt;link rel="stylesheet" href="themes/default/jquery.mobile.css" title="default" /&gt;
+  &lt;link rel="stylesheet" href="style-other.css" title="default" /&gt;
+
+  &lt;link rel="alternate stylesheet" href="themes/metro/jquery.mobile.metro.theme.css"
+    title="metro" /&gt;
+  &lt;link rel="alternate stylesheet" href="style-metro.css" title="metro" /&gt;
+
+  &lt;script type="text/javascript" charset="utf-8" src="lib/jquery.js"&gt;&lt;/script&gt;
+  &lt;script type="text/javascript" charset="utf-8" src="lib/jquery.mobile-1.0.js"&gt;&lt;/script&gt;
+  &lt;!--&lt;script type="text/javascript" charset="utf-8" src="lib/cordova-1.5.0.js"&gt;&lt;/script&gt;--&gt;
+  &lt;script type="text/javascript" charset="utf-8" src="app.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div data-role="page"&gt;
+    &lt;div data-role="header"&gt;
+      &lt;a href="index.html" data-icon="back" data-rel="back"&gt;Back&lt;/a&gt;
+      &lt;h1&gt;Recipe&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;div data-role="content" class="recipe"&gt;
+      &lt;h3&gt;&lt;#= sarnie.Attribute("title").Value #&gt;&lt;/h3&gt;
+      &lt;#+
+      var keyword = sarnie.Descendants("keyword").First().Value;
+      var key = xmlFile.Descendants("keywordDefs")
+                       .Descendants("keyword")
+                       .Where(s =&gt; s.Value == keyword)
+                       .SingleOrDefault();
+      var img = "food/images/food_16x9_608/recipes/ovenbakedsweetmisoma_73596_16x9.jpg";
+      if (key!=null)
+      {
+        img = key.Attribute("url").Value;
+      }
+      #&gt;
+      &lt;img class="yummyFood"
+            src='http://www.bbc.co.uk&lt;#= img #&gt;' /&gt;
+      &lt;h4&gt;Ingredients&lt;/h4&gt;
+      &lt;ul&gt;
+      &lt;#+
+      foreach(var ingredient in sarnie.Descendants("ingredient"))
+      {
+        #&gt;&lt;li&gt;&lt;#= ingredient.Value #&gt;&lt;/li&gt;
+        &lt;#+
+      }
+      #&gt;
+      &lt;/ul&gt;
+      &lt;h4&gt;Instructions&lt;/h4&gt;
+      &lt;ul&gt;
+      &lt;#+
+      foreach(var instruction in sarnie.Descendants("instruction"))
+      {
+        #&gt;&lt;li&gt;&lt;#= instruction.Value #&gt;&lt;/li&gt;
+        &lt;#+
+      }
+      #&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;#+
+  SaveOutput(filename, project);
+}
+#>
+</pre>
+<p>The above code uses a few T4 'tricks' <a href="http://www.codeproject.com/Articles/184031/Declarative-Codesnippet-Automation-with-T4-Templat">I developed in an earlier article</a>, including code that creates multiple output files from the T4 template and also automatically adds these files to the Visual Studio project.</p>
+<p>An example recipe is shown below:</p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/five.png" alt="" title="five" width="400" height="569" class="aligncenter size-full wp-image-2122" /></p>
+<p>Now there isn't really a suitable jQM UI for the ingredients list, so I styled these directly:</p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/fiveAndABit.png" alt="" title="fiveAndABit" width="400" height="569" class="aligncenter size-full wp-image-2124" /></p>
+<p>You'll also notice that this page has a back-button. This is required because iPhones do not have a hardware back button. However, if we re-use this same UI in our WP7 version, even with a Metro theme, it will look quite wrong. A simple bit of jQuery is all that is required to remove these buttons when viewing with a WP7:</p>
+{% highlight javascript %}
+$("div[data-role='page']").live('pagecreate', function (event) {
+  if (isWindowsPhone) {
+    $("a[data-rel='back']").remove();
+  }
+});
+{% endhighlight %}
+<p>The above code isn't quite as simple as you might expect. Firstly, as mentioned previously jQM uses AJAX to load pages, so a jQuery <code>live()</code> function is used to match new DOM elements as they are added. We are handling the jQM <code>pagecreate </code>event which fires when the AJAXed page is initially added to the DOM but before the additional structure has been added, the code that is executed simply removes back linking anchor tags.</p>
+<p>The resulting WP7 UI is as follows:</p>
+<p><img src="{{ site.baseurl }}/archive/2012/04/six.png" alt="" title="six" width="400" height="569" class="aligncenter size-full wp-image-2119" /></p>
+<h2>Conclusions</h2>
+<p>It's great to see that Microsoft are not only backing HTML5 for their browsers (on the desktop and WP7) but are also working with the open source community on projects that make cross-browser and cross-platform development easier.</p>
+<p>I am still in two minds about jQM, on the plus side, it does remove the need to write and test bucketloads of CSS and is very simple to use. However, there are some negatives ...</p>
+<p>The jQM UI looks almost identical to the native iOS on static screenshots, but the dynamic behaviour is nowhere near the native experience, for example the iOS slide transition is surprisingly complex, with at least five separate animation components. The jQM Metro theme is also lacking in the fluid aspects of the WP7 UI, this is most likely due to the lack of touch events and 3D CSS transforms on WP7. Ironically, iOS and Android phones are actually more capable of mimicking the Metro theme as demonstrated by <a href="http://m.microsoft.com/windowsphone/en-us/demo/index.html">Microsoft's HTML5-based Metro demo for iOS and Android owners</a>. Also, other key controls which define the Metro UI, such as Pivot and Panorama are absent from jQM Metro. These controls do lend themselves to HTML5 implementations, as demonstrated by <a href="http://www.jqmetro.com/Pages/Pivot.aspx">jq-metro</a> - hopefully this sort fo control will also find its way into jQM Metro. Finally, I couldn't finish an article on HTML5-based WP7 applications without mentioning the <a href="http://stackoverflow.com/questions/6378008/windows-phone-7-browser-turn-off-the-gray-shading-when-links-are-clicked">'gray shading' of clicked links</a> which spoils jQM Metro just as much as it has all my previous HTML5 based applications ;-) </p>
+<p>Ending on a positive note, I am sure that these issues will be resolved in time, and I do like the simplicity of jQM. If you want to rapidly create a simple mobile website or HTML5 mobile application that looks great, jQM is an excellent choice.</p>
+<p>You can download the HTML / JS for this article here: <a href='{{ site.baseurl }}/archive/2012/04/SandwichFlowjQM.zip'>SandwichFlowjQM.zip</a></p>
+<p>Regards, Colin E.</p>

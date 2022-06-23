@@ -1,0 +1,25 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+api
+route53
+cfengine
+ansible
+tfstate
+tfplan
+hashicorp
+tf
+tf.json.
+main.tf
+variables.secret.tf
+secret.tf
+aws
+sizings
+variables.tf
+tfvars
+aws_instance
+depends_on
+subdomain.myapp.com
+ip

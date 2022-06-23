@@ -1,0 +1,12 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - amjones/_posts/2016-11-24-scottcoin-centralising-the-decentralised.md
+PoW
+mempool
+0.75MB
+merkle
+coinbase
+permissioned

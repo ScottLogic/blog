@@ -1,0 +1,18 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - acarr/_posts/2017-07-18-bp-big-data.md
+7bn
+87bn
+IoT
+SMelindo
+datalake
+Cloudera
+datacenter
+near-realtime
+62bn
+NiFi
+Flink
+Samza

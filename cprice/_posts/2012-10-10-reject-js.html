@@ -1,0 +1,55 @@
+---
+id: 160805
+author: cprice
+title: Reject.js
+oldlink: "http://www.scottlogic.co.uk/2012/10/reject-js/"
+tags:
+  - Javascript
+  - Conferences
+  - reject.js
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: site
+disqus-id: /2012/10/reject-js/
+---
+<p><a style="float: right; margin-left: 16px;" href="{{ site.baseurl }}/cprice/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.baseurl }}/archive/2012/03/me1.png" alt="" /></a><em>Last Thursday I headed to Berlin for Reject.js, a community JavaScript conference organised to coincide with JSConf.eu. I was very impressed by the professionalism with which the event was run, which in turn allowed everyone to learn a lot and have a great time. Thanks goes to Robin Mehner, Thorsten Ball, Felix Geisendörfer, Katharina Buca and Matti Besser.</em></p>
+<h3 style="clear:both">Golo Roden - The Next Big Thing</h3>
+<p>Golo is from a C# background and gave a very business orientated justification for moving to JavaScript/Node. Although the talk was very well delivered, unfortunately I don't think a JavaScript conference was the intended audience. He did deliver this chestnut though -</p>
+<pre style="font-size: 16px; text-align: center;">"There are JavaScript developers
+and there are jQuery developers"</pre>
+<p><br/></p>
+<h3>Robert Kuzelj - Who is Afraid of the Whitespaces?</h3>
+<p>An interesting pseudo-psychological look at programming during which Robert made two interesting points. Firstly, your brain is hardwired to pattern match, therefore an enforced structure in your code is a good thing, it makes it easier to comprehend. However, this doesn't necessarily have to come from the language itself, it can instead come from coding conventions and reviews.</p>
+<p>The second, you can only hold about 200-400 lines of code in your working memory. For me, this explains why moving to a new project (and therefore codebase) is so difficult for the first few days. It also suggests a good maximum limit for code reviews.</p>
+<p><img style="float:right; padding-bottom:10px" src="{{ site.baseurl }}/archive/2012/10/rejectjs1.jpg" alt="rejectjs" title="rejectjs" width="255" height="369" /></p>
+<h3>Dominic Tarr - Distributed Systems for Real-Time JavaScript Applications</h3>
+<p>Dominic delivered a very fast-paced, very technical overview of some of the <a href="https://github.com/dominictarr/presentations/blob/master/distributed-systems-4-realtime.md">core topics of distributed systems</a>. His top tip - <a href="http://www.read.seas.harvard.edu/~kohler/class/cs239-w08/decandia07dynamo.pdf">read this paper</a>.</p>
+<h3>Tobias Schneider - Handle Binary as Easy as /123/</h3>
+<p>Tobias is the creator of <a href="https://github.com/tobeytailor/gordon">Gordon</a> and a developer on <a href="https://github.com/mozilla/shumway">Shumway</a>. Both projects that aim to run Flash content in the browser without requiring the plugin. </p>
+<p>This is achieved by loading, parsing and then executing the SWF in JavaScript. The talk treated us to the crazy history of parsing binary data in the browser, from bitwise operations on the charcodes obtained from specially headered XHR requests to the modern capabilities of XHR2 and TypedArrays.</p>
+<p>Time ran away with Tobias, so sadly he had to rush through the last few slides which introduced RecExp. As best as I could make out it was a regular expression-esque syntax for parsing binary streams. That might sound a bit crazy but he had a convincing demonstration involving parsing the dimension headers from PNG files using just a single simple matching expression.</p>
+<h3>Karolina Szczur - The Pursuit of SimplicityPavel Filippov - Be Simple, But Not Simpler</h3>
+<p>An interesting pair of talks to put back-to-back, Karolina flew the flag for <a href="https://speakerdeck.com/fox/the-pursuit-of-simplicity">throwing away abstractions</a> and Pavel for making the most out of them. Each speaker passionately extolled the virtues of their approach and rubbished the arguments of the other. However, during the questions it became obvious that in reality they agreed with each other - if you use an abstraction, make sure you understand what it does and does not do, and make sure you are consistent in using or not using it.</p>
+<p>Unrelated to the main content of the talk, Pavel made the following observation (which I found to be a terrifying thought!) about the controversial subject of re-writing git history -</p>
+<pre style="font-size: 16px; text-align: center;">"When your grandkids come to github and ask -
+why this commit comment?"</pre>
+<p><br/></p>
+<h3>Jed Schmidt - Browserver: A Node.js HTTP Server, In Your Browser</h3>
+<p>I'd not heard of Jed before he took to the stage. However, as soon as he started presenting I found this fact very surprising. His talk on <a href="http://browserver.org/">Browserver</a> was as hilarious as it was intriguing. I had a feeling this wouldn't be the last I saw of Jed across the weekend.</p>
+<p><a href="http://browserver.org/">Browserver</a> assigns each connected client a sub-domain and the server then acts as an HTTP to WebSockets gateway. It's certainly an interesting idea and could work nicely with a <a href="https://en.wikipedia.org/wiki/Webhook">webhook</a>-enabled service, but I can't see it replacing Apache or IIS just yet!</p>
+<p style="text-align:center"><img src="{{ site.baseurl }}/archive/2012/10/front.jpg" alt="Can you tell it's a reject conference?!" title="The conference venue - can you tell it's a reject conference?!" width="600" height="433" class="alignnone size-full wp-image-160811" /></p>
+<h3>Adam Hawkins - JavaScript Testing: The Holy Grail</h3>
+<p>Adam delivered an <a href="https://speakerdeck.com/ahawkins/javascript-testing-the-holy-grail">interesting</a> talk on testing with a battle-cry that no one tool yet delivers the multi-device, multi-paradigm testing experience he thinks the web needs.</p>
+<h3>Ben Green - Rite Moar CSS</h3>
+<p>The clue's in the title with Ben's talk, rite moar CSS! For anyone that hasn't noticed, CSS has become much more powerful in the last couple of years. Where once your only option was JavaScript or image hacks, CSS can now step in with gradients, transitions, animations etc..</p>
+<h3>Matthew Bergman - Zombie!</h3>
+<p>In Matthew's first speaking outing, he passionately urged the web developer community to look beyond semi-colons, to acknowledge that like it or not we're all in the same boat, and we would do well to remember that.</p>
+<h3>Lightning Talks</h3>
+<p>At the end I was lucky enough to get the chance to give a lightning talk on the <a href="/2012/09/19/just-what-is-the-css-3d-perspective-property">CSS 3D perspective property I've blogged about before</a>. I joined other interesting talks about a scoring system for licenses, polymorphism != classes and an introduction to the unhosted movement amongst others. It was a great experience and I was chuffed when at least one person admitted to learning something from my talk!</p>
+<h3>In Summary</h3>
+<p>Reject.js kicked off an inspiring weekend of JavaScript with style. Thanks again to the organisers and to Paul Campbell for rounding it all off with a song.</p>
+<p><a class="twitter-share-button" href="https://twitter.com/share" data-via="100pxls">Tweet</a><script type="text/javascript">// <![CDATA[ !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");// ]]></script></p>
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+<p><script type="text/javascript">// <![CDATA[   (function() {     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;     po.src = 'https://apis.google.com/js/plusone.js';     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);   })();// ]]></script></p>

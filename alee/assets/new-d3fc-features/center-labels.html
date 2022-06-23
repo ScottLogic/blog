@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- include polyfills for custom event, Symbol and Custom Elements -->
+  <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.js"></script>
+  <script src="https://unpkg.com/custom-event-polyfill@0.3.0/custom-event-polyfill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/1.8.0/document-register-element.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+
+  <script src="https://unpkg.com/d3@5.5.0"></script>
+  <script src="https://unpkg.com/d3fc@14.0.39"></script>
+
+  <style>
+    .bar {
+      fill: rgba(100, 0, 0, 0.4);
+    }
+    .bar .hover {
+      fill: rgba(100, 80, 80, 0.8);
+    }
+    .chart {
+      height: 100%;
+    }
+    .label {
+      position: absolute;
+      top: 10px;
+      left: 120px;
+      background-color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="demo">
+      <div class="chart"></div>
+      <div class="label"></div>
+    </div>
+  </div>
+
+  <script type="text/babel" src="demo.js"></script>
+  <link href="demo.css" rel="stylesheet">
+    
+  <script id="data.js" type='text/babel'>
+  const data = [
+    { time: new Date('2019-03-02T08:00'), value: 80 },
+    { time: new Date('2019-03-02T11:30'), value: 85 },
+    { time: new Date('2019-03-02T18:00'), value: 70 },
+    { time: new Date('2019-03-03T06:00'), value: 65 },
+    { time: new Date('2019-03-03T15:00'), value: 50 },
+    { time: new Date('2019-03-03T17:40'), value: 68 },
+    { time: new Date('2019-03-04T06:00'), value: 72 },
+    { time: new Date('2019-03-04T12:00'), value: 55 },
+    { time: new Date('2019-03-04T18:00'), value: 42 },
+    { time: new Date('2019-03-05T09:00'), value: 55 },
+    { time: new Date('2019-03-05T13:30'), value: 60 },
+    { time: new Date('2019-03-05T17:00'), value: 68 },
+    { time: new Date('2019-03-06T08:00'), value: 78 },
+    { time: new Date('2019-03-06T11:00'), value: 73 },
+    { time: new Date('2019-03-06T14:00'), value: 75 },
+    { time: new Date('2019-03-06T17:00'), value: 35 }
+  ];
+  </script>
+
+  <script id="chart.js" type='text/babel'>
+  const timeOpts = {hour: '2-digit', minute:'2-digit'};
+  const hoverFn = hovering =>
+    (d, i, n) => {
+      d3.select(n[i]).classed("hover", hovering);
+
+      const time = d.time.toLocaleTimeString([], timeOpts)
+      d3.select('.label')
+        .html(hovering ? `${d.value} at ${time}` : '')
+        .transition().duration(200)
+        .style("opacity", hovering ? 1 : 0);
+    };
+
+  const series = fc.seriesSvgBar()
+    .bandwidth(9)
+    .crossValue(d => d.time)
+    .mainValue(d => d.value)
+    .decorate(s => {
+      s.enter().select("path")
+        .on("mouseover", hoverFn(true))
+        .on("mouseout", hoverFn(false))
+    });
+
+  const chart = fc.chartCartesian({
+    xScale: d3.scaleTime(),
+    yScale: d3.scaleLinear()
+  })
+    .xLabel('Day')
+    .xTickArguments([5])
+    .xTickCenterLabel(true)
+    .yDomain([30, 90])
+    .xDomain([new Date('2019-03-02'), new Date('2019-03-07')])
+    .svgPlotArea(series);
+
+  d3.select('.chart').datum(data).call(chart);
+  </script>
+</body>
+</html>

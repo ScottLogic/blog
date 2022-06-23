@@ -1,0 +1,161 @@
+---
+id: 1296
+author: ceberhardt
+title: A Silverlight Resizable TextBlock (and other resizable things)
+oldlink: "http://www.scottlogic.co.uk/blog/colin/2011/03/a-silverlight-resizable-textblock-and-other-resizable-things/"
+tags:
+  - blog
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2011/03/a-silverlight-resizable-textblock-and-other-resizable-things/
+---
+<p><em>In this blog post I present a simple attached behaviour that uses a Thumb control within a Popup to adorn any UI element so that the user can re-size it.</em></p>
+<p>A simple feature that has become quite popular on the web is to attache a small handle to text areas so that the user can resize them, this is useful if a user wants to add a large piece of text to a small comment form for example. Interestingly the Google Chrome browser makes all text areas resizeable by default, which leads to web developers wondering <a href="http://stackoverflow.com/questions/2096113/chrome-make-textareas-which-are-not-resizable">how to turn this feature off for their website</a>. I thought that this was a pretty useful feature, so decided to implement a little attached behaviour that would do the same think for Silverlight:</p>
+<div style="text-align: center;"><object width="300" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2011/03/ResizableTextBox.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can make any element resizable by setting the following attached property:</p>
+{% highlight xml %}
+<TextBox Text="This is a re-sizeable textbox"
+          local:ResizeHandle.Attach="True">
+</TextBox>
+{% endhighlight %}
+<p>The implementation of this behaviour is pretty straightforward. When the Attach property changes, i.e. when it is set on an element a Thumb and a Popup are created:</p>
+{% highlight csharp %}
+private static Dictionary<FrameworkElement, Popup> _popups =
+    new Dictionary<FrameworkElement, Popup>();
+
+private static void OnAttachedPropertyChanged(DependencyObject d,
+  DependencyPropertyChangedEventArgs e)
+{
+  FrameworkElement element = d as FrameworkElement;
+
+  // Create a popup.
+  var popup = new Popup();
+
+  // and associate it with the element that can be re-sized
+  _popups[element] = popup;
+
+  // Add a thumb to the pop-up
+  Thumb thumb = new Thumb()
+  {
+    Style = Application.Current.Resources["MyThumbStyle"] as Style
+  };
+  popup.Child = thumb;
+
+  // add a relationship from the thumb to the target
+  thumb.Tag = element;
+
+  popup.IsOpen = true;
+
+  thumb.DragDelta += new DragDeltaEventHandler(Thumb_DragDelta);
+  element.SizeChanged += new SizeChangedEventHandler(Element_SizeChanged);
+}
+{% endhighlight %}
+<p>A static dictionary is used to relate the elements which have this property set o their respective Popup. The Thumb is styled via a Style which is looked up from the application resources. The following style re-templates the Thumb, replacing its visuals with an image:</p>
+{% highlight xml %}
+<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ResizableTextBox.App">
+  <Application.Resources>
+
+    <Style TargetType="Thumb" x:Key="MyThumbStyle">
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="Thumb">
+            <Image Source="handle.png"
+                   Margin="2"
+                   Opacity="0.6"
+                   Cursor="SizeNWSE"/>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+  </Application.Resources>
+</Application>
+{% endhighlight %}
+<p>Whenever the element changes size we need to reposition the Popup so that the thumb always remains on the bottom-right edge of the element:</p>
+{% highlight csharp %}
+/// <summary>
+/// Handle size changes repositioning the thumb / popup
+/// </summary>
+private static void Element_SizeChanged(object sender, SizeChangedEventArgs e)
+{
+  FrameworkElement element = sender as FrameworkElement;
+
+  // find the popup that hosts the thumb
+  var popup = _popups[element];
+
+  // reposition the popup
+  FrameworkElement root = Application.Current.RootVisual as FrameworkElement;
+  Point elementLocation = GetRelativePosition(element, root);
+
+  var childElement = popup.Child as FrameworkElement;
+
+  // Set where the popup will show up on the screen.
+  popup.VerticalOffset = elementLocation.Y + element.ActualHeight - childElement.ActualHeight;
+  popup.HorizontalOffset = elementLocation.X + element.ActualWidth - childElement.ActualWidth;
+
+}
+
+public static Point GetRelativePosition(UIElement element, UIElement otherElement)
+{
+  return element.TransformToVisual(otherElement)
+                .Transform(new Point(0, 0));
+}
+{% endhighlight %}
+<p>And finally, when the thumb is dragged, we resize the element to which it is associated:</p>
+{% highlight csharp %}
+/// <summary>
+/// Handles drag events from the thumb, resizing the associated element
+/// </summary>
+private static void Thumb_DragDelta(object sender, DragDeltaEventArgs e)
+{
+  Thumb thumb = sender as Thumb;
+  var fe = thumb.Tag as FrameworkElement;
+
+  // set the Width / Height of the element
+  if (fe.Width == 0.0 || double.IsNaN(fe.Width))
+  {
+    fe.Width = fe.ActualWidth;
+  }
+  if (fe.Height == 0.0 || double.IsNaN(fe.Height))
+  {
+    fe.Height = fe.ActualHeight;
+  }
+
+  // apply the drag deltas
+  double newWidth = fe.Width + e.HorizontalChange;
+  fe.Width = Math.Max(0, newWidth);
+
+  double newHeight = fe.Height + e.VerticalChange;
+  fe.Height = Math.Max(0, newHeight);
+}
+{% endhighlight %}
+<p>And that's it! Nice and simple.</p>
+<p>You can download the sourcecode here: <a href='{{ site.baseurl }}/archive/2011/03/Resizable.zip'>Resizable.zip</a></p>
+<p>Regards,Colin E.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

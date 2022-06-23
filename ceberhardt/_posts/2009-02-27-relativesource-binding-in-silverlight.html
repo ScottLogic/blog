@@ -1,0 +1,211 @@
+---
+id: 139
+author: ceberhardt
+title: Implementing RelativeSource binding in Silverlight
+oldlink: >-
+  http://www.scottlogic.co.uk/blog/colin/2009/02/relativesource-binding-in-silverlight/
+tags:
+  - silverlight
+  - attached behaviour
+  - binding
+  - blog
+  - wpf
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2009/02/relativesource-binding-in-silverlight/
+---
+<p>In my <a href="{{ site.baseurl }}/2009/02/22/elementname-binding-in-silverlight-via-attached-behaviours">previous post</a> I demonstrated how an the WPF ElementName style binding can be emulated with Silverlight via an attached behaviour. As a brief recap, the technique involved creating an attached property, which when bound, adds a handler for the elements Loaded event. When the element is loaded, the even handler locates the named element and constructs a binding via a relay object. Here is the attached property in use:</p>
+{% highlight xml %}
+<Rectangle Height="20" Fill="Green">
+    <local:BindingHelper.Binding>
+        <local:BindingProperties ElementName="Slider" SourceProperty="Value" TargetProperty="Width"/>
+    </local:BindingHelper.Binding>
+</Rectangle>
+<Slider x:Name="Slider" Value="20" Minimum="0" Maximum="300"/>
+{% endhighlight %}
+<p>Where the Rectangle's Width is bound to the Slider's Value. For details, and sourcecode, visit <a href="{{ site.baseurl }}/2009/02/22/elementname-binding-in-silverlight-via-attached-behaviours">this blog post</a>. Here I am going to extend this attached behaviour in order to emulate WPF's RelativeSource binding.</p>
+<p>For much of the time you will want to bind your visual elements to your data objects via their DataContext property. However, there are often times when you want too perform a binding for pure presentation purposes, for example, binding the width of two elements together. In this context WPFs RelativeSource and ElementName binding prove to be powerful and useful features of the binding framework.</p>
+<p>Here I will extend the attached behaviour I described in my previous post to add RelativeSource binding capabilities. The properties of the attached property type have been extended:</p>
+{% highlight csharp %}
+public class BindingProperties
+{
+    public string SourceProperty { get; set; }
+    public string ElementName { get; set; }
+    public string TargetProperty { get; set; }
+    public IValueConverter Converter { get; set; }
+    public object ConverterParameter { get; set; }
+    public bool RelativeSourceSelf { get; set; }
+    public string RelativeSourceAncestorType { get; set; }
+    public int RelativeSourceAncestorLevel { get; set; }
+
+    public BindingProperties()
+    {
+        RelativeSourceAncestorLevel = 1;
+    }
+}
+{% endhighlight %}
+<p>With the RelativeSourceSelf, RelativeSourceAncestorType and RelativeSourceAncestorLevel properties being used for relative source bindings. Taking RelativeSourceSelf as our first example, within WPF a <a href="http://msdn.microsoft.com/en-us/library/system.windows.data.relativesource.self.aspx">RelativeSource.Self</a> property indicates that the source of a binding should be the element which the binding is associated with. (I know - it sounds a bit crazy, but search <a href="http://www.google.co.uk/search?q=RelativeSource+Self">google</a>, it is surprisingly useful!).</p>
+{% highlight csharp %}
+private static void OnBinding(
+    DependencyObject depObj, DependencyPropertyChangedEventArgs e)
+{
+    FrameworkElement targetElement = depObj as FrameworkElement;
+
+    targetElement.Loaded += new RoutedEventHandler(TargetElement_Loaded);
+}
+
+private static void TargetElement_Loaded(object sender, RoutedEventArgs e)
+{
+    FrameworkElement targetElement = sender as FrameworkElement;
+
+    // get the value of our attached property
+    BindingProperties bindingProperties = GetBinding(targetElement);
+
+    if (bindingProperties.ElementName != null)
+    {
+        // perform our 'ElementName' lookup
+        ...
+    }
+    else if (bindingProperties.RelativeSourceSelf)
+    {
+        // bind an element to itself.
+        CreateRelayBinding(targetElement, targetElement, bindingProperties);
+    }
+}
+{% endhighlight %}
+<p>When the attached property becomes attached to our target element it adds a handler for the elements Loaded event (this is the <em>attached behaviour</em>). Within the event handler, we determine whether this is a relative source binding. If this is the case, the CreateRelayBinding method is invoked where the source and target element parameters are the same element. For details of how the CreateRelayBinding method works, see the <a href="{{ site.baseurl }}/2009/02/22/elementname-binding-in-silverlight-via-attached-behaviours">previous blog post</a>.  An example of a relative-source self binding is show below, where a TextBox's Width property is bound to its Text, if you trype in a new text value, the TextBox Width adjusts accordingly.</p>
+{% highlight xml %}
+<TextBox Text="200" Margin="0,5,0,0">
+    <local:BindingHelper.Binding>
+        <local:BindingProperties TargetProperty="Width" SourceProperty="Text"
+                                 RelativeSourceSelf="True"/>
+    </local:BindingHelper.Binding>
+</TextBox>
+{% endhighlight %}
+<p>The next type of RelativeSource binding I am going to tackle is the FindAncestor mode. You use this type of binding when you want to bind to an element of a specific type that is located further up the visual tree that the target element. The following code snippet shows how the attached behaviour achieves this type of binding:</p>
+{% highlight csharp %}
+private static void TargetElement_Loaded(object sender, RoutedEventArgs e)
+{
+    FrameworkElement targetElement = sender as FrameworkElement;
+
+    // get the value of our attached property
+    BindingProperties bindingProperties = GetBinding(targetElement);
+
+    if (bindingProperties.ElementName != null)
+    {
+        // perform our 'ElementName' lookup
+        ...
+    }
+    else if (bindingProperties.RelativeSourceSelf)
+    {
+        // bind an element to itself.
+        ...
+    }
+    else if (!string.IsNullOrEmpty(bindingProperties.RelativeSourceAncestorType))
+    {
+
+        // navigate up the tree to find the type
+        DependencyObject currentObject = targetElement;
+
+        int currentLevel = 0;
+        while (currentLevel < bindingProperties.RelativeSourceAncestorLevel)
+        {
+            do
+            {
+                currentObject = VisualTreeHelper.GetParent(currentObject);
+            }
+            while (currentObject.GetType().Name != bindingProperties.RelativeSourceAncestorType);
+            currentLevel++;
+        }
+
+        FrameworkElement sourceElement = currentObject as FrameworkElement;
+
+        // bind them
+        CreateRelayBinding(targetElement, sourceElement, bindingProperties);
+    }
+}
+{% endhighlight %}
+<p>The code above simply navigates up the visual tree to find the n'th element of a given type. When the given type has been located, the relay binding between the two is constructed.</p>
+<p>This type of binding is incredibly flexible, the following shows a number of examples:</p>
+{% highlight xml %}
+<UserControl x:Class="SilverlightBinding.PageTwo">
+
+    <UserControl.Resources>
+        <local:VisibilityConverter x:Key="VisibilityConverter"/>
+    </UserControl.Resources>
+
+    <StackPanel x:Name="TheOuterStackPanel" Background="White">
+        <StackPanel Name="theInnerStackPanel" Width="400">
+            <!-- bind the textbox width to its text property -->
+            <TextBox Text="200" Margin="0,5,0,0">
+                <local:BindingHelper.Binding>
+                    <local:BindingProperties TargetProperty="Width" SourceProperty="Text"
+                                             RelativeSourceSelf="True"/>
+                </local:BindingHelper.Binding>
+            </TextBox>
+            <!-- bind the textbox text to this UserControls width property -->
+            <TextBox Margin="0,5,0,0">
+                <local:BindingHelper.Binding>
+                    <local:BindingProperties TargetProperty="Text" SourceProperty="Width"
+                                             RelativeSourceAncestorType="PageTwo"/>
+                </local:BindingHelper.Binding>
+            </TextBox>
+            <!-- bind the textbox text to the inner stack panels name property -->
+            <TextBox Margin="0,5,0,0">
+                <local:BindingHelper.Binding>
+                    <local:BindingProperties TargetProperty="Text" SourceProperty="Name"
+                                             RelativeSourceAncestorType="StackPanel"/>
+                </local:BindingHelper.Binding>
+            </TextBox>
+            <!-- bind the textbox text to the outer stack panels name property -->
+            <TextBox Margin="0,5,0,0">
+                <local:BindingHelper.Binding>
+                    <local:BindingProperties TargetProperty="Text" SourceProperty="Name"
+                                             RelativeSourceAncestorType="StackPanel"
+                                             RelativeSourceAncestorLevel="2"/>
+                </local:BindingHelper.Binding>
+            </TextBox>
+            <!-- bind a slider's value to its parent grid's height property  -->
+            <Grid Height="30"  Margin="0,5,0,0" Background="CadetBlue" HorizontalAlignment="Left" >
+                <Slider Width="400"  HorizontalAlignment="Left" Minimum="10" Maximum="40">
+                    <local:BindingHelper.Binding>
+                        <local:BindingProperties TargetProperty="Value" SourceProperty="Height"
+                                             RelativeSourceAncestorType="Grid"/>
+                    </local:BindingHelper.Binding>
+                </Slider>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</UserControl>
+{% endhighlight %}
+<p>You can see in the above XAML, examples of relative-source self and find ancestor bindings with a variety of types and ancestor-levels. And here it is in action:</p>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="400" height="200" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/02/silverlightbinding2.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>If you type in a new value in the top text box its width will change, or move the slider to see the height of its parent grid changing. And all without any code-behind of course!</p>
+<p>Many of these effects shown above could be performed via element-name bindings. However, you are not always the creator, or template provider for all the visual elements rendered to screen. One common example is that of the ItemsControl, the ListBox being an example of this type of control. Here you supply a DataTemplate, with your visual elements being rendered inside a ListBoxItem container. Therefore, there is no way to bind to the ListBoxItem via an element name or otherwise. However, you can reach the ListBoxItem by navigating up the tree using a relative-source binding as show below:</p>
+{% highlight xml %}
+<ListBox Name="grid" Width="200" HorizontalAlignment="Left">
+    <ListBox.ItemTemplate>
+        <DataTemplate>
+            <Grid Width="180">
+                <TextBlock Text="{Binding Forename}"/>
+
+                <Ellipse Width="10" Height="10" Fill="Red" HorizontalAlignment="Right">
+                    <local:BindingHelper.Binding>
+                        <local:BindingProperties TargetProperty="Visibility" SourceProperty="IsSelected"
+                                                 Converter="{StaticResource VisibilityConverter}"
+                                                 RelativeSourceAncestorType="ListBoxItem"/>
+                    </local:BindingHelper.Binding>
+                </Ellipse>
+            </Grid>
+        </DataTemplate>
+    </ListBox.ItemTemplate>
+</ListBox>
+{% endhighlight %}
+<p>In the above example we have a DataTemplate which contains an ellipse. As the ListBox generates each 'row', it creates a ListBoxItem and populates it with the visual elements from our data template. When our ellipse is created, and loaded, the attached behaviour fires, navigating up the visual tree to find the first ListBoxItem it encounters. When it finds it, it creates a single instance of our relay object, binding both the ListBoxItem.IsSelected and Ellipse.Visibilty (via a suitable value converter) together via the relay object.</p>
+<p>And here it is in action (click an item to see the ellipse) ...</p>
+<div id="slPluginHost"> <object id="SilverlightPlugin" width="400" height="150" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/02/silverlightbinding1.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>You can download a visual studio project with all the sourcecode: <a href='{{ site.baseurl }}/archive/2009/02/silverlightrelativesourcebinding.zip'>silverlightrelativesourcebinding.zip</a>.</p>
+<p>Enjoy, Colin E.</p>

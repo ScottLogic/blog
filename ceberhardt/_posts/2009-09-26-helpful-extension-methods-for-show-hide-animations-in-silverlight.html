@@ -1,0 +1,108 @@
+---
+id: 331
+author: ceberhardt
+title: Helpful extension methods for Show / Hide animations in Silverlight
+oldlink: "http://www.scottlogic.co.uk/blog/colin/2009/09/helpful-extension-methods-for-show-hide-animations-in-silverlight/"
+tags:
+  - blog
+  - codeproject
+categories:
+  - Tech
+layout: default_post
+source: wordpress
+disqus-id: /blog/colin/2009/09/helpful-extension-methods-for-show-hide-animations-in-silverlight/
+---
+<p><em>Today's blog post is a couple of very simple utility methods that I have found myself using again and again ...</em></p>
+<p>The animations that Silverlight developers have at their disposal are both varied and powerful. It is easy to get carried away and cover your application with gratuitous animations, which soon become an unwanted distraction. However, animation, when used sparingly, can make the user experience (much as I hate buzzwords, this one seems to have stuck!) smoother and more fluid. One class of animation which I think adds to program fluidity is ones used for showing / hiding parts of the user interface. </p>
+<p>With Silvelight, the typical process for animation is to create a storyboard in XAML that animates the element being shown / hidden. This storyboard is looked-up in the resources and triggered at the right moment. The typical code looks something like this:</p>
+{% highlight csharp %}
+Storyboard anim = layourRoot.Resources["myAnimation"] as Storyboard;
+anim.Begin();
+{% endhighlight %}
+<p>It's a pretty simple peice of code, however, if you have multiple elements being shown / hidden, the management of resource names, and repeated code is a bit of a pain. </p>
+<p>As an alternative I have written a couple of very simple extension methods to <code>FrameworkElement</code>, as shown below:</p>
+{% highlight csharp %}
+/// <summary>
+/// Shows the element, playing a storyboard if one is present
+/// </summary>
+/// <param name="element"></param>
+public static void Show(this FrameworkElement element)
+{
+    string animationName = element.Name + "ShowAnim";
+
+    // check for presence of a show animation
+    Storyboard showAnim = element.Resources[animationName] as Storyboard;
+    if (showAnim != null)
+    {
+        showAnim.Begin();
+    }
+    else
+    {
+        element.Visibility = Visibility.Visible;
+    }
+}
+
+/// <summary>
+/// Hides the element, playing a storyboard if one is present
+/// </summary>
+/// <param name="element"></param>
+public static void Hide(this FrameworkElement element)
+{
+    string animationName = element.Name + "HideAnim";
+
+    // check for presence of a hide animation
+    Storyboard showAnim = element.Resources[animationName] as Storyboard;
+    if (showAnim != null)
+    {
+        showAnim.Begin();
+    }
+    else
+    {
+        element.Visibility = Visibility.Collapsed;
+    }
+}
+{% endhighlight %}
+<p>What each of these extension methods does is check for the presence of a <code>Storyboard</code> named <code>"ShowAnim"</code> or <code>"HideAnim"</code>, prefixed with the element name in order to ensure uniqueness. If the storyboard is present, the animation is played. Otherwise, the element visibility is set directly. This is a very useful feature, in that the <code>Show() </code>and<code> Hide()</code> extension methods can be used if you want to change an elements visibility without animation. If, at a  later date, you then decide that you want this change in visibility to be animated, you simple add a storyboard to the XAML, without having to change the code. </p>
+<p>Here is a simple example based on a <a href="{{ site.baseurl }}/2009/03/23/adding-a-location-crosshair-to-silverlight-charts-again">previous blog post of mine</a>:</p>
+<div id="slPluginHost" > <object id="SilverlightPlugin" width="400" height="300" data="data:application/x-silverlight," type="application/x-silverlight-2" ><param name="source" value="{{ site.baseurl }}/archive/2009/09/SLLineChartCrossHair.xap"/><a href="http://go.microsoft.com/fwlink/?LinkID=124807"  style="text-decoration: none;"> <img src="http://go.microsoft.com/fwlink/?LinkId=108181" alt="Get Microsoft Silverlight" style="border-style: none"/></a></object></div>
+<p>Here is a XAML snippet from the example:</p>
+{% highlight xml %}
+...
+<Grid Name="Crosshair" Opacity="0">
+    <Grid.Resources>
+        <Storyboard x:Name="CrosshairShowAnim">
+            <DoubleAnimation Storyboard.TargetName="Crosshair"
+                        Storyboard.TargetProperty="(UIElement.Opacity)"
+                        To="1"  Duration="00:00:00.1"/>
+        </Storyboard>
+        <Storyboard x:Name="CrosshairHideAnim">
+            <DoubleAnimation Storyboard.TargetName="Crosshair"
+                        Storyboard.TargetProperty="(UIElement.Opacity)"
+                        Duration="00:00:00.1" To="0"/>
+        </Storyboard>
+    </Grid.Resources>
+    <Line Name="Vertical" X1="{Binding Path=X}" Y1="0"
+          X2="{Binding Path=X}" Y2="400" Stroke="Black"/>
+    <Line Name="Horizontal" X1="0" Y1="{Binding Path=Y}"
+          X2="400" Y2="{Binding Path=Y}" Stroke="Black"/>
+</Grid>
+...
+{% endhighlight %}
+<p>Note the storyboard name is prefixed with the element name. And here is how this animation, and the legend's, is triggered from code:</p>
+{% highlight csharp %}
+private void CrosshairContainer_MouseEnter(object sender, MouseEventArgs e)
+{
+    LocationIndicator.Show();
+    Crosshair.Show();
+    ChartRoot.Cursor = Cursors.None;
+}
+
+private void CrosshairContainer_MouseLeave(object sender, MouseEventArgs e)
+{
+    LocationIndicator.Hide();
+    Crosshair.Hide();
+    ChartRoot.Cursor = Cursors.Arrow;
+}
+{% endhighlight %}
+<p>You can download the full sourcecode for the example project: <a href='{{ site.baseurl }}/archive/2009/09/showHideAnimations.zip'>showHideAnimations.zip</a>.</p>
+<p>Regards,Colin E.</p>

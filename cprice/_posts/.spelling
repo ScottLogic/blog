@@ -1,0 +1,78 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - cprice/_posts/2012-12-17-jekyll-a-developers-wordpress.md
+hyde-n
+hg
+ - cprice/_posts/2014-02-28-arrow-functions-in-knockoutjs.md
+old-skool
+Simples
+ArrowFunctionExpression
+ - cprice/_posts/2014-12-19-elk-3-things-i-wish-id-known.md
+100s
+10s
+30mins
+sincedb
+inode
+ - cprice/_posts/2015-03-09-OAUTH2-Authentication-with-ADFS-3.0.md
+_id
+OAuthInvalidResourceException
+OAuthAuthorizationMissingResourceException
+client_id
+ - cprice/_posts/2015-08-06-an-adventure-in-svg-filter-land.md
+fc.data.random.financial
+poor-mans
+60fps
+old-skool
+40-41ms
+webkit-based
+ - cprice/_posts/2015-11-02-improving-low-barrel-performance.md
+16.66ms
+10ms
+30fps
+ing
+ - cprice/_posts/2016-03-08-deconstructing-a-tweet-sized-d3-creation.md
+Firebaugh's
+a-ttributes
+sc-ale
+ttributes
+tr
+
+ - cprice/_posts/2016-04-19-mondo-bank-webhook-to-pebble-watch-timeline-using-aws-labmda-functions.md
+ish
+mondo-pebble-webhook
+ - cprice/_posts/2016-06-29-es6-iterators.md
+iterables
+IxJS
+debouncing
+ - cprice/_posts/2016-09-01-highlights-from-jsconfis.md
+geo-fenced
+Thurium
+Pintrest's
+Heiko
+Behrens
+watchfaces
+64k
+JerryScript
+IoT-type
+precompile
+Uychaco
+Sphero
+BB-8
+notalljavascript
+Malte
+Ubl
+h264
+Tryggvi
+Gylfason
+pungenerator.org
+Zeigen
+Lehnardt
+ - cprice/_posts/2016-09-01-using-d3-force-to-control-a-massive-display.md
+Nordurljos
+Harpa
+Eypor
+Arnason
+

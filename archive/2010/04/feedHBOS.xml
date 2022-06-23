@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<data seriesName="HBOS" colour="4">
+	<value label="04" price="877.75" percentage="13.47" cap="30.72"/>
+	<value label="05" price="993.00" percentage="16.22" cap="39.72"/>
+	<value label="06" price="1142.75" percentage="16.56" cap="45.71"/>
+	<value label="07" price="729.25" percentage="13.65" cap="29.17"/>
+	<value label="08" price="82.10" percentage="2.99" cap="4.27"/>
+</data>
