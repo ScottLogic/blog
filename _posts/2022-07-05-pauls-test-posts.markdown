@@ -4,7 +4,7 @@ date: 2022-07-05 16:36:00 Z
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna
   velit, efficitur a leo nec, vulputate mollis ligula. Morbi et purus lectus. Vivamus
   aliquet vitae massa et sagittis.
-author: Paul Dykes
+author: pdykes
 ---
 
 [Lorem ipsum dolor sit amet](https://lipsum.com/), consectetur adipiscing elit. Pellentesque urna velit, efficitur a leo nec, vulputate mollis ligula. Morbi et purus lectus. Vivamus aliquet vitae massa et sagittis. **Aliquam dignissim** at nibh vitae feugiat. Aliquam erat volutpat. Donec convallis venenatis dolor. 
