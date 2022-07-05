@@ -1,5 +1,5 @@
 ---
-title: Paul's test posts
+title: Paul's test post
 date: 2022-07-05 16:36:00 Z
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque urna
   velit, efficitur a leo nec, vulputate mollis ligula. Morbi et purus lectus. Vivamus
