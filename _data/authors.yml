@@ -94,10 +94,17 @@ active-authors:
     - smartin
     - jvolmut
     - spavitt
+    - bpritchard
 authors:
     aaiken:
         name: 'Andy Aiken'
         picture: picture.jpg
+    bpritchard:
+        name: 'Beth Pritchard'
+        email: bpritchard@scottlogic.com
+        author-summary: 'An associate developer at Scott Logic, based in Newcastle. Interested in all things cloud. Partial to loud music, video games, and hanging out with cats. (They/them)'
+        twitter-handle: null
+        picture: bpritchard.jpg
     aaspellc:
         name: 'Andy Aspell-Clark'
         author-summary: '<p>I am a Senior Developer at Scott Logic. I am interested in all programming topics from how a computer goes from power on to displaying windows on the screen or how a CPU handles branch prediction to how to write a mobile UI using kotlin or cordova.</p>'
