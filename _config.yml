@@ -16,7 +16,7 @@ defaults:
     summary: a quick summary of your post
     author: the name of the authers account
     layout: default_post
-repository: ScottLogic/new-blog
+repository: ScottLogic/blog
 name: Scott Logic
 description: This feed is brought to you by Scott Logic's team of technical authors
   and bloggers, covering topics including HTML5, iOS, C#, process, UX and practically
