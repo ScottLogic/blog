@@ -21,6 +21,7 @@ We also touch on the fascinating dynamic that exists between the government and 
 Finally, we consider the sheer scale of government spending, £3.7 billion per annum, and the positive impact this has through stimulating innovation and creating opportunities. This investment has contributed to the UK Government’s success in claiming the number 2 spot in the OECD Digital Government Index.
 
 Links from the podcast:
+
   * [G-Cloud & DOS Spending Review to December 2021](https://advice-cloud.co.uk/insights/g-cloud-dos-spending-review-dec2021/) - Advice Cloud
   * [GOV.UK](https://www.gov.uk/) - The best place to find government services and information
   * [UK claims number 2 spot in OECD digital government rankings](https://gds.blog.gov.uk/2020/10/16/uk-claims-number-2-spot-in-oecd-digital-government-rankings/) - Jess McEvoy
