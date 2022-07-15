@@ -55,9 +55,9 @@ You can reduce the time searching takes by:
 See more about [quick tips for optimisation](https://docs.splunk.com/Documentation/SplunkCloud/8.2.2203/Search/Quicktipsforoptimization) from Splunk.
 
 Suppose that I wanted to search for events related to vendor sales for only account id ‘6024298300471575’ in March 2022, I could set the time window and run the following query string:
-```
+~~~
 index=main sourcetype=vendor_sales/vendor_sales AcctID=6024298300471575
-```
+~~~
 
 ![Filtered Query]({{ site.github.url }}/ddiep/assets/splunk/filteredquery.PNG)
 
@@ -66,17 +66,17 @@ Although this example uses the ‘main’ index, it is better to use split indic
 
 Now let’s say I was interested in how many failed attempts to log on occurred during the first seven days of March in my data. I happen to know that the log has the format:
 
-```
+~~~
 Failed password for <USER> <SYSTEM> from <IP> port <PORT> <PROTOCOL>
-```
+~~~
 
 This might be from seeing the system’s code or through looking at the logs.
 
 I can query for the substring to retrieve all events that contain `Failed password for` using:
 
-```
+~~~
 index=main "*failed password for*"
-```
+~~~
 
 ![Querying for a substring]({{ site.github.url }}/ddiep/assets/splunk/substringquery.PNG)
 
@@ -93,7 +93,7 @@ It is quite common for API requests to include an **X-Request-ID** or **X-Correl
 I also find it incredibly useful to attach the Splunk query to any issue tracking ticket as evidence. It can show that the feature is operational and acts as a reference if the implementation needs revisiting in the future.
 
 ### Fields and statistics
-At index time, the default fields are populated. These are fields such as host, source, sourcetype, _time, and _raw.
+At index time, the default fields are populated. These are fields such as `host`, `source`, `sourcetype`, `_time`, and `_raw`.
 
 At search time, Splunk automatically detects key-value pair fields and extracts them.
 
@@ -107,7 +107,7 @@ For example, selecting ‘Top values by time’ for the field ‘date_hour’ wo
 
 ### SPL Commands
 
-SPL has six broad types of commands:
+SPL (Search Processing Language) has six broad types of commands:
 
 - Distributable streaming
 - Centralised streaming
@@ -118,9 +118,9 @@ SPL has six broad types of commands:
 
 A simple command to start with would be ‘reverse’. Splunk events are presented in reverse-chronological order by default. If I piped a query to ‘reverse’, then the events that happened first would be shown at the top.
 
-```
+~~~
 index=main | reverse
-```
+~~~
 
 ![Reverse Command]({{ site.github.url }}/ddiep/assets/splunk/reverse.PNG)
 
@@ -133,21 +133,21 @@ Let’s take the ‘failed password’ events from earlier. When the user is inv
 
 Here is an example:
 
-```
+~~~
 Thu Mar 07 2022 00:15:06 mailsv1 sshd[5258]: Failed password for invalid user testuser from 194.8.74.23 port 3626 ssh2
-```
+~~~
 
 This username is not automatically extracted by Splunk at search time because it is not a key-pair value.
 
 Let us have a look at the rex command to extract it:
 
-```
+~~~
 index=main "*Failed password for invalid user*" 
 |  rex field=_raw "Failed password for invalid user (?<username>[^\s]*)"
-```
+~~~
 
 We first search for events that have the substring `*Failed password for invalid user*`.
-I use the rex command on the _raw field of the results. The _raw field is the raw text of the event. A regular expression is used to match the predictable part of the log output and extract the new field. The extraction is defined in the parenthesis `(?<username>[^\s]*)`.
+I use the rex command on the `_raw` field of the results. The `_raw` field is the raw text of the event. A regular expression is used to match the predictable part of the log output and extract the new field. The extraction is defined in the parenthesis `(?<username>[^\s]*)`.
 We specified the new field name to be ‘username’ the regex pattern `[^\s]*` will match everything until a space character is encountered.
 
 ![A field extracted using rex]({{ site.github.url }}/ddiep/assets/splunk/rex.PNG)
@@ -175,30 +175,30 @@ A subsearch can be specified by enclosing a query in square brackets [ ].
 
 Splunk's search tutorial uses this subsearch example:
 
-```
+~~~
 sourcetype=access_* status=200 action=purchase 
     [search sourcetype=access_* status=200 action=purchase 
     | top limit=1 clientip 
     | table clientip] 
 | stats count AS "Total Purchased", distinct_count(productId) AS "Total Products", values(productId) AS "Product IDs" by clientip 
 | rename clientip AS "VIP Customer"
-```
+~~~
 
 The subsearch first identifies a ‘VIP customer’ by searching for the top client ip address that made the most purchases. The primary search then uses this customer to count how many purchases they made, how many types of products there were, and which products they bought. Subsearches can also be used in the join command to perform SQL-like joins for correlating data. 
 
 ### That’s a lot on the topic of searching!
 
-Searching is obviously extremely important for a data platform such as Splunk. The SPL is rich in features and can do much more than what I can feasible cover in this post.
+Searching is obviously extremely important for a data platform such as Splunk. The SPL is rich in features and can do much more than what I can feasibly cover in this post.
 
 ## Reports, Alerts, and Dashboards
 
 Splunk can be used for reporting and visualising data.
 For example, the query:
 
-```
+~~~
 sourcetype=access_* status=200 
 | stats count by action
-```
+~~~
 
 The transforming command ‘stats’ is used to count the number of occurrences for each action. With the search results ordered in a data table, I can then select a chart to visualise this data.
 
@@ -236,4 +236,4 @@ Many of these topics are beyond my expertise and the scope of this blog post.
 However, it is fascinating to know how much Splunk can offer, and how the tool has something for all roles.
 
 ## Conclusion
-A data platform such as Splunk ingests all manner of data about our systems and enables us to interpret this data meaningfully. I have found incredibly valuable use cases such as: coordinating activities with other teams, improving my understanding of complicated systems,  and capturing evidence to prove that my implementations meet the acceptance criteria of its requirements. I certainly would like to improve my ability to leverage machine data available and would recommend exploring the idea of setting up a data platform if your systems are not currently employing one.
+A data platform such as Splunk ingests all manner of data about our systems and enables us to interpret this data meaningfully. I have found incredibly valuable use cases such as: coordinating activities with other teams, improving my understanding of complicated systems,  and capturing evidence to prove that my implementations meet the acceptance criteria of its requirements. I certainly would like to improve my ability to leverage machine data and would recommend exploring the idea of setting up a data platform if your systems are not currently employing one.
