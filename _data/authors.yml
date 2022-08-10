@@ -93,6 +93,7 @@ active-authors:
     - smartin
     - jvolmut
     - bpritchard
+    - awhitmell
 authors:
     aaiken:
         name: 'Andy Aiken'
@@ -162,6 +163,10 @@ authors:
         author-summary: 'Lead Developer based in Edinburgh. My career in software is old enough to drink.'
         twitter-handle: null
         picture: blogpic.jpg
+    awhitmell:
+        name: 'Andrew Whitmell'
+        author-summary: 'Associate developer at Scott Logic based in the Newcastle office. When not bashing keyboards, I can usually be found playing with a Labrador or looking at guitars I can't afford. '
+        picture: awhitmell.jpg
     bdimitrov-SL:
         name: 'Bogdan Dimitrov'
         author-summary: '<p>I am a Software Developer at Scott Logic working with .NET and HTML5 web technologies.</p>'
