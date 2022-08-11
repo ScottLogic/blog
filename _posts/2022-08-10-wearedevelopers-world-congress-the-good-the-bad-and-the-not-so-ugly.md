@@ -1,6 +1,6 @@
 ---
 title: WeAreDevelopers World Congress - The good, the bad, and the not-so-ugly
-date: 2022-08-10 00:00:00 Z
+date: 2022-08-11 00:00:00 Z
 categories:
 - awhitmell
 - People
