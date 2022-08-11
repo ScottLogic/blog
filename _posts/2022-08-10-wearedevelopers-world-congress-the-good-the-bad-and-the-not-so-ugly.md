@@ -9,6 +9,7 @@ layout: default_post
 summary: A balanced overview of the WeAreDevelopers World Congress 2022 tries to answer the question, "Are international conferences worth all that time and effort?"
 ---
 
+<div style="text-alight: justify">
 <img src="{{site.github.url}}/awhitmell/assets/berlin/group.jpg" alt="Scott Logic group photo at the conference" width = fill style="float: centre;" />
 
 “Ich bin ein entwickler” - John F. Kennedy
@@ -17,7 +18,7 @@ summary: A balanced overview of the WeAreDevelopers World Congress 2022 tries to
 ### Introduction
 From cloud-based medical physics to quantum computing, from IBM and JetBrains to university students and technology fanatics, The WeAreDevelopers Word Congress benefitted hugely from the differing passions and interests across a wide range of talented speakers. With over 8000 tickets sold, this two day conference was melting pot of different cultures, experiences, and ideas. 
 
-<img src="{{site.github.url}}/awhitmell/assets/berlin/beer.jpg" alt="A pint of beer that is 60% froth" width = 250 style="float: right;" />
+<img src="{{site.github.url}}/awhitmell/assets/berlin/beer.jpg" alt="A pint of beer that is 60% froth" width = 160 style="float: right;" />
 
 Between presentations, company stalls were there to entertain, notably Ikea handing out ice creams in the baking 28°C summer heat, and winning everyone’s admiration in the process. Some, in desperate need of employees, turned to free vouchers and sweets in an attempt to galvanise engagement via the oldest trick in the book. This exposition element supported the social side of the conference, with a stall even bringing Table Football to help break the ice. One business very kindly gave me what I can only describe as a warm, 4% ABV, bubble bath. 
 
@@ -41,7 +42,8 @@ Spending 30 minutes talking about the ins and outs of your particular contractua
 
 
 ### The end
-<img src="{{site.github.url}}/awhitmell/assets/berlin/beer.jpg" alt="Some Scott Logicians playing Codenames in a beer garden" width = 250 style="float: right;" />
+<img src="{{site.github.url}}/awhitmell/assets/berlin/end.jpg" alt="Some Scott Logicians playing Codenames in a beer garden" width = 250 style="float: right;" />
 Microsoft struck again, closing the World Congress with a rather underwhelming ~~advertisement~~ talk informing us of how good VS Code, Edge, Surface Books, and GitHub are. In the process souring what was otherwise an excellent event. It did make me wonder whether GitHub Copilot would be able to turn such a dreary talk into something palatable. Despite this disappointing end to the conference, our journey came to a close in a beer garden later that night. For the majority of my colleagues there, that night was the first time I had met them, and their warm and welcoming nature is something I am thankful for. As I sat there, full of beer, listening to my peers screaming over a game of Codenames, I couldn’t help but think that by taking this job I hadn’t joined a company, but rather, a family.
 
 In summary I loved every second of this trip, and am incredibly grateful for having the opportunity to experience something I had never done before. I do strongly recommend considering a large scale conference for the unparalleled benefits in networking, learning new things, and having your current perspectives challenged. 
+</div> 
