@@ -8,6 +8,7 @@ tags:
 - Splunk
 - Data
 - DevOps
+- featured
 author: ddiep
 summary: Learn about what a data platform is and how it can translate enormous amounts
   of unstructured data into meaningful reports on your business operations.
