@@ -6,8 +6,8 @@ categories:
 - Open Source
 summary: As someone with virtually no previous experience in open source contribution,
   I had a go at finding contribution opportunities using "good first issues" websites.
-  This is a summary of my experience, along with some hopefully helpful thoughts for
-  both contributors and maintainers.
+  Here I present my experience along with some hopefully helpful thoughts for both
+  contributors and maintainers.
 author: rwillis
 ---
 
