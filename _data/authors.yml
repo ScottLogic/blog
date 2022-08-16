@@ -5,6 +5,7 @@ active-authors:
     - ahickman
     - alee
     - amjones
+    - asegrove
     - ceberhardt
     - ccocks
     - cprice
@@ -25,6 +26,7 @@ active-authors:
     - hubinf
     - jharris
     - jhenderson
+    - jmcevoy
     - jporter
     - jwhite
     - jwren
@@ -100,6 +102,10 @@ authors:
     aaiken:
         name: 'Andy Aiken'
         picture: picture.jpg
+    asegrove:
+        name: 'Alex Segrove'
+        picture: picture.jpg
+        author-summary: "Hi, I'm Alex - Delivery Manager based in the London office. I spent the last few years in the Government Digital Service heading up delivery for GOV.UK, Digital Identity and Government Data policy, then worked with governments around the world to help them with their own digital transformation."
     bpritchard:
         name: 'Beth Pritchard'
         email: bpritchard@scottlogic.com
@@ -394,6 +400,10 @@ authors:
     jmelon:
         name: 'Jean-Sacha Melon'
         author-summary: '<p>I am a London based Delivery Principal at Scott Logic. Coming from a developer background I am passionate about agility and coaching in the tech space. I love working with our amazing teams and supporting our customers at all levels of seniority.</p>'
+        picture: picture.png
+    jmcevory:
+        name: 'Jessica McEvoy'
+        author-summary: "I'm a Principal at Scott Logic. Ex-Senior Civil Servant, formerly of GDS, Cabinet Office."
         picture: picture.png
     jphillpotts:
         name: 'James Phillpotts'

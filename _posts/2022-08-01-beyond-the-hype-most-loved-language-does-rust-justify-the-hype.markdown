@@ -8,6 +8,10 @@ tags:
 - Rust
 - programming language
 - system programming
+contributors:
+- cprice
+- smartin
+- rpilling
 summary: In this episode, Simon Martin, Chris Price and Rob Pilling share their interest
   and insights into Rust. This relatively new programming language has caught the
   attention of the development community, being voted the ‘most-loved’ language seven

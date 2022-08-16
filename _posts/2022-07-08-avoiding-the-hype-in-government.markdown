@@ -8,6 +8,9 @@ summary: In this month’s episode, we tackle a wide range of topics relating to
   role of technology innovation, and the perils of hyped technology, within Digital
   Government.
 author: ceberhardt
+contributors:
+- jmcevory
+- asegrove
 ---
 
 <iframe title="Embed Player" src="//play.libsyn.com/embed/episode/id/23292824/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
