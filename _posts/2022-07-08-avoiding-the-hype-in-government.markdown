@@ -10,7 +10,7 @@ summary: In this month’s episode, we tackle a wide range of topics relating to
   Government.
 author: ceberhardt
 contributors:
-- jmcevory
+- jmcevoy
 - asegrove
 ---
 
