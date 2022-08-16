@@ -4,6 +4,7 @@ title: Beyond the Hype - Investing in Innovation and avoiding the Hype in Digita
 date: 2022-07-08 13:49:00 Z
 categories:
 - Podcast
+- ceberhardt
 summary: In this month’s episode, we tackle a wide range of topics relating to the
   role of technology innovation, and the perils of hyped technology, within Digital
   Government.
