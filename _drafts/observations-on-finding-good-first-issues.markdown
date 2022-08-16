@@ -1,7 +1,7 @@
 ---
 title: Observations on finding good first issues
 date: 2022-08-12 10:46:00 Z
-author: Rowan Willis
+author: rwillis
 ---
 
 As part of a larger investigation into sustainability in open source development, I recently undertook an exercise to find open source projects and issues for a small team of developers to contribute to. While there is a wealth of development experience within the team, only one of us has any experience contributing to an open source project before.
