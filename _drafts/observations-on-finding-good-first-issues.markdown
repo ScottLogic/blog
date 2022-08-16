@@ -2,6 +2,7 @@
 title: Observations on finding good first issues
 date: 2022-08-12 10:46:00 Z
 categories:
+- rwillis
 - Open Source
 author: rwillis
 ---
