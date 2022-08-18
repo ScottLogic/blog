@@ -49,7 +49,7 @@ In particular, I found that [Good First Issue](https://goodfirstissue.dev/), whi
 
 In contrast, [CodeTriage](https://www.codetriage.com/) lists its projects in order of the total number of open issues. This means that the larger, more established and better supported projects are at the top of the list. These can be fruitful grounds for suitable issues but a little more work is needed to filter them out.
 
-On the other end of the scale, some sites lean more heavily towards much smaller projects. For instance \[Good First Issues\]\[https://goodfirstissues.com/\] lists issues directly with some corresponding information about the project. While there are certainly some worthwhile projects and issues to be found here, there is a lot more noise.
+On the other end of the scale, some sites lean more heavily towards much smaller projects. For instance, [Good First Issues](https://goodfirstissues.com/) lists issues directly with some corresponding information about the project. While there are certainly some worthwhile projects and issues to be found here, there is a lot more noise.
 
 Overall, I found it invariably necessary to further filter the results from these sites by individually evaluating each repository, looking at their size, aims and activity patterns.
 
