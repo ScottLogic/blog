@@ -147,7 +147,7 @@ For feature requests and bug reports, trying to reproduce the issue yourself can
 
 **Advice for maintainers**
 
-Implementation hints are immensely helpful new contributors who are not yet familiar with the structure and organization of your project. There’s a balance to be drawn, but even something as simple as “look at these specific files first” gives us a direction to set off in and can prevent a new contributor from getting immediately lost on an issue which seems straightforward through the lens of the maintainer’s experience. If you can link to a specific file or line of code, even better!
+Implementation hints are immensely helpful to new contributors who are not yet familiar with the structure and organisation of your project. There’s a balance to be drawn, but even something as simple as “look at these specific files first” gives us a direction to set off in and can prevent a new contributor from getting immediately lost on an issue which seems straightforward through the lens of the maintainer’s experience. If you can link to a specific file or line of code, even better!
 
 ## 6. Feedback is important even if you don’t get anywhere
 
