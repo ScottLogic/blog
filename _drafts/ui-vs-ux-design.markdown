@@ -6,6 +6,8 @@ categories:
 tags:
 - user experience
 - user interface
+summary: UX and UI often get used interchangably, but there are key differences. Which
+  one do you need?
 ---
 
 **“Oh, \[your name here\] works with computers, they can fix your PC/Printer/Phone problem!”**
