@@ -115,6 +115,8 @@ Without UI Design this house would be an empty shell. Without UX Design you coul
 
 # Takeaways
 
-Much like the Developer vs IT Support confusion, UI and UX Design shouldn’t be used interchangeably, even if there is overlap. UX Design does incorporate UI Design, but a UX Designer should be doing a lot more.
+Much like the Developer vs IT Support confusion, UI and UX Design shouldn’t be used interchangeably, even if there is overlap. 
+
+User Interface Design is more concerned with look and feel, User Experience Design is broader and covers the user's entire experience of a product from start to finish. UX Design does incorporate UI Design, but a UX Designer should be doing a lot more research, testing and iterating ideas.
 
 Having only User Interface Design instead of User Experience Design could land you with a very nice application that isn’t relevant to what users actually need. For that reason, a UX Designer should be involved in virtually every project, and preferably as early as possible in the design process so you can start on strong foundations.
