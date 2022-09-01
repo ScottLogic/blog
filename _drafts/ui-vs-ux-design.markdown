@@ -37,11 +37,11 @@ As human beings we all have an innate ability to tell if something is aesthetica
 
 As well as looking nice, good UI design has to *feel* nice. Using an application or website should be pleasurable, or at very least not be a chore. Buttons and links should be obvious, forms easy to fill out, navigation straightforward, processes having logical steps and progression. This is where we start getting into the core of ‘Interaction Design’. Being aware of best practices and guidelines can help make sure we build something that is enjoyable to use on any device.
 
-Modern touch screen devices are the result of many years of careful interface design. Swiping, pinching and multi-touch are great examples of how UI designers have come up with clever ways to complete a task.
+Modern touch screen devices are the result of many years of careful user interface design. Swiping, pinching and multi-touch are great examples of how UI designers have come up with clever ways to complete a task.
 
 # What is UX Design
 
-UX Design is tricky to define as its scope is very broad. It’s easier to frame it like this: What is a user’s *experience *of your product start to finish? Was it positive, productive, pleasurable, easy? A user’s experience of an application or website is entirely subjective. We cannot create or destroy an experience, only design our products to give users an enjoyable journey that suits their specific needs.
+UX Design is trickier to define as its scope is very broad. It’s easier to frame it like this: What is a user’s *experience* of your product start to finish? Was it positive, productive, pleasurable, easy? A user’s experience of an application or website is entirely subjective. We cannot create or destroy an experience, only design our products to give users an enjoyable journey that suits their specific needs.
 
 In order to design this journey, we must know more about our users and their needs so our ideas are relevant and grounded in data and empathy. We want to have a firm grasp of the following before ever trying to come up with solutions:
 
@@ -67,11 +67,11 @@ In order to design this journey, we must know more about our users and their nee
 
   * Industry or customer focus
 
-  * PC based roles vs mobile vs hybrid
+  * PC based vs mobile vs hybrid
 
   * High competency users vs casual users
 
-  * Environment, eg. home or on busy trading floor
+  * Environment, eg. home, out and about or on a busy trading floor
 
 * What are our users' pain points?
 
@@ -91,7 +91,7 @@ Once we have an understanding of the user we can far more effectively *empathise
 
 * Don Norman, Founder of [Nielsen Norman Group](https://www.nngroup.com/articles/definition-user-experience/) and father of modern UX.
 
-Ultimately, as UX Designers our role is to *reduce risk* by making sure products will be fit for users, and *spot opportunities* that might have otherwise been missed.
+Ultimately for a client, a UX Designers role is to *reduce risk* by making sure products will be fit for users, and *spot opportunities* that might have otherwise been missed.
 
 # How does UI and UX work together
 
@@ -107,14 +107,14 @@ Before you start, you would ask who will be living there, what do they need, how
 
 When you start thinking about the layout required, the number of floors, what parking is needed, what other buildings are nearby, how does this building fit into people’s lives? This is looking at service design.
 
-When all that is sorted, you would decorate it, design furniture for it, make it functional and desirable, this is UI Design.
+When all that is sorted, you would decorate it, design furniture for it, make it functional and desirable, this is User Interface Design.
 
-UX Design is the generalist of these roles, it covers many different disciplines.
+User Experience Design is the generalist of these roles, it covers many different disciplines.
 
-Without UI Design this house would be an empty shell, without UX Design you could design a beautiful country cottage, when the client really needed a warehouse.
+Without UI Design this house would be an empty shell. Without UX Design you could design a beautiful country cottage, when the client really needed a warehouse.
 
 # Takeaways
 
 Much like the Developer vs IT Support confusion, UI and UX Design shouldn’t be used interchangeably, even if there is overlap. UX Design does incorporate UI Design, but a UX Designer should be doing a lot more.
 
-Having only User Interface Design instead of User Experience Design could land you with a very nice application, built for an audience or problem that isn’t relevant to what users actually need. For that reason, a UX Designer should be involved in virtually every project, and preferably as early as possible in the design process so you can start on strong foundations.
+Having only User Interface Design instead of User Experience Design could land you with a very nice application that isn’t relevant to what users actually need. For that reason, a UX Designer should be involved in virtually every project, and preferably as early as possible in the design process so you can start on strong foundations.
