@@ -708,7 +708,7 @@
   - /2013/09/19/ios-book-published.html
 /2016/12/07/once-upon-a-time.html:
   - /2019/10/23/On-the-dangers-of-sending-your-testers-to-conferences.html
-  - /2022/02/23/Grad-Week-Feb22.h.html
+  - /2022/02/23/Grad-Week-F.html
 /2016/12/15/semantic-versioning-is-not-enough.html:
   - /2018/11/22/default-values-in-code-and-configuration.html
   - /2013/12/06/JavaScript-MVC-frameworks.html
@@ -1545,7 +1545,7 @@
   - /2015/03/05/reactjs-in-swift.html
 /2019/10/30/ir35-hits-now-don-t-wait-until-april-to-act.html:
   - /2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html
-  - /2022/02/23/Grad-Week-Feb22.h.html
+  - /2022/02/23/Grad-Week-F.html
 /2019/10/31/building-microservices-with-spring-boot.html:
   - /2019/11/19/building-microservices-with-spring-boot-2.html
   - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
@@ -1602,7 +1602,7 @@
   - /2020/10/12/oft-untapped-potential-of-apis.html
 /2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html:
   - /2019/10/30/ir35-hits-now-don-t-wait-until-april-to-act.html
-  - /2022/02/23/Grad-Week-Feb22.h.html
+  - /2022/02/23/Grad-Week-F.html
 /2019/12/16/regular-expressions-as-icebergs.html:
   - /2020/08/06/datahelix-intro.html
   - /2018/11/22/default-values-in-code-and-configuration.html
@@ -2176,7 +2176,7 @@
 /2022/02/18/reminiscence-of-a-scrum-master-part-v.html:
   - /2021/11/17/reminiscence-of-a-scrum-master-part-ii.html
   - /2019/09/23/agile-is-not-a-solved-problem.html
-/2022/02/23/Grad-Week-Feb22.h.html:
+/2022/02/23/Grad-Week-F.html:
   - /2022/06/16/state-of-wasm-2022.html
   - /2016/12/07/once-upon-a-time.html
 /2022/02/23/word-embedding-recommendations.html:
@@ -2231,7 +2231,7 @@
   - /2021/06/03/pride-2021.html
   - /2019/08/06/why-scott-logic-celebrated-pride-month.html
 /2022/06/16/state-of-wasm-2022.html:
-  - /2022/02/23/Grad-Week-Feb22.h.html
+  - /2022/02/23/Grad-Week-F.html
   - /2016/12/07/once-upon-a-time.html
 /2022/06/20/state-of-wasm-2022.html:
   - /2021/06/21/state-of-wasm.html
@@ -2242,23 +2242,23 @@
 /2022/07/04/data_ai.html:
   - /2018/03/22/apache-spark-performance.html
   - /2016/01/24/apache-spark-intro.html
-/2022/07/08/avoiding-the-hype-in-government.markd.html:
+/2022/07/08/avoiding-the-hype-in-government.html:
   - /2017/09/05/scaling-agile-in-the-public-sector.html
   - /2019/12/13/debunking-cloud-myths.html
 /2022/07/15/putting-your-machine-data-to-use-with-splunk.html:
   - /2016/05/26/big-data-logging-elk-stack.html
   - /2018/04/17/comparing-big-data-messaging.html
-/2022/08/01/beyond-the-hype-most-loved-language-does-rust-justify-the-hype.markd.html:
+/2022/08/01/beyond-the-hype-most-loved-language-does-rust-justify-the-hype.html:
   - /2018/02/27/webassembly-death-of-javascript.html
   - /2018/12/14/automation-and-bots-for-open-source.html
 /2022/08/11/wearedevelopers-world-congress-the-good-the-bad-and-the-not-so-ugly.html:
   - /2017/11/17/codemesh.html
   - /2016/03/08/interaction16.html
-/2022/08/16/observations-on-finding-good-first-issues.markd.html:
-  - /2022/08/26/contributing-to-open-source-taking-the-dive.markd.html
+/2022/08/16/observations-on-finding-good-first-issues.html:
+  - /2022/08/26/contributing-to-open-source-taking-the-dive.html
   - /2018/05/30/avoiding-seeking-solving-source-control-conflicts.html
-/2022/08/26/contributing-to-open-source-taking-the-dive.markd.html:
-  - /2022/08/16/observations-on-finding-good-first-issues.markd.html
+/2022/08/26/contributing-to-open-source-taking-the-dive.html:
+  - /2022/08/16/observations-on-finding-good-first-issues.html
   - /2018/11/09/7-reasons-i-love-open-source.html
 /26/08/2014/StrongTypingWithAngularJS.html:
   - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
