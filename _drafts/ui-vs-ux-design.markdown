@@ -11,6 +11,7 @@ tags:
 - ui
 summary: UX and UI often get used interchangably, but there are key differences. Which
   one do you need?
+author: delliott
 ---
 
 **“Oh, \[your name here\] works with computers, they can fix your PC/Printer/Phone problem!”**
@@ -115,7 +116,7 @@ Without UI Design this house would be an empty shell. Without UX Design you coul
 
 # Takeaways
 
-Much like the Developer vs IT Support confusion, UI and UX Design shouldn’t be used interchangeably, even if there is overlap. 
+Much like the non-techy's Developer vs IT Support confusion, UI and UX Design shouldn’t be used interchangeably, even if there is overlap. 
 
 User Interface Design is more concerned with look and feel, User Experience Design is broader and covers the user's entire experience of a product from start to finish. UX Design does incorporate UI Design, but a UX Designer should be doing a lot more research, testing and iterating ideas.
 
