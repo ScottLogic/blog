@@ -13,6 +13,7 @@ active-authors:
     - dmcnamee
     - dnicholas
     - dogle
+    - delliott
     - dsmith
     - ebrown
     - emason
@@ -244,6 +245,10 @@ authors:
         picture: picture.jpg
     dgorst:
         name: 'Dan Gorst'
+        picture: picture.jpg
+    delliott:
+        name: 'Dan Elliott'
+        author-summary: '<p>Senior UX Designer at Scott Logic based in the Bristol office. I spend my time researching users, designing solutions and testing to ensure a productive and pleasurable user experience. PC and VR Gamer, Motorcycle Enthusiast, Dad and Collector of Loud Shirts.'
         picture: picture.jpg
     dkerr:
         author-summary: '<p>I''m a full-stack web developer, with an interest in anything and everything that''s new in web technology!</p>'
