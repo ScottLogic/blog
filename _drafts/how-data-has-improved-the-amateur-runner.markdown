@@ -10,7 +10,7 @@ tags:
 summary: 'As a keen amateur runner that somehow found themselves with a qualifying
   time to stand on the start line of the Great North Run with the Elite women, I take
   a look at the main ways data has aided my journey to that start line. '
-author: Molly Pace
+author: mpace
 ---
 
 As a keen amateur runner that somehow found themselves with a qualifying time to stand on the start line of the Great North Run with the Elite women, I've been reflecting on how data has influenced my journey as a runner and contributed to my improvement. Data abundance impacts many aspects of our lives from education and healthcare to navigation and recommendations of music on our streaming services. However, it’s through running that I have noticed data being the biggest vehicle for change in my own life. 
@@ -35,7 +35,7 @@ Now what's the point in data collection if you don’t know whether you're impro
 
 I’ve found this useful to give myself a kick when I know I need to increase my training, and set my expectations for a race outcome. If my fitness has gone down over the last few months then I shouldn’t be expecting a personal best. 
 
-[fitness graph.PNG](/uploads/fitness%20graph.PNG)
+![fitness graph.PNG](/uploads/fitness%20graph.PNG)
 
 
 ## 4.Scoping the competition
