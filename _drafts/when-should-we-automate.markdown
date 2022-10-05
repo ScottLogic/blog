@@ -2,6 +2,7 @@
 title: When should we automate?
 date: 2022-10-05 09:27:00 Z
 categories:
+- tgilbert
 - Testing
 tags:
 - Testing
@@ -11,7 +12,7 @@ tags:
 - ''
 summary: 'A look at how building an automated regression test suite in the early days
   of a project will provide benefits further down the line. '
-author: Tom Gilbert
+author: tgilbert
 ---
 
 **What is regression testing?**
