@@ -24,7 +24,7 @@ If the automated regression tests are not written, as each sprint passes, the ma
 
 [NoAutomationGraph.PNG](/uploads/NoAutomationGraph.PNG)
 
-\*\*Why should we automate it?\*\*
+**Why should we automate?**
 
 Automating the regression test suite means the testers are spending less time doing the repetitive manual tests and can spend their time testing the new features, doing exploratory testing, and maintaining the automated tests. The graph below is an example of how this scenario may look:
 
