@@ -2,6 +2,7 @@
 title: When should we automate?
 date: 2022-10-05 09:27:00 Z
 categories:
+- tgilbert
 - Testing
 tags:
 - Testing
