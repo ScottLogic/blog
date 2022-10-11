@@ -1,6 +1,15 @@
 ---
 title: UX Lessons Learned from VR Gaming
 date: 2022-10-11 09:56:00 Z
+categories:
+- UX Design
+tags:
+- ux design
+- UX
+- UI
+- VR
+summary: Virtual Reality gaming has some unique UX challenges. But what lessons can
+  be applied from VR to all flatscreen applications?
 author: delliott
 ---
 
