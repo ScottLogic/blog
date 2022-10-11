@@ -3,7 +3,7 @@ title: 'Passwordle: Musings on password strength'
 date: 2022-05-16 00:00:00 Z
 categories:
 - jbeckles
-- Resources
+- Tech
 author: jbeckles
 layout: default_post
 summary: Ever wondered how to tell how strong your pasword is? This blog post explores
