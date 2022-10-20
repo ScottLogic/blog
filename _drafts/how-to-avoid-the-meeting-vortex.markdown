@@ -5,7 +5,7 @@ categories:
 - delivery
 - meetings
 summary: Tips on how to ensure meetings provide maximum value
-author: Louise Wilson
+author: lwilson
 ---
 
 A 2021 study revealed that the average professional spends an average of 21.5 hours in meetings every week. So meetings must be worth having right? A meta-analysis produced in 2022 looking at over a decade of research showed 90 percent of employees feel meetings are "costly" and "unproductive." What is the reason behind this disconnect?
