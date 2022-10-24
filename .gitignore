@@ -8,3 +8,6 @@ _site
 *.css.map
 .DS_Store
 Gemfile.lock
+
+.bundle/
+.vscode/
