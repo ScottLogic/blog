@@ -25,7 +25,7 @@ function getCookieConsent() {
         "type": "opt-in",
         "content": {
             "message": "This site uses cookies for analytics, to improve your experience and show content you might like.",
-            "href": "https://www.scottlogic.com/cookies-policy/"
+            "href": "https://www.scottlogic.com/cookies-policy.html"
         }
     });
 }
