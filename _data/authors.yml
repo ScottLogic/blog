@@ -464,6 +464,10 @@ authors:
         name: 'Laveena Ramchandani'
         author-summary: 'Test Engineer, working at Scott Logic. I am based in the London Office. '
         picture: picture.jpg
+    lwilson:
+        name: 'Louise Wilson'
+        author-summary: 'I am a Delivery Principal at Scott Logic based in the Edinburgh office.  I am passionate about building great services within the public and private sector. I''m a big fan of tasty food and energetic dancing.'
+        picture: lwilson.png
     mamos:
         name: 'Matthew Amos'
         author-summary: 'I''m a Lead Developer at Scott Logic, based in London, with almost 15 years experience in Java. I also write Scala, Kotlin, Python and some JavaScript. I am a certified AWS solutions architect, and Terraform fan.'
