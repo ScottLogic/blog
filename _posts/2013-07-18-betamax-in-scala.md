@@ -11,7 +11,8 @@ tags:
 author: jphillpotts
 layout: default_post
 source: site
-summary: "<a href=\"http://betamax.software\">Betamax</a> is a tool to help with testing
+summary:
+  "<a href=\"http://betamax.software\">Betamax</a> is a tool to help with testing
   \napplications that consume web services by allowing the developer to record \nresponses
   and then replay them. In this post we look at how we can use it in Scala.\n"
 oldlink: http://www.scottlogic.com/blog/2013/07/18/betamax-in-scala.html
@@ -37,7 +38,22 @@ often preferring to use [ScalaTest](http://www.scalatest.org/) or
 Let's take a look at a simple Java example using JUnit first (ruthlessly pinched from the
 Betamax homepage):
 
-{% gist 6029082 MyTest.java %}
+~~~ java
+import co.freeside.betamax.Betamax;
+import co.freeside.betamax.Recorder;
+import org.junit.*;
+
+public class MyTest {
+
+    @Rule public Recorder recorder = new Recorder();
+
+    @Betamax(tape="my tape")
+    @Test
+    public void testMethodThatAccessesExternalWebService() {
+      // test me
+    }
+}
+~~~
 
 What this is doing is registering a `Recorder` as a JUnit `@Rule` - this is a JUnit
 feature that basically registers the instance as an object that's going to interact with
@@ -52,7 +68,22 @@ test (I'm using the [OpenWeatherMap API](http://openweathermap.org/API) as a sim
 webservice - you can see the source
 [here](http://gist.github.com/6029082#file-WeatherClient-scala)):
 
-{% gist 6029082 WeatherTest.scala %}
+~~~ scala
+import org.junit.Test
+import org.junit.Assert._
+import org.junit.Rule
+import co.freeside.betamax.Recorder
+import co.freeside.betamax.Betamax
+
+class WeatherTest {
+  
+  @Rule val recorder = new Recorder
+  
+  @Betamax(tape="junit")
+  @Test def findLondon = assertEquals("London, GB", WeatherClient.weatherFor("london,gb").location)
+  
+}
+~~~
 
 At first glance, this seems simple enough - we can pack up and go home. Unfortunately,
 when we try and run this test we get an error from JUnit saying that an object with a
@@ -62,7 +93,10 @@ the value itself, that JUnit's reflection can't pick it up. Fortunately, a chang
 made in JUnit for this very problem, and we can instead annotate a function that returns
 the value:
 
-{% gist 6029082 annotated-function.scala %}
+~~~ scala
+val recorder = new Recorder
+@Rule def recorderDef = recorder
+~~~
 
 JUnit is happy with this, but when we run the test the Betamax recorder still doesn't
 get used. It turns out this is because of a
@@ -76,15 +110,48 @@ So now let's look at the library that Rob Slifka was having problems with - spec
 you read Rob's [blog post](http://www.sharethrough.com/2013/07/integration-testing-http-requests-with-scala-and-betamax/)
 you'll remember that he had a test that is fetching JSON from Twitter:
 
-{% gist 6029082 specs2-spec.scala %}
+~~~ scala
+".apply" should {
+  "fetch and parse JSON from the Twitter endpoint" in {
+    val url = "http://www.buzzfeed.com/despicableme2/15-reasons-we-wish-we-were-steve-carell/"
+	
+    var tw = Twitter(url)
+	
+    tw.url    must_== url
+    tw.tweets must_== 29
+  }
+}
+~~~
 
 To use Betamax around his `var tw = Twitter(url)` he ended up with a helper function:
 
-{% gist 6029082 specs2-helper.scala %}
+~~~ scala
+def withTape(tapeName:String, functionUnderTest:() => Any) = {
+  synchronized {
+    val recorder = new Recorder
+    val proxyServer = new ProxyServer(recorder)
+
+    recorder.insertTape(tapeName)
+    proxyServer.start()
+
+    try {
+      functionUnderTest()
+    } finally {
+      recorder.ejectTape()
+      proxyServer.stop()
+    }
+  }
+}
+~~~
 
 He could then use the helper in the middle of his test:
 
-{% gist 6029082 specs2-using-helper.scala %}
+~~~ scala
+var tw:Twitter = null
+BetamaxHelper.withTape("Twitter.apply", () => {
+  tw = Twitter(url)
+})
+~~~
 
 This works fine, but for me it's a bit distracting in the middle of the test to have
 the `BetamaxHelper` getting involved. Also, using `null` in Scala is a bit of a code
@@ -92,11 +159,23 @@ smell if you ask me, so I thought I'd see if we could do it in a slightly tidier
 
 Here's my simple specs2 test:
 
-{% gist 6029082 WeatherSpec.scala %}
+~~~ scala
+import org.specs2.mutable._
+
+class WeatherSpec extends Specification {
+
+  "The Weather Client" should {
+    "find London, GB" in {
+      WeatherClient.weatherFor("london,gb").location must beEqualTo("London, GB")
+    }
+  }
+  
+}
+~~~
 
 One thing to notice about specs2 tests is that there are no explicit function
 definitions, so there's nowhere to put our `@Betamax` annotation - I believe this was
-the reason for Rob's findings in the last paragraph of *The Journey* in his blog. The
+the reason for Rob's findings in the last paragraph of _The Journey_ in his blog. The
 reason for there being no function to annotate is because, for the sake of
 readability, the tests are just created on construction by having an implicit
 function that turns your string into a test fragment and allows you to join it to
@@ -108,11 +187,50 @@ Looking through the specs2 documentation we discover that there's a trait for wr
 We can implement that to do the Betamax jiggery-pokery without interfering with the
 readability of the test:
 
-{% gist 6029082 Specs2Betamax.scala %}
+~~~ scala
+package specs2
+
+import org.specs2.mutable.Around
+import org.specs2.execute.AsResult
+import co.freeside.betamax.Recorder
+import co.freeside.betamax.proxy.jetty.ProxyServer
+import co.freeside.betamax.TapeMode
+
+class Betamax(tape: String, mode: Option[TapeMode] = None) extends Around {
+  def around[T: AsResult](t: => T) = Betamax.around(t, tape, mode)
+}
+
+object Betamax {
+  // syntactic sugar does away with 'new' in tests
+  def apply(tape: String, mode: Option[TapeMode] = None) = new Betamax(tape, mode)
+
+  def around[T: AsResult](t: => T, tape: String, mode: Option[TapeMode]) = {
+    synchronized {
+      val recorder = new Recorder
+      val proxyServer = new ProxyServer(recorder)
+      recorder.insertTape(tape)
+      recorder.getTape.setMode(mode.getOrElse(recorder.getDefaultMode()))
+      proxyServer.start()
+      try {
+        AsResult(t)
+      } finally {
+        recorder.ejectTape()
+        proxyServer.stop()
+      }
+    }
+  }
+}
+~~~
 
 We can then use this in our test spec:
 
-{% gist 6029082 specs2-using-around.scala %}
+~~~ scala
+"The Weather Client" should {
+  "find London, GB" in Betamax("weather client") {
+    WeatherClient.weatherFor("london,gb").location must beEqualTo("London, GB")
+  }
+}
+~~~
 
 I think this looks a bit tidier, and closer to the Betamax examples using annotations.
 However, there is one small disadvantage of doing it this way - having the `Around`
@@ -127,7 +245,17 @@ matter of personal preference.
 
 Now onto our last test framework. Here's a simple ScalaTest test:
 
-{% gist 6029082 SimpleWeatherSuite.scala %}
+~~~ scala
+import org.scalatest.FunSuite
+
+class WeatherSuite extends FunSuite {
+
+  test("weather for london") {
+    assert(WeatherClient.weatherFor("london,gb").location === "London, GB")
+  }
+
+}
+~~~
 
 As with specs2, we see that ScalaTest has gone down a similar route of not using
 explicit function definitions for defining tests, and instead using the `test`
@@ -137,17 +265,51 @@ to be stored against a test name string.
 Unfortunately, I couldn't find any way to hook into the test specification. What I
 would have liked is to be able to do something like:
 
-{% gist 6029082 scalatest-ideal.scala %}
+~~~ scala
+test("weather for london") with Betamax("tape name") {
+  assert(WeatherClient.weatherFor("london,gb").location === "London, GB")
+}
+~~~
 
 I just couldn't work out a way to get this to work - I'd be very happy for someone
 to point me in the right direction. Anyway, instead I implemented a `Betamax` trait
 that allows me to use a `testWithBetamax` function:
 
-{% gist 6029082 ScalaTestBetamax.scala %}
+~~~ scala
+trait Betamax {
+
+  protected def test(testName: String, testTags: Tag*)(testFun: => Unit)
+  
+  def testWithBetamax(tape: String, mode: Option[TapeMode] = None)(testName: String, testTags: Tag*)(testFun: => Unit) = {
+    test(testName, testTags: _*) {
+      val recorder = new Recorder
+      val proxyServer = new ProxyServer(recorder)
+      recorder.insertTape(tape)
+      recorder.getTape.setMode(mode.getOrElse(recorder.getDefaultMode()))
+      proxyServer.start()
+      try {
+        testFun
+      } finally {
+        recorder.ejectTape()
+        proxyServer.stop()
+      }
+    }
+  }
+
+}
+~~~
 
 This allows us to use Betamax in our test as follows:
 
-{% gist 6029082 WeatherSuite.scala %}
+~~~ scala
+class WeatherSuite extends FunSuite with Betamax {
+
+  testWithBetamax("scala-test", Some(TapeMode.READ_ONLY))("weather for london") {
+    assert(WeatherClient.weatherFor("london,gb").location === "London, GB")
+  }
+
+}
+~~~
 
 ## Conclusion
 
@@ -163,7 +325,11 @@ If you'd like the full source code that I worked on, it's available
 I just couldn't leave the ScalaTest example like that - it just wasn't readable
 enough for me. You'll remember that my ideal usage would look like this:
 
-{% gist 6029082 scalatest-ideal.scala %}
+~~~ scala
+test("weather for london") with Betamax("tape name") {
+  assert(WeatherClient.weatherFor("london,gb").location === "London, GB")
+}
+~~~
 
 The first problem with this is that the `with` keyword is reserved in Scala - it's
 how you add extra traits beyond the one that's being extended - so instead let's
@@ -174,13 +340,25 @@ parameter list to the `test` method. We can do this using a partially applied
 function, by adding `_` after the first parameter list, so our test declaration
 now needs to look something like:
 
-{% gist 6029082 improved-scalatest-decl.scala %}
+~~~ scala
+test("weather for london") _ using betamax("tape name") { ... }
+~~~
 
 Now the problem we have is that there's no such method as `using` on a function.
-We need to transform it into an object that *does* have a using function - a trait
+We need to transform it into an object that _does_ have a using function - a trait
 with an implicit conversion should do the trick:
 
-{% gist 6029082 Wrapped.scala %}
+~~~ scala
+trait Wrapped {
+  implicit def wrapPartialFunction(f: (=> Unit) => Unit) = new wrapped(f)
+
+  class wrapped(f: (=> Unit) => Unit) {
+    def using(f1: => Unit) = f {
+      f1
+    }
+  }
+}
+~~~
 
 We've now created the ability to insert any extra function we like between the
 `test` function's two parameter lists - indeed this trait could be used to add all
@@ -190,11 +368,45 @@ with **Should-In** and **Given-When-Then** ScalaTest language.
 All that remains to do now is to implement the `Betamax` trait to allow us to use
 the `betamax` "keyword":
 
-{% gist 6029082 ImprovedScalaTestBetamax.scala %}
+~~~ scala
+import co.freeside.betamax.TapeMode
+import co.freeside.betamax.Recorder
+import co.freeside.betamax.proxy.jetty.ProxyServer
+
+trait Betamax extends Wrapped{
+
+  def betamax(tape: String, mode: Option[TapeMode] = None)(testFun: => Unit) = {
+    println("Starting Betamax")
+    val recorder = new Recorder
+    val proxyServer = new ProxyServer(recorder)
+    recorder.insertTape(tape)
+    recorder.getTape.setMode(mode.getOrElse(recorder.getDefaultMode()))
+    proxyServer.start()
+    try {
+      testFun
+    } finally {
+      recorder.ejectTape()
+      proxyServer.stop()
+    }
+  }
+
+}
+~~~
 
 Simple! And finally, our test looks like:
 
-{% gist 6029082 ImprovedWeatherSuite.scala %}
+~~~ scala
+import org.scalatest.FunSuite
+import co.freeside.betamax.TapeMode
+
+class WeatherSuite extends FunSuite with Betamax {
+
+  test("weather for london using betamax") _ using betamax("scala-test", Some(TapeMode.READ_ONLY)) {
+    assert(WeatherClient.weatherFor("london,gb").location === "London, GB")
+  }
+
+}
+~~~
 
 Ah, that's better. I'm happy now :)
 
