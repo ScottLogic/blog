@@ -13,8 +13,7 @@ tags:
 author: jphillpotts
 layout: default_post
 source: site
-summary:
-  "Big Data is a hot topic these days, and one aspect of that problem space
+summary: "Big Data is a hot topic these days, and one aspect of that problem space
   is\nprocessing streams of high velocity data in near-real time. Here we're going
   \nto look at using Big Data-style techniques in Scala on a stream of data from \na
   WebSocket.\n"
