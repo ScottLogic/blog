@@ -6,6 +6,10 @@ categories:
 - Tech
 author: asheehan
 layout: default_post
+summary: The next version of [D3](https://d3js.org/), the data visualisation library, is on the way.
+As we maintain [D3FC](https://d3fc.io/) (a charting library built on top of D3) we want to stay on
+top of those changes, to make sure that the library makes appropriate use of
+any new functionality and to embrace any new conventions that have emerged.
 ---
 
 The next version of [D3](https://d3js.org/), the data visualisation library, is on the way.

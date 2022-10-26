@@ -14,6 +14,7 @@ tags:
 - team
 author: fhubin
 layout: default_post
+summary: How many times have you heard that from a client?
 ---
 
 How many times have you heard that from a client?

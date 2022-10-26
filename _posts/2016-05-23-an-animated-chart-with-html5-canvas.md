@@ -6,6 +6,7 @@ categories:
 - Tech
 author: sking
 layout: default_post
+summary: For the past few weeks, Laurie Collingwood and myself have been working on a prototype banking app with an animated graph. In this post we’ll discuss some of what we’ve learned during the project and talk generally about animation with HTML5 canvas.  
 ---
 
 {:center: style="text-align: center"}
