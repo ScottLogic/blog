@@ -16,6 +16,7 @@ layout: default_post
 title-short: Foyer Screen
 oldlink: http://www.scottlogic.com/blog/2014/08/29/foyer-screen.html
 disqus-id: "/2014/08/29/foyer-screen.html"
+summary: As an Intern in the Edinburgh office I have been involved in creating a slideshow that conveys interesting information about the company; something useful and entertaining to catch the attention of visitors in the waiting area. The project is essentially a web application built with JavaScript, HTML5 and CSS3.
 ---
 
 As an Intern in the Edinburgh office I have been involved in creating a slideshow that conveys interesting information about the company; something useful and entertaining to catch the attention of visitors in the waiting area. The project is essentially a web application built with JavaScript, HTML5 and CSS3.

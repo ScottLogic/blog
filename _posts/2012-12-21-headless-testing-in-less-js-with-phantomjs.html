@@ -15,6 +15,7 @@ oldlink: http://www.scottlogic.co.uk/2012/12/headless-testing-in-less-js-with-ph
 layout: default_post
 source: site
 disqus-id: "/2012/12/headless-testing-in-less-js-with-phantomjs/"
+summary: <p>Less.js can be run in two ways, firstly through node and secondly in the browser. A great deal of the code is shared, but not all of it - particularly the way it deals with imports, paths and url's differs. Whilst typing "make test" in the node less.js repository will run unit tests for the node part, there is nothing testing browser execution. Recently I merged a commit which I later found broke the error handling in the browser and that was when I decided we needed some way to test the browser code to stop obvious regressions.</p>
 ---
 
 <h3>Introduction</h3>

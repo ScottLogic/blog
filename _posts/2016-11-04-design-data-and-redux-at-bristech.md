@@ -9,6 +9,7 @@ tags:
 - Bristech
 author: shogarth
 layout: default_post
+summary: Yesterday I attended (and spoke!) at the 2016 Bristech conference, an event aimed at polyglots, innovators and the "tech curious". It was a full house at the Watershed with over 400 tickets sold. I had a great time at the conference, attending quite a few talks myself. What made the conference interesting to me was the diverse range of subjects covered - design, security, even physics! Presented here are some brief notes and comments from the day's proceedings.
 ---
 
 Yesterday I attended (and spoke!) at the 2016 Bristech conference, an event aimed at polyglots, innovators and the "tech curious". It was a full house at the Watershed with over 400 tickets sold. I had a great time at the conference, attending quite a few talks myself. What made the conference interesting to me was the diverse range of subjects covered - design, security, even physics! Presented here are some brief notes and comments from the day's proceedings.
