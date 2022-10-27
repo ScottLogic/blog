@@ -15,7 +15,7 @@ oldlink: http://www.scottlogic.co.uk/2010/09/jslinting-existing-javascript-and-e
 layout: default_post
 source: site
 disqus-id: "/2010/09/jslinting-existing-javascript-and-eqeqeq/"
-summary: <p>As I've previously mentioned JSLint is a tool by Douglas Crockford that checks code against various rules in order to find code that could potentially be buggy or ambiguous. One such rule is that users should not use two equals (==) but should use three (===). There is an option that turns on whether it complains when comparing variables (x==y) but JSLint will always complain when comparing against system constants like "", null, undefined and 0. This because when using two equals the values are coerced between types, so we get the following surprising results (all of the if's are true).</p>
+summary: <p>As I've previously mentioned JSLint is a tool by Douglas Crockford that checks code against various rules in order to find code that could potentially be buggy or ambiguous. One such rule is that users should not use two equals (==) but should use three (===). There is an option that turns on whether it complains when comparing variables (x==y) but JSLint will always complain when comparing against system constants like "", null, undefined and 0. This because when using two equals the values are coerced between types, so we get the following surprising results (all of the if's are true).
 ---
 
 <h3>Introduction</h3>
