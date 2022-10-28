@@ -10,7 +10,7 @@ author: cprice
 layout: default_post
 title-short: Mondo Bank to Pebble with AWS Lambda
 image: cprice/assets/featured/pebble.jpg
-summary: Inspired by [Colin's article on building an expenses app with the Mondo API](http://blog.scottlogic.com/2016/03/28/mondo-api.html), I wanted to create something to make use of the webhook API which fires in real-time (ish) whenever a transaction happens. In this post I'll cover subscribing to the Mondo webhook, creating the glue code as an AWS Lambda and pushing pins into the Pebble Timeline REST API.
+summary: Inspired by Colin's article on building an expenses app with the Mondo API, I wanted to create something to make use of the webhook API which fires in real-time (ish) whenever a transaction happens. In this post I'll cover subscribing to the Mondo webhook, creating the glue code as an AWS Lambda and pushing pins into the Pebble Timeline REST API.
 ---
 
 Inspired by [Colin's article on building an expenses app with the Mondo API](http://blog.scottlogic.com/2016/03/28/mondo-api.html), I wanted to create something to make use of the webhook API which fires in real-time (ish) whenever a transaction happens. In this post I'll cover subscribing to the Mondo webhook, creating the glue code as an AWS Lambda and pushing pins into the Pebble Timeline REST API.

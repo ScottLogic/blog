@@ -6,7 +6,7 @@ categories:
 - Tech
 author: asheehan
 layout: default_post
-summary: Along with the [modularisation](https://github.com/d3/d3/issues/2461) of code, [D3 version 4](https://github.com/d3/d3/releases/tag/v4.0.0) also brings new support for canvas drawing, thanks to the [d3-path](https://github.com/d3/d3-path) package introduced in version 4.
+summary: Along with the modularisation of code, D3 version 4 also brings new support for canvas drawing, thanks to the d3-path package introduced in version 4.
 ---
 
 Along with the [modularisation](https://github.com/d3/d3/issues/2461) of code, [D3 version 4](https://github.com/d3/d3/releases/tag/v4.0.0) also brings new support for canvas drawing, thanks to the [d3-path](https://github.com/d3/d3-path) package introduced in version 4.
