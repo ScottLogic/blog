@@ -6,7 +6,7 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: 
+summary:
 ---
 
 The redux pattern provides a simple (and strict) pattern for managing state; a single store holds the state while a reducer applies actions, evolving the application state. As your app becomes more complex, you can [split up your reducer into separate functions](http://redux.js.org/docs/api/combineReducers.html), however, what if you have multiple instances of the same state in your app? for example a collection of notes, or calendar entries? the standard pattern for splitting reducers doesn't cover this scenario.
