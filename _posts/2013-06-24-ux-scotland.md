@@ -12,11 +12,7 @@ layout: default_post
 source: site
 oldlink: http://www.scottlogic.com/blog/2013/06/24/ux-scotland.html
 disqus-id: "/2013/06/24/ux-scotland.html"
-summary: Last week I spoke at and attended [UX Scotland 2013](http://uxscotland.net/), a new user experience design conference
-organised by [Software Acumen](http://software-acumen.com/).  Over the course of 2 days, 31 sessions and roughly 130
-delegates ensured that [Our Dynamic Earth](http://www.dynamicearth.co.uk/) in Edinburgh was filled with ideas,
-discussion and enthusiasm.  Overall, the conference was a definite success and I'm delighted to hear Software Acumen are
- already planning to repeat it [next year](http://lanyrd.com/2014/uxscot/).
+summary: Last week I spoke at and attended [UX Scotland 2013](http://uxscotland.net/), a new user experience design conference organised by [Software Acumen](http://software-acumen.com/).  Over the course of 2 days, 31 sessions and roughly 130 delegates ensured that [Our Dynamic Earth](http://www.dynamicearth.co.uk/) in Edinburgh was filled with ideas, discussion and enthusiasm.  Overall, the conference was a definite success and I'm delighted to hear Software Acumen are already planning to repeat it [next year](http://lanyrd.com/2014/uxscot/).
 ---
 
 Last week I spoke at and attended [UX Scotland 2013](http://uxscotland.net/), a new user experience design conference

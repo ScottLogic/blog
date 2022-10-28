@@ -11,10 +11,7 @@ image: ''
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2013/12/18/wpf-snoop-powershell.html
 disqus-id: "/2013/12/18/wpf-snoop-powershell.html"
-summary: When moving back from web to desktop development, it's easy to miss the quick feedback and update cycle enabled by the developer tools in modern
-web browsers. To an extent the debugger intermediate window does many of the things the console allows, and many of the "script debugging" 
-features the browser provides are based on a traditional debugger. However the display of the page DOM and related CSS properties, and the 
-ability to inspect and manipulate these on the fly to debug and develop a design, is something that it feels hard to live without.
+summary: When moving back from web to desktop development, it's easy to miss the quick feedback and update cycle enabled by the developer tools in modern web browsers. To an extent the debugger intermediate window does many of the things the console allows, and many of the "script debugging" features the browser provides are based on a traditional debugger. However the display of the page DOM and related CSS properties, and the ability to inspect and manipulate these on the fly to debug and develop a design, is something that it feels hard to live without.
 ---
 
 When moving back from web to desktop development, it's easy to miss the quick feedback and update cycle enabled by the developer tools in modern 

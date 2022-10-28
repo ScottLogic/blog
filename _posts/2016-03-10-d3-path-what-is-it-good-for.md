@@ -6,7 +6,7 @@ categories:
 - Tech
 author: cprice
 layout: default_post
-summary: `d3-path` is an abstraction over SVG path creation which uses the canvas element's `Context2D` interface. Previously creating path generation code involved a lot of concatenating SVG path commands like `M0,0` or `L2,2`, and the somewhat more cryptic `C70 20,120 20,120 10`. Even with ES6 string interpolation such code can be incredibly hard to read (and write!).
+summary: d3-path is an abstraction over SVG path creation which uses the canvas element's Context2D interface. Previously creating path generation code involved a lot of concatenating SVG path commands like M0,0 or L2,2, and the somewhat more cryptic C70 20,120 20,120 10. Even with ES6 string interpolation such code can be incredibly hard to read (and write!).
 ---
 
 This post introduces a new feature of D3 version 4: the [`d3-path`](https://github.com/d3/d3-path) package.
