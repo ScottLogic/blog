@@ -11,7 +11,7 @@ title-short: WebdriverJS and Promises
 layout: default_post
 image: rhendry/assets/featured/promise.jpg
 image-attribution: image courtesy of <a href='https://www.flickr.com/photos/32490173@N05/'>galleryquantum</a>
-summary-short: Avoiding broken promises with WebDriverJS - a quick guide to avoiding
+summary: Avoiding broken promises with WebDriverJS - a quick guide to avoiding
   some of the framework pitfalls.
 ---
 

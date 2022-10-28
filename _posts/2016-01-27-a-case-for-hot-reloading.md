@@ -6,6 +6,7 @@ categories:
 - Tech
 author: cprice
 layout: default_post
+summary: Hot-reloading UI is a **hot** [topic](http://gaearon.github.io/react-hot-loader/) [at](http://blog.mgechev.com/2015/10/26/angular2-hot-loader-hot-loading-tooling/) [the](https://github.com/cyclejs/cycle-core/issues/46) [moment](https://github.com/gaearon/redux-devtools). I want to take some time to explain why, in the class of applications I typically work on, I believe it to be such an important feature for future UI frameworks to have.
 ---
 
 Hot-reloading UI is a **hot** [topic](http://gaearon.github.io/react-hot-loader/) [at](http://blog.mgechev.com/2015/10/26/angular2-hot-loader-hot-loading-tooling/) [the](https://github.com/cyclejs/cycle-core/issues/46) [moment](https://github.com/gaearon/redux-devtools). I want to take some time to explain why, in the class of applications I typically work on, I believe it to be such an important feature for future UI frameworks to have.
