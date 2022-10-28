@@ -9,6 +9,7 @@ tags:
 author: ceberhardt
 layout: default_post
 image: ceberhardt/assets/featured/semantic.png
+summary: A few days ago the roadmap for future Angular releases, starting with v.4 in March 2017, was unveiled. It once again made me re-visit my personal doubts about semantic versioning, the underlying issue being that it is great for computers, but bad for humans. Considering that people are the primary consumers of your libraries and frameworks this can’t be right? Perhaps a hybrid approach that combines both semantic and romantic versioning would keep both the computers and the humans happy?
 ---
 
 A few days ago the roadmap for future Angular releases, starting with v.4 in March 2017, [was unveiled](http://angularjs.blogspot.co.uk/2016/12/ok-let-me-explain-its-going-to-be.html). It once again made me re-visit my personal doubts about semantic versioning, the underlying issue being that it is great for computers, but bad for humans. Considering that people are the primary consumers of your libraries and frameworks this can’t be right? Perhaps a hybrid approach that combines both semantic and romantic versioning would keep both the computers and the humans happy?

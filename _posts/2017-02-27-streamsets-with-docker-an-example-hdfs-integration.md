@@ -13,6 +13,7 @@ author: dketley
 contributors:
 - jwhite
 layout: default_post
+summary: StreamSets Data Collector (SDC) is an open source tool for stream-based extracting, transforming and loading large quantities of data. It provides an easy to use UI on top of the underlying processing power of YARN and Spark Streaming with a large number of installable integrations with source and destination systems.
 ---
 
 [StreamSets Data Collector (SDC)](https://streamsets.com/products/sdc/)  is an open source tool for stream-based extracting, transforming and loading large quantities of data. It provides an easy to use UI on top of the underlying processing power of YARN and Spark Streaming with a large number of installable integrations with source and destination systems.

@@ -15,6 +15,7 @@ author: jhill
 layout: default_post
 title-short: Bitcoin payments and the Lightning Network
 image: jhill/assets/featured/lightning.jpg
+summary: This is the second blog post orientated around Bitcoin and its inner workings. The first post took the blockchain and broke down the algorithms which create the fundamental structure of any cryptocurrency. The post was separated into two sections; the first focusing on the block header and the second focusing on the construction of a transaction. If you are not comfortable with how the blockchain works, I suggest you read the first blog post before continuing.
 ---
 
 This is the second blog post orientated around Bitcoin and its inner workings. The first post took the blockchain and broke down the algorithms which create the fundamental structure of any cryptocurrency. The post was separated into two sections; the first focusing on the block header and the second focusing on the construction of a transaction. If you are not comfortable with how the blockchain works, I suggest you read the [first blog post](http://blog.scottlogic.com/2016/04/04/jenny-from-the-blockchain.html) before continuing.

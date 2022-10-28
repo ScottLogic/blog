@@ -15,6 +15,7 @@ oldlink: http://www.scottlogic.co.uk/blog/colin/2008/12/wpf-datagrid-detecting-c
 layout: default_post
 source: wordpress
 disqus-id: "/blog/colin/2008/12/wpf-datagrid-detecting-clicked-cell-and-row/"
+summary: The WPF DataGrid is a very flexible tool, however in its current state certain simple tasks can prove to be rather tricky.
 ---
 
 <p>The WPF DataGrid is a very flexible tool, however in its current state certain simple tasks can prove to be rather tricky. A fairly common task when working with DataGrid is detecting which row, or cell a user has clicked on, or whether they clicked a column header. You might expect this information to be readily available in the form of events, after all, the Windows Forms DataGridView has <a href="http://msdn.microsoft.com/en-us/library/system.windows.forms.datagridview.cellclick.aspx">CellClicked</a> and <a href="http://msdn.microsoft.com/en-us/library/system.windows.forms.datagridview.columnheadermouseclick.aspx">ColumnHeaderMouseClick</a> events (among many others). However, sadly this is not the case. In order to implement this behaviour you have to understand the visual tree of the DataGrid and how it can be navigated.</p>

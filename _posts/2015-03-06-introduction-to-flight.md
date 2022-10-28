@@ -15,6 +15,7 @@ summary-short: An introduction to Twitter's MVC framework.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2015/03/03/introduction-to-flight.html
 disqus-id: "/2015/03/03//introduction-to-flight.html"
+summary: I'm relatively new to the world of single page applications and have just finished a project built using AngularJS.
 ---
 
 I'm relatively new to the world of single page applications and have just finished a project built using AngularJS. What we built was impressive but I had the following reservations:

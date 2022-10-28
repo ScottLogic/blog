@@ -8,6 +8,7 @@ author: sfoley
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/09/10/does-scrum-make-project-managers-redundant.html
 disqus-id: "/2014/09/10/does-scrum-make-project-managers-redundant.html"
+summary: This post will address a question that is often raised within organisations transitioning to Agile - is there a place for the Project Manager role when using Scrum on a project?
 ---
 
 This post will address a question that is often raised within organisations transitioning to Agile: is there a place for the Project Manager role when using Scrum on a project? This is a challenging question for IT departments that have historically relied on project managers to control their change portfolio, often trained in using an in-house methodology. Is all this to be rendered redundant by a move to Agile methods?

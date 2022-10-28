@@ -12,6 +12,7 @@ layout: default_post
 source: site
 oldlink: http://www.scottlogic.com/blog/2013/06/24/ux-scotland.html
 disqus-id: "/2013/06/24/ux-scotland.html"
+summary: Last week I spoke at and attended UX Scotland 2013, a new user experience design conference organised by Software Acumen.  Over the course of 2 days, 31 sessions and roughly 130 delegates ensured that Our Dynamic Earth in Edinburgh was filled with ideas, discussion and enthusiasm.  Overall, the conference was a definite success and I'm delighted to hear Software Acumen are already planning to repeat it next year.
 ---
 
 Last week I spoke at and attended [UX Scotland 2013](http://uxscotland.net/), a new user experience design conference

@@ -6,6 +6,7 @@ categories:
 - Tech
 author: cprice
 layout: default_post
+summary: While d3fc (a toolkit of charting components built in the d3 style) embraces the philosophy of simplicity over performance, there's no point in creating a chart with lousy performance. In this post I'll run through some of the tips and tricks for squeezing the best performance out of d3fc without compromising on its flexibility.
 ---
 
 While [d3fc](http://d3fc.io) (a toolkit of charting components built in the d3 style) embraces the philosophy of simplicity over performance, there's no point in creating a chart with lousy performance. In this post I'll run through some of the tips and tricks for squeezing the best performance out of d3fc without compromising on its flexibility.

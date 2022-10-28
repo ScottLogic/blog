@@ -6,7 +6,7 @@ categories:
 - People
 author: hbedford
 layout: default_post
-summary: "<p>Scott Logic is a leading software consultancy company who offer three
+summary: "Scott Logic is a leading software consultancy company who offer three
   graduate schemes, one for development, testing, and user experience (UX). In this
   article I will give a personal account of the start of my graduate programme as
   a developer, along with inputs from my fellow starters. If you’re thinking about

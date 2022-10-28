@@ -11,6 +11,7 @@ image: cgrant/assets/featured/phone.jpg
 image-attribution: image courtesy of <a href='https://www.flickr.com/photos/janitors/'>Kārlis
   Dambrāns</a>
 layout: default_post
+summary: I have recently been using a set of tools called fastlane, developed by Felix Krause. fastlane helps to automate the steps involved in building and deploying iOS applications to the App Store.
 ---
 
 I have recently been using a set of tools called [fastlane](http://fastlane.tools/), developed by [Felix Krause](https://krausefx.com/). fastlane helps to automate the steps involved in building and deploying iOS applications to the App Store.
