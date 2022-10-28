@@ -11,7 +11,10 @@ layout: default_post
 source: site
 oldlink: http://www.scottlogic.com/blog/2013/12/05/counting-iterables.html
 disqus-id: "/2013/12/05/counting-iterables.html"
-summary: Suppose you have a collection, and you need to perform an action on each element.  That's not hard to do in any mainstream programming language.  What if you need to know the index of each element as you process it?  Not hard, but depending on your datastructures, possibly not as straightforward as it first sounds.
+summary: Suppose you have a collection, and you need to perform an action on each
+  element.  That's not hard to do in any mainstream programming language.  What if
+  you need to know the index of each element as you process it?  Not hard, but depending
+  on your datastructures, possibly not as straightforward as it first sounds.
 ---
 
 Suppose you have a collection, and you need to perform an action on each

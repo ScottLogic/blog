@@ -6,7 +6,8 @@ categories:
 - Data Engineering
 author: dwybourn
 layout: default_post
-summary: Big data is one of those buzz phrases that gets thrown round a lot, companies love saying they work with ‘Big’ data, but what is ‘Big’ data?
+summary: Big data is one of those buzz phrases that gets thrown round a lot, companies
+  love saying they work with ‘Big’ data, but what is ‘Big’ data?
 ---
 
 ### What is 'Big' Data?

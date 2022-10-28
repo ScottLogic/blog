@@ -6,7 +6,10 @@ categories:
 - Tech
 author: cprice
 layout: default_post
-summary: I recently created a site which I'm proud to say now hosts an impressive collection of tweet-sized D3 creations from the hugely creative people of the internet. In this post I'll talk through deconstructing one or two of those creations with the aim of giving any aspiring artists a starting point.
+summary: I recently created a site which I'm proud to say now hosts an impressive
+  collection of tweet-sized D3 creations from the hugely creative people of the internet.
+  In this post I'll talk through deconstructing one or two of those creations with
+  the aim of giving any aspiring artists a starting point.
 ---
 
 I recently created a [site](https://t.d3fc.io) which I'm proud to say now hosts an impressive collection of tweet-sized D3 creations from the hugely creative people of the internet. In this post I'll talk through deconstructing one or two of those creations with the aim of giving any aspiring artists a starting point.

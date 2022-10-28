@@ -13,7 +13,16 @@ tags:
 author: jhill
 layout: default_post
 title-short: Jenny from the blockchain
-summary: Over the past several years there has been a lot of talk about cryptocurrencies, such as bitcoin, and the blockchain technology that underpins them. However it can be difficult to understand how the blockchain actually works in practice, and why it is such a clever method for currency exchange. Two of our graduates are currently developing our own cryptocurrency for use within Scott Logic, as an attempt to better understand the practical uses of the blockchain. In this blog post, we aim to explain the inner workings of the blockchain and help people to understand how it manages to keep transactions both secure and anonymous. This post will go into the low level algorithms of blockchain and provide verified examples alongside each algorithm; this post is not for the faint of heart!
+summary: Over the past several years there has been a lot of talk about cryptocurrencies,
+  such as bitcoin, and the blockchain technology that underpins them. However it can
+  be difficult to understand how the blockchain actually works in practice, and why
+  it is such a clever method for currency exchange. Two of our graduates are currently
+  developing our own cryptocurrency for use within Scott Logic, as an attempt to better
+  understand the practical uses of the blockchain. In this blog post, we aim to explain
+  the inner workings of the blockchain and help people to understand how it manages
+  to keep transactions both secure and anonymous. This post will go into the low level
+  algorithms of blockchain and provide verified examples alongside each algorithm;
+  this post is not for the faint of heart!
 ---
 
 Over the past several years there has been a lot of talk about cryptocurrencies, such as bitcoin, and the blockchain technology that underpins them. However it can be difficult to understand how the blockchain actually works in practice, and why it is such a clever method for currency exchange. Two of our graduates are currently developing our own cryptocurrency for use within Scott Logic, as an attempt to better understand the practical uses of the blockchain. In this blog post, we aim to explain the inner workings of the blockchain and help people to understand how it manages to keep transactions both secure and anonymous. This post will go into the low level algorithms of blockchain and provide verified examples alongside each algorithm; this post is not for the faint of heart!

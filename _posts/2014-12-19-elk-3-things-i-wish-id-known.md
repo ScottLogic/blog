@@ -8,7 +8,10 @@ author: cprice
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/12/19/elk-3-things-i-wish-id-known.html
 disqus-id: "/2014/12/19/elk-3-things-i-wish-id-known.html"
-summary: I’ve recently completed an ELK (Elasticsearch, Logstash & Kibana) real-time log processing implementation for an HTML5 FX trading platform. Along the way I’ve learnt a few things I wish I’d known beforehand. This post shares some more details of the project and hopefully some time saving tips.
+summary: I’ve recently completed an ELK (Elasticsearch, Logstash & Kibana) real-time
+  log processing implementation for an HTML5 FX trading platform. Along the way I’ve
+  learnt a few things I wish I’d known beforehand. This post shares some more details
+  of the project and hopefully some time saving tips.
 ---
 
 I’ve recently completed an ELK (Elasticsearch, Logstash & Kibana) real-time log processing implementation for an HTML5 FX trading platform. Along the way I’ve learnt a few things I wish I’d known beforehand. This post shares some more details of the project and hopefully some time saving tips.

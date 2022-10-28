@@ -12,7 +12,9 @@ oldlink: http://www.scottlogic.co.uk/2012/12/jekyll-a-developers-wordpress/
 layout: default_post
 source: site
 disqus-id: "/2012/12/jekyll-a-developers-wordpress/"
-summary: We're very soon to launch a site documenting an open source project we've been hard at work producing. As the project is hosted on github, we'll be making use of the Github Pages hosting feature which itself is built on top of Jekyll.
+summary: We're very soon to launch a site documenting an open source project we've
+  been hard at work producing. As the project is hosted on github, we'll be making
+  use of the Github Pages hosting feature which itself is built on top of Jekyll.
 ---
 
 ## *Outrageous pun intentionally... hyde-n...*
