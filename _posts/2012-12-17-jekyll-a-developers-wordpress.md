@@ -12,7 +12,7 @@ oldlink: http://www.scottlogic.co.uk/2012/12/jekyll-a-developers-wordpress/
 layout: default_post
 source: site
 disqus-id: "/2012/12/jekyll-a-developers-wordpress/
-summary: *We're very soon to launch a site documenting an open source project we've been hard at work producing. As the project is hosted on github, we'll be making use of the Github Pages hosting feature which itself is built on top of Jekyll. As all my recent experience of blogging sites has been in Wordpress (i.e. this site!) I thought it would be interesting to look into how and why Jekyll is different.*
+summary: *We're very soon to launch a site documenting an open source project we've been hard at work producing. As the project is hosted on github, we'll be making use of the Github Pages hosting feature which itself is built on top of Jekyll. 
 ---
 
 ## *Outrageous pun intentionally... hyde-n...*
