@@ -25,6 +25,7 @@ active-authors:
     - hbedford
     - hgoode
     - hubinf
+    - jarnstein
     - jharris
     - jhenderson
     - jmcevoy
@@ -101,6 +102,7 @@ active-authors:
     - awhitmell
     - rwillis
     - jdunleavy
+    - xchen
 authors:
     aaiken:
         name: 'Andy Aiken'
@@ -369,6 +371,9 @@ authors:
         name: 'Jan Akerman'
         author-summary: '<p>I am a Senior Developer at Scott Logic, based in London.</p>'
         picture: picture.jpg
+    jarnstein: 
+        name: 'Jack Arnstein'
+        picture: picture.jpeg
     jayphi11ips:
         name: 'Jason Phillips'
         author-summary: '<p>I am the first dedicated BA at Scott Logic, based in London.</p>'
@@ -1165,3 +1170,6 @@ authors:
         author-summary: 'I am a Technical Architect at Scott Logic.'
         twitter-handle: null
         picture: null
+    xchen: 
+        name: 'Xin Chen'
+        picture: picture.jpeg
