@@ -15,7 +15,7 @@ oldlink: http://www.scottlogic.co.uk/blog/colin/2008/11/using-bindinggroups-for-
 layout: default_post
 source: wordpress
 disqus-id: "/blog/colin/2008/11/using-bindinggroups-for-greater-control-over-input-validation/"
-summary: In a recent post on his blog Josh Smith described a technique for providing more meaningful error messages when the type conversion process fails within the binding framework. 
+summary: In a recent post on his blog Josh Smith described a technique for providing more meaningful error messages when the type conversion process fails within the binding framework.
 ---
 
 <p>In a recent post on his blog Josh Smith described a technique for providing more meaningful error messages when the type conversion process fails within the binding framework. Consider the following problem; you bind an integer property of your object (Age for example) to a TextBox within your user interface. If the user enters a non-numeric value into the TextBox an exception is thrown within the binding framework when it attempts to parse this value. The framework provide s a way of catching validation exceptions, by setting ValidatesOnExceptions to true within a binding, however the error message provided is "Input string was not in a correct format." - this is the sort of error message that a software engineer would understand, but not the majority of the population!</p>
