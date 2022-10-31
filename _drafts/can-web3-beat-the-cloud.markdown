@@ -28,6 +28,7 @@ This blog post takes an engineer's perspective. I took a service that I already 
 * **Testnets are unreliable** - deployment to testnet is a vital part of the development process, however, they are often unreliable
 
 There are also some lesser problems; Web3 itself is fragmented, there is no single Web3 implementation and there are limited standards. As a result, you pick your blockchain (and token / currency), although this is equally true of Web2 (pick your cloud provider). Also, Web3 still needs Web2, it is not a replacement. Finally, the Web3 tooling is quite fragmented - but after more than 20 years, the same is true of Web2!
+
 Given the above, I would not consider Web3 a viable alternative to public cloud at the moment. In fact, I seriously doubt it ever will be. I do not buy into the notion that this will be the next ‘big thing’ or that it is the future of the web. 
 
 Personally my feeling is that Web3 is simply a blockchain rebrand, giving this hyped technology another roll of the dice. I’ve also come to realise that there is something quite unique about Web3 / blockchain. With all other technologies that are experiencing some level of hype, low-code for example, the only parties that stand to benefit significantly from the hype are those who are actively investing in the technology itself, building products and solutions. Web3 / blockchain is unique in that the tokens (e.g. bitcoin, ETH) that are central to making the networks operate allow _anyone_ to benefit from hyping the technology. No need to invest effort, you just can just buy tokens, add hype and cash out. This has caused a wave of technology hype unlike anything we’ve ever seen before.
@@ -56,7 +57,7 @@ Web3 is fundamentally blockchain technology, which probably means we need a bloc
 
 Blockchains are a novel combination of various pre-existing technologies. The first is a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) (or has tree), an append-only data structure that uses hashing to ensure the integrity of the data. This tree is replicated across the nodes in the blockchain network. The second is [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography), which in blockchain is used as a way to ‘control’ some part of the network by holding the private key.
 
-The interesting part of blockchain is that it combines hash-trees and public-key cryptography with a novel consensus mechanism (through burning lots of energy!) that ensures transactions are correctly processed without the need to trust the nodes within the network. This is what made bitcoin unique, a network of computers, operating without any trusted intermediary, that are able to safely process financial transactions. This is the one unique feature of bitcoin, Ethereum and all the other blockchain networks.
+The interesting part of blockchain is that it combines hash-trees and public-key cryptography with a novel consensus mechanism that ensures transactions are correctly processed without the need to trust the nodes within the network. This is what made bitcoin unique, a network of computers, operating without any trusted intermediary, that are able to safely process financial transactions. This is the one unique feature of bitcoin, Ethereum and all the other blockchain networks.
 
 Whilst this may sound like a wonderful idea, it has some significant issues. To learn more, I’d thoroughly encourage you to [listen to this interview with Dr Nicholas Weaver who lectures on this subject](https://www.youtube.com/watch?v=abcKL_x_aoA). As stated previously, I’m going to try and stick to the engineering in this post.
 
@@ -77,6 +78,12 @@ These days most blogs use static site generators, and as a result, they lack a c
 ~~~
 
 I decided to both open source the project ([client code](https://github.com/ColinEberhardt/applause-button), [server code](https://github.com/ColinEberhardt/applause-button-server)), and provide a free hosted service. Applause Button is currently used by ~3,000 websites and records ~500,000 claps each year. To support the hosting, I run an [open collective](https://opencollective.com/applause-button), and have a handful of generous backers.
+
+With this service there are three primary actors:
+
+* Service provider - that’s me, I provide the Applause Button service and the infrastructure that supports it
+* Service users - the (currently 3,000) people who use Applause Button on their website
+* End user - the millions of people who visit websites that use the Applause Button
 
 How would this service work on Web3?
 
@@ -132,9 +139,11 @@ The tooling for developing smart contracts is reasonably good, I used [truffle](
 
 This local development stack allows you to get the hang of the basic concepts, which differ considerably from conventional public cloud development. 
 
-Code that executes on the blockchain runs on the Ethereum Virtual Machine (EVM), and each operation that is executed consumes ‘gas’, which has to be payed for using the currency of the respective blockchain, which in the case of Ethereum is ETH (pronounced _eeth_). As a result, any interaction with the blockchain that updates its state, including deployment of contracts, must be paid for via a suitably funded account.
+Code that executes on the blockchain runs on the Ethereum Virtual Machine (EVM), and each operation that is executed consumes ‘gas’, which has to be paid for using the currency of the respective blockchain, which in the case of Ethereum is ETH (pronounced _eeth_). As a result, any interaction with the blockchain that updates its state, including deployment of contracts, must be paid for via a suitably funded account.
 
 One concern I have here is that this results in a tight-coupling between the development process and the financial / billing process. With public cloud providers these are two separate roles, the developer and the financial controller. This allows you to protect your billing information and minimises individuals who have direct control over this. By coupling the two, you lose separation of concerns, which is not good for security.
+
+With Web3 you can of course hold multiple accounts, and could have one with limited funds available for the purposes of deployment. However, as we find out later, deployment to Ethereum requires a significant amount of cash!
 
 To put it another way, if I was looking for a potentially lucrative supply-chain attack, I’d target truffle! The users of this toolchain will almost certainly have private keys for funded blockchain accounts available on their local system. You couldn’t say the same for their AWS accounts for example.
 
@@ -145,11 +154,11 @@ Once you have a smart contract working locally, the next step is to deploy it to
 
 Ethereum has a number of testnets and I opted for [Goerli](https://goerli.net/). Moving to a testnet resulted in a number of additional challenges …
 
-In order to deploy to the testnet, you need a funded account. This is a straightforward process, where Goerli ETH are given away via [faucet](https://goerlifaucet.com/), however, this is a limited resource. I have seen people posting on forums [pleading for more ETH as they’ve run out and need to deploy for a demo](https://www.reddit.com/r/ethdev/comments/ydcf0f/goerli_gas_out_of_control_unable_to_test_contracts/)!
+In order to deploy to the testnet, you need a funded account. This is a straightforward process, where Goerli ETH are given away via a [faucet](https://goerlifaucet.com/), however, this is a limited resource. I have seen people posting on forums [pleading for more ETH as they’ve run out and need to deploy for a demo](https://www.reddit.com/r/ethdev/comments/ydcf0f/goerli_gas_out_of_control_unable_to_test_contracts/)!
 
 I also found the testnet to be a little unreliable, with random failures and congestion issues. For something which is a critical part of the development process, I’d hope for something more reliable.
 
-The next challenge that the testnet presents is how to connect to it? My application is browser-based, so I need to have an HTTP or Websocket connection to _something_. While developing locally I was able to connect directly to ganache from the client. However, this isn’t possible with the testnet (or the Ethereum mainnet). In order to connect, you either need to run your own Ethereum node locally (which I’m not keen on doing, as this costs thousands of dollars), or connect via an intermediary.
+The next challenge that the testnet presents is how to connect to it? My application is browser-based, so I need to have an HTTP or WebSocket connection to _something_. While developing locally I was able to connect directly to ganache from the client. However, this isn’t possible with the testnet (or the Ethereum mainnet). In order to connect, you either need to run your own Ethereum node locally, or connect via an intermediary.
 
 There are two main intermediary services. I opted for [Alchemy](https://www.alchemy.com/). These provide a conventional SaaS-style experience, I configured an ‘Applause Button’ app, and in return Alchemy gave me app-specific URLs that allows me to connect to the blockchain network. They also provide various value-add services, including metrics and reporting.
 
@@ -162,15 +171,7 @@ Every interaction that changes the state of the blockchain burns gas, which must
 
 I must admit, I found MetaMask pretty confusing, it does little to hide the complexities of blockchain technology. If Web3 is going to go mainstream, this has to become a lot simpler. I can’t imagine anyone who is not a technology professional being able to use MetaMask, and by extension Web3 apps, at the moment. A [quick Google search](https://www.google.com/search?q=metamask+ux) shows that I am not the only one to share this view.
 
-However with the Applause Button I don’t want the end user to pay the bill. With this service there are three primary actors:
-
-
-
-* Service provider - that’s me, I provide the Applause Button service and the infrastructure that supports it
-* Service users - the (currently 3,000) people who use Applause Button on their website
-* End user - the millions of people who visit websites that use the Applause Button
-
-For this service, I’d like the Service Users to pay the bills for their consumption - which is what I currently do via the donation system.
+However with the Applause Button I don’t want the end user to pay the bill. Recalling the three actors outlined earlier (Service Provider, Service Users, End User), for this service, I’d like the Service Users to pay the bills for their consumption - which is what I currently do via the donation system.
 
 Unfortunately, with Ethereum the party that invokes the contract is responsible for payment, which is the End User. There is unfortunately no way around this. The best work-around I’ve found is that you can create a contract that credits the account which invokes the contract, basically paying them back for the consumed gas. However, this would still require that every single person (End User) who interacts with the Applause Button has a crypto wallet with some credit (ETH). This isn’t going to work.
 
@@ -184,7 +185,7 @@ Also, by adding EGN, similar to the use of Alchemy, my application would feel ev
 
 So instead of using EGN I opted for the simpler solution, I added a simple AWS Lambda function layer in front of my Ethereum based smart contract. This Lambda function signs transactions (using my funded account), ensuring that the End User doesn’t have to use a wallet and doesn’t have any idea that this is running on a blockchain.
 
-This is all a bit disappointing!
+Going full circle, and returning to AWS Lambda in order to run my Web3 solution, is all a bit disappointing!
 
 Anyhow, time to get this thing deployed to the Ethereum mainnet, so that I can tell people I’m a bona fide Web3 / blockchain engineer 😎
 
@@ -196,7 +197,7 @@ Moving to the mainnet should be quite straightforward, with Alchemy it is a triv
 The testnet reports the gas consumption for contract deployment and invocation. For my very simple contract, the deployment process consumes 591,037 units of gas. Determining how much this would cost on the Ethereum mainnet involves a couple of factors:
 
 
-* The current gas price on the network itself. This is a dynamic quantity based balance of supply (nodes providing the compute power of Ethereum) and demand (contract developers, like me). Furthermore, the price you are willing to pay has an influence on whether your contract is executed and how soon.
+* The current gas price on the network itself. This is a dynamic quantity based balance of supply (nodes providing the compute power of Ethereum) and demand (contract developers, like me). Furthermore, the price you are willing to pay has an influence on if and when your contract is executed.
 * The value of Ethereum itself. This is the unit of currency that you use to pay for gas. Its value fluctuates just like any other currency - only with this being cryptocurrency, the fluctuations are pretty wild!
 
 Based on a current gas price of ~25 gwei (one-billionth of an ETH), the contract deployment costs 14,775,925 gwei. At the current exchange rate, this is $22 USD.
