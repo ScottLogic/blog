@@ -18,7 +18,7 @@ There are a growing number of voices heralding Web3 as the future of the interne
 This blog post takes an engineer's perspective. I took a service that I already run on AWS, ported to Ethereum, and ran it for a week, to understand first-hand how this technology fares. This article goes into the details, but here are some brief highlights:
 
 
-* **Ethereum is ridiculously expensive **- it costs x100,000,000 more to run my app on this network versus running it on AWS
+* **Ethereum is ridiculously expensive** - it costs x100,000,000 more to run my app on this network versus running it on AWS
 * **Running costs are unpredictable** - you’re at the mercy of both fluctuating gas prices, and the token exchange rate
 * **You can get priced out of the market** - in the extreme case of the above, if demand is high, you can get priced out of the network (i.e. your code won’t run)
 * **Migration is very expensive** - migrating to a new contract involves transferring all your contact state, this is a very expensive part of the process
