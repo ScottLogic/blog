@@ -1,6 +1,11 @@
 ---
 title: Web3 vs the Cloud, there's just no competition
 date: 2022-10-31 08:39:00 Z
+published: false
+categories:
+- Tech
+- ceberhardt
+author: ceberhardt
 ---
 
 There are a growing number of voices heralding Web3 as the future of the internet, and this technology (concept?) is receiving considerable coverage at conferences, in the technology press, and internet forums. I decided it was time to put Web3 to the test and see how it fares against the contemporary approach to building apps - the public cloud. Unfortunately I found Web3 to be very lacking.
