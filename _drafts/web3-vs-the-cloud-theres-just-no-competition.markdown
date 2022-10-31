@@ -17,12 +17,12 @@ There are a growing number of voices heralding Web3 as the future of the interne
 This blog post takes the engineer's perspective. I took a service that I already run on AWS, ported to Ethereum, and ran it for a week, to understand first-hand how this technology fares. This article goes into the details, but here are some brief highlights:
 
 
-
 * **Ethereum is ridiculously expensive **- it costs x100,000,000 to run my app on this network versus running on AWS
 * **Running costs are unpredictable** - you’re at the mercy of both fluctuating gas prices, and the token exchange rate
 * **You can get priced out of the market** - in the extreme case of the above, if demand is high, you can get priced out of the network
 * **Migration is very expensive** - migrating to a new contract involves transferring all your contact state, this is a very expensive part of the process
 * **It’s not really decentralised** - the great promise of Web3 is false, nothing in this technology ensures you yield control to your users.
+* **Web3 is slow** - read operations are generally ok (yet slower than public cloud), write operations can take 10s of seconds
 * **Web3 itself is fragmented **- there is no single Web3 implementation and there are limited standards. As a result, you pick you blockchain (and token / currency)
 * **Web3 lacks many of the conventional infrastructure concepts **- the most basic cloud services, e.g. logging, firewalls, API gateways lack Web3 equivalents
 * **Web3 still needs Web2** - Web3 applications still use a bucketload of Web2 technology
@@ -37,6 +37,9 @@ Personally my feeling is that Web3 is simply a blockchain rebrand, giving this h
 
 Anyhow, I promised that this blog post would be more engineering-focussed, so let’s get back to business.
 
+![web3-cloud-battle.jpeg](/uploads/web3-cloud-battle.jpeg)
+
+<small>obligatory DALL·E 2 generated image, using the "prompt web3, blockchain and public cloud have a battle, digital art"</small>
 
 ## Web3 and blockchain primer
 
@@ -72,9 +75,9 @@ For my Web3 experiment, I wanted to pick a service that I already run on public 
 
 These days most blogs use static site generators, and as a result, they lack a conventional database. I wanted to add a feature to our blog that allows users to ‘clap’ for articles that they appreciate. In order to achieve this I built a simple service that connects a web component to an AWS-hosted back-end (using Lambda, API Gateway, DynamoDB) that tracks clap-counts for URLs: 
 
-```
+~~~html
 <applause-button style="width: 58px; height: 58px;"/>
-```
+~~~
 
 I decided to both open source the project ([client code](https://github.com/ColinEberhardt/applause-button), [server code](https://github.com/ColinEberhardt/applause-button-server)), and provide a free hosted service. Applause Button is currently used by ~3,000 websites and records ~500,000 claps each year. To support the hosting, I run an [open collective](https://opencollective.com/applause-button), and have a handful of generous backers.
 
@@ -97,7 +100,7 @@ The Web3 version of Applause Button involves turning the core logic into a smart
 Thankfully the logic required for my contract is really quite simple, which meant I didn’t need to properly learn the language. Here it is in its entirety:
 
 
-```solidity
+~~~solidity
 pragma solidity ^0.8.9;
 
 contract ApplauseButton {
@@ -122,7 +125,7 @@ contract ApplauseButton {
    }
  }
 }
-```
+~~~
 
 You can see that the ApplauseButton stores its state via the `clapCounts` variable which is a map from strings (i.e. the URLs) to integers (clap counts).
 
@@ -247,7 +250,7 @@ Here are some of my thoughts from this experiment
 
 My final architecture was as follows:
 
-
+![blockchain-architecture.png](/uploads/blockchain-architecture.png)
 
 Considering that this is a Web3 application, there is a lot of so-called Web2 technology in there. I am also reliant on various third-parties (Alchemy, Polygon).
 
