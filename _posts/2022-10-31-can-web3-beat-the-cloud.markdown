@@ -10,7 +10,7 @@ summary: There are a growing number of voices heralding Web3 as the future of th
   to the test and see how it fares against the contemporary approach to building apps
   - the public cloud. Unfortunately I found Web3 to be very lacking.
 author: ceberhardt
-image: "/uploads/web3-cloud-battle.jpeg"
+image: uploads/web3-cloud-battle.jpeg
 ---
 
 There are a growing number of voices heralding Web3 as the future of the internet, and this technology (concept?) is receiving considerable coverage at conferences, in the technology press, and internet forums. I decided it was time to put Web3 to the test and see how it fares against the contemporary approach to building apps - the cloud. Unfortunately I found Web3 to be very lacking.
