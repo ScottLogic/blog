@@ -23,14 +23,11 @@ This blog post takes an engineer's perspective. I took a service that I already 
 * **Migration is very expensive** - migrating to a new contract involves transferring all your contact state, this is a very expensive part of the process
 * **It’s not really decentralised** - the great promise of Web3 is false, nothing in this technology ensures you yield control to your users.
 * **Web3 is slow** - read operations are generally ok (yet slower than public cloud), write operations can take 10s of seconds
-* **Web3 itself is fragmented** - there is no single Web3 implementation and there are limited standards. As a result, you pick your blockchain (and token / currency)
 * **Web3 lacks many of the conventional infrastructure concepts** - the most basic cloud services, e.g. logging, firewalls, API gateways lack Web3 equivalents
-* **Web3 still needs Web2** - Web3 applications still use a bucketload of Web2 technology
 * **Wallet UX** - Wallet software is really hard to use, and is a long way from being ready for mainstream consumer use
-* **Fragmented tooling** - There are so many different toolchains, API layers, etc .. selecting an appropriate set of tools is a complex challenge.
-* **Security concerns** - deploying to a blockchain requires an account with funds, this is a clear target for supply chain attacks
 * **Testnets are unreliable** - deployment to testnet is a vital part of the development process, however, they are often unreliable
 
+There are also some lesser problems; Web3 itself is fragmented, there is no single Web3 implementation and there are limited standards. As a result, you pick your blockchain (and token / currency), although this is equally true of Web2 (pick your cloud provider). Also, Web3 still needs Web2, it is not a replacement. Finally, the Web3 tooling is quite fragmented - but after more than 20 years, the same is true of Web2!
 Given the above, I would not consider Web3 a viable alternative to public cloud at the moment. In fact, I seriously doubt it ever will be. I do not buy into the notion that this will be the next ‘big thing’ or that it is the future of the web. 
 
 Personally my feeling is that Web3 is simply a blockchain rebrand, giving this hyped technology another roll of the dice. I’ve also come to realise that there is something quite unique about Web3 / blockchain. With all other technologies that are experiencing some level of hype, low-code for example, the only parties that stand to benefit significantly from the hype are those who are actively investing in the technology itself, building products and solutions. Web3 / blockchain is unique in that the tokens (e.g. bitcoin, ETH) that are central to making the networks operate allow _anyone_ to benefit from hyping the technology. No need to invest effort, you just can just buy tokens, add hype and cash out. This has caused a wave of technology hype unlike anything we’ve ever seen before.
