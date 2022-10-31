@@ -23,8 +23,8 @@ This blog post takes the engineer's perspective. I took a service that I already
 * **Migration is very expensive** - migrating to a new contract involves transferring all your contact state, this is a very expensive part of the process
 * **It’s not really decentralised** - the great promise of Web3 is false, nothing in this technology ensures you yield control to your users.
 * **Web3 is slow** - read operations are generally ok (yet slower than public cloud), write operations can take 10s of seconds
-* **Web3 itself is fragmented **- there is no single Web3 implementation and there are limited standards. As a result, you pick you blockchain (and token / currency)
-* **Web3 lacks many of the conventional infrastructure concepts **- the most basic cloud services, e.g. logging, firewalls, API gateways lack Web3 equivalents
+* **Web3 itself is fragmented ** - there is no single Web3 implementation and there are limited standards. As a result, you pick you blockchain (and token / currency)
+* **Web3 lacks many of the conventional infrastructure concepts** - the most basic cloud services, e.g. logging, firewalls, API gateways lack Web3 equivalents
 * **Web3 still needs Web2** - Web3 applications still use a bucketload of Web2 technology
 * **Wallet UX** - Wallet software is really hard to use, and is a long way from being ready for mainstream use
 * **Fragmented tooling** - There are so many different toolchains, API layers, etc .. selecting an appropriate set of tools is a complex challenge.
@@ -47,11 +47,11 @@ Let’s start with a very brief Web3 primer, you can skip this if you’re alrea
 
 Web3 was initially coined by one of the Ethereum co-founders in 2014 as a term to describe the next iteration of the web, where we no longer have to place our trust in private entities to protect our personal data. It’s easiest to understand the relevance by looking at the previous ‘version’ of the web (as [described by Ethereum](https://ethereum.org/en/web3/))
 
-The early internet was **Web1 (1990-2004)**, and described as “Read-only”. While the more technically minded users (like myself) ran our own web-servers, most of the people interacting with the web consumed content but didn’t create or contribute to the web.
+The early internet was *Web1 (1990-2004)*, and described as “Read-only”. While the more technically minded users (like myself) ran our own web-servers, most of the people interacting with the web consumed content but didn’t create or contribute to the web.
 
-**Web2 (2004-now) **is described as “Read-write”, where people create content almost as much as they consume it. However, people aren’t creating their own websites, they are instead creating content within the walled-gardens of the social media or content platforms (e.g. Facebook, Twitter, Medium). This has led to a situation where a small number of private entities have control over much of the content (and personal data) we share. Furthemore, they often use advertising for generating revenue, which means that they are incentivised to hoard and capitalise on our data.
+*Web2 (2004-now)* is described as “Read-write”, where people create content almost as much as they consume it. However, people aren’t creating their own websites, they are instead creating content within the walled-gardens of the social media or content platforms (e.g. Facebook, Twitter, Medium). This has led to a situation where a small number of private entities have control over much of the content (and personal data) we share. Furthemore, they often use advertising for generating revenue, which means that they are incentivised to hoard and capitalise on our data.
 
-**Web3 (the future)** is “Read-Write-Own”, where people retain control over their data. At its core it uses blockchain technology, with the promise of being decentralised, permissionless and trustless. We’ll return to these at various points within this blog post.
+*Web3 (the future)* is “Read-Write-Own”, where people retain control over their data. At its core it uses blockchain technology, with the promise of being decentralised, permissionless and trustless. We’ll return to these at various points within this blog post.
 
 In a more practical sense, Web3 sees the internet becoming a network of applications (distributed apps, or dApps), written as smart contracts, running on a public blockchain.
 
