@@ -17,13 +17,13 @@ There are a growing number of voices heralding Web3 as the future of the interne
 This blog post takes an engineer's perspective. I took a service that I already run on AWS, ported to Ethereum, and ran it for a week, to understand first-hand how this technology fares. This article goes into the details, but here are some brief highlights:
 
 
-* **Ethereum is ridiculously expensive **- it costs x100,000,000 to run my app on this network versus running on AWS
+* **Ethereum is ridiculously expensive **- it costs x100,000,000 more to run my app on this network versus running it on AWS
 * **Running costs are unpredictable** - you’re at the mercy of both fluctuating gas prices, and the token exchange rate
-* **You can get priced out of the market** - in the extreme case of the above, if demand is high, you can get priced out of the network
+* **You can get priced out of the market** - in the extreme case of the above, if demand is high, you can get priced out of the network (i.e. your code won’t run)
 * **Migration is very expensive** - migrating to a new contract involves transferring all your contact state, this is a very expensive part of the process
 * **It’s not really decentralised** - the great promise of Web3 is false, nothing in this technology ensures you yield control to your users.
 * **Web3 is slow** - read operations are generally ok (yet slower than public cloud), write operations can take 10s of seconds
-* **Web3 itself is fragmented ** - there is no single Web3 implementation and there are limited standards. As a result, you pick your blockchain (and token / currency)
+* **Web3 itself is fragmented** - there is no single Web3 implementation and there are limited standards. As a result, you pick your blockchain (and token / currency)
 * **Web3 lacks many of the conventional infrastructure concepts** - the most basic cloud services, e.g. logging, firewalls, API gateways lack Web3 equivalents
 * **Web3 still needs Web2** - Web3 applications still use a bucketload of Web2 technology
 * **Wallet UX** - Wallet software is really hard to use, and is a long way from being ready for mainstream consumer use
