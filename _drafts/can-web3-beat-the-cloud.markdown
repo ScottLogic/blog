@@ -1,5 +1,5 @@
 ---
-title: Web3 vs the Cloud, there's just no competition
+title: Can Web3 beat public cloud?
 date: 2022-10-31 08:39:00 Z
 categories:
 - ceberhardt
@@ -12,9 +12,9 @@ summary: There are a growing number of voices heralding Web3 as the future of th
 author: ceberhardt
 ---
 
-There are a growing number of voices heralding Web3 as the future of the internet, and this technology (concept?) is receiving considerable coverage at conferences, in the technology press, and internet forums. I decided it was time to put Web3 to the test and see how it fares against the contemporary approach to building apps - the public cloud. Unfortunately I found Web3 to be very lacking.
+There are a growing number of voices heralding Web3 as the future of the internet, and this technology (concept?) is receiving considerable coverage at conferences, in the technology press, and internet forums. I decided it was time to put Web3 to the test and see how it fares against the contemporary approach to building apps - the cloud. Unfortunately I found Web3 to be very lacking.
 
-This blog post takes the engineer's perspective. I took a service that I already run on AWS, ported to Ethereum, and ran it for a week, to understand first-hand how this technology fares. This article goes into the details, but here are some brief highlights:
+This blog post takes an engineer's perspective. I took a service that I already run on AWS, ported to Ethereum, and ran it for a week, to understand first-hand how this technology fares. This article goes into the details, but here are some brief highlights:
 
 
 * **Ethereum is ridiculously expensive **- it costs x100,000,000 to run my app on this network versus running on AWS
@@ -23,17 +23,17 @@ This blog post takes the engineer's perspective. I took a service that I already
 * **Migration is very expensive** - migrating to a new contract involves transferring all your contact state, this is a very expensive part of the process
 * **It’s not really decentralised** - the great promise of Web3 is false, nothing in this technology ensures you yield control to your users.
 * **Web3 is slow** - read operations are generally ok (yet slower than public cloud), write operations can take 10s of seconds
-* **Web3 itself is fragmented ** - there is no single Web3 implementation and there are limited standards. As a result, you pick you blockchain (and token / currency)
+* **Web3 itself is fragmented ** - there is no single Web3 implementation and there are limited standards. As a result, you pick your blockchain (and token / currency)
 * **Web3 lacks many of the conventional infrastructure concepts** - the most basic cloud services, e.g. logging, firewalls, API gateways lack Web3 equivalents
 * **Web3 still needs Web2** - Web3 applications still use a bucketload of Web2 technology
-* **Wallet UX** - Wallet software is really hard to use, and is a long way from being ready for mainstream use
+* **Wallet UX** - Wallet software is really hard to use, and is a long way from being ready for mainstream consumer use
 * **Fragmented tooling** - There are so many different toolchains, API layers, etc .. selecting an appropriate set of tools is a complex challenge.
 * **Security concerns** - deploying to a blockchain requires an account with funds, this is a clear target for supply chain attacks
 * **Testnets are unreliable** - deployment to testnet is a vital part of the development process, however, they are often unreliable
 
 Given the above, I would not consider Web3 a viable alternative to public cloud at the moment. In fact, I seriously doubt it ever will be. I do not buy into the notion that this will be the next ‘big thing’ or that it is the future of the web. 
 
-Personally my feeling is that Web3 is simply a blockchain rebrand, giving this hyped technology another roll of the dice. I’ve also come to realise that there is something quite unique about Web3 / blockchain. With all other technologies that are experiencing some level of hype, low-code for example, the only parties that stand to benefit significantly from the hype are those who are actively investing in the technology itself, building products and solutions. Web3 / blockchain is unique in that the tokens (e.g. bitcoin, ETH) that are central to making the networks operate allow _anyone_ to benefit from hyping the technology. No need to invest effort, you just invest money. This has caused a wave of technology hype unlike anything we’ve ever seen before.
+Personally my feeling is that Web3 is simply a blockchain rebrand, giving this hyped technology another roll of the dice. I’ve also come to realise that there is something quite unique about Web3 / blockchain. With all other technologies that are experiencing some level of hype, low-code for example, the only parties that stand to benefit significantly from the hype are those who are actively investing in the technology itself, building products and solutions. Web3 / blockchain is unique in that the tokens (e.g. bitcoin, ETH) that are central to making the networks operate allow _anyone_ to benefit from hyping the technology. No need to invest effort, you just can just buy tokens, add hype and cash out. This has caused a wave of technology hype unlike anything we’ve ever seen before.
 
 Anyhow, I promised that this blog post would be more engineering-focussed, so let’s get back to business.
 
@@ -57,7 +57,7 @@ In a more practical sense, Web3 sees the internet becoming a network of applicat
 
 Web3 is fundamentally blockchain technology, which probably means we need a blockchain primer too … I’ll keep that even more brief.
 
-Blockchains are a novel combination of various pre-existing technologies. The first is a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) (or has tree), an append-only data structure that uses hashing to ensure the integrity of the data. This tree is replicated across the nodes in the blockchain network. The second is [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography), which in blockchain is used as a way to ‘control’ an account on the network by holding the private key.
+Blockchains are a novel combination of various pre-existing technologies. The first is a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) (or has tree), an append-only data structure that uses hashing to ensure the integrity of the data. This tree is replicated across the nodes in the blockchain network. The second is [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography), which in blockchain is used as a way to ‘control’ some part of the network by holding the private key.
 
 The interesting part of blockchain is that it combines hash-trees and public-key cryptography with a novel consensus mechanism (through burning lots of energy!) that ensures transactions are correctly processed without the need to trust the nodes within the network. This is what made bitcoin unique, a network of computers, operating without any trusted intermediary, that are able to safely process financial transactions. This is the one unique feature of bitcoin, Ethereum and all the other blockchain networks.
 
