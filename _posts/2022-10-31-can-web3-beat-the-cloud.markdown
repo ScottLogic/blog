@@ -38,7 +38,7 @@ Anyhow, I promised that this blog post would be more engineering-focussed, so le
 
 ![web3-cloud-battle.jpeg](/uploads/web3-cloud-battle.jpeg)
 
-<small>obligatory DALL·E 2 generated image, using the "prompt web3, blockchain and public cloud have a battle, digital art"</small>
+<small>obligatory DALL·E 2 generated image, using the prompt "web3, blockchain and public cloud have a battle, digital art"</small>
 
 ## Web3 and blockchain primer
 
