@@ -10,6 +10,7 @@ summary: There are a growing number of voices heralding Web3 as the future of th
   to the test and see how it fares against the contemporary approach to building apps
   - the public cloud. Unfortunately I found Web3 to be very lacking.
 author: ceberhardt
+image: "/uploads/web3-cloud-battle.jpeg"
 ---
 
 There are a growing number of voices heralding Web3 as the future of the internet, and this technology (concept?) is receiving considerable coverage at conferences, in the technology press, and internet forums. I decided it was time to put Web3 to the test and see how it fares against the contemporary approach to building apps - the cloud. Unfortunately I found Web3 to be very lacking.
@@ -210,16 +211,16 @@ I also calculated how much it would cost when an End User clicks the button and 
 
 How does this compare to the current costs? It is around x100,000,000 more expensive.
 
-Even worse is the migration costs. Before running the Applause Button I need to update the contract state with the clap counts for the ~1000 posts on this blog. This would cost around $200 (for a mere 59KBytes of data).
+Even worse are the migration costs. Before running the Applause Button I need to update the contract state with the clap counts for the ~1000 posts on this blog. This would cost around $200 (for a mere 59,000 bytes of data).
 
 Whilst I was keen to run my experiment on Ethereum, there was no way I was going to pay 1000s of dollars in pursuit of this.
 
 
 ## Running on Polygon
 
-Recently Ethereum moved from proof of work (i.e waste lots of energy), to proof of stake, with a promise that this would significantly increase the network's ability to execute transactions. I’d hoped this would start to drive-down prices, but there is no indication of this yet.
+Recently Ethereum moved from proof of work (i.e waste lots of energy), to proof of stake, with a promise that this would significantly increase the network's ability to execute transactions. I’d hoped this would start to drive-down gas prices, but there is no indication of this yet.
 
-The ‘standard’ approach to the Ethereum cost problem is to use a side-chain (or level-2 network), a secondary blockchain that processes transactions, at a reduced cost, periodically committing transactions back to the main Ethereum network.
+The ‘standard’ approach to the blockchain cost problem is to use a side-chain (or level-2 network), a secondary blockchain that processes transactions, at a reduced cost, periodically committing transactions back to the main Ethereum network.
 
 After a quick review of the options, I opted for Polygon. Once again, thanks to Alchemy, switching to this network was quite straightforward. However, now that I’m deployed to Polygon I need a different token, rather than ETH, Polygon runs on MATIC. I bought a modest amount of this currency, deployed my contracts, and was finally able to convert the Applause Button on this blog to run on a blockchain.
 
@@ -231,11 +232,13 @@ This is a public and permissionless blockchain, so you can [view each ‘clap’
 
 Polygon is many times cheaper than Ethereum, but is still far more expensive than AWS. My costs were roughly:
 
-* Contract deployment: $1.5
-* Migration: $5.0
+* Contract deployment: $1.50
+* Migration: $5.00
 * Each ‘clap’: $0.01
 
 I ran this solution for a week, ending up spending ~$10.
+
+In contrast with AWS, deployment of my code is free, as is migration (at least for this small quantity of data), and the cost of each 'clap' is roughly $0.00000001.
 
 I had fun running this experiment, and learnt a lot. Unfortunately, most of which has left me with a very negative impression of Web3.
 
@@ -269,7 +272,7 @@ Anyhow, back to costs. Even if these reduce, the volatility due to the supply an
 
 If I develop an application using blockchain technologies, what if the token / cryptocurrency becomes very popular? This makes it more expensive for me to buy the currency and deploy / maintain my application. I’m not keen on this!
 
-What if more developers move to this blockchain? This will push up gas prices, and again, my costs increase.
+And what if more developers move to this blockchain? This will push up gas prices, and again, my costs increase. However, it should be noted that if the associated cryptocurrency increases in value it should attract more miners / validators and increase overall capacity.
 
 Furthermore, if I don’t actively monitor costs and adjust my gas prices, it is likely I will be completely priced-out of the market.
 
@@ -280,9 +283,9 @@ And what happens if you don’t set a high enough gas price? Your contract is pa
 
 I honestly cannot see any utility in Web3 beyond supporting applications that only exists because of this technology, i.e. NFTs.
 
-Furthermore, the main claim of Web3 is that it is decentralised, which by their interpretation means that end-users have control over their data, seems flawed for a few of reasons.
+Furthermore, the main claim of Web3 is that it is decentralised, which by their interpretation means that end-users have control over their data, seems flawed for a few reasons.
 
-Firstly, as a smart contract developer, I set the rules. Yes, they run on a blockchain, which means that it is hard for me to change them. However, I can still collect whatever personal data I like!
+Firstly, as a smart contract developer, I set the rules. Yes, they run on a blockchain, which means that it is hard for me to change them, and contract state is public. However, I can still collect whatever personal data end users are willing to provide me with.
 
 Secondly, the ridiculous cost of running code and storing state on the blockchain means that the vast majority of app developers store state off-chain. What gets stored in the contract is often just a URL to a more conventional storage mechanism, e.g. AWS S3. This is true for most NFTs, your artwork doesn't live on the blockchain, all you’ve really bought is an expensive URL! Given that the data is often stored off-chain, how is this solution any better at protecting you and your rights over your personal data?
 
