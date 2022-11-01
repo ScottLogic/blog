@@ -1,5 +1,5 @@
 ---
-title: Can Web3 beat public cloud?
+title: Web3, slow, expensive and centralised!
 date: 2022-10-31 08:39:00 Z
 categories:
 - ceberhardt
