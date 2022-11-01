@@ -54,6 +54,6 @@ So how can we avoid entering the vortex?
 
 **Keep it lean:** As per Parkinson’s Law, work (and meetings) expand to fill the time allotted for completion. So consider how long a meeting needs to run for, and if in doubt, err on the short side to keep the session focussed.
 
-**Wrapping up: **Regardless of the meeting length, ensure discipline in stopping the session 5 minutes beforehand to re-cap on what was discussed and agreed, or who has actions to complete ahead of the next session. Documenting and sharing with attendees shortly after the meeting also helps as a reminder and is useful for anyone who was unable to attend.
+**Wrapping up:** Regardless of the meeting length, ensure discipline in stopping the session 5 minutes beforehand to re-cap on what was discussed and agreed, or who has actions to complete ahead of the next session. Documenting and sharing with attendees shortly after the meeting also helps as a reminder and is useful for anyone who was unable to attend.
 
 These guidelines assist in ensuring that meetings are both valuable and worthwhile, helping to avoid the dreaded Meeting Vortex.
