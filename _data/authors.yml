@@ -1,6 +1,7 @@
 active-authors:
     - aaiken
     - abagdonaite
+    - abarron
     - acarr
     - ahickman
     - alee
@@ -123,6 +124,14 @@ authors:
         twitter-url: 'https://twitter.com/aaylett'
         twitter-handle: aaylett
         picture: picture.jpg
+    abarron:
+        name: "Adam Barron"
+        email: abarron@scottlogic.com
+        author-summary: "I'm a developer at Scott Logic in Newcastle. I've found myself primarily writing Typescript for Cloud Services, with a bit of .NET on the side. I can also be found playing various video games and enjoying loud live music."
+        feed-description: "Adam's experiences and thoughts living and working in the world of tech."
+        picture: abarron-crop.jpg
+        twitter-url: "https://twitter.com/awbarron"
+        twitter-handle: AWBarron
     acarr:
         feed-description: 'Andrew''s thoughts on technology'
         name: 'Andrew Carr'
