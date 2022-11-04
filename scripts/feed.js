@@ -1,4 +1,4 @@
-var feed = document.getElementById("feed");
+var feed = document.getElementById("feed2");
 if (feed) {
     var eventsUrl = "../events.xml";
     httpGetAsync(eventsUrl, displayFeedAsTalkList);
