@@ -7,3 +7,5 @@ speakers:
   - Graham Odds
 eventDate: 2020-08-19
 ---
+
+<p>The post <a rel="nofollow" href="http://ante.scottlogic.com/events/think-workflow-not-app/">Think workflow, not app</a> appeared first on <a rel="nofollow" href="http://ante.scottlogic.com">Scott Logic</a>.</p>
