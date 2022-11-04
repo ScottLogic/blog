@@ -4,9 +4,6 @@ date: 2022-11-04 10:15:00 Z
 categories:
 - Tech
 - Cloud
-- abarron
-- Performance
-- Metrics
 tags:
 - Cloud
 - Google Cloud Platform
@@ -27,9 +24,9 @@ The performance of a system can increasingly feel like an afterthought, with fas
 
 # Starting Point
 
-The system is deployed on Google Cloud Platform (GCP). Various parts of the system are deployed as Google Cloud Functions (GCFs) or as Kubernetes services through Google Kubernetes Engine (GKE). The system is effectively a data pipeline. Some information comes in as part of a message. We process this and distribute it accordingly to various consumers interested in that message. This processing takes the form of various “hops” through the different microservices. The only performance metric we are interested in is the complete end-to-end time, from ingress to distribution.
+The system is deployed on Google Cloud Platform (GCP). Various parts of the system are deployed as Google Cloud Functions (GCFs) or as Kubernetes services through Google Kubernetes Engine (GKE). The system is a data pipeline. Some information comes in as part of a message. We process this and distribute it accordingly to various consumers interested in that message. This processing takes the form of various “hops” through the different microservices. The only performance metric we are interested in is the complete end-to-end time, from ingress to distribution.
 
-We already had some concepts in place to help track the journey of a message through the system. At various points, we use structured logging to log out (generally) helpful messages. As part of this defined structure each log message includes a correlation ID, generated when a message first arrives. This made it easy to identify the time it took a specific message to get through the system, but did not offer an easy way to collect data at the scale needed to make informed decisions about performance.
+We already had some concepts in place to help track the journey of a message through the system. At various points, we use structured logging to log out (generally) helpful messages. As part of this defined structure each log message includes a correlation ID, generated for a given message when it first arrives. All logs related to this message will contain the same correlation ID. This made it easy to identify the time it took a specific message to get through the system, but did not offer an easy way to collect data at the scale needed to make informed decisions about performance.
 
 # What can GCP do for you?
 
@@ -37,11 +34,11 @@ We already had some concepts in place to help track the journey of a message thr
 
 As part of the suite of services GCP offers, you can create log based metrics. This allows you to create graphs and dashboards from values you output in your structured logs. This led to the first restructuring of our logging.
 
-When a message first arrives and receives its correlation ID, we also add a timestamp to the message. When this timestamp gets all the way to the distribution stage, we log out another message to show that we’ve finished processing that message, including the time in milliseconds between that timestamp and the current time.
+When a message first arrives and receives its correlation ID, we also add a timestamp to the message. When this message gets all the way to the distribution stage, we log out another message to show that we’ve finished processing that message, including the time in milliseconds between that timestamp and the current time. This gives us an end-to-end time.
 
 ### Metrics explorer
 
-Since this is a structured field guaranteed to be present on every message with the “finished processing” message, we can create a log-based metric based on this value. GCP will automatically let you view the results as a graph. These graphs will look something like this
+Since this is a structured field guaranteed to be present on every message with the “finished processing” message, we can create a log-based metric based on this value. GCP will automatically let you view the results as a graph. These graphs will look something like this:
 
 ![metrics-explorer.png](/uploads/metrics-explorer.png)
 Source - [Configure charts and alerts  |  Cloud Logging  |  Google Cloud](https://cloud.google.com/logging/docs/logs-based-metrics/charts-and-alerts)
@@ -67,11 +64,11 @@ Remember we are also including that correlation ID on our structured log. Once w
 
 # Diving Deeper
 
-With some manual investigation, this gave us some idea what was causing the biggest slowdowns for some individual messages (99th percentile), but what we really needed was to identify a pattenrn. We found ourselves needing more granular data, profiling multiple messages to really address the underlying cause(s) of our performance issues.
+With some manual investigation, this gave us some idea what was causing the biggest slowdowns for some individual messages (99th percentile), but what we really needed was to identify a pattern. We found ourselves needing more granular data, profiling multiple messages to really address the underlying cause(s) of our performance issues.
 
 ## We need more data!
 
-With this in mind, we just added more timestamps as each message progressed through the system. With the same idea is the original end-to-end measurement, we wanted to capture the performance of individual services. Broadly, this meant adding a timestamp for when a message arrived in each service and another when it left. We could then calculate more "deltas" - both the time taken inside a given service, and the time lost due to data transfer in-between services. This gave us a lot more data, and with it, the problem of how to effectively display it.
+With this in mind, we just added more timestamps as each message progressed through the system. With the same idea as the original end-to-end measurement, we wanted to capture the performance of individual services. Broadly, this meant adding a timestamp for when a message arrived in each service and another when it left. We could then calculate more "deltas" - both the time taken inside a given service, and the time lost due to data transfer in-between services. This gave us a lot more data, and with it, the problem of how to effectively display it.
 
 ## GCP can help! (again)
 
@@ -87,11 +84,11 @@ I want to talk about some scripts we created ourselves outside of GCP. Though ea
     
     cat gkelogs-dev.yaml | yq e '.jsonPayload.e2eDeltas.correlationId = .jsonPayload.correlationId' - | yq e '.jsonPayload.e2eDeltas.ingressTime = .jsonPayload.ingressTime' - | yq e '.jsonPayload.e2eDeltas' -o=j - | mlr --ijson --ocsv cat > gkelogs.csv
 
-This made no sense to me when I first saw it, so to try and break it down - this is just using the GCP log querying language to grab all the "finished processing" messages from a certain time window, with the results saved to a yaml file. From there we use yq to produce a csv file from with all of our deltas alongside the correlation ID and ingress time for a message. From there, we could produce somewhat intimidating excel graphs like this:
+This made no sense to me when I first saw it, so to try and break it down - this is just using the GCP log querying language to grab all the "finished processing" messages from a certain time window, with the results saved to a yaml file. From there we use yq to produce a csv file with all of our deltas alongside the correlation ID and ingress time for a message. From there, we could produce somewhat intimidating excel graphs like this:
 
 ![delta-graph-blog.png](/uploads/delta-graph-blog.png)
 
-This graph breaks down each individual end-to-end time by service. Each coloured slice is one of the many deltas mentioned above. By the end, these deltas included anything from specific database interactions to particularly complex parts of the business logic that we thought might be cause for slowdown. This allowed us to identify meaningful patterns, and focus investigation accordingly when it came to performance.
+This graph breaks down each individual end-to-end time by service. Each coloured slice is one of the many deltas mentioned above. By the end, these deltas included anything from specific database interactions to particularly complex parts of the business logic that we thought might be cause for slowdown. This allowed us to identify meaningful patterns, and focus our investigation accordingly when it came to performance.
 
 # Conclusion
 
