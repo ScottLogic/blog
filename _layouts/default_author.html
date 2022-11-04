@@ -27,6 +27,9 @@ paginated: false
             </div>
             <div class="cell large-auto">
                 <div id="feed">
+                    {% if site.events != empty %}
+                        <h4>Talks</h4>
+                    {% endif %}
                     {% for event in site.events %}
                         <div class="talk">
                             <div class="talk_title">{{ event.title }}</div>
