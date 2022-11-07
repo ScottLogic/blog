@@ -19,6 +19,7 @@ paginated: false
     {% assign allEvents = allEvents | push: event %}
   {% endif %}
 {% endfor %}
+{% assign allEvents = allEvents | sort: 'eventDate' | reverse | uniq %}
 
 <div class="default-author grid-container">
     <div class="grid-padding-y">
