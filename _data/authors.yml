@@ -373,6 +373,7 @@ authors:
         picture: picture.jpg
     jarnstein: 
         name: 'Jack Arnstein'
+        author-summary: 'I am a senior tester at Scott Logic with a passion for all things security related. In my spare time I enjoy board games with my family and friends. I also enjoy Lego with my eldest, as well as assisting my junior twin testers in their explorative testing of all things in the known world.'
         picture: picture.jpeg
     jayphi11ips:
         name: 'Jason Phillips'
@@ -1172,4 +1173,5 @@ authors:
         picture: null
     xchen: 
         name: 'Xin Chen'
+        author-summary: 'I am a lead test engineer at Scott Logic. For the last 15 years, I had the pleasure to work with different people with different backgrounds and focus areas. I am passionate about the latest concept and technology used in Quality Assurance. In my spare time, I enjoy traveling and exploring the varied culture. I used to live in four different counties.'
         picture: picture.jpeg
