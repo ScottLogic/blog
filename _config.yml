@@ -2,6 +2,9 @@
 title: Scott Logic Blog
 timezone: UTC
 collections:
+  events: 
+    title: Events
+    output: true
   posts:
     title: Posts
     output: true
@@ -48,5 +51,4 @@ exclude:
 - scripts/jquery.jscroll-2.2.4.js
 - scripts/tweet.js
 - scripts/search.js
-- scripts/feed.js
 - vendor
