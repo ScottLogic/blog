@@ -6,9 +6,9 @@ categories:
 - Podcast
 contributors:
 - ocronk
-summary: In this episode Colin, Ollie, Johanna and Lily hold a lively conversation that dives
-  into Web3 and the Metaverse. We ask the question “what is Web3.0”,
-  and explore what it means to be a decentralised technology. We discuss the Metaverse,
+summary: In this episode Colin, Ollie, Johanna and Lily hold a lively conversation
+  that dives into Web3 and the Metaverse. We ask the question “what is Web3.0”, and
+  explore what it means to be a decentralised technology. We discuss the Metaverse,
   Roblox and other virtual environments, and very briefly touch on NFTs. But for the
   most part, we talk about exploration and innovation.
 author: ceberhardt
