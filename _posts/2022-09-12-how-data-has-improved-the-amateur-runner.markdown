@@ -7,6 +7,7 @@ categories:
 tags:
 - Data
 - running
+- featured
 summary: 'As a keen amateur runner that somehow found themselves with a qualifying
   time to stand on the start line of the Great North Run with the Elite women, I take
   a look at the main ways data has aided my journey to that start line. '
