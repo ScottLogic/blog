@@ -1,11 +1,12 @@
 ---
-title: "RBS Tech Stock"
+title: RBS Tech Stock
+date: 2016-03-15 00:00:00 Z
 link: http://ante.scottlogic.com/events/rbs-tech-stock-3/
 guid: https://www.scottlogic.com/?post_type=events&p=4569
-eventDate: 2016-03-15
-pubDateTime: 2018-05-04 13:58:08 +0000
+eventDate: 2016-03-15 00:00:00 Z
+pubDateTime: 2018-05-04 13:58:08 Z
 speakers:
-  - Graham Odds
+- Graham Odds
 ---
 
 <p>The post <a rel="nofollow" href="http://ante.scottlogic.com/events/rbs-tech-stock-3/">RBS Tech Stock</a> appeared first on <a rel="nofollow" href="http://ante.scottlogic.com">Scott Logic</a>.</p>

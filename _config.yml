@@ -2,7 +2,7 @@
 title: Scott Logic Blog
 timezone: UTC
 collections:
-  events: 
+  events:
     title: Events
     output: true
   posts:
