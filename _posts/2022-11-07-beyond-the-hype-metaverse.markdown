@@ -1,5 +1,5 @@
 ---
-title: 'Beyond the Hype: Most-loved language – does Rust justify the hype?'
+title: 'Beyond the Hype: Is the Metaverse built on foundations of hype?'
 date: 2022-11-07 00:00:00 Z
 categories:
 - ceberhardt
@@ -8,7 +8,7 @@ tags:
 - featured
 contributors:
 - ocronk
-summary: In this Colin, Ollie, JOhannah and Lily hold a lively conversation that dives
+summary: In this Colin, Ollie, Johannah and Lily hold a lively conversation that dives
   into Web3 and the Metaverse. In our conversation we ask the question “what is Web3.0”,
   and explore what it means to be a decentralised technology. We discuss the Metaverse,
   Roblox and other virtual environments, and very briefly touch on NFTs. But for the
