@@ -18,13 +18,14 @@ summary: Performance improvements can be a daunting task. This post looks at som
 author: abarron
 ---
 
-# Introduction
-
 The performance of a system can increasingly feel like an afterthought, with faster and more powerful hardware becoming increasingly available. Of course, this comes at additional cost for our clients. What if we can avoid that extra expense? Where do we even start when it comes to diagnosing poor performance, especially in a system with multiple services? This is exactly the situation I found myself in recently during a client engagement.
 
 # Starting Point
 
-The system is deployed on Google Cloud Platform (GCP). Various parts of the system are deployed as Google Cloud Functions (GCFs) or as Kubernetes services through Google Kubernetes Engine (GKE). The system is a data pipeline. Some information comes in as part of a message. We process this and distribute it accordingly to various consumers interested in that message. This processing takes the form of various “hops” through the different microservices. The only performance metric we are interested in is the complete end-to-end time, from ingress to distribution.
+All of the things I'll discuss in this blog center around a software system we developed for a client. For the rest of the post to make sense, I'd like to give a brief overview of how it's structured.
+The system in question is a serverless data pipeline. Some information comes in as part of a message and is processed. We then distribute it accordingly to various consumers interested in that message. This processing takes the form of various “hops” through a range of services in the pipeline.
+These services are deployed on Google Cloud Platform (GCP). Individual parts of the system are deployed as Google Cloud Functions (GCFs), which are serverless functions triggered by some event, or as Kubernetes services through Google Kubernetes Engine (GKE).
+The only performance metric we are interested in is the complete end-to-end time for a message, from the moment it arrives to when it is distributed to our consumers.
 
 We already had some concepts in place to help track the journey of a message through the system. At various points, we use structured logging to log out (generally) helpful messages. As part of this defined structure each log message includes a correlation ID, generated for a given message when it first arrives. All logs related to this message will contain the same correlation ID. This made it easy to identify the time it took a specific message to get through the system, but did not offer an easy way to collect data at the scale needed to make informed decisions about performance.
 
@@ -36,7 +37,7 @@ As part of the suite of services GCP offers, you can create log based metrics. T
 
 When a message first arrives and receives its correlation ID, we also add a timestamp to the message. When this message gets all the way to the distribution stage, we log out another message to show that we’ve finished processing that message, including the time in milliseconds between that timestamp and the current time. This gives us an end-to-end time.
 
-### Metrics explorer
+## Metrics explorer
 
 Since this is a structured field guaranteed to be present on every message with the “finished processing” message, we can create a log-based metric based on this value. GCP will automatically let you view the results as a graph. These graphs will look something like this:
 
@@ -47,7 +48,7 @@ In our case, we can view this graph as a heatmap, showing how long various messa
 
 It is also worth noting that these log based metrics can also be used to create alerting policies in GCP. You could for example raise an alert if the system performance was below a certain speed for a given period of time.
 
-### Logs explorer
+## Logs explorer
 
 This end to end time also allowed us to identify and investigate messages that took a particularly long time. Through querying the GCP logs, we could easily filter on “finished processing” messages with an end to end time above a certain value. The [GCP Logging Query Language](https://cloud.google.com/logging/docs/view/logging-query-language) is straightforward to use and pretty powerful, making it easy to find specific logs you’re looking for.
 
