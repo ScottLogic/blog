@@ -38,6 +38,7 @@ active-authors:
     - hubinf
     - jarnstein
     - jbeckles
+    - jbickleywallace
     - jdunleavy
     - jgrant
     - jharris
@@ -678,6 +679,10 @@ authors:
         twitter-url: 'https://twitter.com/deworde'
         twitter-handle: deworde
         picture: picture.png
+    jbickleywallace:
+        name: 'Josh Bickley-Wallace'
+        author-summary: 'I''m a software engineer who also builds teams, children and sometimes houses.'
+        picture: picture.jpg
     tferguson:
         name: 'Tyler Ferguson'
         author-summary: '<p>I am a Developer at Scott Logic. I have a strong interest in front end development and the javascript ecosystem as a whole. I like most things to do with mathematics and chess.</p>'
