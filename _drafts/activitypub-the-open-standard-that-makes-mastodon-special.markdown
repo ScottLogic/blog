@@ -8,7 +8,7 @@ summary: After the recent acquisition of Twitter by Elon Musk, you may have hear
   someone mentioning Mastodon. Alongside other open source and decentralised social
   platforms, it is built on the top of ActivityPub specification. In this post I give
   an overview of ActivityPub, explain the idea of fediverse and share my personal
-  experiences using it.
+  user experiences.
 author: mgrabara
 ---
 
