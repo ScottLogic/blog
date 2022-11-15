@@ -7,7 +7,7 @@ summary: After the recent acquisition of Twitter by Elon Musk, you may have hear
   someone mentioning Mastodon. Alongside other open source and decentralised social
   platforms, it is built on the top of ActivityPub specification. In this post I give
   an overview of ActivityPub, explain the idea of fediverse and share my personal
-  user experiences.
+  experience as a participant.
 author: mgrabara
 ---
 
@@ -27,7 +27,7 @@ Mastodon, with its source code available under AGPL licence, has also been used 
 
 ## How does ActivityPub support platform federation?
 
-The key issue is to understand how the fediverse achieves seemingly contradictory goals: decentralisation, ease of use, ability to reach users across the whole network, freedom of expression and moderation. This is done on the protocol level. Most commonly used standards in the fediverse are Matrix, used specifically for real-time chat, voice and video solutions, and ActivityPub, a more general W3C standard used by the likes of Mastodon.
+The key issue is to understand how the fediverse achieves seemingly contradictory goals: decentralisation, ease of use, ability to reach users across the whole network, freedom of expression and moderation. This is done on the protocol level. Most commonly used standards in the fediverse are [Matrix](https://matrix.org/), used specifically for real-time chat, voice and video solutions, and ActivityPub, a more general W3C standard used by the likes of Mastodon.
 
 [As described by rolltime during her talk at HOPE 2022](https://youtu.be/vnciCz83t70), platform federation is a sweet spot between centralised and completely decentralised networks. Unlike a distributed ledger, used by many cryptocurrencies, it does not require each participant on the network to have a full copy of the history of network events. A server will not actively communicate directly with another one, unless a user of one server initiates it by engaging with a user on another one (it will still crawl the web for other instances and fetch a list of users from each, allowing an individual user to search others across the whole network).
 
@@ -45,7 +45,7 @@ Other than that, the overall experience is very similar to Slack and IRC. Due to
 
 It was also the HOPE conference, where I joined Mastodon, appropriately, at hackers.town instance. It is an invite-only server - [@TheGibson@hackers.town](https://hackers.town/@TheGibson), its owner and administrator, decides who can join and talks to prospective participants before letting them in. If you set up your own homeserver, you can decide if you allow anyone to sign up, or only the invitees. This is how you can manage your own online community and, of course, precious hardware resources.
 
-The most striking aspect of Mastodon, other than the lack of ads, is chronological timeline being the only option, and content warnings, or CWs. CWs are used for much more than what most people consider sensitive content. Many participants put every post (called a “toot”) behind a content warning. The origins of it come from the community understanding that each individual may find different kinds of content sensitive. Furthermore, it allows easier scrolling through posts one finds irrelevant. For example, as someone who does not live or vote in America, I can quickly scroll through posts hidden behind “USPOL” (US politics) warning, allowing me to easily navigate to content I find relevant.
+The most striking aspect of Mastodon, other than the lack of ads, is chronological timeline being the only option, and content warnings, or CWs. CWs are used for much more than what most people consider sensitive content. Many participants put every post (called a “toot”) behind a content warning. The origins of this practice come from the community understanding that each individual may find different kinds of content sensitive. Furthermore, it allows easier scrolling through posts one finds irrelevant. For example, as someone who does not live or vote in America, I can quickly scroll through posts hidden behind “USPOL” (US politics) warning, allowing me to easily navigate to content I find relevant.
 
 Mastodon users generally insist on being called “people” or “participants”, rather than users, emphasising the human nature of the network. My subjective observation of the demographics is that, at the moment, many more people I see in my feed belong to underrepresented gender and sexual minorities, compared to other platforms I use.
 
