@@ -63,6 +63,7 @@ active-authors:
     - mbuhagiar
     - mcooke
     - mdunsdon
+    - mgrabara
     - mking
     - mmcalroy
     - mmoxon
@@ -1187,4 +1188,8 @@ authors:
     jarnstein:
         name: 'Jack Arnstein'
         author-summary: 'I am a senior tester at Scott Logic with a passion for all things security related. In my spare time I enjoy board games with my family and friends. I also enjoy Lego with my eldest, as well as assisting my junior twin testers in their explorative testing of all things in the known world.'
+        picture: picture.jpeg
+    mgrabara:
+        name: 'Matt Grabara'
+        author-summary: 'I am a developer at Scott Logic since 2020 with background in economics and data science. My interest in decentralised communication drove me to obtain an amateur radio licence and prepare others for Amateur Radio Foundation exam. In my off-screen time I like travelling, learning languages and acrobatics and otherwise hanging upside down during circus classes. Attempting a handstand since May 2022.'
         picture: picture.jpeg
