@@ -16,7 +16,7 @@ author: ocronk
 
 I recently attended the [Intersection 22 Conference](https://intersection.group/events/intersection22) in Stockholm where EDGY was previewed. EDGY is a new graphical design language for visualising enterprises. This new open source design language shows great promise as a tool to bridge across silo’d teams. Redefining Enterprise Architecture into a more holistic, cross functional form of “Enterprise Design” that drives shared understanding. Note that EDGY is planned to be fully released to the public in early 2023 and as this blog is based on the preview version some of the details are subject to change prior to its public version one release.
 
-So who are the [Intersection Group](https://intersection.group)? They are an international not for profit organisation that encourages cross functional collaboration (hence the name Intersection - intersection between disciplines). Before diving into EDGY - which stands for Enterprise Design Graphical interplaY -  it is worth covering the first word: *enterprise *and how Intersection defines it:
+So who are the [Intersection Group](https://intersection.group)? They are an international not for profit organisation that encourages cross functional collaboration (hence the name Intersection - intersection between disciplines). Before diving into EDGY - which stands for Enterprise Design Graphical interplaY -  it is worth covering the first word: \*enterprise \*and how Intersection defines it:
 
 > **An enterprise is an endeavour of people with a shared ambition.**
 
@@ -27,7 +27,7 @@ So with that out of the way, back to EDGY. Lets kick off with the  fundamentals 
 
 ![Intersection-Silos.PNG](/uploads/Intersection-Silos.PNG)
 
-The facet elements shown in the visual above are **Identity **(top left in green), **Architecture **(top right in blue) and **Experience** (bottom in red). The sailing boat in the middle is the enterprise navigating it way around these facets ( in reference to the enterprise definition in the previous paragraph).
+The facet elements shown in the visual above are **Identity** (top left in green), **Architecture** (top right in blue) and **Experience** (bottom in red). The sailing boat in the middle is the enterprise navigating it way around these facets ( in reference to the enterprise definition in the previous paragraph).
 
 **Identity** is all about why the organisation exists and what really matters to it. The beliefs, messages and purpose that make up the shared identity of the organisation.
 
@@ -35,7 +35,7 @@ The facet elements shown in the visual above are **Identity **(top left in green
 
 **Experience** is the role of the organisation in people’s lives. The value created for people including the tasks, journeys and the channels used for those interactions.
 
-Intersection believes that these areas are often separate siloed considerations and often totally teams thinking about these different aspects. Often these facets and teams lack common ground and understanding: “Instead of separate design discipline silos focusing on certain elements only – brand, product, organisation, capability, process, information or technology – we need to consistently interconnect existing disciplines and the design **elements **they usually deal with.”
+Intersection believes that these areas are often separate siloed considerations and often totally teams thinking about these different aspects. Often these facets and teams lack common ground and understanding: “Instead of separate design discipline silos focusing on certain elements only – brand, product, organisation, capability, process, information or technology – we need to consistently interconnect existing disciplines and the design \*\*elements \*\*they usually deal with.”
 
 > "What is needed is an Enterprise Design practice that enables us to design enterprises through three coherent facets: identity, experience and architecture. By overcoming the biases and limited horizons of isolated perspectives and looking at their intersections, we can co-design the enterprise in a disciplined, structured and holistic way to deliver on its underlying purpose."
 
@@ -48,6 +48,8 @@ Whilst on the surface EDGY can seem very simple - perhaps just a very well thoug
 As shown in the picture above the overlap between the different facets is where Organisation, Brand and Product arise. The intersection between identify and architecture gives rise to the organisation - most obviously the organisation structure.  The intersection between identity and experience creates brand (both the internal employer brand and the brand seen by the customer. Finally Architecture and experience defines the products (or services) that the organisation provides to its customers and stakeholders.
 
 There are more detailed definitions of what sits below these but if I am honest there might be a case for some of the more detailed views being defined by existing modelling standards? There is a danger of reinventing the wheel by taking the model too far down. I think the core value of EDGY comes from creating high level alignment between teams. The diagram below gives a high level overview of the next level down shapes and definitions:
+
+![intersection-elements-white.PNG](/uploads/intersection-elements-white.PNG)
 
 Whilst any new diagramming style or format is likely to attract feedback and criticism the intentions behind EDGY are for it to solve genuine problems in communicating and collaborating across complex organisations. Too often diagrams are overly domain or role specific making them hard for non specialists to penetrate and understand. In a world that's ever changing, getting increasingly complex and is often polarised having a tool to create shared understanding and consensus is surely welcome? I believe getting a pragmatic balance between creating a shared understanding and not reinventing the wheel is going to be key in the practical application of EDGY in organisations.
 
