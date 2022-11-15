@@ -1,9 +1,11 @@
 ---
 title: ActivityPub - the open standard that makes Mastodon special
 date: 2022-11-15 11:15:00 Z
+summary: Controversies around Elon Musks’ Twitter takeover sparked questions about
+  the alternatives to big-tech-run social media. Debate about decentralised internet
+  is back in the mainstream and focuses on “the fediverse”, most of which is based
+  on ActivityPub specification.
 ---
-
-Controversies around Elon Musks’ Twitter takeover sparked questions about the alternatives to big-tech-run social media. Debate about decentralised internet is back in the mainstream and focuses on “the fediverse”.
 
 The fediverse, or federated social media, started gaining attention and users. In the last couple of weeks, Mastodon, the most successful one, received coverage from global news outlets, such as [BBC](https://www.bbc.co.uk/news/technology-63534240) and [Al Jazeera](https://www.aljazeera.com/economy/2022/11/7/can-mastodon-be-a-twitter-alternative). While the awareness of the platform is increasing, little is being discussed about its underlying protocol, [ActivityPub, a W3C standard for federated platforms](https://www.w3.org/TR/activitypub/).
 
