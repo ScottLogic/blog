@@ -23,13 +23,14 @@ So who are the [Intersection Group](https://intersection.group)? They are an int
 > **An enterprise is an endeavour of people with a shared ambition.**
 
 This (intentionally) simple statement is backed up by the following rationale:
-"Enterprises are structured using various organisation forms, such as companies, associations, groups of companies, departments, institutes, etc. and consist of people performing activities, building and using structures to achieve a set of outcomes. As such, an enterprise is similar to a sailing boat people can use to navigate towards their shared purpose across the ocean which is our global society. It is meant to be efficient whilst providing enough flexibility to change course when needed to avoid obstacles and dangers."
+
+>"Enterprises are structured using various organisation forms, such as companies, associations, groups of companies, departments, institutes, etc. and consist of people performing activities, building and using structures to achieve a set of outcomes. As such, an enterprise is similar to a sailing boat people can use to navigate towards their shared purpose across the ocean which is our global society. It is meant to be efficient whilst providing enough flexibility to change course when needed to avoid obstacles and dangers."
 
 So with that out of the way, back to EDGY. Lets kick off with the  fundamentals - which are it's Enterprise design facet elements:
 
 ![Intersection-Silos.PNG](/uploads/Intersection-Silos.PNG)
 
-The facet elements shown in the visual above are **Identity** (top left in green), **Architecture** (top right in blue) and **Experience** (bottom in red). The sailing boat in the middle is the enterprise navigating it way around these facets ( in reference to the enterprise definition in the previous paragraph).
+The facet elements shown in the visual above are **Identity** (top left in green), **Architecture** (top right in blue) and **Experience** (bottom in red). The sailing boat in the middle is the enterprise navigating around these facets ( in reference to the enterprise definition in the previous paragraph).
 
 **Identity** is all about why the organisation exists and what really matters to it. The beliefs, messages and purpose that make up the shared identity of the organisation.
 
