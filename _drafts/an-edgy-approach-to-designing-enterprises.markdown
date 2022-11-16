@@ -18,7 +18,7 @@ author: ocronk
 
 I recently attended the [Intersection 22 Conference](https://intersection.group/events/intersection22) in Stockholm where EDGY was previewed. EDGY is a new graphical design language for visualising enterprises. This new open source design language shows great promise as a tool to bridge across siloed teams. Redefining Enterprise Architecture into a more holistic, cross functional form of “Enterprise Design” that drives shared understanding. Note that EDGY is planned to be fully released to the public in early 2023 and as this blog is based on the preview version some of the details are subject to change prior to its public version one release.
 
-So who are the [Intersection Group](https://intersection.group)? They are an international not for profit organisation that encourages cross functional collaboration (hence the name Intersection - intersection between disciplines). Before diving into EDGY - which stands for Enterprise Design Graphical interplaY -  it is worth covering the first word: *enterprise* and how Intersection defines it:
+So who are the [Intersection Group](https://intersection.group)? They are an international not for profit organisation that encourages cross functional collaboration (hence the name Intersection - intersection between disciplines). Before diving into EDGY - which stands for Enterprise Design Graphical interplaY -  it is worth covering the first word: **enterprise** and how Intersection defines it:
 
 > **An enterprise is an endeavour of people with a shared ambition.**
 
