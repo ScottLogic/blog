@@ -582,7 +582,7 @@
   - /2016/03/08/interaction16.html
 /2016/05/26/big-data-logging-elk-stack.html:
   - /2014/12/19/elk-3-things-i-wish-id-known.html
-  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+  - /2022/11/15/diagnosing-slow-performance-in-a-microservice-pipeline.html
 /2016/05/30/writing-a-docker-volume-plugin.html:
   - /2016/09/05/hosting-netcore-on-linux-with-docker.html
   - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
@@ -1577,7 +1577,7 @@
   - /2019/11/18/drawing-lines-with-webgl.html
   - /2020/04/16/which-webgl-drawing-call-should-i-use.html
 /2019/11/28/email-digests-with-elasticsearch-via-a-serverless-architecture.html:
-  - /2016/05/26/big-data-logging-elk-stack.html
+  - /2022/11/15/diagnosing-slow-performance-in-a-microservice-pipeline.html
   - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
 /2019/12/02/Search-Data-Visualisation.html:
   - /2017/01/10/efficient-svg-layout-with-d3.html
@@ -2004,7 +2004,7 @@
   - /2020/01/16/mapping-the-cloud-atlas.html
 /2021/03/11/Digital-Identity.html:
   - /2017/09/05/scaling-agile-in-the-public-sector.html
-  - /2017/08/07/evolving-the-agile-revolution.html
+  - /2021/01/11/Open-Finance.html
 /2021/03/15/the-inside-track-how-established-talent-is-recruited-by-scott-logic.html:
   - /2021/03/15/the-inside-track-six-steps-to-graduate-programme-success.html
   - /2018/12/21/joining-with-a-phd.html
@@ -2033,8 +2033,8 @@
   - /2018/12/14/automation-and-bots-for-open-source.html
   - /2020/01/16/mapping-the-cloud-atlas.html
 /2021/04/28/look-up.html:
-  - /2020/05/15/beyond-covid.html
   - /2019/08/19/three-year-journey.html
+  - /2018/12/21/joining-with-a-phd.html
 /2021/05/24/is-officeless-to-business-agility-what-serverless-is-to-compute-agility.html:
   - /2020/10/06/let-machines-talk-to-machines.html
   - /2017/06/27/continuous-change-culture.html
@@ -2186,8 +2186,8 @@
   - /2016/05/18/make-banking-talk.html
   - /2017/10/28/serverless-javascript.html
 /2022/03/08/beyond-the-hype-microservices.html:
-  - /2022/02/28/teaser.html
   - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2020/02/26/fostering-a-devops-culture.html
 /2022/03/08/international-womens-day.html:
   - /2022/01/05/new-normal-for-leadership.html
   - /2020/03/06/international-women-s-day-2020.html
@@ -2247,7 +2247,7 @@
   - /2019/12/13/debunking-cloud-myths.html
 /2022/07/15/putting-your-machine-data-to-use-with-splunk.html:
   - /2016/05/26/big-data-logging-elk-stack.html
-  - /2018/04/17/comparing-big-data-messaging.html
+  - /2022/11/15/diagnosing-slow-performance-in-a-microservice-pipeline.html
 /2022/08/01/beyond-the-hype-most-loved-language-does-rust-justify-the-hype.html:
   - /2018/02/27/webassembly-death-of-javascript.html
   - /2018/12/14/automation-and-bots-for-open-source.html
@@ -2275,6 +2275,21 @@
 /2022/11/01/how-to-avoid-the-meeting-vortex.html:
   - /2022/02/18/reminiscence-of-a-scrum-master-part-v.html
   - /2017/06/27/continuous-change-culture.html
+/2022/11/07/beyond-the-hype-metaverse.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2019/12/13/debunking-cloud-myths.html
+/2022/11/15/activitypub-the-open-standard-that-makes-mastodon-special.html:
+  - /2022/10/31/can-web3-beat-the-cloud.html
+  - /2019/11/26/webassembly-on-the-blockchain.html
+/2022/11/15/an-edgy-approach-to-designing-enterprises.html:
+  - /2020/10/01/open-your-eyes-to-apis.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+/2022/11/15/diagnosing-slow-performance-in-a-microservice-pipeline.html:
+  - /2016/05/26/big-data-logging-elk-stack.html
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+/2022/11/18/why-you-should-get-the-right-people-in-the-room-from-the-start.html:
+  - /2021/06/08/digital-government-looking-back-and-looking-forward.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
 /26/08/2014/StrongTypingWithAngularJS.html:
   - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
   - /2014/08/08/signalr-typed.html
