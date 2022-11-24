@@ -1,9 +1,16 @@
 ---
 title: An introduction to Markdown
 date: 2022-11-24 16:28:00 Z
-author: Charlie Olive
+categories:
+- colive
+- Tech
+tags:
+- language
+- documentation
+- guides
 summary: A brief overview of the creation, workings and application of the markup
   language Markdown
+author: Charlie Olive
 category: Tech
 ---
 
