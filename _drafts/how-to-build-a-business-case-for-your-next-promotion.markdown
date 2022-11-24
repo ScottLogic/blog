@@ -1,36 +1,48 @@
 ---
-title: How to build a business case for your next promotion
+title: How to build a business case for your next promotion - Part One
 date: 2022-11-24 14:42:00 Z
+tags:
+- women in tech
+- wosr
 ---
 
 For over a decade, the representation of women at senior levels has been on the agenda in the corporate world, and yet women are still underrepresented in UK businesses – with women occupying only 30% of management roles. 
 
-That number is worse still in the tech industry, with women occupying just 5% of the top jobs. There are many reasons why women struggle to advance their careers in tech, but this session will give you practical tools to put you in charge of your next move.
+That number is worse still in the tech industry, with women occupying just 5% of the top jobs. 
 
-Hello and welcome to today's workshop on ‘How to build a business case for building a promotion’ We are delighted that so many of you signed up and we have a full house.
-My name is Anna Caulfield and this is my colleague Jess MCEvoy. We are both Delivery Principles at Scott Logic. We are your hosts for today's session.  This workshop is going to be very collaborate and informal. We will have questions at the end of the session. If you want to scan the barcode to submit these as we go, it can be found on xxx. We can also go round the room.
+This week I attended 'Women of Silicon Roundabout'. The UK's largest tech event for women. There are so many words to describe how fabulous it was to be surrounded by so many other women in my industry. A few that stand out for me are; passionate, curious, intelligent, powerful and driven.
 
-Today is going to start with a little insight into our careers so far, and some key learnings we would like to share with you
-First of all, you can see this is not a straight up line… I’ve had ups and downs and sideways moves, like everyone here I expect. 
+Jess MCEvoy and I delivered a workshop on 'How to build a business case for your next promotion' 
+
+It was clearly a subject of huge interest with more than 100 women attending. So I wanted to share some of the content more widely. 
+
+1. Learnings form my career to date:
+
+![career graph.png](/uploads/career%20graph.png)
+
+As you can see this is not a straight up line. I’ve had ups and downs and sideways moves. 
 
 The vertical axis shows where I felt my career level was in terms of seniority and progression - not necessarily reflected in the title or position itself.
 
-I would like to highlight a few key areas:
+**Find your people and your place**
 
-
-Find your people and your place - one of my first jobs…. I couldn’t trust this organisation, I couldn’t be part of it. The way they handled a challenging member of staff resulted in instant dismissal. In short, she was my account executive and it transpired she was earning a lot more than me yet at in an entry level role didn’t think this was fair, and she was challenging me on my ability in 1-2-1s. But rather than course correct the salary they fired her immediately,
+One of my first jobs in London having re-located. I couldn’t trust this organisation, I couldn’t be part of it. The way they handled a challenging member of staff resulted in instant dismissal. In short, she was my account executive and it transpired she was earning a lot more than me yet at in an entry level role. I didn’t think this was fair and wondered if it was because I was new to the London job market ]. She challenged me on my ability to do my role in our 1-2-1s rather than focusing on her own development. But rather than course correct my salary, or give a justification, they fired her immediately. I was horrified.
 
 With more experience under my belt, I now understand that seniority doesn’t necessarily mean higher salary. Working in multi-disciplinary teams - you cannot compare and really shouldn’t. But the situation exposed me to a place where I didn’t like the culture or the people. 
 
-Mistakes can create opportunities… I suffered what I thought at the time was an impossible to recover from set back, but actually it led me to a whole new sector that felt way more like home and also moved me away from the “finger of blame” culture. I wanted to be where people would help me learn, not ridicule or blame.
+**Mistakes can create opportunities**
 
-In short, I was working on an Annual Report, and It was printed with the wrong phone number - despite it being signed off by all the stakeholder. I was devastated at the time, but learned so much from the situation.
+I suffered what I thought at the time was an impossible to recover from setback, but actually it led me to a whole new sector that felt way more like home and also moved me away from the “finger of blame” culture. I wanted to be where people would help me learn, not ridicule or blame.
 
-Being invested in made me thrive- I found a place filled with female and male role models I could learn directly from and aspire to be like, they taught me a huge amount and were pivotal in my career. I was empowered and had a really clear purpose.
+I was working on an Annual Report, and It was printed with the wrong phone number - despite it being signed off by all the stakeholders. I was devastated at the time, but learned so much from the situation. I turned my back on design for print - it was too 'final' for me. I wanted to focus on Digital and technology. 
 
-Life happens - I moved towns, I had children, my life and career were moving at different speeds. The opportunities in my new city were very limited and I had to take a 50% pay cut and demotion - for the first time in my career I felt trapped in a job I didn’t feel I could excel in. I didn’t feel like my workplace understood or empathised with my new family lifestyle.
+**Being invested in made me thrive**
+I found a place filled with female and male role models I could learn directly from and aspire to be like. They taught me a huge amount and were pivotal in my career. I was empowered and had a really clear purpose.
 
-	When I was pregnant I was ridiculed for the impact it would have on my life. It was only when there was a ‘baby boom’ in the      office that things started to change for the better. 
+**Life happens**
+I moved towns, I had children, my life and career were moving at different speeds. The opportunities in my new city were very limited and I had to take a 50% pay cut and demotion - for the first time in my career I felt trapped in a job I didn’t feel I could excel in. I didn’t feel like my workplace understood or empathised with my new family lifestyle.
+
+When I was pregnant I was ridiculed for the impact it would have on my life. It was only when there was a ‘baby boom’ in the      office that things started to change for the better. 
 
 I didn’t stand still. I re- focussed and took my time to find an organisation that matched my values. This was Virgin Money ‘Everybody Better Off’ which I now take with me IN LIFE 
 
@@ -41,12 +53,7 @@ I didn’t stand still. I re- focussed and took my time to find an organisation 
 
 
 
-Career highlights
-5 mins
 
-To be static on the screen throughout
-
-So you are all here today because you want to get promoted!
 
 Focus on 4 key steps to help guide you through a framework to use. 
 
