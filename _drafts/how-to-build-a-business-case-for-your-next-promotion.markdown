@@ -44,7 +44,7 @@ I moved towns, I had children, my life and career were moving at different speed
 
 When I was pregnant I was ridiculed for the impact it would have on my life. It was only when there was a ‘baby boom’ in the      office that things started to change for the better. 
 
-I didn’t stand still. I re- focussed and took my time to find an organisation that matched my values. This was Virgin Money ‘Everybody Better Off’ which I now take with me IN LIFE 
+I didn’t stand still. I re- focussed and took my time to find an organisation that matched my values. This was Virgin Money ‘Everybody Better Off’ which I now take with me eveywhere I go. 
 
 
 
