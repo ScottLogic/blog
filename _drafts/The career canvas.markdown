@@ -1,5 +1,5 @@
 ---
-title: How to build a business case for your next promotion - Part One
+title: Taking control of my career - The career canvas
 date: 2022-11-24 14:42:00 Z
 tags:
 - women in tech
@@ -16,7 +16,7 @@ Jess MCEvoy and I delivered a workshop on 'How to build a business case for your
 
 It was clearly a subject of huge interest with more than 100 women attending. So I wanted to share some of the content more widely. 
 
-1. Learnings form my career to date:
+Learnings form my career to date:
 
 ![career graph.png](/uploads/career%20graph.png)
 
@@ -44,35 +44,36 @@ I moved towns, I had children, my life and career were moving at different speed
 
 When I was pregnant I was ridiculed for the impact it would have on my life. It was only when there was a ‘baby boom’ in the      office that things started to change for the better. 
 
-I didn’t stand still. I re- focussed and took my time to find an organisation that matched my values. This was Virgin Money ‘Everybody Better Off’ which I now take with me eveywhere I go. 
+**I didn’t stand still.**
+I re- focussed and took my time to find an organisation that matched my values. This was Virgin Money ‘Everybody Better Off’ which I now take with me eveywhere I go. 
 
 I recently joined Scott Logic, and to help me choose the best fit company for me that was going to fulfill my needs and aspirations, I followed this simple framework.
 ![Screenshot 2022-11-25 124842.png](/uploads/Screenshot%202022-11-25%20124842.png)
 
-Start with asking yourself ‘Why?’.
+**Start with asking yourself ‘Why?’.
+**
 
 What are your motivations to do this. By asking yourself why you start a process of growth and discovery.
 
  > “You don’t hire for skills you hire for attitude, you can always teach skills”> 
   Start with Why, Simon Sinek)
-We’re not going to work on your why today - we only have 60 mins and this is something that can take some time and is a personal journey. But we want to emphasize that understanding these things are key contributors to making successful moves.
 
-We are then going to look at a tool to help you map who you are, your skills and experience and how you operate. The purpose of this is to give you self awareness, identify strengths and weaknesses and draw out gaps that you have. It’s the building block to your business case. Its something I recently created when thinking about my next role
+**Map yourelf**
+
+I created a 'career canvas' to help me map who I am. Drawing inspiration from a well used framework in business called the ‘Business Model Canvas ’. The purpose of this is to give you self awareness, identify strengths and weaknesses and draw out gaps that you have. It’s the building block to your business case. 
+
+**Know your direction
+**
 Think about the direction you want to go in - identify your goals - again this is something that you need to think about when you leave today
-An example business case
-Drawing inspiration from a well used framework in business called the ‘Business Model Canvas ’
 
-Our Career canvas will help you recognise and act on areas that can be improved. It’s designed to give you focus and self awareness. It also reveals clear paths on which to build your career in a way that fulfills you and your needs and ambition. 
+**Build your case
+**
+
+![Screenshot 2022-11-25 141537.png](/uploads/Screenshot%202022-11-25%20141537.png)
+
+The Career canvas will help you recognise and act on areas that can be improved. It’s designed to give you focus and self awareness. It also reveals clear paths on which to build your career in a way that fulfills you and your needs and ambition. 
 
 This is a framework guide, and the questions can be interpreted in different ways. And that’s okay. 
-
-To help give you context - I will walk you through my example and how to use it. 
-
-We will then break out into small groups so you can have a go yourselves.
-
-
-
-The words are just examples - it’s the themes that are important.
 
 Where there is significant variance between say what you do all day versus what you’re interested in or your skills are, then this tells you either that you have some areas to focus on developing or, you’re in the wrong job.
 
@@ -82,11 +83,8 @@ Sacrifices - this is about identifying your red lines. It’s not a commentary a
 
 Look at the items you list in what motivates you, and see if your key activities in your role support or hinder your motivations.
 
-
-When I was wanting to make my next move - I created and completed  this framework.
 I researched the companies I was interested in and overlayed their values.
 It helped me Narrow down choices/ stack rank
 
 
-Please now break into your individual tables and have a go and completing the canvas, You have 15 mins, help yourself to sticky notes and pens. This won’t give you your own canvas to take away - but will help you see others views and opinions etc…
 
