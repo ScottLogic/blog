@@ -46,18 +46,15 @@ When I was pregnant I was ridiculed for the impact it would have on my life. It 
 
 I didn’t stand still. I re- focussed and took my time to find an organisation that matched my values. This was Virgin Money ‘Everybody Better Off’ which I now take with me eveywhere I go. 
 
+I recently joined Scott Logic, and to help me choose the best fit company for me that was going to fulfill my needs and aspirations, I followed this simple framework.
+![Screenshot 2022-11-25 124842.png](/uploads/Screenshot%202022-11-25%20124842.png)
 
+Start with asking yourself ‘Why?’.
 
+What are your motivations to do this. By asking yourself why you start a process of growth and discovery.
 
-
-
-
-
-
-
-Focus on 4 key steps to help guide you through a framework to use. 
-
-Start with asking yourself ‘Why?’. What are your motivations to do this. By asking yourself why you start a process of growth and discovery. (Quote: “You don’t hire for skills you hire for attitude, you can always teach skills”   Start with Why, Simon Sinek)
+ > “You don’t hire for skills you hire for attitude, you can always teach skills”> 
+  Start with Why, Simon Sinek)
 We’re not going to work on your why today - we only have 60 mins and this is something that can take some time and is a personal journey. But we want to emphasize that understanding these things are key contributors to making successful moves.
 
 We are then going to look at a tool to help you map who you are, your skills and experience and how you operate. The purpose of this is to give you self awareness, identify strengths and weaknesses and draw out gaps that you have. It’s the building block to your business case. Its something I recently created when thinking about my next role
