@@ -22,7 +22,7 @@ Learnings form my career to date:
 
 As you can see this is not a straight up line. I’ve had ups and downs and sideways moves.
 
-The vertical axis shows where I felt my career level was in terms of seniority and progression - not necessarily reflected in the title or position itself.
+The vertical axis shows where I felt my career level was in terms of seniority and progression – not necessarily reflected in the title or position itself.
 
 ## Find your people and your place
 
