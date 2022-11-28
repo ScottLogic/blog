@@ -4,6 +4,7 @@ date: 2022-11-24 14:42:00 Z
 tags:
 - women in tech
 - wosr
+author: acaulfield
 ---
 
 For over a decade, the representation of women at senior levels has been on the agenda in the corporate world, and yet women are still underrepresented in UK businesses – with women occupying only 30% of management roles.
@@ -53,8 +54,7 @@ I re-focused and took my time to find an organisation that matched my values. Th
 I recently joined Scott Logic, and to help me choose the best fit company for me that was going to fulfill my needs and aspirations, I followed these steps
 ![Screenshot 2022-11-25 124842.png](/uploads/Screenshot%202022-11-25%20124842.png)
 
-\*\*Start with asking yourself ‘Why?’.
-\*\*
+## Start with asking yourself ‘Why?’
 
 What are your motivations to do this. By asking yourself why you start a process of growth and discovery.
 
@@ -65,13 +65,11 @@ What are your motivations to do this. By asking yourself why you start a process
 
 I created a 'career canvas' to help me map who I am. Drawing inspiration from a well used framework in business called the ‘Business Model Canvas ’. The purpose of this is to give you self awareness, identify strengths and weaknesses and draw out gaps that you have. It’s the building block to your business case.
 
-\*\*Know your direction
-\*\*
+## Know your direction
 
 Think about the direction you want to go in - identify your goals - again this is something that you need to think about when you leave today
 
-\*\*Build your case
-\*\*
+## Build your case
 
 ![Screenshot 2022-11-25 141537.png](/uploads/Screenshot%202022-11-25%20141537.png)
 
