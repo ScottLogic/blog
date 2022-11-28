@@ -97,4 +97,4 @@ This is my canvas with the Scott Logic values overlayed:
 
 The career canvas is just one of the building blocks to help you build your business case for your next promotion. Companies use lots of different frameworks and I think these should be very transparent. Once you have put the thought into the canvas the case should be easy to write. The next step is then preparing for your interview.
 
-Ends.
+You can download here a printable version of the Career Canvas – I hope you find it helpful.
