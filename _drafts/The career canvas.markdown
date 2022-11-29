@@ -8,10 +8,9 @@ tags:
 - wosr
 summary: Last week I attended 'Women of Silicon Roundabout' - the UK's largest tech
   event for women. Jess McEvoy and I delivered a workshop on 'How to build a business
-  case for your next promotion'. It was clearly a subject of huge interest with more
-  than 100 women attending so I wanted to share some of the content more widely, including
-  a Career Canvas tool for mapping out your goals and motivations, and to help you
-  build your business case.
+  case for your next promotion'. I wanted to share some of the content more widely,
+  including a Career Canvas tool for mapping out your goals and motivations, and to
+  help you build your business case.
 author: 'acaulfield
 
 '
@@ -33,7 +32,7 @@ I recently joined Scott Logic, and to help me choose the best fit company for me
 
 What are your motivations to do this? By asking yourself why, you start a process of growth and discovery.
 
-> “You don’t hire for skills you hire for attitude, you can always teach skills.” \
+> “You don’t hire for skills you hire for attitude, you can always teach skills.”
 > *Start with Why*, Simon Sinek
 
 ## Map yourself
