@@ -1,17 +1,6 @@
 ---
-title: Taking control of my career - The Career Canvas
-date: 2022-11-24 14:42:00 Z
-categories:
-- People
-tags:
-- women in tech
-- wosr
-summary: 'Last week I attended 'Women of Silicon Roundabout' - the UK's largest tech
-  event for women. Jess McEvoy and I delivered a workshop on 'How to build a business
-  case for your next promotion'. I wanted to share some of the content more widely,
-  including a Career Canvas tool for mapping out your goals and motivations, and to
-  help you build your business case.'
-author: acaulfield
+title: The Career Canvas
+date: 2022-11-29 19:47:05.552000000 Z
 ---
 
 For over a decade, the representation of women at senior levels has been on the agenda in the corporate world, and yet women are still underrepresented in UK businesses – with women occupying only 30% of management roles.
