@@ -29,21 +29,22 @@ I recently joined Scott Logic, and to help me choose the best fit company for me
 
 ![Screenshot 2022-11-25 124842.png](/uploads/Screenshot%202022-11-25%20124842.png)
 
-**Start with asking yourself ‘Why?’.**
+## Start with asking yourself ‘Why?’
 
 What are your motivations to do this? By asking yourself why, you start a process of growth and discovery.
 
-“You don’t hire for skills you hire for attitude, you can always teach skills” *Start with Why, Simon Sinek*
+> “You don’t hire for skills you hire for attitude, you can always teach skills.” \
+> *Start with Why*, Simon Sinek
 
-**Map yourself**
+## Map yourself
 
 I created a 'career canvas' to help me map who I am drawing inspiration from a well-used framework in business called the ‘Business Model Canvas . The purpose of this is to give you self-awareness, identify strengths and weaknesses, and draw out gaps that you have. It’s the building block to your business case.
 
-**Know your direction**
+## Know your direction
 
-Think about the direction you want to go in - identify your goals.
+Think about the direction you want to go in – identify your goals.
 
-**Build your case**
+## Build your case
 
 ![Screenshot 2022-11-25 141537.png](/uploads/Screenshot%202022-11-25%20141537.png)
 
@@ -51,11 +52,11 @@ The Career canvas helped me recognise and act on areas that can be improved. It�
 
 This is a framework guide, and the questions can be interpreted in different ways. And that’s okay.
 
-Where there is significant variance between say what you do all day versus what you’re interested in or your skills are, then this tells you either that you have some areas to focus on developing - you’re in the wrong job.
+Where there is significant variance between say what you do all day versus what you’re interested in or your skills are, then this tells you either that you have some areas to focus on developing – you’re in the wrong job.
 
 The difference between 'Who helps you succeed' versus 'What do others gain from you' shows where I need to expand my area of influence and spend time with some new people.
 
-Sacrifices - this is about identifying your red lines. It’s not a commentary about your choices. It’s about understanding that if there is pressure on something, like job title, salary, remote or in-person, travel etc  that you understand where you feel you can be flexible (if at all) and where you can’t. It's personal, there is no right or wrong. But this is about having thought ahead of time, so you aren’t having to answer on the fly or be put on the spot. It's also about thinking about what you sacrifice now and what you are looking to change in that list.
+Sacrifices – this is about identifying your red lines. It’s not a commentary about your choices. It’s about understanding that if there is pressure on something, like job title, salary, remote or in-person, travel etc  that you understand where you feel you can be flexible (if at all) and where you can’t. It's personal, there is no right or wrong. But this is about having thought ahead of time, so you aren’t having to answer on the fly or be put on the spot. It's also about thinking about what you sacrifice now and what you are looking to change in that list.
 
 Look at the items you list in 'What motivates you' and see if your key activities in your role support or hinder your motivations.
 
