@@ -101,6 +101,7 @@ active-authors:
     - xchen
     - zrubin
     - zwali
+    - colive
 authors:
     aaiken:
         name: 'Andy Aiken'
@@ -108,7 +109,7 @@ authors:
     asegrove:
         name: 'Alex Segrove'
         picture: picture.jpg
-        author-summary: "Hi, I'm Alex - Delivery Manager based in the London office. I spent the last few years in the Government Digital Service heading up delivery for GOV.UK, Digital Identity and Government Data policy, then worked with governments around the world to help them with their own digital transformation."
+        author-summary: 'Hi, I''m Alex - Delivery Manager based in the London office. I spent the last few years in the Government Digital Service heading up delivery for GOV.UK, Digital Identity and Government Data policy, then worked with governments around the world to help them with their own digital transformation.'
     bpritchard:
         name: 'Beth Pritchard'
         email: bpritchard@scottlogic.com
@@ -129,12 +130,12 @@ authors:
         twitter-handle: aaylett
         picture: picture.jpg
     abarron:
-        name: "Adam Barron"
+        name: 'Adam Barron'
         email: abarron@scottlogic.com
-        author-summary: "I'm a developer at Scott Logic in Newcastle. I've found myself primarily writing Typescript for Cloud Services, with a bit of .NET on the side. I can also be found playing various video games and enjoying loud live music."
-        feed-description: "Adam's experiences and thoughts living and working in the world of tech."
+        author-summary: 'I''m a developer at Scott Logic in Newcastle. I''ve found myself primarily writing Typescript for Cloud Services, with a bit of .NET on the side. I can also be found playing various video games and enjoying loud live music.'
+        feed-description: 'Adam''s experiences and thoughts living and working in the world of tech.'
         picture: abarron-crop.jpg
-        twitter-url: "https://twitter.com/awbarron"
+        twitter-url: 'https://twitter.com/awbarron'
         twitter-handle: AWBarron
     acarr:
         feed-description: 'Andrew''s thoughts on technology'
@@ -418,7 +419,7 @@ authors:
         picture: picture.png
     jmcevoy:
         name: 'Jessica McEvoy'
-        author-summary: "I'm a Principal at Scott Logic. Ex-Senior Civil Servant, formerly of GDS, Cabinet Office."
+        author-summary: 'I''m a Principal at Scott Logic. Ex-Senior Civil Servant, formerly of GDS, Cabinet Office.'
         picture: picture.jpg
     jphillpotts:
         name: 'James Phillpotts'
@@ -540,7 +541,7 @@ authors:
     osharon:
         name: 'Oded Sharon'
         author-summary: '<p>I am a developer at Scott Logic, Edinburgh. <a href="https://github.com/odedshr"> Find me on Github </a> </p>'
-        picture: picture.jpg        
+        picture: picture.jpg
     pshek:
         name: 'Paulin Shek'
         author-summary: '<p>Paulin is a  Java developer at Scott Logic. When she''s not programming, she can be found doing cryptic crosswords and climbing small rocks.</p>'
@@ -1196,3 +1197,9 @@ authors:
         name: 'Anna Caulfield'
         author-summary: 'I''m a Delivery Principal at Scott Logic. Ex- Virgin Money, Telegraph Media Group. Regular at Glastonbury Festival, Mum of two and a crazy sausage dog owner.'
         picture: picture.jpeg
+    colive:
+        name: 'Charlie Olive'
+        email: colive@scottlogic.com
+        author-summary: 'Associate (primarily Java) developer learning how to create all-sorts'
+        twitter-handle: null
+        picture: unnamed2.jpg
