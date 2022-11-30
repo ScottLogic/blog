@@ -4,12 +4,12 @@ active-authors:
     - abarron
     - abirch
     - acarr
+    - acaulfield
     - ahickman
     - alee
     - amjones
     - asegrove
     - ashing
-    - aternar
     - awhitmell
     - bpritchard
     - bquinn
@@ -34,9 +34,10 @@ active-authors:
     - hashbyha
     - hbedford
     - hbellamy
-    - hgoode
     - hubinf
+    - jarnstein
     - jbeckles
+    - jbickleywallace
     - jdunleavy
     - jgrant
     - jharris
@@ -61,6 +62,7 @@ active-authors:
     - mbuhagiar
     - mcooke
     - mdunsdon
+    - mgrabara
     - mking
     - mmcalroy
     - mmoxon
@@ -96,9 +98,9 @@ active-authors:
     - wreilly
     - wsalt
     - wtrimble
+    - xchen
     - zrubin
     - zwali
-    - colive
 authors:
     aaiken:
         name: 'Andy Aiken'
@@ -106,7 +108,7 @@ authors:
     asegrove:
         name: 'Alex Segrove'
         picture: picture.jpg
-        author-summary: 'Hi, I''m Alex - Delivery Manager based in the London office. I spent the last few years in the Government Digital Service heading up delivery for GOV.UK, Digital Identity and Government Data policy, then worked with governments around the world to help them with their own digital transformation.'
+        author-summary: "Hi, I'm Alex - Delivery Manager based in the London office. I spent the last few years in the Government Digital Service heading up delivery for GOV.UK, Digital Identity and Government Data policy, then worked with governments around the world to help them with their own digital transformation."
     bpritchard:
         name: 'Beth Pritchard'
         email: bpritchard@scottlogic.com
@@ -127,12 +129,12 @@ authors:
         twitter-handle: aaylett
         picture: picture.jpg
     abarron:
-        name: 'Adam Barron'
+        name: "Adam Barron"
         email: abarron@scottlogic.com
-        author-summary: 'I''m a developer at Scott Logic in Newcastle. I''ve found myself primarily writing Typescript for Cloud Services, with a bit of .NET on the side. I can also be found playing various video games and enjoying loud live music.'
-        feed-description: 'Adam''s experiences and thoughts living and working in the world of tech.'
+        author-summary: "I'm a developer at Scott Logic in Newcastle. I've found myself primarily writing Typescript for Cloud Services, with a bit of .NET on the side. I can also be found playing various video games and enjoying loud live music."
+        feed-description: "Adam's experiences and thoughts living and working in the world of tech."
         picture: abarron-crop.jpg
-        twitter-url: 'https://twitter.com/awbarron'
+        twitter-url: "https://twitter.com/awbarron"
         twitter-handle: AWBarron
     acarr:
         feed-description: 'Andrew''s thoughts on technology'
@@ -416,7 +418,7 @@ authors:
         picture: picture.png
     jmcevoy:
         name: 'Jessica McEvoy'
-        author-summary: 'I''m a Principal at Scott Logic. Ex-Senior Civil Servant, formerly of GDS, Cabinet Office.'
+        author-summary: "I'm a Principal at Scott Logic. Ex-Senior Civil Servant, formerly of GDS, Cabinet Office."
         picture: picture.jpg
     jphillpotts:
         name: 'James Phillpotts'
@@ -538,7 +540,7 @@ authors:
     osharon:
         name: 'Oded Sharon'
         author-summary: '<p>I am a developer at Scott Logic, Edinburgh. <a href="https://github.com/odedshr"> Find me on Github </a> </p>'
-        picture: picture.jpg
+        picture: picture.jpg        
     pshek:
         name: 'Paulin Shek'
         author-summary: '<p>Paulin is a  Java developer at Scott Logic. When she''s not programming, she can be found doing cryptic crosswords and climbing small rocks.</p>'
@@ -677,6 +679,10 @@ authors:
         twitter-url: 'https://twitter.com/deworde'
         twitter-handle: deworde
         picture: picture.png
+    jbickleywallace:
+        name: 'Josh Bickley-Wallace'
+        author-summary: 'I''m a software engineer who also builds teams, children and sometimes houses.'
+        picture: picture.jpg
     tferguson:
         name: 'Tyler Ferguson'
         author-summary: '<p>I am a Developer at Scott Logic. I have a strong interest in front end development and the javascript ecosystem as a whole. I like most things to do with mathematics and chess.</p>'
@@ -1174,9 +1180,19 @@ authors:
         author-summary: 'I am a Technical Architect at Scott Logic.'
         twitter-handle: null
         picture: null
-    colive:
-        name: 'Charlie Olive'
-        email: colive@scottlogic.com
-        author-summary: 'Associate (primarily Java) developer learning how to create all-sorts'
-        twitter-handle: null
-        picture: unnamed2.jpg
+    xchen:
+        name: 'Xin Chen'
+        author-summary: 'I am a lead test engineer at Scott Logic. For the last 15 years, I had the pleasure to work with different people with different backgrounds and focus areas. I am passionate about the latest concept and technology used in Quality Assurance. In my spare time, I enjoy traveling and exploring the varied culture. I used to live in four different counties.'
+        picture: picture.jpeg
+    jarnstein:
+        name: 'Jack Arnstein'
+        author-summary: 'I am a senior tester at Scott Logic with a passion for all things security related. In my spare time I enjoy board games with my family and friends. I also enjoy Lego with my eldest, as well as assisting my junior twin testers in their explorative testing of all things in the known world.'
+        picture: picture.jpeg
+    mgrabara:
+        name: 'Matt Grabara'
+        author-summary: 'I am a developer at Scott Logic since 2020 with background in economics and data science. My interest in decentralised communication drove me to obtain an amateur radio licence and prepare others for Amateur Radio Foundation exam. In my off-screen time I like travelling, learning languages, acrobatics and hanging upside down otherwise during circus classes. Attempting a handstand since May 2022.'
+        picture: picture.jpeg
+    acaulfield:
+        name: 'Anna Caulfield'
+        author-summary: 'I''m a Delivery Principal at Scott Logic. Ex- Virgin Money, Telegraph Media Group. Regular at Glastonbury Festival, Mum of two and a crazy sausage dog owner.'
+        picture: picture.jpeg
