@@ -27,7 +27,7 @@ This was before the Digital Economy Act and Data Protection Act had come into fo
 
 In hindsight, this began to feel like a mistake. Momentum slowed and focus began to shift, whereas when we looked across at other countries, we could see that equivalent projects underpinned by legislation were succeeding. Without a legislative framework, our product roadmap didn’t have enough support or an agreed destination and it was easy for leadership changes and shifting priorities to send it off course.
 
-Even in the fast-moving environment at the bleeding edge of technology development, legislation can: help to crystallise focus; provide something ‘solid’ with which civil servants can resolve uncertainties during the development of a product or service; build and maintain collective momentum; and instil in stakeholders the confidence that what they’re doing is right. Rather than introducing obstacles, regulatory and legislative frameworks can help to clear the way and speed up delivery.
+Even in the fast-moving environment of bleeding-edge technology development, legislation can: help to crystallise focus; provide something ‘solid’ with which civil servants can resolve uncertainties during the development of a service; build and maintain collective momentum; and instil in stakeholders the confidence that what they’re doing is right. Rather than introducing obstacles, regulatory and legislative frameworks can help to clear the way and speed up delivery.
 
 This theme came up repeatedly in the roundtable discussions. It’s no exaggeration to say that the Government’s pandemic response would have been significantly slower if there had not been a range of pre-existing legislative frameworks in place to support design and delivery.
 
