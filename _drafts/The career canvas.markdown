@@ -1,6 +1,6 @@
 ---
 title: The Career Canvas
-date: 2022-11-29 19:47:05.552000000 Z
+date: 2022-11-29 19:47:05 Z
 ---
 
 For over a decade, the representation of women at senior levels has been on the agenda in the corporate world, and yet women are still underrepresented in UK businesses – with women occupying only 30% of management roles.
