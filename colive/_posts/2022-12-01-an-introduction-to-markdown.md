@@ -1,3 +1,19 @@
+---
+title: An introduction to Markdown
+date: 2022-12-01 16:28:00 Z
+categories:
+- colive
+- Tech
+tags:
+- language
+- documentation
+- guides
+summary: A brief overview of the creation, workings and application of the markup
+  language Markdown
+author: Charlie Olive
+category: Tech
+---
+
 ![John Gruber and the Markdown logo](../assets/gruberAndMarkdownIcon.png)
 # An introduction to Markdown
 Markdown is a brilliant tool for quickly writing up universally accessible documents.
