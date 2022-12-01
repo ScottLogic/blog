@@ -8,8 +8,7 @@ tags:
 - language
 - documentation
 - guides
-summary: A brief overview of the creation, workings and application of the markup
-  language Markdown
+summary: A brief overview of the creation, workings and application of the markup language Markdown
 author: Charlie Olive
 category: Tech
 ---
