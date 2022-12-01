@@ -7,13 +7,14 @@ tags:
 - language
 - documentation
 - guides
-summary: A brief overview of the creation, workings and application of the markup
-  language Markdown
+summary: A brief overview of the creation, workings and application of the markup language Markdown
 author: colive
 ---
 
-![John Gruber and the Markdown logo](../assets/gruberAndMarkdownIcon.png)
+![John Gruber and the Markdown logo](/uploads/gruberAndMarkdownIcon.png)
+
 # An introduction to Markdown
+
 Markdown is a brilliant tool for quickly writing up universally accessible documents.
 Created by John Gruber and Aaron Schwartz in 2004, it stands as one of the most popular and widely used [markup languages](https://en.wikipedia.org/wiki/Markup_language) around.
  It uses simple and intuitive formatting that can be easily read and understood.
@@ -25,13 +26,15 @@ A Markdown file can be used for just a quick to do list, written and used exclus
 But it can also be a well organized and formatted space for ideas, documentation and a range of other things once utilized correctly.
 
 ## Markdown's rise in popularity
+
 Before Markdown became widely used, writing straight to HTML was the accepted way for publishing on the web. As a tag-based markup language, raw HTML was (and is) not pretty to read. It includes a large variety of tag choices and often achieving simple things such as bold text embedded in a paragraph can make content illegible to the writer. When Markdown was released, it's design solved this issue for many, especially among writers who were not developers. For those who adopted to use Markdown, writing on the internet was now easier and faster; removing the need to be proficient in HTML. This accessibility and readability was it's main driver into popularity.
 
 ## Core tools in the Markdown language
+
 Markdown comes with a myriad of syntax rules for organizing.
 By far the three most common tools you will use when writing in Markdown are lists, links and headings.
 
-![Lists, links and headings](../assets/headingsListsLinks.png)
+![Lists, links and headings](/uploads/headingsListsLinks.png)
 
 Adding these three components to your document is fast, easy and legible.
 Typically when I write meeting notes, quick checklists or timeboxed research all I use are these 3 tools.
@@ -51,17 +54,17 @@ Other additional tools include [checklist items](https://github.github.com/gfm/#
 
 Due to its ease of translation to HTML and readability, lot's of websites use it for messaging, documentation, blog posts and more! Website's like Reddit store all posts and comments as Markdown files, giving users lots of choices for formatting their communication on the site. Even Scott Logic's own blog site (with the Kramdown flavour) allows Markdown blog posts!
 
-![Websites that use Markdown in some way](../assets/sitesThatUseMarkdown.png)
+![Websites that use Markdown in some way](/uploads/sitesThatUseMarkdown.png)
 
 Markdown was designed to be compiled to HTML as it's primary function. This makes it great for static websites such as blogs and documentation. Static site builders like [Hugo](https://gohugo.io/) and [Jekyll](https://jekyllrb.com/) take this a step further, enabling easy and quick site building where pages can be designed and written straight from Markdown. With almost no handwritten HTML and mostly Markdown files with the styling rules and content, static websites can be quickly created using these tools.
 
 All GitHub repositories include a Markdown `README.md`. Alongside all other extra syntax rules included with the GitHub flavour, these Markdown files support additional community-made widgets, or "badges". These can display information such as page traffic and package versioning. A good example of one of these tools is the [visitors badge](https://www.visitorbadge.io/), simply a counter for the number of visits to a specific page. For examples on how people use badges see [shields.io](https://shields.io/).
 
-![Java annotations README.md, see https://github.com/JetBrains/java-annotations](../assets/javaAnnotationsShieldsExample.png)
+![Java annotations README.md, see https://github.com/JetBrains/java-annotations](/uploads/javaAnnotationsShieldsExample.png)
 
 Creating content for the web isn't the only use people have for this markup language. Using [Marp](https://github.com/marp-team/marp) users can create presentations from Markdown. Additional rules are included to dictate the structure and look of the presentation, with all the styling content and slide transition preferences contained within a single `.md`! It is also easy to create print ready documents of Markdown files in a variety of formats using conversion tooling like [Pandoc](https://pandoc.org/).
 
-![Marp slide creation](../assets/marp-example-slide-deck.gif)
+![Marp slide creation](/uploads/marp-example-slide-deck.gif)
 
 ## Final thoughts
 
