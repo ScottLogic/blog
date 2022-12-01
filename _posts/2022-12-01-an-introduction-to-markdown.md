@@ -1,6 +1,6 @@
 ---
 title: An introduction to Markdown
-date: 2022-12-01 16:28:00 Z
+date: 2022-12-01 00:00:00 Z
 categories:
 - Tech
 tags:
