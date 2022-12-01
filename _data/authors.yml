@@ -101,6 +101,7 @@ active-authors:
     - xchen
     - zrubin
     - zwali
+    - colive
 authors:
     aaiken:
         name: 'Andy Aiken'
@@ -108,7 +109,7 @@ authors:
     asegrove:
         name: 'Alex Segrove'
         picture: picture.jpg
-        author-summary: "Hi, I'm Alex - Delivery Manager based in the London office. I spent the last few years in the Government Digital Service heading up delivery for GOV.UK, Digital Identity and Government Data policy, then worked with governments around the world to help them with their own digital transformation."
+        author-summary: "Hi, Im Alex - Delivery Manager based in the London office. I spent the last few years in the Government Digital Service heading up delivery for GOV.UK, Digital Identity and Government Data policy, then worked with governments around the world to help them with their own digital transformation."
     bpritchard:
         name: 'Beth Pritchard'
         email: bpritchard@scottlogic.com
@@ -1196,3 +1197,9 @@ authors:
         name: 'Anna Caulfield'
         author-summary: 'I''m a Delivery Principal at Scott Logic. Ex- Virgin Money, Telegraph Media Group. Regular at Glastonbury Festival, Mum of two and a crazy sausage dog owner.'
         picture: picture.jpeg
+    colive:
+        name: 'Charlie Olive'
+        email: colive@scottlogic.com
+        author-summary: 'Associate (primarily Java) developer learning how to create all-sorts'
+        twitter-handle: null
+        picture: unnamed2.jpg
