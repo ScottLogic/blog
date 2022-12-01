@@ -9,7 +9,6 @@ tags:
 - guides
 summary: A brief overview of the creation, workings and application of the markup language Markdown
 author: colive
-categories: Tech
 ---
 
 ![John Gruber and the Markdown logo](../assets/gruberAndMarkdownIcon.png)
