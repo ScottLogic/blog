@@ -6,7 +6,7 @@ categories:
 - Tech
 author: cprice
 layout: default_post
-image: cprice/assets/finished-outside.jpeg
+image: cprice/assets/vim-clutch/finished-outside.jpeg
 summary: A Vim clutch is typically a repurposed keyboard/guitar pedal that enters
   insert mode when you press down on it and leaves it when you release it. This can
   and has been accomplished in a great many weird and wonderful ways. This post adds
