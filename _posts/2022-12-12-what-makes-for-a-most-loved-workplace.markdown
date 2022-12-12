@@ -27,7 +27,9 @@ We’re a [Most Loved Workplace®](https://www.scottlogic.com/news/scott-logic-r
 
 In response to both questions, the thing that our respondents value most in an employer is career progression and support. This is understandable from the perspectives of individual motivation and ambition – but there’s an added significance to this result in an industry within which it’s historically been challenging for women to advance to senior positions.
 
-One of the things I appreciate about Scott Logic is that there are clear progression routes for our consultants, with transparent guidance on the skills and behaviours you require to progress to the next level. These career frameworks provide the basis of our annual performance review and promotion process. When training needs are identified, all staff benefit from an Individual Development Budget of £1,000 and two training days a year. And there is ample opportunity to learn on the job; 30% of our respondents prioritise interesting work and clients, and we have those in abundance. We’re technology-agnostic in the sense that we recommend to our clients whatever technology will best suit their requirements, so there are always opportunities to upskill and expand your experience.
+One of the things I appreciate about Scott Logic is that there are clear progression routes for our consultants, with transparent guidance on the skills and behaviours you require to progress to the next level. These career frameworks provide the basis of our annual performance review and promotion process. When training needs are identified, all staff benefit from an Individual Development Budget of £1,000 and two training days a year.
+
+And there is ample opportunity to learn on the job; 30% of our respondents prioritise interesting work and clients, and we have those in abundance. We’re technology-agnostic in the sense that we recommend to our clients whatever technology will best suit their requirements, so there are always opportunities to upskill and expand your experience.
 
 ## Salary
 
@@ -41,6 +43,7 @@ One of the things I personally value about Scott Logic is the company’s commit
 
 <iframe src="https://player.vimeo.com/video/770834956?h=32643f9656" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
+ \
 40% of respondents prioritised hybrid working to afford them the flexibility of balancing work and their home life. [Scott Logic’s approach to hybrid working](https://www.scottlogic.com/hybrid-working) provides precisely this flexibility and demonstrates the trust we have in our consultants. It gives our consultants the potential to be productive from home alongside the benefits of working in shared team environments and spending time with their clients.
 
 ## Alignment with values, and purpose-driven
