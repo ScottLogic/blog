@@ -3,7 +3,7 @@ title: BCSWomen Lovelace Colloquium 2019
 date: 2019-05-01 00:00:00 Z
 categories:
 - abagdonaite
-- people
+- People
 tags:
 - Ada
 - Lovelace

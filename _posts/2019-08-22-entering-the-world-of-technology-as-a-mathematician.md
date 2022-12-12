@@ -3,7 +3,7 @@ title: 'Entering the world of technology as a mathematician '
 date: 2019-08-22 00:00:00 Z
 categories:
 - rgarside
-- people
+- People
 tags:
 - Interns,
 - Summer

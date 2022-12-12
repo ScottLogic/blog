@@ -3,7 +3,7 @@ title: Cultivating Empathy
 date: 2021-09-28 00:00:00 Z
 categories:
 - tmakarem
-- people
+- People
 author: tmakarem
 summary: In this talk, I present empathy as a skill that can be cultivated and explores
   ways of doing that. Anyone interested in building their empathy skills or cultivating

@@ -3,7 +3,7 @@ title: Let's create a New Normal for leadership
 date: 2022-01-05 00:00:00 Z
 categories:
 - sforeshew-cain
-- people
+- People
 tags:
 - featured
 author: sforeshew-cain

@@ -4,7 +4,7 @@ title: 'Data Mesh: What''s different about it, what it means to DWP, and how you
 date: 2021-03-05 00:00:00 Z
 categories:
 - acarr
-- tech
+- Tech
 author: acarr
 summary: Data Mesh is an emerging architectural paradigm for big data that addresses
   the challenges inherent in the data lake and data warehouse approaches. In this

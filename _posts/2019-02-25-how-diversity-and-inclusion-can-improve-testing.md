@@ -3,7 +3,7 @@ title: How Diversity and Inclusion can improve testing
 date: 2019-02-25 00:00:00 Z
 categories:
 - cakehurstryan
-- people
+- People
 tags:
 - featured
 author: cakehurstryan

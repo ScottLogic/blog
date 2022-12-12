@@ -3,7 +3,7 @@ title: 'Panel: Break the bias (IWD2022)'
 date: 2022-03-08 00:00:00 Z
 categories:
 - mcooke
-- people
+- People
 author: mcooke
 summary: 'We celebrated International Women’s Day with a distinguished panel of IT
   leaders – Boohoo''s Jo Graham; DWP''s Jacqui Leggetter; and NatWest''s Mei Clark

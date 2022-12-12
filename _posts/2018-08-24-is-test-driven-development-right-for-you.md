@@ -2,14 +2,14 @@
 title: Is Test Driven Development Right for You?
 date: 2018-08-24 00:00:00 Z
 categories:
-- imaxwell@scottlogic.com
+- imaxwell
 - Tech
 tags:
 - TDD
 - Test
 - Driven
 - Development
-author: imaxwell@scottlogic.com
+author: imaxwell
 layout: default_post
 summary: Do you think Test Driven Development is simply writing the tests before you
   write the code?  If you do, then this post is for you.
@@ -30,7 +30,7 @@ What TDD actually is, is a cycle.
 
 You write a very simple test that fails.  Then you write as little code as possible to make the test pass.  You then write a slightly more complex test case that fails.  Then you make it pass with as little code as possible.  And around and around you go, in this cycle that should be complete in mere minutes (if not seconds). 
 
-![The Red>. Green cycle]({{site.baseurl}}/imaxwell@scottlogic.com/assets/RedGreenCycle.png)
+![The Red>. Green cycle]({{site.baseurl}}/imaxwell/assets/RedGreenCycle.png)
 
 This cycle is known as the Red-> Green cycle. 
 
@@ -56,13 +56,13 @@ You see what happens – the complexity of the tests increases as does that of t
 However, there is an extremely important step between the passes and the next failure.  You must refactor your code where appropriate.  You could make any test pass with enough if statements and hard-coding, but it would be useless code.  Useful code is better. 
 And when you refactor, you refactor without fear of breaking your existing functionality.  You have no fear, because your full set of tests will let you know if anything breaks.
 
-![Red-> Green ->Refactor Cycle]({{site.baseurl}}/imaxwell@scottlogic.com/assets/RedGreenRefactorCycle.png)
+![Red-> Green ->Refactor Cycle]({{site.baseurl}}/imaxwell/assets/RedGreenRefactorCycle.png)
 
 This cycle is known as the Red-> Green-> Refactor cycle.  **This cycle is Test Driven Development.**
 
 Kevlin Henney in his talk [Get Kata](https://www.youtube.com/watch?v=_M4o0ExLQCs&t=2070) warns against neglecting the refactoring stage and suggests the Plan-> Do-> Study-> Act cycle.  He emphasises the need to study your code, and make sure it is the best code it can be – this is going to production after all.  Meeting the requirements is only part of writing clean code.
 
-![PDSA Cycle]({{site.baseurl}}/imaxwell@scottlogic.com/assets/PDSA Cycle.png)
+![PDSA Cycle]({{site.baseurl}}/imaxwell/assets/PDSA Cycle.png)
 
 
 Whatever you call your cycle, the net effect here is that the production code and the tests grow in complexity and usefulness at EXACTLY the same time.   And it is this synergy between tests and production code that defines the nature of TDD.

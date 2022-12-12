@@ -3,7 +3,7 @@ title: "“Keep getting better, because there’s no limit” – Grad Week 2019
 date: 2019-08-22 00:00:00 Z
 categories:
 - pdykes
-- people
+- People
 tags:
 - Grad
 - Week,

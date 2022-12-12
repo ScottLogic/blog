@@ -3,7 +3,7 @@ title: 'Clear communication: the key to a career in tech'
 date: 2019-08-13 00:00:00 Z
 categories:
 - rgarside
-- people
+- People
 tags:
 - Interns,
 - Summer

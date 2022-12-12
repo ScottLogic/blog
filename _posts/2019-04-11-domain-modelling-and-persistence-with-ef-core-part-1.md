@@ -2,9 +2,9 @@
 title: Domain modelling and persistence with EF Core - Part 1
 date: 2019-04-11 00:00:00 Z
 categories:
-- hsteele@scottlogic.com
+- hsteele
 - Tech
-author: hsteele@scottlogic.com
+author: hsteele
 layout: default_post
 summary: We usually need to consider data persistence when writing an application.
   In this first part we look at how to model your domain in preparation for use with

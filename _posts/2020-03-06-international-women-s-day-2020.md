@@ -3,7 +3,7 @@ title: International Women’s Day 2020
 date: 2020-03-06 00:00:00 Z
 categories:
 - ssibanda
-- people
+- People
 tags:
 - International
 - Women's

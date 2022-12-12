@@ -3,7 +3,7 @@ title: A more inclusive future. Together.
 date: 2022-01-04 00:00:00 Z
 categories:
 - godds
-- people
+- People
 tags:
 - featured
 author: godds
