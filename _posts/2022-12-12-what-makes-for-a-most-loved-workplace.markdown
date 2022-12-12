@@ -19,6 +19,10 @@ We’re a [Most Loved Workplace®](https://www.scottlogic.com/news/scott-logic-r
 
 ## The results
 
+![What would make somewhere a Most Loved Workplace for you_web.png](/uploads/What%20would%20make%20somewhere%20a%20Most%20Loved%20Workplace%20for%20you_web.png)
+
+![What are your top three priorities when choosing a new employer-web.png](/uploads/What%20are%20your%20top%20three%20priorities%20when%20choosing%20a%20new%20employer-web.png)
+
 ## Career progression and support
 
 In response to both questions, the thing that our respondents value most in an employer is career progression and support. This is understandable from the perspectives of individual motivation and ambition, but there’s an added significance to this result in an industry within which it’s historically been challenging for women to advance to senior positions.
