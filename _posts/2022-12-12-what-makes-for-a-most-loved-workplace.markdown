@@ -43,7 +43,6 @@ One of the things I personally value about Scott Logic is the company’s commit
 
 <iframe src="https://player.vimeo.com/video/770834956?h=32643f9656" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
- \
 40% of respondents prioritised hybrid working to afford them the flexibility of balancing work and their home life. [Scott Logic’s approach to hybrid working](https://www.scottlogic.com/hybrid-working) provides precisely this flexibility and demonstrates the trust we have in our consultants. It gives our consultants the potential to be productive from home alongside the benefits of working in shared team environments and spending time with their clients.
 
 ## Alignment with values, and purpose-driven
@@ -60,7 +59,7 @@ And our values of Passion, Respect, Excellence, Collaboration and Professionalis
 
 The pandemic placed significant stress on people’s mental wellbeing as well as their physical wellbeing. [In recent Tech Nation research](https://technation.io/people-and-skills-report-2022/#key-statistics), 41% of respondents said they now pay more attention to their mental wellbeing, compared to before the pandemic. So it’s no surprise that there was a group of respondents who chose care for people’s wellbeing as the defining attribute of a most loved workplace.
 
-As companies grow, there can be a tendency to lose the people focus they started out with. That was the motivation behind Scott Logic’s [People Promise](https://www.scottlogic.com/people-promise), a reciprocal promise between the business and our people outlining some concrete, straightforward principles about how we will operate as a company – keeping us true to our core values as we grow. The principles include ‘We don’t expect our people to work overtime’ and ‘We don’t prioritise delivery above the wellbeing of our people’, enshrining staff wellbeing at the core of our business. Our benefits include private medical cover, an employee assistance programme and gym membership; and initiatives like our Mental Health First Aiders programme foster a vigilant culture of mutual support.
+As companies grow, there can be a tendency to lose the people focus they started out with. That was the motivation behind Scott Logic’s [People Promise](https://www.scottlogic.com/people-promise) – a reciprocal promise between the business and our people outlining some concrete, straightforward principles about how we will operate as a company – keeping us true to our core values as we grow. The principles include ‘We don’t expect our people to work overtime’ and ‘We don’t prioritise delivery above the wellbeing of our people’, enshrining staff wellbeing at the core of our business. Our benefits include private medical cover, an employee assistance programme and gym membership; and initiatives like our Mental Health First Aiders programme foster a vigilant culture of mutual support.
 
 ## Diversity and Inclusion is a strategic priority
 
@@ -72,4 +71,4 @@ Things are improving, but we know we still have a long way to go and more types 
 
 ## Thinking of joining us?
 
-If anything in this blog post has resonated with you and you’d be interested in joining a Most Loved Workplace like Scott Logic, we’d love to hear from you. Take a look at our current vacancies or email [applications@scottlogic.com](mailto:applications@scottlogic.com) to arrange a call.
+If anything in this blog post has resonated with you and you’d be interested in joining a Most Loved Workplace like Scott Logic, we’d love to hear from you. [Take a look at our current vacancies](https://www.scottlogic.com/careers) or email [applications@scottlogic.com](mailto:applications@scottlogic.com) to arrange a call.
