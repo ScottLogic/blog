@@ -13,6 +13,7 @@ active-authors:
     - awhitmell
     - bpritchard
     - bquinn
+    - bwallis
     - ccocks
     - ceberhardt
     - cfisher
@@ -1203,3 +1204,7 @@ authors:
         author-summary: 'Associate (primarily Java) developer learning how to create all-sorts'
         twitter-handle: null
         picture: unnamed2.jpg
+    bwallis:
+        name: 'Beth Wallis'
+        author-summary: 'I''m a Technical Recruitment Partner for Scott Logic, covering Leeds and Newcastle.'
+        picture: picture.jpeg
