@@ -6,9 +6,7 @@
         {% if found_category == "true" %}
             {% break %}
         {% endif %}
-        <span> post_category: {{ post_category }}</span>
         {% for category in site.data.categories %}
-            <span> category.title : {{ category.title | downcase }}</span>
             {% if post_category == category.title | downcase %}
                 {% assign found_category = "true" %}
                 <a href="{{ site.baseurl }}{{ category.url }}">
