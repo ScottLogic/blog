@@ -39,8 +39,7 @@ Finding an employer with a supportive and nurturing culture was very important t
 
 One of the things I personally value about Scott Logic is the company’s commitment to the long-term growth and development of our community. We hire permanent employees and want them to build long-term careers here. For this reason, the whole culture of Scott Logic is designed to foster your development. We nurture a committed community of talented people happy to share their knowledge; a culture in which you can grow, flourish and feel supported in your career and your life beyond work. Watch this video to hear some of our consultants describe what this means to them:
 
-<iframe src="https://player.vimeo.com/video/770834956?h=32643f9656" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>\
-<p><a href="https://vimeo.com/770834956">What makes Scott Logic a Most Loved Workplace&reg;?</a> from <a href="https://vimeo.com/scottlogic">Scott Logic</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+<iframe src="https://player.vimeo.com/video/770834956?h=32643f9656" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 40% of respondents prioritised hybrid working to afford them the flexibility of balancing work and their home life. [Scott Logic’s approach to hybrid working](https://www.scottlogic.com/hybrid-working) provides precisely this flexibility and demonstrates the trust we have in our consultants. It gives our consultants the potential to be productive from home alongside the benefits of working in shared team environments and spending time with their clients.
 
