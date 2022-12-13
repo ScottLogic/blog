@@ -5,8 +5,8 @@ categories:
 - hwilliams
 - Testing
 tags:
-- Testing,
-- people
+- Testing
+- People
 author: hwilliams
 layout: default_post
 summary: If, like myself, you’ve enjoyed a pretty long career in professional software

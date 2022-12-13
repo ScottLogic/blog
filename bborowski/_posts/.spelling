@@ -3,11 +3,28 @@
 # global dictionary is at the start, file overrides afterwards
 # one word per line, to define a file override use ' - filename'
 # where filename is relative to this configuration file
-- imaxwell@scottlogic.com/_posts/2018-08-24-is-test-driven-development-right-for-you.md
-Kevlin
-Henney
-Kata
-Javadoc
-Plinkett
-Lasse
-Koskela
+Deloitte
+Spartez
+Raiffeisen
+Turaj
+Kwiatkowska
+Efigence
+PWAs
+Divante
+Karwatka
+subpar
+ - bborowski/_posts/2018-11-19-ux-poland-2018.md
+hturaj
+15m
+Logios
+Tomasz
+Dymowski
+Paweł
+Haltof
+pawelhaltof
+omnichannel
+tomik99
+100pxls
+19s
+14s
+5s

@@ -3,7 +3,7 @@ title: Developing an API strategy
 date: 2021-03-01 00:00:00 Z
 categories:
 - jheward
-- tech
+- Tech
 author: jheward
 summary: An API Strategy is vital for focusing resources, aligning stakeholders and
   ensuring that APIs deliver a good return on investment. In this session, I provide

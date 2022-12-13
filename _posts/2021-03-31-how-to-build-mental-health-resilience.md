@@ -3,7 +3,7 @@ title: How to build mental health resilience
 date: 2021-03-31 00:00:00 Z
 categories:
 - lpisani
-- people
+- People
 tags:
 - featured
 author: lpisani

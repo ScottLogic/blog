@@ -3,7 +3,7 @@ title: An internship with friendly people who want you to do well
 date: 2019-08-16 00:00:00 Z
 categories:
 - rgarside
-- people
+- People
 tags:
 - Interns,
 - Summer

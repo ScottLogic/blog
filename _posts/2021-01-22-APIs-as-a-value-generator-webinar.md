@@ -3,7 +3,7 @@ title: 'Panel: APIs as a value generator'
 date: 2021-01-22 00:00:00 Z
 categories:
 - godds
-- tech
+- Tech
 author: godds
 summary: Our panel of experts — Jacqui Leggetter (Head of Integration (Deputy Director)
   at DWP), Kevin Dearing (Head of API Ecosystems at NatWest Group) and Benny Boye

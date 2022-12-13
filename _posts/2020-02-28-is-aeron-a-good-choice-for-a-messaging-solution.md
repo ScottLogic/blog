@@ -2,9 +2,9 @@
 title: Is Aeron a Good Choice for a Messaging Solution
 date: 2020-02-28 00:00:00 Z
 categories:
-- imaxwell@scottlogic.com
+- imaxwell
 - Tech
-author: imaxwell@scottlogic.com
+author: imaxwell
 layout: default_post
 summary: A look at the design principals behind the Aeron messaging system and the
   consequences on its suitability for Scott Logic's purposes.
@@ -47,7 +47,7 @@ The limitations of UDP are factored into Aeron’s simple and elegant design.  T
 
     Aeron stores its messages in memory mapped files called logs.  These logs are of a fixed maximum size, and the     current allocated space is tracked in a variable known as the tail.  When a new message is to be added the tail     is moved atomically to ensure there is space for the new message.  The message can then be written while other     threads are allocating space and writing other messages.  This is crudely illustrated by the following diagram:
     
-    ![Structure]({{site.baseurl}}/imaxwell@scottlogic.com/assets/Section 1.png)
+    ![Structure]({{site.baseurl}}/imaxwell/assets/Section 1.png)
     
     The system knows that the message has been written in its entirety once the header for the message has been     added as in the fourth column above.  
 
@@ -63,7 +63,7 @@ The limitations of UDP are factored into Aeron’s simple and elegant design.  T
     
     When a new message comes in that is known to be after the completed messages, the ‘High Watermark’ moves to show what messages should have been read.  If there are any messages that should have been read, but have not, there may have been an error so the system sends a NAK (Negative Acknowledgement) back to the sender.  While the resending of that message is going on, new messages can be read without blocking, and the entire log so far is known to be completely read when ‘Complete’ is equal to the ‘High Watermark’ once again.  This is crudely illustrated in the following diagram:
     
-    ![Reconstruction]({{site.baseurl}}/imaxwell@scottlogic.com/assets/Section 3.png)
+    ![Reconstruction]({{site.baseurl}}/imaxwell/assets/Section 3.png)
 
 And with that core design, Aeron is able to get the reliability of TCP without any associated overhead.
 

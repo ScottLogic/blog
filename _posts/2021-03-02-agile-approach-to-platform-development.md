@@ -3,7 +3,7 @@ title: Sustaining an Agile approach to platform development at Scottish Governme
 date: 2021-03-02 00:00:00 Z
 categories:
 - redwin
-- delivery
+- Delivery
 author: redwin
 summary: In this talk, Hugh Wallace, Transformation Lead at the Scottish Government,
   offers his insights on introducing and sustaining a new, agile approach to developing

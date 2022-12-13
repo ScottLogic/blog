@@ -3,7 +3,7 @@ title: Why we celebrated Pride Month at Scott Logic
 date: 2019-08-06 00:00:00 Z
 categories:
 - cakehurstryan
-- people
+- People
 tags:
 - featured
 author: cakehurstryan
