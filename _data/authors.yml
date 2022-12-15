@@ -103,6 +103,7 @@ active-authors:
     - zrubin
     - zwali
     - colive
+    - pholman
 authors:
     aaiken:
         name: 'Andy Aiken'
@@ -1208,3 +1209,8 @@ authors:
         name: 'Beth Wallis'
         author-summary: 'I''m a Technical Recruitment Partner for Scott Logic, covering Leeds and Newcastle.'
         picture: picture.jpeg
+    pholman:
+        name: 'Peter Holman'
+        email: pholman@scottlogic.com
+        author-summary: 'Software Developer and tech enthusiast'
+        picture: blog_thumbnail.jpg
