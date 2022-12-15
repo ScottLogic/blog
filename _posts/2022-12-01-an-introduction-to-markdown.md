@@ -4,9 +4,7 @@ date: 2022-12-01 00:00:00 Z
 categories:
 - Tech
 tags:
-- language
-- documentation
-- guides
+- featured
 summary: A brief overview of the creation, workings and application of the markup
   language Markdown
 author: colive
