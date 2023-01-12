@@ -72,6 +72,6 @@ As our work with government departments continues to grow, we’re ambitious to 
 
 ## Join us for 'Lessons from data sharing during the pandemic'
 
-On Wednesday 8 February, I'll be speaking on a panel at an IfG event with fellow panellists **Ming Tang** (National Director of Data and Analytics for NHS England and Improvement), **Juliet Whitworth (**Head of Research and Information, Local Government Association) and **Paul Shepley** (Data Scientist at the Institute for Government). We'll explore themes and case studies from the upcoming IfG report, produced in partnership with Scott Logic: *Data sharing during the pandemic*.
+On Wednesday 8 February, I'll be speaking on a panel at an IfG event with fellow panellists **Ming Tang** (National Director of Data and Analytics for NHS England and Improvement), **Juliet Whitworth** (Head of Research and Information, Local Government Association) and **Paul Shepley** (Data Scientist at the Institute for Government). We'll explore themes and case studies from the upcoming IfG report, produced in partnership with Scott Logic: *Data sharing during the pandemic*.
 
 [Register here to join in person or online](https://www.instituteforgovernment.org.uk/event/lessons-data-sharing-during-pandemic?utm_source=events_page&utm_medium=website&utm_campaign=scottlogic_website)
