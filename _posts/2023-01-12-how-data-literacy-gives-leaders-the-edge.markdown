@@ -9,6 +9,10 @@ tags:
 - data sharing
 - Government
 - ''
+summary: Data-literate leadership underpinned the most successful pandemic-response
+  programmes. In this post, I explore what data-literate leadership looks like, drawing
+  on examples from the roundtables on data sharing in government that the Institute
+  for Government ran in partnership with Scott Logic.
 author: mcevoy
 ---
 
