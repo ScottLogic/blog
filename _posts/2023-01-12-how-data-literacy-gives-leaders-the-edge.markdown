@@ -69,3 +69,9 @@ At Scott Logic, we’re very proud to be bringing our data expertise to bear in 
 The Insights Platform we built for the [Foreign, Commonwealth and Development Office](https://www.scottlogic.com/our-work/foreign-commonwealth-and-development-office) harnessed our many years of experience in building innovative, powerful and user-centric interfaces for financial services clients. This platform is facilitating data-driven decision-making throughout the department in the face of ever-changing world events. With our three-step process to help clients Locate, Understand and Surface data, we’re supporting the Department for Work and Pensions to design and build services that process and share data with front-line services across the department, improving the citizen experience.
 
 As our work with government departments continues to grow, we’re ambitious to do everything we can to turn those glimpses of exemplary data sharing during the pandemic into the daily reality of everyone involved in delivering public services.
+
+## Join us for 'Lessons from data sharing during the pandemic'
+
+On Wednesday 8 February, I'll be speaking on a panel at an IfG event with fellow panellists **Ming Tang** (National Director of Data and Analytics for NHS England and Improvement), **Juliet Whitworth (**Head of Research and Information, Local Government Association) and **Paul Shepley** (Data Scientist at the Institute for Government). We'll explore themes and case studies from the upcoming IfG report, produced in partnership with Scott Logic: *Data sharing during the pandemic*.
+
+[Register here to join in person or online](https://www.instituteforgovernment.org.uk/event/lessons-data-sharing-during-pandemic?utm_source=events_page&utm_medium=website&utm_campaign=scottlogic_website)
