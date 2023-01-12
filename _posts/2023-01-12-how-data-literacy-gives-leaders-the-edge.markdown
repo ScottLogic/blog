@@ -28,7 +28,7 @@ As I’ll explain, this mode of leadership works upwards and downwards to cultiv
 
 ## What data-literate leadership looks like
 
-The pandemic was a period in which everything accelerated for the government; fast-changing events required rapid learning and rapid decision-making, all the time. Within these conditions, the programmes led by leaders with particular qualities saw the most success – qualities which form my definition of data-literate leadership:
+The pandemic was a period in which everything accelerated for the government; fast-changing events required rapid learning and rapid decision-making, all the time. Within these conditions, the programmes led by leaders with particular qualities saw the most success – qualities that form my definition of what a data-literate leader looks like:
 
 * They know how to work with data, how it is stored and shared, and how to derive meaning from it
 
