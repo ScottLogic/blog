@@ -13,14 +13,14 @@ summary: Data-literate leadership underpinned the most successful pandemic-respo
   programmes. In this post, I explore what data-literate leadership looks like, drawing
   on examples from the roundtables on data sharing in government that the Institute
   for Government ran in partnership with Scott Logic.
-author: mcevoy
+author: jmcevoy
 ---
 
 *Over the summer, in partnership with Scott Logic, the Institute for Government (IfG) ran a series of roundtable discussions with senior civil servants and government experts on the topic of Data Sharing in Government. This is the third in a series of blog posts in which I reflect on the key themes that came out of those discussions. You can read the first two posts in the series here: ‘[Why you should get the right people in the room from the start](https://blog.scottlogic.com/2022/11/18/why-you-should-get-the-right-people-in-the-room-from-the-start.html)’ and ‘[Rules help you go faster](https://blog.scottlogic.com/2022/11/30/rules-help-you-go-faster.html)’.*
 
 The response to the pandemic gave us several glimpses of what exemplary data sharing in government looks like. At the IfG roundtable discussion on the [Clinically Extremely Vulnerable People Service (CEVPS)](https://www.instituteforgovernment.org.uk/publications/clinically-extremely-vulnerable-people-service), a participant recalled:
 
-“The team responsible had a clear mission with support from senior decision-makers and ministers to deliver a service that would save lives. This kind of senior support removed barriers between organisations and gave the team space to build the service, whilst daily meetings with the GDS markdown team to report progress kept the team motivated and accountable.”
+> “The team responsible had a clear mission with support from senior decision-makers and ministers to deliver a service that would save lives. This kind of senior support removed barriers between organisations and gave the team space to build the service, whilst daily meetings with the GDS markdown team to report progress kept the team motivated and accountable.”
 
 In this series of blog posts so far, I’ve explored some of the factors that enabled the CEVPS to succeed: drawing together a multidisciplinary team and working within a clear legislative framework. In this post, I’m going to expand on another key factor in its success: data-literate leadership.
 
