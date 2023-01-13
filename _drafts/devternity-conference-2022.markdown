@@ -32,6 +32,8 @@ Cory House gave a profound and thought-provoking talk (while walking on his trea
 
 # Practical Leadership for Software Developers
 
+David Neal gave this quite reflective talk on how we're all leaders and what behaviours we can take to be better at doing that. He argues that leadership isn't about management or control; rather anyone whose actions inspire others to dream more, learn more, do more, and become more - is a leader. With his hand-drawn slides (he's a talented illustrator), he walks us through 7 things we can do (such as managing time, taking responsibility, having gratitude, and encouraging others) , with some personal examples of him doing (or not doing) these in the past.
+
 # Clean Architecture – A Craftsman's Guide to Software Structure
 
 # Unlocking the Awesome Power of Refactoring
