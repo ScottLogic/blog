@@ -16,6 +16,8 @@ Jakub Nabrdalik shared some tips about thinking and doing within software develo
 
 # The Secrets of the Fastest Java Developers on Earth
 
+Victor Rentea demonstrated his arsenal of tips and tricks for IntelliJ IDEA. He stresses the importance of having unconscious competence of the tool, so menial tasks don't distract or slow down our thinking. This talk conflicted with another I wanted to attend on another track, so I watched this later while pausing occasionally to try things out in my own IDE - which worked well. There was a lot to learn from this one even for seasoned users, covering: typing less, selecting code, inspections, refactoring, and navigation.
+
 # Clean Code: Eternal Principles
 
 # Everything You Should Know About Web Development in 2022
