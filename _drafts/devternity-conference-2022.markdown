@@ -24,6 +24,8 @@ Jakub Pilimon argued and demonstrated that clean code is a derivative of the fun
 
 # Everything You Should Know About Web Development in 2022
 
+Stefan Judis took us through the highlights of what's new in the web space this year. These included CSS is/where/has, CSS container queries, view transitions, ECMAScript type annotations, and tooling written in Go/Rust. With the constant stream of new things in frontend technology, it was useful to have a recap of what the real big things were this year on the web platform itself. He closes with the thought that knowing some of the web fundamentals could become less important for application/website developers in the future, with frameworks and toolkits taking care of ever more concerns for us.
+
 # The 7 Pillar Developer: A Holistic Approach to Building an Exceptional Career
 
 # Practical Leadership for Software Developers
