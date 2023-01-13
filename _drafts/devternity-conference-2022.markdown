@@ -16,9 +16,11 @@ Jakub Nabrdalik shared some tips about thinking and doing within software develo
 
 # The Secrets of the Fastest Java Developers on Earth
 
-Victor Rentea demonstrated his arsenal of tips and tricks for IntelliJ IDEA. He stresses the importance of having unconscious competence of the tool, so menial tasks don't distract or slow down our thinking. This talk conflicted with another I wanted to attend on another track, so I watched this later while pausing occasionally to try things out in my own IDE - which worked well. There was a lot to learn from this one even for seasoned users, covering: typing less, selecting code, inspections, refactoring, and navigation.
+Victor Rentea demonstrated his arsenal of tips and tricks for IntelliJ IDEA. He stresses the importance of having unconscious competence of the tool, so menial tasks don't distract or slow down our thinking. This talk conflicted with another I wanted to attend on another track, so I watched this one later while trying things out in my own IDE - which worked well. There was a lot to learn from this one even for seasoned users, covering: typing less, selecting code, inspections, refactoring, and navigation.
 
 # Clean Code: Eternal Principles
+
+Jakub Pilimon argued and demonstrated that clean code is a derivative of the fundamentals of having a clean architecture and a clean model. Traditional clean-code thinking (smaller functions, good naming, etc.) don't help us much if we haven't modelled our domain well, he observes. His demonstration of implementing scooter hire program then throwing new requirements at it showed how coupling, poor testability, repetition, lack of layering, and high cognitive load make things harder and dirtier than they ought to be. Complication, he notes, is often seen as or argued to be a bad thing - but ultimately it leads to proper abstractions and simpler code.
 
 # Everything You Should Know About Web Development in 2022
 
