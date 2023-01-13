@@ -8,6 +8,8 @@ Late last year I had the chance to attend [DevTernity](https://devternity.com), 
 
 # Improving eBay's Development Velocity
 
+Randy Shoup told the story of how at eBay they stepped up to double their engineering productivity, starting from a base of 27 years' worth of grown IT estate and ways of working. They chose to start by focusing on software development and delivery/deployment, as an enabler for possibly later improving other aspects of building and operating software.  Billed as a "velocity initiative", the programme applied aspects of team topologies (platform teams, enabling teams, senior individual contributors) to bring cohorts of feature/product teams into the fold every quarter. Much of the work backlog could be found by asking the question "if you had to deploy every day, why can't you?". Noting that transformation is hard, he used the term "immune system" to describe how a company/organisation naturally and unintentionally tends to fight/resist change.
+
 # Simple and Powerful Things That Work for Me
 
 # The Secrets of the Fastest Java Developers on Earth
