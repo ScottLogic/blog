@@ -1,6 +1,11 @@
 ---
 title: DevTernity conference 2022
 date: 2023-01-13 14:28:00 Z
+categories:
+- Tech
+summary: Late last year I attended DevTernity, an all-remote generalist software development
+  conference. In this post I'll cover off some points of interest from some of the
+  talks I chose to attend, and reflect on the remote conference experience.
 author: rwilliams
 ---
 
@@ -41,3 +46,19 @@ J.B. Rainsberger made a compelling case in this talk for practicing to become be
 ## 26 Heuristics for Effective Software Development
 
 Allen Holub talked us through a few of his [heuristics for effective software development organisations](https://holub.com/heuristics). This was a big dose of wisdom and observations, however as one person observed - following them is phenomenally hard.
+
+# The remote conference experience
+
+This was the 7th DevTernity conference, and the second time it had been run remotely.
+
+Everything was organised very slickly using Zoom and Slack, with a channel on each one for each of the three concurrent tracks. A selection of questions posted on Slack were relayed to the speaker by the host from the organising team, and some speakers also later answered remaining questions on Slack directly. Some will enjoy participating in Slack discussions during a talk, but personally I quickly found that this distracted from the talk itself.
+
+With there being only one day of talks, I think the remote-only format was especially beneficial for all involved. We had a choice of great speakers, and people from all over the world could attend without excess cost. The experience of going somewhere and being there was of course absent, but that would have a disproportionate cost for a short conference in any case.
+
+# DevTernity 2023
+
+The conference will be on 7-8 December, online. One conference day, followed by a workshop day - I expect that both days will again be optional. Registration opens soon on the [DevTernity website](https://devternity.com).
+
+The headline again is "Turning developers into architects and tech leads", however I suggest keeping an open mind and making your choice based on the talks they'll have lined up.
+
+The 2022 website has now been superseded by a holding page for 2023, but until this year's details appear, you could visit the [DevTernity 2022 page on the Wayback Machine](http://web.archive.org/web/20221128060607/https://devternity.com/) for a flavour.
