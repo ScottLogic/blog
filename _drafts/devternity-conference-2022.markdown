@@ -28,6 +28,8 @@ Stefan Judis took us through the highlights of what's new in the web space this 
 
 # The 7 Pillar Developer: A Holistic Approach to Building an Exceptional Career
 
+Cory House gave a profound and thought-provoking talk (while walking on his treadmill) about what underpins an exceptional developer. We'd all do well to take (or consider) one or two things from each pillar, even if the whole structure looks like a daunting list of things we could be doing. Starting with **psychology**, he stresses the importance of taking care of yourself and the advantage that happiness brings. He's quite strongly of the view that **focus** is important in a growing and maturing industry; being a remarkable and wanted individual by being exceptional at something - rather than being just good at a bunch of things. He shares some things we can do for our **education** to remain relevant, our **image** and reputation to increase our "luck surface area", and our **communication** skills to be effective as an expert. On the subject of **time**, he discusses the idea of using money to buy time and mental bandwidth, and thinking through the consequences of where we spend our time. The final pillar is **systems**, which he favours over goals.
+
 # Practical Leadership for Software Developers
 
 # Clean Architecture – A Craftsman's Guide to Software Structure
