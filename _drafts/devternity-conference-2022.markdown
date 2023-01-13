@@ -4,7 +4,7 @@ date: 2023-01-13 14:28:00 Z
 author: rwilliams
 ---
 
-Late last year I had the chance to attend [DevTernity](https://devternity.com), an all-remote generalist software development conference. The first day was the main conference day, with the second (optional) day offering a choice of workshops by the speakers. It was a great conference. In this post I'll cover off some points of interest from the talks I chose to attend, and reflect on the remote conference experience.
+Late last year I had the chance to attend [DevTernity](https://devternity.com), an all-remote generalist software development conference. The first day was the main conference day, with the second (optional) day offering a choice of workshops by some of the speakers. It was a great conference. In this post I'll cover off some points of interest from some of the talks I chose to attend, and reflect on the remote conference experience.
 
 # Improving eBay's Development Velocity
 
@@ -38,6 +38,6 @@ David Neal gave this quite reflective talk on how we're all leaders and what beh
 
 J.B. Rainsberger made a compelling case in this talk for practicing to become better at refactoring. He introduces the idea of "chunking", where sequences of operations come to be seen as one once we've gained unconscious competence in doing them. This frees up our mind for more important thinking, and gives us more confidence to act on our impulses to refactor things. He argues that while we think time is our bottleneck, actually it's skill, so we have a responsibility to invest in ourselves so we can do better work.
 
-# Building Careers with Empathy
-
 ## 26 Heuristics for Effective Software Development
+
+Allen Holub talked us through a few of his [heuristics for effective software development organisations](https://holub.com/heuristics). This was a big dose of wisdom and observations, however as one person observed - following them is phenomenally hard.
