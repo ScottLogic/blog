@@ -12,6 +12,8 @@ Randy Shoup told the story of how at eBay they stepped up to double their engine
 
 # Simple and Powerful Things That Work for Me
 
+Jakub Nabrdalik shared some tips about thinking and doing within software development, grouped by before coding, while coding, and after the coding. While some of these would probably be picked up over years of working in software, it was great to see them identified and shared. One that sticks with me is his approaches for implementing something when you can't see far ahead enough to know what the end result looks like, i.e. how not to have coder's block when you're out of the comfort zone of your knowledge and familiar patterns. These were "baby steps", "backward programming", "top-down and layer on the detail", and "learning by chaos". He observes that once you know what you want, it's quick to rewrite rough code that helped you figure that out. Another tip he had was on observability - that if you can't reason about your code or failing tests via logs alone (i.e. you use a debugger), then you won't be able to reason about what's happening in production either.
+
 # The Secrets of the Fastest Java Developers on Earth
 
 # Clean Code: Eternal Principles
