@@ -51,7 +51,7 @@ Allen Holub talked us through a few of his [heuristics for effective software de
 
 This was the 7th DevTernity conference, and the second time it had been run remotely.
 
-Everything was organised very slickly using Zoom and Slack, with a channel on each one for each of the three concurrent tracks. A selection of questions posted on Slack were relayed to the speaker by the host from the organising team, and some speakers also later answered remaining questions on Slack directly. Some will enjoy participating in Slack discussions during a talk, but personally I quickly found that this distracted from the talk itself.
+Everything was organised very slickly using Zoom and Slack, with a channel on each one for each of the three concurrent tracks. A selection of questions posted on Slack were relayed to the speaker by the host from the organising team, and some speakers also later answered remaining questions on Slack directly. Some will enjoy participating in Slack discussions during a talk, however I quickly found that this distracted from the talk itself.
 
 With there being only one day of talks, I think the remote-only format was especially beneficial for all involved. We had a choice of great speakers, and people from all over the world could attend without excess cost. The experience of going somewhere and being there was of course absent, but that would have a disproportionate cost for a short conference in any case.
 
