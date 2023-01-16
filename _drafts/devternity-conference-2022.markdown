@@ -21,19 +21,15 @@ Randy Shoup told the story of how eBay worked to double their engineering produc
 
 Jakub Nabrdalik shared some tips about thinking and doing within software development, grouped by before coding, while coding, and after the coding. While some of these would probably be picked up over years of working in software, it was great to see them identified and shared. One that sticks with me is his approaches for implementing something when you can't see far ahead enough to know what the end result looks like, i.e. how to overcome coder's block when you're out of the comfort zone of your knowledge and familiar patterns. These were "baby steps", "backward programming", "top-down and layer on the detail", and "learning by chaos". He observes that once you know what you want, it's quick to rewrite rough code that helped you figure that out. Another tip he had was on observability - that if you can't reason about your code or failing tests via logs alone (i.e. you need to use a debugger), then you won't be able to reason about what's happening in production either.
 
-## The Secrets of the Fastest Java Developers on Earth
-
-Victor Rentea demonstrated his arsenal of tips and tricks for IntelliJ IDEA. He stresses the importance of having unconscious competence of the tool, so menial tasks don't distract or slow down our thinking. This talk conflicted with another I wanted to attend on another track, so I watched the recording of this one later while trying things out in my own IDE - which worked well. There was a lot to learn from this one even for seasoned users, covering: typing less, selecting code, inspections, refactoring, and navigation.
-
-## Clean Code: Eternal Principles
-
-Jakub Pilimon argued and demonstrated that clean code is a derivative of the fundamentals of having a clean architecture and a clean model. Traditional clean-code thinking (smaller functions, good naming, etc.) don't help us much if we haven't modelled our domain well, he observes. His demonstration of implementing scooter hire program then throwing new requirements at it showed how coupling, poor testability, repetition, lack of layering, and high cognitive load make things harder and dirtier than they ought to be. Complication, he notes, is often seen as or argued to be a bad thing - but ultimately it leads to proper abstractions and simpler code.
-
 ## Everything You Should Know About Web Development in 2022
 
 Stefan Judis took us through the highlights of what's new in the web space this year. These included CSS is/where/has, CSS container queries, view transitions, ECMAScript type annotations, and tooling written in Go/Rust. With the constant stream of new things in frontend technology, it was useful to have a recap of what the real big things were this year on the web platform itself. He closes with the thought that knowing some of the web fundamentals could become less important for application/website developers in the future, with integrated frameworks and toolkits taking care of ever more concerns for us.
 
 ![stefan.png](/uploads/stefan.png)
+
+## The Secrets of the Fastest Java Developers on Earth
+
+Victor Rentea demonstrated his arsenal of tips and tricks for IntelliJ IDEA. He stresses the importance of having unconscious competence of the tool, so menial tasks don't distract or slow down our thinking. This talk conflicted with another I wanted to attend on another track, so I watched the recording of this one later while trying things out in my own IDE - which worked well. There was a lot to learn from this one even for seasoned users, covering: typing less, selecting code, inspections, refactoring, and navigation.
 
 ## The 7 Pillar Developer: A Holistic Approach to Building an Exceptional Career
 
@@ -41,21 +37,25 @@ Cory House gave a profound and thought-provoking talk (while walking on his trea
 
 ![cory.png](/uploads/cory.png)
 
+## Clean Code: Eternal Principles
+
+Jakub Pilimon argued and demonstrated that clean code is a derivative of the fundamentals of having a clean architecture and a clean model. Traditional clean-code thinking (smaller functions, good naming, etc.) don't help us much if we haven't modelled our domain well, he observes. His demonstration of implementing scooter hire program then throwing new requirements at it showed how coupling, poor testability, repetition, lack of layering, and high cognitive load make things harder and dirtier than they ought to be. Complication, he notes, is often seen as or argued to be a bad thing - but ultimately it leads to proper abstractions and simpler code.
+
 ## Practical Leadership for Software Developers
 
 David Neal gave this quite reflective talk on how we're all leaders and what behaviours we can take to be better at doing that. He argues that leadership isn't about management or control; rather anyone whose actions inspire others to dream more, learn more, do more, and become more - is a leader. With his hand-drawn slides (he's a talented illustrator), he walked us through 7 things we can do (such as managing time, taking responsibility, having gratitude, and encouraging others) , with some personal examples of him doing (or not doing) these in the past.
 
 ![david neal.png](/uploads/david%20neal.png)
 
+## 26 Heuristics for Effective Software Development
+
+Allen Holub talked us through a few of his [heuristics for effective software development organisations](https://holub.com/heuristics). This was a big dose of wisdom and observations, however as one person observed - following them is phenomenally hard.
+
 ## Unlocking the Awesome Power of Refactoring
 
 J.B. Rainsberger made a compelling case in this talk for practicing to become better at refactoring. He introduces the idea of "chunking", where sequences of operations come to be seen as one once we've gained unconscious competence in doing them. This frees up our mind for more important thinking, and gives us more confidence to act on our impulses to refactor things. He argues that while we think time is our bottleneck, actually it's skill, so we have a responsibility to invest in ourselves so we can do better work.
 
 ![jb.png](/uploads/jb.png)
-
-## 26 Heuristics for Effective Software Development
-
-Allen Holub talked us through a few of his [heuristics for effective software development organisations](https://holub.com/heuristics). This was a big dose of wisdom and observations, however as one person observed - following them is phenomenally hard.
 
 ## The remote conference experience
 
