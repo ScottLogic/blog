@@ -67,8 +67,8 @@ With there being only one day of talks, I think the remote-only format was espec
 
 ## DevTernity 2023
 
-The conference will be on 7-8 December, online. One conference day, followed by a workshop day - I expect that both days will again be optional. Registration opens soon on the [DevTernity website](https://devternity.com).
+The conference will be on 7-8 December, online. One conference day, followed by a workshop day - both optional. Registration is already open on the [DevTernity website](https://devternity.com).
 
 The headline again is "Turning developers into architects and tech leads", however I suggest keeping an open mind and making your choice based on the talks they'll have lined up.
 
-The 2022 website has now been superseded by a holding page for 2023, but until this year's details appear, you could visit the [DevTernity 2022 page on the Wayback Machine](http://web.archive.org/web/20221128060607/https://devternity.com/) for a flavour.
+The 2022 website has now been superseded by the 2023 one, with many of the speakers, talks, and workshops already lined up. For a complete view of the 2022 iteration, you could visit the [DevTernity 2022 page on the Wayback Machine](http://web.archive.org/web/20221128060607/https://devternity.com/).
