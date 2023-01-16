@@ -37,7 +37,9 @@ Stefan Judis took us through the highlights of what's new in the web space this 
 
 ## The 7 Pillar Developer: A Holistic Approach to Building an Exceptional Career
 
-Cory House gave a profound and thought-provoking talk (while walking on his treadmill) about what underpins an exceptional developer. We'd all do well to take (or consider) one or two things from each pillar, even if the whole structure looks like a daunting to-do list. Starting with **psychology**, he stresses the importance of taking care of yourself and the advantage that happiness brings. He's quite strongly of the view that **focus** is important in a growing and maturing industry; being a remarkable and wanted individual by being exceptional at something - rather than being just good at a bunch of things. He shares some things we can do for our **education** to remain relevant, our **image** and reputation to increase our "luck surface area", and our **communication** skills to be effective as an expert. On the subject of **time**, he discusses the idea of using money to buy time and mental bandwidth, and thinking through the consequences of how we spend our time. The final pillar is **systems**, which he favours over goals.
+Cory House gave a profound and thought-provoking talk (while walking on his treadmill) about what underpins an exceptional developer. We'd all do well to take (or consider) one or two things from each pillar, even if the whole structure looks like a daunting to-do list. Starting with **psychology**, he stresses the importance of taking care of yourself and the advantage that happiness brings. He's makes the case that **focus** is important in a growing and maturing industry; being a remarkable and wanted individual by being exceptional at something - rather than being just good at a bunch of things. He shares some things we can do for our **education** to remain relevant, our **image** and reputation to increase our "luck surface area", and our **communication** skills to be effective as an expert. On the subject of **time**, he discusses the idea of using money to buy time and mental bandwidth, and thinking through the consequences of how we spend our time. The final pillar is **systems**, which he favours over goals.
+
+![cory.png](/uploads/cory.png)
 
 ## Practical Leadership for Software Developers
 
@@ -48,6 +50,8 @@ David Neal gave this quite reflective talk on how we're all leaders and what beh
 ## Unlocking the Awesome Power of Refactoring
 
 J.B. Rainsberger made a compelling case in this talk for practicing to become better at refactoring. He introduces the idea of "chunking", where sequences of operations come to be seen as one once we've gained unconscious competence in doing them. This frees up our mind for more important thinking, and gives us more confidence to act on our impulses to refactor things. He argues that while we think time is our bottleneck, actually it's skill, so we have a responsibility to invest in ourselves so we can do better work.
+
+![jb.png](/uploads/jb.png)
 
 ## 26 Heuristics for Effective Software Development
 
