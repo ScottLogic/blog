@@ -15,6 +15,8 @@ Late last year I had the chance to attend [DevTernity](https://devternity.com), 
 
 Randy Shoup told the story of how eBay worked to double their engineering productivity, starting from a base of 27 years' worth of grown IT estate and ways of working. They chose to start by focusing on software development and delivery/deployment, as an enabler for possibly later improving other aspects of building and operating software.  Billed as a "velocity initiative", the programme applied aspects of team topologies (platform teams, enabling teams, senior individual contributors) to bring cohorts of feature/product teams into the fold every quarter. Much of the work backlog could be found by asking the question "if you had to deploy every day, why can't you?". Noting that transformation is hard, he uses the term "immune system" to describe how a company/organisation naturally and unintentionally tends to fight/resist change.
 
+![randy.png](/uploads/randy.png)
+
 ## Simple and Powerful Things That Work for Me
 
 Jakub Nabrdalik shared some tips about thinking and doing within software development, grouped by before coding, while coding, and after the coding. While some of these would probably be picked up over years of working in software, it was great to see them identified and shared. One that sticks with me is his approaches for implementing something when you can't see far ahead enough to know what the end result looks like, i.e. how to overcome coder's block when you're out of the comfort zone of your knowledge and familiar patterns. These were "baby steps", "backward programming", "top-down and layer on the detail", and "learning by chaos". He observes that once you know what you want, it's quick to rewrite rough code that helped you figure that out. Another tip he had was on observability - that if you can't reason about your code or failing tests via logs alone (i.e. you need to use a debugger), then you won't be able to reason about what's happening in production either.
@@ -31,6 +33,8 @@ Jakub Pilimon argued and demonstrated that clean code is a derivative of the fun
 
 Stefan Judis took us through the highlights of what's new in the web space this year. These included CSS is/where/has, CSS container queries, view transitions, ECMAScript type annotations, and tooling written in Go/Rust. With the constant stream of new things in frontend technology, it was useful to have a recap of what the real big things were this year on the web platform itself. He closes with the thought that knowing some of the web fundamentals could become less important for application/website developers in the future, with integrated frameworks and toolkits taking care of ever more concerns for us.
 
+![stefan.png](/uploads/stefan.png)
+
 ## The 7 Pillar Developer: A Holistic Approach to Building an Exceptional Career
 
 Cory House gave a profound and thought-provoking talk (while walking on his treadmill) about what underpins an exceptional developer. We'd all do well to take (or consider) one or two things from each pillar, even if the whole structure looks like a daunting to-do list. Starting with **psychology**, he stresses the importance of taking care of yourself and the advantage that happiness brings. He's quite strongly of the view that **focus** is important in a growing and maturing industry; being a remarkable and wanted individual by being exceptional at something - rather than being just good at a bunch of things. He shares some things we can do for our **education** to remain relevant, our **image** and reputation to increase our "luck surface area", and our **communication** skills to be effective as an expert. On the subject of **time**, he discusses the idea of using money to buy time and mental bandwidth, and thinking through the consequences of how we spend our time. The final pillar is **systems**, which he favours over goals.
@@ -38,6 +42,8 @@ Cory House gave a profound and thought-provoking talk (while walking on his trea
 ## Practical Leadership for Software Developers
 
 David Neal gave this quite reflective talk on how we're all leaders and what behaviours we can take to be better at doing that. He argues that leadership isn't about management or control; rather anyone whose actions inspire others to dream more, learn more, do more, and become more - is a leader. With his hand-drawn slides (he's a talented illustrator), he walked us through 7 things we can do (such as managing time, taking responsibility, having gratitude, and encouraging others) , with some personal examples of him doing (or not doing) these in the past.
+
+![david neal.png](/uploads/david%20neal.png)
 
 ## Unlocking the Awesome Power of Refactoring
 
