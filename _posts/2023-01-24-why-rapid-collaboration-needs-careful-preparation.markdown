@@ -31,7 +31,7 @@ As Deputy Director (Platforms & Services and Head of GDS International), I helpe
 
 The CEVPS was designed to support the shielding population by providing essential supplies, preferential access to supermarket delivery slots, and in some cases, emergency support. It was established at extraordinary speed, with planning beginning on 9 March 2020 and the first iteration of the service going live on 23 March 2020, as the UK entered its first national lockdown.
 
-As a starting point, NHS Digital developed the Shielded Patient List (SPL) for England. This involved combining GP records and diverse datasets that were usually only used in trend analysis, but which would now be used to identify a cohort of at-risk patients.
+As a starting point, NHS Digital (NHSD) developed the Shielded Patient List (SPL) for England. This involved combining GP records and diverse datasets that were usually only used in trend analysis, but which would now be used to identify a cohort of at-risk patients.
 
 Scott Logic was proud to offer NHS Digital *pro bono* support to help create the SPL. Our Solutions Architects identified and made the case for a suitable migration strategy, and helped NHSD to assemble the right team and manage the migration process.
 
