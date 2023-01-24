@@ -49,7 +49,7 @@ Matching this globally renowned technological infrastructure was the deep expert
 
 ## Collaboration with patient groups and compliance bodies
 
-Proactive engagement and collaboration with regulators and special interest groups from the earliest stages of the programme were another key to its success. At GDS, we collaborated with the Information Commissioner’s Office (ICO) to ensure that data security and information governance were baked into the technical solution from the start, including privacy-by-design and data minimisation best practices. In my experience, that level of early interaction between policy, data protection, legal and technical specialists does occasionally happen but is not commonplace, and government departments would benefit from fostering that kind of collaboration in future.
+Proactive collaboration with regulators and special interest groups from the earliest stages of the programme was another key to its success. At GDS, we collaborated with the Information Commissioner’s Office (ICO) to ensure that data security and information governance were baked into the technical solution from the start, including privacy-by-design and data minimisation best practices. In my experience, that level of early interaction between policy, data protection, legal and technical specialists does occasionally happen but is not commonplace, and government departments would benefit from fostering that kind of collaboration in future.
 
 In parallel, working together with groups such as the NHS’s Independent Group Advising on the Release of Data allowed us to build confidence in the service by being transparent about what data would be shared, along with why and how, forestalling a negative public or press response.
 
