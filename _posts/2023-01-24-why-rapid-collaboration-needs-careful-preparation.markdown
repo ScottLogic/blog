@@ -33,7 +33,7 @@ The CEVPS was designed to support the shielding population by providing essentia
 
 As a starting point, NHS Digital developed the Shielded Patient List (SPL) for England. This involved combining GP records and diverse datasets that were usually only used in trend analysis, but which would now be used to identify a cohort of at-risk patients.
 
-Scott Logic was proud to offer *pro bono* support to help create the SPL. Our Solutions Architects identified and made the case for a suitable migration strategy, and helped NHSD to assemble the right team and manage the migration process.
+Scott Logic was proud to offer NHS Digital *pro bono* support to help create the SPL. Our Solutions Architects identified and made the case for a suitable migration strategy, and helped NHSD to assemble the right team and manage the migration process.
 
 ## Collaboration between departments
 
