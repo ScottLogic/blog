@@ -53,6 +53,7 @@ active-authors:
     - jwren
     - kangel
     - kcoombes
+    - kjones
     - kday
     - lcollingwood
     - lpisani
@@ -457,6 +458,10 @@ authors:
     khurley:
         author-summary: 'Business Development Manager'
         name: 'Kirsten Hurley'
+        picture: picture.jpg
+    kjones:
+        author-summary: 'I''m a full stack senior developer with experience in C#, Typescript (mainly Angular)'
+        name: 'Ken Jones'
         picture: picture.jpg
     labs:
         name: 'Scott Logic Labs'
