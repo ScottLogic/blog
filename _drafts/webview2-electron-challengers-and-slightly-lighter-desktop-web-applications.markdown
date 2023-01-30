@@ -57,6 +57,8 @@ App installers for Windows can be built including or not including WebView2, and
 
 This diagram may help you complete or confirm your understanding of what we’ve covered so far.
 
+![Web tech landscape - simplified.png](/uploads/Web%20tech%20landscape%20-%20simplified.png)
+
 All of the commercial offerings can be thought of as equivalent to Electron in the above diagram.
 
 Electron and Tauri are extendable standalone runtimes - you build and run your application *on them*. CEF and WebView2 are embeddable components - you include and run them *in your* application. Tauri uses WebView2 under the hood.
@@ -97,6 +99,8 @@ And some disadvantages; the same ones as for web apps running in browsers:
 
 While I think using a shared browser (WebView2) will eventually become the norm and a good choice for many applications, there will still be many who will be better off including their own browser for the control and certainty it gives. The choice can’t be made in isolation, at least not yet - e.g. if you want to use Electron for other reasons (there are many good ones), your app will be packaged with its own browser.
 
+![installers-2f4e78.png](/uploads/installers-2f4e78.png)
+
 *Messaging app installers could once again be smaller than IDE installers*.
 
 ## Running a (full) browser for every app - always
@@ -111,7 +115,11 @@ I had hoped to see that WebView2 would reduce memory usage by sharing all the br
 
 *With WebView2, we’d have just one of these...*
 
+![before.png](/uploads/before.png)
+
 *... but we’ll still have the rest in the form of WebView2 processes instead (illustrative screenshot of another application’s processes):*
+
+![after.png](/uploads/after.png)
 
 ## Recap
 
