@@ -17,6 +17,8 @@ Newcomer desktop container Tauri has quickly attracted the interest of developer
 
 Almost everything in the desktop container ecosystem is related in one way or another. It’s useful to know what the existing big things are, what they’re made of, and how they relate to or differ from the others. You may already be familiar with many - so read what you need, and skip the rest.
 
+![wnats-old-7ac29a.png](/uploads/wnats-old-7ac29a.png)
+
 ### Chromium
 
 [Chromium](https://www.chromium.org/Home/) (2008) is the non-commercial open source web browser that underpins Google Chrome, and since 2020, Microsoft Edge too. Some of its internal parts are independently reusable, and are a key part of almost every desktop container.
@@ -40,6 +42,8 @@ There are a few commercial products which build upon Electron, such as Finsemble
 ## What’s new
 
 Some exciting new developments emerged through 2021-22 that may well change the established model of how we build, distribute, and run desktop applications that use web technologies.
+
+![whats new.png](/uploads/whats%20new.png)
 
 ### WebView2
 
