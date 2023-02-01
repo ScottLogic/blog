@@ -9,6 +9,8 @@ summary: Newcomer desktop-web framework Tauri has quickly attracted the interest
   In this post, I’ll take a look at what’s new in this space, what distinguishes them,
   and why WebView2 doesn’t solve everything.
 author: rwilliams
+tags: 
+- featured
 ---
 
 Newcomer desktop-web framework Tauri has quickly attracted the interest of developers looking to build cross-platform desktop applications using web technologies. Promises of smaller and faster applications certainly appeal to those using Electron. In this post, I’ll take a look at what’s new in this space, what distinguishes them, and why WebView2 doesn’t solve everything.
