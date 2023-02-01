@@ -15,6 +15,8 @@ Newcomer desktop-web framework Tauri has quickly attracted the interest of devel
 
 ![DALL·E 2023-02-01 14.25.09 - people looking at a framed painting.png](/uploads/DALL%C2%B7E%202023-02-01%2014.25.09%20-%20people%20looking%20at%20a%20framed%20painting.png)
 
+*Image edited by DALL·E 2, using the prompt "people looking at a framed painting".*
+
 ## Primer: what’s here already
 
 Almost everything in the desktop-web ecosystem is related in one way or another. It’s useful to know what the existing big things are, what they’re made of, and how they relate to or differ from the others. You may already be familiar with many - so read what you need, and skip the rest.
