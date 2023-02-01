@@ -1,27 +1,27 @@
 ---
 title: WebView2, Electron challengers, and (slightly) lighter desktop web applications
-date: 2023-01-31 09:00:00 Z
+date: 2023-02-01 14:00:00 Z
 categories:
 - Tech
-summary: Newcomer desktop container Tauri has quickly attracted the interest of developers
-  looking to build cross-platform desktop applications using web technologies. Promises
-  of smaller and faster applications certainly appeal to those using Electron. In
-  this post, I’ll take a look at what’s new in this space, what distinguishes them,
+summary: Newcomer desktop-web framework Tauri has quickly attracted the interest of
+  developers looking to build cross-platform desktop applications using web technologies.
+  Promises of smaller and faster applications certainly appeal to those using Electron.
+  In this post, I’ll take a look at what’s new in this space, what distinguishes them,
   and why WebView2 doesn’t solve everything.
 author: rwilliams
 ---
 
-Newcomer desktop container Tauri has quickly attracted the interest of developers looking to build cross-platform desktop applications using web technologies. Promises of smaller and faster applications certainly appeal to those using Electron. In this post, I’ll take a look at what’s new in this space, what distinguishes them, and why WebView2 doesn’t solve everything.
+Newcomer desktop-web framework Tauri has quickly attracted the interest of developers looking to build cross-platform desktop applications using web technologies. Promises of smaller and faster applications certainly appeal to those using Electron. In this post, I’ll take a look at what’s new in this space, what distinguishes them, and why WebView2 doesn’t solve everything.
 
 ## Primer: what’s here already
 
-Almost everything in the desktop container ecosystem is related in one way or another. It’s useful to know what the existing big things are, what they’re made of, and how they relate to or differ from the others. You may already be familiar with many - so read what you need, and skip the rest.
+Almost everything in the desktop-web ecosystem is related in one way or another. It’s useful to know what the existing big things are, what they’re made of, and how they relate to or differ from the others. You may already be familiar with many - so read what you need, and skip the rest.
 
 ![wnats-old-7ac29a.png](/uploads/wnats-old-7ac29a.png)
 
 ### Chromium
 
-[Chromium](https://www.chromium.org/Home/) (2008) is the non-commercial open source web browser that underpins Google Chrome, and since 2020, Microsoft Edge too. Some of its internal parts are independently reusable, and are a key part of almost every desktop container.
+[Chromium](https://www.chromium.org/Home/) (2008) is the non-commercial open source web browser that underpins Google Chrome, and since 2020, Microsoft Edge too. Some of its internal parts are independently reusable, and are a key part of almost every desktop tool.
 
 ### Chromium Embedded Framework (CEF)
 
@@ -31,13 +31,13 @@ It uses part of the Chromium browser to display that web content. The rest is le
 
 ### Electron
 
-[Electron](https://www.electronjs.org/) (2013) is a desktop container framework for building desktop applications. By including the Node.js JavaScript runtime, it enabled development of unconstrained desktop web applications using only web technologies - no languages other than JavaScript needed.
+[Electron](https://www.electronjs.org/) (2013) is a desktop-web framework for building desktop applications. By including the Node.js JavaScript runtime, it enabled development of unconstrained desktop web applications using only web technologies - no languages other than JavaScript needed.
 
 It uses part of the Chromium browser to display web content windows, and the Node.js JavaScript runtime for executing an application’s main process code. Apps built on Electron include those dependencies in their installer. Electron was originally released by GitHub to underpin their Atom text editor, and continues to be developed and maintained by GitHub (now a subsidiary of Microsoft).
 
-### Commercial desktop containers
+### Commercial desktop-web frameworks
 
-There are a few commercial products which build upon Electron, such as Finsemble, OpenFin, and Glue42. These provide additional functionality geared towards desktop application ecosystems of integrated applications.  You can read more about that world in our white paper [Building an integrated desktop application ecosystem](https://blog.scottlogic.com/2020/08/13/building-an-integrated-desktop-application-ecosystem.html) (page 10 for the container products).
+There are a few commercial products which build upon Electron, such as Finsemble, OpenFin, and Glue42. These provide additional functionality geared towards desktop application ecosystems of integrated applications.  You can read more about that world in our white paper [Building an integrated desktop application ecosystem](https://blog.scottlogic.com/2020/08/13/building-an-integrated-desktop-application-ecosystem.html) (page 10 for the products).
 
 ## What’s new
 
@@ -53,11 +53,11 @@ Unlike Electron and CEF, it’s installed on the operating system for use by any
 
 ### Tauri
 
-[Tauri](https://tauri.app/) is a desktop container framework for building desktop applications - like Electron. It uses WebView2 to display web content on Windows, and WebKit-based equivalents on macOS for the time being. The application’s main process code is written in Rust, although other languages are on the roadmap.
+[Tauri](https://tauri.app/) is a desktop-web framework for building desktop applications - like Electron. It uses WebView2 to display web content on Windows, and WebKit-based equivalents on macOS for the time being. The application’s main process code is written in Rust, although other languages are on the roadmap.
 
 App installers for Windows can be built including or not including WebView2, and in the latter case can download and install it during app installation if it isn’t found to be already installed. The first stable release of Tauri was released in mid-2022, and there’s quite some excitement amongst developers about it as an Electron alternative (e.g. 2/3rds as many GitHub stars as Electron already).
 
-### Map of the desktop containers landscape
+### Map of the desktop-web landscape
 
 This diagram may help you complete or confirm your understanding of what we’ve covered so far.
 
@@ -73,7 +73,7 @@ There’s a price to pay for displaying web content, and that price is having an
 
 The only product and scenario from above that doesn’t involve web content being displayed in a Chromium-based browser is Tauri on operating systems other than Windows. When WebView2 becomes available on macOS and Linux, I expect it’ll replace WebKit there.
 
-While this offers a consistent container for running web content, it also brings the same disadvantages and tough trade-offs to all the options. For their respective strengths and optimisations, none of the products (or the apps we build using them) can get away from these because they stem from using Chromium beneath however many abstraction layers. Partly from just being a web browser, it’s a reasonably complex piece of software, with a download/installation size and runtime (memory and CPU) footprint that reflects that.
+While this offers a consistent environment for running web content, it also brings the same disadvantages and tough trade-offs to all the options. For their respective strengths and optimisations, none of the products (or the apps we build using them) can get away from these because they stem from using Chromium beneath however many abstraction layers. Partly from just being a web browser, it’s a reasonably complex piece of software, with a download/installation size and runtime (memory and CPU) footprint that reflects that.
 
 ## Packaging a browser with every app, or not
 
@@ -111,7 +111,7 @@ While I think using a shared browser (WebView2) will eventually become the norm 
 
 The Chromium architecture separates a running browser instance into a handful of processes at runtime - the main browser process, a GPU gateway process, a crash handler process, a couple of utility processes, and finally a renderer process for each window/tab/webview. All that needs quite a bit of memory even before we start running some web content (our app), but it scales in a web browser - each additional tab/window adds just one renderer process (it’s a [bit more nuanced](https://chromium.googlesource.com/chromium/src/\+/main/docs/process_model_and_site_isolation.md#full-site-isolation-site_per_process) than that really).
 
-All the container products we’ve covered here run a complete and independent set of browser processes for each application. That includes Tauri and any other container product, regardless of whether an app chooses to ship its own webview or use the shared one installed on the operating system. This means the overhead is repeated for each application.
+All the tools we’ve covered here run a complete and independent set of browser processes for each application. That includes Tauri and any other webview-based framework, regardless of whether an app chooses to ship its own webview or use the shared one installed on the operating system. This means the overhead is repeated for each application.
 
 None of the products therefore have a fundamental advantage when it comes to lightening the task of displaying web content. Some achieve an overall performance advantage or advantages in specific areas, but these will arise from different factors such as not running a Node.js runtime, or different inter-process communication approaches.
 
@@ -127,6 +127,6 @@ I had hoped to see that WebView2 would reduce memory usage by sharing all the br
 
 ## Recap
 
-We’ve seen how having a shared webview installed on the operating system allows challenger desktop containers like Tauri to produce a much smaller installer. The option of including a standalone webview in an application’s installer, is still available. However, I think it’s likely to eventually become less common based on the balance of pros/cons as weighed against the needs of individual applications.
+We’ve seen how having a shared webview installed on the operating system allows challenger desktop-web frameworks like Tauri (and native applications that include web content) to produce a much smaller installer. The option of including a standalone webview in an application’s installer, is still available. However, I think it’s likely to eventually become less common based on the balance of pros/cons as weighed against the needs of individual applications.
 
-At runtime however, each application still runs its own complete set of browser/webview processes, so any performance advantages and memory efficiencies will be from other areas of the desktop container product - not from displaying web content. There may be potential for future structural optimization here by sharing these to lighten the load of desktop web applications. Just like with packaging and installation, we’ll always need a browser, but here too we may well not need a dedicated one for each application.
+At runtime however, each application still runs its own complete set of browser/webview processes, so any performance advantages and memory efficiencies will be from other areas of the framework/component - not from displaying web content. There may be potential for future structural optimization here by sharing these to lighten the load of desktop web applications. Just like with packaging and installation, we’ll always need a browser, but here too we may well not need a dedicated one for each application.
