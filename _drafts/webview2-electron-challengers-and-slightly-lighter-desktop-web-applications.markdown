@@ -81,7 +81,7 @@ While this offers a consistent environment for running web content, it also brin
 
 ## Packaging a browser with every app, or not
 
-An application that includes a browser in its installer via these products will have a pretty large installer. Electron is \~90MB, while CEF is a bit smaller as it doesn’t include Node.js. If you choose to include WebView2 in your app’s installer, it’s \~180MB. This adds perhaps a minute to a new user’s experience through download time, and is often considered unreasonably large - especially for applications that don’t offer a great deal of complex functionality.
+An application that includes a browser in its installer via these products will have a pretty large installer. Electron is ~90MB, while CEF is a bit smaller as it doesn’t include Node.js. If you choose to include WebView2 in your app’s installer, it’s ~180MB. This adds perhaps a minute to a new user’s experience through download time, and is often considered unreasonably large - especially for applications that don’t offer a great deal of complex functionality.
 
 This has given rise to several mitigation approaches, some of which also have other benefits. On the other hand, one could decide that it doesn’t matter enough to our users to prioritise over other work. Some common approaches:
 
