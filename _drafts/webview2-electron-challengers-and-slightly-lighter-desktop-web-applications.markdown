@@ -21,7 +21,7 @@ Almost everything in the desktop-web ecosystem is related in one way or another.
 
 ### Chromium
 
-[Chromium](https://www.chromium.org/Home/) (2008) is the non-commercial open source web browser that underpins Google Chrome, and since 2020, Microsoft Edge too. Some of its internal parts are independently reusable, and are a key part of almost every desktop tool.
+[Chromium](https://www.chromium.org/Home/) (2008) is the non-commercial open source web browser that underpins Google Chrome, and since 2020, Microsoft Edge too. Some of its internal parts are independently reusable, and are a key part of almost every desktop-web tool.
 
 ### Chromium Embedded Framework (CEF)
 
