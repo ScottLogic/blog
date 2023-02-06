@@ -3,6 +3,8 @@ title: WebView2, Electron challengers, and (slightly) lighter desktop web applic
 date: 2023-02-01 14:00:00 Z
 categories:
 - Tech
+tags:
+- featured
 summary: Newcomer desktop-web framework Tauri has quickly attracted the interest of
   developers looking to build cross-platform desktop applications using web technologies.
   Promises of smaller and faster applications certainly appeal to those using Electron.
