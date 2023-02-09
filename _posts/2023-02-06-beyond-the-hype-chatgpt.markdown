@@ -13,7 +13,7 @@ summary: In this episode, I'm joined by my colleague, Oliver Cronk, and Chris Bo
   origins and recent advances, the new discipline of prompt engineering, and some
   practical applications and limitations of this technology.
 author: ceberhardt
-Image: "/uploads/BeyondTheHype---yellow-blue-social.jpg"
+image: "/uploads/BeyondTheHype---yellow-blue-social.jpg"
 ---
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/25745451/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
