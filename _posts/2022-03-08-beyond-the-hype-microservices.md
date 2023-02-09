@@ -4,17 +4,17 @@ date: 2022-03-08 00:00:00 Z
 categories:
 - ceberhardt
 - Podcast
-author: ceberhardt
-layout: default_post
 summary: Microservices have become the standard architectural pattern for everything.
   It’s a great and versatile pattern, but what people rarely talk about is the cost.
   You didn’t think you got all that good stuff (polyglot, scalable, decoupled...)
   for free, did you? In this episode, we talk about the real-world impact of choosing
   this pattern and when it might not be the right choice.
+author: ceberhardt
 contributors:
 - isugar
 - hbellamy
-image: ceberhardt/assets/BeyondTheHype.png
+image: "/uploads/BeyondTheHype---blue---social-copy_Artboard-1-2.jpg"
+layout: default_post
 ---
 
 <iframe title="Embed Player" src="//play.libsyn.com/embed/episode/id/22009826/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>

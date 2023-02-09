@@ -4,16 +4,16 @@ date: 2022-05-03 00:00:00 Z
 categories:
 - ceberhardt
 - Podcast
-author: ceberhardt
-layout: default_post
 summary: In this month’s episode, we talk multi-cloud. This is a challenging topic,
   even the first step—nailing down what the term actually means—isn’t easy. How does
   it differ from hybrid-cloud or poly-cloud? Does the term refer to the deployment
   approach for a single application or an entire organisation?
+author: ceberhardt
 contributors:
 - jheward
 - rgriffiths
-image: ceberhardt/assets/BeyondTheHype.png
+image: "/uploads/BeyondTheHype---orange---social_Artboard-1.jpg"
+layout: default_post
 ---
 
 <iframe title="Embed Player" src="//play.libsyn.com/embed/episode/id/22863902/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>

@@ -4,16 +4,16 @@ date: 2022-06-15 00:00:00 Z
 categories:
 - ceberhardt
 - Podcast
-author: ceberhardt
-layout: default_post
 summary: In this month’s episode we talk about Behaviour Driven Development (BDD),
   a testing practice where system behaviours are captured in a human readable Domain
   Specific Language (DSL), which are automated and executed.
+author: ceberhardt
 contributors:
 - dmcnamee
 - xchen
 - jarnstein
-image: ceberhardt/assets/BeyondTheHype.png
+image: "/uploads/BeyondTheHype---green---social_Artboard-1.jpg"
+layout: default_post
 ---
 
 <iframe title="Embed Player" src="//play.libsyn.com/embed/episode/id/23149460/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
