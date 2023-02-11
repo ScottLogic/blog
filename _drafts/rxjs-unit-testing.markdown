@@ -9,8 +9,6 @@ summary: 'An RxJS unbeliever explores the testing tools built into the library a
 author: jbickleywallace
 ---
 
-# RxJS Unit Testing
-
 I'm newish to [RxJS](https://rxjs.dev/) and Reactive programming and so far haven't been impressed.
 While, sometimes, it can solve problems elegantly, the times I've seen it deployed in JavaScript projects,
 it's made things over complicated and opaque.
@@ -196,7 +194,7 @@ It's a space invaders style game, with letters marching down from the top of the
 To clear them, you type the letter on the lowest row.
 Here's a gif of my embarrassingly bad touch typing:
 
-![alphabet invasion](./alphabet-invasion.gif)
+![alphabet-invasion.gif](/uploads/alphabet-invasion.gif)
 
 I've refactored it a bit to make it unit testable
 and to avoid some of the more obscure syntax the author favoured (TIL - the
@@ -363,6 +361,4 @@ I said in the opening of this post that I don't like RxJS.
 Well... the test tools included in the library, at least, have won my heart.
 I think the marble syntax is expressive and elegant.
 Having given it a fair shake with a more complicated case I think I can see how it would extend to production cases and standup well to the rigours of real life.
-I think as with anything there will be a point where the pattern breaks down or where the complications mount.
-There are also acknowledged limitations however, for example, the docs indicate that you're not able to test anything that consumes a promise
-but it looks to me like
+As with anything there will be a point where the pattern breaks down or where the complications mount but it looks to me like that would be far enough into the weeds not to matter for most cases.
