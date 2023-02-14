@@ -18,7 +18,7 @@ author: dnasonov
 ---
 
 # Intro
-Recently, I had the opportunity to work on a projected that was out of this world! (Not literally, but close enough). The goal was to create a **prototype of a chatbot** AI system with the ability to control the flow of conversation by gathering information and saving it in a **knowledgebase graph using neo4j**.  
+Recently, I had the opportunity to work on a project that was out of this world! (Well not literally, but close enough!). The goal was to create a **prototype of a chatbot** AI system with the ability to control the flow of conversation by gathering information and saving it in a **knowledgebase graph using neo4j**.  
 To achieve this, we dusted off our NLP books, read some papers and put our natural language processing skills to the tests.
 # NLP 101 - Intent Classification and Entity Extraction
 Before we dive into the comparison of NLP platforms, let's take a moment to understand what **intent classification and entity extraction** are all about. Essentially, these NLP techniques are like playing a game of 20 questions with a chatbot. The chatbot asks questions to determine what the user **wants** (**intent**) and what specific **information** they're looking for (**entity**).
