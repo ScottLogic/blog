@@ -25,13 +25,13 @@ To achieve this, we dusted off our NLP books, read some papers and put our natur
 
 # NLP 101 - Intent Classification and Entity Extraction
 
-Before we dive into the comparison of NLP platforms, let's take a moment to understand what **intent classification and entity extraction** are all about. Essentially, these NLP techniques are like playing a game of 20 questions with a chatbot. The chatbot asks questions to determine what the user **wants** (**intent**) and what specific **information** they're looking for (**entity**).
-For example, if a user asks `"What's the weather like in Paris today?"`. The chatbot's job is to identify the user's intent as `"weather inquiry"` and extract the entity `"Paris"`.
-In a nutshell, NLP is like being a detective, but with AI. And who doesn't love solving a good mystery? With basic understanding of NLP, let's dive into the comparison of NLP platforms!
+Before we dive into the comparison of NLP platforms, let's take a moment to understand what **intent classification and entity extraction** are all about. Essentially, these NLP techniques are like playing a game of 20 questions with. The NLP application asks questions to determine what the user **wants** (**intent**) and what specific **information** they're looking for (**entity**).
+For example, if a user asks `"What's the weather like in Paris today?"`. The NLP's job is to identify the user's intent as `"weather inquiry"` and extract the entity `"Paris"`.
+In a nutshell, NLP is like being a detective, but with AI. And who doesn't love solving a good mystery? With this basic background of NLP covered, let's dive into the comparison of NLP platforms!
 
 # Platforms Comparison - The Battle of the Bots!
 
-In building the chatbot prototype, we had to find the perfect NLP platform to bring out creation to life. After much research and testing, we narrowed down our options to the following heavyweights:
+In the course of the project, we had to find the most appropriate NLP platform to bring out creation to life. After much research and testing, we narrowed down our options to the following:
 
 * Amazon Comprehend: While it was a strong contender, the intent classification wasn't quite up to our standards right out of the box.
 
@@ -40,6 +40,7 @@ In building the chatbot prototype, we had to find the perfect NLP platform to br
 * Azure Cognitive Services: This platform was straightforward and easy to set up, but it was quite basic and didn't support a chat-like system out of the box. It was mostly focused on intent classification and entity extraction.
 
 * AWS Lex: An interesting option would be AWS Lex if it could run seamlessly without its ecosystem. Of course, you could find workarounds using Lambda functions, but it felt like swimming against the flow.
+
   In the end, we decided to settle on OpenAI GPT-3 thanks to its context-aware capabilities (answering questions and providing useful information) as well as its output in JSON format.
   For example, a JSON response might have looked like this:
   {
@@ -62,5 +63,6 @@ Additional features| [Custom Classification](https://docs.aws.amazon.com/compreh
 
 # Conclusion
 
-In conclusion our team ultimately chose OpenAI GPT-3 as the most appropriate option for our recent chatbot prototype. It's strong performance in entity extraction and context-aware capabilities made it one of the best options for this project. Additionally, the integration of GPT-3 with neo4j allowed  us to build a knowledgebase that could be easily updated and queried.
-However it's important  to note that the current option might change in the future. In fact, building a chatbot AI system often requires a combination of several systems or layers to achieve the desired result.
+In conclusion our team ultimately chose OpenAI GPT-3 as the most pragmatic choice for our recent project. It's strong performance in entity extraction and context-aware capabilities made it one of the best options for this project. Additionally, our integration of GPT-3 with neo4j allowed  us to build a knowledge base that could be easily updated and queried.
+
+However it's important  to note that this area of technology is moving fast and there are a lot of hyped tools out there! So one of our biggest realisations is that building effective AI systems requires a combination of several components or layers to achieve the desired result.
