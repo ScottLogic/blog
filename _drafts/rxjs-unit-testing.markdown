@@ -160,7 +160,7 @@ It let's us have fine grained control over when in (virtual) time the emissions 
 Line 6; I'm defining the pipeline I want to test. In this case, there's a single operator -
 [`delay`](https://rxjs.dev/api/operators/delay)
 .
-I've inlined that into my call to `expectObservable` and then called `.toBe`, which takes my expected Marble diagram, and performs the equality assertion that I passed as a callback into the `TestScheduler`.
+I've inlined that into my call to `expectObservable` and then called `.toBe`, which takes my *expected* Marble diagram, and performs the equality assertion that I passed as a callback into the `TestScheduler`.
 And we're done.
 
 Easy.
