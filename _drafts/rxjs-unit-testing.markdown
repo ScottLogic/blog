@@ -146,10 +146,7 @@ RxJS have a
 on their website so I won't repeat it here.
 
 I actually think this is pretty cool.
-It let's us have fine grained control over when in (virtual) time the emissions occur.
-And is also used in the assertions.
-
-That's Line 5, we're defining what we expect to happen.
+It let's us have fine grained control over when in (virtual) time the emissions occur, and is also used in the assertions. That's Line 5:
 
 1. `` - white space (which is ignored) to align the diagrams
 2. `300ms` - Wait 300 milliseconds (In virtual time - Jest tells me this test only takes a few milliseconds to run).
@@ -160,10 +157,11 @@ That's Line 5, we're defining what we expect to happen.
 7. `3` - emit the string value `"3"`
 8. `|` - complete.
 
-Line 6 and we're done. I'm defining the pipeline I want to test. In this case, there's a single operator -
+Line 6; I'm defining the pipeline I want to test. In this case, there's a single operator -
 [`delay`](https://rxjs.dev/api/operators/delay)
 .
 I've inlined that into my call to `expectObservable` and then called `.toBe`, which takes my expected Marble diagram, and performs the equality assertion that I passed as a callback into the `TestScheduler`.
+And we're done.
 
 Easy.
 Too easy?
