@@ -99,6 +99,7 @@ active-authors:
     - wreilly
     - wsalt
     - wtrimble
+    - wboothclibborn
     - xchen
     - zrubin
     - zwali
@@ -1213,6 +1214,10 @@ authors:
         name: 'Beth Wallis'
         author-summary: 'I''m a Technical Recruitment Partner for Scott Logic, covering Leeds and Newcastle.'
         picture: picture.jpeg
+    wboothclibborn:
+        name: 'William Booth-Clibborn'
+        author-summary: 'Hey I''m William, I''m a graduate developer in Edinburgh at Scott Logic. I''ve previously worked within, both the public and private sector, and within research too. I particularly enjoy working with a wide range of domain experts. I''ve got an interest in digital accessibility, Physics, and ML. In ML I''m most interested in MLOps and Natural Language Processing (previously using sentiment analysis to find discrimination in conversational text). I hope I''m able to share some unique thoughts and experiences with you!'
+        picture: picture.jpg
     pholman:
         name: 'Peter Holman'
         email: pholman@scottlogic.com
