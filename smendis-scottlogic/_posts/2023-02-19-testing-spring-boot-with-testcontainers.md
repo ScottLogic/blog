@@ -15,11 +15,11 @@ layout: default_post
 
 *Looking for a better way of testing your spring boot repositories?* If this is a question that crossed your mind recently, then this article is for you. I’m hoping to share you my experience of writing integration tests to test your repository layer with the use of **Testcontainers** in this article. Hope this will help you to make a better decision next time when you are faced with the same challenge.
 
-Before moving on to writing tests with Testcontainers, let’s try to investigate our options. Since we are using Spring Boot, you would probably be extending an interface such as `CrudRepository` or `MongoRepository` based on your choice of database to create the repositories. So, one may argue that we don’t need to test the repository layer at all; given the fact that it was not written by us. For simple applications which do not have any custom repository queries this may be true. But if you are adding more functionality to your repository than what is provided by the base repository it’s always recommended to test your repositories with integration tests.
+Before moving on to writing tests with Testcontainers, let’s try to investigate our options. Since we are using Spring Boot, you would probably be extending an interface such as `CrudRepository` or `MongoRepository` based on your choice of database to create the repositories. So, one may argue that we don’t need to test the repository layer at all; given the fact that it was not written by us. For simple applications which do not have any custom repository queries this may be true. But if you are adding more functionality to your repository than what is provided by spring framework data repository it’s always recommended to test your repositories with integration tests.
 
 Ok, let’s assume you have decided to test your repository layer. The easiest would be to add an Java in-memory database like [H2](http://h2database.com/html/main.html) if you are using a SQL database or add an embedded MongoDB database, like the one provided by [Flapdoodle](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo) if you are using a NoSQL storage. *Wait what?? I have a PostgreSQL database in my production, and now you are asking me to test with a H2?* Since they are both relational database management systems, yes you can use that approach. But I don’t recommend. When you have complex queries to execute there is no guarantee that passing tests in CI, means that it will work the same in production if you have different database setups.
 
-*Alright, then what should I do? Create a separate database just like the one I use in production, populate it with test data and use it only within my test class??* Yes, why not?? It will fix all your problems. *But wouldn’t it be too much work?* This is where the Testcontainers come into play. Just like you automate many things using annotations in Spring Boot, Testcontainers allows you to do all the things that I mentioned above in few lines of code. Of cause, this results in taking more time to run your tests, but you can always configure your CI to run repository tests only on request which will eliminate the long test execution times and allow you to run them when you require an end-to-end testing.
+*Alright, then what should I do? Create a separate database just like the one I use in production, populate it with test data and use it only within my test class??* Yes, why not? It will fix all your problems. *But wouldn’t it be too much work?* This is where the Testcontainers come into play. Just like you automate many things using annotations in Spring Boot, Testcontainers allows you to do all the things that I mentioned above in few lines of code. Of cause, this results in taking more time to run your tests, but you can always configure your CI to run repository tests only on request which will eliminate the long test execution times and allow you to run them when you require an end-to-end testing.
 
 
 
@@ -35,7 +35,7 @@ For more details check out the official site for [Testcontainers](https://www.te
 
 Since we have a basic understanding of what the Testcontainers are and why we need them, let’s see how we can build a basic Spring Boot application and test it using Testcontainers.
 
-This demo application will have 2 repositories, namely `ConsultantRepository` and `ProjectRepository`. Since I intend to demonstrate the usage of Testcontainers with 2 different database management systems I have stored my consultants in a PostgreSQL database and my projects in a MongoDB database. I have not implemented the services layer or the controllers layer as they are out of scope of this demo. However I have added the `docker-composer.yaml` file, so that you can create 2 separate docker containers, one with a postgres image and other with a mongo image and used them in the `application.properties` to run and build upon this demo application. Full code of this demo application can be found [here](https://github.com/smendis-scottlogic/testcontainers).
+The demo application that we are building in this article will have 2 repositories, namely `ConsultantRepository` and `ProjectRepository`. Since I intend to demonstrate the usage of Testcontainers with 2 different database management systems I'm planning to store our consultants in a PostgreSQL database and projects in a MongoDB database. We will not implement the services layer or the controllers layer as they are out of scope of this demo. However, we will be adding the `docker-composer.yaml` file, so that anyone interested can use it to create 2 separate docker containers, one with a postgres image and the other with a mongo image and connect to them using properties set in `application.properties` to run and build upon this demo application. Full code of this demo application can be found [here](https://github.com/smendis-scottlogic/testcontainers).
 
 #### Prerequisites
 
@@ -165,11 +165,11 @@ class ConsultantRepositoryTest {
 }
 ~~~
 
-If we are writing tests for a repository using JPA we need to annotate the class with `@DataJpaTest` in order to disable auto-configuration and to apply configuration relevant only to JPA tests. By default Spring Boot try to use an embedded in-memory database for testing which we need to prevent by adding an extra annotation, `@AutoConfigureTestDatabase` set to replace none. 
+If we are writing tests for a repository using JPA we need to annotate the class with `@DataJpaTest` in order to disable auto-configuration and to apply configuration relevant only to JPA tests. By default Spring Boot tries to use an embedded in-memory database for testing which we need to prevent by adding an extra annotation, `@AutoConfigureTestDatabase` set to replace none. 
 
-To use Testcontainers we need add `@Testcontainers` annotation on the class.
+To use Testcontainers we need add `@Testcontainers` annotation on the class as well.
 
-To create a docker container with a PostgreSQL database, I have added these lines to my test class. It's using an image named `postgres:11.1` from Docker Hub.
+Use the `PostgreSQLContainer` class provided by the Testcontainers to create a docker container with a PostgreSQL database. It's using an image named ['postgres:11.1'](https://hub.docker.com/layers/library/postgres/11.1/images/sha256-5a02f920193bc1d2658f673d0c77f93f25e7670078b930232f17856be34d7699?context=explore) from Docker Hub.
 
 ~~~java
 @Container
@@ -179,7 +179,7 @@ static PostgreSQLContainer postgresqlContainer = new PostgreSQLContainer("postgr
         .withPassword("sa");
 ~~~
 
-In order to configure the spring datasource with the properties of the newly created database instance we are adding the lines below,
+Then we need to configure the spring datasource with the properties of the newly created database instance.
 
 ~~~java
 @DynamicPropertySource
@@ -190,7 +190,7 @@ static void setProperties(DynamicPropertyRegistry registry) {
 }
 ~~~
 
-Yeah! your very own throwable PostgreSQL test container is now in business. Just autowire your repository and start calling it's methods to test it as you normally do.
+Yeah! your very own throwable PostgreSQL test container is now in business. Just autowire your repository and start calling its methods to test the repository as you wish.
 
 
 ### Creating the projects repository
@@ -225,7 +225,7 @@ This interface is extended from `MongoRepository` interface. We have extended th
 
 ### Testing projects repository
 
-Under test, under `repositories` and add a `ProjectRepositoryTest.java` class.
+Under `test` folder, under `repositories` package and add a `ProjectRepositoryTest.java` class.
 
 ~~~java
 @Testcontainers
@@ -261,9 +261,9 @@ class ProjectRepositoryTest {
     }
 }
 ~~~
-Like before we are adding `DataMongoTest` annotate the class which will disable auto-configuration and instead configure only those components, that are relevant for MongoDB tests. In order to use Testcontainers we need add `@Testcontainers` annotation and deactivate the default database configuration behaviour by adding `@AutoConfigureTestDatabase` with replace set to none.
+Like before we are adding `DataMongoTest` to annotate the class, which will disable auto-configuration and configure only those components, that are relevant for MongoDB tests. In order to use Testcontainers we need add `@Testcontainers` annotation and deactivate the default database configuration behaviour by adding `@AutoConfigureTestDatabase` with replace set to none.
 
-To create a docker container with a mongo database, I'm adding this code which uses `mongo:4.4.2` image from the Docker Hub.
+Use `MongoDBContainer` class provided by the Testcontainers to create a docker container with a mongo database. This will pull ['mongo:4.4.2'](https://hub.docker.com/layers/library/mongo/4.4.2/images/sha256-843618472ebde6d2d1c2589a9e2e06a2a1c650842ae7e6cda7e7f9261e8fe872?context=explore) docker image from the Docker Hub.
 
 ~~~java
 @Container
@@ -283,4 +283,4 @@ All done! Your throwable MongoDB container is ready to use. Like before autowire
 
 That covers everything I wanted to share with you in this article. 
 
-Kudos to Testcontainers and the team behind that amazing project. I hope you will appreciate the value brought in by the Testcontainers as much as I do and use it as necessary for your upcoming projects. 
+Kudos to Testcontainers and the team behind this amazing project. I hope you will appreciate the value brought in by the Testcontainers as much as I do and use it as necessary for your upcoming projects. 
