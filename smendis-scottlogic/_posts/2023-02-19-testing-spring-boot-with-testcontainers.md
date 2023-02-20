@@ -25,7 +25,7 @@ Ok, let’s assume you have decided to test your repository layer. The easiest w
 
 [**Testcontainers for Java**](https://www.testcontainers.org/) which I will be referring simply as 'Testcontainers' throughout this article is a Java library that supports testing frameworks like Junit, by providing light weighted, throwaway  instances of common databases, Selenium web browsers, or anything else that can run in a Docker container. At the time of writing this article Testcontainer libraries exists for many other popular programming languages and runtime environments such as .NET, Python, Go, Node.js and Rust. 
 
-![Testcontainers.PNG](/Testcontainers.PNG)
+![Testcontainers Logo]({{ site.github.url }}/smendis-scottlogic/assets/Testcontainers.PNG)
 
 ### Building a demo Spring Boot Application
 
@@ -42,7 +42,7 @@ This demo application will have 2 repositories, namely `ConsultantRepository` an
 
 I have used [Spring Initializer](https://start.spring.io/) to bootstrap a basic spring boot application as follows,
 
-![SpringInitializer.PNG](/SpringInitializer.PNG)
+![Spring Initializer]({{ site.github.url }}/smendis-scottlogic/assets/SpringInitializer.PNG)
 
 ### Adding Testcontainer dependancies
 
