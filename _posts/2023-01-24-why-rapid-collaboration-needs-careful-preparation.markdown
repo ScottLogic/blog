@@ -73,8 +73,6 @@ But as the CEVPS demonstrated, such collaboration is possible. The government is
 
 It’s become a truism that the pandemic was an accelerator, and this is certainly the case with data sharing in government. The crucible of the pandemic response revealed the extent to which the government was already prepared for greater interconnectedness and data sharing, as the rapid establishment of the CEVPS demonstrated. There’s great potential to build on these foundations so that – with clear objectives, a proven public need and sound governance – departments, agencies and even private sector organisations can collaborate safely and effectively to deliver value to citizens. The opportunity cost of *not* building on those foundations could be significant, not just in economic and social terms, but also in our preparedness for another crisis.
 
-## Join us for ‘Lessons from data sharing during the pandemic’
+## New data sharing in government report
 
-On Wednesday 8 February, I’ll be speaking on a panel at an IfG event with fellow panellists **Ming Tang** (National Director of Data and Analytics for NHS England and Improvement), **Juliet Whitworth** (Head of Research and Information, Local Government Association) and **Paul Shepley** (Data Scientist at the Institute for Government). We’ll explore themes and case studies from the upcoming IfG report, produced in partnership with Scott Logic: *Data sharing during the pandemic*.
-
-[Register here to join in person or online](https://www.instituteforgovernment.org.uk/event/lessons-data-sharing-during-pandemic?utm_source=events_page&utm_medium=website&utm_campaign=scottlogic_website)
+We’re proud to have partnered with the Institute for Government on the report *Data sharing during coronavirus: Lessons for government*. [Find out more and download your copy](https://www.scottlogic.com/data-sharing-in-government).
