@@ -50,8 +50,6 @@ Getting the right people in the room at the start is our recommended approach on
 
 By bringing in expert stakeholders at that start, you can cut down on your missteps and wrong turns, and leverage all the previous work and insight that has come before you. This allows you to plan how and when you will require their input to help design, test and validate the software your team is building. Their input helps to foster a more knowledgeable engineering team over time, sharpening their focus on the needs of users and the project’s objectives. It also deepens their understanding not only of *what* should be built, but *how* and *why*. And by validating completed user stories and engineering decisions as early as possible, the expert stakeholders will help your team to avoid rework, deliver on time and save taxpayer money.
 
-## Join us for 'Lessons from data sharing during the pandemic'
+## New data sharing in government report
 
-On Wednesday 8 February, I'll be speaking on a panel at an IfG event with fellow panellists **Ming Tang** (National Director of Data and Analytics for NHS England and Improvement), **Juliet Whitworth** (Head of Research and Information, Local Government Association) and **Paul Shepley** (Data Scientist at the Institute for Government). We'll explore themes and case studies from the upcoming IfG report, produced in partnership with Scott Logic: *Data sharing during the pandemic*.
-
-[Register here to join in person or online](https://www.instituteforgovernment.org.uk/event/lessons-data-sharing-during-pandemic?utm_source=events_page&utm_medium=website&utm_campaign=scottlogic_website)
+We’re proud to have partnered with the Institute for Government on the report *Data sharing during coronavirus: Lessons for government*. [Find out more and download your copy](https://www.scottlogic.com/data-sharing-in-government).
