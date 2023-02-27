@@ -102,7 +102,7 @@
   - /2020/10/09/charts-with-flexbox.html
 /2014/03/12/native-code-emscripten-webgl-simmer-gently.html:
   - /2018/09/04/tensorflowjs-machine-learning-in-the-browser.html
-  - /2019/12/24/webassembly-2019.html
+  - /2023/02/01/webview2-electron-challengers-and-slightly-lighter-desktop-web-applications.html
 /2014/03/13/reactive-cocoa-tutorial.html:
   - /2015/03/05/reactjs-in-swift.html
   - /2014/07/07/mvvm-reactive-cocoa.html
@@ -452,8 +452,8 @@
   - /2020/07/03/There's-console.more-where-that-came-from!-Make-greater-use-of-console-in-JS.html
   - /2018/07/17/achieving-cross-browser-testing-greatness.html
 /2015/12/17/recommended-reading-for-designers.html:
+  - /2023/01/03/five-books-every-developer-should-read.html
   - /2014/02/04/intro-to-ixd.html
-  - /2016/05/21/recommended-reading-for-java-developers.html
 /2015/12/24/creating-an-angular-2-build.html:
   - /2017/06/06/typescript-electron-webpack.html
   - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
@@ -572,8 +572,8 @@
   - /2018/03/09/a-week-with-prototyping-tools.html
   - /2016/05/23/an-animated-chart-with-html5-canvas.html
 /2016/05/21/recommended-reading-for-java-developers.html:
-  - /2014/09/18/swift-by-tutorials.html
-  - /2020/07/21/7-tips-for-transforming-testing.html
+  - /2023/01/03/five-books-every-developer-should-read.html
+  - /2018/12/05/a-developers-intro-to-android.html
 /2016/05/23/an-animated-chart-with-html5-canvas.html:
   - /2014/09/19/interactive.html
   - /2016/05/20/experiment-with-animation-and-ui.html
@@ -1544,8 +1544,8 @@
   - /2018/03/20/mock-the-backend-with-node.html
   - /2015/03/05/reactjs-in-swift.html
 /2019/10/30/ir35-hits-now-don-t-wait-until-april-to-act.html:
+  - /2023/02/06/beyond-the-hype-chatgpt.html
   - /2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html
-  - /2022/02/23/Grad-Week-F.html
 /2019/10/31/building-microservices-with-spring-boot.html:
   - /2019/11/19/building-microservices-with-spring-boot-2.html
   - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
@@ -1601,8 +1601,8 @@
   - /2020/01/16/mapping-the-cloud-atlas.html
   - /2020/10/12/oft-untapped-potential-of-apis.html
 /2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html:
+  - /2023/02/06/beyond-the-hype-chatgpt.html
   - /2019/10/30/ir35-hits-now-don-t-wait-until-april-to-act.html
-  - /2022/02/23/Grad-Week-F.html
 /2019/12/16/regular-expressions-as-icebergs.html:
   - /2020/08/06/datahelix-intro.html
   - /2018/11/22/default-values-in-code-and-configuration.html
@@ -1778,8 +1778,8 @@
   - /2019/11/15/has-your-project-hit-the-buffers.html
   - /2020/05/15/beyond-covid.html
 /2020/06/17/Open-Banking.html:
-  - /2021/01/11/Open-Finance.html
   - /2018/08/24/the-ux-of-consent-models-in-open-banking.html
+  - /2017/08/07/evolving-the-agile-revolution.html
 /2020/06/24/the-new-normal-for-your-desktop.html:
   - /2018/12/14/automation-and-bots-for-open-source.html
   - /2019/12/13/debunking-cloud-myths.html
@@ -2015,8 +2015,8 @@
   - /2021/01/21/energy-panel-event.html
   - /2020/01/16/mapping-the-cloud-atlas.html
 /2021/03/29/natwest-group-s-wendy-redshaw-looks-up-from-lockdown.html:
-  - /2021/04/28/look-up.html
   - /2020/03/06/international-women-s-day-2020.html
+  - /2018/09/27/thoughts-from-the-software-testing-conference-north.html
 /2021/03/31/how-to-build-mental-health-resilience.html:
   - /2018/12/14/automation-and-bots-for-open-source.html
   - /2020/04/01/testing-in-the-devops-world.html
@@ -2148,7 +2148,7 @@
   - /2020/03/06/international-women-s-day-2020.html
 /2022/01/04/managing-knowledge-zettelkasten.html:
   - /2022/12/01/an-introduction-to-markdown.html
-  - /2015/06/10/learn-es6-from-airbnb.html
+  - /2020/01/21/beginners-terraform-serverless.html
 /2022/01/05/new-normal-for-leadership.html:
   - /2022/01/04/a-more-inclusive-future-together.html
   - /2019/08/06/why-scott-logic-celebrated-pride-month.html
@@ -2294,7 +2294,7 @@
   - /2020/03/06/international-women-s-day-2020.html
   - /2022/01/04/a-more-inclusive-future-together.html
 /2022/11/30/rules-help-you-go-faster.html:
-  - /2022/11/18/why-you-should-get-the-right-people-in-the-room-from-the-start.html
+  - /2023/01/12/how-data-literacy-gives-leaders-the-edge.html
   - /2019/11/15/has-your-project-hit-the-buffers.html
 /2022/12/01/an-introduction-to-markdown.html:
   - /2012/12/17/jekyll-a-developers-wordpress.html
@@ -2308,6 +2308,27 @@
 /2022/12/15/beyond-the-hype-blockchain-is-dead-long-live-blockchain.html:
   - /2018/02/27/higher-lower-ml-in-js.html
   - /2019/12/13/debunking-cloud-myths.html
+/2023/01/03/five-books-every-developer-should-read.html:
+  - /2016/05/21/recommended-reading-for-java-developers.html
+  - /2018/03/13/organizations-journey-to-devops-culture.html
+/2023/01/12/how-data-literacy-gives-leaders-the-edge.html:
+  - /2017/08/07/evolving-the-agile-revolution.html
+  - /2017/09/05/scaling-agile-in-the-public-sector.html
+/2023/01/16/devternity-conference-2022.html:
+  - /2013/10/18/getting-functional-at-dddnorth.html
+  - /2016/11/04/design-data-and-redux-at-bristech.html
+/2023/01/24/why-rapid-collaboration-needs-careful-preparation.html:
+  - /2017/09/05/scaling-agile-in-the-public-sector.html
+  - /2017/08/07/evolving-the-agile-revolution.html
+/2023/02/01/webview2-electron-challengers-and-slightly-lighter-desktop-web-applications.html:
+  - /2016/03/09/As-It-Stands-Electron-Security.html
+  - /2014/03/12/native-code-emscripten-webgl-simmer-gently.html
+/2023/02/06/beyond-the-hype-chatgpt.html:
+  - /2019/10/30/ir35-hits-now-don-t-wait-until-april-to-act.html
+  - /2022/02/23/Grad-Week-F.html
+/2023/02/27/testing-spring-boot-with-testcontainers.html:
+  - /2018/07/06/comparing-streaming-frameworks-pt1.html
+  - /2019/08/08/reactive-android.html
 /26/08/2014/StrongTypingWithAngularJS.html:
   - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
   - /2014/08/08/signalr-typed.html
