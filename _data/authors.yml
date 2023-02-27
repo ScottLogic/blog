@@ -105,6 +105,7 @@ active-authors:
     - zwali
     - colive
     - pholman
+    - smendis-scottlogic
 authors:
     aaiken:
         name: 'Andy Aiken'
@@ -1223,3 +1224,8 @@ authors:
         email: pholman@scottlogic.com
         author-summary: 'Software Developer and tech enthusiast'
         picture: blog_thumbnail.jpg
+    smendis-scottlogic:
+        name: 'Sonali Mendis'
+        email: smendis@scottlogic.com
+        author-summary: 'I am a senior developer from Scott Logic, Newcastle. I am a fullstack developer with experience in web, mobile, backend and cloud technologies. I have done a bit of everything and I am enthusiastic to share my knowledge with the rest of the world.'
+        picture: picture.jpg
