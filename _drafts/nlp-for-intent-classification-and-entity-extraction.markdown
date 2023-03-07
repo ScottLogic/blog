@@ -21,8 +21,8 @@ author: dnasonov
 # Intro
 
 Recently, I had the opportunity to work on a NLP/NLG (Natural Language Processing/Generation) project that was out of this world! (Well not literally, but close enough!). 
-To achieve this, we dusted off our NLP books, read some papers and put our natural language processing skills to the test!
-\
+To achieve this, I dusted off my NLP books, read some papers and put my natural language processing skills to the test!
+
 
 # NLP 101 - Intent Classification and Entity Extraction
 
