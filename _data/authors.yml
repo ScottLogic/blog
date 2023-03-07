@@ -54,6 +54,7 @@ active-authors:
     - kangel
     - kcoombes
     - kjones
+    - dhunter
     - kday
     - lcollingwood
     - lpisani
@@ -464,6 +465,10 @@ authors:
     kjones:
         author-summary: 'I''m a full stack senior developer with experience in C#, Typescript (mainly Angular)'
         name: 'Ken Jones'
+        picture: picture.jpg
+    dhunter:
+        author-summary: 'I''m a senior developer at Scott Logic, based in the Edinburgh office. My background is full-stack .NET web applications and more recently some Xamarin projects. Outside of work I like a pub quiz, live music and playing lego and soft play with my wee boy.'
+        name: 'Dean Hunter'
         picture: picture.jpg
     labs:
         name: 'Scott Logic Labs'
