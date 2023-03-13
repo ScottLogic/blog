@@ -28,7 +28,7 @@ Links from the podcast:
 
 * [Einstein’s "Spooky Action at a Distance" Paradox Older Than Thought](https://www.technologyreview.com/2012/03/08/20152/einsteins-spooky-action-at-a-distance-paradox-older-than-thought/) – some good background on the Einstein quote
 
-* [Qiskit](https://qiskit.org/) – IBMs open source toolkit for creating quantum circuits
+* [Qiskit](https://qiskit.org/) – IBM's open source toolkit for creating quantum circuits
 
 You can subscribe to the podcast on these platforms:
 
