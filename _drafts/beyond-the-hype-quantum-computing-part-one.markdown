@@ -5,12 +5,11 @@ categories:
 - Podcast
 tags:
 - Quantum Computing
-summary: In this episode – the first of a two-parter – I'm joined by Oliver to talk
-  about Quantum Computing with Denis Mandich, CTO of Qrypt, a company that creates
-  quantum-secure encryption products. As well as discussing quantum physics, we cover
-  the practical aspects of cloud-based Quantum Computers and what can be achieved
-  today through circuit design. Finally, we look to the future to discuss the impact
-  this breakthrough technology is likely to have.
+summary: In this episode, we talk about Quantum Computing with Denis Mandich, CTO
+  of Qrypt. As well as discussing quantum physics, we cover the practical aspects
+  of cloud-based Quantum Computers and what can be achieved today through circuit
+  design. Finally, we look to the future to discuss the impact this breakthrough technology
+  is likely to have.
 author: ceberhardt
 image: "/uploads/BeyondTheHype---pink-blue---social.jpg"
 ---
@@ -30,3 +29,11 @@ Links from the podcast:
 * [Einstein’s "Spooky Action at a Distance" Paradox Older Than Thought](https://www.technologyreview.com/2012/03/08/20152/einsteins-spooky-action-at-a-distance-paradox-older-than-thought/) – some good background on the Einstein quote
 
 * [Qiskit](https://qiskit.org/) – IBMs open source toolkit for creating quantum circuits
+
+You can subscribe to the podcast on these platforms:
+
+* [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
+
+* [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29tLzM5NTE1MC9yc3M?sa=X&ved=0CAMQ4aUDahcKEwjAxKuhz_v7AhUAAAAAHQAAAAAQAQ)
+
+* [Spotify](https://open.spotify.com/show/2BlwBJ7JoxYpxU4GBmuR4x)
