@@ -17,6 +17,7 @@ summary: 'A few years ago while working on a digital product in a government dep
   to the design and delivery of digital services, with some examples from the government''s
   response to the pandemic.'
 author: jmcevoy
+image: "/uploads/Rules-help-you-go-faster-social-post.jpg"
 ---
 
 *Over the summer, in partnership with Scott Logic, the Institute for Government (IfG) ran a series of roundtable discussions with senior civil servants and government experts on the topic of Data Sharing in Government. This is the second in a series of blog posts in which I reflect on the key themes that came out of those discussions. You can read the first post in the series here on '[Why you should get the right people in the room from the start](https://blog.scottlogic.com/2022/11/18/why-you-should-get-the-right-people-in-the-room-from-the-start.html)'.*
