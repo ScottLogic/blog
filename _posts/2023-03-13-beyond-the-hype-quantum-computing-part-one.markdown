@@ -14,7 +14,7 @@ author: ceberhardt
 image: "/uploads/BeyondTheHype---pink-blue---social.jpg"
 ---
 
-<iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/26208876/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
+<base target="_blank"><iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/26208876/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
 
 In this episode – the first of a two-parter – I'm joined by Oliver Cronk to talk to Denis Mandich, CTO of Qrypt, a company that creates quantum-secure encryption products. Denis is also a physicist and has a wealth of knowledge when it comes to Quantum Computing.
 
