@@ -66,6 +66,6 @@ In the course of the project, we had to find the most appropriate NLP platform t
 
 # Conclusion
 
-In conclusion our team ultimately chose OpenAI GPT-3 as the most pragmatic choice for our recent project. It's strong performance in entity extraction and context-aware capabilities made it one of the best options for this particular project. Additionally, our integration of GPT-3 with neo4j allowed  us to build a knowledge base that could be easily updated and queried. That said it very much depends on the problem that you need to solve and crucially what the existing environment looks like (for example if AWS or Azure is a major component of your existing architecture).
+In conclusion our team ultimately chose OpenAI GPT-3 as the most pragmatic choice for our recent project. It's strong performance in entity extraction and context-aware capabilities made it one of the best options for this particular project. Additionally, our integration of GPT-3 with Neo4J allowed  us to build a knowledge base that could be easily updated and queried. That said it very much depends on the problem that you need to solve and crucially what the existing environment looks like (for example if AWS or Azure is a major component of your existing architecture).
 
 However it's important  to note that this area of technology is moving fast and there are a lot of hyped tools out there! So one of our biggest realisations is that building effective AI systems requires a combination of several components or layers to achieve the desired result.
