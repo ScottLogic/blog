@@ -18,6 +18,7 @@ summary: Our team has been doing research and development in the NLP / NLG space
 author: dnasonov
 ---
 
+
 # Intro
 
 Recently, I had the opportunity to work on a NLP/NLG (Natural Language Processing/Generation) project that was out of this world! (Well not literally, but close enough!).
@@ -28,7 +29,7 @@ To achieve this, I dusted off my NLP books, read some papers and put my natural 
 Before we dive into the comparison of NLP platforms, let's take a moment to understand what **intent classification and entity extraction** are all about. Essentially, these NLP techniques are like playing a game of 20 questions with. The NLP application asks questions to determine what the user **wants** (**intent**) and what specific **information** they're looking for (**entity**).
 For example, if a user asks `"What's the weather like in Paris today?"`. The NLP's job is to identify the user's intent as `"weather inquiry"` and extract the entity `"Paris"`.
 In a nutshell, NLP is like being a detective, but with AI. And who doesn't love solving a good mystery? With this basic background of NLP covered, let's dive into the comparison of NLP platforms!
-\\
+
 
 # Platforms Comparison - The Battle of the Bots!
 
@@ -50,7 +51,7 @@ In the course of the project, we had to find the most appropriate NLP platform t
   "reply": "The current temperature in Paris is 2°C with scattered clouds"
   }
   Keep in mind, working with OpenAI GPT-3 required some knowledge of prompt engineering and testing, but the end result was worth it.
-  \
+  
   | Feature | Amazon Comprehend | Azure Cognitive Services | IBM Watson | OpenAI GPT | AWS Lex |
   |---------|-------------------|--------------------------|------------|--------------|-------|
   | Ease of use | Moderate (requires some knowledge of AWS) | Moderate (requires some knowledge of Azure) | Moderate (requires some knowledge of IBM) | Easy (very user-friendly API) | Difficult, (requires knowledge of AWS)
@@ -61,7 +62,7 @@ In the course of the project, we had to find the most appropriate NLP platform t
   | Pricing | Pay-as-you-go [starting at $0.2 for 1k requests](https://aws.amazon.com/comprehend/pricing/) | Pay-as-you-go [starting at $5 for 1k requests](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/language-service/) | Pay-as-you-go starting at [$3 for 1k requests](https://www.ibm.com/uk-en/cloud/watson-natural-language-understanding/pricing#:\~:text=Tier%201:%20USD%200.003/%20NLU,item%20for%20next%205,000,001\+%20items) | Pay-as-you-go [at $0.002 / 1k tokens](https://openai.com/api/pricing/) | Pay-as-you-go [starting at $0.75 for 1k requests](https://aws.amazon.com/lex/pricing/)|
   | Integration with other services | Yes (integrates with other AWS services) | Yes (integrates with other Azure services) | Yes (integrates with other IBM services) | No | Yes (integrates with other AWS services) |
   Additional features| [Custom Classification](https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html), [Custom Entities](https://docs.aws.amazon.com/comprehend/latest/dg/custom-entity-recognition.html), [PII identification](https://aws.amazon.com/comprehend/features/?refid=a7f57dee-fc58-4084-9037-cb552d58a5d5#PII_Identification_and_Redaction) | [PII identification](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/personally-identifiable-information/overview), [Entity Linking](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/entity-linking/overview), [Custom Entity Recognition](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/conversational-language-understanding/quickstart?pivots=rest-api)| Recognition of [Emotions](https://cloud.ibm.com/apidocs/natural-language-understanding#emotion), [Relations](https://cloud.ibm.com/apidocs/natural-language-understanding#relations); [Custom Entities](https://cloud.ibm.com/docs/natural-language-understanding?topic=natural-language-understanding-entities-and-relations) | [Fine tuning](https://beta.openai.com/docs/guides/fine-tuning), [Moderation](https://beta.openai.com/docs/guides/moderation/overview) | [Multi turn dialog](https://aws.amazon.com/lex/features/), [Intent and slot lifecycle management](https://aws.amazon.com/lex/features/) |
-  \\
+  
 
 # Conclusion
 
