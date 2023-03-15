@@ -1,6 +1,6 @@
 ---
 title: Migrating from Xamarin Forms to .NET MAUI
-date: 2023-03-07 12:38:00 Z
+date: 2023-03-15 12:38:00 Z
 categories:
 - Tech
 tags:
