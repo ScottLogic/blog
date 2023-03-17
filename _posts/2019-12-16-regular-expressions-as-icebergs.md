@@ -2,13 +2,13 @@
 title: Regular Expressions As Icebergs
 date: 2019-12-16 00:00:00 Z
 categories:
-- wsalt
+- csalt
 - Tech
 tags:
 - regex
 - datahelix
 - data
-author: wsalt
+author: csalt
 layout: default_post
 summary: Regular expressions are very powerful, but something that many developers
   are wary of using&mdash;they have a reputation of being difficult to understand.  If
