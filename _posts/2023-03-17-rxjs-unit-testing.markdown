@@ -2,15 +2,14 @@
 title: RxJS Unit Testing
 date: 2023-03-17 07:16:00 Z
 categories:
-- Front End
-- Unit Testing
-- jbickleywallace
+- Testing
 tags:
 - RxJS
 - Unit Testing
 summary: 'An RxJS unbeliever explores the testing tools built into the library and
   is pleasantly surprised. '
 author: jbickleywallace
+image: "/uploads/RxJS-Unit-Testing.png"
 ---
 
 I'm newish to [RxJS](https://rxjs.dev/) and Reactive programming and so far haven't been impressed.
