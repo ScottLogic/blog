@@ -11,6 +11,7 @@ summary: Xamarin Forms has now been superseded with .NET MAUI.  In this blog pos
   I'm looking at the process of upgrading an existing Xamarin Forms project to MAUI.  How
   much effort is needed and what will still work or needs to up updated.
 author: dhunter
+image: "/uploads/Migrating-from-Xamarin-Forms.png"
 ---
 
 ## Cheerio Xamarin Forms, Aloha .NET MAUI
