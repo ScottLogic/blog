@@ -19,6 +19,7 @@ active-authors:
     - ckoris
     - mhowie
     - cprice
+    - csalt
     - delliott
     - dgrew
     - dkerr
@@ -99,7 +100,6 @@ active-authors:
     - thands
     - wferguson
     - wreilly
-    - wsalt
     - wtrimble
     - wboothclibborn
     - xchen
@@ -248,6 +248,10 @@ authors:
         name: 'Charlotte Roberts'
         author-summary: 'Test Engineer at Scott Logic. Based in the London office.'
         picture: picture.png
+    csalt:
+        name: 'Caitlin Salt'
+        author-summary: 'I''m a Lead Developer at Scott Logic, based in our Bristol office.  My interests are varied and wide-ranging, but I tend to specialise in .NET and cloud-hosted technologies.  When I''m not at a keyboard, I get passionate about almost any sort of outdated and vintage machinery.'
+        picture: picture.jpg
     csmith:
         name: 'Chris Smith'
         twitter-url: 'https://twitter.com/cjsmithie'
@@ -797,10 +801,6 @@ authors:
     masmith:
         name: 'Matthew Smith'
         author-summary: "<p>\nI am a Developer in the Bristol Office.\n\nI joined Scott Logic in 2017 as a graduate in Computer Science from the University of Bristol.\n\nI spent two weeks making minor changes to this blog's code. You're welcome.\n</p>"
-        picture: picture.jpg
-    wsalt:
-        name: 'Will Salt'
-        author-summary: 'I''m a Lead Developer at Scott Logic, based in our Bristol office.  My interests are varied and wide-ranging, but I tend to specialise in .NET and cloud-hosted technologies.  When I''m not at a keyboard, I get passionate about almost any sort of outdated and vintage machinery.'
         picture: picture.jpg
     magnussmith:
         name: 'Magnus Smith'
