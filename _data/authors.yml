@@ -30,6 +30,7 @@ active-authors:
     - ebrown
     - emason
     - fhubin
+    - gsmith
     - garora
     - gkendall
     - godds
@@ -1147,6 +1148,11 @@ authors:
     fhubin:
         name: 'Frank Hubin'
         author-summary: 'I am a Delivery Manager at Scott Logic. Using a lean approach, Agile values and team empowerment, I build bridges between business and technical teams to improve collaboration and make delivery a reality.'
+        twitter-handle: null
+        picture: picture.jpg
+    gsmith:
+        name: 'Ged Smith'
+        author-summary: 'Initially from a Marine Engineering background, I am a Senior Test Engineer with Scott Logic, based in Newcastle with twenty plus years software testing experience. Away from the keyboard, if I''m not concocting home brew, I''m either at the allotment or out on the kayak.'
         twitter-handle: null
         picture: picture.jpg
     mjrichards:
