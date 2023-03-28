@@ -21,7 +21,9 @@ Everything? Yes. That includes any written artefacts related to this product; th
 Requirements or Acceptance Criteria is another area where Testers bring huge value; breaking these down into the various tests that could be incorporated to ensure the product is what the client/customer actually wants. Perhaps even calling out if these are in fact testable. As we become more experienced as Testers, this becomes second nature, easier to accomplish.
 
 Our Developers have pushed their finished code and its ready for me to cast my eye over it. What do I do now? Generally, I will have a play around with the deliverable; randomly on an ad-hoc basis; with more structure in Exploratory Testing.
-OK – I can see a bit of a theme developing here. All of these require me to have the ability to apply knowledge, experience, understanding, common sense and insight. I believe I have this ability. So I’m a Tester.
+OK – I can see a bit of a theme developing here. 
+
+All of these require me to have the ability to apply knowledge, experience, understanding, common sense and insight. I believe I have this ability. So I’m a Tester.
 
 ## Checking
 
