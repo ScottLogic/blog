@@ -49,4 +49,4 @@ If I am writing a suite of automated Acceptance Tests, they should really be ter
 
 Although the output of my code writing may well be a suite of Checks, in order to get to that point I have had to apply all of those sapient attributes previously discussed; with the analysis of the Acceptance Criteria - to determine the checks needed to verify the system acts according to those criteria through to applying the knowledge and skills learnt to determine the best tool to use, the best coding language to select etc. Lets not forget the ability to troubleshoot issues encountered during the writing and testing of the checks.
 
-Am I Tester? Yes – but I also possess the ability to create Checks.
+**Am I Tester? Yes – but I also possess the ability to create Checks.**
