@@ -12,7 +12,7 @@ So, was I no longer a Tester?
 
 Time to disappear down the rabbit hole(s).
 
-##Testing
+## Testing
 
 Lets start with testing. What is software testing? Many people will have their own idea of what this actually is, but a recurring word in just about all the definitions I’ve seen is ‘process’. Product/software/system also come up quite a lot. To my mind, I believe the Testing process is about the product, where I’m defining the product as being everything to do with the project that is building this entity and not simply the tangible item that is promoted to production at the end.
 
@@ -23,7 +23,7 @@ Requirements or Acceptance Criteria is another area where Testers bring huge val
 Our Developers have pushed their finished code and its ready for me to cast my eye over it. What do I do now? Generally, I will have a play around with the deliverable; randomly on an ad-hoc basis; with more structure in Exploratory Testing.
 OK – I can see a bit of a theme developing here. All of these require me to have the ability to apply knowledge, experience, understanding, common sense and insight. I believe I have this ability. So I’m a Tester.
 
-##Checking
+## Checking
 
 Well what is Checking? When I’m talking about Checking here, I’m referring to its use in automated tests suites. Checking is about making an evaluation on observations of the product/application under test. 
 
@@ -33,14 +33,14 @@ Going back to my recent project there were 347 different instances of this examp
 
 Hang on then. The running and execution of my suite therefore does not require the sapience I mentioned above in order to show the system behaves as expected. Mmmm, maybe I’m a Checker.
 
-##Test vs Check
+## Test vs Check
 
 Surely though it cant be that straightforward, can it? Well, I don’t believe it is.
 Lets go a bit deeper. When the suite of automated ‘checks’ gets run and if they all pass, a report will be generated and filed away somewhere. This is all done as part of a build and deploy process, automatically. The green tick means, most likely, no further thought will be given to this. Now we’re back to Checkers.
 
 But. What if there was one or more red crosses in that report and maybe the build/deployment failed because of it? What happens is that the report will be analysed, each point of failure found and steps taken to address it – cerebral challenges. A Tester.
 
-##What am I then?
+## What am I then?
 
 Where am I now that I’ve exited the rabbit holes? 
 I have realised that our Developers do not actually write Unit Tests, they write Unit Checks. 
