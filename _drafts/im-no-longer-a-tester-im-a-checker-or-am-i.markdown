@@ -7,6 +7,7 @@ author: gsmith
 
 
 On a recent project, I had just finished running my suite of automated end-to-end tests and was pleased to see that single line of green text in the console telling me 347 of my 347 tests had all passed. Sweet. But then it hit me – I never actually tested the system for any of those 347 so called tests, what I felt I had done was simply check that this part of the system behaved as I expected it should, according to Acceptance Criteria. So, was I no longer a Tester?
+
 Time to disappear down the rabbit hole(s).
 
 # Testing
