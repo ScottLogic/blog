@@ -13,6 +13,7 @@ active-authors:
     - awhitmell
     - bpritchard
     - bwallis
+    - colive
     - ccocks
     - ceberhardt
     - cfisher
@@ -20,7 +21,6 @@ active-authors:
     - mhowie
     - cprice
     - csalt
-    - delliott
     - dgrew
     - dkerr
     - dmcnamee
@@ -79,6 +79,7 @@ active-authors:
     - oforeman
     - pdykes
     - pgraham
+    - pholman
     - rbeckett
     - rgarside
     - rgraham
@@ -94,21 +95,18 @@ active-authors:
     - shunton
     - slaing
     - smartin
+    - smendis-scottlogic
     - ssibanda
     - swoods
     - tclarke-scottlogic
     - tgilbert
     - thands
-    - wferguson
     - wreilly
     - wtrimble
     - wboothclibborn
     - xchen
     - zrubin
     - zwali
-    - colive
-    - pholman
-    - smendis-scottlogic
 authors:
     aaiken:
         name: 'Andy Aiken'
