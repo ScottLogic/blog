@@ -1,6 +1,8 @@
 ---
 title: I’m no longer a Tester, I’m a Checker. Or am I?
-date: 2023-03-28 08:31:00 Z
+date: 2023-03-30 08:31:00 Z
+categories:
+- Testing
 summary: A journey of self discovery to see if I'm a Tester or a Checker
 author: gsmith
 ---
