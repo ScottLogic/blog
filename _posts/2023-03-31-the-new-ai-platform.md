@@ -4,6 +4,7 @@ categories:
 - Tech
 summary: The buzz and excitement around generative AI is continuing to grow as their capabilities rapidly expand. However, their ability to generate content is just the starting point. From my perspective, the emergent reasoning capability, coupled with their intelligent use of tools, is what will make this technology truly transformational, and will mark the start of a new technology epoch.
 author: ceberhardt
+image: ceberhardt/assets/ai.png
 ---
 
 The buzz and excitement around generative AI is continuing to grow as their capabilities rapidly expand. However, their ability to generate content is just the starting point. From my perspective, the emergent reasoning capability, coupled with their intelligent use of tools, is what will make this technology truly transformational, and will mark the start of a new technology epoch. 
