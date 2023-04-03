@@ -20,6 +20,8 @@ In this episode – the first of a two-parter – I'm joined by Oliver Cronk to 
 
 Our conversation covers the physics that underpins this technology, including the strange concepts of superposition and entanglement. We cover the practical aspects of cloud-based Quantum Computers and what can be achieved today through circuit design. Finally, we look to the future to discuss the impact this breakthrough technology is likely to have.
 
+You can [listen to part two here](https://blog.scottlogic.com/2023/04/03/beyond-the-hype-y2q-the-end-of-encryption-as-we-know-it.html).
+
 Links from the podcast:
 
 * [Qrypt](https://www.qrypt.com/) – the company where Denis is CTO
