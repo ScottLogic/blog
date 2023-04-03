@@ -5,6 +5,7 @@ categories:
 - Testing
 summary: A journey of self discovery to see if I'm a Tester or a Checker
 author: gsmith
+image: "/uploads/Scottlogic---Social-media-cards_Ged-Smith.jpg"
 ---
 
 
