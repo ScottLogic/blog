@@ -25,6 +25,8 @@ In this episode – the second of a two-parter – Oliver Cronk and I talk to De
 
 Our conversation covers the perils of bad random number generation, which undermines our security protocols, and the growing threat that Quantum Computers will ultimately render our current cryptographic techniques useless – an event dubbed ‘Y2Q’, in a nod to the Y2K issue we faced over twenty years ago.
 
+Missed part one? You can [listen to it here](https://blog.scottlogic.com/2023/03/13/beyond-the-hype-quantum-computing-part-one.html).
+
 Links from the podcast:
 
 * [Qrypt](https://www.qrypt.com/) – the company where Denis is CTO
