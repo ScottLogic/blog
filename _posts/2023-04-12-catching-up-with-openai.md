@@ -1,5 +1,6 @@
 ---
 title: Catching up with OpenAI
+date: 2023-04-12 00:00:00 Z
 categories:
 - cprice
 - Tech
