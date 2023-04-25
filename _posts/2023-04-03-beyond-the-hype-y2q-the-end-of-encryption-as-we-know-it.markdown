@@ -11,6 +11,7 @@ tags:
 - random number generation
 - Security
 - data security
+- featured
 summary: In this episode – the second of a two-parter – we talk to Denis Mandich,
   CTO of Qrypt, about the growing threat that Quantum Computers will ultimately render
   our current cryptographic techniques useless – an event dubbed ‘Y2Q’, in a nod to
