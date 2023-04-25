@@ -10,6 +10,7 @@ tags:
 - Large Language Models
 - Software engineering
 - software development
+- featured
 summary: In this episode, I'm joined by colleagues Oliver Cronk, Chris Price and James
   Heward for a lively debate on whether the latest advances in generative AI are going
   to threaten our jobs – are we going to be made redundant by our own creation?
