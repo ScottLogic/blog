@@ -4,6 +4,7 @@ date: 2023-04-03 09:00:00 Z
 categories:
 - Podcast
 tags:
+- featured
 - Quantum Computing
 - Y2Q
 - encryption
@@ -11,12 +12,13 @@ tags:
 - random number generation
 - Security
 - data security
-- featured
 summary: In this episode – the second of a two-parter – we talk to Denis Mandich,
   CTO of Qrypt, about the growing threat that Quantum Computers will ultimately render
   our current cryptographic techniques useless – an event dubbed ‘Y2Q’, in a nod to
   the Y2K issue we faced over twenty years ago.
 author: ceberhardt
+contributors:
+- ocronk
 image: "/uploads/BeyondTheHype---orange-blue---social.png"
 ---
 
