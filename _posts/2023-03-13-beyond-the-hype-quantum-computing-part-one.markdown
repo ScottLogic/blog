@@ -4,6 +4,7 @@ date: 2023-03-13 10:25:00 Z
 categories:
 - Podcast
 tags:
+- featured
 - Quantum Computing
 summary: In this episode, we talk about Quantum Computing with Denis Mandich, CTO
   of Qrypt. As well as discussing quantum physics, we cover the practical aspects
@@ -11,6 +12,8 @@ summary: In this episode, we talk about Quantum Computing with Denis Mandich, CT
   design. Finally, we look to the future to discuss the impact this breakthrough technology
   is likely to have.
 author: ceberhardt
+contributors:
+- ocronk
 image: "/uploads/BeyondTheHype---pink-blue---social.jpg"
 ---
 
