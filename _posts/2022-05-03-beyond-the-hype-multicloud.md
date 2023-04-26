@@ -24,11 +24,18 @@ We discuss the challenges of creating a multi-cloud architecture, dealing with m
 
 Colin is joined by colleagues James Heward and Robert Griffiths to compare thoughts and experiences gained from many years of architecting solutions for the cloud.
 
-
 Links from the podcast:
 
-  - [Flexera 2022 State of the Cloud Report](https://www.flexera.com/blog/cloud/cloud-computing-trends-2022-state-of-the-cloud-report/) – Brian Adler 
-  - [Decoder: Polycloud](https://www.thoughtworks.com/decoder/polycloud) – Thoughtworks
-  - [White Paper: Thinking differently - the cloud as a value driver](https://blog.scottlogic.com/2019/04/18/cloud-as-a-value-driver.html) – Scott Logic 
+* [Flexera 2022 State of the Cloud Report](https://www.flexera.com/blog/cloud/cloud-computing-trends-2022-state-of-the-cloud-report/) – Brian Adler
 
-Search for Beyond the Hype on Apple, Spotify or wherever you get your podcasts.
+* [Decoder: Polycloud](https://www.thoughtworks.com/decoder/polycloud) – Thoughtworks
+
+* [White Paper: Thinking differently - the cloud as a value driver](https://blog.scottlogic.com/2019/04/18/cloud-as-a-value-driver.html) – Scott Logic
+
+You can subscribe to the podcast on these platforms:
+
+* [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
+
+* [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29tLzM5NTE1MC9yc3M?sa=X&ved=0CAMQ4aUDahcKEwjAxKuhz_v7AhUAAAAAHQAAAAAQAQ)
+
+* [Spotify](https://open.spotify.com/show/2BlwBJ7JoxYpxU4GBmuR4x)
