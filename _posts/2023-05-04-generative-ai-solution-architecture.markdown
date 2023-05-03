@@ -38,11 +38,8 @@ This is a big topic and so even as a primer, this is a fairly long article! I’
 -   **Business risks** of Enterprise GenAI    
 -   **Technology risks and challenges** of Enterprise GenAI
 -   A proposed **GenAI architecture**
--   Architecture is **exciting **again!
+-   Architecture is **exciting** again!
     
-
-  
-
 To begin with, what are the risks of Generative AI? In short, they are the converse of the characteristics of trustworthy AI systems which are nicely articulated in [NIST’s AI Risk Management Framework](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf):
 
   
@@ -104,16 +101,10 @@ Whilst this blog focuses on official and governed projects, the interest and hyp
 
 Moving beneath the business considerations there are challenges in the technology implementation that could create serious issues. These don’t just relate to ML and data science – there are arguably more challenges relating to the deployment and systems integration:
 
-  
-
 -   Explainability / repeatability / transparency
-    
--   Scalability
-    
--   Security
-    
--   Data and systems integration
-    
+-   Scalability    
+-   Security    
+-   Data and systems integration    
 -   Costs and the dangers of free trials
     -   Environmental impact
     -   Financial sustainability
