@@ -35,13 +35,10 @@ This is a big topic and so even as a primer, this is a fairly long article! I’
 
   
 
--   Business risks of Enterprise GenAI
-    
--   Technology risks and challenges of Enterprise GenAI
-    
--   A proposed GenAI architecture
-    
--   Architecture is exciting again!
+-   **Business risks** of Enterprise GenAI    
+-   **Technology risks and challenges** of Enterprise GenAI
+-   A proposed **GenAI architecture**
+-   Architecture is **exciting **again!
     
 
   
@@ -50,7 +47,7 @@ To begin with, what are the risks of Generative AI? In short, they are the conve
 
   
 
-“Characteristics of trustworthy AI systems include: valid and reliable, safe, secure and resilient, accountable and transparent, explainable and interpretable, privacy-enhanced, and fair with harmful bias managed.”  
+> “Characteristics of trustworthy AI systems include: valid and reliable, safe, secure and resilient, accountable and transparent, explainable and interpretable, privacy-enhanced, and fair with harmful bias managed.”  
   
 
 Whilst these are useful, they are focused more on the development of the technology itself and not so much the implications of deploying solutions using these technologies in complex enterprises.
@@ -61,25 +58,18 @@ Whilst these are useful, they are focused more on the development of the technol
 
 So, with enterprise deployment, what are the key risks at a more organisational level? Some of the below have a strong relationship with each other – for example, bias in a model against certain customers could lead to regulatory compliance failings, leading also to reputational damage. In summary the phrase [“with great power comes great responsibility](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)” very much applies.
 
-  
-
 Key risks include:
 
--   Reputational Damage
-    
+-   Reputational Damage   
 -   Legal and regulatory compliance
-    -  in particular “Customer Conduct” or “Consumer Duty” as it is now called
+    -  in particular “Customer Conduct” aka “Consumer Duty”
     -   Intellectual Property Infringement
-    -   Illegal activity
-    
+    -   Illegal activity    
 -   Ethics and Privacy
     -   Use of Personal / Personally Identifiable Data
     -   Bias
-    
 -   Darker Shadow IT from [“Bring your own bot”](https://edition.cnn.com/2023/02/22/tech/jpmorgan-chatgpt-employees/index.html)
  
- 
-
 **Reputational damage**
 
 [Reputational damage](https://www.theverge.com/2016/3/24/11297050/tay-microsoft-chatbot-racist) is probably the biggest concern of GenAI – in particular, given its [tendency to hallucinate](https://www.unite.ai/what-are-llm-hallucinations-causes-ethical-concern-prevention/) – to come up with credible-looking output that is flawed. However, just as much focus should be given to legal and regulatory risks – particularly if an application is customer facing and generating responses in real time. Imagine it making inappropriate product financial recommendations – it could lead to a misselling scandal.
