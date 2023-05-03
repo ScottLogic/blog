@@ -1,6 +1,7 @@
 ---
 title: Generative AI Solution Architecture
 date: 2023-05-04 10:30:00 Z
+published: false
 categories:
 - ocronk
 - Tech
