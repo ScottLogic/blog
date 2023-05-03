@@ -16,6 +16,11 @@ tags:
 - Large Language Models
 - regulation
 - governance
+summary: A proposed architecture for mitigating the risks of deploying Generative
+  AI technologies, particularly when used in highly regulated environments such as
+  Financial Services. The Post covers 1. Business risks of Enterprise GenAI 2. Technology
+  risks and challenges of Enterprise GenAI 3. A proposed GenAI architecture
+author: ocronk
 ---
 
 My career as a technology strategist and architect has tended to require looking further out – considering not just the opportunities from technology but also the risks. Nowhere in contemporary technology is that more pertinent than GenAI (Generative AI). So, as we follow the track of generative AI, will we eventually see the light at the end of the tunnel, or will that light be the headlights of an oncoming train?!
@@ -63,27 +68,17 @@ Key risks include:
 -   Reputational Damage
     
 -   Legal and regulatory compliance
+    -  in particular “Customer Conduct” or “Consumer Duty” as it is now called
+    -   Intellectual Property Infringement
+    -   Illegal activity
     
-
--  in particular “Customer Conduct” or “Consumer Duty” as it is now called
-    
--   Intellectual Property Infringement
-    
--   Illegal activity
-    
-
 -   Ethics and Privacy
+    -   Use of Personal / Personally Identifiable Data
+    -   Bias
     
-
--   Use of Personal / Personally Identifiable Data
-    
--   Bias
-    
-
 -   Darker Shadow IT - “[Bring your own app” becomes “bring your own bot”?](https://edition.cnn.com/2023/02/22/tech/jpmorgan-chatgpt-employees/index.html)
-    
-
-  
+ 
+ 
 
 **Reputational damage**
 
@@ -130,15 +125,9 @@ Moving beneath the business considerations there are challenges in the technolog
 -   Data and systems integration
     
 -   Costs and the dangers of free trials
-    
-
--   Environmental impact
-    
--   Financial sustainability
-    
-
-  
-
+    -   Environmental impact
+    -   Financial sustainability
+   
 **Explainability and Repeatability**
 
 Generative AI tends to be non–deterministic (running it multiple times even with the same input may result in different behaviour each time it is run). Therefore, how we design, manage and test it needs different thinking from more traditional deterministic technologies. As with machine learning in general, maths and algorithms that are inaccessible to the average person (without knowledge of statistics and data science) create issues in understanding and transparency. Add to this the complexity of enterprise architecture (business, data, applications and applications) in modern organisations and explainability becomes even more difficult.
