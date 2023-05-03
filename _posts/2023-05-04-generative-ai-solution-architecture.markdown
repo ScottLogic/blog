@@ -158,7 +158,7 @@ We’ve just scratched the surface here and even this creates a lot to consider!
 
 The diagram assumes that you’ve already concluded that the use case or the risks are non-trivial enough that they can’t be solved solely by a GenAI solution such as an LLM (for example just using a white labelled version of ChatGPT). In the future, perhaps GenAI-centric architectures – simply leveraging smart plugins and integrations – will be credible. At the time of writing, this does not look like a sensible approach for most enterprise applications of these technologies.
 
-[GenAI-Arch-Image.PNG](/uploads/GenAI-Arch-Image.PNG)
+![GenAI-Arch-Image.PNG](/uploads/GenAI-Arch-Image.PNG)
 
 The diagram above is split into runtime and design time architecture. Starting with runtime:
 
