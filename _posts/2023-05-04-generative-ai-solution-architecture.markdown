@@ -76,7 +76,7 @@ Key risks include:
     -   Use of Personal / Personally Identifiable Data
     -   Bias
     
--   Darker Shadow IT - “[Bring your own app” becomes “bring your own bot”?](https://edition.cnn.com/2023/02/22/tech/jpmorgan-chatgpt-employees/index.html)
+-   Darker Shadow IT from [“Bring your own bot”](https://edition.cnn.com/2023/02/22/tech/jpmorgan-chatgpt-employees/index.html)
  
  
 
