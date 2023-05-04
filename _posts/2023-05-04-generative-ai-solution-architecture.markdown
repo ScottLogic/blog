@@ -1,5 +1,5 @@
 ---
-title: Generative AI Solution Architecture
+title: Generative AI Solution Architecture for Complex Enterprises
 date: 2023-05-04 10:30:00 Z
 published: false
 categories:
@@ -46,7 +46,7 @@ Whilst these are useful, they are focused more on the development of the technol
 
 ## Business risks of Enterprise GenAI deployment
 
-So, with enterprise deployment, what are the key risks at a more organisational level? Some of the below have a strong relationship with each other – for example, bias in a model against certain customers could lead to regulatory compliance failings, leading also to reputational damage. In summary the phrase [“with great power comes great responsibility](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)” very much applies.
+So, with enterprise deployment, what are the key risks at a more organisational level? Some of the below have a strong relationship with each other – for example, bias in a model against certain customers could lead to regulatory compliance failings, leading also to reputational damage. In summary, the phrase [“with great power comes great responsibility](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)” very much applies.
 
 Key risks include:
 
