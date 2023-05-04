@@ -1,9 +1,7 @@
 ---
 title: Generative AI Solution Architecture for Complex Enterprises
 date: 2023-05-04 10:30:00 Z
-published: false
 categories:
-- ocronk
 - Tech
 tags:
 - Artificial Intelligence
@@ -17,6 +15,7 @@ tags:
 - Large Language Models
 - regulation
 - governance
+- featured
 summary: A proposed architecture for mitigating the risks of deploying Generative
   AI technologies, particularly when used in highly regulated environments such as
   Financial Services. The Post covers 1. Business risks of Enterprise GenAI 2. Technology
@@ -80,9 +79,9 @@ Without sufficient context (perhaps missing from the prompting of the model), th
 
 **Ethics and privacy**
 
-When it comes to ethics and privacy risks – these are similar to [those from other types of Machine Learning](https://www.thedigitalspeaker.com/privacy-age-ai-risks-challenges-solutions/). Ethics are magnified by the sheer power of this latest generation of models. Is it ok to displace or massively augment people with these capabilities? Could users start to trust these systems too much? Could they be confused and manipulated? Given they are based on massive amounts of internet data - bias is a significant issue to manage.
+When it comes to ethics and privacy risks – these are similar to [those from other types of Machine Learning](https://www.thedigitalspeaker.com/privacy-age-ai-risks-challenges-solutions/). Ethics are magnified by the sheer power of this latest generation of models. Is it OK to displace or massively augment people with these capabilities? Could users start to trust these systems too much? Could they be confused and manipulated? Given they are based on massive amounts of internet data, bias is a significant issue to manage.
 
-The privacy aspect is magnified by the majority of the massive GenAI models being cloud hosted - so you need to make sure you are ok with sending data to 3rd parties and perhaps use pseudonymisation (where you mask personally identifiable details) or other techniques to address privacy issues.
+The privacy aspect is magnified by the majority of the massive GenAI models being cloud hosted – so, you need to make sure you are OK with sending data to third parties and perhaps use pseudonymisation (where you mask personally identifiable details) or other techniques to address privacy issues.
 
 **Darker Shadow IT**
 
@@ -90,7 +89,7 @@ Whilst this blog focuses on official and governed projects, the interest and hyp
 
 ## Technology risks and challenges of Enterprise GenAI
 
-Moving beneath the business considerations there are challenges in the technology implementation that could create serious issues. These don’t just relate to ML and data science – there are arguably more challenges relating to the deployment and systems integration:
+Moving beneath the business considerations, there are challenges in the technology implementation that could create serious issues. These don’t just relate to ML and data science – there are arguably more challenges relating to the deployment and systems integration:
 
 * Explainability / repeatability / transparency
 
@@ -108,7 +107,7 @@ Moving beneath the business considerations there are challenges in the technolog
 
 **Explainability and Repeatability**
 
-Generative AI tends to be non–deterministic (running it multiple times even with the same input may result in different behaviour each time it is run). Therefore, how we design, manage and test it needs different thinking from more traditional deterministic technologies. As with machine learning in general, maths and algorithms that are inaccessible to the average person (without knowledge of statistics and data science) create issues in understanding and transparency. Add to this the complexity of enterprise architecture (business, data, applications and applications) in modern organisations and explainability becomes even more difficult.
+Generative AI tends to be non-deterministic (running it multiple times even with the same input may result in different behaviour each time it is run). Therefore, how we design, manage and test it needs different thinking from more traditional deterministic technologies. As with machine learning in general, maths and algorithms that are inaccessible to the average person (without knowledge of statistics and data science) create issues in understanding and transparency. Add to this the complexity of enterprise architecture (business, data, applications and applications) in modern organisations, and explainability becomes even more difficult.
 
 This non-deterministic behaviour also creates consistency, reliability and repeatability challenges. Here is a clip from a recent [Architect Tomorrow episode](https://youtu.be/l-zHfUkVYzc) that touches on these points:
 
@@ -116,23 +115,23 @@ This non-deterministic behaviour also creates consistency, reliability and repea
 
 **Scaling and data integration**
 
-Scaling systems powered by machine learning is challenging. Creating an algorithm in a lab environment that comes up with an answer in several hours (or even minutes) is ok for a one-off exercise, but simply won’t cut it for real-time customer interaction at scale. It won’t simply be the performance of the ML models; how you integrate these models with enterprise data stores and systems of record will also impact performance. For example, being able to look up a customer's recent and historical activity to add context is not going to work if the data integration doesn’t deliver the required response time.
+Scaling systems powered by machine learning is challenging. Creating an algorithm in a lab environment that comes up with an answer in several hours (or even minutes) is OK for a one-off exercise, but simply won’t cut it for real-time customer interaction at scale. It won’t simply be the performance of the ML models; how you integrate these models with enterprise data stores and systems of record will also impact performance. For example, being able to look up a customer's recent and historical activity to add context is not going to work if the data integration doesn’t deliver the required response time.
 
 **Security**
 
-Managing the security risks of Enterprise AI is probably a blog post all on its own – in the meantime, [this article by NCSC is well worth a read](https://www.ncsc.gov.uk/blog-post/chatgpt-and-large-language-models-whats-the-risk). Sadly GenAI technologies will very likely lead [to whole new classes of security issues](https://github.com/greshake/llm-security) in software that leverages them. This can be compared to the early days of web application and the issues created by unsanitised user input and SQL injection. We are already seeing [examples of jailbreaking chatbots](https://www.mlyearning.org/how-to-jailbreak-chatgpt/) and no doubt there will be compromises for LLM-powered applications. Applying [sound security practices](https://www.ncsc.gov.uk/collection/machine-learning) and not cutting corners (not always easy when you’re in a competitive race to deliver new customer capabilities) will be foundational here. Ensuring your security team is up to speed and understands this area of technology is important – otherwise there is danger they might want to shut projects down out of fear.
+Managing the security risks of Enterprise AI is probably a blog post all on its own – in the meantime, [this article by NCSC is well worth a read](https://www.ncsc.gov.uk/blog-post/chatgpt-and-large-language-models-whats-the-risk). Sadly, GenAI technologies will very likely lead [to whole new classes of security issues](https://github.com/greshake/llm-security) in software that leverages them. This can be compared to the early days of web applications and the issues created by unsanitised user input and SQL injection. We are already seeing [examples of jailbreaking chatbots](https://www.mlyearning.org/how-to-jailbreak-chatgpt/) and no doubt there will be compromises for LLM-powered applications. Applying [sound security practices](https://www.ncsc.gov.uk/collection/machine-learning) and not cutting corners (not always easy when you’re in a competitive race to deliver new customer capabilities) will be foundational here. Ensuring your security team is up to speed and understands this area of technology is important – otherwise, there is a danger they might want to shut projects down out of fear.
 
 **Costs and the dangers of free trial periods**
 
-It has been estimated that [GenAI models take millions of dollars to train](https://towardsdatascience.com/behind-the-millions-estimating-the-scale-of-large-language-models-97bd7287fb6b) (not to mention the costs of accessing sought-after and expensive data science talent). Therefore, it's highly unlikely that platforms that are currently free or low cost will remain that way. If free platforms do remain, questions naturally need to be asked about their commercial model and whether that includes making use of the data that is fed into them. Checking the terms and conditions and whether these are compatible with your organisation's policies and regulatory regimes is important. It’s also the reason why “bring your own model” is risky and unwise – unless governed through some kind of management process.
+It has been estimated that [GenAI models take millions of dollars to train](https://towardsdatascience.com/behind-the-millions-estimating-the-scale-of-large-language-models-97bd7287fb6b) (not to mention the costs of accessing sought-after and expensive data science talent). Therefore, it's highly unlikely that platforms that are currently free or low-cost will remain that way. If free platforms do remain, questions naturally need to be asked about their commercial model and whether that includes making use of the data that is fed into them. Checking the terms and conditions and whether these are compatible with your organisation's policies and regulatory regimes is important. It’s also the reason why “bring your own model” is risky and unwise – unless governed through some kind of management process.
 
 Looking at the future marketplace, it is likely that GenAI-based services will become some of the most expensive cloud services that the hyperscale providers make available. They offer the most value to users, the R&D was and will continue to be expensive, they are expensive to operate, and they come with a stack of risks for the provider to mitigate.
 
-Personally, I think that this technology needs to become more expensive! Due to the hype, excitement and price (often free), it is being used for everything and anything. Really the expense and energy consumption of machine learning should be applied to more challenging and important problems – challenges cannot be easily solved using traditional (and generally lower footprint) technologies. Training these models requires vast amounts of compute resources (which have an embodied carbon footprint) and consume vast amounts of electricity (again with CO2 impact). Running the models and the inferencing also consumes precious energy. We need to move beyond the era of just throwing software at problems – but this is also a separate topic that I plan to cover in the near future.
+Personally, I think that this technology needs to become more expensive! Due to the hype, excitement and price (often free), it is being used for everything and anything. Really, the expense and energy consumption of machine learning should be applied to more challenging and important problems – challenges cannot be easily solved using traditional (and generally lower footprint) technologies. Training these models requires vast amounts of compute resources (which have an embodied carbon footprint) and consume vast amounts of electricity (again with CO2 impact). Running the models and the inferencing also consumes precious energy. We need to move beyond the era of just throwing software at problems – but this is also a separate topic that I plan to cover in the near future.
 
 ## A proposed GenAI architecture
 
-We’ve just scratched the surface here and even this creates a lot to consider! To help accelerate your thinking we have identified some key aspects of architecture to consider for customer-facing applications (such as chatbots and real-time content generation). The below diagram is open source under a  [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/) (we’d love to hear from you if you use or evolve it so that we can improve it).
+We’ve just scratched the surface here and even this creates a lot to consider! To help accelerate your thinking we have identified some key aspects of architecture to consider for customer-facing applications (such as chatbots and real-time content generation). The below diagram is open source under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/) (we’d love to hear from you if you use or evolve it so that we can improve it).
 
 The diagram assumes that you’ve already concluded that the use case or the risks are non-trivial enough that they can’t be solved solely by a GenAI solution such as an LLM (for example just using a white labelled version of ChatGPT). In the future, perhaps GenAI-centric architectures – simply leveraging smart plugins and integrations – will be credible. At the time of writing, this does not look like a sensible approach for most enterprise applications of these technologies.
 
@@ -150,11 +149,11 @@ This is the wrapper or abstraction layer around the different components, managi
 
 **Input filtering and Model IO engineering**
 
-Just from using them it appears pretty likely that ChatGPT and other Chatbot implementations are using a form of input filtering. As an extension of sanitising inputs this makes a lot of sense, but for systems where the input prompt is so critical to the success of the outcome, this is even more vital. The input might need to be significantly altered to get a better chance of success or to avoid content generation risks; for example, requests that could lead to outcomes that are not compatible with the brand of the organisation. Different models in the Model Zoo might require different input data or prompting styles.
+Just from using them, it appears pretty likely that ChatGPT and other Chatbot implementations are using a form of input filtering. As an extension of sanitising inputs this makes a lot of sense, but for systems where the input prompt is so critical to the success of the outcome, this is even more vital. The input might need to be significantly altered to get a better chance of success or to avoid content generation risks; for example, requests that could lead to outcomes that are not compatible with the brand of the organisation. Different models in the Model Zoo might require different input data or prompting styles.
 
 **Model Zoo**
 
-It’s highly unlikely that a single model (regardless of how powerful or general purpose it is) is going to cover all the use cases of a non-trivial application. The orchestrator can draw on a number of approved models in the Model Zoo (ingested from publicly available model hubs such as HuggingFace and internal model development as required). This allows for the management and governance of models used in the application. This approach could potentially lead to something approaching Artificial General Intelligence (AGI) - as narrow specialist models can be called upon to solve specific challenges and fill gaps in more general language models that are good at human interaction.
+It’s highly unlikely that a single model (regardless of how powerful or general purpose it is) is going to cover all the use cases of a non-trivial application. The orchestrator can draw on a number of approved models in the Model Zoo (ingested from publicly available model hubs such as HuggingFace and internal model development as required). This allows for the management and governance of models used in the application. This approach could potentially lead to something approaching Artificial General Intelligence (AGI) – as narrow specialist models can be called upon to solve specific challenges and fill gaps in more general language models that are good at human interaction.
 
 **Telemetry**
 
@@ -170,10 +169,10 @@ Underlying this will be design time components – these will ingest telemetry a
 
 ## Architecture is exciting again!
 
-Once you have enumerated the issues and areas of risk, it can be hard not to be overwhelmed! Every new wave of technology adoption has come with risks and rewards, and attempting to ignore [what is looking like the next major technology platform](https://blog.scottlogic.com/2023/03/31/the-new-ai-platform.html) isn’t a sensible option. The key is to prioritise and find pragmatic trade-offs in the areas most of concern. In some instances, it won’t be possible to get your organisation comfortable with the level of risk. When that occurs, you can consider following a “delay and develop” strategy, where R&D investments are made to explore ways to treat the risks or create new control mechanisms prior to customer- facing deployment.
+Once you have enumerated the issues and areas of risk, it can be hard not to be overwhelmed! Every new wave of technology adoption has come with risks and rewards, and attempting to ignore [what is looking like the next major technology platform](https://blog.scottlogic.com/2023/03/31/the-new-ai-platform.html) isn’t a sensible option. The key is to prioritise and find pragmatic trade-offs in the areas most of concern. In some instances, it won’t be possible to get your organisation comfortable with the level of risk. When that occurs, you can consider following a “delay and develop” strategy, where R&D investments are made to explore ways to treat the risks or create new control mechanisms prior to customer-facing deployment.
 
 GenAI is making Architecture more exciting – most new applications have been following increasingly standardised cloud platforms and this certainly shakes things up! It is a time to differentiate and innovate with architecture to manage the risks to your organisation whilst allowing for a whole new wave of innovation.
 
 The bottom line is that you need to work with your risk, security, regulatory and/or legal stakeholders as early as possible – collaborate with them so they understand the unique characteristics of GenAI. Treat the associated non-functional requirements and quality attributes as first-class citizens. These are an area for innovation that generally gets overlooked but are vital for safe and successful enterprise adoption of groundbreaking ML models. And if you are looking for a friendly, pragmatic partner on GenAI R&D please do get in touch with [myself](mailto:oliver@scottlogic.com) or [Colin Eberhardt](mailto:colin@scottlogic.com)!
 
-As a final note - massive thanks to the [Architect Tomorrow community](https://www.youtube.com/watch?v=l-zHfUkVYzc) and the Scott Logic AI team who have helped pull this together.
+As a final note – massive thanks to the [Architect Tomorrow community](https://www.youtube.com/watch?v=l-zHfUkVYzc) and the Scott Logic AI team who have helped pull this together.
