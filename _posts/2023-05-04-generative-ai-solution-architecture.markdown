@@ -112,11 +112,11 @@ Moving beneath the business considerations there are challenges in the technolog
    
 **Explainability and Repeatability**
 
-Generative AI tends to be non–deterministic (running it multiple times even with the same input may result in different behaviour each time it is run). Therefore, how we design, manage and test it needs different thinking from more traditional deterministic technologies. As with machine learning in general, maths and algorithms that are inaccessible to the average person (without knowledge of statistics and data science) create issues in understanding and transparency. Add to this the complexity of enterprise architecture (business, data, applications and applications) in modern organisations and explainability becomes even more difficult.
+Generative AI tends to be non–deterministic (running it multiple times even with the same input may result in different behaviour each time it is run). Therefore, how we design, manage and test it needs different thinking from more traditional deterministic technologies. As with machine learning in general, maths and algorithms that are inaccessible to the average person (without knowledge of statistics and data science) create issues in understanding and transparency. Add to this the complexity of enterprise architecture (business, data, applications and applications) in modern organisations and explainability becomes even more difficult. 
+
+This non-deterministic behaviour also creates consistency, reliability and repeatability challenges. Here is a clip from a recent [Architect Tomorrow episode](https://youtu.be/l-zHfUkVYzc) that touches on these points:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/l1aAqy8pFjk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-This non-deterministic behaviour also creates consistency, reliability and repeatability challenges.
 
 **Scaling and data integration**
 
@@ -196,4 +196,6 @@ GenAI is making Architecture more exciting – most new applications have been f
 
   
 
-The bottom line is that you need to work with your risk, security, regulatory and/or legal stakeholders as early as possible – collaborate with them so they understand the unique characteristics of GenAI. Treat the associated non-functional requirements and quality attributes as first-class citizens. These are an area for innovation that generally gets overlooked but are vital for safe and successful enterprise adoption of groundbreaking ML models. And if you are looking for a friendly, pragmatic partner on GenAI R&D please do get in touch with [myself](mailto:colin@scottlogic.com) or [Colin Eberhardt](mailto:colin@scottlogic.com)!
+The bottom line is that you need to work with your risk, security, regulatory and/or legal stakeholders as early as possible – collaborate with them so they understand the unique characteristics of GenAI. Treat the associated non-functional requirements and quality attributes as first-class citizens. These are an area for innovation that generally gets overlooked but are vital for safe and successful enterprise adoption of groundbreaking ML models. And if you are looking for a friendly, pragmatic partner on GenAI R&D please do get in touch with [myself](mailto:colin@scottlogic.com) or [Colin Eberhardt](mailto:colin@scottlogic.com)! 
+
+As a final note - massive thanks to the [Architect Tomorrow community](https://www.youtube.com/watch?v=l-zHfUkVYzc) and the Scott Logic AI team who have helped pull this together.
