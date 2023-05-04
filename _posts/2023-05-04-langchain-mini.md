@@ -7,11 +7,11 @@ author: ceberhardt
 image: ceberhardt/assets/ai.png
 ---
 
-[LangChain](https://github.com/hwchase17/langchain) has become a tremendously popular toolkit for building a wide range of LLM-powered applications, including chat, Q&A and document search. In this blogpost I re-implement some of the novel LangChain functionality as a learning exercise, looking at the low-level prompts it uses to create these higher level capabilities.
+[LangChain](https://github.com/hwchase17/langchain) has become a tremendously popular toolkit for building a wide range of LLM-powered applications, including chat, Q&A and document search. In this blogpost I re-implement some of the novel LangChain functionality as a learning exercise, looking at the low-level prompts it uses to create these higher-level capabilities.
 
 Anyone who has used GPT, or other Large Language Models (LLMs), will be familiar with the concept of [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering), the art of creating the correct verbiage to guide these language models towards the expected behaviour. However, as standard prompt patterns have emerged, we've seen prompt engineering fade into the background a little, replaced by traditional and more familiar APIs. LangChain is a great example of this, allowing you to build an impressive array of LLM-powered applications, without once having to construct a prompt directly. There is clearly a lot of demand for this, with the project attracting 30k GitHub stars, and [millions in VC funding](https://blog.langchain.dev/announcing-our-10m-seed-round-led-by-benchmark/).
 
-I recently started using LangChain, and found myself wondering how it works under-the-hood, what prompts is it sending to GPT?
+I recently started using LangChain, and found myself wondering how it works under-the-hood. I wondered what prompts is it sending to GPT?
 
 I find that a great way to understand a particular technology or framework is to try and re-implement it yourself. The goal is not to cover all of the features, or create a fully useable API. Rather, it is to concentrate on the interesting parts, which can often be implemented with relative ease. The understanding you gain from this process is tremendously useful, especially with nascent technologies (such as LangChain), where their strengths and weaknesses are not fully known.
 
@@ -53,16 +53,16 @@ This is fascinating stuff! The prompt is broken into a few sections:
 
  1. A clear expression of the overall goal "Answer the following questions ..."
  2. A list of tools, with brief descriptions of their capabilities
- 3. The format that the should be used for tackling the problem, potentially using multiple steps
+ 3. The steps that should be used for tackling the problem, potentially involving iteration
  4. The question, followed by the first `Thought:`, which is where GPT will start adding text (i.e. the completion)
 
-Part (3) is particularly interesting, it is where we are 'teaching' GPT to act as an orchestrator via a single example (i.e. one-shot learning). The orchestration approach being taught here is reasoning via a [chain of thought](https://ai.googleblog.com/2022/05/language-models-perform-reasoning-via.html), were a problem is broken down into smaller components, which researchers have found provides better results and achieves reasoning.
+Part (3) is particularly interesting, it is where we are 'teaching' GPT to act as an orchestrator via a single example (i.e. one-shot learning). The orchestration approach being taught here is reasoning via a [chain of thought](https://ai.googleblog.com/2022/05/language-models-perform-reasoning-via.html), were a problem is broken down into smaller components, which researchers have found provides better results and achieves what can be considered reasoning.
 
 This is the art of prompt design!
 
 Anyhow, as promised, we're going to re-implement LangChain. So let's execute the above prompt.
 
-The following code send teh above prompt, with the question "What was the high temperature in SF yesterday in Fahrenheit?" to GPT-3.5 via the OpenAI API: 
+The following code sends the above prompt, with the question "What was the high temperature in SF yesterday in Fahrenheit?" to GPT-3.5 via the OpenAI API: 
 
 ~~~js
 import fs from "fs";
@@ -110,7 +110,7 @@ Final Answer: The high temperature in SF yesterday was 69 degrees Fahrenheit.
 
 We can see that GPT has determined (i.e. `Thought:`) that in order to answer this question, it should execute a search, using the term "high temperature san francisco yesterday fahrenheit". Interestingly it has gone ahead and 'imagined' what the result of this search might have been and returned an answer of 69 degrees.
 
-It's quite impressive that given this simple prompt GPT has 'reasoned' that the best way to answer this question is via some sort of search. If you do just as GPT the following question "Q: What was the high temperature in SF yesterday in Fahrenheit?", it will happily reply - "The high temperature in San Francisco yesterday (August 28, 2019) was 76°F". Clearly that was not yesterday, but the reported temperature was correct!
+It's quite impressive that given this simple prompt GPT has 'reasoned' that the best way to answer this question is via some sort of search. If you do just ask directly GPT the following question "Q: What was the high temperature in SF yesterday in Fahrenheit?", it will happily reply - for me it responded "The high temperature in San Francisco yesterday (August 28, 2019) was 76°F". Clearly that was not yesterday, but surprisingly the reported temperature for that date was correct!
 
 In order to stop GPT imagining the whole conversation, we simply need to specify `Observation:` as stop sequence.
 
@@ -118,7 +118,7 @@ In order to stop GPT imagining the whole conversation, we simply need to specify
 
 With the completion stopping at the right point, we now need to create our first 'tool', which performs Google searches. I'm going to be using the [SerpApi](https://serpapi.com/) which scrapes Google, providing the response in a simple SON format.
 
-The following defines our tools, in this case there is just one, named `search`:
+The following defines our tools. Here there is just one, named `search`:
 
 ~~~js
 const googleSearch = async (question) =>
@@ -257,7 +257,7 @@ Final Answer: Yesterday, the high temperature in SF was 54°F or 12.2°C.
 
 In the first iteration, it performs a Google search as before. However, rather than provide the final answer, it has reasoned that it needs to convert this temperature to Celsius. Interestingly the LLM already knows the formula for this conversion, allowing it to immediately apply the calculator. The final answer is neatly summarised - note the very sensible rounding of the Celcsius value.
 
-Considering this is only ~80 lines of code, the capability is quite impressive. However, we can do better ...
+Considering this is only ~80 lines of code, the capability is quite impressive. However, we can do more ...
 
 ## A conversational interface
 
@@ -383,11 +383,11 @@ As you can see, it doesn't take long before it starts providing contradictory an
 
 ## Conclusions
 
-I really enjoyed this process, and learnt a lot about the overall concept of 'chaining' calls to an LLM. I was also quite surprised how simple this all is, especially that core orchestration / reasoning, where you give the model a single example and off it goes ...
+I really enjoyed this process, and learnt a lot about the overall concept of chaining calls to an LLM. I was also quite surprised how simple this all is, especially the core orchestration / reasoning, where you give the model a single example and off it goes ...
 
-However, through building this, it also made me aware of the current weaknesses. The examples I have provided above are all happy paths. I found it was able to answer my questions, and use tools appropriately, most of the time, but it is very far off 100%. However, I did find myself having to tweak the question quite often to achieve the required outcome.
+However, through building this, it also made me aware of the current weaknesses. The examples I have provided above are all happy paths. I found it was able to answer my questions, and use tools appropriately, most of the time. But it certainly doesn't work 100% of the time, and when it fails it isn't always obvious to the user who is interacting with the chat. I did find myself having to tweak the question quite often to achieve the required outcome.
 
-I have had similar experiences with LangChain itself, sometimes you have to be careful about how you phrase a question to get the desired result. Having an understanding of how it works under-the-hood, really helps explain the unexpected results. For example, sometimes the LLM orchestrator simply decides that it doesn't need to use a calculator, and can perform a given calculation itself. I'd encourage anyone who is using this tool to gain this understanding. It is an abstraction over carefully engineered prompts, but these are not perfect. To coin Jole Spolsky, ths abstraction is a [little leaky](https://en.wikipedia.org/wiki/Leaky_abstraction)!
+I have had similar experiences with LangChain itself, sometimes you have to be careful about how you phrase a question to get the desired result. Having an understanding of how it works under-the-hood, really helps explain the unexpected results. For example, sometimes the LLM orchestrator simply decides that it doesn't need to use a calculator, and can perform a given calculation itself. I'd encourage anyone who is using this tool to gain this understanding. It is an abstraction over carefully engineered prompts, but these are not perfect. To coin Jole Spolsky, this abstraction is a [little leaky](https://en.wikipedia.org/wiki/Leaky_abstraction) in places!
 
 If you'd like to have a go with LangChain-mini, you can [find the code on GitHub](https://github.com/ColinEberhardt/langchain-mini).
 
