@@ -3,6 +3,11 @@ title: Re-implementing LangChain in 100 lines of code
 date: 2023-05-04 00:00:00 Z
 categories:
 - Tech
+- ceberhardt
+tags:
+- generative AI
+- Machine Learning
+- Artificial Intelligence
 summary: LangChain has become a tremendously popular toolkit for building a wide range
   of LLM-powered applications, including chat, Q&A and document search. In this blogpost
   I re-implement some of the novel LangChain functionality as a learning exercise,
@@ -391,7 +396,7 @@ I really enjoyed this process, and learnt a lot about the overall concept of cha
 
 However, through building this, it also made me aware of the current weaknesses. The examples I have provided above are all happy paths. I found it was able to answer my questions, and use tools appropriately, most of the time. But it certainly doesn't work 100% of the time, and when it fails it isn't always obvious to the user who is interacting with the chat. I did find myself having to tweak the question quite often to achieve the required outcome.
 
-I have had similar experiences with LangChain itself, sometimes you have to be careful about how you phrase a question to get the desired result. Having an understanding of how it works under-the-hood, really helps explain the unexpected results. For example, sometimes the LLM orchestrator simply decides that it doesn't need to use a calculator, and can perform a given calculation itself. I'd encourage anyone who is using this tool to gain this understanding. It is an abstraction over carefully engineered prompts, but these are not perfect. To coin Jole Spolsky, this abstraction is a [little leaky](https://en.wikipedia.org/wiki/Leaky_abstraction) in places!
+I have had similar experiences with LangChain itself, sometimes you have to be careful about how you phrase a question to get the desired result. Having an understanding of how it works under-the-hood, really helps explain the unexpected results. For example, sometimes the LLM orchestrator simply decides that it doesn't need to use a calculator, and can perform a given calculation itself. I'd encourage anyone who is using this tool to gain this understanding. It is an abstraction over carefully engineered prompts, but these are not perfect. To coin Joel Spolsky, this abstraction is a [little leaky](https://en.wikipedia.org/wiki/Leaky_abstraction) in places!
 
 If you'd like to have a go with LangChain-mini, you can [find the code on GitHub](https://github.com/ColinEberhardt/langchain-mini).
 
