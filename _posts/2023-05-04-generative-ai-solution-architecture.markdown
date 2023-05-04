@@ -16,10 +16,11 @@ tags:
 - regulation
 - governance
 - featured
-summary: A proposed architecture for mitigating the risks of deploying Generative
-  AI technologies, particularly when used in highly regulated environments such as
-  Financial Services. The Post covers 1. Business risks of Enterprise GenAI 2. Technology
-  risks and challenges of Enterprise GenAI 3. A proposed GenAI architecture
+summary: This post offers a proposed architecture for mitigating the risks of deploying
+  Generative AI technologies in complex enterprises, particularly when used in highly
+  regulated environments such as Financial Services. As well as the proposed architecture,
+  I provide a primer on the business risks of Enterprise GenAI along with the technology
+  risks and challenges.
 author: ocronk
 ---
 
