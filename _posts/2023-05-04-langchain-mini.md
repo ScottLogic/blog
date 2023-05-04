@@ -1,5 +1,5 @@
 ---
-title: LangChain-mini - re-implementing LangChain in 100 lines of code
+title: Re-implementing LangChain in 100 lines of code
 categories:
 - Tech
 summary: LangChain has become a tremendously popular toolkit for building a wide range of LLM-powered applications, including chat, Q&A and document search. In this blogpost I re-implement some of the novel LangChain functionality as a learning exercise, looking at the low-level prompts it uses to create these higher level capabilities.
@@ -26,9 +26,11 @@ Delving into the LangChain codebase, we find that this orchestration is performe
 ~~~
 Answer the following questions as best you can. You have access to the following tools:
 
-search: a search engine. useful for when you need to answer questions about current events. input should be a search query.
-calculator: useful for getting the result of a math expression. The input to this tool should be a valid mathematical
-            expression that could be executed by a simple calculator.
+search: a search engine. useful for when you need to answer questions about current
+        events. input should be a search query.
+calculator: useful for getting the result of a math expression. The input to this
+            tool should be a valid mathematical expression that could be executed
+            by a simple calculator.
 
 Use the following format:
 
@@ -100,7 +102,8 @@ Question: What was the high temperature in SF yesterday in Fahrenheit?
 Thought: I can try searching the answer
 Action: search
 Action Input: "high temperature san francisco yesterday fahrenheit"
-Observation: Found an article from the San Francisco Chronicle forecasting a high of 69 degrees
+Observation: Found an article from the San Francisco Chronicle forecasting
+             a high of 69 degrees
 Thought: I can use this to determine the answer
 Final Answer: The high temperature in SF yesterday was 69 degrees Fahrenheit.
 ~~~
@@ -128,7 +131,8 @@ const googleSearch = async (question) =>
 const tools = {
   search: {
     description:
-      "a search engine. useful for when you need to answer questions about current events. input should be a search query.",
+      `a search engine. useful for when you need to answer questions about
+       current events. input should be a search query.`,
     execute: googleSearch,
   },
 };
@@ -191,10 +195,11 @@ Question: what was the temperature in Newcastle (England) yesterday?
 Thought: This requires looking up current information about the weather.
 Action: search
 Action Input: "Newcastle (England) temperature yesterday"
-Observation: Newcastle Temperature Yesterday. Maximum temperature yesterday: 56 °F
-  (at 6:00 pm) Minimum temperature yesterday: 46 °F (at 11:00 pm) Average temperature ...
-Final Answer: The maximum temperature in Newcastle (England) yesterday was 56°F and the
-  minimum temperature was 46°F.
+Observation: Newcastle Temperature Yesterday. Maximum temperature yesterday:
+             56 °F (at 6:00 pm) Minimum temperature yesterday: 46 °F
+             (at 11:00 pm) Average temperature ...
+Final Answer: The maximum temperature in Newcastle (England) yesterday was 56°F
+              and the minimum temperature was 46°F.
 ~~~
 
 We can see that it successfully invoked the search tool, and from the resultant observation determined it had enough information and provided a summarised response.
@@ -210,8 +215,9 @@ const tools = {
   search: { ... },
   calculator: {
     description:
-      `Useful for getting the result of a math expression. The input to this tool should
-      be a valid mathematical expression that could be executed by a simple calculator.`,
+      `Useful for getting the result of a math expression. The input to this
+       tool should be a valid mathematical expression that could be executed
+       by a simple calculator.`,
     execute: (input) => Parser.evaluate(input).toString(),
   },
 };
@@ -240,7 +246,7 @@ Question: What was the high temperature in SF yesterday in Fahrenheit? And the s
 Thought: I need to find the temperature for yesterday
 Action: search
 Action Input: "High temperature in San Francisco yesterday" 
-Observation: San Francisco Weather History for the Previous 24 Hours ; 54 °F · 54 °F · 55 °F ...
+Observation: San Francisco Weather History for the Previous 24 Hours ; 54 °F · 54 °F
 Thought: I should convert to celsius
 Action: calculator
 Action Input: (54-32)*5/9
@@ -262,7 +268,8 @@ How you might achieve this with GPT isn't immediately obvious, interactions are 
 The following prompt takes a chat history, and a subsequent question, asking GPT to rephrase the question to be standalone:
 
 ~~~
-Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
+Given the following conversation and a follow up question, rephrase the
+follow up question to be a standalone question.
 Chat History:
 ${history}
 Follow Up Input: ${question}
@@ -300,7 +307,8 @@ Let's have a look at how this merge process looks like for our previous example,
 When asked the first question, the LLM orchestrator searched Google and responded "Yesterday, the high temperature in SF was 54°F". This is how the chat history is merged such that the follow-up question becomes standalone:
 
 ~~~
-Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
+Given the following conversation and a follow up question, rephrase the
+follow up question to be a standalone question.
 Chat History:
 Q: What was the high temperature in SF yesterday in Fahrenheit?
 A: Yesterday, the high temperature in SF was 54°F
@@ -325,13 +333,15 @@ Once I built this, I couldn't stop playing with it! Here are a few example conve
 
 ~~~
 Q: What is the world record for solving a rubiks cube?
-The world record for solving a Rubik's Cube is 4.69 seconds, held by Yiheng Wang (China).
+The world record for solving a Rubik's Cube is 4.69 seconds, held by Yiheng
+Wang (China).
 Q: Can a robot solve it faster?
 The fastest time a robot has solved a Rubik's Cube is 0.637 seconds.
 Q: Who made this robot?
 Infineon created the robot that solved a Rubik's Cube in 0.637 seconds.
 Q: What time would an average human expect for solving?
-It takes the average person about three hours to solve a Rubik's cube for the first time.
+It takes the average person about three hours to solve a Rubik's cube for the
+first time.
 ~~~
 
 It's fascinating digging into the reasoning logic going on behind these questions. In this example, the search tool returns a result, but for some reason the LLM decides that it needs to confirm the answer, using a slightly modified query
@@ -345,8 +355,10 @@ Observation: 0.38 seconds
 Thought: I need to confirm this time
 Action: search
 Action Input: fastest time a robot solved Rubik's Cube confirmed
-Observation: The current world record is 0.637 seconds, which was set by German engineer Albert Beer and his robot Sub1 Reloaded.
-The researchers realised they could solve the cube more quickly by using a different type of motor in their robot.
+Observation: The current world record is 0.637 seconds, which was set by
+German engineer Albert Beer and his robot Sub1 Reloaded.
+The researchers realised they could solve the cube more quickly by using
+a different type of motor in their robot.
 ~~~
 
 And what about popular culture? Here's a brief chat I had about Marvel films:
@@ -355,7 +367,9 @@ And what about popular culture? Here's a brief chat I had about Marvel films:
 Q: Which is the best MCU film?
 According to critics, the best MCU film is Avengers: Endgame (2019).
 Q: What is the plot outline?
-After Thanos decimates the planet and universe, the remaining Avengers must figure out a way to bring back their vanquished allies for an epic showdown with Thanos.
+After Thanos decimates the planet and universe, the remaining Avengers must
+figure out a way to bring back their vanquished allies for an epic showdown
+with Thanos.
 Q: Which avengers die in this film?
 Tony Stark, Black Widow, Vision, and Thanos died in Avengers: Endgame (2019).
 Q: Is thanos an avenger now?!
@@ -375,5 +389,5 @@ However, through building this, it also made me aware of the current weaknesses.
 
 I have had similar experiences with LangChain itself, sometimes you have to be careful about how you phrase a question to get the desired result. Having an understanding of how it works under-the-hood, really helps explain the unexpected results. For example, sometimes the LLM orchestrator simply decides that it doesn't need to use a calculator, and can perform a given calculation itself. I'd encourage anyone who is using this tool to gain this understanding. It is an abstraction over carefully engineered prompts, but these are not perfect. To coin Jole Spolsky, ths abstraction is a [little leaky](https://en.wikipedia.org/wiki/Leaky_abstraction)!
 
-If you'd like to have a go with LangChain-mini, you can find the code on GitHub.
+If you'd like to have a go with LangChain-mini, you can [find the code on GitHub](https://github.com/ColinEberhardt/langchain-mini).
 
