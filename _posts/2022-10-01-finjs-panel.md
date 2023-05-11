@@ -8,7 +8,7 @@ author: ceberhardt
 summary: A panel discussion from FinJS London 2022, exploring the latest developments
   in desktop workflows
 layout: video_post
-video_url: https://www.youtube.com/watch?v=aQsI09b6m_A
+video_url: https://www.youtube.com/embed/aQsI09b6m_A
 short-author-aside: true
 ---
 

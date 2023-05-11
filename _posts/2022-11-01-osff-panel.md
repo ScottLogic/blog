@@ -1,6 +1,5 @@
 ---
 title: The State of Open Source in Finance - Keynote Panel
-date: 2023-02-07 00:00:00 Z
 categories:
 - ceberhardt
 - Tech
@@ -11,7 +10,7 @@ summary: FINOS, in partnership with Linux Foundation Research, GitHub, Red Hat, 
   to, and governing open source in financial services. This panel dives into the research's
   key findings, as well as provides insight into how things have progressed year-over-year.
 layout: video_post
-video_url: https://www.youtube.com/watch?v=YQiwjSCylFU
+video_url: https://www.youtube.com/embed/YQiwjSCylFU
 short-author-aside: true
 ---
 

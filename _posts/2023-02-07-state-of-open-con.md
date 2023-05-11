@@ -9,7 +9,7 @@ summary: The rapid rise in the consumption or usage of open source hasn’t been
   with an equal rise in contribution – to put it simply, there are far more takers
   than givers, and the challenges created by this imbalance are starting to emerge.
 layout: video_post
-video_url: https://www.youtube.com/watch?v=aW-gVidiQsg
+video_url: https://www.youtube.com/embed/aW-gVidiQsg
 short-author-aside: true
 ---
 
