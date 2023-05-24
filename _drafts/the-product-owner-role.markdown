@@ -9,8 +9,8 @@ tags:
 - ''
 - Agile
 - Scrum
-summary: 'An oft-misunderstood role that is key '
-author: hubinf
+summary: An oft-misunderstood role that is key to delivering the right solution.
+author: fhubin
 ---
 
 ## “Where do you see yourself in five years’ time?”
