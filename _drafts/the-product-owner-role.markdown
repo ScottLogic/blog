@@ -9,7 +9,8 @@ tags:
 - ''
 - Agile
 - Scrum
-summary: An oft-misunderstood role that is key to delivering the right solution.
+- Business Agility
+summary: An oft-misunderstood role that is key to delivering the right solutions.
 author: fhubin
 ---
 
