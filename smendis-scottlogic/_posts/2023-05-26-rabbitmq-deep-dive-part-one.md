@@ -20,7 +20,7 @@ This article is not for you if you are only interested in getting a basic Rabbit
 
 ---
 
-## Confusion between RabbitMQ Acknowledgement Mode and Spring Acknowledgement Mode
+## Confusion between RabbitMQ and Spring Acknowledgement Modes
 
 In RabbitMQ there are 2 main types of message delivery acknowledgements.
 
@@ -84,10 +84,13 @@ public void receiveMessage(MyMessage message, Channel channel,
 
 Yes! This looks more like what RabbitMQ expects for manual acknowledgment.
 
-***So… We must me using auto acknowledgment in our spring boot application.<br/>
-Wait...<br/>
-From code it looks like we are using auto acknowledgment but from RabbitMQ management console it looks like we are using auto acknowledgment..<br/><br/>
-Confused ?? Yes me too..***
+***So… We must me using auto acknowledgment in our spring boot application.
+<br/><br/>
+Wait...***
+<br/><br/>
+From code it looks like we are using auto acknowledgment but from RabbitMQ management console it looks like we are using auto acknowledgment..
+<br/><br/>
+***Confused ?? Yes me too..***
 
 
 According to the  [Spring AMQP documentation](https://docs.spring.io/spring-amqp/docs/current/api/org/springframework/amqp/core/AcknowledgeMode.html), it has 3 acknowledgment modes instead of 2 provided by the RabbitMQ.
@@ -104,7 +107,7 @@ To prove we have got it right, let’s implement these 3 acknowledgment modes an
 
 ---
 
-## Implementing Spring’s AUTO Acknowledgment 
+## Implementing Spring’s AUTO Acknowledgment Mode
 
 This is the default behaviour. But you can explicitly set it at the `SimpleRabbitListenerContainerFactory`. See the `RabbitMQConfig.java` class in the rabbitmq-basic-consumer repo.
 
