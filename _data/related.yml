@@ -864,7 +864,7 @@
   - /2023/03/17/rxjs-unit-testing.html
 /2017/09/05/scaling-agile-in-the-public-sector.html:
   - /2017/08/07/evolving-the-agile-revolution.html
-  - /2021/12/21/delivering-digital-transformation-with-the-scottish-government.html
+  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
 /2017/09/07/foyer-screen.html:
   - /2014/08/29/foyer-screen.html
   - /2018/10/10/foyer-screen-2018-edinburgh-intern-project.html
@@ -1170,7 +1170,7 @@
   - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
 /2018/08/24/the-ux-of-consent-models-in-open-banking.html:
   - /2020/06/17/Open-Banking.html
-  - /2021/01/11/Open-Finance.html
+  - /2018/11/19/ux-poland-2018.html
 /2018/08/28/Good-code-practices-with-React-and-Redux.html:
   - /2018/03/07/stock-watcher-newcastle-summer-graduate-project.html
   - /2018/10/22/ruining-react-s-performance-with-redux.html
@@ -1259,8 +1259,8 @@
   - /2015/09/03/d3-without-d3.html
   - /2018/11/22/default-values-in-code-and-configuration.html
 /2018/12/14/automation-and-bots-for-open-source.html:
-  - /2020/12/15/financial-crash-open-source.html
   - /2020/04/01/testing-in-the-devops-world.html
+  - /2020/06/24/the-new-normal-for-your-desktop.html
 /2018/12/21/decent-code-a-concise-guide-to-writing-better-code.html:
   - /2019/12/11/source-control-basics.html
   - /2018/12/14/automation-and-bots-for-open-source.html
@@ -1778,8 +1778,8 @@
   - /2019/11/15/has-your-project-hit-the-buffers.html
   - /2020/05/15/beyond-covid.html
 /2020/06/17/Open-Banking.html:
+  - /2021/01/11/Open-Finance.html
   - /2018/08/24/the-ux-of-consent-models-in-open-banking.html
-  - /2017/08/07/evolving-the-agile-revolution.html
 /2020/06/24/the-new-normal-for-your-desktop.html:
   - /2020/07/08/building-desktop-applications-in-openfin.html
   - /2018/12/14/automation-and-bots-for-open-source.html
@@ -1823,8 +1823,8 @@
   - /2018/03/20/mock-the-backend-with-node.html
   - /2019/12/16/regular-expressions-as-icebergs.html
 /2020/08/12/building-desktop-applications-with-finsemble.html:
-  - /2020/07/08/building-desktop-applications-in-openfin.html
   - /2020/01/16/mapping-the-cloud-atlas.html
+  - /2020/06/24/the-new-normal-for-your-desktop.html
 /2020/08/13/building-an-integrated-desktop-application-ecosystem.html:
   - /2015/10/11/white-paper-html5-migration.html
   - /2019/03/25/the-journey-to-devops.html
@@ -2075,7 +2075,7 @@
   - /2021/09/02/a-primer-on-the-openai-api-3.html
   - /2018/10/25/a-developers-intro-tensorflow-and-keras.html
 /2021/09/01/a-primer-on-the-openai-api-2.html:
-  - /2021/09/02/a-primer-on-the-openai-api-3.html
+  - /2018/02/15/scikit-machine-learning.html
   - /2019/10/29/java-numeric-integer.html
 /2021/09/02/a-primer-on-the-openai-api-3.html:
   - /2021/08/31/a-primer-on-the-openai-api-1.html
@@ -2162,14 +2162,14 @@
   - /2021/10/18/reminiscence-of-a-scrum-master-part-i.html
   - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
 /2022/01/22/ai-lessons-from-neuroscience.html:
-  - /2022/01/22/resilient-systems-and-experimentation.html
   - /2018/02/27/higher-lower-ml-in-js.html
+  - /2015/10/15/react-native.html
 /2022/01/22/resilient-systems-and-experimentation.html:
   - /2020/04/01/testing-in-the-devops-world.html
   - /2018/12/14/automation-and-bots-for-open-source.html
 /2022/02/07/Sustainability-in-Software.html:
-  - /2022/04/07/cloud-sustainability-reach-net-zero.html
   - /2018/02/19/testing-with-cognitive-intelligence.html
+  - /2020/05/15/beyond-covid.html
 /2022/02/15/replacing-docker-desktop-with-podman.html:
   - /2016/09/05/hosting-netcore-on-linux-with-docker.html
   - /2016/06/17/docker-swarm.html
@@ -2326,6 +2326,9 @@
 /2023/02/06/beyond-the-hype-chatgpt.html:
   - /2019/10/30/ir35-hits-now-don-t-wait-until-april-to-act.html
   - /2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html
+/2023/02/07/state-of-open-con.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2019/03/25/the-journey-to-devops.html
 /2023/02/27/testing-spring-boot-with-testcontainers.html:
   - /2018/07/06/comparing-streaming-frameworks-pt1.html
   - /2019/08/08/reactive-android.html
@@ -2353,6 +2356,12 @@
 /2023/05/02/beyond-the-hype-is-generative-ai-coming-for-programming-jobs.html:
   - /2016/12/07/once-upon-a-time.html
   - /2019/10/23/On-the-dangers-of-sending-your-testers-to-conferences.html
+/2023/05/04/generative-ai-solution-architecture.html:
+  - /2016/06/16/catch22-of-conversational-uis.html
+  - /2018/02/19/testing-with-cognitive-intelligence.html
+/2023/05/04/langchain-mini.html:
+  - /2021/08/31/a-primer-on-the-openai-api-1.html
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
 /26/08/2014/StrongTypingWithAngularJS.html:
   - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
   - /2014/08/08/signalr-typed.html
