@@ -1,6 +1,6 @@
 ---
 title: The Product Owner Role
-date: 2023-05-24 12:31:00 Z
+date: 2023-05-30 12:31:00 Z
 categories:
 - Delivery
 tags:
@@ -10,7 +10,9 @@ tags:
 - Agile
 - Scrum
 - Business Agility
-summary: An oft-misunderstood role that is key to delivering the right solutions.
+summary: |-
+  Product Owner is an oft-misunderstood role that is seen as vital, but very few projects seem to have one. And if one asks different people what the role entails, one gets quite a range of responses.
+  In this article, I will share a few observations based on my own experience.
 author: fhubin
 ---
 
