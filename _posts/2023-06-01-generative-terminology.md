@@ -73,7 +73,7 @@ The final few terms I want to cover relate to the more novel applications of LLM
  - **Plugins / tools** - LLM agents often have the ability to use 'tools' by accessing APIs, giving them powerful new capabilities. Notably, an LLM, given the ability to perform web searches, can access data that was not present in its training dataset, significantly reducing the risk of hallucinations.
  - **Retrieval Augmented Generation (RAG)** - a term that specifically describes the process of supplementing a prompt with additional information based on web searches or quires of internal / private documents.
 
-With all these new terms cropping up, I've found it very useful to create my own glossary. Hopefully you've found it useful too. If I've missed anything, or you want to submit a correction, this blog is hosted on GitHub, pull requests are welcome!
+With all these new terms cropping up, I've found it very useful to create my own glossary. Hopefully you've found it useful too. If I've missed anything, or you want to submit a correction, this blog is hosted on GitHub, [pull requests](https://github.com/ScottLogic/blog/blob/gh-pages/_posts/2023-06-01-generative-terminology.md) are welcome!
 
 Thanks, Colin E.
  
