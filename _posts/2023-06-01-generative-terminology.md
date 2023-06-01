@@ -1,9 +1,15 @@
 ---
 title: A guide to Generative AI terminology
+date: 2023-06-01 00:00:00 Z
 categories:
 - Tech
 - ceberhardt
-summary: Generative AI is moving at an incredible pace, bringing with it a whole new raft of terminology. With articles packed full of terms like prompt injection, embeddings and funky acronyms like LoRA, it can be a little hard to keep pace. For a while now I've been keeping a notebook where I record brief definitions of these new terms as I encounter them. I find it such a useful reference, I thought I'd share it in this blog post.
+summary: Generative AI is moving at an incredible pace, bringing with it a whole new
+  raft of terminology. With articles packed full of terms like prompt injection, embeddings
+  and funky acronyms like LoRA, it can be a little hard to keep pace. For a while
+  now I've been keeping a notebook where I record brief definitions of these new terms
+  as I encounter them. I find it such a useful reference, I thought I'd share it in
+  this blog post.
 author: ceberhardt
 image: ceberhardt/assets/books.jpg
 ---
