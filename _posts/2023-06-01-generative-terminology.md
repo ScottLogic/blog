@@ -28,7 +28,7 @@ If you're already familiar with the basics of AI you might want to skip this sec
  
 ## Generative AI
 
-Ai models can be used for a wide range of tasks, for example sentiment analysis, where the model determines whether a passage of text is positive, negative or neutral. Recently there has been a lot of buzz around generative AI, which is quite a specific type of AI system
+AI models can be used for a wide range of tasks, for example sentiment analysis, where the model determines whether a passage of text is positive, negative or neutral. Recently there has been a lot of buzz around generative AI, which is quite a specific type of AI system
 
  - **Generative AI** - an model that is capable of generating media, typically text or images, based on text-based input (a prompt). Recent models are quite capable of generative text and images that are of comparable quality to those produced by humans.
  - **Large language Model (LLM)** - generative AI models that work with, and on human language, taking both text as an input, in what is termed a prompt, and generating text output. There isn't really a formal definition of what makes a model 'large', but typically they will have billions of parameters. LLMs present a paradigm shift, previously models had architectures and training regimes focussed on specific language tasks (e.g. translation, sentiment analysis), with LLMs the training dataset is not focussed on a specific task, and is vast. As a result, the LLMs are capable of performing a wide range of language tasks, based on a suitable prompt.
@@ -71,7 +71,7 @@ The final few terms I want to cover relate to the more novel applications of LLM
  - **Chain-of-thought** - this is a prompting technique that improves the reasoning capability of LLMs. The prompt encourages the model to tackle tasks and answer questions by breaking them down into smaller discrete steps. These steps may also involve collecting additional data via web searches. More recently a tree-of-thought technique has been developed, which allows branching and back-tracking within the logical steps.
  - **Agents** - a broad term used to describe versatile, general purpose AI tools, such as Siri. Recently there have been numerous LLM-based agents developed using the chain-of-thought architecture, examples include LangChain and AutoGPT.
  - **Plugins / tools** - LLM agents often have the ability to use 'tools' by accessing APIs, giving them powerful new capabilities. Notably, an LLM, given the ability to perform web searches, can access data that was not present in its training dataset, significantly reducing the risk of hallucinations.
- - **Retrieval Augmented Generation (RAG)** - a term that specifically describes the process of supplementing a prompt with additional information based on web searches or quires of internal / private documents.
+ - **Retrieval Augmented Generation (RAG)** - a term that specifically describes the process of supplementing a prompt with additional information based on web searches or queries of internal / private documents.
 
 With all these new terms cropping up, I've found it very useful to create my own glossary. Hopefully you've found it useful too. If I've missed anything, or you want to submit a correction, this blog is hosted on GitHub, [pull requests](https://github.com/ScottLogic/blog/blob/gh-pages/_posts/2023-06-01-generative-terminology.md) are welcome!
 
