@@ -1,8 +1,10 @@
 ---
 title: Deep Dive into RabbitMQ with Spring Boot - Part 2
-categories: 
+date: 2023-05-31 00:00:00 Z
+categories:
+- smendis-scottlogic
 - Tech
-tags: 
+tags:
 - java
 - spring
 - spring-boot
@@ -10,8 +12,11 @@ tags:
 - retry
 - concurrent-consumers
 author: smendis-scottlogic
-summary: Using RabbitMQ as it is in Spring Boot works fine. But sometimes it's not enough. This article will explain how to alter the retry behaviour and consume messages concurrently by multiple consumers in RabbitMQ in your Spring Boot Application.
-summary-short: Discuss how to alter the retry behaviour and how to add multiple consumers to allow parallel processing in RabbitMQ with Spring Boot.
+summary: Using RabbitMQ as it is in Spring Boot works fine. But sometimes it's not
+  enough. This article will explain how to alter the retry behaviour and consume messages
+  concurrently by multiple consumers in RabbitMQ in your Spring Boot Application.
+summary-short: Discuss how to alter the retry behaviour and how to add multiple consumers
+  to allow parallel processing in RabbitMQ with Spring Boot.
 layout: default_post
 ---
 

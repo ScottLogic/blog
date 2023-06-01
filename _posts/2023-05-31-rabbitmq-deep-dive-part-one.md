@@ -1,16 +1,24 @@
 ---
 title: Deep Dive into RabbitMQ with Spring Boot - Part 1
-categories: 
+date: 2023-05-31 00:00:00 Z
+categories:
+- smendis-scottlogic
 - Tech
-tags: 
+tags:
 - java
 - spring
 - spring-boot
 - rabbitmq
 - acknowledgement-mode
 author: smendis-scottlogic
-summary: Spring Boot makes developer’s life easier through autoconfiguration. Even though it's true most of the time, occasionally we come across situations where autoconfiguration makes it harder to understand what is really happening behind the scenes and ends up wasting hours or may be days of developer time. This article is about one such rare occasion where understanding of RabbitMQ got confused with how Spring Boot implemented it behind the scenes.
-summary-short: Discuss the misleading naming used by Spring Boot for RabbitMQ acknowledgement modes.
+summary: Spring Boot makes developer’s life easier through autoconfiguration. Even
+  though it's true most of the time, occasionally we come across situations where
+  autoconfiguration makes it harder to understand what is really happening behind
+  the scenes and ends up wasting hours or may be days of developer time. This article
+  is about one such rare occasion where understanding of RabbitMQ got confused with
+  how Spring Boot implemented it behind the scenes.
+summary-short: Discuss the misleading naming used by Spring Boot for RabbitMQ acknowledgement
+  modes.
 layout: default_post
 ---
 
