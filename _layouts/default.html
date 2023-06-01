@@ -43,7 +43,7 @@ repository: ScottLogic/new-blog
     {% endif %}
 
     <link rel="stylesheet" href="{{ site.baseurl | remove_first: 'http:' }}/style.css" type="text/css">
-    <link rel="icon" type="image/png" href="https://www.scottlogic.com/sites/default/files/scott-logic-favicon.jpg" />
+    <link rel="icon" type="image/png" href="{{ site.canonical.url }}/favicon.jpg" />
 
     {% comment %} Only load analytics when on the main repo; it will fail to load on the forks {% endcomment %}
     {% if site.github.owner_name == 'ScottLogic' %}
