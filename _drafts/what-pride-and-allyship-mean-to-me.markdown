@@ -15,6 +15,8 @@ summary: Every year at this time, I like to share my thoughts on the continuing 
   allyship mean to them, and why it’s important to them to work in an inclusive environment.
   I get the ball rolling here.
 author: sforeshew-cain
+video_url: https://www.youtube.com/embed/lkyPNRDEuBw
+short-author-aside: true
 ---
 
 Every year at this time, I like to share my thoughts on the continuing relevance of Pride Month; you can read my posts here from [2021](https://blog.scottlogic.com/2021/06/03/pride-2021.html) and [2022](https://blog.scottlogic.com/2022/06/16/pride-2022.html). This year, I was prompted to do so by my colleagues because we’ll be sharing insights in the month ahead from the Scott Logic team on what Pride and allyship mean to them, and why it’s important to them to work in an inclusive environment.
