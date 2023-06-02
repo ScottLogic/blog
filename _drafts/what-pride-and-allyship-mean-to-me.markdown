@@ -15,6 +15,7 @@ summary: Every year at this time, I like to share my thoughts on the continuing 
   allyship mean to them, and why it’s important to them to work in an inclusive environment.
   I get the ball rolling here.
 author: sforeshew-cain
+image: "/uploads/Pride-flag-social.jpg"
 ---
 
 Every year at this time, I like to share my thoughts on the continuing relevance of Pride Month; you can read my posts here from [2021](https://blog.scottlogic.com/2021/06/03/pride-2021.html) and [2022](https://blog.scottlogic.com/2022/06/16/pride-2022.html). This Pride Month, we're going to share insights from the Scott Logic team on what Pride and allyship mean to them, and why they value working in an inclusive environment.
@@ -44,7 +45,7 @@ I think good allies educate themselves and are curious about the experience of o
  
 As an ally, you won’t always get it right. I don’t. But committing to doing better, and actually doing better, is what counts.  Although I identify as a member of the LGBTQ+ community, I am also conscious that I am a white, cis-gendered man. I am aware that I have biases, I make assumptions and I enjoy privileges that necessarily don’t reflect the experiences of others. So, it’s important to me that I reflect on when those things are getting in the way and adjust for them, being open to feedback when I get it wrong, and putting the work in to learn from my mistakes.
 
-Last year, I had the privilege of hosting an event called ‘Remember, Resist, Rise Up’ which explored these topics in more depth. We had an exceptional group of panellists who spoke authentically, movingly and often hilariously about the progress we’ve made as a community, the urgency of fighting to preserve and extend our hard-won rights, and about the importance of allyship. [You can watch the video here](https://youtu.be/lkyPNRDEuBw) (helpfully divided up into chapters to help you navigate between questions) – I hope you enjoy it and that it inspires you to celebrate, commemorate and be an ally.
+Last year, I had the privilege of hosting an event called ‘Remember, Resist, Rise Up’ which explored these topics in more depth. We had an exceptional group of panellists who spoke authentically, movingly and often hilariously about the progress we’ve made as a community, the urgency of fighting to preserve and extend our hard-won rights, and about the importance of allyship. [You can watch the video here](https://youtu.be/lkyPNRDEuBw) (helpfully divided up into chapters so that you can navigate between questions) – I hope you enjoy it and that it inspires you to celebrate, commemorate and be an ally.
 
 Happy Pride 2023.
 
