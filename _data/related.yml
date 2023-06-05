@@ -1539,7 +1539,7 @@
   - /2018/07/05/sketching-tips-to-make-you-a-better-designer.html
 /2019/10/29/java-numeric-integer.html:
   - /2013/12/05/counting-iterables.html
-  - /2015/02/13/rtl.html
+  - /2020/09/23/To-quantum-computing-and-beyond!.html
 /2019/10/29/popout-windows-in-react.html:
   - /2018/03/20/mock-the-backend-with-node.html
   - /2015/03/05/reactjs-in-swift.html
@@ -1550,8 +1550,8 @@
   - /2019/11/19/building-microservices-with-spring-boot-2.html
   - /2016/01/05/java-microservices-with-dropwizard-tutorial.html
 /2019/11/04/(Didn't)-Nail-Polish.html:
-  - /2022/04/06/web-ui-development-in-rust.html
   - /2015/10/15/react-native.html
+  - /2020/07/08/building-desktop-applications-in-openfin.html
 /2019/11/06/vsonline-lambdas.html:
   - /2017/05/08/aws-lambda-github-bot.html
   - /2020/01/21/beginners-terraform-serverless.html
@@ -1817,8 +1817,8 @@
   - /2018/02/16/how-much-does-a-story-point-cost.html
   - /2014/08/18/introducing-agile-upfront.html
 /2020/08/05/building-desktop-applications-with-glue42.html:
-  - /2020/08/12/building-desktop-applications-with-finsemble.html
   - /2020/06/24/the-new-normal-for-your-desktop.html
+  - /2020/01/16/mapping-the-cloud-atlas.html
 /2020/08/06/datahelix-intro.html:
   - /2018/03/20/mock-the-backend-with-node.html
   - /2019/12/16/regular-expressions-as-icebergs.html
@@ -2198,8 +2198,8 @@
   - /2022/04/06/web-ui-development-in-rust.html
   - /2018/12/14/automation-and-bots-for-open-source.html
 /2022/04/05/beyond-the-hype-microfrontends.html:
+  - /2022/03/08/beyond-the-hype-microservices.html
   - /2020/06/24/the-new-normal-for-your-desktop.html
-  - /2018/12/14/automation-and-bots-for-open-source.html
 /2022/04/06/history-of-encryption.html:
   - /2018/02/27/higher-lower-ml-in-js.html
   - /2017/10/28/serverless-javascript.html
@@ -2351,7 +2351,7 @@
   - /2016/12/07/once-upon-a-time.html
   - /2019/10/23/On-the-dangers-of-sending-your-testers-to-conferences.html
 /2023/04/12/catching-up-with-openai.html:
-  - /2023/03/31/the-new-ai-platform.html
+  - /2023/06/01/generative-terminology.html
   - /2019/04/05/reflections-from-build-it-right.html
 /2023/05/02/beyond-the-hype-is-generative-ai-coming-for-programming-jobs.html:
   - /2016/12/07/once-upon-a-time.html
@@ -2362,6 +2362,18 @@
 /2023/05/04/langchain-mini.html:
   - /2021/08/31/a-primer-on-the-openai-api-1.html
   - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+/2023/05/30/the-product-owner-role.html:
+  - /2019/10/30/ir35-hits-now-don-t-wait-until-april-to-act.html
+  - /2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html
+/2023/05/31/rabbitmq-deep-dive-part-one.html:
+  - /2023/05/31/rabbitmq-deep-dive-part-two.html
+  - /2014/11/28/bramble-mvc.html
+/2023/05/31/rabbitmq-deep-dive-part-two.html:
+  - /2023/05/31/rabbitmq-deep-dive-part-one.html
+  - /2014/11/28/bramble-mvc.html
+/2023/06/01/generative-terminology.html:
+  - /2018/03/13/tensorflow-machine-learning.html
+  - /2016/06/16/catch22-of-conversational-uis.html
 /26/08/2014/StrongTypingWithAngularJS.html:
   - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
   - /2014/08/08/signalr-typed.html
