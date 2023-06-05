@@ -35,7 +35,7 @@ Pride, to me, is also one hell of a party. 😉
  
 ## What does it mean to work for a company that recognises and celebrates our differences?
  
-For me, it is everything. We’re a UK-wide business, and reflecting the communities we live in is important to me because it shows first hand our understanding and appreciation of inclusion and diversity (and not just LGBTQ+).
+For me, it is everything. We’re a UK-wide company serving businesses all over the globe, and reflecting the communities we live in is important to me because it shows first hand our understanding and appreciation of inclusion and diversity (and not just LGBTQ+).
 
 Our differences make us stronger, so knowing that we recognise and celebrate difference makes Scott Logic a brilliant place to work. It allows us to channel that strength into the work we do for our Clients. In all our offices, we strive to create an inclusive environment where every colleague is treated with respect and values the contribution of others, so they can show up 100% every day.
  
