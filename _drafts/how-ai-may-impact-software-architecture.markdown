@@ -17,12 +17,16 @@ summary: AI tools are being trialled in many areas including software developmen
 author: acarr
 ---
 
-AI tools are being trialled in many areas including software development, with examples such as [GitHub Copilot](https://resources.github.com/copilot-for-business), [CodePal](https://codepal.ai/), [SourceAI](https://sourceai.dev/) and [Tabnine](https://www.tabnine.com/). In this post, I will look at the impact of these tools on coding and use that to predict how they will impact the design of software architecture. 
+AI tools are being trialled in many areas including software development, with examples such as [GitHub Copilot](https://resources.github.com/copilot-for-business), [CodePal](https://codepal.ai/), [SourceAI](https://sourceai.dev/) and [Tabnine](https://www.tabnine.com/). In this post, I will look at the impact of these tools on coding and use that to predict how they will impact the design of software architecture.
 
-Predictions around this are very hard to make, especially taking into account how fast this field is changing, so it will be interesting to revisit this blog in a couple of years' time to see how things are. But taking those caveats into account, I am going to argue that software architecture may change to being more data-driven, with prototype architectures and architectural diagrams being generated from the actual code itself.
+![MicrosoftTeams-image (6).png](/uploads/MicrosoftTeams-image%20(6).png)
+
+Predictions around this are very hard to make, especially taking into account how fast this field is changing, so it will be interesting to revisit this blog in a couple of years to see how things are. But taking those caveats into account, I am going to argue that software architecture may change to being more data-driven, with prototype architectures and architectural diagrams being generated from the actual code itself.
 
 ## How AI is already speeding up coding
-Looking at coding, we can see four clear examples of how coding can be sped up using AI tools that are available now. 
+Looking at coding, we can see four clear examples of how coding can be sped up using AI tools that are available now.
+
+![MicrosoftTeams-image (10).png](/uploads/MicrosoftTeams-image%20(10).png)
 
 The first is advanced code completion. This is where the AI can complete code quickly and with increasing ease, doing a lot more than the previous generation which statistically predicted the completion of the code. This is especially the case with common tasks that it has seen before, putting the old code completion systems on steroids.
 
@@ -31,6 +35,8 @@ The second is code generation from plain text descriptions. Rapid UI prototyping
 The third is finding and fixing bugs. These tools could be used to help experienced software engineers to find bugs (such as security loopholes or mistakes in logic), as discussed in this [TechRadar article](https://www.techradar.com/news/new-github-code-scanning-tech-should-make-it-easier-to-spot-security-flaws), or could even be used as an interactive way for people to learn how to code.
 
 The fourth is reading code and summarising it using natural language. This could help with code maintenance. As well as aiding early-career developers, these tools could be akin to a personal interactive teacher in helping people learn to code from scratch; although this is easier with simple examples, the tools are highly likely to improve over time.
+
+![MicrosoftTeams-image (8).png](/uploads/MicrosoftTeams-image%20(8).png)
 
 Code generation is improving all the time, as Martin Heller discusses in this [Infoworld article](https://www.infoworld.com/article/3696970/llms-and-the-rise-of-the-ai-code-generators.html). While early code generators weren’t generating code that was correct, or even compiled, they are now starting to be able to generate code that can compile, along with Unit Tests that can work. However, just like ChatGPT, the tools can confidently give an answer even when they’re wrong. 
 
@@ -47,23 +53,27 @@ Clickable mockups have improved and accelerated UI design by speeding up the ite
 This means that most software architecture design is an art as much as a science, as experienced heads make their best guestimate based on what they do know or can know easily. An AI agent which reviews the actual code, log files etc. could provide a huge amount of extra information and even test different performance or load scenarios.
 
 ## What about if AI were applied to the integration of backend components?
-Earlier non-AI platforms that are designed to support the rapid connecting together of systems, such as Mulesoft Anypoint, can reduce the amount of boilerplate code; that said, it still typically takes weeks to produce components which connect to multiple systems. This generation of tools was never fast enough to turn integration into point-and-click real-time.
+Earlier non-AI platforms that are designed to support the rapid connecting of systems, such as Mulesoft Anypoint, can reduce the amount of boilerplate code; that said, it still typically takes weeks to produce components which connect to multiple systems. This generation of tools was never fast enough to turn integration into point-and-click real-time.
 
 Newer integration platforms such as [Cyclr](https://cyclr.com/) and [Boomi](https://boomi.com/) are going down the low-code, point-and-click route to reduce integration time further. In fact, Boomi has introduced an AI component which uses anonymised learnings from lots of previous integrations achieved with the Boomi platform to automagically create mappings between two integration points, often the most time-consuming part of an integration.
+
+![MicrosoftTeams-image (9).png](/uploads/MicrosoftTeams-image%20(9).png)
 
 So, assuming AI-supported development will continue to get easier, more accurate and more common, what are the implications for software architecture? I will argue that there will be four potentially large changes to how software architecture is designed.
 
 ## 1) Trade-offs can be tested instead of theorised
-With the current AI code-generation systems, we have seen that code can be generated very quickly which very much looks the part, even if it isn’t entirely accurate all of the time. As long as the code compiles, potentially this is good enough for prototype integration. Allowing systems to be connected together super-quickly, if not perfectly, enables tests to be run that connect the systems in different ways and therefore test different architectures. 
+With the current AI code-generation systems, we have seen that code can be generated very quickly which very much looks the part, even if it isn’t entirely accurate all of the time. As long as the code compiles, potentially this is good enough for prototype integration. Allowing systems to be connected super-quickly, if not perfectly, enables tests to be run that connect the systems in different ways and therefore test different architectures. 
 
 This good-enough code generation for backend/architecture prototyping could allow architects not just to guess what the best architecture for a new system or component in a current system might be, but actually to generate alternative architectures and test out trade-offs. This process is not currently done at the prototyping stage, but instead during the dry design of the system or, if you are lucky, during sprints in order to iron out the creases in architecturally significant stories. It will enable trade-offs on speed, latency and throughput, providing guarantees that are usually made without hard data.
 
 At present, these tests may be limited by the availability of test versions of all the systems that a new system or component would have to work within (often an organisational challenge, rather than a technical one). However, it is possible to imagine AI technologies mocking up test versions of those missing systems or components.
 
+![MicrosoftTeams-image (5).png](/uploads/MicrosoftTeams-image%20(5).png)
+
 ## 2) Designing software architecture will be more data-driven, likely by system prototyping
 If these trade-offs can be tested, the tasks of Software Architects and Solution Architects could morph into those of a System Prototyper. Instead of having to argue for a certain architecture, they could try stuff out, record tests and gather real-world evidence for the design decisions and then document them for the developers.
 
-While existing software architecture expertise and experience will be super-valuable in this new role, more classic Developer-type skills will also be required in order to get these system prototypes working and try stuff out. Only time will tell whether this will mean that Software Architects will do system prototyping, or whether Developers will take on this role and push them into a space where they are making architecture decisions. Either way, it is very likely that AI will help make decisions around architecture more data-driven compared to current practice.
+While existing software architecture expertise and experience will be super-valuable in this new role, more classic Developer-type skills will also be required in order to get these system prototypes working and try stuff out. Only time will tell whether this will mean that Software Architects will do system prototyping, or whether Developers will take on this role and push them into a space where they are making architecture decisions. Either way, AI will likely help make decisions around architecture more data-driven compared to current practice.
 
 ## 3) It will enable more complex architectures with more nuanced trade-offs
 Being able to prototype and compare different architectures quickly will allow more nuanced decisions to be made – whether approach A or approach B should be used, or whether a database should be Eventual Consistency or Fully Consistent. Databases and messaging middleware have tended to become more configurable around guarantees over the last decade or so, allowing the designer to choose trade-offs with more certainty as they can try the trade-offs out. If Software Architects can quickly try out the implication of their trade-offs instead of just guessing them, it means that the more nuanced decisions can be made with confidence and these highly configurable middleware components can be utilised more fully.
