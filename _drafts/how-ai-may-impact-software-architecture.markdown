@@ -20,7 +20,6 @@ author: acarr
 AI tools are being trialled in many areas including software development, with examples such as [GitHub Copilot](https://resources.github.com/copilot-for-business), [CodePal](https://codepal.ai/), [SourceAI](https://sourceai.dev/) and [Tabnine](https://www.tabnine.com/). In this post, I will look at the impact of these tools on coding and use that to predict how they will impact the design of software architecture.
 
 ![MicrosoftTeams-image (6).png](/uploads/MicrosoftTeams-image%20(6).png)
-_AI-generated image_
  
 Predictions around this are very hard to make, especially taking into account how fast this field is changing, so it will be interesting to revisit this blog in a couple of years to see how things are. But taking those caveats into account, I am going to argue that software architecture may change to being more data-driven, with prototype architectures and architectural diagrams being generated from the actual code itself.
 
@@ -55,7 +54,6 @@ Clickable mockups have improved and accelerated UI design by speeding up the ite
 
 This means that most software architecture design is an art as much as a science, as experienced heads make their best guestimate based on what they do know or can know easily. An AI agent which reviews the actual code, log files etc. could provide a huge amount of extra information and even test different performance or load scenarios.
 
-## What about if AI were applied to the integration of backend components?
 Earlier non-AI platforms that are designed to support the rapid connecting of systems, such as Mulesoft Anypoint, can reduce the amount of boilerplate code; that said, it still typically takes weeks to produce components which connect to multiple systems. This generation of tools was never fast enough to turn integration into point-and-click real-time.
 
 Newer integration platforms such as [Cyclr](https://cyclr.com/) and [Boomi](https://boomi.com/) are going down the low-code, point-and-click route to reduce integration time further. In fact, Boomi has introduced an AI component which uses anonymised learnings from lots of previous integrations achieved with the Boomi platform to automagically create mappings between two integration points, often the most time-consuming part of an integration.
@@ -65,7 +63,7 @@ Newer integration platforms such as [Cyclr](https://cyclr.com/) and [Boomi](http
 
 So, assuming AI-supported development will continue to get easier, more accurate and more common, what are the implications for software architecture? I will argue that there will be four potentially large changes to how software architecture is designed.
 
-## 1) Trade-offs can be tested instead of theorised
+### 1) Trade-offs can be tested instead of theorised
 With the current AI code-generation systems, we have seen that code can be generated very quickly which very much looks the part, even if it isn’t entirely accurate all of the time. As long as the code compiles, potentially this is good enough for prototype integration. Allowing systems to be connected super-quickly, if not perfectly, enables tests to be run that connect the systems in different ways and therefore test different architectures. 
 
 This good-enough code generation for backend/architecture prototyping could allow architects not just to guess what the best architecture for a new system or component in a current system might be, but actually to generate alternative architectures and test out trade-offs. This process is not currently done at the prototyping stage, but instead during the dry design of the system or, if you are lucky, during sprints in order to iron out the creases in architecturally significant stories. It will enable trade-offs on speed, latency and throughput, providing guarantees that are usually made without hard data.
@@ -73,21 +71,20 @@ This good-enough code generation for backend/architecture prototyping could allo
 At present, these tests may be limited by the availability of test versions of all the systems that a new system or component would have to work within (often an organisational challenge, rather than a technical one). However, it is possible to imagine AI technologies mocking up test versions of those missing systems or components.
 
 ![MicrosoftTeams-image (5).png](/uploads/MicrosoftTeams-image%20(5).png)
-_AI-generated image_
 
-## 2) Designing software architecture will be more data-driven, likely by system prototyping
+### 2) Designing software architecture will be more data-driven, likely by system prototyping
 If these trade-offs can be tested, the tasks of Software Architects and Solution Architects could morph into those of a System Prototyper. Instead of having to argue for a certain architecture, they could try stuff out, record tests and gather real-world evidence for the design decisions and then document them for the developers.
 
 While existing software architecture expertise and experience will be super-valuable in this new role, more classic Developer-type skills will also be required in order to get these system prototypes working and try stuff out. Only time will tell whether this will mean that Software Architects will do system prototyping, or whether Developers will take on this role and push them into a space where they are making architecture decisions. Either way, AI will likely help make decisions around architecture more data-driven compared to current practice.
 
-## 3) It will enable more complex architectures with more nuanced trade-offs
+### 3) It will enable more complex architectures with more nuanced trade-offs
 Being able to prototype and compare different architectures quickly will allow more nuanced decisions to be made – whether approach A or approach B should be used, or whether a database should be Eventual Consistency or Fully Consistent. Databases and messaging middleware have tended to become more configurable around guarantees over the last decade or so, allowing the designer to choose trade-offs with more certainty as they can try the trade-offs out. If Software Architects can quickly try out the implication of their trade-offs instead of just guessing them, it means that the more nuanced decisions can be made with confidence and these highly configurable middleware components can be utilised more fully.
 
 Open source components such as [Open Messaging benchmarking tools](https://openmessaging.cloud/docs/benchmarks/) for comparing middleware are starting to appear (currently Apache RocketMQ, Kafka, Pulsar, RabbitMQ, NATS streaming, REDIS and Pravega).
 
 In theory, this should help the architecture and system to be more sustainable going forward – because decisions around trade-offs can include chargeability, storage, data moving etc, which can all impact the environment. It is perfectly conceivable that AI tools will be generated that could create a score for architectural simplicity and maintainability, making the process of decision-making around trade-offs more a matter of reviewing data than they are currently.
 
-## 4) AI tools will be able to provide more information on software architecture, generating useful diagrams from code or vice versa 
+### 4) AI tools will be able to provide more information on software architecture, generating useful diagrams from code or vice versa 
 As mentioned previously, it is commonly a very manual process for an Architect to gain an understanding of the components and architecture within which a system or component has to work. A huge step-up would be a tool that could look at the code, systems and APIs, and generate knowledge of a current system which could then easily be interrogated by a Software Architect – transforming part of the architectural design process that is currently very manual, time-consuming and error-prone.
 
 As things stand, architecture diagrams tend to be hand-crafted, produced by experienced Architects who add value by deciding what to display and what to compare in order to aid communication of the architecture and any proposed changes. This process is incredibly manual. While there has been an evolution in terms of having diagrams driven by code to describe the diagrams, they still have no real connection to the code itself. (There have also been waves of tools to generate diagrams from actual code, and vice versa, but they tended to have limited use due to two key issues: (1) diagrams generated from code tend to be too complex to be useful – they tend to need to be simplified to show architecturally significant details only; and (2) a similar issue applies to code generated from diagrams – it is too simplistic to run without being enhanced. These two issues mean that once the code is generated from the diagram or vice versa, the two tend to drift apart so that the code evolves without the diagram being updated and vice versa).
