@@ -20,7 +20,7 @@ author: acarr
 AI tools are being trialled in many areas including software development, with examples such as [GitHub Copilot](https://resources.github.com/copilot-for-business), [CodePal](https://codepal.ai/), [SourceAI](https://sourceai.dev/) and [Tabnine](https://www.tabnine.com/). In this post, I will look at the impact of these tools on coding and use that to predict how they will impact the design of software architecture.
 
 ![MicrosoftTeams-image (6).png](/uploads/MicrosoftTeams-image%20(6).png)
-
+_AI-generated image_
  
 Predictions around this are very hard to make, especially taking into account how fast this field is changing, so it will be interesting to revisit this blog in a couple of years to see how things are. But taking those caveats into account, I am going to argue that software architecture may change to being more data-driven, with prototype architectures and architectural diagrams being generated from the actual code itself.
 
@@ -73,7 +73,7 @@ This good-enough code generation for backend/architecture prototyping could allo
 At present, these tests may be limited by the availability of test versions of all the systems that a new system or component would have to work within (often an organisational challenge, rather than a technical one). However, it is possible to imagine AI technologies mocking up test versions of those missing systems or components.
 
 ![MicrosoftTeams-image (5).png](/uploads/MicrosoftTeams-image%20(5).png)
- 
+_AI-generated image_
 
 ## 2) Designing software architecture will be more data-driven, likely by system prototyping
 If these trade-offs can be tested, the tasks of Software Architects and Solution Architects could morph into those of a System Prototyper. Instead of having to argue for a certain architecture, they could try stuff out, record tests and gather real-world evidence for the design decisions and then document them for the developers.
