@@ -21,6 +21,7 @@ AI tools are being trialled in many areas including software development, with e
 
 ![MicrosoftTeams-image (6).png](/uploads/MicrosoftTeams-image%20(6).png)
 
+ 
 Predictions around this are very hard to make, especially taking into account how fast this field is changing, so it will be interesting to revisit this blog in a couple of years to see how things are. But taking those caveats into account, I am going to argue that software architecture may change to being more data-driven, with prototype architectures and architectural diagrams being generated from the actual code itself.
 
 ## How AI is already speeding up coding
@@ -28,6 +29,7 @@ Looking at coding, we can see four clear examples of how coding can be sped up u
 
 ![MicrosoftTeams-image (10).png](/uploads/MicrosoftTeams-image%20(10).png)
 
+ 
 The first is advanced code completion. This is where the AI can complete code quickly and with increasing ease, doing a lot more than the previous generation which statistically predicted the completion of the code. This is especially the case with common tasks that it has seen before, putting the old code completion systems on steroids.
 
 The second is code generation from plain text descriptions. Rapid UI prototyping tools such as [Galileo AI](https://www.usegalileo.ai/) can be used to generate UI screens based on plain text descriptions of what they need to do. [CodePal](https://codepal.ai/) and [GitHub Copilot](https://resources.github.com/copilot-for-business) can generate code in many different languages based on a plain text description. Developers are in the process of finding out how capable and useful these tools can be, but many are already predicting that they will turbocharge software development once the tools mature.
@@ -37,6 +39,7 @@ The third is finding and fixing bugs. These tools could be used to help experien
 The fourth is reading code and summarising it using natural language. This could help with code maintenance. As well as aiding early-career developers, these tools could be akin to a personal interactive teacher in helping people learn to code from scratch; although this is easier with simple examples, the tools are highly likely to improve over time.
 
 ![MicrosoftTeams-image (8).png](/uploads/MicrosoftTeams-image%20(8).png)
+ 
 
 Code generation is improving all the time, as Martin Heller discusses in this [Infoworld article](https://www.infoworld.com/article/3696970/llms-and-the-rise-of-the-ai-code-generators.html). While early code generators weren’t generating code that was correct, or even compiled, they are now starting to be able to generate code that can compile, along with Unit Tests that can work. However, just like ChatGPT, the tools can confidently give an answer even when they’re wrong. 
 
@@ -58,6 +61,7 @@ Earlier non-AI platforms that are designed to support the rapid connecting of sy
 Newer integration platforms such as [Cyclr](https://cyclr.com/) and [Boomi](https://boomi.com/) are going down the low-code, point-and-click route to reduce integration time further. In fact, Boomi has introduced an AI component which uses anonymised learnings from lots of previous integrations achieved with the Boomi platform to automagically create mappings between two integration points, often the most time-consuming part of an integration.
 
 ![MicrosoftTeams-image (9).png](/uploads/MicrosoftTeams-image%20(9).png)
+ 
 
 So, assuming AI-supported development will continue to get easier, more accurate and more common, what are the implications for software architecture? I will argue that there will be four potentially large changes to how software architecture is designed.
 
@@ -69,6 +73,7 @@ This good-enough code generation for backend/architecture prototyping could allo
 At present, these tests may be limited by the availability of test versions of all the systems that a new system or component would have to work within (often an organisational challenge, rather than a technical one). However, it is possible to imagine AI technologies mocking up test versions of those missing systems or components.
 
 ![MicrosoftTeams-image (5).png](/uploads/MicrosoftTeams-image%20(5).png)
+ 
 
 ## 2) Designing software architecture will be more data-driven, likely by system prototyping
 If these trade-offs can be tested, the tasks of Software Architects and Solution Architects could morph into those of a System Prototyper. Instead of having to argue for a certain architecture, they could try stuff out, record tests and gather real-world evidence for the design decisions and then document them for the developers.
