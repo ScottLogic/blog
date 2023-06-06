@@ -60,10 +60,10 @@ Newer integration platforms such as [Cyclr](https://cyclr.com/) and [Boomi](http
 
 ![MicrosoftTeams-image (9).png](/uploads/MicrosoftTeams-image%20(9).png)
  
-
+## Four predictions
 So, assuming AI-supported development will continue to get easier, more accurate and more common, what are the implications for software architecture? I will argue that there will be four potentially large changes to how software architecture is designed.
 
-### 1) Trade-offs can be tested instead of theorised
+### 1) Trade-offs will be tested instead of theorised
 With the current AI code-generation systems, we have seen that code can be generated very quickly which very much looks the part, even if it isn’t entirely accurate all of the time. As long as the code compiles, potentially this is good enough for prototype integration. Allowing systems to be connected super-quickly, if not perfectly, enables tests to be run that connect the systems in different ways and therefore test different architectures. 
 
 This good-enough code generation for backend/architecture prototyping could allow architects not just to guess what the best architecture for a new system or component in a current system might be, but actually to generate alternative architectures and test out trade-offs. This process is not currently done at the prototyping stage, but instead during the dry design of the system or, if you are lucky, during sprints in order to iron out the creases in architecturally significant stories. It will enable trade-offs on speed, latency and throughput, providing guarantees that are usually made without hard data.
