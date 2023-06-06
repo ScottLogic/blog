@@ -15,6 +15,7 @@ summary: AI tools are being trialled in many areas including software developmen
   architecture may become more data-driven, with prototype architectures and architectural
   diagrams being generated from the actual code itself.
 author: acarr
+image: "/uploads/Scott-Logic---Andrew-Carr---How-AI-may-impact-solution-architecture.jpg"
 ---
 
 AI tools are being trialled in many areas including software development, with examples such as [GitHub Copilot](https://resources.github.com/copilot-for-business), [CodePal](https://codepal.ai/), [SourceAI](https://sourceai.dev/) and [Tabnine](https://www.tabnine.com/). In this post, I will look at the impact of these tools on coding and use that to predict how they will impact the design of software architecture.
