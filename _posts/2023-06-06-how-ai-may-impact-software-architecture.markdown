@@ -36,7 +36,7 @@ The second is code generation from plain text descriptions. Rapid UI prototyping
 
 The third is finding and fixing bugs. These tools could be used to help experienced software engineers to find bugs (such as security loopholes or mistakes in logic), as discussed in this [TechRadar article](https://www.techradar.com/news/new-github-code-scanning-tech-should-make-it-easier-to-spot-security-flaws), or could even be used as an interactive way for people to learn how to code.
 
-The fourth is reading code and summarising it using natural language. This could help with code maintenance. As well as aiding early-career developers, these tools could be akin to a personal interactive teacher in helping people learn to code from scratch; although this is easier with simple examples, the tools are highly likely to improve over time.
+The fourth is reading code and summarising it using natural language. This could help with code maintenance. As well as helping experienced developers cross-train from one language to another, these tools could be akin to a personal interactive teacher in helping people learn to code from scratch; although this is easier with simple examples, the tools are highly likely to improve over time.
 
 ![MicrosoftTeams-image (8).png](/uploads/MicrosoftTeams-image%20(8).png)
  
