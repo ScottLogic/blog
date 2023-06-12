@@ -9,7 +9,7 @@ summary: I recently spent some time remotely attending JSNation, a hybrid-format
 author: rwilliams
 ---
 
-I recently spent some time remotely attending [JSNation](https://jsnation.com/), a hybrid-format JavaScript conference held in Amsterdam. With two tracks running over two days, there were plenty of talks to choose from, and plenty more available at sister conference [React Summit](https://reactsummit.com/) around the same dates by the same organisers. It was a very good and professionally-run conference.
+I recently spent some time remotely attending [JSNation](https://jsnation.com/), a hybrid-format JavaScript conference held in Amsterdam. With two tracks running over two days, there were plenty of talks to choose from, and plenty more available at sister conference [React Summit](https://reactsummit.com/) around the same dates by the same organisers. It was a very good and professionally run conference.
 
 In this post, I'll cover some points of interest from around half the talks I chose to attend.
 
@@ -77,7 +77,7 @@ Hemanth HM gave a tour of recent and upcoming/experimental new features in Node.
 
 ## Web Push Notifications Done Right
 
-Maxim Salnikov's lightning talk was about being thoughtful and respecting the user while using [web push notifications](https://web.dev/notifications/). He presented some UX patterns for both subscribing to a notifications, and later creating informative and useful notifications. I consider this talk to be mandatory watching for anyone using this API. You can use the playground at [push.foo](https://push.foo/) to try them out.
+Maxim Salnikov's lightning talk was about being thoughtful and respecting the user while using [web push notifications](https://web.dev/notifications/). He presented some UX patterns for both subscribing to notifications, and later creating informative and useful notifications. I consider this talk to be mandatory watching for anyone using this API. You can use the playground at [push.foo](https://push.foo/) to try them out.
 
 ![maxim.PNG](/uploads/maxim.PNG)
 
