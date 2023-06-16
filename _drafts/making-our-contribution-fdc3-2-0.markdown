@@ -7,12 +7,16 @@ tags:
 - FDC3
 - open source
 - desktop containers
-author: acaulfied
+summary: I'm excited to share that we are imminently reaching our next milestone as
+  we release our set of test suites against FDC3 2.0. In this post,  I explain what
+  the FDC3 Conformance Framework is and how it works, and share our experiences from
+  our contribution journey.
+author: acaulfield
 ---
 
 At Scott Logic, we’re proud to be contributing to the FINOS mission to help the finance industry “Do Open Source Properly”. I am excited to share with you that we are imminently reaching our next milestone as we release our set of test suites against FDC3 2.0. 
 
-The FDC3 Conformance Framework works to ensure that desktop containers are compatible with the FDC3 standard – giving reassurance and accreditation that their apps will work with every Desktop Agent.
+The FDC3 Conformance Framework works to ensure that desktop containers are compatible with the [FDC3 standard](https://fdc3.finos.org/) – giving reassurance and accreditation that their apps will work with every Desktop Agent.
 
 As Interop.io describe it:
 
@@ -43,14 +47,14 @@ There are two main parts to conformance:
 * Running the tests locally, then 
 * Joining the Conformance Program
 
-You can either run the hosted conformance tests listed in the FINOS App Directory, or run them on your local machine (useful if you are making changes). You can find instructions here.
+You can either run the hosted conformance tests listed in the FINOS App Directory, or run them on your local machine (useful if you are making changes). You can [find instructions here](https://github.com/finos/FDC3-conformance-framework).
 
-If you have a Desktop Agent supporting the AppD v2 standard, you can point it at the FINOS App Directory which contains not only the current conformance suite but also many other sample FDC3 applications. The endpoint for your agent is: https://directory.fdc3.finos.org/v2/apps. Or you can install locally – find instructions here.
+If you have a Desktop Agent supporting the [AppD v2 standard](https://fdc3.finos.org/docs/app-directory/spec), you can point it at the [FINOS App Directory](https://directory.fdc3.finos.org/) which contains not only the current conformance suite but also many other sample FDC3 applications. The endpoint for your agent is: [https://directory.fdc3.finos.org/v2/apps](https://directory.fdc3.finos.org/v2/apps). Or you can install it locally – [find instructions here](https://github.com/finos/FDC3-conformance-framework).
 
-If you've had a clean run of all the tests locally, why not join the Conformance Program? You can find instructions on how to join here.
+If you've had a clean run of all the tests locally, why not join the Conformance Program? You can [find instructions on how to join here](https://github.com/finos/FDC3-conformance-framework/blob/main/instructions.md).
 
 Once you have followed these steps, you will be allowed to display the FDC3 Compliance Badges within your marketing literature.
 
-Details are published of conformant desktop agents on the FDC3 Community Page.
+Details are published of conformant desktop agents on the [FDC3 Community page](https://fdc3.finos.org/community).
 
-And you can read the latest blog post here about the certification announcements at OSFF New York.
+And you can read the latest blog post here about the [certification announcements at OSFF New York](https://www.finos.org/blog/first-fdc3-1.2-certified-desktop-agents).
