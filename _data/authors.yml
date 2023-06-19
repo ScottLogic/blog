@@ -22,6 +22,7 @@ active-authors:
     - cprice
     - csalt
     - dgrew
+    - dhinrichs
     - dkerr
     - dmcnamee
     - dnicholas
@@ -1103,6 +1104,10 @@ authors:
         author-summary: 'A history student turned software developer with experience in financial services and public sector, primarily working on backend projects.'
         twitter-handle: dw_grew
         picture: dgrew_author_picture.png
+    dhinrichs:
+        name: 'Doro Hinrichs'
+        author-summary: 'I am a Graduate Developer at Scott Logic, based in the Edinburgh office. Originally from Germany, I found a home in Glasgow while studying Psychology. I pursued a career in mental health before transitioning into software development, where I enjoy bringing a people-focused approach to coding. Outside of work, you can find me surrounded by plants, playing football, or working on a DIY project.'
+        picture: profile.png
     pburgess:
         name: 'Paul Burgess'
         author-summary: "I'm a Lead Developer at Scott Logic and am passionate about using technology to solve real world problems.\n\nI use a wide range of languages and write about TypeScript, JavaScript, React, C# and .NET as well as how to best work together as a project team to deliver solutions."

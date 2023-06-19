@@ -468,6 +468,9 @@ prose:
         -
             login: grewdw
             user: dgrew
+        -   
+            login: dhinrichs 
+            user: dhinrichs
         -
             login: codepb
             user: pburgess
