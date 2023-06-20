@@ -13,6 +13,7 @@ summary: I recently spent some time remotely attending JSNation, a hybrid-format
   conference held in Amsterdam alongside sister conference React Summit. In this post,
   I'll cover some points of interest from around half the talks I chose to attend.
 author: rwilliams
+image: "/uploads/Scottlogic---Social-media-cards---Robat-Williams.jpg"
 ---
 
 I recently spent some time remotely attending [JSNation](https://jsnation.com/), a hybrid-format JavaScript conference held in Amsterdam. With two tracks running over two days, there were plenty of talks to choose from, and plenty more available at sister conference [React Summit](https://reactsummit.com/) around the same dates by the same organisers. It was a very good and professionally run conference.
