@@ -1,5 +1,5 @@
 ---
-title: 'Making Digital Products Accessible: Insights from a Panel Discussion'
+title: Making Digital Products Accessible
 date: 2023-06-20 14:08:00 Z
 tags:
 - accessibility
@@ -16,8 +16,10 @@ author: Oded Sharon, Doro Hinrichs
 Field name: 
 ---
 
-# Making Digital Products Accessible: Insights from a Panel Discussion
+# Making Digital Products Accessible 
+## Insights from a Panel Discussion
 
+### Introduction
 Every Year on Global Accessibility Awareness Day, people come together to raise awareness about the barriers many users still face in the digital world. This May, two of our consultants, Doro and Oded, attended an accessibility panel discussion and workshop with UserVision on Creating Accessible Digital Experiences. The panel brought together experts in the field, including Mark Palmer, the accessibility lead from the Scottish government; Karen Wilcox, the digital product optimization manager at Postcode Lottery; Graham Gunning, vice-chair of Triple Tap Tech; and Harjeet Dhanda, an accessibility consultant from User Vision. The inspiring event fuelled conversations for many weeks afterwards, and we would like to share some of our reflections and key takeaways to share our inspiration and motivation to create an inclusive digital world.
 
 Here you can read and/or listen to our thoughts and takeaways on the panel discussion, so let’s first introduce ourselves. 
@@ -26,13 +28,11 @@ Doro: “My name is Doro, and I’m a Graduate Developer at Scott Logic. Before 
 
 Oded: “And my name is Oded and I’m a senior developer at Scott Logic. I’ve been a developer for about 20 years and I try to focus on the human element and how technology can improve our lives”
 
-
 Doro: “That was a great event! What an enlightening panel discussion! Every panellist  brought in so many different perspectives on making digital products and services more accessible!”
 
-Oded:  “Yes, I also found the entire event very inspiring. I thought the panellists’ approach was very down-to-earth, and some of their insights were invaluable. What were your biggest takeaways?”
+Oded:  “Yes, I also found the entire event very inspiring. I thought the panelists’ approach was very down-to-earth, and some of their insights were invaluable. What were your biggest takeaways?”
 
-## The barriers that users face
-
+### The barriers that users face
 Doro: “There’s a lot of barriers that disabled people face online. A lot of those barriers could be easily removed if we paid more attention to how we build our websites.“ 
 
 Oded: “Indeed, for people with visual impairment—such as Graham—for example,, websites’ accessibility could be the difference between being able to make use of the website or not. And sometimes it doesn’t require extra effort from the developer’s point-of-view but simply using the (semantically) correct HTML tags in the relevant places.” 
@@ -57,8 +57,7 @@ Doro: “They had forgotten to allocate the complimentary space on the seating p
 
 Oded: “Yes, so even though they met all the criteria of the WCAG, their app was not actually accessible. The WCAG are a good start, but they do not cover everything and that is where lived experience accessibility consultants can really really raise the bar, especially if they are part of the design process from the very start.”
 
-## Including accessibility from the start
-
+### Including accessibility from the start
 Doro: “That’s one thing every one of the panelists brought up: How important it is to think about accessibility from start to finish of the project. That’s something that a lot of organisations are not used to, so that really requires a mindset shift. Leadership commitment can make a big difference. When leaders prioritise accessibility, it creates a culture where accessibility is valued and ingrained.”
 
 Oded: “Yes, and that is not about 'sprinkling accessibility' at the end or making adjustments; it's about creating an ecosystem that supports accessibility, like bringing up accessibility as part of the MVP, and making sure it’s addressed in the “Definition of Ready” and the “Definition of Done” stages.”
@@ -73,11 +72,11 @@ Oded: “It was great how Karen talked about always bringing in the human elemen
 
 Doro: “It was interesting hearing about how creating personas can be an easy way to bring in that human element throughout the design process: *“This is John. He is blind. He wants to buy a lottery ticket and then go eat his dinner.”* I see how that can help to include disabled people when we think about our users as people like you and I who just want to go about their business without any faff. It’s about creating a user-friendly experience. I think there’s great value in empathising with different viewpoints and experiences and approaching your design and build process from multiple perspectives.“
 
-## Accessibility benefits everyone
-
+### Accessibility benefits everyone
 Oded: “And every perspective that you take into account offers the possibility to improve your results. Prioritising accessibility benefits not only disabled people but can also remove barriers for someone with a temporary or situational limitation. This graphic from the Microsoft inclusive design toolkit explains that really well:” 
 
 ![acccessibility_temporary_permanent.png](/uploads/acccessibility_temporary_permanent.png)
+
 [Microsoft Inclusive Design](https://inclusive.microsoft.design/)
 
 Doro: “Yes, that’s called 'the curb-cut effect', it’s the idea that accessibility features might be appreciated by a much larger user group than originally thought. The dropped curb on sidewalks was originally designed for wheelchair users, but then it turned out that skateboarders, and people with bicycles and prams found them really useful, too. Now, they have become so ubiquitous that most people don’t even think of them as an accessibility feature anymore.” 
