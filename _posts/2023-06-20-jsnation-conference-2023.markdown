@@ -1,8 +1,14 @@
 ---
 title: JSNation conference 2023
-date: 2023-06-12 12:30:00 Z
+date: 2023-06-20 12:30:00 Z
 categories:
 - Tech
+tags:
+- JSNation
+- JavaScript
+- React
+- conferences
+- AI
 summary: I recently spent some time remotely attending JSNation, a hybrid-format JavaScript
   conference held in Amsterdam alongside sister conference React Summit. In this post,
   I'll cover some points of interest from around half the talks I chose to attend.
