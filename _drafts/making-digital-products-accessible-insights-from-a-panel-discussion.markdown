@@ -7,6 +7,7 @@ tags:
 - development
 - Inclusion
 - Diversity
+- Global Disability Awareness Day
 summary: In this blog post, two of our consultants share their insights from a panel
   discussion focused on enhancing the accessibility of digital products and services.
   They delve into the challenges encountered by disabled users, emphasize the significance
@@ -16,8 +17,7 @@ author: Oded Sharon, Doro Hinrichs
 Field name: 
 ---
 
-# Making Digital Products Accessible 
-## Insights from a Panel Discussion
+## Insights from a Panel Discussion on Accessibility
 
 ### Introduction
 Every Year on Global Accessibility Awareness Day, people come together to raise awareness about the barriers many users still face in the digital world. This May, two of our consultants, Doro and Oded, attended an accessibility panel discussion and workshop with UserVision on Creating Accessible Digital Experiences. The panel brought together experts in the field, including Mark Palmer, the accessibility lead from the Scottish government; Karen Wilcox, the digital product optimization manager at Postcode Lottery; Graham Gunning, vice-chair of Triple Tap Tech; and Harjeet Dhanda, an accessibility consultant from User Vision. The inspiring event fuelled conversations for many weeks afterwards, and we would like to share some of our reflections and key takeaways to share our inspiration and motivation to create an inclusive digital world.
@@ -37,7 +37,7 @@ Doro: “There’s a lot of barriers that disabled people face online. A lot of 
 
 Oded: “Indeed, for people with visual impairment—such as Graham—for example,, websites’ accessibility could be the difference between being able to make use of the website or not. And sometimes it doesn’t require extra effort from the developer’s point-of-view but simply using the (semantically) correct HTML tags in the relevant places.” 
 
-Doro: “I promise to never use a *<div>* as a *<button>* anymore! It’s really not hard to do, it just takes some practice to get into the right habits.” 
+Doro: “I promise to never use a <div> as a <button> anymore! It’s really not hard to do, it just takes some practice to get into the right habits.” 
 
 Oded: “Absolutely, and optimising websites for screen readers can also make a massive difference.” 
 
@@ -51,7 +51,7 @@ Oded: “A lot of people might imagine that an online service would make it more
 
 Doro: “All the more reason for us to build websites that everyone can use. As developers, we take pride in writing clean code and building user interfaces that look amazing and are easy to use. It's pride in good craftsmanship. I really can't see accessibility as separate from that. Imagine a user tries out your website and says *"that's a beautiful website, but I can’t click that button"*. I know I would rush to fix that right away. Seems pretty obvious that that’s a bug. That’s what disabled users experience everyday, but a lot of developers are oblivious to that.”
 
-Oded: “Remember that story that one of the panellists told, about building an app that helps with seating arrangements, but when a visually impaired accessibility consultant tested the app, he came back and said *‘The app is in line with Web Content Accessibility Guidelines (WCAG) and I can book a seat, but where does my dog sit?’* “
+Oded: “Remember that story that one of the panellists told, about building an app that helps with seating arrangements, but when a visually impaired accessibility consultant tested the app, he came back and said *"The app is in line with Web Content Accessibility Guidelines (WCAG) and I can book a seat, but where does my dog sit?"* “
 
 Doro: “They had forgotten to allocate the complimentary space on the seating plan for service dogs!” 
 
@@ -76,6 +76,7 @@ Doro: “It was interesting hearing about how creating personas can be an easy w
 Oded: “And every perspective that you take into account offers the possibility to improve your results. Prioritising accessibility benefits not only disabled people but can also remove barriers for someone with a temporary or situational limitation. This graphic from the Microsoft inclusive design toolkit explains that really well:” 
 
 ![acccessibility_temporary_permanent.png](/uploads/acccessibility_temporary_permanent.png)
+
 
 [Microsoft Inclusive Design](https://inclusive.microsoft.design/)
 
