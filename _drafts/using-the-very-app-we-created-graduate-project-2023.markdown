@@ -1,6 +1,11 @@
 ---
 title: Using the very app we created – Graduate Project 2023
 date: 2023-06-20 15:46:00 Z
+tags:
+- Graduate
+- Grad Summit
+- Grad project
+- Graduate Programme
 summary: After months of hard work, rattling lines of code away, time in meetings,
   questions, debates, pair programming, banging your head against the wall after hours
   spent on one elusive bug, new technologies, old technologies, refactoring, testing,
@@ -12,7 +17,7 @@ author: jwarren
 It was the day.
 After months of hard work, rattling lines of code away, time in meetings, questions, debates, pair programming, banging your head against the wall after hours spent on one elusive bug, new technologies, old technologies, refactoring, testing, polishing and then… the day arrives. Our grad project app is to be released into the wild, used by the very ones who created it.
 
-I joined Scott Logic 9 months previously (August 2023), on the developer graduate programme after having studied maths at university. The programme began with a few weeks of training, followed by engaging in an appointed project. This project would be useful to the company in some way and would be coded in teams with the support of mentors. Our assignment was to create an app for our internal graduate conference, the ‘Graduate Summit’. An annual conference where Scott Logic gathers its graduate cohort from across the country for networking and bespoke training purposes. Our app ‘Summit Explorer’ would facilitate the organising and running of these events.
+I joined Scott Logic 9 months previously (August 2023), on the [developer graduate programme](https://www.scottlogic.com/graduate-programme) after having studied maths at university. The programme began with a few weeks of training, followed by engaging in an appointed project. This project would be useful to the company in some way and would be coded in teams with the support of mentors. Our assignment was to create an app for our internal graduate conference, the ‘Graduate Summit’. An annual conference where Scott Logic gathers its graduate cohort from across the country for networking and bespoke training purposes. Our app ‘Summit Explorer’ would facilitate the organising and running of these events.
 
 To build our web application, we used a range of state of the art frameworks and libraries within our program. This consisted of a backend in Java Spring, a frontend in Typescript React and deployed to the cloud (AWS). Our app would allow conference delegates to view scheduled talks, choose which talks they want to attend and view their own personal timetable after organisers had made the assignments. Organisers could edit the timetable, manage users and send notifications. The app was bolstered by a secure login through ‘Azure AD Seamless SSO’ and was compatible with both desktop and mobile devices.
 
