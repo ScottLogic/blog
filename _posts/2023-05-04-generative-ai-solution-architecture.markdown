@@ -22,7 +22,7 @@ summary: This post offers a proposed architecture for mitigating the risks of de
   I provide a primer on the business risks of Enterprise GenAI along with the technology
   risks and challenges.
 author: ocronk
-image: "/uploads/Gen-AI-Solution-Architecture-for-Complex-Enterprises.jpg"
+image: "uploads/Gen-AI-Solution-Architecture-for-Complex-Enterprises.jpg"
 ---
 
 My career as a technology strategist and architect has tended to require looking further out – considering not just the opportunities from technology but also the risks. Nowhere in contemporary technology is that more pertinent than GenAI (Generative AI). So, as we follow the track of generative AI, will we eventually see the light at the end of the tunnel, or will that light be the headlights of an oncoming train?!
