@@ -3,6 +3,11 @@ title: Using the very app we created – Graduate Project 2023
 date: 2023-06-20 15:46:00 Z
 categories:
 - People
+tags:
+- Graduate
+- Grad Summit
+- Grad project
+- Graduate Programme
 summary: After months of hard work, rattling lines of code away, time in meetings,
   questions, debates, pair programming, banging your head against the wall after hours
   spent on one elusive bug, new technologies, old technologies, refactoring, testing,
