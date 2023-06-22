@@ -2,7 +2,6 @@
 author: hbedford
 title: My First UI Conference
 layout: default_post
-summary: Dive into the immersive experience of a thought-provoking UI/UX conference, where an array of talks delved into revolutionary ideas encompassing declarative design, boundary-pushing animation techniques, modern CSS development and debugging, the intersection of web development and AI, and the intriguing comparison between imperative and declarative programming. Expand your front-end development horizons with fresh perspectives.
 category: Tech
 tags:
 - UI
@@ -10,7 +9,6 @@ tags:
 - Conference
 ---  
 # Unveiling Insights from My First UI/UX Conference
-
 With a personal development budget I wanted to explore the UI/UX conference landscape, and after some research, settled on the local [Pixel Pioneers](https://pixelpioneers.co/events/bristol-2023#location) event. The conference's lineup of speakers and diverse range of topics piqued my interest, and I was eager to immerse myself in the day.
 
 With its concise one-day duration and a lineup of nine captivating talks, the conference was a condensed knowledge share that immersed attendees in the latest trends and techniques. Across the course of the day the following talks caught my interest:
