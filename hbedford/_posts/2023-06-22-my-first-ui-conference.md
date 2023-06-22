@@ -1,0 +1,53 @@
+---
+author: hbedford
+title: My First UI Conference
+layout: default_post
+summary: Dive into the immersive experience of a thought-provoking UI/UX conference, where an array of talks delved into revolutionary ideas encompassing declarative design, boundary-pushing animation techniques, modern CSS development and debugging, the intersection of web development and AI, and the intriguing comparison between imperative and declarative programming. Expand your front-end development horizons with fresh perspectives.
+category: Tech
+tags:
+- UI
+- UX
+- Conference
+---  
+# Unveiling Insights from My First UI/UX Conference
+
+With a personal development budget I wanted to explore the UI/UX conference landscape, and after some research, settled on the local [Pixel Pioneers](https://pixelpioneers.co/events/bristol-2023#location) event. The conference's lineup of speakers and diverse range of topics piqued my interest, and I was eager to immerse myself in the day.
+
+With its concise one-day duration and a lineup of nine captivating talks, the conference was a condensed knowledge share that immersed attendees in the latest trends and techniques. Across the course of the day the following talks caught my interest:
+
+    - Declarative Design
+    - Animating the Impossible
+    - Modern CSS Development and Debugging
+    - Web Development in the Times of AI
+
+### Declarative Design
+The conference opened with an insightful talk on declarative design, which explored the differences between an imperative and declarative way of programming. The analogy of classical vs jazz music was used. With classical music, the artists are incredibly talented at following sheet music, and can even play a new piece from sight. This is akin to an imperative way of thinking. Jazz musicians, on the other hand, are more free-flowing, creative, and can improvise on the spot. This is more like a declarative way of thinking.
+
+The speaker then challenged us to think about how we use UI languages, such as Javascript, HTML and CSS. We tend to think of CSS as an imperative language, detailing exactly how we want the browser page to look. However, it is actually a declarative language. Every line of CSS is a suggestion to the browser. It is then up to the browser to decide how to render the page.
+
+### Animating the Impossible
+We were all held in suspense as to what the impossible was that was going to be animated. To introduce the problem the speaker illustrated a deck of cards. The goal was to move one card from one person's hand to the other. This would mean that the position of the card element needed to change in the DOM. Thus the problem, how do you animate this without causing the card to disappear from the page?
+
+The FLIP animation technique was the solution, which is a pnemonic that stands for first, last, invert and play:
+
+- First: the starting position of the element
+- Last: the end position of the element
+- Invert: invert the element's position, first becomes last and vice versa
+- Play: Animate the inverted positions, so the element appears to go back to its last position
+
+Applying this technique meant that no element would disappear from the page, and the animation would appear seamless. To justify this, we were shown the three stages of how a browsers renders a page: construction, layout and paint. Without using the FLIP technique, we'd have to hit the construction stage twice, which is very expensive. Whereas with the FLIP technique, we do not need to reconstruct the DOM, and can jump straight to the paint stage, saving precious compute time. 
+
+### Modern CSS Development and Debugging
+Next on the list of talks a rapid fire session on modern CSS development and debugging. Whilst not all related to just CSS, the personal list of useful tools were interesting. For example, the sticky scroll setting in vscode was mentioned that helps a developer quickly see what code section they are in. Other tools included how to load css faster when developing, and making instant changes that could be easily copied to a local CSS file.
+
+
+### Web Development in the Times of AI
+To round off the day an excellent talk on web development and how it relates to AI was given. It felt like a rally cry towards the warnings and assumtions of AI. The hype around the subject was put into question. Is it _actually_ useful? Is it ready? An anxiety of transparency was conveyed from the speaker. Without it, how can we verify AI's validity from a technical point of view? What struck me was how he questioned what is being used to train these models. There are many bad examples of code out there, but are they being used to train these models? If so, then surely there should be a way to signpost a repository as excempt from being used as training. 
+
+What was highlighted though was how AI can work with developers to automate less interesting tasks. If used correctly, it could save time and allow developers to focus on more interesting pieces of work.
+
+## Personal Reflection
+
+I didn't really know what to expect from my first UI/UX conference, but was pleasantly surprised by the variety of talks, and the quality of the speakers. It was a great opportunity to learn about new techniques and tools, and to see how other developers approach their work. I would definitely recommend attending a UI/UX conference to anyone who is interested in the field. It is a great way to expand your horizons and learn about new ideas.
+
+
