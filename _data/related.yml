@@ -1017,7 +1017,7 @@
   - /2019/03/25/the-journey-to-devops.html
 /2018/03/07/stock-watcher-newcastle-summer-graduate-project.html:
   - /2017/12/07/newcastle-interns-2017-desk-directory.html
-  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2023/06/20/using-the-very-app-we-created-graduate-project-2023.html
 /2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html:
   - /2022/01/04/a-more-inclusive-future-together.html
   - /2020/03/06/international-women-s-day-2020.html
@@ -1536,7 +1536,7 @@
   - /2019/11/18/talking-to-devs-about-testing.html
 /2019/10/25/How-we-run-our-first-Design-Sprint.html:
   - /2020/10/07/bug-bashes.html
-  - /2018/07/05/sketching-tips-to-make-you-a-better-designer.html
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
 /2019/10/29/java-numeric-integer.html:
   - /2013/12/05/counting-iterables.html
   - /2020/09/23/To-quantum-computing-and-beyond!.html
@@ -2198,8 +2198,8 @@
   - /2022/04/06/web-ui-development-in-rust.html
   - /2018/12/14/automation-and-bots-for-open-source.html
 /2022/04/05/beyond-the-hype-microfrontends.html:
-  - /2022/03/08/beyond-the-hype-microservices.html
   - /2020/06/24/the-new-normal-for-your-desktop.html
+  - /2018/12/14/automation-and-bots-for-open-source.html
 /2022/04/06/history-of-encryption.html:
   - /2018/02/27/higher-lower-ml-in-js.html
   - /2017/10/28/serverless-javascript.html
@@ -2318,8 +2318,8 @@
   - /2013/10/18/getting-functional-at-dddnorth.html
   - /2016/11/04/design-data-and-redux-at-bristech.html
 /2023/01/24/why-rapid-collaboration-needs-careful-preparation.html:
-  - /2017/09/05/scaling-agile-in-the-public-sector.html
-  - /2020/05/15/beyond-covid.html
+  - /2022/11/18/why-you-should-get-the-right-people-in-the-room-from-the-start.html
+  - /2022/11/30/rules-help-you-go-faster.html
 /2023/02/01/webview2-electron-challengers-and-slightly-lighter-desktop-web-applications.html:
   - /2016/03/09/As-It-Stands-Electron-Security.html
   - /2014/03/12/native-code-emscripten-webgl-simmer-gently.html
@@ -2377,6 +2377,18 @@
 /2023/06/02/what-pride-and-allyship-mean-to-me.html:
   - /2021/06/03/pride-2021.html
   - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
+/2023/06/06/how-ai-may-impact-software-architecture.html:
+  - /2016/12/07/once-upon-a-time.html
+  - /2019/10/23/On-the-dangers-of-sending-your-testers-to-conferences.html
+/2023/06/16/making-our-contribution-fdc3-2-0.html:
+  - /2018/12/03/openfin-layouts.html
+  - /2018/03/14/Rabobank-Client-Story.html
+/2023/06/20/jsnation-conference-2023.html:
+  - /2019/10/30/ir35-hits-now-don-t-wait-until-april-to-act.html
+  - /2019/10/23/On-the-dangers-of-sending-your-testers-to-conferences.html
+/2023/06/20/using-the-very-app-we-created-graduate-project-2023.html:
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2021/03/15/the-inside-track-six-steps-to-graduate-programme-success.html
 /26/08/2014/StrongTypingWithAngularJS.html:
   - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
   - /2014/08/08/signalr-typed.html
