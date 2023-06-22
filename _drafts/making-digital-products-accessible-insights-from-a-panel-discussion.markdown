@@ -72,6 +72,7 @@ Creating personas to illustrate the needs of disabled users can be an easy way t
 Every perspective that you take into account offers the possibility to improve your results. Prioritising accessibility benefits not only disabled people but can also remove barriers for someone with a temporary or situational limitation. This graphic from the Microsoft inclusive design toolkit explains that really well:
 
 ![Inclusive web design helps people across a spectrum with different related abilities](/uploads/acccessibility_temporary_permanent.png)
+
 [Microsoft Inclusive Design](https://inclusive.microsoft.design/)
 
 This is also referred to as 'the curb-cut effect': It’s the idea that accessibility features might be appreciated by a much larger user group than originally thought. The dropped curb on sidewalks was originally designed for wheelchair users, but then it turned out that skateboarders, and people with bicycles and prams found them really useful, too. Now, they have become so ubiquitous that most people don’t even think of them as an accessibility feature anymore.
