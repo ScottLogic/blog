@@ -24,9 +24,11 @@ author: Oded Sharon, Doro Hinrichs
 You can listen to a recording of this post here:
 [panel-discussion-complete.mp3](/uploads/panel-discussion-complete.mp3)
 
-Every Year on [Global Accessibility Awareness Day](https://accessibility.day/), people come together to raise awareness about the barriers many users still face in the digital world. This May, two of our consultants, Doro and Oded, attended an accessibility panel discussion and workshop with [UserVision](https://uservision.co.uk/) on Creating Accessible Digital Experiences. The panel brought together experts in the field, including Mark Palmer, the accessibility lead from the Scottish Government; Karen Wilcox, the Digital Product Optimization Manager at The Postcode Lottery; Graham Gunning, Vice-Chair of Triple Tap Tech, and Harjeet Dhanda, Accessibility Consultant from UserVision. The inspiring event fueled conversations for many weeks afterwards, and we would like to share some of our reflections and key takeaways to share our inspiration and motivation to create an inclusive digital world.
+Every Year on [Global Accessibility Awareness Day](https://accessibility.day/), people come together to raise awareness about the barriers many users still face in the digital world. 
 
-Here you can read and/or listen to our thoughts and takeaways on the panel discussion, so let’s first introduce ourselves.
+This May, two of our consultants, Doro and Oded, attended an accessibility panel discussion and workshop with [UserVision](https://uservision.co.uk/) on Creating Accessible Digital Experiences. The panel brought together experts in the field, including Mark Palmer, the accessibility lead from the Scottish Government; Karen Wilcox, the Digital Product Optimization Manager at The Postcode Lottery; Graham Gunning, Vice-Chair of Triple Tap Tech, and Harjeet Dhanda, Accessibility Consultant from UserVision. 
+
+The inspiring event fueled conversations for many weeks afterwards, and we would like to share some of our reflections and key takeaways to share our inspiration and motivation to create an inclusive digital world. Here, you can read and/or listen to our thoughts and takeaways on the panel discussion, so let’s first introduce ourselves:
 
 Doro: “My name is Doro, and I’m a Graduate Developer at Scott Logic. Before becoming a developer, I studied Psychology and worked in mental health, so I enjoy bringing a people-focused view to coding.
 
@@ -40,7 +42,7 @@ Oded:  “Yes, I also found the entire event very inspiring. I thought the panel
 
 Doro: “There’s a lot of barriers that disabled people face online. A lot of those barriers could be easily removed if we paid more attention to how we build our websites.“
 
-Oded: “Indeed, for people with visual impairment—such as Graham—for example,, websites’ accessibility could be the difference between being able to make use of the website or not. And sometimes it doesn’t require extra effort from the developer’s point-of-view but simply using the (semantically) correct HTML tags in the relevant places.”
+Oded: “Indeed, for people with visual impairment—such as Graham—for example, websites’ accessibility could be the difference between being able to make use of the website or not. And sometimes it doesn’t require extra effort from the developer’s point-of-view but simply using the (semantically) correct HTML tags in the relevant places.”
 
 Doro: “I promise to never use a < div > as a < button > anymore! It’s really not hard to do, it just takes some practice to get into the right habits.”
 
