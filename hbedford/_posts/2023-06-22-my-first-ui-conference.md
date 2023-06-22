@@ -2,6 +2,7 @@
 author: hbedford
 title: My First UI Conference
 layout: default_post
+summary: My summary of a one day UI/UX conference event in the heart of Bristol. A range of talks were given, from declarative design to web development in the times of AI. This was the first conference I'd attended, so here's my thoughts on the highlights of the day.
 category: Tech
 tags:
 - UI
@@ -9,9 +10,9 @@ tags:
 - Conference
 ---  
 # Unveiling Insights from My First UI/UX Conference
-With a personal development budget I wanted to explore the UI/UX conference landscape, and after some research, settled on the local [Pixel Pioneers](https://pixelpioneers.co/events/bristol-2023#location) event. The conference's lineup of speakers and diverse range of topics piqued my interest, and I was eager to immerse myself in the day.
+I wanted to explore the UI/UX conference landscape, and after some research, settled on the local [Pixel Pioneers](https://pixelpioneers.co/events/bristol-2023#location) event. The conference's lineup of speakers and diverse range of topics piqued my interest, and I was eager to immerse myself in the day.
 
-With its concise one-day duration and a lineup of nine captivating talks, the conference was a condensed knowledge share that immersed attendees in the latest trends and techniques. Across the course of the day the following talks caught my interest:
+With a concise one-day duration and a lineup of nine captivating talks, the conference was a condensed knowledge share that immersed attendees in the latest trends and techniques. Across the course of the day the following talks caught my interest:
 
     - Declarative Design
     - Animating the Impossible
