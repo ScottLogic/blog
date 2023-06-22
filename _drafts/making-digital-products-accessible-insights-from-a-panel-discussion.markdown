@@ -21,9 +21,6 @@ summary: In this blog post, two of our consultants share their insights from a p
 author: Oded Sharon, Doro Hinrichs
 ---
 
-You can listen to a recording of this post here:
-[panel-discussion-complete.mp3](/uploads/panel-discussion-complete.mp3)
-
 Every Year on [Global Accessibility Awareness Day](https://accessibility.day/), people come together to raise awareness about the barriers many users still face in the digital world.
 
 This May, two of our consultants, Doro and Oded, attended an accessibility panel discussion and workshop with [UserVision](https://uservision.co.uk/) on Creating Accessible Digital Experiences. The panel brought together experts in the field, including Mark Palmer, the accessibility lead from the Scottish Government; Karen Wilcox, the Digital Product Optimization Manager at The Postcode Lottery; Graham Gunning, Vice-Chair of Triple Tap Tech, and Harjeet Dhanda, Accessibility Consultant from UserVision.
@@ -99,6 +96,6 @@ Depending on your audience and the context of the conversation, different argume
 
 Accessibility is a shared responsibility across the organisation. When more people with different responsibilities understand the value of accessibility, it becomes easier to incorporate accessibility throughout the entire project lifecycle and accessibility can move from being the exception to being the norm.
 
-Learning and talking about accessibility is a powerful first step, and attending events like panel discussions, workshops, and talks are a great start.
+Learning and talking about accessibility is a powerful first step, and events like panel discussions, workshops, and talks are a great place to start.
 
 Every person who learns about why accessibility is so important and knows about the benefits inclusivity brings can make a difference.
