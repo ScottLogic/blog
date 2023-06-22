@@ -76,7 +76,7 @@ Every perspective that you take into account offers the possibility to improve y
 
 This is also referred to as 'the curb-cut effect': It’s the idea that accessibility features might be appreciated by a much larger user group than originally thought. The dropped curb on sidewalks was originally designed for wheelchair users, but then it turned out that skateboarders, and people with bicycles and prams found them really useful, too. Now, they have become so ubiquitous that most people don’t even think of them as an accessibility feature anymore.
 
-> Oded: “It’s great when accessibility becomes part of the norm. It does require dedication from companies, of course. It was interesting to hear from one of the panellists that their company actually changed their company logo when they realised the colours were too bright and didn’t have the right contrast. A brand change is not a small feat for an organisation! That’s an impressive level of dedication. I would love to see more companies take accessibilities this seriously. Awareness raising is an essential first step.“
+> Oded: “It’s great when accessibility becomes part of the norm. It does require dedication from companies, of course. It was interesting to hear from one of the panellists that their company even changed their company logo when they realised the colours were too bright and didn’t have the right contrast. A brand change is not a small feat for an organisation! That’s an impressive level of dedication. I would love to see more companies take accessibility this seriously. Awareness raising is an essential first step.“
 
 > Doro: “We can’t make progress if we don’t understand what we need to work towards and why. Talking about the financial incentives, like [The Purple Pound](https://wearepurple.org.uk/the-purple-pound-infographic/), can nudge people in the right direction. When companies realise that they are turning away millions of potential customers by being inaccessible, they might take steps to address that more quickly. It sometimes feels a bit callous to bring up the business case for accessible design, after all, creating a society where everyone is included should be enough. Still, I understand that every organisation has competing priorities, and a financial incentive can be a great motivator.”
 
@@ -90,7 +90,7 @@ This is also referred to as 'the curb-cut effect': It’s the idea that accessib
 
 * Legal requirements
 
-* Financial incentives
+* Financial benefits
 
 Depending on your audience and the context of the conversation, different arguments are going to make more sense, and that’s okay. The important part is that we’re moving in the right direction.
 
