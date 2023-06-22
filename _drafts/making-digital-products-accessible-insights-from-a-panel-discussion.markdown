@@ -1,6 +1,11 @@
 ---
 title: Making Digital Products Accessible
 date: 2023-06-20 14:08:00 Z
+categories:
+- UX Design
+- Tech
+- osharon
+- dhinrichs
 tags:
 - accessibility
 - ux design
@@ -14,7 +19,6 @@ summary: In this blog post, two of our consultants share their insights from a p
   of integrating accessibility considerations from the outset, and highlight the universal
   advantages that accessibility can offer.
 author: Oded Sharon, Doro Hinrichs
-Field name: 
 ---
 
 Listen to a recording of this post here:
