@@ -101,4 +101,4 @@ Accessibility is a shared responsibility across the organisation. When more peop
 
 Talking about accessibility is a powerful first step, and events like panel discussions, workshops, and talks already make a big difference.
 
-Every person who learns about why accessibility is so important and the benefits inclusivity brings can make a difference.
+Every person who learns about why accessibility is so important and knows about the benefits inclusivity brings can make a difference.
