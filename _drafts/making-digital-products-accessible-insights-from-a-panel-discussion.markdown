@@ -33,7 +33,7 @@ The inspiring event fueled conversations for many weeks afterwards, and we would
 
 > Doro: “The panel discussion was a truly inspirational event, with many different perspectives and ideas on what we can do to make digital products and services more accessible.“
 
-> Oded: “Yes, I also found the entire event very inspiring. I thought the panellists’ approach was very down-to-earth, and some of their insights were invaluable. What were your biggest takeaways?”
+> Oded: “Yes, I also found the entire event very inspiring. I thought the panellists’ approach was very down-to-earth, and some of their insights were invaluable. What are our biggest takeaways?”
 
 ### The barriers that users face
 
