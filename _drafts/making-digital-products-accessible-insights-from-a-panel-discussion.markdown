@@ -87,7 +87,7 @@ This is also referred to as 'the curb-cut effect': It’s the idea that accessib
 
 **Ultimately we want to foster a culture where accessibility is valued and ingrained. Accessibility has many benefits:**
 
-* Supporting disabled people first and foremost
+* Including disabled people first and foremost
 
 * The curb-cut effect
 
@@ -99,6 +99,6 @@ Depending on your audience and the context of the conversation, different argume
 
 Accessibility is a shared responsibility across the organisation. When more people with different responsibilities understand the value of accessibility, it becomes easier to incorporate accessibility throughout the entire project lifecycle and accessibility can move from being the exception to being the norm.
 
-Talking about accessibility is a powerful first step, and events like panel discussions, workshops, and talks already make a big difference.
+Learning and talking about accessibility is a powerful first step, and attending events like panel discussions, workshops, and talks are a great start.
 
 Every person who learns about why accessibility is so important and knows about the benefits inclusivity brings can make a difference.
