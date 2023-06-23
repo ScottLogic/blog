@@ -2,10 +2,10 @@
 title: My Top Ten Tips for Peer Review
 date: 2023-06-23 09:00:00 Z
 categories:
-  - Tech
+- Tech
 tags:
-  - Peer Review
-  - QA
+- Peer Review
+- QA
 summary: A brief look at why we peer review code and some top tips on how to do it well.
 author: dogle
 ---
