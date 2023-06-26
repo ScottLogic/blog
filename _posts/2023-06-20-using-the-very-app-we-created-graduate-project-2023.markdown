@@ -14,6 +14,7 @@ summary: After months of hard work, rattling lines of code away, time in meeting
   polishing and then… the day arrives. Our grad project app is to be released into
   the wild, used by the very ones who created it.
 author: jwarren
+image: "/uploads/Scottlogic---Josh-Warren.jpg"
 ---
 
 It was the day.
