@@ -6,7 +6,9 @@ categories:
 tags:
 - Peer Review
 - QA
-summary: For many of us peer review is an everyday part of software development, but why do we bother and how can we do it well? In this post I share my top tips for peer reviewing code.
+summary: For many of us peer review is an everyday part of software development, but
+  why do we bother and how can we do it well? In this post I share my top tips for
+  peer reviewing code.
 author: dogle
 ---
 
