@@ -1,12 +1,12 @@
 ---
 title: My Top Ten Tips for Peer Review
-date: 2023-06-23 09:00:00 Z
+date: 2023-06-26 09:00:00 Z
 categories:
 - Tech
 tags:
 - Peer Review
 - QA
-summary: A brief look at why we peer review code and some top tips on how to do it well.
+summary: For many of us peer review is an everyday part of software development, but why do we bother and how can we do it well? In this post I share my top tips for peer reviewing code.
 author: dogle
 ---
 
