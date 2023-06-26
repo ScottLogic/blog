@@ -37,9 +37,7 @@ Now that we know why we would want to peer-review code, how do we go about that?
 choice over another. Without further ado then, here are my top ten tips for peer reviewing code:
 
  1. **Check the pipelines have passed.** A lot of the time there are already tools set up that to help maintain quality
-    in the codebase. A good [CICD](https://about.gitlab.com/topics/ci-cd/) pipeline may have jobs in place to check
-    linting and to test changes automatically before anyone physically looks at the changes. If a pipeline is failing
-    there is little value in reviewing until it is fixed as the code will need to be changed anyway.
+    in the codebase. A good [CICD](https://about.gitlab.com/topics/ci-cd/) pipeline may have jobs in place to check linting and to test changes automatically before anyone physically looks at the changes. If a pipeline is failing there is little value in reviewing until it is fixed as the code will need to be changed anyway.
 
  2. **Set aside some time**. If you're going to review someone's work, set aside some time to do it properly. If you try
     and do a review while in an online meeting or under time pressure before you jump to something else you are more
