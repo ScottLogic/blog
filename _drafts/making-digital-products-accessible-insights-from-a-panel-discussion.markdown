@@ -23,7 +23,7 @@ author: Oded Sharon, Doro Hinrichs
 
 Every year on [Global Accessibility Awareness Day](https://accessibility.day/), people come together to raise awareness about the barriers many users still face in the digital world.
 
-This May, two of our consultants, Doro and Oded, attended an accessibility panel discussion and workshop with [UserVision](https://uservision.co.uk/) on Creating Accessible Digital Experiences. The panel brought together experts in the field, including Mark Palmer, the accessibility lead from the Scottish Government; Karen Wilcox, the Digital Product Optimisation Manager at The Postcode Lottery; Graham Gunning, Vice-Chair of Triple Tap Tech, and Harjeet Dhanda, Accessibility Consultant from UserVision.
+This May, we, Doro Hinrichs and Oded Sharon, attended an accessibility panel discussion and workshop with [UserVision](https://uservision.co.uk/) on Creating Accessible Digital Experiences. The panel brought together experts in the field, including Mark Palmer, the accessibility lead from the Scottish Government; Karen Wilcox, the Digital Product Optimisation Manager at The Postcode Lottery; Graham Gunning, Vice-Chair of Triple Tap Tech, and Harjeet Dhanda, Accessibility Consultant from UserVision.
 
 The inspiring event fuelled conversations for many weeks afterwards, and we would like to share some of our reflections and key takeaways to share our inspiration and motivation to create an inclusive digital world. Let’s first introduce ourselves:
 
