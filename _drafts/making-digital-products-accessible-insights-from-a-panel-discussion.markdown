@@ -65,7 +65,7 @@ It's about providing equal opportunities and ensuring that no one is left behind
 
 Creating personas to illustrate the needs of disabled users can be an easy way to bring in that human element throughout the design process, and include disabled people in design considerations like any other user. Creating a persona for a disabled person doesn’t have to be complex, it could be as simple as saying: “This is John. He is blind. He wants to buy a lottery ticket and then go eat his dinner.”  Now we can include John in our user story and design considerations like any other user when we work on creating the best possible user experience.
 
-> Doro: “I think that creating and including personas of people who have a very different experience from you is an exercise in empathy. There’s great value in empathising with different viewpoints and experiences, and approaching your design and build process from multiple perspectives.”
+> Oded: “I think that creating and including personas of people who have a very different experience from you is an exercise in empathy. There’s great value in empathising with different viewpoints and experiences, and approaching your design and build process from multiple perspectives.”
 
 ## Accessibility benefits everyone
 
