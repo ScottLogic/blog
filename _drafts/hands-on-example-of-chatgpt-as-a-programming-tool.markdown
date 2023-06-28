@@ -1,6 +1,10 @@
 ---
 title: Hands on example of ChatGPT as a programming tool
 date: 2023-06-28 13:26:00 Z
+summary: ChatGPT is put through its paces to see how the AI fares as a productivity
+  tool for developing a small project. We look at where it helps, where it doesn't,
+  and where AI tooling might go in the future.
+author: jharris
 ---
 
 In this blog post, I put ChatGPT 3.5 through its paces by getting it to help me create a small project, namely a reverse proxy server: a locally running server that will fetch web pages and re-render them for me.
@@ -22,7 +26,7 @@ When I've done this before for previous pet projects, this has always come with 
 
 ![I have just created a node project with npm init.
 I have not yet created index.js
-Can you talk me through the steps of creating an express server that listens on local host?](Images/InstallingExpress.PNG)
+Can you talk me through the steps of creating an express server that listens on local host?](/uploads/InstallingExpress.PNG)
 
 ### Creating the reverse proxy
 
@@ -56,13 +60,13 @@ However, the behaviour was still not quite what I intended. Rather than fetch th
 
 No matter how much I tried to get ChatGPT to correct this behaviour, the code it returned always had the same problem.
 
-![Multiple attempts to get the reverse proxy working](Images/ContinuedProblems.PNG)
+![Multiple attempts to get the reverse proxy working](/uploads/ContinuedProblems.PNG)
 
 After far more time than I care to admit, I realised that it wasn't an issue in the code at all, but a caching issue. The Edge browser was caching a previous call I had made and was returning that on every request. I confirmed this by stopping the express server from running and seeing that I was still being returned the website that I'd hit the first time.
 
 I explained this to ChatGPT, but it didn't believe me.
 
-![ChatGPT didn't believe me when I told it I had caching issues](Images/DoesntBelieveMe.PNG)
+![ChatGPT didn't believe me when I told it I had caching issues](/uploads/DoesntBelieveMe.PNG)
 
 ### One step forward, two steps back
 
@@ -138,7 +142,7 @@ Although I had told it what to change, I hadn't given it any technical hints on 
 ### Human readable?
 
 I won't lie, the web often annoys me. Visit a website and you have lots of scrolling to do before you get to the actual content. For example if you land on a particular Guardian article, it looks like this:
-![Basically a wall of images and you cannot read the article text](Images/View1.PNG)
+![Basically a wall of images and you cannot read the article text](/uploads/View1.PNG)
 wouldn't it be nicer if you could just read the content?
 
 Now we've got our reverse proxy server running locally and fetching the contents of web pages.
@@ -149,7 +153,7 @@ In order to do so, the proxy server would need to know which html elements conta
 
 ![Ok now for the challenging part.
 Instead of just returning the content of the targetUrl, I want you to parse the html and return only the text content. So all banners, models and images should be stripped away.
-Do you think that is something you can do, or do you need more precise instructions?](Images/InitialInstruction.PNG)
+Do you think that is something you can do, or do you need more precise instructions?](/uploads/InitialInstruction.PNG)
 
 ChatGPT misunderstood rather what I was asking, and after removing certain html elements it didn't think I'd be interested in, it returned the body of the remaining html as raw text
 
@@ -284,7 +288,7 @@ It was interesting that by having this back and forth with the AI, I came up wit
 
 After adding a few more tweaks, styling and adding some features like dark mode I had an app I deemed usable. The whole effort had taken about six hours.
 
-![Image of the app in use](Images/View2.PNG)
+![Image of the app in use](/uploads/View2.PNG)
 
 ### Conclusions
 
