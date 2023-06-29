@@ -18,7 +18,8 @@ summary: In this blog post, two of our consultants share their insights from a p
   They delve into the challenges encountered by disabled users, emphasize the significance
   of integrating accessibility considerations from the outset, and highlight the universal
   advantages that accessibility can offer.
-author: Oded Sharon, Doro Hinrichs
+author: dhinrichs
+contributors: osharon
 ---
 
 Every year on [Global Accessibility Awareness Day](https://accessibility.day/), people come together to raise awareness about the barriers many users still face in the digital world.
