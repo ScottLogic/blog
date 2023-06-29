@@ -39,7 +39,7 @@ Later on I'll be modifying the content, but for now I just want to see the web p
 
 The code returned had a glaring flaw: it took me to a hardcoded url instead of taking `some_url` from the path like I had intended.
 
-```javascript
+~~~javascript
 // Create a proxy middleware
 const proxyMiddleware = createProxyMiddleware({
   target: 'http://example.com', // Replace with the target URL you want to proxy
@@ -48,7 +48,7 @@ const proxyMiddleware = createProxyMiddleware({
 
 // Apply the proxy middleware to all requests
 app.use('/', proxyMiddleware);
-```
+~~~
 
 I'll leave it up to you to decide if my prompt was ambiguous or not.
 
@@ -79,7 +79,7 @@ This version had a separate error, trying to split a null value.
 
 Fixing this issue with a null, ChatGPT reintroduced a variant of the first issue I had: hardcoding a url to proxy.
 
-```javascript
+~~~javascript
 app.use(
   '/',
   createProxyMiddleware({
@@ -88,7 +88,7 @@ app.use(
     secure: false,
   })
 );
-```
+~~~
 
 It really did feel like one step forward and two steps backwards.
 
@@ -122,7 +122,7 @@ This quickly became a theme. ChatGPT would often reintroduce the same error mult
 
 Given a hint of what to change, ChatGPT returned code for a working proxy
 
-```javascript
+~~~javascript
  // Proxy logic to fetch and return content from targetUrl
   const targetUrl = req.url.slice(1); // Remove the leading slash (/) from the URL
 
@@ -133,7 +133,7 @@ Given a hint of what to change, ChatGPT returned code for a working proxy
     console.error('Error proxying:', error);
     res.status(500).send('Error proxying request');
   }
-```
+~~~
 
 Although I had told it what to change, I hadn't given it any technical hints on how to do it, so I was quite impressed that it provided a working solution here.
 
@@ -157,7 +157,7 @@ Do you think that is something you can do, or do you need more precise instructi
 
 ChatGPT misunderstood rather what I was asking, and after removing certain html elements it didn't think I'd be interested in, it returned the body of the remaining html as raw text
 
-```javascript
+~~~javascript
     const $ = cheerio.load(html);
 
     // Remove unwanted elements like banners, models, and images
@@ -165,13 +165,13 @@ ChatGPT misunderstood rather what I was asking, and after removing certain html 
 
     // Extract text content from remaining elements
     const textContent = $('body').text();
-```
+~~~
 
 This resulted in content like this:
 
-```plaintext
+~~~plaintext
 Skip to main contentSkip to navigationdocument.addEventListener('DOMContentLoaded', function(){ // Used to toggle data-link-name on label buttons var navInputCheckbox = document.getElementById('top-nav-input-checkbox') var showMoreButton = document.getElementById('show-more-button') var veggieBurger = document.getElementById('veggie-burger') var expandedMenuClickableTags = document.querySelectorAll('.selectableMenuItem') var expandedMenu = document.getElementById('expanded-menu-root') // We assume News is the 1st column var firstColLabel = document.getElementById('News-button') var firstColLink = document.querySelectorAll('#newsLinks > li:nth-of-type(2) > a')[0] var focusOnFirstNavElement = function(){ // need to focus on first element in list, firstColLabel is not viewable on desktop if(window.getComputedStyle(firstColLabel).display === 'none'){ firstColLink.focus() } else { firstColLabel.focus() } } if (!navInputCheckbox) return; // Sticky nav replaces the nav so element no longer exists for users in test. navInputCheckbox.addEventListener('click',function(){ document.body.classList.toggle('nav-is-open') if(!navInputCheckbox.checked) { firstColLabel.setAttribute('aria-expanded', 'false') showMoreButton.setAttribute('data-link-name','nav2 : veggie-burger : show') veggieBurger.setAttribute('data-link-name','nav2 : veggie-burger : show') expandedMenuClickableTags.forEach(function($selectableElement){
-```
+~~~
 
 In fairness, I think the prompt I gave ChatGTP wasn't particularly clear. So I refined it:
 
@@ -181,8 +181,7 @@ In fairness, I think the prompt I gave ChatGTP wasn't particularly clear. So I r
 
 the result was much better:
 
-```javascript
-
+~~~javascript
     // Customize these selectors based on the structure of the target website
     const selectors = [
       'article',   // Example: <article> tag represents the main article body
@@ -198,7 +197,7 @@ the result was much better:
       }
     }
 
-```
+~~~
 
 This relied on the html being well formatted though, using `article` tags correctly, and so forth. Often this is the case, but I still wanted to be able to hit web pages where the tags weren't being used.
 
@@ -231,7 +230,7 @@ and then further refined the ask
 
 We were now getting something that, while rough, was basically doing what I wanted it to do.
 
-```javascript
+~~~javascript
 // Code Version: 4.10
 
 const express = require('express');
@@ -278,7 +277,7 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Server (Version ${codeVersion}) is running on http://localhost:${port}`);
 });
-```
+~~~
 
 (You might also notice that the code is logging the version number out on each request, and not just on startup as I asked for.
 )
