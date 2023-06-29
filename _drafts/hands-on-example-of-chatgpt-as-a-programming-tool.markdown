@@ -228,9 +228,7 @@ and then further refined the ask
 >
 > I would like to include this element
 >
-> ~~~
-> <p class="dcr-8zipgp">I am drawing a line today not because I have uncovered all the answers, but because I have a powerful hunch that the moment is right to do so. If nothing else, I hope I’ve acquired sufficient self-knowledge to know when it’s time to move on. So what did I learn? What follows isn’t intended as an exhaustive summary. But these are the principles that surfaced again and again, and that now seem to me most useful for navigating times as baffling and stress-inducing as ours.</p>
->~~~
+> <p class="dcr-8zipgp">I am drawing a line today not because I have uncovered all the answers, but because I have a powerful hunch that the moment is right to do so. If nothing else, I hope I’ve acquired sufficient self-knowledge to know when it’s time to move on. So what did I learn? What follows isn’t intended as an exhaustive summary. But these are the principles that surfaced again and again, and that now seem to me most useful for navigating times as baffling and stress-inducing as ours.`</p>`
 >
 > Even if it wasn't a `<p>` element. Perhaps it is some unknown element `<banana>` but if it has that content, of full sentences, I want to see it.
 
