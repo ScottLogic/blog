@@ -34,10 +34,13 @@ Can you talk me through the steps of creating an express server that listens on 
 
 Now I was in a position to ask ChatGPT to create a reverse proxy for me. I used only a few lines to describe what I wanted to achieve:
 
-> I want the server to be a reverse proxy.
-What I mean by this is, if I got to http://localhost:3000/some_url
-Then I want the server to fetch some_url, and return the content.
-Later on I'll be modifying the content, but for now I just want to see the web page as though I'd visited it directly.
+>I want the server to be a reverse proxy.
+>
+>What I mean by this is, if I got to http://localhost:3000/some_url
+>
+>Then I want the server to fetch some_url, and return the content.
+>
+>Later on I'll be modifying the content, but for now I just want to see the web page >as though I'd visited it directly.
 
 The code returned had a glaring flaw: it took me to a hardcoded url instead of taking `some_url` from the path like I had intended.
 
@@ -122,7 +125,7 @@ This quickly became a theme. ChatGPT would often reintroduce the same error mult
 >
 > But let's actually get the content at the targetUrl and return that, rather than just say we're proxying to the targetUrl
 
-Given a hint of what to change, ChatGPT returned code for a working proxy
+Given a hint of what to change, ChatGPT returned code for a working proxy.
 
 ~~~javascript
  // Proxy logic to fetch and return content from targetUrl

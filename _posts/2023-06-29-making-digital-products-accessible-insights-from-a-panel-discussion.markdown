@@ -1,6 +1,6 @@
 ---
 title: Making Digital Products Accessible
-date: 2023-06-29 06:00:00 Z
+date: 2023-06-29 10:00:00 Z
 categories:
 - UX Design
 tags:
