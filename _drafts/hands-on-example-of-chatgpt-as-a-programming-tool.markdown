@@ -160,7 +160,7 @@ In order to do so, the proxy server would need to know which html elements conta
 Instead of just returning the content of the targetUrl, I want you to parse the html and return only the text content. So all banners, models and images should be stripped away.
 Do you think that is something you can do, or do you need more precise instructions?](/uploads/InitialInstruction.PNG)
 
-ChatGPT misunderstood rather what I was asking, and after removing certain html elements it didn't think I'd be interested in, it returned the body of the remaining html as raw text
+ChatGPT misunderstood rather what I was asking, and after removing certain html elements it didn't think I'd be interested in, it returned the body of the remaining html as raw text.
 
 ~~~javascript
     const $ = cheerio.load(html);
@@ -206,8 +206,9 @@ the result was much better:
 
 This relied on the html being well formatted though, using `article` tags correctly, and so forth. Often this is the case, but I still wanted to be able to hit web pages where the tags weren't being used.
 
-> I think your solution, while good, relies on the correct use of 'article' and 'main' tags.
-Can you provide a solution which would work if these tags hadn't been provided?
+>I think your solution, while good, relies on the correct use of 'article' and 'main' tags.
+>
+>Can you provide a solution which would work if these tags hadn't been provided?
 
 ChatGPT's response to this was to add more tags that it thought would be helpful. After trying and failing to get this approach to work I suggested something different.
 
