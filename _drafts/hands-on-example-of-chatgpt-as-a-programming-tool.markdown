@@ -1,6 +1,8 @@
 ---
 title: Hands on example of ChatGPT as a programming tool
 date: 2023-06-28 13:26:00 Z
+categories:
+- Tech
 summary: ChatGPT is put through its paces to see how the AI fares as a productivity
   tool for developing a small project. We look at where it helps, where it doesn't,
   and where AI tooling might go in the future.
