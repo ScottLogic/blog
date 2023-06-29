@@ -1,6 +1,6 @@
 ---
 title: Hands on example of ChatGPT as a programming tool
-date: 2023-06-28 13:26:00 Z
+date: 2023-06-29 01:00:00 Z
 categories:
 - Tech
 summary: ChatGPT is put through its paces to see how the AI fares as a productivity
