@@ -299,7 +299,7 @@ When it came to parsing the html and adding some further features like some nice
 
 So while using an AI definitely sped me up, what concerned me was that there were several spots where I had to understand the code it had written and tell it change specific parts. It certainly feels like we're a long way off the point where ChatGPT or a similar AI tool will be able to create working software without the close supervision of a developer who understands the code being output.
 
-This goes beyond the code itself as well, as my caching issue demonstrated. In order to create working software, you have to understand note just the code itself but also the ecosystem in which it is running and how it interacts with other moving parts.
+This goes beyond the code itself as well, as my caching issue demonstrated. In order to create working software, you have to understand not just the code itself but also the ecosystem in which it is running and how it interacts with other moving parts.
 
 It didn't matter how many times I explained the symptoms to ChatGPT, it never made the leap to realising that the browser was introducing problems separate to the code it was outputting.
 
