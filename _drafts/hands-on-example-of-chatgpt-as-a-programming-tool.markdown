@@ -11,7 +11,7 @@ author: jharris
 
 In this blog post, I put ChatGPT 3.5 through its paces by getting it to help me create a small project, namely a reverse proxy server: a locally running server that will fetch web pages and re-render them for me.
 
-The post is split into two parts. In this one I get the reverse proxy server up and running.
+The post is split into two parts. In the first part I get the reverse proxy server up and running.
 
 In the second part we'll use this starting point to try and do something more interesting: parsing out the human readable text from the html pages being proxied.
 
