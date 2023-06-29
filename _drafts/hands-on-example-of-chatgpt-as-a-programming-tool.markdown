@@ -40,7 +40,7 @@ Now I was in a position to ask ChatGPT to create a reverse proxy for me. I used 
 >
 >Then I want the server to fetch some_url, and return the content.
 >
->Later on I'll be modifying the content, but for now I just want to see the web page >as though I'd visited it directly.
+>Later on I'll be modifying the content, but for now I just want to see the web page as though I'd visited it directly.
 
 The code returned had a glaring flaw: it took me to a hardcoded url instead of taking `some_url` from the path like I had intended.
 
