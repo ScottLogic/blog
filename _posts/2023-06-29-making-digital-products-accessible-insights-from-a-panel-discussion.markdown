@@ -1,10 +1,7 @@
 ---
 title: Making Digital Products Accessible
-date: 2023-06-20 14:08:00 Z
+date: 2023-06-29 14:08:00 Z
 categories:
-- Tech
-- osharon
-- dhinrichs
 - UX Design
 tags:
 - accessibility
