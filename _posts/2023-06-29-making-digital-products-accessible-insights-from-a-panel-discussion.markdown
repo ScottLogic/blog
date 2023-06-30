@@ -17,6 +17,7 @@ summary: In this blog post, two of our consultants share their insights from a p
   advantages that accessibility can offer.
 author: dhinrichs
 contributors: osharon
+image: "/uploads/MicrosoftTeams-image%20(7)-8341bc.png"
 ---
 
 Every year on [Global Accessibility Awareness Day](https://accessibility.day/), people come together to raise awareness about the barriers many users still face in the digital world.
