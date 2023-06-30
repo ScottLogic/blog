@@ -2,7 +2,7 @@
 author: hbedford
 title: Pixel Pioneers UI/UX Conference 2023
 layout: default_post
-summary: My summary of a one day UI/UX conference event in the heart of Bristol. A range of talks were given, from declarative design to web development in the times of AI. This was the first conference I'd attended, so here's my thoughts and highlights of the day.
+summary: My summary of a one day UI/UX conference event in the heart of Bristol. There were a range of talks, from declarative design to web development in the times of AI. This was the first conference I'd attended, so here's my thoughts and highlights of the day.
 category: Tech
 tags:
 - UI
@@ -20,7 +20,7 @@ With a concise one-day duration and a lineup of nine captivating talks, the conf
     - Web Development in the Times of AI
 
 ### Declarative Design
-The conference opened with an insightful talk on declarative design, which explored the differences between an imperative and declarative way of programming. The analogy of classical vs jazz music was used. With classical music, the artists are incredibly talented at following sheet music, and can even play a new piece from sight. This is akin to an imperative way of thinking. Jazz musicians, on the other hand, are more free-flowing, creative, and can improvise on the spot. This is more like a declarative way of thinking.
+The conference opened with an insightful talk on declarative design, which explored the differences between an imperative and declarative way of programming. An analogy of classical vs jazz music was used. With classical music, the artists are incredibly talented at following sheet music, and can even play a new piece from sight. This is akin to an imperative way of thinking. Jazz musicians, on the other hand, are more free-flowing, creative, and can improvise on the spot. This is more like a declarative way of thinking.
 
 The speaker then challenged us to think about how we use UI languages, such as Javascript, HTML and CSS. We tend to think of CSS as an imperative language, detailing exactly how we want the browser page to look. However, it is actually a declarative language. Every line of CSS is a suggestion to the browser. It is then up to the browser to decide how to render the page.
 
@@ -41,7 +41,7 @@ Next on the list of talks was a rapid fire session on modern CSS development and
 
 
 ### Web Development in the Times of AI
-To round off the day an excellent talk on web development and how it relates to AI was given. It felt like a rally cry towards the warnings and assumptions of AI. The hype around the subject was put into question. Is it _actually_ useful? Is it ready? An anxiety of transparency was conveyed from the speaker. Without it, how can we verify AI's validity from a technical point of view? What struck me was how he questioned what is being used to train these models. There are many bad examples of code out there, but are they being used to train these models? If so, then surely there should be a way to signpost a repository as exempt from being used as training.
+To round off the day was an excellent talk on web development and how it relates to AI. It felt like a rally cry towards the warnings and assumptions of AI. The hype around the subject was put into question. Is it _actually_ useful? Is it ready? An anxiety around the transparency of training data sources was conveyed from the speaker. Without it, how can we verify AI's validity from a technical point of view? What struck me was how he questioned what is being used to train these models. There are many bad examples of code out there, but are they being used to train these models? If so, then surely there should be a way to signpost a repository as exempt from being used as training.
 
 What was highlighted though was how AI can work with developers to automate less interesting tasks. If used correctly, it could save time and allow developers to focus on more interesting pieces of work.
 
