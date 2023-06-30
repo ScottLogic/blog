@@ -10,7 +10,7 @@ tags:
 - Conference
 ---  
 # Unveiling Insights from My First UI/UX Conference
-I wanted to explore the UI/UX conference landscape, and after some research, settled on the local [Pixel Pioneers](https://pixelpioneers.co/events/bristol-2023#location) event. The conference's lineup of speakers and diverse range of topics piqued my interest, and I was eager to immerse myself in the day.
+I wanted to explore the UI/UX conference landscape, and after some research, settled on the local [Pixel Pioneers](https://pixelpioneers.co/events/bristol-2023) event. The conference's lineup of speakers and diverse range of topics piqued my interest, and I was eager to immerse myself in the day.
 
 With a concise one-day duration and a lineup of nine captivating talks, the conference was a condensed knowledge share that immersed attendees in the latest trends and techniques. Across the course of the day the following talks caught my interest:
 
