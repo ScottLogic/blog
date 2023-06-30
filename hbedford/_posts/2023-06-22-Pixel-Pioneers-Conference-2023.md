@@ -25,7 +25,7 @@ The conference started with [Jeremy Keith](https://www.linkedin.com/in/adactio/)
 Keith then challenged us to think about how we use UI languages, such as Javascript, HTML and CSS. We tend to think of CSS as an imperative language, detailing exactly how we want the browser page to look. However, it is actually a declarative language. Every line of CSS is a suggestion to the browser. It is then up to the browser to decide how to render the page.
 
 ### Animating the Impossible
-We were all held in suspense as to what the impossible was that was going to be animated. To introduce the problem [Cassie Evans](https://www.linkedin.com/in/cassie-codes/) illustrated a deck of cards. The goal was to move one card from one person's hand to the other. This would mean that the position of the card element needed to change in the DOM. Thus the problem, how do you animate this without causing the card to disappear from the page?
+We were all held in suspense as to what the impossible was that was going to be animated. To introduce the problem, [Cassie Evans](https://www.linkedin.com/in/cassie-codes/) illustrated a deck of cards. The goal was to move a card from one person's hand to the other. This would mean that the position of the card element needed to change in the DOM. Thus the problem, how do you animate this without causing the card to disappear from the page?
 
 The FLIP animation technique was the solution, which is a pnemonic that stands for first, last, invert and play:
 
