@@ -1,5 +1,5 @@
 ---
-title: Hands on example of ChatGPT as a programming tool
+title: Hands-on example of ChatGPT as a programming tool
 date: 2023-06-29 01:00:00 Z
 categories:
 - Tech
@@ -7,6 +7,7 @@ summary: ChatGPT is put through its paces to see how the AI fares as a productiv
   tool for developing a small project. We look at where it helps, where it doesn't,
   and where AI tooling might go in the future.
 author: jharris
+image: "/uploads/MicrosoftTeams-image%20(6)-26ac64.png"
 ---
 
 In this blog post, I put ChatGPT 3.5 through its paces by getting it to help me create a small project, namely a reverse proxy server: a locally running server that will fetch web pages and re-render them for me.
