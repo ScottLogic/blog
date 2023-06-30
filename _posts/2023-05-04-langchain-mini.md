@@ -2,7 +2,7 @@
 title: Re-implementing LangChain in 100 lines of code
 date: 2023-05-04 00:00:00 Z
 categories:
-- Tech
+- Artificial Intelligence
 - ceberhardt
 tags:
 - generative AI

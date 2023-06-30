@@ -2,7 +2,7 @@
 title: Generative AI Solution Architecture for Complex Enterprises
 date: 2023-05-04 10:30:00 Z
 categories:
-- Tech
+- Artificial Intelligence
 tags:
 - Artificial Intelligence
 - ChatGPT

@@ -3,7 +3,7 @@ title: Article recommendations and increasing engagement with OpenAI GPT-3 Embed
 date: 2022-02-23 00:00:00 Z
 categories:
 - ceberhardt
-- Tech
+- Artificial Intelligence
 author: ceberhardt
 layout: default_post
 summary: It is quite common for blogs, or news / content distribution websites, to

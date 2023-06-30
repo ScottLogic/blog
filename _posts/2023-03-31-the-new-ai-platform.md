@@ -2,7 +2,7 @@
 title: AI is morphing from tool to platform (and the next technology epoch begins)
 date: 2023-03-31 00:00:00 Z
 categories:
-- Tech
+- Artificial Intelligence
 summary: The buzz and excitement around generative AI is continuing to grow as their
   capabilities rapidly expand. However, their ability to generate content is just
   the starting point. From my perspective, the emergent reasoning capability, coupled

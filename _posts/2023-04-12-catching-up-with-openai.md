@@ -3,7 +3,7 @@ title: Catching up with OpenAI
 date: 2023-04-12 00:00:00 Z
 categories:
 - cprice
-- Tech
+- Artificial Intelligence
 tags:
 - featured
 summary: It’s been over a year since I last blogged about OpenAI. Whilst DALL-E 2,

@@ -3,12 +3,6 @@ title: How AI may impact software architecture
 date: 2023-06-06 14:17:00 Z
 categories:
 - Artificial Intelligence
-- AI
-- Software Architecture
-- Solutions Architect
-- Technical Architect
-tags:
-- Tech
 summary: AI tools are being trialled in many areas including software development,
   with huge potential to transform ways of working. What might the impact of AI be
   on software architecture? In this post, I make some predictions and argue that software
