@@ -97,6 +97,7 @@ active-authors:
     - shamiltonritchie
     - shunton
     - slaing
+    - slinsley
     - smartin
     - smendis-scottlogic
     - ssibanda
@@ -684,6 +685,10 @@ authors:
     sking:
         name: 'Saber King'
         picture: picture.jpg
+    slinsley:
+        name: Stephen Linsley
+        picture: picture.jpg
+        author-summary: '<p>Marketing Channels Coordinator at Scott Logic, with a background in SaaS marketing.</p>'
     sobrien:
         name: 'Siobhan O''Brien'
         author-summary: 'UX Designer'
