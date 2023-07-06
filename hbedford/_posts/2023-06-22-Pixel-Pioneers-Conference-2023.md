@@ -24,6 +24,8 @@ The conference started with [Jeremy Keith](https://www.linkedin.com/in/adactio/)
 
 Keith then challenged us to think about how we use UI languages, such as Javascript, HTML and CSS. We tend to think of CSS as an imperative language, detailing exactly how we want the browser page to look. However, it is actually a declarative language. Every line of CSS is a suggestion to the browser. It is then up to the browser to decide how to render the page.
 
+This was a great start to the conference. It really made you think about how we interact and use front end languages, with a reminder that there is never one way to approach a problem. Keith had successfully set the tone for the day, challenging your understanding whilst introducing new ideas.
+
 ### Animating the Impossible
 We were all held in suspense as to what the impossible was that was going to be animated. To introduce the problem, [Cassie Evans](https://www.linkedin.com/in/cassie-codes/) illustrated a deck of cards. The goal was to move a card from one person's hand to the other. This would mean that the position of the card element needed to change in the DOM. Thus the problem, how do you animate this without causing the card to disappear from the page?
 
@@ -36,12 +38,15 @@ The FLIP animation technique was the solution, which is a pnemonic that stands f
 
 Applying this technique meant that no element would disappear from the page, and the animation would appear seamless. To justify this, Evans showed the three stages of how a browser renders a page: construction, layout and paint. Without using the FLIP technique, we'd have to hit the construction stage twice, which is very expensive. Whereas with the FLIP technique, we do not need to reconstruct the DOM, and can jump straight to the paint stage, saving precious compute time.
 
+Before this talk I had never heard of the FLIP animation technique. In fact, I hadn't delved into the world of animation much at all. Evans' talk was an exciting introduction to the topic, which made me appreciate the skill associated with creating smooth and efficient animations.
+
 ### Modern CSS Development and Debugging
 Next on the list of talks was a rapid fire session on modern CSS development and debugging by [Umar Hansa](https://umaar.com/). Whilst not all related to just CSS, the personal list of useful tools were interesting. For example, the sticky scroll setting in vscode was mentioned that helps a developer quickly see what code section they are in. Other tools included how to load css faster when developing, and making instant changes that could be easily copied to a local CSS file.
 
+This was a rapid fire talk, very much breadth first! So it was understandable that not all the tools mentioned were like _'oh yeah I need to be using that'_ . However, it was a great reminder that there are many tools and extensions out there to help aid development. It's just a case of finding the ones that work for you.
 
 ### Web Development in the Times of AI
-[Christian Heilmann](https://www.linkedin.com/in/christianheilmann/) rounded off the day with an excellent talk on web development and how it relates to AI. It felt like a rally cry towards the warnings and assumptions of AI. The hype around the subject was put into question. Is it _actually_ useful? Is it ready? An anxiety around the transparency of training data sources was conveyed from Heilmann. Without it, how can we verify AI's validity from a technical point of view? What struck me was how he questioned what is being used to train these models. There are many bad examples of code out there, but are they being used to train these models? If so, then surely there should be a way to signpost a repository as exempt from being used as training.
+[Christian Heilmann](https://www.linkedin.com/in/christianheilmann/) rounded off the day with an excellent talk on web development and how it relates to AI. It felt like a rally cry towards the warnings and assumptions of AI. The hype around the subject was put into question. Is it _actually_ useful? Is it ready? Heilmann conveyed an anxiety around the transparency of training data sources. Without it, how can we verify AI's validity from a technical point of view? What struck me was how he questioned what is being used to train these models. There are many bad examples of code out there, but are they being used for training? If so, then surely there should be a way to signpost a repository as exempt from being used as training.
 
 What was highlighted though was how AI can work with developers to automate less interesting tasks. If used correctly, it could save time and allow developers to focus on more interesting pieces of work.
 
