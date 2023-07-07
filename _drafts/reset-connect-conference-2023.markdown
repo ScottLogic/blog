@@ -32,7 +32,7 @@ Purpose was a word that was frequently used, and to make sure that the purpose a
 
 A great example of ‘carbon down, profits up’ is the case study by Colgate leading the way in recycled packaging for toothpaste – and it’s seen huge profit growth as a consequence:
 
-> The oral care category has a serious sustainability problem: 300 million toothpaste tubes go to landfill a year, which will take approximately 500 years to biodegrade, according to the British Dental Journal.>
+> The oral care category has a serious sustainability problem: 300 million toothpaste tubes go to landfill a year, which will take approximately 500 years to biodegrade, according to the British Dental Journal.
 
 Apparently, whilst 90% of packaging is recycled in our kitchens, only 50% is recycled in our bathrooms. As a result, our recyclable bathroom waste accounts for 30%–40% of total landfill waste in the UK. Well done, Colgate!
 
@@ -48,14 +48,14 @@ An interesting debate on whether we need multiple devices and second screens, an
 
 Why should we need to upgrade our hardware because the software won’t run on a 10-year-old device?
 
-> “With your help, children will never have to know how it feels to be digitally isolated.” >
+> “With your help, children will never have to know how it feels to be digitally isolated.” 
 > \(Every Child Online)
 
 Making devices last longer and work harder was another theme of the event, showcased by charities restoring and reissuing laptops and phones to those who don't have access to technology. Please do check out [Every Child Online](https://everychildonline.co.uk/) where you can donate unused personal or company computers. The charity operates a zero-landfill policy wherever possible. There is a BIG problem that needs to be solved here!
 
 ## Measure up – Stop Greenwashing
 
-> “Greenwash is an attempt by businesses to seem environmentally friendly without actually doing anything serious to protect the environment”>
+> “Greenwash is an attempt by businesses to seem environmentally friendly without actually doing anything serious to protect the environment”
 > \([www.collinsdictionary.com](https://www.collinsdictionary.com))
 
 Organisations seek to demonstrate action on carbon reduction through a range of metrics, but the variables used in measuring environmental impact are vast.
@@ -70,7 +70,7 @@ I was surprised by the reaction of exhibitors and attendees when I started conve
 
 It's not the biggest priority on most companies' agendas right now, but collectively it all adds up. [The Green Software Foundation](https://greensoftware.foundation/) is doing some great work in addressing this, creating tools, standards and best practice to follow.
 
-> The IT industry’s greenhouse gas emissions are predicted to reach 14% of global emissions by 2040 but at the same time, the UN's International Telecommunication's Union has set the industry the target of reducing its emissions by 45% over the next decade.>
+> The IT industry’s greenhouse gas emissions are predicted to reach 14% of global emissions by 2040 but at the same time, the UN's International Telecommunication's Union has set the industry the target of reducing its emissions by 45% over the next decade.
 > \([bbc.com](https://www.bbc.com/future/article/20200305-why-your-internet-habits-are-not-as-clean-as-you-think))
 
 Scott Logic is working with clients to measure and reduce their impact. We are working on a framework and a playbook which we plan to open source later this year – watch this space…
