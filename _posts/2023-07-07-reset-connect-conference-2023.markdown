@@ -57,7 +57,7 @@ Making devices last longer and work harder was another theme of the event, showc
 ## Measure up – Stop Greenwashing
 
 > *“Greenwash is an attempt by businesses to seem environmentally friendly without actually doing anything serious to protect the environment.”*
-> \([www.collinsdictionary.com](https://www.collinsdictionary.com))
+> \([www.collinsdictionary.com](https://www.collinsdictionary.com/dictionary/english/greenwash))
 
 Organisations seek to demonstrate action on carbon reduction through a range of metrics, but the variables used in measuring environmental impact are vast.
 
