@@ -12,8 +12,8 @@ To give you some context, the event is the UK’s largest sustainability ecosyst
 
 I attended with a very open mind, to embrace the conversations, and listen to expert panelists. My ambition was to simply learn more, see who was talking about sustainable technology and the impact of software (spoiler alert: no one was, but more on that later!) and get to grips with common themes. 
 
-****The Green Advantage – Carbon down, Profits up
-****
+**The Green Advantage – Carbon down, Profits up
+**
 Surprisingly, some of the case studies were the most memorable takeaways from the event. Quite possibly this is because I am so frequently at the center of conversations about all the negative impacts of climate change. It was uplifting to hear so many stories about positive actions and impacts. 
 
 > “Make changes, don’t leave it to chance” > 
@@ -22,6 +22,7 @@ Surprisingly, some of the case studies were the most memorable takeaways from th
 Purpose was a word that was frequently used, and making sure that the purpose aligned with your brand; you must practise what you preach. While this is common sense, it is often missed – and without adhering to your purpose, your organisation’s mission lacks authenticity and you open yourself up to reputational damage, as sustainability goals are being ever more closely scrutinised.
 
 A great example of ‘carbon down, profits up’ is the case study by Colgate leading the way in recycled packaging for toothpaste – and it’s seen huge profit growth as a consequence:
+
 > The oral care category has a serious sustainability problem: 300 million toothpaste tubes go to landfill a year, which will take approximately 500 years to biodegrade, according to the British Dental Journal.> 
 
 Apparently, whilst 90% of packaging is recycled in our kitchens, only 50% is recycled in our bathrooms. As a result, our recyclable bathroom waste accounts for 30%–40% of total landfill waste in the UK. Well done, Colgate!
@@ -32,10 +33,13 @@ GharPar was introduced as being like an ‘Uber for beauty’. It is Pakistan’
 GharPar is a social enterprise that provides timely, convenient and professional at-home beauty services to its female clients through a web and mobile-based solution. GharPar is more than just your regular beauty app, it provides lucrative economic opportunities to women skilled in beauty services. At its core, GharPar enables these women to be self-sufficient and run their own independent at-home beauty services.
 
 A great initiative, with a clear purpose and with technology at its heart. 
-Digital sobriety and conscious quitting
+
+**Digital sobriety and conscious quitting
+**
 An interesting debate on whether we need multiple devices and second screens, and why software is allowed to accelerate the obsolescence of hardware. 
 
 Why should we need to upgrade our hardware because the software won’t run on a 10-year-old device?
+
 > “With your help, children will never have to know how it feels to be digitally isolated.” > 
 (Every Child Online)
 
@@ -43,17 +47,26 @@ Making devices last longer and work harder was another theme of the event, showc
 
 
 
-Measure up – Stop Greenwashing
-“Greenwash is an attempt by businesses to seem environmentally friendly without actually doing anything serious to protect the environment”
+**Measure up – Stop Greenwashing
+**
+> “Greenwash is an attempt by businesses to seem environmentally friendly without actually doing anything serious to protect the environment”> 
 (www.collinsdictionary.com)
+
 Organisations seek to demonstrate action on carbon reduction through a range of metrics, but the variables used in measuring environmental impact are vast. 
+
 Keith Denham, Exec VP at Persefoni talked about the importance of measuring impact with fixed variables. He illustrated this with the example of a flight from New York to the UK. The cost of the flight will greatly fluctuate; however, the emissions will remain fairly consistent. As a result, using spend vs emissions in this instance would not be meaningful. However, using a fixed variable such as distance travelled would be more appropriate for baselining. 
-In conclusion: what about sustainable software?
+
+**In conclusion: what about sustainable software?**
+
 Attending Reset Connect 2023 opened my eyes to ideas and theories that I hadn’t considered. I know more now than I did before; so all in all, objectives met. With one exception – there was no voice on sustainable software.
+
 I was surprised by the reaction of exhibitors and attendees when I started conversations about it. No one really knew what I was talking about or why. This validates our decision to prioritise sustainable software at Scott Logic.
+
 It's not the biggest priority on most companies' agendas right now, but collectively it all adds up. The Green Software Foundation is doing some great work in addressing this, creating tools, standards and best practice to follow. 
-The IT industry’s greenhouse gas emissions are predicted to reach 14% of global emissions by 2040 but at the same time the UN's International Telecommunication's Union has set the industry the target of reducing its emissions by 45% over the next decade.
+
+> The IT industry’s greenhouse gas emissions are predicted to reach 14% of global emissions by 2040 but at the same time the UN's International Telecommunication's Union has set the industry the target of reducing its emissions by 45% over the next decade.> 
 (BBC.com)
+
 Scott Logic is working with clients to measure and reduce their impact. We are working on a framework and a playbook which we plan to open source later this year – watch this space…
 
 
