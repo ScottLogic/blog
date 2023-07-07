@@ -36,7 +36,7 @@ A great example of ‘carbon down, profits up’ is the case study by Colgate le
 
 Apparently, whilst 90% of packaging is recycled in our kitchens, only 50% is recycled in our bathrooms. As a result, our recyclable bathroom waste accounts for 30%–40% of total landfill waste in the UK. Well done, Colgate!
 
-GharPar was introduced as being like an ‘Uber for beauty’. It is Pakistan’s biggest beauty service, but not only that – it also provides an opportunity for women to be self-sufficient, run their own business and consequently be able to do things that they wouldn't have been able to do otherwise (earn the money to purchase a bike to take their children to school).
+[GharPar](https://gharpar.co/) was introduced as being like an ‘Uber for beauty’. It is Pakistan’s biggest beauty service, but not only that – it also provides an opportunity for women to be self-sufficient, run their own business and consequently be able to do things that they wouldn't have been able to do otherwise (earn the money to purchase a bike to take their children to school).
 
 GharPar is a social enterprise that provides timely, convenient and professional at-home beauty services to its female clients through a web and mobile-based solution. GharPar is more than just your regular beauty app, it provides lucrative economic opportunities to women skilled in beauty services. At its core, GharPar enables these women to be self-sufficient and run their own independent at-home beauty services.
 
@@ -51,7 +51,7 @@ Why should we need to upgrade our hardware because the software won’t run on a
 > “With your help, children will never have to know how it feels to be digitally isolated.” >
 > \(Every Child Online)
 
-Making devices last longer and work harder was another theme of the event, showcased by charities restoring and reissuing laptops and phones to those who don't have access to technology. Please do check out Every Child Online where you can donate unused personal or company computers. The charity operates a zero-landfill policy wherever possible. There is a BIG problem that needs to be solved here!
+Making devices last longer and work harder was another theme of the event, showcased by charities restoring and reissuing laptops and phones to those who don't have access to technology. Please do check out [Every Child Online](https://everychildonline.co.uk/) where you can donate unused personal or company computers. The charity operates a zero-landfill policy wherever possible. There is a BIG problem that needs to be solved here!
 
 ## Measure up – Stop Greenwashing
 
@@ -60,7 +60,7 @@ Making devices last longer and work harder was another theme of the event, showc
 
 Organisations seek to demonstrate action on carbon reduction through a range of metrics, but the variables used in measuring environmental impact are vast.
 
-Keith Denham, Exec VP at Persefoni talked about the importance of measuring impact with fixed variables. He illustrated this with the example of a flight from New York to the UK. The cost of the flight will greatly fluctuate; however, the emissions will remain fairly consistent. As a result, using spend vs emissions in this instance would not be meaningful. However, using a fixed variable such as distance travelled would be more appropriate for baselining.
+Keith Denham, Exec VP at [Persefoni](https://www.persefoni.com/) talked about the importance of measuring impact with fixed variables. He illustrated this with the example of a flight from New York to the UK. The cost of the flight will greatly fluctuate; however, the emissions will remain fairly consistent. As a result, using spend vs emissions in this instance would not be meaningful. However, using a fixed variable such as distance travelled would be more appropriate for baselining.
 
 ## In conclusion: what about sustainable software?
 
@@ -68,7 +68,7 @@ Attending Reset Connect 2023 opened my eyes to ideas and theories that I hadn’
 
 I was surprised by the reaction of exhibitors and attendees when I started conversations about it. No one really knew what I was talking about or why. This validates our decision to prioritise sustainable software at Scott Logic.
 
-It's not the biggest priority on most companies' agendas right now, but collectively it all adds up. The Green Software Foundation is doing some great work in addressing this, creating tools, standards and best practice to follow.
+It's not the biggest priority on most companies' agendas right now, but collectively it all adds up. [The Green Software Foundation](https://greensoftware.foundation/) is doing some great work in addressing this, creating tools, standards and best practice to follow.
 
 > The IT industry’s greenhouse gas emissions are predicted to reach 14% of global emissions by 2040 but at the same time, the UN's International Telecommunication's Union has set the industry the target of reducing its emissions by 45% over the next decade.>
 > \([bbc.com](https://www.bbc.com/future/article/20200305-why-your-internet-habits-are-not-as-clean-as-you-think))
