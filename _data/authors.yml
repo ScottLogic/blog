@@ -421,6 +421,10 @@ authors:
         author-summary: 'I''m a full stack developer with Scott Logic in Bristol with experience of greater or lesser extent in C#, Java, React, Python and Spark.'
         twitter-handle: null
         picture: headshot.jpg
+    jmacdonald:
+        name: 'Jamie Macdonald'
+        author-summary: 'I am a software developer at Scott Logic, based in our London office. I work on full-stack projects, but particularly enjoy building frontend applications with complex styling challenges. When not CSS-wrangling, I can be found at the cinema watching a mix of indie darlings and deeply silly action movies or at home spending more time tinkering with retro games than actually playing them.'
+        picture: picture.png
     jhill:
         name: 'James Hill'
         google-plus-url: 'https://plus.google.com/u/0/113102044823162726684'
