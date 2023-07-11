@@ -42,17 +42,17 @@ A single page applications (SPA) are very likely to create accessibility issues 
 There are plenty of reasons to assume the Javascript is not available for a service - be it because it didn’t finish loading properly, or was blocked by a corporate firewall or ISP, or the browser is not compatible with the version of Javascript-code\[5\]. In its guide, mozzilla warns explicitly to “keep unobtrusive JavaScript in mind when creating your content. The idea of unobtrusive JavaScript is that it should be used wherever possible to enhance functionality, not build it in entirely\[6\]”. This, of course, goes against the ideology of most javascript frameworks that manage the entire service in the javascript-code (such as React or Angular), but is being addressed with recent advancement such as server-side-rendering.
 
 Accessibility isn’t a feature that can be added at any point of product life-cycle or sprinkled-over once the product reaches its MVP. It is a set of considerations one must take from the planning stage and all the way through design, development and of course testing and maintenance. One shouldn’t expect to get it right on the first attempt - much like the user-research agile process, it is an iterative process that hopefully should become easier over time. Following are a list of simple tips to avoid the most common accessibility issues:
-- Use semantic HTML to ensure that content is structured correctly and can be interpreted by assistive technologies.
-- Use ARIA roles and attributes to provide additional context and meaning to UI elements.
-- Provide alternative text for Images to allow users with visual impairments to understand the content of images. Additionally, avoid using <img> for purely decorative elements as to reduce screen-reader’s noise.
-- Use descriptive link text to help users to understand the destination of links.
-- Ensure users can navigate through the software by keyboard, not only mouse
+* Use semantic HTML to ensure that content is structured correctly and can be interpreted by assistive technologies.
+* Use ARIA roles and attributes to provide additional context and meaning to UI elements.
+* Provide alternative text for Images to allow users with visual impairments to understand the content of images. Additionally, avoid using <img> for purely decorative elements as to reduce screen-reader’s noise.
+* Use descriptive link text to help users to understand the destination of links.
+* Ensure users can navigate through the software by keyboard, not only mouse
 Ensure good colour contrast to ensure that text and UI elements are readable by everyone.
-- Refrain from using JavaScript when possible to ensure that your software is accessible to users who cannot use JavaScript.
-- Design responsively to ensure that your software is usable on a range of devices and screen sizes.
-- Be wary of Emojis as it’s not always clear what information they are supposed to convey and might not work well if the application has a “dark mode”. When
+* Refrain from using JavaScript when possible to ensure that your software is accessible to users who cannot use JavaScript.
+* Design responsively to ensure that your software is usable on a range of devices and screen sizes.
+* Be wary of Emojis as it’s not always clear what information they are supposed to convey and might not work well if the application has a “dark mode”. When
 using emojis ensure you wrap them in a tag with alt text.
-- Test with assistive technologies from beginning to end of the development cycle to ensure that the software can be used by disabled people.
+* Test with assistive technologies from beginning to end of the development cycle to ensure that the software can be used by disabled people.
 
 Ultimately, the ideal feedback comes from usability research with a broad demographic of users, including disabled people, but as such user-research might be complicated and expensive there is a wide array of tools that can help and provide cheaper and quicker feedback. Testing for accessibility on a base-level can be done easily and even for free using online tools such as Google [Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/), [Accessibility Checker](https://www.accessibilitychecker.org/), [TAW](https://www.tawdis.net/#) or [Wave](https://wave.webaim.org/). Tools like [aXe devtools](https://www.deque.com/axe/devtools/) can be built into the pipeline/testing frameworks. Other solutions can be at the enterprise-level like the paid-services [SiteImprove](https://www.siteimprove.com/toolkit/accessibility-checker/) or [Tenon](https://tenon.io/) and will provide a broader view of inspection.
 ![Complexed work environments](/uploads/work-env.png)
