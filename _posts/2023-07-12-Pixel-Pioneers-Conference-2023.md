@@ -1,14 +1,20 @@
 ---
-author: hbedford
 title: Pixel Pioneers UI/UX Conference 2023
-layout: default_post
-summary: My summary of a one day UI/UX conference event in the heart of Bristol. There were a range of talks, from declarative design to web development in the times of AI. This was the first conference I'd attended, so here's my thoughts and highlights of the day.
-category: UX Design
+date: 2023-07-12 00:00:00 Z
+categories:
+- hbedford
+- UX Design
 tags:
 - UI
 - UX
 - Conference
----  
+author: hbedford
+layout: default_post
+summary: My summary of a one day UI/UX conference event in the heart of Bristol. There
+  were a range of talks, from declarative design to web development in the times of
+  AI. This was the first conference I'd attended, so here's my thoughts and highlights
+  of the day.
+---
 
 _Unveiling Insights from My First UI/UX Conference._
 
