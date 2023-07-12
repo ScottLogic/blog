@@ -3,21 +3,23 @@ author: hbedford
 title: Pixel Pioneers UI/UX Conference 2023
 layout: default_post
 summary: My summary of a one day UI/UX conference event in the heart of Bristol. There were a range of talks, from declarative design to web development in the times of AI. This was the first conference I'd attended, so here's my thoughts and highlights of the day.
-category: Tech
+category: UX Design
 tags:
 - UI
 - UX
 - Conference
 ---  
-# Unveiling Insights from My First UI/UX Conference
+
+_Unveiling Insights from My First UI/UX Conference._
+
 I wanted to explore the UI/UX conference landscape, and after some research, settled on the local [Pixel Pioneers](https://pixelpioneers.co/events/bristol-2023) event. The conference's lineup of speakers and diverse range of topics piqued my interest, and I was eager to immerse myself in the day.
 
 With a concise one-day duration and a lineup of nine captivating talks, the conference was a condensed knowledge share that immersed attendees in the latest trends and techniques. Across the course of the day the following talks caught my interest:
 
-    - Declarative Design
-    - Animating the Impossible
-    - Modern CSS Development and Debugging
-    - Web Development in the Times of AI
+- Declarative Design
+- Animating the Impossible
+- Modern CSS Development and Debugging
+- Web Development in the Times of AI
 
 ### Declarative Design
 The conference started with [Jeremy Keith](https://www.linkedin.com/in/adactio/) talking on declarative design, which explored the differences between an imperative and declarative way of programming. To open the talk an analogy of classical vs jazz music was shared. With classical music, the artists are incredibly talented at following sheet music, and can even play a new piece from sight. This is akin to an imperative way of thinking. Jazz musicians, on the other hand, are more free-flowing, creative, and can improvise on the spot. This is more like a declarative way of thinking.
