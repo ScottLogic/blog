@@ -56,6 +56,7 @@ Having the skills to code more accessibly can have benefits for other users, too
 
 ## Coding with accessibility in mind
 Accessibility isn’t a feature that can be added at any point of product life-cycle or sprinkled-over once the product reaches its MVP. It is a set of considerations one must take from the planning stage and all the way through design, development and of course testing and maintenance. One shouldn’t expect to get it right on the first attempt - much like the user-research agile process, it is an iterative process that hopefully should become easier over time. Following are a list of simple tips to avoid the most common accessibility issues:
+
 * Use semantic HTML to ensure that content is structured correctly and can be interpreted by assistive technologies.
 * Use ARIA roles and attributes to provide additional context and meaning to UI elements.
 * Provide alternative text for Images to allow users with visual impairments to understand the content of images. Additionally, avoid using <img> for purely decorative elements as to reduce screen-reader’s noise.
