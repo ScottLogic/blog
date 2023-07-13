@@ -155,9 +155,9 @@ Want to do the same thing in TanStack Table? Well, you might need to change the 
                             header.column.columnDef.header,
                             header.getContext()
                         )}
-                        {{
-                            asc: ':arrow_up_small:',
-                            desc: ':arrow_down_small:',
+                        {
+                            asc: '🔼',
+                            desc: '🔽',
                         }[header.column.getIsSorted() as string] ?? null}
                         </div>
                     )}
