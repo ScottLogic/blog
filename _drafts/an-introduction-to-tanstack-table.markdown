@@ -156,8 +156,8 @@ Want to do the same thing in TanStack Table? Well, you might need to change the 
                             header.getContext()
                         )}
                         {{
-                            asc: ' 🔼',
-                            desc: ' 🔽',
+                            asc: ':arrow_up_small:',
+                            desc: ':arrow_down_small:',
                         }[header.column.getIsSorted() as string] ?? null}
                         </div>
                     )}
