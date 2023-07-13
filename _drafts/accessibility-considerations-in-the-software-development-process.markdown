@@ -17,7 +17,7 @@ summary: In today's digital world, ensuring accessibility in software has become
   integrate accessibility throughout the software development process. By prioritizing
   accessibility, we can create inclusive digital experiences that benefit all users
   and contribute to a more equitable society.
-author: Oded Sharon
+author: osharon
 ---
 
 ![A superhero in a wheelchair (source: midjourney)](/uploads/superhero.png)
