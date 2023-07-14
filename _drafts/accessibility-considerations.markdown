@@ -86,3 +86,13 @@ Accessibility isn’t a feature that can be added at any point of product life-c
   using emojis ensure you wrap them in a tag with alt text.
 
 * Test with assistive technologies from beginning to end of the development cycle to ensure that the software can be used by disabled people.
+
+## Testing your software
+
+Ultimately, the ideal feedback comes from usability research with a broad demographic of users, including disabled people, but  even if circumstances don’t permit that, there is a wide array of tools that can help and provide feedback on how disabled users might experience your application. There are many free accessibility testing tools available online such as Google [Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/), [Accessibility Checker](https://www.accessibilitychecker.org/), [TAW](https://www.tawdis.net/#) or [Wave](https://wave.webaim.org/). Tools like [aXe devtools](https://www.deque.com/axe/devtools/) can be built into the pipeline/testing frameworks. Other solutions implemented at the organisational-level such as services like [SiteImprove](https://www.siteimprove.com/toolkit/accessibility-checker/) or [Tenon](https://tenon.io/) and will provide a broader view of inspection.
+
+![Illustration of a complexed work environments (source: midjourney)](/uploads/work-env.png)
+
+## In conclusion
+
+Accessibility in software development is not only a moral imperative but also a legal requirement in many countries. Designing services, content and products that is perceivable, operable, understandable, and robust ensures that all users, including disabled peoples, can access and use digital services effectively. Accessible products have been shown to benefit everyone, as evidenced by the success of businesses like Tesco, which saw significant increases in sales by optimising accessibility in their online platforms. Additionally, adherence to accessibility standards is crucial to avoid legal action, fines, and reputational damage. As system-builders and service providers, we have a responsibility to prioritise accessibility in our software development processes to create inclusive and usable digital experiences for all users. By embracing accessibility as a core principle, we can contribute to a more inclusive and equitable world.
