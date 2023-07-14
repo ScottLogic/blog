@@ -136,7 +136,7 @@ In addition, with TanStack table there's often quite a bit more work which goes 
 
 Want to do the same thing in TanStack Table? Well, you might need to change the column definitions too, but then you need to actually implement this feature in your grid. So, for every header that's not a placeholder you'll want to toggle the sorting for that column when the user clicks the header. You'll then need to supply your own arrow icon that points up or down (or disappears entirely) depending on the sorting. Before you know it you've got something that looks like:
 {% raw %}
-```jsx
+{% highlight jsx %}
         <thead>
             {table.getHeaderGroups().map(headerGroup => (
                 <tr key={headerGroup.id}>
@@ -168,7 +168,7 @@ Want to do the same thing in TanStack Table? Well, you might need to change the 
                 </tr>
             ))}
         </thead>
-```
+{% endhighlight %}
 {% endraw %}
 TanStack Table does help you out a little here by giving you easy access to a sorting toggle callback via the `getToggleSortingHandler` function, but it's still significantly more long-winded than just changing a property in the column definition.
 
