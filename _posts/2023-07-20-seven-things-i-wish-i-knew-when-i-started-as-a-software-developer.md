@@ -1,5 +1,6 @@
 ---
 title: Seven Things I Wish I Knew When I Started as a Software Developer
+date: 2023-07-20 10:00:00 Z
 categories:
 - bpritchard
 - Tech
@@ -9,6 +10,7 @@ tags:
 - lessons
 summary: Lessons learned in my first two years as a developer, including the importance of learning from failure, avoiding comparison, developing soft skills, and networking.
 author: bpritchard
+layout: default_post
 ---
 
 Armed with a maths degree and some self-taught Python, I was hired as a graduate developer at Scott Logic almost two years ago. In that time I’ve had a lot of experiences, including being on my first ever project with fellow graduates, joining my first client engagement, learning programming languages and technologies, participating in skills workshops, mentoring both new graduates and experienced team members, attending conferences and panel discussions, writing blog posts, and losing a large number of table football matches. 
