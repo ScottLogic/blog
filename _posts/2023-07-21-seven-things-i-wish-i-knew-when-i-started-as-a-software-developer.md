@@ -2,7 +2,7 @@
 title: Seven Things I Wish I Knew When I Started as a Software Developer
 categories:
 - bpritchard
-- Tech
+- People
 tags: 
 - programming
 - graduates
