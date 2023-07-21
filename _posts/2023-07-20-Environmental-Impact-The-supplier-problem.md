@@ -10,6 +10,7 @@ summary: Those involved in managing organisations' environmental impact often po
   before we can, then we're stuck in a deadlock. This post shares our first (probably
   imperfect) stab at trying to progress this issue.
 author: godds
+Image: "/uploads/Environmental%20Impact%20blog.png"
 ---
 
 We recently published our annual [Environmental Impact Report](https://www.scottlogic.com/news/scott-logics-carbon-footprint-is-reducing), which documents Scott Logic’s carbon footprint in 2022, describes what we are currently doing to reduce our ongoing environmental impact, and sets out our roadmap to net zero. I’m extremely proud that we are managing to reduce our total emissions even as our business grows. Go [read the report](https://www.scottlogic.com/news/scott-logics-carbon-footprint-is-reducing) for all the details. In this post, I share some thoughts and work that we’ve started doing alongside our reduction efforts.
