@@ -1,6 +1,18 @@
 ---
 title: How we de-risked a GenAI chatbot
 date: 2023-07-21 16:27:00 Z
+categories:
+- Tech
+tags:
+- artificial intelligence
+- ai
+- generative AI
+- GenAI
+- ChatGPT
+- chatbot
+- Large Language Models
+- LLM
+- Knowledge Graph
 summary: I was part of a Scott Logic team that developed and delivered a Proof of
   Concept (PoC) for a major retail bank which demonstrated high potential business
   value and showed how GenAI could be reined in as part of a range of options to mitigate
