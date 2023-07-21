@@ -76,9 +76,13 @@ Not all of the data needs to be sought from the customer. The Knowledge Graph ca
 
 ## De-risking the bot’s interactions
 
+### Constraining the conversation
+
 Central to the design of our Proof of Concept chatbot was the tethering of the LLM to the Knowledge Graph. While the LLM technology has been trained in how to sound human through exposure to real human interactions on the world wide web, the ‘script’ that it follows in the customer interactions is directed by the Knowledge Graph. In a given user session, the LLM is effectively enveloped within the context of that particular customer, constrained by the requests from the Knowledge Graph to seek specific data from the customer or from the bank’s systems.
 
 The Knowledge Graph has its ‘forest’ of sub-conversational ‘trees’ and while they’re not as limited as a traditional chatbot’s single tree of branching logic, they’re still ultimately pre-determined. Through the LLM, the Knowledge Graph still only has a finite set of questions to pose. A malicious actor seeking to hack the system will be presented with questions that are individual to them, pre-programmed into the Knowledge Graph. They can’t ask the bot to expose data on other customers or anything else outside of the Knowledge Graph’s purview.
+
+### Walling in the bot
 
 My colleague Oliver Cronk’s blog post on [GenAI solution architecture](https://blog.scottlogic.com/2023/05/04/generative-ai-solution-architecture.html) touches on the additional layers of security that can de-risk this approach to GenAI chatbot design. As he explains, the LLM is effectively walled in and isolated from any security-critical aspects of the architecture. The full conversation from each user session is encoded into the Knowledge Graph and stored as an auditable log to enable incident investigation, root cause analysis, and performance fine-tuning. In addition, filtering of both inputs and outputs of the LLM’s interactions can mitigate the risk of inappropriate requests being made of the bot, and inappropriate responses being returned by the bot.
 
