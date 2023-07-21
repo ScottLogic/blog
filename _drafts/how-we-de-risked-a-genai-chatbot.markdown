@@ -17,7 +17,7 @@ summary: I was part of a Scott Logic team that developed and delivered a Proof o
   Concept (PoC) for a major retail bank which demonstrated high potential business
   value and showed how GenAI could be reined in as part of a range of options to mitigate
   risk. In this post, I provide an overview of how it worked.
-author: sritchie
+author: shamiltonritchie
 ---
 
 After riding the initial wave of excitement about Generative AI’s business potential, enterprises have been becalmed by the risks. My colleague Oliver Cronk has set out some of the principal risks in this blog post.
