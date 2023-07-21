@@ -19,7 +19,7 @@ My name is Ashleigh and I’ve been working alongside staff at Altitude Foundati
 
 The technology industry is constantly evolving through innovation with new software, devices, and more constantly being released from different companies around the world. There are so many different roles within the tech industry from social media and marketing to front-end and back-end development.
 
-As of September 2022, there are over one million people working in the IT services sector of the creative industries of which approximately one hundred and eight thousand are self-employed.
+As of September 2022, there are [over one million people working in the IT services sector](https://www.statista.com/statistics/284968/it-software-and-computer-services-economy-employment-in-the-united-kingdom-uk/) of the creative industries of which approximately one hundred and eight thousand are self-employed.
 
 ## The interviews
 
@@ -33,7 +33,7 @@ I also interviewed Matthew who told me he studied Further Maths, Physics and Ele
 
 ## Jobs, qualifications and apprenticeships and within the tech industry
 
-So what are some job titles within tech, you may be wondering? I did some research and found an article with many different titles, so here's a shortlist to give you some ideas:
+So what are some [job titles within tech](https://uk.indeed.com/career-advice/finding-a-job/it-job-titles-hierarchy), you may be wondering? I did some research and found an article with many different titles, so here's a shortlist to give you some ideas:
 
 * Software developer
 
@@ -45,7 +45,7 @@ So what are some job titles within tech, you may be wondering? I did some resear
 
 * Technician, and more.
 
-There are plenty of different qualifications you could gain which then branch into IT, computing or analytics. These can span from Business degrees to Maths, Psychology, Design degrees or even a Cyber Security degree. But these aren’t the only valid paths you could take into the IT and Tech industry as you could also become an apprentice. Currently, cyber security is growing four times faster than any other sector in IT, so there are plenty of opportunities to dive into a job or apprenticeship within that section of the IT and technology industry.
+There are plenty of different qualifications you could gain which then branch into IT, computing or analytics. These can span from Business degrees to Maths, Psychology, Design degrees or even a Cyber Security degree. But these aren’t the only valid paths you could take into the IT and Tech industry as you could also become an apprentice. Currently, cyber security is growing four times faster than any other sector in IT, so there are plenty of opportunities to dive into a job or [apprenticeship](https://info.itcareerswitch.co.uk/cyber-security/) within that section of the IT and technology industry.
 
 ## What  did I learn from the interviews?
 
