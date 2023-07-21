@@ -24,7 +24,7 @@ Almost every developer will be able to tell you a similar story of being stuck o
 
 
 ## 3. You will (probably) get over your fear of failure
-As a chronic perfectionist with an unhealthy fear of failure, I hated being wrong. I hated getting answers wrong in tests at school, I was always striving to get 100% on coursework, and would beat myself up for not being perfect. Becoming a software developer has completely changed my outlook on this. Failure is good, and gives you opportunities to learn.
+As a bit of a perfectionist with an unhealthy fear of failure, I hated being wrong. I hated getting answers wrong in tests at school, I was always striving to get 100% on coursework, and would beat myself up for not being perfect. Becoming a software developer has completely changed my outlook on this. Failure is good, and gives you opportunities to learn.
 
 I recently undertook a piece of work which involved investigating multiple different ways of deploying an application; the brief was open-ended, and it was down to the team to decide on the best course of action. We developed multiple Proof-Of-Concepts, and it turned out that some of those were more like Proof-of-"Looks-Like-We-Can't-Do-That-After-All" - and that was fine! We learned about the technology and we better understood what would and wouldn’t work for our use case. Failure doesn’t need to be scary, as long as you’re ready to learn from it.
 
