@@ -1,6 +1,5 @@
 ---
 title: Seven Things I Wish I Knew When I Started as a Software Developer
-date: 2023-07-20 10:00:00 Z
 categories:
 - bpritchard
 - Tech
