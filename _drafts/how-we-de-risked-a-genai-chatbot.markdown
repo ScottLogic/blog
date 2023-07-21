@@ -58,7 +58,7 @@ To use the loan example, one sub-conversation might be about whether the custome
 
 ## The role of the LLM
 
-In this architecture, the LLM plays the role of translator – not just in terms of holding a ‘human’ conversation with the customer, but in terms of translating the customer’s responses into data that the Knowledge Graph can process.
+The LLM plays the role of translator – not just in terms of holding a ‘human’ conversation with the customer, but in terms of translating the customer’s responses into data that the Knowledge Graph can process.
 
 The Knowledge Graph is seeking Boolean, true/false logic. It can’t deal with the ambiguity of language – but the LLM can. Using its probabilistic model, an LLM like ChatGPT can compose and send natural-sounding messages to the customer, and it can “understand” the customer’s responses. I’m straining the definition of “understand” there, but what I mean is that it can analyse a given response and encode its text into code (in JSON format, in our proof of concept) which the Knowledge Graph can then process and categorise. Having processed the response, the Knowledge Graph presents in code form the best next question to ask the customer, which the LLM translates back into natural language.
 
