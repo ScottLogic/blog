@@ -1,13 +1,15 @@
 ---
 title: Seven Things I Wish I Knew When I Started as a Software Developer
+date: 2023-07-21 00:00:00 Z
 categories:
 - bpritchard
 - People
-tags: 
+tags:
 - programming
 - graduates
 - lessons
-summary: Lessons learned in my first two years as a developer, including the importance of learning from failure, avoiding comparison, developing soft skills, and networking.
+summary: Lessons learned in my first two years as a developer, including the importance
+  of learning from failure, avoiding comparison, developing soft skills, and networking.
 author: bpritchard
 layout: default_post
 ---
