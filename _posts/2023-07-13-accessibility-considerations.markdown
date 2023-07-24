@@ -18,7 +18,7 @@ summary: In today's digital world, ensuring accessibility in software has become
   accessibility, we can create inclusive digital experiences that benefit all users
   and contribute to a more equitable society.
 author: osharon
-Image: "/uploads/Accessibility%20considerations%20blog-cdbb23.png"
+Image: "/uploads/Social%20Card-%20Accessibility%20in%20software%20development.png"
 ---
 
 ![A superhero in a wheelchair (source: midjourney)](/uploads/superhero.png)
