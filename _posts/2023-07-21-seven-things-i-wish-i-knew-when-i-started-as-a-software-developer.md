@@ -12,6 +12,7 @@ summary: Lessons learned in my first two years as a developer, including the imp
   of learning from failure, avoiding comparison, developing soft skills, and networking.
 author: bpritchard
 Image: "/uploads/seven%20things%20i%20wish%20i%20knew%20-%20sc.png"
+image: "/uploads/7%20things%20tn.jpg"
 layout: default_post
 ---
 
