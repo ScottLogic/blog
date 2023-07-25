@@ -157,7 +157,7 @@ Want to do the same thing in TanStack Table? Well, you might need to change the 
                             header.column.columnDef.header,
                             header.getContext()
                         )}
-                        { {
+                        {% raw %}{{{% endraw %}
                             asc: ' 🔼',
                             desc: ' 🔽',
                         }[header.column.getIsSorted() as string] ?? null}
