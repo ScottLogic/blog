@@ -91,7 +91,7 @@ Ag Grid provides a grid **component** which we pass data and column definitions 
 
 Good point: the TanStack version seems much more complicated. However, if we break it down a little we can start to see what this unique approach provides. Starting from the top, the first thing you'll notice is that, as promised, there are no library-provided components here. This is just a vanilla HTML `<table>`. That means there are no built-in styles to override, and we can customise the markup in whichever way we choose.
 
-Of course, theoretically we could use any elements we like here as Tanstack Table doesn't have an opinion. However, using a `<table>` allows us to be more clear about the component's content, and does mean we get to take advantage of automatic cell and header aligning. 
+Of course, theoretically we could use any elements we like here as Tanstack Table doesn't have an opinion. However, using a `<table>` allows us to be more clear about the component's content, and does mean we get to take advantage of automatic cell and header aligning.
 
 The value of TanStack Table is that it provides functions and data structures we can use to render our own table components. Let's take a closer look at the row rendering:
 
@@ -138,39 +138,37 @@ In addition, with TanStack table there's often quite a bit more work which goes 
 
 Want to do the same thing in TanStack Table? Well, you might need to change the column definitions too, but then you need to actually implement this feature in your grid. So, for every header that's not a placeholder you'll want to toggle the sorting for that column when the user clicks the header. You'll then need to supply your own arrow icon that points up or down (or disappears entirely) depending on the sorting. Before you know it you've got something that looks like:
 
-```
-        <thead>
-            {table.getHeaderGroups().map(headerGroup => (
-                <tr key={headerGroup.id}>
-                    {headerGroup.headers.map(header => {
-                    return (
-                        <th key={header.id} colSpan={header.colSpan}>
-                        {header.isPlaceholder ? null : (
-                            <div
-                            {...{
-                                className: header.column.getCanSort()
-                                ? 'cursor-pointer select-none'
-                                : '',
-                                onClick: header.column.getToggleSortingHandler(),
-                            }}
-                            >
-                            {flexRender(
-                                header.column.columnDef.header,
-                                header.getContext()
+            <thead>
+                {table.getHeaderGroups().map(headerGroup => (
+                    <tr key={headerGroup.id}>
+                        {headerGroup.headers.map(header => {
+                        return (
+                            <th key={header.id} colSpan={header.colSpan}>
+                            {header.isPlaceholder ? null : (
+                                <div
+                                {...{
+                                    className: header.column.getCanSort()
+                                    ? 'cursor-pointer select-none'
+                                    : '',
+                                    onClick: header.column.getToggleSortingHandler(),
+                                }}
+                                >
+                                {flexRender(
+                                    header.column.columnDef.header,
+                                    header.getContext()
+                                )}
+                                { {
+                                    asc: '🔼',
+                                    desc: '🔽',
+                                }[header.column.getIsSorted() as string] ?? null}
+                                </div>
                             )}
-                            { {
-                                asc: '🔼',
-                                desc: '🔽',
-                            }[header.column.getIsSorted() as string] ?? null}
-                            </div>
-                        )}
-                        </th>
-                    )
-                    })}
-                </tr>
-            ))}
-        </thead>
-```
+                            </th>
+                        )
+                        })}
+                    </tr>
+                ))}
+            </thead>
 
 TanStack Table does help you out a little here by giving you easy access to a sorting toggle callback via the `getToggleSortingHandler` function, but it's still significantly more long-winded than just changing a property in the column definition.
 
