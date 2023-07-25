@@ -137,6 +137,7 @@ Maybe! As previously mentioned, every table library represents some kind of comp
 In addition, with TanStack table there's often quite a bit more work which goes in to *actually implementing* a grid feature that it supports the use of. For instance, maybe you want to turn on per-column sorting that toggles between 'ascending', 'descending', and 'none' when the user clicks on a header? Well, in Ag Grid just make sure you've set `sortable` to `true` in your default column definition.
 
 Want to do the same thing in TanStack Table? Well, you might need to change the column definitions too, but then you need to actually implement this feature in your grid. So, for every header that's not a placeholder you'll want to toggle the sorting for that column when the user clicks the header. You'll then need to supply your own arrow icon that points up or down (or disappears entirely) depending on the sorting. Before you know it you've got something that looks like:
+{% raw %}
 
     <thead>
         {table.getHeaderGroups().map(headerGroup => (
@@ -157,7 +158,7 @@ Want to do the same thing in TanStack Table? Well, you might need to change the 
                             header.column.columnDef.header,
                             header.getContext()
                         )}
-                        {% raw %}{{{% endraw %}
+                        {{
                             asc: ' 🔼',
                             desc: ' 🔽',
                         }[header.column.getIsSorted() as string] ?? null}
@@ -170,6 +171,7 @@ Want to do the same thing in TanStack Table? Well, you might need to change the 
         ))}
     </thead>
 
+{% endraw %}
 TanStack Table does help you out a little here by giving you easy access to a sorting toggle callback via the `getToggleSortingHandler` function, but it's still significantly more long-winded than just changing a property in the column definition.
 
 Would this extra work be appropriate for your project? If you need absolute control over the styling and behaviour of the headers, then maybe. If not? Maybe try a different library.
