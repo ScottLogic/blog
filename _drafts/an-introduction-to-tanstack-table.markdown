@@ -1,6 +1,7 @@
 ---
 title: An Introduction to TanStack Table
 date: 2023-07-11 16:42:00 Z
+summary: 'An introduction to the headless JavaScript datagrid library TanStack Table. '
 author: jmacdonald
 ---
 
@@ -34,10 +35,13 @@ So what makes it different from any of the other libraries I've mentioned? TanSt
 
 A headless table library is one which provides no components or markup whatsoever. To explain what that means, let's look at a basic Ag Grid example, written in React:
 
+Rogue (~~~ jsx, ~~~)
+highlight.js ({% highlight jsx %},
     <AgGridReact
         rowData={rowData}
         columnDefs={columnDefs}>
     </AgGridReact>
+{% endhighlight %})
 
 Ag Grid provides a grid **component** which we pass data and column definitions to. The same basic React example written with TanStack Table would look something like this:
 
