@@ -4,15 +4,15 @@ date: 2023-07-11 16:42:00 Z
 author: jmacdonald
 ---
 
-There is no particular shortage of datagrid and table libraries for JavaScript projects. From powerful industry-standard solutions like [Ag Grid](https://www.ag-grid.com/), to the spreadsheet-like [Handsontable](https://handsontable.com/), to stylish solutions like [MUI's Table component](https://mui.com/material-ui/react-table/).
+There is no particular shortage of datagrid and table libraries for JavaScript projects. From powerful industry-standard solutions like [Ag Grid](https://www.ag-grid.com/), to the spreadsheet-like [Handsontable](https://handsontable.com/), to stylish components like [MUI's Table](https://mui.com/material-ui/react-table/).
 
 ## Why are there so many?
 
-There are so many solutions because every table library represents a compromise of some kind or another. For instance, on a recent project, I found myself in a position where I wanted to get a datagrid up and running quickly with a couple of standard datagrid features (row grouping and multiple nested header rows), but the design I was working to was extremely unique.
+There are so many solutions because every table library represents a compromise of some kind or another. For instance, on a recent project, I found myself in a position where I wanted to get a datagrid up and running quickly with a couple of standard features (row grouping and multiple nested header rows), but the design I was working to was extremely unique.
 
 Ag Grid seemed like a good choice due to its support for seemingly every grid feature a user could think of, but the design I was working to presented significant challenges to replicate using Ag Grid due to how far the design deviated from the library's default look and feel.
 
-While researching alternate grid libraries I could use, I stumbled across TanStack Table (formerly React Table). I found its unique approach to be a great fit for my project, and I'm here to explain how it might be a good fit for yours too.
+While researching alternate grid libraries, I stumbled across [TanStack Table](https://tanstack.com/table/v8) (formerly React Table). I found its unique approach to be a great fit for my project, and I'm here to explain how it might be a good fit for yours too.
 
 ## What is TanStack Table?
 
@@ -39,7 +39,7 @@ A headless table library is one which provides no components or markup whatsoeve
         columnDefs={columnDefs}>
     </AgGridReact>
 
-Ag Grid provides a grid **component** which we pass data and column definitions to. The same basic example written with TanStack Table would look something like this:
+Ag Grid provides a grid **component** which we pass data and column definitions to. The same basic React example written with TanStack Table would look something like this:
 
     <table>
         <thead>
@@ -91,6 +91,8 @@ Ag Grid provides a grid **component** which we pass data and column definitions 
 
 Good point: the TanStack version seems much more complicated. However, if we break it down a little we can start to see what this unique approach provides. Starting from the top, the first thing you'll notice is that, as promised, there are no library-provided components here. This is just a vanilla HTML `<table>`. That means there are no built-in styles to override, and we can customise the markup in whichever way we choose.
 
+Of course, theoretically we could use any elements we like here as Tanstack Table doesn't have an opinion. However, using a `<table>` allows us to be more clear about the component's content, and does mean we get to take advantage of automatic cell and header aligning. 
+
 The value of TanStack Table is that it provides functions and data structures we can use to render our own table components. Let's take a closer look at the row rendering:
 
     <tbody>
@@ -107,7 +109,7 @@ The value of TanStack Table is that it provides functions and data structures we
 
 `table` is the Tanstack-provided representation of our table (we'll look at how this object is created later). All we're doing here is getting all the rows to be rendered by calling `getRowModel`, looping through them, and rendering a `<tr>` element for each row. Then, within each row, we're looping through all the cells which should be visible by calling `getVisibleCells`, and rendering them as `<td>` elements.
 
-Within each `<td>` you'll see that we're calling a function called `flexRender`. To explain how this function works, we need to go back a step, to the initial creation of our column definitions:
+Within each `<td>` you'll see that we're calling a function called `flexRender`. To explain how this works, we need to go back a step, to the creation of our column definitions:
 
     const columns = [
       columnHelper.accessor('firstName', {
@@ -118,15 +120,15 @@ Within each `<td>` you'll see that we're calling a function called `flexRender`.
       }),
     ]
 
-The `columnHelper` here is just providing a typesafe way of creating column definitions based on the data model being used. The property on each column I want to zoom in on here is the **cell** property. You can see that TanStack allows us to pass a function that takes an `info` object. This object is basically just a set of props which can be used to inform how the cell should be rendered: for instance, the function `info.getValue` will return the cell's underlying value. You can see here that the `cell` property for the 'firstName' column is a function which just returns this value, while the 'lastName' column provides a function that returns the value enclosed by our own React component `MyCustomCell`.
+The `columnHelper` here is just providing a typesafe way of creating column definitions based on the data model being used. The property on each column I want to focus on here is the **cell** property. You can see that TanStack allows us to pass a function that takes an `info` object. This object is basically just a set of props which can be used to inform how the cell should be rendered; for instance, the function `info.getValue` will return the cell's underlying value, and so the `firstName` cells will simply display the value of the `firstName` property of the row's data. The `lastName` column, on the other hand, provides a function that returns the value enclosed by our own React component `MyCustomCell`.
 
 This `cell` property of the column is what's being passed to `flexRender`, along with the props (as `info`). The `flexRender` function is then responsible for rendering this cell, irrespective of whether it is a single value or a custom React component.
 
 ## What does this all add up to?
 
-With TanStack Table we have **complete control** over our markup and styles - we can render our table as a basic html `<table>` (should we so desire), and we can easily pass custom components to be rendered.
+With TanStack Table we have **complete control** over our markup and styles - we can render our table as a basic html `<table>` (should we so desire), and we can easily pass custom components to be rendered. In addition, you'll likely wrap a TanStack Table implementation in your own component, making it easy to define a simple Ag Grid-like API for it (just passing data and column definitions for a basic implementation) that can be reused across a codebase, while retaining the flexibility a headless library provides.
 
-For my project (the one with the extremely unique styling) this was *ideal*: the ability to build the table's markup from scratch, rather than starting with an existing component as a base and gradually replacing and/or overriding pieces of it, allowed us to quickly build a completely custom table with a simple DOM structure.
+For my project (the one with the extremely unique styling) this was *ideal*; the ability to build the table's markup from scratch, rather than starting with an existing component as a base and gradually replacing and/or overriding pieces of it, allowed us to quickly build a completely custom table with a simple DOM structure.
 
 ## Is TanStack Table the right choice for {INSERT PROJECT HERE}?
 
