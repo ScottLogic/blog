@@ -42,6 +42,13 @@ columnDefs={columnDefs}>
 </AgGridReact>
 {% endhighlight %})
 
+\{% highlight jsx %},
+<AgGridReact
+rowData={rowData}
+columnDefs={columnDefs}>
+</AgGridReact>
+{% endhighlight %}
+
 ~~~ jsx
 <AgGridReact
 rowData={rowData}
