@@ -669,6 +669,7 @@ authors:
     shamiltonritchie:
         name: 'Simon Hamilton Ritchie'
         author-summary: 'Lead Developer in London'
+        picture: picture.jpg
     sgrant:
         author-summary: '<p>The ol'' job descrip'' says "developer", but I prefer the term "technical doer"; I feel it more adequately encompasses the breadth of what we do. Variety is of course the spice of life and, to stretch that metaphor, whilst I like a bit of this and that, ElasticSearch is my salt, and .NET my pepper.</p>'
         name: 'Sam Sutherland Grant'
