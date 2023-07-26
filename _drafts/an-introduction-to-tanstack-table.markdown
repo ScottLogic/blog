@@ -35,12 +35,12 @@ So what makes it different from any of the other libraries I've mentioned? TanSt
 
 A headless table library is one which provides no components or markup whatsoever. To explain what that means, let's look at a basic Ag Grid example, written in React:
 
-~~~ jsx
+~~~ tsx
 return (
-<AgGridReact
-  rowData={rowData}
-  columnDefs={columnDefs}>
-</AgGridReact>
+    <AgGridReact
+      rowData={rowData}
+      columnDefs={columnDefs}>
+    </AgGridReact>
 )
 ~~~
 
