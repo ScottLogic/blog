@@ -53,7 +53,7 @@ There are plenty of different qualifications you could gain which then branch in
 
 ## What  did I learn from the interviews?
 
-During the interviews with Martha, Sophie and Matthew I learnt a lot of new things and corrected some misconceptions within my own knowledge – such as the fact that they work in teams when I originally believed that software developers worked alone. I also found it interesting that none of the three originally knew they wanted a job within the field of tech.
+During the interviews with Martha, Sophie and Matthew, I learnt a lot of new things and corrected some misconceptions within my own knowledge – such as the fact that they work in teams when I originally believed that software developers worked alone. I also found it interesting that none of the three originally knew they wanted a job within the field of tech.
 
 I also found it interesting that they coded in different languages from Python to Java; and it was really interesting how Matthew thought that his A-level in maths and the degree in computer science did not give him an advantage over his colleagues. I personally thought that might have been advantageous to him as he would have knowledge that some of his colleagues possibly didn’t. It was interesting that two of them (Sophie and Matthew) first learned to code in Python in university while Martha’s first experience with coding was through mathematical programming.
 
