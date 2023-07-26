@@ -669,6 +669,7 @@ authors:
     shamiltonritchie:
         name: 'Simon Hamilton Ritchie'
         author-summary: 'Lead Developer in London'
+        picture: picture.jpg
     sgrant:
         author-summary: '<p>The ol'' job descrip'' says "developer", but I prefer the term "technical doer"; I feel it more adequately encompasses the breadth of what we do. Variety is of course the spice of life and, to stretch that metaphor, whilst I like a bit of this and that, ElasticSearch is my salt, and .NET my pepper.</p>'
         name: 'Sam Sutherland Grant'
@@ -1262,4 +1263,9 @@ authors:
         name: 'Sonali Mendis'
         email: smendis@scottlogic.com
         author-summary: 'I am a senior developer from Scott Logic, Newcastle. I am a fullstack developer with experience in web, mobile, backend and cloud technologies. I have done a bit of everything and I am enthusiastic to share my knowledge with the rest of the world.'
+        picture: picture.jpg
+    aaltitude:
+        name: "Ashleigh at Altitude Foundation"
+        email: enquiries@altitudefoundation.org
+        author-summary: 'Ashleigh is a student who has been doing work experience at the <a href=\"https://altitudefoundation.org/\">Altitude Foundation</a>, a charity that enables young people with untapped potential to pursue their passion for technology, get their first job, and inspire others to do the same.'
         picture: picture.jpg
