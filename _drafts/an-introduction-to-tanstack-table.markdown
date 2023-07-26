@@ -5,7 +5,7 @@ summary: 'An introduction to the headless JavaScript datagrid library TanStack T
 author: jmacdonald
 ---
 
-There is no particular shortage of datagrid and table libraries for JavaScript projects. From powerful industry-standard solutions like [Ag Grid](https://www.ag-grid.com/), to the spreadsheet-like [Handsontable](https://handsontable.com/), to stylish components like [MUI's Table](https://mui.com/material-ui/react-table/).
+There is no particular shortage of datagrid and table libraries for JavaScript projects. From powerful enterprise solutions like [Ag Grid](https://www.ag-grid.com/), to the spreadsheet-like [Handsontable](https://handsontable.com/), to stylish components like [MUI's Table](https://mui.com/material-ui/react-table/).
 
 ## Why are there so many?
 
@@ -46,7 +46,7 @@ return (
 
 Ag Grid provides a grid **component** which we pass data and column definitions to. The same basic React example written with TanStack Table would look something like this:
 
-~~~ jsx
+~~~ tsx
 return (
     <table>
         <thead>
@@ -104,7 +104,7 @@ Of course, theoretically we could use any elements we like here as Tanstack Tabl
 
 The value of TanStack Table is that it provides functions and data structures we can use to render our own table components. Let's take a closer look at the row rendering:
 
-~~~ jsx
+~~~ tsx
 return (
     <tbody>
         {table.getRowModel().rows.map(row => (
@@ -151,37 +151,37 @@ Maybe! As previously mentioned, every table library represents some kind of comp
 
 In addition, with TanStack table there's often quite a bit more work which goes in to *actually implementing* a grid feature that it supports the use of. For instance, maybe you want to turn on per-column sorting that toggles between 'ascending', 'descending', and 'none' when the user clicks on a header? Well, in Ag Grid just make sure you've set `sortable` to `true` in your default column definition.
 
-Want to do the same thing in TanStack Table? Well, you might need to change the column definitions too, but then you need to actually implement this feature in your grid. So, for every header that's not a placeholder you'll want to toggle the sorting for that column when the user clicks the header. You'll then need to supply your own arrow icon that points up or down (or disappears entirely) depending on the sorting. Before you know it you've got something that looks like:
+Want to do the same thing in TanStack Table? Well, you might need to change the column definitions too, but then you need to actually implement this feature in your grid. So, for every header that's not a placeholder you'll want to toggle the sorting for that column when the user clicks the header. You'll then need to supply your own arrow icon that points up or down (or disappears entirely) depending on the sorting. Before you know it you've got a header that looks like:
 {% raw %}
-~~~ jsx
+~~~ tsx
 return (
     <thead>
         {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id}>
                 {headerGroup.headers.map(header => {
-                return (
-                    <th key={header.id} colSpan={header.colSpan}>
-                    {header.isPlaceholder ? null : (
-                        <div
-                        {...{
-                            className: header.column.getCanSort()
-                            ? 'cursor-pointer select-none'
-                            : '',
-                            onClick: header.column.getToggleSortingHandler(),
-                        }}
-                        >
-                        {flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                        )}
-                        {{
-                            asc: ' 🔼',
-                            desc: ' 🔽',
-                        }[header.column.getIsSorted() as string] ?? null}
-                        </div>
-                    )}
-                    </th>
-                )
+                    return (
+                        <th key={header.id} colSpan={header.colSpan}>
+                            {header.isPlaceholder ? null : (
+                                <div
+                                    {...{
+                                        className: header.column.getCanSort()
+                                            ? 'cursor-pointer select-none'
+                                            : '',
+                                        onClick: header.column.getToggleSortingHandler(),
+                                    }}
+                                >
+                                    {flexRender(
+                                        header.column.columnDef.header,
+                                        header.getContext()
+                                    )}
+                                    {{
+                                        asc: ' 🔼',
+                                        desc: ' 🔽',
+                                    }[header.column.getIsSorted() as string] ?? null}
+                                </div>
+                            )}
+                        </th>
+                    )
                 })}
             </tr>
         ))}
