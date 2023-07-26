@@ -35,44 +35,19 @@ So what makes it different from any of the other libraries I've mentioned? TanSt
 
 A headless table library is one which provides no components or markup whatsoever. To explain what that means, let's look at a basic Ag Grid example, written in React:
 
-\({% highlight jsx %},
-<AgGridReact
-rowData={rowData}
-columnDefs={columnDefs}>
-</AgGridReact>
-{% endhighlight %})
-
-\{% highlight jsx %},
-<AgGridReact
-rowData={rowData}
-columnDefs={columnDefs}>
-</AgGridReact>
-{% endhighlight %}
-
-{% highlight jsx %},
-<AgGridReact
-rowData={rowData}
-columnDefs={columnDefs}>
-</AgGridReact>
-{% endhighlight %}
-
-{% highlight jsx %}<AgGridReact
-rowData={rowData}
-columnDefs={columnDefs}>
-</AgGridReact>
-{% endhighlight %}
-
 ~~~ jsx
 return (
 <AgGridReact
-rowData={rowData}
-columnDefs={columnDefs}>
+  rowData={rowData}
+  columnDefs={columnDefs}>
 </AgGridReact>
 )
 ~~~
 
 Ag Grid provides a grid **component** which we pass data and column definitions to. The same basic React example written with TanStack Table would look something like this:
 
+~~~ jsx
+return (
     <table>
         <thead>
             {table.getHeaderGroups().map(headerGroup => (
@@ -118,6 +93,8 @@ Ag Grid provides a grid **component** which we pass data and column definitions 
             ))}
         </tfoot>
     </table>
+)
+~~~
 
 ## Hey, that's way more complicated!
 
@@ -127,6 +104,8 @@ Of course, theoretically we could use any elements we like here as Tanstack Tabl
 
 The value of TanStack Table is that it provides functions and data structures we can use to render our own table components. Let's take a closer look at the row rendering:
 
+~~~ jsx
+return (
     <tbody>
         {table.getRowModel().rows.map(row => (
             <tr key={row.id}>
@@ -138,19 +117,23 @@ The value of TanStack Table is that it provides functions and data structures we
             </tr>
         ))}
     </tbody>
+)
+~~~
 
 `table` is the Tanstack-provided representation of our table (we'll look at how this object is created later). All we're doing here is getting all the rows to be rendered by calling `getRowModel`, looping through them, and rendering a `<tr>` element for each row. Then, within each row, we're looping through all the cells which should be visible by calling `getVisibleCells`, and rendering them as `<td>` elements.
 
 Within each `<td>` you'll see that we're calling a function called `flexRender`. To explain how this works, we need to go back a step, to the creation of our column definitions:
 
-    const columns = [
-      columnHelper.accessor('firstName', {
-        cell: info => info.getValue(),
-      }),
-      columnHelper.accessor('lastName', {
-        cell: info => <MyCustomCell>{info.getValue()}</MyCustomCell>,
-      }),
-    ]
+~~~ tsx
+const columns = [
+  columnHelper.accessor('firstName', {
+    cell: info => info.getValue(),
+  }),
+  columnHelper.accessor('lastName', {
+    cell: info => <MyCustomCell>{info.getValue()}</MyCustomCell>,
+  }),
+]
+~~~
 
 The `columnHelper` here is just providing a typesafe way of creating column definitions based on the data model being used. The property on each column I want to focus on here is the **cell** property. You can see that TanStack allows us to pass a function that takes an `info` object. This object is basically just a set of props which can be used to inform how the cell should be rendered; for instance, the function `info.getValue` will return the cell's underlying value, and so the `firstName` cells will simply display the value of the `firstName` property of the row's data. The `lastName` column, on the other hand, provides a function that returns the value enclosed by our own React component `MyCustomCell`.
 
@@ -170,7 +153,8 @@ In addition, with TanStack table there's often quite a bit more work which goes 
 
 Want to do the same thing in TanStack Table? Well, you might need to change the column definitions too, but then you need to actually implement this feature in your grid. So, for every header that's not a placeholder you'll want to toggle the sorting for that column when the user clicks the header. You'll then need to supply your own arrow icon that points up or down (or disappears entirely) depending on the sorting. Before you know it you've got something that looks like:
 {% raw %}
-
+~~~ jsx
+return (
     <thead>
         {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id}>
@@ -202,7 +186,8 @@ Want to do the same thing in TanStack Table? Well, you might need to change the 
             </tr>
         ))}
     </thead>
-
+)
+~~~
 {% endraw %}
 TanStack Table does help you out a little here by giving you easy access to a sorting toggle callback via the `getToggleSortingHandler` function, but it's still significantly more long-winded than just changing a property in the column definition.
 
