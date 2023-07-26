@@ -18,6 +18,7 @@ summary: I was part of a Scott Logic team that developed and delivered a Proof o
   value and showed how GenAI could be reined in as part of a range of options to mitigate
   risk. In this post, I provide an overview of how it worked.
 author: shamiltonritchie
+image: "/uploads/How%20we%20de-risked%20an%20ai%20chatbot.png"
 ---
 
 After riding the initial wave of excitement about Generative AI’s business potential, enterprises have been becalmed by the risks. My colleague Oliver Cronk has set out [some of the principal risks in this blog post](https://blog.scottlogic.com/2023/05/04/generative-ai-solution-architecture.html).
