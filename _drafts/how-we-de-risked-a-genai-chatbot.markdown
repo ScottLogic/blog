@@ -66,7 +66,7 @@ The LLM is key to the natural feel of the customer interactions in numerous ways
 
 ## Building up knowledge about the customer
 
-While the Knowledge Graph interacts with the LLM to guide the conversation with the customer, it simultaneously builds up a graph of the customer’s analysed responses. This aggregate data helps to identify the customer with the most suitable profile, allowing best-fit products and services to be suggested; but that data can also be stored for future interactions with the customer, whether via chatbot or human advisor.
+While the Knowledge Graph interacts with the LLM to guide the conversation with the customer, it simultaneously builds up a graph of the customer’s analysed responses. This aggregate data helps to identify the most suitable profile for the customer, allowing best-fit products and services to be suggested; but that data can also be stored for future interactions with the customer, whether via chatbot or human advisor.
 
 In this way, the Knowledge Graph has the capacity to recall previous conversations with a customer and use the LLM to check whether that data is still current. For example, a customer may have shared information about their salary in a conversation several months ago; the Knowledge Graph can prompt the customer to check whether anything has changed since then.
 
