@@ -46,6 +46,7 @@ return (
     </AgGridReact>
 )
 ~~~
+[Working Example](https://codesandbox.io/s/ag-grid-react-hello-world-9pnf3n?file=/src/App.js)
 
 Ag Grid provides a grid **component** which we pass data and column definitions to. The same basic React example written with TanStack Table would look something like this:
 
@@ -98,6 +99,7 @@ return (
     </table>
 )
 ~~~
+[Working Example](https://tanstack.com/table/v8/docs/examples/react/basic)
 
 ## Hey, that's way more complicated!
 
@@ -192,6 +194,8 @@ return (
 )
 ~~~
 {% endraw %}
+[Working Example](https://tanstack.com/table/v8/docs/examples/react/sorting)
+
 TanStack Table does help you out a little here by giving you easy access to a sorting toggle callback via the `getToggleSortingHandler` function, but it's still significantly more long-winded than just changing a property in the column definition.
 
 Would this extra work be appropriate for your project? If you need absolute control over the styling and behaviour of the headers, then maybe. If not? Maybe try a different library.
