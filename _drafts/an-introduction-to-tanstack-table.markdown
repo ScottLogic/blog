@@ -35,13 +35,19 @@ So what makes it different from any of the other libraries I've mentioned? TanSt
 
 A headless table library is one which provides no components or markup whatsoever. To explain what that means, let's look at a basic Ag Grid example, written in React:
 
-Rogue (\~\~\~ jsx, \~\~\~)
 \({% highlight jsx %},
 <AgGridReact
 rowData={rowData}
 columnDefs={columnDefs}>
 </AgGridReact>
 {% endhighlight %})
+
+~~~ jsx
+<AgGridReact
+rowData={rowData}
+columnDefs={columnDefs}>
+</AgGridReact>
+~~~
 
 Ag Grid provides a grid **component** which we pass data and column definitions to. The same basic React example written with TanStack Table would look something like this:
 
