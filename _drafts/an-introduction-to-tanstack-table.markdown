@@ -56,18 +56,19 @@ columnDefs={columnDefs}>
 </AgGridReact>
 {% endhighlight %}
 
-{% highlight jsx %}
-<AgGridReact
+{% highlight jsx %}<AgGridReact
 rowData={rowData}
 columnDefs={columnDefs}>
 </AgGridReact>
 {% endhighlight %}
 
 ~~~ jsx
+return (
 <AgGridReact
 rowData={rowData}
 columnDefs={columnDefs}>
 </AgGridReact>
+)
 ~~~
 
 Ag Grid provides a grid **component** which we pass data and column definitions to. The same basic React example written with TanStack Table would look something like this:
