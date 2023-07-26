@@ -32,11 +32,11 @@ The client wished to test the hypothesis that a chatbot which combined a Large L
 
 Knowledge Graphs, to quote the [Alan Turing Institute](https://www.turing.ac.uk/research/interest-groups/knowledge-graphs), “organise data from multiple sources, capture information about entities of interest in a given domain or task (like people, places or events), and forge connections between them.”
 
-It was hypothesised that in combination with the Knowledge Graph, the LLM (e.g. ChatGPT) would enable the bot’s interactions with the user to flow like human conversation, with the capacity to jump from topic to topic, rather than following the linear flow of a traditional chatbot.
+It was hypothesised that in combination with the Knowledge Graph, the LLM (e.g. ChatGPT) would allow the bot’s interactions with the user to flow like human conversation, with the capacity to jump from topic to topic, rather than following the linear flow of a traditional chatbot.
 
 ### Anticipated business benefits
 
-The client’s hypothesis was not merely that the combination of Knowledge Graph and LLM could deliver more ‘natural’ customer interactions. It was also that this new model of chatbot could accrue knowledge and make connections across systems – with a whole range of customer and business benefits. 
+The client believed that this combination of Knowledge Graph and LLM had the potential to deliver a whole range of customer and business benefits.
 
 The ‘golden profile’ – a Holy Grail of customer relationship management – could be within reach. Given the amassed knowledge at the bot’s disposal, customers might no longer be passed from pillar to post between departments in carrying out their banking tasks. Fraud prevention could be enhanced by a bot that can identify unusual behaviour in customers and make rapid assessments based on a wide range of available data.
 
