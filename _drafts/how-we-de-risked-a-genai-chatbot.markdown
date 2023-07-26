@@ -1,6 +1,6 @@
 ---
 title: How we de-risked a GenAI chatbot
-date: 2023-07-21 16:27:00 Z
+date: 2023-07-26 10:00:00 Z
 categories:
 - Tech
 tags:

@@ -1,6 +1,6 @@
 ---
 title: 'Work Experience Takeover: What I learned about getting into a tech career'
-date: 2023-07-21 11:14:00 Z
+date: 2023-07-25 11:14:00 Z
 categories:
 - People
 tags:
@@ -10,7 +10,11 @@ tags:
 - internships
 - software engineering
 - software development
-author: pdykes
+summary: Ashleigh has been working alongside staff at Altitude Foundation for work
+  experience this year. While on work experience, the team at Altitude Foundation
+  tasked them with interviewing staff from Scott Logic to find out a bit about their
+  careers and how young people could find a path into the tech industry.
+author: aaltitude
 ---
 
 My name is Ashleigh and I’ve been working alongside staff at Altitude Foundation for my work experience this year. In school I’ve been studying Psychology, Design and Technology alongside Spanish and Geography. While on work experience, the team at Altitude Foundation has tasked me with interviewing staff from Scott Logic to find out a bit about their careers, how young people could find a path into the tech industry themselves and how they reached the point they did.
