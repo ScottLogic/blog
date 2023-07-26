@@ -1,7 +1,10 @@
 ---
 title: An Introduction to TanStack Table
 date: 2023-07-11 16:42:00 Z
-summary: 'An introduction to the headless JavaScript datagrid library TanStack Table. '
+summary: 'There are a plethora of datagrid and table solutions available for JavaScript
+  applications, but it can still be tough to find one that does exactly what you need.
+  In this post, I provide an introduction to an option you might not have considered:
+  using the table library that doesn''t actually provide a table at all.'
 author: jmacdonald
 ---
 
