@@ -1,6 +1,8 @@
 ---
 title: An Introduction to TanStack Table
-date: 2023-07-28 00:00:00 Z
+date: 2023-07-27 08:00:00 Z
+categories:
+- Tech
 summary: 'There are a plethora of datagrid and table solutions available for JavaScript
   applications, but it can still be tough to find one that does exactly what you need.
   In this post, I provide an introduction to an option you might not have considered:
