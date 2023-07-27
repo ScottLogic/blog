@@ -2004,7 +2004,7 @@
   - /2019/12/13/debunking-cloud-myths.html
 /2021/03/11/Digital-Identity.html:
   - /2017/09/05/scaling-agile-in-the-public-sector.html
-  - /2021/01/11/Open-Finance.html
+  - /2020/06/17/Open-Banking.html
 /2021/03/15/the-inside-track-how-established-talent-is-recruited-by-scott-logic.html:
   - /2018/12/21/joining-with-a-phd.html
   - /2019/08/19/working-hard-and-playing-hard-that-s-a-career-in-tech.html
@@ -2372,8 +2372,8 @@
   - /2023/05/31/rabbitmq-deep-dive-part-one.html
   - /2014/11/28/bramble-mvc.html
 /2023/06/01/generative-terminology.html:
-  - /2023/03/31/the-new-ai-platform.html
-  - /2020/08/24/energy-transition-q3.html
+  - /2018/03/13/tensorflow-machine-learning.html
+  - /2016/06/16/catch22-of-conversational-uis.html
 /2023/06/02/what-pride-and-allyship-mean-to-me.html:
   - /2021/06/03/pride-2021.html
   - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
@@ -2413,6 +2413,15 @@
 /2023/07/21/seven-things-i-wish-i-knew-when-i-started-as-a-software-developer.html:
   - /2018/11/09/7-reasons-i-love-open-source.html
   - /2021/03/15/the-inside-track-six-steps-to-graduate-programme-success.html
+/2023/07/25/work-experience-getting-into-a-tech-career.html:
+  - /2018/08/30/the-scott-logic-internship.html
+  - /2020/03/06/international-women-s-day-2020.html
+/2023/07/26/how-we-de-risked-a-genai-chatbot.html:
+  - /2016/05/18/make-banking-talk.html
+  - /2016/06/16/catch22-of-conversational-uis.html
+/2023/07/27/an-introduction-to-tanstack-table.html:
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+  - /2018/12/12/bridging-ui-libraries-for-decoupled-long-lived-widely-reusable-components.html
 /26/08/2014/StrongTypingWithAngularJS.html:
   - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
   - /2014/08/08/signalr-typed.html
