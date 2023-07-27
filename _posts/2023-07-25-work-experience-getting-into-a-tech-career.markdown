@@ -15,6 +15,7 @@ summary: Ashleigh has been working alongside staff at Altitude Foundation for wo
   tasked them with interviewing staff from Scott Logic to find out a bit about their
   careers and how young people could find a path into the tech industry.
 author: aaltitude
+image: "/uploads/what%20i%20learned%20about%20getting%20into%20a%20tech%20career.png"
 ---
 
 My name is Ashleigh and I’ve been working alongside staff at Altitude Foundation for my work experience this year. In school I’ve been studying Psychology, Design and Technology alongside Spanish and Geography. While on work experience, the team at Altitude Foundation has tasked me with interviewing staff from Scott Logic to find out a bit about their careers, how young people could find a path into the tech industry themselves and how they reached the point they did.
