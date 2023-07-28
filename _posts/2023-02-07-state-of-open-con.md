@@ -19,5 +19,5 @@ Most industries turn to open source for innovation and collaboration, however, t
 
 In this talk we’ll take a data-driven approach to highlight the needs of public sector organisations and explore potential opportunities. Finally, we’ll look at how this sector might be the key to solving OSS’ sustainability challenges for the long term.
 
-![state of opencon](/ceberhardty/assets/04-Could-the-Public-sector-solve-OSS-sustainability-challenges.png)
+![state of opencon](/ceberhardt/assets/04-Could-the-Public-sector-solve-OSS-sustainability-challenges.png)
 
