@@ -79,7 +79,7 @@ With all these new terms cropping up, I've found it very useful to create my own
 Thanks, Colin E.
  
  
-
+Visit our page on how to [Harness the potential of AI](https://www.scottlogic.com/harness-ai-business-potential) for more.
  
  
 
