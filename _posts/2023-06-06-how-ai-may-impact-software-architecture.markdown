@@ -94,3 +94,5 @@ It could also have an impact on who makes architectural decisions if suddenly De
 I’ll finish with a couple of questions I’d love to know the answer to, given my interest in personality theories and attributes: if AI tools enable software architecture to become more like prototyping, with AI support to integrate quickly, will it change the nature of the Software Architect role enough to draw in people with different personality characteristics that haven’t been so enticed into architecture previously? And how will that impact the profession and software development overall? 
 
 Watch this space; I certainly will.
+
+Visit our page on how to [Harness the potential of AI](https://www.scottlogic.com/harness-ai-business-potential) for more.
