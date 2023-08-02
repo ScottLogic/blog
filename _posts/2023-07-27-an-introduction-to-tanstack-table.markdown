@@ -8,7 +8,7 @@ summary: 'There are a plethora of datagrid and table solutions available for Jav
   In this post, I provide an introduction to an option you might not have considered:
   using the table library that doesn''t actually provide a table at all.'
 author: jmacdonald
-image: "/uploads/An%20intro%20to%20TanStack.png"
+image: "/uploads/An%20introduction%20for%20TanStack.png"
 ---
 
 There is no particular shortage of datagrid and table libraries for JavaScript projects. From powerful enterprise solutions like [Ag Grid](https://www.ag-grid.com/), to the spreadsheet-like [Handsontable](https://handsontable.com/), to stylish components like [MUI's Table](https://mui.com/material-ui/react-table/).
