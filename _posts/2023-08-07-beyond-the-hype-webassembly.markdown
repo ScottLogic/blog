@@ -1,6 +1,6 @@
 ---
 title: 'Beyond the Hype: WebAssembly – from the browser to beyond'
-date: 2023-08-07 21:06:00 Z
+date: 2023-08-07 09:11:00 Z
 categories:
 - Podcast
 tags:
@@ -29,7 +29,7 @@ We start by discussing the early days of WebAssembly, and where it all began, in
 
 Given the amount of activity happening in the WebAssembly/WASI/Component Model space, there are a few upcoming events you might be interested in:
 
-* [WasmCon](https://events.linuxfoundation.org/wasmcon/), 6-7 Sept
+* [WasmCon](https://events.linuxfoundation.org/wasmcon/), 6–7 Sept
 
 * [Componentize the World Hackathon](https://bytecodealliance.org/articles/announcing-componentize-the-world), 8 Sept
 
