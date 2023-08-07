@@ -1,6 +1,6 @@
 ---
 title: 'Beyond the Hype: WebAssembly – from the browser to beyond'
-date: 2023-08-07 00:01:00 Z
+date: 2023-08-04 00:01:00 Z
 categories:
 - Podcast
 tags:
