@@ -178,3 +178,7 @@ GenAI is making Architecture more exciting – most new applications have been f
 The bottom line is that you need to work with your risk, security, regulatory and/or legal stakeholders as early as possible – collaborate with them so they understand the unique characteristics of GenAI. Treat the associated non-functional requirements and quality attributes as first-class citizens. These are an area for innovation that generally gets overlooked but are vital for safe and successful enterprise adoption of groundbreaking ML models. And if you are looking for a friendly, pragmatic partner on GenAI R&D please do get in touch with [myself](mailto:oliver@scottlogic.com) or [Colin Eberhardt](mailto:colin@scottlogic.com)!
 
 As a final note – massive thanks to the [Architect Tomorrow community](https://www.youtube.com/watch?v=l-zHfUkVYzc) and the Scott Logic AI team who have helped pull this together.
+
+## Download our white paper
+
+I've recently written a white paper on de-risking generative AI in highly regulated environments – you can [download the white paper here](https://www.scottlogic.com/white-paper-de-risk-generative-ai). And you can visit our page on how to [Harness the potential of AI](https://www.scottlogic.com/harness-ai-business-potential) for more of our thinking in this area.
