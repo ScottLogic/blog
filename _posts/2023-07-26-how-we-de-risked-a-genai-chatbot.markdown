@@ -89,4 +89,4 @@ My colleague Oliver Cronk’s blog post on [GenAI solution architecture](https:/
 
 ## Find out more
 
-I hope you’ve found this overview of our PoC chatbot useful. We’ll be sharing more of our thinking in this area soon, including a white paper on de-risking generative AI in highly regulated environments. Visit our page on how to [Harness the potential of AI](https://www.scottlogic.com/harness-ai-business-potential) for more.
+I hope you’ve found this overview of our PoC chatbot useful. We’ve recently published a white paper on de-risking generative AI in highly regulated environments – you can [download the white paper here](https://www.scottlogic.com/white-paper-de-risk-generative-ai). And you can visit our page on how to [Harness the potential of AI](https://www.scottlogic.com/harness-ai-business-potential) for more of our thinking in this area.
