@@ -62,7 +62,7 @@ E.g. *“the quick brown fox s jet ski”* becomes *\[“the” , “quick”, �
 3. Remove the most common words (stop words)  
 E.g. *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*  becomes *\[“quick”, “brown”, “fox” , “jet”, “ski”\]*
 
-Now we’ve got the list of words in the search query and document we need to rank which of our document’s word match the search query. If we take each word from the search query and count the number of matching words in each document we can’t ensure the words we’ve marched are unique in the documents. If each document contains the words *\[“Scott”, “Logic”\]* then it doesn’t help our search to match on that because every document contains those words. We need a way of prioritising rare words in our collection of documents. One common formula for this is called TF-IDF.
+Now we’ve got the list of words in the search query and document, we need to rank which of our document’s words match the search query. If we take each word from the search query and count the number of matching words in each document we can’t ensure the words we’ve marched are unique in the documents. If each document contains the words *\[“Scott”, “Logic”\]* then it doesn’t help our search to match on that because every document contains those words. We need a way of prioritising rare words in our collection of documents. One common formula for this is called TF-IDF.
 
 ## TF-IDF
 
@@ -78,7 +78,9 @@ The Inverse Document Frequency measures the rarity of a word, the score is lower
 
 ![CodeCogsEqn (1).png](/uploads/CodeCogsEqn%20(1).png)
 
-For example, if you had three documents containing *\[“barbie”\]*, *\[“world”\]*, and *\[“barbie”\]*, then the search word *“barbie”* would give the following IDF scores. The document *\[“barbie”\]* would have an IDF of log(3/(2\+1))\+1=1  and the document *\[“world”\]* would have an IDF of log(3/(1\+1))\+1=1.2.
+For example, if you had three documents containing *\[“barbie”\]*, *\[“world”\]*, and *\[“barbie”\]*, then the search word *“barbie”* would give the following IDF scores. The document *\[“barbie”\]* would have an IDF of log(3/(2\+1))\+1=1  
+
+and the document *\[“world”\]* would have an IDF of log(3/(1\+1))\+1=1.2.
 
 To use the benefits of both measures we need to mathematically combine them into TF-IDF, this can be done by just multiplying the two measures together. Each document is given a TF-IDF score for each search word in a search query. As a result TF-IDF for a given word and document has a maximum of 1 which is a perfect match where a document only contains the search word and is only mentioned once in the dataset of documents, and a minimum of 0 where a word never appears in a given document, or a word appears in every document.
 
