@@ -74,7 +74,7 @@ The Term Frequency is the number of times a word appears in a single document di
 
 For example, If a document contained the text, *“I’m a Barbie Girl, In a Barbie World”* we would remove punctuation, and stop words giving us *\[“barbie”, “girl”, “barbie”, “world”\].* If we were then to take the Term Frequency it would be 0.25 for both *“girl”* and “*world”*, but 0.5 for *“barbie”* as it appears twice out of the four words.
 
-![CodeCogsEqn (3).png](/uploads/CodeCogsEqn%20(3).png)
+![CodeCogsEqn (3).png](/uploads/CodeCogsEqn%20(3).png "TF equals number of search words in the document divided by total number of words in the document")
 
 The Inverse Document Frequency measures the rarity of a word, the score is lower if a word appears in more documents. This achieves our goal of prioritising search words that appear in fewer documents. It is calculated by dividing; the number of all documents, by the number of documents the search word appears in, and then taking the log of that to scale it. We also add 1 in various places to give IDF a range from 0 to log(No. Documents)\+1.
 
@@ -166,4 +166,4 @@ The disadvantages is that the extra computation steps will cost more time and mo
 
 # Conclusion
 
-Now you have an overview of two implementations of search engines, and now you too can dominate the planet with your implementation! We are looking at creating a semantic search engine on an internal project, and therefore we will post a follow up blogpost explaining how we did this on AWS in the future. Thank you for reading, if any point you get lost in the article please do comment on here and I will aim to edit it to be more clear. Special thanks to Joe Carstairs for proof reading this document.
+Now you have an overview of two implementations of search engines, and now you too can dominate the planet with your implementation! We are looking at creating a semantic search engine on an internal project, and therefore we will post a follow up blogpost explaining how we did this on AWS in the future. Special thanks to Joe Carstairs for proof reading this document.
