@@ -2,14 +2,25 @@
 title: How to make your own Search Engine
 date: 2023-08-11 09:40:00 Z
 categories:
-- explination
-- overview
+- Tech
+- Data Engineering
+- Artificial Intelligence
 tags:
 - search engine
 - search
 - google
 - semantic search
 - lexical search
+- LLM
+- Grad Project
+- AI
+- Artificial Intelligence
+- Google
+- Machine Learning
+- Beginner
+- Algorithms
+- Technology
+- ''
 summary: Understand how search engines work with LLMs to gain insights into the semantic
   meaning of the language in your search.
 author: William Booth-Clibborn
@@ -35,14 +46,14 @@ Our main object in this is to match words in the search query with words in the 
 
 To recap we do this both to the documents when they’re created and to the search query when we receive it.
 
-1\. Remove punctuation and make text lowercase.\
+1. Remove punctuation and make text lowercase.\
 E.g. *“The quick brown fox’s Jet Ski”* becomes *“the quick brown fox s jet ski”*
 
-2\. Split sentence into words by turning the string into a list by splitting on spaces.\
-E.g. *“the quick brown fox s jet ski”* becomes\* \[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]\*
+2. Split sentence into words by turning the string into a list by splitting on spaces.\
+E.g. *“the quick brown fox s jet ski”* becomes *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*
 
-3\. Remove the most common words (stop words) \
-E.g. *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]* becomes *\[“quick”, “brown”, “fox” , “jet”, “ski”\]*
+3. Remove the most common words (stop words) \
+E.g. *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*  becomes *\[“quick”, “brown”, “fox” , “jet”, “ski”\]*
 
 Now we’ve got the list of words in the search query and document we need to rank which of our document’s word match the search query. If we take each word from the search query and count the number of matching words in each document we can’t ensure the words we’ve marched are unique in the documents. If each document contains the words *\[“Scott”, “Logic”\]* then it doesn’t help our search to match on that because every document contains those words. We need a way of prioritising rare words in our collection of documents. One common formula for this is called TF-IDF.
 
@@ -94,7 +105,7 @@ Now we understand what embeddings are, we next need to understand how to compare
 
 This image is a diagram of a 3D embedding vector. Q is our query embedding vector (search term), and D1, D2, D3 are document embedding vectors. The smaller the angle between a document and our query, the better the match. [Source](https://medium.com/analytics-vidhya/build-your-semantic-document-search-engine-with-tf-idf-and-google-use-c836bf5f27fb)
 
-Cosine similarity doesn’t give us the angle in degrees, but rather calculates the value of the cosine of the angle between the two vectors. The cosine similarity gives us a range from 0 to 1, where 1 is the best fit and has an angle of 0o between our document and search query. Embedding involves a tradeoff, to do more pre-processing and use more storage to speedup search at runtime. [\[JC(7\]](#_msocom_7)
+Cosine similarity doesn’t give us the angle in degrees, but rather calculates the value of the cosine of the angle between the two vectors. The cosine similarity gives us a range from 0 to 1, where 1 is the best fit and has an angle of 0o between our document and search query. Embedding involves a tradeoff, to do more pre-processing and use more storage to speedup search at runtime.
 
 For the mathematically familiar the formula is below, and you may recognise it as the vector dot product. Where, **θ** is the angle between the vectors, **D** is the document embedding vector, **Q** is the search query embedding vector. In words, the cosine of the angle between two vectors is equal to the dot product of the two vectors, divided by the product of both vectors magnitude (their Euclidian length).
 
@@ -106,24 +117,24 @@ In this article we’re not taking into account the distance between the two vec
 
 We need to do preprocessing on our documents to create their document embeddings ready for search. You can do this preprocessing each time a new document is created, or if your list of documents are static you can calculate the document embeddings all at once. If our documents are stored as a table, then the embedding vector can be stored as just another column.
 
-1\. **Embedding**\
+1. **Embedding**\
 We first embed the document's sentences. We do this by passing the text of our document into an LLM that creates the sentence embedding that represent the meaning of the text.
 
-2\. **Pooling**\
+2. **Pooling**\
 Documents contain several sentences, therefore the many sentence embeddings need to be summarised to describe the document as one vector. We can do this by taking the average of all sentence embeddings.
 
-3\. **Storage**\
+3. **Storage**\
 Save this single document embedding vector as a field in some database ready for when we want to search
 
 Now we’ve got the document embeddings ready for us to search through, we need to actually perform our search when a user submits a query.
 
-1\. **Embedding**\
+1. **Embedding**\
 We embed the search query by creating a sentence embedding that represents the query.
 
-2\. **Scoring**\
+2. **Scoring**\
 Each of the documents will have its text already mapped to a single document vector. We can then rank how close our query embedding vector is to the document embedding vector using Cosine Similarity.
 
-3\. **Ranking**\
+3. **Ranking**\
 We then take the cosine scores of our documents, and rank them from highest to lowest. This gives us our ranked list of documents in order of relevance to the search query, and completes our search engine.
 
 ## Semantic Search Example
@@ -145,7 +156,3 @@ The disadvantages is that the extra computation steps will cost more time and mo
 # Conclusion
 
 Now you have an overview of two implementations of search engines, and now you too can dominate the planet with your implementation! We are looking at creating a semantic search engine on an internal project, and therefore we will post a follow up blogpost explaining how we did this on AWS in the future. Thank you for reading, if any point you get lost in the article please do comment on here and I will aim to edit it to be more clear. Special thanks to Joe Carstairs for proof reading this document.
-
-Once we have a list of TF-IDF values of every document for every search word, then we can combine the documents scores of all search words. This is called Pooling and is how we summerise how good of a match a document is. A common method is just taking the average of all TF-IDF values which gives us the total score for a document compared to a search query.
-
-At this point all we need to do is sort the documents in order of highest TF-IDF score to lowest, and we’ve successfully made a basic search engine!
