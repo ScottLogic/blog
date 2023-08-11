@@ -82,11 +82,11 @@ The Inverse Document Frequency measures the rarity of a word, the score is lower
 
 For example, if you had three documents containing *\[“barbie”\]*, *\[“world”\]*, and *\[“barbie”\]*, then the search word *“barbie”* would give the following IDF scores. The document *\[“barbie”\]* would have an IDF of:
 
-![CodeCogsEqn (6).png](/uploads/CodeCogsEqn%20(6).png)
+![CodeCogsEqn (10).png](/uploads/CodeCogsEqn%20(10).png)
 
 and the document *\[“world”\]* would have an IDF of 
 
-![CodeCogsEqn (8).png](/uploads/CodeCogsEqn%20(8).png)
+![CodeCogsEqn (9).png](/uploads/CodeCogsEqn%20(9).png)
 
 To use the benefits of both measures we need to mathematically combine them into TF-IDF, this can be done by just multiplying the two measures together. Each document is given a TF-IDF score for each search word in a search query. As a result TF-IDF for a given word and document has a maximum of 1 which is a perfect match where a document only contains the search word and is only mentioned once in the dataset of documents, and a minimum of 0 where a word never appears in a given document, or a word appears in every document.
 
@@ -110,7 +110,7 @@ Vectors are lists of values, where the length of the list is the dimension of th
 
 Embeddings can contain different amounts of context; from sentence embedding which represents the meaning of a whole sentence, to word embeddings that represent the meaning of individual words independent of their context. In semantic search we want to take into account as much context as we can, therefore we will be using sentence embedding for this application. We can then combine several sentence embeddings . The sentence embedding vector contains many values, and each of these values represent the strength of a category that somehow represent the meaning of our sentence. This means the number of values in the vector are the number of categories it contains. The values represent the strength of that category in a range from 0 to 1, where 1 means our sentence is a perfect match for a certain category and 0 means the sentence doesn’t fit the category at all. These categories are decided by the LLM while it is being trained and aren’t obvious human categories, hence they can be tricky to interpret exactly, but an analogy would be categories like *positivity* or *isBangladeshiFood*.
 
-If our document or query contains many sentences we will get several sentence embeddings for each when we run our LLM’s encoding. We want the document and query to both be represented by just one embedding vector each; a document embedding vector and query embedding vector. To achieve this we need to summarise our many sentence embeddings, we can do this by average of each category of all sentence embeddings, to create a summary embedding. This is can work because the embedding vector is consistent when using the same LLM, same categories and same size of vector.
+If our document or query contains many sentences we will get several sentence embeddings for each when we run our LLM’s encoding. We want the document and query to both be represented by just one embedding vector each; a document embedding vector and a query embedding vector. To achieve this we need to summarise our many sentence embeddings, we can do this by taking the average for each category of all the sentence embeddings. This gives us a summary embedding. This is can work because the embedding vector is consistent when using the same LLM, it has the same categories, same size of vector.
 
 ## How do we use embeddings to rank documents?
 
@@ -122,7 +122,7 @@ The image above is a diagram of a 3D embedding vector. Q is our query embedding 
 
 Cosine similarity doesn’t give us the angle in degrees, but rather calculates the value of the cosine of the angle between the two vectors. The cosine similarity gives us a range from 0 to 1, where 1 is the best fit and has an angle of 0o between our document and search query. Embedding involves a tradeoff, to do more pre-processing and use more storage to speedup search at runtime.
 
-For the mathematically familiar the formula is below, and you may recognise it as the vector dot product. Where, θ is the angle between the vectors, **D** is the document embedding vector, **Q** is the search query embedding vector. In words, the cosine of the angle between two vectors is equal to the dot product of the two vectors, divided by the product of both vectors magnitude (their Euclidian length).
+For the mathematically familiar the formula is below, and you may recognise it as the vector dot product. Where, θ is the angle between the vectors, **D** is the document embedding vector, **Q** is the search query embedding vector. In words, the cosine of the angle between two vectors is equal to the dot product of the two vectors, divided by the product of both vectors magnitude \(their Euclidian length\).
 
 ![CodeCogsEqn (4).png](/uploads/CodeCogsEqn%20(4).png)
 
