@@ -21,9 +21,9 @@ tags:
 - Algorithms
 - Technology
 - ''
-summary: Understand how search engines work with LLMs to gain insights into the semantic
-  meaning of the language in your search.
-author: William Booth-Clibborn
+summary: Understand how search engines use LLMs to gain insights into the semantic
+  meaning of the language in search queries.
+author: wboothclibborn
 ---
 
 # Introduction
@@ -47,12 +47,15 @@ Our main object in this is to match words in the search query with words in the 
 To recap we do this both to the documents when they’re created and to the search query when we receive it.
 
 1. Remove punctuation and make text lowercase.
+
 E.g. *“The quick brown fox’s Jet Ski”* becomes *“the quick brown fox s jet ski”*
 
 2. Split sentence into words by turning the string into a list by splitting on spaces.
+
 E.g. *“the quick brown fox s jet ski”* becomes *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*
 
 3. Remove the most common words (stop words) 
+
 E.g. *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*  becomes *\[“quick”, “brown”, “fox” , “jet”, “ski”\]*
 
 Now we’ve got the list of words in the search query and document we need to rank which of our document’s word match the search query. If we take each word from the search query and count the number of matching words in each document we can’t ensure the words we’ve marched are unique in the documents. If each document contains the words *\[“Scott”, “Logic”\]* then it doesn’t help our search to match on that because every document contains those words. We need a way of prioritising rare words in our collection of documents. One common formula for this is called TF-IDF.
