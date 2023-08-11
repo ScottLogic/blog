@@ -49,7 +49,7 @@ This is a low tech solution for a document search (essentially a ctrl \+ f acros
 
 ## How do we implement the search?
 
-Our main object in this is to match words in the search query with words in the document. This means we need to make increase the chances as much as possible that words match. To do this we can remove the punctuation and make the text lowercase. We also want to make sure we only match words that are relevant, hence we can remove common words (called stop words) like *“the”*, *“said”*, etc. 
+Our main object in this is to match words in the search query with words in the document. This means we need to focus on increasing the chances that words match. To do this we can remove the punctuation and make the text lowercase. We also want to make sure we only match words that are relevant, hence we can remove common words (called stop words) like *“the”*, *“said”*, etc. 
 
 To recap we do this both to the documents when they’re created and to the search query when we receive it.
 
