@@ -35,7 +35,7 @@ summary: Understand how Google and other search engines use LLMs to gain insight
 author: wboothclibborn
 ---
 
-Google’s largest revenue source are its adverts which comprise 80% of its revenue. This relies on Google domination of the search engine market with Google Search enjoying a 92% market share. This is because Google search prioritises web pages that uses Google Ads, and the second largest search engine on the internet is Youtube which exclusively uses Google Ads. Therefore, Google has had a huge incentive for over two decades to become world experts in making the best search engines, but thanks to the billions sunk into LLMs and cloud you too can now create your own search engine to be (nearly) as good as Google.
+Google’s largest revenue source are its adverts which comprise [80% of its revenue](https://www.oberlo.com/statistics/how-does-google-make-money#:~:text=Google%20revenue%20breakdown%20(Q1%202023)&text=In%20Q1%202023%2C%20Google's%20revenue,at%20%246.7%20billion%20(9.6%25).). This relies on Google domination of the search engine market with Google Search enjoying a [92% market share](https://gs.statcounter.com/search-engine-market-share). This is because Google search prioritises web pages that uses Google Ads, and the [second largest search engine](https://www.tubics.com/blog/youtube-2nd-biggest-search-engine) on the internet is Youtube which exclusively uses Google Ads. Therefore, Google has had a huge incentive for over two decades to become world experts in making the best search engines, but thanks to the billions sunk into LLMs and cloud you too can now create your own search engine to be (nearly) as good as Google.
 
 In this article we will be discussing two methods that search engines use for ranking, Lexical Search (bag of words), and Semantic Search. If you’ve never heard of these, never used an LLM, and have limited programming knowledge, this article is for you.
 
@@ -154,7 +154,7 @@ Now we wanted to search through these documents with the two queries *“Barbie 
 
 Semantic search now can understand what documents and search queries means. This can account for spelling mistakes and users not being able to remember a given word. An added bonus is this improves the accessibility of your search engine, especially for dyslexics who have issues with word recall and spelling.
 
-The disadvantages is that the extra computation steps will cost more time and money. You need to architect this pipeline carefully to make sure it is quick and users don’t need to wait for their query to be executed. It is also far more complicated to implement manually, but AWS supports AWS OpenSearch if you wanted to build your own solution, and Amazon Kendra which is a fully implemented semantic search engine.
+The disadvantages is that the extra computation steps will cost more time and money. You need to architect this pipeline carefully to make sure it is quick and users don’t need to wait for their query to be executed. It is also far more complicated to implement manually, but AWS supports [AWS OpenSearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html) if you wanted to build your own solution, and [Amazon Kendra](https://aws.amazon.com/kendra/) which is a fully implemented semantic search engine.
 
 # Conclusion
 
