@@ -10,8 +10,9 @@ tags:
 - google
 - semantic search
 - lexical search
-summary: Understand how search engines work with two implementations; lexcal search
-  and semantic search.
+summary: Understand how search engines work with two implementations; lexical search
+  to find exact word matches and semantic search which uses LLMs to gain insights
+  into the meaning of the language of your search.
 author: William Booth-Clibborn
 ---
 
