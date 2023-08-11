@@ -29,8 +29,9 @@ tags:
 - encoding
 - TF-IDF
 - tokenization
-summary: Understand how search engines use LLMs to gain insights into the semantic
-  meaning of the language in search queries using embedding and .
+summary: Understand how Google and other search engines use LLMs to gain insights
+  into the semantic meaning of the language in search queries using embedding and
+  cosine similarity.
 author: wboothclibborn
 ---
 
@@ -52,16 +53,11 @@ Our main object in this is to match words in the search query with words in the 
 
 To recap we do this both to the documents when they’re created and to the search query when we receive it.
 
-1. Remove punctuation and make text lowercase.
-
+1. Remove punctuation and make text lowercase.  
 E.g. *“The quick brown fox’s Jet Ski”* becomes *“the quick brown fox s jet ski”*
-
-1. Split sentence into words by turning the string into a list by splitting on spaces.
-
+2. Split sentence into words by turning the string into a list by splitting on spaces.  
 E.g. *“the quick brown fox s jet ski”* becomes *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*
-
-1. Remove the most common words (stop words)
-
+3. Remove the most common words (stop words)  
 E.g. *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*  becomes *\[“quick”, “brown”, “fox” , “jet”, “ski”\]*
 
 Now we’ve got the list of words in the search query and document we need to rank which of our document’s word match the search query. If we take each word from the search query and count the number of matching words in each document we can’t ensure the words we’ve marched are unique in the documents. If each document contains the words *\[“Scott”, “Logic”\]* then it doesn’t help our search to match on that because every document contains those words. We need a way of prioritising rare words in our collection of documents. One common formula for this is called TF-IDF.
@@ -126,25 +122,23 @@ In this article we’re not taking into account the distance between the two vec
 
 We need to do preprocessing on our documents to create their document embeddings ready for search. You can do this preprocessing each time a new document is created, or if your list of documents are static you can calculate the document embeddings all at once. If our documents are stored as a table, then the embedding vector can be stored as just another column.
 
-1. **Embedding**
-   We first embed the document's sentences. We do this by passing the text of our document into an LLM that creates the sentence embedding that represent the meaning of the text.
+1. **Embedding**  
+We first embed the document's sentences. We do this by passing the text of our document into an LLM that creates the sentence embedding that represent the meaning of the text.
 
-2. **Pooling**
-   Documents contain several sentences, therefore the many sentence embeddings need to be summarised to describe the document as one vector. We can do this by taking the average of all sentence embeddings.
+2. **Pooling**  
+Documents contain several sentences, therefore the many sentence embeddings need to be summarised to describe the document as one vector. We can do this by taking the average of all sentence embeddings.
 
-3. **Storage**
-   Save this single document embedding vector as a field in some database ready for when we want to search
+3. **Storage**  
+Save this single document embedding vector as a field in some database ready for when we want to search
 
 Now we’ve got the document embeddings ready for us to search through, we need to actually perform our search when a user submits a query.
 
-1. **Embedding**
-   We embed the search query by creating a sentence embedding that represents the query.
-
-2. **Scoring**
-   Each of the documents will have its text already mapped to a single document vector. We can then rank how close our query embedding vector is to the document embedding vector using Cosine Similarity.
-
-3. **Ranking**
-   We then take the cosine scores of our documents, and rank them from highest to lowest. This gives us our ranked list of documents in order of relevance to the search query, and completes our search engine.
+1. **Embedding**  
+We embed the search query by creating a sentence embedding that represents the query.
+2. **Scoring**  
+Each of the documents will have its text already mapped to a single document vector. We can then rank how close our query embedding vector is to the document embedding vector using Cosine Similarity.
+3. **Ranking**  
+We then take the cosine scores of our documents, and rank them from highest to lowest. This gives us our ranked list of documents in order of relevance to the search query, and completes our search engine.
 
 ## Semantic Search Example
 
