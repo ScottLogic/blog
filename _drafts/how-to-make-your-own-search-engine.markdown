@@ -74,19 +74,19 @@ The Term Frequency is the number of times a word appears in a single document di
 
 For example, If a document contained the text, *“I’m a Barbie Girl, In a Barbie World”* we would remove punctuation, and stop words giving us *\[“barbie”, “girl”, “barbie”, “world”\].* If we were then to take the Term Frequency it would be 0.25 for both *“girl”* and “*world”*, but 0.5 for *“barbie”* as it appears twice out of the four words.
 
-![CodeCogsEqn (3).png](/uploads/CodeCogsEqn%20(3).png "TF equals number of search words in the document divided by total number of words in the document")
+![TF equals number of search words in the document divided by total number of words in the document](/uploads/CodeCogsEqn%20(3).png "Equation of TF")
 
 The Inverse Document Frequency measures the rarity of a word, the score is lower if a word appears in more documents. This achieves our goal of prioritising search words that appear in fewer documents. It is calculated by dividing; the number of all documents, by the number of documents the search word appears in, and then taking the log of that to scale it. We also add 1 in various places to give IDF a range from 0 to log(No. Documents)\+1.
 
-![CodeCogsEqn (1).png](/uploads/CodeCogsEqn%20(1).png "IDF = log base 10 of ((Total Number of documents)/(number of documents containing search word + 1) + 1")
+![IDF = log base 10 of ((Total Number of documents)/(number of documents containing search word + 1) + 1](/uploads/CodeCogsEqn%20(1).png "Equation of IDF")
 
 For example, if you had three documents containing *\[“barbie”\]*, *\[“world”\]*, and *\[“barbie”\]*, then the search word *“barbie”* would give the following IDF scores. The document *\[“barbie”\]* would have an IDF of:
 
-![CodeCogsEqn (10).png](/uploads/CodeCogsEqn%20(10).png "log base 10 of ((3)/(2+1)+1=1")
+![log base 10 of ((3)/(2+1)+1=1](/uploads/CodeCogsEqn%20(10).png "Working out of IDF of [\'barbie\'] document")
 
 and the document *\[“world”\]* would have an IDF of 
 
-![CodeCogsEqn (9).png](/uploads/CodeCogsEqn%20(9).png "log base 10 of ((3)/(1+1)+1=1.17...")
+![log base 10 of ((3)/(1+1)+1=1.17...](/uploads/CodeCogsEqn%20(9).png "Working out of IDF of [\'world\'] document")
 
 To use the benefits of both measures we need to mathematically combine them into TF-IDF, this can be done by just multiplying the two measures together. Each document is given a TF-IDF score for each search word in a search query. As a result TF-IDF for a given word and document has a maximum of 1 which is a perfect match where a document only contains the search word and is only mentioned once in the dataset of documents, and a minimum of 0 where a word never appears in a given document, or a word appears in every document.
 
@@ -116,7 +116,7 @@ If our document or query contains many sentences we will get several sentence em
 
 Now we understand what embeddings are, we next need to understand how to compare our document embedding and query embedding vectors. One advantage of embeddings being vectors is that they can be interpreted as being lines in space. Text with similar embedding values should contain similar topics and represent similar things, and therefore they should be in a similar place in our embedding vector space. We can use this for our search, where the closer our query embedding vector is to a document embedding vector in space, the better the match. The best match between a document and a query will have the same values in each category in the document embedding and query embedding respectively. One method to find the similarity between two embedding vectors is by finding how small the angle is between the two vectors, using a formula called cosine similarity.
 
-![download (2).png](/uploads/download%20(2).png "3D Diagram of 3 document vectors and a query vector on the same coordinates, with an angle labled as theta between the vector Q and D3")
+![3D Diagram of 3 document vectors and a query vector on the same coordinates, with an angle labeled as theta between the vector Q and D3](/uploads/download%20(2).png "Diagram of 3D embedding vector, with three document vectors labeled D and one query vector labeled Q. There is an angle labeled theta drawn between D3 and Q demonstrating cosine similarity")
 
 The image above is a diagram of a 3D embedding vector. Q is our query embedding vector (search term), and D1, D2, D3 are document embedding vectors. The smaller the angle between a document and our query, the better the match. [Source](https://medium.com/analytics-vidhya/build-your-semantic-document-search-engine-with-tf-idf-and-google-use-c836bf5f27fb)
 
@@ -124,7 +124,7 @@ Cosine similarity doesn’t give us the angle in degrees, but rather calculates 
 
 For the mathematically familiar the formula is below, and you may recognise it as the vector dot product. Where, θ is the angle between the vectors, **D** is the document embedding vector, **Q** is the search query embedding vector. In words, the cosine of the angle between two vectors is equal to the dot product of the two vectors, divided by the product of both vectors magnitude \(their Euclidian length\).
 
-![CodeCogsEqn (4).png](/uploads/CodeCogsEqn%20(4).png "Cosine similarity = cos(theta) = (vector D dot vector Q)/(magnitude of vector D multiplied by magnitude of vector Q)")
+![Cosine similarity = cos(theta) = (vector D dot vector Q)/(magnitude of vector D multiplied by magnitude of vector Q)](/uploads/CodeCogsEqn%20(4).png "Equation for cosine similarity")
 
 In this article we’re not taking into account the distance between the two vectors to try and keep complexity low. It is worth noting the best way of finding similarity between embedding vectors is the [FAISS measure](https://engineering.fb.com/2017/03/29/data-infrastructure/faiss-a-library-for-efficient-similarity-search/) from Facebook.
 
@@ -152,11 +152,11 @@ We then take the cosine scores of our documents, and rank them from highest to l
 
 Say we have a list of two documents: *\[“Come on Barbie let’s go party”\]* and *\[“Barbie on the beach”\]*. These two sentences both include the word *“Barbie”*, but use it in two different ways. In our example we use a sentence embedding with just 3 categories, this gives us a 3D embedding vector. It is worth noting as we only have one sentence in each document we don’t need to do any pooling, there was multiple sentences then our next step would be pooling these sentence embeddings into a document embedding. Our three categories are *isAboutBarbieDoll*, *isAboutBBQ* and *isAGoodTime*. In the image below we can see a value for each category in the embedding that our LLM has decided.
 
-![download (3).png](/uploads/download%20(3).png "Table of Documents. The table's headdings are: document number, main body of document, and categories which has three subheadings isAboutBarbieDoll, isAboutBBQ, and isAGoodTime. The table's entries are: [#1, Come on barbie let's go party, 0.7, 0.2, 0.8], [#1, Barbie on the beach, 0.15, 0.9, 0.85]")
+![Table of Documents. The table's headdings are: document number, main body of document, and categories which has three subheadings isAboutBarbieDoll, isAboutBBQ, and isAGoodTime. The table's entries are: [#1, Come on barbie let's go party, 0.7, 0.2, 0.8], [#1, Barbie on the beach, 0.15, 0.9, 0.85]](/uploads/download%20(3).png "Table of two documents with example embedding values")
 
 Now we wanted to search through these documents with the two queries *“Barbie dolls”* and *“BBQ location”*. We start by calculating the embeddings for these search queries. We then compare the embedding of the search query against the embeddings for each of the documents. This is the Score and is calculated using cosine similarity score (0 to 1 where 1 is best match). Finally our semantic search engine now ranked these documents based off the search query used to find them.
 
-![download (4).png](/uploads/download%20(4).png "Table of search queries. The table headings are: [Search Query, Categories with subheaddings isAboutBarbieDoll, isAboutBBQ, and isAGoodTime, Score with subheadings #1 and #2, and Ranking]. THe table had entries of:[Barbie dolls, 0.95, 0.3, 0.7, 0.98, 0.61, No. 1, No. 2], [BBQ location, 0.05, 0.95, 0.8, 0.64, 0.99, No.2, No.1]")
+![Table of search queries. The table headings are: [Search Query, Categories with subheaddings isAboutBarbieDoll, isAboutBBQ, and isAGoodTime, Score with subheadings #1 and #2, and Ranking]. THe table had entries of:[Barbie dolls, 0.95, 0.3, 0.7, 0.98, 0.61, No. 1, No. 2], [BBQ location, 0.05, 0.95, 0.8, 0.64, 0.99, No.2, No.1]](/uploads/download%20(4).png "Table of two search queries with example embedding values and cosine similarity scores")
 
 ## Trade-offs
 
