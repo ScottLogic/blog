@@ -62,7 +62,9 @@ E.g. *“the quick brown fox s jet ski”* becomes *\[“the” , “quick”, �
 3. Remove the most common words (stop words)  
 E.g. *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*  becomes *\[“quick”, “brown”, “fox” , “jet”, “ski”\]*
 
-Now we’ve got the list of words in the search query and document, we need to rank which of our document’s words match the search query. If we take each word from the search query and count the number of matching words in each document we can’t ensure the words we’ve marched are unique in the documents. If each document contains the words *\[“Scott”, “Logic”\]* then it doesn’t help our search to match on that because every document contains those words. We need a way of prioritising rare words in our collection of documents. One common formula for this is called TF-IDF.
+We've formatted a list of words of the search query and document now, we need to rank which of our document’s words match the search query. If every document contains the words *\[“Scott”, “Logic”\]* somewhere, then it doesn’t help our user if our search engine matches them because every document contains those words. If we take each word from the search query and count the number of matching words in each document we can’t ensure the words we’ve marched are unique in the documents
+
+ We need a way of prioritising rare words in our collection of documents. One common formula for this is called TF-IDF.
 
 ## TF-IDF
 
@@ -78,7 +80,7 @@ The Inverse Document Frequency measures the rarity of a word, the score is lower
 
 ![CodeCogsEqn (1).png](/uploads/CodeCogsEqn%20(1).png)
 
-For example, if you had three documents containing *\[“barbie”\]*, *\[“world”\]*, and *\[“barbie”\]*, then the search word *“barbie”* would give the following IDF scores. The document *\[“barbie”\]* would have an IDF of log(3/(2\+1))\+1=1  
+For example, if you had three documents containing *\[“barbie”\]*, *\[“world”\]*, and *\[“barbie”\]*, then the search word *“barbie”* would give the following IDF scores. The document *\[“barbie”\]* would have an IDF of:
 
 and the document *\[“world”\]* would have an IDF of log(3/(1\+1))\+1=1.2.
 
