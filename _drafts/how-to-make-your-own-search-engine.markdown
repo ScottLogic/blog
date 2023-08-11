@@ -166,4 +166,4 @@ The disadvantages is that the extra computation steps will cost more time and mo
 
 # Conclusion
 
-Now you have an overview of two implementations of search engines, and now you too can dominate the planet with your implementation! We are looking at creating a semantic search engine on an internal project, and therefore we will post a follow up blogpost explaining how we did this on AWS in the future. Special thanks to Joe Carstairs for proof reading this document.
+Now you have an overview of two implementations of search engines, and now you too can take over the world with your implementation! We are looking at creating a semantic search engine on an internal project, and therefore we will post a follow up blogpost explaining how we did this on AWS in the future. Special thanks to Joe Carstairs and James Strachen for proof reading this document.
