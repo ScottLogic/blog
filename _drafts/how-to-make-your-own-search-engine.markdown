@@ -76,13 +76,17 @@ For example, If a document contained the text, *“I’m a Barbie Girl, In a Bar
 
 ![CodeCogsEqn (3).png](/uploads/CodeCogsEqn%20(3).png)
 
-The Inverse Document Frequency measures the rarity of a word, the score is lower if a word appears in more documents. This achieves our goal of prioritising search words that appear in fewer documents. It is calculated by dividing; the number of all documents, by the number of documents the search word appears in, and then taking the log of that to scale it. We also add 1 in various places to give idf a range from 0 to log(No. Documents)\+1.
+The Inverse Document Frequency measures the rarity of a word, the score is lower if a word appears in more documents. This achieves our goal of prioritising search words that appear in fewer documents. It is calculated by dividing; the number of all documents, by the number of documents the search word appears in, and then taking the log of that to scale it. We also add 1 in various places to give IDF a range from 0 to log(No. Documents)\+1.
 
 ![CodeCogsEqn (1).png](/uploads/CodeCogsEqn%20(1).png)
 
 For example, if you had three documents containing *\[“barbie”\]*, *\[“world”\]*, and *\[“barbie”\]*, then the search word *“barbie”* would give the following IDF scores. The document *\[“barbie”\]* would have an IDF of:
 
-and the document *\[“world”\]* would have an IDF of log(3/(1\+1))\+1=1.2.
+![CodeCogsEqn (6).png](/uploads/CodeCogsEqn%20(6).png)
+
+and the document *\[“world”\]* would have an IDF of 
+
+![CodeCogsEqn (8).png](/uploads/CodeCogsEqn%20(8).png)
 
 To use the benefits of both measures we need to mathematically combine them into TF-IDF, this can be done by just multiplying the two measures together. Each document is given a TF-IDF score for each search word in a search query. As a result TF-IDF for a given word and document has a maximum of 1 which is a perfect match where a document only contains the search word and is only mentioned once in the dataset of documents, and a minimum of 0 where a word never appears in a given document, or a word appears in every document.
 
