@@ -1,5 +1,5 @@
 ---
-title: How to make your own Search Engine
+title: How to Make Your Own Search Engine
 date: 2023-08-11 09:40:00 Z
 categories:
 - Tech
@@ -21,12 +21,18 @@ tags:
 - Algorithms
 - Technology
 - ''
+- Tech
+- cosine similarity
+- FAISS
+- vector
+- embedding
+- encoding
+- TF-IDF
+- tokenization
 summary: Understand how search engines use LLMs to gain insights into the semantic
   meaning of the language in search queries.
 author: wboothclibborn
 ---
-
-# Introduction
 
 Google’s largest revenue source are its adverts which comprise 80% of its revenue. This relies on Google domination of the search engine market with Google Search enjoying a 92% market share. This is because Google search prioritises web pages that uses Google Ads, and the second largest search engine on the internet is Youtube which exclusively uses Google Ads. Therefore, Google has had a huge incentive for over two decades to become world experts in making the best search engines, but thanks to the billions sunk into LLMs and cloud you too can now create your own search engine to be (nearly) as good as Google.
 
