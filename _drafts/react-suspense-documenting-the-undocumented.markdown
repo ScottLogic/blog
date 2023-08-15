@@ -4,11 +4,13 @@ date: 2023-08-15 13:18:00 Z
 categories:
 - UI
 - jbickley-wallace
-- Front End Development
+- React
 tags:
 - suspense
 - react
 - Javascript
+- guides
+- how-to
 summary: I have long anted to explore the much heralded Suspense features of react,
   but have been frustrated by the lack of documentation about making it actually happen.
   In this post I dig into an example to find out how it actually works, and how we
@@ -47,7 +49,7 @@ But while Suspense is now "Stable" and "Production Ready" it is _still_ only rec
 [data fetching frameworks](https://react.dev/blog/2022/03/29/react-v18#suspense-in-data-frameworks).
 And the docs _still_ don't describe how to it works; only how to use things like `Suspense` and `useTransition`.
 
-They tantalise by talking about what happens when a component "Suspends" or "while a component is loading", but not how one actually does suspend.
+They tantalise by talking about what happens when a component "Suspends" or "while a component is loading", but not how to actually make a component suspend.
 
 Come on!
 
