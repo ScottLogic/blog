@@ -101,6 +101,7 @@ active-authors:
   - slinsley
   - smartin
   - smendis-scottlogic
+  - snandal
   - ssibanda
   - swoods
   - tclarke-scottlogic
@@ -699,6 +700,10 @@ authors:
     name: Stephen Linsley
     picture: picture.jpg
     author-summary: '<p>Marketing Channels Coordinator at Scott Logic, with a background in SaaS marketing.</p>'
+  snandal:
+    name: 'Shikha Nandal'
+    picture: picture.jpg
+    author-summary: 'Senior Test Engineer at Scott Logic'
   sobrien:
     name: "Siobhan O'Brien"
     author-summary: 'UX Designer'
