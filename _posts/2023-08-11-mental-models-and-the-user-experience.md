@@ -8,7 +8,7 @@ summary: We all have a unique view of the world around us. It's important for de
   to consider the impact of mental models on the overall user experience. Let's take
   a deeper look into how mental models play a role in design.
 author: drees
-image: "/uploads/Mental%20Models%20TN.png"
+image: "/uploads/Mental%20Models%20Thumbnail.png"
 layout: default_post
 ---
 
