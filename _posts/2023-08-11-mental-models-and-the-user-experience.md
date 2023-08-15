@@ -12,8 +12,6 @@ image: "/uploads/Mental%20Models%20Thumbnail.png"
 layout: default_post
 ---
 
-# Mental Models and the User Experience
-
 ![A piano, or a box with black and white keys.]({{site.github.url}}/drees/assets/piano.jpg 'What do you see')
 
 > I look at a piano, I see a bunch of keys, three pedals, and a box of wood. But Beethoven, Mozart, they saw it, they could just play. I couldn't paint you a picture, I probably can't hit the ball out of Fenway, and I can't play the piano. - Good Will Hunting, 1997
