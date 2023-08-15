@@ -24,10 +24,10 @@ That difference between the waterfall approach to loading data and loading data 
 The slow down that causes was something we'd experienced in the application I was working on at the time.
 And I remember thinking about a banking app I use which put, I kid you not, 4 _different_ spinners up for ~200ms each while it loaded,
 and the sense of mistrust that I felt when I experienced that.
-I immediately started to build delays in to my loading spinners to reduce "flicker" and improve the feel of my applications,
-and eagerly awaited the arrival of the Suspense API in production ready state.
-It was experimental in react 16, The only thing it was actually supported for was `Lazy` components,
-and I never like using experimental API's in production.
+I immediately started to build delays in to my loading spinners to reduce "flicker" and improve the feel of my applications.
+Suspense though was experimental in react 16; the only thing that it was supported with was `Lazy` components,
+and I never like using experimental API's in production
+so I eagerly awaited the arrival of a stable API.
 
 But that day never arrived, and there was a little note at the beginning of that post which always niggled...
 
@@ -45,9 +45,9 @@ really [interesting](https://react.dev/blog/2022/03/29/react-v18#new-feature-tra
 
 But while Suspense is now "Stable" and "Production Ready" it is _still_ only recommended for use in
 [data fetching frameworks](https://react.dev/blog/2022/03/29/react-v18#suspense-in-data-frameworks).
-And the docs still don't describe how to make suspense work, only how to make use of it with things like `Suspense` and `useTransition`.
+And the docs _still_ don't describe how to it works; only how to use things like `Suspense` and `useTransition`.
 
-They talk about what happens when a component "Suspends" or "while a component is loading", but not how one actually does suspend.
+They tantalise by talking about what happens when a component "Suspends" or "while a component is loading", but not how one actually does suspend.
 
 Come on!
 
