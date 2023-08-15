@@ -39,15 +39,15 @@ Google’s largest revenue source are its adverts which comprise [80% of its rev
 
 In this article we will be discussing two methods that search engines use for ranking, Lexical Search (bag of words), and Semantic Search. If you’ve never heard of these, never used an LLM, or have limited programming knowledge, this article is for you.
 
-# What are search Engines?
+## What are search Engines?
 
 Search engines that search through websites on the internet are an example of a more general concept called a document search engine. In this context, a document is some structured data, containing a large piece of text (e.g. Websites, books, song lyrics, etc) and metadata (e.g. author, date written, date uploaded) attached to it. Document search engines are software systems that rank these documents based of their relevance to a search query. Document search engines have access to a dataset of these documents that need to be ranked, and performs a search whenever it receives a search query. In Google Search our documents are web pages, and the search query is the text we type into Google. The software system in a document search engine ranks documents by how close documents are to a search query, the two methods discussed in this blog post are designed to do this. One solution could be matching words in the search query to words in the document. This is called Lexical Search and is our first search method.
 
-# Lexical Search
+## Lexical Search
 
 This is a low tech solution for a document search (essentially a ctrl \+ f across all your documents). It’s a word search that matches individual words in the search query with individual words in the document.
 
-## How do we implement the search?
+### How do we implement the search?
 
 Our main object in this is to match words in the search query with words in the document. This means we need to focus on increasing the chances that words match. To do this we can remove the punctuation and make the text lowercase. We also want to make sure we only match words that are relevant, hence we can remove common words (called stop words) like *“the”*, *“said”*, etc. 
 
@@ -66,7 +66,7 @@ We've formatted a list of words of the search query and document now, we need to
 
  We need a way of prioritising rare words in our collection of documents. One common formula for this is called TF-IDF.
 
-## TF-IDF
+### TF-IDF
 
 This is a method of measuring how important a search word is in a collection of documents. It includes two measures; Term Frequency (TF) and Inverse Document Frequency (IDF). The higher the value of TF-IDF the better match a document is to a search word.
 
@@ -94,15 +94,15 @@ Once we have a list of TF-IDF values of every document for every search word, th
 
 At this point all we need to do is sort the documents in order of highest TF-IDF score to lowest, and we’ve successfully made a basic search engine!
 
-## Limitations of this method
+### Limitations of this method
 
 This methodology is a great first step to understand how a simple document search engine could work, though it does have limitations. One thing is that spelling mistakes aren’t accounted for and our model does not understand the different ways the user may use language. For example, if someone’s search query was “barbie doll” (split into separatee topics of “barbie” and “doll”), our search engine would show them several topics with the same name; barbie the move, barbie the Australian BBQs, and rag dolls in video games. The problem here is our search engine doesn’t know anything about context, how language is used, and multiple meanings of words. We need a method that understands language. For this, we need an LLM in Semantic Search.
 
-# Semantic Search
+## Semantic Search
 
 Semantic search doesn’t exactly match words but instead finds similar meaning between the text. This requires us to have a more sophisticated understanding of text, rather than just being a list of words, instead we need a method that has understanding of language and the context of how it is used. One popular computational method that can understand language is Large Language Models (LLMs). We use LLMs in a technique called sentence embedding, that creates a vector that represents the strength of certain language categories. Some of these concepts may be new to you, so let’s explain the last few sentences.
 
-## LLMs and Embeddings
+### LLMs and Embeddings
 
 Large Language Models (LLMs) are machine learning models that have been trained on huge quantities of text data to do a number of specialised tasks. One of these tasks could be anticipating what the next word in a sentence is, which you may have seen as autocomplete, another task could be a conversational chatbot like ChatGPT. LLMs don’t think like humans, so need to convert the text they read into some computer friendly format. This computer friendly format is called embedding which is a way for a computer to represent what text means using a vector.
 
@@ -112,7 +112,7 @@ Embeddings can contain different amounts of context; from sentence embedding whi
 
 If our document or query contains many sentences we will get several sentence embeddings for each when we run our LLM’s encoding. We want the document and query to both be represented by just one embedding vector each; a document embedding vector and a query embedding vector. To achieve this we need to summarise our many sentence embeddings, we can do this by taking the average for each category of all the sentence embeddings. This gives us a summary embedding. This is can work because the embedding vector is consistent when using the same LLM, it has the same categories, same size of vector.
 
-## How do we use embeddings to rank documents?
+### How do we use embeddings to rank documents?
 
 Now we understand what embeddings are, we next need to understand how to compare our document embedding and query embedding vectors. One advantage of embeddings being vectors is that they can be interpreted as being lines in space. Text with similar embedding values should contain similar topics and represent similar things, and therefore they should be in a similar place in our embedding vector space. We can use this for our search, where the closer our query embedding vector is to a document embedding vector in space, the better the match. The best match between a document and a query will have the same values in each category in the document embedding and query embedding respectively. One method to find the similarity between two embedding vectors is by finding how small the angle is between the two vectors, using a formula called cosine similarity.
 
@@ -128,7 +128,7 @@ For the mathematically familiar the formula is below, and you may recognise it a
 
 In this article we’re not taking into account the distance between the two vectors to try and keep complexity low. It is worth noting the best way of finding similarity between embedding vectors is the [FAISS measure](https://engineering.fb.com/2017/03/29/data-infrastructure/faiss-a-library-for-efficient-similarity-search/) from Facebook.
 
-## The stages of semantic search in summary
+### The stages of semantic search in summary
 
 We need to do preprocessing on our documents to create their document embeddings ready for search. You can do this preprocessing each time a new document is created, or if your list of documents are static you can calculate the document embeddings all at once. If our documents are stored as a table, then the embedding vector can be stored as just another column.
 
@@ -148,7 +148,7 @@ Each of the documents will have its text already mapped to a single document vec
 3. **Ranking**  
 We then take the cosine scores of our documents, and rank them from highest to lowest. This gives us our ranked list of documents in order of relevance to the search query, and completes our search engine.
 
-## Semantic Search Example
+### Semantic Search Example
 
 Say we have a list of two documents: *\[“Come on Barbie let’s go party”\]* and *\[“Barbie on the beach”\]*. These two sentences both include the word *“Barbie”*, but use it in two different ways. In our example we use a sentence embedding with just 3 categories, this gives us a 3D embedding vector. It is worth noting as we only have one sentence in each document we don’t need to do any pooling, there was multiple sentences then our next step would be pooling these sentence embeddings into a document embedding. Our three categories are *isAboutBarbieDoll*, *isAboutBBQ* and *isAGoodTime*. In the image below we can see a value for each category in the embedding that our LLM has decided.
 
@@ -158,12 +158,12 @@ Now we wanted to search through these documents with the two queries *“Barbie 
 
 ![Table of search queries. The table headings are: [Search Query, Categories with subheaddings isAboutBarbieDoll, isAboutBBQ, and isAGoodTime, Score with subheadings #1 and #2, and Ranking]. THe table had entries of:[Barbie dolls, 0.95, 0.3, 0.7, 0.98, 0.61, No. 1, No. 2], [BBQ location, 0.05, 0.95, 0.8, 0.64, 0.99, No.2, No.1]](/uploads/download%20(4).png "Table of two search queries with example embedding values and cosine similarity scores")
 
-## Trade-offs
+### Trade-offs
 
 Semantic search now can understand what documents and search queries means. This can account for spelling mistakes and users not being able to remember a given word. An added bonus is this improves the accessibility of your search engine, especially for dyslexics who have issues with word recall and spelling.
 
 The disadvantages is that the extra computation steps will cost more time and money. You need to architect this pipeline carefully to make sure it is quick and users don’t need to wait for their query to be executed. It is also far more complicated to implement manually, but AWS supports [AWS OpenSearch](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/what-is.html) if you wanted to build your own solution, and [Amazon Kendra](https://aws.amazon.com/kendra/) which is a fully implemented semantic search engine.
 
-# Conclusion
+## Conclusion
 
 Now you have an overview of two implementations of search engines, and now you too can take over the world with your implementation! We are looking at creating a semantic search engine on an internal project, and therefore we will post a follow up blogpost explaining how we did this on AWS in the future. Special thanks to Joe Carstairs and James Strachan for proof reading this document.
