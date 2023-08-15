@@ -75,7 +75,7 @@ from
 looked promising, showing all the key features we're interested in and is really simple.
 It displays a button, which you can click to (fake) fetch, then display album data for a niche 60's pop band.
 
-![The beatles](./the-beatles.gif)
+![the-beatles.gif](/uploads/the-beatles.gif)
 
 It's simple enough that we can see all the moving parts, and they haven't used a library... so...
 
