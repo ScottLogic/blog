@@ -1,14 +1,20 @@
 ---
 title: 'React Suspense: Documenting the Undocumented'
 date: 2023-08-15 13:18:00 Z
+categories:
+- UI
+- jbickley-wallace
+- Front End Development
+tags:
+- suspense
+- react
+- Javascript
 summary: I have long anted to explore the much heralded Suspense features of react,
   but have been frustrated by the lack of documentation about making it actually happen.
   In this post I dig into an example to find out how it actually works, and how we
   can make use of it.
 author: jbickley-wallace
 ---
-
-# React Suspense: Documenting the Undocumented
 
 For a while I've wanted to explore Suspense.
 I read a react blog post way back in 2019 about
@@ -57,7 +63,7 @@ Let's see if I can sneak you in with my backstage pass, shall we?
 Well... the answer to that question is a component.
 [`Suspense`](https://react.dev/reference/react/Suspense)
 is well documented, it "lets you display a fallback until its children have finished loading".
-"Loading" is doing a ot of work there - what does it mean to be loading?
+"Loading" is doing a lot of work there - what does it mean to be loading?
 Further down the page it talks about how a "component suspends while fetching [data]".
 
 But still no mention of actually how to make a component suspend.
