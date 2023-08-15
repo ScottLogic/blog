@@ -22,11 +22,7 @@ For a while I've wanted to explore Suspense.
 I read a react blog post way back in 2019 about
 [building great UX with React Suspense](https://legacy.reactjs.org/blog/2019/11/06/building-great-user-experiences-with-concurrent-mode-and-suspense.html).
 I remember it giving me a real aha moment.
-That difference between the waterfall approach to loading data and loading data as you render cycle sounded nothing short of miraculous.
-The slow down that causes was something we'd experienced in the application I was working on at the time.
-And I remember thinking about a banking app I use which put, I kid you not, 4 _different_ spinners up for ~200ms each while it loaded,
-and the sense of mistrust that I felt when I experienced that.
-I immediately started to build delays in to my loading spinners to reduce "flicker" and improve the feel of my applications.
+The description of the waterfall approach to loading data vs. loading data as you render really resonated with performance problems we'd had in a project I was working with at the time.
 Suspense though was experimental in react 16; the only thing that it was supported with was `Lazy` components,
 and I never like using experimental API's in production
 so I eagerly awaited the arrival of a stable API.
