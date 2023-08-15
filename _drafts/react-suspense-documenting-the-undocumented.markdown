@@ -81,35 +81,33 @@ It's simple enough that we can see all the moving parts, and they haven't used a
 
 Picking through it, there's only few components in there, but the three we are interested in are these:
 
-```jsx
-function ArtistPage({ artist }) {
-  return (
-    <>
-      <h1>{artist.name}</h1>
-      <Suspense fallback={<Loading />}>
-        <Albums artistId={artist.id} />
-      </Suspense>
-    </>
-  );
-}
-
-function Loading() {
-  return <h2>🌀 Loading...</h2>;
-}
-
-function Albums({ artistId }) {
-  const albums = use(fetchData(`/${artistId}/albums`));
-  return (
-    <ul>
-      {albums.map(album => (
-        <li key={album.id}>
-          {album.title} ({album.year})
-        </li>
-      ))}
-    </ul>
-  );
-}
-```
+    function ArtistPage({ artist }) {
+      return (
+        <>
+          <h1>{artist.name}</h1>
+          <Suspense fallback={<Loading />}>
+            <Albums artistId={artist.id} />
+          </Suspense>
+        </>
+      );
+    }
+    
+    function Loading() {
+      return <h2>🌀 Loading...</h2>;
+    }
+    
+    function Albums({ artistId }) {
+      const albums = use(fetchData(`/${artistId}/albums`));
+      return (
+        <ul>
+          {albums.map(album => (
+            <li key={album.id}>
+              {album.title} ({album.year})
+            </li>
+          ))}
+        </ul>
+      );
+    }
 
 `ArtistPage` uses `Suspense` to display a fallback (`Loading`) if it's child (`Albums`) "suspends".
 [`use`](https://codesandbox.io/s/s9zlw3?file=/Albums.js&utm_medium=sandpack)
@@ -117,30 +115,29 @@ must be the place where the magic happens.
 
 There it is, under yet another note telling me, _please_, don't look behind the curtain (sorry Oz...).
 
-```js
-function use(promise) {
-  if (promise.status === 'fulfilled') {
-    return promise.value;
-  } else if (promise.status === 'rejected') {
-    throw promise.reason;
-  } else if (promise.status === 'pending') {
-    throw promise;
-  } else {
-    promise.status = 'pending';
-    promise.then(
-      result => {
-        promise.status = 'fulfilled';
-        promise.value = result;
-      },
-      reason => {
-        promise.status = 'rejected';
-        promise.reason = reason;
-      },
-    );
-    throw promise;
-  }
-}
-```
+
+    function use(promise) {
+      if (promise.status === 'fulfilled') {
+        return promise.value;
+      } else if (promise.status === 'rejected') {
+        throw promise.reason;
+      } else if (promise.status === 'pending') {
+        throw promise;
+      } else {
+        promise.status = 'pending';
+        promise.then(
+          result => {
+            promise.status = 'fulfilled';
+            promise.value = result;
+          },
+          reason => {
+            promise.status = 'rejected';
+            promise.reason = reason;
+          },
+        );
+        throw promise;
+      }
+    }
 
 See at the end - they `throw promise` as if it were an error.
 
@@ -156,39 +153,36 @@ but it feels like a good enough mental model.
 
 Let me pick `use` apart and refactor it a bit, so that we can see what's happening.
 
-```js
-export const use = (promise) => {
-  observePromise(promise);
-
-  switch (promise.status) {
-    case "pending": throw promise;
-    case "fulfilled": return promise.value;
-    case "rejected": throw promise.error;
-  }
-};
-```
+    export const use = (promise) => {
+      observePromise(promise);
+    
+      switch (promise.status) {
+        case "pending": throw promise;
+        case "fulfilled": return promise.value;
+        case "rejected": throw promise.error;
+      }
+    };
 
 The first line on that function we "observe" the promise. Here's what that looks like:
 
-```js
-const observePromise = (promise) => {
-  if (isObservedPromise(promise)) {
-    return;
-  }
 
-  promise.status = "pending";
-
-  void (async () => {
-    try {
-      promise.value = await promise;
-      promise.status = "fulfilled";
-    } catch (error) {
-      promise.error = error;
-      promise.status = "rejected";
-    }
-  })();
-};
-```
+    const observePromise = (promise) => {
+      if (isObservedPromise(promise)) {
+        return;
+      }
+    
+      promise.status = "pending";
+    
+      void (async () => {
+        try {
+          promise.value = await promise;
+          promise.status = "fulfilled";
+        } catch (error) {
+          promise.error = error;
+          promise.status = "rejected";
+        }
+      })();
+    };
 
 If we've already observed then just return, there's nothing to do.
 Otherwise there's a bit of mutation (I'm biting my tongue - this is an example after all) going on to assign statuses and values etc. into properties on the promise.
@@ -203,13 +197,12 @@ If it rejects we likewise set the `rejected` status and set the error property.
 Back in `use` now,  we're up to the `switch/case`, where we decide how to handle what we have.
 Those lines again so you don't need to scroll:
 
-```tsx
-  switch (promise.status) {
-    case "pending": throw promise;
-    case "fulfilled": return promise.value;
-    case "rejected": throw promise.error;
-  }
-```
+
+    switch (promise.status) {
+      case "pending": throw promise;
+      case "fulfilled": return promise.value;
+      case "rejected": throw promise.error;
+    }
 
 You can see us handling each of the three states a promise can be in:
 
@@ -220,9 +213,8 @@ You can see us handling each of the three states a promise can be in:
 So that's `use`. Back in [Albums.js](https://codesandbox.io/s/s9zlw3?file=/Albums.js&utm_medium=sandpack)
 we can see it in the context of a react component. There they simply call it passing a promise they got from `fetchData()` (a simulated API call),
 
-```js
-const albums = use(fetchData(`/${artistId}/albums`));
-```
+
+    const albums = use(fetchData(`/${artistId}/albums`));
 
 To belabour the point: there's three outcomes of that call.
 
@@ -252,11 +244,10 @@ Fine.
 
 The problem is that _we need to have seen the promise before_. Remember at th beginning of `observePromise`
 
-```ts
-if (isObservedPromise(promise)) {
-  return promise;
-}
-```
+
+    if (isObservedPromise(promise)) {
+      return promise;
+    }
 
 If the promise has already been observed then simply return it. But that means we need to have seen this exact instance of a promise before.
 Otherwise we're back to pending mode, and we'll suspend - that could be a loop.
@@ -290,16 +281,14 @@ This example doesn't loop though. so we must have missed something.
 Let's have another look at `fetchData`, maybe there's answers in there.
 From [`data.js`](https://codesandbox.io/s/s9zlw3?file=/data.js:170-316&utm_medium=sandpack):
 
-```js
-let cache = new Map();
-
-export function fetchData(url) {
-  if (!cache.has(url)) {
-    cache.set(url, getData(url));
-  }
-  return cache.get(url);
-}
-```
+    let cache = new Map();
+    
+    export function fetchData(url) {
+      if (!cache.has(url)) {
+        cache.set(url, getData(url));
+      }
+      return cache.get(url);
+    }
 
 Right - a cache.
 Either, the cache doesn't have a record for our URL, so we make a "request" (`getData`) and set the promise into the cache,
