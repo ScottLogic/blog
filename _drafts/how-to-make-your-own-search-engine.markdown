@@ -116,19 +116,17 @@ If our document or query contains many sentences, we will get several sentence e
 
 ### How do we use embeddings to rank documents?
 
-Now we understand what embeddings are, we next need to understand how to compare our document embedding and query embedding vectors. One advantage of embeddings being vectors is that they can be interpreted as being lines in space. Text with similar embedding values should contain similar topics and represent similar things, and therefore they should be in a similar place in our embedding vector space.
+Now we understand what embeddings are, we next need to understand how to compare our document embedding and query embedding vectors. One advantage of embeddings being vectors is that they can be interpreted as being lines in space. Text with similar embedding values should contain similar topics and represent similar things, and therefore they should be in a similar place in our embedding vector space. We can use this for our search, where the closer our query embedding vector is to a document embedding vector in space, the better the match. The best match between a document and a query will have the same values in each category in the document embedding and query embedding respectively. One method to find the similarity between two embedding vectors is by finding how small the angle is between the two vectors, using a formula called cosine similarity.
 
-We can use this for our search, where the closer our query embedding vector is to a document embedding vector in space, the better the match. The best match between a document and a query will have the same values in each category in the document embedding and query embedding respectively. One method to find the similarity between two embedding vectors is by finding how small the angle is between the two vectors, using a formula called cosine similarity.
-
-![3D Diagram of 3 document vectors and a query vector on the same coordinates, with an angle labeled as theta between the vector Q and D3](/api/v2/sites/62a34ab6d77615482511bc22/source/_uploads/download%20(2).png?download "Diagram of 3D embedding vector, with three document vectors labeled D and one query vector labeled Q. There is an angle labeled theta drawn between D3 and Q demonstrating cosine similarity")
+![3D Diagram of 3 document vectors and a query vector on the same coordinates, with an angle labeled as theta between the vector Q and D3](/uploads/download%20(2).png "Diagram of 3D embedding vector, with three document vectors labeled D and one query vector labeled Q. There is an angle labeled theta drawn between D3 and Q demonstrating cosine similarity")
 
 The image above is a diagram of a 3D embedding vector. Q is our query embedding vector (search term), and D1, D2, D3 are document embedding vectors. The smaller the angle between a document and our query, the better the match. [Source](https://medium.com/analytics-vidhya/build-your-semantic-document-search-engine-with-tf-idf-and-google-use-c836bf5f27fb)
 
 Cosine similarity doesn’t give us the angle in degrees, but rather calculates the value of the cosine of the angle between the two vectors. The cosine similarity gives us a range from 0 to 1, where 1 is the best fit and has an angle of 0o between our document and search query. Embedding involves a tradeoff, to do more pre-processing and use more storage to speed up search at runtime.
 
-For the mathematically familiar, the formula is below. You may recognise it as the vector dot product where θ is the angle between the vectors, **D** is the document embedding vector and **Q** is the search query embedding vector. In words, the cosine of the angle between two vectors is equal to the dot product of the two vectors, divided by the product of both vectors' magnitude (their Euclidian length).
+For the mathematically familiar, the formula is below. You may recognise it as the vector dot product where, θ is the angle between the vectors, **D** is the document embedding vector and **Q** is the search query embedding vector. In words, the cosine of the angle between two vectors is equal to the dot product of the two vectors, divided by the product of both vectors' magnitude (their Euclidian length).
 
-![Cosine similarity = cos(theta) = (vector D dot vector Q)/(magnitude of vector D multiplied by magnitude of vector Q)](/api/v2/sites/62a34ab6d77615482511bc22/source/_uploads/CodeCogsEqn%20(4).png?download "Equation for cosine similarity")
+![Cosine similarity = cos(theta) = (vector D dot vector Q)/(magnitude of vector D multiplied by magnitude of vector Q)](/uploads/CodeCogsEqn%20(4).png "Equation for cosine similarity")
 
 In this article, we’re not taking into account the distance between the two vectors to try and keep complexity low. It is worth noting the best way of finding similarity between embedding vectors is the [FAISS measure](https://engineering.fb.com/2017/03/29/data-infrastructure/faiss-a-library-for-efficient-similarity-search/) from Facebook.
 
@@ -136,7 +134,7 @@ In this article, we’re not taking into account the distance between the two ve
 
 We need to do preprocessing on our documents to create their document embeddings ready for search. You can do this preprocessing each time a new document is created; or if your list of documents is static, you can calculate the document embeddings all at once. If our documents are stored as a table, then the embedding vector can be stored as just another column.
 
-1. **Embedding**\
+1. **Embedding**  
    We first embed the document's sentences. We do this by passing the text of our document into an LLM that creates the sentence embedding which represent the meaning of the text.
 
 2. **Pooling**  
@@ -158,15 +156,15 @@ Now we’ve got the document embeddings ready for us to search through, we need 
 
 ### Semantic Search Example
 
-Say we have a list of two documents: *\[“Come on Barbie let’s go party”\]* and *\[“Barbie on the beach”\]*. These two sentences both include the word *“Barbie”*, but use it in two different ways. In our example, we use a sentence embedding with just 3 categories, this gives us a 3D embedding vector. It is worth noting that as we only have one sentence in each document, we don’t need to do any pooling. If there were multiple sentences, then our next step would be pooling of the sentence embeddings into a document embedding.
+Say we have a list of two documents: *[“Come on Barbie let’s go party”]* and *[“Barbie on the beach”]*. These two sentences both include the word *“Barbie”*, but use it in two different ways. In our example, we use a sentence embedding with just 3 categories, this gives us a 3D embedding vector. It is worth noting that as we only have one sentence in each document, we don’t need to do any pooling. If there were multiple sentences, then our next step would be pooling of the sentence embeddings into a document embedding.
 
 Our three categories are *isAboutBarbieDoll*, *isAboutBBQ* and *isAGoodTime*. In the image below we can see a value for each category in the embedding that our LLM has decided.
 
-![Table of Documents. The table's headdings are: document number, main body of document, and categories which has three subheadings isAboutBarbieDoll, isAboutBBQ, and isAGoodTime. The table's entries are: \[#1, Come on barbie let's go party, 0.7, 0.2, 0.8\], \[#1, Barbie on the beach, 0.15, 0.9, 0.85\]](/api/v2/sites/62a34ab6d77615482511bc22/source/_uploads/download%20(3).png?download "Table of two documents with example embedding values")
+![Table of Documents. The table's headdings are: document number, main body of document, and categories which has three subheadings isAboutBarbieDoll, isAboutBBQ, and isAGoodTime. The table's entries are: \[#1, Come on barbie let's go party, 0.7, 0.2, 0.8\], \[#1, Barbie on the beach, 0.15, 0.9, 0.85\]](/uploads/download%20(3).png?download "Table of two documents with example embedding values")
 
 Now we wanted to search through these documents with the two queries *“Barbie dolls”* and *“BBQ location”*. We start by calculating the embeddings for these search queries. We then compare the embedding of the search query against the embeddings for each of the documents. This is the Score and is calculated using cosine similarity score (0 to 1, where 1 is best match). Finally, our semantic search engine now ranked these documents based on the search query used to find them.
 
-![Table of search queries. The table headings are: \[Search Query, Categories with subheaddings isAboutBarbieDoll, isAboutBBQ, and isAGoodTime, Score with subheadings #1 and #2, and Ranking\]. THe table had entries of:\[Barbie dolls, 0.95, 0.3, 0.7, 0.98, 0.61, No. 1, No. 2\], \[BBQ location, 0.05, 0.95, 0.8, 0.64, 0.99, No.2, No.1\]](/api/v2/sites/62a34ab6d77615482511bc22/source/_uploads/download%20(4).png?download "Table of two search queries with example embedding values and cosine similarity scores")
+![Table of search queries. The table headings are: \[Search Query, Categories with subheaddings isAboutBarbieDoll, isAboutBBQ, and isAGoodTime, Score with subheadings #1 and #2, and Ranking\]. THe table had entries of:\[Barbie dolls, 0.95, 0.3, 0.7, 0.98, 0.61, No. 1, No. 2\], \[BBQ location, 0.05, 0.95, 0.8, 0.64, 0.99, No.2, No.1\]](/uploads/download%20(4).png "Table of two search queries with example embedding values and cosine similarity scores")
 
 ### Trade-offs
 
