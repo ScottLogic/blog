@@ -11,3 +11,6 @@ Gemfile.lock
 
 .bundle/
 .vscode/
+
+/container_gem_cache/
+/dist/
