@@ -53,13 +53,13 @@ Our main object in this is to match words in the search query with words in the 
 
 To recap we do this both to the documents when they’re created and to the search query when we receive it.
 
-1. Remove punctuation and make text lowercase.  
+1. Remove punctuation and make text lowercase.\
    E.g. *“The quick brown fox’s Jet Ski”* becomes *“the quick brown fox s jet ski”*
 
-2. Split sentence into words by turning the string into a list by splitting on spaces.  
+2. Split sentence into words by turning the string into a list by splitting on spaces.\
    E.g. *“the quick brown fox s jet ski”* becomes *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*
 
-3. Remove the most common words (stop words)  
+3. Remove the most common words (stop words)\
    E.g. *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*  becomes *\[“quick”, “brown”, “fox” , “jet”, “ski”\]*
 
 We've formatted a list of words of the search query and document now, we need to rank which of our document’s words match the search query. If every document contains the words *\[“Scott”, “Logic”\]* somewhere, then it doesn’t help our user if our search engine matches them because every document contains those words. If we take each word from the search query and count the number of matching words in each document we can’t ensure the words we’ve matched are unique in the documents.
@@ -74,7 +74,7 @@ The Term Frequency is the number of times a word appears in a single document di
 
 For example, if a document contained the text, *“I’m a Barbie Girl, In a Barbie World,”* we would remove punctuation and stop words giving us *\[“barbie”, “girl”, “barbie”, “world”\].* If we were then to take the Term Frequency it would be 0.25 for both *“girl”* and “*world”*, but 0.5 for *“barbie”* as it appears twice out of the four words.
 
-![TF equals number of search words in the document divided by total number of words in the document](/api/v2/sites/62a34ab6d77615482511bc22/source/_uploads/CodeCogsEqn%20(3).png?download "Equation of TF")
+![TF equals number of search words in the document divided by total number of words in the document](/uploads/CodeCogsEqn%20(3).png "Equation of TF")
 
 The Inverse Document Frequency measures the rarity of a word. The score is lower if a word appears in more documents. This achieves our goal of prioritising search words that appear in fewer documents. It is calculated by dividing the number of all documents by the number of documents the search word appears in, and then taking the log of that to scale it. We also add 1 in various places to give IDF a range from 0 to log(No. Documents)\+1.
 
@@ -139,26 +139,26 @@ We need to do preprocessing on our documents to create their document embeddings
 1. **Embedding**\
    We first embed the document's sentences. We do this by passing the text of our document into an LLM that creates the sentence embedding which represent the meaning of the text.
 
-2. **Pooling**\
+2. **Pooling**  
    Documents contain several sentences, therefore the many sentence embeddings need to be summarised to describe the document as one vector. We can do this by taking the average of all sentence embeddings.
 
-3. **Storage**\
+3. **Storage**  
    Save this single document embedding vector as a field in some database ready for when we want to search.
 
 Now we’ve got the document embeddings ready for us to search through, we need to actually perform our search when a user submits a query.
 
-1. **Embedding**\
+1. **Embedding**  
    We embed the search query by creating a sentence embedding that represents the query.
 
-2. **Scoring**\
+2. **Scoring**  
    Each of the documents will have its text already mapped to a single document vector. We can then rank how close our query embedding vector is to the document embedding vector using cosine similarity.
 
-3. **Ranking**\
+3. **Ranking**  
    We then take the cosine scores of our documents and rank them from highest to lowest. This gives us our ranked list of documents in order of relevance to the search query, and completes our search engine.
 
 ### Semantic Search Example
 
-Say we have a list of two documents: *\[“Come on Barbie let’s go party”\]* and *\[“Barbie on the beach”\]*. These two sentences both include the word *“Barbie”*, but use it in two different ways. In our example, we use a sentence embedding with just 3 categories, this gives us a 3D embedding vector. It is worth noting that as we only have one sentence in each document, we don’t need to do any pooling. If there were multiple sentences, then our next step would be pooling of the sentence embeddings into a document embedding. 
+Say we have a list of two documents: *\[“Come on Barbie let’s go party”\]* and *\[“Barbie on the beach”\]*. These two sentences both include the word *“Barbie”*, but use it in two different ways. In our example, we use a sentence embedding with just 3 categories, this gives us a 3D embedding vector. It is worth noting that as we only have one sentence in each document, we don’t need to do any pooling. If there were multiple sentences, then our next step would be pooling of the sentence embeddings into a document embedding.
 
 Our three categories are *isAboutBarbieDoll*, *isAboutBBQ* and *isAGoodTime*. In the image below we can see a value for each category in the embedding that our LLM has decided.
 
