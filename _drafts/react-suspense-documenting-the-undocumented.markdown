@@ -27,14 +27,7 @@ Suspense though was experimental in react 16; the only thing that it was support
 and I never like using experimental API's in production
 so I eagerly awaited the arrival of a stable API.
 
-But that day never arrived, and there was a little note at the beginning of that post which always niggled...
-
-> This post will be most relevant to people working on data fetching libraries for React.
-
-I remember feeling slightly patronised by that.
-Why can't I, as an application author, become master of my own destiny and make use of this powerful feature?
-Was it too complex for mere mortals to comprehend?
-I was put off and lost interest.
+But that day never arrived. I was put off and lost interest.
 
 Years later the react team announced some
 really [interesting](https://react.dev/blog/2022/03/29/react-v18#new-feature-transitions)
@@ -45,20 +38,27 @@ But while Suspense is now "Stable" and "Production Ready" it is _still_ only rec
 [data fetching frameworks](https://react.dev/blog/2022/03/29/react-v18#suspense-in-data-frameworks).
 And the docs _still_ don't describe how to it works; only how to use things like `Suspense` and `useTransition`.
 
-They tantalise by talking about what happens when a component "Suspends" or "while a component is loading", but not how to actually make a component suspend.
 
-Come on!
+They tantalise by talking about what happens when a component "Suspends" or "while a component is loading", but not how to actually make a component suspend.
+There was a similar note at the beginning of the original post which always niggled too...
+
+> This post will be most relevant to people working on data fetching libraries for React.
+
+I remember feeling slightly patronised by that.
+Why can't I, as an _application author_, become master of my own destiny and make use of this powerful feature?
+Is it too complex for mere mortals to comprehend?
 
 What the react authors don't know is that in the intervening years I have become a
-[data fetching library author](https://www.npmjs.com/package/@jaybeeuu/recoilless).
+[data fetching framework author](https://www.npmjs.com/package/@jaybeeuu/recoilless).
 So I think it's time to exercise my prerogatives.
 
-In this post I'm going to investigate `Suspense`, and how to make components suspend and how to work with them.
+In this post I'm going to investigate `Suspense`, and how to make components suspend and how to work with them, with the goal of filling in the blanks form the documentation.
+
 Let's see if I can sneak you in with my backstage pass, shall we?
 
 ## So what is Suspense any way?
 
-Well... the answer to that question is a component.
+The answer surface answer to that question is "a component".
 [`Suspense`](https://react.dev/reference/react/Suspense)
 is well documented, it "lets you display a fallback until its children have finished loading".
 "Loading" is doing a lot of work there - what does it mean to be loading?
