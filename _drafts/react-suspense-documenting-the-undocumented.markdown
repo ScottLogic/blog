@@ -88,7 +88,7 @@ It displays a button, which you can click to (fake) fetch, then display album da
 
 ![the-beatles.gif](/uploads/the-beatles.gif)
 
-It's simple enough that we can see all the moving parts, and they haven't used a library... so...
+It's simple enough that we can see all the moving parts, and they haven't used a library... so maybe we can use this to figure it out.
 
 Picking through it, there's only few components in there, but the three we are interested in are these:
 
