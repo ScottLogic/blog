@@ -1,5 +1,5 @@
 ---
-title: 'How to Make Your Own Search Engine: Semantic Search With LLM Embeddings'
+title: 'How to Make Your Own Search Engine: Semantic Search Using LLM Embeddings'
 date: 2023-08-11 09:40:00 Z
 categories:
 - Tech
@@ -12,7 +12,6 @@ tags:
 - semantic search
 - lexical search
 - LLM
-- Grad Project
 - AI
 - Artificial Intelligence
 - Google
@@ -29,7 +28,6 @@ tags:
 - encoding
 - TF-IDF
 - tokenization
-- cls token
 summary: Understand how Google and other search engines use LLMs to gain insights
   into the semantic meaning of the language in search queries using embedding and
   cosine similarity.
