@@ -35,7 +35,7 @@ summary: Understand how Google and other search engines use LLMs to gain insight
 author: wboothclibborn
 ---
 
-Google’s largest revenue source are its adverts which comprise [80% of its revenue](https://www.oberlo.com/statistics/how-does-google-make-money#:\~:text=Google%20revenue%20breakdown%20(Q1%202023)&text=In%20Q1%202023%2C%20Google's%20revenue,at%20%246.7%20billion%20(9.6%25).). This relies on Google domination of the search engine market with Google Search enjoying a [92% market share](https://gs.statcounter.com/search-engine-market-share). This is because Google search prioritises web pages that uses Google Ads, and the [self proclaimed second largest search engine](https://www.tubics.com/blog/youtube-2nd-biggest-search-engine) on the internet is Youtube which exclusively uses Google Ads. Therefore, Google has had a huge incentive for over two decades to become world experts in making the best search engines, but thanks to the billions sunk into LLMs and cloud you too can now create your own search engine to be (nearly) as good as Google.
+Google’s largest revenue source are its adverts which comprise [80% of its revenue](https://www.oberlo.com/statistics/how-does-google-make-money#:~:text=Google%20revenue%20breakdown%20(Q1%202023)&text=In%20Q1%202023%2C%20Google's%20revenue,at%20%246.7%20billion%20(9.6%25).). This relies on Google domination of the search engine market with Google Search enjoying a [92% market share](https://gs.statcounter.com/search-engine-market-share). This is because Google search prioritises web pages that uses Google Ads, and the [self proclaimed second largest search engine](https://www.tubics.com/blog/youtube-2nd-biggest-search-engine) on the internet is Youtube which exclusively uses Google Ads. Therefore, Google has had a huge incentive for over two decades to become world experts in making the best search engines, but thanks to the billions sunk into LLMs and cloud you too can now create your own search engine to be (nearly) as good as Google.
 
 In this article we will be discussing two methods that search engines use for ranking, Lexical Search (bag of words), and Semantic Search. If you’ve never heard of these, never used an LLM, or have limited programming knowledge, this article is for you.
 
@@ -45,7 +45,7 @@ Search engines that search through websites on the internet are an example of a 
 
 ## Lexical Search
 
-This is a low tech solution for a document search (essentially a ctrl \+ f across all your documents). It’s a word search that matches individual words in the search query with individual words in the document.
+This is a low tech solution for a document search (essentially a ctrl + f across all your documents). It’s a word search that matches individual words in the search query with individual words in the document.
 
 ### How do we implement the search?
 
@@ -76,23 +76,23 @@ For example, if a document contained the text, *“I’m a Barbie Girl, In a Bar
 
 ![TF equals number of search words in the document divided by total number of words in the document](/uploads/CodeCogsEqn%20(3).png "Equation of TF")
 
-The Inverse Document Frequency measures the rarity of a word. The score is lower if a word appears in more documents. This achieves our goal of prioritising search words that appear in fewer documents. It is calculated by dividing the number of all documents by the number of documents the search word appears in, and then taking the log of that to scale it. We also add 1 in various places to give IDF a range from 0 to log(No. Documents)\+1.
+The Inverse Document Frequency measures the rarity of a word. The score is lower if a word appears in more documents. This achieves our goal of prioritising search words that appear in fewer documents. It is calculated by dividing; the number of all documents by the number of documents, the search word appears in, and then taking the log of that to scale it. We also add 1 in various places to give IDF a range from 0 to log(No. Documents)\+1.
 
-![IDF = log base 10 of ((Total Number of documents)/(number of documents containing search word \+ 1) \+ 1](/api/v2/sites/62a34ab6d77615482511bc22/source/_uploads/CodeCogsEqn%20(1).png?download "Equation of IDF")
+![IDF = log base 10 of ((Total Number of documents)/(number of documents containing search word + 1) + 1](/uploads/CodeCogsEqn%20(1).png "Equation of IDF")
 
 For example, if you had three documents containing *\[“barbie”\]*, *\[“world”\]*, and *\[“barbie”\]*, then the search word *“barbie”* would give the following IDF scores. The document *\[“barbie”\]* would have an IDF of:
 
-![log base 10 of ((3)/(2\+1)\+1=1](/api/v2/sites/62a34ab6d77615482511bc22/source/_uploads/CodeCogsEqn%20(10).png?download "Working out of IDF of ['barbie'] document")
+![log base 10 of ((3)/(2\+1)\+1=1](/uploads/CodeCogsEqn%20(10).png "Working out of IDF of ['barbie'] document")
 
 and the document *\[“world”\]* would have an IDF of
 
-![log base 10 of ((3)/(1\+1)\+1=1.17...](/api/v2/sites/62a34ab6d77615482511bc22/source/_uploads/CodeCogsEqn%20(9).png?download "Working out of IDF of ['world'] document")
+![log base 10 of ((3)/(1\+1)\+1=1.17...](/uploads/CodeCogsEqn%20(9).png?download "Working out of IDF of ['world'] document")
 
 To use the benefits of both measures we need to mathematically combine them into TF-IDF. This can be done by just multiplying the two measures together. Each document is given a TF-IDF score for each search word in a search query. As a result TF-IDF for a given word and document has a maximum of 1 which is a perfect match where a document only contains the search word and is only mentioned once in the dataset of documents, and a minimum of 0 where a word never appears in a given document, or a word appears in every document.
 
-Once we have a list of TF-IDF values of every document for every search word, then we can combine the documents scores of all search words. This is called Pooling and is how we summarise how good a match a document is. A common method is just taking the average of all TF-IDF values which gives us the total score for a document compared to a search query.
+Once we have a list of TF-IDF values of every document for every search word, then we can combine the documents scores of all search words. This is called Pooling and is how we summarise how good of a match a document is. A common method is just taking the average of all TF-IDF values which gives us the total score for a document compared to a search query.
 
-At this point, all we need to do is sort the documents in order of highest TF-IDF score to lowest, and we’ve successfully made a basic search engine!
+At this point all we need to do is sort the documents in order of highest TF-IDF score to lowest, and we’ve successfully made a basic search engine!
 
 ### Limitations of this method
 
@@ -100,17 +100,17 @@ This methodology is a great first step to understand how a simple document searc
 
 ## Semantic Search
 
-Semantic search doesn’t exactly match words but instead finds similar meaning between the text. This requires us to have a more sophisticated understanding of text. Rather than just being a list of words, instead we need a method that has understanding of language and the context of how it is used. One popular computational method that can understand language is Large Language Models (LLMs). We use LLMs in a technique called sentence embedding, that creates a vector which represents the strength of certain language categories. Some of these concepts may be new to you, so let’s explain the last few sentences.
+Semantic search doesn’t exactly match words but instead finds similar meaning between the text. This requires us to have a more sophisticated understanding of text, rather than just being a list of words. Instead we need a method that has understanding of language and the context of how it is used. One popular computational method that can understand language is Large Language Models (LLMs). We use LLMs in a technique called sentence embedding, that creates a vector that represents the strength of certain language categories. Some of these concepts may be new to you, so let’s explain the last few sentences.
 
 ### LLMs and Embeddings
 
 Large Language Models (LLMs) are machine learning models that have been trained on huge quantities of text data to do a number of specialised tasks. One of these tasks could be anticipating what the next word in a sentence is, which you may have seen as autocomplete, another task could be a conversational chatbot like ChatGPT. LLMs don’t think like humans, so they need to convert the text they read into some computer-friendly format. This computer-friendly format is called embedding, which is a way for a computer to represent what text means using a vector.
 
-Vectors are lists of values, where the length of the list is the dimension of the vector, so a 3D vector has 3 values. Lists of numbers are often not very easy to see patterns in, so we visualise them by showing the vector spatially, by interpreting each value in the vector as a coordinate in space.
+Vectors are lists of values, where the length of the list is the dimension of the vector, so a 3D vector has 3 values. Lists of numbers are often not very easy to see patterns in, so we visualise them by interpreting the vector spatially, we can do this by graphing each value in the vector as a coordinate in a vector space.
 
-Embeddings are vectors that can contain different amounts of context; from sentence embedding which represents the meaning of a whole sentence, to word embeddings that represent the meaning of individual words independent of their context. In semantic search, we want to take into account as much context as we can; therefore we will be using sentence embedding for this application. We can then combine several sentence embeddings.
+Embeddings are vectors, that represent the meaning of the language used in text and can contain different amounts of context. This includes representing: the meaning of words independent of their context called word embeddings, and the meaning of sentences which summarises a sentence's word embeddings with sentence embedding. In semantic search we want to take into account as much context as we can, therefore we will be using sentence embedding for this application. 
 
-The sentence embedding vector contains many values, and each of these values represent the strength of a category that somehow represent the meaning of our sentence. This means the number of values in the vector are the number of categories it contains. The values represent the strength of that category in a range from 0 to 1, where 1 means our sentence is a perfect match for a certain category and 0 means the sentence doesn’t fit the category at all. These categories are decided by the LLM while it is being trained and aren’t obvious human categories; hence they can be tricky to interpret exactly, but an analogy would be categories like *positivity* or *isBangladeshiFood*.
+The embedding vector has many values (~768 values for the [CLS] embedding) each of which represent the strength of some category in a range from 0 to 1. These categories don't always have a clear meaning because each value represents a category that the LLM decided in training. However, when you represent the vector in space, words or sentences with similar meaning are clustered together. To understand the values of an embedding, we would need to use a method called feature extraction using techniques like PCA or tSNE to reduce these large embedding vectors to more simple plots.
 
 If our document or query contains many sentences, we will get several sentence embeddings for each when we run our LLM’s encoding. We want the document and query to both be represented by just one embedding vector each: a document embedding vector and a query embedding vector. To achieve this, we need to summarise our many sentence embeddings. We can do this by taking the average for each category of all the sentence embeddings; this gives us a summary embedding. This can work because the embedding vector is consistent when using the same LLM, it has the same categories and the same size of vector.
 
