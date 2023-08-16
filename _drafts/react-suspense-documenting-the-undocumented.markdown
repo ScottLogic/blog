@@ -11,10 +11,10 @@ tags:
 - Javascript
 - guides
 - how-to
-summary: I have long anted to explore the much heralded Suspense features of react,
-  but have been frustrated by the lack of documentation about making it actually happen.
-  In this post I dig into an example to find out how it actually works, and how we
-  can make use of it.
+summary: I have wanted to explore the much heralded Suspense features of react for
+  a while, but have been frustrated by the lack of documentation about making it actually
+  happen. In this post I dig into an example to find out how it actually works, and
+  how we can make use of it.
 author: jbickley-wallace
 ---
 
@@ -336,7 +336,7 @@ Here we're finally at something which is tricky, and thar be dragons.
 Managing a cache like this is notoriously difficult.
 
 When should we remove that promise from the map?
-do it too soon and your application won't work, in our case we could end up in cycles, do it too late and you end up with a huge memory footprint.
+Do it too soon and your application won't work, in our case we could end up in cycles, do it too late and you end up with a huge memory footprint.
 Here, the component which triggered the fetch in the first place can't be used to manage cleanup either, so something else would have to weigh in.
 For example, we could add some clean up logic to a `useEffect`, but then when would it get called?
 A little experimentation indicates it _doesn't_ get called when the component suspends, even if it's set up before the component suspended.
