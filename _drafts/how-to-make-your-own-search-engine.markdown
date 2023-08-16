@@ -41,9 +41,7 @@ In this article we will be discussing two methods that search engines use for ra
 
 ## What are search engines?
 
-Search engines that search through websites on the internet are an example of a more general concept called a document search engine. In this context, a document is some structured data, containing a large piece of text (e.g. websites, books, song lyrics, etc) and metadata (e.g. author, date written, date uploaded) attached to it. Document search engines are software systems that rank these documents based of their relevance to a search query. Document search engines have access to a dataset of these documents that need to be ranked, and performs a search whenever it receives a search query.
-
-In Google Search, our documents are web pages and the search query is the text we type into Google. The software system in a document search engine ranks documents by how close documents are to a search query. The two methods discussed in this blog post are designed to do this. One solution could be matching words in the search query to words in the document. This is called Lexical Search and is our first search method.
+Search engines that search through websites on the internet are an example of a more general concept called a document search engine. In this context, a document is some structured data, containing a large piece of text (e.g. websites, books, song lyrics, etc) and metadata (e.g. author, date written, date uploaded) attached to it. Document search engines are software systems that rank these documents based of their relevance to a search query. Document search engines have access to a dataset of these documents that need to be ranked, and performs a search whenever it receives a search query. In Google Search, our documents are web pages and the search query is the text we type into Google. The software system in a document search engine ranks documents by how close documents are to a search query. The two methods discussed in this blog post are designed to do this. One solution could be matching words in the search query to words in the document. This is called Lexical Search and is our first search method.
 
 ## Lexical Search
 
@@ -55,14 +53,14 @@ Our main object in this is to match words in the search query with words in the 
 
 To recap we do this both to the documents when they’re created and to the search query when we receive it.
 
-1. Remove punctuation and make text lowercase.\
-   e.g. *“The quick brown fox’s Jet Ski”* becomes *“the quick brown fox s jet ski”*
+1. Remove punctuation and make text lowercase.  
+   E.g. *“The quick brown fox’s Jet Ski”* becomes *“the quick brown fox s jet ski”*
 
-2. Split sentence into words by turning the string into a list by splitting on spaces.\
-   e.g. *“the quick brown fox s jet ski”* becomes *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*
+2. Split sentence into words by turning the string into a list by splitting on spaces.  
+   E.g. *“the quick brown fox s jet ski”* becomes *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*
 
-3. Remove the most common words (stop words)\
-   e.g. *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*  becomes *\[“quick”, “brown”, “fox” , “jet”, “ski”\]*
+3. Remove the most common words (stop words)  
+   E.g. *\[“the” , “quick”, “brown”, “fox”, “s”, “jet”, “ski”\]*  becomes *\[“quick”, “brown”, “fox” , “jet”, “ski”\]*
 
 We've formatted a list of words of the search query and document now, we need to rank which of our document’s words match the search query. If every document contains the words *\[“Scott”, “Logic”\]* somewhere, then it doesn’t help our user if our search engine matches them because every document contains those words. If we take each word from the search query and count the number of matching words in each document we can’t ensure the words we’ve matched are unique in the documents.
 
