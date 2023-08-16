@@ -38,7 +38,6 @@ But while Suspense is now "Stable" and "Production Ready" it is _still_ only rec
 [data fetching frameworks](https://react.dev/blog/2022/03/29/react-v18#suspense-in-data-frameworks).
 And the docs _still_ don't describe how to it works; only how to use things like `Suspense` and `useTransition`.
 
-
 They tantalise by talking about what happens when a component "Suspends" or "while a component is loading", but not how to actually make a component suspend.
 There was a similar note at the beginning of the original post which always niggled too...
 
@@ -52,19 +51,32 @@ What the react authors don't know is that in the intervening years I have become
 [data fetching framework author](https://www.npmjs.com/package/@jaybeeuu/recoilless).
 So I think it's time to exercise my prerogatives.
 
-In this post I'm going to investigate `Suspense`, and how to make components suspend and how to work with them, with the goal of filling in the blanks form the documentation.
+In this post I'm going to try to fill in the blanks in the `Suspense` documentation. How do you make components suspend & handle promises in a react application to build a fantastic UX?
 
 Let's see if I can sneak you in with my backstage pass, shall we?
 
 ## So what is Suspense any way?
 
-The answer surface answer to that question is "a component".
-[`Suspense`](https://react.dev/reference/react/Suspense)
-is well documented, it "lets you display a fallback until its children have finished loading".
-"Loading" is doing a lot of work there - what does it mean to be loading?
-Further down the page it talks about how a "component suspends while fetching [data]".
+The answer surface answer to that question is well
+[documented](https://react.dev/reference/react/Suspense)
+\- it's a component:
 
-But still no mention of actually how to make a component suspend.
+> `Suspense` lets you display a fallback until its children have finished loading.
+
+But "Loading" is doing a lot of work there - what does it mean for a component to be loading?
+Further down the page it talks about how a "component suspends while fetching [data]"
+
+My understanding of that and the examples is - if you wrap a component tree in `Suspense` then, if the component tree requests data that isn't available,
+`Suspense` will display your fallback, usually some kind of loading indicator.
+It's easy to use:
+
+    <Suspense fallback={<SomeLoadingpinner />}>
+      <YourDataHungryComponent />
+    </Suspense>
+
+
+But there's no mention of actually how to make a component suspend.
+It's absence is obvious and weird, like they are dancing around it - "what elephant?".
 
 I dug into one of their examples to see if there were any answers there.
 [This example](https://codesandbox.io/s/s9zlw3?file=/index.js&utm_medium=sandpack),
