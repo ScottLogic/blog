@@ -86,39 +86,41 @@ from
 looked promising, showing all the key features we're interested in and is really simple.
 It displays a button, which you can click to (fake) fetch, then display album data for a niche 60's pop band.
 
-![the-beatles.gif](/uploads/the-beatles.gif)
+![the-beatles.gif](./the-beatles.gif)
 
-It's simple enough that we can see all the moving parts, and they haven't used a library... so maybe we can use this to figure it out.
+It's simple enough that we can see all the moving parts, and they haven't used a library... so...
 
 Picking through it, there's only few components in there, but the three we are interested in are these:
 
-    function ArtistPage({ artist }) {
-      return (
-        <>
-          <h1>{artist.name}</h1>
-          <Suspense fallback={<Loading />}>
-            <Albums artistId={artist.id} />
-          </Suspense>
-        </>
-      );
-    }
-    
-    function Loading() {
-      return <h2>🌀 Loading...</h2>;
-    }
-    
-    function Albums({ artistId }) {
-      const albums = use(fetchData(`/${artistId}/albums`));
-      return (
-        <ul>
-          {albums.map(album => (
-            <li key={album.id}>
-              {album.title} ({album.year})
-            </li>
-          ))}
-        </ul>
-      );
-    }
+~~~ jsx
+function ArtistPage({ artist }) {
+  return (
+    <>
+      <h1>{artist.name}</h1>
+      <Suspense fallback={<Loading />}>
+        <Albums artistId={artist.id} />
+      </Suspense>
+    </>
+  );
+}
+
+function Loading() {
+  return <h2>🌀 Loading...</h2>;
+}
+
+function Albums({ artistId }) {
+  const albums = use(fetchData(`/${artistId}/albums`));
+  return (
+    <ul>
+      {albums.map(album => (
+        <li key={album.id}>
+          {album.title} ({album.year})
+        </li>
+      ))}
+    </ul>
+  );
+}
+~~~
 
 `ArtistPage` uses `Suspense` to display a fallback (`Loading`) if it's child (`Albums`) "suspends".
 [`use`](https://codesandbox.io/s/s9zlw3?file=/Albums.js&utm_medium=sandpack)
@@ -126,28 +128,30 @@ must be the place where the magic happens.
 
 There it is, under yet another note telling me, _please_, don't look behind the curtain (sorry Oz...).
 
-    function use(promise) {
-      if (promise.status === 'fulfilled') {
-        return promise.value;
-      } else if (promise.status === 'rejected') {
-        throw promise.reason;
-      } else if (promise.status === 'pending') {
-        throw promise;
-      } else {
-        promise.status = 'pending';
-        promise.then(
-          result => {
-            promise.status = 'fulfilled';
-            promise.value = result;
-          },
-          reason => {
-            promise.status = 'rejected';
-            promise.reason = reason;
-          },
-        );
-        throw promise;
-      }
-    }
+~~~ jsx
+function use(promise) {
+  if (promise.status === 'fulfilled') {
+    return promise.value;
+  } else if (promise.status === 'rejected') {
+    throw promise.reason;
+  } else if (promise.status === 'pending') {
+    throw promise;
+  } else {
+    promise.status = 'pending';
+    promise.then(
+      result => {
+        promise.status = 'fulfilled';
+        promise.value = result;
+      },
+      reason => {
+        promise.status = 'rejected';
+        promise.reason = reason;
+      },
+    );
+    throw promise;
+  }
+}
+~~~
 
 See at the end - they `throw promise` as if it were an error.
 
@@ -163,35 +167,39 @@ but catching feels like a good enough mental model.
 
 Let me pick `use` apart and refactor it a bit, so that we can see what's happening.
 
-    export const use = (promise) => {
-      observePromise(promise);
-    
-      switch (promise.status) {
-        case "pending": throw promise;
-        case "fulfilled": return promise.value;
-        case "rejected": throw promise.error;
-      }
-    };
+~~~ jsx
+export const use = (promise) => {
+  observePromise(promise);
+
+  switch (promise.status) {
+    case "pending": throw promise;
+    case "fulfilled": return promise.value;
+    case "rejected": throw promise.error;
+  }
+};
+~~~
 
 The first line on that function we "observe" the promise. Here's what that looks like:
 
-    const observePromise = (promise) => {
-      if (isObservedPromise(promise)) {
-        return;
-      }
-    
-      promise.status = "pending";
-    
-      void (async () => {
-        try {
-          promise.value = await promise;
-          promise.status = "fulfilled";
-        } catch (error) {
-          promise.error = error;
-          promise.status = "rejected";
-        }
-      })();
-    };
+~~~ jsx
+const observePromise = (promise) => {
+  if (isObservedPromise(promise)) {
+    return;
+  }
+
+  promise.status = "pending";
+
+  void (async () => {
+    try {
+      promise.value = await promise;
+      promise.status = "fulfilled";
+    } catch (error) {
+      promise.error = error;
+      promise.status = "rejected";
+    }
+  })();
+};
+~~~
 
 If we've already observed then just return, there's nothing to do.
 Otherwise there's a bit of mutation (I'm biting my tongue - this is an example after all) going on to assign statuses and values etc. into properties on the promise.
@@ -206,11 +214,13 @@ If it rejects we likewise set the `rejected` status and set the error property.
 Back in `use` now,  we're up to the `switch/case`, where we decide how to handle what we have.
 Those lines again so you don't need to scroll:
 
-    switch (promise.status) {
-      case "pending": throw promise;
-      case "fulfilled": return promise.value;
-      case "rejected": throw promise.error;
-    }
+~~~ jsx
+switch (promise.status) {
+  case "pending": throw promise;
+  case "fulfilled": return promise.value;
+  case "rejected": throw promise.error;
+}
+~~~
 
 You can see us handling each of the three states a promise can be in:
 
@@ -252,9 +262,11 @@ Fine.
 The problem is that _we need to have seen the promise before_.
 Remember at the beginning of `observePromise`
 
-    if (isObservedPromise(promise)) {
-      return promise;
-    }
+~~~ jsx
+if (isObservedPromise(promise)) {
+    return promise;
+}
+~~~
 
 If the promise has already been observed then simply return it.
 But that means we need to have seen this _exact instance_ of a promise before.
@@ -292,14 +304,16 @@ The example though, doesn't loop, so we must have missed something.
 Let's have another look at `fetchData`, maybe there's answers in there.
 From [`data.js`](https://codesandbox.io/s/s9zlw3?file=/data.js:170-316&utm_medium=sandpack):
 
-    let cache = new Map();
-    
-    export function fetchData(url) {
-      if (!cache.has(url)) {
-        cache.set(url, getData(url));
-      }
-      return cache.get(url);
-    }
+~~~ jsx
+let cache = new Map();
+
+export function fetchData(url) {
+  if (!cache.has(url)) {
+    cache.set(url, getData(url));
+  }
+  return cache.get(url);
+}
+~~~
 
 Right - a cache.
 Either the cache doesn't have a record for our URL, so we make a "request" (`getData`) and set the promise into the cache,
@@ -378,7 +392,7 @@ Even though it is relatively simple to use, there's still a question about wheth
 
 I'm also left wondering if it's not a little too clever for it's own good.
 Much like hooks it feels like the learning curve is going to be steep, especially for those new to React, with plenty of pitfalls and foot-guns for folk to discover along the way.
-Suspendable components making use of it effectively get an extra, undeclared result/return value which is surprising given it's not the intended use of the `throw` statement. 
+Suspendable components making use of it effectively get an extra, undeclared result/return value which is surprising given it's not the intended use of the `throw` statement.
 Would it have been needed if the React authors had leaned into more of
 [JavaScripts built in features for handling asynchrony](https://crank.js.org/)
 rather than
