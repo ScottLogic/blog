@@ -1,5 +1,5 @@
 ---
-title: How to Make Your Own Search Engine
+title: How to Make Your Own Search Engine Using Embedding
 date: 2023-08-11 09:40:00 Z
 categories:
 - Tech
@@ -106,7 +106,7 @@ Semantic search doesn’t exactly match words but instead finds similar meaning 
 
 Large Language Models (LLMs) are machine learning models that have been trained on huge quantities of text data to do a number of specialised tasks. One of these tasks could be anticipating what the next word in a sentence is, which you may have seen as autocomplete, another task could be a conversational chatbot like ChatGPT. LLMs don’t think like humans, so need to convert the text they read into some computer friendly format. This computer friendly format is called embedding which is a way for a computer to represent what text means using a vector.
 
-Vectors are lists of values, where the length of the list is the dimension of the vector, so a 4D vector has 4 values.
+Vectors are lists of values, where the length of the list is the dimension of the vector, so a 3D vector has 3 values. Lists of numbers are often not very easy to see patterns in, so we visulise them we by showing the vector spatially, by interpreting each value in the vector as a coordinate in space. 
 
 Embeddings can contain different amounts of context; from sentence embedding which represents the meaning of a whole sentence, to word embeddings that represent the meaning of individual words independent of their context. In semantic search we want to take into account as much context as we can, therefore we will be using sentence embedding for this application. We can then combine several sentence embeddings . The sentence embedding vector contains many values, and each of these values represent the strength of a category that somehow represent the meaning of our sentence. This means the number of values in the vector are the number of categories it contains. The values represent the strength of that category in a range from 0 to 1, where 1 means our sentence is a perfect match for a certain category and 0 means the sentence doesn’t fit the category at all. These categories are decided by the LLM while it is being trained and aren’t obvious human categories, hence they can be tricky to interpret exactly, but an analogy would be categories like *positivity* or *isBangladeshiFood*.
 
