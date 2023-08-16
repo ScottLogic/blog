@@ -70,11 +70,11 @@ My understanding of that and the examples is - if you wrap a component tree in `
 `Suspense` will display your fallback, usually some kind of loading indicator.
 It's easy to use:
 
-{% highlight javascript %}
+~~~ jsx
 <Suspense fallback={<SomeLoadingSpinner />}>
   <YourDataHungryComponent />
 </Suspense>
-{% end highlight %}
+~~~
 
 But there's no mention of actually how to make a component suspend.
 It's absence is obvious and weird, like they are dancing around it - "what elephant?".
