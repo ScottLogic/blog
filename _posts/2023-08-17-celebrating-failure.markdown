@@ -16,6 +16,7 @@ summary: Over the years, some organisations (including some I have been part of)
   But how honest have we really been when doing this? And how can we celebrate failure
   in the right way?
 author: lwilson
+image: "/uploads/Celebrating%20failure%20quote.png"
 ---
 
 Over the years, some organisations (including some I have been part of) have promoted the idea of ‘celebrating failure’, encouraging employees to be open when it comes to mistakes they have made in the past, in order to learn for the future. But how honest have we really been when doing this? 
