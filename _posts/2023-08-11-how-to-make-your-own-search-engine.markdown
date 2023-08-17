@@ -33,6 +33,7 @@ summary: Understand how Google and other search engines use LLMs to gain insight
   into the semantic meaning of the language in search queries using embedding and
   cosine similarity.
 author: wboothclibborn
+image: "/uploads/LLM%20Thumbnail.png"
 ---
 
 Google’s largest revenue source are its adverts which comprise [80% of its revenue](https://www.oberlo.com/statistics/how-does-google-make-money#:~:text=Google%20revenue%20breakdown%20(Q1%202023)&text=In%20Q1%202023%2C%20Google's%20revenue,at%20%246.7%20billion%20(9.6%25).). This relies on Google domination of the search engine market with Google Search enjoying a [92% market share](https://gs.statcounter.com/search-engine-market-share). This is because Google search prioritises web pages that uses Google Ads, and the [self proclaimed second largest search engine](https://www.tubics.com/blog/youtube-2nd-biggest-search-engine) on the internet is Youtube which exclusively uses Google Ads. Therefore, Google has had a huge incentive for over two decades to become world experts in making the best search engines, but thanks to the billions sunk into LLMs and cloud you too can now create your own search engine to be (nearly) as good as Google.
