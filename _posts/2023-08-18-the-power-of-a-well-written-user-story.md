@@ -9,7 +9,7 @@ summary: User stories are a pivotal component of Agile Software Development, ser
 author: snandal
 ---  
 
-At the heart of our modern software development process, lies the humble yet powerful concept of **"User Stories"** - the simplest way to capture what a user needs. *User Sories* serve as the bridge between the business stakeholders and the development team, providing a shared understanding of what the software should achieve.
+At the heart of our modern software development process, lies the humble yet powerful concept of **"User Stories"** - the simplest way to capture what a user needs. *User Stories* serve as the bridge between the business stakeholders and the development team, providing a shared understanding of what the software should achieve.
 
 Over the last decade, as I worked on multiple projects, there has been one very common challenge that I faced almost everywhere. And that is - Despite having such a vital role in delivering high-quality software products, so little emphasis is given to putting the *User Stories* right.
 
