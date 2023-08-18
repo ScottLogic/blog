@@ -1,6 +1,6 @@
 ---
 title: The Power of a Well Written User Story - A Test Analyst's Perspective
-date: 2023-08-15 13:06:00 Z
+date: 2023-08-18 10:00:00 Z
 categories:
 - Testing
 tags:
