@@ -5,7 +5,7 @@ categories:
 - Testing
 tags:
 - testing
-summary: The Power of a Well Written User Story - A Test Analyst's Perspective
+summary: User stories are a pivotal component of Agile software development, serving as concise and user-centric descriptions of desired software functionality. Hence it is crucial to discus putting user stories right for  setting the foundation for a well-structured, user-focused, and efficient development process. 
 author: snandal
 ---  
 
