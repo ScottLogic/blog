@@ -30,6 +30,29 @@ __NOTE__: Instructions are work in progress.
 
 The blog consists of static HTML pages with content generated using Jekyll markdown.
 
+### Docker:
+
+Use a bash-compatible shell.
+
+**Install gem dependencies**
+
+First, output gem dependencies to a directory `container_gem_cache` on our host machine:
+
+```bash
+./shell/docker-gem-install.sh
+```
+
+**Run dev watch**
+
+Now we can serve the blog:
+
+```bash
+BLOG_USERNAME=abirch ./shell/docker-dev-watch.sh
+```
+
+Visit the blog at:  
+http://localhost:4000
+
 ### Linux:
 
 1. sudo apt-get install ruby2.3 ruby2.3-dev build-essential dh-autoreconf
@@ -55,5 +78,3 @@ To minify SCSS, run:
 ```
 npm run style
 ```
-
-
