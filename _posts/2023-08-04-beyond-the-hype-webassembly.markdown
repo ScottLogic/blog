@@ -18,7 +18,7 @@ summary: In this episode, I'm joined by Bailey Hayes from Cosmonic and Sean Isom
   that compares WebAssembly to Docker, and look at the future promise of the Component
   Model, which aims to break down language barriers.
 author: ceberhardt
-image: "/uploads/BeyondTheHype---yellow-and-pink---social_Artboard-1.jpg"
+image: "/uploads/BeyondTheHype%20-%20pink%20and%20yellow%20-%20episode%2013%20-%20social.png"
 ---
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/27594348/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
