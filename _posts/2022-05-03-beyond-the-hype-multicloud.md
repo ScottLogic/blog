@@ -12,7 +12,7 @@ author: ceberhardt
 contributors:
 - jheward
 - rgriffiths
-image: "/uploads/BeyondTheHype---orange---social_Artboard-1.jpg"
+image: "/uploads/BeyondTheHype%20-%20orange%20and%20orange%20-%20episode%203%20-%20social.png"
 layout: default_post
 ---
 
