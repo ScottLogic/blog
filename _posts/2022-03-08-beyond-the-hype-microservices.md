@@ -13,7 +13,7 @@ author: ceberhardt
 contributors:
 - isugar
 - hbellamy
-image: "/uploads/BeyondTheHype---blue---social-copy_Artboard-1-2.jpg"
+image: "/uploads/BeyondTheHype%20-%20blue%20-%20episode%201%20-social.png"
 layout: default_post
 ---
 
