@@ -21,7 +21,7 @@ summary-short: A relatively new architectural style for building web-based appli
 contributors:
 - shogarth
 - dkerr
-image: "/uploads/BeyondTheHype---pink---social_Artboard-1.jpg"
+image: "/uploads/BeyondTheHype%20-%20pink%20and%20pink%20-%20episode%202%20-%20social.png"
 layout: default_post
 ---
 
