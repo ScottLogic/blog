@@ -12,7 +12,7 @@ author: ceberhardt
 contributors:
 - jmcevoy
 - asegrove
-image: "/uploads/BeyondTheHype---yellow---social_Artboard-1.jpg"
+image: "/uploads/BeyondTheHype%20-%20yellow%20and%20yellow%20-%20episode%205%20-%20social.png"
 ---
 
 <iframe title="Embed Player" src="//play.libsyn.com/embed/episode/id/23292824/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
