@@ -12,7 +12,7 @@ contributors:
 - dmcnamee
 - xchen
 - jarnstein
-image: "/uploads/BeyondTheHype---green---social_Artboard-1.jpg"
+image: "/uploads/BeyondTheHype%20-%20green%20and%20green%20-%20episode%204%20-%20social.png"
 layout: default_post
 ---
 
