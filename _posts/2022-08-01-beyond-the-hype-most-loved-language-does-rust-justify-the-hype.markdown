@@ -19,7 +19,7 @@ contributors:
 - cprice
 - smartin
 - rpilling
-image: "/uploads/BeyondTheHype---blue-pink-social_Artboard-1.jpg"
+image: "/uploads/BeyondTheHype%20-%20pink%20and%20blue%20-%20episode%206%20-%20social.png"
 ---
 
 <iframe title="Embed Player" src="//play.libsyn.com/embed/episode/id/23860152/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
