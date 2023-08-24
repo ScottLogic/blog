@@ -3,6 +3,12 @@ title: You only have to come out once… right?
 date: 2023-08-24 14:11:00 Z
 categories:
 - People
+tags:
+- coming out
+- lgbt
+- lgbtqia
+- diversity and inclusion
+- diversity equity and inclusion
 summary: To a lot of people who identify as LGBTQIA+, coming out for the first time
   can be daunting enough. To some it’s celebrated, to some it’s met with relief and
   to others, unfortunately, it can be negative beyond belief. But here’s the catch,
