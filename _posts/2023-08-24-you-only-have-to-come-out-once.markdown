@@ -14,6 +14,7 @@ summary: To a lot of people who identify as LGBTQIA+, coming out for the first t
   to others, unfortunately, it can be negative beyond belief. But here’s the catch,
   we have to do it again and again and again…
 author: bwallis
+image: "/uploads/You%20only%20have%20to%20come%20out%20once-%20tn.png"
 ---
 
 “You only have to come out once, right?” were the words a close colleague of mine at a work gathering said to me. There was a pause, an awkward glance around the table, to find every face of my new-‘ish’ colleagues staring at me. Of course, no harm was meant, it was all in the spirit of ‘getting to know one another’ but they could not be more wrong.
