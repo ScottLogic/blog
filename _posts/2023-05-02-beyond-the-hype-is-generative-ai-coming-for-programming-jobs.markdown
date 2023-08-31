@@ -15,7 +15,7 @@ summary: In this episode, I'm joined by colleagues Oliver Cronk, Chris Price and
   Heward for a lively debate on whether the latest advances in generative AI are going
   to threaten our jobs – are we going to be made redundant by our own creation?
 author: ceberhardt
-image: "/uploads/BeyondTheHype%20-%20pink%20and%20yellow%20-%20episode%2012%20-%20social.png"
+image: uploads/BeyondTheHype%20-%20pink%20and%20yellow%20-%20episode%2012%20-%20social.png
 ---
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/26634822/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
