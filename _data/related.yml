@@ -89,7 +89,7 @@
   - /2013/10/14/assessing-android_fragmentation.html
   - /2015/03/26/react-native-retrospective.html
 /2014/02/04/intro-to-ixd.html:
-  - /2022/09/01/ui-vs-ux-design.html
+  - /2023/08/11/mental-models-and-the-user-experience.html
   - /2020/05/29/specstravaganza.html
 /2014/02/28/arrow-functions-in-knockoutjs.html:
   - /2015/02/02/generators.html
@@ -2422,6 +2422,24 @@
 /2023/07/27/an-introduction-to-tanstack-table.html:
   - /2017/01/10/efficient-svg-layout-with-d3.html
   - /2018/12/12/bridging-ui-libraries-for-decoupled-long-lived-widely-reusable-components.html
+/2023/08/04/beyond-the-hype-webassembly.html:
+  - /2018/02/27/webassembly-death-of-javascript.html
+  - /2019/12/24/webassembly-2019.html
+/2023/08/11/how-to-make-your-own-search-engine.html:
+  - /2022/02/23/word-embedding-recommendations.html
+  - /2016/04/04/jenny-from-the-blockchain.html
+/2023/08/11/mental-models-and-the-user-experience.html:
+  - /2014/02/04/intro-to-ixd.html
+  - /2022/09/01/ui-vs-ux-design.html
+/2023/08/17/celebrating-failure.html:
+  - /2017/06/27/continuous-change-culture.html
+  - /2020/08/04/how-to-deliver-a-difficult-message.html
+/2023/08/24/you-only-have-to-come-out-once.html:
+  - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
+  - /2023/06/02/what-pride-and-allyship-mean-to-me.html
+/2023/09/04/beyond-the-hype-devsecops-a-portmanteau-too-far.html:
+  - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2020/08/20/think-workflow-not-app.html
 /26/08/2014/StrongTypingWithAngularJS.html:
   - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
   - /2014/08/08/signalr-typed.html
