@@ -1,5 +1,5 @@
 ---
-title: The Power of a Well Written User Story - A Test Analyst's Perspective
+title: The Power of a Well Written User Story - A Test Engineer's Perspective
 date: 2023-08-18 00:00:00 Z
 categories:
 - Testing
@@ -24,15 +24,15 @@ Thus, I would like to discuss the importance of logging adequate and accurate in
 Adequate information in *User Stories* fosters collaboration between the team and other stakeholders. It promotes discussions and clarifications, ensuring that everyone is aligned with the requirements and the expected outcome, and hence directly impacts the end product's quality and alignment with customer needs, which eventually leads to better understood and met user expectations.
 
 ### Quality Assurance
-When it comes to testing, *User Stories* act as a foundation for test planning. Accurate information in the user story enables the test analyst to identify the necessary testing approaches and develop appropriate test strategies. It aids in determining the testing scope, risk areas, testing priorities, and helps the test analyst ensure comprehensive test coverage by understanding the user's expectations.
+When it comes to testing, *User Stories* act as a foundation for test planning. Accurate information in the user story enables the test engineer to identify the necessary testing approaches and develop appropriate test strategies. It aids in determining the testing scope, risk areas, testing priorities, and helps the test engineer ensure comprehensive test coverage by understanding the user's expectations.
 
-## Why Does it Impact Test Analysts in Particular?
-While Agile methodologies offer opportunities for test analysts to continuously improve and collaborate closely with the team, these also bring their own set of challenges.
+## Why Does it Impact Test Engineers in Particular?
+While Agile methodologies offer opportunities for test engineer to continuously improve and collaborate closely with the team, these also bring their own set of challenges.
 
 With continuously evolving requirements, there always stands a need for quick adaptability. 
-Also, in many places, the *User Stories* are collectively estimated; however, no matter how much we stress allocating sufficient time for testing activities or ensure earliest start for the same, majority time is consumed in building the functionality, and lots of things are pushed to test analysts last minute, adding an immense amount of pressure. 
+Also, in many places, the *User Stories* are collectively estimated; however, no matter how much we stress allocating sufficient time for testing activities or ensure earliest start for the same, majority time is consumed in building the functionality, and lots of things are pushed to test engineers last minute, adding an immense amount of pressure. 
 
-Not having the latest information readily available in this continuously changing and stressful environment would unnecessarily slow down the delivery and could also have an impact on the overall quality of the product. Hence it is extremely important from a test analyst point of view that all necessary information is carefully recorded and available as part of the *User Story*.
+Not having the latest information readily available in this continuously changing and stressful environment would unnecessarily slow down the delivery and could also have an impact on the overall quality of the product. Hence it is extremely important from a test engineer point of view that all necessary information is carefully recorded and available as part of the *User Story*.
 
 It is true that Agile values working software over comprehensive documentation, but it does not mean documentation is completely disregarded. Agile does promote "just enough" documentation, which means creating the necessary documentation to support the development process without excessive overhead. And that makes it even more important that adequate and accurate information is captured as part of the *User Stories* and also updated regularly (as required).
 
@@ -66,4 +66,4 @@ Additionally, it is important to keep the *User Story* updated with any signific
 
 An efficient way of making sure that the *User Stories* do not miss any important information is to use an internally agreed upon *User Story* template. Not Every *User Story* would need each one of the above components; however, having added these in the template would act as a checklist and ensure that the information will not me missed. 
 
-**As a test analyst, it is important to understand the critical role that *User Stories* play in guiding the testing process and ensuring the delivery of high-quality software. And hence we need to ensure that each *User Story* is capable of not only meeting its acceptance criteria but also contributing to the overall excellence of the product.**
+**As a test engineer, it is important to understand the critical role that *User Stories* play in guiding the testing process and ensuring the delivery of high-quality software. And hence we need to ensure that each *User Story* is capable of not only meeting its acceptance criteria but also contributing to the overall excellence of the product.**
