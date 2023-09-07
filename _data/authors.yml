@@ -95,6 +95,7 @@ active-authors:
   - sbreingan
   - sburnstone
   - sforeshew-cain
+  - sgladstone
   - shamiltonritchie
   - shunton
   - slaing
@@ -1274,3 +1275,8 @@ authors:
     email: enquiries@altitudefoundation.org
     author-summary: 'Ashleigh is a student who has been doing work experience at the <a href="https://altitudefoundation.org/">Altitude Foundation</a>, a charity that enables young people with untapped potential to pursue their passion for technology, get their first job, and inspire others to do the same.'
     picture: picture.jpg
+  sgladstone:
+    name: 'Sam Gladstone'
+    email: sgladstone@scottlogic.com
+    author-summary: "I'm a developer based out of our Bristol office. I'm a bit of a generalist; I like to get stuck into a range of problems from the business side to anywhere across the tech stack."
+    picture: image.png
