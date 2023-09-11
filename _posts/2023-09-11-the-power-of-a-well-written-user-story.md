@@ -1,6 +1,6 @@
 ---
 title: The Power of a Well Written User Story - A Test Engineer's Perspective
-date: 2023-08-18 00:00:00 Z
+date: 2023-09-11 14:00:00 Z
 categories:
 - Testing
 tags:
