@@ -5,9 +5,12 @@ categories:
 - Testing
 tags:
 - testing
-summary: User stories are a pivotal component of Agile Software Development, serving as concise and user-centric descriptions of desired software functionality. Hence, here I am, discussing how crucial it is to put user stories right for setting the foundation for a well-structured, user-focused, and efficient development process. 
+summary: User stories are a pivotal component of Agile Software Development, serving
+  as concise and user-centric descriptions of desired software functionality. Hence,
+  here I am, discussing how crucial it is to put user stories right for setting the
+  foundation for a well-structured, user-focused, and efficient development process.
 author: snandal
----  
+---
 
 At the heart of our modern software development process, lies the humble yet powerful concept of **"User Stories"** - the simplest way to capture what a user needs. *User Stories* serve as the bridge between the business stakeholders and the development team, providing a shared understanding of what the software should achieve.
 
