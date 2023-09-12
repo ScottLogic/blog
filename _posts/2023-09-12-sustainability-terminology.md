@@ -59,16 +59,16 @@ These are terms that you will predominantly find in software sustainability and 
 
 * **Green Software** - This term can have two meanings. The first and most used is for software that is designed to help the environment. So an app that is aimed at reducing food waste would be classed as green software. There is also another meaning that can be derived from the definition of ‘Green Energy’ which is a piece of software that has not harmed the environment during its development and operation.
 
-* **[Software Carbon Intensity (SCI)](https://github.com/Green-Software-Foundation/sci/blob/main/Software_Carbon_Intensity/Software_Carbon_Intensity_Specification.md)** - A methodology designed by the [Green Software Foundation](https://greensoftware.foundation/) to help calculate and track the impact of software, it is designed to be widely applicable to calculatable with a bias towards actions that eliminate carbon emissions. It considers both operational and embodied carbon and has a scaling factor (R) that allows for a value that is independent of the size of the system which could be for example per transaction or per user. The inclusion of embodied carbon ensures that this value can never reach zero but gives a value that can be tracked to validate improvements over time.
+* **Software Carbon Intensity (SCI)** - A methodology designed by the [Green Software Foundation](https://greensoftware.foundation/) to help calculate and track the impact of software, it is designed to be widely applicable to calculatable with a bias towards actions that eliminate carbon emissions. It considers both operational and embodied carbon and has a scaling factor (R) that allows for a value that is independent of the size of the system which could be for example per transaction or per user. The inclusion of embodied carbon ensures that this value can never reach zero but gives a value that can be tracked to validate improvements over time.
 
-    ~~~
+  ~~~
     SCI = (E*I) + M per R
 	
     E = Energy consumed by software (kWh)
     I = Carbon intensity (gCO2/kWh)
     M = Total embodied carbon (gCO2)
     R = Functional unit
-    ~~~
+  ~~~
 
 * **Energy Efficiency** - The efficiency of software with respect to how much energy it consumes, the higher the energy efficiency, the less electricity consumed. If the system is run on fossil fuel derived electricity then the higher the efficiency, the less emissions emitted by the software. It can be seen as the operational efficiency of software
 
