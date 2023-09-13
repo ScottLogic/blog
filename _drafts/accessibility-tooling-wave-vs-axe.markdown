@@ -89,13 +89,13 @@ If choosing to utilize both, make sure that they are both used in isolation. The
 There are of course many other options for automatic accessibility checks, including implementing it as part of automated code, sites that will generate more formal reports and using a paid accessibility checker, such as that which aXe offers. However, if you are looking for a quick and free automatic accessibility check and only want to consider one then this blog post will hopefully help with that. You can use the information here to form our own opinion but to summarise my takeaway from using these two tools;
 
 **Use WAVE if:**
-•   You are also interested in the contents of the features that make up your website
-•   You prefer a more visual ‘at a glance’ indicator of where detected accessibility errors exist on your page
-•   You are also looking to check hidden elements on the page
-•   You prefer more condensed explanations for any errors or alerts that have been picked up, which don’t require links away from the page
+* You are also interested in the contents of the features that make up your website
+* You prefer a more visual ‘at a glance’ indicator of where detected accessibility errors exist on your page
+* You are also looking to check hidden elements on the page
+* You prefer more condensed explanations for any errors or alerts that have been picked up, which don’t require links away from the page
 
 **Use aXe if:**
-•   You are looking to catch as many accessibility errors as possible before the start of manual testing
-•   You want to avoid having to disable page formatting, or dislike the way in which the WAVE icons are presented.
-•   You are more interested in quickly viewing the area of code which is causing the accessibility error
-•   You find the more detailed breakdown of the accessibility problems, alongside code examples of how to fix it, useful
+* You are looking to catch as many accessibility errors as possible before the start of manual testing
+* You want to avoid having to disable page formatting, or dislike the way in which the WAVE icons are presented.
+* You are more interested in quickly viewing the area of code which is causing the accessibility error
+* You find the more detailed breakdown of the accessibility problems, alongside code examples of how to fix it, useful
