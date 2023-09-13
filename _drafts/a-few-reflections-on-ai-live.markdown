@@ -13,7 +13,10 @@ summary: Last week I was lucky enough to head along with nearly 100 other people
   AI Live, an event aiming to bring together thinkers and doers who are involved in
   the world of Artificial Intelligence. I’ve been reflecting on some of the themes,
   ideas and issues that were shared.
-author: gosko
+author: gocsko
+head: <link rel="canonical" href="https://blog.scottlogic.com/2023/09/12/a-few-reflections-on-ai-live.html"
+  />
+image: "/uploads/Glen%20Ocsko.png"
 ---
 
 Last week I was lucky enough to head along with nearly 100 other people to AI Live, an event aiming to bring together thinkers and doers who are involved in the world of Artificial Intelligence. Run by Chief Disruptor, the speakers at this London event took us on a journey covering 1000-year nuclear strategies, to how AI could be used to better manage office space, via a detour to the benefits of baking bread at 3.00pm in Waitrose.
