@@ -12,7 +12,7 @@ If you are trying to get a quick and free overview of how accessible your webpag
 
 ## **Testing tools in action**
 
-To demonstrate how each of these tools operate the following site – a testing resource page - will be used: https://testsheepnz.github.io/. This site contains various engaging testing challenges that make it worth visiting – the initial dice game challenge is really fun, though be wary that inspecting the console may spoil answers – but it also contains two of the most common types of accessibility problems: poor contrast and nondescriptive links. Before we start comparing in more detail, let’s see how each of the tools mentioned
+To demonstrate how each of these tools operate the following site – a testing resource page - will be used: [link](https://testsheepnz.github.io/). This site contains various engaging testing challenges that make it worth visiting – the initial dice game challenge is really fun, though be wary that inspecting the console may spoil answers – but it also contains two of the most common types of accessibility problems: poor contrast and nondescriptive links. Before we start comparing in more detail, let’s see how each of the tools mentioned
 
 ### **WAVE**
 
