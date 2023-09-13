@@ -13,6 +13,7 @@ summary: You think software has enough variables, right? Well there is another o
   system that focuses on reducing the operational carbon of my business but also minimises
   embodied carbon", you will know exactly what they are looking for!
 author: jhowlett
+image: "/uploads/software%20sus.png"
 ---
 
 ### You think software has enough variables, right?
