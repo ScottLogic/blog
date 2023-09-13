@@ -62,7 +62,9 @@ Additional information around what the accessibility tools have picked up also d
 
 ## **What extra information is provided**
 
-WAVE gives some additional information about the page that is not present in aXe. The list of features and ARIA labels already mentioned are an example of that but hidden links are also indicated, which become visible when formatting is disabled. As well as the ‘order’ tab mentioned earlier the ‘structure’ tab presents the main sections of the page including the heading, navigation and footer. Human judgement is needed here to check to see if how the page is structured makes sense. Any errors around, for example, the heading order will be brought up again here.
+WAVE gives some additional information about the page that is not present in aXe. The list of features and ARIA labels already mentioned are an example of that but hidden links are also indicated, which become visible when formatting is disabled. As well as the ‘order’ tab mentioned earlier the ‘structure’ tab presents the main sections of the page including the heading, navigation and footer. Human judgement is needed here to check to see if how the page is structured makes sense. Any errors around, for example, the heading order will be flagged up once again on this tab.
+
+![WAVE structure tab showing heading order of the 'testsheepz' website](/uploads/WAVEStructureTab.png)
 
 aXe is able to detect at least a few extra accessibility errors (based off of testing of the TestSheep web page) that WAVE did not pick up on. The two extra errors – non-unique IDs and content not contained by landmarks – are both considered “best practice” by aXe. Whilst having unique IDs prevent invalid markup, digging a little deeper reveals that a requirement for valid markup is no longer a requirement as of WCAG 2.0. In addition, whilst using landmarks (header, nav, main, footer) is encouraged, these can be replaced with div sections with specific roles instead. Nevertheless, consideration of both will be able to give that much more confidence in the accessibility of a user’s site.
 
