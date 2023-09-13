@@ -17,7 +17,7 @@ To demonstrate how each of these tools operate the following site – a testing 
 ### **WAVE**
 
 <p align="center">
-  <img src="http://uploads/WAVE%20Dashboard.png" />
+<img src="/uploads/WAVE%20Dashboard.png" />
 </p>
 
 WAVE is a downloadable extension available for Chrome, Firefox and Edge. It can be run by clicking on the extension icon or through right-clicking the page and choosing the “WAVE this page” option.
