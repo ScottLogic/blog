@@ -1,6 +1,20 @@
 ---
 title: 'Accessibility tooling: WAVE vs aXe'
 date: 2023-09-12 08:48:00 Z
+categories:
+- Testing
+tags:
+- Testing
+- UX Design
+- accessibility
+- WCAG
+- UI
+- WAVE
+- aXE
+summary: comparison of two common automated accessibility testing tools - WAVE and
+  aXe - detailing what they have in common, what they do differently and detailing
+  which one may be used based off of a user's personal preference.
+author: aberrill
 ---
 
 It can be difficult to appreciate just how many considerations are needed for creating software that everyone is able to access. You may have heard of screen readers such as NVDA to aid those hard of sight, but how does your software react when zoomed in 400%? You may understand the importance of site navigation using only a keyboard, but you should be sure that you don’t end up running into any keyboard traps – and that you can tell just what is highlighted at any given point. You are able to confirm that all the links on your page are working, but are they as accessible on a smaller screen, or if a person is using their finger or a stylus pen.
@@ -12,11 +26,11 @@ If you are trying to get a quick and free overview of how accessible your webpag
 
 ## **Testing tools in action**
 
-To demonstrate how each of these tools operate the following site – a testing resource page - will be used: https://testsheepnz.github.io/. This site contains various engaging testing challenges that make it worth visiting – the initial dice game challenge is really fun, though be wary that inspecting the console may spoil answers – but it also contains two of the most common types of accessibility problems: poor contrast and nondescriptive links. Before we start comparing in more detail, let’s see how each of the tools mentioned
+To demonstrate how each of these tools operate the following site – a testing resource page - will be used: [link](https://testsheepnz.github.io/). This site contains various engaging testing challenges that make it worth visiting – the initial dice game challenge is really fun, though be wary that inspecting the console may spoil answers – but it also contains two of the most common types of accessibility problems: poor contrast and nondescriptive links. Before we start comparing in more detail, let’s see how each of the tools mentioned
 
 ### **WAVE**
 
-![WAVE Dashboard showing errors, contrast errors, alerts, features, structural elements and ARIA categories](/uploads/WAVE%20Dashboard.png)
+![WAVE Dashboard showing errors, contrast errors, alerts, features, structural elements and ARIA categories]({{ site.github.url }}/uploads/WAVE%20Dashboard.png)
 
 WAVE is a downloadable extension available for Chrome, Firefox and Edge. It can be run by clicking on the extension icon or through right-clicking the page and choosing the “WAVE this page” option.
 
