@@ -56,6 +56,8 @@ WAVE’s errors are presented as definite issues that need to be addressed whils
 
 aXe, instead of separating by error and alerts, will include tags listing the severity of the found accessibility bug, ranging from ‘minor’ to ‘critical.’ The number of each issue ranked by severity is presented in a table, and a user is able to filter the issues by clicking on the number. This would help a user prioritise found accessibility bugs for resolving.
 
+![The four aXe error types: minor, moderate, serious and critical](/uploads/aXeErrorTypes.png)
+
 Additional information around what the accessibility tools have picked up also differs between the two. Both WAVE and aXe offer solutions to fix the problems found. WAVE also provides a brief run-down on how the error can affect accessibility with links to official WCAG documents provided. For aXe, which will highlight the area of code which has triggered the accessibility errors, “Why it matters” is to be found in an external link. What will also be provided where appropriate are examples of code which would not fail the detected issue.
 
 ## **What extra information is provided**
