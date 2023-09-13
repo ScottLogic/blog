@@ -28,9 +28,6 @@ To jump to any specific error listed by WAVE, navigate to its ‘description’ 
 
 ### **aXe**
 
-![aXe dashboard with forty-three errors associated with eight different error types ](/uploads/aXeDashboard.png)
-
-
 aXe is a downloadable extension available for Chrome, Firefox and Edge. It can be run by opening Devtools and clicking on the aXe extension offered by it, and then by clicking “scan full page” – most of the other features are locked behind the paid version of aXe, something that this blog post will not cover.
 
 Once the scan is complete, the “Best practices” option is set to “on” so that everything that aXe has captured is present. Unlike WAVE, the page being tested does not get populated by icons. Instead, under each error there is an option to highlight to region in question that had caused the error to manifest. Most features that aXe offers are a part of its paid service but plenty of information is still offered.
