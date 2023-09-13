@@ -16,7 +16,7 @@ To demonstrate how each of these tools operate the following site – a testing 
 
 ### **WAVE**
 
-![WAVE Dashboard showing errors, contrast errors, alerts, features, structural elements and ARIA categories](/uploads/WAVE%20Dashboard-2b0986.png)
+![WAVE Dashboard showing errors, contrast errors, alerts, features, structural elements and ARIA categories](/uploads/WAVE%20Dashboard.png)
 
 WAVE is a downloadable extension available for Chrome, Firefox and Edge. It can be run by clicking on the extension icon or through right-clicking the page and choosing the “WAVE this page” option.
 
@@ -27,6 +27,8 @@ The icons that will populate the page link to matching icons in the WAVE dashboa
 To jump to any specific error listed by WAVE, navigate to its ‘description’ tag and click on any of the individual icons underneath the various elements that WAVE has detected to do so.
 
 ### **aXe**
+
+![aXe dashboard with forty-three errors associated with eight different error types ](/uploads/aXeDashboard.png)
 
 aXe is a downloadable extension available for Chrome, Firefox and Edge. It can be run by opening Devtools and clicking on the aXe extension offered by it, and then by clicking “scan full page” – most of the other features are locked behind the paid version of aXe, something that this blog post will not cover.
 
@@ -42,11 +44,15 @@ More direct comparisons
 
 The information that both tools give on the lack of accessible links and contrast errors are extremely important. For the lack of accessible links, aXe supplements this information via snippets of the code where the error originated from, in which the user can note the lack of an alt text tag. WAVE goes one step further with this using its ‘order’ heading which emulates the text heard when tabbing through a page with a screen reader such as NVDA, which is an aid for people with poor or no vision. If the text \*NO ACCESSIBLE NAME\* is seen, then NVDA would only inform someone using it that they have tabbed to a link, without any context.
 
+![WAVE order tab, showing multiple links without an accessible name](/uploads/WAVEOrderTab.png)
+
 On the latter point, both also indicate the actual contrast – and on this particular page highlights the difficulty that would come with manual testing of such a thing. The main text *does* fail accessibility checks, but at 4.44:1 ratio compared to the minimum of 4.5:1 ratio that would be hard to see by the naked eye, especially for a tester who does not have low vision or colour blindness.
 
 ## **How the information is presented**
 
 WAVE’s errors are presented as definite issues that need to be addressed whilst alerts are things that may be an issue but are not necessarily. In a similar vein, the information around features, structural elements and ARIA labels are presented as an explanation of what should encompass these features and what a user should check for. Whilst it’s highly unlikely for a webpage to contain every detectable error or alert, WAVE offers an icon index that a user can look through if curious. The extra information given serves as an excellent aid to manual accessibility testing once the errors picked up by automatic testing have been resolved.
+
+![22 WAVE icons indicating different error types.png](/uploads/WaveErrorIcons.png)
 
 aXe, instead of separating by error and alerts, will include tags listing the severity of the found accessibility bug, ranging from ‘minor’ to ‘critical.’ The number of each issue ranked by severity is presented in a table, and a user is able to filter the issues by clicking on the number. This would help a user prioritise found accessibility bugs for resolving.
 
