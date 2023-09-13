@@ -92,18 +92,18 @@ There are of course many other options for automatic accessibility checks, inclu
 
 * You are also interested in the contents of the features that make up your website
 
-* You prefer a more visual ‘at a glance’ indicator of where detected accessibility errors exist on your page
+- You prefer a more visual ‘at a glance’ indicator of where detected accessibility errors exist on your page
 
 * You are also looking to check hidden elements on the page
 
-* You prefer more condensed explanations for any errors or alerts that have been picked up, which don’t require links away from the page
+- You prefer more condensed explanations for any errors or alerts that have been picked up, which don’t require links away from the page
 
 **Use aXe if:**
 
 * You are looking to catch as many accessibility errors as possible before the start of manual testing
 
-* You want to avoid having to disable page formatting, or dislike the way in which the WAVE icons are presented.
+- You want to avoid having to disable page formatting, or dislike the way in which the WAVE icons are presented.
 
 * You are more interested in quickly viewing the area of code which is causing the accessibility error
 
-* You find the more detailed breakdown of the accessibility problems, alongside code examples of how to fix it, useful
+- You find the more detailed breakdown of the accessibility problems, alongside code examples of how to fix it, useful
