@@ -9,6 +9,10 @@ tags:
 - Events
 - ''
 - events
+summary: Last week I was lucky enough to head along with nearly 100 other people to
+  AI Live, an event aiming to bring together thinkers and doers who are involved in
+  the world of Artificial Intelligence. I’ve been reflecting on some of the themes,
+  ideas and issues that were shared.
 author: gosko
 ---
 
