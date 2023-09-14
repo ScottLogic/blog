@@ -7,11 +7,11 @@ categories:
 tags:
   - testing
   - jest
-summary: In this blog post I will show you how to reader though set up a Jest custom environment in order to dynamically skip tests after they have been queued.
+summary: In this blog post I will walk you through how to set up a Jest custom environment in order to dynamically skip tests after they have been queued.
 author: osouthwell
 ---
 
-In this blog post I will show you how to reader though set up a Jest custom environment in order to dynamically skip tests after they have been queued.
+In this blog post I will walk you through how to set up a Jest custom environment in order to dynamically skip tests after they have been queued.
 
 In Jest<sup>[[1](#ref1)]</sup>, while you can skip tests in code, there isn't a straightforward way to decide not to run tests once they are queued. This becomes problematic when you need to stop running tests based on dynamic properties. This is an issue specifically when running numerous tests calling APIs with unknown costs beforehand. I will address this problem by creating a custom environment and binding to a Jest Circus<sup>[[3](#ref3)]</sup> event.
 
