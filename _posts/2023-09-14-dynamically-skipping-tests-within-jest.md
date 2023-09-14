@@ -31,29 +31,29 @@ Creating a custom Jest environment is not overly complex. By default, Jest inclu
 
 Within the constructor is where we can define our global variables. These variables are then available to our test suite. For now we will define a simple function `skipIf()` that accepts a function then add it to a list conditions to use later.
 
-```javascript
-const NodeEnvironment = require("jest-environment-node");
+~~~javascript
+const NodeEnvironment = require('jest-environment-node');
 
 const { TestEnvironment } = NodeEnvironment;
 
 class CustomEnvironment extends TestEnvironment {
-  constructor(config, context) {
-    super(config, context);
+    constructor(config, context) {
+        super(config, context);
 
-    this.skipIfConditions = [];
+        this.skipIfConditions = [];
 
-    this.global.skipIf = (condition) => this.skipIfConditions.push(condition);
-  }
+        this.global.skipIf = (condition) => this.skipIfConditions.push(condition);
+    }
 
-  //...
+    //...
 }
 
 module.exports = CustomEnvironment;
-```
+~~~
 
 Now that we've defined our global function, `skipIf()`, we can access it within our test suite and pass in conditional functions. This setup allows us to pass any number of functions, making it versatile for various scenarios. For instance, in this example we use `skipIf()` to skip tests once our budget has been exceeded. This example is very simple but could easily be adjusted to accept complex conditions, such as not running test if an API is offline, as well. Importantly, variables local to your test suite remain fully accessible and updated to your `skipIf()` function.
 
-```javascript
+~~~javascript
 let totalCost = 0;
 const testBudget = 2;
 const expensiveAPI = () => 1;
@@ -61,45 +61,42 @@ const expensiveAPI = () => 1;
 skipIf(() => totalCost > testBudget);
 
 it(`Test No 1`, () => {
-  totalCost += expensiveAPI();
+    totalCost += expensiveAPI();
 });
 it(`Test No 2`, () => {
-  totalCost += expensiveAPI();
+    totalCost += expensiveAPI();
 });
 it(`Test No 3`, () => {
-  totalCost += expensiveAPI();
+    totalCost += expensiveAPI();
 });
 it(`Test No 4`, () => {
-  totalCost += expensiveAPI();
+    totalCost += expensiveAPI();
 });
-```
+~~~
 
 Next, we'll bind to an event fired by Jest Circus. A list of available events can be found in Jest's type folder <sup>[[6](#ref6)]</sup>. The core idea is to evaluate whether any of the functions passed to our `skipIf()` function return true. If any condition is met, we change the test's mode to `skip`, and it will be skipped in the test runner. Again, this can easily be changed to skip on all conditions being true.
 
-```javascript
+~~~javascript
 class CustomEnvironment extends TestEnvironment {
-  //...
+    //...
 
-  async handleTestEvent(event) {
-    if (
-      event.name === "test_start" &&
-      this.skipIfConditions.some((condition) => condition())
-    ) {
-      event.test.mode = "skip";
+    async handleTestEvent(event) {
+        if (event.name === 'test_start' && this.skipIfConditions.some((condition) => condition())) {
+            event.test.mode = 'skip';
+        }
     }
-  }
 }
-```
+~~~
 
 Lastly, we need to instruct Jest to use our custom environment. This is achieved by setting the `testEnvironment` property to the file path in the Jest config file. Once this step is completed, all that's left to do is pass in conditional functions into our global `skipIf()` function within our test suite. Our custom environment will then assess these conditions just before each test is run and run the test only if all conditions return true.
 
-```javascript
+~~~javascript
 module.exports = {
-  // Other Jest configuration options...
+    // Other Jest configuration options...
 
-  testEnvironment: "./environment/CustomEnvironment.js",
+    testEnvironment: './environment/CustomEnvironment.js'
 };
-```
+~~~
 
 ### Warning about mutating event data
 
