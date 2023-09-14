@@ -82,6 +82,7 @@ active-authors:
   - ocronk
   - oforeman
   - osharon
+  - osouthwell
   - pdykes
   - pgraham
   - pholman
@@ -585,6 +586,11 @@ authors:
   osharon:
     name: 'Oded Sharon'
     author-summary: '<p>I am a developer at Scott Logic, Edinburgh. <a href="https://github.com/odedshr"> Find me on Github </a> </p>'
+    picture: picture.jpg
+  osouthwell:
+    name: "Ollie Southwell"
+    email: osouthwell@scottlogic.com
+    author-summary: "I'm a software developer at Scott Logic, based in Bristol. I'm at least a little bit interested in almost everything."
     picture: picture.jpg
   pshek:
     name: 'Paulin Shek'
