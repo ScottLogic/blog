@@ -48,6 +48,7 @@ active-authors:
   - jharris
   - jhenderson
   - jheward
+  - jhowlett
   - jleftley
   - jmcevoy
   - jporter
@@ -101,6 +102,7 @@ active-authors:
   - slinsley
   - smartin
   - smendis-scottlogic
+  - snandal
   - ssibanda
   - swoods
   - tclarke-scottlogic
@@ -436,6 +438,10 @@ authors:
     google-plus-url: "https://plus.google.com/u/0/113102044823162726684"
     author-summary: "<p>I am developer working at the Scott Logic Newcastle office. I'm involved in several projects and have a great interest in the cryptocurrency market. Believe that I may be one of the last Delphi developers on earth.</p>"
     picture: picture.jpg
+  jhowlett:
+    name: "Jake Howlett"
+    author-summary: "<p>I am a software developer at Scott Logic based in Bristol and I have a passion for sustainable software. More specifically how we can make the whole software lifecycle, from hardware production to continual deployment systems, more sustainable.</p>"
+    picture: "jhowlett.jpg"
   jmelon:
     name: "Jean-Sacha Melon"
     author-summary: "<p>I am a London based Delivery Principal at Scott Logic. Coming from a developer background I am passionate about agility and coaching in the tech space. I love working with our amazing teams and supporting our customers at all levels of seniority.</p>"
