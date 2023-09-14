@@ -1,6 +1,6 @@
 ---
 title: Optimizing Test Suite Metrics Logging in Jest Using `metricsCollector`
-date: 2023-09-14 15:00:00 Z
+date: 2023-09-13 15:00:00 Z
 categories:
   - Testing
   - Tech
