@@ -66,8 +66,6 @@ describe("Testing the API Calls - Naive Approach", () => {
 
 When the test is run, it produces the below result
 
-![A piano, or a box with black and white keys.]({{site.github.url}}/drees/assets/piano.jpg "What do you see")
-
 ![Mean and total CO2 Emissions are logged in the console]({{site.github.url}}/gsingh/assets/./naiveResult.PNG "Mean and total CO2 Emissions are logged in the console")
 
 If we have multiple test suites where we are using this environmentallyUnfriendlyAPI calls and want to log their CO2 Emission data, then you could copy-paste metric recording and logging code into each test file. This approach clutters your test files, making them harder to read and maintain. It's prone to inconsistencies, and calculating suite-level or overall metrics becomes a complex, error-prone task. Let's be honest; this approach is neither clean nor efficient.
