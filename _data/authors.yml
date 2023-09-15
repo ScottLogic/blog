@@ -1273,9 +1273,9 @@ authors:
     picture: picture.jpeg
   colive:
     name: 'Charlie Olive'
+    feed-description: 'Write ups on technical topics learnt through my Consultant role at Scott Logic'
     email: colive@scottlogic.com
-    author-summary: 'Associate (primarily Java) developer learning how to create all-sorts'
-    twitter-handle: null
+    author-summary: 'Developer based in the Bristol office. Most experienced in back end and RESTful services, curiously learning about everything else. I also run a lot.'
     picture: unnamed2.jpg
   bwallis:
     name: 'Beth Wallis'
