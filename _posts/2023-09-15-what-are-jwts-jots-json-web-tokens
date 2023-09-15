@@ -6,7 +6,6 @@ layout: default_post
 summary: JSON Web Tokens are a secure way of transmitting information between two parties. This article explores what they are, how they are made, the kinds of JWTs that are commonly used and their key benefits.
 category: 
     - Tech
-    - Latest Articles
 tags: 
     - Tech
 ---  
@@ -28,14 +27,13 @@ JSON web tokens have a consistent structure that they follow, as the name sugges
 
 The type of encoding as mentioned before is specified in the Header. This is done separately after the first two section are encoded. A pseudocode algorithm of this process would look something like this:
 
-```
-encodedHeader = base64UrlEncode(header);
-encodedPayload = base64UrlEncode(payload);
-signedEncodedSignature = HMACSHA256((encodedHeader + "." + encodedPayload), secret);
+  ~~~
+	encodedHeader = base64UrlEncode(header);
+	encodedPayload = base64UrlEncode(payload);
+	signedEncodedSignature = HMACSHA256((encodedHeader + "." + encodedPayload), secret);
 
-jwt = encodedHeader + "." + encodedPayload + "." + signedEncodedSignature
-```
-
+	jwt = encodedHeader + "." + encodedPayload + "." + signedEncodedSignature
+  ~~~
 
 ## Claims
 
