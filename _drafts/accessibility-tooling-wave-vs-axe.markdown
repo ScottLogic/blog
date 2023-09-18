@@ -26,11 +26,11 @@ If you are trying to get a quick and free overview of how accessible your webpag
 
 ## **Testing tools in action**
 
-To demonstrate how each of these tools operate the following site – a testing resource page - will be used: [link](https://testsheepnz.github.io/). This site contains various engaging testing challenges that make it worth visiting – the initial dice game challenge is really fun, though be wary that inspecting the console may spoil answers – but it also contains two of the most common types of accessibility problems: poor contrast and nondescriptive links. Before we start comparing in more detail, let’s see how each of the tools mentioned
+To demonstrate how each of these tools operate the following site – [a testing resource page](https://testsheepnz.github.io/) - will be used. This site contains various engaging testing challenges that make it worth visiting – the initial dice game challenge is really fun, though be wary that inspecting the console may spoil answers – but it also contains two of the most common types of accessibility problems: poor contrast and nondescriptive links. Before we start comparing in more detail, let’s see how each of the tools mentioned
 
 ### **WAVE**
 
-![WAVE Dashboard showing errors, contrast errors, alerts, features, structural elements and ARIA categories]({{ site.github.url }}/uploads/WAVE%20Dashboard.png)
+![WAVE Dashboard showing errors, contrast errors, alerts, features, structural elements and ARIA categories]({{ site.github.url }}/uploads/WAVEDashboard.png)
 
 WAVE is a downloadable extension available for Chrome, Firefox and Edge. It can be run by clicking on the extension icon or through right-clicking the page and choosing the “WAVE this page” option.
 
