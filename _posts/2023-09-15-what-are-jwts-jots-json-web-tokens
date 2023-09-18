@@ -23,9 +23,9 @@ Random letters, numbers, and always 2 full stops roughly one and two thirds into
 
 ## Creating a JWT
 
-JSON web tokens have a consistent structure that they follow, as the name suggests in a json format. a JWT is comprised of 3 parts, separated by full stops ("."). These components are the Header, the Payload and the Signature. The header contains the algorithm that was used to generate the signature for the JWT and what type of JWT the token is (typically in that order). The payload is an map of key value pairs called Claims, and can be visualised as the message of the JWT. Whatever is being conveyed in this token can be found in the payload. Finally the Signature is an encoded string (using a Base46url Encoding algorithm) of the Header and Payload. 
+JSON web tokens are maps of key-value pairs and are separated into 3 parts by full stops ("."). These components are the Header, the Payload and the Signature. The header contains the algorithm that was used to generate the signature for the JWT and what type of JWT the token is (typically in that order). The payload is an map of key value pairs called Claims, and can be visualised as the message of the JWT. Whatever is being conveyed in this token can be found in the payload. Finally the Signature is an encoded string (using a Base46url Encoding algorithm) of the Header and Payload. 
 
-The type of encoding as mentioned before is specified in the Header. This is done separately after the first two section are encoded. A pseudocode algorithm of this process would look something like this:
+The type of encoding as mentioned before is specified in the Header. This is done separately after the first two sections are encoded. A pseudocode algorithm of this process would look something like this:
 
   ~~~
 	encodedHeader = base64UrlEncode(header);
@@ -42,8 +42,8 @@ Claims can be registered, public or private. Registered claims serve common purp
 
 | type       | guidance                                                                        | options                                  |
 | ---------- | ------------------------------------------------------------------------------- | ---------------------------------------- |
-| registered | not mandatory but recommended                                                   | iss, exp, sub, aud, nbf, iat, jti        |
-| public     | can be anything but should align with the IANA "JSON Web Token Claims" registry | Anything, but should follow the standard |
+| registered | Not mandatory but recommended                                                   | iss, exp, sub, aud, nbf, iat, jti        |
+| public     | Can be anything but should align with the IANA "JSON Web Token Claims" registry | Anything, but should follow the standard |
 | private    | Can be any unregistered claim (use with caution)                                | Anything, exercise caution               | 
 
 
@@ -51,13 +51,13 @@ Packages that encode JWTs are technically able to generate a JWT with any shape 
 
 
 ## Are you a JWS or a JWE?
-Although a JWTs header, payload and signature can each be written essentially in any form that is valid JSON, they typically adhere to the rules of one of two JWT variants. One specializes in authenticity with a signature, one in privacy with encryption.
+Although a JWT's header, payload and signature can each be written essentially in any form that is valid JSON, they typically adhere to the rules of one of two JWT variants. One specialises in authenticity with a signature, one in privacy with encryption.
 
 - A JWS (JSON Web Signature ([RFC-7515](https://datatracker.ietf.org/doc/html/rfc7515))) is a token that contains a digital signature or MAC. They always specify a JOSE (JSON Object Signing and Encryption) header with an "alg" key that defines what algorithm was used to secure the JWS. JWS tokens with no digital signature are used, typically with the "alg" set to "none". 
 	- As these tokens are signed they guarantee the data integrity and authenticity that the intended issuer indeed created the token
 	- As these tokens are base64 encoded and not encrypted, anyone who can see it can decode it and read the claims in plain text.
 
-- A JWE (Json Web Encryption ([RFC-7516](https://datatracker.ietf.org/doc/html/rfc7516))) is a token that is encrypted. It is the standardized way to represent encoded data. They have 5 sections (including the "ciphertext" containing the encrypted payload) and list in the JOSE header the "enc" key that specifies the encryption algorithm used.
+- A JWE (Json Web Encryption ([RFC-7516](https://datatracker.ietf.org/doc/html/rfc7516))) is a token that is encrypted. It is the standardised way to represent encoded data. They have 5 sections (including the "ciphertext" containing the encrypted payload) and list in the JOSE header the "enc" key that specifies the encryption algorithm used.
 	- These tokens are encrypted and therefore cannot be decoded without a private key. This guarantees privacy in the transmitted information
 	- As there is no signature on these tokens it is not confirmed who issued it
 
@@ -66,7 +66,7 @@ It is standard to set the ciphertext of a JWE with the JWS if you wish to ensure
 
 ## Confidentiality and Integrity
 
-JWTs most effective application is in secure communication. If an issuer (user, server, etc.) sends a request with an attached JWT that it has signed with it's private key, the recipient can confirm that issuer using it's public key. As with all hashing algorithms, any middle-man hijacking the JWT mid flight, decoding it, adjusting the claims or header and then re-signing it will be evident. the signature will no longer verify with the initial issuers public key and the recipient can reject the request. 
+JWT's most effective application is in secure communication. If an issuer (user, server, etc.) sends a request with an attached JWT that is signed with their private key, the recipient can confirm that issuer using it's public key. As with all hashing algorithms, any middle-man hijacking the JWT mid flight, decoding it, adjusting the claims or header and then re-signing it will be evident. The signature will no longer verify with the initial issuer's public key and the recipient can reject the request. 
 
 Earlier I stated the 3 components of the JWT are encoded separately. It is possible therefore for an attacker to simply change the claims and preserve the header and importantly the signature of the JWT. However, as the Signature is an encoded string of the Header and Payload *itself* the recipient will spot the difference and can again reject the request.
 
@@ -75,4 +75,4 @@ Earlier I stated the 3 components of the JWT are encoded separately. It is possi
 
 JSON web tokens are used extensively in Open Banking and a lot of other RESTful services too (for example, you'll be receiving JWTs from Spotify if you want to use their API!). They are frequent in back end systems and understanding them well can help understand any new system you are changing. In a lot of ways they are the metadata of a request, saying when and where something came from, along with lots of other useful information.
 
-To see the logic outlined above I'd recommend visiting [jwt.io](jwt.io) where you can encode and decode your own JWTs in the browser. Example case studies can also be found at the end of the IETF's documentation on JWE's and JWS'
+To see the logic outlined above I'd recommend visiting [jwt.io](jwt.io) where you can encode and decode your own JWTs in the browser. Example case studies can also be found at the end of the IETF's documentation on JWEs and JWSs.
