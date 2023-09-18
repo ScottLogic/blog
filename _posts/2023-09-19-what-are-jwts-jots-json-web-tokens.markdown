@@ -15,9 +15,9 @@ tags:
 
 JSON Web Tokens, commonly written in shorthand as JWTs and pronounced "Jots",  are encoded JSON objects which can be used to securely transmit information between two parties. The RFC-7519 standard definition is "a compact, URL-safe means of representing claims to be transferred between two parties". JWT.io describes them as "a compact and self-contained way for securely transmitting information between parties as a JSON object". When I first discovered them, I knew them just by the way they looked and little else. When I was first told about a "Jot", this is what I thought of
 
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiaXNzIjoiQ2hhcmxpZSBPbGl2ZSIsImV4cCI6NDEyOTgzMzYwMCwibXNnIjoiSGVsbG8gd29ybGQhIn0.5oCzt5DZl-2LtKaBkNMz1YFlIu7iLSBU6eSUyqwIGk0
-```
+~~~
+	eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiaXNzIjoiQ2hhcmxpZSBPbGl2ZSIsImV4cCI6NDEyOTgzMzYwMCwibXNnIjoiSGVsbG8gd29ybGQhIn0.5oCzt5DZl-2LtKaBkNMz1YFlIu7iLSBU6eSUyqwIGk0
+~~~
 
 Random letters, numbers, and always 2 full stops roughly one and two thirds into the string. JWTs (like all encrypted strings) may be ugly to look at, but in conjunction with some standard cryptography they can be very powerful for secure communication.
 
@@ -28,13 +28,13 @@ JSON web tokens are maps of key-value pairs and are separated into 3 parts by fu
 
 The type of encoding as mentioned before is specified in the Header. This is done separately after the first two sections are encoded. A pseudocode algorithm of this process would look something like this:
 
-  ~~~
+~~~
 	encodedHeader = base64UrlEncode(header);
 	encodedPayload = base64UrlEncode(payload);
 	signedEncodedSignature = HMACSHA256((encodedHeader + "." + encodedPayload), secret);
 
 	jwt = encodedHeader + "." + encodedPayload + "." + signedEncodedSignature
-  ~~~
+~~~
 
 ## Claims
 
@@ -44,7 +44,7 @@ Claims can be registered, public or private. Registered claims serve common purp
 | type       | guidance                                                                        | options                                  |
 | ---------- | ------------------------------------------------------------------------------- | ---------------------------------------- |
 | registered | Not mandatory but recommended                                                   | iss, exp, sub, aud, nbf, iat, jti        |
-| public     | Can be anything but should align with the IANA "JSON Web Token Claims" registry | Anything, but should follow the standard |
+| public     | Can be anything but should align with the [IANA "JSON Web Token Claims" registry](https://www.iana.org/assignments/jwt/jwt.xhtml) | Anything, but should follow the standard |
 | private    | Can be any unregistered claim (use with caution)                                | Anything, exercise caution               | 
 
 
@@ -76,4 +76,4 @@ Earlier I stated the 3 components of the JWT are encoded separately. It is possi
 
 JSON web tokens are used extensively in Open Banking and a lot of other RESTful services too (for example, you'll be receiving JWTs from Spotify if you want to use their API!). They are frequent in back end systems and understanding them well can help understand any new system you are changing. In a lot of ways they are the metadata of a request, saying when and where something came from, along with lots of other useful information.
 
-To see the logic outlined above I'd recommend visiting [jwt.io](jwt.io) where you can encode and decode your own JWTs in the browser. Example case studies can also be found at the end of the IETF's documentation on JWEs and JWSs.
+To see the logic outlined above I'd recommend visiting [jwt.io](https://jwt.io/) where you can encode and decode your own JWTs in the browser. Example case studies can also be found at the end of the IETF's documentation on JWEs and JWSs.
