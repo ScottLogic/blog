@@ -66,7 +66,7 @@ It is standard to set the ciphertext of a JWE with the JWS if you wish to ensure
 
 ## Confidentiality and Integrity
 
-JWT's most effective application is in secure communication. If an issuer (user, server, etc.) sends a request with an attached JWT that is signed with their private key, the recipient can confirm that issuer using it's public key. As with all hashing algorithms, any middle-man hijacking the JWT mid flight, decoding it, adjusting the claims or header and then re-signing it will be evident. The signature will no longer verify with the initial issuer's public key and the recipient can reject the request. 
+JWTs' most effective application is in secure communication. If an issuer (user, server, etc.) sends a request with an attached JWT that is signed with their private key, the recipient can confirm that issuer using it's public key. As with all hashing algorithms, any middle-man hijacking the JWT mid flight, decoding it, adjusting the claims or header and then re-signing it will be evident. The signature will no longer verify with the initial issuer's public key and the recipient can reject the request. 
 
 Earlier I stated the 3 components of the JWT are encoded separately. It is possible therefore for an attacker to simply change the claims and preserve the header and importantly the signature of the JWT. However, as the Signature is an encoded string of the Header and Payload *itself* the recipient will spot the difference and can again reject the request.
 
