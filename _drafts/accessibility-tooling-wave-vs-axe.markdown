@@ -99,7 +99,7 @@ The following table is a summation of the different information on page accessib
 
 Since both WAVE and aXe are relatively easy to use, using both together can be beneficial. A use case for myself whilst testing out the testing site was, upon seeing the issue flagged by aXe around page content needing to be contained by landmarks, verifying via the structure tab of WAVE that there is no ‘Main’ landmark around the content of the page. This technically means that WAVE does provide information around landmarks but if a user doesn’t know to look out for it (or to check for ARIA labels, which can be a substitute for landmarks) then it can easily be missed.
 
-If choosing to utilize both, make sure that they are both used in isolation. The icons that pop up when using WAVE is mistakenly interpreted by aXe as being part of the page and will lead to false positives in accessibility checking.
+If choosing to utilise both, make sure that they are both used in isolation. The icons that pop up when using WAVE is mistakenly interpreted by aXe as being part of the page and will lead to false positives in accessibility checking.
 There are of course many other options for automatic accessibility checks, including implementing it as part of automated code, sites that will generate more formal reports and using a paid accessibility checker, such as that which aXe offers. However, if you are looking for a quick and free automatic accessibility check and only want to consider one then this blog post will hopefully help with that. You can use the information here to form our own opinion but to summarise my takeaway from using these two tools;
 
 **Use WAVE if:**
