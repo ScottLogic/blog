@@ -17,16 +17,17 @@ summary: comparison of two common automated accessibility testing tools - WAVE a
 author: aberrill
 ---
 
-It can be difficult to appreciate just how many considerations are needed for creating software that everyone is able to access. You may have heard of screen readers such as NVDA to aid those hard of sight, but how does your software react when zoomed in 400%? You may understand the importance of site navigation using only a keyboard, but you should be sure that you don’t end up running into any keyboard traps – and that you can tell just what is highlighted at any given point. You are able to confirm that all the links on your page are working, but are they as accessible on a smaller screen, or if a person is using their finger or a stylus pen.
+As a test engineer, it can be difficult to appreciate just how many considerations are needed for creating software that everyone is able to access. You may have heard of screen readers such as NVDA to aid those hard of sight, but how does your software react when zoomed in 400%? You may understand the importance of site navigation using only a keyboard, but you should be sure that you don’t end up running into any keyboard traps – and that you can tell just what is highlighted at any given point. You are able to confirm that all the links on your page are working, but are they as accessible on a smaller screen, or if a person is using their finger or a stylus pen.
 
 Where do you start?
 
-When it comes to ironing out the more common accessibility problems, automated tools make for an excellent aid! Such tools require a user to input their URL and generate a report based on that but the two that I had come across when looking into this can be run directly from the browser on which you would like to test. These two tools are WAVE and (the free version of) aXe DevTools, both of which work in similar ways.
+When it comes to ironing out the more common accessibility problems, automated tools make for an excellent aid! Such tools require a user to input their URL and generate a report based on that. However, the two that I had come across when looking into this can be run directly from the browser on which you would like to test. These two tools, which I personally found much easier to use, are WAVE and (the free version of) aXe DevTools, both of which work in similar ways.
+
 If you are trying to get a quick and free overview of how accessible your webpage is, how do these two tools compare?
 
 ## **Testing tools in action**
 
-To demonstrate how each of these tools operate the following site – [a testing resource page](https://testsheepnz.github.io/) – will be used. This site contains various engaging testing challenges that make it worth visiting – the initial dice game challenge is really fun, though be wary that inspecting the console may spoil answers – but it also contains two of the most common types of accessibility problems: poor contrast and nondescriptive links. Before we start comparing in more detail, let’s see how each of the tools mentioned
+To demonstrate how each of these tools operate the following site – [a testing resource page](https://testsheepnz.github.io/) – will be used. This site contains various engaging testing challenges that make it worth visiting. I would highly recommend trying out the dice game, though be wary that inspecting the console may spoil answers. This site also contains two of the most common types of accessibility problems: poor contrast and nondescriptive links. Before we start comparing in more detail, let’s see how each of the tools mentioned
 
 ### **WAVE**
 
