@@ -1,14 +1,15 @@
 ---
 title: What are JWTs/Jots/JSON Web Tokens?
+date: 2023-09-19 00:00:00 Z
+categories:
+- Tech
+tags:
+- Tech
 author: colive
 layout: default_post
 summary: JSON Web Tokens are a secure way of transmitting information between two
   parties. This article explores what they are, how they are made, the kinds of JWTs
   that are commonly used and their key benefits.
-category:
-- Tech
-tags:
-- Tech
 ---
 
 ## Introduction
