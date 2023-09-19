@@ -27,7 +27,7 @@ If you are trying to get a quick and free overview of how accessible your webpag
 
 ## **Testing tools in action**
 
-To demonstrate how each of these tools operate the following site – [a testing resource page](https://testsheepnz.github.io/) – will be used. This site contains various engaging testing challenges that make it worth visiting. I would highly recommend trying out the dice game, though be wary that inspecting the console may spoil answers. This site also contains two of the most common types of accessibility problems: poor contrast and nondescriptive links. Before we start comparing in more detail, let’s see how each of the tools mentioned
+To demonstrate how each of these tools operate the following site – [a testing resource page](https://testsheepnz.github.io/) – will be used. This site contains various engaging testing challenges that make it worth visiting. I would highly recommend trying out the dice game, though be wary that inspecting the console may spoil answers. This site also contains two of the most common types of accessibility problems: poor contrast and nondescriptive links. Before we start comparing in more detail, let’s see how both tools mentioned work!
 
 ### **WAVE**
 
@@ -47,16 +47,17 @@ To jump to any specific error listed by WAVE, navigate to its ‘description’ 
 
 aXe is a downloadable extension available for Chrome, Firefox and Edge. It can be run by opening Devtools and clicking on the aXe extension offered by it, and then by clicking “scan full page” – most of the other features are locked behind the paid version of aXe, something that this blog post will not cover.
 
-Once the scan is complete, the “Best practices” option is set to “on” so that everything that aXe has captured is present. Unlike WAVE, the page being tested does not get populated by icons. Instead, under each error there is an option to highlight to region in question that had caused the error to manifest. Most features that aXe offers are a part of its paid service but plenty of information is still offered.
-How these tools should be utilised
+Once the scan is complete, the “Best practices” option is set to “on” so that everything that aXe has captured is present. Unlike WAVE, the page being tested does not get populated by icons. Instead, under each error there is an option to highlight the region in question that had caused the error to manifest. Most features that aXe offers are a part of its paid service but plenty of information is still offered.
 
-Both accessibility tools have their uses for accessibility testing but they can never be used in isolation for full accessibility coverage - warnings given by the tools themselves. The example given in the introduction about using a keyboard is the best example of something that accessibility tooling will never catch. In addition, a single execution of either WAVE or aXe will usually not be enough as they only capture the current state of a website and may miss, for example, errors in contrast when text changes after hovering over it with a mouse. WAVE’s colour contrast error description has specific mention of cases in which it would miss any potential contrast error. If a user wishes to use tools to verify that these colour changes still meet accessibility requirements the accessibility tool will have to be run again once these changes in state are persisted on the page.
+## **How these tools should be utilised**
+
+Both accessibility tools have their uses for accessibility testing but they can never be used in isolation for full accessibility coverage. Both WAVE and aXe will also emphasise the need for manual testing to ensure a site is accessi  The example given in the introduction about using a keyboard is the best example of something that accessibility tooling will never catch. In addition, a single execution of either WAVE or aXe will usually not be enough as they only capture the current state of a website and may miss, for example, errors in contrast when text changes after hovering over it with a mouse. WAVE’s colour contrast error description has specific mention of cases in which it would miss any potential contrast error. If a user wishes to use tools to verify that these colour changes still meet accessibility requirements the accessibility tool will have to be run again once these changes in state are persisted on the page.
 
 Also important to note is that whatever errors are flagged up should be double-checked to verify that the issue is genuine. For example, text that is part of a logo or part of an inactive UI component  (such as a ‘login’ button that can’t be clicked until the required fields are filled) may return ‘false positives’ from either tool.
 
 ## **What is found by both tools**
 
-The information that both tools give on the lack of accessible links and contrast errors are extremely important. For the lack of accessible links, aXe supplements this information via snippets of the code where the error originated from, in which the user can note the lack of an alt text tag. WAVE goes one step further with this using its ‘order’ heading which emulates the text heard when tabbing through a page with a screen reader such as NVDA, which is an aid for people with poor or no vision. If the text \*NO ACCESSIBLE NAME\* is seen, then NVDA would only inform someone using it that they have tabbed to a link, without any context.
+The information that both tools give on the lack of accessible links and contrast errors are extremely important. For the lack of accessible links, aXe supplements this information via snippets of the code where the error originated from, in which the user can note the lack of an alt text tag. WAVE goes one step further with this using its ‘order’ heading. This emulates the text heard when tabbing through a page with a screen reader such as NVDA, which is an aid for people with poor or no vision. If the text \*NO ACCESSIBLE NAME\* is seen, then NVDA would only inform someone using it that they have tabbed to a link, without any context.
 
 ![WAVE order tab, showing multiple links without an accessible name](/uploads/WAVEOrderTab.png)
 
@@ -97,10 +98,10 @@ The following table is a summation of the different information on page accessib
 
 ## **To conclude…**
 
-Since both WAVE and aXe are relatively easy to use, using both together can be beneficial. A use case for myself whilst testing out the testing site was, upon seeing the issue flagged by aXe around page content needing to be contained by landmarks, verifying via the structure tab of WAVE that there is no ‘Main’ landmark around the content of the page. This technically means that WAVE does provide information around landmarks but if a user doesn’t know to look out for it (or to check for ARIA labels, which can be a substitute for landmarks) then it can easily be missed.
+Since both WAVE and aXe are relatively easy to use, using both together can be beneficial. Here's a use case from my own testing: when aXe flagged that the page content needed to be contained by landmarks, I used WAVE's 'structure' tab to verify that there was no 'Main' landmark around the content of the page. This technically means that WAVE does provide information around landmarks but if a user doesn’t know to look out for it (or to check for ARIA labels, which can be a substitute for landmarks) then it can easily be missed.
 
 If choosing to utilise both, make sure that they are both used in isolation. The icons that pop up when using WAVE is mistakenly interpreted by aXe as being part of the page and will lead to false positives in accessibility checking.
-There are of course many other options for automatic accessibility checks, including implementing it as part of automated code, sites that will generate more formal reports and using a paid accessibility checker, such as that which aXe offers. However, if you are looking for a quick and free automatic accessibility check and only want to consider one then this blog post will hopefully help with that. You can use the information here to form our own opinion but to summarise my takeaway from using these two tools;
+There are of course many other options for automatic accessibility checks, including implementing it as part of automated code, sites that will generate more formal reports and using a paid accessibility checker, such as that which aXe offers. However, if you are looking for a quick and free automatic accessibility check and only want to consider one then this blog post will hopefully help with that. You can use the information here to form our own opinion but to summarise my takeaway from using these two tools:
 
 **Use WAVE if:**
 
