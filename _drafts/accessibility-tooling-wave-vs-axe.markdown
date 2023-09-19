@@ -35,7 +35,7 @@ To demonstrate how each of these tools operate the following site – [a testing
 
 WAVE is a downloadable extension available for Chrome, Firefox and Edge. It can be run by clicking on the extension icon or through right-clicking the page and choosing the “WAVE this page” option.
 
-The icons that will populate the page link to matching icons in the WAVE dashboard describing what the icon will mean in more detail. The red (error) and yellow (alert) icons are likely of most interest to the user. Whilst the formatting of the page may be disrupted by these icons, switching off the page styling using WAVE will help the user view each icon in isolation; As seen below this may be a necessity on some pages.
+The icons that will populate the page link to matching icons in the WAVE dashboard describing what the icon will mean in more detail. The red (error) and yellow (alert) icons are likely of most interest to the user. Whilst the formatting of the page may be disrupted by these icons, switching off the page styling using WAVE will help the user view each icon in isolation. As seen below, this may be a necessity on some pages!
 
 ![Cluttered, unreadable icons on a page](/uploads/WAVEIcons.png)
 
@@ -53,7 +53,6 @@ How these tools should be utilised
 Both accessibility tools have their uses for accessibility testing but they can never be used in isolation for full accessibility coverage - warnings given by the tools themselves. The example given in the introduction about using a keyboard is the best example of something that accessibility tooling will never catch. In addition, a single execution of either WAVE or aXe will usually not be enough as they only capture the current state of a website and may miss, for example, errors in contrast when text changes after hovering over it with a mouse. WAVE’s colour contrast error description has specific mention of cases in which it would miss any potential contrast error. If a user wishes to use tools to verify that these colour changes still meet accessibility requirements the accessibility tool will have to be run again once these changes in state are persisted on the page.
 
 Also important to note is that whatever errors are flagged up should be double-checked to verify that the issue is genuine. For example, text that is part of a logo or part of an inactive UI component  (such as a ‘login’ button that can’t be clicked until the required fields are filled) may return ‘false positives’ from either tool.
-More direct comparisons
 
 ## **What is found by both tools**
 
