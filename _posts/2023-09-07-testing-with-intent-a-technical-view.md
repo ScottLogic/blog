@@ -203,7 +203,7 @@ We’ve already discussed how our tests are failing for the right reasons if som
         <td style="background-color:#dbead3;color:black;font-size:1.5em;">User Intention</td>
         <td style="background-color:#dbead3;color:black;font-size:1.5em;">Something changed for our users</td>
     </tr>
-<table>
+</table>
 There’s some consequences to avoiding testing implementation details. Why’s that?
 - If something is an implementation detail, changing it does not impact our users
 - If something doesn’t impact our users, it’s for us! We can do what we want with it. 
