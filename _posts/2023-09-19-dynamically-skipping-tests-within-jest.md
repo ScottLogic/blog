@@ -1,12 +1,14 @@
 ---
 title: Dynamically Skipping Tests within Jest
+date: 2023-09-19 00:00:00 Z
 categories:
-  - Testing
-  - Tech
+- Testing
+- Tech
 tags:
-  - testing
-  - jest
-summary: In this blog post I will walk you through how to set up a Jest custom environment in order to dynamically skip tests after they have been queued.
+- testing
+- jest
+summary: In this blog post I will walk you through how to set up a Jest custom environment
+  in order to dynamically skip tests after they have been queued.
 author: osouthwell
 ---
 
