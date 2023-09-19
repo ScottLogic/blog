@@ -1,73 +1,61 @@
 ---
-title: The Power of a Well Written User Story - A Test Engineer's Perspective
-date: 2023-09-11 14:00:00 Z
+title: Navigating the Practical Challenges Faced by Test Engineers
+date: 2023-09-19 09:00:00 Z
 categories:
 - Testing
 tags:
 - testing
-summary: User stories are a pivotal component of Agile Software Development, serving
-  as concise and user-centric descriptions of desired software functionality. Hence,
-  here I am, discussing how crucial it is to put user stories right for setting the
-  foundation for a well-structured, user-focused, and efficient development process.
+summary:Test Engineers play a crucial role in ensuring the quality and reliability of software applications, but their day-to-day activities are rife with practical challenges—challenges that are more or less accepted as part and parcel of the job. In this article, we will explore the common issues that test engineers encounter during their work, shedding light on the intricacies of their responsibilities and the importance of addressing these challenges effectively.
 author: snandal
 image: "/uploads/The%20power%20of%20a%20well%20written%20user%20story-396f37.png"
 ---
 
-At the heart of our modern software development process, lies the humble yet powerful concept of **"User Stories"** - the simplest way to capture what a user needs. *User Stories* serve as the bridge between the business stakeholders and the development team, providing a shared understanding of what the software should achieve.
+The role of a Test Engineer is vital in software development, but it comes with a set of practical problems that demand careful attention and solutions. The ever-tightening project timelines, balancing comprehensive testing, and maintaining accurate testware with continuously evolving requirements are ongoing challenges that test engineers must navigate to ensure the delivery of high-quality software products. 
+Along with these, there comes another set of practical issues. Addressing these issues proactively is essential for achieving successful testing outcomes in the ever-evolving landscape of software development.
 
-Over the last decade, as I worked on multiple projects, there has been one very common challenge that I faced almost everywhere. And that is - Despite having such a vital role in delivering high-quality software products, so little emphasis is given to putting the *User Stories* right.
+Let's explore these issues one by one, in a bit of detail:
 
-Thus, I would like to discuss the importance of logging adequate and accurate information in *User Stories* and its potential impact on the success of software projects.
+### You Seldom Work in an Ideal Team
+In the world of Agile methodologies, the ideal team includes a cross-functional group of individuals working collaboratively to meet end-user requirements effectively. Ideally, this team comprises a Product Owner, Scrum Master, and a development team with a mix of developers and testers. However, in reality, most teams consist of a development team with a single lead or senior member. The roles of the Product Owner and Scrum Master, pivotal in Agile, are often understaffed or perceived as less valuable.
 
-*User Stories* are the building blocks that transform user needs into Functional Software by :
+The absence of a dedicated Product Owner can lead to misunderstandings about user behavior, critical features, and misguided efforts. Similarly, without an effective Scrum Master, essential Scrum ceremonies may become disorganized and less productive.
 
-### Ensuring User-Centric Approach
-*User Stories* keep the focus on the end user, ensuring that features developed align with real user needs and goals. A well-written *User Story* provides a clear understanding of what needs to be built and why. It outlines the user's needs, the context of the functionality, and the expected outcome. Information logged in the *User Story* helps the team grasp the scope and objectives, reducing the chances of misinterpretations, ensuring that the development efforts align with customer requirements and expectations.
+As a Test Engineer, ensuring the overall quality of the application is a significant responsibility, and the absence of a dedicated Product Owner and Scrum Master adds to a test engineer's responsibilities immensely.
 
-### Promoting Collaboration and Communication
-Adequate information in *User Stories* fosters collaboration between the team and other stakeholders. It promotes discussions and clarifications, ensuring that everyone is aligned with the requirements and the expected outcome, and hence directly impacts the end product's quality and alignment with customer needs, which eventually leads to better understood and met user expectations.
-
-### Quality Assurance
-When it comes to testing, *User Stories* act as a foundation for test planning. Accurate information in the user story enables the test engineer to identify the necessary testing approaches and develop appropriate test strategies. It aids in determining the testing scope, risk areas, testing priorities, and helps the test engineer ensure comprehensive test coverage by understanding the user's expectations.
-
-## Why Does it Impact Test Engineers in Particular?
-While Agile methodologies offer opportunities for test engineer to continuously improve and collaborate closely with the team, these also bring their own set of challenges.
-
-With continuously evolving requirements, there always stands a need for quick adaptability. 
-Also, in many places, the *User Stories* are collectively estimated; however, no matter how much we stress allocating sufficient time for testing activities or ensure earliest start for the same, majority time is consumed in building the functionality, and lots of things are pushed to test engineers last minute, adding an immense amount of pressure. 
-
-Not having the latest information readily available in this continuously changing and stressful environment would unnecessarily slow down the delivery and could also have an impact on the overall quality of the product. Hence it is extremely important from a test engineer point of view that all necessary information is carefully recorded and available as part of the *User Story*.
-
-It is true that Agile values working software over comprehensive documentation, but it does not mean documentation is completely disregarded. Agile does promote "just enough" documentation, which means creating the necessary documentation to support the development process without excessive overhead. And that makes it even more important that adequate and accurate information is captured as part of the *User Stories* and also updated regularly (as required).
-
-## Essentials in any User Story
-Below are the essential components that make up a robust *User Story*, ensuring a shared understanding and smooth development process.
-
-**Description:** The purpose of the *User Story* clearly stated in simple and concise language, including - the user role or persona it pertains to, the actions while interacting with the system, the benefit or value added - why the user wants to perform this action and how it contributes to their overall experience.
-
-A *User Story* typically follows a straightforward template: 
-
-"As a [type of user], I want [an action] so that [benefit or value]."
-
-For instance: "As a *registered user*, I want to *reset my password* so that *I can regain access to my account*."
-
-**Dependencies:** Any assumptions or dependencies that could impact the development and testing of the *User Story*, such as other *User Stories*, any external factors. Noting these down helps ensure that everyone is aware of potential hurdles and can plan accordingly.
-
-**Business Rules:** Any specific business rules or constraints that must be adhered to.
-
-**Acceptance Criteria:** The conditions that must be met for the functionality to be considered working as expected. 
-
-These criterias must be specific and measurable, including both functional and non-functional requirements along with usability or accessibility requirements (as applicable). Include attachments and examples (where applicable), mockups or reference links to provide visual context for the *User Story*. Visual aids help align everyone's understanding of the feature's appearance and behavior.
-
-**Size or Estimation:** Rough, collectively agreed-upon estimation of the effort required to implement the *User Story*.
-
-**Definition of Done:** The conditions that must be met for the *User Story* to be considered complete, including aspects of design, testing, and documentation.
-
-**Acceptance Sign-Off:** People/Team who will approve the acceptance criteria and sign off on the completion of the *User Story*.
+To mitigate this issue, it's crucial for Agile teams to ensure continuous collaboration with stakeholders. As a test engineer, we can enable this by building relationships, maintaining a regular feedback loop. Also, to avoid any misinterpretation, it is important to keep necessary documentation updated. Sprint reviews become even more important in such circumstances. In addition to that, it is important that the team is aware and well-informed about the essentials of Scrum to be able to utilize it effectively.
 
 
-Additionally, it is important to keep the *User Story* updated with any significant changes in any of the above components.
+### Estimation - Only Test Execution Effort Is Emphasized
+Agile emphasizes the earliest start of testing activities because testing involves much more than test execution. Test planning, test design, data preparation, tracking evolving requirements, regression testing, exploratory testing, updating scripts, verification, retesting, and documentation are all essential parts of testing. However, when estimating user stories, these activities are often sidelined, with an emphasis given only on allocating minimal time for test execution. Moreover, a lot of work items are pushed into test last minute accounting only for test execution time.
 
-An efficient way of making sure that the *User Stories* do not miss any important information is to use an internally agreed upon *User Story* template. Not Every *User Story* would need each one of the above components; however, having added these in the template would act as a checklist and ensure that the information will not me missed. 
+This can lead to unrealistic time and resource constraints and hence an increased risk of insufficient test coverage. It limits the thorough validation of functionality, potentially allowing critical defects to go unnoticed. In addition, it hinders test automation and regression testing efforts resulting in regressions escaping detection and significant technical debt.
 
-**As a test engineer, it is important to understand the critical role that *User Stories* play in guiding the testing process and ensuring the delivery of high-quality software. And hence we need to ensure that each *User Story* is capable of not only meeting its acceptance criteria but also contributing to the overall excellence of the product.**
+To mitigate this issue, it is important for a test engineer to work closely with the team during the estimation process and voice the importance of quality assurance. Maybe standardized estimation practices that accurately estimate testing efforts, allocating sufficient time for testing activities. Separate testing tasks/subtasks can be created to improve visibility around various testing activities involved.
+
+
+### Unavailability of Dedicated Test Resources
+Again, at many places, there is not much emphasis on ensuring the availability of dedicated test resources, especially on relatively small-scale projects.
+
+When testing resources are not dedicated, they often become shared across team/s. This can lead to resource conflicts, where test engineers must split their time and attention, hindering their ability to focus on testing. They may have to wait for access to test environments, data, or equipment causing delays in testing activities. Delays in testing can ripple through the development cycle, affecting release schedules.
+
+Now, while this issue depends a lot on the project size and budget, it is important for a test engineer to stress the role of dedicated test environments. Start small and try exploring cost-effective solutions. However, if budget constraints are severe, propose a resource-sharing plan for optimizing resource utilization and streamlining testing processes. It will be helpful in ensuring transparency and clarity regarding who is using what resources and when. This transparency would help team members understand the constraints and plan their activities accordingly. It will foster a sense of shared responsibility, leading to better overall project outcomes.
+
+
+### We Need to Be Jack of All Trades but can master none
+As automation testing becomes essential in quality assurance, test engineers face the challenge of keeping themselves upskilled accordingly. With numerous tools and technologies available, this can be overwhelming, especially if they lack prior experience in a particular area. Moreover, a test engineer's interaction with a given technology is limited to test scope. Also, frequent project changes in service-based organizations often mean working with different tools, each bringing a different technology. This limited and varied interaction with technologies on one hand demands understanding of various technologies but makes it difficult to gain necessary experience with a single technology at the same time.
+
+To mitigate this issue, test engineers must stay aware of the latest industry trends, familiarize themselves with the latest technologies and continuously update their skills. Sparing some time for self-learning once in a while can make a significant difference. In addition, it is important not to restrict yourself to test activities. The Agile environment is perfect to facilitate collaboration and gain a 360-degree understanding of the application and the surrounding technologies, so make sure you utilize it to the fullest.
+
+
+### We Are Often Stuck Alone
+Being the sole test engineer in a modern Agile Scrum team is very common these days and comes with its own set of feelings and challenges. While it can be rewarding, it can also be demanding and occasionally isolating. With no fellow testers to share the workload or perspectives, the onus of quality assurance could seem to rest solely on your shoulders. The absence of peers in the same role could limit opportunities for mentorship or skill development through collaboration.
+
+Here, active communication, collaboration, and maintaining a cohesive relationship with the development team and other stakeholders become paramount. Maintaining open lines of communication is crucial to address the challenges that arise from working alone.
+
+
+### We Are the First to Take the Bashing 
+As a test engineer, it's not uncommon to find ourselves on the front lines when something goes awry in production. Our work may go unnoticed when everything runs smoothly; we often become the first point of criticism when a failure occurs. It's often that the test engineers would find themselves in the spotlight, not for praise, but for scrutiny.
+
+To this, my fellow test analysts, I would like to say - "let us wear our invisible capes proudly. It's our dedication that ensures the software world keeps turning!"
+
+To conclude, the role of a Test Engineer is multifaceted, and it comes with its share of practical challenges. However, these challenges, when addressed proactively, provide opportunities for growth and improvement. Embracing these challenges and finding effective solutions not only enhances the quality of our work but also contributes to the success of the software development process as a whole.
