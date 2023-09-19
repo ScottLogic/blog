@@ -1,6 +1,6 @@
 ---
 title: Optimizing Test Suite Metrics Logging in Jest Using `metricsCollector`
-date: 2023-09-13 15:00:00 Z
+date: 2023-09-19 12:00:00 Z
 categories:
   - Testing
   - Tech
@@ -22,7 +22,7 @@ Let's set the stage with a hypothetical scenario: You're developing an applicati
 Before we delve into the solution, consider the naive approach.
 Here's an example of a test file (co2EmissionsNaive.test.js) using the naive approach without the metricsCollector module. This example demonstrates what the code might look like when metrics logging is managed manually inside a test suite:
 
-~~~javascript
+```javascript
 //co2EmissionNaive.test.js
 
 const environmentallyUnfriendlyAPI = require("../test-utils/mocks/apiMock"); // This is our function to call the APIs
@@ -62,7 +62,7 @@ describe("Testing the API Calls - Naive Approach", () => {
     expect(result.data.output).toBe(true);
   });
 });
-~~~
+```
 
 When the test is run, it produces the below result
 
@@ -74,7 +74,7 @@ If we have multiple test suites where we are using this environmentallyUnfriendl
 
 The solution lies in the metricsCollector module. This custom module streamlines metrics collection and management within your test suites, eliminating the need for repetitive code. Here's how it works:
 
-~~~javascript
+```javascript
 // metricsCollector.js
 
 const metricsCollector = () => {
@@ -124,7 +124,7 @@ const metricsCollector = () => {
 };
 
 module.exports = metricsCollector;
-~~~
+```
 
 In this solution:
 
@@ -137,7 +137,7 @@ In this solution:
 
 Now, let's see how you use it in your sample test suite, co2EmissionModule.test.js:
 
-~~~javascript
+```javascript
 // co2EmissionModule.test.js
 
 const environmentallyUnfriendlyAPI = require("../test-utils/mocks/apiMock");
@@ -167,7 +167,7 @@ describe("Testing the API Calls - Naive Approach", () => {
 
   // ... (similar tests follow)
 });
-~~~
+```
 
 #### _Test results_
 
@@ -177,7 +177,7 @@ When the test is run, it produces the below result
 
 By using this modularised approach, if we want to use 'logMetrics' function in another test suite, we can just plug it in our afterAll hook and it will work as the following.
 
-~~~javascript
+```javascript
 //co2EmissionModule.test.js
 
 // previous import statements
@@ -202,7 +202,7 @@ describe("Testing the API Calls - Naive Approach", () => {
 
   // ... (similar tests follow)
 });
-~~~
+```
 
 When the test is run, it produces the below result
 
@@ -212,8 +212,8 @@ When the test is run, it produces the below result
 
 In this blog post, we've tackled the challenge of tracking environmental impact in your Jest test suites. We started with a scenario where an environmentally unfriendly API call produces CO2 emissions. We contrasted a naive approach, which involves repetitive metric tracking in each test file, with a more streamlined approach using the metricsCollector.
 
-By centralizing metrics tracking, you can keep your test files clean and maintainable, while also gaining the flexibility to log metrics at different levels.With our metricsCollector module seamlessly integrated, running our test suite yields insightful metrics logging without cluttering the test code itself. The common module approach centralizes metrics management, promoting clean and focused tests.
+By centralizing metrics tracking, you can keep your test files clean and maintainable, while also gaining the flexibility to log metrics at different levels. With our metricsCollector module seamlessly integrated, running our test suite yields insightful metrics logging without cluttering the test code itself. The common module approach centralizes metrics management, promoting clean and focused tests.
 
-In conclusion, our hypothesis was successfully tested and validated. By leveraging the metricsCollector module, we achieved a streamlined and organized way to log metrics during Jest test executions. This method enhances the maintainability and readability of our test suite, enabling us to focus on what matters most: writing high-quality, well-tested code.
+In conclusion, our hypothesis was successfully tested and validated. By leveraging the metricsCollector module, we achieved a streamlined and organised way to log metrics during Jest test executions. This method enhances the maintainability and readability of our test suite, enabling us to focus on what matters most: writing high-quality, well-tested code.
 
 _Note: This blog post provides a high-level overview of logging metrics in Jest test suites. For more advanced use cases and in-depth analysis, you can extend the metrics collector and data processing logic to suit your specific needs_.
