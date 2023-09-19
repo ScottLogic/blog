@@ -59,7 +59,7 @@ Also important to note is that whatever errors are flagged up should be double-c
 
 ## **What is found by both tools**
 
-The information that both tools give on the lack of accessible links and contrast errors are extremely important. For the lack of accessible links, aXe supplements this information via snippets of the code where the error originated from, in which the user can note the lack of an alt text tag. WAVE goes one step further with this using its ‘order’ heading. This emulates the text heard when tabbing through a page with a screen reader such as NVDA, which is an aid for people with poor or no vision. If the text \*NO ACCESSIBLE NAME\* is seen, then NVDA would only inform someone using it that they have tabbed to a link, without any context.
+The information that both tools give on the lack of accessible links and contrast errors is extremely important. For the lack of accessible links, aXe supplements this information via snippets of the code where the error originated from, in which the user can note the lack of an alt text tag. WAVE goes one step further with this using its ‘order’ heading. This emulates the text heard when tabbing through a page with a screen reader such as NVDA, which is an aid for people with poor or no vision. If the text \*NO ACCESSIBLE NAME\* is seen, then NVDA would only inform someone using it that they have tabbed to a link, without any context.
 
 ![WAVE order tab, showing multiple links without an accessible name](/uploads/WAVEOrderTab.png)
 
@@ -67,7 +67,7 @@ On the latter point, both also indicate the actual contrast – and on this part
 
 ## **How the information is presented**
 
-WAVE’s errors are presented as definite issues that need to be addressed whilst alerts are things that may be an issue but are not necessarily. In a similar vein, the information around features, structural elements and ARIA labels are presented as an explanation of what should encompass these features and what a user should check for. Whilst it’s highly unlikely for a webpage to contain every detectable error or alert, WAVE offers an icon index that a user can look through if curious. The extra information given serves as an excellent aid to manual accessibility testing once the errors picked up by automatic testing have been resolved.
+WAVE’s errors are presented as definite issues that need to be addressed whilst alerts are things that may be an issue but are not necessarily. In a similar vein, the information around features, structural elements and ARIA labels are presented as an explanation of what they are and why they may lead to an accessibility error. For example, any alt text is flagged as a feature, but WAVE will advise that it should cover the image's content 'accurately and succintly.' Whilst it’s highly unlikely for a webpage to contain every detectable error or alert, WAVE offers an icon index that a user can look through if curious. The extra information given serves as an excellent aid to manual accessibility testing once the errors picked up by automatic testing have been resolved.
 
 ![22 WAVE icons indicating different error types.png](/uploads/WaveErrorIcons.png)
 
@@ -79,7 +79,7 @@ Additional information around what the accessibility tools have picked up also d
 
 ## **What extra information is provided**
 
-WAVE gives some additional information about the page that is not present in aXe. The list of features and ARIA labels already mentioned are an example of that but hidden links are also indicated, which become visible when formatting is disabled. As well as the ‘order’ tab mentioned earlier the ‘structure’ tab presents the main sections of the page including the heading, navigation and footer. Human judgement is needed here to check to see if how the page is structured makes sense. Any errors around, for example, the heading order will be flagged up once again on this tab.
+WAVE gives some additional information about the page that is not present in aXe. The list of features and ARIA labels already mentioned are an example of that but hidden links are also indicated, which become visible when formatting is disabled. As well as the ‘order’ tab mentioned earlier, the ‘structure’ tab presents the main sections of the page including the heading, navigation and footer. Human judgement is needed here to check whether the page structure makes sense. Any errors around, for example, the heading order will be flagged up once again on this tab.
 
 ![WAVE structure tab showing heading order of the 'testsheepz' website](/uploads/WAVEStructureTab.png)
 
@@ -102,8 +102,8 @@ The following table is a summation of the different information on page accessib
 
 Since both WAVE and aXe are relatively easy to use, using both together can be beneficial. Here's a use case from my own testing: when aXe flagged that the page content needed to be contained by landmarks, I used WAVE's 'structure' tab to verify that there was no 'Main' landmark around the content of the page. This technically means that WAVE does provide information around landmarks but if a user doesn’t know to look out for it (or to check for ARIA labels, which can be a substitute for landmarks) then it can easily be missed.
 
-If choosing to utilise both, make sure that they are both used in isolation. The icons that pop up when using WAVE is mistakenly interpreted by aXe as being part of the page and will lead to false positives in accessibility checking.
-There are of course many other options for automatic accessibility checks, including implementing it as part of automated code, sites that will generate more formal reports and using a paid accessibility checker, such as that which aXe offers. However, if you are looking for a quick and free automatic accessibility check and only want to consider one then this blog post will hopefully help with that. You can use the information here to form our own opinion but to summarise my takeaway from using these two tools:
+If choosing to utilise both, make sure that they are both used in isolation. The icons that pop up when using WAVE are mistakenly interpreted by aXe as being part of the page and will lead to false positives in accessibility checking.
+There are of course many other options for automatic accessibility checks. This includes implementing them as part of automated code, sites that will generate more formal reports, and using a paid accessibility checker, such as that which aXe offers. However, if you are looking for a quick and free automatic accessibility check and only want to consider one then this blog post will hopefully help with that. You can use the information here to form our own opinion but to summarise my takeaway from using these two tools:
 
 **Use WAVE if:**
 
