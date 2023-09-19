@@ -39,7 +39,7 @@ The icons that will populate the page link to matching icons in the WAVE dashboa
 
 ![Cluttered, unreadable icons on a page](/uploads/WAVEIcons.png)
 
-To jump to any specific error listed by WAVE, navigate to its ‘description’ tag and click on any of the individual icons underneath the various elements that WAVE has detected to do so.
+To jump to any specific error listed by WAVE, navigate to its ‘description’ tag and click on any of the individual icons underneath the various elements that WAVE has detected.
 
 ### **aXe**
 
@@ -51,7 +51,9 @@ Once the scan is complete, the “Best practices” option is set to “on” so
 
 ## **How these tools should be utilised**
 
-Both accessibility tools have their uses for accessibility testing but they can never be used in isolation for full accessibility coverage. Both WAVE and aXe will also emphasise the need for manual testing to ensure a site is accessi  The example given in the introduction about using a keyboard is the best example of something that accessibility tooling will never catch. In addition, a single execution of either WAVE or aXe will usually not be enough as they only capture the current state of a website and may miss, for example, errors in contrast when text changes after hovering over it with a mouse. WAVE’s colour contrast error description has specific mention of cases in which it would miss any potential contrast error. If a user wishes to use tools to verify that these colour changes still meet accessibility requirements the accessibility tool will have to be run again once these changes in state are persisted on the page.
+Both accessibility tools have their uses for accessibility testing but they can never be used in isolation for full accessibility coverage. Both WAVE and aXe will also emphasise the need for manual testing. WAVE will do this if no errors are detected on the page. aXe will mention the need for this as a selling point for its paid service, which include guided tests.
+
+The example given in the introduction about using a keyboard is the best example of something that accessibility tooling will never catch. In addition, a single execution of either WAVE or aXe will usually not be enough as they only capture the current state of a website and may miss, for example, errors in contrast when text changes after hovering over it with a mouse. WAVE’s colour contrast error description has specific mention of cases in which it would miss any potential contrast error. If a user wishes to use tools to verify that these colour changes still meet accessibility requirements the accessibility tool will have to be run again once these changes in state are persisted on the page.
 
 Also important to note is that whatever errors are flagged up should be double-checked to verify that the issue is genuine. For example, text that is part of a logo or part of an inactive UI component  (such as a ‘login’ button that can’t be clicked until the required fields are filled) may return ‘false positives’ from either tool.
 
