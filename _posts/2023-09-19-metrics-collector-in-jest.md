@@ -24,7 +24,7 @@ Let's set the stage with a hypothetical scenario: You're developing an applicati
 Before we delve into the solution, consider the naive approach.
 Here's an example of a test file (co2EmissionsNaive.test.js) using the naive approach without the metricsCollector module. This example demonstrates what the code might look like when metrics logging is managed manually inside a test suite:
 
-```javascript
+~~~javascript
 //co2EmissionNaive.test.js
 
 const environmentallyUnfriendlyAPI = require("../test-utils/mocks/apiMock"); // This is our function to call the APIs
@@ -64,7 +64,7 @@ describe("Testing the API Calls - Naive Approach", () => {
     expect(result.data.output).toBe(true);
   });
 });
-```
+~~~
 
 When the test is run, it produces the below result
 
@@ -76,7 +76,7 @@ If we have multiple test suites where we are using this environmentallyUnfriendl
 
 The solution lies in the metricsCollector module. This custom module streamlines metrics collection and management within your test suites, eliminating the need for repetitive code. Here's how it works:
 
-```javascript
+~~~javascript
 // metricsCollector.js
 
 const metricsCollector = () => {
@@ -126,7 +126,7 @@ const metricsCollector = () => {
 };
 
 module.exports = metricsCollector;
-```
+~~~
 
 In this solution:
 
@@ -139,7 +139,7 @@ In this solution:
 
 Now, let's see how you use it in your sample test suite, co2EmissionModule.test.js:
 
-```javascript
+~~~javascript
 // co2EmissionModule.test.js
 
 const environmentallyUnfriendlyAPI = require("../test-utils/mocks/apiMock");
@@ -169,7 +169,7 @@ describe("Testing the API Calls - Naive Approach", () => {
 
   // ... (similar tests follow)
 });
-```
+~~~
 
 #### _Test results_
 
@@ -179,7 +179,7 @@ When the test is run, it produces the below result
 
 By using this modularised approach, if we want to use 'logMetrics' function in another test suite, we can just plug it in our afterAll hook and it will work as the following.
 
-```javascript
+~~~javascript
 //co2EmissionModule.test.js
 
 // previous import statements
@@ -204,7 +204,7 @@ describe("Testing the API Calls - Naive Approach", () => {
 
   // ... (similar tests follow)
 });
-```
+~~~
 
 When the test is run, it produces the below result
 
