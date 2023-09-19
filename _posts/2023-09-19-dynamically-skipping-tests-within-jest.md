@@ -17,7 +17,7 @@ In [Jest](https://jestjs.io/docs), while you can skip tests in code, there isn't
 
 ### Naive solution
 
-One Solution that could be implemented, is to add a check for the conditions we care about to the test itself. For example, if we care about budget we can add `expect(budget).toBeLessThan(currentCost)` the start of each test. This works as Jest treats a fail as an exception so will not run the expensive api once a check has failed. The downside is that this causes all our tests to fail which could cause issues with some CI pipelines and obscure actual failures.
+One Solution that could be implemented, is to add a check for the conditions we care about to the test itself. For example, if we care about budget we can add `expect(budget).toBeLessThan(currentCost)` to the start of each test. This works as Jest treats a fail as an exception so will not run the expensive api once a check has failed. The downside is that this causes all our tests to fail which could cause issues with some CI pipelines and obscure actual failures.
 
 It is worth noting that, the Mocha framework has a solution of out of the box [out of the box](https://mochajs.org/#inclusive-tests) but our focus here will be on Jest.
 
@@ -29,7 +29,7 @@ A Jest [custom environment](https://jestjs.io/docs/configuration#testenvironment
 
 Creating a custom Jest environment is not overly complex. By default, Jest includes two environments: Node and [JSDom](https://github.com/jsdom/jsdom), with Node being the default choice. These environments are implemented as classes and can be extended and modified to suit your testing requirements. Within the constructor of your custom environment, you can define global variables or functions that will be available to your test suite. The custom environment is set up uniquely for each test suite, so there's no need to be concerned about variable conflicts.
 
-Within the constructor is where we can define our global variables. These variables are then available to our test suite. For now we will define a simple function `skipIf()` that accepts a function then add it to a list conditions to use later.
+Within the constructor is where we can define our global variables. These variables are then available to our test suite. For now we will define a simple function `skipIf()` that accepts a function then adds it to a list of conditions to use later.
 
 ~~~javascript
 const NodeEnvironment = require('jest-environment-node');
