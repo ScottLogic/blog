@@ -2,12 +2,14 @@
 title: Optimizing Test Suite Metrics Logging in Jest Using `metricsCollector`
 date: 2023-09-19 12:00:00 Z
 categories:
-  - Testing
-  - Tech
+- Testing
+- Tech
 tags:
-  - testing
-  - jest
-summary: Discover how to streamline metrics collection in Jest test suites using a centralized 'metricsCollector' utility, simplifying test maintenance and enhancing data-driven testing practices.
+- testing
+- jest
+summary: Discover how to streamline metrics collection in Jest test suites using a
+  centralized 'metricsCollector' utility, simplifying test maintenance and enhancing
+  data-driven testing practices.
 author: gsingh
 ---
 
