@@ -1,6 +1,5 @@
 ---
 title: Dynamically Skipping Tests within Jest
-date: 2023-09-14 00:00:00 Z
 categories:
   - Testing
   - Tech
