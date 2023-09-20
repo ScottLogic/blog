@@ -52,7 +52,7 @@ What this also means is that I cannot simply prohibit people from training AI mo
 
 This was news to me!
 
-However, where copyright does come into play is in the content that these models generate. If, for example, you ask Stable Diffusion to draw a picture of Iron Man, the generated content (which will no doubt be visually superb), will certainly infringe Marve’s’ copyright.
+However, where copyright does come into play is in the content that these models generate. If, for example, you ask Stable Diffusion to draw a picture of Iron Man, the generated content (which will no doubt be visually superb), will certainly infringe Marvel's copyright.
 
 Van detailed various legal challenges that are underway, many of which are well publicised, but most of which aren’t going to stick.
 
@@ -80,6 +80,8 @@ I tried my hardest to come to this session with an open mind, however, I was dis
 
 What amused me the most was when the host turned to a couple of the panellists and said “You have both been involved in real blockchain deployments”. Given that this technology has been around for such a long time, this struck me as mildly ridiculous. Can you imagine a kubernetes panel where the host has to ask such a question?
 
+Anyhow, at this point I'm going to have to plug our 'Beyond the Hype' podcast, which had a [blockchain episode](https://blog.scottlogic.com/2022/12/15/beyond-the-hype-blockchain-is-dead-long-live-blockchain.html) last year.
+
 ## Smarter Than Your Average SBOM!
 
 And the best talk title of the day goes to [Matt Jarvis](https://www.linkedin.com/in/mattjarvis08?originalSubdomain=uk), of Snyk, and [Andrew Martin](https://www.linkedin.com/in/andr3wmartin/) of ControlPlane. Admittedly the reference was probably lost on most people, but I enjoyed it!
@@ -90,6 +92,6 @@ One really interesting thing I learnt about was the concept of a VEX file ([Vuln
 
 If these become widely adopted, they will be incredibly useful. As an example, I just installed the ever-popular create-react-app, and after running npm audit, discovered that it has six critical vulnerabilities. Now I’m sure that a sufficiently skilled security professional would likely demonstrate that these vulnerabilities aren’t actually exploitable. If this could be attested via an accompanying VEX file, this would be a fantastic combination.
 
-It feels like we have the building blocks to create a much more secure open source ecosystem. However, I’m concerned that we don’t yet have the right forces at play to truly roll this out at scale. This cannot be an additional burden on open source developers, circa CRA.
+It feels like we have the building blocks to create a much more secure open source ecosystem. However, I’m concerned that we don’t yet have the right forces at play to truly roll this out at scale. This cannot be an additional burden on open source developers ... yes, CRA, I'm looking at you.
 
 In short, a fascinating day of talks - I’m very much looking forward to day two.
