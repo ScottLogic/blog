@@ -11,6 +11,7 @@ summary: Discover how to streamline metrics collection in Jest test suites using
   centralized 'metricsCollector' utility, simplifying test maintenance and enhancing
   data-driven testing practices.
 author: gsingh
+image: "/uploads/optimising%20test%20suite%20metrics.png"
 ---
 
 When striving for robust code quality, efficient testing is non-negotiable. Logging metrics from your test suite can provide valuable insights into the performance and reliability of your codebase. In this blog post, we'll explore a resourceful method to log metrics effectively in Jest test suites using the `metricsCollector` module. This approach not only keeps your codebase clean and efficient but also allows you to seamlessly incorporate metrics recording into your testing process.
