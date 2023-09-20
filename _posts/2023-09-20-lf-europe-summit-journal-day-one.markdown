@@ -7,6 +7,7 @@ summary: This year I’m attending the Linux Foundation Europe Summit, a sizable
   bringing together 1,000s of people involved in open source. I typically take extensive
   notes of the sessions I attend, so thought I’d share them here on our blog.
 author: ceberhardt
+image: uploads/legal-ai-large.jpeg
 ---
 
 This year I’m attending the Linux Foundation Europe Summit, a sizable event bringing together 1,000s of people involved in open source. I typically take extensive notes of the sessions I attend, so thought I’d share them here on our blog.
