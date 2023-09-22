@@ -31,14 +31,14 @@ tags:
 - Prefer HTTP for updating user state and WebSockets for broadcasting those changes.
 - Minimise state changes to reduce the frequency of data transfers and re-renders.
 - Updates should only transmit the necessary state changes, don't send the whole object!
-- Handle unstable internet connections with (thoughtfully considered) periodic queries for missed events.
+- Handle unstable internet connections with periodic queries for missed events.
 - Capture metrics from user testing early in development to help steer your mobile optimisation approach.
 
 ## Introduction
 
 In this blog post we'll take a brief look at some of the lessons learned while creating a cross-platform location sharing app.
 
-Why did I make this app? Well, have a think - how many apps on your phone have the ability to share the real-time location of taxis, deliveries or people? If you had the same basic functionality you could make any number of services such as games, visualisations or even a rival delivery service. You'd be surprised how much fun users can have with just the map itself ([looking at you GeoGuessr people](https://www.geoguessr.com)).
+Why did I make this app? Well, have a think - how many apps on your phone have the ability to share the real-time location of taxis, deliveries or people? If you had the same basic functionality you could make any number of services such as games, visualisations or even a rival delivery service. You'd be surprised how much fun people can have with just the map itself ([looking at you GeoGuessr](https://www.geoguessr.com)).
 
 The app was built with Angular using [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/). These tools give us the ability to build cross-platform apps using native features and view components using a single codebase. With any luck, it'll be released in the near future so here's a small subset of the core functionality:
 

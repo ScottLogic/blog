@@ -1,6 +1,6 @@
 ---
 title: 'Beyond the Hype: DevSecOps, a portmanteau too far?'
-date: 2023-09-04 08:00:00 Z
+date: 2023-09-04 08:15:00 Z
 categories:
 - Podcast
 tags:
