@@ -40,7 +40,7 @@ In this blog post we'll take a brief look at some of the lessons learned while c
 
 Why did I make this app? Well, have a think - how many apps on your phone have the ability to share the real-time location of taxis, deliveries or people? If you had the same basic functionality you could make any number of services such as games, visualisations or even a rival delivery service. You'd be surprised how much fun people can have with just the map itself ([looking at you GeoGuessr](https://www.geoguessr.com)).
 
-The app was built with Angular using [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/). These tools give us the ability to build cross-platform apps using native features and view components using a single codebase. With any luck, it'll be released in the near future so here's a small subset of the core functionality:
+The app was built with Angular using [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/). These tools give us the ability to build cross-platform apps using native features and view components using a single codebase. With any luck, it'll be released in the near future so I'll only be speaking in relation to a subset of the core functionality:
 
 - User authentication with Google SSO
 - Share user location data with other users
@@ -109,6 +109,8 @@ Don't get me wrong - some bugs still cropped up, but that first test revealed ma
 
 ## A closer look at how the app works
 
+To simplify the implementation details we'll forgo security considerations and data persistence.
+
 ### Architecture
 
 Let's have a look at how it all comes together. Who doesn't love an architecture diagram?
@@ -119,9 +121,11 @@ Let's have a look at how it all comes together. Who doesn't love an architecture
 
 ### The backend
 
---TK--
+Our NodeJS app runs the `index.ts` file, integrating our User Service with HTTP requests and WebSocket connections.
 
-- show demo code (already made this)
+<script src="https://gist.github.com/mcgill-a/0a0ca48e78632f34afbf7126aeaac617.js"></script>
+<script src="https://gist.github.com/mcgill-a/f3b31e11ef9be90f60f1322a3d234e96.js"></script>
+
 - show it working with postman (already have this ready, just need to record it)
 
 ### The frontend
