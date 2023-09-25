@@ -33,9 +33,9 @@ To demonstrate how each of these tools operate the following site – [a testing
 
 ![WAVE Dashboard showing errors, contrast errors, alerts, features, structural elements and ARIA categories](/uploads/WAVEDashboard.png)
 
-WAVE is a downloadable extension available for Chrome, Firefox and Edge. It can be run by clicking on the extension icon or through right-clicking the page and choosing the “WAVE this page” option.
+WAVE is a downloadable extension available for Chrome, Firefox and Edge. It can be run by clicking on the extension icon or through right-clicking the page and choosing the “WAVE this page” option. The same option can be used to close the WAVE extension - something that took me a small while to work out!
 
-The icons that will populate the page link to matching icons in the WAVE dashboard describing what the icon will mean in more detail. The red (error) and yellow (alert) icons are likely of most interest to the user. Whilst the formatting of the page may be disrupted by these icons, switching off the page styling using WAVE will help the user view each icon in isolation. As seen below, this may be a necessity on some pages!
+The icons that will populate the page link to matching icons in the WAVE dashboard describing what the icon will mean in more detail. The red (error) and yellow (alert) icons are likely of most interest to the user. These icons are reflected on the page that is being tested, though depending on the contents of the page it can suddenly make the page unreadable with both the density of the icons and the way in which they alter the formatting of the page! Thankfully, WAVE allows the page styling to be disabled so that each page component can be more easily viewed in isolation.
 
 ![Cluttered, unreadable icons on a page](/uploads/WAVEIcons.png)
 
