@@ -38,7 +38,7 @@ tags:
 
 In this blog post we'll take a brief look at some of the lessons learned while creating a cross-platform location sharing app.
 
-Why did I make this app? Well, have a think - how many apps on your phone have the ability to share the real-time location of taxis, deliveries or people? Even [the map itself is enough for some people](https://www.geoguessr.com)! There's a lot you can do here, but I settled on a local exploration app for small groups of friends. With any luck, it'll be released in the near future so I'll only be showing sample code and speaking in relation to a subset of the core functionality.
+Why did I make this app? Well, have a think - how many apps on your phone have the ability to share the real-time location of taxis, deliveries or people? Even [the map itself is enough for some many](https://www.geoguessr.com)! There's a lot you can do here, but I settled on a local exploration app for small groups of friends. With any luck, it'll be released in the near future so I'll only be showing sample code and speaking in relation to a subset of the core functionality.
 
 Using Angular with [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/), I was able to build a cross-platform app using native features and view components with a single codebase. Some of the key features include:
 
@@ -61,35 +61,43 @@ Clearly it needed some rethinking before the next test group. So what went wrong
 
 ### 1. A bad web socket integration
 
-Can you spot what is wrong with this implementation and why it could be linked to such high data usage?
+There's a mistake in this WebSocket code that I made repeatedly in my original implementation. Can you spot it?
 
-TK **show code snippet of original web sockets implementation**
+<script src="https://gist.github.com/mcgill-a/33942de8ad4819090b41d665fc4e74de.js"></script>
 
-I had accidentally nested the socket listeners inside each active socket connection which meant the number of actions scales logarithmically proportional to the number of active users. Whoops! To make matters worse, some of these actions had side-effects which triggered another re-broadcast of the data, meaning those were sent out again too. This was a small bug but a huge oversight in my original approach that used far too much data.
+Let's think about what this code actually does:
+
+- When a user connects to the WebSocket server
+  - Listen to position updates
+  - Using the user service, update the user data
+  - Broadcast the updated data to other active users
+
+A more typical `io.on('connection', ...)` block might include a `console.log(socket.id, "has connected.");`. As it turns out, this is a really bad place to add socket listeners since every time a new user is connected, it'll listen for changes again (even if we're already listening to it). Every update coming in was re-broadcasted N times, where N is the number of users. This was a small bug but a huge oversight in my original approach that consumed far too much data.
 
 How did I miss this during development? Well, I:
 
+- Often tested with one user (myself)
 - Only tested it for a short amount of time
 - Was connected to a stable internet connection (Ethernet / WIFI)
 - Was plugged into a power outlet
 
 These are the kind of things you'll really have to think about when developing for mobile as resources genuinely are limited.
 
-Here's what it should've look like all along.
+Although this bug was the worst offender, there was still more to think about:
 
 ### 2. Frequency of data changes
 
-I wanted location data to update as often as possible in order to display the most recent locations on the map. However, I didn't really appreciate just how much data comes in when you're constantly streaming updates from a number of users. In order to reduce the amount of data being sent, I found a happy medium of only emitting location changes after a minimum of 10 meters had been travelled. In order to retain the smooth visual transition between updates, the avatars were animated from location A to location B.
+I wanted location data to update as often as possible in order to display the most recent locations on the map. However, I didn't really appreciate just how much data comes in when you're constantly streaming updates from multiple users. In order to reduce the amount of data being sent, I found a happy medium of only emitting location changes after a minimum of 10 meters had been travelled. In order to retain the smooth visual transition between updates, the avatars were animated from location A to location B.
 
 ### 3. Which data is actually being sent
 
-One that could have been improved was the content of the data that was being sent. If one of the fields in the user object updated, the whole user object was sent. As it turns out, this is a huge waste of resources. This was exaggerated even more due the high volume of updates coming from the users.
+Now that we've reduced the frequency of the data transfers, let's also consider what we are actually sending. I had originally opted to just send the entire user object every time anything in it changed. However, with such high volumes of (albeit mostly duplicate) updates, you can quickly see why it's an issue worth addressing! I resolved this by switching to partial object data transfers across the entire app, meaning each request is a fraction of the size.
 
 ### 4. Unstable internet connections
 
-How often do you have a reliable connection on your phone when you're out and about? Will it stay connected if you go inside a building? It's not unlikely you'll be disconnected at some point - so what happens if you miss a WebSocket update?
+How often do you have a reliable connection on your phone when you're out and about? Will it stay connected if you go inside a building? It's not unlikely you'll be disconnected at some point. Sure enough, this happened in the first test. So what should you do if a user misses a WebSocket update?
 
-I didn't fancy over-engineering just yet so I settled on intermittently querying different parts of the backend to ask for various app states. More time sensitive data points were pinged more often. This was a great little trick to catch up on missed events but just to reiterate - make sure you carefully consider the frequency.
+Conveniently, [Ionic has a Network API](https://ionicframework.com/docs/native/network) built in so you are able to detect changes to network connectivity relatively easily and had I known about this at the time I would've used it. Instead, I opted for intermittently querying different parts of the backend to ask for various app states. Some data points are more time sensitive so those were pinged more often. This was a great little trick to catch up on missed events but just to reiterate - make sure you carefully consider the frequency.
 
 With these issues addressed and additional features added to the app, I ran another test with real users.
 
@@ -109,11 +117,11 @@ The second test lasted twice as long, had three times as many users, and we stil
 
 Don't get me wrong - some bugs still cropped up, but that first test revealed many issues that I was able to address before the second test. This is why we test things in the real world with real users! If there's a bug, they'll probably find it.
 
-## Summary
+## Conclusion
 
-I believe that these real-world tests have effectively showcased the advantages of an iterative development and testing approach. Through this process, we were able to spot issues at an early stage, gain valuable insights from them, and enhance our product. It is clear that since we only have limited resources, we need to use to use them as efficiently as possible.
+I believe that these real-world tests have effectively showcased the advantages of an iterative development and testing approach. Through this process, we were able to spot issues at an early stage, gain valuable insights from them, and enhance the final product.
 
-The main point to remember here is that prioritising performance is crucial in mobile app development, even when using a web framework like Angular. By applying these lessons, we can create apps that perform better, respond faster, and use less data.
+It is clear that since we only have limited resources, we need to use to use them as efficiently as possible. No matter how great your app is, if your app unnecessarily drains their battery or eats up their data, they probably won't use it.
 
 ## Bonus content: a closer look at how the app works
 
@@ -129,7 +137,7 @@ Let's have a look at how it all comes together. Who doesn't love an architecture
 
 All we need for the backend is [a service to hold the user information](https://gist.github.com/mcgill-a/711607e67bd6877cb04be44fa52bcdfa#file-user-service-ts) and [a controller to communicate with the users](https://gist.github.com/mcgill-a/c9f01e36196a983019c151b33c859ad1#file-index-ts).
 
-Using [Postman](https://www.postman.com), we can see that our actions (join, leave, and update position) are broadcasted over WebSockets:
+Using [Postman](https://www.postman.com), we can see that our actions (join, leave, and update position) are broadcasted over WebSockets.
 
 ![Postman-Web-Socket-Example]({{ site.github.url }}/amcgill/assets/postman-web-sockets.gif "Postman Web Socket Example")
 
@@ -137,13 +145,13 @@ Using [Postman](https://www.postman.com), we can see that our actions (join, lea
 
 There's a lot of moving parts in the frontend, here's a snippet of some interesting bits:
 
-- [Listening to WebSocket changes](https://gist.github.com/mcgill-a/9c3614132b842f217fa8c97bdfa43e0e)
-- [Updating user data](https://gist.github.com/mcgill-a/7f92a1d32fed02b5dd4541ba53483aed)
-- [Tracking user location](https://gist.github.com/mcgill-a/db12926331f47f3a8672a996b9067a12)
+- [Tracking user location (code)](https://gist.github.com/mcgill-a/db12926331f47f3a8672a996b9067a12)
+- [Listening to WebSocket changes (code)](https://gist.github.com/mcgill-a/9c3614132b842f217fa8c97bdfa43e0e)
+- [Updating user data (code)](https://gist.github.com/mcgill-a/7f92a1d32fed02b5dd4541ba53483aed)
 
-Finally, we can tie it all together with [Angular Google Maps](https://github.com/angular/components/tree/main/src/google-maps#readme) to bring the location sharing aspect to life:
+Finally, we'll use [Angular Google Maps](https://github.com/angular/components/tree/main/src/google-maps#readme) to render the updating locations of the user avatars.
 
-TK **show gif of icons moving on map** 
+TODO: **show gif of icons moving on map**
 
 ### The deployment
 
