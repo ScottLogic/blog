@@ -36,18 +36,20 @@ tags:
 
 ## Introduction
 
-In this blog post we'll take a brief look at some of the lessons learned while creating a cross-platform location sharing app.
+In this blog post we'll take a brief look at some of the lessons learned while creating a cross-platform location sharing app. There's a lot you can do with real-time geolocation data, but I settled on a local exploration app for small groups of friends. With any luck it'll be released in the near future so I'll only be referencing a subset of the core functionality.
 
-Why did I make this app? Well, have a think - how many apps on your phone have the ability to share the real-time location of taxis, deliveries or people? Even [the map itself is enough for some many](https://www.geoguessr.com)! There's a lot you can do here, but I settled on a local exploration app for small groups of friends. With any luck, it'll be released in the near future so I'll only be showing sample code and speaking in relation to a subset of the core functionality.
-
-Using Angular with [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/), I was able to build a cross-platform app using native features and view components with a single codebase. Some of the key features include:
+Some of the key features are:
 
 - Authentication with Google SSO
 - Share location data with other users
 - Match location with pre-configured GPS landmarks server-side
 - Render avatars on a map and update user locations in real-time
 
-You can find [details of the architecture and deployment at the end of the article](#bonus-content-a-closer-look-at-how-the-app-works) but for now let's jump right into the findings from early user testing.
+TODO: **add a gif of the location tracking here**
+
+I implemented these features this with a single codebase written in Angular, using [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/) to build a cross-platform app with native features.
+
+You can find [details of the architecture and deployment at the end of the article](#bonus-content-a-closer-look-at-how-the-app-works) but for now let's jump right into the findings from initial user testing and find out where I went wrong.
 
 ## Findings from Test #1 with real users
 
@@ -57,7 +59,14 @@ During a 1 hour test with 3 users here's what I found:
 - Data usage was much higher than expected (2GB per device on average)
 - Some of the state changes were completely missed (the app also broadcasts other important information)
 
-Clearly it needed some rethinking before the next test group. So what went wrong?
+How did I miss this during development? Well, I:
+
+- Often tested with one user (myself)
+- Only tested it for a short amount of time
+- Was connected to a stable internet connection (Ethernet / WIFI)
+- Was plugged into a power outlet
+
+These are the kind of things you'll really have to think about when developing for mobile as resources genuinely are limited. Clearly it needed some rethinking before the next test group. So what went wrong?
 
 ### 1. A bad web socket integration
 
@@ -72,18 +81,9 @@ Let's think about what this code actually does:
   - Using the user service, update the user data
   - Broadcast the updated data to other active users
 
-A more typical `io.on('connection', ...)` block might include a `console.log(socket.id, "has connected.");`. As it turns out, this is a really bad place to add socket listeners since every time a new user is connected, it'll listen for changes again (even if we're already listening to it). Every update coming in was re-broadcasted N times, where N is the number of users. This was a small bug but a huge oversight in my original approach that consumed far too much data.
+A more typical `io.on('connection', ...)` function might simply include a `console.log(socket.id, "has connected.");`. As it turns out, this is a really bad place to listen for position updates since every time a new user is connected, it'll listen for changes again (even if we're already listening to it). Every update coming in was re-broadcasted N times, where N is the number of users. This was a small bug but a huge oversight in my original approach that consumed far too much data.
 
-How did I miss this during development? Well, I:
-
-- Often tested with one user (myself)
-- Only tested it for a short amount of time
-- Was connected to a stable internet connection (Ethernet / WIFI)
-- Was plugged into a power outlet
-
-These are the kind of things you'll really have to think about when developing for mobile as resources genuinely are limited.
-
-Although this bug was the worst offender, there was still more to think about:
+Although this bug was the worst offender, there was still more to consider:
 
 ### 2. Frequency of data changes
 
@@ -149,9 +149,7 @@ There's a lot of moving parts in the frontend, here's a snippet of some interest
 - [Listening to WebSocket changes (code)](https://gist.github.com/mcgill-a/9c3614132b842f217fa8c97bdfa43e0e)
 - [Updating user data (code)](https://gist.github.com/mcgill-a/7f92a1d32fed02b5dd4541ba53483aed)
 
-Finally, we'll use [Angular Google Maps](https://github.com/angular/components/tree/main/src/google-maps#readme) to render the updating locations of the user avatars.
-
-TODO: **show gif of icons moving on map**
+Finally, we can use [Angular Google Maps](https://github.com/angular/components/tree/main/src/google-maps#readme) to render the updating locations of the user avatars.
 
 ### The deployment
 
@@ -161,4 +159,4 @@ The web version of the app is automatically deployed to Firebase and is set up w
 
 ![Github Action adding a comment to my PR with a deployed version of the code change for testing]({{ site.github.url }}/amcgill/assets/firebase-pr-action.png "Firebase PR deployments")
 
-The backend is automatically deployed to a Heroku Basic Dyno instance for $7/month. I was hoping to use Firebase here as well since it's free, unfortunately cloud functions do not support web sockets since they only handle a single request/response.
+The backend is automatically deployed to a Heroku Basic Dyno instance for $7/month. I was hoping to use Firebase here as well since it's free but my understanding is that cloud functions do not support web sockets since they only handle a single request/response. There's probably a way around this but that's a problem for another day. Thanks for reading 🙂
