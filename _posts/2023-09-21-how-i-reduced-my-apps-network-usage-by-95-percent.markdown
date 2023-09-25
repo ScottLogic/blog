@@ -38,7 +38,7 @@ tags:
 
 In this blog post we'll take a brief look at some of the lessons learned while creating a cross-platform location sharing app.
 
-Why did I make this app? Well, have a think - how many apps on your phone have the ability to share the real-time location of taxis, deliveries or people? After all, [the map itself is enough for some people](https://www.geoguessr.com)! There's a lot you can do here, but I settled on an app based on real-world exploration with small groups of friends. With any luck, it'll be released in the near future so I'll only be speaking in relation to a subset of the core functionality / example code.
+Why did I make this app? Well, have a think - how many apps on your phone have the ability to share the real-time location of taxis, deliveries or people? Even [the map itself is enough for some people](https://www.geoguessr.com)! There's a lot you can do here, but I settled on a local exploration app for small groups of friends. With any luck, it'll be released in the near future so I'll only be showing sample code and speaking in relation to a subset of the core functionality.
 
 Using Angular with [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/), I was able to build a cross-platform app using native features and view components with a single codebase. Some of the key features include:
 
@@ -123,8 +123,6 @@ To simplify implementation details we'll forgo security considerations and data 
 ### Architecture
 
 Let's have a look at how it all comes together. Who doesn't love an architecture diagram?
-
-**(If you're not interested in the technical details then [click here](#summary) to skip straight to the summary...)**
 
 ![Architecture-Diagram]({{ site.github.url }}/amcgill/assets/architecture-diagram.png "Architecture Diagram")
 
