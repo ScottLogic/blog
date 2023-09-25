@@ -45,7 +45,7 @@ To jump to any specific error listed by WAVE, navigate to its ‘description’ 
 
 ![aXe dashboard with forty-three errors associated with eight different error types ](/uploads/aXeDashboard.png)
 
-aXe is a downloadable extension available for Chrome, Firefox and Edge. It can be run by opening Devtools and clicking on the aXe extension offered by it, and then by clicking “scan full page” – most of the other features are locked behind the paid version of aXe, something that this blog post will not cover.
+aXe is a downloadable extension available for Chrome, Firefox and Edge. It can be run by opening Devtools and clicking on the aXe extension offered by it, and then by clicking “scan full page” – most of the other features are locked behind the paid version of aXe, which is something I have not yet explored.
 
 Once the scan is complete, the “Best practices” option is set to “on” so that everything that aXe has captured is present. Unlike WAVE, the page being tested does not get populated by icons. Instead, under each error there is an option to highlight the region in question that had caused the error to manifest. Most features that aXe offers are a part of its paid service but plenty of information is still offered.
 
@@ -53,7 +53,7 @@ Once the scan is complete, the “Best practices” option is set to “on” so
 
 Both accessibility tools have their uses for accessibility testing but they can never be used in isolation for full accessibility coverage. Both WAVE and aXe will also emphasise the need for manual testing. WAVE will do this if no errors are detected on the page. aXe will mention the need for this as a selling point for its paid service, which include guided tests.
 
-The example given in the introduction about using a keyboard is the best example of something that accessibility tooling will never catch. In addition, a single execution of either WAVE or aXe will usually not be enough as they only capture the current state of a website and may miss, for example, errors in contrast when text changes after hovering over it with a mouse. WAVE’s colour contrast error description has specific mention of cases in which it would miss any potential contrast error. If a user wishes to use tools to verify that these colour changes still meet accessibility requirements the accessibility tool will have to be run again once these changes in state are persisted on the page.
+The example I gave at the start of this blog post about keyboard navigation is the best example of something that accessibility tooling will never catch. Additionally, a single execution of either WAVE or aXe will usually not be enough as they only capture the current state of a website. This may miss, for example, errors in contrast when text changes after hovering over it with a mouse. WAVE’s colour contrast error description has specific mention of cases in which it would miss any potential contrast error. If a user wishes to use tools to verify that these colour changes still meet accessibility requirements the accessibility tool will have to be run again once these changes in state are persisted on the page.
 
 Also important to note is that whatever errors are flagged up should be double-checked to verify that the issue is genuine. For example, text that is part of a logo or part of an inactive UI component  (such as a ‘login’ button that can’t be clicked until the required fields are filled) may return ‘false positives’ from either tool.
 
@@ -75,7 +75,7 @@ aXe, instead of separating by error and alerts, will include tags listing the se
 
 ![The four aXe error types: minor, moderate, serious and critical](/uploads/aXeErrorTypes.png)
 
-Additional information around what the accessibility tools have picked up also differs between the two. Both WAVE and aXe offer solutions to fix the problems found. WAVE also provides a brief run-down on how the error can affect accessibility with links to official WCAG documents provided. For aXe, which will highlight the area of code which has triggered the accessibility errors, “Why it matters” is to be found in an external link. What will also be provided where appropriate are examples of code which would not fail the detected issue.
+Additional information around what the accessibility tools have picked up also differs between the two. Whilst both tools offer solutions to fix the problems found, WAVE also provides a brief run-down on how the error can affect accessibility with links to official WCAG documents provided. For aXe, which will highlight the area of code which has triggered the accessibility errors, an explanation of 'Why it matters' is to be found in an external link. What will also be provided where appropriate are examples of code which would not fail the detected issue. This code I found particularly useful in understanding why landmarks need to be considered in relation to accessibility.
 
 ## **What extra information is provided**
 
