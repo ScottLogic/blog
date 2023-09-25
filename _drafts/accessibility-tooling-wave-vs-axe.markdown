@@ -17,7 +17,7 @@ summary: comparison of two common automated accessibility testing tools - WAVE a
 author: aberrill
 ---
 
-As a test engineer, it can be difficult to appreciate just how many considerations are needed for creating software that everyone is able to access. You may have heard of screen readers such as NVDA to aid those hard of sight, but how does your software react when zoomed in 400%? You may understand the importance of site navigation using only a keyboard, but you should be sure that you don’t end up running into any keyboard traps – and that you can tell just what is highlighted at any given point. You are able to confirm that all the links on your page are working, but are they as accessible on a smaller screen, or if a person is using their finger or a stylus pen.
+![WAVEDashboard-a80df6.png]()As a test engineer, it can be difficult to appreciate just how many considerations are needed for creating software that everyone is able to access. You may have heard of screen readers such as NVDA to aid those hard of sight, but how does your software react when zoomed in 400%? You may understand the importance of site navigation using only a keyboard, but you should be sure that you don’t end up running into any keyboard traps – and that you can tell just what is highlighted at any given point. You are able to confirm that all the links on your page are working, but are they as accessible on a smaller screen, or if a person is using their finger or a stylus pen.
 
 Where do you start?
 
@@ -31,7 +31,7 @@ To demonstrate how each of these tools operate the following site – [a testing
 
 ### **WAVE**
 
-!\[WAVE Dashboard showing errors, contrast errors, alerts, features, structural elements and ARIA categories\]({{ site.github.url }}/uploads/WAVEDashboard.png)
+![WAVE Dashboard showing errors, contrast errors, alerts, features, structural elements and ARIA categories](/uploads/WAVEDashboard.png)
 
 WAVE is a downloadable extension available for Chrome, Firefox and Edge. It can be run by clicking on the extension icon or through right-clicking the page and choosing the “WAVE this page” option.
 
