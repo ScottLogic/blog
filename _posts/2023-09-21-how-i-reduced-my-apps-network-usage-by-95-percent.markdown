@@ -38,14 +38,16 @@ tags:
 
 In this blog post we'll take a brief look at some of the lessons learned while creating a cross-platform location sharing app.
 
-Why did I make this app? Well, have a think - how many apps on your phone have the ability to share the real-time location of taxis, deliveries or people? If you had the same basic functionality you could make any number of services such as games, visualisations or even a rival delivery service. You'd be surprised how much fun people can have with just the map itself ([looking at you GeoGuessr](https://www.geoguessr.com)).
+Why did I make this app? Well, have a think - how many apps on your phone have the ability to share the real-time location of taxis, deliveries or people? After all, [the map itself is enough for some people](https://www.geoguessr.com)! There's a lot you can do here, but I settled on an app based on real-world exploration with small groups of friends. With any luck, it'll be released in the near future so I'll only be speaking in relation to a subset of the core functionality / example code.
 
-The app was built with Angular using [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/). These tools give us the ability to build cross-platform apps using native features and view components using a single codebase. With any luck, it'll be released in the near future so I'll only be speaking in relation to a subset of the core functionality:
+Using Angular with [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/), I was able to build a cross-platform app using native features and view components with a single codebase. Some of the key features include:
 
-- User authentication with Google SSO
-- Share user location data with other users
-- Match user location with pre-configured GPS landmarks server-side
-- Render user avatars on a map and update their locations in real-time
+- Authentication with Google SSO
+- Share location data with other users
+- Match location with pre-configured GPS landmarks server-side
+- Render avatars on a map and update user locations in real-time
+
+You can find [details of the architecture and deployment at the end of the article](#bonus-content---a-closer-look-at-how-the-app-works) but for now let's jump right into the findings from early user testing.
 
 ## Findings from Test #1 with real users
 
@@ -61,7 +63,7 @@ Clearly it needed some rethinking before the next test group. So what went wrong
 
 Can you spot what is wrong with this implementation and why it could be linked to such high data usage?
 
-`---- show code snippet of original web sockets implementation ----`
+TK **show code snippet of original web sockets implementation**
 
 I had accidentally nested the socket listeners inside each active socket connection which meant the number of actions scales logarithmically proportional to the number of active users. Whoops! To make matters worse, some of these actions had side-effects which triggered another re-broadcast of the data, meaning those were sent out again too. This was a small bug but a huge oversight in my original approach that used far too much data.
 
@@ -73,7 +75,7 @@ How did I miss this during development? Well, I:
 
 These are the kind of things you'll really have to think about when developing for mobile as resources genuinely are limited.
 
-Here's what it should've looked like all along:
+Here's what it should've look like all along.
 
 ### 2. Frequency of data changes
 
@@ -107,9 +109,16 @@ The second test lasted twice as long, had three times as many users, and we stil
 
 Don't get me wrong - some bugs still cropped up, but that first test revealed many issues that I was able to address before the second test. This is why we test things in the real world with real users! If there's a bug, they'll probably find it.
 
-## A closer look at how the app works
+## Summary
 
-To simplify the implementation details we'll forgo security considerations and data persistence.
+I believe that these real-world tests have effectively showcased the advantages of an iterative development and testing approach. Through this process, we were able to spot issues at an early stage, gain valuable insights from them, and enhance our product. It is clear that efficiency and optimization play a pivotal role in mobile app development.
+--TK-- but why - only have limited resources, need to use them as efficiently as possible
+
+The main point to remember here is that prioritising performance is crucial in mobile app development, even when using a web framework like Angular. By applying these lessons, we can create apps that perform better, respond faster, and use less data.
+
+## Bonus content - a closer look at how the app works
+
+To simplify implementation details we'll forgo security considerations and data persistence in these examples.
 
 ### Architecture
 
@@ -119,22 +128,29 @@ Let's have a look at how it all comes together. Who doesn't love an architecture
 
 ![Architecture-Diagram]({{ site.github.url }}/amcgill/assets/architecture-diagram.png "Architecture Diagram")
 
-### The backend
+### A NodeJS backend
 
-To share user locations we need is a service to hold the user information and a controller to communicate with the users:
+All we need for the backend is a service to hold the user information and a controller to communicate with the users:
 
 <script src="https://gist.github.com/mcgill-a/711607e67bd6877cb04be44fa52bcdfa.js"></script>
 
 <script src="https://gist.github.com/mcgill-a/c9f01e36196a983019c151b33c859ad1.js"></script>
 
-Let's see that in action with [Postman](https://www.postman.com):
+We can use [Postman](https://www.postman.com) to make sure actions (join, leave, update position) are broadcasted over WebSockets:
 
 ![Postman-Web-Socket-Example]({{ site.github.url }}/amcgill/assets/postman-web-sockets.gif "Postman Web Socket Example")
 
-### The frontend
+### An Angular frontend
 
-- show web socket listener code
-- show gif of icons moving on map
+There's a lot of moving parts in the frontend, but we can simplify it by focusing on a few key areas:
+
+<script src="https://gist.github.com/mcgill-a/db12926331f47f3a8672a996b9067a12.js"></script>
+<script src="https://gist.github.com/mcgill-a/9c3614132b842f217fa8c97bdfa43e0e.js"></script>
+<script src="https://gist.github.com/mcgill-a/7f92a1d32fed02b5dd4541ba53483aed.js"></script>
+
+Integrate the real-time data into [Angular Google Maps](https://github.com/angular/components/tree/main/src/google-maps#readme) and suddenly we've got a location sharing app:
+
+TK **show gif of icons moving on map**
 
 ### The deployment
 
@@ -145,10 +161,3 @@ The web version of the app is automatically deployed to Firebase and is set up w
 ![Github Action adding a comment to my PR with a deployed version of the code change for testing]({{ site.github.url }}/amcgill/assets/firebase-pr-action.png "Firebase PR deployments")
 
 The backend is automatically deployed to a Heroku Basic Dyno instance for $7/month. I was hoping to use Firebase here as well since it's free, unfortunately cloud functions do not support web sockets since they only handle a single request/response.
-
-## Summary
-
-I believe that these real-world tests have effectively showcased the advantages of an iterative development and testing approach. Through this process, we were able to spot issues at an early stage, gain valuable insights from them, and enhance our product. It is clear that efficiency and optimization play a pivotal role in mobile app development.
---TK-- but why - only have limited resources, need to use them as efficiently as possible
-
-The main point to remember here is that prioritising performance is crucial in mobile app development, even when using a web framework like Angular. By applying these lessons, we can create apps that perform better, respond faster, and use less data.
