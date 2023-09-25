@@ -115,26 +115,22 @@ To simplify the implementation details we'll forgo security considerations and d
 
 Let's have a look at how it all comes together. Who doesn't love an architecture diagram?
 
-(If you're not interested in the technical details then [click here](#summary) to skip straight to the summary...)
+**(If you're not interested in the technical details then [click here](#summary) to skip straight to the summary...)**
 
 ![Architecture-Diagram]({{ site.github.url }}/amcgill/assets/architecture-diagram.png "Architecture Diagram")
 
 ### The backend
 
-Our NodeJS app runs the `index.ts` file, integrating our User Service with HTTP requests and WebSocket connections.
+Interestingly we don't need too much backend code to broadcast user location data over WebSockets - just a user service and controller:
 
-<script src="https://gist.github.com/mcgill-a/0a0ca48e78632f34afbf7126aeaac617.js"></script>
-<script src="https://gist.github.com/mcgill-a/f3b31e11ef9be90f60f1322a3d234e96.js"></script>
+[User Service](https://gist.github.com/mcgill-a/0a0ca48e78632f34afbf7126aeaac617)
+[Controller](https://gist.github.com/mcgill-a/711607e67bd6877cb04be44fa52bcdfa)
 
-- show it working with postman (already have this ready, just need to record it)
+![Postman-Web-Socket-Example]({{ site.github.url }}/amcgill/assets/postman-web-sockets.gif "Postman Web Socket Example")
 
 ### The frontend
 
---TK--
-
 - show web socket listener code
-- show Google SSO login to identify the user
-- show recurring fetch code to check for missed data
 - show gif of icons moving on map
 
 ### The deployment
