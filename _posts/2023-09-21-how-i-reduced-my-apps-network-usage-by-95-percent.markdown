@@ -121,10 +121,13 @@ Let's have a look at how it all comes together. Who doesn't love an architecture
 
 ### The backend
 
-Interestingly we don't need too much backend code to broadcast user location data over WebSockets - just a user service and controller:
+To share user locations we need is a service to hold the user information and a controller to communicate with the users:
 
-[User Service](https://gist.github.com/mcgill-a/0a0ca48e78632f34afbf7126aeaac617)
-[Controller](https://gist.github.com/mcgill-a/711607e67bd6877cb04be44fa52bcdfa)
+<script src="https://gist.github.com/mcgill-a/711607e67bd6877cb04be44fa52bcdfa.js"></script>
+
+<script src="https://gist.github.com/mcgill-a/c9f01e36196a983019c151b33c859ad1.js"></script>
+
+Let's see that in action with [Postman](https://www.postman.com):
 
 ![Postman-Web-Socket-Example]({{ site.github.url }}/amcgill/assets/postman-web-sockets.gif "Postman Web Socket Example")
 
