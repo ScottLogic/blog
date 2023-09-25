@@ -47,7 +47,7 @@ Using Angular with [Ionic](https://ionicframework.com/) and [Capacitor](https://
 - Match location with pre-configured GPS landmarks server-side
 - Render avatars on a map and update user locations in real-time
 
-You can find [details of the architecture and deployment at the end of the article](#bonus-content---a-closer-look-at-how-the-app-works) but for now let's jump right into the findings from early user testing.
+You can find [details of the architecture and deployment at the end of the article](#bonus-content-a-closer-look-at-how-the-app-works) but for now let's jump right into the findings from early user testing.
 
 ## Findings from Test #1 with real users
 
@@ -111,12 +111,11 @@ Don't get me wrong - some bugs still cropped up, but that first test revealed ma
 
 ## Summary
 
-I believe that these real-world tests have effectively showcased the advantages of an iterative development and testing approach. Through this process, we were able to spot issues at an early stage, gain valuable insights from them, and enhance our product. It is clear that efficiency and optimization play a pivotal role in mobile app development.
---TK-- but why - only have limited resources, need to use them as efficiently as possible
+I believe that these real-world tests have effectively showcased the advantages of an iterative development and testing approach. Through this process, we were able to spot issues at an early stage, gain valuable insights from them, and enhance our product. It is clear that since we only have limited resources, we need to use to use them as efficiently as possible.
 
 The main point to remember here is that prioritising performance is crucial in mobile app development, even when using a web framework like Angular. By applying these lessons, we can create apps that perform better, respond faster, and use less data.
 
-## Bonus content - a closer look at how the app works
+## Bonus content: a closer look at how the app works
 
 To simplify implementation details we'll forgo security considerations and data persistence in these examples.
 
@@ -128,27 +127,23 @@ Let's have a look at how it all comes together. Who doesn't love an architecture
 
 ### A NodeJS backend
 
-All we need for the backend is a service to hold the user information and a controller to communicate with the users:
+All we need for the backend is [a service to hold the user information](https://gist.github.com/mcgill-a/711607e67bd6877cb04be44fa52bcdfa#file-user-service-ts) and [a controller to communicate with the users](https://gist.github.com/mcgill-a/c9f01e36196a983019c151b33c859ad1#file-index-ts).
 
-<script src="https://gist.github.com/mcgill-a/711607e67bd6877cb04be44fa52bcdfa.js"></script>
-
-<script src="https://gist.github.com/mcgill-a/c9f01e36196a983019c151b33c859ad1.js"></script>
-
-We can use [Postman](https://www.postman.com) to make sure actions (join, leave, update position) are broadcasted over WebSockets:
+Using [Postman](https://www.postman.com), we can see that our actions (join, leave, and update position) are broadcasted over WebSockets:
 
 ![Postman-Web-Socket-Example]({{ site.github.url }}/amcgill/assets/postman-web-sockets.gif "Postman Web Socket Example")
 
 ### An Angular frontend
 
-There's a lot of moving parts in the frontend, but we can simplify it by focusing on a few key areas:
+There's a lot of moving parts in the frontend, here's a snippet of some interesting bits:
 
-<script src="https://gist.github.com/mcgill-a/db12926331f47f3a8672a996b9067a12.js"></script>
-<script src="https://gist.github.com/mcgill-a/9c3614132b842f217fa8c97bdfa43e0e.js"></script>
-<script src="https://gist.github.com/mcgill-a/7f92a1d32fed02b5dd4541ba53483aed.js"></script>
+- [Listening to WebSocket changes](https://gist.github.com/mcgill-a/9c3614132b842f217fa8c97bdfa43e0e)
+- [Updating user data](https://gist.github.com/mcgill-a/7f92a1d32fed02b5dd4541ba53483aed)
+- [Tracking user location](https://gist.github.com/mcgill-a/db12926331f47f3a8672a996b9067a12)
 
-Integrate the real-time data into [Angular Google Maps](https://github.com/angular/components/tree/main/src/google-maps#readme) and suddenly we've got a location sharing app:
+Finally, we can tie it all together with [Angular Google Maps](https://github.com/angular/components/tree/main/src/google-maps#readme) to bring the location sharing aspect to life:
 
-TK **show gif of icons moving on map**
+TK **show gif of icons moving on map** 
 
 ### The deployment
 
