@@ -1,6 +1,6 @@
 ---
 title: Being honest about Embodied Carbon from Software Development
-date: 2023-09-25 00:00:00 Z
+date: 2023-09-26 00:00:00 Z
 categories:
 - Tech
 tags:
