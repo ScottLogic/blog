@@ -11,7 +11,7 @@ author: jhowlett
 
 ### The software industry has had an easy ride compared with other sectors regarding sustainability, in the coming years that could all be about to change.
 
-I wanted to build upon my previous post *A guide to Software Sustainability terminology* and expand on a term that I feel does not have the awareness it deserves. If you are new to this topic then I recommend giving the [previous blog](https://blog.scottlogic.com/2023/09/12/sustainability-terminology.html) a read first.
+I wanted to build upon my previous post [A guide to Software Sustainability terminology](https://blog.scottlogic.com/2023/09/12/sustainability-terminology.html) and expand on a term that I feel does not have the awareness it deserves. If you are new to this topic then I recommend giving it a read first.
 
 The software industry has only had minimal, if any imposing regulations or mandatory audits of sustainability practices. This could be due to the media portraying the digital revolution as part of the green future, software having grown and evolved so fast that regulatory bodies cannot keep up or maybe even just because computers are not directly spewing out plumes of harmful carbon emissions.
 
