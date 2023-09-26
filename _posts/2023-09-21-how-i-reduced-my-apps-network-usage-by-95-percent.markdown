@@ -23,7 +23,6 @@ tags:
   - Frontend
   - Backend
   - Optimisation
-
 ---
 
 ## TL;DR
@@ -81,7 +80,7 @@ Let's think about what this code actually does:
   - Using the user service, update the user data
   - Broadcast the updated data to other active users
 
-A more typical `io.on('connection', ...)` function might simply include a `console.log(socket.id, "has connected.");`. As it turns out, this is a really bad place to listen for position updates since every time a new user is connected, it'll listen for changes again (even if we're already listening to it). Every update coming in was re-broadcasted N times, where N is the number of users. This was a small bug but a huge oversight in my original approach that consumed far too much data.
+A more typical `io.on('connection', ...)` function might simply include a `console.log(socket.id, "has connected.");`. As it turns out, this is a really bad place to listen for position updates since every time a new user is connected, it'll listen for changes again (even if we're already listening to it). Every new update was broadcasted repeatedly, matching the number of users. This was a small bug but a huge oversight in my original approach that consumed far too much data.
 
 Although this bug was the worst offender, there was still more to consider:
 
