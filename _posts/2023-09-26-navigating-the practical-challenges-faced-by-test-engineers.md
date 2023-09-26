@@ -1,6 +1,5 @@
 ---
 title: Navigating the Practical Challenges Faced by Test Engineers
-date: 2023-09-19 09:00:00 Z
 categories:
 - Testing
 tags:
