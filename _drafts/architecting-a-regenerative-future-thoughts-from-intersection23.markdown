@@ -1,16 +1,20 @@
 ---
 title: 'Architecting a regenerative future: Thoughts from INTERSECTION23'
-date: 2023-09-27 19:18:00 Z
+date: 2023-09-28 07:18:00 Z
 categories:
 - ocronk
 tags:
 - sustainability
 - sustainable software
+summary: A write up of some of the bold thinking that came out of the INTERSECTION
+  x23 conference in September. Do we need to go beyond sustainability and consider
+  a regenerative future when it comes to technology architecture?
+author: ocronk
 ---
 
 Apparently in Japanese they have a saying for the feeling of loss when someone leaves your house*. "ichinichi ichigen'' (一日一限) beautifully describes the feeling of transience and longing for connection after some visits your home. The phrase poetically acknowledges how fleeting yet meaningful interactions can be.
 
-I am experiencing something similar following the [Intersection x23](https://www.intersection.group/events/intersection23) conference last week. Why? Because the Intersection conference and community to me is special. Rather than focussing on only one discipline; intersection (as it sounds) is about the connection across disciplines to design better enterprises. Also the community has global influences, with speakers and attendees from North America, Europe and Australasia. So it's a diverse melding pot of ideas and experiences from Architecture, Business, Design, UX etc.
+Think I am experiencing something similar following the [Intersection x23](https://www.intersection.group/events/intersection23) conference last week. Why? Because the Intersection conference and community is special. Rather than focussing on only one discipline; intersection (as it sounds) is about the connection across disciplines to design better enterprises. Also the community has global influences, with speakers and attendees from North America, Europe and Australasia. So it's a diverse melding pot of ideas and experiences from Architecture, Business, Design, UX etc.
 
 [guro1.PNG](/uploads/guro1.PNG)  
  
@@ -66,7 +70,7 @@ Many don’t realise the real world impact that technology has on our planet and
 
   
 
-Architecting a Regenerative Tomorrow?
+## Architecting a Regenerative Tomorrow?
 
 Based on the conference content if I was writing my talk in the future it could have a title relating to Regenerative Architecture. As I now question if it simply enough to be tinkering and tweaking our organisations towards sustainability? Is there a danger we are just putting lipstick on a pig? Should we be more bold and look at where our enterprises can be regenerative? But can all industries really strive to be regenerative? What role can architects have in influencing this future direction? As you can see I have lots of questions here! So I am keen to discuss this one with the Intersection community and beyond - so please get in touch if you’d like to talk offline or on the [Architect Tomorrow podcast](https://youtube.com/architecttomorrow)!
 
