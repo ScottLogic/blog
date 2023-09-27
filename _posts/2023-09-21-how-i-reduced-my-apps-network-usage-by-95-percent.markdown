@@ -68,10 +68,6 @@ I made a silly mistake in my original backend WebSocket implementation. Can you 
 
 <script src="https://gist.github.com/mcgill-a/864fd946b0fd215437b77f0087ccb6b8.js"></script>
 
-- When a user connects to the WebSocket server
-  - Listen to socket channel for position changes and update the user data
-  - Listen to user service changes and broadcast the change
-
 As it turns out, this is a really bad place subscribe to anything. Every time a new user is connected, it'll subscribe to event observables again (even if we're already subscribed). This meant every new update was broadcasted repeatedly, matching the number of users.
 
 Here's where it should've looked like all along:
@@ -80,7 +76,7 @@ Here's where it should've looked like all along:
 
 This was a small bug but a huge oversight in my original approach that consumed far too much data. Having realised this I also decided now would be a good time to switch communication from Client -> Server from WebSockets to HTTP. Just because it's possible to send data both ways doesn't mean you have to for everything!
 
-Although this bug was the worst offender, there was still more to consider that exaggerated the issue:
+Although this bug was the worst offender, there was still more to consider:
 
 ### 2. Frequency of data changes
 
