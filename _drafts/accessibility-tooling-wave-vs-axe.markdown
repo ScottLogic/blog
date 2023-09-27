@@ -1,6 +1,6 @@
 ---
 title: 'Accessibility tooling: WAVE vs aXe'
-date: 2023-09-12 08:48:00 Z
+date: 2023-09-27 16:04:00 Z
 categories:
 - Testing
 tags:
