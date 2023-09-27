@@ -62,6 +62,7 @@ active-authors:
   - jwren
   - kangel
   - kcoombes
+  - kclark
   - kjones
   - dhunter
   - kday
@@ -494,6 +495,10 @@ authors:
   jwright:
     author-summary: ""
     name: "John Wright"
+  kclark:
+    author-summary: "Test Engineer at Scott Logic born, raise and based in Edinburgh. Gym goer, Book reader, Knitter extraordinaire."
+    name: "Kira Clark"
+    picture: picture.png
   kcoombes:
     author-summary: "I am a Test Engineer from Newcastle"
     name: "Kay Coombes"
