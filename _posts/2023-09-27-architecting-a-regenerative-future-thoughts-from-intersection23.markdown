@@ -6,6 +6,8 @@ categories:
 tags:
 - sustainability
 - sustainable software
+- blog
+- architecture
 summary: A write up of some of the bold thinking that came out of the INTERSECTION
   x23 conference in September. Do we need to go beyond sustainability and consider
   a regenerative future when it comes to technology architecture?
