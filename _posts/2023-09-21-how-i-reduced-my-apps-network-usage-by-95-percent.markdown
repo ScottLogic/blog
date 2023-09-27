@@ -35,20 +35,15 @@ tags:
 
 ## Introduction
 
-In this blog post we'll take a brief look at some of the lessons learned while creating a cross-platform location sharing app. There's a lot you can do with real-time geolocation data, but I settled on a local exploration app for small groups of friends. With any luck it'll be released in the near future so I'll only be referencing a subset of the core functionality.
+In this blog post we'll take a brief look at some of the lessons learned while creating a location sharing app for mobile and web. There's a lot you can do with real-time geolocation data, but I settled on a local exploration app for small groups of friends. With any luck it'll be released in the near future so I'll only be referencing a subset of the core functionality:
 
-Some of the key features are:
-
-- Authentication with Google SSO
 - Share location data with other users
 - Match location with pre-configured GPS landmarks server-side
 - Render avatars on a map and update user locations in real-time
 
 TODO: **add a gif of the location tracking here**
 
-I implemented these features this with a single codebase written in Angular, using [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/) to build a cross-platform app with native features.
-
-You can find [details of the architecture and deployment at the end of the article](#bonus-content-a-closer-look-at-how-the-app-works) but for now let's jump right into the findings from initial user testing and find out where I went wrong.
+The app is written in Angular and leverages native mobile features using [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/). You can find [details of the architecture and deployment at the end of the article](#bonus-content-a-closer-look-at-how-the-app-works) but for now let's jump right into the findings from initial user testing and find out where I went wrong.
 
 ## Findings from Test #1 with real users
 
@@ -69,20 +64,23 @@ These are the kind of things you'll really have to think about when developing f
 
 ### 1. A bad web socket integration
 
-There's a mistake in this WebSocket code that I made repeatedly in my original implementation. Can you spot it?
+I made a silly mistake in my original backend WebSocket implementation. Can you spot it?
 
-<script src="https://gist.github.com/mcgill-a/33942de8ad4819090b41d665fc4e74de.js"></script>
-
-Let's think about what this code actually does:
+<script src="https://gist.github.com/mcgill-a/864fd946b0fd215437b77f0087ccb6b8.js"></script>
 
 - When a user connects to the WebSocket server
-  - Listen to position updates
-  - Using the user service, update the user data
-  - Broadcast the updated data to other active users
+  - Listen to socket channel for position changes and update the user data
+  - Listen to user service changes and broadcast the change
 
-A more typical `io.on('connection', ...)` function might simply include a `console.log(socket.id, "has connected.");`. As it turns out, this is a really bad place to listen for position updates since every time a new user is connected, it'll listen for changes again (even if we're already listening to it). Every new update was broadcasted repeatedly, matching the number of users. This was a small bug but a huge oversight in my original approach that consumed far too much data.
+As it turns out, this is a really bad place subscribe to anything. Every time a new user is connected, it'll subscribe to event observables again (even if we're already subscribed). This meant every new update was broadcasted repeatedly, matching the number of users.
 
-Although this bug was the worst offender, there was still more to consider:
+Here's where it should've looked like all along:
+
+<script src="https://gist.github.com/mcgill-a/93aa75c0538b6feef73f85349adca409.js"></script>
+
+This was a small bug but a huge oversight in my original approach that consumed far too much data. Having realised this I also decided now would be a good time to switch communication from Client -> Server from WebSockets to HTTP. Just because it's possible to send data both ways doesn't mean you have to for everything!
+
+Although this bug was the worst offender, there was still more to consider that exaggerated the issue:
 
 ### 2. Frequency of data changes
 
@@ -136,7 +134,7 @@ Let's have a look at how it all comes together. Who doesn't love an architecture
 
 All we need for the backend is [a service to hold the user information](https://gist.github.com/mcgill-a/711607e67bd6877cb04be44fa52bcdfa#file-user-service-ts) and [a controller to communicate with the users](https://gist.github.com/mcgill-a/c9f01e36196a983019c151b33c859ad1#file-index-ts).
 
-Using [Postman](https://www.postman.com), we can see that our actions (join, leave, and update position) are broadcasted over WebSockets.
+In the gif below, we can see that our actions (join, leave, and update position) are broadcasted in real-time over WebSockets.
 
 ![Postman-Web-Socket-Example]({{ site.github.url }}/amcgill/assets/postman-web-sockets.gif "Postman Web Socket Example")
 
