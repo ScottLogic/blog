@@ -21,65 +21,48 @@ The theme this year was “Creating Sustainable Enterprises” with the talks pr
   
 
 2. [Regenerative leadership](https://intersection.group/events/intersection23-guro) by Guro Røberg / Head of Realisation, Æra Strategic Innovation and Eirik Langås / Founder, Æra Strategic Innovation
-
   
-
-From future-proofing to futuring - aka Futures Literacy
+## From future-proofing to futuring - aka Futures Literacy
 
 Martin spoke about our limitations in imaging the future and talked about the concept of ”Futures literacy”. Our beliefs, assumptions and experiences frame and restrict how we think about how we change and shape the future. He questioned what and whose future we are imagining when we think about the future. In a world filled with marketing, divided politics and technology (such as generative AI imagery) that can distort our view of reality (let alone the future) this felt very apt.
 
-  
-
-![](https://lh5.googleusercontent.com/X2S1iN5L8evZ9aB6YBixxBDFF7jMThbCV-nHkYFCXVPKAxa--mtSL7OznE-x8KeJ1aEU1b5gXT_rQw_cx_xCKnX5VjoQCQQ74_YcHAbCoCZILDaPErhEfrMPzXwB0AS1XXI1KmspCjADJx0OeTJoBdo)
-
-  
+[martin1.PNG](/uploads/martin1.PNG)
 
 Martin offered “an invitation to begin exploring how this capability can contribute to harnessing the full power of the future and help us consciously and deliberately step outside our proverbial box!” This prompted a bit of debate about inside the box and outside the box thinking - a bit of a cliche in itself - but it forced many to realise that often we are naturally stuck inside our “own box”. I think that Search engines, social media and GenAI technologies are a double edged sword. Potentially they offer different viewpoints but all too often we get caught in the filter bubble, a “collective poverty of imagination” and we struggle to consider a diverse set of perspectives.
 
-  
-
 Martin certainly got the conference thinking about how we frame transformation efforts and think about the future and as a result it was my highlight from day 1 of the conference.
 
-  
-
-Regenerative Leadership
+## Regenerative Leadership
 
 Day 2 had many excellent talks however the highlight for me was Guro and Eirik talking about Regenerative Leadership. Explaining that for many years we have built extractive societies - taking from people and the planet. Talking about the leadership that the Nordic countries have shown on sustainability to reduce and recycle but now the need to consider regeneration to revive our world.
 
-
-![](https://lh5.googleusercontent.com/XE4mGTTki0Va27nx9FhsJ9o5aFKCP5PlGoehY6plpzgxl9g-Lnxzb8JTV2nXyssAfLJJXf2psnbCiM4DRkbvBApfMSaJAyGQh__ulBnHsWMeMMSvZwwJ6jHNFi-HVd_2rdVRy96Rq9acozT2k9pp8zQ)
-
-  
+[guro2.PNG](/uploads/guro2.PNG)
 
 Guro focussed on individual regeneration and some of her life experiences that have allowed her to rethink her habits and approaches to situations. She also reminded the group of the [Inner Development Goals](https://www.innerdevelopmentgoals.org/)
 
-![](https://lh5.googleusercontent.com/qNR1coOPa6UxMx9dA_QAxqvwc3jwg7VrQ-Jo0kPicm0OVPjhml1XxJr6lJR0DwziyPWD-GbMQ2pd-Wq90AcCuBNZFS9TOyDnzGYs9nO0nG9-LqwIMD7N7b8UfF1CqPiiRnZQ5gEMJrvf4-kjXZ7g8Mw)
-
-  
+[guro3.PNG](/uploads/guro3.PNG)  
 
 Their talk left me questioning - is it really good enough to just sustain and prop up the status quo? Or should we be striving for organisations that make things better off than they were as a positive side effect of doing business? In a world where we have created so much damage to our natural environment, ecosystems and society don’t we need to do more? We surely have to repair damage and strive to work in harmony with the only livable planet we have? Regenerative business is certainly an interesting topic and one that could be used to pull us in the right direction?
 
-![](https://lh5.googleusercontent.com/ADWpSdadypMCS6STVOqrv4eF5qHsen14gn1QMtw6FCRIoDI8pJ5GzwUOIvYx8JYEteenDnpJ1y-uiP6Izlg-yntqHFvW00wtARzV3cPpDLFlA2Nache4H4QV5Fby4Fzm2t3TGcvzVjxOVPMWKjcP2AI)
+[erik1.PNG](/uploads/erik1.PNG)
 
 Those who are cynical might say regenerative is just the latest environmental marketing buzzword. It’s no longer enough to say you are sustainable or take ESG seriously but you now need to say you are regenerative? Given there is quite a bit of greenwash out there I wouldn’t blame people for having this initial thought. But I think regenerative organisations are going to be demonstrably different from regular or sustainable businesses. It won’t be enough to just claim you are offsetting your emissions - it should be very visible how you’ve changed your operating and business models and the impact that is having. Eirik said that they (Æra) don’t have all the answers - in particular the relationship with growth - but I really like the vision and would like to explore this further. I believe that elements of what we are doing at Scott Logic align with regenerative principles - in particular our social mission. [https://www.scottlogic.com/who-we-are](https://www.scottlogic.com/who-we-are)
 
-  
-
-Architecture for Sustainability
+## Architecture for Sustainability
 
 [https://intersection.group/events/intersection23-oliver-cronk](https://intersection.group/events/intersection23-oliver-cronk)
 
 Architecture for Sustainability was the title of my talk covering the need for architects and designers to consider holistic sustainability in their architecture and enterprise design work.
 
-  
-
-![](https://lh6.googleusercontent.com/GcdPrVDR3UAwIemxTOUp49G23EIJHYDvP41PPNszdUoePgR8ea4m0tYvOmMvZPuG171sf5nqpLfjZK_JSV7fyOw5vSI9k1QSgVSGaCeGgPzdy5WP9hQIbIkIFv0zTvCs6-nHRNh7i9BIUA33uCnNFDs)
+![MicrosoftTeams-image (1).png](/uploads/MicrosoftTeams-image%20(1).png)
 
 Starting with the big question - where are the biggest sustainability challenges in our organisation? Is the enterprise highly industrial or knowledge economy based? As this insight into where your organisation has the most impact provides the initial focus point. Then mainly for those that are in the knowledge economy an exploration of the impact of technology that our organisations use day in day out on our planet.
 
-  
+Many don’t realise the real world impact that technology has on our planet and society. Once you do some digging it’s pretty horrifying to uncover the impacts that technology really has, which the big tech companies have done a good job of distracting us from with clever marketing.
 
-Many don’t realise the real world impact that technology has on our planet and society. Once you do some digging it’s pretty horrifying to uncover the impacts that technology really has, which the big tech companies have done a good job of distracting us from with clever marketing. As technologists we have a responsibility to do better - and that starts with more sustainable design and architecture.  
+[tech-impacts-slide.PNG](/uploads/tech-impacts-slide.PNG)
+
+ As technologists we have a responsibility to do better - and that starts with more sustainable design and architecture.  
 
   
 
