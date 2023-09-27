@@ -77,4 +77,4 @@ Based on the conference content if I was writing my talk in the future it could 
   
 FYI the Intersection talks will be available on the [Intersection YouTube channel](https://www.youtube.com/channel/UCIuyukMcDrPiJHrHCaR694A) in the near future so watch out for them there. If you’d like to learn more about Intersection Group and Enterprise Design check out [this episode of the Architect Tomorrow podcast](https://www.youtube.com/watch?v=jkX15-uBt5I).
 
-* Many thanks to [Bard Papegaaij](https://www.linkedin.com/in/bardpapegaaij/) for sharing the concept - I’m not sure I’ve found the correct actual japanese phrase? Happy to be corrected on this!
+\* Many thanks to [Bard Papegaaij](https://www.linkedin.com/in/bardpapegaaij/) for sharing the concept - I’m not sure I’ve found the correct actual japanese phrase? Happy to be corrected on this!
