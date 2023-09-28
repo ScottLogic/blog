@@ -12,6 +12,7 @@ summary: A write up of some of the bold thinking that came out of the INTERSECTI
   x23 conference in September. Do we need to go beyond sustainability and consider
   a regenerative future when it comes to technology architecture?
 author: ocronk
+image: "/uploads/Architecting%20a%20regenerative%20future-%20Thoughts%20from%20INTERSECTION23_.png"
 ---
 
 Apparently in Japanese they have a saying for the feeling of loss when someone leaves your house*. "ichinichi ichigen'' (一日一限) beautifully describes the feeling of transience and longing for connection after some visits your home. The phrase poetically acknowledges how fleeting yet meaningful interactions can be.
