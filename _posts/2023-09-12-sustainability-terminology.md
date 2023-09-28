@@ -4,6 +4,7 @@ date: 2023-09-12 00:00:00 Z
 categories:
 - Tech
 tags:
+- featured
 - Sustainability
 summary: You think software has enough variables, right? Well there is another one
   that has become a big consideration when designing, developing and deploying software
@@ -13,7 +14,7 @@ summary: You think software has enough variables, right? Well there is another o
   system that focuses on reducing the operational carbon of my business but also minimises
   embodied carbon", you will know exactly what they are looking for!
 author: jhowlett
-image: "/uploads/software%20sus.png"
+image: "uploads/software%20sus.png"
 ---
 
 ### You think software has enough variables, right?
