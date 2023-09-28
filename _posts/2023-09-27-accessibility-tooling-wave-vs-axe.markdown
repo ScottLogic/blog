@@ -15,6 +15,7 @@ summary: Comparison of two common automated accessibility testing tools – WAVE
   aXe – detailing what they have in common, what they do differently, and detailing
   which one may be used based on a user's personal preference.
 author: aberrill
+image: "/uploads/Accessability%20tooling.png"
 ---
 
 As a test engineer, it can be difficult to appreciate just how many considerations there are for creating software that everyone is able to access. You may have heard of screen readers such as NVDA to aid those hard of sight, but how does your software react when zoomed in 400%? You may understand the importance of site navigation using only a keyboard, but you should be sure that you don’t end up running into any keyboard traps – and that you can tell just what is highlighted at any given point. You are able to confirm that all the links on your page are working, but are they as accessible on a smaller screen, or if a person is using their finger or a stylus pen?
