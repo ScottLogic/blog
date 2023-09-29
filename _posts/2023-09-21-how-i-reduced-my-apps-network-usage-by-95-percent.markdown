@@ -76,7 +76,7 @@ Here's what it should've looked like all along:
 
 <script src="https://gist.github.com/mcgill-a/93aa75c0538b6feef73f85349adca409.js"></script>
 
-This was a small bug but a huge oversight in my original approach that consumed far too much data. Having realised this I also decided now would be a good time to switch communication from Client -> Server from WebSockets to HTTP. Just because it's possible to send data both ways doesn't mean you have to for everything!
+This was a small bug but a huge oversight in my original approach that consumed far too much data. Having realised this I also decided now would be a good time to switch outgoing Client requests from WebSockets to HTTP. Just because it's possible to send data both ways doesn't mean you have to for everything!
 
 Although this bug was the worst offender, there was still more to consider:
 
