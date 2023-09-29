@@ -116,7 +116,7 @@ Don't get me wrong - some bugs still cropped up, but that first test revealed ma
 
 I believe that these real-world tests have effectively showcased the advantages of an iterative development and testing approach. Through this process, we were able to spot issues at an early stage, gain valuable insights from them, and enhance the final product.
 
-It is clear that since we only have limited resources, we need to use to use them as efficiently as possible. No matter how great your app is, if your app unnecessarily drains their battery or eats up their data, they probably won't use it.
+It is clear that since we only have limited resources, we need to use to use them as efficiently as possible. No matter how great your app is, if your app unnecessarily drains their battery or eats up their data, people probably won't use it.
 
 ## Bonus content: a closer look at how the app works
 
