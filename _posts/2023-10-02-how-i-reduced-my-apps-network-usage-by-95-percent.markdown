@@ -1,6 +1,6 @@
 ---
 title: "How I Reduced My App's Network Usage by 95%"
-date: 2023-09-21 09:00:00 Z
+date: 2023-10-02 08:00:00 Z
 summary: I developed a cross-platform location sharing app and learned valuable lessons along the way. This post explores the practical strategies used to boost the app's efficiency.
 image: "amcgill/assets/data-usage-comparison.png"
 author: amcgill
