@@ -41,7 +41,9 @@ In this blog post we'll take a brief look at some of the lessons learned while c
 - Match location with pre-configured GPS landmarks server-side
 - Render avatars on a map and update user locations in real-time
 
-TODO: **add a gif of the location tracking here**
+Here's what that looks like in action (sped up for demonstration purposes):
+
+![User-locations-on-a-map]({{ site.github.url }}/amcgill/assets/map-markers.gif "User locations on a map")
 
 The app is written in Angular and leverages native mobile features using [Ionic](https://ionicframework.com/) and [Capacitor](https://capacitorjs.com/). You can find [details of the architecture and deployment at the end of the article](#bonus-content-a-closer-look-at-how-the-app-works) but for now let's jump right into the findings from initial user testing and find out where I went wrong.
 
