@@ -72,7 +72,7 @@ I made a silly mistake in my original backend WebSocket implementation. Can you 
 
 As it turns out, this is a really bad place subscribe to anything. Every time a new user is connected, it'll subscribe to event observables again (even if we're already subscribed). This meant every new update was broadcasted repeatedly, matching the number of users.
 
-Here's where it should've looked like all along:
+Here's what it should've looked like all along:
 
 <script src="https://gist.github.com/mcgill-a/93aa75c0538b6feef73f85349adca409.js"></script>
 
