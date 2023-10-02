@@ -1,5 +1,5 @@
 ---
-title: How being a hybrid helps
+title: 'The hybrids are coming: A survival guide'
 date: 2023-10-02 13:53:00 Z
 summary: Reasons why being a devtest hybrid helps you and your team
 author: kclark
@@ -19,7 +19,7 @@ This blog is a list of reasons why being a devtest hybrid (the term I have coine
 On a project one of the main things we as a team do is...you guessed it communicate. Being able to have honest conversations can help with collaboration. For example a tester with coding knowledge can help cut through the tech talk and get right to the point. It can help developers understand what a testing is talking about when they run through scenarios so everyone understands what is happening.
 
 ###2, Ability to participate in reviews
-Reviews are a key part of the development cycle and for getting tickets across the line. Having developers take part in test reviews and testers review developer code can allow for many different perceptions to come together and can find issues that may have slipped through the cracks.
+Reviews are a key part of the development cycle and for getting tickets across the line. Having developers take part in test reviews and testers review developer code can allow for many different perceptions to come together and can find issues that may have slipped through the cracks. Reviews are also a great way to showcase skills and 
 
 ###3, Understanding technologies
 Having knowledge in both pools can give a person some perspective. If
@@ -29,7 +29,7 @@ Having knowledge in both pools can give a person some perspective. If
 
 
 ###5, Narrow down defects
-
+This point is more aimed towards the testers reading this, Having code knowledge is immensely useful as it 
 
 ###Conclusion
 
