@@ -15,7 +15,7 @@ author: ocronk
 image: "/uploads/Architecting%20a%20regenerative%20future-%20Thoughts%20from%20INTERSECTION23_.png"
 ---
 
-Apparently in Japanese they have a saying for the feeling of loss when someone leaves your house*. "ichinichi ichigen'' (一日一限) beautifully describes the feeling of transience and longing for connection after some visits your home. The phrase poetically acknowledges how fleeting yet meaningful interactions can be.
+Apparently in Japanese they have a saying for the feeling of loss when someone leaves your house*. 一日一善 "ichinichi ichizen" beautifully describes the feeling of transience and longing for connection after some visits your home. The phrase poetically acknowledges how fleeting yet meaningful interactions can be.
 
 I am experiencing something similar following the [Intersection x23](https://www.intersection.group/events/intersection23) conference last week. Why? Because Intersection is different. Rather than focussing on only one discipline; intersection (as it sounds) is about the connection across disciplines to design better enterprises. Also the community has global influences, with speakers and attendees from North America, Europe and Australasia. So it's a diverse melding pot of ideas and experiences from Architecture, Business, Design, UX etc.
 
