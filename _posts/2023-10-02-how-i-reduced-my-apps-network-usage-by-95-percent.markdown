@@ -1,5 +1,6 @@
 ---
 title: How I Reduced My App's Network Usage by 95%
+date: 2023-10-02 00:00:00 Z
 categories:
 - Tech
 tags:
