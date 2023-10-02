@@ -36,6 +36,7 @@ This point is more aimed toward the testers reading this. Having code knowledge 
 ###Conclusion
 In conclusion being a dev-test hybrid can only bring good things to you and your team. New skills, Better communication, Better code. All the things you can want and more for your project. As time goes on hybrid testers especially are more and more common and it might be that the manual tester is a thing of the past a few years down the line.
 
+
 Piqued your interest in the other field have I? 
 
 Well, there are several ways to upskill if that is what you wish. Talking to your friendly neighborhood developer/tester (often seen roaming around near the coffee machine) is a great start, let's you see how they view the world I mean project. Getting involved in communities of practice and learning from others is another way. Also, the internet is a great source of information. 
