@@ -23,8 +23,8 @@ tags:
 summary: I developed a cross-platform location sharing app and learned valuable lessons
   along the way. This post explores the practical strategies used to boost the app's
   efficiency.
-image: amcgill/assets/data-usage-comparison.png
 author: amcgill
+image: "/uploads/How%20I%20Reduced%20My%20App's%20Network%20Usage%20by%2095%25_.png"
 ---
 
 ## TL;DR
