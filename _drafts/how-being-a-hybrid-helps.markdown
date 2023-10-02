@@ -31,4 +31,4 @@ Having knowledge in both pools can give a person some perspective. If
 
 
 
-Piqued you interested in the other field? Well there are several ways to upskill if that is what you wish. Talking to your friendly neighborhood developer/tester is a start, see how they view the world (project). Getting involved in communities of practice and learning from others is great. Also the internet is a great source of information.
+Piqued you interested in the other field? Well there are several ways to upskill if that is what you wish. Talking to your friendly neighborhood developer/tester (often seen roaming around near the coffee machine) is a start, see how they view the world (project). Getting involved in communities of practice and learning from others is great. Also the internet is a great source of information.
