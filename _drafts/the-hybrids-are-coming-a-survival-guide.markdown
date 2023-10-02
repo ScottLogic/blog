@@ -39,4 +39,4 @@ In conclusion being a dev-test hybrid can only bring good things to you and your
 
 Piqued your interest in the other field have I? 
 
-Well, there are several ways to upskill if that is what you wish. Talking to your friendly neighborhood developer/tester (often seen roaming around near the coffee machine) is a great start, let's you see how they view the world I mean project. Getting involved in communities of practice and learning from others is another way. Also, the internet is a great source of information. 
+Well, there are several ways to upskill if that is what you wish. Talking to your friendly neighborhood developer/tester (often seen roaming around near the coffee machine) is a great start, let's you see how they view the world I mean project. Getting involved in communities of practice and learning from others is another way. Also, the internet is a great source of information, you could always start with the scott logic blog for example 😉. 
