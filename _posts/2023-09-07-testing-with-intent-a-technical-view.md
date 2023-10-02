@@ -54,7 +54,7 @@ While explaining how this works, I’ll focus on automated integration tests, al
 
 So how do we go about using Testing Library to write tests?
 
-## The Golden Rule: Wherever possible, use `queryByRole`
+## The Golden Rule: Wherever possible, use queryByRole
 In our automated tests, we need a way to identify the elements on the page that are relevant to the test case in hand. For example, if we want to click a submit button, we need a way of identifying that button in our test before clicking it. Testing Library solves this problem with a collection of helper functions called queries. Queries help us in our search for the relevant elements.
 
 When you have a range of queries available, the question that follows is, “Which query should I use?” Testing Library has some [great guidance](https://testing-library.com/docs/queries/about#priority) about how to select the right query for the job. It sets out the queries in a prioritised order. However, I’ve gone a step further and boiled that list down into a single golden rule: “Wherever possible, use `queryByRole”`. If there's one take away from this post, this is it. Following this rule is powerful. By following it, you create some really positive consequences.
@@ -267,7 +267,7 @@ How do these come up? By following the golden rule. When you ask yourself what t
 
 To highlight this, consider the below scenario:
 - I’ve been tasked with implementing a navbar. That’s straightforward, so, in my ignorance, I throw together something along the lines of:
-~~~html
+~~~ html
 <div class="navbar">
     <a href="/">Home</a>
     <a href="/dashboards">Dashboards</a>
@@ -280,7 +280,7 @@ To highlight this, consider the below scenario:
 - I find the [`navigation` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role). This looks—and is—perfect, so I read the description.
 - This, in turn, leads to me reading a bit about [landmark roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles). 
 - Using what I learnt, I go back and update my code so that the correct role will be applied:
-~~~html
+~~~ html
 <nav class="navbar" aria-label="App">
     <a href="/">Home</a>
     <a href="/dashboards">Dashboards</a>
