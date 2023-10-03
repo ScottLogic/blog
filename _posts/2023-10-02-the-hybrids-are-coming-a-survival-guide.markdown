@@ -9,6 +9,7 @@ tags:
 summary: The dev-test hybrids are coming. This is a guide on what a hybrid is and
   how they can help you and your team.
 author: kclark
+image: "/uploads/the%20hybrids%20are%20coming.png"
 ---
 
 Recently, I got to thinking about the different roles of developer and tester and how on projects there is sometimes a line dividing the two. Being a developer turned tester myself, I then thought about how my skills transferred across and vice versa.
