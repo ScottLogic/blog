@@ -86,7 +86,7 @@ To make Testing with Intent work, we need a way to describe the intentions of a 
 
 This is not necessarily straightforward. We often convey the purpose in ways that are hard to capture in test code. For example, certain images have near universal meanings. Almost everyone knows the purpose of a button with this icon:
 
-<img src="({{ site.github.url }}/sgladstone/assets/twi-save-btn.svg" width="60" alt="A floppy disk–or save–button">
+<img src="{{ site.github.url }}/sgladstone/assets/twi-save-btn.svg" width="60" alt="A floppy disk–or save–button">
 
 But it’s not easy to describe an image in code. So often, we look to some technical implementation detail to make our test work. By this, I mean that we would target something technical like an id attribute: `id="progress-save-btn"`. While this works, it doesn’t mean anything to a user. How often are you browsing a web page thinking about what id all the elements have? When a user intends to save their progress, they click the floppy disk button. So, if we are going to Test with Intent, our tests should behave in the way a user behaves. Our tests should also click the floppy disk button.
 
