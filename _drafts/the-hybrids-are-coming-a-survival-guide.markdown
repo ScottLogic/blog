@@ -1,6 +1,11 @@
 ---
 title: 'The hybrids are coming: A survival guide'
 date: 2023-10-02 13:53:00 Z
+categories:
+- Testing
+tags:
+- testing
+- development
 summary: The dev-tests hybrids are coming. This is a guide on the who's and how's
   of what a hybrid is and how they can help you and you team.
 author: kclark
@@ -25,17 +30,17 @@ Reviews are a key part of the development cycle and for getting tickets across t
 Reviews are also a great way and place to showcase skills and a great way to contribute to the team.
 
 ###3, Understanding technologies
-Having knowledge of both pools can give a person some perspective. This can link up to the first point as it allows a common language between disciplines. For testers understand the technology can look like not writing tests which are based on wrong assumptions. Having knowledge on technologies can also help on a project to project basis as well as for a tester it can look like a similar issue. For developers understanding the tech can be knowing how tests run and knowing how to update them when they make small changes.
+Having knowledge of both pools can give a person some perspective. This can link up to the first point as it allows a common language between disciplines. For testers understand the technology can look like not writing tests which are based on wrong assumptions. Having knowledge of a range of technologies can also help on a project to project basis because, for a tester, the issues observed in one project may be similar to those seen using the same tech stack, on another. For developers understanding the tech can be knowing how tests run and knowing how to update them when they make small changes.
 
 ###4, Understanding logic
 Knowing what something does is different to knowing why it is doing it. So this point is going to look at how by understanding logic testers and developers can come to an agreement that suits them and helps the project. By understanding logic we can see how a person thinks and when we see how a person thinks we can understand what they are doing. In the case of code this can be if a developer writes a section of code that at first looks intimating but when you look at it through the developers eyes you can see there may be reason to their madness which actually makes sense when solving a problem in a thinking outside the box sort of way.  
 
 ###5, Narrow down defects
-This point is more aimed toward the testers reading this. Having code knowledge is immensely useful as it can help you generate useful details. Viewing the code in a different light can let you see defects in relation to the code. This means you can have better conversations with your developers and hone in on where defects might be coming from with ease. For the developers this will make their lives easier as they 
+This point is more aimed toward the testers reading this. Having coding knowledge is immensely useful as it can help you generate useful details. Viewing the code in a different light can let you see defects in relation to the code. This means you can have better conversations with your developers and hone in on where defects might be coming from with ease. For the developers this will make their lives easier as they 
 
 ###Conclusion
 In conclusion being a dev-test hybrid can only bring good things to you and your team. New skills, Better communication, Better code. All the things you can want and more for your project. As time goes on hybrid testers especially are more and more common and it might be that the manual tester is a thing of the past a few years down the line.
 
-Piqued your interest in the other field have I? 
+Piqued your interest in the other field, have I? 
 
-Well, there are several ways to upskill if that is what you wish. Talking to your friendly neighborhood developer/tester (often seen roaming around near the coffee machine) is a great start, let's you see how they view the world I mean project. Getting involved in communities of practice and learning from others is another way. Also, the internet is a great source of information, you could always start with the Scott Logic Blog for example 😉. 
+Well, there are several ways to upskill if that is what you wish. Talking to your friendly neighborhood developer/tester (often seen roaming around near the coffee machine) is a great start, let's you see how they view the world I mean project. Getting involved in communities of practice and learning from others is another way. Also, the internet is a great source of information, you could always start with the Scott logic blog for example 😉. 
