@@ -267,6 +267,7 @@ How do these come up? By following the golden rule. When you ask yourself what t
 
 To highlight this, consider the below scenario:
 - I’ve been tasked with implementing a navbar. That’s straightforward, so, in my ignorance, I throw together something along the lines of:
+
 ~~~ html
 <div class="navbar">
     <a href="/">Home</a>
@@ -275,11 +276,13 @@ To highlight this, consider the below scenario:
     <a href="/search">Search</a>
 </div>
 ~~~
+
 - I then go to write some tests for this code. I follow the golden rule and opt to use `getByRole` to identify the navbar. But, what role does a `div` have? 
 - I [look that up](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) and discover that “Non-semantic elements in HTML do not have a role”. Okay, this isn’t the time to abandon the rule. I need to search the page to find the appropriate role for this situation. 
 - I find the [`navigation` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role). This looks—and is—perfect, so I read the description.
 - This, in turn, leads to me reading a bit about [landmark roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles). 
 - Using what I learnt, I go back and update my code so that the correct role will be applied:
+
 ~~~ html
 <nav class="navbar" aria-label="App">
     <a href="/">Home</a>
@@ -288,6 +291,7 @@ To highlight this, consider the below scenario:
     <a href="/search">Search</a>
 </nav>
 ~~~
+
 - I can then get on with writing my test using the golden rule.
 
 In the course of my work, I spent roughly 10 minutes improving my knowledge. But that small amount of time was really valuable. The topics covered here are actually key accessibility techniques. I’ve learnt useful skills and doing this also has directly improved the quality of my code. It has also made the application more accessible. And, this wasn’t something challenging for me; it was an easy learning opportunity.
