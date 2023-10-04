@@ -527,8 +527,8 @@
   - /2016/06/01/An-update-on-Electron-Security.html
   - /2016/07/05/audio-api-electron.html
 /2016/03/09/lonely-tester.html:
+  - /2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html
   - /2019/02/06/tester-s-guide-during-agile-transition.html
-  - /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
 /2016/03/10/d3-path-what-is-it-good-for.html:
   - /2016/03/18/d3fc-love-canvas.html
   - /2017/01/10/efficient-svg-layout-with-d3.html
@@ -591,7 +591,7 @@
   - /2016/07/05/audio-api-electron.html
 /2016/06/05/why-its-difficult-to-hire-us.html:
   - /2016/07/04/a-snapshot-of-testers-in-2016.html
-  - /2016/08/03/exploring-data-with-shiny-and-r.html
+  - /2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html
 /2016/06/10/six-tips-for-cleaner-promises.html:
   - /2017/09/14/asynchronous-recursion.html
   - /2019/03/04/lambda-global-state.html
@@ -936,7 +936,7 @@
   - /2019/04/23/perspective-plugin-api-how-to-build-a-new-plugin.html
 /2018/01/13/soft-skills-for-software-developers.html:
   - /2017/05/05/making-agile-teams-more-productive-from-the-inside.html
-  - /2022/01/21/reminiscence-of-a-scrum-master-part-iv.html
+  - /2023/10/02/the-hybrids-are-coming-a-survival-guide.html
 /2018/01/15/currencies-then-and-now-d3-map.html:
   - /2017/06/25/uk-place-names.html
   - /2019/04/23/perspective-plugin-api-how-to-build-a-new-plugin.html
@@ -972,7 +972,7 @@
   - /2019/03/04/retroactively-applying-prettier-to-existing-branches.html
 /2018/02/14/interaction18.html:
   - /2016/03/08/interaction16.html
-  - /2016/06/17/ux-scotland-2016.html
+  - /2023/09/27/architecting-a-regenerative-future-thoughts-from-intersection23.html
 /2018/02/15/scikit-machine-learning.html:
   - /2018/03/13/tensorflow-machine-learning.html
   - /2018/10/25/a-developers-intro-tensorflow-and-keras.html
@@ -1082,8 +1082,8 @@
   - /2018/02/19/-19-02-2018-why-women-make-great-testers.html
   - /2018/04/16/a-hire-standard.html
 /2018/04/23/from-the-realms-of-the-katabasis.html:
+  - /2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html
   - /2018/05/14/the-a-word-the-bad-a-word.html
-  - /2019/02/06/tester-s-guide-during-agile-transition.html
 /2018/04/24/the-web-assembles.html:
   - /2018/02/27/webassembly-death-of-javascript.html
   - /2016/10/10/unstoppable-html5.html
@@ -1098,7 +1098,7 @@
   - /2016/02/29/Cross-site-scripting.html
 /2018/05/14/the-a-word-the-bad-a-word.html:
   - /2018/08/20/the-pitfalls-of-sit.html
-  - /2022/10/10/when-should-we-automate.html
+  - /2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html
 /2018/05/14/the-scaled-agile-framework.html:
   - /2014/09/10/does-scrum-make-project-managers-redundant.html
   - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
@@ -1142,8 +1142,8 @@
   - /2018/01/29/2018-01-29-apache-storm-taster.html
   - /2023/02/27/testing-spring-boot-with-testcontainers.html
 /2018/07/09/Testers-In-a-Pressure-Cooker.html:
+  - /2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html
   - /2016/03/09/lonely-tester.html
-  - /2017/05/05/making-agile-teams-more-productive-from-the-inside.html
 /2018/07/17/achieving-cross-browser-testing-greatness.html:
   - /2020/01/13/selenium-vs-puppeteer.html
   - /2022/10/10/when-should-we-automate.html
@@ -1154,8 +1154,8 @@
   - /2019/12/24/webassembly-2019.html
   - /2021/06/21/state-of-wasm.html
 /2018/08/01/being-a-technically-adept-scrum-master.html:
+  - /2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html
   - /2014/09/18/the-agile-mindset.html
-  - /2022/01/21/reminiscence-of-a-scrum-master-part-iv.html
 /2018/08/14/run-vstest-with-cake.html:
   - /2015/05/14/aspnet50-intro.html
   - /2020/02/24/github-cd.html
@@ -1227,7 +1227,7 @@
   - /2019/12/19/source-control-when.html
 /2018/11/09/handling-technical-proficiency-differences-in-teams.html:
   - /2018/05/14/the-scaled-agile-framework.html
-  - /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
+  - /2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html
 /2018/11/19/ux-poland-2018.html:
   - /2018/06/27/How-UX-Designers-Can-Help-Users-Protect-Their-Data.html
   - /2020/09/10/open-your-eyes-to-apis.html
@@ -1278,7 +1278,7 @@
   - /2010/10/11/white-paper-silverlight-wpf-and-windows-phone-7-cross-platform-development.html
 /2019/02/06/tester-s-guide-during-agile-transition.html:
   - /2019/03/22/a-tester-s-story-of-adapting-to-the-new-world-of-pipelines-ci-cd.html
-  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
+  - /2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html
 /2019/02/14/4-things-I-learned-to-love-about-Swift.html:
   - /2019/12/04/switching-swift.html
   - /2021/06/24/types-vs-interfaces.html
@@ -1287,7 +1287,7 @@
   - /2018/06/06/we-need-to-talk.html
 /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html:
   - /2018/04/16/a-hire-standard.html
-  - /2020/03/06/international-women-s-day-2020.html
+  - /2023/10/02/the-hybrids-are-coming-a-survival-guide.html
 /2019/03/04/lambda-global-state.html:
   - /2017/09/14/asynchronous-recursion.html
   - /2017/05/08/aws-lambda-github-bot.html
@@ -1302,7 +1302,7 @@
   - /2022/01/04/a-more-inclusive-future-together.html
 /2019/03/20/-not-only-tools-and-sources-you-need-more-than-know-how-and-technology-to-succeed-you-know-it-makes-sense.html:
   - /2022/01/21/reminiscence-of-a-scrum-master-part-iv.html
-  - /2017/12/18/difficult-people.html
+  - /2020/01/08/What-Improv-can-teach-us-about-good-code-design.html
 /2019/03/21/securing-access-to-firebase-test-lab.html:
   - /2020/01/27/labelling-images-in-google-cloud.html
   - /2018/10/23/exploring-kubernetes-on-the-google-cloud-platform.html
@@ -1407,7 +1407,7 @@
   - /2021/10/15/efficiently-loading-massive-d3-datasets-using-apache-arrow.html
 /2019/05/30/hola-vs-hello-world.html:
   - /2019/04/05/jumping-from-java-to-javascript.html
-  - /2023/07/21/seven-things-i-wish-i-knew-when-i-started-as-a-software-developer.html
+  - /2023/10/02/the-hybrids-are-coming-a-survival-guide.html
 /2019/05/31/react-vs-vue.html:
   - /2020/09/22/vue-components.html
   - /2021/02/01/Flutter-just-another-ui-framework.html
@@ -1773,7 +1773,7 @@
   - /2019/05/08/Clean-Design.html
 /2020/06/04/k-19-or-how-to-not-run-a-team.html:
   - /2022/01/21/reminiscence-of-a-scrum-master-part-iv.html
-  - /2018/05/14/the-a-word-the-bad-a-word.html
+  - /2020/01/08/What-Improv-can-teach-us-about-good-code-design.html
 /2020/06/05/the-future.html:
   - /2020/05/15/beyond-covid.html
   - /2021/06/08/digital-government-looking-back-and-looking-forward.html
@@ -1787,11 +1787,11 @@
   - /2020/05/29/specstravaganza.html
   - /2017/02/24/Sharing-Styling-Specs-With-Developers.html
 /2020/07/01/Tips-for-interviewing-developers.html:
-  - /2018/01/13/soft-skills-for-software-developers.html
-  - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
+  - /2023/10/02/the-hybrids-are-coming-a-survival-guide.html
+  - /2020/01/08/What-Improv-can-teach-us-about-good-code-design.html
 /2020/07/02/6-most-common-accessibility-problems.html:
-  - /2023/07/13/accessibility-considerations.html
-  - /2018/10/19/living-in-an-accessible-world.html
+  - /2023/09/27/accessibility-tooling-wave-vs-axe.html
+  - /2020/05/29/specstravaganza.html
 /2020/07/02/big-data-and-the-testing-challenge.html:
   - /2020/02/10/continuous-testing.html
   - /2022/10/10/when-should-we-automate.html
@@ -2225,8 +2225,8 @@
   - /2018/06/27/How-UX-Designers-Can-Help-Users-Protect-Their-Data.html
   - /2016/04/04/jenny-from-the-blockchain.html
 /2022/06/15/beyond-the-hype-bdd.html:
-  - /2022/05/03/beyond-the-hype-multicloud.html
   - /2018/12/14/automation-and-bots-for-open-source.html
+  - /2020/04/01/testing-in-the-devops-world.html
 /2022/06/16/pride-2022.html:
   - /2021/06/03/pride-2021.html
   - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
@@ -2259,7 +2259,7 @@
   - /2018/05/30/avoiding-seeking-solving-source-control-conflicts.html
 /2022/08/26/contributing-to-open-source-taking-the-dive.html:
   - /2022/08/16/observations-on-finding-good-first-issues.html
-  - /2018/11/09/7-reasons-i-love-open-source.html
+  - /2019/12/19/source-control-when.html
 /2022/09/01/ui-vs-ux-design.html:
   - /2018/10/19/living-in-an-accessible-world.html
   - /2020/05/29/specstravaganza.html
@@ -2399,7 +2399,7 @@
   - /2023/07/13/accessibility-considerations.html
   - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
 /2023/07/07/reset-connect-conference-2023.html:
-  - /2023/09/12/sustainability-terminology.html
+  - /2023/09/28/embodied-carbon-from-software-development.html
   - /2019/05/01/bcswomen-lovelace-colloquium-2019.html
 /2023/07/12/Pixel-Pioneers-Conference-2023.html:
   - /2016/11/04/design-data-and-redux-at-bristech.html
@@ -2442,12 +2442,12 @@
   - /2018/12/14/automation-and-bots-for-open-source.html
 /2023/09/11/the-power-of-a-well-written-user-story.html:
   - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
-  - /2018/08/20/the-pitfalls-of-sit.html
+  - /2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html
 /2023/09/12/enhancing-jest-snapshot-testing.html:
   - /2017/09/01/thoughts-on-jest-snapshots.html
   - /2023/09/19/metrics-collector-in-jest.html
 /2023/09/12/sustainability-terminology.html:
-  - /2022/04/07/cloud-sustainability-reach-net-zero.html
+  - /2023/09/28/embodied-carbon-from-software-development.html
   - /2020/08/24/energy-transition-q3.html
 /2023/09/19/dynamically-skipping-tests-within-jest.html:
   - /2020/01/22/react-app-puppeteer.html
@@ -2461,10 +2461,30 @@
 /2023/09/20/lf-europe-summit-journal-day-one.html:
   - /2017/11/17/codemesh.html
   - /2019/05/10/aws-summit-london-2019.html
+/2023/09/20/lf-europe-summit-journal-day-two.html:
+  - /2017/05/25/devtoolsatscale-event.html
+  - /2019/05/10/aws-summit-london-2019.html
+/2023/09/22/lf-europe-summit-journal-day-three.html:
+  - /2018/02/14/interaction18.html
+  - /2018/12/14/automation-and-bots-for-open-source.html
+/2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html:
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
+  - /2023/09/11/the-power-of-a-well-written-user-story.html
+/2023/09/27/accessibility-tooling-wave-vs-axe.html:
+  - /2018/10/19/living-in-an-accessible-world.html
+  - /2020/07/02/6-most-common-accessibility-problems.html
+/2023/09/27/architecting-a-regenerative-future-thoughts-from-intersection23.html:
+  - /2018/02/14/interaction18.html
+  - /2023/07/07/reset-connect-conference-2023.html
+/2023/09/28/embodied-carbon-from-software-development.html:
+  - /2023/09/12/sustainability-terminology.html
+  - /2019/04/05/reflections-from-build-it-right.html
+/2023/10/02/how-i-reduced-my-apps-network-usage-by-95-percent.html:
+  - /2014/12/12/html5-android-optimisation.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2023/10/02/the-hybrids-are-coming-a-survival-guide.html:
+  - /2018/01/13/soft-skills-for-software-developers.html
+  - /2023/09/26/navigating-the practical-challenges-faced-by-test-engineers.html
 /26/08/2014/StrongTypingWithAngularJS.html:
   - /02/06/2015/StrongTypingWithKnockoutJSAndRequireJS.html
   - /2014/08/08/signalr-typed.html
-/2023/09/19/navigating-the-practical-challenges-faced-by-test-engineers.html:
-  - /2020/07/21/7-tips-for-transforming-testing.html
-  - /2023/09/11/the-power-of-a-well-written-user-story.html
-
