@@ -6,7 +6,7 @@ categories:
 tags:
 - Sustainability
 summary: Carbon emissions come in all shapes and sizes, in this blog post I talk about
-  the more illusive sources of embodied carbon from software development.
+  the more elusive sources of embodied carbon from software development.
 author: jhowlett
 image: "/uploads/being%20honest%20about%20embodied%20carbon%20from%20sd.png"
 ---
