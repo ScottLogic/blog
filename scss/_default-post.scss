@@ -120,8 +120,12 @@
     img {
       border-radius: 50%;
       max-height: 3rem;
+      max-width: 3rem;
       margin-right: .25rem;
       filter: grayscale(100%);
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
     }
   }
 
