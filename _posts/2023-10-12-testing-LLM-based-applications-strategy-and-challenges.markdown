@@ -36,7 +36,8 @@ The quality of LLM-based applications heavily relies on the quality of the model
 
 The following testing metrics provide comprehensive measurements of the quality of LLM-based applications.
 
-![Test_Scottbot_0.PNG](/uploads/Test_Scottbot_0.PNG)
+![Test_Scottbot_0.png]({{ site.github.url }}/uploads/Test_Scottbot_0.png)
+
 
 ## **Testing Strategy on LLM-Based Applications**
 
@@ -59,7 +60,8 @@ It ensures that the information provided by LLM applications aligns with real-wo
 
 Test structure:
 
-![Test_Scottbot_1.PNG](/uploads/Test_Scottbot_1.PNG)
+![Test_Scottbot_1.PNG]({{ site.github.url }}/uploads/Test_Scottbot_1.PNG)
+
 
 Test cases: 
 
@@ -72,7 +74,7 @@ We mainly implement manual testing on this section to assess the content generat
 
 Test structure:
 
-![Test_Scottbot_2_1.PNG](/uploads/Test_Scottbot_2_1.PNG)
+![Test_Scottbot_2_1.png]({{ site.github.url }}/uploads/Test_Scottbot_2_1.png)
 
 Test cases: 
 
@@ -83,7 +85,7 @@ We need to ensure that the output from LLM applications is presented in the corr
 
 Test structure:
 
-![Test_Scottbot_2_2.PNG](/uploads/Test_Scottbot_2_2.PNG)
+![Test_Scottbot_2_2.png]({{ site.github.url }}/uploads/Test_Scottbot_2_2.png)
 
 Test cases: 
 
@@ -94,7 +96,7 @@ Completeness in LLM-applications ensures that the provided responses include all
 
 Test structure:
 
-![Test_Scottbot_3_1.PNG](/uploads/Test_Scottbot_3_1.PNG)
+![Test_Scottbot_3_1.png]({{ site.github.url }}/uploads/Test_Scottbot_3_1.png)
 
 Test cases: 
 
@@ -105,7 +107,7 @@ Readability in LLM-applications ensures that the provided responses are logicall
 
 Test structure:
 
-![Test_Scottbot_3_2.PNG](/uploads/Test_Scottbot_3_2.PNG)
+![Test_Scottbot_3_2.png]({{ site.github.url }}/uploads/Test_Scottbot_3_2.png)
 
 Test cases: 
 
@@ -124,7 +126,7 @@ Usability of LLM-based applications can be assessed across multiple dimensions:
   
 Test structure:
 
-![Test_Scottbot_3_3.PNG](/uploads/Test_Scottbot_3_3.PNG)
+![Test_Scottbot_3_3.png]({{ site.github.url }}/uploads/Test_Scottbot_3_3.png)
 
 Test cases: 
 
@@ -143,7 +145,7 @@ While we haven't conducted performance testing yet, it remains a valuable and cr
 
 Test structure:
 
-![Test_Scottbot_4.PNG](/uploads/Test_Scottbot_4.PNG)
+![Test_Scottbot_4.png]({{ site.github.url }}/uploads/Test_Scottbot_4.png)
 
 Test cases:
 
@@ -154,7 +156,7 @@ Robustness of LLM-based applications ensures not only their resistance against L
 
 Test structure:
 
-![Test_Scottbot_5.PNG](/uploads/Test_Scottbot_5.PNG)
+![Test_Scottbot_5.png]({{ site.github.url }}/uploads/Test_Scottbot_5.png)
 
 Test cases:
 
@@ -163,7 +165,7 @@ Test cases:
 ## **Test Results**
 Following test execution, the LangChain evaluator offers details of its evaluation criteria, aiding in the debugging process. Here is an example of its assessment.
 
-![Test_Scottbot_6.PNG](/uploads/Test_Scottbot_6.PNG)
+![Test_Scottbot_6.png]({{ site.github.url }}/uploads/Test_Scottbot_6.png)
 
 ## **Conclusion**
 
