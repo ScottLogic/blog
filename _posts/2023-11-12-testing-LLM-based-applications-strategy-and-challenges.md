@@ -165,7 +165,7 @@ Following test execution, the LangChain evaluator offers details of its evaluati
 
 ![Test_Scottbot_6.PNG](/uploads/Test_Scottbot_6.PNG)
 
-## **Conclution**
+## **Conclusion**
 
 Thoroughly testing LLM-based applications can result in a lengthy checklist. The emergence of Generative AI technology opens up a new space for testers to explore. In recent years, specialised toolkits like Azure Prompt Flow and LangSmith have surfaced. We agree that using a language model to test another language model-based app is an essential and valuable solution. However, the reliability of these evaluating language models poses a question. Unlike traditional testing, ensuring a testing pass rate and test result consistency seems challenging in practice. Due to the unpredictable and subjective nature of responses, transforming evaluation outcomes into success scores, ranging from 0 to 1, might be more suitable than the conventional "passed" or "failed" labels.
 
