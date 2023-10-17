@@ -28,6 +28,7 @@ active-authors:
   - dkerr
   - dmcnamee
   - dnicholas
+  - dscarborough
   - dogle
   - drees
   - dsmith
@@ -327,6 +328,10 @@ authors:
     twitter-url: "https://twitter.com/darrenpsmithweb"
     twitter-handle: darrenpsmithweb
     picture: picture.jpg
+  dscarborough:
+    name: "Dan Scarborough"
+    author-summary: "<p>I am a Developer at Scott Logic.</p>"
+    picture: picture.png
   dtheasby:
     name: "Drew Theasby"
     author-summary: "<p>Test Engineer at Scott Logic</p>"
