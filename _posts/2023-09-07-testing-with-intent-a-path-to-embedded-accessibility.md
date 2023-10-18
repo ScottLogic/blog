@@ -25,7 +25,7 @@ Adopting this approach brings a lot of advantages. Our tests will be more resili
 
 So, by taking the step of adopting Testing with Intent, we can move towards accessibility being a core part of delivery. We start down a path of practising Embedded Accessibility.
 
-For those of you who aren’t technical, don’t worry! I’ve saved the ![technical side of Testing with Intent]({{ site.github.url }}/2023/09/07/testing-with-intent-a-technical-view.html) for another post. However, before diving into what exactly this approach is, let’s start by looking at a couple of the barriers that teams often face in implementing accessibility.
+For those of you who aren’t technical, don’t worry! I’ve saved the [technical side of Testing with Intent]({{ site.github.url }}/2023/09/07/testing-with-intent-a-technical-view.html) for another post. However, before diving into what exactly this approach is, let’s start by looking at a couple of the barriers that teams often face in implementing accessibility.
 
 ## Barrier 1: Accessibility as a Feature
 Consider this scenario:
@@ -80,7 +80,7 @@ We’re also not only looking to test the positive outcome. In Testing with Inte
 
 Testing with Intent is a subtle yet powerful paradigm shift. A shift away from writing tests that are based on the way we structure code. A shift towards testing based on the way the app is actually used. A shift away from testing the technical implementation details of the software. A shift towards capturing a user’s intention within the test itself.
 
-There are lots of avenues to explore around the awesome impact of Testing with Intent on testing. In this post, I will stay focussed on addressing the two accessibility barriers described above. To do this, I’ll look at Testing with Intent in web frontend automation testing (this, incidentally, is where Testing Library excels, but that’s ![something I'll address in another post]({{ site.github.url }}/2023/09/07/testing-with-intent-a-technical-view.html)). Testing Library is an awesome tool, which can enable us to embed accessibility in our delivery process. But it doesn’t require you to write accessible code, so now it's time to look at how we build that in.
+There are lots of avenues to explore around the awesome impact of Testing with Intent on testing. In this post, I will stay focussed on addressing the two accessibility barriers described above. To do this, I’ll look at Testing with Intent in web frontend automation testing (this, incidentally, is where Testing Library excels, but that’s [something I'll address in another post]({{ site.github.url }}/2023/09/07/testing-with-intent-a-technical-view.html)). Testing Library is an awesome tool, which can enable us to embed accessibility in our delivery process. But it doesn’t require you to write accessible code, so now it's time to look at how we build that in.
 
 ## Describing Intent using Techniques for Accessibility
 To make Testing with Intent work, we need a way to describe the intentions of a user. 
@@ -138,6 +138,6 @@ There is also, of course, a lot more to Embedded Accessibility. The techniques d
 
 Some teams may have already made good progress on that journey. This can be particularly true for government projects, where the legal requirements are more stringent. For these teams, adopting Testing with Intent can complement existing practices and processes. For many teams, adopting these approaches would be an important first step in tackling the issue. In any case, Testing with Intent is a useful tool for tackling accessibility, as well as a helpful step towards Embedded Accessibility.
 
-If you’re interested in how this works in practice, you may want to look at my follow-up post about the ![Technical Side of Testing with Intent]({{ site.github.url }}/2023/09/07/testing-with-intent-a-technical-view.html).
+If you’re interested in how this works in practice, you may want to look at my follow-up post about the [Technical Side of Testing with Intent]({{ site.github.url }}/2023/09/07/testing-with-intent-a-technical-view.html).
 
 Finally, I’d like to give a massive shout out to Jim Light. We developed these principles and practices while working on a project together. Time got the better of us, and we weren’t able to collaborate on writing these posts together. But he certainly had a big influence on the formation of these ideas. Also, a massive thank you to everyone who gave their time to help me shape these posts!

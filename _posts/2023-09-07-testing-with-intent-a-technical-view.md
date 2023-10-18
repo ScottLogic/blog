@@ -14,7 +14,7 @@ tags:
 summary: "In my previous post, I introduced and approach to testing called Testing with Intent. Essentially, the approach focuses on testing from the perspective of a user intending to do something. Adopting this approach brings you benefits in both your test suites and your products accessibility. That post discussed why the topic is important and how you can benefit if you adopt it. Now, it’s time to look at the technical side of how this actually works in practice. "
 author: sgladstone
 ---
-In ![my first post]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), I set out why I think we should be *Testing with Intent*. I set out that, if we focus our tests on the intentions of users, we can improve our test suites and start to tackle accessibility. To keep the content accessible to everyone, I chose to not include anything technical. Now, in this post, I’m going to look at the same subject but through a technical lens.
+In [my first post]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), I set out why I think we should be *Testing with Intent*. I set out that, if we focus our tests on the intentions of users, we can improve our test suites and start to tackle accessibility. To keep the content accessible to everyone, I chose to not include anything technical. Now, in this post, I’m going to look at the same subject but through a technical lens.
 
 The essence of this whole approach to testing can be boiled down to one simple golden rule: “Wherever possible, use `queryByRole`". We’ll take a look at what we mean by this rule, and start to unpack its consequences.
 
@@ -108,6 +108,7 @@ To explain this, I need you to put yourself in the shoes of the user in our acce
 How would you do this? This question isn’t as silly as it sounds. We, as citizens of the internet, have shared [Mental Models](https://blog.scottlogic.com/2023/08/11/mental-models-and-the-user-experience.html) about the way web pages work. Certain things have a “proper” place. In this example, we generally expect a website’s navigation to be in a bar at the top of the page. 
 
 So, if we think of a someone who intends to click the “Dashboards” link, almost every user will:
+
 1. Look to the top of the page, where they expect the navigation bar to be
 1. Within the navigation bar, scan the available links to find the relevant one
 1. Click it
@@ -153,6 +154,7 @@ it('should display the My Dashboards page', async () => {
 });
 ~~~
 If we work through the test, we can see that our test suite is going to throw an error, and so cause a failure, when:
+
 * We don’t have an `appNavContainer`. Our navigation bar has gone missing!
 * We don’t have a `dashboardsLink` in our `appNavContainer`. The user has lost the option to navigate to the dashboards page
 * Clicking the `dashboardsLink` does not cause the `dashboardPageHeading` to appear on screen. Something has gone wrong with navigating to the correct page.
@@ -182,6 +184,7 @@ document.querySelector('#dashboards-link');
 But you should ask yourself, does my user interact with my element’s ID? The answer is the same as for the question, am I avoiding testing implementation details? A user simply does not care about an element’s ID; IDs have no consequence for user experience. So, in this case, the answer is no; you’ve not avoided testing implementation details.
 
 So how do we avoid testing implementation details? You can consider yourself safe if your test cases: 
+
 * Only touch things that a user would interact with, and
 * Only touch those things in a way that a user would.
 
@@ -258,7 +261,7 @@ So how does this help with accessibility? In my first post in the series, I desc
 But that’s exactly what we are doing here. By ensuring that we are choosing the right roles for our tests, we are addressing issues of accessibility from the start. If you follow the golden rule, your app will be more accessible by default. It’s no silver bullet that will solve all accessibility issues, but it is a big step forward.
 
 ## Small, achievable learning opportunities in Accessibility 
-The second barrier that I described in the ![first post]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html) was a skills gap. Generally, technical teams want to create accessible products, but they don’t have the necessary skills or experience. This makes sense; they don’t have the skills because there’s no opportunity to learn them. We don’t create opportunities to learn if we aren’t building accessible products.
+The second barrier that I described in the [first post]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html) was a skills gap. Generally, technical teams want to create accessible products, but they don’t have the necessary skills or experience. This makes sense; they don’t have the skills because there’s no opportunity to learn them. We don’t create opportunities to learn if we aren’t building accessible products.
 
 Personally, I find that I learn best when I’m solving real problems as part of my day-to-day work. I must admit that I started practising Testing with Intent with a pretty woeful knowledge of accessibility. I could try and feel better by convincing myself that this was typical of the industry. Really though, it was inadequate for my interests and level of experience. 
 
@@ -267,6 +270,7 @@ But through the techniques described in this post, I've steadily built my knowle
 How do these come up? By following the golden rule. When you ask yourself what the correct role is for an element, you are presenting yourself with a learning opportunity. You can go and look it up and learn something along the way.
 
 To highlight this, consider the below scenario:
+
 * I’ve been tasked with implementing a navbar. That’s straightforward, so, in my ignorance, I throw together something along the lines of:
 
 ~~~ html
@@ -327,9 +331,10 @@ For me, it’s quite incredible that there can be so much depth behind a simple 
 
 This rule goes beyond Testing Library. It can easily be applied to E2E tests for example. But, Testing Library is an awesome tool itself. If you haven’t yet, I really recommend trying it out. If you’re keen, you can jump right in with [their getting started guide](https://testing-library.com/docs/).
 
-You might also be interested in the other ![post in this series]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), and the other view it takes on this topic. Rather than how this fits together technically, the post looks at why this approach is good for testing and accessibility. It’s broader in scope, and talks about why it’s important that we address these issues.
+You might also be interested in the other [post in this series]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), and the other view it takes on this topic. Rather than how this fits together technically, the post looks at why this approach is good for testing and accessibility. It’s broader in scope, and talks about why it’s important that we address these issues.
 
 If you’re after more reading, you might want to check out Kent C Dodds—who created Testing Library. He has a fantastic blog. In particular, I found the following posts really insightful:
+
 * [The Testing Trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) - which tests should we use most of
 * [Static vs Unit vs Integration vs E2E Testing for Frontend Apps](https://kentcdodds.com/blog/static-vs-unit-vs-integration-vs-e2e-tests)
 * [Confidently Shipping Code](https://kentcdodds.com/blog/confidently-shipping-code) - why you test
