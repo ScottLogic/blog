@@ -14,9 +14,9 @@ tags:
 summary: "In my previous post, I introduced and approach to testing called Testing with Intent. Essentially, the approach focuses on testing from the perspective of a user intending to do something. Adopting this approach brings you benefits in both your test suites and your products accessibility. That post discussed why the topic is important and how you can benefit if you adopt it. Now, it’s time to look at the technical side of how this actually works in practice. "
 author: sgladstone
 ---
-In my first post, I set out why I think we should be *Testing with Intent*. I set out that, if we focus our tests on the intentions of users, we can improve our test suites and start to tackle accessibility. To keep the content accessible to everyone, I chose to not include anything technical. Now, in this post, I’m going to look at the same subject but through a technical lens.
+In ![my first post]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), I set out why I think we should be *Testing with Intent*. I set out that, if we focus our tests on the intentions of users, we can improve our test suites and start to tackle accessibility. To keep the content accessible to everyone, I chose to not include anything technical. Now, in this post, I’m going to look at the same subject but through a technical lens.
 
-The essence of this whole approach to testing can be boiled down to one simple golden rule: “Wherever possible, use `queryByRole”`. We’ll take a look at what we mean by this rule, and start to unpack its consequences.
+The essence of this whole approach to testing can be boiled down to one simple golden rule: “Wherever possible, use `queryByRole`". We’ll take a look at what we mean by this rule, and start to unpack its consequences.
 
 Those consequences themselves are far reaching. The rule will help direct you to write better tests. The rule will directly improve your web app’s accessibility. The rule will help your team to upskill in accessibility. It’s simple, but it’s powerful.
 
@@ -57,7 +57,7 @@ So how do we go about using Testing Library to write tests?
 ## The Golden Rule: Wherever possible, use queryByRole
 In our automated tests, we need a way to identify the elements on the page that are relevant to the test case in hand. For example, if we want to click a submit button, we need a way of identifying that button in our test before clicking it. Testing Library solves this problem with a collection of helper functions called queries. Queries help us in our search for the relevant elements.
 
-When you have a range of queries available, the question that follows is, “Which query should I use?” Testing Library has some [great guidance](https://testing-library.com/docs/queries/about#priority) about how to select the right query for the job. It sets out the queries in a prioritised order. However, I’ve gone a step further and boiled that list down into a single golden rule: “Wherever possible, use `queryByRole”`. If there's one take away from this post, this is it. Following this rule is powerful. By following it, you create some really positive consequences.
+When you have a range of queries available, the question that follows is, “Which query should I use?” Testing Library has some [great guidance](https://testing-library.com/docs/queries/about#priority) about how to select the right query for the job. It sets out the queries in a prioritised order. However, I’ve gone a step further and boiled that list down into a single golden rule: “Wherever possible, use `queryByRole`". If there's one take away from this post, this is it. Following this rule is powerful. By following it, you create some really positive consequences.
 
 Some might say this rule is a little crude; Testing Library included a priority list for a reason. But, I think there’s a power to following the rule. So, I’m going to unpack how `queryByRole` works, and why it’s powerful. But before that, it’s about time we see an actual test case!
 
@@ -153,9 +153,9 @@ it('should display the My Dashboards page', async () => {
 });
 ~~~
 If we work through the test, we can see that our test suite is going to throw an error, and so cause a failure, when:
-- We don’t have an `appNavContainer`. Our navigation bar has gone missing!
-- We don’t have a `dashboardsLink` in our `appNavContainer`. The user has lost the option to navigate to the dashboards page
-- Clicking the `dashboardsLink` does not cause the `dashboardPageHeading` to appear on screen. Something has gone wrong with navigating to the correct page.
+* We don’t have an `appNavContainer`. Our navigation bar has gone missing!
+* We don’t have a `dashboardsLink` in our `appNavContainer`. The user has lost the option to navigate to the dashboards page
+* Clicking the `dashboardsLink` does not cause the `dashboardPageHeading` to appear on screen. Something has gone wrong with navigating to the correct page.
 
 That’s it! There’s no other failure conditions. These failure reasons are exactly what we are looking for. In each case, something has gone very wrong for our users. I wouldn’t want to ship the code if any of those cases failed. 
 
@@ -182,8 +182,8 @@ document.querySelector('#dashboards-link');
 But you should ask yourself, does my user interact with my element’s ID? The answer is the same as for the question, am I avoiding testing implementation details? A user simply does not care about an element’s ID; IDs have no consequence for user experience. So, in this case, the answer is no; you’ve not avoided testing implementation details.
 
 So how do we avoid testing implementation details? You can consider yourself safe if your test cases: 
-- Only touch things that a user would interact with, and
-- Only touch those things in a way that a user would.
+* Only touch things that a user would interact with, and
+* Only touch those things in a way that a user would.
 
 As a quick aside, part of the beauty of Testing Library is that it gives us the answer to that second point. The whole point of it is that it is a set of tools that help us to code tests that only touch things in a way that a user would.
 
@@ -205,8 +205,9 @@ We’ve already discussed how our tests are failing for the right reasons if som
     </tr>
 </table>
 There’s some consequences to avoiding testing implementation details. Why’s that?
-- If something is an implementation detail, changing it does not impact our users
-- If something doesn’t impact our users, it’s for us! We can do what we want with it. 
+
+* If something is an implementation detail, changing it does not impact our users
+* If something doesn’t impact our users, it’s for us! We can do what we want with it. 
 
 Avoiding getting bogged down in technical implementation detail is fantastic for test resiliency. It is very freeing. Have you ever had the experience of making some technical change that caused havoc in a test suite? A change that didn’t impact user functionality but still broke a load of tests? It’s annoying, but it also shouldn’t happen. The technical details should be there for us, the delivery team, to tweak as necessary.
 
@@ -217,7 +218,7 @@ Okay, coming back to Earth now. At this point, you may be thinking something alo
 ## The golden rule revisited
 To better understand why we aren’t testing implementation details, we need to unpack what we mean by a role. The role from `queryByRole` is an element’s [ARIA role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles). Essentially, these roles help to convey some semantic meaning about the purpose of an element. Example roles include `link`, `button` and `dialog`.
 
-Some HTML elements come with a predefined role. An `<a>`, for example, has the link role. Similarly, you can probably guess the role for a `<button>` element. There are other roles—such as `dialog`—that do not have a corresponding HTML tag that uses the role by default. You have to explicitly specify them.
+Some HTML elements come with a predefined role. An `<a>`, for example, has the `link` role. Similarly, you can probably guess the role for a `<button>` element. There are other roles—such as `dialog`—that do not have a corresponding HTML tag that uses the role by default. You have to explicitly specify them.
 
 ARIA roles are intended to help tackle issues of accessibility. The roles are meant to be consumed by users in order to help them better understand the context of your webpage. Users with good vision often infer the role from the way an element looks. But still, barring bad UX design, they do understand the role, or purpose of the element. However, not everyone is able to pick up on these visual cues.
 
@@ -257,7 +258,7 @@ So how does this help with accessibility? In my first post in the series, I desc
 But that’s exactly what we are doing here. By ensuring that we are choosing the right roles for our tests, we are addressing issues of accessibility from the start. If you follow the golden rule, your app will be more accessible by default. It’s no silver bullet that will solve all accessibility issues, but it is a big step forward.
 
 ## Small, achievable learning opportunities in Accessibility 
-The second barrier that I described in the [first post](https://docs.google.com/document/d/1FLtAQCqIoMPIFMXlPxmqaKWuBJiQ84ROsxI1AaE_2-A/edit#heading=h.okkef9xaua59) was a skills gap. Generally, technical teams want to create accessible products, but they don’t have the necessary skills or experience. This makes sense; they don’t have the skills because there’s no opportunity to learn them. We don’t create opportunities to learn if we aren’t building accessible products.
+The second barrier that I described in the ![first post]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html) was a skills gap. Generally, technical teams want to create accessible products, but they don’t have the necessary skills or experience. This makes sense; they don’t have the skills because there’s no opportunity to learn them. We don’t create opportunities to learn if we aren’t building accessible products.
 
 Personally, I find that I learn best when I’m solving real problems as part of my day-to-day work. I must admit that I started practising Testing with Intent with a pretty woeful knowledge of accessibility. I could try and feel better by convincing myself that this was typical of the industry. Really though, it was inadequate for my interests and level of experience. 
 
@@ -266,7 +267,7 @@ But through the techniques described in this post, I've steadily built my knowle
 How do these come up? By following the golden rule. When you ask yourself what the correct role is for an element, you are presenting yourself with a learning opportunity. You can go and look it up and learn something along the way.
 
 To highlight this, consider the below scenario:
-- I’ve been tasked with implementing a navbar. That’s straightforward, so, in my ignorance, I throw together something along the lines of:
+* I’ve been tasked with implementing a navbar. That’s straightforward, so, in my ignorance, I throw together something along the lines of:
 
 ~~~ html
 <div class="navbar">
@@ -277,11 +278,11 @@ To highlight this, consider the below scenario:
 </div>
 ~~~
 
-- I then go to write some tests for this code. I follow the golden rule and opt to use `getByRole` to identify the navbar. But, what role does a `div` have? 
-- I [look that up](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) and discover that “Non-semantic elements in HTML do not have a role”. Okay, this isn’t the time to abandon the rule. I need to search the page to find the appropriate role for this situation. 
-- I find the [`navigation` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role). This looks—and is—perfect, so I read the description.
-- This, in turn, leads to me reading a bit about [landmark roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles). 
-- Using what I learnt, I go back and update my code so that the correct role will be applied:
+* I then go to write some tests for this code. I follow the golden rule and opt to use `getByRole` to identify the navbar. But, what role does a `div` have? 
+* I [look that up](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles) and discover that “Non-semantic elements in HTML do not have a role”. Okay, this isn’t the time to abandon the rule. I need to search the page to find the appropriate role for this situation. 
+* I find the [`navigation` role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/navigation_role). This looks—and is—perfect, so I read the description.
+* This, in turn, leads to me reading a bit about [landmark roles](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles#3._landmark_roles). 
+* Using what I learnt, I go back and update my code so that the correct role will be applied:
 
 ~~~ html
 <nav class="navbar" aria-label="App">
@@ -292,7 +293,7 @@ To highlight this, consider the below scenario:
 </nav>
 ~~~
 
-- I can then get on with writing my test using the golden rule.
+* I can then get on with writing my test using the golden rule.
 
 In the course of my work, I spent roughly 10 minutes improving my knowledge. But that small amount of time was really valuable. The topics covered here are actually key accessibility techniques. I’ve learnt useful skills and doing this also has directly improved the quality of my code. It has also made the application more accessible. And, this wasn’t something challenging for me; it was an easy learning opportunity.
 
@@ -326,12 +327,12 @@ For me, it’s quite incredible that there can be so much depth behind a simple 
 
 This rule goes beyond Testing Library. It can easily be applied to E2E tests for example. But, Testing Library is an awesome tool itself. If you haven’t yet, I really recommend trying it out. If you’re keen, you can jump right in with [their getting started guide](https://testing-library.com/docs/).
 
-You might also be interested in the other post in this series, and the other view it takes on this topic. Rather than how this fits together technically, the post looks at why this approach is good for testing and accessibility. It’s broader in scope, and talks about why it’s important that we address these issues.
+You might also be interested in the other ![post in this series]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), and the other view it takes on this topic. Rather than how this fits together technically, the post looks at why this approach is good for testing and accessibility. It’s broader in scope, and talks about why it’s important that we address these issues.
 
 If you’re after more reading, you might want to check out Kent C Dodds—who created Testing Library. He has a fantastic blog. In particular, I found the following posts really insightful:
-- [The Testing Trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) - which tests should we use most of
-- [Static vs Unit vs Integration vs E2E Testing for Frontend Apps](https://kentcdodds.com/blog/static-vs-unit-vs-integration-vs-e2e-tests)
-- [Confidently Shipping Code](https://kentcdodds.com/blog/confidently-shipping-code) - why you test
-- [Testing Implementation Details](https://kentcdodds.com/blog/testing-implementation-details) - why this is bad
+* [The Testing Trophy](https://kentcdodds.com/blog/the-testing-trophy-and-testing-classifications) - which tests should we use most of
+* [Static vs Unit vs Integration vs E2E Testing for Frontend Apps](https://kentcdodds.com/blog/static-vs-unit-vs-integration-vs-e2e-tests)
+* [Confidently Shipping Code](https://kentcdodds.com/blog/confidently-shipping-code) - why you test
+* [Testing Implementation Details](https://kentcdodds.com/blog/testing-implementation-details) - why this is bad
 
 Finally, I must also give my massive shout out to Jim Light. We developed these principles and practices while working on a project together. Time got the best of us, and we weren’t able to collaborate on writing these posts together. The original plan was that I would write the other post, and this one would have been his. Safe to say, I may have covered the topic in my own style, but this post has Jim’s stamp all over it.
