@@ -10,7 +10,7 @@ tags:
 - LangChain
 - Blog
 - GPT
-summary: 
+summary: The Scottbot saga - episode one
 author: dscarborough
 ---
 
@@ -52,7 +52,7 @@ We also produced a second, more conventional type of test, where we would provid
 At this point, we had a baseline. There was some variablity in the pass rate from run to run, but that was in the region of 5%. Our overall pass rate was about 65%, and it was always the same tests that would flip between pass and failure.
 
 ## **The Improvement**
-Once we had our baseline we could start to get a consistent view of the class of question the bot was having difficulty answering. We looked at the confluence pages involved and there was a common theme, which allowed us to make some improvements to the way the confluence pages were ingested. We now have other types of question that the bot struggles to answer, and we have a pipeline of work off the back of this. 
+Once we had our baseline we started to get a consistent view of the class of question the bot was having difficulty answering. We looked at the confluence pages involved and spotted a common theme, which allowed us to make some improvements to the way the confluence pages were ingested. We now have other types of question that the bot struggles to answer, and we have a pipeline of work off the back of this. 
 
 ## **The Future**
 We intend to improve the quality of Scottbot in the short term by:
@@ -64,8 +64,9 @@ We intend to improve the quality of Scottbot in the short term by:
    * Ingesting the data in different formats to answer different types of questions. Some questions may demand a very specific answer, but others may entail listing all the pages that fulfil a set of criteria.
    * Weighting the pages by metrics, such as the number of views or edits, the date of the last edit or even who the author is.
 
+Once we have a improved the quality enough (ultimately there will always be a subjective aspect to this as questions will no doubt remain that Scottbot cannot answer), we'll start to look into into pulling in data from other sources, such as our sales pipeline documents (pdfs on shared drives), Kimble and Salesforce. 
+
+Who knows? One day, Scottbot may even be able to fill in your timesheets for you! 
+
 ## **Postscript**
 One other maxim that this project has resurrected is "Garbage in, garbage out". It's clear that our confluence needs a little maintenance, and while changing the inputs to improve our pass rate would be somewhat underhand, the bot has highlighted some of the areas where one of our most important data assets is in need of some polish.
-
-   
-
