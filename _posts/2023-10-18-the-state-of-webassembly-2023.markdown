@@ -1,14 +1,20 @@
 ---
 title: The State of WebAssembly 2023
 date: 2023-10-18 16:01:00 Z
+categories:
+- Tech
+summary: This blog posts shares the results of the third annual State of WebAssembly
+  survey, where we found that Rust and JavaScript usage continues to increase, but
+  there is a growing desire for Zig and Kotlin. The use of wasm as a plugin environment
+  continues to climb,  with developers hoping it will deliver of the “write once and
+  run anywhere” promise.
 author: ceberhardt
+image: uploads/wasm-language-usage.png
 ---
 
 The State of WebAssembly 2023 survey has closed, the results are in … and they are fascinating!
 
 If you want the TL;DR; here are the highlights:
-
-
 
 * Rust and JavaScript usage is continuing to increase, but some more notable changes are happening a little further down - with both Swift and Zig seeing a significant increase in adoption. 
 * When it comes to which languages developers ‘desire’, with Zig, Kotlin and C# we see that desirability exceeds current usage
@@ -22,7 +28,7 @@ If you want the TL;DR; here are the highlights:
 
 Interested to learn more? Then read on …
 
-# Language
+## Language
 
 The first question explored which languages people are using by asking the question _which languages do you use, or have you tried using, when developing applications that utilise WebAssembly?_
 
@@ -151,6 +157,8 @@ I asked people _what is the thing that excites you most about WebAssembly?_ And 
  * The potential for running complex applications in the browser
 
 Thank you to everyone who shared their thoughts, much appreciated.
+
+If you want to explore the data, feel free to [download the dataset](https://wasmweekly.news/data/state-of-webassembly-2023.csv), please do attribute if you reproduce or use this data.
 
 
 
