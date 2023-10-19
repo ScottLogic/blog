@@ -9,7 +9,7 @@ summary: This blog posts shares the results of the third annual State of WebAsse
   continues to climb,  with developers hoping it will deliver of the “write once and
   run anywhere” promise.
 author: ceberhardt
-image: uploads/wasm-language-usage.png
+image: "/uploads/state%20of%20web%20assembly%202023.png"
 ---
 
 The State of WebAssembly 2023 survey has closed, the results are in … and they are fascinating!
