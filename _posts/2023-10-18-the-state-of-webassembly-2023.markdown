@@ -160,5 +160,5 @@ Thank you to everyone who shared their thoughts, much appreciated.
 
 If you want to explore the data, feel free to [download the dataset](https://wasmweekly.news/assets/state-of-webassembly-2023.csv), please do attribute if you reproduce or use this data. You can also [discuss this post over on Reddit](https://www.reddit.com/r/programming/comments/17ax4ek/the_state_of_webassembly_2023/).
 
-
+Finally, I want to thank [Lawrence Hecht](https://www.linkedin.com/in/lawrence-hecht/), who I've worked with on a few survey / research projects previously, for his feedback on the 2023 survey. Very much appreciated!
 
