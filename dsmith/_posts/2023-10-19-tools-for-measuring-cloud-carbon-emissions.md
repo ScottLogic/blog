@@ -83,6 +83,8 @@ There are some SaaS solutions such as [Climatiq](https://www.climatiq.io/) and [
 
 Each of the big three Cloud providers evaluated has their own tooling for measuring carbon emissions. These are of varying levels of maturity, robustness and transparency in terms of methodology. There are also third-party tools available which have their own benefits and trade-offs. This is a rapidly evolving space and each of these tools will likely evolve over the next few years so whichever approach you go with it’s worth regularly reviewing to see if better options are available.
 
+One further thing to consider if you use more than one Cloud provider - is how comparable are the figures across the different tools? It will likely be far more convenient (and more of an apples to apples comparison) if you use a cross Cloud solution like CCF. CCF also has the advantage of having a transparent open source methodology. For these reasons, it is the solution we have selected to measure Scott Logic’s own Cloud Carbon Footprint.
+
 For reference, I’ve prepared a comparison of the features of the different tooling which may be useful in choosing your preferred approach:
 
 | **GCP**                                                                                                     | **Azure**                             | **AWS**                                                                                                         | **CCF**                     |                      |
@@ -101,5 +103,3 @@ For reference, I’ve prepared a comparison of the features of the different too
 \*\*\* All services other than compute and storage are grouped into “other”.
 
 \*\*\*\* Geography refers to wider geographical areas such as AMER, APAC and EMEA.
-
-One further thing to consider if you use more than one Cloud provider - is how comparable are the figures across the different tools? It will likely be far more convenient (and more of an apples to apples comparison) if you use a cross Cloud solution like CCF. CCF also has the advantage of having a transparent open source methodology. For these reasons, it is the solution we have selected to measure Scott Logic’s own Cloud Carbon Footprint.
