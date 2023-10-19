@@ -21,7 +21,7 @@ If you want the TL;DR; here are the highlights:
 * WebAssembly is still most often used for web application development, but serverless is continuing to rise, as is the use of WebAssembly as a plugin environment. 
 * Threads, garbage collection and the relatively new component model proposal, are the WebAssembly developments that people are most interested in.
 * Whereas with WASI, it is the I/O proposals (e.g. HTTP, filesystem) that garner the most attention.
-* We are potentially seeing some impatience in the community, with the satisfaction in the evolution of WAI being notably less than the satisfaction people express in the evolution of WebAssembly.
+* We are potentially seeing some impatience in the community, with the satisfaction in the evolution of WASI being notably less than the satisfaction people express in the evolution of WebAssembly.
 * Many respondents shared that they expect WebAssembly to deliver on the “write once and run anywhere” promise that was originally made by Java.
 
 (If you want to look back, here are the [2021](https://blog.scottlogic.com/2021/06/21/state-of-wasm.html) and [2022](https://blog.scottlogic.com/2022/06/20/state-of-wasm-2022.html) results)
@@ -158,7 +158,7 @@ I asked people _what is the thing that excites you most about WebAssembly?_ And 
 
 Thank you to everyone who shared their thoughts, much appreciated.
 
-If you want to explore the data, feel free to [download the dataset](https://wasmweekly.news/data/state-of-webassembly-2023.csv), please do attribute if you reproduce or use this data.
+If you want to explore the data, feel free to [download the dataset](https://wasmweekly.news/assets/state-of-webassembly-2023.csv), please do attribute if you reproduce or use this data. You can also [discuss this post over on Reddit](https://www.reddit.com/r/programming/comments/17ax4ek/the_state_of_webassembly_2023/).
 
 
 
