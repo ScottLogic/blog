@@ -256,7 +256,7 @@ If you follow the golden rule, you will always be looking to use roles in your q
 
 A quick side note while we are here. It’s best practice, wherever possible, to opt for semantic HTML elements that have a default role. Use a `<button>` rather than adding a role to a `<div role=”button”>`. Use a `<nav>` rather than `<div role=”navigation”>`.
 
-So how does this help with accessibility? In my first post in the series, I described two barriers teams face in tackling accessibility. The first of these was Accessibility as a Feature. This is the tendency of teams to put accessibility on the backlog and delay—often forever—its implementation. If we are serious about tackling accessibility, we need to address it from the start. 
+So how does this help with accessibility? In my [first post in the series]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), I described two barriers teams face in tackling accessibility. The first of these was Accessibility as a Feature. This is the tendency of teams to put accessibility on the backlog and delay—often forever—its implementation. If we are serious about tackling accessibility, we need to address it from the start. 
 
 But that’s exactly what we are doing here. By ensuring that we are choosing the right roles for our tests, we are addressing issues of accessibility from the start. If you follow the golden rule, your app will be more accessible by default. It’s no silver bullet that will solve all accessibility issues, but it is a big step forward.
 
@@ -331,7 +331,7 @@ For me, it’s quite incredible that there can be so much depth behind a simple 
 
 This rule goes beyond Testing Library. It can easily be applied to E2E tests for example. But, Testing Library is an awesome tool itself. If you haven’t yet, I really recommend trying it out. If you’re keen, you can jump right in with [their getting started guide](https://testing-library.com/docs/).
 
-You might also be interested in the other [post in this series]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), and the other view it takes on this topic. Rather than how this fits together technically, the post looks at why this approach is good for testing and accessibility. It’s broader in scope, and talks about why it’s important that we address these issues.
+You might also be interested in the [other post in this series]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), and the other view it takes on this topic. Rather than how this fits together technically, the post looks at why this approach is good for testing and accessibility. It’s broader in scope, and talks about why it’s important that we address these issues.
 
 If you’re after more reading, you might want to check out Kent C Dodds—who created Testing Library. He has a fantastic blog. In particular, I found the following posts really insightful:
 
