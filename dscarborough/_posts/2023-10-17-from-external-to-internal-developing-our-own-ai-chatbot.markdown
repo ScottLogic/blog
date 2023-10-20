@@ -44,9 +44,7 @@ Scottbot now had its raison d'être.
 
 ## **The Demo**
 In August, one of the key members of the team, Gokberk, presented the alpha version of Scottbot at NatWest as part of our Open-Source London series – see the video below for a demo of the early version. 
-[![Scottbot @ Open-Source London]
-(https://img.youtube.com/vi/hzjm2mPI9qQ/maxresdefault.jpg)]
-(https://www.youtube.com/watch?v=hzjm2mPI9qQ)
+[![Blinking LEDs](http://img.youtube.com/vi/XAMVzS13HY0/0.jpg)](http://www.youtube.com/watch?v=XAMVzS13HY0 "Blinking LEDs")
 
 ## **The Excitement**
 We released this alpha version of the system to a limited set of individuals. The initial response was very favourable. People could type in general queries and the bot would use Google, or DuckDuckGo if the user expressed concerns about privacy, and return reasonable results. Sometimes the tool would not even feel the need to search and produce a perfectly satisfactory answer on its own, purely from its innate training. When asked about Scott Logic, the bot would usually resort to the vector database and produce a reasonably relevant response.
