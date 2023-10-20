@@ -117,7 +117,7 @@ Regarding WebAssembly proposals, the following shows which are the most desired:
 
 Threads, garbage collection and exception handling were all at the top in last year's results, and all three are at implementation (phase 3) or standardisation (phase 4) in the proposal lifecycle. This means they are ready to use, and close to finalisation.
 
-Component model is a much more early-stage proposal (phase 1), with a broad ambition to make it much easier to compose wasm modules, written in any language, at runtime. If you’re interested in the details, I’d recommend this [video from Luge Wagner](https://www.youtube.com/watch?v=phodPLY8zNE), who is leading on the proposal.
+Component model is a much more early-stage proposal (phase 1), with a broad ambition to make it much easier to compose wasm modules, written in any language, at runtime. If you’re interested in the details, I’d recommend this [video from Luke Wagner](https://www.youtube.com/watch?v=tAACYA1Mwv4), who is leading on the proposal.
 
 Regarding WASI proposals, the following shows which are the most desired:
 
