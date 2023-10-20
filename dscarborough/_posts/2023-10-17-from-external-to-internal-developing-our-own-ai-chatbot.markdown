@@ -15,14 +15,14 @@ author: dscarborough
 ---
 
 ## **The Idea**
-Even before all the buzz and excitement of ChatGPT, we had been experimenting with AI. However, like many others, we have recently dialled up our applied AI Research and Development. After developing the proof-of-concept chatbot for a major retail bank, we decided to turn our focus inward and develop an AI assistant specifically for our own company’s use.  
+Even before all the buzz and excitement of ChatGPT, we had been [experimenting with AI]({{ site.github.url }}/category/ai.html). However, like many others, we have recently dialled up our applied AI Research and Development. After developing the [proof-of-concept chatbot for a major retail bank]({{ site.github.url }}/2023/07/26/how-we-de-risked-a-genai-chatbot.html), we decided to turn our focus inward and develop an AI assistant specifically for our own company’s use.  
 
 In doing so, we wanted to learn the benefits, limitations and risks of integrating Large Language Models (LLMs) with other internal systems, while also creating a useful tool for Scott Logic employees. Thus, Scottbot was born! 
 
 ## **The Architecture**
 While the banking chatbot combined an LLM with a Knowledge Graph and custom orchestration in Python, we’ve used other technologies for Scottbot. We opted for a more lightweight approach, utilising LangChain for natural language capabilities and vector database technology for knowledge storage and retrieval. We also decided to integrate Scottbot with Microsoft Teams to make it easy for people to use alongside their day-to-day Teams conversations with colleagues. 
 
- LangChain allowed us to bootstrap conversational abilities rapidly and in a potentially flexible manner. While we could have used an LLM directly, we were initially unsure which one would give the best results for this use case and so we wanted some abstraction from the underlying model. LangChain provided a single uniform interface under which several different LLMs could be plugged in, allowing us a degree of future flexibility. Our first choice was to go with GPT 3.5 Turbo from OpenAI, but we are exploring and experimenting with different LLMs that offer different performance vs cost trade-offs (watch this space for a separate blog on that topic in the future!). 
+[LangChain]({{ site.github.url }}/2023/05/04/langchain-mini.html) allowed us to bootstrap conversational abilities rapidly and in a potentially flexible manner. While we could have used an LLM directly, we were initially unsure which one would give the best results for this use case and so we wanted some abstraction from the underlying model. LangChain provided a single uniform interface under which several different LLMs could be plugged in, allowing us a degree of future flexibility. Our first choice was to go with GPT 3.5 Turbo from OpenAI, but we are exploring and experimenting with different LLMs that offer different performance vs cost trade-offs (watch this space for a separate blog on that topic in the future!). 
 
 ## **The Brief**
 The remit was to produce a chatbot that employees would find useful – initially by answering questions about our company, but we have lofty goals for what it can do for employees in the future. It’s important to note before we proceed that this is all for internal Scott Logic use cases and isn’t being used on anything sensitive or client related.  
@@ -44,7 +44,9 @@ Scottbot now had its raison d'être.
 
 ## **The Demo**
 In August, one of the key members of the team, Gokberk, presented the alpha version of Scottbot at NatWest as part of our Open-Source London series – see the video below for a demo of the early version. 
-[Embed – or screenshot and link to: https://www.youtube.com/watch?v=hzjm2mPI9qQ ] 
+[![Scottbot @ Open-Source London]
+(https://img.youtube.com/vi/hzjm2mPI9qQ/maxresdefault.jpg)]
+(https://www.youtube.com/watch?v=hzjm2mPI9qQ)
 
 ## **The Excitement**
 We released this alpha version of the system to a limited set of individuals. The initial response was very favourable. People could type in general queries and the bot would use Google, or DuckDuckGo if the user expressed concerns about privacy, and return reasonable results. Sometimes the tool would not even feel the need to search and produce a perfectly satisfactory answer on its own, purely from its innate training. When asked about Scott Logic, the bot would usually resort to the vector database and produce a reasonably relevant response.
@@ -52,7 +54,7 @@ We released this alpha version of the system to a limited set of individuals. Th
 Unfortunately, our initial excitement was short-lived! 
 
 ## **The Frustration**
-It soon started to become clear that Scottbot was unable to answer certain questions about Scott Logic, even though we knew that the answers to those questions were clearly in the Confluence pages. Moreover, the bot was inconsistent, sometimes getting the right answer but sometimes preferring to invent an answer without referring to the Confluence tool at all. These “hallucinations” are a notorious feature of LLM behaviour – and going back to the retail banking chatbot – were avoided through the use of a conversational ontology powered by a Knowledge Graph.  
+It soon started to become clear that Scottbot was unable to answer certain questions about Scott Logic, even though we knew that the answers to those questions were clearly in the Confluence pages. Moreover, the bot was inconsistent, sometimes getting the right answer but sometimes preferring to invent an answer without referring to the Confluence tool at all. These “hallucinations” are a notorious feature of LLM behaviour – and going back to the [retail banking chatbot]({{ site.github.url }}/2023/07/26/how-we-de-risked-a-genai-chatbot.html) – were avoided through the use of a conversational ontology powered by a Knowledge Graph.  
 
 We needed an alternative approach to reduce the risk of hallucinations as trying to rely on an expected fixed version of the LLM with the temperature set to zero wasn’t cutting it (for "temperature", read “creativity" in this context). Crucial to this alternative approach may be the ability to control the seed value (something you do have control over with self-hosted Open Source LLMs) – this is something we are aiming to validate in the near future. 
 
