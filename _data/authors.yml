@@ -117,6 +117,7 @@ active-authors:
   - wreilly
   - wtrimble
   - wboothclibborn
+  - wduncan
   - xchen
   - zrubin
   - zwali
@@ -1321,3 +1322,8 @@ authors:
     email: gsingh@scottlogic.com
     author-summary: "I am a senior software developer at Scott Logic, Bristol."
     picture: picture.jpg
+  wduncan:
+    name: "Will Duncan"
+    email: wduncan@scottlogic.com
+    picture: picture.jpg
+    author-summary: "<p>I'm a Senior UX designer at Scott Logic, based in Edinburgh. I love building websites, designing apps and watching football!</p>"
