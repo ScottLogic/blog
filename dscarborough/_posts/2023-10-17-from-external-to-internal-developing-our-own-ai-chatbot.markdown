@@ -1,5 +1,5 @@
 ---
-title: 'Building Scottbot: an AI Chatbot for Scott Logic '
+title: 'Building Scottbot: an AI Chatbot for Scott Logic'
 date: 2023-10-17 14:00:00 Z
 categories:
 - Artificial Intelligence
