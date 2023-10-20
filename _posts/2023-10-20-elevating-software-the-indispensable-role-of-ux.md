@@ -1,6 +1,6 @@
 ---
 title: Elevating Software - The Indispensable Role of UX
-date: 2023-11-20 16:01:00 Z
+date: 2023-11-20 00:00:00 Z
 categories:
 - UX Design
 summary: This blog post explores how important UX Design is in the ever-growing software industry and how even tech giants can get it wrong sometimes. 
