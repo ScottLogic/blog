@@ -1,10 +1,15 @@
 ---
-author: dsmith
 title: Tools for measuring Cloud Carbon Emissions
+date: 2023-10-19 00:00:00 Z
+categories:
+- dsmith
+- Cloud
+author: dsmith
 layout: default_post
-summary: In this post I'll discuss ways of estimating the emissions caused by your Cloud workloads as a first step towards reaching your organisation's Net Zero goals.
-category: Cloud
+summary: In this post I'll discuss ways of estimating the emissions caused by your
+  Cloud workloads as a first step towards reaching your organisation's Net Zero goals.
 ---
+
 # Introduction
 
 In my [previous blog post](https://blog.scottlogic.com/2022/04/07/cloud-sustainability-reach-net-zero.html) I discussed how migrating to the Cloud could help your organisation reach its Net Zero goals. I discussed how shifting your workloads away from on-premises data centres can reduce emissions by allowing you to leverage the expertise of cloud providers and their greater efficiency of scale. It should be noted this isn’t always clear cut - do consider how energy efficient your current hosting is and the [embodied carbon](https://blog.scottlogic.com/2023/09/28/embodied-carbon-from-software-development.html) of any hardware you’d be decommissioning.
