@@ -8,6 +8,7 @@ tags:
 summary: How talks on AI at the CMO Inspired Summit made me re-evaluate a Marketing
   team's processes and objectives.
 author: mhowie
+image: "/uploads/How%20AI%20can%20improve%20processes.png"
 ---
 
 This year at Scott Logic I’ve been caught up in all the talk around Generative AI technologies: how they work, the opportunities, the risks and how to mitigate them. Attending the CMO Summit in SW London this week was my first opportunity to genuinely think about it as a potential user, and consider how it could help my Marketing & Communications team.
