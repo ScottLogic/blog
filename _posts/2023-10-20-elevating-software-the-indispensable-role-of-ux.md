@@ -3,7 +3,7 @@ title: Elevating Software - The Indispensable Role of UX
 date: 2023-11-20 16:01:00 Z
 categories:
 - UX Design
-summary: This blog post explores how important UX Design is in the software industry and how even tech giants can get it wrong sometimes. 
+summary: This blog post explores how important UX Design is in the ever-growing software industry and how even tech giants can get it wrong sometimes. 
 author: wduncan
 image: "/uploads/importance-of-ux.webp"
 ---
@@ -32,9 +32,9 @@ Implementing UX is a multifaceted process that requires a deep understanding of 
 
 ## When tech giants get it wrong
 
-![end-call.webp](/uploads/end-call.webp)
-
 Let’s look at that example to bring this to life. Picture this: you're on the phone, in the middle of an important conversation when suddenly, another call comes in. You're presented with three options - "End & Accept," "Decline," and "Hold & Accept." At first glance, these options might seem straightforward, but in the heat of the moment, they can become perplexing and frustrating.
+
+![iPhone end call screen](/uploads/end-call.webp)
 
 The crux of the problem lies in the fact that the options are remarkably similar and don't offer clear differentiation. "Hold & Accept" implies that you're juggling two calls, "Decline" means ending the current call, and "End & Accept" seems to suggest a combination of the two. However, the subtle nuances are easily lost in the chaos of the situation.
 
