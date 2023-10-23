@@ -79,4 +79,6 @@ Initiatives like [One Big Thing](https://moderncivilservice.blog.gov.uk/2023/07/
 
 ### Fix the plumbing
 
-So far I’ve focused a lot on the skills and qualities you can bring to bear in getting ready to harness AI. But if you’re looking for a hands-on, practical next step so that you can get started and be ready, beginning with your data is a rock-solid idea. This is a hyped technology that makes an incredibly strong case for improving your data architecture, quality and stewardship. To quote Pete Chamberlin again, “[The more I use it and work on strategies for deploying it, the more I think: this requires data-plumbing-fixing activities!](https://www.linkedin.com/posts/peterchamberlin_the-trouble-with-innovation-activity-7112164418049687554-CWbz?utm_source=share&utm_medium=member_desktop)” I totally agree, Pete.
+So far I’ve focused a lot on the skills and qualities you can bring to bear in getting ready to harness AI. But if you’re looking for a hands-on, practical next step in order to get started and be ready, beginning with your data is a rock-solid idea. This is a hyped technology that makes an incredibly strong case for improving your data architecture, quality and stewardship. To quote Pete Chamberlin's post that I linked to earlier, “The more I use it and work on strategies for deploying it, the more I think: this requires data-plumbing-fixing activities!” 
+
+I totally agree, Pete.
