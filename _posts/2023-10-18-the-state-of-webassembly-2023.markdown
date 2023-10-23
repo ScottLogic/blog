@@ -78,13 +78,15 @@ Considering that non-browser based usage of WebAssembly on the climb, it’s int
 
 The survey asked _what are you using WebAssembly for at the moment?_, allowing people to select multiple options and add their own suggestions. Here are all of the responses, with ‘Other’ including everything that only has a single response:
 
-![wasm-applications.png](/uploads/wasm-applications.png)
+![wasm-usage-update.png](/uploads/wasm-usage-update.png)
 
-Web application development is still at the top, but the gap is closing. The following chart reveals the year-on-year trends:
+Web application development is still at the top, but the gap has closed a little. The following chart reveals the year-on-year trends:
 
-![wasm-application-trends.png](/uploads/wasm-application-trends.png)
+![wasm-usage-trend-update.png](/uploads/wasm-usage-trend-update.png)
 
-Serverless is continuing to rise, but perhaps the most notable shift is the use of WebAssembly as a plugin environment. Here are some real-world examples:
+NOTE: In the 2021 / 2022 surveys, 'Serverless' was the only option for back-end usage of wasm. In 2023 this has been split into two distinct categories, hence the dotted line for Serverless in the above chart. Combining the two options from 2023 would show a minor increase in back-end usage.
+
+The most notable shift is the use of WebAssembly as a plugin environment. Here are some real-world examples:
 
 * Zellij is a developer-focussed terminal workspace that has a [WebAssembly plugin model](https://zellij.dev/news/new-plugin-system/)
 * Microsoft Flight Simulator allows you to [write add-ons as wasm modules](https://docs.flightsimulator.com/html/Programming_Tools/WASM/WebAssembly.htm)
