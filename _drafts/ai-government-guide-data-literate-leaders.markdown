@@ -59,7 +59,7 @@ We need to encourage informed experimentation and give people the skills to do t
 
 I wrote earlier this year about [how data literacy gives leaders the edge](https://blog.scottlogic.com/2023/01/12/how-data-literacy-gives-leaders-the-edge.html). Data-literate leaders know how to work with data, they know how to derive actionable insights from data, and they are data storytellers who are able to use data to shape and communicate a narrative about the overarching strategy of their organisation. Importantly, they are also able to see when the data doesn’t look right, and spot issues in the approaches their organisation is taking. These skills and qualities are technology-agnostic and just as relevant and important in the context of AI as they are in the face of any other new technology.
 
-As a data-literate leader, your understanding of the work involved in managing, interrogating and analysing data, as well as your skills in identifying and managing risks, are key to identifying opportunities for exploration. The examples I shared above of AI use in governments relied on people with precisely these skills. And as AI adoption beds in and grows in your organisation, your data literacy will be vital in helping to shape the governance surrounding its use, getting value from investment and using data to tell the story to those around you.
+As a data-literate leader, your understanding of the work involved in managing, interrogating and analysing data, as well as your skills in identifying and managing risks, are key to identifying opportunities for exploration. The examples I shared above of AI use in governments relied on people with precisely these skills. And as AI adoption beds in and grows in your organisation, your data literacy will be vital in helping to shape the governance surrounding its use, getting value from investment, and using data to tell the story to those around you.
 
 ### Be adaptive
 
@@ -69,7 +69,7 @@ This doesn’t mean that you should do nothing. It’s another argument for info
 
 ### Foster data-literate cultures
 
-As pointed out recently by the [Ada Lovelace Institute](https://www.adalovelaceinstitute.org/policy-briefing/foundation-models-public-sector/), there is heightened risk for the public sector when using nascent AI tools. This is due to the increased responsibility around the sensitivity of the data being handled, the expected standards of robustness, and the requirements of transparency or explainability around decision-making.
+As pointed out recently by the [Ada Lovelace Institute](https://www.adalovelaceinstitute.org/policy-briefing/foundation-models-public-sector/), there is a heightened risk for the public sector when using nascent AI tools. This is due to the increased responsibility around the sensitivity of the data being handled, the expected standards of robustness, and the requirements of transparency or explainability around decision-making.
 
 These responsibilities affect the culture within the public sector, and managing or understanding these risks is partly why it takes time to do new things or change the old way of doing things. At the same time, the NHS example above shows that sometimes it is only the public sector that can solve certain problems, and that using these new technologies can rapidly deliver really astonishing results.
 
