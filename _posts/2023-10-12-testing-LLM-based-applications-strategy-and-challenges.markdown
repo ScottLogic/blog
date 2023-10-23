@@ -17,6 +17,13 @@ summary: A case study of testing a customised GPT powered chatbot to present str
 author: xchen
 ---
 
+## **Summary**
+In this post we're going to cover the challenges posed by testing AI applications, covering a number of topics, including:
+
+* Non-determinism in tests
+* Costs of running tests
+* Statistical nature of AI testing - i.e. not having 100% pass rate is normal
+
 ## **New Challenges: Testing LLM-Based vs. Traditional Apps**
 As a testing professional with years of experience, I usually approach software testing with confidence. However, this time, in the face of testing a Generative AI powered, LLM-based application, I find myself confronting unusual challenges.
 
