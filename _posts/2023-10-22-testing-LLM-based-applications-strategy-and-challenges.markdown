@@ -3,8 +3,6 @@ title: 'Testing LLM-Based Applications: Strategy and Challenges'
 date: 2023-10-22 14:00:00 Z
 categories:
 - Testing
-- Tech
-- Artificial Intelligence
 tags:
 - Testing
 - LLM
