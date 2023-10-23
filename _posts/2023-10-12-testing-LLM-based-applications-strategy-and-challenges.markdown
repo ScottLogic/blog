@@ -18,7 +18,9 @@ author: xchen
 ---
 
 ## **Summary**
-In this post we're going to cover the challenges posed by testing AI applications, covering a number of topics, including:
+Recently, I've been working on an internal chatbot application, Scottbot. There's a general blog about it [here]({{ site.github.url }}/blog/2023/10/17/building_scottbot_an_ai_chatbot_for_scott_logic.html).
+
+In this post I'm going to cover some of the challenges posed by testing AI applications, with reference to Scottbot, including:
 
 * Non-determinism in tests
 * Costs of running tests
