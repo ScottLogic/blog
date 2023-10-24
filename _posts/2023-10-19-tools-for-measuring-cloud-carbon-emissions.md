@@ -4,10 +4,10 @@ date: 2023-10-19 00:00:00 Z
 categories:
 - dsmith
 - Cloud
-author: dsmith
-layout: default_post
 summary: In this post I'll discuss ways of estimating the emissions caused by your
   Cloud workloads as a first step towards reaching your organisation's Net Zero goals.
+author: dsmith
+layout: default_post
 ---
 
 # Introduction
@@ -68,7 +68,8 @@ In terms of Scope three emissions, these are planned to be added to the dashboar
 
 Cloud Carbon Footprint is an open source tool which was originally developed by Thoughtworks. It uses Etsy’s [Cloud Jewels](https://www.etsy.com/codeascraft/cloud-jewels-estimating-kwh-in-the-cloud) approach to estimate the emissions associated with cloud workloads. This is done using the information provided by CSPs for the purposes of itemised billing. It supports AWS, GCP and Azure which means if you’re using more than one of these providers you can use a consistent approach for measuring emissions.
 
-The methodology is described in detail on the [CCF website](https://www.cloudcarbonfootprint.org/docs/methodology) but to summarise, the tool is able to use information about the energy consumed by different server hardware, the average emissions for a certain amount of energy on the local grid and your itemised usage to work out estimated emissions for your workloads. It also estimates the scope three emissions for server hardware by proportionally allocating the estimated embodied carbon based on your usage. The tool doesn’t currently estimate embodied carbon for networking hardware and also doesn’t include other scope three emissions which only cloud providers will have access to such as employee commutes.
+The methodology is described in detail on the [CCF website](https://www.cloudcarbonfootprint.org/docs/methodology) but to summarise, the tool is able to use information about the energy consumed by different server hardware, the average emissions for a certain amount of energy on the local grid and your itemised usage to work out estimated emissions for your workloads. It should be noted that the above estimation only covers scope two emissions and
+[scope one emissions are not included](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint/issues/289). It also estimates the scope three emissions for server hardware by proportionally allocating the estimated embodied carbon based on your usage. The tool doesn’t currently estimate embodied carbon for networking hardware and also doesn’t include other scope three emissions which only cloud providers will have access to such as employee commutes. 
 
 These figures aren’t exact but they can give an idea of emissions and as long as a consistent approach is used, relative improvements can be measured. The same approach can be used across different cloud providers and even [against on-premise](https://www.cloudcarbonfootprint.org/docs/on-premise) data centres giving a clearer picture of emissions across your IT estate.
 
@@ -94,7 +95,7 @@ For reference, I’ve prepared a comparison of the features of the different too
 
 | **GCP**                                                                                                     | **Azure**                             | **AWS**                                                                                                         | **CCF**                     |                      |
 | ----------------------------------------------------------------------------------------------------------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------- |
-| 1, 2 and 3                                                                                                  | 1, 2 and 3                            | 1 and 2\*                                                                                                       | 1, 2 and 3                  | **Scopes covered**   |
+| 1, 2 and 3                                                                                                  | 1, 2 and 3                            | 1 and 2\*                                                                                                       | 2 and 3                  | **Scopes covered**   |
 | Location-based \*\*                                                                                         | Market-based                          | Market-based                                                                                                    | Location-based              | **Scope 2 approach** |
 | Data centre operations, employee commutes and embodied emissions from data centre hardware and construction | Hardware lifecycle embodied emissions | N/A\*                                                                                                           | Server embodied carbon      | **Scope 3 approach** |
 | Monthly                                                                                                     | Monthly                               | Monthly ([with 3 month delay](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ccft-overview.html)) | Daily                       | **Update frequency** |
