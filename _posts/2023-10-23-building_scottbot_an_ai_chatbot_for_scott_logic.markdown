@@ -13,6 +13,7 @@ tags:
 - GPT
 summary: Teething troubles with our nascent chatbot
 author: dscarborough
+image: "/uploads/Scottbot%20tn.png"
 ---
 
 ## **The Idea**
