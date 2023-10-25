@@ -12,7 +12,7 @@ image: "/uploads/B-ingAForceForGood.png"
 
 Scott Logic has become a certified B Corp 🥳 So I wanted to share why that’s important for our business and what it means to me personally as someone who has been in the organisation for a long time.
 
-![Certified B Corp – This company meets high standards of social and environmental impact](/godds/assets/B-Corp-Logo-Tagline-Lockup-Standards-Black-RGB.png)
+  ![2018-B-Corp-Logo-Black-S-752c82.png](/uploads/2018-B-Corp-Logo-Black-S-752c82.png)  
 
 ## Becoming more intentional about the why
 
@@ -44,16 +44,20 @@ Along this way, and as we continue to improve and evolve into the future, B Corp
 ## Why B Corp
 
 <div class="embed-container" style="width: 100%; position: relative; height: 0; overflow: hidden; padding-bottom: 50%">
-    <iframe class="video-frame" src='https://www.youtube.com/embed/GP69PNzOQ1U?si=M20lu_MByBk0dod2' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen style="width: 100%; height: 100%; position: absolute; top: 0; left: 0"></iframe>
+<iframe class="video-frame" src='https://www.youtube.com/embed/GP69PNzOQ1U?si=M20lu_MByBk0dod2' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen style="width: 100%; height: 100%; position: absolute; top: 0; left: 0"></iframe>
 </div>
 
 [B Corp](https://www.bcorporation.net/en-us/) is a movement built on the simple fact that business should serve more than just shareholders — it has an equal responsibility to people and the planet. The “B” stands for “Benefit for all.” The movement is supported by [B Lab](https://bcorporation.uk/), a global network creating standards, policies, and tools for business. B Corp certification means a company has passed a rigorous assessment by B Lab, proving that they meet high standards of social and environmental performance, accountability and transparency.
 
 B Corps believe:
-- That we must be the change we seek in the world.
-- That all business ought to be conducted as if people and place mattered.
-- That, through their products, practices, and profits, businesses should aspire to do no harm and benefit all.
-- To do so requires that we act with the understanding that we are each dependent upon another and thus responsible for each other and future generations.
+
+* That we must be the change we seek in the world.
+
+* That all business ought to be conducted as if people and place mattered.
+
+* That, through their products, practices, and profits, businesses should aspire to do no harm and benefit all.
+
+* To do so requires that we act with the understanding that we are each dependent upon another and thus responsible for each other and future generations.
 
 When I first stumbled across the B Corp movement, it hit me that this was a wonderful articulation of what I believe Scott Logic and its leadership are about. Regardless of certification, here were words, tools and expertise that would help accelerate us in the direction we are already going.
 
