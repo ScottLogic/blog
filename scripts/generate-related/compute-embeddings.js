@@ -19,9 +19,6 @@ const { markdownToTxt } = require("markdown-to-txt");
     if (!fs.existsSync(filename)) {
       await summarisePost(formatContent(path)).then((embedding) => {
         fs.writeFileSync(filename, JSON.stringify(embedding, null, 2));
-      }).catch((err) => {
-        console.log("failed to embed: ", filename);
-        console.log(err);
       });
     } 
   }
@@ -57,9 +54,11 @@ const summarisePost = async (data) => {
     })
     .then((res) => {
       if(res.status !== 200) {
-        throw new Error(res.statusText);
+        if(res.status === 401) {
+          throw Error(res.statusText + " - check your OpenAI API key");
+        }
+        throw Error(res.statusText);
       }
-      return res.json()
     })
     .then((json) => {
       if (json.data) {
