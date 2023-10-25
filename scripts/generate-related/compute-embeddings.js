@@ -43,7 +43,7 @@ const summarisePost = async (data) => {
   const OPENAI_API_KEY = process.env.npm_config_openai_api_key;
 
   return await fetch(
-    "https://api.openai.com/v1/engines/babbage-similarity/embeddings",
+    "https://api.openai.com/v1/embeddings",
     {
       method: "POST",
       headers: {
@@ -52,6 +52,7 @@ const summarisePost = async (data) => {
       },
       body: JSON.stringify({
         input: data,
+        model: "text-embedding-ada-002"
       }),
     })
     .then((res) => {
