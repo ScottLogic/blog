@@ -17,7 +17,7 @@ const { markdownToTxt } = require("markdown-to-txt");
     const filename = `${outputPath}/${file}`;
 
     if (!fs.existsSync(filename)) {
-      await summarisePost(formatContent(path)).then((embedding) => {
+      await summarisePost(formatContent(path), file).then((embedding) => {
         fs.writeFileSync(filename, JSON.stringify(embedding, null, 2));
       });
     } 
@@ -36,7 +36,7 @@ const formatContent = (post) => {
   return text.split(/[\s]+/).slice(0, 1000).join(" ");
 };
 
-const summarisePost = async (data) => {
+const summarisePost = async (data, file) => {
   const OPENAI_API_KEY = process.env.npm_config_openai_api_key;
 
   return await fetch(
@@ -54,11 +54,13 @@ const summarisePost = async (data) => {
     })
     .then((res) => {
       if(res.status !== 200) {
+        console.log("failed to embed: " +  file)
         if(res.status === 401) {
           throw Error(res.statusText + " - check your OpenAI API key");
         }
         throw Error(res.statusText);
       }
+      return res.json()
     })
     .then((json) => {
       if (json.data) {
