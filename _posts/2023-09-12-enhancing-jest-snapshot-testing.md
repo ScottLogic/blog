@@ -5,6 +5,7 @@ categories:
 - Testing
 - Tech
 tags:
+- featured
 - testing
 - jest
 summary: Jest is a JavaScript unit testing framework that is popular amongst developers
@@ -12,6 +13,7 @@ summary: Jest is a JavaScript unit testing framework that is popular amongst dev
   testing, but offers some useful features in snapshot testing that can be enhanced
   to carry out such tasks.
 author: klau
+image: uploads/Enhancing%20Jest%20Snapshot.png
 ---
 
 ## How to customize Jest snapshot testing to performance test your application

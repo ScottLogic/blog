@@ -50,7 +50,7 @@ Clickable mockups have improved and accelerated UI design by speeding up the ite
 
 This means that most software architecture design is an art as much as a science, as experienced heads make their best guestimate based on what they do know or can know easily. An AI agent which reviews the actual code, log files etc. could provide a huge amount of extra information and even test different performance or load scenarios.
 
-Earlier non-AI platforms that are designed to support the rapid connecting of systems, such as Mulesoft Anypoint, can reduce the amount of boilerplate code; that said, it still typically takes weeks to produce components which connect to multiple systems. This generation of tools was never fast enough to turn integration into point-and-click real-time.
+Earlier non-AI platforms that are designed to support the rapid connecting of systems, such as [Mulesoft](https://www.mulesoft.com/resources/api/what-is-an-api) Anypoint, can reduce the amount of boilerplate code; that said, it still typically takes weeks to produce components which connect to multiple systems. This generation of tools was never fast enough to turn integration into point-and-click real-time.
 
 Newer integration platforms such as [Cyclr](https://cyclr.com/) and [Boomi](https://boomi.com/) are going down the low-code, point-and-click route to reduce integration time further. In fact, Boomi has introduced an AI component which uses anonymised learnings from lots of previous integrations achieved with the Boomi platform to automagically create mappings between two integration points, often the most time-consuming part of an integration.
 
