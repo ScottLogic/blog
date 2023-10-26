@@ -4,9 +4,9 @@ date: 2023-10-26 10:42:00 Z
 categories:
 - sustainability
 - architecture
-- UX Design
 - ocronk
-- Delivery
+- Tech
+- UX Design
 summary: The tech industry has driven incredibly rapid innovation by taking advantage
   of increasingly cheap and more powerful computing – but at what unintended cost?
   What collateral damage has been created in our era of "move fast and break things"?
@@ -76,7 +76,7 @@ Transparency of the carbon footprint of data centres – beyond just energy cons
 
 Once we understand the size of the problem, we can prioritise the areas that look the most compelling to address (based on current size or projected growth in usage). You can start by implementing the high-impact, low-effort actions, and progress to weighing up the changes that will require investment (will the effort pay back?). Then you can start tying technology strategy, architecture principles and policies back to your corporate sustainability goals (where these exist). If Environmental, Social and Governance (ESG) isn’t a priority at an organisation-wide level (increasingly rare but not unheard of), look for other areas such as cost savings, marketing, customer and employee retention as drivers and levers for change.
 
-[sustainable-framework-v05.PNG](/uploads/sustainable-framework-v05.PNG)
+![sustainable-framework-v05.PNG](/uploads/sustainable-framework-v05.PNG)
 
 In other articles, we will talk about practical actions and decisions you can make, such as:
 
