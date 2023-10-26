@@ -6,7 +6,6 @@ categories:
 - architecture
 - ocronk
 - Tech
-- UX Design
 summary: The tech industry has driven incredibly rapid innovation by taking advantage
   of increasingly cheap and more powerful computing – but at what unintended cost?
   What collateral damage has been created in our era of "move fast and break things"?
