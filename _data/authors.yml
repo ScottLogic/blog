@@ -25,6 +25,7 @@ active-authors:
   - csalt
   - dgrew
   - dhinrichs
+  - dhope
   - dkerr
   - dmcnamee
   - dnicholas
@@ -292,6 +293,12 @@ authors:
   delliott:
     name: "Dan Elliott"
     author-summary: "<p>Senior UX Designer at Scott Logic based in the Bristol office. I spend my time researching users, designing solutions and testing to ensure a productive and pleasurable user experience. PC and VR Gamer, Motorcycle Enthusiast, Dad and Collector of Loud Shirts."
+    picture: picture.jpg
+  dhope:
+    name: "David Hope"
+    email: "dhope@scottlogic.com"
+    author-summary: "<p>Architect and technologist wth an interest in many areas including video streaming, identity and resilience</p>"
+    feed-description: "David's thoughts on software architecture"
     picture: picture.jpg
   dkerr:
     author-summary: "<p>I'm a full-stack web developer, with an interest in anything and everything that's new in web technology!</p>"
