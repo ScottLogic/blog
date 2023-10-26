@@ -22,7 +22,6 @@ As software proliferates through every facet of life and the scale of it increas
 
 ![SustainabilityVennDiagramBranded.png](/uploads/SustainabilityVennDiagramBranded.png)
 
-
 This is more than just a “do good” or “feel good” thing – there are many benefits of pushing towards [sustainability](https://www.scottlogic.com/what-we-do/sustainable-software) and [regenerative](https://blog.scottlogic.com/2023/09/27/architecting-a-regenerative-future-thoughts-from-intersection23.html) technology approaches including financial advantages. This is the first in our latest series of blogs on sustainable technology that will explore these issues and, where possible, offer pragmatic suggestions that hopefully raise thought-provoking questions to ask yourself, your suppliers, and technology teams.
 
 **How we got here**
@@ -41,39 +40,24 @@ Technology platforms are commercially driven to grow aggressively, and their pri
 
 **Ubiquitous cheaper computing is a double-edged sword**
 
-We are now uncovering the pitfalls of this brute-force approach. Bloated, wasteful applications contribute to growing energy consumption and carbon emissions from data centres. They strain local resources for power and cooling. Materials and energy used in the manufacturing and supply chain (aka embodied carbon from hardware) are almost completely hidden and unknown. We have made using computers and building systems far easier by abstracting away layers of complexity, and this is a good thing, democratising access to computing. Unfortunately however, these layers (such as end-user tools, low or no code, spreadsheets and more recently GenAI) can also add inefficiency and create a lack of transparency regarding what is going on under the hood. Software has real world impacts and the cloud is not ephemeral. As the joke goes Cloud says “it’s someone else’s computer” (often massive racks of them in fact) and that exists somewhere out of sight and out of mind.
+We are now uncovering the pitfalls of this brute-force approach. Bloated, wasteful applications contribute to growing energy consumption and carbon emissions from data centres. They strain local resources for power and cooling. Materials and energy used in the manufacturing and supply chain (aka embodied carbon from hardware) are almost completely hidden and unknown. We have made using computers and building systems far easier by abstracting away layers of complexity, and this is a good thing, democratising access to computing. Unfortunately however, these layers (such as end-user tools, low or no code, spreadsheets and more recently GenAI) can also add inefficiency and create a lack of transparency regarding what is going on under the hood. Software has real world impacts and the cloud is not ephemeral. As the old joke about Cloud states “it’s someone else’s computer” (often massive racks of them in fact) and it exists somewhere out of sight and out of mind.
 
 **Cost vs Quality and the role of Architects**
 
 Technologists (in particular more forward-looking/strategic Architects) already know that we need to go beyond evaluating systems on benchmarks of speed and cost of delivery. Often the champions of quality attributes and non-functional requirements are so often overruled in an era where cost and time pressures have a tendency to drive out software quality. Sadly, this results in unintended consequences.
 
+![330px-Project-triangle-en.svg.png](/uploads/330px-Project-triangle-en.svg.png)
 
+The classic Scope, Cost, Time pyramid - but often it’s the **observable ** functional quality that is prioritised. For that I’ll use a somewhat surreal version of an iceberg - as so much of technical (and effectively sustainability debt - a topic for a future blog) is hidden below the water line.
 
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image2.png "image_tooltip")
-
-
-The classic Scope, Cost, Time pyramid - but often it’s the observable functional quality that is prioritised. For that I’ll use another somewhat surreal version of an iceberg - as so much of technical (and effectively sustainability debt - a topic for a future blog) is hidden below the water line.
-
-
-
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
-
+![DALL·E 2023-10-25 16.13.50 - Create an outline cross section sketch of a waterfall that shows 1 mobile phone and a laptop on the top of the iceberg and hidden beneath the water li.png](/uploads/DALL%C2%B7E%202023-10-25%2016.13.50%20-%20Create%20an%20outline%20cross%20section%20sketch%20of%20a%20waterfall%20that%20shows%201%20mobile%20phone%20and%20a%20laptop%20on%20the%20top%20of%20the%20iceberg%20and%20hidden%20beneath%20the%20water%20li.png)
 
 Every engineering decision (or indecision) has ethical and sustainability consequences, often invisible from within our isolated bubbles (for example, we don’t feel or see the impact of electronic waste, but it does exist; it just ends up somewhere else). Just as the industry has had to raise its game on topics such as security, privacy and compliance, we desperately need to raise our game holistically on sustainability.  
 
 **Why not just wait for regulation?**
-
 While compliance requirements eventually nudge laggards, early adopters reap benefits on multiple fronts. Sustainable practices like streamlining processes, right-sizing resources, and eliminating waste can significantly trim expenses. And sustainability-focused companies (that are genuine and don’t just greenwash) attract top talent and brand affinity. 
 
 The incentives are there for organisations to get ahead of the curve on environmental practices rather than delay until mandated. Beyond regulatory obligation, optimising for sustainability is an opportunity to reduce costs and create value. The time to start is now as the longer we put this off, the more technical/environmental debt we accumulate. Of course, carbon or environmental pricing/taxation would provide more of a stick, but there are already clear benefits from being a leader rather than a laggard – for example:
-
-
 
 * More cost-efficient – through measuring and optimising your assets
 * Managing risks and increasing resilience by being on top of your architecture
@@ -92,20 +76,12 @@ Transparency of the carbon footprint of data centres – beyond just energy cons
 
 Once we understand the size of the problem, we can prioritise the areas that look the most compelling to address (based on current size or projected growth in usage). You can start by implementing the high-impact, low-effort actions, and progress to weighing up the changes that will require investment (will the effort pay back?). Then you can start tying technology strategy, architecture principles and policies back to your corporate sustainability goals (where these exist). If Environmental, Social and Governance (ESG) isn’t a priority at an organisation-wide level (increasingly rare but not unheard of), look for other areas such as cost savings, marketing, customer and employee retention as drivers and levers for change.
 
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.png "image_tooltip")
-
+[sustainable-framework-v05.PNG](/uploads/sustainable-framework-v05.PNG)
 
 In other articles, we will talk about practical actions and decisions you can make, such as:
 
-
-
 * How we strive for BOTH developer and machine productivity
-* Making sustainable infrastructure choice and cloud provider
+* Making sustainable infrastructure and cloud provider choices 
 * Sustainable design, development and DevOps choices
 * Carbon aware computing and time and location shifting
 
