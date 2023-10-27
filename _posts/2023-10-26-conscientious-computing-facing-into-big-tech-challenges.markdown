@@ -18,7 +18,7 @@ summary: The tech industry has driven incredibly rapid innovation by taking adva
   technological solutions. This blog is the start of a new series that explores what
   we can do as technologists to consider and reduce the impact of the tech we create.
 author: ocronk
-image: "/uploads/sustainable-framework-v05.PNG"
+image: "/uploads/Conscientious%20computing.png"
 ---
 
 The tech industry has driven incredibly rapid innovation by taking advantage of increasingly cheap and more powerful computing – but at what unintended cost? What collateral damage has been created in our era of "move fast and break things"? Sadly, it's now becoming apparent we have overlooked the broader impacts of our technological solutions. 
