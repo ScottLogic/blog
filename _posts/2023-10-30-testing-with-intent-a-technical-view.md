@@ -14,7 +14,7 @@ tags:
 summary: "In my previous post, I introduced and approach to testing called Testing with Intent. Essentially, the approach focuses on testing from the perspective of a user intending to do something. Adopting this approach brings you benefits in both your test suites and your products accessibility. That post discussed why the topic is important and how you can benefit if you adopt it. Now, it’s time to look at the technical side of how this actually works in practice. "
 author: sgladstone
 ---
-In [my first post]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), I set out why I think we should be *Testing with Intent*. I set out that, if we focus our tests on the intentions of users, we can improve our test suites and start to tackle accessibility. To keep the content accessible to everyone, I chose to not include anything technical. Now, in this post, I’m going to look at the same subject but through a technical lens.
+In [my first post]({{ site.github.url }}/2023/10/30/testing-with-intent-a-path-to-embedded-accessibility.html), I set out why I think we should be *Testing with Intent*. I set out that, if we focus our tests on the intentions of users, we can improve our test suites and start to tackle accessibility. To keep the content accessible to everyone, I chose to not include anything technical. Now, in this post, I’m going to look at the same subject but through a technical lens.
 
 The essence of this whole approach to testing can be boiled down to one simple golden rule: “Wherever possible, use `queryByRole`". We’ll take a look at what we mean by this rule, and start to unpack its consequences.
 
@@ -256,12 +256,12 @@ If you follow the golden rule, you will always be looking to use roles in your q
 
 A quick side note while we are here. It’s best practice, wherever possible, to opt for semantic HTML elements that have a default role. Use a `<button>` rather than adding a role to a `<div role=”button”>`. Use a `<nav>` rather than `<div role=”navigation”>`.
 
-So how does this help with accessibility? In my [first post in the series]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), I described two barriers teams face in tackling accessibility. The first of these was Accessibility as a Feature. This is the tendency of teams to put accessibility on the backlog and delay—often forever—its implementation. If we are serious about tackling accessibility, we need to address it from the start. 
+So how does this help with accessibility? In my [first post in the series]({{ site.github.url }}/2023/10/30/testing-with-intent-a-path-to-embedded-accessibility.html), I described two barriers teams face in tackling accessibility. The first of these was Accessibility as a Feature. This is the tendency of teams to put accessibility on the backlog and delay—often forever—its implementation. If we are serious about tackling accessibility, we need to address it from the start. 
 
 But that’s exactly what we are doing here. By ensuring that we are choosing the right roles for our tests, we are addressing issues of accessibility from the start. If you follow the golden rule, your app will be more accessible by default. It’s no silver bullet that will solve all accessibility issues, but it is a big step forward.
 
 ## Small, achievable learning opportunities in Accessibility 
-The second barrier that I described in the [first post]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html) was a skills gap. Generally, technical teams want to create accessible products, but they don’t have the necessary skills or experience. This makes sense; they don’t have the skills because there’s no opportunity to learn them. We don’t create opportunities to learn if we aren’t building accessible products.
+The second barrier that I described in the [first post]({{ site.github.url }}/2023/10/30/testing-with-intent-a-path-to-embedded-accessibility.html) was a skills gap. Generally, technical teams want to create accessible products, but they don’t have the necessary skills or experience. This makes sense; they don’t have the skills because there’s no opportunity to learn them. We don’t create opportunities to learn if we aren’t building accessible products.
 
 Personally, I find that I learn best when I’m solving real problems as part of my day-to-day work. I must admit that I started practising Testing with Intent with a pretty woeful knowledge of accessibility. I could try and feel better by convincing myself that this was typical of the industry. Really though, it was inadequate for my interests and level of experience. 
 
@@ -331,7 +331,7 @@ For me, it’s quite incredible that there can be so much depth behind a simple 
 
 This rule goes beyond Testing Library. It can easily be applied to E2E tests for example. But, Testing Library is an awesome tool itself. If you haven’t yet, I really recommend trying it out. If you’re keen, you can jump right in with [their getting started guide](https://testing-library.com/docs/).
 
-You might also be interested in the [other post in this series]({{ site.github.url }}/2023/09/07/testing-with-intent-a-path-to-embedded-accessibility.html), and the other view it takes on this topic. Rather than how this fits together technically, the post looks at why this approach is good for testing and accessibility. It’s broader in scope, and talks about why it’s important that we address these issues.
+You might also be interested in the [other post in this series]({{ site.github.url }}/2023/10/30/testing-with-intent-a-path-to-embedded-accessibility.html), and the other view it takes on this topic. Rather than how this fits together technically, the post looks at why this approach is good for testing and accessibility. It’s broader in scope, and talks about why it’s important that we address these issues.
 
 If you’re after more reading, you might want to check out Kent C Dodds—who created Testing Library. He has a fantastic blog. In particular, I found the following posts really insightful:
 
