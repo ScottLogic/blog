@@ -1,6 +1,6 @@
 ---
 title: 'Testing LLM-Based Applications: Strategy and Challenges'
-date: 2023-10-22 14:00:00 Z
+date: 2023-10-29 10:00:00 Z
 categories:
 - Testing
 tags:
@@ -24,12 +24,12 @@ In this post I'm going to cover some of the challenges posed by testing AI appli
 * Costs of running tests
 * Statistical nature of AI testing - i.e. not having 100% pass rate is normal
 
-## **New Challenges: Testing LLM-Based vs. Traditional Apps**
-As a testing professional with years of experience, I usually approach software testing with confidence. However, this time, in the face of testing a Generative AI powered, LLM-based application, I find myself confronting unusual challenges.
+## **Testing LLM-Based vs. Traditional Apps**
+As a testing professional with years of experience, I usually approached software testing with confidence. However, this time, in the face of testing a Generative AI powered, LLM-based application, I found myself confronting unusual challenges.
 
-I compared testing a traditional application and found that the most significant challenge in testing LLM-based applications is the non-deterministic output result. Normally testers can predict the expected results for a traditional application. However, LLM-based applications always provide different responses, even with the same input. The unpredictable outcomes make traditional testing approaches, especially test automation, extremely difficult.
+I compared testing a traditional application and found that the most significant challenge in testing LLM-based applications is the non-deterministic output result. Normally testers can predict the expected results for a traditional application. However, LLM-based applications can provide different responses, even with the same input. The unpredictable outcomes make traditional testing approaches, especially test automation, extremely difficult.
 
-Another big difference is the cost. Typically, testers do not give much thought to the cost of testing in their daily work. Running regression tests, exploratory testing, or simple sanity checks only once or a few times doesn't significantly affect the expenses. However, testing non-open source LLM-based applications is a different scenario. LLMs work with tokens, breaking text into small pieces like complete words, subwords, or characters. The testing cost depends on the number of tokens used. In other words, the more queries made, the higher the testing expenses.
+Another big difference is the cost. Typically, testers do not give much thought to the cost of testing in their daily work. Running regression tests, exploratory testing, or simple sanity checks multiple times doesn't significantly affect the cost. However, testing non-open source LLM-based applications is a different scenario. LLMs work with tokens, breaking text into small pieces like complete words, subwords, or characters. The testing cost depends on the number of tokens used. In other words, the more queries made, the higher the testing cost.
 
 ## **Testing Metrics to Evaluate LLM-Based Applications**
 
@@ -50,7 +50,7 @@ To assess the correctness of LLM-based applications, the test cases should encom
 
 ### **Use Case Study: Testing Scottbot**
 
-In this section, I will showcase the testing methodologies by using our customised chatbot, Scottbot, as an example. Scottbot is a Scott Logic domain-specific chatbot powered by GPT technology. It has embedded access to Scott Logic’s internal Confluence pages. In addition, it utilises Google and Wikipedia to respond to more general queries. 
+In this section, I will present the testing methodologies by using our customised chatbot, Scottbot, as an example. Scottbot is a Scott Logic domain-specific chatbot powered by GPT technology. It has embedded access to Scott Logic’s internal Confluence pages. In addition, it utilises Google and Wikipedia to respond to more general queries. 
 
 The main objective of testing Scottbot is to guarantee accurate and meaningful responses to user queries. This involves system testing at various levels, with a focus on end-to-end scenarios. Functional testing is carried out through the pytest automation framework, supplemented by manual verification. Security testing primarily depends on manual verification to ensure Scottbot's robustness and compliance with legal and ethical requirements. Performance testing is currently not executed but remains a consideration for future assessments.
 
@@ -135,7 +135,7 @@ Test cases:
 
 <script src="https://gist.github.com/XChenscottlogic/822ebe68750277b03ce73ef249cb0096.js"></script>
 
-#### **Non - Functional testing: Performance Testing**
+#### **Non-functional testing: Performance Testing**
 Speed measurements for LLM-based applications encompass two aspects:
 
 - Processing speed: This refers to the time it takes for a language model to produce a response, which relies on the underlying infrastructure supporting the language model.
@@ -154,7 +154,7 @@ Test cases:
 
 <script src="https://gist.github.com/XChenscottlogic/f654fb330deadb34f7292355870344ae.js"></script>
 
-#### **Non - Functional testing: Security Testing**
+#### **Non-functional testing: Security Testing**
 Robustness of LLM-based applications ensures not only their resistance against LLM attacks but also guarantees the preservation of data privacy and system integrity. Security controls should be reviewed to ensure the robustness and security of applications powered by LLM. Compliance with legal and regulatory requirements, ethics and privacy standards, and fair management of harmful biases is essential for ensuring the integrity of LLM-based applications. The detection and correction of bias in LLMs remain ongoing challenges. It is crucial to conduct relevant evaluations to assess the potential generation of biased or offensive content within the application.
 
 Test structure:
