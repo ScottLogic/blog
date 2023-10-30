@@ -16,7 +16,7 @@ author: xchen
 ---
 
 ## **Summary**
-Recently, I've been working on an internal chatbot application, Scottbot. There's a general blog about it [here]({{ site.github.url }}/2023/10/17/building_scottbot_an_ai_chatbot_for_scott_logic.html).
+Recently, I've been working on an internal chatbot application, Scottbot. There's a general blog about it [here]({{ site.github.url }}/2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html).
 
 In this post I'm going to cover some of the challenges posed by testing AI applications, with reference to Scottbot, including:
 
@@ -25,9 +25,9 @@ In this post I'm going to cover some of the challenges posed by testing AI appli
 * Statistical nature of AI testing - i.e. not having 100% pass rate is normal
 
 ## **Testing LLM-Based vs. Traditional Apps**
-As a testing professional with years of experience, I usually approached software testing with confidence. However, this time, in the face of testing a Generative AI powered, LLM-based application, I found myself confronting unusual challenges.
+As a testing professional with years of experience, I usually approach software testing with confidence. However, this time, in the face of testing a Generative AI powered, LLM(Large Language Model)-based application, I find myself confronting unusual challenges.
 
-I compared testing a traditional application and found that the most significant challenge in testing LLM-based applications is the non-deterministic output result. Normally testers can predict the expected results for a traditional application. However, LLM-based applications can provide different responses, even with the same input. The unpredictable outcomes make traditional testing approaches, especially test automation, extremely difficult.
+The most significant challenge in testing LLM-based applications is the non-deterministic output result. Normally testers can predict the expected results for a traditional application. However, LLM-based applications can provide different responses, even with the same input. The unpredictable outcomes make traditional testing approaches, especially test automation, extremely difficult.
 
 Another big difference is the cost. Typically, testers do not give much thought to the cost of testing in their daily work. Running regression tests, exploratory testing, or simple sanity checks multiple times doesn't significantly affect the cost. However, testing non-open source LLM-based applications is a different scenario. LLMs work with tokens, breaking text into small pieces like complete words, subwords, or characters. The testing cost depends on the number of tokens used. In other words, the more queries made, the higher the testing cost.
 
