@@ -16,9 +16,7 @@ author: xchen
 ---
 
 ## **Summary**
-Recently, I've been working on an internal chatbot application, Scottbot. There's a general blog about it [here]({{ site.github.url }}/2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html).
-
-In this post I'm going to cover some of the challenges posed by testing AI applications, with reference to Scottbot, including:
+In this post, I’m going to cover some of the challenges posed by testing AI applications, with reference to our internal chatbot ['Scottbot']({{ site.github.url }}/2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html), including
 
 * Non-determinism in tests
 * Costs of running tests
@@ -29,7 +27,7 @@ As a testing professional with years of experience, I usually approach software 
 
 The most significant challenge in testing LLM-based applications is the non-deterministic output result. Normally testers can predict the expected results for a traditional application. However, LLM-based applications can provide different responses, even with the same input. The unpredictable outcomes make traditional testing approaches, especially test automation, extremely difficult.
 
-Another big difference is the cost. Typically, testers do not give much thought to the cost of testing in their daily work. Running regression tests, exploratory testing, or simple sanity checks multiple times doesn't significantly affect the cost. However, testing non-open source LLM-based applications is a different scenario. LLMs work with tokens, breaking text into small pieces like complete words, subwords, or characters. The testing cost depends on the number of tokens used. In other words, the more queries made, the higher the testing cost.
+Another big difference is the cost. Typically, testers do not give much thought to the cost of testing in their daily work. Running regression tests, exploratory testing, or simple sanity checks multiple times doesn't significantly affect the cost. However, testing non-open source LLM-based applications is a different scenario. LLMs break text into small pieces called tokens, these can be complete words, subwords, or characters. The testing cost depends on the number of tokens used. In other words, the more queries made, the higher the testing cost.
 
 ## **Testing Metrics to Evaluate LLM-Based Applications**
 
