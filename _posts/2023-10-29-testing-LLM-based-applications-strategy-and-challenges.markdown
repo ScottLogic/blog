@@ -172,6 +172,6 @@ Following test execution, the LangChain evaluator offers details of its evaluati
 
 ## **Conclusion**
 
-Thoroughly testing LLM-based applications can result in a lengthy checklist. The emergence of Generative AI technology opens up a new space for testers to explore. In recent years, specialised toolkits like Azure Prompt Flow and LangSmith have surfaced. We agree that using a language model to test another language model-based app is a sensible solution. However, because of the non-deterministic nature of the system under test, running test suites multiple times, and looking at the both the average aggregate pass/fail trend over time, and variablity of individual test failures is a better way to evaluate performance.
+Thoroughly testing LLM-based applications can result in a lengthy checklist. The emergence of Generative AI technology opens up a new space for testers to explore. This is an area in its infancy, but specialised testing toolkits such as Azure Prompt Flow and LangSmith are starting to emerge. Using a language model to test another language model-based app is a sensible solution, and because of the non-deterministic nature of the system under test, running test suites multiple times, and looking at the both the average aggregate pass/fail trend over time, and variablity of individual test failures is a good way to evaluate performance.
 
 
