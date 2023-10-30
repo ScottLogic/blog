@@ -1,0 +1,25 @@
+name: Compress Images Once a Month - Creates Pull Request
+
+on:
+  schedule:
+    - cron: '0 0 1 * *'
+
+jobs:
+  compress-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Compress Images
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          compressOnly: true
+      - name: Create New Pull Request
+        if: steps.calibre.outputs.markdown != ''
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Auto Compressed Images
+          branch-suffix: timestamp
+          commit-message: Auto Compressed Images
+          body: ${{ steps.calibre.outputs.markdown }}

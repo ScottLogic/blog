@@ -92,10 +92,9 @@ layout: default
       <div class="cell post-content">
         {{ content }}
       </div>
-
-      {% include read_more.html author=author authorUsername=authorUsername page=page %}
-
+      
       {% if site.data.related contains post.url %}
+        {% include read_more.html author=author authorUsername=authorUsername page=page %}
         {% assign related = site.data.related[post.url] %}
         {% assign posts = site.posts | where_exp:"item", "item.url == related[0]" %}
         {% include post_summary_list.html posts=posts hideCategory=true %}
