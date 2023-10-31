@@ -6,7 +6,8 @@ categories:
 - UX Design
 summary: This blog post explores how important UX Design is in the ever-growing software industry and how even tech giants can get it wrong sometimes. 
 author: wduncan
-image: "/uploads/importance-of-ux.webp"
+layout: default_post
+image: /uploads/importance-of-ux.webp
 ---
 
 ## Half-a-trillion-dollar industry
