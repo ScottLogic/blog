@@ -1,6 +1,6 @@
 ---
 title: 'Getting ready for AI in government: a guide for data-literate leaders'
-date: 2023-10-20 14:29:00 Z
+date: 2023-10-30 14:29:00 Z
 categories:
 - Artificial Intelligence
 tags:
