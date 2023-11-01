@@ -11,7 +11,7 @@ image: "/uploads/importance-of-ux.webp"
 
 ## Half-a-trillion-dollar industry
 
-In 2022 the software industry’s market size was valued at USD 583.47 billion and is expected to grow at a rate of 11.5% annually over the next 6 years [source](https://www.grandviewresearch.com/industry-analysis/software-market-report). By 2030, the global market revenue forecast is set to exceed 1.3 trillion dollars. This means there are software companies being started all the time, resulting in an abundance of software solutions and fierce competition to get it right the first time. And if they don’t, and another business is doing it better, users will ultimately make the switch, and they’ll lose out on a huge slice of that big pie. This is where UX comes in.
+In 2022 the software industry’s market size was valued at USD 583.47 billion and is expected to grow at a rate of 11.5% annually over the next 6 years. [source](https://www.grandviewresearch.com/industry-analysis/software-market-report) By 2030, the global market revenue forecast is set to exceed 1.3 trillion dollars. This means there are software companies being started all the time, resulting in an abundance of software solutions and fierce competition to get it right the first time. And if they don’t, and another business is doing it better, users will ultimately make the switch, and they’ll lose out on a huge slice of that big pie. This is where UX comes in.
 
 ## What is User Experience (UX)? 
 
