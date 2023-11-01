@@ -33,8 +33,6 @@ The code examples given in this article are all written in [Kotlin](https://kotl
 
 You can design an Android app any way you like, however Google has published several guides on what they consider to be the optimal app design. This diagram shows my interpretation of these guides.
 
-![Android Architecture Overview](%7B%7Bsite.baseurl%7D%7D/jporter/assets/ArchitectureOverview.png)
-
 At the top there is an activity. Only one of these can be active at once, and they serve as entry points to the app. Next there are fragments, which are reusable layouts like activities, but differ in that they can be embedded within activities, or other fragments. As activities and fragments are very similar (they are both essentially a page), there is some discussion online about where a single-activity (and multiple fragment) or multi-activity (and single fragment) app is best. The conclusion I have come to is that you should have one activity for every entry point to the app that you need and use fragments for all other use cases. On my first Android project, my team and I designed our app to have two activities; a login activity and a main app activity. The latter contained fragments for various pages, and each of these in turn contained more fragments for smaller components of the UI.
 
 The next level down from a fragment is a view. Every component on the screen is a view, from text boxes to lists to buttons. These views are controlled from within an activity or fragment and receive their data from view models. Each fragment or activity that needs to display data in views has a corresponding view model to provide that data. The distinction between view and view model comes from the [Model-View-Controller (MVC)](https://www.tutorialspoint.com/design_pattern/mvc_pattern.htm) design pattern and is especially important in Android for effective testing. Unit testing cannot easily be done on Android views and components, so separating out view model code is essential. I will discuss this in more detail in a future article.
@@ -43,9 +41,7 @@ While each activity or fragment corresponds to one view model, each view model c
 
 ### Lifecycle
 
-A key concept when working with activities and fragments is [lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle). The lifecycle of an activity or fragment, or sometimes views (lifecycle owners) comprises 6 states, and a number of method calls that run at specific points after their creation or before their destruction. These states are; `CREATED`, `STARTED`, `RESUMED`, `PAUSED`, `STOPPED`, `DESTROYED`. The `onEvent(..)` methods run before their corresponding events and act as transitions between these states, as shown in the diagram below.
-
-![Android Lifecycle Overview](%7B%7Bsite.baseurl%7D%7D/jporter/assets/LifecycleOverview.png)
+A key concept when working with activities and fragments is [lifecycle](https://developer.android.com/guide/components/activities/activity-lifecycle). The lifecycle of an activity or fragment, or sometimes views (lifecycle owners) comprises 6 states, and a number of method calls that run at specific points after their creation or before their destruction. These states are; `CREATED`, `STARTED`, `RESUMED`, `PAUSED`, `STOPPED`, `DESTROYED`. The `onEvent(..)` methods run before their corresponding events and act as transitions between these states.
 
 Lifecycle aware components (such as views) will behave differently in each state. For example, LiveData will be ACTIVE only when the lifecycle owner is in the `STARTED` or `RESUMED` states. This is discussed further below, along with an explanation of what LiveData is.
 
@@ -90,8 +86,6 @@ The `data class` in this example is a [feature of the Kotlin language](https://k
 ## Resources
 
 All the content for your app should be stored within [XML files in the resources package](https://developer.android.com/guide/topics/resources/providing-resources). This includes UI layouts, colours, fonts and strings, and other resources. Layout files can correspond to an activity, fragment or view, or can be included within other layout files. [Android Studio has a visual layout editor](https://developer.android.com/studio/write/layout-editor) that you can use to design these layouts, which is a lot easier than editing the XML directly.
-
-![Layout Editor](%7B%7Bsite.baseurl%7D%7D/jporter/assets/ResourceLayoutFile.PNG)
 
 One reason resources are abstracted out of the code into separate XML files is so that different resources can be provided for different builds of the app. For example, using this system it is easy to translate your app into French or to cater to different screen sizes. In the past, all these different variants would be installed on every user's phone, but now you can publish your app as a "bundle", which allows Google Play to install only the necessary resources on a device. This can significantly reduce the size of your published app.
 

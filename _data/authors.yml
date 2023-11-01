@@ -28,6 +28,7 @@ active-authors:
   - dkerr
   - dmcnamee
   - dnicholas
+  - dscarborough
   - dogle
   - drees
   - dsmith
@@ -57,7 +58,6 @@ active-authors:
   - jporter
   - jspruce
   - jstrachan
-  - jvolmut
   - jwarren
   - jwhite
   - jwren
@@ -121,7 +121,6 @@ active-authors:
   - xchen
   - zrubin
   - zwali
-  - gsingh
 authors:
   amcgill:
     name: 'Alex McGill'
@@ -328,6 +327,10 @@ authors:
     twitter-url: "https://twitter.com/darrenpsmithweb"
     twitter-handle: darrenpsmithweb
     picture: picture.jpg
+  dscarborough:
+    name: "Dan Scarborough"
+    author-summary: "<p>I am a Developer at Scott Logic.</p>"
+    picture: picture.png
   dtheasby:
     name: "Drew Theasby"
     author-summary: "<p>Test Engineer at Scott Logic</p>"
@@ -518,7 +521,7 @@ authors:
     name: "Ken Jones"
     picture: picture.jpg
   mhowie:
-    author-summary: "I'm Scott Logic's Head of Marketing and Communications"
+    author-summary: "<p>I'm passionate about seeing things from the audiences’ perspective in all elements of communications: content marketing, internal communications, social media, email marketing - none of it works if you're not thinking about your audience's needs.</p><p>That also means considering the impact of our communications, which is why I'm learning everything I can about DEI, and I regularly speak at industry events on DEI in internal communications.</p>"
     name: "Marghaid Howie"
     picture: picture.jpg
   dhunter:

@@ -78,13 +78,15 @@ Considering that non-browser based usage of WebAssembly on the climb, it’s int
 
 The survey asked _what are you using WebAssembly for at the moment?_, allowing people to select multiple options and add their own suggestions. Here are all of the responses, with ‘Other’ including everything that only has a single response:
 
-![wasm-applications.png](/uploads/wasm-applications.png)
+![wasm-usage-update.png](/uploads/wasm-usage-update.png)
 
-Web application development is still at the top, but the gap is closing. The following chart reveals the year-on-year trends:
+Web application development is still at the top, but the gap has closed a little. The following chart reveals the year-on-year trends:
 
-![wasm-application-trends.png](/uploads/wasm-application-trends.png)
+![wasm-usage-trend-update.png](/uploads/wasm-usage-trend-update.png)
 
-Serverless is continuing to rise, but perhaps the most notable shift is the use of WebAssembly as a plugin environment. Here are some real-world examples:
+NOTE: In the 2021 / 2022 surveys, 'Serverless' was the only option for back-end usage of wasm. In 2023 this has been split into two distinct categories, hence the dotted line for Serverless in the above chart. Combining the two options from 2023 would show a minor increase in back-end usage.
+
+The most notable shift is the use of WebAssembly as a plugin environment. Here are some real-world examples:
 
 * Zellij is a developer-focussed terminal workspace that has a [WebAssembly plugin model](https://zellij.dev/news/new-plugin-system/)
 * Microsoft Flight Simulator allows you to [write add-ons as wasm modules](https://docs.flightsimulator.com/html/Programming_Tools/WASM/WebAssembly.htm)
@@ -117,7 +119,7 @@ Regarding WebAssembly proposals, the following shows which are the most desired:
 
 Threads, garbage collection and exception handling were all at the top in last year's results, and all three are at implementation (phase 3) or standardisation (phase 4) in the proposal lifecycle. This means they are ready to use, and close to finalisation.
 
-Component model is a much more early-stage proposal (phase 1), with a broad ambition to make it much easier to compose wasm modules, written in any language, at runtime. If you’re interested in the details, I’d recommend this [video from Luge Wagner](https://www.youtube.com/watch?v=phodPLY8zNE), who is leading on the proposal.
+Component model is a much more early-stage proposal (phase 1), with a broad ambition to make it much easier to compose wasm modules, written in any language, at runtime. If you’re interested in the details, I’d recommend this [video from Luke Wagner](https://www.youtube.com/watch?v=tAACYA1Mwv4), who is leading on the proposal.
 
 Regarding WASI proposals, the following shows which are the most desired:
 
@@ -160,5 +162,5 @@ Thank you to everyone who shared their thoughts, much appreciated.
 
 If you want to explore the data, feel free to [download the dataset](https://wasmweekly.news/assets/state-of-webassembly-2023.csv), please do attribute if you reproduce or use this data. You can also [discuss this post over on Reddit](https://www.reddit.com/r/programming/comments/17ax4ek/the_state_of_webassembly_2023/).
 
-
+Finally, I want to thank [Lawrence Hecht](https://www.linkedin.com/in/lawrence-hecht/), who I've worked with on a few survey / research projects previously, for his feedback on the 2023 survey. Very much appreciated!
 
