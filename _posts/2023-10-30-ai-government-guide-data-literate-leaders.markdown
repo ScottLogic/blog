@@ -83,3 +83,7 @@ Initiatives like [One Big Thing](https://moderncivilservice.blog.gov.uk/2023/07/
 So far I’ve focused a lot on the skills and qualities you can bring to bear in getting ready to harness AI. But if you’re looking for a hands-on, practical next step in order to get started and be ready, beginning with your data is a rock-solid idea. This is a hyped technology that makes an incredibly strong case for improving your data architecture, quality and stewardship. To quote Pete Chamberlin's post that I linked to earlier, “The more I use it and work on strategies for deploying it, the more I think: this requires data-plumbing-fixing activities!”
 
 I totally agree, Pete.
+
+## Find out more
+
+You can find out more here about our work helping to [transform the public sector](https://www.scottlogic.com/what-we-do/transforming-the-public-sector).
