@@ -1,6 +1,9 @@
 ---
 title: Spy Logic
 date: 2023-11-03 16:37:00 Z
+summary: Our journey of  learning about Prompt Injection Attacks, securing Generative
+  AI, and how we became undercover spies on the way.
+author: Heather Logan, Doro Hinrichs
 ---
 
 # How our whole team became undercover spies to learn about Prompt Injection Attacks
