@@ -3,7 +3,6 @@ title: 'Architecting a regenerative future: Thoughts from INTERSECTION23'
 date: 2023-09-27 19:18:00 Z
 categories:
 - ocronk
-- Sustainability
 tags:
 - sustainability
 - sustainable software

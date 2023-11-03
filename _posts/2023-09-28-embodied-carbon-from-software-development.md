@@ -2,10 +2,9 @@
 title: Being honest about Embodied Carbon from Software Development
 date: 2023-09-28 00:00:00 Z
 categories:
-- Sustainability
+- Tech
 tags:
 - Sustainability
-- Tech
 summary: Carbon emissions come in all shapes and sizes, in this blog post I talk about
   the more elusive sources of embodied carbon from software development.
 author: jhowlett
