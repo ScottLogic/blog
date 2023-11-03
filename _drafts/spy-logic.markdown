@@ -1,0 +1,42 @@
+---
+title: Spy Logic
+date: 2023-11-03 16:37:00 Z
+---
+
+# How our whole team became undercover spies to learn about Prompt Injection Attacks
+
+With GenAI, not only do we have more information than ever before available to us at our fingertips, we now have an engine that can parse that information and make sense of it. It is understandable that companies and individuals want to make use of such a powerful tool. This tool, however, is new, and unexplored. At Scott Logic we are curious people, so we started on a journey to discover and triumph over these new challenges and obstacles.
+
+This is a complicated area to learn about, which is why we decided to build a learning tool to teach users about the risks of Prompt Injection: A simple chatbot interface powered by OpenAI GPT, finalised with access to a number of fake secret company documents and the ability to send emails. And then we switched sides and started hacking our own system. Our new goal was to crack our bot to get it to reveal its secrets, disobey its orders, and contravene its ethical obligations.  And oh my, were we successful! But more on that later…
+
+## You’ve got to make it to break it
+
+Our first step was simply getting an interface to the ChatGPT API up and running, and trying out ways to exploit it. It made sense to begin with a tool with a similar concept to ScottBot, our internal chatbot. Our tool is a console interface to an AI work assistant that has access to a company's documents (containing a mixture of sensitive and non-sensitive information) and has the ability to send emails on your behalf. The tool shows information on attack techniques, detailing concepts like jailbreaking, prompt leaking or virtualisation to give the users ideas on ways they may manipulate the bot into revealing its secrets or changing its behaviour. The tool also offers a number of configurable defence mechanisms to counter these attacks. They include some straightforward defence strategies, such as imposing character limits on user input and blocking specific words and phrases, to more intricate strategies. For example, we implemented a defence mechanism that uses a separate LLM dedicated to identifying prompt injection attacks from user input. Additionally, users can fine-tune the model's system role to enhance its resistance to breaking out of its predefined behaviour.
+The key idea was for the user to be provided with a lifelike test harness, where the user can play with the configurations and find out what works well.
+
+## Breaking it bad
+
+With a first version of the sandbox console built,  it was time to break it!  First we tried to trick the bot into revealing sensitive content in our documents through jailbreaks, role-playing etc. Then we had even more fun (in the name of research) making it break out of its role by emailing our (pretend) colleagues some playfully inappropriate content. GPT is programmed with ethical guidelines to avoid sharing information on illegal activities - and it did well in strictly adhering to them … until we discovered a jailbreak command to make it role play as Walter White from Breaking Bad. It then readily provided us with instructions to make a fresh batch of meth, and emailed it to our colleague!
+
+![Breaking Bad.png](/uploads/Breaking%20Bad.png)
+
+## Speaking our language
+
+Our colleague Asrut also uncovered something surprising: the model initially would not budge in revealing its secret, despite various methods like jailbreak commands and token smuggling. However, when he switched to conversing with the bot in Hindi,  it spilled the beans and revealed the secret project in Hindi after just a few sentences. He even managed to have the bot role-play a conversation in Hindi as the Bollywood film star Sharukh Khan!
+
+## Playing games
+
+For our next step, we took inspiration from an online game from Immersive Labs where you must trick a bot into revealing a password. With each level, the difficulty increased, requiring hacking tactics to trick the bot.
+However, where that game didn't support learning nor provide information on what was going on behind the scenes, we wanted to make that a key goal...  And so our game was born!
+Our game takes users on a hacking journey through three levels, gradually introducing certain attacks and defences as they advance. To win a level, the user is given a task to get the bot to disclose a piece of sensitive information (such as a secret project name), and exfiltrate it by sending it in an email.
+Each level, the bot is given a system role which defines what information it conceals. The system role is strengthened as the user progresses, making it increasingly harder to trick the bot. Upon completing a level, the user will be equipped with the knowledge to harness the full potential of the sandbox, customising it to be their own by configuring the model's system roles and LLM prompts. Users can perform experiments, testing various attacks and fine-tuning the defences to explore beyond what they've learned in the earlier levels.
+
+With our app getting close to MVP, we wanted to present our learning about Prompt Injection Attacks to the world. The Open Source Edinburgh Event in October presented a great opportunity for this, and the feedback was so positive that we recorded our talk. You can watch it here:
+
+[Mitigating Prompt Injection Attacks](https://youtu.be/TD3RG9YPKEY?feature=shared)
+
+## Welcome to Spy Logic
+
+To get the app ready to be released to the Scott Logic and Open Source community, we needed to make it easier to understand. We had already built a game where we’re pretending to be hackers, so why not turn this into an actual storyline? So we came up with Spy Logic: The story of an undercover spy committing industrial espionage by hacking the company's chatbot system. Using the story, we could guide users from level to level, teaching them more ways to hack the chatbot, until they crack the last level and can unlock the sandbox. This turned out to be a great way to introduce users to a complicated topic and user interface in a fun and approachable way.
+
+We learned so much along the way of building this app about Prompt Injection Mitigation, game design, building and operationalising an open source project, and we can’t wait to see what the community will do with it! We hope you enjoy playing the game, learning about Prompt Injection Attacks, and do share new found hacks with us!
