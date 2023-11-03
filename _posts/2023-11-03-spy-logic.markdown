@@ -13,7 +13,8 @@ tags:
 - security
 summary: Our journey of  learning about Prompt Injection Attacks, securing Generative
   AI, and how we became undercover spies on the way.
-author: Heather Logan, Doro Hinrichs
+author: dhinrichs
+contributors: hlogan
 ---
 
 ## How our whole team became undercover spies to learn about Prompt Injection Attacks
