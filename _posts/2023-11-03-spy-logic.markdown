@@ -12,6 +12,7 @@ tags:
 - generative AI
 - security
 - ChatGPT
+- chatbot
 summary: Our journey of  learning about Prompt Injection Attacks, securing Generative
   AI, and how we became undercover spies on the way.
 author: dhinrichs
