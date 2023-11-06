@@ -19,7 +19,7 @@ The way we work and the culture we create is vitally important, not only to the 
 
 What do we mean by a blameless culture? A blameless culture is an environment in which everyone feels safe to make mistakes or to fail to achieve goals. More than that, it's an environment in which teams accept as a given that everyone is trying their best.
 
-That isn't to say that teams should be happy with not achieving goals or making mistakes, nor should they ignore them. Rather, it's important to focus on the underlying cause of problems, on understanding them with an aim to avoiding them in the future, over pointing fingers.
+That isn't to say that teams should be happy with not achieving goals or making mistakes, nor should they ignore them. It also doesn't mean that from a leadership perspective we can't give feedback on performance, both positive and negative. Rather, it's important to focus on the underlying cause of problems, on understanding them with an aim to avoiding them in the future, over pointing fingers.
 
 ## What happens if it is not present?
 
@@ -46,7 +46,7 @@ If these are the risks, what are the solutions? How do we foster and promote a b
 
 This concept is fundamental to fostering a blameless culture and should be reiterated at the start of every retrospective to ensure that team members really understand they are safe to raise issues and talk about problems without blame or judgement.
 
-Alongside this, it is important to take this attitude with you outside the Retrospective. When there are problems and setbacks, ensure you are focused on how to solve them and learn from them and not on whose fault it was. It can be useful even to celebrate mistakes, to call out the value in finding issues early or understanding the holes in a system or process before it becomes a bigger issue.
+Alongside this, it is important to take this attitude with you outside the Retrospective. In reality, we all know that it may not always be true to say everyone is doing their best however, it's beneficial for the whole team to proceed under the assumption that this is the case. When there are problems and setbacks, ensure you are focused on how to solve them and learn from them and not on whose fault it was. It can be useful even to celebrate mistakes, to call out the value in finding issues early or understanding the holes in a system or process before it becomes a bigger issue.
 
 Lastly, it's important that leadership does more than just pay lip service to this concept, that they are seen to be genuinely promoting it. If team members see mistakes and setbacks being handled without finger pointing and that there is a genuine desire to simply understand and learn from the problems as a team, they will be more confident in their work and more effective as a team.
 
