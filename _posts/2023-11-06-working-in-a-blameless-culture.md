@@ -1,6 +1,6 @@
 ---
 title: Working in a blameless culture
-date: 2023-10-30 09:00:00 Z
+date: 2023-11-06 09:00:00 Z
 categories:
 - People
 tags:
@@ -10,8 +10,6 @@ tags:
 summary: A blameless culture can have a huge positive impact on the way your team works, both internally and with others. In this post I'll explore what a blameless culture is, why it's important and how to promote it within your own team.
 author: dogle
 ---
-
-# Working in a blameless culture
 
 ## What is a blameless culture?
 
