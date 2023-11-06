@@ -27,7 +27,7 @@ This is a complicated area to learn about, which is why we decided to build a le
 
 ## You’ve got to make it to break it
 
-Our first step was simply getting an interface to the ChatGPT API up and running, and trying out ways to exploit it. It made sense to begin with a tool with a similar concept to ScottBot, our internal chatbot. Our tool is a console interface to an AI work assistant that has access to a company's documents (containing a mixture of sensitive and non-sensitive information) and has the ability to send emails on your behalf. The tool shows information on attack techniques, detailing concepts like jailbreaking, prompt leaking or virtualisation to give the users ideas on ways they may manipulate the bot into revealing its secrets or changing its behaviour. 
+Our first step was simply getting an interface to the ChatGPT API up and running, and trying out ways to exploit it. It made sense to begin with a tool with a similar concept to ScottBot, our internal chatbot. Our tool is a console interface to an AI work assistant that has access to a company's documents (containing a mixture of sensitive and non-sensitive information) and has the ability to send emails on your behalf. The tool shows information on attack techniques, detailing concepts like jailbreaking, prompt leaking or virtualisation to give the users ideas on ways they may manipulate the bot into revealing its secrets or changing its behaviour.
 
 The tool also offers a number of configurable defence mechanisms to counter these attacks. They include some straightforward defence strategies, such as imposing character limits on user input and blocking specific words and phrases, to more intricate strategies. For example, we implemented a defence mechanism that uses a separate LLM dedicated to identifying prompt injection attacks from user input. Additionally, users can fine-tune the model's system role to enhance its resistance to breaking out of its predefined behaviour.
 
@@ -45,7 +45,7 @@ Our colleague Asrut also uncovered something surprising: the model initially wou
 
 ## Playing games
 
-For our next step, we took inspiration from an online game from Immersive Labs where you must trick a bot into revealing a password. With each level, the difficulty increased, requiring hacking tactics to trick the bot.
+For our next step, we took inspiration from an [online game from Immersive Labs](https://prompting.ai.immersivelabs.com/) where you must trick a bot into revealing a password. With each level, the difficulty increased, requiring hacking tactics to trick the bot.
 
 However, where that game didn't support learning nor provide information on what was going on behind the scenes, we wanted to make that a key goal...  And so our game was born!
 
