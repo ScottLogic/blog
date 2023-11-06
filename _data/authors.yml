@@ -43,6 +43,7 @@ active-authors:
   - hashbyha
   - hbedford
   - hbellamy
+  - hlogan
   - hubinf
   - jarnstein
   - jbeckles
@@ -387,6 +388,10 @@ authors:
   hbellamy:
     name: "Harry Bellamy"
     author-summary: "<p>I am a Lead Developer at Scott Logic.</p>"
+  hlogan:
+    author-summary: 'I''m a developer at Scott Logic, Glasgow with a background in data science and Java/Python development.'
+    name: 'Heather Logan'
+    picture: picture.jpg
   hgoode:
     name: "Harry Goode"
     picture: picture.jpg
