@@ -1168,8 +1168,8 @@ authors:
     picture: dgrew_author_picture.png
   dhinrichs:
     name: "Doro Hinrichs"
-    author-summary: "I am a Graduate Developer at Scott Logic, based in the Edinburgh office. Originally from Germany, I found a home in Glasgow while studying Psychology. I pursued a career in mental health before transitioning into software development, where I enjoy bringing a people-focused approach to coding. Outside of work, you can find me surrounded by plants, playing football, or working on a DIY project."
-    picture: profile.png
+    author-summary: "Associate Developer based in Edinburgh. As a developer with a psychology background, I enjoy bringing a people-focused approach to coding."
+    picture: dhinrichs.jpg
   pburgess:
     name: "Paul Burgess"
     author-summary: "I'm a Lead Developer at Scott Logic and am passionate about using technology to solve real world problems.\n\nI use a wide range of languages and write about TypeScript, JavaScript, React, C# and .NET as well as how to best work together as a project team to deliver solutions."
