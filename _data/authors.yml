@@ -103,6 +103,7 @@ active-authors:
   - sbreingan
   - sburnstone
   - sforeshew-cain
+  - sgladstone
   - shamiltonritchie
   - shunton
   - slaing
@@ -1335,3 +1336,8 @@ authors:
     email: wduncan@scottlogic.com
     picture: picture.JPG
     author-summary: "<p>I'm a Senior UX designer at Scott Logic, based in Edinburgh. I love building websites, designing apps and watching football!</p>"
+  sgladstone:
+    name: 'Sam Gladstone'
+    email: sgladstone@scottlogic.com
+    author-summary: "I'm a developer based out of our Bristol office. I'm a bit of a generalist; I like to get stuck into a range of problems from the business side to anywhere across the tech stack."
+    picture: Image.png
