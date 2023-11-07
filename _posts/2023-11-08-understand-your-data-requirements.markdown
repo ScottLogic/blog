@@ -1,6 +1,5 @@
 ---
 title: Understand your data requirements
-date: 2023-10-26 10:00:00 Z
 categories:
 - Data Engineering
 tags:
