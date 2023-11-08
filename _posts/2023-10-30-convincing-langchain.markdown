@@ -27,8 +27,10 @@ Being new to the team, I was given the task of creating a new tool to make the b
 When a user asks a question to Scottbot, the request is passed onto the LangChain “agent”. The agent, which is the decision maker of the bot, is really an LLM with some boilerplate prompts, guiding it to reason and therefore enabling it to make decisions. This agent identifies key ideas in users’ questions, looks at all the tools we have put at its disposal (specifically the tools’ titles and descriptions), and then combined with the system prompt and the optional agent instructions, decides on which tool to use. 
 
 <img src='{{ site.github.url }}/jwarren/assets/2023-10-30-convincing-langchain/system-prompt.png' title="System Prompt" alt="Scottbot System Prompt" />
+*Our system prompt*
 
 <img src='{{ site.github.url }}/jwarren/assets/2023-10-30-convincing-langchain/Scott-Logic-tool.png' title="The Scott Logic tool" alt="Scottbot's Scott Logic tool's code" />
+*The Scott Logic tool*
 
 
 Each tool is connected to a distinct source of data (for example a calculatorAPI, or Google’s Serper) and will query this data source when the tool is called. After calling the tool, the return value of the tool is processed, the agent decides whether the answer to the question has been found, or whether another step must be taken (another tool utilised), and if it does deem the answer worthy, returns the response through an LLM to give a seamless reply.
@@ -47,8 +49,8 @@ My next thought was that the overarching system prompt leaned heavily towards us
 
 After further research on agents, the idea of “agent instructions” surfaced. For some, this had been useful for guiding the agent’s decision. I started with a subtle prompt “Use the relevant tool before reverting to Scott Logic tool. With no avail, I tried again with another direct command “if there is any mention of Scottbot, use the Scottbot tool”. Still no luck.
 
-In this example, the agent tries to use the ScottLogic tool, does not find any information and then tries the Scottbot Tool.
 <img src='{{ site.github.url }}/jwarren/assets/2023-10-30-convincing-langchain/invoke-scottlogic-tool.png' title="Agent invoking the Scott Logic tool " alt="Scott Logic tool invocation" />
+*In this example, the agent tries to use the ScottLogic tool, does not find any information and then tries the Scottbot Tool.*
 
 
 **Success**
@@ -59,10 +61,10 @@ I know what you may be thinking, “doesn’t the LLM just hallucinate, you can�
 
 This outcome also highlights the importance of giving examples, or “few shot prompting” as it’s called in AI jargon. This gives the agent a context for the type of decision to make. It also highlights more obscure cases that should be taken into account, in our case, this was the tool’s knowledge of stakeholders.
 
-After having finished working on this agent, it has now come to light that it is possible to log the inner workings of LangChain, through tracing tools such as [WandB](https://python.langchain.com/docs/integrations/providers/wandb_tracing). Therefore we would simultaneously have no need to question the bot for its own thought process, whilst having a more accurate insight. However asking for aid in developing prompts remains relevant and useful.
+After having finished working on this agent, it has now come to light that it is possible to log the inner workings of LangChain if we used a different agent model. We are currently using 'OpenAI Functions' as our agent type, a choice made because of its superior speed and accuracy. However, it is a blackbox which we cannot see through to the inner thinking, whereas if we used a different model such as Zero-shot ReAct, we would see this thought processed logged out.
 
-A successful response
 <img src='{{ site.github.url }}/jwarren/assets/2023-10-30-convincing-langchain/scott-reply.png' title="A successful Scottbot reply" alt="A successful Scottbot reply to 'what are Scottbot's abilities?'" />
+*A successful response*
 
 
 **Conclusion**
