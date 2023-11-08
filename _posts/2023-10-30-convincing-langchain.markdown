@@ -61,10 +61,11 @@ I know what you may be thinking, “doesn’t the LLM just hallucinate, you can�
 
 This outcome also highlights the importance of giving examples, or “few shot prompting” as it’s called in AI jargon. This gives the agent a context for the type of decision to make. It also highlights more obscure cases that should be taken into account, in our case, this was the tool’s knowledge of stakeholders.
 
-After having finished working on this agent, it has now come to light that it is possible to log the inner workings of LangChain if we used a different agent model. We are currently using 'OpenAI Functions' as our agent type, a choice made because of its superior speed and accuracy. However, it is a blackbox which we cannot see through to the inner thinking, whereas if we used a different model such as Zero-shot ReAct, we would see this thought processed logged out.
 
 <img src='{{ site.github.url }}/jwarren/assets/2023-10-30-convincing-langchain/scott-reply.png' title="A successful Scottbot reply" alt="A successful Scottbot reply to 'what are Scottbot's abilities?'" />
 *A successful response*
+
+After having finished working on this agent, it has now come to light that it is possible to log the inner workings of LangChain if we used a different agent model. We are currently using 'OpenAI Functions' as our agent type, a choice made because of its superior speed and accuracy. However, it is a blackbox which we cannot see through to the inner thinking, whereas if we used a different model such as the 'Zero-shot ReAct' type, we would see its thought processed logged.
 
 
 **Conclusion**
