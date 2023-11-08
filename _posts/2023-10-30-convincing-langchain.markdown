@@ -3,8 +3,6 @@ title: How To Convince LangChain To Use The Correct Tool
 date: 2023-10-30 9:00:00 Z
 categories:
 - Artificial Intelligence
-- tech
-- jwarren
 tags:
 - Artificial Intelligence
 - llm
