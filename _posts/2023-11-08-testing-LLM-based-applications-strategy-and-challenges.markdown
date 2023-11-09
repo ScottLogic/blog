@@ -20,7 +20,7 @@ In this post, I’m going to cover some of the challenges posed by testing AI ap
 
 * Non-determinism in tests
 * Costs of running tests
-* Statistical nature of AI testing - i.e. not having 100% pass rate is normal
+* Statistical nature of AI testing - i.e, not having 100% pass rate is normal
 
 ## **Testing LLM-Based vs. Traditional Apps**
 As a testing professional with years of experience, I usually approach software testing with confidence. However, this time, in the face of testing a Generative AI powered, LLM(Large Language Model)-based application, I find myself confronting unusual challenges.
@@ -33,7 +33,7 @@ Another big difference is the cost. Typically, testers do not give much thought 
 
 LLM-based applications encompass a variety of implementation formats, each specifically designed to tackle different tasks. Some of the most common applications include chatbots for interactive conversations, code generation and debugging, abstractive or extractive summarisation, text classification, sentiment analysis, language translation, and content generation. Different applications require specific test approaches to verify quality. 
 
-The quality of LLM-based applications heavily relies on the quality of the model. A higher-performing model will undoubtedly produce more satisfying results. There are essentially two types of models. The first type is proprietary, such as OpenAI's GPT-3.5 and GPT-4, which appears as a black box to users but excels in handling complex tasks with higher performance. The second type is open source models, which may permit you to train them with your own specific data in addition to the language model. Model version, and prompt parameters, such as temperature, will also be essential in influencing the eventual output.
+The quality of LLM-based applications heavily relies on the quality of the model. A higher-performing model will undoubtedly produce more satisfying results. There are essentially two types of models. The first type is proprietary, such as OpenAI's GPT-3.5 and GPT-4, which appears as a black box to users but excels in handling complex tasks with higher performance. The second type is open-source models, which may permit you to train them with your own specific data in addition to the language model. Model version, and prompt parameters, such as temperature, will also be essential in influencing the eventual output.
 
 The following testing metrics provide comprehensive measurements of the quality of LLM-based applications.
 
@@ -42,31 +42,24 @@ The following testing metrics provide comprehensive measurements of the quality 
 
 ## **Testing Strategy on LLM-Based Applications**
 
-<<<<<<< HEAD:_posts/2023-11-12-testing-LLM-based-applications-strategy-and-challenges.md
+
 Researchers commonly utilise standard metrics to assess traditional language models. These metrics include [Perplexity (PPL)](https://medium.com/unpackai/perplexity-and-accuracy-in-classification-114b57bd820d), [BLEU](https://machinelearningmastery.com/calculate-bleu-score-for-text-python/), and [ROUGE](https://medium.com/nlplanet/two-minutes-nlp-learn-the-rouge-metric-by-examples-f179cc285499). However, these metrics are not typically applicable for evaluating applications in production that utilise LLM as a third-party service. We are not evaluating the language modle itself, but verify the application meets our requirements. 
-=======
-Researchers commonly utilise standard metrics to assess traditional language models. These metrics include Perplexity (PPL), BLEU, and ROUGE. However, these metrics are not typically applicable for evaluating applications in production that utilise an LLM as a third-party service.
->>>>>>> 163dd84a25c580a102ef37a427f33133ce87b9d0:_posts/2023-10-29-testing-LLM-based-applications-strategy-and-challenges.markdown
+
 
 To assess the correctness of LLM-based applications, the test cases should encompass fundamental use cases tailored to the application, while also taking into account potential user behaviours. In simpler terms, test cases should reflect what users intend to accomplish. Customised applications often include embedding domain-specific terminologies and knowledge, within an existing baseline LLM. The test cases should primarily address domain-specific scenarios.
 
 ### **Use Case Study: Testing Scottbot**
 
-<<<<<<< HEAD:_posts/2023-11-12-testing-LLM-based-applications-strategy-and-challenges.md
+
 In this section, I will showcase the testing methodologies by using our customised chatbot, Scottbot, as an example. Scottbot is a Scott Logic domain-specific chatbot powered by GPT technology. As it has the capability to connect to our intranet, which serves as our internal knowledge base, Scottbot is able to access and retrieve information from our organisation's internal Confluence pages, providing the data essential for users' enquires. In addition, it utilises Google and Wikipedia to respond to queries in natural language. 
-=======
-In this section, I will present the testing methodologies by using our customised chatbot, Scottbot, as an example. Scottbot is a Scott Logic domain-specific chatbot powered by GPT technology. It has embedded access to Scott Logic’s internal Confluence pages. In addition, it utilises Google and Wikipedia to respond to more general queries. 
->>>>>>> 163dd84a25c580a102ef37a427f33133ce87b9d0:_posts/2023-10-29-testing-LLM-based-applications-strategy-and-challenges.markdown
+
 
 The main objective of testing Scottbot is to guarantee accurate and meaningful responses to user queries. This involves system testing at various levels, with a focus on end-to-end scenarios. Functional testing is carried out through the pytest automation framework, supplemented by manual verification. Security testing primarily depends on manual verification to ensure Scottbot's robustness and compliance with legal and ethical requirements. Performance testing is currently not executed but remains a consideration for future assessments.
 
 As we use pytest as the automation framework, [pytest-bdd](https://pytest-bdd.readthedocs.io/en/stable/) is a natural choice to give us a BDD style for all of our scenarios. As Scottbot is deployed on Azure, automated tests can be executed through its CI/CD pipeline. Azure also provides a dashboard for monitoring and reporting the test results.
 
-<<<<<<< HEAD:_posts/2023-11-12-testing-LLM-based-applications-strategy-and-challenges.md
 We can tweak certain parameters to reduce the creativity of a chatbot. However, there is still no absolute consistency in the output, even when setting the temperature to zero. Based on Generative AI's non-deterministic feature, we can't do the exact match for the test results. A good solution to solve this issue is to introduce the LangChain string evaluators which will use a specified language model to evaluate a predicted string for a given input. We use correctness_evaluator and confidence_evaluator in our tests. 
-=======
-Based on Generative AI's non-deterministic feature, we can't do the exact match for the test results. A good solution to solve this issue is to introduce the LangChain string evaluators which uses a specified language model to evaluate a predicted string for a given input. We use LLMs via this evaluator framework to evaluate both the correctness and the confidence of the responses in our tests. 
->>>>>>> 163dd84a25c580a102ef37a427f33133ce87b9d0:_posts/2023-10-29-testing-LLM-based-applications-strategy-and-challenges.markdown
+
 
 #### **1. Verify the Factual Correctness of the Responses**
 It ensures that the information provided by LLM applications aligns with real-world facts. Hallucination is a weakness of LLM. As a result, accuracy is crucial, particularly in customised applications, as information must be sourced from a reliable domain knowledge base to reduce the impact of hallucination. If users don't give context, Scottbot will assume their questions are about Scott Logic and try to find answers from Scott Logic's Confluence pages, and always cite all of the Scott Logic Confluence sources. Otherwise it will use internet as the information source. So the tests should be made to check if the expected source is chosed.
