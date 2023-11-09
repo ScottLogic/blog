@@ -2,11 +2,12 @@
 title: The Sustainable Computing Ecosystem
 date: 2023-11-09 11:07:00 Z
 categories:
-- sustainability
+- Sustainability
 - Tech
 tags:
 - sustainable software
-- sustainability
+- Sustainability
+- Tech
 summary: 'Part of the Conscientious Computing series this blog talks about the emerging
   ecosystem of organisations that are promoting sustainability within software development,
   cloud computing, infrastructure, and digital services.'
