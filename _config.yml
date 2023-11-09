@@ -29,7 +29,6 @@ canonical:
 scottlogic:
   url: https://www.scottlogic.com
 permalink: "/:year/:month/:day/:title.html"
-safe: true
 twitter_handle: Scott_Logic
 plugins:
 - jekyll-redirect-from
