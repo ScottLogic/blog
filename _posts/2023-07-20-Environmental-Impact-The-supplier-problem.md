@@ -3,6 +3,7 @@ title: Environmental Impact – The supplier problem
 date: 2023-07-20 00:00:00 Z
 categories:
 - People
+- Sustainability
 summary: Those involved in managing organisations' environmental impact often point
   to the 'supply chain challenge', that is, the difficulty of measuring the GHG emissions
   associated with suppliers' goods and services. But most businesses are themselves

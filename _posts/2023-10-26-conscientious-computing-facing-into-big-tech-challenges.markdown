@@ -2,8 +2,11 @@
 title: Conscientious Computing - facing into big tech challenges
 date: 2023-10-26 10:42:00 Z
 categories:
+- architecture
 - Sustainability
 - ocronk
+- Tech
+- cloud
 tags:
 - sustainable software
 - Sustainability
