@@ -2,9 +2,10 @@
 title: A guide to Software Sustainability terminology
 date: 2023-09-12 00:00:00 Z
 categories:
-- Tech
+- Sustainability
 tags:
 - Sustainability
+- Tech
 summary: You think software has enough variables, right? Well there is another one
   that has become a big consideration when designing, developing and deploying software
   and its name is Sustainability. This area of consideration comes with its own terminology

@@ -3,7 +3,12 @@ title: Tools for measuring Cloud Carbon Emissions
 date: 2023-10-19 00:00:00 Z
 categories:
 - dsmith
+- Sustainability
 - Cloud
+tags:
+- Cloud
+- Sustainability
+- featured
 summary: In this post I'll discuss ways of estimating the emissions caused by your
   Cloud workloads as a first step towards reaching your organisation's Net Zero goals.
 author: dsmith
