@@ -8,6 +8,7 @@ categories:
 tags:
 - Cloud
 - Sustainability
+- featured
 summary: In this post I'll discuss ways of estimating the emissions caused by your
   Cloud workloads as a first step towards reaching your organisation's Net Zero goals.
 author: dsmith
