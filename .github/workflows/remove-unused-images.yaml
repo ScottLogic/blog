@@ -6,7 +6,7 @@ on:
       - gh-pages
 
 jobs:
-  generate-read-more:
+  remove-unused-images:
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout
