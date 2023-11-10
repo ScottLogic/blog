@@ -1,18 +1,5 @@
-/* Colours  */
-$white: #fff;
-$black: #252525;
-/* TEAL */
-$teal: #2bb3bb;
-$light-teal: #dff4f5;
-/* ORANGE */
-$light-orange: #fdede4;
-$orange: #ef8547;
-/* PINK */
-$light-pink: #f9eaf1;
-$pink: #c41565;
-/* YELLOW */
-$light-yellow: #fef9ef;
-$yellow: #f8be4f;
+@use 'colours';
+
 /* Colours --- Mixin
     Add classes with the mixin to assign colours to certain elements. Have added one here to use as aexample
 */
@@ -28,17 +15,17 @@ $yellow: #f8be4f;
 /* Add one of these classes to the BODY tag to assign a pallete for the page */
 // TEAL COLOUR SCHEME
 .teal-colour-scheme {
-    @include colour-scheme($light-teal, $teal, $white, $black);
+    @include colour-scheme(colours.$light-teal, colours.$teal, colours.$white, colours.$black);
 }
 // ORANGE COLOUR SCHEME
 .orange-colour-scheme {
-    @include colour-scheme($light-orange, $orange, $white, $black);
+    @include colour-scheme(colours.$light-orange, colours.$orange, colours.$white, colours.$black);
 }
 // PINK COLOUR SCHEME
 .pink-colour-scheme {
-    @include colour-scheme($light-pink, $pink, $white, $white);
+    @include colour-scheme(colours.$light-pink, colours.$pink, colours.$white, colours.$white);
 }
 // YELLOW COLOUR SCHEME
 .yellow-colour-scheme {
-    @include colour-scheme($light-yellow, $yellow, $white, $black);
+    @include colour-scheme(colours.$light-yellow, colours.$yellow, colours.$white, colours.$black);
 }

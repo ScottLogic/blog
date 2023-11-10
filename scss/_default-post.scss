@@ -1,23 +1,25 @@
+@use 'colours';
+
 .default-post {
 
   &.teal {
-    @include hero-colour-scheme($light-teal, $teal, $white);
-    @include article-colour-scheme($teal, $black);
+    @include hero-colour-scheme(colours.$light-teal, colours.$teal, colours.$white);
+    @include article-colour-scheme(colours.$teal, colours.$black);
   }
 
   &.orange {
-    @include hero-colour-scheme($light-orange, $orange, $white);
-    @include article-colour-scheme($orange, $black);
+    @include hero-colour-scheme(colours.$light-orange, colours.$orange, colours.$white);
+    @include article-colour-scheme(colours.$orange, colours.$black);
   }
 
   &.pink {
-    @include hero-colour-scheme($light-pink, $pink, $white);
-    @include article-colour-scheme($pink, $white);
+    @include hero-colour-scheme(colours.$light-pink, colours.$pink, colours.$white);
+    @include article-colour-scheme(colours.$pink, colours.$white);
   }
 
   &.yellow {
-    @include hero-colour-scheme($light-yellow, $yellow, $white);
-    @include article-colour-scheme($yellow, $black);
+    @include hero-colour-scheme(colours.$light-yellow, colours.$yellow, colours.$white);
+    @include article-colour-scheme(colours.$yellow, colours.$black);
   }
 
   padding-top: 80px;
@@ -66,12 +68,12 @@
   .side-lists {
 
     a:hover {
-      color: $black;
+      color: colours.$black;
     }
 
     .back, .author-social-media-link {
       a:hover {
-        color: $white;
+        color: colours.$white;
       }
     }
 
@@ -85,7 +87,7 @@
   .post-content {
 
     a {
-      color: $black;
+      color: colours.$black;
       font-weight: $font-regular;
     }
 

@@ -1,3 +1,5 @@
+@use 'colours';
+
 .default-author {
   .h4 {
     font-size: 15px;
@@ -42,18 +44,18 @@
         text-align: right;
 
       a {
-        border-bottom: 3px solid $turquoise;
+        border-bottom: 3px solid colours.$teal;
       }
 
       a:hover {
-        color: $white;
-        background-color: $turquoise;
+        color: colours.$white;
+        background-color: colours.$teal;
       }
     }
 
   .blog {
     margin-bottom: 0;
-    color: $turquoise;
+    color: colours.$teal;
     font-weight: $font-bold;
   }
 

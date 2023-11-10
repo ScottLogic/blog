@@ -1,3 +1,5 @@
+@use 'colours';
+
 @mixin article-colour($colour) {
   .category {
     a:hover {
@@ -7,7 +9,7 @@
   .title {
     color: $colour;
     a:hover {
-      color: $white;
+      color: colours.$white;
       background-color: $colour;
     }
   }
@@ -46,14 +48,14 @@
     }
   }
 
-  @include article-colour($teal);
+  @include article-colour(colours.$teal);
   &.pink {
-    @include article-colour($pink);
+    @include article-colour(colours.$pink);
   }
   &.orange {
-    @include article-colour($orange);
+    @include article-colour(colours.$orange);
   }
   &.yellow {
-    @include article-colour($yellow);
+    @include article-colour(colours.$yellow);
   }
 }
