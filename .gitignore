@@ -15,3 +15,5 @@ Gemfile.lock
 /container_gem_cache/
 /dist/
 /scripts/generate-related/data/
+
+.siteleaf.yml

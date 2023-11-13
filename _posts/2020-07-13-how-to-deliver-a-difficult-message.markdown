@@ -1,10 +1,17 @@
 ---
 title: How to deliver a difficult message?
+date: 2020-07-13 00:00:00 Z
+categories:
+- fhubin
+- Delivery
+tags:
+- agile
+- scrum
+- project
+- management
+- stakeholder
 author: fhubin
 layout: default_post
-tags: agile scrum project management stakeholder management
-categories:
-- Delivery
 ---
 
 In a client-supplier relationship, communication is of paramount importance. And good communication requires transparency. A supplier in charge of a doomed project telling their client that all is going well would not be doing a very good job. Similarly, a client whose budget has been cut telling a supplier that all is well would also not be delivering the right message.

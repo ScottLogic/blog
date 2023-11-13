@@ -1,5 +1,6 @@
 ---
 title: Understand your data requirements
+date: 2023-11-07 00:00:00 Z
 categories:
 - Data Engineering
 tags:
@@ -7,7 +8,9 @@ tags:
 - CDP
 - Big Data
 - Data Strategy
-summary: This blog discusses the different data requirements that exist in a typical organisation and provides some suggestions over how to classify them and match them to technologies
+summary: This blog discusses the different data requirements that exist in a typical
+  organisation and provides some suggestions over how to classify them and match them
+  to technologies
 author: dhope
 ---
 
