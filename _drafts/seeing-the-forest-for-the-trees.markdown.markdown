@@ -12,13 +12,13 @@ I recently embarked on a journey into the world of machine learning through foll
 In order to explain what a random forest is, it would be beneficial to highlight what it is made up of: Decision Trees. Decision trees are simple structures which go through a dataset and pose yes or no questions about its content. The data is split according to the answers to these questions and further questions are asked to split up the data into ever smaller subsets.
 
 <div align="center">
-    <img src="/uploads/decision_tree.svg" width="400" height="400" title="Basic Decision Tree Diagram" alt="Basic Decision Tree Diagram"/>
+    <img src="{{ site.github.url }}/jstrong/assets/decision_tree.svg" width="400" height="400" title="Basic Decision Tree Diagram" alt="Basic Decision Tree Diagram"/>
 </div>
 
 From asking these binary questions, the decision tree allows us to get an idea of which features split the dataset most effectively. Most often, the goal is to predict a target feature of the dataset based on the rest. An example is predicting passenger survival on the Titanic. We can ask if the passenger was male or female? if they were in first class? or which port they embarked from? The effectiveness of each split may be measured by how well each side fits to the target variable. If we split by gender, how many men and women survive and therefore how accurate would a prediction be based on gender alone? Further questions aim to increase this accuracy to give a better model.
 
 <div align="center">
-<img src="/uploads/example_tree.svg" width="400" height="400" title="Titanic Example Decision Tree Diagram" alt="Titanic Example Decision Tree Diagram"/>
+<img src="{{ site.github.url }}/jstrong/assets/example_tree.svg" width="400" height="400" title="Titanic Example Decision Tree Diagram" alt="Titanic Example Decision Tree Diagram"/>
 </div>
 
 There are several parameters to consider when constructing a decision tree in order to get the best results:
@@ -52,7 +52,7 @@ One may construct a random forest as follows:
 The final average will be the prediction of the random forest. It is generally much more accurate than lone decision trees. But why is this?
 
 <div align="center">
-<img src="/uploads/tree_to_forest.svg" width="400" height="400" title="Decision Trees to Random Forest Prediction Diagram" alt="Decision Trees to Random Forest Prediction Diagram"/>
+<img src="{{ site.github.url }}/jstrong/assets/tree_to_forest.svg" width="400" height="400" title="Decision Trees to Random Forest Prediction Diagram" alt="Decision Trees to Random Forest Prediction Diagram"/>
 </div>
 
 The steps above constitute the process of 'bagging.' Bagging utilises the fact that each tree uses a different, random sample of the data. Due to this, each tree's error is unrelated to the others', that is to say that they are uncorrelated. This implies (theoretically) that the average of the errors is zero! Practically, this means we can produce a more accurate model by combining many less accurate models - an amazing ability.
@@ -64,7 +64,7 @@ The main advantage random forests have over decision trees is that they are more
 * The ensemble nature of random forests makes them harder to interpret than decision trees, where splits can be followed through and understood readily
 
 <div align="center">
-<img src="/uploads/feature_importance.svg" width="400" height="400" title="Titanic Dataset Feature Importance Bar Chart" alt="Titanic Dataset Feature Importance Bar Chart"/>
+<img src="{{ site.github.url }}/jstrong/assets/feature_importance.svg" width="400" height="400" title="Titanic Dataset Feature Importance Bar Chart" alt="Titanic Dataset Feature Importance Bar Chart"/>
 </div>
 
 The random forest is a brilliant machine-learning model which is very effective at what it does, but it is not applicable to or suitable for every situation.
