@@ -3,6 +3,7 @@ title: Seeing the Forest for the Trees
 date: 2023-11-10 09:28:00 Z
 summary: An introduction to the random forest machine learning model.
 author: jstrong
+category: Artificial Intelligence
 ---
 
 I recently embarked on a journey into the world of machine learning through following the [fast.ai](https://course.fast.ai/) course taught by Jeremy Howard as part of an internal study group. I have learnt a great deal about the inner workings of neural networks and how deep learning can produce seemingly magical results. However, one of the most interesting discoveries for me was learning about a completely different type of model: the Random Forest.
