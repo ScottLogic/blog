@@ -1,6 +1,5 @@
 ---
 title: 'Testing LLM-Based Applications: Strategy and Challenges'
-date: 2023-11-08 00:00:00 Z
 categories:
 - Testing
 tags:
