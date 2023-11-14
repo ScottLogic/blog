@@ -12,7 +12,7 @@ summary: Part of the Conscientious Computing series this blog talks about the em
   ecosystem of organisations that are promoting sustainability within software development,
   cloud computing, infrastructure, and digital services.
 author: ocronk
-image: "/uploads/greensoftware-ecosystem-024a11.png"
+image: "/uploads/conscientous%20computing2.png"
 contributors: jhowlett
 ---
 
