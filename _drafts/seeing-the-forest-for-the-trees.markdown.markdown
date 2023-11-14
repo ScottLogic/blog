@@ -68,7 +68,7 @@ The main advantage random forests have over decision trees is that they are more
 <img src="{{ site.github.url }}/jstrong/assets/feature_importance.svg" width="400" height="400" title="Titanic Dataset Feature Importance Bar Chart" alt="Titanic Dataset Feature Importance Bar Chart"/>
 </div>
 
-The random forest is a brilliant machine-learning model which is very effective at what it does, but it is not applicable to or suitable for every situation.
+The random forest is a brilliant machine learning model which is very effective at what it does, but it is not applicable to or suitable for every situation.
 
 ## Sprouting Anew
 
@@ -76,9 +76,9 @@ Random forests have been around a while - [Leo Breiman](https://en.wikipedia.org
 
 Neural networks benefit from vast amounts of data, which we continue to acquire ever more and more of, whereas performance gains from random forests begin to stagnate after a certain level. Neural networks are also generally more flexible and versatile than random forests. They can be used on all types of data including images and language data rather than the focus of random forests which concerns tabular data. Another point to consider is that random forests, given that they consist of trees, are rules-based models and not all problems can be generalised or thought of in terms of trees. Resultantly, a function-based model, that is a neural network, performs much better in such cases.
 
-Gradient boosters are often used instead of random forests for machine learning applications concerning tabular data as they are generally more accurate. They are also based on decision trees but instead of using bagging, they rather work on a principle of error-correction where the errors of initial models are trained against to improve the final model. Popular examples of gradient boosting models include [CatBoost](https://catboost.ai/) and [XGBoost](https://www.nvidia.com/en-us/glossary/data-science/xgboost/).
+Gradient boosters are often used instead of random forests for machine learning applications concerning tabular data as they are generally more accurate. They are also based on decision trees but instead of using bagging, they rather work on a principle of error correction where the errors of initial models are trained against to improve the final model. Popular examples of gradient boosting models include [CatBoost](https://catboost.ai/) and [XGBoost](https://www.nvidia.com/en-us/glossary/data-science/xgboost/).
 
-Despite its shortcomings compared to other more widely-used models, the random forest remains popular - especially for its use in studying machine learning. It is built up from the easy-to-understand decision tree, and the reasons for its increased accuracy are intuitive to comprehend therefore lending itself to use in AI education material. Aside from its pedagogical uses, the random forest model has been used in applications from fraud detection at banks, to medical imaging, to body part movement detection in the [Kinect](https://en.wikipedia.org/wiki/Kinect).
+Despite its shortcomings compared to other more widely used models, the random forest remains popular - especially for its use in studying machine learning. It is built up from the easy-to-understand decision tree, and the reasons for its increased accuracy are intuitive to comprehend therefore lending itself to use in AI education material. Aside from its pedagogical uses, the random forest model has been used in applications from fraud detection at banks, to medical imaging, to body part movement detection in the [Kinect](https://en.wikipedia.org/wiki/Kinect).
 
 ## Planting Seeds
 
