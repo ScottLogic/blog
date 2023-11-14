@@ -10,7 +10,6 @@ tags:
 - Testing with Intent
 - Accessibility
 - Embedded Accessibility
-layout: default_post
 summary: In this post, I explore an approach to testing called Testing with Intent.
   I look what the approach is—testing from the perspective of a user intending to
   do something—and the positive impacts it can have on both testing and accessibility.
@@ -18,6 +17,8 @@ summary: In this post, I explore an approach to testing called Testing with Inte
   included. Instead, you should come away with an understanding of why this topic
   is important and how you can benefit from adopting the approach.
 author: sgladstone
+image: "/uploads/Testing%20with%20intent%20-%20a%20path%20to%20embedded%20accessibility_.png"
+layout: default_post
 ---
 
 *Embedded Accessibility* is a vision of building accessible products by default. We can consider accessibility embedded when it no longer needs to be prioritised because it is already at the core of the delivery process. 
