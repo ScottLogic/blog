@@ -36,3 +36,14 @@ In our AI-driven age, I personally believe that technology serves as a powerful 
 
 Enter the Cylons... 🤖 (Sorry, only Battlestar Galactica fans will get that...) 
 
+## And the people have voted… 
+
+The debate's outcome clearly leaves a lasting impression: a whopping 80% of the audience sides with Team People, and a meagre 20% with Team Tech. It's a resounding testament to the prevailing sentiment that despite technological strides, the human touch, emotional intelligence, creativity intuition, and adaptability retain immense value. 
+
+## In the end, the debate provoked a revelation... 
+
+As we stride into the not-so-distant future, let's bear in mind that in the epic age-old saga of People vs. Technology, the real triumph lies not in opposition but in their harmonious collaboration. Each enhancing the other's capabilities in this ever-evolving dance of technological progress. Together, humans and technology can weave a tapestry of endless possibilities, propelling us towards a future brimming with innovation and unparalleled growth, but with a human touch of course... 
+
+## Find out more about the potential of AI
+
+[Harness the business potential of AI](https://www.scottlogic.com/harness-ai-business-potential).
