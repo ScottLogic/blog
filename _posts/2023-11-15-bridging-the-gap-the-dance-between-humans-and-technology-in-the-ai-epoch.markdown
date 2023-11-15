@@ -1,18 +1,16 @@
 ---
 title: 'Bridging the Gap: The Dance Between Humans and Technology in the AI Epoch'
 date: 2023-11-15 15:09:00 Z
-published: false
 categories:
 - Artificial Intelligence
 tags:
 - ChatGPT
 - AI
-summary: "I had the pleasure of attending Cvent Connect, a prominent conference for
+summary: 'I had the pleasure of attending Cvent Connect, a prominent conference for
   events and marketing professionals held in London last week. Can you guess what
-  the hottest topic for debate was? You're right, it was none other than AI and Tech!
-  \n"
+  the hottest topic for debate was? You''re right, it was none other than AI and Tech! '
 author: cstephen
-image: 
+image: "/uploads/ai%20v%20people.png"
 ---
 
 I had the pleasure of attending Cvent Connect, a prominent conference for events and marketing professionals held in London last week. Can you guess what the hottest topic for debate was? You're right, it was none other than AI and Tech! 
