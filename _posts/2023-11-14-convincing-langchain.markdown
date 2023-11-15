@@ -1,6 +1,5 @@
 ---
 title: How To Convince LangChain To Use The Correct Tool
-date: 2023-10-30 9:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
@@ -10,7 +9,6 @@ tags:
 - jwarren
 summary: Have you ever tried explaining something to a child, who pretends to understand, but in reality doesn’t have the foggiest what you’re saying? That’s the experience I’ve had with LangChain agents.
 author: jwarren
-image: "/uploads/............... .png"
 ---
 
 Have you ever tried explaining something to a child, who pretends to understand, but in reality doesn’t have the foggiest what you’re saying? That’s the experience I’ve had with LangChain agents.
@@ -24,7 +22,7 @@ Being new to the team, I was given the task of creating a new tool to make the b
 
 When a user asks a question to Scottbot, the request is passed onto the LangChain “agent”. The agent, which is the decision maker of the bot, is really an LLM with some boilerplate prompts, guiding it to reason and therefore enabling it to make decisions. This agent identifies key ideas in users’ questions, looks at all the tools we have put at its disposal (specifically the tools’ titles and descriptions), and then combined with the system prompt and the optional agent instructions, decides on which tool to use. 
 
-'''
+```
 SYSTEM_PROMPT = (
     "Scott Logic is a UK based software company. You are part of the Scott Logic organization, and all your "
     "users are Scott Logic employees and are your colleagues. If the users do not provide context, "
@@ -32,17 +30,17 @@ SYSTEM_PROMPT = (
     "Always cite all of the Scott Logic Confluence sources. Only use the Scott Logic "
     "Confluence pages for information about Scott Logic."
 )
-'''
+```
 <sup>*Our system prompt*<sup>
 
-'''
+```
 Tool(
     name="ScottLogic",
     func=guardEmptyArgument(run_query),
     description="The best source of information about Scott Logic. "
     "Use this tool to retrieve information from Scott Logic's Confluence pages.",
 )
-'''
+```
 <sup>*The Scott Logic tool*<sup>
 
 
@@ -62,12 +60,12 @@ My next thought was that the overarching system prompt leaned heavily towards us
 
 After further research on agents, the idea of “agent instructions” surfaced. For some, this had been useful for guiding the agent’s decision. I started with a subtle prompt “Use the relevant tool before reverting to Scott Logic tool. With no avail, I tried again with another direct command “if there is any mention of Scottbot, use the Scottbot tool”. Still no luck.
 
-'''
+```
 Invoking: ScottLogic with ScottBot development process
 {'answer': 'The development process for ScottBot is not mentioned in any of the given sources.\n', 'sources': ''} 
 
 Invoking: `ScottbotTool` with development process
-'''
+```
 <sup>*This is an example of an agent's thinking. The agent tries to use the ScottLogic tool, does not find any information and then tries the Scottbot Tool.*<sup>
 
 
@@ -81,7 +79,7 @@ This outcome also highlights the importance of giving examples, or “few shot p
 
 
 <img src='{{ site.github.url }}/jwarren/assets/2023-10-30-convincing-langchain/scott-reply.png' title="A successful Scottbot reply" alt="A successful Scottbot reply to 'what are Scottbot's abilities?'" />
-<sup>*A successful response*<sup>
+<sup>*A successful response*</sup>
 
 After having finished working on this agent, it has now come to light that it is possible to log the inner workings of LangChain if we used a different agent model. We are currently using 'OpenAI Functions' as our agent type, a choice made because of its superior speed and accuracy. However, it is a blackbox which we cannot see through to the inner thinking, whereas if we used a different model such as the 'Zero-shot ReAct' type, we would see its thought processed logged.
 
