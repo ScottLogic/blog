@@ -1,12 +1,12 @@
 ## Scott Logic Blogs
 
-See the [confluence page for user instructions](https://scottlogic.atlassian.net/wiki/spaces/INT/pages/219054172/Blog+Publishing), and use the [blog tool](https://cz90l8ad7e.execute-api.eu-west-2.amazonaws.com/production/) for an easy way to publish blog posts 
+See the [confluence page for user instructions][confluence-getting-started], and use the [blog tool][blog-tool-endpoint] for an easy way to publish blog posts 
 
 ## Cloning the repository
 
-_[Sparse checkout](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/#sparse-checkout-and-partial-clones) requires Git 2.25.0_
+_[Sparse checkout][sparse-checkout-guide] requires Git 2.25.0_
 
-_Ensure that you have [configured SSH](https://gist.github.com/oanhnn/80a89405ab9023894df7) to connect to private GitHub repositories._
+_Ensure that that your [SSH configuration][github-ssh] will also let you connect to [private GitHub repositories][github-ssh-multiple-accounts]._
 
 If you wish to develop changes to the blog locally, you may find that there's a lot of content, and prefer just to download the bits you need.
 
@@ -68,6 +68,8 @@ http://localhost:4000
 11. Uncomment the lines in \_config.yml
 12. Access on http://localhost:4000
 
+## Additional Tasks:
+
 To minify JS, run:
 ```
 npm run scripts
@@ -78,3 +80,8 @@ To minify SCSS, run:
 npm run style
 ```
 
+[confluence-getting-started]: https://scottlogic.atlassian.net/wiki/spaces/INT/pages/3577479175/Getting+started+with+the+Scott+Logic+blog
+[blog-tool-endpoint]: https://cz90l8ad7e.execute-api.eu-west-2.amazonaws.com/production/
+[sparse-checkout-guide]: https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/#sparse-checkout-and-partial-clones
+[github-ssh]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+[github-ssh-multiple-accounts]: https://gist.github.com/oanhnn/80a89405ab9023894df7
