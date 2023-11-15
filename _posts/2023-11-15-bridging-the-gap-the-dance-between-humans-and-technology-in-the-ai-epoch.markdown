@@ -6,9 +6,11 @@ categories:
 tags:
 - ChatGPT
 - AI
-summary: 'I had the pleasure of attending Cvent Connect, a prominent conference for
+summary: "I had the pleasure of attending Cvent Connect, a prominent conference for
   events and marketing professionals held in London last week. Can you guess what
-  the hottest topic for debate was? You''re right, it was none other than AI and Tech! '
+  the hottest topic for debate was? You're right, it was none other than AI and Tech!
+  \n\nThis time it was in the form of the debate of People vs Tech in copywriting
+  and marketing. Read this blog to find out which/who emerged victorious."
 author: cstephen
 image: "/uploads/ai%20v%20people.png"
 ---
