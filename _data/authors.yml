@@ -23,8 +23,10 @@ active-authors:
   - mhowie
   - cprice
   - csalt
+  - cstephen
   - dgrew
   - dhinrichs
+  - dhope
   - dkerr
   - dmcnamee
   - dnicholas
@@ -43,6 +45,7 @@ active-authors:
   - hashbyha
   - hbedford
   - hbellamy
+  - hlogan
   - hubinf
   - jarnstein
   - jbeckles
@@ -102,6 +105,7 @@ active-authors:
   - sbreingan
   - sburnstone
   - sforeshew-cain
+  - sgladstone
   - shamiltonritchie
   - shunton
   - slaing
@@ -117,6 +121,7 @@ active-authors:
   - wreilly
   - wtrimble
   - wboothclibborn
+  - wduncan
   - xchen
   - zrubin
   - zwali
@@ -272,6 +277,10 @@ authors:
     name: "Caitlin Salt"
     author-summary: "I'm a Lead Developer at Scott Logic, based in our Bristol office.  My interests are varied and wide-ranging, but I tend to specialise in .NET and cloud-hosted technologies.  When I'm not at a keyboard, I get passionate about almost any sort of outdated and vintage machinery."
     picture: picture.jpg
+  cstephen:
+    name: "Craig Stephen"
+    author-summary: "Hello! Craig here, Marketing Campaign Manager at Scott Logic based in the Edinburgh office. I have a passion for all things digital marketing and content, with a focus on making user journeys smooth and powerful. When not creating marketing campaigns for Scott Logic, you will find me travelling around somewhere else on the planet, in the gym or tending to the 100 houseplants in my house. <a href='https://www.linkedin.com/in/cestephen1'>@CraigStephen</a>"
+    picture: picture.jpg
   csmith:
     name: "Chris Smith"
     twitter-url: "https://twitter.com/cjsmithie"
@@ -290,6 +299,12 @@ authors:
   delliott:
     name: "Dan Elliott"
     author-summary: "<p>Senior UX Designer at Scott Logic based in the Bristol office. I spend my time researching users, designing solutions and testing to ensure a productive and pleasurable user experience. PC and VR Gamer, Motorcycle Enthusiast, Dad and Collector of Loud Shirts."
+    picture: picture.jpg
+  dhope:
+    name: "David Hope"
+    email: "dhope@scottlogic.com"
+    author-summary: "<p>Architect and technologist wth an interest in many areas including video streaming, identity and resilience</p>"
+    feed-description: "David's thoughts on software architecture"
     picture: picture.jpg
   dkerr:
     author-summary: "<p>I'm a full-stack web developer, with an interest in anything and everything that's new in web technology!</p>"
@@ -386,6 +401,10 @@ authors:
   hbellamy:
     name: "Harry Bellamy"
     author-summary: "<p>I am a Lead Developer at Scott Logic.</p>"
+  hlogan:
+    author-summary: 'I''m a developer at Scott Logic, Glasgow with a background in data science and Java/Python development.'
+    name: 'Heather Logan'
+    picture: picture.jpg
   hgoode:
     name: "Harry Goode"
     picture: picture.jpg
@@ -1167,8 +1186,8 @@ authors:
     picture: dgrew_author_picture.png
   dhinrichs:
     name: "Doro Hinrichs"
-    author-summary: "I am a Graduate Developer at Scott Logic, based in the Edinburgh office. Originally from Germany, I found a home in Glasgow while studying Psychology. I pursued a career in mental health before transitioning into software development, where I enjoy bringing a people-focused approach to coding. Outside of work, you can find me surrounded by plants, playing football, or working on a DIY project."
-    picture: profile.png
+    author-summary: "Associate Developer based in Edinburgh. As a developer with a psychology background, I enjoy bringing a people-focused approach to coding."
+    picture: dhinrichs.jpg
   pburgess:
     name: "Paul Burgess"
     author-summary: "I'm a Lead Developer at Scott Logic and am passionate about using technology to solve real world problems.\n\nI use a wide range of languages and write about TypeScript, JavaScript, React, C# and .NET as well as how to best work together as a project team to deliver solutions."
@@ -1271,6 +1290,7 @@ authors:
     picture: null
   xchen:
     name: "Xin Chen"
+    email: xchen@scottlogic.com
     author-summary: "I am a lead test engineer at Scott Logic. For the last 15 years, I had the pleasure to work with different people with different backgrounds and focus areas. I am passionate about the latest concept and technology used in Quality Assurance. In my spare time, I enjoy traveling and exploring the varied culture. I used to live in four different counties."
     picture: picture.jpeg
   jarnstein:
@@ -1324,3 +1344,13 @@ authors:
     email: gsingh@scottlogic.com
     author-summary: "I am a senior software developer at Scott Logic, Bristol."
     picture: picture.jpg
+  wduncan:
+    name: "Will Duncan"
+    email: wduncan@scottlogic.com
+    picture: picture.JPG
+    author-summary: "<p>I'm a Senior UX designer at Scott Logic, based in Edinburgh. I love building websites, designing apps and watching football!</p>"
+  sgladstone:
+    name: 'Sam Gladstone'
+    email: sgladstone@scottlogic.com
+    author-summary: "I'm a developer based out of our Bristol office. I'm a bit of a generalist; I like to get stuck into a range of problems from the business side to anywhere across the tech stack."
+    picture: Image.png

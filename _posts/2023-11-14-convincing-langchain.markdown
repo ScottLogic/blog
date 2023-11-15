@@ -1,5 +1,6 @@
 ---
 title: How To Convince LangChain To Use The Correct Tool
+date: 2023-11-14 00:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
@@ -7,8 +8,11 @@ tags:
 - llm
 - scottbot
 - jwarren
-summary: Have you ever tried explaining something to a child, who pretends to understand, but in reality doesn’t have the foggiest what you’re saying? That’s the experience I’ve had with LangChain agents.
+summary: Have you ever tried explaining something to a child, who pretends to understand,
+  but in reality doesn’t have the foggiest what you’re saying? That’s the experience
+  I’ve had with LangChain agents.
 author: jwarren
+image: "/uploads/How%20to%20convince%20langchain.png"
 ---
 
 Have you ever tried explaining something to a child, who pretends to understand, but in reality doesn’t have the foggiest what you’re saying? That’s the experience I’ve had with LangChain agents.
@@ -44,6 +48,7 @@ Tool(
 <sup>*The Scott Logic tool*<sup>
 
 
+
 Each tool is connected to a distinct source of data (for example a calculatorAPI, or Google’s Serper) and will query this data source when the tool is called. After calling the tool, the return value of the tool is processed, the agent decides whether the answer to the question has been found, or whether another step must be taken (another tool utilised), and if it does deem the answer worthy, returns the response through an LLM to give a seamless reply.
 
 At least, that’s the theory.
@@ -67,6 +72,7 @@ Invoking: ScottLogic with ScottBot development process
 Invoking: `ScottbotTool` with development process
 ```
 <sup>*This is an example of an agent's thinking. The agent tries to use the ScottLogic tool, does not find any information and then tries the Scottbot Tool.*<sup>
+
 
 
 **Success**
