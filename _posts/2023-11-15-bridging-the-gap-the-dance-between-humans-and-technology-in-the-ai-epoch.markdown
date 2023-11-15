@@ -6,6 +6,10 @@ categories:
 tags:
 - ChatGPT
 - AI
+summary: "I had the pleasure of attending Cvent Connect, a prominent conference for
+  events and marketing professionals held in London last week. Can you guess what
+  the hottest topic for debate was? You're right, it was none other than AI and Tech!
+  \n"
 author: cstephen
 image: 
 ---
