@@ -15,7 +15,7 @@ author: rwilliams
 
 Newcomer desktop-web framework Tauri has quickly attracted the interest of developers looking to build cross-platform desktop applications using web technologies. Promises of smaller and faster applications certainly appeal to those using Electron. In this post, I’ll take a look at what’s new in this space, what distinguishes them, and why WebView2 doesn’t solve everything.
 
-![DALL·E 2023-02-01 14.25.09 - people looking at a framed painting.png](/uploads/DALL%C2%B7E%202023-02-01%2014.25.09%20-%20people%20looking%20at%20a%20framed%20painting.png)
+![DALLE 2023-02-01 14.25.09 - people looking at a framed painting.png](/uploads/DALLE%202023-02-01%2014.25.09%20-%20people%20looking%20at%20a%20framed%20painting.png)
 
 *Image edited by DALL·E 2, using the prompt "people looking at a framed painting".*
 

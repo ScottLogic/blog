@@ -1,9 +1,8 @@
 ---
-title: "Testing with Intent: a Technical View"
+title: 'Testing with Intent: a Technical View'
 date: 2023-11-06 09:55:00 Z
 categories:
 - Tech
-layout: default_post
 tags:
 - Testing
 - Testing Library
@@ -11,9 +10,16 @@ tags:
 - Testing with Intent
 - Accessibility
 - Embedded Accessibility
-summary: "In my previous post, I introduced and approach to testing called Testing with Intent. Essentially, the approach focuses on testing from the perspective of a user intending to do something. Adopting this approach brings you benefits in both your test suites and your products accessibility. That post discussed why the topic is important and how you can benefit if you adopt it. Now, it’s time to look at the technical side of how this actually works in practice. "
+layout: default_post
+summary: 'In my previous post, I introduced and approach to testing called Testing
+  with Intent. Essentially, the approach focuses on testing from the perspective of
+  a user intending to do something. Adopting this approach brings you benefits in
+  both your test suites and your products accessibility. That post discussed why the
+  topic is important and how you can benefit if you adopt it. Now, it’s time to look
+  at the technical side of how this actually works in practice. '
 author: sgladstone
 ---
+
 In [my first post]({{ site.github.url }}/2023/11/06/testing-with-intent-a-path-to-embedded-accessibility.html), I set out why I think we should be *Testing with Intent*. I set out that, if we focus our tests on the intentions of users, we can improve our test suites and start to tackle accessibility. To keep the content accessible to everyone, I chose to not include anything technical. Now, in this post, I’m going to look at the same subject but through a technical lens.
 
 The essence of this whole approach to testing can be boiled down to one simple golden rule: “Wherever possible, use `queryByRole`". We’ll take a look at what we mean by this rule, and start to unpack its consequences.

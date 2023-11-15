@@ -2,15 +2,15 @@
 title: Conscientious Computing - facing into big tech challenges
 date: 2023-10-26 10:42:00 Z
 categories:
-- sustainability
-- architecture
-- ocronk
-- Tech
-- cloud
+- Sustainability
 tags:
 - sustainable software
-- sustainability
+- Sustainability
 - ocronk
+- architecture
+- Tech
+- cloud
+- featured
 summary: The tech industry has driven incredibly rapid innovation by taking advantage
   of increasingly cheap and more powerful computing – but at what unintended cost?
   What collateral damage has been created in our era of "move fast and break things"?
