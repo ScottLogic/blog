@@ -31,7 +31,8 @@ If you wish to develop changes to the blog locally, you may find that there's a 
 git clone --depth 1 --filter=blob:none --no-checkout git@github.com:ScottLogic/blog.git
 cd blog
 git sparse-checkout init --cone
-# modify this variable with the author name you wish to write posts under (typically derived from your SL email address)
+# if you want to write blog posts, modify this variable with the author name you
+# wish to write posts under (typically derived from your SL email address)
 AUTHOR='abirch'
 git sparse-checkout set _includes _layouts _data category scripts scss assets "$AUTHOR"
 git checkout gh-pages
