@@ -2,11 +2,7 @@
 title: Conscientious Computing - facing into big tech challenges
 date: 2023-10-26 10:42:00 Z
 categories:
-- architecture
 - Sustainability
-- ocronk
-- Tech
-- cloud
 tags:
 - sustainable software
 - Sustainability
@@ -59,7 +55,7 @@ Technologists (in particular more forward-looking/strategic Architects) already 
 
 The classic Scope, Cost, Time pyramid - but often it’s the **observable ** functional quality that is prioritised. For that I’ll use a somewhat surreal version of an iceberg - as so much of technical (and effectively sustainability debt - a topic for a future blog) is hidden below the water line.
 
-![DALLE 2023-10-25 16.13.50 - Create an outline cross section sketch of a waterfall that shows 1 mobile phone and a laptop on the top of the iceberg and hidden beneath the water li.png](/uploads/DALLE%202023-10-25%2016.13.50%20-%20Create%20an%20outline%20cross%20section%20sketch%20of%20a%20waterfall%20that%20shows%201%20mobile%20phone%20and%20a%20laptop%20on%20the%20top%20of%20the%20iceberg%20and%20hidden%20beneath%20the%20water%20li.png)
+![DALL·E 2023-10-25 16.13.50 - Create an outline cross section sketch of a waterfall that shows 1 mobile phone and a laptop on the top of the iceberg and hidden beneath the water li.png](/uploads/DALLEWaterfallPhone.png)
 
 Every engineering decision (or indecision) has ethical and sustainability consequences, often invisible from within our isolated bubbles (for example, we don’t feel or see the impact of electronic waste, but it does exist; it just ends up somewhere else). Just as the industry has had to raise its game on topics such as security, privacy and compliance, we desperately need to raise our game holistically on sustainability.  
 
