@@ -14,6 +14,7 @@ tags:
 summary: A case study of testing a customised GPT-powered chatbot to present strategy
   and challenges to test LLM-Based applications.
 author: xchen
+image: "/uploads/Testing%20LLMs%20tn.png"
 ---
 
 ## **Summary**
