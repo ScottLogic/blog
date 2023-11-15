@@ -67,19 +67,34 @@ Thorough instructions for setting up your development environment are detailed b
 
 #### Linux prerequisites
 
-1. sudo apt-get install ruby2.3 ruby2.3-dev build-essential dh-autoreconf
-2. sudo gem update
-3. sudo gem install jekyll bundler
-4. Run 'jekyll -v' to check whether Jekyll is working
-5. bundle config path vendor/bundle
-6. gem install bundler
-7. sudo apt-get install libxslt-dev libxml2-dev zlib1g-dev
-8. sudo gem install nokogiri
-9. bundle install
+Install Ruby 2.3 and a few build dependencies for Nokogiri.
+
+```bash
+sudo apt-get install ruby2.3 ruby2.3-dev build-essential dh-autoreconf libxslt-dev libxml2-dev zlib1g-dev
+```
+
+Update Gem and install the Jekyll, Bundler and Nokogiri gems.
+
+```bash
+sudo gem update
+sudo gem install jekyll bundler nokogiri
+```
+
+Thirdly, configure Bundler to store project dependencies in `vendor/bundle`, and,
+when in the root directory of your clone of the blog, install the project dependencies.
+
+```bash
+bundle config path vendor/bundle
+cd PATH/TO/BLOG
+bundle install
+```
+
+Run `jekyll -v` to check whether Jekyll is working. If so, you're good to run the blog!
 
 #### Running in the native environment
 
-Once you've carried out the prerequisites for your operating system, you can run the blog.
+Once you've got all the prerequisites for your operating system, you can run the blog.
+Navigate to the root directory of your clone of the blog and execute Jekyll using Bundler.
 
 ```bash
 bundle exec jekyll serve
