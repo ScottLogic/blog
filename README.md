@@ -65,19 +65,35 @@ Thorough instructions for setting up your development environment are detailed b
 
 ### Native environment
 
-#### Linux prerequisites
+#### Prerequisites
 
-Install Ruby 2.3 and a few build dependencies for Nokogiri.
+First, install Ruby and (if on Linux) a few build dependencies for Nokogiri.
+
+On Linux:
 
 ```bash
 sudo apt-get install ruby2.3 ruby2.3-dev build-essential dh-autoreconf libxslt-dev libxml2-dev zlib1g-dev
 ```
 
-Update Gem and install the Jekyll, Bundler and Nokogiri gems.
+On Windows, if you use Chocolatey, simply run `choco install ruby` in a PowerShell instance
+with elevated priveleges. If you don't use Chocolatey, you can use [RubyInstaller][rubyinstaller]
+or see the Ruby website for [alternative ways to install Ruby][ruby-installation-instructions].
+You don't need to install any other dependencies on Windows at this stage.
+
+Secondly, update Gem and install the Jekyll, Bundler and Nokogiri gems.
+
+On Linux:
 
 ```bash
 sudo gem update
 sudo gem install jekyll bundler nokogiri
+```
+
+On Windows, in a PowerShell instance with elevated priveleges:
+
+```bash
+gem update
+gem install jekyll bundler nokogiri
 ```
 
 Thirdly, configure Bundler to store project dependencies in `vendor/bundle`, and,
@@ -89,7 +105,7 @@ cd PATH/TO/BLOG
 bundle install
 ```
 
-Run `jekyll -v` to check whether Jekyll is working. If so, you're good to run the blog!
+Finally, run `jekyll -v` to check whether Jekyll is working. If so, you're good to run the blog!
 
 #### Running in the native environment
 
@@ -144,6 +160,8 @@ Visit the blog on [localhost][localhost].
 [localhost]: http://localhost:4000
 [ruby-github-pages]: https://rubygems.org/gems/github-pages
 [ruby-bundler]: https://bundler.io/
+[rubyinstaller]: https://rubyinstaller.org/
+[ruby-installation-instructions]: https://www.ruby-lang.org/en/documentation/installation
 [ruby-nokogiri]: https://nokogiri.org/
 [ruby-liquid]: https://shopify.github.io/liquid/
 [ruby-downloads]: https://www.ruby-lang.org/en/downloads/
