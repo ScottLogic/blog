@@ -23,6 +23,7 @@ active-authors:
   - mhowie
   - cprice
   - csalt
+  - cstephen
   - dgrew
   - dhinrichs
   - dhope
@@ -275,6 +276,10 @@ authors:
   csalt:
     name: "Caitlin Salt"
     author-summary: "I'm a Lead Developer at Scott Logic, based in our Bristol office.  My interests are varied and wide-ranging, but I tend to specialise in .NET and cloud-hosted technologies.  When I'm not at a keyboard, I get passionate about almost any sort of outdated and vintage machinery."
+    picture: picture.jpg
+  cstephen:
+    name: "Craig Stephen"
+    author-summary: "Hello! Craig here, Marketing Campaign Manager at Scott Logic based in the Edinburgh office. I have a passion for all things digital marketing and content, with a focus on making user journeys smooth and powerful. When not creating marketing campaigns for Scott Logic, you will find me travelling around somewhere else on the planet, in the gym or tending to the 100 houseplants in my house. @CraigStephen"
     picture: picture.jpg
   csmith:
     name: "Chris Smith"
