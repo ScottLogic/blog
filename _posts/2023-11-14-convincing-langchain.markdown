@@ -1,5 +1,6 @@
 ---
 title: How To Convince LangChain To Use The Correct Tool
+date: 2023-11-14 00:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
@@ -7,8 +8,11 @@ tags:
 - llm
 - scottbot
 - jwarren
-summary: Have you ever tried explaining something to a child, who pretends to understand, but in reality doesn’t have the foggiest what you’re saying? That’s the experience I’ve had with LangChain agents.
+summary: Have you ever tried explaining something to a child, who pretends to understand,
+  but in reality doesn’t have the foggiest what you’re saying? That’s the experience
+  I’ve had with LangChain agents.
 author: jwarren
+image: "/uploads/How%20to%20convince%20langchain.png"
 ---
 
 Have you ever tried explaining something to a child, who pretends to understand, but in reality doesn’t have the foggiest what you’re saying? That’s the experience I’ve had with LangChain agents.
@@ -22,26 +26,29 @@ Being new to the team, I was given the task of creating a new tool to make the b
 
 When a user asks a question to Scottbot, the request is passed onto the LangChain “agent”. The agent, which is the decision maker of the bot, is really an LLM with some boilerplate prompts, guiding it to reason and therefore enabling it to make decisions. This agent identifies key ideas in users’ questions, looks at all the tools we have put at its disposal (specifically the tools’ titles and descriptions), and then combined with the system prompt and the optional agent instructions, decides on which tool to use. 
 
-```python
-SYSTEM_PROMPT = (
-    "Scott Logic is a UK based software company. You are part of the Scott Logic organization, and all your "
-    "users are Scott Logic employees and are your colleagues. If the users do not provide context, "
-    "assume questions relate to Scott Logic and try to retrieve it from Scott Logic's Confluence pages. "
-    "Always cite all of the Scott Logic Confluence sources. Only use the Scott Logic "
-    "Confluence pages for information about Scott Logic."
-)
 ```
+  SYSTEM_PROMPT = (
+      "Scott Logic is a UK based software company. You are part of the Scott Logic organization, and all your "
+      "users are Scott Logic employees and are your colleagues. If the users do not provide context, "
+      "assume questions relate to Scott Logic and try to retrieve it from Scott Logic's Confluence pages. "
+      "Always cite all of the Scott Logic Confluence sources. Only use the Scott Logic "
+      "Confluence pages for information about Scott Logic."
+  )
+```
+
 <sup>*Our system prompt*<sup>
 
-```python
-Tool(
-    name="ScottLogic",
-    func=guardEmptyArgument(run_query),
-    description="The best source of information about Scott Logic. "
-    "Use this tool to retrieve information from Scott Logic's Confluence pages.",
-)
 ```
+  Tool(
+      name="ScottLogic",
+      func=guardEmptyArgument(run_query),
+      description="The best source of information about Scott Logic. "
+      "Use this tool to retrieve information from Scott Logic's Confluence pages.",
+  )
+```
+
 <sup>*The Scott Logic tool*<sup>
+
 
 
 Each tool is connected to a distinct source of data (for example a calculatorAPI, or Google’s Serper) and will query this data source when the tool is called. After calling the tool, the return value of the tool is processed, the agent decides whether the answer to the question has been found, or whether another step must be taken (another tool utilised), and if it does deem the answer worthy, returns the response through an LLM to give a seamless reply.
@@ -60,13 +67,15 @@ My next thought was that the overarching system prompt leaned heavily towards us
 
 After further research on agents, the idea of “agent instructions” surfaced. For some, this had been useful for guiding the agent’s decision. I started with a subtle prompt “Use the relevant tool before reverting to Scott Logic tool. With no avail, I tried again with another direct command “if there is any mention of Scottbot, use the Scottbot tool”. Still no luck.
 
-```java
-Invoking: 'ScottLogic' with 'ScottBot development process'
-{'answer': 'The development process for ScottBot is not mentioned in any of the given sources.\n', 'sources': ''} 
-
-Invoking: 'ScottbotTool' with 'development process'
 ```
+  Invoking: 'ScottLogic' with 'ScottBot development process'
+  {'answer': 'The development process for ScottBot is not mentioned in any of the given sources.\n', 'sources': ''} 
+
+  Invoking: 'ScottbotTool' with 'development process'
+```
+
 <sup>*This is an example of an agent's thinking. The agent tries to use the ScottLogic tool, does not find any information and then tries the Scottbot Tool.*<sup>
+
 
 
 **Success**
