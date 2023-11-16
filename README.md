@@ -1,7 +1,11 @@
 # Scott Logic Blogs
 
-See the [confluence page for user instructions][confluence-getting-started], 
-and use the [blog tool][blog-tool-endpoint] for an easy way to publish blog posts.
+See below for technical details of the blog creation stack and, 
+e.g., instructions on how to install and run the blog site locally.
+
+Note that if you're looking to **author a blog post**, then you don't need to read any further!
+Instead, please see our [company extranet][confluence-getting-started]
+for instructions on how to create a new page and view it before publication on the blog.
 
 ## Technical Stack
 The blog is a static website, designed to be hosted on [GitHub pages][github-pages].
@@ -107,7 +111,6 @@ npm run style
 ```
 
 [confluence-getting-started]: https://scottlogic.atlassian.net/wiki/spaces/INT/pages/3577479175/Getting+started+with+the+Scott+Logic+blog
-[blog-tool-endpoint]: https://cz90l8ad7e.execute-api.eu-west-2.amazonaws.com/production/
 [sparse-checkout-guide]: https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/#sparse-checkout-and-partial-clones
 [github-ssh]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
 [github-ssh-multiple-accounts]: https://gist.github.com/oanhnn/80a89405ab9023894df7
