@@ -1,13 +1,14 @@
 ---
-title: "Using the T-Test for Effective Testing of Nondeterministic AI Systems"
+title: Using the T-Test for Effective Testing of Nondeterministic AI Systems
 date: 2023-11-16 00:00:00 Z
 categories:
-    - Testing
-    - Tech
+- Testing
+- Tech
 tags:
-    - testing
-    - statistics
-summary: "In this blog, I will walk the reader through some simple statistical concepts to aid in testing AI. I hope it is accessible regardless of prior statistical knowledge."
+- testing
+- statistics
+summary: In this blog, I will walk the reader through some simple statistical concepts
+  to aid in testing AI. I hope it is accessible regardless of prior statistical knowledge.
 author: osouthwell
 ---
 
