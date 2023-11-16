@@ -11,8 +11,8 @@
   - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
   - /2014/02/28/arrow-functions-in-knockoutjs.html
 /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html:
-  - /2015/12/01/i-dont-have-a-computer-science-degree-can-i-still-work-in-software-development.html
-  - /2016/01/12/a-glimpse-into-our-2015-graduate-projects.html
+  - /2013/03/08/less-vs-sass-vs-stylus.html
+  - /2014/05/08/rapid-software-testing.html
 /2013/03/07/illusions-in-css.html:
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
@@ -23,8 +23,8 @@
   - /2013/04/08/comparing-kendoui-and-knockout-with-a-bit-of-jquerymobile-on-the-side.html
   - /2014/02/28/developing-large-scale-knockoutjs-applications.html
 /2013/03/08/less-vs-sass-vs-stylus.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
+  - /2014/05/08/rapid-software-testing.html
 /2013/03/28/html5-it-just-got-real-a-one-day-conference-in-london-14th-may.html:
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
@@ -50,8 +50,8 @@
   - /2013/06/07/scala-macros-part-3.html
   - /2013/06/05/scala-macros-part-1.html
 /2013/06/07/isolated-scrum-does-scrum-need-to-be-complemented-with-extreme-programming-to-succeed.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2016/05/05/software-testing-at-scott-logic-an-insight-into-how-we-work.html
+  - /2017/02/08/scott-logic-bugathon-what-to-expect.html
 /2013/06/07/scala-macros-part-3.html:
   - /2013/06/17/scala-macros-part-4.html
   - /2013/06/05/scala-macros-part-1.html
@@ -108,7 +108,7 @@
   - /2016/11/04/design-data-and-redux-at-bristech.html
 /2013/11/27/javascript-object-creation-patterns.html:
   - /2014/02/28/developing-large-scale-knockoutjs-applications.html
-  - /2014/08/19/an-ohlc-chart-component-for-d3.html
+  - /2014/09/26/an-interactive-stock-comparison-chart-with-d3.html
 /2013/12/04/on-running-a-code-club.html:
   - /2014/08/20/starting-from-scratch-2014-intern-project.html
   - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
@@ -155,8 +155,8 @@
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
 /2014/05/08/rapid-software-testing.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
+  - /2013/03/08/less-vs-sass-vs-stylus.html
 /2014/05/11/reactivecocoa-tableview-binding.html:
   - /2014/11/04/mutable-array-binding-reactivecocoa.html
   - /2014/07/07/mvvm-reactive-cocoa.html
@@ -218,8 +218,8 @@
   - /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
   - /2014/08/22/how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.html
 /2014/08/19/an-ohlc-chart-component-for-d3.html:
-  - /2014/09/19/d3-svg-chart-performance.html
   - /2014/09/26/an-interactive-stock-comparison-chart-with-d3.html
+  - /2014/09/19/d3-svg-chart-performance.html
 /2014/08/20/starting-from-scratch-2014-intern-project.html:
   - /2013/12/04/on-running-a-code-club.html
   - /2016/05/23/an-animated-chart-with-html5-canvas.html
@@ -305,8 +305,8 @@
   - /2014/08/28/bollinger.html
   - /2017/08/23/market-profile.html
 /2014/11/18/open-testing-standards.html:
-  - /2016/10/20/the-ins-and-outs-of-bitcoin.html
-  - /2022/02/23/Grad-Week-Feb22.html
+  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2014/11/20/swift-initialisation.html:
   - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
   - /2015/02/11/swift-kvo-alternatives.html
@@ -372,7 +372,7 @@
   - /2021/09/06/how-to-write-an-es-lint-rule-for-beginners.html
 /2015/02/25/Using-Snapshot-with-Simulator-Status-Magic-to-generate-perfect-iOS-screenshots.html:
   - /2014/03/19/simulator-enhancements.html
-  - /2017/09/01/thoughts-on-jest-snapshots.html
+  - /2019/12/11/Exploring-SwiftUI-1.html
 /2015/03/03/blink.html:
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
@@ -396,7 +396,7 @@
   - /2014/07/24/mvvm-reactivecocoa-swift.html
 /2015/03/20/ZeroMQ-Quick-Intro.html:
   - /2020/02/28/is-aeron-a-good-choice-for-a-messaging-solution.html
-  - /2017/10/13/MetOfficeKafka.html
+  - /2023/11/14/data-distribution.html
 /2015/03/25/var-multivar-anywherevar.html:
   - /2015/07/02/surprising-things-about-js.html
   - /2018/02/23/javascript-closure.html
@@ -521,8 +521,8 @@
   - /2020/01/03/rethinking-the-java-dto.html
   - /2019/04/24/domain-modelling-and-persistence-with-ef-core-part-2.html
 /2015/12/01/i-dont-have-a-computer-science-degree-can-i-still-work-in-software-development.html:
-  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
-  - /2016/01/12/a-glimpse-into-our-2015-graduate-projects.html
+  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2015/12/07/angular-2.html:
   - /2016/01/05/angular2-with-immutablejs.html
   - /2015/12/24/creating-an-angular-2-build.html
@@ -545,8 +545,8 @@
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
 /2016/01/04/most-popular-tech-blog-posts-of-2015.html:
-  - /2017/01/11/digital-transformation-getting-started-and-avoiding-common-pitfalls.html
-  - /2014/11/18/open-testing-standards.html
+  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2016/01/05/angular2-with-immutablejs.html:
   - /2015/12/07/angular-2.html
   - /2016/01/25/angular2-time-travel-with-redux.html
@@ -557,8 +557,8 @@
   - /2016/07/05/audio-api-electron.html
   - /2015/09/03/d3-without-d3.html
 /2016/01/12/a-glimpse-into-our-2015-graduate-projects.html:
-  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
-  - /2015/12/01/i-dont-have-a-computer-science-degree-can-i-still-work-in-software-development.html
+  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2016/01/13/introduction-to-hadoop-and-map-reduce.html:
   - /2017/02/07/the-rise-of-big-data-streaming.html
   - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
@@ -647,8 +647,8 @@
   - /2016/04/19/mondo-bank-webhook-to-pebble-watch-timeline-using-aws-labmda-functions.html
   - /2021/06/14/Open-Finance.html
 /2016/04/01/the-2016-bcswomen-lovelace-colloquium-a-retrospective.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2016/05/26/DefectsInDefectDensity.html
+  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
 /2016/04/04/a-functional-front-end-with-react.html:
   - /2014/07/23/frp-with-bacon-and-d3.html
   - /2014/10/28/Scala-Vs-Clojure.html
@@ -671,8 +671,8 @@
   - /2016/02/29/Cross-site-scripting.html
   - /2016/02/11/SQL-injection.html
 /2016/05/05/software-testing-at-scott-logic-an-insight-into-how-we-work.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/06/07/isolated-scrum-does-scrum-need-to-be-complemented-with-extreme-programming-to-succeed.html
+  - /2017/02/08/scott-logic-bugathon-what-to-expect.html
 /2016/05/16/Data-visualisation-and-Scale-Leveraging-the-macro-and-the-micro.html:
   - /2017/06/29/change-presented-two-ways.html
   - /2017/04/05/interactive-responsive-small-multiples.html
@@ -695,8 +695,8 @@
   - /2014/02/04/intro-to-ixd.html
   - /2018/03/23/when-technology-meets-the-arts.html
 /2016/05/26/DefectsInDefectDensity.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2016/04/01/the-2016-bcswomen-lovelace-colloquium-a-retrospective.html
+  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
 /2016/05/26/big-data-logging-elk-stack.html:
   - /2014/12/19/elk-3-things-i-wish-id-known.html
   - /2017/02/07/the-rise-of-big-data-streaming.html
@@ -740,8 +740,8 @@
   - /2020/04/22/Async-Iterators-Across-Execution-Contexts.html
   - /2015/08/06/an-adventure-in-svg-filter-land.html
 /2016/06/29/graduate-projects-building-a-game.html:
+  - /2016/10/20/the-ins-and-outs-of-bitcoin.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
 /2016/07/04/a-snapshot-of-testers-in-2016.html:
   - /2016/06/05/why-its-difficult-to-hire-us.html
   - /2018/12/21/so-you-heard-about-testing.html
@@ -818,8 +818,8 @@
   - /2014/05/19/html5-at-enterprise-scale.html
   - /2020/07/22/web-or-desktop.html
 /2016/10/20/the-ins-and-outs-of-bitcoin.html:
-  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
-  - /2015/12/01/i-dont-have-a-computer-science-degree-can-i-still-work-in-software-development.html
+  - /2013/06/07/isolated-scrum-does-scrum-need-to-be-complemented-with-extreme-programming-to-succeed.html
+  - /2016/05/05/software-testing-at-scott-logic-an-insight-into-how-we-work.html
 /2016/10/25/testbash2016.html:
   - /2018/03/26/test-bash-newbie-heads-to-brighton.html
   - /2016/09/27/learning-to-talk.html
@@ -857,8 +857,8 @@
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
 /2016/12/07/once-upon-a-time.html:
-  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
-  - /2015/12/01/i-dont-have-a-computer-science-degree-can-i-still-work-in-software-development.html
+  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2016/12/15/semantic-versioning-is-not-enough.html:
   - /2017/06/06/does-npm5-deprecate-yarn.html
   - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
@@ -878,8 +878,8 @@
   - /2015/06/26/ux-scotland-2015.html
   - /2016/06/17/ux-scotland-2016.html
 /2017/01/11/digital-transformation-getting-started-and-avoiding-common-pitfalls.html:
-  - /2016/01/04/most-popular-tech-blog-posts-of-2015.html
-  - /2014/11/18/open-testing-standards.html
+  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2017/01/15/testing-trading.html:
   - /2016/03/09/lonely-tester.html
   - /2016/01/18/know-your-bugs.html
@@ -893,8 +893,8 @@
   - /2013/07/29/spark-stream-analysis.html
   - /2018/07/06/comparing-streaming-frameworks-pt1.html
 /2017/02/08/scott-logic-bugathon-what-to-expect.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/06/07/isolated-scrum-does-scrum-need-to-be-complemented-with-extreme-programming-to-succeed.html
+  - /2016/05/05/software-testing-at-scott-logic-an-insight-into-how-we-work.html
 /2017/02/20/initial-impressions-of-alteryx-11.html:
   - /2016/09/19/inspire-europe.html
   - /2020/12/14/alteryxing-the-advent-of-code-2020-week-2.html
@@ -1094,8 +1094,8 @@
   - /2020/01/27/labelling-images-in-google-cloud.html
   - /2019/05/10/aws-summit-london-2019.html
 /2017/12/15/white-paper-optimising-data-lakes-for-financial-services.html:
+  - /2023/11/07/understand-your-data-requirements.html
   - /2021/05/28/what-actually-is-a-data-mesh-and-is-it-really-a-thing.html
-  - /2021/03/05/data-mesh-at-dwp.html
 /2017/12/18/difficult-people.html:
   - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
   - /2019/03/20/-not-only-tools-and-sources-you-need-more-than-know-how-and-technology-to-succeed-you-know-it-makes-sense.html
@@ -1155,7 +1155,7 @@
   - /2018/03/28/domain-driven-design.html
 /2018/02/19/testing-with-cognitive-intelligence.html:
   - /2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html
-  - /2018/12/21/so-you-heard-about-testing.html
+  - /2023/11/14/testing-LLM-based-applications-strategy-and-challenges.html
 /2018/02/19/why-women-make-great-testers.html:
   - /2018/04/20/overlooked-aspects-of-being-a-tester.html
   - /2018/04/16/a-hire-standard.html
@@ -1241,8 +1241,8 @@
   - /2017/06/06/does-npm5-deprecate-yarn.html
   - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
 /2018/04/12/qa-qa-who-the-funk.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
+  - /2013/03/08/less-vs-sass-vs-stylus.html
 /2018/04/16/a-hire-standard.html:
   - /2018/09/27/thoughts-from-the-software-testing-conference-north.html
   - /2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html
@@ -1250,8 +1250,8 @@
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
 /2018/04/17/comparing-big-data-messaging.html:
+  - /2023/11/14/data-distribution.html
   - /2017/10/13/MetOfficeKafka.html
-  - /2017/02/07/the-rise-of-big-data-streaming.html
 /2018/04/19/a-brief-foray-into-the-art-read-farce-of-multitasking.html:
   - /2018/08/28/finding-your-groove-as-they-are-not-finding-their-shoes.html
   - /2022/01/04/managing-knowledge-zettelkasten.html
@@ -1421,8 +1421,8 @@
   - /2019/07/03/getting-started-with-aws.html
   - /2019/03/26/aws-builders-day-edinburgh.html
 /2018/11/30/Big-Data-London.html:
+  - /2023/11/07/understand-your-data-requirements.html
   - /2016/11/04/design-data-and-redux-at-bristech.html
-  - /2022/09/12/how-data-has-improved-the-amateur-runner.html
 /2018/12/03/openfin-layouts.html:
   - /2019/09/06/Introducing-React-Hooks-for-OpenFin.html
   - /2020/12/07/on-openfin-and-interoperability.html
@@ -1928,8 +1928,8 @@
   - /2014/03/11/a-developers-intro-to-webgl.html
   - /2019/11/18/drawing-lines-with-webgl.html
 /2020/04/17/not-loving-lockdown.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/06/07/isolated-scrum-does-scrum-need-to-be-complemented-with-extreme-programming-to-succeed.html
+  - /2016/05/05/software-testing-at-scott-logic-an-insight-into-how-we-work.html
 /2020/04/21/starting-with-pulumi.html:
   - /2020/01/21/beginners-terraform-serverless.html
   - /2018/10/08/infrastructure-as-code-getting-started-with-terraform.html
@@ -1990,6 +1990,9 @@
 /2020/07/10/Spring-Profiles.html:
   - /2019/07/15/Getting-to-grips-with-Spring.html
   - /2020/02/25/spring-autowiring-its-a-kind-of-magic.html
+/2020/07/13/how-to-deliver-a-difficult-message.html:
+  - /2020/08/04/how-to-deliver-a-difficult-message.html
+  - /2019/06/17/what-brexit-can-teach-us-about-software-development.html
 /2020/07/21/7-tips-for-transforming-testing.html:
   - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
   - /2018/09/27/thoughts-from-the-software-testing-conference-north.html
@@ -2000,8 +2003,8 @@
   - /2021/01/18/philosophy-of-svelte.html
   - /2013/09/10/typescript-0.9.html
 /2020/08/04/how-to-deliver-a-difficult-message.html:
+  - /2020/07/13/how-to-deliver-a-difficult-message.html
   - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
-  - /2019/06/17/what-brexit-can-teach-us-about-software-development.html
 /2020/08/05/building-desktop-applications-with-glue42.html:
   - /2020/08/12/building-desktop-applications-with-finsemble.html
   - /2020/07/08/building-desktop-applications-in-openfin.html
@@ -2031,7 +2034,7 @@
   - /2016/07/07/time-travel.html
 /2020/09/04/Automating-tests-with-Postman-API.html:
   - /2020/02/04/GraduateGuideToAPITesting.html
-  - /2019/01/07/introduction-to-contract-testing-part-1.html
+  - /2019/07/03/Demystifying-test-automation.html
 /2020/09/04/variableScopes.html:
   - /2020/02/04/GraduateGuideToAPITesting.html
   - /2018/02/23/javascript-closure.html
@@ -2387,8 +2390,8 @@
   - /2021/10/18/reminiscence-of-a-scrum-master-part-i.html
   - /2021/12/17/reminiscence-of-a-scrum-master-part-iii.html
 /2022/01/22/ai-lessons-from-neuroscience.html:
+  - /2023/11/15/bridging-the-gap-the-dance-between-humans-and-technology-in-the-ai-epoch.html
   - /2023/03/31/the-new-ai-platform.html
-  - /2023/05/02/beyond-the-hype-is-generative-ai-coming-for-programming-jobs.html
 /2022/01/22/resilient-systems-and-experimentation.html:
   - /2021/09/28/an-introduction-to-resiliency-in-the-cloud.html
   - /2023/08/17/celebrating-failure.html
@@ -2402,8 +2405,8 @@
   - /2021/11/17/reminiscence-of-a-scrum-master-part-ii.html
   - /2018/03/12/evolving-beyond-the-need-for-a-sprint-retrospective.html
 /2022/02/23/Grad-Week-Feb22.html:
-  - /2014/11/18/open-testing-standards.html
-  - /2016/10/20/the-ins-and-outs-of-bitcoin.html
+  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2022/02/23/word-embedding-recommendations.html:
   - /2023/06/01/generative-terminology.html
   - /2021/12/08/narrative-dashboard.html
@@ -2469,7 +2472,7 @@
   - /2021/06/08/digital-government-looking-back-and-looking-forward.html
 /2022/07/15/putting-your-machine-data-to-use-with-splunk.html:
   - /2014/12/19/elk-3-things-i-wish-id-known.html
-  - /2016/05/26/big-data-logging-elk-stack.html
+  - /2023/11/07/understand-your-data-requirements.html
 /2022/08/01/beyond-the-hype-most-loved-language-does-rust-justify-the-hype.html:
   - /2021/11/05/Learning-Resources-for-Rust.html
   - /2020/10/08/lets-build-snake-with-rust.html
@@ -2589,7 +2592,7 @@
   - /2023/07/26/how-we-de-risked-a-genai-chatbot.html
 /2023/05/04/langchain-mini.html:
   - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
-  - /2021/08/31/a-primer-on-the-openai-api-1.html
+  - /2023/11/14/convincing-langchain.html
 /2023/05/30/the-product-owner-role.html:
   - /2023/03/30/im-no-longer-a-tester-im-a-checker-or-am-i.html
   - /2023/06/26/peer-review-tips.html
@@ -2630,8 +2633,8 @@
   - /2021/11/05/gpt3.html
   - /2021/12/08/narrative-dashboard.html
 /2023/07/07/reset-connect-conference-2023.html:
+  - /2023/11/09/the-sustainable-computing-ecosystem.html
   - /2023/07/20/Environmental-Impact-The-supplier-problem.html
-  - /2023/09/12/sustainability-terminology.html
 /2023/07/12/Pixel-Pioneers-Conference-2023.html:
   - /2015/06/26/ux-scotland-2015.html
   - /2018/06/28/ux-scotland-2018.html
@@ -2723,17 +2726,17 @@
   - /2022/04/07/cloud-sustainability-reach-net-zero.html
   - /2023/09/12/sustainability-terminology.html
 /2023/10/20/how-ai-can-improve-your-processes-without-actually-using-it.html:
+  - /2023/11/15/bridging-the-gap-the-dance-between-humans-and-technology-in-the-ai-epoch.html
   - /2023/03/31/the-new-ai-platform.html
-  - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
 /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html:
-  - /2023/07/26/how-we-de-risked-a-genai-chatbot.html
-  - /2023/11/03/spy-logic.html
+  - /2023/11/14/convincing-langchain.html
+  - /2023/11/14/testing-LLM-based-applications-strategy-and-challenges.html
 /2023/10/25/b-ing-a-force-for-good.html:
   - /2019/07/04/Be-inspired-by-Scott-Logic.html
   - /2022/12/12/what-makes-for-a-most-loved-workplace.html
 /2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html:
+  - /2023/11/09/the-sustainable-computing-ecosystem.html
   - /2023/09/28/embodied-carbon-from-software-development.html
-  - /2019/12/30/sustainability-in-software-development.html
 /2023/10/30/ai-government-guide-data-literate-leaders.html:
   - /2023/03/31/the-new-ai-platform.html
   - /2023/05/04/generative-ai-solution-architecture.html
@@ -2745,4 +2748,34 @@
   - /2021/09/28/computer-skills-of-average-joe.html
 /2023/11/03/spy-logic.html:
   - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
-  - /2023/10/31/mitigating-prompt-injections.md.html
+  - /2023/11/14/convincing-langchain.html
+/2023/11/06/testing-with-intent-a-path-to-embedded-accessibility.html:
+  - /2023/11/06/testing-with-intent-a-technical-view.html
+  - /2023/07/13/accessibility-considerations.html
+/2023/11/06/testing-with-intent-a-technical-view.html:
+  - /2023/11/06/testing-with-intent-a-path-to-embedded-accessibility.html
+  - /2020/07/21/7-tips-for-transforming-testing.html
+/2023/11/06/working-in-a-blameless-culture.html:
+  - /2023/08/17/celebrating-failure.html
+  - /2018/03/20/agile-monster-hunting.html
+/2023/11/07/understand-your-data-requirements.html:
+  - /2017/02/07/the-rise-of-big-data-streaming.html
+  - /2017/12/15/white-paper-optimising-data-lakes-for-financial-services.html
+/2023/11/09/the-sustainable-computing-ecosystem.html:
+  - /2023/09/12/sustainability-terminology.html
+  - /2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html
+/2023/11/14/convincing-langchain.html:
+  - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
+  - /2023/11/03/spy-logic.html
+/2023/11/14/data-distribution.html:
+  - /2018/04/17/comparing-big-data-messaging.html
+  - /2023/11/07/understand-your-data-requirements.html
+/2023/11/14/testing-LLM-based-applications-strategy-and-challenges.html:
+  - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
+  - /2023/07/26/how-we-de-risked-a-genai-chatbot.html
+/2023/11/15/bridging-the-gap-the-dance-between-humans-and-technology-in-the-ai-epoch.html:
+  - /2023/10/20/how-ai-can-improve-your-processes-without-actually-using-it.html
+  - /2023/03/31/the-new-ai-platform.html
+/2023/11/16/using-the-t-test-for-effective-testing-of-nondeterministic-AI-systems.html:
+  - /2023/11/14/testing-LLM-based-applications-strategy-and-challenges.html
+  - /2023/09/12/enhancing-jest-snapshot-testing.html
