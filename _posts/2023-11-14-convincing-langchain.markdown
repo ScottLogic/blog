@@ -36,7 +36,7 @@ When a user asks a question to Scottbot, the request is passed onto the LangChai
   )
 ~~~
 
-<sup>*Our system prompt*<sup>
+<sup>*Our system prompt*</sup>
 
 ~~~ py
   Tool(
@@ -47,7 +47,7 @@ When a user asks a question to Scottbot, the request is passed onto the LangChai
   )
 ~~~
 
-<sup>*The Scott Logic tool*<sup>
+<sup>*The Scott Logic tool*</sup>
 
 
 
@@ -74,7 +74,7 @@ After further research on agents, the idea of “agent instructions” surfaced.
   Invoking: 'ScottbotTool' with 'development process'
 ~~~
 
-<sup>*This is an example of an agent's thinking. The agent tries to use the ScottLogic tool, does not find any information and then tries the Scottbot Tool.*<sup>
+<sup>*This is an example of an agent's thinking. The agent tries to use the ScottLogic tool, does not find any information and then tries the Scottbot Tool.*</sup>
 
 
 
