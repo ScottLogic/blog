@@ -1,12 +1,27 @@
-## Scott Logic Blogs
+# Scott Logic Blogs
 
-See the [confluence page for user instructions](https://scottlogic.atlassian.net/wiki/spaces/INT/pages/219054172/Blog+Publishing), and use the [blog tool](https://cz90l8ad7e.execute-api.eu-west-2.amazonaws.com/production/) for an easy way to publish blog posts 
+See below for technical details of the blog creation stack and, 
+e.g., instructions on how to install and run the blog site locally.
+
+Note that if you're looking to **author a blog post**, then you don't need to read any further!
+Instead, please see our [company extranet][confluence-getting-started]
+for instructions on how to create a new page and view it before publication on the blog.
+
+## Technical Stack
+The blog is a static website, designed to be hosted on [GitHub pages][github-pages].
+
+The underlying content is generated through a series of Ruby gems and libraries, starting with a dedicated github-pages [gem][ruby-github-pages].
+
+Within that stack, [Jekyll][jekyll-docs] is used as the static content generation engine,
+consuming template files written in either **HTML** or **Markdown** (syntax extended by [Kramdown][kramdown-syntax]).
+
+Common content or structure can be further injected or managed using the [Liquid][ruby-liquid] templating language.
 
 ## Cloning the repository
 
-_[Sparse checkout](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/#sparse-checkout-and-partial-clones) requires Git 2.25.0_
+_[Sparse checkout][sparse-checkout-guide] requires Git 2.25.0_
 
-_Ensure that you have [configured SSH](https://gist.github.com/oanhnn/80a89405ab9023894df7) to connect to private GitHub repositories._
+_Ensure that that your [SSH configuration][github-ssh] will also let you connect to [private GitHub repositories][github-ssh-multiple-accounts]._
 
 If you wish to develop changes to the blog locally, you may find that there's a lot of content, and prefer just to download the bits you need.
 
@@ -28,7 +43,22 @@ This gets the repository down to ~8MB and ~150 files (whereas checking out all a
 
 __NOTE__: Instructions are work in progress.
 
-The blog consists of static HTML pages with content generated using Jekyll markdown.
+If you plan to use Docker, then you can [skip ahead][install-docker] now!
+
+The blog consists of static HTML pages with content generated using: 
+- [github-pages][ruby-github-pages] for deployment hooks
+- [Jekyll][jekyll-docs] for static site generation generator
+- [Kramdown][kramdown-syntax] for an extended markdown syntax
+- [Liquid][ruby-liquid] for templating functionality
+- [Nokogiri][ruby-nokogiri] for efficient XML and HTML handling, relying on:
+  - Native XML Parsers
+- [Bundler][ruby-bundler] to manage gems and dependencies
+- [Ruby][ruby-downloads].
+
+_In theory_, given that you've installed Ruby and Bundler, 
+and that the project contains a valid [Gemfile][project-gemfile],
+then using Bundler should bring in most of the dependencies automatically,
+however, due to Nokogiri's reliance on Native XML parsers you may require additional steps.
 
 ### Docker:
 
@@ -68,6 +98,8 @@ http://localhost:4000
 11. Uncomment the lines in \_config.yml
 12. Access on http://localhost:4000
 
+## Additional Tasks:
+
 To minify JS, run:
 ```
 npm run scripts
@@ -78,3 +110,19 @@ To minify SCSS, run:
 npm run style
 ```
 
+[confluence-getting-started]: https://scottlogic.atlassian.net/wiki/spaces/INT/pages/3577479175/Getting+started+with+the+Scott+Logic+blog
+[sparse-checkout-guide]: https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/#sparse-checkout-and-partial-clones
+[github-ssh]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+[github-ssh-multiple-accounts]: https://gist.github.com/oanhnn/80a89405ab9023894df7
+
+[github-pages]: https://pages.github.com/
+[github-pages-docs]: https://docs.github.com/en/pages
+[jekyll-docs]: https://jekyllrb.com/docs/
+[kramdown-syntax]: https://kramdown.gettalong.org/syntax.html
+[ruby-github-pages]: https://rubygems.org/gems/github-pages
+[ruby-bundler]: https://bundler.io/
+[ruby-nokogiri]: https://nokogiri.org/
+[ruby-liquid]: https://shopify.github.io/liquid/
+[ruby-downloads]: https://www.ruby-lang.org/en/downloads/
+[project-gemfile]: Gemfile
+[install-docker]: #docker
