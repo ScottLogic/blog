@@ -8,10 +8,13 @@ tags:
 - llm
 - scottbot
 - jwarren
-summary: In the light of OpenAI’s system outage, a ripple of unprepared AI powered systems crashed across the world. How can we best secure our LLM based applications against such occurrences?
+summary: In the light of OpenAI’s system outage, a ripple of unprepared AI powered
+  systems crashed across the world. How can we best secure our LLM based applications
+  against such occurrences?
 author: jwarren
-image:
+image: 
 ---
+
 In the light of OpenAI’s system outage, a ripple of unprepared AI powered systems crashed across the world. There has been a gold rush towards GenAI ever since ChatGPT’s release in November 2022, with many attempting to understand and tame the beasts that are Large Language Models  (LLM). So far, OpenAI’s models have generally come out on top as the tools of choice. However, the burden of OpenAI’s popularity has at times become too great for their servers to bear.
 
 At OpenAI’s first developers’ conference on 6th November, the release of models boasting greater power at lower costs was announced. A fresh wave of eager developers rushed to their computers to try the new technology and demand for OpenAI’s services shot through the roof. At the same time, OpenAI received an immense entourage of traffic, said to be ‘reflective of a DDoS attack’ which subsequently politically-charged hacktavists have claimed responsibility for. No matter whether the cause was a premeditated attack, or a frenzy of demand, we should all accept Sam Altman’s words, OpenAI's CEO, admitting we should expect “service instability in the short term”. 
