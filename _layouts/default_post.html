@@ -79,9 +79,9 @@ layout: default
     <div class="cell primary-meta-data large-1 large-offset-1 grid-x">
       <div class="author-information cell medium-10 small-9 hide-for-large">
         {% include author_picture.html %}
-        <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>
-          {% for contributorId in page.contributors %}
-            {% include author-link.html data-id=contributorId %}
+        <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>{%
+          for contributorId in page.contributors %},
+            {% include author-link.html author-id=contributorId %}
           {% endfor %}
       </div>
       {% include social.html %}
@@ -103,13 +103,9 @@ layout: default
       {% include recruitment.html page=page %}
     </div>
     <div class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y">
-      {% assign author = site.data.authors.authors[page.author] %}
-      {% assign authorUsername = page.author %}
-      {% include author_summary.html %}
+      {% include author_summary.html author-id=page.author %}
       {% for contributorId in page.contributors %}
-        {% assign author = site.data.authors.authors[contributorId] %}
-        {% assign authorUsername = contributorId %}
-        {% include author_summary.html %}
+        {% include author_summary.html author-id=contributorId %}
       {% endfor %}
       {% include category_list.html selectedIndex=0 %}
       <div class="back cell">
