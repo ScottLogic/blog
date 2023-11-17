@@ -10,6 +10,7 @@ tags:
 summary: In this blog, I will walk the reader through some simple statistical concepts
   to aid in testing AI. I hope it is accessible regardless of prior statistical knowledge.
 author: osouthwell
+image: "/uploads/using%20t%20test%20for%20effective%20testing%20tn.png"
 ---
 
 Until now, you've probably expected all your tests to pass, but what happens when you test systems with inherent inbuilt randomness? AI is nondeterministic, which doesn't cleanly fit within our current testing paradigms. Many tests may take the form of returning a number, such as time for speed testing or a percent for testing accuracy on an LLM. How to evaluate these results might not be clear, and that's where statistics come in. You may think this will require you to run many tests, but this blog will give you a method for ensuring that we extract statistically valid results and how to do it quickly.
