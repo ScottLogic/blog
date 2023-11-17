@@ -80,11 +80,9 @@ layout: default
       <div class="author-information cell medium-10 small-9 hide-for-large">
         {% include author_picture.html %}
         <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>
-         {% for contributorId in page.contributors %}
-             {% assign contributor = site.data.authors.authors[contributorId] %}
-             {% assign contributorUsername = contributorId %}
-            , <a rel="author" href="{{ site.baseurl }}/{{ contributorUsername }}">{{ contributor.name }}</a>
-         {% endfor %}
+          {% for contributorId in page.contributors %}
+            {% include author-link.html data-id=contributorId %}
+          {% endfor %}
       </div>
       {% include social.html %}
     </div>
