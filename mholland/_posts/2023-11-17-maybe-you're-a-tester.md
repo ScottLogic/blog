@@ -5,7 +5,7 @@ categories:
 - Testing
   tags:
 - testing
-  summary: In this blog, I aim to simplify testing terminology through the lens of real-world scenario comparison.
+  summary: In this blog, I aim to simplify testing terminology through a comparison to a real-world scenario.
   author: mholland
 ---
 
