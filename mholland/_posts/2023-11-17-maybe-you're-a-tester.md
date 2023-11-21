@@ -10,17 +10,17 @@ author: mholland
 
 Imagine a new Restaurant opens down the road from you, and you’ve been invited to the opening night. There are no reviews yet, but you’re curious to try it out.
  
-Opening Night:
+> **Opening Night:**
 
-: It’s a lot busier than you thought it would be, and you’re seated at a table in the very centre of this bustling new eatery. Tables are a little too close together for your liking, so it’s very loud and you struggle to flag down any of the servers. You fumble your way through the overly complicated menu which seems to have been poorly translated from an unfamiliar language. When you’re on the verge of giving up, a server appears and recommends the chef’s special. You agree to the suggestion and place your order – but after an hour you’ve still not received any food. You decide to give up and go home.
+> It’s a lot busier than you thought it would be, and you’re seated at a table in the very centre of this bustling new eatery. Tables are a little too close together for your liking, so it’s very loud and you struggle to flag down any of the servers. You fumble your way through the overly complicated menu which seems to have been poorly translated from an unfamiliar language. When you’re on the verge of giving up, a server appears and recommends the chef’s special. You agree to the suggestion and place your order – but after an hour you’ve still not received any food. You decide to give up and go home.
 
-Second Night:
+> **Second Night:**
 
-: OK so last night wasn’t successful, but you’re still curious. Today you decide to take matters into your own hands in the hopes of a better experience. You request to be seated at the edge of the restaurant, and immediately order the chef’s special. You’re happy with this decision, as this table feels a lot less claustrophobic than where you were yesterday, and you were able to order with the server that seated you rather than flailing wildly to flag someone down. And yet, you find yourself waiting. At the point you’re about to give up, your meal arrives! To your disappointment, half of the dish appears to be missing from the plate, and what’s left is cold. Again, you go home hungry, but now you’re determined.
+> OK so last night wasn’t successful, but you’re still curious. Today you decide to take matters into your own hands in the hopes of a better experience. You request to be seated at the edge of the restaurant, and immediately order the chef’s special. You’re happy with this decision, as this table feels a lot less claustrophobic than where you were yesterday, and you were able to order with the server that seated you rather than flailing wildly to flag someone down. And yet, you find yourself waiting. At the point you’re about to give up, your meal arrives! To your disappointment, half of the dish appears to be missing from the plate, and what’s left is cold. Again, you go home hungry, but now you’re determined.
 
-Third Night:
+> **Third Night:**
 
-: Today you mean business. You arrive earlier to beat the dinner rush, and follow your plan from the previous night in terms of seating requests and ordering immediately. To your surprise you’re served in record time – but you did not receive the meal you ordered.
+> Today you mean business. You arrive earlier to beat the dinner rush, and follow your plan from the previous night in terms of seating requests and ordering immediately. To your surprise you’re served in record time – but you did not receive the meal you ordered.
 
 
 Maybe this is a terrible restaurant, and you should give up on it. Or maybe, just maybe, you’re a Tester. Let’s be honest, this restaurant isn’t going to have many guests returning after that opening night debacle, and some will be put off by the negative reviews before even experiencing for themselves. And this, dear reader, is where a Tester’s value is paramount. Testing is taking in the data around you, and understanding which variables make an impact. This can be anything from understanding how something can be improved from an overall user perspective, to spotting which aspects are detrimental to its success. The earlier a Tester can get involved, the higher the quality of the final product. Sadly, at the point a business has scared off so many customers, they’ve already waited too long. Each element of the restaurant should have been checked (and corrected) in isolation long before opening night, and even then perhaps it should have opted for a soft launch to a limited audience where feedback was welcomed and actioned.
