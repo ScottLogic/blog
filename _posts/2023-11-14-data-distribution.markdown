@@ -17,6 +17,7 @@ summary: This blog discusses the different ways we might choose to distribute da
   between services including queues and distributed log technologies and their relative
   strengths and weaknesses
 author: dhope
+image: "/uploads/data%20distri.png"
 ---
 
 <style>
