@@ -79,6 +79,7 @@ active-authors:
   - mbuhagiar
   - mcooke
   - mdunsdon
+  - mholland
   - mgrabara
   - mking
   - mmcalroy
@@ -1263,6 +1264,10 @@ authors:
     author-summary: "I am Chief Talent Officer at Scott Logic."
     twitter-handle: null
     picture: mcooke.jpeg
+  mholland:
+    name: "Melissa Holland"
+    author-summary: "I'm a Senior Test Engineer in Bristol"
+    picture: picture.jpg
   mpace:
     name: "Molly Pace"
     author-summary: "I’m a business development associate at Scott Logic with a passion for technology, background in neuroscience, and interest in all things running and outdoors related."
