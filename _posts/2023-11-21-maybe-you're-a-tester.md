@@ -39,7 +39,7 @@ Testing is something many of us consider in our day-to-day lives without realisi
 - Do the chefs know how to use the equipment and/or ingredients in the kitchen?
   - `Unit testing` – *Checking that the smallest pieces of code are fit for use in isolation.*
 - Can the chefs that were hired actually cook the meals on the menu?
-  - `Component testing` – *Evaluating a section of code in its entirety, without focusing on the finer details of the underlying code or its relation to other components.*</span>
+  - `Component testing` – *Evaluating a section of code in its entirety, without focusing on the finer details of the underlying code or its relation to other components.*
 - Are the chefs communicating to the service staff that meals are ready to be served?
   - `Integration testing` – *Combining different components to ensure that they work together as a unified group based on specific system requirements.*
 - How is the full flow from customer ordering to receiving their food? 
