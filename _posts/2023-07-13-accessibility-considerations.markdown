@@ -72,11 +72,12 @@ Accessibility isn’t a feature that can be added at any point of product life-c
 
 * Use ARIA roles and attributes to provide additional context and meaning to UI elements.
 
-* Provide alternative text for Images to allow users with visual impairments to understand the content of images. Additionally, avoid using <img> for purely decorative elements as to reduce screen-reader’s noise.
+* Provide alternative text for Images to allow users with visual impairments to understand the content of images. 
+Additionally, avoid using &lt;img&gt; for purely decorative elements as to reduce screen-reader’s noise.
 
 * Use descriptive link text to help users to understand the destination of links.
 
-* Ensure users can navigate through the software by keyboard, not only mouse
+* Ensure users can navigate through the software by keyboard, not only mouse.
   Ensure good colour contrast to ensure that text and UI elements are readable by everyone.
 
 * Refrain from using JavaScript when possible to ensure that your software is accessible to users who cannot use JavaScript.
