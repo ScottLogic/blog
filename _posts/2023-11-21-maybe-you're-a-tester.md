@@ -1,8 +1,13 @@
 ---
 title: Maybe you're a Tester
+date: 2023-11-21 00:00:00 Z
 categories:
+- mholland
 - Testing
-summary: Imagine a new Restaurant opens down the road from you, and you’ve been invited to the opening night. There are no reviews yet, but you’re curious to try it out - In this blog, I aim to simplify testing terminology through a comparison to a real-world scenario.
+summary: Imagine a new Restaurant opens down the road from you, and you’ve been invited
+  to the opening night. There are no reviews yet, but you’re curious to try it out
+  - In this blog, I aim to simplify testing terminology through a comparison to a
+  real-world scenario.
 author: mholland
 ---
 
