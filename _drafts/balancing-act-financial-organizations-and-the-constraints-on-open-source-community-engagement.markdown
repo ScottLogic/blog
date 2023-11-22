@@ -1,5 +1,5 @@
 ---
-title: 'Balancing Act: Financial Organizations and the Constraints on Open Source
+title: 'Balancing Act: Financial Organisations and the Constraints on Open Source
   Community Engagement'
 date: 2023-11-22 09:06:00 Z
 categories:
