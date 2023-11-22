@@ -28,7 +28,6 @@ While it’s great to see the number of organisations with policies allowing con
 
 When you break the data out by organisation size, I got more of an idea of why: smaller organisations are more likely to have OSPOs (Open Source Program Offices) than larger ones, and they also reported having more communications around Open Source in their organisation. That is, Open Source is an actively recognised concern across the organisation.
 
-
 ![finos demographics.png](/uploads/finos%20demographics.png)
 
 
