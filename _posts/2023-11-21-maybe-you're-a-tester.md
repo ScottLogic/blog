@@ -9,6 +9,7 @@ summary: Imagine a new Restaurant opens down the road from you, and you’ve bee
   - In this blog, I aim to simplify testing terminology through a comparison to a
   real-world scenario.
 author: mholland
+image: "/uploads/so%20you're%20a%20tester.png"
 ---
 
 # Maybe you’re a Tester.
