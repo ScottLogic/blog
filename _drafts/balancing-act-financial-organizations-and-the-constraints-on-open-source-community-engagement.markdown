@@ -20,7 +20,8 @@ image: "/uploads/OS%20FS%20thumbnail.png"
 As I was reading this year’s [State of Open Source in Finance report](https://www.finos.org/state-of-open-source-in-financial-services-2023), it took me back to my early career working in Financial Services. It was a fair while ago, so I won’t pretend to remember all of the codes and regulations inside out, but I do remember a world of secrets and confidentiality, where information and “intellectual property” had to be kept tightly restricted. For me, it’s no surprise that Financial Services organisations struggle to be as involved in Open Source projects and technologies as they might like.
 
 ## Consumption before contribution
-While it’s great to see the number of organisations with policies allowing **consumption** on the rise, the number with policies allowing **contribution** is lagging behind. 
+While it’s great to see the number of organisations with policies allowing **consumption** on the rise, the number with policies allowing 
+**contribution** is lagging behind. 
 
 
 ![open source policy.png](/uploads/open%20source%20policy.png)
@@ -33,7 +34,7 @@ When you break the data out by organisation size, I got more of an idea of why: 
 
 I can empathise with the concerns that leaders of large organisations may have around getting involved in Open Source projects. If you spend most of your waking hours worrying about keeping things locked down, why would you open yourself up to something that sounds like the polar opposite? Let’s look at the common concerns leaders have with Open Source:
 
-* **It’s less secure than proprietary software from big vendors**. Open Source code is intrinsically **more** secure, as it can be tested by an unlimited number of people, not just the owners of closed source code.
+* ***It’s less secure than proprietary software from big vendors***. Open Source code is intrinsically **more** secure, as it can be tested by an unlimited number of people, not just the owners of closed source code.
 * It’s not compliant. Yes, it’s not as straightforward as buying proprietary software with a pre-approved licence; however, organisations like FINOS are introducing more and more tools and standards to address this.
 * It’s not supported. While Open Source software may not come with a 24/7 support line like the big vendors, how useful are those helpdesks anyway!? The Open Source community will be far more motivated to help you fix any issue, or your developers – who are likely very familiar with the issue – can address it themselves.
 * *Our competitors will steal our secrets*. True, if you use Open Source for **everything**. In reality, most financial services organisations use the same proprietary software for their internal operations, so you’re not revealing anything by switching that software for an Open Source equivalent.
