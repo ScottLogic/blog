@@ -8,6 +8,11 @@ tags:
 - Open Source
 - Finance
 - ''
+summary: 'As I was reading this year''s State of Open Source in Finance report, I
+  reflected on my time working in financial services and the ongoing struggle they
+  had adopting and contributing to open source. In this blog I look at the report''s
+  findings, how things have (and have not) changed in FS and how larger organisations
+  can foster an open source culture. '
 author: mhowie
 ---
 
@@ -16,11 +21,15 @@ As I was reading this year’s [State of Open Source in Finance report](https://
 ## Consumption before contribution
 While it’s great to see the number of organisations with policies allowing consumption on the rise, the number with policies allowing contribution is lagging behind. 
 
+
 ![open source policy.png](/uploads/open%20source%20policy.png)
+
 
 When you break the data out by organisation size, I got more of an idea of why: smaller organisations are more likely to have OSPOs (Open Source Program Offices) than larger ones, and they also reported having more communications around Open Source in their organisation. That is, Open Source is an actively recognised concern across the organisation.
 
+
 ![finos demographics.png](/uploads/finos%20demographics.png)
+
 
 I can empathise with the concerns that leaders of large organisations may have around getting involved in Open Source projects. If you spend most of your waking hours worrying about keeping things locked down, why would you open yourself up to something that sounds like the polar opposite? Let’s look at the common concerns leaders have with Open Source:
 
