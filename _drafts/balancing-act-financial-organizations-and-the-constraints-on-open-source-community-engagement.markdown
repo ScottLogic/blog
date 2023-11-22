@@ -20,7 +20,7 @@ image: "/uploads/OS%20FS%20thumbnail.png"
 As I was reading this year’s [State of Open Source in Finance report](https://www.finos.org/state-of-open-source-in-financial-services-2023), it took me back to my early career working in Financial Services. It was a fair while ago, so I won’t pretend to remember all of the codes and regulations inside out, but I do remember a world of secrets and confidentiality, where information and “intellectual property” had to be kept tightly restricted. For me, it’s no surprise that Financial Services organisations struggle to be as involved in Open Source projects and technologies as they might like.
 
 ## Consumption before contribution
-While it’s great to see the number of organisations with policies allowing **consumption** on the rise, the number with policies allowing **contribution **is lagging behind. 
+While it’s great to see the number of organisations with policies allowing **consumption** on the rise, the number with policies allowing **contribution** is lagging behind. 
 
 
 ![open source policy.png](/uploads/open%20source%20policy.png)
