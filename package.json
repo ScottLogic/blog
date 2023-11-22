@@ -18,6 +18,7 @@
     "markdown-to-txt": "^2.0.0",
     "node-fetch": "^2.6.6",
     "node-sass": "^7.0.3",
+    "pa11y-ci": "^3.1.0",
     "uglify-js": "^2.6.2"
   },
   "repository": {
