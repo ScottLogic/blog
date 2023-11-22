@@ -34,12 +34,12 @@ When you break the data out by organisation size, I got more of an idea of why: 
 
 I can empathise with the concerns that leaders of large organisations may have around getting involved in Open Source projects. If you spend most of your waking hours worrying about keeping things locked down, why would you open yourself up to something that sounds like the polar opposite? Let’s look at the common concerns leaders have with Open Source:
 
-* ***It’s less secure than proprietary software from big vendors***. Open Source code is intrinsically **more** secure, as it can be tested by an unlimited number of people, not just the owners of closed source code.
+* *It’s less secure than proprietary software from big vendors* . Open Source code is intrinsically **more** secure, as it can be tested by an unlimited number of people, not just the owners of closed source code.
 * It’s not compliant. Yes, it’s not as straightforward as buying proprietary software with a pre-approved licence; however, organisations like FINOS are introducing more and more tools and standards to address this.
 * It’s not supported. While Open Source software may not come with a 24/7 support line like the big vendors, how useful are those helpdesks anyway!? The Open Source community will be far more motivated to help you fix any issue, or your developers – who are likely very familiar with the issue – can address it themselves.
 * *Our competitors will steal our secrets*. True, if you use Open Source for **everything**. In reality, most financial services organisations use the same proprietary software for their internal operations, so you’re not revealing anything by switching that software for an Open Source equivalent.
 
-It’s one thing to **use** Open Source software, but why go one step further and **contribute** to it? Technologists will provide many reasons. For me, it all comes down to the culture of an organisation.
+It’s one thing to **use**Open Source software, but why go one step further and **contribute** to it? Technologists will provide many reasons. For me, it all comes down to the culture of an organisation.
 
 ## The impact of culture in large organisations
 It’s natural as companies grow for there to be less transparency and engagement: the thought of sharing your company’s inner workings with five thousand staff is much less appealing than when you have five hundred, all of whom you probably know by name. 
