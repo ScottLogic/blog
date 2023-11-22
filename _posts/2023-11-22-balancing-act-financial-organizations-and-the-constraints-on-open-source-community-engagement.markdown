@@ -7,7 +7,6 @@ categories:
 tags:
 - Open Source
 - Finance
-- ''
 - Fintech
 summary: 'As I was reading this year''s State of Open Source in Finance report, I
   reflected on my time working in financial services and the ongoing struggle they
