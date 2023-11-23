@@ -1,5 +1,5 @@
 ---
-title: Conscientious Cloud – Pick your cloud region deliberately
+title: Conscientious Cloud – Pick Your Cloud Region Consciously
 date: 2023-11-23 20:39:00 Z
 categories:
 - Sustainability
@@ -16,6 +16,8 @@ author: 'ocronk
 
 '
 collaborators: jhowlett
+Field name: 
+image: "/uploads/mojito.PNG"
 ---
 
 This instalment of the [Conscientious Computing](https://blog.scottlogic.com/2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html) series dives into a far more practical example of a consideration that many aren't making consciously: The cloud region being used. In our experience over the last year this one choice can have one of the biggest impacts of the CO2e of your software. BTW if you've missed earlier editions of this series, you can now find them all under the [Sustainability category of the Scott Logic blog](https://blog.scottlogic.com/category/sustainability.html)
