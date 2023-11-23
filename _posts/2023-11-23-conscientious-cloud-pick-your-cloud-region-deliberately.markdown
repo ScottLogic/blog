@@ -5,8 +5,6 @@ categories:
 - Sustainability
 - Cloud
 tags:
-- ocronk
-- jhowlett
 - sustainable software
 - Cloud
 summary: If you do one thing to optimise cloud carbon footprint start with your choice
