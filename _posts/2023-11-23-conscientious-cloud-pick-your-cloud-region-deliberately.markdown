@@ -31,7 +31,7 @@ The mojito analogy holds true for not just location but time too. If the limes a
 
 To get a good visualisation of this in practise check out electricity maps [https://app.electricitymaps.com/map](https://app.electricitymaps.com/map)
 
-[!electricitymaps.PNG](/uploads/electricitymaps.PNG)
+![electricitymaps.PNG](/uploads/electricitymaps.PNG)
 
 Electricity maps shows a heat map of carbon intensity – the greener an area the lower CO2 and the more dark red an area is the more carbon intensive it is. So it is worth taking this into consideration when thinking about where compute and storage are located.
 
@@ -57,7 +57,7 @@ Picking a region that is different from the defaults won't always be the best de
 
 FinOps is an entire discipline dedicated to cost optimisation of technology operations, with technology, finance and business considerations balanced to find appropriate blend (or cocktail?) [Ed: ok we get it you like cocktails!]. GreenOps is very similar to this, taking into account the environmental impact of any deployment. This means that there can be a large overlap of the two, but as shown in the graphic below recently shared by [James Hall from GreenPixie](https://www.linkedin.com/feed/update/urn:li:activity:7125879902414729216/), low carbon intensity regions won't always be the most cost effective. This makes the important point that reducing carbon intensity isn't going to always align with picking the cheapest region, and finding a good balance between the two (and the other requirements called out in this blog) should result in a pragmatic solution.
 
-[!finops-greenops.jfif](/uploads/finops-greenops.jfif)
+![finops-greenops.jfif](/uploads/finops-greenops.jfif)
 
 **Data Protection**
 
@@ -87,7 +87,7 @@ There are also some APIs that you can use to retrieve historical, current and ev
 
 For those using the [Cloud Carbon Footprint tool](https://demo.cloudcarbonfootprint.org/) you can also see regions (for each CSP) visualised against the world map with similar carbon intensity colour coding.
 
-[!ccf-regions.PNG](/uploads/ccf-regions.PNG)
+![ccf-regions.PNG](/uploads/ccf-regions.PNG)
 
 # Conclusion – pick your cocktail consciously
 
