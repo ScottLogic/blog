@@ -11,8 +11,8 @@ summary: If you do one thing to optimise cloud carbon footprint start with your 
   of region. Consider the balance between cost, environmental, security and performance
   considerations when it comes to choosing a cloud region consciously.
 author: ocronk
-collaborators: jhowlett
 image: "/uploads/mojito.PNG"
+contributors: jhowlett
 ---
 
 This instalment of the [Conscientious Computing](https://blog.scottlogic.com/2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html) series dives into a far more practical example of a consideration that many aren't making consciously: The cloud region being used. In our experience over the last year this one choice can have one of the biggest impacts of the CO2e of your software. BTW if you've missed earlier editions of this series, you can now find them all under the [Sustainability category of the Scott Logic blog](https://blog.scottlogic.com/category/sustainability.html)
