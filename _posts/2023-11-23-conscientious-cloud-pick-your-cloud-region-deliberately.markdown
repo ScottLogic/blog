@@ -31,7 +31,7 @@ To get a good visualisation of this in practise check out electricity maps [http
 
 [!electricitymaps.PNG](/uploads/electricitymaps.PNG)
 
-Electricity maps shows a heat map of carbon intensity – the greener an area the lower CO2 and the more dark red an area is the more carbon intensive it is. So it is worth taking this into consideration when thinking about where you compute and storage workloads are located.
+Electricity maps shows a heat map of carbon intensity – the greener an area the lower CO2 and the more dark red an area is the more carbon intensive it is. So it is worth taking this into consideration when thinking about where compute and storage are located.
 
 # Default CSP regions
 
