@@ -61,6 +61,7 @@ active-authors:
   - jporter
   - jspruce
   - jstrachan
+  - jstrong
   - jwarren
   - jwhite
   - jwren
@@ -506,6 +507,10 @@ authors:
     twitter-url: "https://twitter.com/joesteer"
     twitter-handle: joesteer
     picture: picture.jpg
+  jstrong:
+    author-summary: "I am a software developer at Scott Logic."
+    name: "James Strong"
+    picture: "jstrong.jpg"
   jwarren:
     name: "Josh Warren"
     author-summary: "I have been a software developer at Scott Logic since joining in August 2022. When I’m not tapping away at a keyboard, you can find me travelling the world or attempting to write some music!"
