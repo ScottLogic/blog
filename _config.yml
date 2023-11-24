@@ -33,6 +33,11 @@ safe: true
 twitter_handle: Scott_Logic
 plugins:
 - jekyll-redirect-from
+- jekyll-sitemap
+whitelist:
+  # of plugins than normally require `safe: false` to run
+  # AND are listed on https://pages.github.com/versions/
+- jekyll-sitemap
 kramdown:
   input: kramdown
 paginate: 20
