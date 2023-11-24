@@ -52,7 +52,8 @@
         </svg>
       {% endcase %}
       {% if post.image and post.featuredImage %}
-        <img class="cell show-for-large" src="{{ site.baseurl }}/{{post.image}}"/>
+        {% capture image-path %}{{ site.baseurl }}/{{post.image}}{% endcapture %}
+        <img class="cell show-for-large" alt="thumbnail of post: '{{post.title}}'" src="{{ image-path | replace: "//", "/" }}"/>
       {% endif %}
     </div>
   </div>
