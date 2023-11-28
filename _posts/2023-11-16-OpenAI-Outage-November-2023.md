@@ -12,7 +12,7 @@ summary: In the light of OpenAI’s system outage, a ripple of unprepared AI pow
   systems crashed across the world. How can we best secure our LLM based applications
   against such occurrences?
 author: jwarren
-image: "/uploads/Open%20AI%20outage%20quote%20card.png"
+image: "/uploads/Open%20AI%20outage%20quote%20card-38ac49.png"
 ---
 
 In the light of OpenAI’s system outage, a ripple of unprepared AI powered systems crashed across the world. There has been a gold rush towards GenAI ever since ChatGPT’s release in November 2022, with many attempting to understand and tame the beasts that are Large Language Models  (LLM). So far, OpenAI’s models have generally come out on top as the tools of choice. However, the burden of OpenAI’s popularity has at times become too great for their servers to bear.
