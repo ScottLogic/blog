@@ -17,7 +17,7 @@ This is a device that will sit between your electricity supply (i.e. the wall so
 
 At the lower end of the spectrum, these devices may not be accurate enough to profile an application, especially when having to eyeball readings as you start and finish a test. But they can provide a better understanding of your usage, either via the number of Kilowatt-hours used on a daily basis, or the power demand of a system at rest vs at capacity.
 
-For example, I’ve been tracking my energy usage at home at the start and end of each working day. Dividing that into an hourly rate has given a fairly consistent average of around 0.038kWh per hour. It also tracks the minimum and maximum Watts used at any point, with a current maximum of 72.3W (although the minimum here is 1.1W, which must be just before devices go to sleep or are turned off).
+For example, I’ve been tracking my energy usage at home at the start and end of each working day. Dividing that into an hourly rate has given a fairly consistent average of around **0.038kWh per hour**. It also tracks the minimum and maximum Watts used at any point, with a current maximum of **72.3W** (although the minimum here is **1.1W**, which must be just before devices go to sleep or are turned off).
 
 # Moving into the hardware
 
@@ -51,7 +51,7 @@ As previously mentioned, CPU usage is not the only driver of energy consumption 
 
 If CPU usage correlates with Power, then the other required measurement to calculate Energy consumption is time.
 
-Energy (J) = Power (W) x Time (s)
+**Energy (J) = Power (W) x Time (s)**
 
 So as a proxy for Energy you can periodically estimate power via CPU usage and multiply by the time difference since the last estimation. It is important to remember that zero CPU usage would not indicate zero Power, so the estimate should include a constant to account for idle power demand (which could be measured from a simple power monitor). There is also a choice to make in terms of how frequently to make estimations, as this will in turn have an impact on the CPU usage and energy consumption.
 
@@ -59,9 +59,9 @@ The accuracy of this approach would depend on the operations of the code being t
 
 # Testing some of this out
 
-As mentioned earlier, I now have a power monitor set up to track my daily usage. This allowed me to get some actual figures to use for idle and maximum power values. With my fully charged Windows laptop plugged into the device, the lowest observed power with the device awake was around 10 Watts. I then used a simple Java app, which would do some intense calculations in parallel that took the CPU utilization up to 100% for around 60 seconds. During this period the peak power draw was around 48 Watts.
+As mentioned earlier, I now have a power monitor set up to track my daily usage. This allowed me to get some actual figures to use for idle and maximum power values. With my fully charged Windows laptop plugged into the device, the lowest observed power with the device awake was around **10 Watts**. I then used a simple Java app, which would do some intense calculations in parallel that took the CPU utilization up to 100% for around 60 seconds. During this period the peak power draw was around **48 Watts**.
 
-The meter itself wasn’t accurate enough to capture a difference in such a short test, only showing consumed kilowatt hours to a maximum of 3 decimal points. But using the time and power observed would give a theoretical maximum of 48W x 60s = 2880 Joules. RAPL reported around 1800 Joules used during this period, which may be a lot less but is missing the additional overhead of the laptop’s display. Using some additional monitoring code, I recorded the current CPU load to estimate power and came up with a figure between 2500 – 2700 Joules.
+The meter itself wasn’t accurate enough to capture a difference in such a short test, only showing consumed kilowatt hours to a maximum of 3 decimal points. But using the time and power observed would give a theoretical maximum of **48W x 60s = 2880 Joules**. RAPL reported around **1800 Joules** used during this period, which may be a lot less but is missing the additional overhead of the laptop’s display. Using some additional monitoring code, I recorded the current CPU load to estimate power and came up with a figure between **2500 – 2700 Joules**.
 
 While my own figure got a little closer in theory, there was more variance in my calculation compared to the RAPL output. This is something that would require further investigation in more ideal circumstances - a Windows laptop is going to have a lot going on in the background that you probably can’t control, like virus scanners etc. A pure Linux desktop would probably be more of a fair comparison to exclude the power draw of the display amongst other things.
 
