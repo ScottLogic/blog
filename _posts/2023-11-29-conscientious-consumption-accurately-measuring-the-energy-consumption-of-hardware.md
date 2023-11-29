@@ -21,7 +21,7 @@ For example, I’ve been tracking my energy usage at home at the start and end o
 
 # Moving into the hardware
 
-The next level where you can access power measurements is within the PSU (Power Supply Unit) or motherboard of your device. This is not something found in all hardware as standard but there are some end user models which include it. It is more common in server grade kit, so when you have software running in your own data centre, this may be the best way to monitor your usage continuously.
+The next level where you can access power measurements is within the PSU or motherboard of your device. This is not something found in all hardware as standard but there are some end user models which include it. It is more common in server grade kit, so when you have software running in your own data centre, this may be the best way to monitor your usage continuously.
 
 This can give you programmatic access to the data, with almost as much accuracy as a wall meter. It also has the advantage of being able to get power and application data from one source, instead of having to sync up power monitor and hardware metrics later. Beyond this level, the readings you will get come from more of an estimation model (which may still be very accurate), as well as being for a more specific subset of the hardware components.
 
@@ -71,6 +71,17 @@ Energy consumption is clearly a complex topic when it comes to software, and the
 
 But your choice of measurement may also depend on where you are in terms of your sustainability journey and what level of detail you need. Even something as simple as consulting manufacturer's published estimated energy usage stats for their hardware could be a good starting point to get an idea of your current footprint. But as you look to improve you will need finer detail to validate any changes you make. For example, a daily figure for energy consumption won’t help you verify that a Carbon Aware demand shifting approach is bringing down your carbon emissions.
 
-All we can do is be honest and upfront about the compromises that were made in any estimations. Defining your quantification methods along with which software components you include is an important part of the Green Software Foundation’s [SCI](https://sci-guide.greensoftware.foundation/) (Software Carbon Intensity) methodology for example. As companies move forward with their sustainability plans, we can only hope that the hardware and software keep pace in providing more easily accessible and consistently available methods of measurement.
+All we can do is be honest and upfront about the compromises that were made in any estimations. Defining your quantification methods along with which software components you include is an important part of the Green Software Foundation’s [SCI](https://sci-guide.greensoftware.foundation/) methodology for example. As companies move forward with their sustainability plans, we can only hope that the hardware and software keep pace in providing more easily accessible and consistently available methods of measurement.
 
 Accurately assessing the energy impacts of software remains challenging. However, it is an important step towards aligning sustainability and efficiency goals. As developers, we must continue to push for better tools, share techniques, and design with energy efficiency in mind. Small steps towards more sustainable software will collectively make a real difference.
+
+*[PSU]: Power Supply Unit
+*[RAPL]: Running Average Power Limit
+*[GUI]: Graphical User Interface
+*[E3]: Energy Estimation Engine
+*[CPU]: Central Processing Unit
+*[GPU]: Graphics Processing Unit
+*[RAM]: Random-Access Memory
+*[VM]: Virtual Machine
+*[AI]: Artificial Intelligence
+*[SCI]: Software Carbon Intensity
