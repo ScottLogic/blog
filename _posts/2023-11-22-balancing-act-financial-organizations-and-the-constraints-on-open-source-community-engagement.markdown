@@ -14,7 +14,7 @@ summary: 'As I was reading this year''s State of Open Source in Finance report, 
   findings, how things have (and have not) changed in FS and how larger organisations
   can foster an open source culture. '
 author: mhowie
-image: "/uploads/OS%20FS%20thumbnail.png"
+image: "/uploads/Balancing%20Act%20thumbnail.png"
 ---
 
 As I was reading this year’s [State of Open Source in Finance report](https://www.finos.org/state-of-open-source-in-financial-services-2023), it took me back to my early career working in Financial Services. It was a fair while ago, so I won’t pretend to remember all of the codes and regulations inside out, but I do remember a world of secrets and confidentiality, where information and “intellectual property” had to be kept tightly restricted. For me, it’s no surprise that Financial Services organisations struggle to be as involved in Open Source projects and technologies as they might like.
