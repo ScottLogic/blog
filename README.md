@@ -148,6 +148,42 @@ BLOG_USERNAME=abirch ./shell/docker-dev-watch.sh
 
 Visit the blog on [localhost][localhost].
 
+## CI/CD
+
+We use GitHub Actions for CI/CD. The workflow definitions are in YAML files
+in `.github/workflows`.
+
+### Compress Images Once a Month
+
+Uses the [calibreapp/image-actions][calibreapp-image-actions] Action to
+automatically compress images. The compression algorithm is near-lossless. It
+compresses all images in the repo once per month, and creates a Pull Request to
+merge in the resulting changes.
+
+### Check accessibility of changed content
+
+Runs [pa11y-ci][pa11y-ci] with the aXe test runner to detect some common
+accessibility problems. It serves the blog locally and runs the tests on the
+rendered webpages. It only checks pages and blog posts which have changed, but
+doesn’t take any interest in changes to layouts or includes, so changes to
+those should be tested across the whole site separately. This workflow runs on
+Pull Requests, pushes to `gh-pages` and on manual dispatches.
+
+### Generate Read More related
+
+Generates Read More links on blog pages across the blog, using the OpenAI API
+to determine which blog posts are on similar themes. This workflow runs only on
+manual dispatches on the `gh-pages` branch and creates a Pull Request to merge
+in the resulting changes.
+
+### Remove Unused Images
+
+For each image in the repo, searches all the blog posts, pages, YAML data files
+and JavaScript scripts for any occurrences of its filename. If the filename
+occurs nowhere, deletes the image. Then makes a Pull Request to merge in its
+changes. This workflow runs only on a manual dispatch on the `gh-pages` branch.
+
+[calibreapp-image-actions]: https://github.com/calibreapp/image-actions
 [confluence-getting-started]: https://scottlogic.atlassian.net/wiki/spaces/INT/pages/3577479175/Getting+started+with+the+Scott+Logic+blog
 [sparse-checkout-guide]: https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/#sparse-checkout-and-partial-clones
 [github-ssh]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
@@ -165,6 +201,7 @@ Visit the blog on [localhost][localhost].
 [ruby-nokogiri]: https://nokogiri.org/
 [ruby-liquid]: https://shopify.github.io/liquid/
 [ruby-downloads]: https://www.ruby-lang.org/en/downloads/
+[pa11y-ci]: https://github.com/pa11y/pa11y-ci
 [project-gemfile]: Gemfile
 [install-docker]: #docker
 
