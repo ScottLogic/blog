@@ -15,7 +15,7 @@ image: "/uploads/Conscientious%20Cloud%203%20Thumbnail.png"
 contributors: jhowlett
 ---
 
-This instalment of the [Conscientious Computing](https://blog.scottlogic.com/2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html) series dives into a far more practical example of a consideration that many aren't making consciously: The cloud regional/ location being used. In our experience over the last year this one choice can have one of the biggest impacts of the operational CO2e of your software. BTW if you've missed earlier editions of this series, you can now find them all under the [Sustainability category of the Scott Logic blog](https://blog.scottlogic.com/category/sustainability.html)
+This instalment of the [Conscientious Computing](https://blog.scottlogic.com/2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html) series dives into a far more practical example of a consideration that many aren't making consciously: The cloud region / location being used. In our experience over the last year this one choice can have one of the biggest impacts of the operational CO2e of your software. BTW if you've missed earlier editions of this series, you can now find them all under the [Sustainability category of the Scott Logic blog](https://blog.scottlogic.com/category/sustainability.html)
 
 # Cocktails and Carbon Intensity
 
