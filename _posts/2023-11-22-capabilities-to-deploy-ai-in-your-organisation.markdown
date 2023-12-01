@@ -15,6 +15,7 @@ summary: In this post, I provide an overview of the capability models that are o
   the case for what I believe to be the most important capability your organisation
   will require.
 author: jheward
+image: "/uploads/JH%20Blog.png"
 ---
 
 There is a lot of hype around AI at the moment, with the current wave sparked by the release of ChatGPT in early 2023. This hype has thrust AI into the minds of many leaders and their organisations, who are now looking at how they should respond. Even where organisations have software development capability, not many have experience with AI or Machine Learning (ML). Deciding what capabilities your organisation requires to deploy these technologies can be daunting.
