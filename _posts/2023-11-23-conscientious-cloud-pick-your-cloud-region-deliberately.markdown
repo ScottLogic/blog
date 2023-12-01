@@ -1,5 +1,5 @@
 ---
-title: Conscientious Cloud – Pick Your Cloud Region Consciously
+title: Conscientious Cloud – Pick Your Cloud Location Consciously
 date: 2023-11-23 20:39:00 Z
 categories:
 - Sustainability
@@ -15,11 +15,11 @@ image: "/uploads/Conscientious%20Cloud%203%20Thumbnail.png"
 contributors: jhowlett
 ---
 
-This instalment of the [Conscientious Computing](https://blog.scottlogic.com/2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html) series dives into a far more practical example of a consideration that many aren't making consciously: The cloud region being used. In our experience over the last year this one choice can have one of the biggest impacts of the CO2e of your software. BTW if you've missed earlier editions of this series, you can now find them all under the [Sustainability category of the Scott Logic blog](https://blog.scottlogic.com/category/sustainability.html)
+This instalment of the [Conscientious Computing](https://blog.scottlogic.com/2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html) series dives into a far more practical example of a consideration that many aren't making consciously: The cloud regional/ location being used. In our experience over the last year this one choice can have one of the biggest impacts of the operational CO2e of your software. BTW if you've missed earlier editions of this series, you can now find them all under the [Sustainability category of the Scott Logic blog](https://blog.scottlogic.com/category/sustainability.html)
 
 # Cocktails and Carbon Intensity
 
-Before we get on to the cloud region its worth reminding ourselves that not all electricity grids have the same properties. You can think of the electricity supplied by the grid as a nice refreshing mojito. It isn't just a glass of plain old coal anymore, there is now a splash of solar and some fresh sprigs of wind in the mix! Every bar has their own special recipe depending on the ingredients they can find locally, that is why the one you tasted on your holiday to Cuba can't be beaten, and it is the same with data centres. The proportions of fossil fuel energy to low carbon and renewable energy depend on what grids have connected and operational at any given time. This in turn means that the cleanliness of the electricity differs with the data centre you choose.
+Before we get on to hosting location it is worth reminding ourselves that not all electricity grids have the same properties. You can think of the electricity supplied by the grid as a nice refreshing mojito. It isn't just a glass of plain old coal anymore, there is now a splash of solar and some fresh sprigs of wind in the mix! Every bar has their own special recipe depending on the ingredients they can find locally, that is why the one you tasted on your holiday to Cuba can't be beaten, and it is the same with data centres. The proportions of fossil fuel energy to low carbon and renewable energy depend on what grids have connected and operational at any given time. This in turn means that the cleanliness of the electricity differs with the data centre you choose.
 ![mojito.PNG](/uploads/mojito.PNG)
 
 The mojito analogy holds true for not just location but time too. If the limes aren't in season, you won't get the best flavour and if it is night, there will be no solar energy generation. Just like solar, most renewable energy sources are intermittent and fluctuate depending on environmental factors like wind speed, tide height and river flow.
