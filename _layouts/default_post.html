@@ -103,10 +103,12 @@ layout: default
       {% include recruitment.html page=page %}
     </div>
     <div class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y">
+      <h2 class="visually-hidden">Contributors</h2>
       {% include author_summary.html author-id=page.author %}
       {% for contributorId in page.contributors %}
         {% include author_summary.html author-id=contributorId %}
       {% endfor %}
+
       {% include category_list.html selectedIndex=0 %}
       <div class="back cell">
         <a href="{{ site.baseurl }}/index.html">Back to all posts</a>
