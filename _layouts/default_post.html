@@ -90,16 +90,18 @@ layout: default
       <div class="cell post-content">
         {{ content }}
       </div>
-      
+
       {% if site.data.related contains post.url %}
-        {% include read_more.html author=author authorUsername=authorUsername page=page %}
-        {% assign related = site.data.related[post.url] %}
-        {% assign posts = site.posts | where_exp:"item", "item.url == related[0]" %}
-        {% include post_summary_list.html posts=posts hideCategory=true %}
-        {% assign posts = site.posts | where_exp:"item", "item.url == related[1]" %}
-        {% include post_summary_list.html posts=posts hideCategory=true %}
+        <aside aria-labelledby="read-more">
+          {% include read_more.html author=author authorUsername=authorUsername page=page %}
+          {% assign related = site.data.related[post.url] %}
+          {% assign posts = site.posts | where_exp:"item", "item.url == related[0]" %}
+          {% include post_summary_list.html posts=posts hideCategory=true %}
+          {% assign posts = site.posts | where_exp:"item", "item.url == related[1]" %}
+          {% include post_summary_list.html posts=posts hideCategory=true %}
+        </aside>
       {% endif %}
-      
+
       {% include recruitment.html page=page %}
     </div>
     <div class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y">

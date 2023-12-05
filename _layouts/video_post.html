@@ -71,13 +71,15 @@ layout: default
       </div>
       {% include social.html %}
     </div>
+
     <div class="post-content cell large-6">
       <div class="cell">
         {{ content }}
       </div>
-      {% include watch_more.html %}
 
+      {% include watch_more.html %}
     </div>
+
     <div class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y">
       {% include author_summary.html author-id=page.author %}
       {% for contributorId in page.contributors %}

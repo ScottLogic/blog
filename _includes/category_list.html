@@ -1,6 +1,6 @@
 {% assign selectedIndex = include.selectedIndex %}
-<div class="category-list cell">
-    <h4>Categories</h4>
+<aside aria-labelledby="category-list" class="category-list cell">
+    <h4 id="category-list">Categories</h4>
     <ul>
         {% for category in site.data.categories %}
             <li>
@@ -10,4 +10,4 @@
             </li>
         {% endfor %}
     </ul>
-</div>
+</aside>
