@@ -7,32 +7,6 @@
 		padding-top: 150px;
 	}
 
-	h1, h2 {
-		text-align: center;
-	}
-
-	h2 {
-		font-weight: $font-regular;
-	}
-
-	.sub-title {
-		margin-bottom: 2rem;
-		@include breakpoint(large) {
-			margin-bottom: 3rem;
-		}
-	}
-
-	h2.super-title {
-		font-size: $baseFontSize;
-		> a {
-			color: colours.$teal;
-			&:hover {
-				color: colours.$white;
-				background-color: colours.$teal;
-			}
-		}
-	}
-
 	.main-content > div {
 		display: inline-block;
 	}

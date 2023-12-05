@@ -1,0 +1,15 @@
+@use "colours";
+
+.super-title {
+  font-size: $baseFontSize;
+  text-align: center;
+  font-weight: $font-regular;
+  > a {
+    color: colours.$teal;
+    &:hover {
+      color: colours.$white;
+      background-color: colours.$teal;
+    }
+  }
+}
+
