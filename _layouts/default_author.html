@@ -21,7 +21,7 @@ paginated: false
 {% endfor %}
 {% assign allEvents = allEvents | sort: 'eventDate' | reverse | uniq %}
 
-<div class="default-author grid-container">
+<div id="main-content" class="default-author grid-container">
     <div class="grid-padding-y">
         <div class="cell">
             {% include author.html author=author %}

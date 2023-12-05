@@ -6,8 +6,10 @@ summary: Beyond the Hype is a monthly podcast from the Scott Logic team where we
 image: "/assets/blog.png"
 ---
 
-{% assign posts = site.categories["Podcast"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="Podcast" %}
+<main id="main-content">
+  {% assign posts = site.categories["Podcast"] %}
+  {% if posts %}
+    {% assign posts = posts | sort: 'date' | reverse | uniq %}
+  {% endif %}
+  {% include post_index.html posts=posts categoryName="Podcast" %}
+</main>

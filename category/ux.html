@@ -5,8 +5,10 @@ summary: Scott Logic's thoughts and ideas relating to UX Design
 image: "/assets/blog.png"
 ---
 
-{% assign posts = site.categories["UX Design"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="UX Design" %}
+<main id="main-content">
+  {% assign posts = site.categories["UX Design"] %}
+  {% if posts %}
+    {% assign posts = posts | sort: 'date' | reverse | uniq %}
+  {% endif %}
+  {% include post_index.html posts=posts categoryName="UX Design" %}
+</main>

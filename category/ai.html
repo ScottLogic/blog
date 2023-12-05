@@ -5,8 +5,10 @@ summary: Scott Logic's thoughts and ideas relating to Artificial Intelligence
 image: "/assets/blog.png"
 ---
 
-{% assign posts = site.categories["Artificial Intelligence"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="Artificial Intelligence" %}
+<main id="main-content">
+  {% assign posts = site.categories["Artificial Intelligence"] %}
+  {% if posts %}
+    {% assign posts = posts | sort: 'date' | reverse | uniq %}
+  {% endif %}
+  {% include post_index.html posts=posts categoryName="Artificial Intelligence" %}
+</main>

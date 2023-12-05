@@ -4,10 +4,12 @@ layout: default
 summary: Talks and presentations given by the Scott Logic team
 ---
 
-{% assign posts = "" | split: "," %}
-{% for post in site.posts %}
-    {% if post.layout == 'video_post' %}
-        {% assign posts = posts | push: post %}
-    {% endif %}
-{% endfor %}
-{% include post_index.html posts=posts categoryName="Videos" %}
+<main id="main-content">
+  {% assign posts = "" | split: "," %}
+  {% for post in site.posts %}
+      {% if post.layout == 'video_post' %}
+          {% assign posts = posts | push: post %}
+      {% endif %}
+  {% endfor %}
+  {% include post_index.html posts=posts categoryName="Videos" %}
+</main>
