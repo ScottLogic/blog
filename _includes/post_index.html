@@ -19,6 +19,7 @@
     <h1 class="title">{{ categoryName }}</h1>
   {% endif %}
   <div class="hide-for-large">{% include category_list_compact.html selectedIndex=categoryIndex %}</div>
+  <h2 class="visually-hidden">Posts</h2>
   {% include featured_posts.html postsToFilter=allPosts categoryName=categoryName %}
   <div class="cell grid-x">
     <div class="cell large-7 large-offset-1">
