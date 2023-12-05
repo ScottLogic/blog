@@ -1,13 +1,13 @@
 ---
-title: Conscientious Consumption - Accurately measuring the energy consumption of hardware
-date: 2023-11-29 14:33:00 Z
+title: Conscientious Computing - Accurately measuring the energy consumption of hardware
+date: 2023-12-05 00:00:00 Z
 categories:
 - Sustainability
 summary: An investigation of the methods available to measure energy consumption programmatically.
 author: mgriffin
 ---
 
-In this instalment of the Conscientious Computing series, I wanted to investigate the methods available to measure the energy consumption of your code programmatically. As a Software Developer moving into the realm of sustainability, the number of assumptions made when it comes to estimating carbon impacts was surprising to me. My first thought was how do we automate this process and how can you get closer to a measured energy figure without needing additional hardware.
+In this instalment of the [Conscientious Computing series](https://blog.scottlogic.com/2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html), I wanted to investigate the methods available to measure the energy consumption of your code programmatically. As a Software Developer moving into the realm of sustainability, the number of assumptions made when it comes to estimating carbon impacts was surprising to me. My first thought was how do we automate this process and how can you get closer to a measured energy figure without needing additional hardware.
 
 And while there are ways to get more accurate estimations, their use is fragmented depending on your hardware and operating system. In this blog post I will cover these issues in more detail and consider some alternative proxies for energy consumption. But before we dive into that, let’s look at the most accurate forms of measurement and when this might be appropriate.
 
@@ -15,7 +15,7 @@ And while there are ways to get more accurate estimations, their use is fragment
 
 This is a device that will sit between your electricity supply (i.e. the wall socket for consumer devices) and any device you are trying to measure. Their features can vary but should at least display the instantaneous power demand of the hardware and the cumulative energy used over time. More complex devices may provide connectivity via Bluetooth or Wi-Fi, but these often come with an increased cost, or consumer level devices may not allow you direct access to the data, instead connecting via a proprietary app or other devices such as Alexa.
 
-At the lower end of the spectrum, these devices may not be accurate enough to profile an application, especially when having to eyeball readings as you start and finish a test. But they can provide a better understanding of your usage, either via the number of Kilowatt-hours used on a daily basis, or the power demand of a system at rest vs at capacity.
+At the lower end of the spectrum, these devices may not be accurate enough to profile an application, especially when having to eyeball readings as you start and finish a test. And even with integrated connectivity, for an organisation with 1000s of machines, adding a monitor for each one is just not feasible. But they can provide a better understanding of your baseline usage, either via the number of Kilowatt-hours used on a daily basis, or the power demand of a system at rest vs at capacity.
 
 For example, I’ve been tracking my energy usage at home at the start and end of each working day. Dividing that into an hourly rate has given a fairly consistent average of around **0.038kWh per hour**. It also tracks the minimum and maximum Watts used at any point, with a current maximum of **72.3W** (although the minimum here is **1.1W**, which must be just before devices go to sleep or are turned off).
 
@@ -47,13 +47,13 @@ After initially thinking that Linux had the better suite of tools for power meas
 
 # Alternative estimation methods
 
-As previously mentioned, CPU usage is not the only driver of energy consumption in a system, but it usually has the biggest impact and variance. [Power provisioning for a Warehouse-sized computer](https://static.googleusercontent.com/media/research.google.com/en/archive/power_provisioning.pdf) (a Google research paper) correlates CPU usage with power demand, and it is one of the main factors used to estimate compute energy consumption in the [Cloud Carbon Footprint](https://www.cloudcarbonfootprint.org/) tool. It is also the main aspect that developers can affect in their daily coding practices.
+As previously mentioned, CPU usage is not the only driver of energy consumption in a system, but it usually has the biggest impact and variance. [Power provisioning for a Warehouse-sized computer](https://static.googleusercontent.com/media/research.google.com/en/archive/power_provisioning.pdf) (a Google research paper) correlates CPU usage with power demand, and it is one of the main factors used to estimate energy consumption in tools like [Cloud Carbon Footprint](https://www.cloudcarbonfootprint.org/), [Climatiq](https://www.climatiq.io/), [Teads](https://medium.com/teads-engineering/estimating-aws-ec2-instances-power-consumption-c9745e347959), and others. It is also the main aspect that developers can affect in their daily coding practices.
 
 If CPU usage correlates with Power, then the other required measurement to calculate Energy consumption is time.
 
 **Energy (J) = Power (W) x Time (s)**
 
-So as a proxy for Energy you can periodically estimate power via CPU usage and multiply by the time difference since the last estimation. It is important to remember that zero CPU usage would not indicate zero Power, so the estimate should include a constant to account for idle power demand (which could be measured from a simple power monitor). There is also a choice to make in terms of how frequently to make estimations, as this will in turn have an impact on the CPU usage and energy consumption.
+So as a proxy for Energy you can periodically estimate power via CPU usage and multiply by the time difference since the last estimation. It is important to remember that zero CPU usage would not indicate zero Power, so the estimate should include a constant to account for idle power demand. This could be measured from a simple power monitor or estimated from another source ([SPEC Power database](https://www.spec.org/power/), derived from the chip's TDP etc.). There is also a choice to make in terms of how frequently to make estimations, as this will in turn have an impact on the CPU usage and energy consumption.
 
 The accuracy of this approach would depend on the operations of the code being tested and the method chosen for power estimation. For example, an AI training workload is a major consumer of energy but the load there is on the GPU instead. But it could provide a useful metric for comparisons, for example using it as part of benchmarking multiple dependencies when trying to select the one that is the most efficient. Otherwise, you are left to choose by the shortest time alone or doing more in-depth profiling.
 
@@ -80,10 +80,10 @@ Accurately assessing the energy impacts of software remains challenging. However
 *[GUI]: Graphical User Interface
 *[WSL]: Windows Subsystem for Linux
 *[OS]: Operating System
-*[E3]: Energy Estimation Engine
 *[CPU]: Central Processing Unit
 *[GPU]: Graphics Processing Unit
 *[RAM]: Random-Access Memory
 *[VM]: Virtual Machine
 *[AI]: Artificial Intelligence
+*[TDP]: Thermal Design Power
 *[SCI]: Software Carbon Intensity
