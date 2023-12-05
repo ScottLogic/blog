@@ -22,11 +22,6 @@
     @include article-colour-scheme(colours.$yellow, colours.$black);
   }
 
-  padding-top: 80px;
-  @include breakpoint(large) {
-    padding-top: 150px;
-  }
-
   .hero {
 
     margin-bottom: 1rem;

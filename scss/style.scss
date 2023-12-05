@@ -34,3 +34,11 @@
 @import "applause-button";
 @import "cookie-consent";
 @import "table";
+
+header + * {
+  padding-top: 125px;
+  @include breakpoint(large) {
+    padding-top: 150px;
+  }
+}
+

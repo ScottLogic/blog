@@ -2,11 +2,6 @@
 
 .post-index {
 
-	padding-top: 125px;
-	@include breakpoint(large) {
-		padding-top: 150px;
-	}
-
 	.main-content > div {
 		display: inline-block;
 	}

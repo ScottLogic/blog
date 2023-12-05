@@ -1,10 +1,5 @@
 .error-page {
 
-	padding-top: 80px;
-	@include breakpoint(large) {
-		padding-top: 150px;
-	}
-
   h1 {
     font-size: 3rem;
   }
