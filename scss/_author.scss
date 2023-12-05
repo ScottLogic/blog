@@ -51,17 +51,13 @@
       }
     }
 
-  .blog {
-    margin-bottom: 0;
-    color: colours.$teal;
-    font-weight: $font-bold;
-  }
-
   .avatar > div {
     text-align: left;
   }
+}
 
-  .author-name > h1, h2 {
-    text-align: left;
-  }
+.author-name {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
 }
