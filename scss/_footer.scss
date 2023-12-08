@@ -1,3 +1,5 @@
+@use 'colours';
+
 @mixin footer-colour-scheme($bg-colour, $fg-colour) {
   background-color: $bg-colour;
 
@@ -6,14 +8,14 @@
       color: $fg-colour;
       font-weight: 400;
       &:hover {
-        color: $black;
+        color: colours.$black;
       }
     }
   }
 
   .footer_bottom-layer {
     a {
-      color: $black;
+      color: colours.$black;
       font-weight: 400;
       &:hover {
         text-decoration: underline;
@@ -27,15 +29,15 @@
 }
 
 footer {
-	@include footer-colour-scheme($light-teal, $teal);
+	@include footer-colour-scheme(colours.$light-teal, colours.$teal);
 	&.pink {
-		@include footer-colour-scheme($light-pink, $pink);
+		@include footer-colour-scheme(colours.$light-pink, colours.$pink);
 	}
 	&.orange {
-		@include footer-colour-scheme($light-orange, $orange);
+		@include footer-colour-scheme(colours.$light-orange, colours.$orange);
 	}
 	&.yellow {
-		@include footer-colour-scheme($light-yellow, $yellow);
+		@include footer-colour-scheme(colours.$light-yellow, colours.$yellow);
 	}
 	
 	.footer_top-layer {
@@ -105,9 +107,9 @@ footer {
 				vertical-align: bottom;
 				font-size: rem-calc(12px, 16px);
 				padding: 0 rem-calc(7px, 16px);
-				color: $black;
+				color: colours.$black;
 				a {
-					color: $black;
+					color: colours.$black;
 					&:hover {
 						text-decoration: underline;
 					}

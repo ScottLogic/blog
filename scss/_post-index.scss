@@ -1,3 +1,4 @@
+@use 'colours';
 
 .post-index {
 
@@ -24,10 +25,10 @@
 	h2.super-title {
 		font-size: $baseFontSize;
 		> a {
-			color: $teal;
+			color: colours.$teal;
 			&:hover {
-				color: $white;
-				background-color: $teal;
+				color: colours.$white;
+				background-color: colours.$teal;
 			}
 		}
 	}
@@ -37,7 +38,7 @@
 	}
 
   .active {
-    border-bottom: 3px solid $teal;
+    border-bottom: 3px solid colours.$teal;
   }
 
   .category-list-compact {
