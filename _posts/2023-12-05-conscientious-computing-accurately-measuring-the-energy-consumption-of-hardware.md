@@ -1,6 +1,6 @@
 ---
 title: Conscientious Computing - Accurately measuring the energy consumption of hardware
-date: 2023-12-05 00:00:00 Z
+date: 2023-12-08 00:00:00 Z
 categories:
 - Sustainability
 summary: An investigation of the methods available to measure energy consumption programmatically.
@@ -11,7 +11,7 @@ In this instalment of the [Conscientious Computing series](https://blog.scottlog
 
 And while there are ways to get more accurate estimations, their use is fragmented depending on your hardware and operating system. In this blog post I will cover these issues in more detail and consider some alternative proxies for energy consumption. But before we dive into that, let’s look at the most accurate forms of measurement and when this might be appropriate.
 
-# Power Monitors
+## Power Monitors
 
 This is a device that will sit between your electricity supply (i.e. the wall socket for consumer devices) and any device you are trying to measure. Their features can vary but should at least display the instantaneous power demand of the hardware and the cumulative energy used over time. More complex devices may provide connectivity via Bluetooth or Wi-Fi, but these often come with an increased cost, or consumer level devices may not allow you direct access to the data, instead connecting via a proprietary app or other devices such as Alexa.
 
@@ -19,13 +19,13 @@ At the lower end of the spectrum, these devices may not be accurate enough to pr
 
 For example, I’ve been tracking my energy usage at home at the start and end of each working day. Dividing that into an hourly rate has given a fairly consistent average of around **0.038kWh per hour**. It also tracks the minimum and maximum Watts used at any point, with a current maximum of **72.3W** (although the minimum here is **1.1W**, which must be just before devices go to sleep or are turned off).
 
-# Moving into the hardware
+## Moving into the hardware
 
 The next level where you can access power measurements is within the PSU or motherboard of your device. This is not something found in all hardware as standard but there are some end user models which include it. It is more common in server grade kit, so when you have software running in your own data centre, this may be the best way to monitor your usage continuously.
 
 This can give you programmatic access to the data, with almost as much accuracy as a wall meter. It also has the advantage of being able to get power and application data from one source, instead of having to sync up power monitor and hardware metrics later. Beyond this level, the readings you will get come from more of an estimation model (which may still be very accurate), as well as being for a more specific subset of the hardware components.
 
-# RAPL
+## RAPL
 
 The first term I found when searching for energy measurement methods was RAPL or Running Average Power Limit. This is a feature found in modern Intel Processors, which provides a way to measure and control the energy consumption of a system. You are constrained by your chip manufacturer here but there are also differences in how Windows and Linux allow you to access this information.
 
@@ -35,7 +35,7 @@ Intel have now ended support for this option, with users advised to uninstall an
 
 Many other tools that aim to measure energy use are wrappers around this functionality. A couple of note that we have experimented with are [JoularJX](https://www.noureddine.org/research/joular/joularjx) and [CodeCarbon](https://codecarbon.io/), which have both been affected by the removal of Intel Power Gadget. Many other libraries will not work when the Linux file paths cannot be found. WSL currently gets the worst of both worlds as it cannot access power readings using either OS method. This is unfortunate if you rely on it for a Linux environment or Docker containerisation on Windows.
 
-# Windows Energy Estimation Engine (E3)
+## Windows Energy Estimation Engine (E3)
 
 The name gives away the operating system required here, but E3 also relies on your device having a battery. It is a system that always runs in the background, tracking the power used and apportioning it to specific applications. It can fall back to software guesses/estimates when the interfaces aren't implemented in hardware. This is a more holistic approach than RAPL, which only estimates the energy consumption of the CPU, GPU, and memory. CPU/GPU usage is usually the major driver of energy consumption in hardware but there are other aspects like storage, networking and particularly displays in a laptop device that play a part.
 
@@ -45,7 +45,7 @@ There is a [blog](https://devblogs.microsoft.com/sustainable-software/measuring-
 
 After initially thinking that Linux had the better suite of tools for power measurement, I was surprised to find that this kind of kernel level measurement was something that Linux was missing. I found out about the work of [Aditya Manglik](https://lfenergy.org/lf-energy-summit-2023-recap-understanding-and-measuring-the-carbon-footprint-of-personal-computing/) via the Green Software Foundation’s Environment Variables podcast, who is aiming to create an equivalent system that is helpful for both general users and developers. Having this kind of system running in the background on almost any type of machine would be an immense help in getting an overview of the energy consumption of your entire technology estate.
 
-# Alternative estimation methods
+## Alternative estimation methods
 
 As previously mentioned, CPU usage is not the only driver of energy consumption in a system, but it usually has the biggest impact and variance. [Power provisioning for a Warehouse-sized computer](https://static.googleusercontent.com/media/research.google.com/en/archive/power_provisioning.pdf) (a Google research paper) correlates CPU usage with power demand, and it is one of the main factors used to estimate energy consumption in tools like [Cloud Carbon Footprint](https://www.cloudcarbonfootprint.org/), [Climatiq](https://www.climatiq.io/), [Teads](https://medium.com/teads-engineering/estimating-aws-ec2-instances-power-consumption-c9745e347959), and others. It is also the main aspect that developers can affect in their daily coding practices.
 
@@ -57,7 +57,7 @@ So as a proxy for Energy you can periodically estimate power via CPU usage and m
 
 The accuracy of this approach would depend on the operations of the code being tested and the method chosen for power estimation. For example, an AI training workload is a major consumer of energy but the load there is on the GPU instead. But it could provide a useful metric for comparisons, for example using it as part of benchmarking multiple dependencies when trying to select the one that is the most efficient. Otherwise, you are left to choose by the shortest time alone or doing more in-depth profiling.
 
-# Testing some of this out
+## Testing some of this out
 
 As mentioned earlier, I now have a power monitor set up to track my daily usage. This allowed me to get some actual figures to use for idle and maximum power values. With my fully charged Windows laptop plugged into the device, the lowest observed power with the device awake was around **10 Watts**. I then used a simple Java app, which would do some intense calculations in parallel that took the CPU utilization up to 100% for around 60 seconds. During this period the peak power draw was around **48 Watts**.
 
@@ -65,7 +65,7 @@ The meter itself wasn’t accurate enough to capture a difference in such a shor
 
 While my own figure got a little closer in theory, there was more variance in my calculation compared to the RAPL output. This is something that would require further investigation in more ideal circumstances - a Windows laptop is going to have a lot going on in the background that you probably can’t control, like virus scanners etc. A pure Linux desktop would probably be more of a fair comparison to exclude the power draw of the display amongst other things.
 
-# Conclusion
+## Conclusion
 
 Energy consumption is clearly a complex topic when it comes to software, and there is not a one size fits all approach – nor is there likely to be one in the foreseeable future. The data you can access is only as good as the sensors you have available and the drivers or kernel module implementations that use them. There will almost always be some hardware specific effort involved in finding out what is available to you.
 
