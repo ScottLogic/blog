@@ -79,11 +79,9 @@ layout: default
 
     </div>
     <div class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y">
-      {% include author_summary.html %}
+      {% include author_summary.html author-id=page.author %}
       {% for contributorId in page.contributors %}
-        {% assign author = site.data.authors.authors[contributorId] %}
-        {% assign authorUsername = contributorId %}
-        {% include author_summary.html %}
+        {% include author_summary.html author-id=contributorId %}
       {% endfor %}
       {% include category_list.html selectedIndex=0 %}
       <div class="back cell">
