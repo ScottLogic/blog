@@ -6,6 +6,7 @@ categories:
 summary: An introduction to the random forest machine learning model, an older, yet
   interesting approach based on decision trees.
 author: jstrong
+image: "/uploads/Seeing%20the%20forest%20for%20the%20trees.png"
 ---
 
 I recently embarked on a journey into the world of machine learning through following the [fast.ai](https://course.fast.ai/) course taught by Jeremy Howard as part of an internal study group. I have learnt a great deal about the inner workings of neural networks and how deep learning can produce seemingly magical results. However, one of the most interesting discoveries for me was learning about a completely different type of model: the Random Forest.

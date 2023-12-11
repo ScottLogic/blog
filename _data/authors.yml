@@ -82,6 +82,7 @@ active-authors:
   - mdunsdon
   - mholland
   - mgrabara
+  - mgriffin
   - mking
   - mmcalroy
   - mmoxon
@@ -1364,3 +1365,8 @@ authors:
     email: sgladstone@scottlogic.com
     author-summary: "I'm a developer based out of our Bristol office. I'm a bit of a generalist; I like to get stuck into a range of problems from the business side to anywhere across the tech stack."
     picture: Image.png
+  mgriffin:
+    name: "Matt Griffin"
+    email: mgriffin@scottlogic.com
+    author-summary: "Developer based in the Newcastle office. Ex-Games programmer and worked with plenty of things involving C++ and 3D graphics."
+    picture: picture.jpg

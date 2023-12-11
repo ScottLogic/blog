@@ -1,11 +1,12 @@
 
-@import "node_modules/applause-button/src/applause-button.scss";
+@import "../node_modules/applause-button/src/applause-button.scss";
 
-@import "util/unit";
-@import "util/breakpoint";
+@import "../node_modules/foundation-sites/scss/util/value";
+@import "../node_modules/foundation-sites/scss/util/unit";
+@import "../node_modules/foundation-sites/scss/util/breakpoint";
 @import "foundation";
 
-@import "cookieconsent.min";
+@import "../node_modules/cookieconsent/build/cookieconsent.min";
 
 @import "blog-colour-schemes";
 @import "blog-main";
