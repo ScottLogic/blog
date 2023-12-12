@@ -5,6 +5,7 @@ categories:
 - Sustainability
 summary: An investigation of the methods available to measure energy consumption programmatically.
 author: mgriffin
+image: "/uploads/Conscientous%20Computing%203_.png"
 ---
 
 In this instalment of the [Conscientious Computing series](https://blog.scottlogic.com/2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html), I wanted to investigate the methods available to measure the energy consumption of your code programmatically. As a Software Developer moving into the realm of sustainability, the number of assumptions made when it comes to estimating carbon impacts was surprising to me. My first thought was how do we automate this process and how can you get closer to a measured energy figure without needing additional hardware.
