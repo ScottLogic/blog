@@ -1,5 +1,5 @@
 ---
-title: 'Implementing cost-effective test-driven development in an LLM application'
+title: 'Implementing cost-effective Test-Driven Development in an LLM application'
 date: 2023-12-13 14:00:00 Z
 categories:
 - fvlachos
@@ -12,13 +12,12 @@ tags:
 - Blog
 - GPT
 - Sustainability
-summary: Teething troubles with our nascent chatbot
+summary: Developing LLM applications using Test-Driven Development principles can be expensive due to the incurred cost of every usage. In this post, we discussed how our attempt to tackle the inherit non-deterministic nature of LLMs increased our operational costs and the techniques we employed to minimize them.  
 author: fvlachos
-image: "/uploads/Scottbot%20tn.png"
 ---
 
 ## **Introduction**
-In our continuous pursuit of refining [Scottbot, our LLM-powered chatbot]({{ site.github.url }}/2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html), we have encountered and overcome various challenges. The implementation of Test-driven development practices and comprehensive testing, [a topic previously explored in a dedicated blog]({{ site.github.url }}/2023/11/14/testing-LLM-based-applications-strategy-and-challenges.html), was a particularly difficult one due to the non-deterministic nature of the LLMs. Despite conquering these initial obstacles, a new challenge emerged – one that revolved around managing the costs associated with testing. In this blog post, I will explore the intricacies of this cost challenge and outline the strategic measures we undertook to streamline our test suite, thereby reducing expenses and optimizing our testing processes. 
+In our continuous pursuit of refining [Scottbot, our LLM-powered chatbot]({{ site.github.url }}/2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html), we have encountered and overcome various challenges. The implementation of Test-Driven Development practices and comprehensive testing, [a topic previously explored in a dedicated blog]({{ site.github.url }}/2023/11/14/testing-LLM-based-applications-strategy-and-challenges.html), was a particularly difficult one due to the non-deterministic nature of the LLMs. Despite conquering these initial obstacles, a new challenge emerged – one that revolved around managing the costs associated with testing. In this blog post, I will explore the intricacies of this cost challenge and outline the strategic measures we undertook to streamline our test suite, thereby reducing expenses and optimizing our testing processes. 
 
 ## **Understanding our testing approach**
 Our testing framework treats the application as a black box - it sends a prompt and evaluates the final response without considering how that response was generated. Given the non-deterministic nature of the underlying Language Learning Model (LLM), relying on string comparisons to judge the response's quality would be futile. Instead, string comparison is reserved solely for verifying the presence of URLs in the response, which indicate the bot's source of information. To accurately assess the quality of the bot's output, we employ a secondary LLM that evaluates the response against a set of reference information we provide. Moreover, recognizing the inherent variability in the LLM's outputs, we do not rely on single-instance testing. Multiple runs are conducted for each prompt, and the results are assessed on an average basis to account for the LLM's non-deterministic behaviour, thus providing a more robust measure of performance. [You can read more on how statistics can be utilised to address randomness here]({{ site.github.url }}/2023/11/16/using-the-t-test-for-effective-testing-of-nondeterministic-AI-systems.html). 
