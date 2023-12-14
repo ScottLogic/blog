@@ -83,6 +83,7 @@ active-authors:
   - mdunsdon
   - mholland
   - mgrabara
+  - mgriffin
   - mking
   - mmcalroy
   - mmoxon
@@ -1369,4 +1370,9 @@ authors:
     name: "Fanis Vlachos"
     email: fvlachos@scottlogic.com
     author-summary: "I am a Senior Developer at Scott Logic, based in Edinburgh. I love solving problems using software and I am passionate about learning new technologies."
+    picture: picture.jpg
+  mgriffin:
+    name: "Matt Griffin"
+    email: mgriffin@scottlogic.com
+    author-summary: "Developer based in the Newcastle office. Ex-Games programmer and worked with plenty of things involving C++ and 3D graphics."
     picture: picture.jpg

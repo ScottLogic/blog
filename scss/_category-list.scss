@@ -1,3 +1,5 @@
+@use 'colours';
+
 .category-list {
     a {
         font-weight: $font-regular;
@@ -12,11 +14,11 @@
     }
 
   a:hover {
-    color: $black;
-    border-bottom: 3px solid $turquoise;
+    color: colours.$black;
+    border-bottom: 3px solid colours.$teal;
   }
 
   a:visited {
-    color: $black;
+    color: colours.$black;
   }
 }

@@ -17,7 +17,7 @@ summary: Our journey of  learning about Prompt Injection Attacks, securing Gener
   AI, and how we became undercover spies on the way.
 author: dhinrichs
 contributors: hlogan
-image: "/uploads/prompt%20injections%20thumbnail.png"
+image: "/uploads/Spy%20Logic%20thumbnail_.png"
 Field name: 
 ---
 
