@@ -33,6 +33,7 @@ Our testing methodology often involved sending the same prompts multiple times t
 
 ## **Rethinking our testing strategy**
 Despite the benefits of caching, we quickly realized that it was not the silver bullet for our cost issues. The crux of the issue lay in the numerous calls to the LLM required to generate just a single response. For every user query the application uses: 
+
 * An LLM-powered agent to decide which tool to use to retrieve the necessary information. 
 * An LLM-powered tool (or multiple). 
 * An LLM to combine the information returned by the tool along with the conversation context to generate the final response. 
