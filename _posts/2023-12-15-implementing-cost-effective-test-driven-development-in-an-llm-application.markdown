@@ -1,6 +1,6 @@
 ---
 title: 'Implementing cost-effective test-driven development in an LLM application'
-date: 2023-12-15 14:00:00 Z
+date: 2023-12-13 14:00:00 Z
 categories:
 - fvlachos
 - Artificial Intelligence
