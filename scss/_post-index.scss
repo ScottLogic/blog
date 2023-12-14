@@ -42,7 +42,10 @@
   }
 
   .category-list-compact {
-    h3 {
+    label {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: .5rem;
       text-align: center;
     }
   }
