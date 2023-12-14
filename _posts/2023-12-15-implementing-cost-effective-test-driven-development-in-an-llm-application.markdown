@@ -12,7 +12,7 @@ tags:
 - Blog
 - GPT
 - Sustainability
-summary: Developing LLM applications using Test-Driven Development principles can be expensive due to the incurred cost of every usage. In this post, we discussed how our attempt to tackle the inherit non-deterministic nature of LLMs increased our operational costs and the techniques we employed to minimize them.  
+summary: Developing LLM applications using Test-Driven Development principles can be expensive due to the incurred cost of every usage. In this post, we discussed how our attempt to tackle the inherit non-deterministic nature of LLMs increased our operational costs and the techniques we employed to minimise them.  
 author: fvlachos
 ---
 
@@ -39,8 +39,13 @@ Despite the benefits of caching, we quickly realized that it was not the silver 
 
 This led to us re-evaluating our testing strategy – perhaps black box testing was not the optimal approach as it makes it impossible to avoid any of the aforementioned LLM calls. Consequently, we began exploring how we could break down our monolithic test suite into smaller, more focused tests that target specific components of the pipeline. The advantages of this approach were immediately apparent. First, it would be cheaper to run since we could now target specific parts of the application rather than the whole. Second, it would pinpoint exactly which component was failing, thereby simplifying the debugging process. The subsequent sections will delve into how this was implemented. 
 
-## **Agent tests**
-The first component to isolate is the agent’s decision-making process. It is easy to understand if the agent selects the incorrect tool, the bot’s final response will be flawed. Therefore, there is no need to carry out the rest of the LLM calls or evaluate the final response. Based on this, we designed a test suite to assess the agent’s tool invocation abilities. This suite evaluates which tool the agent chooses and the input it uses it with, in response to a given prompt. As each test need just a single LLM call, they are significantly cheaper and faster. 
+## **Agent decision-making tests**
+The first component to isolate is the agent’s decision-making process, which is illustrated in the diagram below. 
+
+
+![scottbot_agent_decision_making.png]({{ site.github.url }}/uploads/scottbot_agent_decision_making.png)
+
+It is easy to understand if the agent selects the incorrect tool, the bot’s final response will be flawed. Therefore, there is no need to carry out the rest of the LLM calls or evaluate the final response. Based on this, we designed a test suite to assess the agent’s tool invocation abilities. This suite evaluates which tool the agent chooses and the input it uses it with, in response to a given prompt. As each test need just a single LLM call, they are significantly cheaper and faster. 
 
 These tests became particularly useful when we implemented changes that could affect the agent’s decision-making process. For example, the agent type, the system prompt, the tools descriptions, or the agent’s underlying LLM.  
 
