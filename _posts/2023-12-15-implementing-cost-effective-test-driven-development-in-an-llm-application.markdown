@@ -42,15 +42,16 @@ This led to us re-evaluating our testing strategy – perhaps black box testing 
 ## **Agent decision-making tests**
 The first component to isolate is the agent’s decision-making process, which is illustrated in the diagram below. 
 
-
 ![scottbot_agent_decision_making.png]({{ site.github.url }}/uploads/scottbot_agent_decision_making.png)
 
-It is easy to understand if the agent selects the incorrect tool, the bot’s final response will be flawed. Therefore, there is no need to carry out the rest of the LLM calls or evaluate the final response. Based on this, we designed a test suite to assess the agent’s tool invocation abilities. This suite evaluates which tool the agent chooses and the input it uses it with, in response to a given prompt. As each test need just a single LLM call, they are significantly cheaper and faster. 
+It is easy to understand if the agent selects the incorrect tool, the bot’s final response will be flawed. Therefore, there is no need to actually invoke the tool or evaluate the final response. Based on this, we designed a test suite to assess the agent’s tool invocation abilities. This suite evaluates which tool the agent chooses and the input it uses it with, in response to a given prompt. As each test need just a single LLM call, they are significantly cheaper and faster. 
 
 These tests became particularly useful when we implemented changes that could affect the agent’s decision-making process. For example, the agent type, the system prompt, the tools descriptions, or the agent’s underlying LLM.  
 
 ## **Vector store retrieval tests**
-The next component to isolate was the vector store retrieval process. All internal documents that the bot needs to access to reply to Scott Logic-related questions have been converted into embeddings and been stored in a vector database. During runtime, Scottbot conducts a similarity search based on the user's query to retrieve the most relevant document(s). These documents, along with the user's question, are then passed to the LLM, which attempts to generate an accurate answer. 
+The next component to isolate was the vector store retrieval process. All internal documents that the bot needs to access to reply to Scott Logic-related questions have been converted into embeddings and been stored in a vector database. During runtime, Scottbot conducts a similarity search based on the user's query to retrieve the most relevant document(s). These documents, along with the user's question, are then passed to the LLM, which attempts to generate an accurate answer. An diagram of this process can be seen below.
+
+![Vector_store_retrieval_process.png]({{ site.github.url }}/uploads/Vector_store_retrieval_process.png)
 
 The accuracy of the bot’s response is heavily dependent on the vector store’s ability to return the correct documents. If the retrieval process is flawed, the responses will inevitably be inaccurate. Therefore, we developed a dedicated test suite focusing on whether the vector store retrieves the correct documents for a given query.  
 
@@ -59,7 +60,9 @@ This suite was particularly helpful when changes were made that could impact the
 One of the key advantages of isolating the vector store retrieval process is that it does not rely on any LLM calls – this process is completely deterministic. This results in tests that are not only cost-effective but also rapid, providing us with the ability to swiftly identify and rectify any discrepancies in the retrieval process.  
 
 ## **Retrieval QA Chain tests**
-Finally, we isolated the process that last part of the Scott Logic tool – the invocation of the Retrieval QA Chain. This process involves providing the LLM with the context fetched from our vector store and the user query and asking it to generate an answer.  
+Finally, we isolated the process that last part of the Scott Logic tool – the invocation of the Retrieval QA Chain. This process involves providing the LLM with the context fetched from our vector store and the user query and asking it to generate an answer.
+
+![retrieval_qa_chain.png]({{ site.github.url }}/uploads/retrieval_qa_chain.png)
 
 Assuming the provided context is adequately comprehensive, these tests can provide various insights. Through these tests, we were able to adjust the configuration settings of the Retrieval QA Chain. This included determining the ideal number of context documents to utilize from the vector store and the most effective method of presenting them to the LLM — be it through appending the documents or generating a synthesized summary. Moreover, the tests facilitated a comparative analysis of various LLMs, enabling us to identify the most suitable model for the question-answering part of our application. 
 
