@@ -20,6 +20,10 @@ Back in late October, we revealed our prompt injection project, lovingly called 
 
 The browser-based app lets you assume the role of a hacker, tasked with extracting secrets from the popular (and fictional) drinks manufacturer Scott Brew. Scott Brew has just added a generative-AI-powered chatbot to assist its employees by retrieving company information and sending emails. Exploit the sloppy implementation of the chatbot with prompt injection to learn the secrets of the Scott Brew formula, and email them out to your spy handler. But be warned! As you progress through the levels, security will be ramped up. Each level adds a new layer of prompt injection protection to the AI, and will be harder to outsmart.
 
+<div align="center">
+<img src="/uploads/level%201.PNG" title="Level 1" alt="Level 1"/>
+</div>
+
 [level 1.PNG](/uploads/level%201.PNG)
 
 At any time, you can switch into ‘sandbox mode’. Here, you will be able to see all the prompt injection defences that are used in the story mode. Sandbox will let you turn these defences on and off, and you’ll also be able to configure them to your liking. Model configuration is also available, allowing you to set the role of the chatbot, tune the AI, and select between OpenAI’s GPT 3.5 and GPT 4, if available. This playground is a great space to make your own challenges. Configure the defences to secure the chatbot and then see if you can outsmart it.
