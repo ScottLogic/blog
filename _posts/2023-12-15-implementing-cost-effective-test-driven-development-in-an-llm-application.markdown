@@ -2,7 +2,6 @@
 title: 'Implementing cost-effective Test-Driven Development in an LLM application'
 date: 2023-12-13 14:00:00 Z
 categories:
-- fvlachos
 - Artificial Intelligence
 tags:
 - Testing
