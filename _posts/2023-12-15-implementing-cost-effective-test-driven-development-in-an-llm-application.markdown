@@ -62,7 +62,7 @@ This suite was particularly helpful when changes were made that could impact the
 One of the key advantages of isolating the vector store retrieval process is that it does not rely on any LLM calls – this process is completely deterministic. This results in tests that are not only cost-effective but also rapid, providing us with the ability to swiftly identify and rectify any discrepancies in the retrieval process.  
 
 ## **Retrieval QA Chain tests**
-Finally, we isolated the process of the last part of the Scott Logic tool – the invocation of the Retrieval QA Chain. This process involves providing the LLM with the context fetched from our vector store and the user query and asking it to generate an answer.
+Finally, we isolated the last part of the Scott Logic tool – the invocation of the Retrieval QA Chain. This process involves providing the LLM with the context fetched from our vector store and the user query and asking it to generate an answer.
 
 ![retrieval_qa_chain.png]({{ site.github.url }}/uploads/retrieval_qa_chain.png)
 
