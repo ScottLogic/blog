@@ -38,6 +38,7 @@ active-authors:
   - emason
   - fhubin
   - gsmith
+  - gsproston
   - garora
   - gkendall
   - godds
@@ -1244,6 +1245,10 @@ authors:
     name: "Ged Smith"
     author-summary: "Initially from a Marine Engineering background, I am a Senior Test Engineer with Scott Logic, based in Newcastle with twenty plus years software testing experience. Away from the keyboard, if I'm not concocting home brew, I'm either at the allotment or out on the kayak."
     twitter-handle: null
+    picture: picture.jpg
+  gsproston:
+    name: "George Sproston"
+    author-summary: "Hi I'm George, a senior dev living in Glasgow. In the summer I roller skate and in the winter I hibernate"
     picture: picture.jpg
   mjrichards:
     name: "Mark Richards"
