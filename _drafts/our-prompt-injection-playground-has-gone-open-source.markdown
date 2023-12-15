@@ -1,11 +1,20 @@
 ---
 title: Our prompt injection playground has gone open source!
 date: 2023-12-15 16:43:00 Z
-summary: An update on our Spy Logic project, and its journey to open source.
+categories:
+- Artificial Intelligence
+tags:
+- Security
+- AI
+- Artificial Intelligence
+- ChatGPT
+- GitHub
+- Open Source
+summary: An update on our Spy Logic project and its journey to open source.
 author: gsproston
 ---
 
-Back in late October we revealed our prompt injection project, lovingly called ‘Spy Logic’, with a [short video demo](https://blog.scottlogic.com/2023/10/31/mitigating-prompt-injections.md.html) and an accompanying [blog post](https://blog.scottlogic.com/2023/11/03/spy-logic.html). Now, we’re happy to announce that the project has gone public! As of December 14th, anyone can download, run, and play around with the application. Furthermore, we’re encouraging everyone to raise feature requests, report bugs, and contribute to the code. Just head over to the [GitHub repository](https://github.com/ScottLogic/prompt-injection) to get started.
+Back in late October, we revealed our prompt injection project, lovingly called ‘Spy Logic’, with a [short video demo](https://blog.scottlogic.com/2023/10/31/mitigating-prompt-injections.md.html) and an accompanying [blog post](https://blog.scottlogic.com/2023/11/03/spy-logic.html). Now, we’re happy to announce that the project has gone public! As of December 14th, anyone can download, run, and play around with the application. Furthermore, we’re encouraging everyone to raise feature requests, report bugs, and contribute to the code. Just head over to the [GitHub repository](https://github.com/ScottLogic/prompt-injection) to get started.
 
 ## What is Spy Logic?
 
@@ -27,7 +36,7 @@ We’ve also put a large focus on accessibility, keeping in mind things like key
 
 Making Spy Logic fully open source has been a long term goal of the project. Now, anyone can head on over to the [GitHub repository](https://github.com/ScottLogic/prompt-injection) and start contributing! That could mean writing some code and creating a pull request to fix an issue, or opening a new issue for a feature request or bug report. Even adding your thoughts to the discussion threads on open issues is very much appreciated.
 
-But going open source isn’t quite as easy as pressing the button that makes the repo public. [Contributing](https://github.com/ScottLogic/prompt-injection/blob/dev/CONTRIBUTING.md) and [code of conduct](https://github.com/ScottLogic/prompt-injection/blob/dev/CODE_OF_CONDUCT.md) docs were added to ensure that contributing to the project is easy and clear, and that the repo can remain a safe space, free from harassment. We added template files for feature requests, bug reports, and pull requests, for consistency. The ever-expanding list of [existing issues](https://github.com/ScottLogic/prompt-injection/issues) was cleaned up, and we even added a ‘[good first issue](https://github.com/ScottLogic/prompt-injection/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22)’ label (hint: this is a great place to start contributing). Choosing the right licence is super important too. We decided on the [MIT licence](https://github.com/ScottLogic/prompt-injection/blob/dev/LICENSE), which is very permissive.
+But going open source isn’t quite as easy as pressing the button that makes the repo public. [Contributing](https://github.com/ScottLogic/prompt-injection/blob/dev/CONTRIBUTING.md) and [code of conduct](https://github.com/ScottLogic/prompt-injection/blob/dev/CODE_OF_CONDUCT.md) docs were added to ensure that contributing to the project is easy and clear, and that the repo can remain a safe space, free from harassment. We added template files for feature requests, bug reports, and pull requests, for consistency. The ever-expanding list of [existing issues](https://github.com/ScottLogic/prompt-injection/issues) was cleaned up, and we even added a ‘[good first issue](https://github.com/ScottLogic/prompt-injection/issues?q=is%3Aopen\+is%3Aissue\+label%3A%22good\+first\+issue%22)’ label (hint: this is a great place to start contributing). Choosing the right licence is super important too. We decided on the [MIT licence](https://github.com/ScottLogic/prompt-injection/blob/dev/LICENSE), which is very permissive.
 
 ## Over to you
 
