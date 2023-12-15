@@ -23,6 +23,7 @@ active-authors:
   - mhowie
   - cprice
   - csalt
+  - chayes
   - cstephen
   - dgrew
   - dhinrichs
@@ -254,6 +255,10 @@ authors:
     picture: picture.jpg
   cgrant:
     name: "Chris Grant"
+    picture: picture.jpg
+  chayes:
+    name: "Charlotte Hayes"
+    author-summary: "I'm Charlotte, a Senior Test Engineer based in Edinburgh. I am passionate about exploring the latest test automation technologies as well as examining the intersection between continuous improvement methodologies and QA. I have a keen interest in exploring the role that we, as technologists, can play in developing more sustainable technology."
     picture: picture.jpg
   ckurzeja:
     name: "Chris Kurzeja"
