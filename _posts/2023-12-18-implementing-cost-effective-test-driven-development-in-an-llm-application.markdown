@@ -16,6 +16,7 @@ summary: Developing LLM applications using Test-Driven Development principles ca
   how our attempt to tackle the inherit non-deterministic nature of LLMs increased
   our operational costs and the techniques we employed to minimise them.
 author: fvlachos
+image: "/uploads/Implementing%20cost%20effective%20tdd.png"
 ---
 
 ## **Introduction**
