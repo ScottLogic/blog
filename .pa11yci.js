@@ -10,7 +10,12 @@ if (!chromiumBin) {
 const baseUrl = 'http://localhost:4000';
 
 // Colour contrast is a known issue. If we ever fix the brand colours, this should be removed.
-const colourContrastRuleId = 'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail';
+const colourContrastRuleIds = [
+  // HTML CodeSniffer rule IDs come from section 1.4.3 of:
+  // https://squizlabs.github.io/HTML_CodeSniffer/Standards/WCAG2/
+  'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail', // normal text
+  'WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Fail', // large text
+];
 
 module.exports = {
   defaults: {
@@ -18,7 +23,7 @@ module.exports = {
       executablePath: chromiumBin,
     },
     ignore: [
-      colourContrastRuleId,
+      ...colourContrastRuleIds,
     ],
   },
   urls: relativeUrls.map((url) => `${baseUrl}${url}`),
