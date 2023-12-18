@@ -1,50 +1,50 @@
 active-authors:
-  - amcgill
   - aaiken
   - abagdonaite
   - abarron
-  - abirch
   - aberrill
+  - abirch
   - acarr
   - acaulfield
   - ahickman
   - alee
+  - amcgill
   - amjones
   - asegrove
   - ashing
   - awhitmell
   - bpritchard
   - bwallis
-  - colive
   - ccocks
   - ceberhardt
   - cfisher
+  - chayes
   - ckoris
-  - mhowie
+  - colive
   - cprice
   - csalt
-  - chayes
   - cstephen
   - dgrew
   - dhinrichs
   - dhope
+  - dhunter
   - dkerr
   - dmcnamee
   - dnicholas
-  - dscarborough
   - dogle
   - drees
+  - dscarborough
   - dsmith
   - ebrown
   - emason
   - fhubin
   - fvlachos
-  - gsmith
-  - gsproston
   - garora
   - gkendall
   - godds
   - gsingh
+  - gsmith
+  - gsproston
   - hashbyha
   - hbedford
   - hbellamy
@@ -69,11 +69,10 @@ active-authors:
   - jwhite
   - jwren
   - kangel
-  - kcoombes
   - kclark
-  - kjones
-  - dhunter
+  - kcoombes
   - kday
+  - kjones
   - klau
   - lcollingwood
   - lpisani
@@ -83,9 +82,10 @@ active-authors:
   - mbuhagiar
   - mcooke
   - mdunsdon
-  - mholland
   - mgrabara
   - mgriffin
+  - mholland
+  - mhowie
   - mking
   - mmcalroy
   - mmoxon
@@ -124,10 +124,10 @@ active-authors:
   - tclarke-scottlogic
   - tgilbert
   - thands
-  - wreilly
-  - wtrimble
   - wboothclibborn
   - wduncan
+  - wreilly
+  - wtrimble
   - xchen
   - zrubin
   - zwali
