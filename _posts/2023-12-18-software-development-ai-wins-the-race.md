@@ -2,7 +2,7 @@
 title: If software development were a race, AI wins every time
 categories:
 - Artificial Intelligence
-summary: 
+summary: We’ve undertaken experiments to explore the impact of GenAI tools on developer productivity, revealing a 37% improvement in productivity (speed), however, this result is a misrepresentation of what it means to be productive as a developer. This article delves more deeply, beyond punchy metrics, to explore the overall experience of working with these entirely new tools. We discuss where these tools are most effective, the challenge of quality code, the learning curve and much more.
 author: ceberhardt
 contributors:
 - pgraham
@@ -10,7 +10,7 @@ contributors:
 - yblowers
 ---
 
-** An exploration of the quantitative and qualitative impacts of Generative AI on software development. **
+**An exploration of the quantitative and qualitative impacts of Generative AI on software development.**
 
 We’ve undertaken multiple experiments to better understand the impact of GenerativeAI tools (ChatGPT, Copilot) on developer productivity. Our quantitative results show a 37% improvement in productivity (speed), however, this result is a misrepresentation of what it means to be productive as a developer.
 
@@ -160,9 +160,9 @@ Of those using ChatGPT, 92% felt it made them more productive, whereas with Copi
 Regarding where and how this productivity gain is realised, common themes emerged around removing the need to create boilerplate, or repetitive code, they also reduce the reliance on other sources of material including Google, StackOverflow and Library / Framework documentation.
 
 
-> Using GitHub Copilot quickly became mentally seamless: it brought me much closer to coding at the speed of thought, especially when carrying out common, simple or repetitive coding tasks. - Joe Carstairs
+> ”Using GitHub Copilot quickly became mentally seamless: it brought me much closer to coding at the speed of thought, especially when carrying out common, simple or repetitive coding tasks.” - Joe Carstairs
 
-> It gets the boilerplate code written quickly and you don't have to think about it. I was also impressed that it started to infer some requirements. - Oliver Foreman
+> ”It gets the boilerplate code written quickly and you don't have to think about it. I was also impressed that it started to infer some requirements.” - Oliver Foreman
 
 ### GenAI tools help in unfamiliar environments
 
@@ -172,39 +172,39 @@ Copilot and ChatGPT are leveraged quite differently in this context.
 
 With Copilot our team found that they could easily steer and prompt the tool, using understanding from similar experiences (e.g. other languages) to rapidly complete the task.
 
-> I had no experience with my chosen implementation method (Python Flask). GitHub Copilot generated appropriately-attributed methods with skeleton code for each endpoint that I required, probably more quickly than I could have done through reading the documentation. - Paul Edwin
+> ”I had no experience with my chosen implementation method (Python Flask). GitHub Copilot generated appropriately-attributed methods with skeleton code for each endpoint that I required, probably more quickly than I could have done through reading the documentation.” - Paul Edwin
 
-> Someone who knows Java but not C# will be able to give specific language-agnostic instructions to CoPilot and it should be able to translate them into code without problems. - Fanis Vlachos
+> ”Someone who knows Java but not C# will be able to give specific language-agnostic instructions to CoPilot and it should be able to translate them into code without problems.” - Fanis Vlachos
 
-> It is exceptionally valuable when you lack language experience, as it significantly reduces the time spent on coding. - Xin Chen
+> ”It is exceptionally valuable when you lack language experience, as it significantly reduces the time spent on coding.” - Xin Chen
 
 ChatGPT is equally useful in unfamiliar environments, but the approach is a little different. The conversational nature of this tool means that it provides much more detail, explaining the code that it presents to you. It doesn’t just help you get the job done, it teaches you.
 
-> With no knowledge of the language I used, ChatGPT helped me understand creating a skeleton for me and also explaining what I am doing. - Archana Pandit. 
+> ”With no knowledge of the language I used, ChatGPT helped me understand creating a skeleton for me and also explaining what I am doing.” - Archana Pandit. 
 
 ### GenAI tools, especially ChatGPT, are a great support for learning
 
 The power of ChatGPT as a tool to assist learning was echoed by many of the people who participated in the study. 
 
-> You can copy and paste a chunk of code into ChatGPT and ask it what's wrong with it, or what can be improved - it explains what code means really well and I think that's really good for learning - Katie Davis
+> ”You can copy and paste a chunk of code into ChatGPT and ask it what's wrong with it, or what can be improved - it explains what code means really well and I think that's really good for learning” - Katie Davis
 
 This also shows the versatility of ChatGPT, it can create code, debug code, explain code, refactor code and much more. Whereas Copilot simply emits code.
 
 This difference should come with a word of warning, because Copilot doesn’t explain itself, it is perhaps not the best tool for learning a new language. Regardless of which GenAI tool you are using, you have to be able to critique the code that they create. 
 
-> With little or no experience in a language it is not possible to evaluate the code suggested by GitHub Copilot, “using GitHub Copilot isn't going to substitute for learning the language from conventional textbooks and tutorials. In fact, I'm not convinced using GitHub Copilot is a good way to learn the language at all. The next time I'm trying to learn a new programming language, I suspect I'll turn GitHub Copilot off.” - Joe Carstairs.
+> ”With little or no experience in a language it is not possible to evaluate the code suggested by GitHub Copilot, “using GitHub Copilot isn't going to substitute for learning the language from conventional textbooks and tutorials. In fact, I'm not convinced using GitHub Copilot is a good way to learn the language at all. The next time I'm trying to learn a new programming language, I suspect I'll turn GitHub Copilot off.” - Joe Carstairs.
 
 ### The tools can be too fast
 
 One unexpected piece of feedback we received was about these tools being too fast, especially Copilot. It churns out suggestions which can be a few lines of code, or much more, almost every second. This applies an additional cognitive load on the developer and can disrupt their chain of thought.
 
-> Some blocks of apparently useful code were generated without my having to type. Because the project was small, it was possible to check this quickly. A larger project or library would be less easy to work with, and I'd be scared to run without tests. - Phoebe Smith
+> ”Some blocks of apparently useful code were generated without my having to type. Because the project was small, it was possible to check this quickly. A larger project or library would be less easy to work with, and I'd be scared to run without tests.” - Phoebe Smith
 
 Given that Copilot is marketed as a ‘programming pair’, it is something of an over-active and chatty co-worker at times!
 
 Regardless of how fast or how accurate the suggestions are, almost everyone acknowledged the important point that while the GenAI tool suggested the code, it’s ultimately your code once you accept it. Your name on the commit, your name when someone runs git blame.
 
-> I find every information taken from ChatGPT must be validated unless I am only using it to remind me something I already know.” - Fanis Vlachos
+> ”I find every information taken from ChatGPT must be validated unless I am only using it to remind me something I already know.” - Fanis Vlachos
 
 ### Making the most of these tools is a learning curve
 
@@ -230,7 +230,7 @@ We did see a stronger sentiment towards the quality of code produced by ChatGPT 
 
 When it comes to the specifics of where the output wasn’t of a sufficient quality, the feedback we received was very varied, again reflecting the fact that quality is hard to define and can be quite personal.
 
-> ChatGPT did not comprehend the nature of a good project structure and some of the principles of good software engineering - creating a new class for a web service response, where a developer might extend a class type so that common fields and methods are only implemented once. - Igor Wieczorek
+> ”ChatGPT did not comprehend the nature of a good project structure and some of the principles of good software engineering - creating a new class for a web service response, where a developer might extend a class type so that common fields and methods are only implemented once.” - Igor Wieczorek
 
 > “It doesn't refactor, it happily spits out code that has duplication. It doesn't use modern language features consistently” - Colin Eberhardt
 
@@ -244,19 +244,19 @@ As anticipated, developers treated these tools with caution, and in some cases a
 
 Participants frequently highlighted the need to check the code that these tool produce.
 
-> Large code blocks can't just be copied over from ChatGPT(or similar) they must be checked first which is time consuming - Adam Miriam
+> vLarge code blocks can't just be copied over from ChatGPT(or similar) they must be checked first which is time consuming” - Adam Miriam
 
-> I will *never* trust generative AI to write unit tests. - Phoebe Smith
+> ”I will *never* trust generative AI to write unit tests.” - Phoebe Smith
 
 There were also instances where the tools have large “gaps” in their knowledge
 
-> The knowledge cutoff date is 2021, so ChatGPT 3.5 sometimes suggests deprecated code - Spring Security version 6 is an example. It is possible to work around this issue. - Jay Wright. 
+> ”The knowledge cutoff date is 2021, so ChatGPT 3.5 sometimes suggests deprecated code - Spring Security version 6 is an example. It is possible to work around this issue.” - Jay Wright. 
 
 ###  These tools may do more than you think
 
 Reading through the hundred responses we had to our feedback survey, especially the free-text input, showed that experiences were very mixed. It is clear that people are on a learning journey, and are at different stages. Our qualitative results (37% productivity increase) point towards how those who learn to make effective use of the tools benefit.
 
-> It takes some time to get used to the prompt engineering. It takes some learning time to know how to ask for help and how to word it, but once you learn it it’s a smooth sailing. - Gagan Singh
+> ”It takes some time to get used to the prompt engineering. It takes some learning time to know how to ask for help and how to word it, but once you learn it it’s a smooth sailing.” - Gagan Singh
 
 The Boston / Harvard study cited earlier also looked at the different ways people are adding AI to their workflow. They identified two broad categories, the Centuars, who have a “clear line between person and machine”, dividing up the work into chunks, some of which they give to the AI, and Cyborgs, who “blend machine and person” creating a closer integration.
 
