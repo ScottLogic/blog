@@ -4,10 +4,14 @@ date: 2023-12-15 17:10:00 Z
 categories:
 - Sustainability
 - Testing
+- Tech
+- chayes
 tags:
 - Sustainability
 - Testing
 - ''
+- sustainable software
+- sustainability
 author: chayes
 Field name: 
 ---
