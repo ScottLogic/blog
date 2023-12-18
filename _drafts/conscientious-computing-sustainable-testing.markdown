@@ -35,7 +35,7 @@ Sustainable or ‘Green’ Software is a movement within the software industry w
 
 * **Measurement:** What you can't measure, you can't improve.
 
-* **Climate Commitments: **Understand the exact mechanism of carbon reduction.
+* **Climate Commitments:** Understand the exact mechanism of carbon reduction.
 
 ## How does this apply to testing?
 
