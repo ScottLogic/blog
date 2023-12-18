@@ -25,17 +25,17 @@ I think they’re right, so my question to you is, will you be part of that acti
 
 Sustainable or ‘Green’ Software is a movement within the software industry which aims to measure and reduce the environmental impact of developing and hosting applications. The Green Software Foundation has identified the following principles:
 
-* \*\***Carbon Efficiency:\*\*** Emit the least amount of carbon possible.
+* **Carbon Efficiency:** Emit the least amount of carbon possible.
 
-* \*\*Energy Efficiency: \*\*Use the least amount of energy possible.
+* **Energy Efficiency:** Use the least amount of energy possible.
 
-* \*\***Carbon Awareness:\*\*** Do more when the electricity is cleaner and do less when the electricity is dirtier.
+* **Carbon Awareness:** Do more when the electricity is cleaner and do less when the electricity is dirtier.
 
-* \*\*Hardware Efficiency: \*\*Use the least amount of embodied carbon possible.
+* **Hardware Efficiency:** Use the least amount of embodied carbon possible.
 
-* \*\*Measurement: \*\*What you can't measure, you can't improve.
+* **Measurement:** What you can't measure, you can't improve.
 
-* \*\*Climate Commitments: \*\*Understand the exact mechanism of carbon reduction.
+* **Climate Commitments: **Understand the exact mechanism of carbon reduction.
 
 ## How does this apply to testing?
 
