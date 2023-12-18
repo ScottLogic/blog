@@ -1,14 +1,20 @@
 ---
 title: If software development were a race, AI wins every time
+date: 2023-12-18 00:00:00 Z
 categories:
 - Artificial Intelligence
-summary: We’ve undertaken experiments to explore the impact of GenAI tools on developer productivity, revealing a 37% improvement in productivity (speed), however, this result is a misrepresentation of what it means to be productive as a developer. This article delves more deeply, beyond punchy metrics, to explore the overall experience of working with these entirely new tools. We discuss where these tools are most effective, the challenge of quality code, the learning curve and much more.
+summary: We’ve undertaken experiments to explore the impact of GenAI tools on developer
+  productivity, revealing a 37% improvement in productivity (speed), however, this
+  result is a misrepresentation of what it means to be productive as a developer.
+  This article delves more deeply, beyond punchy metrics, to explore the overall experience
+  of working with these entirely new tools. We discuss where these tools are most
+  effective, the challenge of quality code, the learning curve and much more.
 author: ceberhardt
 contributors:
 - pgraham
 - lperrett
 - yblowers
-image: /ceberhardt/assets/genai-productivity/ai-race-thumbnail.png
+image: "/ceberhardt/assets/genai-productivity/ai-race-thumbnail.png"
 ---
 
 **An exploration of the quantitative and qualitative impacts of Generative AI on software development.**
