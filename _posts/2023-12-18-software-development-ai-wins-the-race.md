@@ -8,6 +8,7 @@ contributors:
 - pgraham
 - lperrett
 - yblowers
+image: /ceberhardt/assets/genai-productivity/ai-race-thumbnail.png
 ---
 
 **An exploration of the quantitative and qualitative impacts of Generative AI on software development.**
