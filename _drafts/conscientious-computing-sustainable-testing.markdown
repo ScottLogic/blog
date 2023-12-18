@@ -11,13 +11,13 @@ tags:
 author: chayes
 ---
 
-As a tester, you might think that developing sustainable software isn’t something that applies to you because, after all, you are not the one writing the application code or deciding where to host it. However, this couldn’t be further from the truth, as someone who is involved throughout the SDLC (Software Development Lifecycle); from refining requirements to smoke testing post-release, you could play a key role in embedding sustainable software principles at every stage.
+As a tester, you might think that developing sustainable software isn’t something that applies to you because, after all, you are not the one writing the application code or deciding where to host it. However, this couldn’t be further from the truth, as someone who is involved throughout the SDLC (Software Development Lifecycle); from refining requirements to smoke testing post-release, you play a key role in embedding sustainable software principles at every stage.
 
 Before we get into how you might do that, you might be wondering why any of this matters. After all, what difference could you, one person, make? Isn’t reducing meat consumption, expanding renewable energy production or decreasing the emissions from the aviation sector far more pressing? While it is true that each of these industries significantly drive climate change, don’t underestimate the impact that the technology sector has on global carbon emissions which, according to researchers, is only set to increase over time.
 
 Looking at ICT specifically, \[researchers indicate\](https://www.cell.com/patterns/pdfExtended/S2666-3899(21)00188-4) that emissions are actually higher than previously estimated, sitting at 2.1-3.9% globally. The most compelling part of this paper for me was the researcher’s warning that:
 
->  ‘emissions will not reduce without major concerted political and industrial action’
+> ‘emissions will not reduce without major concerted political and industrial action’
 
 I think they’re right, so my question to you is, will you be part of that action?
 
