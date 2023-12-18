@@ -12,6 +12,7 @@ tags:
 - Open Source
 summary: An update on our Spy Logic project and its journey to open source.
 author: gsproston
+image: "/uploads/PI%20Open%20Source%20TN.png"
 ---
 
 Back in late October, we revealed our prompt injection project, lovingly called ‘Spy Logic’, with a [short video demo](https://blog.scottlogic.com/2023/10/31/mitigating-prompt-injections.md.html) and an accompanying [blog post](https://blog.scottlogic.com/2023/11/03/spy-logic.html). Now, we’re happy to announce that the project has gone public! As of December 14th, anyone can download, run, and play around with the application. Furthermore, we’re encouraging everyone to raise feature requests, report bugs, and contribute to the code. Just head over to the [GitHub repository](https://github.com/ScottLogic/prompt-injection) to get started.
