@@ -76,6 +76,7 @@ active-authors:
   - klau
   - lcollingwood
   - lpisani
+  - lperrett
   - lwilson
   - magnussmith
   - masmith
@@ -129,6 +130,7 @@ active-authors:
   - wreilly
   - wtrimble
   - xchen
+  - yblowers
   - zrubin
   - zwali
 authors:
@@ -1386,3 +1388,10 @@ authors:
     email: mgriffin@scottlogic.com
     author-summary: "Developer based in the Newcastle office. Ex-Games programmer and worked with plenty of things involving C++ and 3D graphics."
     picture: picture.jpg
+  yblowers:
+    name: "Yotaka Blowers"
+    author-summary: "I'm a Senior Developer, based in our Newcastle office"
+    picture: yblowers.jpeg
+  lperrett:
+    name: "Lisa Perrett"
+    author-summary: "I'm a Senior Test Engineer, based in our Newcastle office"
