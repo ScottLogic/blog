@@ -9,6 +9,7 @@ tags:
 - Testing
 - ''
 author: chayes
+Field name: 
 ---
 
 As a tester, you might think that developing sustainable software isn’t something that applies to you because, after all, you are not the one writing the application code or deciding where to host it. However, this couldn’t be further from the truth, as someone who is involved throughout the SDLC (Software Development Lifecycle); from refining requirements to smoke testing post-release, you play a key role in embedding sustainable software principles at every stage.
@@ -43,7 +44,7 @@ So, how does this apply to testing? As a tester, you are uniquely positioned to 
 
 For testers, many of the things that we need to consider would typically come up during the planning phase of a project but could also constitute continuous improvement at any time. We will be publishing a series of blog posts that delve into some of these areas in more detail but here are some of the key things that testers might consider:
 
-![Sustainbility in Testing 2023-12-15 095727-7c4b94.png](/uploads/Sustainbility%20in%20Testing%202023-12-15%20095727-7c4b94.png)
+![Sustainbility in Testing 2023-12-15 095727-9caeeb.png](/uploads/Sustainbility%20in%20Testing%202023-12-15%20095727-9caeeb.png)
 
 The key takeaway is to start to factor in these considerations on your project. Thankfully, there is a direct correlation between cost and efficiency, in that, the more you can improve the efficiency of your testing practices by implementing some of the above suggestions, the more you can reduce the costs involved – a win-win!
 
