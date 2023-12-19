@@ -1,6 +1,6 @@
 ---
-title: 'Conscientious Computing - Podcasts: What the Team are listening to right now!'
-date: 2023-12-15 16:36:00 Z
+title: 'Conscientious Computing - Podcasts: What we are listening to right now!'
+date: 2023-12-19 10:36:00 Z
 categories:
 - Sustainability
 - chayes
