@@ -25,6 +25,8 @@ module.exports = {
     ignore: [
       ...colourContrastRuleIds,
     ],
+    reporter: 'cli',
+    runners: ['htmlcs'],
   },
   urls: relativeUrls.map((url) => `${baseUrl}${url}`),
 };
