@@ -13,6 +13,7 @@ summary: Many of us love a good podcast so I reached out to our project team to 
   what they were listening to in the tech and sustainability space. Here are their
   recommendations
 author: chayes
+image: "/uploads/Conscientious%20Computing%20-%20Pod.png"
 ---
 
 Many of us love a good podcast so I reached out to our project team to see what they were listening to in the tech and sustainability space. Here are their recommendations:
