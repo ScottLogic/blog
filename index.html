@@ -7,4 +7,6 @@ summary: This blog shares Scott Logic's thoughts and ideas, covering topics acro
   Tech, UX Design, Testing and Delivery.
 ---
 
-{% include post_index.html posts=paginator.posts categoryName="Latest Articles" paginated=page.paginated %}
+<main id="main-content">
+  {% include post_index.html posts=paginator.posts categoryName="Latest Articles" paginated=page.paginated %}
+</main>

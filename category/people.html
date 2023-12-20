@@ -8,8 +8,10 @@ redirect_from:
 - "/category/diversity.html"
 ---
 
-{% assign posts = site.categories["People"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="People" %}
+<main id="main-content">
+  {% assign posts = site.categories["People"] %}
+  {% if posts %}
+    {% assign posts = posts | sort: 'date' | reverse | uniq %}
+  {% endif %}
+  {% include post_index.html posts=posts categoryName="People" %}
+</main>

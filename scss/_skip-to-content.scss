@@ -1,0 +1,18 @@
+@use 'colours';
+
+.skip-to-content {
+  display: inline-block;
+  position: absolute;
+  z-index: 3;
+  top: -3em;
+  padding: 0.5rem;
+  margin: 0;
+  transition: top 0.2s ease-in-out;
+  background-color: colours.$white;
+
+  &:focus {
+    top: 0;
+    padding: 0.5rem;
+    transition-duration: 0.1s;
+  }
+}
