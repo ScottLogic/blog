@@ -26,6 +26,7 @@ paginated: false
         <div class="cell">
             {% include author.html author=author %}
         </div>
+        <h2 class="visually-hidden">Posts</h2>
         <div class="cell">
             {% include featured_posts.html postsToFilter=featuredPosts %}
         </div>
@@ -36,7 +37,7 @@ paginated: false
             <div class="cell large-auto">
                 <div id="feed">
                     {% if allEvents != empty %}
-                        <h4>Talks</h4>
+                        <h2>Talks</h2>
                     {% endif %}
                     {% for event in allEvents %}
                         <div class="talk">

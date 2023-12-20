@@ -1,0 +1,10 @@
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  @include breakpoint(large) {
+    margin-bottom: 3rem;
+  }
+}
+

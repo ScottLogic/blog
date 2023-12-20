@@ -1,0 +1,10 @@
+.sub-title {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 2rem;
+  @include breakpoint(large) {
+    margin-bottom: 3rem;
+  }
+}
+

@@ -18,7 +18,10 @@ header {
   max-width: 1400px;
 
 
-  h1.brand {
+  .brand {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
     display: block;
     margin: auto;
     padding: 0;
