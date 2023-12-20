@@ -1,47 +1,50 @@
 active-authors:
-  - amcgill
   - aaiken
   - abagdonaite
   - abarron
-  - abirch
   - aberrill
+  - abirch
   - acarr
   - acaulfield
   - ahickman
   - alee
+  - amcgill
   - amjones
   - asegrove
   - ashing
   - awhitmell
   - bpritchard
   - bwallis
-  - colive
   - ccocks
   - ceberhardt
   - cfisher
+  - chayes
   - ckoris
-  - mhowie
+  - colive
   - cprice
   - csalt
   - cstephen
   - dgrew
   - dhinrichs
   - dhope
+  - dhunter
   - dkerr
   - dmcnamee
   - dnicholas
-  - dscarborough
   - dogle
   - drees
+  - dscarborough
   - dsmith
   - ebrown
   - emason
   - fhubin
-  - gsmith
+  - fvlachos
   - garora
   - gkendall
   - godds
   - gsingh
+  - gsmith
+  - gsproston
   - hashbyha
   - hbedford
   - hbellamy
@@ -66,23 +69,24 @@ active-authors:
   - jwhite
   - jwren
   - kangel
-  - kcoombes
   - kclark
-  - kjones
-  - dhunter
+  - kcoombes
   - kday
+  - kjones
   - klau
   - lcollingwood
   - lpisani
+  - lperrett
   - lwilson
   - magnussmith
   - masmith
   - mbuhagiar
   - mcooke
   - mdunsdon
-  - mholland
   - mgrabara
   - mgriffin
+  - mholland
+  - mhowie
   - mking
   - mmcalroy
   - mmoxon
@@ -121,11 +125,12 @@ active-authors:
   - tclarke-scottlogic
   - tgilbert
   - thands
-  - wreilly
-  - wtrimble
   - wboothclibborn
   - wduncan
+  - wreilly
+  - wtrimble
   - xchen
+  - yblowers
   - zrubin
   - zwali
 authors:
@@ -253,6 +258,10 @@ authors:
     picture: picture.jpg
   cgrant:
     name: "Chris Grant"
+    picture: picture.jpg
+  chayes:
+    name: "Charlotte Hayes"
+    author-summary: "I'm Charlotte, a Senior Test Engineer based in Edinburgh. I am passionate about exploring the latest test automation technologies as well as examining the intersection between continuous improvement methodologies and QA. I have a keen interest in exploring the role that we, as technologists, can play in developing more sustainable technology."
     picture: picture.jpg
   ckurzeja:
     name: "Chris Kurzeja"
@@ -1245,6 +1254,10 @@ authors:
     author-summary: "Initially from a Marine Engineering background, I am a Senior Test Engineer with Scott Logic, based in Newcastle with twenty plus years software testing experience. Away from the keyboard, if I'm not concocting home brew, I'm either at the allotment or out on the kayak."
     twitter-handle: null
     picture: picture.jpg
+  gsproston:
+    name: "George Sproston"
+    author-summary: "Hi I'm George, a senior dev living in Glasgow. In the summer I roller skate and in the winter I hibernate"
+    picture: picture.jpg
   mjrichards:
     name: "Mark Richards"
     author-summary: "I am a Senior Developer at Scott Logic."
@@ -1365,8 +1378,21 @@ authors:
     email: sgladstone@scottlogic.com
     author-summary: "I'm a developer based out of our Bristol office. I'm a bit of a generalist; I like to get stuck into a range of problems from the business side to anywhere across the tech stack."
     picture: Image.png
+  fvlachos:
+    name: "Fanis Vlachos"
+    email: fvlachos@scottlogic.com
+    author-summary: "I am a Senior Developer at Scott Logic, based in Edinburgh. I love solving problems using software and I am passionate about learning new technologies."
+    picture: picture.jpg
   mgriffin:
     name: "Matt Griffin"
     email: mgriffin@scottlogic.com
     author-summary: "Developer based in the Newcastle office. Ex-Games programmer and worked with plenty of things involving C++ and 3D graphics."
     picture: picture.jpg
+  yblowers:
+    name: "Yotaka Blowers"
+    author-summary: "I'm a Senior Developer, based in our Newcastle office"
+    picture: yblowers.jpeg
+  lperrett:
+    name: "Lisa Perrett"
+    author-summary: "I'm a Senior Test Engineer, based in our Newcastle office"
+    picture: lisa-profile.png
