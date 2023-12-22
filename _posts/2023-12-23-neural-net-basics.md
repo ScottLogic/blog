@@ -13,6 +13,10 @@ author: lvincent
 image: "/uploads/DiffEdit%20TN.png"
 ---
 
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
 Recently I've been learning about Neural Networks and how they work. In this blog post I write a simple introduction in to some of the core concepts of a basic layered neural network.
 
 ## What is a neural network made of?
