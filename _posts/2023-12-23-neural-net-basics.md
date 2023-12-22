@@ -13,9 +13,15 @@ author: lvincent
 image: "/uploads/DiffEdit%20TN.png"
 ---
 
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
 </script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
 
 Recently I've been learning about Neural Networks and how they work. In this blog post I write a simple introduction in to some of the core concepts of a basic layered neural network.
 
@@ -63,6 +69,7 @@ The original activation function, used in the original perceptron in the 1950's.
 Due to the nature of the step in the function, changes to the weights and bias make no difference until the output crosses the step boundary, at which point it flips the binary value. Due to a very small change to the weight having such a dramatic effect, it is hard to train the neural network.
 
 ### Logistic Function a.k.a Sigmoid function
+
 $$ f(x) = \frac{1}{1 + e^{-x}}$$
 
 ![png]({{ site.github.url }}/lvincent/assets/nn_basics/sigmoid.png)
@@ -70,6 +77,7 @@ $$ f(x) = \frac{1}{1 + e^{-x}}$$
 The Logistic function, a variant of the sigmoid function, initially replaced the step function. Like the Step function it limits the output of a neuron between 0 and 1, but doesn't have the same issues around the zero mark. This makes it easier to train as a change to the weights and biases will always have an effect, except at the extremes.
 
 ### Rectified Linear Unit (ReLU)
+
 $$ f(x) = max(0,x) $$
 
 ![png]({{ site.github.url }}/lvincent/assets/nn_basics/relu.png)
@@ -79,6 +87,7 @@ The Rectified Linear Unit (ReLU) has become the most popular and in most cases t
 ### SoftMax
 
 $$ \delta(z) = \frac{e^{z_{i}}}{\sum^{K}_{j=1}{e^{z_{j}}}} $$
+
 * $z$ a vector containing the output values
 * $K$ the number of output values
 
