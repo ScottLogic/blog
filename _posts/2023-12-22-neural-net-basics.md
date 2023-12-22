@@ -1,16 +1,14 @@
 ---
-title: 'Neural Network Basics'
-date: 2023-12-19 10:36:00 Z
+title: 'The basics of the Layered Neural Network'
+date: 2023-12-22 10:36:00 Z
 categories:
-- Neural Networks
+- Artificial Intelligence
 tags:
-- Neural Networks
+- Artificial Intelligence
 - AI
-summary: Many of us love a good podcast so I reached out to our project team to see
-  what they were listening to in the tech and sustainability space. Here are their
-  recommendations
+- Neural Networks
+summary: A simple introduction into the basics and mathematics of a layered neural network
 author: lvincent
-image: "/uploads/DiffEdit%20TN.png"
 ---
 
 <script type="text/javascript" async
