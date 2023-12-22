@@ -77,6 +77,7 @@ active-authors:
   - lcollingwood
   - lpisani
   - lperrett
+  - lvincent
   - lwilson
   - magnussmith
   - masmith
@@ -1396,3 +1397,8 @@ authors:
     name: "Lisa Perrett"
     author-summary: "I'm a Senior Test Engineer, based in our Newcastle office"
     picture: lisa-profile.png
+  lvincent:
+    name: "Luke Vincent"
+    email: lvincent@scottlogic.com
+    author-summary: "I'm a Senior Developer, based in our Bristol Office"
+    picture: lv_profile.jpg
