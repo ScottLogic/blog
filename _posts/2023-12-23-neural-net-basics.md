@@ -13,15 +13,9 @@ author: lvincent
 image: "/uploads/DiffEdit%20TN.png"
 ---
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
-      inlineMath: [['$','$']]
-    }
-  });
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 </script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
 
 Recently I've been learning about Neural Networks and how they work. In this blog post I write a simple introduction in to some of the core concepts of a basic layered neural network.
 
@@ -37,20 +31,20 @@ This can be represented mathematically as follows
 
 $$ y = \sum^n_{i=1}w_{i}x_{i}+b $$
 
-* $w$ is the weight
-* $x$ is the input
-* $b$ is the bias
-* $n$ is the number of inputs
+* $$ w $$ is the weight
+* $$ x $$ is the input
+* $$ b $$ is the bias
+* $$ n $$ is the number of inputs
 
 
 ![png]({{ site.github.url }}/lvincent/assets/nn_basics/neuron.png)
 
 ## Why is an activation function important?
-A neuron, with a single input, is a linear function, $y = ax+b$, and as such can only form simple decision boundaries. An increase in the number of inputs and neurons in the neural network will still result in a linear function. This is because multiple combined linear functions always results in a linear function.
+A neuron, with a single input, is a linear function, $$ y = ax+b $$, and as such can only form simple decision boundaries. An increase in the number of inputs and neurons in the neural network will still result in a linear function. This is because multiple combined linear functions always results in a linear function.
 
 To resolve this issue, and allow the network to find complex decision boundaries, one that wiggles around separating multiple classes, we need to use activation functions, they add non-linearity.
 
-In the following graphs you can see examples of this, the dashed lines represent a neuron with a single weighted input, with the solid red line representing the sum of the three. See how in the first graph the red line is still a linear function. Mathematically this is because $(4x + 2) + (-3x - 4) + (-2x + 1)$ simplifies to $(-x - 1)$ 
+In the following graphs you can see examples of this, the dashed lines represent a neuron with a single weighted input, with the solid red line representing the sum of the three. See how in the first graph the red line is still a linear function. Mathematically this is because $$ (4x + 2) + (-3x - 4) + (-2x + 1) $$ simplifies to $$ (-x - 1) $$ 
 
 ![png]({{ site.github.url }}/lvincent/assets/nn_basics/with_out_activation.png)
 
@@ -70,7 +64,7 @@ Due to the nature of the step in the function, changes to the weights and bias m
 
 ### Logistic Function a.k.a Sigmoid function
 
-$$ f(x) = \frac{1}{1 + e^{-x}}$$
+$$ f(x) = \frac{1}{1 + e^{-x}} $$
 
 ![png]({{ site.github.url }}/lvincent/assets/nn_basics/sigmoid.png)
 
@@ -88,8 +82,8 @@ The Rectified Linear Unit (ReLU) has become the most popular and in most cases t
 
 $$ \delta(z) = \frac{e^{z_{i}}}{\sum^{K}_{j=1}{e^{z_{j}}}} $$
 
-* $z$ a vector containing the output values
-* $K$ the number of output values
+* $$ z $$ a vector containing the output values
+* $$ K $$ the number of output values
 
 The SoftMax Activation function is used for the final output layer for classification neural networks. It converts a vector of the output values into a probability distribution over the output classes. Each output neuron will then represent probability the input is of the respective class.
 
@@ -138,9 +132,9 @@ A common algorithm for determining the error of the neural network is the Mean S
 
 $$ MSE = \frac{1}{n}\sum_{i=1}^{n}(Y_{i}-Ŷ_{i})^{2} $$ 
 
-* $Ŷ$ is the actual network output
-* $Y$ is the expected value of class
-* $n$ is the total number of output neurons.
+* $$ Ŷ $$ is the actual network output
+* $$ Y $$ is the expected value of class
+* $$ n $$ is the total number of output neurons.
 
 The loss function enables an empirical analysis to see if the change in parameters improves or worsens the output of the neural network. The goal is to change the parameters to minimise the loss as much as possible.
 
@@ -155,12 +149,12 @@ Say the red marker is the current value of the error based on the current weight
 
 To calculate the new weight value, take the derivative of the error in respect to the weight and subtract the value from the current weight. In effect finding a new value that is lower down the slope of the graph towards the local or global minima.
 
-$$ w_{i+1} = w_i - \alpha\frac{\delta L}{\delta w_i}$$
+$$ w_{i+1} = w_i - \alpha\frac{\delta L}{\delta w_i} $$
 
-* $w_{i+1}$ is the new weight
-* $w_i$ the current weight
-* $\alpha$ the learning rate
-* $\frac{\delta L}{\delta w_i}$ is the derivative of the change in loss against weight
+* $$ w_{i+1} $$ is the new weight
+* $$ w_i $$ the current weight
+* $$ \alpha $$ the learning rate
+* $$ \frac{\delta L}{\delta w_i} $$ is the derivative of the change in loss against weight
 
 The learning rate is used to control how much of a change to the weight is made, if the size of the weight change is too big then loss minima may be stepped over or it may never settle in the "valley" of the minima and constantly jump from side to side. If it's too small then it will take longer to reach the local minima.
 
