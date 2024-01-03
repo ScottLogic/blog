@@ -54,13 +54,6 @@ repository: ScottLogic/new-blog
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-MMXGQRL');</script>
     <!-- End Google Tag Manager -->
-    
-    Paste this code immediately after the opening <body> tag:
-    
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMXGQRL"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     {% endif %}
     <script>
    (function(d) {
@@ -74,6 +67,12 @@ repository: ScottLogic/new-blog
    </script>
 </head>
 <body>
+{% if site.github.owner_name == 'ScottLogic' %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMXGQRL"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% endif %}
 <div id="off-canvas-wrapper" style="">
     {% include site-header.html %}
     {{ content }}
