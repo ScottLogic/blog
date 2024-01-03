@@ -50,15 +50,16 @@ When putting the same neurons through activation functions, in this case logisti
 
 ![png]({{ site.github.url }}/lvincent/assets/nn_basics/with_activation.png)
 
+Below are a few of the more known Activation Functions
 ### Step Function
 
 $$ f(x) =\begin{cases}0 & x < 0\\1 & x  \geq  0\end{cases} $$
 
 ![png]({{ site.github.url }}/lvincent/assets/nn_basics/step.png) 
 
-The original activation function, used in the original perceptron in the 1950's. This function converts the output of the summation function into a binary value.
+Included for historical reason, this is the original activation function, used in the original perceptron in the 1950's. This function converts the output of the summation function into a binary value.
 
-Due to the nature of the step in the function, changes to the weights and bias make no difference until the output crosses the step boundary, at which point it flips the binary value. Due to a very small change to the weight having such a dramatic effect, it is hard to train the neural network.
+Due to the nature of the step in the function, changes to the weights and bias make no difference until the output crosses the step boundary, at which point it flips the binary value.
 
 ### Logistic Function a.k.a Sigmoid function
 
@@ -166,5 +167,5 @@ A calculus concept called Chain Rule is used as part of the back propagation to 
 
 Back Propagation is complex so to learn more about it and how it works the fantastic youtube channel 3 blue 1 brown [explains it here](https://youtu.be/Ilg3gGewQ5U?si=dmYToojzrnuk_rpt).
 
-### Where next
+## Conclusion
 In conclusion, this blog covered the core concepts of Neural Networks, giving an overview on their functionality and learning mechanisms. I hope this brief delve into the architecture and mathematics behind the neural network has given you a good first glance into the world of Neural Networks and inspired you to delve deeper into this fascinating subject.
