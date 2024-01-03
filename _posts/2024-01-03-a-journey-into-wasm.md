@@ -10,6 +10,7 @@ tags:
 summary: A brief look into building out a NextJS application which makes use WebAssembly
   to solve Advent Of Code puzzles in the browser.
 author: dogle
+image: "/uploads/Wasm%20thumbnail.png"
 ---
 
 ## Overview
