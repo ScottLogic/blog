@@ -1,6 +1,6 @@
 ---
 title: 'The basics of the Layered Neural Network'
-date: 2023-12-22 10:36:00 Z
+date: 2024-01-03 10:36:00 Z
 categories:
 - Artificial Intelligence
 tags:
