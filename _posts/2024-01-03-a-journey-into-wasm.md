@@ -1,6 +1,6 @@
 ---
-title: A Journey into WASM
-date: 2024-01-02 09:00:00 Z
+title: A Journey into Wasm
+date: 2024-01-03 09:00:00 Z
 categories:
   - Tech
 tags:
