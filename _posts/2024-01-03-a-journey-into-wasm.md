@@ -2,13 +2,13 @@
 title: A Journey into Wasm
 date: 2024-01-03 09:00:00 Z
 categories:
-  - Tech
+- Tech
 tags:
-  - Wasm
-  - Rust
-  - AdventOfCode
-summary:
-  A brief look into building out a NextJS application which makes use WebAssembly to solve Advent Of Code puzzles in the browser.
+- Wasm
+- Rust
+- AdventOfCode
+summary: A brief look into building out a NextJS application which makes use WebAssembly
+  to solve Advent Of Code puzzles in the browser.
 author: dogle
 ---
 
