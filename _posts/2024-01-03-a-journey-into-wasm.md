@@ -15,7 +15,7 @@ image: "/uploads/Wasm%20thumbnail.png"
 
 ## Overview
 
-I recently has some downtime and decided to spend it looking into [Web Assembly](https://webassembly.org/) or Wasm. It's something I've heard of on and off over the last few years but never really understood very well. Getting started, my understanding initially, was that Wasm was a way to use languages other than JavaScript in the browser. I'd also noted that the [Rust programming language](https://www.rust-lang.org/) seemed to be a popular choice for working with Wasm and that was something else I was keen to have a play with. With this in mind I set about creating an exploration project, the goal of which would be to write a program in Rust and get it to run in the browser.
+I recently had some downtime and decided to spend it looking into [Web Assembly](https://webassembly.org/) or Wasm. It's something I've heard of on and off over the last few years but never really understood very well. Getting started, my understanding initially, was that Wasm was a way to use languages other than JavaScript in the browser. I'd also noted that the [Rust programming language](https://www.rust-lang.org/) seemed to be a popular choice for working with Wasm and that was something else I was keen to have a play with. With this in mind I set about creating an exploration project, the goal of which would be to write a program in Rust and get it to run in the browser.
 
 ## Take One
 
