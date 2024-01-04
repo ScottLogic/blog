@@ -76,7 +76,7 @@ We built this add-in with GenAI developers in mind. There are other products ava
 
 Here we’ll go through using a spreadsheet and our new OpenAI functions, for a basic prompt engineering task. This video also serves as an instructional aid, but for complete instructions and documentation please see the [project readme](https://github.com/robatwilliams/openai-excel-functions#readme).
 
-[https://youtu.be/g8b2jDl9QlQ](https://youtu.be/g8b2jDl9QlQ)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/g8b2jDl9QlQ?si=yNBBIBs8DNoulBEK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 That would have been rather less efficient using the Playground or Evals. Replace the problem with a more complex one, with answers that aren’t as clear-cut which require collaboration with domain experts, and the difference between the approaches only become more stark.
 
@@ -84,7 +84,7 @@ That would have been rather less efficient using the Playground or Evals. Replac
 
 When building a real system, we’d typically have multiple model calls - some dependent on the outputs of earlier ones. In this video, we use a spreadsheet and our new functions to perform a task where the results of previous model calls feed into subsequent ones. This technique can be used to quickly prototype the arrangement of calls in a system, or similarly to iterate on decomposing complex tasks (prompts) into smaller more manageable ones.
 
-[https://www.youtube.com/watch?v=jJShRQ-S75s](https://www.youtube.com/watch?v=jJShRQ-S75s)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jJShRQ-S75s?si=pSWLMCV__9GDsHSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Conclusion
 
