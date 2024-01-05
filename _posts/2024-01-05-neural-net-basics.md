@@ -1,5 +1,5 @@
 ---
-title: 'The basics of the Layered Neural Network'
+title: The basics of the Layered Neural Network
 date: 2024-01-05 10:00:00 Z
 categories:
 - Artificial Intelligence
@@ -7,7 +7,9 @@ tags:
 - Artificial Intelligence
 - AI
 - Neural Networks
-summary: Recently I’ve been learning about Neural Networks and how they work. In this blog post I write a simple introduction in to some of the core concepts of a basic layered neural network.
+summary: Recently I’ve been learning about Neural Networks and how they work. In this
+  blog post I write a simple introduction in to some of the core concepts of a basic
+  layered neural network.
 author: lvincent
 ---
 
