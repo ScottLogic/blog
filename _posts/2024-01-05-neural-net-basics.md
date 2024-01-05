@@ -7,7 +7,7 @@ tags:
 - Artificial Intelligence
 - AI
 - Neural Networks
-summary: A simple introduction into the basics and mathematics of a layered neural network
+summary: Recently I’ve been learning about Neural Networks and how they work. In this blog post I write a simple introduction in to some of the core concepts of a basic layered neural network.
 author: lvincent
 ---
 
