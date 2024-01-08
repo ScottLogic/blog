@@ -9,6 +9,9 @@ tags:
 - ''
 - government
 - digital government
+summary: Chris Ferguson is Managing Director of Scott Logic. Over a 20-year career,
+  Chris has worked in the Home Office, the National Security Secretariat and the Government
+  Digital Service, where he helped to establish the Identity Assurance programme.
 author: cferguson
 image: "/uploads/never%20a%20waste.png"
 ---
@@ -17,7 +20,7 @@ From buying stamps to banking, sending mail to exchanging money, the Post Office
 
 It’s hard to be visionary when the day-to-day is so demanding.
 
-Working in government, where pre-existing projects cross your path and legacy technology is a tripping hazard, it’s easier to focus on what’s possible than what’s right. Getting something, anything, done can become the be-all-end-all – and the driver of all your decisions. But if you want to become the face of public sector technology, you know you need to pursue meaningful change.
+Working in government, where pre-existing projects cross your path and legacy technology is a tripping hazard, it’s easier to focus on what’s possible than what’s right. Getting something, *anything*, done can become the be-all-end-all – and the driver of all your decisions. But if you want to become the face of public sector technology, you know you need to pursue *meaningful* change.
 
 So, where should you look?
 
@@ -44,6 +47,7 @@ And if you need support, look no further than Scott Logic. We believe that meani
 
 When you see it that way, perhaps simply making all those Post Office forms available to download online is just creating more work for the government and its citizens.
 
-But what if we made those forms fillable and submittable online? And what if the data was then applied across the user’s entire digital presence? Now, the focus isn’t on how the service will work but how it will be used. We can identify the areas that really need our attention and to what degree. And we can be sure that our efforts will pay off – instead of going to waste.
+But what if we made those forms *fillable* and *submittable* online? And what if the data was then applied across the user’s entire digital presence? Now, the focus isn’t on how the service will work but how it will be used. We can identify the areas that really need our attention and to what degree. And we can be sure that our efforts will pay off – instead of going to waste.
 
-People and projects you know. Perspectives you may not. Join the team at Scott Logic in this series and find out how you can become the face of public sector technology. [Discover more here](https://www.scottlogic.com/report-become-the-face-of-public-sector-technology)
+
+**People and projects you know. Perspectives you may not**. Join the team at Scott Logic in this series and find out how you can become the face of public sector technology. [Discover more here](https://www.scottlogic.com/report-become-the-face-of-public-sector-technology)
