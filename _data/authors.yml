@@ -16,6 +16,7 @@ active-authors:
   - bpritchard
   - bwallis
   - ceberhardt
+  - cferguson
   - cfisher
   - chayes
   - ckoris
@@ -1395,6 +1396,9 @@ authors:
     picture: lisa-profile.png
   lvincent:
     name: "Luke Vincent"
-    email: lvincent@scottlogic.com
     author-summary: "I'm a Senior Developer, based in our Bristol Office"
     picture: lv_profile.jpg
+  cferguson:
+    name: "Chris Ferguson"
+    author-summary: "Joining Scott Logic in October 2021, Chris leads the growth and development of the professional services business. He was one of the original team that built the UK’s Government Digital Service from 2011 onwards. As Director from 2015, he formed and led the GDS Digital Group: GOV.UK; GOV.UK Verify; the Government-as-a-Platform Programme; and the Service Design Team. In their free time, Chris and his wife enjoy walking their golden retriever Lockie on the hills and coastline of Lothian and Fife, where they live."
+    picture: profile.jpg
