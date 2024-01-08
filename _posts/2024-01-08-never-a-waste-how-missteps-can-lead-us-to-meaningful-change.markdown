@@ -9,9 +9,9 @@ tags:
 - ''
 - government
 - digital government
-summary: Chris Ferguson is Managing Director of Scott Logic. Over a 20-year career,
-  Chris has worked in the Home Office, the National Security Secretariat and the Government
-  Digital Service, where he helped to establish the Identity Assurance programme.
+summary: Here, Chris Ferguson discusses why the face of public sector technology should
+  be able to implement timely, meaningful change – and how waste can guide you in
+  the right direction.
 author: cferguson
 image: "/uploads/never%20a%20waste.png"
 ---

@@ -1,6 +1,6 @@
 ---
 title: How data literacy gives leaders the edge
-date: 2023-01-12 09:31:00 Z
+date: 2023-01-12 10:55:00 Z
 categories:
 - Data Engineering
 tags:
