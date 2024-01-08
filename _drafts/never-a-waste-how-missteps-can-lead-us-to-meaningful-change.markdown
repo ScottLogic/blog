@@ -1,6 +1,14 @@
 ---
 title: 'Never a waste: How missteps can lead us to meaningful change'
 date: 2024-01-05 16:31:00 Z
+categories:
+- Delivery
+tags:
+- leadership
+- Government
+- ''
+- government
+- digital government
 author: cferguson
 image: "/uploads/never%20a%20waste.png"
 ---
