@@ -1,9 +1,15 @@
 ---
-author: dsmith
 title: What can I do as a Software Developer to help with the climate crisis?
-summary: The goal of this post is to introduce some tools and techniques you can use to figure out what's the most effective climate action you can take given your circumstances. I'll give some examples of ways you can use your skills as a software developer to help out with climate solutions.
+date: 2024-01-09 00:00:00 Z
+categories:
+- dsmith
+- Sustainability
+author: dsmith
+summary: The goal of this post is to introduce some tools and techniques you can use
+  to figure out what's the most effective climate action you can take given your circumstances.
+  I'll give some examples of ways you can use your skills as a software developer
+  to help out with climate solutions.
 layout: default_post
-category: Sustainability
 ---
 
 According to ONS [three quarters of adults](https://www.ons.gov.uk/peoplepopulationandcommunity/wellbeing/articles/threequartersofadultsingreatbritainworryaboutclimatechange/2021-11-05) in Great Britain worry about climate change.
