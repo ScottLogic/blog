@@ -1,22 +1,20 @@
 ---
 title: Prompt engineering with spreadsheets
-date: 2024-01-08 08:00:00 Z
+date: 2024-01-10 08:00:00 Z
 categories:
 - Artificial Intelligence
-summary: 'When we couldn''t find a tool to meet our prompt engineering needs, we decided
+summary: When we couldn't find a tool to meet our prompt engineering needs, we decided
   to create a universal tool that allows anyone to build their own - all within the
-  familiar spreadsheet environment. We''ve created an Excel add-in that lets you use
-  OpenAI models in Excel formulas. '
+  familiar spreadsheet environment. An Excel add-in that lets you use OpenAI models
+  in Excel formulas.
 author: rwilliams
 contributors:
 - cprice
 ---
 
-When we couldn't find a tool to meet our prompt engineering needs, we decided to create a universal tool that allows anyone to build their own - all within the familiar spreadsheet environment. We've created an Excel add-in that lets you use OpenAI models in Excel formulas.
+When we couldn't find a tool to meet our prompt engineering needs, we decided to create a universal tool that allows anyone to build their own - all within the familiar spreadsheet environment. An Excel add-in that lets you use OpenAI models in Excel formulas.
 
-TODO link to this post from GH readme & videos
-
-TODO make videos public
+![oai-excel2.png](/uploads/oai-excel2.png)
 
 ## Prompt engineering
 
@@ -28,11 +26,13 @@ While advancements in model technology are likely to diminish the importance of 
 
 The tooling available for prompt engineering is emergent and rapidly evolving. Thankfully, we can simplify the landscape into a spectrum - tooling in each band of the spectrum having a mostly common set of characteristics, pros/cons, and uses.
 
+![spectrum.png](/uploads/spectrum.png)
+
 ### Playgrounds
 
 The most basic tools for crafting prompts are the ones we all tend to start with: the web-based "playgrounds" provided by model vendors. These are great starting points for quick experiments and broadly testing the feasibility of an idea. There’s practically zero setup time, and you can quickly iterate your prompt by manually judging the model response then adapting the prompt.
 
-Do much prompt engineering in one however, and we’ve found them to be limiting to our effectiveness and productivity. Swapping between different input data requires laborious copy/pasting, and you’ll be doing a lot of it to check and re-check different ones as you change your prompt. You can only run and view the response for one scenario at a time. Manually judging long or complex responses is time consuming and taxing. The toil can significantly slow down what may have been rapid early progress.
+We found them however to limit our effectiveness and productivity for prompt engineering. Swapping between different input data requires laborious copy/pasting, and you’ll be doing a lot of it to check and re-check different ones as you change your prompt. You can only run and view the response for one scenario at a time. Manually judging long or complex responses is time consuming and taxing. The toil can significantly slow down what may have been rapid early progress.
 
 ### Automated evaluation frameworks
 
@@ -90,6 +90,6 @@ When building a real system, we’d typically have multiple model calls - some d
 
 ## Conclusion
 
-The tooling space for prompt engineering is far from settled, and our recent project experience demonstrated an unfilled niche in this area. We created an Excel add-in that allows anyone to use the power of spreadsheets for prompt engineering by calling OpenAI models from cell formulas.
+The tooling space for prompt engineering is far from settled, and our recent project experience demonstrated there is an unfilled niche in this area. Whilst we don’t think that an Excel add-in is the final chapter in this story, we do think if we’d had this a few months ago it would have increased the efficiency of our prompt engineering work.
 
-We think if we’d had this a few months ago it would have saved a good deal of time, made our prompt engineering work more efficient and a whole lot less frustrating. We’re looking forward to an excuse to use it in anger, and to seeing what others do with it.
+In doing so, we’d have saved a lot of development time, probably saved money on model invocations and certainly had a far less frustrating time of it! We’re looking forward to an excuse to use it in anger, and to seeing what others do with it.
