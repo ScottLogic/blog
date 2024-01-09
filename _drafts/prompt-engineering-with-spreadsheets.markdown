@@ -26,6 +26,8 @@ While advancements in model technology are likely to diminish the importance of 
 
 The tooling available for prompt engineering is emergent and rapidly evolving. Thankfully, we can simplify the landscape into a spectrum - tooling in each band of the spectrum having a mostly common set of characteristics, pros/cons, and uses.
 
+![spectrum.png](/uploads/spectrum.png)
+
 ### Playgrounds
 
 The most basic tools for crafting prompts are the ones we all tend to start with: the web-based "playgrounds" provided by model vendors. These are great starting points for quick experiments and broadly testing the feasibility of an idea. There’s practically zero setup time, and you can quickly iterate your prompt by manually judging the model response then adapting the prompt.
