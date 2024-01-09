@@ -1,6 +1,6 @@
 ---
 title: Prompt engineering with spreadsheets
-date: 2024-01-08 08:00:00 Z
+date: 2024-01-10 08:00:00 Z
 categories:
 - Artificial Intelligence
 summary: When we couldn't find a tool to meet our prompt engineering needs, we decided
@@ -14,7 +14,7 @@ contributors:
 
 When we couldn't find a tool to meet our prompt engineering needs, we decided to create a universal tool that allows anyone to build their own - all within the familiar spreadsheet environment. An Excel add-in that lets you use OpenAI models in Excel formulas.
 
-[1LJMJQ3mLu1x0LxTiRcyZB6b70esTGGvVq4TUSLcj_cacheKey=kix.aafiqo2jl3ge_1LJMJQ3mLu1x0LxTiRcyZB6b70esTGGvVq4TUSLcj](/uploads/1LJMJQ3mLu1x0LxTiRcyZB6b70esTGGvVq4TUSLcj_cacheKey=kix.aafiqo2jl3ge_1LJMJQ3mLu1x0LxTiRcyZB6b70esTGGvVq4TUSLcj)
+![oai-excel.png](/uploads/oai-excel.png)
 
 ## Prompt engineering
 
