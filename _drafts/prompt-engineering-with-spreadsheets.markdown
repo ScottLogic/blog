@@ -14,7 +14,7 @@ contributors:
 
 When we couldn't find a tool to meet our prompt engineering needs, we decided to create a universal tool that allows anyone to build their own - all within the familiar spreadsheet environment. An Excel add-in that lets you use OpenAI models in Excel formulas.
 
-![oai-excel.png](/uploads/oai-excel.png)
+![oai-excel2.png](/uploads/oai-excel2.png)
 
 ## Prompt engineering
 
