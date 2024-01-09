@@ -123,6 +123,7 @@ active-authors:
   - tclarke-scottlogic
   - tgilbert
   - thands
+  - vcisse
   - wboothclibborn
   - wduncan
   - wreilly
@@ -1402,3 +1403,8 @@ authors:
     name: "Chris Ferguson"
     author-summary: "Joining Scott Logic in October 2021, Chris leads the growth and development of the professional services business. He was one of the original team that built the UK’s Government Digital Service from 2011 onwards. As Director from 2015, he formed and led the GDS Digital Group: GOV.UK; GOV.UK Verify; the Government-as-a-Platform Programme; and the Service Design Team. In their free time, Chris and his wife enjoy walking their golden retriever Lockie on the hills and coastline of Lothian and Fife, where they live."
     picture: profile.jpg
+  vcisse:
+    name: "Vassiriki Cisse"
+    email: vcisse@scottlogic.com
+    author-summary: "I'm a Lead Developer at Scott Logic working in the Glasgow office."
+    picture: vass-cisse.jpg
