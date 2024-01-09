@@ -7,8 +7,8 @@ tags:
 - AI
 - Machine Learning
 - Deep Learning techniques
-summary: In this blog, we will be sharing our feedback on the free fast.ai course -  
-  that has been praised by many for its hands-on and top-down approach - along with
+summary: In this blog, we will be sharing our feedback on the free fast.ai course
+  - that has been praised by many for its hands-on and top-down approach - along with
   a list of additional material that we found helpful in fully understanding the course.
 author: vcisse
 ---
