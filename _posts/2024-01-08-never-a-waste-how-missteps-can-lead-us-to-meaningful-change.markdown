@@ -27,7 +27,7 @@ So, where should you look?
 
 ## Start your search where user journeys end
 
-The trends concerning other organisations don’t always apply to us. As Steve writes, it’s more important the public sector keeps up than gets ahead. But with nobody to follow, we usually have to find our own way. And sometimes, naturally, it’s not perfect first time. Here’s an example.
+The trends concerning other organisations don’t always apply to us. As Steve writes in our report on [becoming the face of public sector](https://www.scottlogic.com/report-become-the-face-of-public-sector-technology), it’s more important the public sector keeps up than gets ahead. But with nobody to follow, we usually have to find our own way. And sometimes, naturally, it’s not perfect first time. Here’s an example.
 
 One government agency found that citizens were abandoning a complicated online journey and opting instead to call the number shown on each page. The result? Failure waste in the purpose-built service. And failure demand putting pressure on another.
 
