@@ -8,7 +8,7 @@ const { markdownToTxt } = require("markdown-to-txt");
   const outputPath = './scripts/generate-related/data';
   if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath);
   
-  const paths = await glob('./_posts/**/20{[1][3-9],[2][0-3]}-*.{md,markdown,html}').then((paths) => {
+  const paths = await glob('./_posts/**/20{[1][3-9],[2][0-9]}-*.{md,markdown,html}').then((paths) => {
     return paths;
   });
 
