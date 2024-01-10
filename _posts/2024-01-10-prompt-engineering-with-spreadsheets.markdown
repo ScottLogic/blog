@@ -3,8 +3,13 @@ title: Prompt engineering with spreadsheets
 date: 2024-01-10 08:00:00 Z
 categories:
 - Artificial Intelligence
+tags:
+- Prompt Engineering
+- tooling
+- automated evaluation frameworks
+- OpenAI API
 summary: When we couldn't find a tool to meet our prompt engineering needs, we decided
-  to create a universal tool that allows anyone to build their own - all within the
+  to create a universal tool that allows anyone to build their own – all within the
   familiar spreadsheet environment. An Excel add-in that lets you use OpenAI models
   in Excel formulas.
 author: rwilliams
@@ -12,7 +17,7 @@ contributors:
 - cprice
 ---
 
-When we couldn't find a tool to meet our prompt engineering needs, we decided to create a universal tool that allows anyone to build their own - all within the familiar spreadsheet environment. An Excel add-in that lets you use OpenAI models in Excel formulas.
+When we couldn't find a tool to meet our prompt engineering needs, we decided to create a universal tool that allows anyone to build their own – all within the familiar spreadsheet environment. An Excel add-in that lets you use OpenAI models in Excel formulas.
 
 ![oai-excel2.png](/uploads/oai-excel2.png)
 
@@ -20,11 +25,11 @@ When we couldn't find a tool to meet our prompt engineering needs, we decided to
 
 Prompt engineering is a hot topic at the moment but there’s surprisingly little in the way of established tooling to support it, or working practices for developing and proving prompts. This could be due to its relative immaturity as a field, its questionable longevity, or the sheer frustration often experienced by anyone who’s dabbled with it! However, there’s no doubt that as things stand, when using GenAI it’s hard to avoid.
 
-While advancements in model technology are likely to diminish the importance of crafting the perfect phrasing of prompts, the work of developing and proving prompts will remain - but focusing more on [problem formulation](https://hbr.org/2023/06/ai-prompt-engineering-isnt-the-future). We expect sufficiently capable and flexible tools to have continued utility with this change of focus.
+While advancements in model technology are likely to diminish the importance of crafting the perfect phrasing of prompts, the work of developing and proving prompts will remain – but focusing more on [problem formulation](https://hbr.org/2023/06/ai-prompt-engineering-isnt-the-future). We expect sufficiently capable and flexible tools to have continued utility with this change of focus.
 
 ## Tooling spectrum
 
-The tooling available for prompt engineering is emergent and rapidly evolving. Thankfully, we can simplify the landscape into a spectrum - tooling in each band of the spectrum having a mostly common set of characteristics, pros/cons, and uses.
+The tooling available for prompt engineering is emergent and rapidly evolving. Thankfully, we can simplify the landscape into a spectrum – tooling in each band of the spectrum having a mostly common set of characteristics, pros/cons, and uses.
 
 ![spectrum.png](/uploads/spectrum.png)
 
@@ -42,11 +47,11 @@ Setup time consists of establishing the evals suite configuration, creating the 
 
 ### Everything novel and inbetween
 
-Being a relatively new field, there are a [plethora](https://www.promptingguide.ai/tools) of [tools](https://learnprompting.org/docs/tooling/tools) available to assist with prompt engineering, with no obvious group of leading contenders. It’s natural for an emerging field to have many different approaches and tools - it normally takes time for some to win out, and that hasn’t happened here yet. We think it’ll happen eventually, whether before or after the focus of prompt development moves (as previously mentioned) from linguistic crafting to problem formulation.
+Being a relatively new field, there are a [plethora](https://www.promptingguide.ai/tools) of [tools](https://learnprompting.org/docs/tooling/tools) available to assist with prompt engineering, with no obvious group of leading contenders. It’s natural for an emerging field to have many different approaches and tools – it normally takes time for some to win out, and that hasn’t happened here yet. We think it’ll happen eventually, whether before or after the focus of prompt development moves (as previously mentioned) from linguistic crafting to problem formulation.
 
-By designing a prompt iteration workflow around such tools, and/or adopting ways of working those tools encourage/prescribe, we expect prompt engineering can be more efficient and effective in common and foreseen scenarios. It remains to be seen whether the tooling space settles in a similar place to the coding-IDE space - where all products have the same key features, there’s a generally accepted UI form, and any decent product will be good enough and adaptable enough to suit almost any development project.
+By designing a prompt iteration workflow around such tools, and/or adopting ways of working those tools encourage/prescribe, we expect prompt engineering can be more efficient and effective in common and foreseen scenarios. It remains to be seen whether the tooling space settles in a similar place to the coding-IDE space – where all products have the same key features, there’s a generally accepted UI form, and any decent product will be good enough and adaptable enough to suit almost any development project.
 
-In future, we could see some tools widen their coverage of the spectrum - transcending the aforementioned categories to support a full prompt development journey from playing with an idea, to refining it, through to robust automated proving.
+In future, we could see some tools widen their coverage of the spectrum – transcending the aforementioned categories to support a full prompt development journey from playing with an idea, to refining it, through to robust automated proving.
 
 Python Jupyter Notebooks are a pre-existing tool that could be used for prompt engineering. However, they’re relatively niche outside of data science domains and can be hard to experiment with due to the lack of dependency tracking. Every time you make a change, you need to find and rerun the related cells. This can be confusing and time-consuming, especially when the processing takes a while and can have significant cost.
 
@@ -62,11 +67,9 @@ We needed a tool made for us, but building a tool to build a tool isn’t a luxu
 
 ## OpenAI functions add-in for Excel
 
-We built [OpenAI API Functions for Excel](https://github.com/robatwilliams/openai-excel-functions), an add-in that allows you to create chat completions from your Excel formulas. Rather than build a prescriptive or highly-customisable tool, we built a tool that allows you to build your own tool - quickly.
+We built [OpenAI API Functions for Excel](https://github.com/robatwilliams/openai-excel-functions), an add-in that allows you to create chat completions from your Excel formulas. Rather than build a prescriptive or highly-customisable tool, we built a tool that allows you to build your own tool – quickly.
 
-```
-=OAI.CHAT_COMPLETE("Tell me a joke", PARAMS)
-```
+    =OAI.CHAT_COMPLETE("Tell me a joke", PARAMS)
 
 By complementing the power of spreadsheets with this simple add-in that calls the OpenAI API, you can easily assemble a tool (a spreadsheet) that does exactly what you need. Use familiar features such as cell referencing, dependent updates, and collaborative editing to suit your use cases and ways of working.
 
@@ -84,7 +87,7 @@ That would have been rather less efficient using the Playground or Evals. Replac
 
 ## Use for system prototyping and task decomposition
 
-When building a real system, we’d typically have multiple model calls - some dependent on the outputs of earlier ones. In this video, we use a spreadsheet and our new functions to perform a task where the results of previous model calls feed into subsequent ones. This technique can be used to quickly prototype the arrangement of calls in a system, or similarly to iterate on decomposing complex tasks (prompts) into smaller more manageable ones.
+When building a real system, we’d typically have multiple model calls – some dependent on the outputs of earlier ones. In this video, we use a spreadsheet and our new functions to perform a task where the results of previous model calls feed into subsequent ones. This technique can be used to quickly prototype the arrangement of calls in a system, or similarly to iterate on decomposing complex tasks (prompts) into smaller more manageable ones.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jJShRQ-S75s?si=pSWLMCV__9GDsHSo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
