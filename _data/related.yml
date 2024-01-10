@@ -23,8 +23,8 @@
   - /2013/04/08/comparing-kendoui-and-knockout-with-a-bit-of-jquerymobile-on-the-side.html
   - /2014/02/28/developing-large-scale-knockoutjs-applications.html
 /2013/03/08/less-vs-sass-vs-stylus.html:
+  - /2016/10/20/the-ins-and-outs-of-bitcoin.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
 /2013/03/28/html5-it-just-got-real-a-one-day-conference-in-london-14th-may.html:
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
@@ -557,8 +557,8 @@
   - /2016/07/05/audio-api-electron.html
   - /2015/09/03/d3-without-d3.html
 /2016/01/12/a-glimpse-into-our-2015-graduate-projects.html:
-  - /2018/04/17/BCSWomen-Lovelace-Colloquium.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2016/01/13/introduction-to-hadoop-and-map-reduce.html:
   - /2017/02/07/the-rise-of-big-data-streaming.html
   - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
@@ -818,8 +818,8 @@
   - /2014/05/19/html5-at-enterprise-scale.html
   - /2020/07/22/web-or-desktop.html
 /2016/10/20/the-ins-and-outs-of-bitcoin.html:
+  - /2013/03/08/less-vs-sass-vs-stylus.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
 /2016/10/25/testbash2016.html:
   - /2018/03/26/test-bash-newbie-heads-to-brighton.html
   - /2016/09/27/learning-to-talk.html
@@ -987,7 +987,7 @@
   - /2016/07/07/time-travel.html
 /2017/06/22/a-developer's-test.html:
   - /2021/12/09/Performance-Testing-with-JMeter.html
-  - /2016/09/19/inspire-europe.html
+  - /2017/01/09/FiddlerAutoResponder.html
 /2017/06/25/uk-place-names.html:
   - /2018/01/12/playing-with-postgis.html
   - /2018/01/15/currencies-then-and-now-d3-map.html
@@ -1088,8 +1088,8 @@
   - /2017/09/07/foyer-screen.html
   - /2018/10/10/foyer-screen-2018-edinburgh-intern-project.html
 /2017/12/13/chip8-emulator-webassembly-rust.html:
+  - /2024/01/03/a-journey-into-wasm.html
   - /2022/04/16/wasm-faas.html
-  - /2018/04/26/webassembly-by-hand.html
 /2017/12/15/aws-fargate.html:
   - /2020/01/27/labelling-images-in-google-cloud.html
   - /2019/05/10/aws-summit-london-2019.html
@@ -1247,8 +1247,8 @@
   - /2018/09/27/thoughts-from-the-software-testing-conference-north.html
   - /2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html
 /2018/04/17/BCSWomen-Lovelace-Colloquium.html:
-  - /2016/01/12/a-glimpse-into-our-2015-graduate-projects.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2018/04/17/comparing-big-data-messaging.html:
   - /2023/11/14/data-distribution.html
   - /2017/10/13/MetOfficeKafka.html
@@ -1266,7 +1266,7 @@
   - /2019/04/27/webassembly-compiler.html
 /2018/04/26/webassembly-by-hand.html:
   - /2019/05/17/webassembly-compiler.html
-  - /2017/10/17/wasm-mandelbrot.html
+  - /2024/01/03/a-journey-into-wasm.html
 /2018/04/30/devops-as-a-key-to-success-with-microservices-approach.html:
   - /2017/07/17/successful-microservices-with-12factor-app.html
   - /2020/08/24/microservices-for-life.html
@@ -1290,7 +1290,7 @@
   - /2019/03/04/retroactively-applying-prettier-to-existing-branches.html
 /2018/06/01/magical-domain-modelling-with-fsharp.html:
   - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
-  - /2021/06/28/union-types.html
+  - /2018/02/19/generic-platforms-the-rule-of-three.html
 /2018/06/06/we-need-to-talk.html:
   - /2017/04/19/help-testers-succeed.html
   - /2019/07/10/Thinking-out-loud.html
@@ -1383,7 +1383,7 @@
   - /2017/12/15/aws-fargate.html
 /2018/10/18/serverless-rust.html:
   - /2022/04/16/wasm-faas.html
-  - /2018/04/26/webassembly-by-hand.html
+  - /2024/01/03/a-journey-into-wasm.html
 /2018/10/19/living-in-an-accessible-world.html:
   - /2023/07/13/accessibility-considerations.html
   - /2019/09/11/Designing-with-accessibility-in-mind.html
@@ -1803,7 +1803,7 @@
   - /2015/12/01/generalizing-odata.html
 /2020/01/03/webassembly-sudoku-solver.html:
   - /2018/04/26/webassembly-by-hand.html
-  - /2017/10/17/wasm-mandelbrot.html
+  - /2024/01/03/a-journey-into-wasm.html
 /2020/01/06/Exploring-SwiftUI-2-React-comparison.html:
   - /2019/09/02/swift-ui-a-new-player-in-ui-frameworks.html
   - /2019/12/11/Exploring-SwiftUI-1.html
@@ -2256,7 +2256,7 @@
   - /2021/06/24/types-vs-interfaces.html
 /2021/07/03/github-copilot-first-thoughts.html:
   - /2021/08/01/copilot-netech.html
-  - /2023/02/06/beyond-the-hype-chatgpt.html
+  - /2023/12/18/software-development-ai-wins-the-race.html
 /2021/07/16/UX-Migration-Strategy.html:
   - /2019/12/13/debunking-cloud-myths.html
   - /2021/03/01/a-fresh-look-at-taking-control-of-legacy.html
@@ -2265,7 +2265,7 @@
   - /2021/06/24/types-vs-interfaces.html
 /2021/08/01/copilot-netech.html:
   - /2021/07/03/github-copilot-first-thoughts.html
-  - /2023/02/06/beyond-the-hype-chatgpt.html
+  - /2023/12/18/software-development-ai-wins-the-race.html
 /2021/08/18/hpc-in-cloud.html:
   - /2022/11/15/diagnosing-slow-performance-in-a-microservice-pipeline.html
   - /2019/04/18/cloud-as-a-value-driver.html
@@ -2334,7 +2334,7 @@
   - /2022/11/29/The career canvas.html
 /2021/11/05/Learning-Resources-for-Rust.html:
   - /2022/08/01/beyond-the-hype-most-loved-language-does-rust-justify-the-hype.html
-  - /2020/10/08/lets-build-snake-with-rust.html
+  - /2024/01/03/a-journey-into-wasm.html
 /2021/11/05/gpt3.html:
   - /2023/07/05/gpt3-creativity-from-determinism.md.html
   - /2023/05/02/beyond-the-hype-is-generative-ai-coming-for-programming-jobs.html
@@ -2812,3 +2812,27 @@
 /2023/12/18/implementing-cost-effective-test-driven-development-in-an-llm-application.html:
   - /2023/11/14/testing-LLM-based-applications-strategy-and-challenges.html
   - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
+/2023/12/18/software-development-ai-wins-the-race.html:
+  - /2021/07/03/github-copilot-first-thoughts.html
+  - /2023/03/31/the-new-ai-platform.html
+/2023/12/19/green-software-podcasts-what-the-team-are-listening-to-right-now.html:
+  - /2023/07/07/reset-connect-conference-2023.html
+  - /2023/11/09/the-sustainable-computing-ecosystem.html
+/2024/01/03/a-journey-into-wasm.html:
+  - /2018/04/26/webassembly-by-hand.html
+  - /2022/04/16/wasm-faas.html
+/2024/01/05/neural-net-basics.html:
+  - /2023/06/01/generative-terminology.html
+  - /2018/10/25/a-developers-intro-tensorflow-and-keras.html
+/2024/01/08/never-a-waste-how-missteps-can-lead-us-to-meaningful-change.html:
+  - /2021/12/21/delivering-digital-transformation-with-the-scottish-government.html
+  - /2017/08/07/evolving-the-agile-revolution.html
+/2024/01/09/fast-ai-study-group.html:
+  - /2018/03/13/tensorflow-machine-learning.html
+  - /2018/02/15/scikit-machine-learning.html
+/2024/01/09/software-developers-and-climate-crisis.html:
+  - /2022/04/07/cloud-sustainability-reach-net-zero.html
+  - /2022/02/07/Sustainability-in-Software.html
+/2024/01/10/prompt-engineering-with-spreadsheets.html:
+  - /2023/11/03/spy-logic.html
+  - /2023/02/06/beyond-the-hype-chatgpt.html
