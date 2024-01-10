@@ -305,8 +305,8 @@
   - /2014/08/28/bollinger.html
   - /2017/08/23/market-profile.html
 /2014/11/18/open-testing-standards.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2019/11/18/talking-to-devs-about-testing.html
+  - /2016/03/11/independent-testers-question.html
 /2014/11/20/swift-initialisation.html:
   - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
   - /2015/02/11/swift-kvo-alternatives.html
@@ -374,8 +374,8 @@
   - /2014/03/19/simulator-enhancements.html
   - /2019/12/11/Exploring-SwiftUI-1.html
 /2015/03/03/blink.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2019/11/18/talking-to-devs-about-testing.html
+  - /2014/11/18/open-testing-standards.html
 /2015/03/04/webdriverjs-and-promises.html:
   - /2020/01/13/selenium-vs-puppeteer.html
   - /2016/04/25/UsingWebdriverIO-Part2.html
@@ -557,8 +557,8 @@
   - /2016/07/05/audio-api-electron.html
   - /2015/09/03/d3-without-d3.html
 /2016/01/12/a-glimpse-into-our-2015-graduate-projects.html:
-  - /2018/04/17/BCSWomen-Lovelace-Colloquium.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2016/01/13/introduction-to-hadoop-and-map-reduce.html:
   - /2017/02/07/the-rise-of-big-data-streaming.html
   - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
@@ -635,8 +635,8 @@
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
 /2016/03/11/independent-testers-question.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/11/18/open-testing-standards.html
+  - /2015/03/03/blink.html
 /2016/03/16/bristech-story-of-a-meet-up.html:
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
@@ -987,7 +987,7 @@
   - /2016/07/07/time-travel.html
 /2017/06/22/a-developer's-test.html:
   - /2021/12/09/Performance-Testing-with-JMeter.html
-  - /2016/09/19/inspire-europe.html
+  - /2017/01/09/FiddlerAutoResponder.html
 /2017/06/25/uk-place-names.html:
   - /2018/01/12/playing-with-postgis.html
   - /2018/01/15/currencies-then-and-now-d3-map.html
@@ -1247,8 +1247,8 @@
   - /2018/09/27/thoughts-from-the-software-testing-conference-north.html
   - /2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html
 /2018/04/17/BCSWomen-Lovelace-Colloquium.html:
-  - /2016/01/12/a-glimpse-into-our-2015-graduate-projects.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2013/01/07/codeproject-mvp-2013.html
 /2018/04/17/comparing-big-data-messaging.html:
   - /2023/11/14/data-distribution.html
   - /2017/10/13/MetOfficeKafka.html
@@ -1290,7 +1290,7 @@
   - /2019/03/04/retroactively-applying-prettier-to-existing-branches.html
 /2018/06/01/magical-domain-modelling-with-fsharp.html:
   - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
-  - /2021/06/28/union-types.html
+  - /2018/02/19/generic-platforms-the-rule-of-three.html
 /2018/06/06/we-need-to-talk.html:
   - /2017/04/19/help-testers-succeed.html
   - /2019/07/10/Thinking-out-loud.html
@@ -1742,8 +1742,8 @@
   - /2019/11/27/drawing-area-polygons-with-webgl.html
   - /2019/10/17/sculpting-shapes-with-webgl-fragment-shader.html
 /2019/11/18/talking-to-devs-about-testing.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/11/18/open-testing-standards.html
+  - /2015/03/03/blink.html
 /2019/11/19/building-microservices-with-spring-boot-2.html:
   - /2019/10/31/building-microservices-with-spring-boot.html
   - /2019/07/15/Getting-to-grips-with-Spring.html
@@ -2256,7 +2256,7 @@
   - /2021/06/24/types-vs-interfaces.html
 /2021/07/03/github-copilot-first-thoughts.html:
   - /2021/08/01/copilot-netech.html
-  - /2023/02/06/beyond-the-hype-chatgpt.html
+  - /2023/12/18/software-development-ai-wins-the-race.html
 /2021/07/16/UX-Migration-Strategy.html:
   - /2019/12/13/debunking-cloud-myths.html
   - /2021/03/01/a-fresh-look-at-taking-control-of-legacy.html
@@ -2265,7 +2265,7 @@
   - /2021/06/24/types-vs-interfaces.html
 /2021/08/01/copilot-netech.html:
   - /2021/07/03/github-copilot-first-thoughts.html
-  - /2023/02/06/beyond-the-hype-chatgpt.html
+  - /2023/12/18/software-development-ai-wins-the-race.html
 /2021/08/18/hpc-in-cloud.html:
   - /2022/11/15/diagnosing-slow-performance-in-a-microservice-pipeline.html
   - /2019/04/18/cloud-as-a-value-driver.html
@@ -2812,3 +2812,9 @@
 /2023/12/18/implementing-cost-effective-test-driven-development-in-an-llm-application.html:
   - /2023/11/14/testing-LLM-based-applications-strategy-and-challenges.html
   - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
+/2023/12/18/software-development-ai-wins-the-race.html:
+  - /2021/07/03/github-copilot-first-thoughts.html
+  - /2023/03/31/the-new-ai-platform.html
+/2023/12/19/green-software-podcasts-what-the-team-are-listening-to-right-now.html:
+  - /2023/07/07/reset-connect-conference-2023.html
+  - /2023/11/09/the-sustainable-computing-ecosystem.html
