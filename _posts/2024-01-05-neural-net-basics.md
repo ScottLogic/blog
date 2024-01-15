@@ -11,7 +11,7 @@ summary: Recently I’ve been learning about Neural Networks and how they work. 
   blog post I write a simple introduction in to some of the core concepts of a basic
   layered neural network.
 author: lvincent
-image: "/uploads/basics%20of%20lnn.png"
+image: "/uploads/LNN%20tn.png"
 ---
 
 <script type="text/javascript" async
