@@ -15,6 +15,7 @@ summary: When we couldn't find a tool to meet our prompt engineering needs, we d
 author: rwilliams
 contributors:
 - cprice
+image: "/uploads/Prompt%20Engineering%20tn.png"
 ---
 
 When we couldn't find a tool to meet our prompt engineering needs, we decided to create a universal tool that allows anyone to build their own – all within the familiar spreadsheet environment. An Excel add-in that lets you use OpenAI models in Excel formulas.
