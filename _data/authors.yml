@@ -97,6 +97,7 @@ active-authors:
   - oforeman
   - osharon
   - osouthwell
+  - pchamberlin
   - pdykes
   - pgraham
   - rbeckett
@@ -650,6 +651,10 @@ authors:
     name: "Oded Sharon"
     author-summary: '<p>I am a developer at Scott Logic, Edinburgh. <a href="https://github.com/odedshr"> Find me on Github </a> </p>'
     picture: picture.jpg
+  pchamberlin:
+    name: "Peter Chamberlin"
+    author-summary: "Scott Logic's technology lead for the public sector and security, I'm based in Edinburgh."
+    picture: profile-photo.jpg
   pshek:
     name: "Paulin Shek"
     author-summary: "<p>Paulin is a  Java developer at Scott Logic. When she's not programming, she can be found doing cryptic crosswords and climbing small rocks.</p>"
