@@ -14,6 +14,7 @@ summary: On Saturday I attended UKGovCamp XL in London. UKGovCamp is an annual, 
   attending can propose, host or participate in sessions. I share my reflections on
   the event in this blog post.
 author: pchamberlin
+image: "/uploads/UKGovCampXL.png"
 ---
 
 On Saturday I attended UKGovCamp XL in London. UKGovCamp is an annual, free public sector digital unconference, which means there’s no set agenda, and anyone attending can propose, host or participate in sessions. “XL” means this is the biggest one the team has ever organised.
