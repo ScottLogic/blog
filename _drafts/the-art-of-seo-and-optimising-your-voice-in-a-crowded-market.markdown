@@ -1,10 +1,14 @@
 ---
 title: The art of SEO and optimising your voice in a crowded market
 date: 2024-01-25 09:13:00 Z
-summary: 'Creating high-performing organic content in crowded markets is no mean feat.
+categories:
+- People
+tags:
+- marketing
+- seo
+- search engine
+summary: Creating high-performing organic content in crowded markets is no mean feat.
   I explore SEO practices and value props to put you on the right track.
-
-'
 author: slinsley
 image: "/uploads/Art%20of%20seo%20tn.png"
 ---
