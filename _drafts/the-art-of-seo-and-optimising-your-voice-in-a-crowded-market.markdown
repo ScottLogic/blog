@@ -81,7 +81,7 @@ Some things to include when creating your SEO brief:
 
 Below is a high-level SEO brief I have mocked up for a blog on ‘Cloud migration frameworks’. 
 
-![SEO brief framework-00c54d.jpg](/uploads/SEO%20brief%20framework-00c54d.jpg)
+![SEO Brief .jpg](/uploads/SEO%20Brief%20.jpg)
 
 ### Write for your users, not search engines 
 'Keyword stuffing' has not been the order of the day for a long time, but it’s a trap that many still fall into. Google and other search engines prioritise user interactions, so their end goal is to frontload valuable content. 
