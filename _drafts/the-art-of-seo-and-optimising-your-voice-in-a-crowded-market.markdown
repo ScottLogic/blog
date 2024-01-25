@@ -75,6 +75,7 @@ This will also allow you to compartmentalise content, i.e. distinguishing betwee
 If you don’t produce all of the copy across your website, ensuring that content is SEO-friendly can prove messy. Creating an accessible framework or a documented SEO brief is a great way to establish a thorough process within content creation. 
 
 Some things to include when creating your SEO brief: 
+
 * A list of primary and secondary keywords relating to the content and a guideline of how often to include them (primary keywords should make up 1-2% of the word count)
 * Potential H-tags that could be used based on existing content or content gaps 
 * ‘Always-on guidelines’ for meta description length, URL slug, image sizes, reminder to include alt text for images, etc.
