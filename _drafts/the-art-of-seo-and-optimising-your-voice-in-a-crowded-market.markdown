@@ -117,6 +117,7 @@ The more technical errors that are on your site, the lower your health score and
 Even what some might consider very innocuous issues can accumulate in a big way and seriously hinder how your site performs on SERPs.
 
 These errors include: 
+
 * Broken internal and external links 
 * Unindexed pages
 * Duplicate links/content
