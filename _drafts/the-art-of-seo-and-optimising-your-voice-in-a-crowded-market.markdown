@@ -102,10 +102,10 @@ Whilst you can repurpose different content types into a blog etc, evergreen cont
 Keeping content up-to-date will help drive more organic traffic, with older content accumulating outdated information having an adverse effect. 
 
 Ways of updating existing content can include: 
--  Inserting links to more recent research 
--  Adding internal links to recent content 
--  Refreshing copy that is no longer relevant
--  Looking at the related ‘people also ask’ queries and rewording or including them in the existing copy
+* Inserting links to more recent research 
+* Adding internal links to recent content 
+* Refreshing copy that is no longer relevant
+* Looking at the related ‘people also ask’ queries and rewording or including them in the existing copy
 
 A way to keep on track and regularly optimise existing content is to create optimisation briefs, similar to the framework for new content briefs. 
 
@@ -117,14 +117,14 @@ The more technical errors that are on your site, the lower your health score and
 Even what some might consider very innocuous issues can accumulate in a big way and seriously hinder how your site performs on SERPs.
 
 These errors include: 
--  Broken internal and external links 
--  Unindexed pages
--  Duplicate links/content
--  404 pages
--  Broken images or missing ALT text
--  Missing or too long/short meta descriptions
--  No outgoing links
--  Outdated titles – if you’ve included the year
+* Broken internal and external links 
+* Unindexed pages
+* Duplicate links/content
+* 404 pages
+* Broken images or missing ALT text
+* Missing or too long/short meta descriptions
+* No outgoing links
+* Outdated titles – if you’ve included the year
 
 These issues are generally easy to identify and fix alongside your health score when conducting an audit using a site crawler such as [Ahrefs](https://ahrefs.com/) (which I would recommend). My tip here is to put some time in the diary weekly to work your way through the issues flagged by the site crawler. 
 
