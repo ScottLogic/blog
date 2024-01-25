@@ -36,7 +36,7 @@ Now, search engines rank individual pages based on their authority and usefulnes
 
 That’s not to say that keywords don’t impact SERPs. You should also have primary and secondary keyword lists related to your business/services too (more on those later).
 
-![how to increase app downloads-d12c04.png](/uploads/how%20to%20increase%20app%20downloads-d12c04.png)
+![increase app downloads .jpg](/uploads/increase%20app%20downloads%20.jpg)
 Circled in the image above is a Featured Snippet from the search query, ‘Increase app downloads’. This is where the most valuable content as rated by Google will sit.
 
 You’ll see that there is a clear list of strategies addressing the query (this list is condensed by Google based on the H2 tags within the blog) with a number of similar search queries listed below, accompanied by other articles attributed to them when the dropdown box is clicked. 
