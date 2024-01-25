@@ -75,9 +75,9 @@ This will also allow you to compartmentalise content, i.e. distinguishing betwee
 If you don’t produce all of the copy across your website, ensuring that content is SEO-friendly can prove messy. Creating an accessible framework or a documented SEO brief is a great way to establish a thorough process within content creation. 
 
 Some things to include when creating your SEO brief: 
-**  A list of primary and secondary keywords relating to the content and a guideline of how often to include them (primary keywords should make up 1-2% of the word count)
-** Potential H-tags that could be used based on existing content or content gaps 
-**  ‘Always-on guidelines’ for meta description length, URL slug, image sizes, reminder to include alt text for images, etc.
+-  A list of primary and secondary keywords relating to the content and a guideline of how often to include them (primary keywords should make up 1-2% of the word count)
+-  Potential H-tags that could be used based on existing content or content gaps 
+-  ‘Always-on guidelines’ for meta description length, URL slug, image sizes, reminder to include alt text for images, etc.
 
 Below is a high-level SEO brief I have mocked up for a blog on ‘Cloud migration frameworks’. 
 
@@ -102,10 +102,10 @@ Whilst you can repurpose different content types into a blog etc, evergreen cont
 Keeping content up-to-date will help drive more organic traffic, with older content accumulating outdated information having an adverse effect. 
 
 Ways of updating existing content can include: 
-* Inserting links to more recent research 
-* Adding internal links to recent content 
-* Refreshing copy that is no longer relevant
-* Looking at the related ‘people also ask’ queries and rewording or including them in the existing copy
+-  Inserting links to more recent research 
+-  Adding internal links to recent content 
+-  Refreshing copy that is no longer relevant
+-  Looking at the related ‘people also ask’ queries and rewording or including them in the existing copy
 
 A way to keep on track and regularly optimise existing content is to create optimisation briefs, similar to the framework for new content briefs. 
 
@@ -117,14 +117,14 @@ The more technical errors that are on your site, the lower your health score and
 Even what some might consider very innocuous issues can accumulate in a big way and seriously hinder how your site performs on SERPs.
 
 These errors include: 
-* Broken internal and external links 
-* Unindexed pages
-* Duplicate links/content
-* 404 pages
-* Broken images or missing ALT text
-* Missing or too long/short meta descriptions
-* No outgoing links
-* Outdated titles – if you’ve included the year
+-  Broken internal and external links 
+-  Unindexed pages
+-  Duplicate links/content
+-  404 pages
+-  Broken images or missing ALT text
+-  Missing or too long/short meta descriptions
+-  No outgoing links
+-  Outdated titles – if you’ve included the year
 
 These issues are generally easy to identify and fix alongside your health score when conducting an audit using a site crawler such as [Ahrefs](https://ahrefs.com/) (which I would recommend). My tip here is to put some time in the diary weekly to work your way through the issues flagged by the site crawler. 
 
@@ -149,10 +149,10 @@ It’s not a case of trying to get as many backlinks as possible, but of targeti
 Getting backlinks to your website is no mean feat and can be a painstaking activity, which is why many employ agencies to do this. 
 
 Nevertheless, you can create new backlink opportunities on your own. Some of these actions include: 
-* Reclaiming unlinked brand mentions and sending a quick note to the author – you can monitor mentions on Google Alerts
-* Outreach to influencers/thought leaders to collaborate on content either on your site or to reference yours on their own website 
-* Creating research pieces such as reports with data points based on surveys or internal studies you conduct so that this becomes a reference point for others
-* Spotting ‘PR’ opportunities where other sites or news outlets will publish a company news story etc.
+-  Reclaiming unlinked brand mentions and sending a quick note to the author – you can monitor mentions on Google Alerts
+-  Outreach to influencers/thought leaders to collaborate on content either on your site or to reference yours on their own website 
+-  Creating research pieces such as reports with data points based on surveys or internal studies you conduct so that this becomes a reference point for others
+-  Spotting ‘PR’ opportunities where other sites or news outlets will publish a company news story etc.
 
 Your website crawl (depending on your subscription level) will also show you the number of inbound links you currently have so you can consistently measure the success of your backlink strategy. 
 
