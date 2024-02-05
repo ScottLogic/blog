@@ -12,6 +12,7 @@ summary: If you work in banking in the US, you should care about Open Banking. T
   towards an Open Banking standard and argue that implementing Open Banking can reduce
   your regular operational costs as a bank.
 author: acarr
+image: "/uploads/open%20banking%20us_.png"
 ---
 
 If you work in banking in the US, you should care about Open Banking.
