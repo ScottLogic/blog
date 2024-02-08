@@ -32,21 +32,21 @@ And by building API services strategically in line with common industry standard
 
 Faced with the unprecedented challenges posed by the COVID-19 pandemic, UK government departments were able to do precisely this. The Department for Work and Pensions (DWP) had been building up [a repository of high-quality API services for the last 18 months](https://dwpdigital.blog.gov.uk/2020/06/29/how-our-silent-api-army-has-helped-dwps-covid-19-response/), and it was this that allowed the department to respond rapidly to diverse demands, configuring new system integrations across departments. These allowed DWP to: ramp up the number of citizen validation checks it could perform for DVLA in relation to HGV driver applications in support of NHS and supermarket deliveries; maintain a stable service for the NHS Prescription Exemption check while numbers rocketed up; and rapidly scale up the number of Free School Meals Qualification checks.
 
-Similarly, the Government’s ability to launch the ‘Eat Out to Help Out’ scheme was made possible thanks to HM Revenue and Customs’ repository of API services, enabling the department to set up in weeks the systems required to support the initiative.
+All of this has been made possible thanks to the common standards in accordance with which these API services were developed.
 
 ### Mining more minds in banking
 
-All of this has been made possible thanks to the common standards in accordance with which these API services were developed. Building to common standards in this way helps to break down silos – both technical and business ones – within and between organisations. Our client NatWest Group was initially compelled to build its Open API services in compliance with the [Open Banking Initiative](https://www.openbanking.org.uk/). However, it very quickly began to see the vast opportunities its APIs presented to create new propositions, and to unify existing ones along with the disparate, monolithic systems that support them.
+Building to common standards in this way helps to break down silos – both technical and business ones – within and between organisations. Our client NatWest Group was initially compelled to build its Open API services in compliance with the [Open Banking Initiative](https://www.openbanking.org.uk/). However, it very quickly began to see the vast opportunities its APIs presented to create new propositions and to unify existing ones, along with the disparate, monolithic systems that support them.
 
-The connections could go even further, to the benefit of customers – that’s the promise of Open Finance. If it takes off, Open Finance could build on Open Banking and result in innovative services that use Open APIs to connect a much wider range of financial products and services – including pensions, mortgages and consumer credit. This could give customers much greater visibility and control over their finances. And in the next five years or so, the UK’s energy sector is likely to go through a similar transformation.
+The connections could go even further, to the benefit of customers – that’s the promise of Open Finance. It aims to build on Open Banking and result in innovative services that use Open APIs to connect a much wider range of financial products and services – including pensions, mortgages and consumer credit. This could give customers much greater visibility and control over their finances. And in the next ten years or so, the UK’s energy sector is likely to go through a similar transformation.
 
 Already, Open Banking has broken down silos between the UK’s largest banking groups and the ecosystem of new third-party providers that are accessing their Open APIs to develop new services for banking customers. The transparency of the Open API services and the data that can be accessed through them (with customers’ consent) is allowing the banking industry to access a much wider resource of ideation and innovation. The “hive mind” that can be applied to developing new banking features, products and services for customers has grown from single departments, to wider banking groups, to the whole open banking ecosystem.
 
 ### Rapid ROI from opening up
 
-In this new ecosystem, the UK’s banks are realising that they don’t have to deliver all the value to customers themselves. They can focus instead on where they add unique value. And while they are relinquishing some control, they are far from losing out – the UK banking sector expects to recoup its Open Banking investment within five years.
+In this new ecosystem, the UK’s banks are realising that they don’t have to deliver all the value to customers themselves. They can focus instead on where they add unique value.
 
-Open APIs generate a similar scale of innovation and value generation in the public sector too. About ten years ago, Transport for London made large amounts of its non-personal data – such as timetables, service status and disruption – available for anyone to use free of charge via Open APIs. In 2017, [Deloitte measured the economic and social value](http://content.tfl.gov.uk/deloitte-report-tfl-open-data.pdf) generated for Londoners by these APIs and quantified it at £130M a year in benefits and savings.
+Open APIs generate a similar scale of innovation and value generation in the public sector too. In 2010, Transport for London made large amounts of its non-personal data – such as timetables, service status and disruption – available for anyone to use free of charge via Open APIs. [Deloitte measured the economic and social value](http://content.tfl.gov.uk/deloitte-report-tfl-open-data.pdf) generated for Londoners by these APIs and quantified it at £130M a year in benefits and savings.
 
 ## ...Out with the old
 
@@ -70,4 +70,4 @@ And with this control, you’re free to innovate and experiment. You can test ou
 
 ## Get started today
 
-To help you get started in using APIs properly, have a read of my new white paper, [Open your eyes to APIs](%7B%7Bsite.baseurl%7D%7D/godds/assets/white-papers/open-your-eyes-to-apis.pdf).
+To help you get started in using APIs properly, have a read of my new white paper, [Open your eyes to APIs](https://www.scottlogic.com/white-paper-open-your-eyes-apis).
