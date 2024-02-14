@@ -1,14 +1,16 @@
 ---
 title: The No-Excuses Guide to Innovation with APIs
-date: 2020-11-13 00:00:00 Z
+date: 2020-11-13 00:01:00 Z
 categories:
-- godds
 - UX Design
+tags:
+- API
+- legacy IT
 summary: Nothing is preventing your organisation from innovating today in order to
   keep pace with user expectations, because properly using APIs helps you escape from
   the bonds of your legacy estate.
 author: godds
-image: godds/assets/featured/apis.png
+image: "/uploads/no%20excuses%20guide%20to%20apis.png"
 layout: default_post
 ---
 
