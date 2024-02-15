@@ -14,7 +14,7 @@ summary: We're excited to announce a proposed standard for assessing technology-
   in a way that enables consistent analysis and benchmarking of the carbon impact,
   aligned with the GHG protocol.
 author: ocronk
-image: "/uploads/Announcing%20the%20tcs%20thumbnail.png"
+image: "/uploads/Technology%20Carbon%20Standard%20TN.png"
 ---
 
 Last week at the State of Open Con 2024, I announced on behalf of Scott Logic a proposed standard for assessing and managing technology-related carbon emissions. The proposed standard sets out an approach to classifying an organisation's technology footprint in a way that enables consistent analysis and benchmarking of the carbon impact.
