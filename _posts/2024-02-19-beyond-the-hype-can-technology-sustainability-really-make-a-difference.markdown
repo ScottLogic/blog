@@ -26,7 +26,7 @@ In this episode, Oliver Cronk is joined by experts including Jeremy Axe, Group C
 
 The conversation covers the nuances around operational versus embodied carbon emissions, the sustainability trade-offs involved in cloud versus on-premises hosting, and the need for transparency and standards around eco-friendly tech claims.
 
-### **Links from the podcast**
+**Links from the podcast**
 
 * [Proposed Technology Carbon Standard](https://www.techcarbonstandard.org/) – open sourced by Scott Logic on a CC BY-NC-SA 4.0 licence
 
@@ -36,7 +36,7 @@ The conversation covers the nuances around operational versus embodied carbon em
 
 * [Scott Logic’s approach to supporting technology sustainability](https://www.scottlogic.com/what-we-do/sustainable-software)
 
-### Subscribe to the podcast
+**Subscribe to the podcast**
 
 * [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
 
