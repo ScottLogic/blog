@@ -3,6 +3,7 @@ title: 'Beyond the Hype: Can technology sustainability really make a difference?
 date: 2024-02-19 15:42:00 Z
 categories:
 - Podcast
+- Sustainability
 tags:
 - technology sustainability
 - sustainability
@@ -16,7 +17,10 @@ summary: In this episode, Oliver Cronk is joined by experts including Jeremy Axe
   the challenges in accurately measuring sustainability, and whether claims of ‘green
   tech’ are substantiated or just hype.
 author: ceberhardt
+image: "/uploads/BeyondTheHype---pink-and-orange---social---E16.jpg"
 ---
+
+<iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/30015853/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes/font-color/000000" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
 
 In this episode, Oliver Cronk is joined by experts including Jeremy Axe, Group CTO at DS Smith, and consultants Darren Smith and Katie Davis from Scott Logic. Together, they unpack topics like the energy usage and carbon emissions of IT infrastructure, the challenges in accurately measuring sustainability, and whether claims of ‘green tech’ are substantiated or just hype.
 
