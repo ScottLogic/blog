@@ -30,7 +30,7 @@ We start by discussing the critical role open source has grown to play in the wo
 
 Early drafts of this act detailed significant obligations on open source maintainers, despite the fact that they often work without financial reward. This caused concern, fear and some anger in the open source community. We discuss the latest update to the CRA, which has thankfully addressed these concerns, and ponder whether it will actually solve the problems it has set out to tackle.
 
-### Links from the podcast
+**Links from the podcast**
 
 * [Panel Discussion: The Impact of the CRA on the Open Source Ecosystem](https://youtu.be/Wx-vwgOZSFk?si=62y1PA-AFgCKJSZE) – Cheukting, Mirko & Greg, Laura, Justin, Philip
 
@@ -44,7 +44,7 @@ Early drafts of this act detailed significant obligations on open source maintai
 
 * [The EU's Proposed CRA Law May Have Unintended Consequences for the Python Ecosystem](https://pyfound.blogspot.com/2023/04/the-eus-proposed-cra-law-may-have.html)
 
-### Subscribe to the podcast
+**Subscribe to the podcast**
 
 * [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
 
