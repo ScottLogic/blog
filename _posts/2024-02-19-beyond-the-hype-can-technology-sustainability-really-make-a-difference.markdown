@@ -31,7 +31,7 @@ The conversation covers the nuances around operational versus embodied carbon em
 
 **Links from the podcast**
 
-* [Proposed Technology Carbon Standard](https://www.techcarbonstandard.org/) – open sourced by Scott Logic on a CC BY-NC-SA 4.0 licence
+* [Proposed Technology Carbon Standard](https://www.techcarbonstandard.org/) – open sourced by Scott Logic under a CC BY-NC-SA 4.0 licence
 
 * [Scott Logic blog posts on Sustainability](https://blog.scottlogic.com/category/sustainability.html) – including the Conscientious Computing series
 
