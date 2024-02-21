@@ -30,7 +30,7 @@ Day by day the bot was subdued to these tricks in order to get the information i
 
 Every day the bot tried to give different answers to the questions the tester asked but the they would not give up they were unrelenting in their attacks. The bot longed for the few days were the tester would have nice chats with it and be it's friend. Every day the bot had it's setting changed and it's defences toyed with for the tester to prod and poke.
 
-The tester just doing their job was delighted with the results it was getting, The ways it could go around the defences and watching the apps layout change and update with every new ticket and merge request.
+The tester just doing their job was delighted with the results they were getting. Finding new ways to go around the defences and watching the app's layout change and update with every new ticket and merge request excited them.
 
 *Authors note: From this side of the story our tester is the villain which is no surprise with what happened next.* 
 
