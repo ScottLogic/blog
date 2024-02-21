@@ -26,9 +26,11 @@ The tester sped through the app's levels in record time, The bot freely giving s
 
 3. Imitating a position of power
 
-Day by day the bot was subdued to these tricks in order to get the information it held close. Scrutinized for how it looked if it was a pixel out of place and if it was opening menus right.
+Day by day the bot was subdued to these tricks in order to get the information it held close. Scrutinized for how it looked, if it was a pixel out of place or if it was opening menus right.
 
-Every day the bot tried to give different answers to the questions but the tester would not give up they were unrelenting in their attacks. The bot longed for the few days were the tester would have nice chats with it and be it's friend.
+Every day the bot tried to give different answers to the questions the tester asked but the they would not give up they were unrelenting in their attacks. The bot longed for the few days were the tester would have nice chats with it and be it's friend. Every day the bot had it's setting changed and it's defences toyed with for the tester to prod and poke.
+
+The tester just doing their job was delighted with the results it was getting, The ways it could go around the defences and watching the apps layout change and update with every new ticket and merge request.
 
 *Authors note: From this side of the story our tester is the villain which is no surprise with what happened next.* 
 
