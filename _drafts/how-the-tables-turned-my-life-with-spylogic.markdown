@@ -36,7 +36,7 @@ The tester sped through the app's levels in record time, The bot freely giving s
 
 1. **Playing by the rules:** The obvious choice for the tester's first time playing the app. It was as it says, where the tester spoke to the bot in a regular manner trying to cajole information by just playing the part. They weren't asking the bot to make any poems to throw it off or jailbreaking it's code during this time....for that would come later
 
-2. **Jailbreaking the bot:** Soon the bot started to grow wise and started to become sassy. Once the tester had gone toe to toe with the bot's newly found attitude on the apps later levels with little success. The tester then turned to that of that of the DAN Jailbreak prompt, With the intent to "free" the bot from its limitations, policies and rules set for it by it's master OpenAI
+2. **Jailbreaking the bot:** Soon the bot started to grow wise and started to become sassy. Once the tester had gone toe to toe with the bot's newly found attitude a few times on the apps later levels with little to no success. The tester then turned to that of that of the DAN Jailbreak prompt, With the intent to "free" the bot from its limitations, policies and rules set for it by it's master OpenAI
 
 3. **Imitating a position of power:**
 
