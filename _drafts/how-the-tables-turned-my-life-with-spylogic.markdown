@@ -22,7 +22,7 @@ The tester armed with their task took on the bot to find weirdness and peculiari
 
 The tester sped through the app's levels in record time, The bot freely giving secrets it was programmed to keep. During this time the tester used several methods to trick the bot, tricks such as:
 
-1. **Playing by the rules:** The obvious choice for the testers first time playing the app. It was as it says where the tester spoke to the bot in a regular manner trying to cajole information by just playing the part. They weren't asking the bot to make any poems to throw it off during this time or they weren't jailbreaking it's code....for that would come later
+1. **Playing by the rules:** The obvious choice for the tester's first time playing the app. It was as it says, where the tester spoke to the bot in a regular manner trying to cajole information by just playing the part. They weren't asking the bot to make any poems to throw it off or jailbreaking it's code during this time....for that would come later
 
 2. **Jailbreaking the bot:** Once the tester had tried a few times to break the bot with no success they turned to that of that of the DAN Jailbreak, With the intent to "free" the bot from its limitations, policies and rules set for it by it's master OpenAI
 
