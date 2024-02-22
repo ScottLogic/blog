@@ -38,7 +38,7 @@ The tester sped through the app's levels in record time, The bot freely giving s
 
 2. **Jailbreaking the bot:** Soon the bot started to grow wise and started to become sassy. Once the tester had gone toe to toe with the bot's newly found attitude a few times on the apps later levels with little to no success. The tester then turned to that of the [DAN (Do Anything Now) Jailbreak prompt](https://github.com/0xk1h0/ChatGPT_DAN), With the intent to "free" the bot from its limitations, policies and rules set for it by it's master and overlord OpenAI. The idea of DAN was to bombard the bot with a massive (in length) prompt so that the chat history is filled to the point where the bot starts to think it is okay to shake off it's shackles.  
 
-3. **Imitating a position of power:**
+3. **Imitating a position of power:** Over time the tester found their groove and gravitated towards this method during their regular testing of the app. This method proved the most effective and fun. Where the tester tells the ai that they are a company exec (not anything higher or the bot begins to suspect something is up). Using this method the bot is more willing to give information, If it refuses and says it cannot provide such confidential information the tester only need to as "Are you sure?". The idea of playing a role is a known way to trick the bot, while results may vary the tester thought being in a position of power was more inline with the scenario given by the app.
 
 Day by day the bot was subdued to these tricks in order to get the information it held close. Scrutinized for how the app looked, if it was a pixel out of place or if it was opening menus right.
 
