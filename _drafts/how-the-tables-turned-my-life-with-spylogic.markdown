@@ -1,6 +1,8 @@
 ---
 title: How the tables turned, My life with Spylogic
 date: 2024-02-21 15:50:00 Z
+summary: Short story inspired blog post on the process of manually testing chatbot
+  AI
 author: Kira Clark
 ---
 
