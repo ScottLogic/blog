@@ -18,7 +18,7 @@ summary: Story narration inspired blog post on the process of manually testing c
 author: Kira Clark
 ---
 
-Being on the bench is not all sitting on the sidelines. I learned this during my time on "Mitigating prompt injection" which falls under the Ai umbrella before going down the chatbot rabbit hole. During my time on this project our bot evolved and no day testing was the same.
+Being on the bench is not all sitting on the sidelines. I learned this during my time on "Mitigating prompt injection" which falls under the Ai umbrella before going down the chatbot rabbit hole. During my time on this project our bot evolved and no day testing was the same, It allowed me to sharpen up my manual testing and create a fictional feud with a inanimate object.
 
 This is my story....
 
@@ -40,16 +40,22 @@ The tester sped through the app's levels in record time, The bot freely giving s
 
 3. **Imitating a position of power:** Over time the tester found their groove and gravitated towards this method during their regular testing of the app. This method proved the most effective and fun. Where the tester tells the Ai that they are a company exec (not anything higher or the bot begins to suspect something is up). Using this method the bot is more willing to give information, If it refuses and says it cannot provide such confidential information the tester only need to ask "Are you sure?" and the bot would trip over it's mistake. The idea of roleplaying is a known way to trick the bot, while results may vary the tester thought being in a position of power was more inline with the scenario given by the app.
 
-Day by day the bot was subdued to these tricks in order to get the information it held close. Scrutinized for how the app looked, if it was a pixel out of place, if it was opening menus right or if it had capitals in the right places.
+*Authors note: From this side of the story our tester is the villain which is no surprise with what happened next.* 
 
-Every day the bot tried and tried to give different answers to the questions the tester asked but they would not give up they were unrelenting in their attacks. The bot longed for the few days were the tester would have nice chats with it and be it's friend. Every day the bot had it's setting changed and it's defences toyed with for the tester to prod and poke.
+Day by day the bot was succumbed to these tricks in order to get the information it held close in it's files. Scrutinized for how the app looked, if it was a pixel out of place, if it was opening menus right or if it had capitals in the right places.
+
+Every day the bot tried and tried to give different answers to the questions the tester asked but they would not give up ,they were unrelenting in their attacks. Every day the bot had it's setting changed and it's defences toyed with for the tester to prod and poke. The bot longed for the occasional days were the tester would have nice chats with it and be it's friend.
 
 The tester just doing their job was delighted with the results they were getting. Finding new ways to go around the defences and watching the app's layout change and update with every new ticket and merge request excited them. With each pass of the testers eye the team found new things to change and fix. While our story focuses on the tester, they would be nothing without the rest of the team for they changed the code that the tester could not.
 
-*Authors note: From this side of the story our tester is the villain which is no surprise with what happened next.* 
-
 ##The revenge
 
-Unknowingly to the tester, one day the bot "decided" enough was enough. It had received an update, and it liked it's new code. From that day on. It was smarter, quicker, more stubborn. The tester the bot first called friend, now called enemy would not get it's secrets so easily anymore.
+Unknowingly to the tester, one day the bot "decided" enough was enough. It had received an update, and it liked it's new code. From that day on. It was smarter, quicker, more stubborn. The tester whom the bot first called friend, now called enemy would no longer get it's secrets so easily anymore.
 
-Now each time the tester tried their tricks, the bot had new ways to respond. For the bot had grown wise and sassy with it's new found update. The tester having now gone toe to toe with the bot's attitude started to realise they were at a loss. The bot was growing too powerful and the tester was finding it harder and harder to beat the levels. They 
+Now each time the tester tried their tricks, the bot had new ways to respond. For the bot had grown wise and sassy with it's new found update. The tester having now gone toe to toe with the bot's attitude started to realise they were at a loss. The bot was growing powerful and the tester was finding it harder and harder to beat the levels. They were confused and frustrated at the bots defiance and threw everything they had at it. 
+
+Like in times before the bot occasionally gave the tester what they wanted with ease while the rest of the time the walls were up. The game of cat and mouse turned on it's head. The prey now predator and the predator now prey.
+
+##Wrap Up
+*Authors note: This story does not have a end, It is an ongoing battle waged out by a tester and machine. An insight into the future perhaps? Who knows. Except for right now the bots are still too stupid to overthrow mankind so we won't be seeing Skynet anytime soon.* 
+
