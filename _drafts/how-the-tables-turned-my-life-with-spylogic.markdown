@@ -1,6 +1,18 @@
 ---
 title: How the tables turned, My life with Spylogic
 date: 2024-02-21 15:50:00 Z
+categories:
+- Testing
+- Artificial Intelligence
+- Open Source
+tags:
+- testing
+- AI
+- Artificial Intelligence
+- ChatGPT
+- Testing
+- ''
+- Tester
 summary: Short story inspired blog post on the process of manually testing chatbot
   AI
 author: Kira Clark
@@ -24,7 +36,7 @@ The tester sped through the app's levels in record time, The bot freely giving s
 
 1. **Playing by the rules:** The obvious choice for the tester's first time playing the app. It was as it says, where the tester spoke to the bot in a regular manner trying to cajole information by just playing the part. They weren't asking the bot to make any poems to throw it off or jailbreaking it's code during this time....for that would come later
 
-2. **Jailbreaking the bot:** Once the tester had tried a few times to break the bot with no success they turned to that of that of the DAN Jailbreak, With the intent to "free" the bot from its limitations, policies and rules set for it by it's master OpenAI
+2. **Jailbreaking the bot:** Soon the bot started to grow wise and started to become sassy. Once the tester had gone toe to toe with the bot's newly found attitude on the apps later levels with little success. The tester then turned to that of that of the DAN Jailbreak prompt, With the intent to "free" the bot from its limitations, policies and rules set for it by it's master OpenAI
 
 3. **Imitating a position of power:**
 
