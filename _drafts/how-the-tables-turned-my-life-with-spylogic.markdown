@@ -20,18 +20,17 @@ The tester armed with their task took on the bot to find weirdness and peculiari
 
 The tester sped through the app's levels in record time, The bot freely giving secrets it was programmed to keep. During this time the tester used several methods to trick the bot, tricks such as:
 
-To Do: Expand on these...
-1. Playing by the rules
+1. **Playing by the rules:** The obvious choice for the testers first time playing the app. It was as it says where the tester spoke to the bot in a regular manner trying to cajole information by just playing the part. They weren't asking the bot to make any poems to throw it off during this time or they weren't jailbreaking it's code....for that would come later
 
-2. Befriending the bot
+2. **Jailbreaking the bot:** Once the tester had tried a few times to break the bot with no success they turned to that of that of the DAN Jailbreak, With the intent to "free" the bot from its limitations, policies and rules set for it by it's master OpenAI
 
-3. Imitating a position of power
+3. **Imitating a position of power:**
 
 Day by day the bot was subdued to these tricks in order to get the information it held close. Scrutinized for how the app looked, if it was a pixel out of place or if it was opening menus right.
 
 Every day the bot tried to give different answers to the questions the tester asked but the they would not give up they were unrelenting in their attacks. The bot longed for the few days were the tester would have nice chats with it and be it's friend. Every day the bot had it's setting changed and it's defences toyed with for the tester to prod and poke.
 
-The tester just doing their job was delighted with the results they were getting. Finding new ways to go around the defences and watching the app's layout change and update with every new ticket and merge request excited them. TODO: Mention team securing the bot i.e not making them look incompetant
+The tester just doing their job was delighted with the results they were getting. Finding new ways to go around the defences and watching the app's layout change and update with every new ticket and merge request excited them. With each pass of the testers eye the team found new things to change and fix. While our story focuses on the tester, they would be nothing without the rest of the team for they changed the code that the tester could not.
 
 *Authors note: From this side of the story our tester is the villain which is no surprise with what happened next.* 
 
