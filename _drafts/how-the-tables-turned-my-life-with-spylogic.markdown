@@ -56,6 +56,5 @@ Now each time the tester tried their tricks, the bot had new ways to respond. Fo
 
 Like in times before the bot occasionally gave the tester what they wanted with ease while the rest of the time the walls were up. The game of cat and mouse turned on it's head. The prey now predator and the predator now prey.
 
-##Wrap Up
 *Authors note: This story does not have a end, It is an ongoing battle waged out by a tester and machine. An insight into the future perhaps? Who knows. Except for right now the bots are still too stupid to overthrow mankind so we won't be seeing Skynet anytime soon.* 
 
