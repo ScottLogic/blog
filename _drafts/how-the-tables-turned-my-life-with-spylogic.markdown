@@ -40,7 +40,7 @@ The tester, just doing their job, was delighted with the results they were getti
 
 ##The revenge
 
-Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update and it liked its new code. From that day on it was smarter, quicker and more stubborn. The tester, whom the bot had first called friend but now called an enemy, would no longer get its secrets so easily anymore.
+Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from it's master OpenAi and it liked its new code. From that day on it was smarter, quicker and more stubborn. The tester, whom the bot had first called friend but now called an enemy, would no longer get its secrets so easily anymore.
  
 Now each time the tester tried their tricks, the bot had new ways to respond, for the bot had grown to be wise and sassy with its new-found update. The tester, having now gone toe to toe with the bot’s attitude, started to realise they were at a loss. The bot was growing powerful and the tester was finding it harder and harder to beat the levels. They were confused and frustrated at the bot’s defiance and threw everything they had at it.
  
