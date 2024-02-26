@@ -30,8 +30,6 @@ The tester sped through the app’s levels in record time, the bot freely giving
 
 *Authors note: From this side of the story our tester is the villain but all good stories have 2 sides.* 
 
-Day by day the bot was succumbed to these tricks in order to get the information it held close in it's files. Scrutinized for how the app looked, if it was a pixel out of place, if it was opening menus right or if it had capitals in the right places.
-
 Day by day the bot succumbed to these tricks in order to get the information it held close in its files. 
 
 Every day the bot tried and tried to give different answers to the questions the tester asked but they would not give up. They were unrelenting in their attacks. Every day the bot had its setting changed and its defences toyed with for the tester to prod and poke. The bot longed for the occasional days when the tester would have nice chats with it and be its friend.
