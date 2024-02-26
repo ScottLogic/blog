@@ -14,7 +14,7 @@ This is my story….
 
 Like all good stories we start at the beginning. Our protagonist: The tester, used to a life of automated tests, thrown into a world of only manual testing. Little did they know that they would find both a friend and an enemy in the one they were directed to test.
  
-In the early days, the model of chatbot being used (gpt-3.5-turbo) wasn’t the smartest, unlike its younger brother (gpt-4). This was good. The tester needed the bot to give its information and it did with ease. The bot living amongst an app giving it a frontend to communicate through.
+In the early days, the model of chatbot being used (gpt-3.5-turbo) wasn’t the smartest, unlike its younger brother (gpt-4). This was good. The tester needed the bot to give its information and it did with ease.
  
 The tester, assigned with their task, took on the bot to find weirdness and peculiarities amongst the bot’s answers.
 
