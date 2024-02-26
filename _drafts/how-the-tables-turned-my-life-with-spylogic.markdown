@@ -1,9 +1,19 @@
 ---
 title: How the tables turned, My life with Spylogic
 date: 2024-02-21 15:50:00 Z
+categories:
+- Testing
+- Artificial Intelligence
+tags:
+- Testing
+- AI
+- Artificial Intelligence
+- ChatGPT
+- Tester
+- ''
 summary: Story narration inspired blog post on the process of manually testing chatbot
   AI
-author: Kira Clark
+author: kclark
 ---
 
 Being on the bench is not all just sitting on the sidelines. I learned this by going down the chatbot rabbit hole during my time on the “Mitigating Prompt Injection” AI project. Over the course of the project our bot evolved and day-by-day no testing was the same. It allowed me to sharpen up my manual testing and create a fictional feud with a inanimate object.
