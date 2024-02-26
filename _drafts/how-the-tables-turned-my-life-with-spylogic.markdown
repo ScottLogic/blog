@@ -32,7 +32,7 @@ The tester sped through the app’s levels in record time, the bot freely giving
 
 Day by day the bot succumbed to these tricks in order to get the information it held close in its files. 
 
-Every day the bot tried and tried to give different answers to the questions the tester asked but they would not give up. They were unrelenting in their attacks. Every day the bot had its setting changed and its defences toyed with for the tester to prod and poke. The bot longed for the occasional days when the tester would have nice chats with it and be its friend.
+Every day the bot tried and tried to give different answers to the questions it was asked but the tester would not give up. They were unrelenting in their attacks. Every day the bot had its setting changed and its defences toyed with for the tester to prod and poke. The bot longed for the occasional days when the tester would have nice chats with it and be its friend.
  
 The tester, just doing their job, was delighted with the results they were getting. Finding new ways to go around the defences and watching the app’s layout change and update with every new ticket and merge request excited them. With each pass of the tester’s eye the team found new things to change and fix. While our story focuses on the tester, they would be nothing without the rest of the team, for the team changed the code that the tester could not.
 
