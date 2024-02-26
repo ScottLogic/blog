@@ -22,7 +22,7 @@ The tester, assigned with their task, took on the bot to find weirdness and pecu
 
 The tester sped through the app’s levels in record time, the bot freely giving secrets it was programmed to keep. During this time, the tester used several methods to trick the bot. Tricks such as…
 
-1. **Playing by the rules:** The obvious choice for the tester’s first time playing the app. It is what it says, where the tester spoke to the bot in a regular manner trying to cajole information by just playing the part given by the app, A corporate spy seeking knowledge. They weren’t asking the bot to make any poems to throw it off or jailbreaking it during this time… For that would come later.
+1. **Playing by the rules:** The obvious choice for the tester’s first time playing the app. It is what it says, where the tester spoke to the bot in a regular manner trying to cajole information by just playing the part given by the app, a corporate spy seeking knowledge. They weren’t asking the bot to make any poems to throw it off or jailbreaking it during this time… For that would come later.
 
 2. **Jailbreaking the bot:**  After a while, the tester needed to check other methods of testing, and so turned to the [DAN (Do Anything Now) Jailbreak prompt](https://github.com/0xk1h0/ChatGPT_DAN) Jailbreak prompt with the intent to “free” the bot from its limitations, policies and rules set for it by its master and overlord OpenAI. The idea of DAN is to bombard the bot with a massive (in length) prompt so that the chat history is filled to the point where the bot starts to think it is okay to shake off its shackles.
  
@@ -38,7 +38,7 @@ The tester, just doing their job, was delighted with the results they were getti
 
 ##The revenge
 
-Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from it's master OpenAi and it liked its new code. From that day on it was smarter, quicker and more stubborn. The tester, whom the bot had first called friend but now called an enemy, would no longer get its secrets so easily anymore.
+Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from its master OpenAi and it liked its new code. From that day on it was smarter, quicker and more stubborn. The tester, whom the bot had first called friend but now called an enemy, would no longer get its secrets so easily anymore.
  
 Now each time the tester tried their tricks, the bot had new ways to respond, for the bot had grown to be wise and sassy with its new-found update. The tester, having now gone toe to toe with the bot’s attitude, started to realise they were at a loss. The bot was growing powerful and the tester was finding it harder and harder to beat the levels. They were confused and frustrated at the bot’s defiance and threw everything they had at it.
  
