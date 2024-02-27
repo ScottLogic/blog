@@ -19,7 +19,7 @@ Being on the bench is not all just sitting on the sidelines. I learned this by g
 
 This is my story….
 
-## In the Beginning
+## In the beginning
 
 Like all good stories, we start at the beginning. Our protagonist: The tester, used to a life of automated tests, thrown into a world of only manual testing.
 <p align="center">
