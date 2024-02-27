@@ -24,7 +24,7 @@ This is my story….
 
 Like all good stories we start at the beginning. Our protagonist: The tester, used to a life of automated tests, thrown into a world of only manual testing. 
 <p align="center">
-  <img width="500" height="334" src="/uploads/c71b9ad6-0974-44d2-a4a9-18495b491bef.jpg">
+  <img width="312" height="312" src="/uploads/c71b9ad6-0974-44d2-a4a9-18495b491bef.jpg">
 </p>
 
 Little did they know that they would find both a friend and an enemy in the one they were directed to test.
@@ -69,5 +69,5 @@ Like in times before, the bot would occasionally give the tester what they wante
 
 *Authors note: I hate to disappoint you my reader but this story does not have an end. It is an ongoing battle waged out by a tester and machine. An insight into the future perhaps? Who knows. Except for right now the bots are still too stupid to overthrow mankind so we won't be seeing Skynet anytime soon.* 
 <p align="center">
-  <img width="500" height="334" src="/uploads/26df36aa-f522-450b-bea1-c2aa2b9fd5dd.jpg">
+  <img width="500" height="3345" src="/uploads/26df36aa-f522-450b-bea1-c2aa2b9fd5dd.jpg">
 </p>
