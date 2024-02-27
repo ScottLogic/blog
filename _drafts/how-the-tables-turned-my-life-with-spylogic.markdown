@@ -23,9 +23,9 @@ This is my story….
 ##In the Beginning
 
 Like all good stories we start at the beginning. Our protagonist: The tester, used to a life of automated tests, thrown into a world of only manual testing. 
-<div style="text-align: center;">
+<p align="center">
 ![tester-portrait.png](/uploads/tester-portrait.png) 
-</div>
+</p>
 
 Little did they know that they would find both a friend and an enemy in the one they were directed to test.
  
