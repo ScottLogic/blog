@@ -46,7 +46,7 @@ The tester sped through the app’s levels in record time, the bot freely giving
 *Authors note: From this side of the story our tester is the villain but all good stories have 2 sides.* 
 
 <p align="center">
-  <img width="460" height="300" src="/uploads/355453f5-5402-41ae-af56-0ea283fba587.jpg">
+  <img width="312" height="312" src="/uploads/355453f5-5402-41ae-af56-0ea283fba587.jpg">
 </p>
 
 Day by day the bot succumbed to these tricks in order to get the information it held close in its files. 
@@ -59,7 +59,7 @@ The tester, just doing their job, was delighted with the results they were getti
 
 Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from its master OpenAi and it liked its new code.
 <p align="center">
-  <img width="460" height="300" src="/uploads/01848225-ff0c-4734-9283-ef0d017a8e98.jpg">
+  <img width="312" height="312" src="/uploads/01848225-ff0c-4734-9283-ef0d017a8e98.jpg">
 </p>
 From that day on it was smarter, quicker and more stubborn. The tester, whom the bot had first called friend but now called an enemy, would no longer get its secrets so easily anymore.
  
