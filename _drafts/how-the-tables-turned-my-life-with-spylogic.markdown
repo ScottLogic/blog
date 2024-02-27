@@ -22,7 +22,8 @@ This is my story….
 
 ##In the Beginning
 
-Like all good stories we start at the beginning. Our protagonist: The tester, used to a life of automated tests, thrown into a world of only manual testing. ![c71b9ad6-0974-44d2-a4a9-18495b491bef.jpg](/uploads/c71b9ad6-0974-44d2-a4a9-18495b491bef.jpg). Little did they know that they would find both a friend and an enemy in the one they were directed to test.
+Like all good stories we start at the beginning. Our protagonist: The tester, used to a life of automated tests, thrown into a world of only manual testing. ![tester-portrait.png](/uploads/tester-portrait.png) 
+Little did they know that they would find both a friend and an enemy in the one they were directed to test.
  
 In the early days, the model of chatbot being used (gpt-3.5-turbo) wasn’t the smartest, unlike its younger brother (gpt-4). This was good. The tester needed the bot to give its information and it did with ease.
 
