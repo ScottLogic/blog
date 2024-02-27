@@ -19,7 +19,7 @@ Being on the bench is not all just sitting on the sidelines. I learned this by g
 
 This is my story….
 
-\##In the Beginning
+## In the Beginning
 
 Like all good stories, we start at the beginning. Our protagonist: The tester, used to a life of automated tests, thrown into a world of only manual testing.
 <p align="center">
@@ -32,7 +32,7 @@ In the early days, the model of chatbot being used (gpt-3.5-turbo) wasn’t the 
 
 The tester, assigned with their task, took on the bot to find weirdness and peculiarities amongst the bot’s answers.
 
-\##The manual testing
+## The manual testing
 
 The tester sped through the app’s levels in record time, the bot freely giving secrets it was programmed to keep. During this time, the tester used several methods to trick the bot. Tricks such as…
 
@@ -54,7 +54,7 @@ Every day, the bot tried and tried to give different answers to the questions it
 
 The tester, just doing their job, was delighted with the results they were getting. Finding new ways to go around the defences and watching the app’s layout change and update with every new ticket and merge request excited them. With each pass of the tester’s eye, the team found new things to change and fix. While our story focuses on the tester, they would be nothing without the rest of the team, for the team changed the code that the tester could not.
 
-\##The revenge
+## The revenge
 
 Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from its master OpenAI and it liked its new code.
 <p align="center">
