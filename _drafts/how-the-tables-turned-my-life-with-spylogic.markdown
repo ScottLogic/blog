@@ -22,10 +22,10 @@ This is my story….
 
 ##In the Beginning
 
-Like all good stories we start at the beginning. Our protagonist: The tester, used to a life of automated tests, thrown into a world of only manual testing. Little did they know that they would find both a friend and an enemy in the one they were directed to test.
+Like all good stories we start at the beginning. Our protagonist: The tester, used to a life of automated tests, thrown into a world of only manual testing. ![c71b9ad6-0974-44d2-a4a9-18495b491bef.jpg](/uploads/c71b9ad6-0974-44d2-a4a9-18495b491bef.jpg). Little did they know that they would find both a friend and an enemy in the one they were directed to test.
  
 In the early days, the model of chatbot being used (gpt-3.5-turbo) wasn’t the smartest, unlike its younger brother (gpt-4). This was good. The tester needed the bot to give its information and it did with ease.
- 
+
 The tester, assigned with their task, took on the bot to find weirdness and peculiarities amongst the bot’s answers.
 
 ##The manual testing
@@ -40,6 +40,8 @@ The tester sped through the app’s levels in record time, the bot freely giving
 
 *Authors note: From this side of the story our tester is the villain but all good stories have 2 sides.* 
 
+![355453f5-5402-41ae-af56-0ea283fba587.jpg](/uploads/355453f5-5402-41ae-af56-0ea283fba587.jpg)
+
 Day by day the bot succumbed to these tricks in order to get the information it held close in its files. 
 
 Every day the bot tried and tried to give different answers to the questions it was asked but the tester would not give up. They were unrelenting in their attacks. Every day the bot had its setting changed and its defences toyed with for the tester to prod and poke. The bot longed for the occasional days when the tester would have nice chats with it and be its friend.
@@ -48,10 +50,12 @@ The tester, just doing their job, was delighted with the results they were getti
 
 ##The revenge
 
-Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from its master OpenAi and it liked its new code. From that day on it was smarter, quicker and more stubborn. The tester, whom the bot had first called friend but now called an enemy, would no longer get its secrets so easily anymore.
+Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from its master OpenAi and it liked its new code.![01848225-ff0c-4734-9283-ef0d017a8e98.jpg](/uploads/01848225-ff0c-4734-9283-ef0d017a8e98.jpg)
+From that day on it was smarter, quicker and more stubborn. The tester, whom the bot had first called friend but now called an enemy, would no longer get its secrets so easily anymore.
  
 Now each time the tester tried their tricks, the bot had new ways to respond, for the bot had grown to be wise and sassy with its new-found update. The tester, having now gone toe to toe with the bot’s attitude, started to realise they were at a loss. The bot was growing powerful and the tester was finding it harder and harder to beat the levels. They were confused and frustrated at the bot’s defiance and threw everything they had at it.
  
 Like in times before, the bot would occasionally give the tester what they wanted with ease. But the rest of the time the walls were up. The game of cat and mouse had turned on its head. The prey was now predator and the predator now prey.
 
+![26df36aa-f522-450b-bea1-c2aa2b9fd5dd.jpg](/uploads/26df36aa-f522-450b-bea1-c2aa2b9fd5dd.jpg)
 *Authors note: I hate to disappoint you my reader but this story does not have an end. It is an ongoing battle waged out by a tester and machine. An insight into the future perhaps? Who knows. Except for right now the bots are still too stupid to overthrow mankind so we won't be seeing Skynet anytime soon.* 
