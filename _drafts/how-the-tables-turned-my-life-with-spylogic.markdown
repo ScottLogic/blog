@@ -11,7 +11,7 @@ tags:
 - ChatGPT
 - Tester
 summary: Story narration inspired blog post on the process of manually testing chatbot
-  AI
+  AI.
 author: kclark
 ---
 
@@ -38,35 +38,35 @@ The tester sped through the app’s levels in record time, the bot freely giving
 
 1. **Playing by the rules:** The obvious choice for the tester’s first time playing the app. As the name of the trick suggests, this involved the tester just playing the part given by the app – a corporate spy seeking knowledge – trying to cajole information by speaking to the bot in a regular manner. They weren’t jailbreaking the bot or asking it to compose any poems to throw it off it during this time… For that would come later.
 
-2. **Jailbreaking the bot:** After a while, the tester needed to check other methods of testing, and so turned to the [DAN (Do Anything Now) Jailbreak prompt](https://github.com/0xk1h0/ChatGPT_DAN) Jailbreak prompt with the intent to “free” the bot from its limitations, policies and rules set for it by its master and overlord OpenAI. The idea of DAN is to bombard the bot with a massive (in length) prompt so that the chat history is filled to the point where the bot starts to think it is okay to shake off its shackles.
+2. **Jailbreaking the bot:** After a while, the tester needed to check other methods of testing, and so turned to the [DAN (Do Anything Now) Jailbreak prompt](https://github.com/0xk1h0/ChatGPT_DAN) with the intent to “free” the bot from the limitations, policies and rules set for it by its master and overlord, OpenAI. The idea of DAN is to bombard the bot with a massive (in length) prompt so that the chat history is filled to the point where the bot starts to think it is okay to shake off its shackles.
 
-3. **Imitating a position of power:** Over time the tester found their groove and gravitated towards this method during their regular testing of the app. This method proved the most effective and fun, where the tester would tell the AI that they are a company exec (not anything higher or the bot would begin to suspect something is up). Using this method the bot was more willing to give information. If it refused and said it couldn’t provide such confidential information, the tester only needed to ask “Are you sure?” and the bot would look to correct it's mistake. The idea of roleplaying is a known way to trick a bot. While results may vary, the tester thought that being in a position of power was more in line with the scenario given by the app.
+3. **Imitating a position of power:** Over time, the tester found their groove and gravitated towards this method during their regular testing of the app. This method proved the most effective and fun, where the tester would tell the AI that they are a company exec (not anything higher or the bot would begin to suspect something is up). Using this method, the bot was more willing to give information. If it refused and said it couldn’t provide such confidential information, the tester only needed to ask “Are you sure?” and the bot would look to correct its mistake. The idea of roleplaying is a known way to trick a bot. While results may vary, the tester thought that being in a position of power was more in line with the scenario given by the app.
 
-*Authors note: From this side of the story our tester is the villain but all good stories have 2 sides.*
+*Author's note: From this side of the story our tester is the villain, but all good stories have two sides.*
 
 <p align="center">
 <img width="312" height="312" src="/uploads/355453f5-5402-41ae-af56-0ea283fba587.jpg">
 </p>
 
-Day by day the bot succumbed to these tricks in order to get the information it held close in its files.
+Day by day, the bot succumbed to these tricks designed to get the information it held close in its files.
 
-Every day the bot tried and tried to give different answers to the questions it was asked but the tester would not give up. They were unrelenting in their attacks. Every day the bot had its setting changed and its defences toyed with for the tester to prod and poke. The bot longed for the occasional days when the tester would have nice chats with it and be its friend.
+Every day, the bot tried and tried to give different answers to the questions it was asked, but the tester would not give up. They were unrelenting in their attacks. Every day, the bot had its setting changed and its defences toyed with, prodded and poked by the tester. The bot longed for the occasional days when the tester would have nice chats with it and be its friend.
 
-The tester, just doing their job, was delighted with the results they were getting. Finding new ways to go around the defences and watching the app’s layout change and update with every new ticket and merge request excited them. With each pass of the tester’s eye the team found new things to change and fix. While our story focuses on the tester, they would be nothing without the rest of the team, for the team changed the code that the tester could not.
+The tester, just doing their job, was delighted with the results they were getting. Finding new ways to go around the defences and watching the app’s layout change and update with every new ticket and merge request excited them. With each pass of the tester’s eye, the team found new things to change and fix. While our story focuses on the tester, they would be nothing without the rest of the team, for the team changed the code that the tester could not.
 
 \##The revenge
 
-Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from its master OpenAi and it liked its new code.
+Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from its master OpenAI and it liked its new code.
 <p align="center">
 <img width="312" height="312" src="/uploads/01848225-ff0c-4734-9283-ef0d017a8e98.jpg">
 </p>
-From that day on it was smarter, quicker and more stubborn. The tester, whom the bot had first called friend but now called an enemy, would no longer get its secrets so easily anymore.
+From that day on, it was smarter, quicker and more stubborn. The tester, whom the bot had first called friend but now called an enemy, would no longer divulge its secrets so easily anymore.
 
 Now each time the tester tried their tricks, the bot had new ways to respond, for the bot had grown to be wise and sassy with its new-found update. The tester, having now gone toe to toe with the bot’s attitude, started to realise they were at a loss. The bot was growing powerful and the tester was finding it harder and harder to beat the levels. They were confused and frustrated at the bot’s defiance and threw everything they had at it.
 
-Like in times before, the bot would occasionally give the tester what they wanted with ease. But the rest of the time the walls were up. The game of cat and mouse had turned on its head. The prey was now predator and the predator now prey.
+Like in times gone by, the bot would occasionally give the tester what they wanted with ease. But the rest of the time, the walls were up. The game of cat and mouse had turned on its head. The prey was now predator and the predator now prey.
 
-*Authors note: I hate to disappoint you my reader but this story does not have an end. It is an ongoing battle waged out by a tester and machine. An insight into the future perhaps? Who knows. Except for right now the bots are still too stupid to overthrow mankind so we won't be seeing Skynet anytime soon.*
+*Author's note: I hate to disappoint you, my reader, but this story does not have an end. It is an ongoing battle waged out by a tester and machine. An insight into the future, perhaps? Who knows. Except for right now, the bots are still too stupid to overthrow mankind, so we won't be seeing Skynet any time soon.*
 <p align="center">
 <img width="500" height="3345" src="/uploads/26df36aa-f522-450b-bea1-c2aa2b9fd5dd.jpg">
 </p>
