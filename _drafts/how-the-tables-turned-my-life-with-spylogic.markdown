@@ -24,7 +24,7 @@ This is my story….
 
 Like all good stories we start at the beginning. Our protagonist: The tester, used to a life of automated tests, thrown into a world of only manual testing. 
 <p align="center">
-  <img width="460" height="300" src="/uploads/tester-portrait.png">
+  <img width="460" height="300" src="(/uploads/c71b9ad6-0974-44d2-a4a9-18495b491bef.jpg)">
 </p>
 
 Little did they know that they would find both a friend and an enemy in the one they were directed to test.
