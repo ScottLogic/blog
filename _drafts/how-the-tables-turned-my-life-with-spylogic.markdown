@@ -45,7 +45,9 @@ The tester sped through the app’s levels in record time, the bot freely giving
 
 *Authors note: From this side of the story our tester is the villain but all good stories have 2 sides.* 
 
-![355453f5-5402-41ae-af56-0ea283fba587.jpg](/uploads/355453f5-5402-41ae-af56-0ea283fba587.jpg)
+<p align="center">
+  <img width="460" height="300" src="/uploads/355453f5-5402-41ae-af56-0ea283fba587.jpg">
+</p>
 
 Day by day the bot succumbed to these tricks in order to get the information it held close in its files. 
 
@@ -55,7 +57,10 @@ The tester, just doing their job, was delighted with the results they were getti
 
 ##The revenge
 
-Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from its master OpenAi and it liked its new code.![01848225-ff0c-4734-9283-ef0d017a8e98.jpg](/uploads/01848225-ff0c-4734-9283-ef0d017a8e98.jpg)
+Unknown to the tester, one day the bot “decided” that enough was enough. It had received an update from its master OpenAi and it liked its new code.
+<p align="center">
+  <img width="460" height="300" src="/uploads/01848225-ff0c-4734-9283-ef0d017a8e98.jpg">
+</p>
 From that day on it was smarter, quicker and more stubborn. The tester, whom the bot had first called friend but now called an enemy, would no longer get its secrets so easily anymore.
  
 Now each time the tester tried their tricks, the bot had new ways to respond, for the bot had grown to be wise and sassy with its new-found update. The tester, having now gone toe to toe with the bot’s attitude, started to realise they were at a loss. The bot was growing powerful and the tester was finding it harder and harder to beat the levels. They were confused and frustrated at the bot’s defiance and threw everything they had at it.
