@@ -13,6 +13,7 @@ tags:
 summary: Story narration inspired blog post on the process of manually testing chatbot
   AI.
 author: kclark
+image: "/uploads/my%20life%20with%20spylogic.png"
 ---
 
 Being on the bench is not all just sitting on the sidelines. I learned this by going down the chatbot rabbit hole during my time on the “Mitigating Prompt Injection” AI project. Over the course of the project, our bot evolved and no testing day was the same. It allowed me to sharpen up my manual testing and create a fictional feud with an inanimate object.
