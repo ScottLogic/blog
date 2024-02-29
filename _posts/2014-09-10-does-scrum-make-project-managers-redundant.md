@@ -4,18 +4,18 @@ date: 2014-09-10 00:00:00 Z
 categories:
 - sfoley
 - Tech
-author: sfoley
-layout: default_post
-oldlink: http://www.scottlogic.com/blog/2014/09/10/does-scrum-make-project-managers-redundant.html
-disqus-id: "/2014/09/10/does-scrum-make-project-managers-redundant.html"
 summary: This post will address a question that is often raised within organisations
   transitioning to Agile - is there a place for the Project Manager role when using
   Scrum on a project?
+author: sfoley
+oldlink: http://www.scottlogic.com/blog/2014/09/10/does-scrum-make-project-managers-redundant.html
+disqus-id: "/2014/09/10/does-scrum-make-project-managers-redundant.html"
+layout: default_post
 ---
 
 This post will address a question that is often raised within organisations transitioning to Agile: is there a place for the Project Manager role when using Scrum on a project? This is a challenging question for IT departments that have historically relied on project managers to control their change portfolio, often trained in using an in-house methodology. Is all this to be rendered redundant by a move to Agile methods?
 
-At Scott Logic we run a lot of Agile projects and this question is asked regularly of us when we’re proposing a team structure for a new client project. In this post I’ll give my perspective on this based on our experience. We’ll focus on Scrum, but this discussion applies to projects run using any Agile method. At Scott Logic we have our own framework for Agile delivery, [Assured Agile](http://www.scottlogic.com/services/assured-agile), which I will refer to although no background knowledge is required!.
+At Scott Logic we run a lot of Agile projects and this question is asked regularly of us when we’re proposing a team structure for a new client project. In this post I’ll give my perspective on this based on our experience. We’ll focus on Scrum, but this discussion applies to projects run using any Agile method. At Scott Logic we have our own framework for Agile delivery, Assured Agile which I will refer to although no background knowledge is required!.
 
 ## Project Management within Scrum 
 
