@@ -4,17 +4,17 @@ date: 2014-08-04 00:00:00 Z
 categories:
 - dthomas
 - Delivery
-author: dthomas
-layout: default_post
 summary: As Agile methodologies gain more acceptance in the software development world,
   should Scott Logic look at introducing Agile to our client projects? And if so how?
+author: dthomas
 oldlink: http://www.scottlogic.com/blog/2014/08/04/introducing-agile-development-to-client-projects.html
 disqus-id: "/2014/08/04/introducing-agile-development-to-client-projects.html"
+layout: default_post
 ---
 
 Since I joined Scott Logic I’ve worked on three separate teams which have, in one way or another, made a transition to Agile. This has meant either introducing development processes such as Scrum, technical practices such as TDD and iterative development, or indeed both. On top of this I’ve always tried to bring an Agile mindset to the development work I’ve been involved in, as well as promoting this approach within Scott Logic as a whole. This has involved trying to spread an understanding of the principles behind the Agile Manifesto, and encouraging teams and developers to refine their own best practice based on this.
 
-Scott Logic has recently introduced [Assured Agile](http://www.scottlogic.com/services/assured-agile/) which aims to make the introduction of Agile a more standard part of our engagement with clients. This leaves me feeling like this is a good time to take a closer look at how we work with clients to transition them to Agile. I have a habit of second guessing everything I write though, and the first question that comes to me when planning to write about transitioning to Agile, is why do it at all? So in this blog post I'm going to have a look at why I think we should be encouraging clients to transition to Agile, and in a couple of follow up posts I'll look at the different approaches we can take, and how different clients will affect how we transition to Agile.
+Scott Logic has recently introduced Assured Agile which aims to make the introduction of Agile a more standard part of our engagement with clients. This leaves me feeling like this is a good time to take a closer look at how we work with clients to transition them to Agile. I have a habit of second guessing everything I write though, and the first question that comes to me when planning to write about transitioning to Agile, is why do it at all? So in this blog post I'm going to have a look at why I think we should be encouraging clients to transition to Agile, and in a couple of follow up posts I'll look at the different approaches we can take, and how different clients will affect how we transition to Agile.
 
 ## Why do I think our engagements should be Agile?
 
