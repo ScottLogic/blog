@@ -4,19 +4,19 @@ date: 2014-08-18 00:00:00 Z
 categories:
 - dthomas
 - Delivery
-author: dthomas
-layout: default_post
 summary: An alternative to introducing Agile incrementally is to make a 'big bang'
   transition, converting over to Agile all at once. In this post I take a look at
   how this might work.
+author: dthomas
 oldlink: http://www.scottlogic.com/blog/2014/08/18/introducing-agile-upfront.html
 disqus-id: "/2014/08/18/introducing-agile-upfront.html"
+layout: default_post
 ---
 
 In my <a href="{{site.baseurl}}{% post_url dthomas/2014-08-11-a-piecemeal-approach-to-introducing-agile %}">previous post</a> I looked at a slow and incremental approach to transitioning to Agile. When first thinking about transitioning to Agile this seemed like the obvious approach, after all Agile methods advocate continuous incremental improvement. Despite this many people in the Agile community advocate making the change overnight. This is known as the “big bang” approach to transitioning. For us, this means introducing the idea of Agile at the start of the engagement, convincing the client of it, and kicking the project off as an Agile project.
 
 ### How this works
-Prior to kicking off projects with clients we typically have a meeting to discuss the nature of the engagement. This is the initiate phase of the [Assured Agile](http://www.scottlogic.com/services/assured-agile/) process. This will make it clear whether we are providing a complete team or augmenting another team, who we’re reporting to, and the kind of work we’re going to be undertaking. At this point clients will also want to get a clear idea of the expertise we’re bringing to the project and how they can make best use of this. We can also explain to the client that part of the expertise we are bringing is our understanding of how projects should be run, and discuss how best to develop that alongside the client’s employees.
+Prior to kicking off projects with clients we typically have a meeting to discuss the nature of the engagement. This is the initiate phase of the Assured Agile process. This will make it clear whether we are providing a complete team or augmenting another team, who we’re reporting to, and the kind of work we’re going to be undertaking. At this point clients will also want to get a clear idea of the expertise we’re bringing to the project and how they can make best use of this. We can also explain to the client that part of the expertise we are bringing is our understanding of how projects should be run, and discuss how best to develop that alongside the client’s employees.
 
 This is a good time to explain to the client the benefits of an Agile approach, and how it will affect them. It is important to convey ideas like iterative development to the client as soon as possible. Clients will often be used to long term plans, and waiting till the end of the project to see working software. It is also important the client understands how much more involved in the development we would like them to be. This is often met with some scepticism, however once the clients start working like this they usually really enjoy it.
 
