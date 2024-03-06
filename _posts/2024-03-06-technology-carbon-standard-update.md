@@ -8,6 +8,7 @@ summary: The Scott Logic sustainability team has recently added significant new 
   changes to the site and what we're looking to add next.
 author: mgriffin
 contributors: drees
+image: "/uploads/tcs%20update%20thumbnail-313ba9.png"
 ---
 
 The Scott Logic sustainability team has recently added new content to the open-source Technology Carbon Standard website. The proposed standard sets out an approach to classifying an organisation’s technology footprint in a way that enables consistent analysis and benchmarking of the carbon impact. You can read more about it in our previous blog post: [Announcing the (proposed) Technology Carbon Standard](https://blog.scottlogic.com/2024/02/13/announcing-the-proposed-technology-carbon-standard.html).
