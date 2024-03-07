@@ -1,6 +1,6 @@
 {% assign currentAuthorName = include.currentAuthorName %}
-<div class="author-list cell">
-    <h4>Authors</h4>
+<aside aria-labelledby="author-list" class="author-list cell">
+    <h4 id="author-list">Authors</h4>
     <ul>
         {% comment %}
             Create an array of maps to make the full name of authors the top level property.
@@ -34,4 +34,4 @@
             {% endif %}
         {% endfor %}
     </ul>
-</div>
+</aside>

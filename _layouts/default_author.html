@@ -21,7 +21,7 @@ paginated: false
 {% endfor %}
 {% assign allEvents = allEvents | sort: 'eventDate' | reverse | uniq %}
 
-<div class="default-author grid-container">
+<main>
     <div class="grid-padding-y">
         <div class="cell">
             {% include author.html author=author %}
@@ -48,5 +48,6 @@ paginated: false
             </div>
         </div>
     </div>
-</div>
+</main>
+
 {% include site-footer.html %}

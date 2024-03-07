@@ -10,7 +10,7 @@
 {% else %}
     {% assign paginated = false %}
 {% endif %}
-<div class="post-index grid-container">
+<main class="post-index grid-container">
   {% if categoryName == "Latest Articles" %}
   <h1 class="super-title">Blog</h1>
   <h2 class="cell sub-title">Our thoughts on technology and design</h2>
@@ -29,6 +29,6 @@
       {% include author_list.html %}
     </div>
   </div>
-</div>
+</main>
 
 {% include site-footer.html %}
