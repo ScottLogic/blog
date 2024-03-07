@@ -100,6 +100,7 @@ active-authors:
   - pchamberlin
   - pdykes
   - pgraham
+  - pling
   - rbeckett
   - rgarside
   - rgraham
@@ -655,6 +656,10 @@ authors:
     name: "Peter Chamberlin"
     author-summary: "Scott Logic's technology lead for the public sector and security, I'm based in Edinburgh."
     picture: profile-photo.jpg
+  pling:
+    name: "Peter Ling"
+    author-summary: "I am a Senior Developer, based in Bristol. I'm interested in what technology can do for society, and what creativity can do for the soul."
+    picture: PL_Headshot.JPG
   pshek:
     name: "Paulin Shek"
     author-summary: "<p>Paulin is a  Java developer at Scott Logic. When she's not programming, she can be found doing cryptic crosswords and climbing small rocks.</p>"
