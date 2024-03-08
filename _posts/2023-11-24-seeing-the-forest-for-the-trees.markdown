@@ -61,7 +61,7 @@ The final average will be the prediction of the random forest. It is generally m
 
 The steps above constitute the process of 'bagging.' Bagging utilises the fact that each tree uses a different, random sample of the data. Due to this, each tree's error is unrelated to the others', that is to say that they are uncorrelated. This implies (theoretically) that the average of the errors is zero! Practically, this means we can produce a more accurate model by combining many less accurate models - an amazing ability.
 
-The main advantage random forests have over decision trees is that they are more accurate and less prone to overfitting. Another benefit is that by looking the effect of features across all the trees used together in a forest, one can determine feature importances and get a better idea of the significance of each facet of a dataset. However, not every aspect of random forests is green and verdant, they do come with disadvantages:
+The main advantage random forests have over decision trees is that they are more accurate and less prone to overfitting. Another benefit is that by looking at the effect of features across all the trees used together in a forest, one can determine feature importances and get a better idea of the significance of each facet of a dataset. However, not every aspect of random forests is green and verdant, they do come with disadvantages:
 
 * Decision trees and random forests are poor at extrapolating outside the input data due to their inherent reliance on averages to make predictions
 
