@@ -1,21 +1,23 @@
 ---
-author: pling
-date: 2024-03-06 09:00:00 Z
 title: 'Something in the Wind: Weather Forecasting in the Age of AI'
-summary: Accurate weather forecasting helps us make decisions every day, from the trivial to the critical. I take a look at the technology that goes into predicting the weather, and consider how the AI revolution could change that.
-categories: 
-  - Artificial Intelligence
+date: 2024-03-06 09:00:00 Z
+categories:
+- Artificial Intelligence
 tags:
-  - Artificial Intelligence
-  - AI
-  - Machine Learning
-  - ML
-  - Weather
-  - Forecast
-  - GraphCast
-  - Graph
-  - Neural Network
-  - GNN
+- Artificial Intelligence
+- AI
+- Machine Learning
+- ML
+- Weather
+- Forecast
+- GraphCast
+- Graph
+- Neural Network
+- GNN
+author: pling
+summary: Accurate weather forecasting helps us make decisions every day, from the
+  trivial to the critical. I take a look at the technology that goes into predicting
+  the weather, and consider how the AI revolution could change that.
 ---
 
 Talking about the weather: it’s a national obsession. And why not? It changes so rapidly in this part of the world, and 
