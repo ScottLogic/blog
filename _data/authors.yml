@@ -125,6 +125,7 @@ active-authors:
   - tclarke-scottlogic
   - tgilbert
   - thands
+  - tjohnson
   - vcisse
   - wboothclibborn
   - wduncan
@@ -1418,3 +1419,8 @@ authors:
     email: vcisse@scottlogic.com
     author-summary: "I'm a Lead Developer at Scott Logic working in the Glasgow office."
     picture: vass-cisse.jpg
+  tjohnson:
+    name: "Tim Johnson"
+    email: tjohnson@scottlogic.com
+    author-summary: "Delivery Manager based in our Bristol office, I like keeping software projects shipshape and Bristol fashion.  Also interested in the natural world, whether that’s running between the trees or planting new ones."
+    picture: tjohnson.jpg
