@@ -14,10 +14,11 @@ tags:
 - Graph
 - Neural Network
 - GNN
-author: pling
 summary: Accurate weather forecasting helps us make decisions every day, from the
   trivial to the critical. I take a look at the technology that goes into predicting
   the weather, and consider how the AI revolution could change that.
+author: pling
+image: "/uploads/Something%20in%20the%20wind%20-%20thumbnail.png"
 ---
 
 Talking about the weather: it’s a national obsession. And why not? It changes so rapidly in this part of the world, and 
