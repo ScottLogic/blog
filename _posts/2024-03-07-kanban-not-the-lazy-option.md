@@ -14,6 +14,7 @@ summary: We’ve had some really good results using Kanban on a product developm
   ourselves in, give some background as to what Kanban is, then walk through some
   of the things we did.
 author: tjohnson
+image: "/uploads/kanban-not%20the%20easy%20option.png"
 ---
 
 # <b><i>“Product development team cuts release process from 3 days to 2 hours!” </i></b>
