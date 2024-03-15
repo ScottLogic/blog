@@ -11,7 +11,7 @@ author: kdavis
 
 The Scott Logic sustainability team has recently added new content to the open-source [Technology Carbon Standard](https://www.techcarbonstandard.org) website. The proposed standard aims to provide a consistent approach for classifying and analysing the carbon impact of an organisation’s technology footprint. You can read more about its release in our blog post: [Announcing the (proposed) Technology Carbon Standard](https://blog.scottlogic.com/2024/02/13/announcing-the-proposed-technology-carbon-standard.html).
 
-Following the [previous update](https://blog.scottlogic.com/2024/03/06/technology-carbon-standard-update.html), the latest additions focus on understanding and estimating the full environmental impact of technology hardware across its life cycle. This includes embodied carbon (upstream emissions from manufacturing, transportation, and end-of-life) and usage carbon spanning operational emissions from direct usage of an organisation’s hardware as well as downstream emissions from end-users of the organisation’s products. 
+Following the [previous update](https://blog.scottlogic.com/2024/03/06/technology-carbon-standard-update.html), the latest additions focus on understanding and estimating the carbon impact of technology hardware throughout its entire life cycle. This encompasses both embodied carbon (including upstream emissions from manufacturing, transportation, and end-of-life processes) and usage carbon (spanning operational emissions arising from direct utilisation of an organisation’s hardware, as well as downstream emissions from end-users of the organisation’s products). 
 
 Key updates include:
 
