@@ -26,6 +26,8 @@ The goal of the Technology Carbon Standard is to provide the information technol
 
 The team has their sights set on upcoming additions, including guidance around upstream and direct operational emissions from networking equipment, as well as tackling the complex realm of indirect operational emissions tied to SaaS platforms and managed service providers.
 
-By increasing awareness and transparency around the carbon emissions of technology, the Technology Carbon Standard aims to accelerate the IT industry’s transition to net zero. Check out the website to learn more and get involved via the GitHub repo at: <https://github.com/ScottLogic/Technology-Carbon-Standard>
+By increasing awareness and transparency around the carbon emissions of technology, the Technology Carbon Standard aims to accelerate the IT industry’s transition to net zero. 
 
-<http://www.techcarbonstandard.org>
+Check out the website to learn more at <http://www.techcarbonstandard.org>. 
+
+Get involved via the GitHub repo at <https://github.com/ScottLogic/Technology-Carbon-Standard>.
