@@ -5,15 +5,16 @@ categories:
 - mnicholson
 - People
 tags:
-- Interns,
+- Interns
+- ''
 - Summer
 - Internships
-author: mnicholson
-layout: default_post
-image: mnicholson/assets/Harry-Brooks.jpg
 summary: From his internship at Scott Logic, Harry was particularly keen to expand
   his skills and knowledge around web applications, and also get a real taste of what
   it’s like to build software for complex and demanding clients.
+author: mnicholson
+image: mnicholson/assets/Harry-Brooks.jpg
+layout: default_post
 ---
 
 ### How Harry Brooks found his summer internship in our Newcastle office.
@@ -40,4 +41,4 @@ And Harry’s **advice** to other undergraduates considering internship options?
 
 Scott Logic transforms its clients’ businesses by engineering innovative, bespoke software solutions that drive measurable value, while also enhancing the core strengths of their technology delivery capability. 
 
-With our annual internship you can enjoy a summer season being paid to sample a challenging and rewarding career in software. For more information, and to apply for one of our 2020 internships, [visit our Paid internships page](https://www.scottlogic.com/careers/paid-interns/).
+With our annual internship you can enjoy a summer season being paid to sample a challenging and rewarding career in software.

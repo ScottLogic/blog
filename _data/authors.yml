@@ -101,6 +101,7 @@ active-authors:
   - pchamberlin
   - pdykes
   - pgraham
+  - pling
   - rbeckett
   - rgarside
   - rgraham
@@ -125,6 +126,7 @@ active-authors:
   - tclarke-scottlogic
   - tgilbert
   - thands
+  - tjohnson
   - vcisse
   - wboothclibborn
   - wduncan
@@ -662,6 +664,10 @@ authors:
     name: "Peter Chamberlin"
     author-summary: "Scott Logic's technology lead for the public sector and security, I'm based in Edinburgh."
     picture: profile-photo.jpg
+  pling:
+    name: "Peter Ling"
+    author-summary: "I am a Senior Developer, based in Bristol. I'm interested in what technology can do for society, and what creativity can do for the soul."
+    picture: PL_Headshot.JPG
   pshek:
     name: "Paulin Shek"
     author-summary: "<p>Paulin is a  Java developer at Scott Logic. When she's not programming, she can be found doing cryptic crosswords and climbing small rocks.</p>"
@@ -1420,3 +1426,8 @@ authors:
     email: vcisse@scottlogic.com
     author-summary: "I'm a Lead Developer at Scott Logic working in the Glasgow office."
     picture: vass-cisse.jpg
+  tjohnson:
+    name: "Tim Johnson"
+    email: tjohnson@scottlogic.com
+    author-summary: "Delivery Manager based in our Bristol office, I like keeping software projects shipshape and Bristol fashion.  Also interested in the natural world, whether that’s running between the trees or planting new ones."
+    picture: tjohnson.jpg

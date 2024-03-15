@@ -50,4 +50,4 @@ When you see it that way, perhaps simply making all those Post Office forms avai
 But what if we made those forms *fillable* and *submittable* online? And what if the data was then applied across the user’s entire digital presence? Now, the focus isn’t on how the service will work but how it will be used. We can identify the areas that really need our attention and to what degree. And we can be sure that our efforts will pay off – instead of going to waste.
 
 
-**People and projects you know. Perspectives you may not**. Join the team at Scott Logic in this series and find out how you can become the face of public sector technology. [Discover more here](https://www.scottlogic.com/report-become-the-face-of-public-sector-technology)
+**People and projects you know. Perspectives you may not**. Join the team at Scott Logic in this series and find out how you can become the face of public sector technology. [[Discover more here]](https://www.scottlogic.com/shape-government-with-scott-logic)

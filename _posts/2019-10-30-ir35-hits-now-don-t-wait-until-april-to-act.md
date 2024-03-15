@@ -5,22 +5,23 @@ categories:
 - robsmith
 - Delivery
 tags:
-- IR35,
+- IR35
+- ''
 - tax
-- reforms,
-- contractors,
+- reforms
+- contractors
 - private
-- sector,
-- resourcing,
-- PAYE,
+- sector
+- resourcing
+- PAYE
 - National
 - Insurance
-author: robsmith
-layout: default_post
 summary: The extension of IR35 tax reforms to the private sector has the potential
   to be highly disruptive. As I’ll explain here, it is vital to act now – and help
   is at hand.
+author: robsmith
 image: robsmith/assets/IR35-blog-image---exit-sign.jpg
+layout: default_post
 ---
 
 _“Death, taxes and childbirth! There's never any convenient time for any of them.”_
@@ -48,4 +49,3 @@ Whilst the new rules are deemed unfair by some, being described in [itcontractin
 
 We find ourselves ideally placed; over the last 15 years we have prided ourselves in our investment in our own people. Our UK-based workforce are **all permanent employees** and are therefore unaffected by the new rules. Furthermore, remote working is in our DNA and therefore we can still quickly stand-up and onboard new teams.  We will continue to provide the professional level of service our clients have come to rely on throughout the COVID crisis. 
 
-If you’d like to know how we can help you with [Bespoke Software Development](https://www.scottlogic.com/what-we-do/bespoke-software-development/), please email [rob@scottlogic.com](mailto:rob@scottlogic.com)

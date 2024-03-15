@@ -4,12 +4,12 @@ date: 2018-08-30 00:00:00 Z
 categories:
 - ilapworth
 - People
-author: ilapworth
-layout: default_post
 summary: Thinking of applying to be a Scott Logic intern? In this blog post I give
   a retrospective on the role, from the initial application, through to the prospective
   job offer.
+author: ilapworth
 summary-short: Retro on the internship
+layout: default_post
 ---
 
 Scott Logic’s 12 week internship programme gives an insight into working as a software consultant for large clients and aims to equip interns with the technical skills and knowledge they would need to start a career in such a role. As an intern you will work on an internal project, being trained in the same technologies that the company ships in client solutions under the guidance of professional consultants.
@@ -62,4 +62,3 @@ There are monthly “Friday bars” which are a good opportunity to socialise in
 
 All in all, I massively enjoyed my time as an intern at Scott Logic. I was surprised at how much I learnt in such a short time and I am excited to continue my relationship with the company.
 
-[Click here](https://www.scottlogic.com/careers/paid-interns/) for more information on internships at Scott Logic.

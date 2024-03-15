@@ -7,20 +7,21 @@ categories:
 tags:
 - International
 - Women's
-- Day,
+- Day
+- ''
 - Women
 - in
-- Tech,
+- Tech
 - Diversity
 - and
-- Inclusion,
+- Inclusion
 - Careers
-author: ssibanda
-layout: default_post
-image: "/ssibanda/assets/IWD-2020-Timeline.png"
 summary: International Women's Day (March 8) is a global day celebrating the social,
   economic, cultural and political achievements of women. Here's a roundup of some
   of the things we’ve been doing across the company to celebrate.
+author: ssibanda
+image: "/ssibanda/assets/IWD-2020-Timeline.png"
+layout: default_post
 ---
 
 International Women's Day (8 March) is a global day celebrating the social, economic, cultural and political achievements of women.
@@ -93,4 +94,4 @@ Across the business we’ve asked our colleagues to share their inspirations and
 
 We hope the women of Scott Logic have inspired you through this blog post. If you would like to join them, we’re currently hiring for a range of development, testing, UX and delivery roles across our four offices – [check out our vacancies here](https://www.scottlogic.com/careers/vacancies/).
 
-And if you’re a female student studying a STEM subject at university, our Graduate Programme provides a great way to kickstart your software career – [you can find out more about our Graduate Programme here](https://www.scottlogic.com/careers/graduates-programme/).
+And if you’re a female student studying a STEM subject at university, our Graduate Programme provides a great way to kickstart your software career.
