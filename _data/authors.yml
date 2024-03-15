@@ -70,6 +70,7 @@ active-authors:
   - kangel
   - kclark
   - kcoombes
+  - kdavis
   - kday
   - kjones
   - klau
@@ -548,6 +549,12 @@ authors:
     author-summary: "I am a Test Engineer from Newcastle"
     name: "Kay Coombes"
     picture: picture.jpeg
+  kdavis:
+    author-summary: "Software developer at Scott Logic, based in Newcastle."
+    name: "Katie Davis"
+    picture: "kdavis.jpg"
+    email: "kdavis@scottlogic.com"
+    feed-description: "Katie's thoughts on the world of tech."
   khurley:
     author-summary: "Business Development Manager"
     name: "Kirsten Hurley"
