@@ -48,7 +48,7 @@ So, how does this apply to testing? As a tester, you are uniquely positioned to 
 
 For testers, many of the things that we need to consider would typically come up during the planning phase of a project but could also constitute continuous improvement at any time. We will be publishing a series of blog posts that delve into some of these areas in more detail but here are some of the key things that testers might consider:
 
-![Sustainability in Testing-756eb7.png](/uploads/SustainabilityinTesting-756eb7.png)
+![Sustainability in Testing.png](/uploads/Sustainability%20in%20Testing.png)
 
 The key takeaway is to start to factor in these considerations on your project. Thankfully, there is a direct correlation between cost and efficiency, in that, the more you can improve the efficiency of your testing practices by implementing some of the above suggestions, the more you can reduce the costs involved – a win-win!
 
