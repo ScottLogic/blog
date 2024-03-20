@@ -16,6 +16,7 @@ summary: I wrote recently about what the future holds for Open Banking in the US
   But what about the UK? We’re now over five years into the Open Banking era in the
   UK. How is it reshaping the banking sector, and what’s coming next?
 author: acarr
+image: "/uploads/open%20banking%20thumbnail.png"
 ---
 
 I wrote recently about [what the future holds for Open Banking in the US](https://blog.scottlogic.com/2024/02/02/why-you-should-care-about-open-banking-in-the-us.html). But what about the UK? The term ‘world-leading’ is a bit of a cliché, but when it comes to Open Banking, the UK has genuinely led the way. The initiative has brought about positive disruption in our banking sector as the rest of the world has looked on, eager to learn lessons from our experience.
