@@ -31,6 +31,7 @@ We started the morning with an introduction by Sabby Gill, CEO of Dext and Digit
 * Being unprepared for additional AI regulations. 
 
 The survey highlighted key areas that need to be addressed to ensure AI can thrive including:
+
 * Data Infrastructure and data governance
 * Talent acquisition and training in AI skills, including partnerships with AI consultancies
 * Ethical implementation – testing and ensuring fairness throughout

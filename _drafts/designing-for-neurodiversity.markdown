@@ -16,15 +16,16 @@ author: Mark Wallace
 
 *As part of neurodiversity celebration week, we're taking a look at how neurodiversity impacts UX, and how we can make our design process neuro-inclusive*
 
-UX Design is a practice which puts users at the centre of everything we do. If we have one
-primary goal, it's to make the user experience better for all users.
-Key areas in improving user experience are accessibility and usability. In order for a service to be usable, it must allow an intended user to accomplish specific goals in an efficient and satisfactory manner. In order for it to be accessible, it should be usable by anyone, regardless of their age, race, gender, or ability, including individuals who describe themselves as neurodivergent.
+UX Design is a practice which puts **users** at the centre of everything we do. If we have one
+primary goal, it's to **make the user experience better** for **all** users.
+
+Key areas in improving user experience are **accessibility** and **usability**. In order for a service to be usable, it must allow an intended user to accomplish specific goals in an efficient and satisfactory manner. In order for it to be accessible, it should be usable by anyone, regardless of their age, race, gender, or ability, including individuals who describe themselves as neurodivergent.
 
 ## What is neurodiversity?
-Neurodiversity is the term used to recognise that cognitive ability naturally varies across individuals. It is estimated that as many as 20% of the population may be neurodivergent, a group that includes those with Autism, ADHD, anxiety or mood disorders, dyslexia, tourettes, or other mental health challenges. That means that in the UK alone, over 10 million people could benefit from neuro-inclusive design.
+Neurodiversity is the term used to recognise that cognitive ability naturally varies across individuals. It is estimated that as many as 20% of the population may be neurodivergent, a group that includes those with Autism, ADHD, anxiety or mood disorders, dyslexia, tourettes, or other mental health challenges. That means that in the UK alone, ***over 10 million people*** could benefit from neuro-inclusive design.
 
 ## Cognitive UX
-The human brain is like an incredibly powerful computer. It has vast amounts of storage, and phenomenal computing power, but even the most powerful computers have limitations. When we attempt to receive too many inputs all at once, it can be overwhelming. In user experience terms, we refer to this as cognitive load.
+The human brain is like an incredibly powerful computer. It has vast amounts of storage, and phenomenal computing power, but even the most powerful computers have limitations. When we attempt to receive too many inputs all at once, it can be overwhelming. In user experience terms, we refer to this as **cognitive load**.
 
 As we browse the web, watch TV, use smart phones... our brains are exposed to a lot of stimulation. When we navigate interfaces on these devices, we're asked to remember a lot of information as we attempt to accomplish tasks. The more that is asked of us as users, the more difficult or frustrating an experience it becomes.
 
