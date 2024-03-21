@@ -97,7 +97,7 @@ Giving users control of these empowers the user to consume the content in a way 
 ### Provide clear and concise instructions
 Instructions should always be written in plain language that is easy for your user to understand. Try to avoid using jargon, or idioms, and consider adding visual cues like icons or arrows to help guide the user.
 
- Make sure the content flows logically, is broken into manageable sections with appropriate headings, and avoid over-using fonts or formatting.
+Make sure the content flows logically, is broken into manageable sections with appropriate headings, and avoid over-using fonts or formatting.
 
 ### Simplify the journey.
 There is an often used quote attributed to Albert Einstein - "Everything should be made as simple as possible, but not simpler".
@@ -154,7 +154,7 @@ Insight on the confusion around what autism is, what causes it and how it affect
 
 ---
 
-**Neurodiversity Celebration Week | Resource Hub**
+**Neurodiversity Celebration Week \| Resource Hub**
 
 A collection of resources from across the internet and from people
 
