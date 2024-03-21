@@ -31,19 +31,23 @@ As we browse the web, watch TV, use smart phones... our brains are exposed to a 
 There are many ways a service can make cognitive demands of the user.
 
 ### Learning curve
-● What does the user need to learn to use the service?
+*What does the user need to learn to use the service?*
+
 If we can match the service to real world conventions, we can make it more familiar and intuitive to the user. It should use familiar phrases and concepts, and present information in a logical order.
 
 ### Focus
-● How much focus does the service require?
+*How much focus does the service require?*
+
 Aim to keep the design as simple as possible. We should prioritise functions that help the user achieve their primary goals.
-● If the user is interrupted, what is the cost?
+
+*If the user is interrupted, what is the cost?*
+
 Give the user the freedom to control their journey. That could mean giving them a means to undo, redo or cancel, and avoid trapping them in the journey without an exit, or support save and resume on longer journeys.
 
 ### Decision making
-● Is it clear what decisions the user will have to make?
-● How critical are they?
-● Is the outcome of those actions communicated?
+*Is it clear what decisions the user will have to make?*
+*How critical are they?*
+*Is the outcome of those actions communicated?*
 When a user interacts with something in our service, the consequence of that action should be clear.
 We can reduce the burden placed on the user by practising continuous communication; carefully disclosing important information throughout the journey to help guide the user without overwhelming them.
 Where decisions need to be made, we can offer context, or comparisons of the options to help the user make an informed decision.
@@ -57,7 +61,7 @@ Where possible, we should minimise the amount of information we ask the user to 
 ● Is the language and tone appropriate to the intended audience?
 Information should be communicated with the most clarity in the fewest words. Where a service contains a lot of information, it can be helpful to provide readable summaries for complex content. We can also break content into manageable chunks, and support it with visuals and diagrams.
  
-## Designing for Neurodiversity
+## Designing for neurodiversity
 How do we design to be neuro-inclusive?
 Well, we can start by considering the demands above. Identifying the cognitive demands of our service, and designing solutions that are empathetic of those demands, can greatly improve the experience for all users.
 In fact, many of the principles of designing for Neurodiversity are simply principles for designing for usability. They will help all users, but can be especially important in taking a neurodivergent user from an acceptable experience, to a delightful one.
