@@ -95,26 +95,30 @@ Including neuro-divergent users in your testing is equally as important as inclu
 ### Educate ourselves.
 Educating ourselves about neurodiversity can help us empathise with those users, and the challenges they face. Below is a list of resources that offer insight into neurodiversity.
 
-Katrin Suetterlin: Content Design for Neurodiversity
+**Katrin Suetterlin: Content Design for Neurodiversity**
 Katrin is considered an expert on designing for neurodivergent populations. https://www.youtube.com/watch?v=doSyIoqCMq8
 
-Making Content Usable for People with Cognitive and Learning Disabilities W3C guidance on creating content for neurodiversity https://www.w3.org/TR/coga-usable/
+**Making Content Usable for People with Cognitive and Learning Disabilities**
+W3C guidance on creating content for neurodiversity
+[https://www.w3.org/TR/coga-usable/](https://www.w3.org/TR/coga-usable/)
 
-10 Usability Heuristics for User Interface Design
+**10 Usability Heuristics for User Interface Design**
 Neilsen Norman offer 10 general principles for interaction design that should apply to all users
-https://www.nngroup.com/articles/ten-usability-heuristics/
+[https://www.nngroup.com/articles/ten-usability-heuristics/](https://www.nngroup.com/articles/ten-usability-heuristics/)
 
-How to talk and write about autism
-Working with journalists and producers, the National Autistic Society has produced guidance to help discuss autism in an accurate and sensitive manner. https://www.autism.org.uk/contact-us/media-enquiries/how-to-talk-and-write-about-autism
+**How to talk and write about autism**
+Working with journalists and producers, the National Autistic Society has produced guidance to help discuss autism in an accurate and sensitive manner.
+[https://www.autism.org.uk/contact-us/media-enquiries/how-to-talk-and-write-about-autism](https://www.autism.org.uk/contact-us/media-enquiries/how-to-talk-and-write-about-autism)
 
-Autistica
-Insight on the confusion around what autism is, what causes it and how it affects people https://www.autistica.org.uk/what-is-autism/autism-myths-and-causes
+**Autistica**
+Insight on the confusion around what autism is, what causes it and how it affects people
+[https://www.autistica.org.uk/what-is-autism/autism-myths-and-causes](https://www.autistica.org.uk/what-is-autism/autism-myths-and-causes)
 
-Neurodiversity Celebration Week | Resource Hub     
- A collection of resources from across the internet and from people
-https://www.neurodiversityweek.com/resource-hub
+**Neurodiversity Celebration Week | Resource Hub**
+A collection of resources from across the internet and from people
+[https://www.neurodiversityweek.com/resource-hub](https://www.neurodiversityweek.com/resource-hub)
 
-Neurodiversity Hub
+**Neurodiversity Hub**
 A range of resources for students and young adults, parents and carers, employers, university staff, aspiring entrepreneurs, architects & building designers and senior secondary school students.
-https://www.neurodiversityhub.org/resources
+[https://www.neurodiversityhub.org/resources](https://www.neurodiversityhub.org/resources)
   
