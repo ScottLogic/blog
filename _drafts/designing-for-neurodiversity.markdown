@@ -25,6 +25,7 @@ Neurodiversity is the term used to recognise that cognitive ability naturally va
 
 ## Cognitive UX
 The human brain is like an incredibly powerful computer. It has vast amounts of storage, and phenomenal computing power, but even the most powerful computers have limitations. When we attempt to receive too many inputs all at once, it can be overwhelming. In user experience terms, we refer to this as cognitive load.
+
 As we browse the web, watch TV, use smart phones... our brains are exposed to a lot of stimulation. When we navigate interfaces on these devices, we're asked to remember a lot of information as we attempt to accomplish tasks. The more that is asked of us as users, the more difficult or frustrating an experience it becomes.
 
 ## Cognitive demands
@@ -48,35 +49,48 @@ Give the user the freedom to control their journey. That could mean giving them 
 *Is it clear what decisions the user will have to make?*
 *How critical are they?*
 *Is the outcome of those actions communicated?*
+
 When a user interacts with something in our service, the consequence of that action should be clear.
+
 We can reduce the burden placed on the user by practising continuous communication; carefully disclosing important information throughout the journey to help guide the user without overwhelming them.
+
 Where decisions need to be made, we can offer context, or comparisons of the options to help the user make an informed decision.
-Memory
-● Does the service require the user to recall a lot of information?
-● Does it assist them in that recall?
+
+### Memory
+*Does the service require the user to recall a lot of information?*
+*Does it assist them in that recall?*
+
 Where possible, we should minimise the amount of information we ask the user to remember. If the user is required to remember information, we can assist them by making it available and visible, and offering them just-in-time help.
 
 ### Communication
-● How is information communicated?
-● Is the language and tone appropriate to the intended audience?
+*How is information communicated?*
+*Is the language and tone appropriate to the intended audience?*
+
 Information should be communicated with the most clarity in the fewest words. Where a service contains a lot of information, it can be helpful to provide readable summaries for complex content. We can also break content into manageable chunks, and support it with visuals and diagrams.
  
 ## Designing for neurodiversity
-How do we design to be neuro-inclusive?
-Well, we can start by considering the demands above. Identifying the cognitive demands of our service, and designing solutions that are empathetic of those demands, can greatly improve the experience for all users.
+*How do we design to be neuro-inclusive?*
+
+We can start by considering the demands above. Identifying the cognitive demands of our service, and designing solutions that are empathetic of those demands, can greatly improve the experience for all users.
+
 In fact, many of the principles of designing for Neurodiversity are simply principles for designing for usability. They will help all users, but can be especially important in taking a neurodivergent user from an acceptable experience, to a delightful one.
 
 Further to the demands above, there are some basic heuristics that are important for all users. Let's have a look at ways to reduce the cognitive load, and adapt to users with varying cognitive profiles.
 
 ### Know who you're designing for
 Every user experience process starts with understanding and empathising with your users.
+
 By taking steps to understand our users, through interviews, surveys, field studies, we can gain a better understanding of the individual challenges those users face.
+
 Only by understanding the users can we really begin to solve the problems they’re facing.
 
 ### Offer different ways to interact with content
 We generally assume most people interact with our content via a computer or touch device. In reality, there are multiple ways a user can interact with content, in both directions.
+
 We can provide different ways to consume content, such as videos, or audio readings, but we also must be careful not to overwhelm the user with things like background audio or busy animations.
+
 Even those reading text content may like to adjust the font size, or the contrast. We can also provide different ways to input content, such as touch, mouse, keyboard, voice.
+
 Giving users control of these empowers the user to consume the content in a way that suits their needs.
 
 ### Provide clear and concise instructions
@@ -90,6 +104,7 @@ Sometimes our journeys are complex. They don't always have to be simple, but the
 
 ### Iterate and improve
 Continually evaluating the user experience and refining it based on feedback can help identify frustrations and minimise them.
+
 Including neuro-divergent users in your testing is equally as important as including them in your research. Whether it's early prototypes, or finished services, including a varied group of user abilities will allow for a greater range of feedback.
 
 ### Educate ourselves.
