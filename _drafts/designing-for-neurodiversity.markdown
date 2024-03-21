@@ -101,6 +101,7 @@ Instructions should always be written in plain language that is easy for your us
 
 ### Simplify the journey.
 There is an often used quote attributed to Albert Einstein - "Everything should be made as simple as possible, but not simpler".
+
 Sometimes our journeys are complex. They don't always have to be simple, but they should strive to be made as simple as possible, and reduce the effort required by the user.
 
 ### Iterate and improve
