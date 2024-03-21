@@ -1,16 +1,17 @@
 ---
 title: Reflecting on the 2024 Public Sector Innovation Conference
 date: 2024-03-21 14:28:00 Z
+categories:
+- Artificial Intelligence
 tags:
-- publicsector
 - Government
 - ''
 - AI
 - GenAI
 - Artificial Intelligence
 - public sector
-summary: My reflections from attending the recent 2024 Public Sector Innovation Conference
-  in London, where the topic was AI.
+summary: Reflections from the recent 2024 Public Sector Innovation Conference in London,
+  on the topic of Artificial Intelligence
 author: nbetts
 ---
 
