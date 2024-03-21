@@ -21,13 +21,16 @@ primary goal, it's to **make the user experience better** for **all** users.
 
 Key areas in improving user experience are **accessibility** and **usability**. In order for a service to be usable, it must allow an intended user to accomplish specific goals in an efficient and satisfactory manner. In order for it to be accessible, it should be usable by anyone, regardless of their age, race, gender, or ability, including individuals who describe themselves as neurodivergent.
 
+
 ## What is neurodiversity?
 Neurodiversity is the term used to recognise that cognitive ability naturally varies across individuals. It is estimated that as many as 20% of the population may be neurodivergent, a group that includes those with Autism, ADHD, anxiety or mood disorders, dyslexia, tourettes, or other mental health challenges. That means that in the UK alone, ***over 10 million people*** could benefit from neuro-inclusive design.
+
 
 ## Cognitive UX
 The human brain is like an incredibly powerful computer. It has vast amounts of storage, and phenomenal computing power, but even the most powerful computers have limitations. When we attempt to receive too many inputs all at once, it can be overwhelming. In user experience terms, we refer to this as **cognitive load**.
 
 As we browse the web, watch TV, use smart phones... our brains are exposed to a lot of stimulation. When we navigate interfaces on these devices, we're asked to remember a lot of information as we attempt to accomplish tasks. The more that is asked of us as users, the more difficult or frustrating an experience it becomes.
+
 
 ## Cognitive demands
 There are many ways a service can make cognitive demands of the user.
@@ -69,6 +72,7 @@ Where possible, we should minimise the amount of information we ask the user to 
 
 Information should be communicated with the most clarity in the fewest words. Where a service contains a lot of information, it can be helpful to provide readable summaries for complex content. We can also break content into manageable chunks, and support it with visuals and diagrams.
  
+
 ## Designing for neurodiversity
 *How do we design to be neuro-inclusive?*
 
