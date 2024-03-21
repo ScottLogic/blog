@@ -60,7 +60,7 @@ Where decisions need to be made, we can offer context, or comparisons of the opt
 *Does the service require the user to recall a lot of information?*
 *Does it assist them in that recall?*
 
-Where possible, we should minimise the amount of information we ask the user to remember. If the user is required to remember information, we can assist them by making it available and visible, and offering them just-in-time help.
+Where possible, we should minimise the amount of information we ask the user to remember. If the user is required to remember information, we can assist them by making it available and visible, and offering them [just-in-time help](https://www.youtube.com/watch?v=6tVMuWObaqU).
 
 ### Communication
 *How is information communicated?*
@@ -111,7 +111,8 @@ Including neuro-divergent users in your testing is equally as important as inclu
 Educating ourselves about neurodiversity can help us empathise with those users, and the challenges they face. Below is a list of resources that offer insight into neurodiversity.
 
 **Katrin Suetterlin: Content Design for Neurodiversity**
-Katrin is considered an expert on designing for neurodivergent populations. https://www.youtube.com/watch?v=doSyIoqCMq8
+Katrin is considered an expert on designing for neurodivergent populations.
+[https://www.youtube.com/watch?v=doSyIoqCMq8](https://www.youtube.com/watch?v=doSyIoqCMq8)
 
 **Making Content Usable for People with Cognitive and Learning Disabilities**
 W3C guidance on creating content for neurodiversity
