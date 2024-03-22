@@ -100,9 +100,7 @@ Recycling - huge opportunity for recyclability of materials. Problem in the UK i
 
 "Design has been quite narrow - too focused on end product not on the bigger picture of materials use and re-use / recycling. What are the innovative circular economy business models?"
 
-Another quote I found interesting (and I hope will become true) 
-> "If you aren't circular by 2030 you won't be credible as a supplier due to customer expectations” 
-(I’d add supply chain and material availability realities to this as well).
+Another quote I found interesting (and I hope will become true) "If you aren't circular by 2030 you won't be credible as a supplier due to customer expectations” (I’d add supply chain and material availability realities to this as well).
 
 **Closing reflections**
 
