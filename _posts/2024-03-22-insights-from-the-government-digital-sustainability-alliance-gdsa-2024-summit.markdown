@@ -18,7 +18,7 @@ author: ocronk
 image: "/uploads/ewaste-20240320_121417.jpg"
 ---
 
-I was very fortunately to get an invite to the Government Digital Sustainability Alliance (GDSA) summit at the Science Museum in London. This event brought together 200 people from government departments, 30 delivery partners and academia. There were tech leaders, sustainability experts, and government representatives all with a passion to tackle the key challenges in driving sustainable IT. The event featured updates on progress made by the GDSA working groups, and opportunities to network with others in this space across government and the private sector, and to understand the alliance's future steps.
+I was very fortunate to get an invite to the Government Digital Sustainability Alliance (GDSA) summit at the Science Museum in London. This event brought together 200 people from government departments, 30 delivery partners and academia. There were tech leaders, sustainability experts, and government representatives all with a passion to tackle the key challenges in driving sustainable IT. The event featured updates on progress made by the GDSA working groups, and opportunities to network with others in this space across government and the private sector, and to understand the alliance's future steps.
 
 I thought I’d pull together a blog with a summary of some of the key points covered on the day:
 

@@ -16,6 +16,8 @@ author: Mark Wallace
 
 *As part of neurodiversity celebration week, we're taking a look at how neurodiversity impacts UX, and how we can make our design process neuro-inclusive*
 
+![01.png](/uploads/01.png)
+
 UX Design is a practice which puts **users** at the centre of everything we do. If we have one
 primary goal, it's to **make the user experience better** for **all** users.
 
@@ -25,12 +27,14 @@ Key areas in improving user experience are **accessibility** and **usability**. 
 ## What is neurodiversity?
 Neurodiversity is the term used to recognise that cognitive ability naturally varies across individuals. It is estimated that as many as 20% of the population may be neurodivergent, a group that includes those with Autism, ADHD, anxiety or mood disorders, dyslexia, tourettes, or other mental health challenges. That means that in the UK alone, ***over 10 million people*** could benefit from neuro-inclusive design.
 
+![02.png](/uploads/02.png)
 
 ## Cognitive UX
 The human brain is like an incredibly powerful computer. It has vast amounts of storage, and phenomenal computing power, but even the most powerful computers have limitations. When we attempt to receive too many inputs all at once, it can be overwhelming. In user experience terms, we refer to this as **cognitive load**.
 
 As we browse the web, watch TV, use smart phones... our brains are exposed to a lot of stimulation. When we navigate interfaces on these devices, we're asked to remember a lot of information as we attempt to accomplish tasks. The more that is asked of us as users, the more difficult or frustrating an experience it becomes.
 
+![03.png](/uploads/03.png)
 
 ## Cognitive demands
 There are many ways a service can make cognitive demands of the user.
@@ -39,6 +43,8 @@ There are many ways a service can make cognitive demands of the user.
 *What does the user need to learn to use the service?*
 
 If we can match the service to real world conventions, we can make it more familiar and intuitive to the user. It should use familiar phrases and concepts, and present information in a logical order.
+
+![04.png](/uploads/04.png)
 
 ### Focus
 *How much focus does the service require?*
@@ -60,6 +66,8 @@ We can reduce the burden placed on the user by practising continuous communicati
 
 Where decisions need to be made, we can offer context, or comparisons of the options to help the user make an informed decision.
 
+![05.png](/uploads/05.png)
+
 ### Memory
 *Does the service require the user to recall a lot of information?*
 *Does it assist them in that recall?*
@@ -71,7 +79,8 @@ Where possible, we should minimise the amount of information we ask the user to 
 *Is the language and tone appropriate to the intended audience?*
 
 Information should be communicated with the most clarity in the fewest words. Where a service contains a lot of information, it can be helpful to provide readable summaries for complex content. We can also break content into manageable chunks, and support it with visuals and diagrams.
- 
+
+![06.png](/uploads/06.png)
 
 ## Designing for neurodiversity
 *How do we design to be neuro-inclusive?*
