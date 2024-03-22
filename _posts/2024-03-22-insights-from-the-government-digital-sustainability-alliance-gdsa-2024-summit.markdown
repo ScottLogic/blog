@@ -64,7 +64,7 @@ He shared this video with the room which I think is one of the best short videos
 
 **Scope 3 Working Group**
 
-The Scope 3 Working Group panel discussed the challenges in reporting scope 3 emissions, including coverage, quality, interoperability, and the need for standardised metrics. They also highlighted the importance of forward-looking planning and transition planning reporting (TCFD).
+The Scope 3 Working Group panel discussed the challenges in reporting scope 3 emissions, including coverage, quality, interoperability, and the need for standardised metrics. They also highlighted the importance of forward-looking planning and transition planning reporting.
 
 **GDS – One Login**
 
@@ -72,7 +72,7 @@ Natalie Jones, SRO of GOV.UK, emphasised that sustainability should be factored 
 
 Talked about how the One Login initiative will replace 200 logins and 44 ways of providing identity across government services. That £2.4m of environmental related savings will come from mostly from the reduced need to travel to undertake identity processes in person.
 
-Challenged the duplication and silos in government data capture. She called for sustainability to be everyone's responsibility and urged attendees to lead and help others – in particular how the private sector might help with providing sustainability training to government DDaT professonals.
+Challenged the duplication and silos in government data capture. She called for sustainability to be everyone's responsibility and urged attendees to lead and help others – in particular how the private sector might help with providing sustainability training to government [DDaT](https://ddat-capability-framework.service.gov.uk/) professionals.
 
 **Circular Economy**
 
