@@ -10,10 +10,10 @@ tags:
 - sustainable software
 - Sustainability
 - ocronk
-summary: Fortunately to get an invite to the Government Digital Sustainability Alliance
-  (GDSA) summit at the Science Museum in London. This event brought together 200 people
-  from government departments, 30 delivery partners and academia. This blog is a summary
-  of some of the key points covered on the day
+summary: Notes on the recent Government Digital Sustainability Alliance (GDSA) summit
+  at the Science Museum in London. This event brought together 200 people from government
+  departments, 30 delivery partners and academia. This blog is a summary of some of
+  what Oliver considered to be the key points covered on the day.
 author: ocronk
 image: "/uploads/ewaste-20240320_121417.jpg"
 ---
@@ -34,13 +34,13 @@ Looking back at previous mass extinctions - Earth recovers but it’s the specie
 
 He also shed light on the power consumption of AI, noting that it requires 10 times the compute power compared to traditional search, with its energy consumption being on par with that of Sweden. He mentioned that data (so vital for effective AI) contributes to 22 tons of CO2 per person annually yet so much of that data is unused. However, he also highlighted some potential examples of AI with the power to drive sustainability, such as:
 
-· Managing traffic flows in cities, which can lead to a 10% reduction in emissions.
+* Managing traffic flows in cities, which can lead to a 10% reduction in emissions.
 
-· Smart agriculture to reduce pesticide and water usage
+* Smart agriculture to reduce pesticide and water usage
 
-· Identifying drainage channels from earth observation data to restore peatland.
+* Identifying drainage channels from earth observation data to restore peatland.
 
-**Toby Strong – reminding us why this matters.**
+**Toby Strong – reminding us why this matters**
 
 Toby Strong, a multi-Emmy and Bafta award-winning cinematographer, shared his passion for the natural world and the transformative power of digital technology in capturing it. His stories of coming up close and personal with the natural world were inspiring – as were the clips of BBC programmes he played. He talked about the progress in drone technology to be less invasive when used for filming wildlife.
 
@@ -94,7 +94,7 @@ They emphasised the need to break the cycle of frequent device replacement and m
 
 The Circular Economy Panel highlighted the importance of embracing a broader marketplace to support the circular economy. They stressed that circular economy principles should be a core part of our work and that government could aggregate it’s demand as a significant collective customer to drive change.
 
-There is too much focus on purchase price and not enough on the total cost of ownership. Cheap to buy wins over the TCO over the life cycle of the device. (I’d say this applies to infrastructure and services as well?)
+There is too much focus on purchase price and not enough on the total cost of ownership. Cheap to buy wins over the Total Cost of Ownership (TCO) over the life cycle of the device. (I’d say this applies to infrastructure and services as well?)
 
 Recycling - huge opportunity for recyclability of materials. Problem in the UK is almost everything we do on this goes abroad - how do we do this in the UK? Re-use is great but we need to look at end of life recovery.
 
@@ -132,4 +132,4 @@ Chris Howes recapped the event:
 
 * He echoed the inspiring words of the speakers, urging attendees to "Be brilliant; we don't have time" and to "get on with it."
 
-On a personal level I am optimistic that the GDSA presents a unique vehicle in providing leadership on technology sustainability. I am a bit believer in cross industry collaboration and the power of the intersection of roles to make significant change. I am hopeful that the work the Scott Logic team has been doing in this space can be incorporated into the relevant working groups and output of the GDSA and look forward to doing more within this alliance in the near future.
+On a personal level I am optimistic that the [GDSA ](https://sustainableict.blog.gov.uk/category/sustainable-ict/gdsa/) presents a unique vehicle in providing leadership on technology sustainability. I am a big believer in cross industry collaboration and the power of the intersection of roles to make significant change. I am hopeful that the [work the Scott Logic team has been doing in tech sustainability](https://blog.scottlogic.com/category/sustainability.html) can be incorporated into the relevant working groups and output of the GDSA and look forward to doing more within this alliance in the near future.
