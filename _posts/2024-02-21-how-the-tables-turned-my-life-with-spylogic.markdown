@@ -1,5 +1,5 @@
 ---
-title: How the tables turned – My life with Spylogic
+title: How the tables turned – My life with Spy Logic
 date: 2024-02-21 15:50:00 Z
 categories:
 - Testing
