@@ -1,6 +1,6 @@
 ---
 title: Insights from the Government Digital Sustainability Alliance (GDSA) 2024 Summit
-date: 2024-03-22 08:00:00 Z
+date: 2024-03-22 01:00:00 Z
 categories:
 - Sustainability
 - Tech
