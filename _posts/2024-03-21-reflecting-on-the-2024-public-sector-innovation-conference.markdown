@@ -13,6 +13,7 @@ tags:
 summary: Reflections from the recent 2024 Public Sector Innovation Conference in London,
   on the topic of Artificial Intelligence
 author: nbetts
+image: "/uploads/Reflecting%20on%20the%202024%20PSI%20thumbnail.png"
 ---
 
 I recently had the pleasure of attending the 2024 Public Sector Innovation (PSI) Conference held at the incredible, historic “Great Room” at the Royal Society of Arts (RSA) House in London.  An amazing venue, with so much history,  adorned with a breath-taking series of six paintings, ‘The Progress of Human Knowledge and Culture’ by artist James Barry which took 23 years to complete!
