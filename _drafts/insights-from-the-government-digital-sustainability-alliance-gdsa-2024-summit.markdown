@@ -46,7 +46,7 @@ Toby Strong, a multi-Emmy and Bafta award-winning cinematographer, shared his pa
 
 He urged attendees to "Be brilliant as we've run out of time to be less than that." He also had a message from his colleague and friend David Attenborough:
 
-“Get on with it!”
+> “Get on with it!”
 
 **Art from e-waste by Zak Mistry**
 
@@ -100,34 +100,36 @@ Recycling - huge opportunity for recyclability of materials. Problem in the UK i
 
 "Design has been quite narrow - too focused on end product not on the bigger picture of materials use and re-use / recycling. What are the innovative circular economy business models?"
 
-Another quote I found interesting (and I hope will become true) "If you aren't circular by 2030 you won't be credible as a supplier due to customer expectations” (I’d add supply chain and material availability realities to this as well).
+Another quote I found interesting (and I hope will become true) 
+> "If you aren't circular by 2030 you won't be credible as a supplier due to customer expectations” 
+(I’d add supply chain and material availability realities to this as well).
 
 **Closing reflections**
 
 Chris Howes recapped the event:
 
-· Inspirational keynote that made clear what is at stake.
+* Inspirational keynote that made clear what is at stake.
 
-· Reminder that the task goes beyond carbon
+* Reminder that the task goes beyond carbon
 
-· On scope 3 – there are challenges on reporting that we can work on
+* On scope 3 – there are challenges on reporting that we can work on
 
-· Education and awareness for DDaT professionals needs to be prioritised
+* Education and awareness for DDaT professionals needs to be prioritised
 
-· Circular economy - lack of awareness of the art of the possible and lack of consistency across government
+* Circular economy - lack of awareness of the art of the possible and lack of consistency across government
 
-· Opportunity to wean people off of new gadgets - need to think circular
+* Opportunity to wean people off of new gadgets - need to think circular
 
-· He felt the event had been a success as he wanted to see collaboration and discussion and this had been happening across the day
+* He felt the event had been a success as he wanted to see collaboration and discussion and this had been happening across the day
 
-· Next steps for GDSA will be
+* Next steps for GDSA will be
 
-o Strengthen and broaden the Government and Delivery Partner representation
+1. Strengthen and broaden the Government and Delivery Partner representation
 
-o Work through a strategy of how the GDSA expertise will be used
+2. Work through a strategy of how the GDSA expertise will be used
 
-· Sustainability must not be an add on optional extra but core to all our work
+* Sustainability must not be an add on optional extra but core to all our work
 
-· He echoed the inspiring words of the speakers, urging attendees to "Be brilliant; we don't have time" and to "get on with it."
+* He echoed the inspiring words of the speakers, urging attendees to "Be brilliant; we don't have time" and to "get on with it."
 
 On a personal level I am optimistic that the GDSA presents a unique vehicle in providing leadership on technology sustainability. I am a bit believer in cross industry collaboration and the power of the intersection of roles to make significant change. I am hopeful that the work the Scott Logic team has been doing in this space can be incorporated into the relevant working groups and output of the GDSA and look forward to doing more within this alliance in the near future.
