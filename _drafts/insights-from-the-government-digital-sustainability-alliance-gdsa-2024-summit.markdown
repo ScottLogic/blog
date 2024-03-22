@@ -60,7 +60,7 @@ Matthew Bradley from the Planetary Impact Working Group reminded everyone that "
 
 He shared this video with the room which I think is one of the best short videos highlighting the impacts of technology that I have seen:
 
-VIDEO
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Du7rBQ8Z4pk?si=z79pA2s53-5BCIIJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 **Scope 3 Working Group**
 
