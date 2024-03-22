@@ -26,7 +26,7 @@ I thought I’d pull together a blog with a summary of some of the key points co
 
 Jack Simmonds from Dell opened (and hosted the event) stressing the urgency of addressing climate change and resource depletion. He emphasised the role of IT in generating e-waste and emissions, saying, "Our digital footprints matter, and it's time to tread lightly."
 
-Following Jack Simmonds' opening remarks, Chris Howes, CDIO at Defra, took the stage to discuss the department's mission and the role of sustainable ICT in government.. He highlighted e-waste as a significant issue, with 6 million tons generated annually, of which only around one-third is recycled in the UK and less than 20% globally.
+Following Jack Simmonds' opening remarks, Chris Howes, CDIO at Defra, took the stage to discuss the department's mission and the role of sustainable ICT in government. He highlighted e-waste as a significant issue, with 6 million tons generated annually, of which only around one-third is recycled in the UK and less than 20% globally.
 
 Chris also talked about Earth’s 5 mass extinctions which resulted in 75%\+ of species being wiped out. Looking at the current rate of progress of species loss we sadly are on track for another.
 
