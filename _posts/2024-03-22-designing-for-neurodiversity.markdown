@@ -1,6 +1,6 @@
 ---
 title: Designing for Neurodiversity
-date: 2024-03-21 14:13:00 Z
+date: 2024-03-22 16:30:00 Z
 categories:
 - UX Design
 tags:
