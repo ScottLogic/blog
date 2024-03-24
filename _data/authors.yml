@@ -107,6 +107,7 @@ active-authors:
   - rgarside
   - rgraham
   - rgriffiths
+  - rlewis
   - rpilling
   - rwilliams
   - rwillis
@@ -702,6 +703,10 @@ authors:
   rhendry:
     name: "Ross Hendry"
     picture: picture.jpg
+  rlewis:
+    name: "Robert Lewis"
+    author-summary: "Lead Developer at Scott Logic in Edinburgh. I've been programming computers since before the web and doing it professionally since last century. Building the right thing is the hard part; making it efficient is the fun part."
+    picture: robert-lewis.jpg
   rnewsome:
     author-summary: "Scott Logic's Head of Development, Newcastle upon Tyne"
     name: "Rob Newsome"
