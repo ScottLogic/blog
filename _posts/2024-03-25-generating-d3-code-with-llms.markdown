@@ -30,6 +30,7 @@ To get a basic idea of the capabilities of different LLMs, let’s look at what 
 
 #### attempt 1
 On the first attempt with our simple prompt, *text-davinci-003* generated this output:
+
 ~~~
 // Data array for the 2022 F1 season
 var data = [
@@ -110,6 +111,7 @@ This was the best chart produced by any model in a few attempts with our simple 
 
 #### attempt 2
 The code from the second attempt calls a D3 function to load a CSV file that doesn’t exist, and so it fails with a runtime error.
+
 ~~~~
 // Load data
   d3.csv("2022F1SeasonData.csv", function(data) {
@@ -125,6 +127,7 @@ Another LLM that gives some good results with our simple prompt is OpenAI’s la
 
 #### attempt 1
 On the first attempt *gpt-4* generated the following output in response to our simple prompt above:
+
 ~~~
 Here's a basic example of how you could create a bar chart using D3.js. Please note that this is a simplified example and does not include all the steps you might need to take in a real-world application, such as fetching the data from an API or handling errors.
 
@@ -196,6 +199,7 @@ The data is displayed correctly, but the values on the y-axis are showing every 
 
 #### attempt 2
 Another attempt with *gpt-4* gave essentially the same code as the first example, with some variation in the natural language commentary. The output starts like this:
+
 ~~~~
 I'm sorry, but as of now, I can't provide the accurate JavaScript code to produce a bar chart showing the number of races won per driver in the 2022 F1 season. The reason being, the 2022 F1 season is still ongoing and data regarding the races won by each driver is not yet complete or available. 
 
@@ -248,6 +252,7 @@ Out of five attempts with *gpt-3.5-turbo* using the updated prompt, three succes
 <img src='{{ site.github.url }}/rlewis/assets/code-with-llms/chart-6.png' alt='bar chart with the x-axis labeled "Driver" and the y-axis labeled "Number of Wins", containing five blue bars labeled with driver names, and with clear labels for values on the y-axis'>
 
 The gpt-3.5-turbo response that produced the chart starts like this:
+
 ~~~~
 Here is the JavaScript code that uses the d3 library to produce a bar chart showing the number of races won per driver in the 2022 F1 season:
 
@@ -288,6 +293,7 @@ The problem with selecting a non-existent HTML element is also unsurprising sinc
 
 ## One-shot prompting
 One-shot prompting is a well known technique used to help guide an LLM in producing output that matches user expectations. The basic idea is to provide an example instruction and response within the prompt. The new instruction is then provided and the LLM is left to complete the text by generating a matching response. Typically, the LLM will generate a response in a style similar to the example response in the prompt. Here is a one-shot prompt for our chart generation task which includes an example with labels for "INSTRUCTION", "DATA" and "RESPONSE" followed by the "INSTRUCTION" and "DATA" sections for the actual user request we are interested in, and a final "RESPONSE" label to show where the LLM should complete the text:
+
 ~~~
 ### INSTRUCTION
 Write JavaScript code that uses the d3 library to produce a bar chart showing the number of pupils in each class.
