@@ -22,8 +22,11 @@ A variety of Python libraries are available for interacting with LLMs. OpenAI, H
 Of the LLMs we tried, only three (all from OpenAI) gave us useful results: text-davinci-003, gpt-3.5-turbo and gpt-4. Some other LLMs we tried are text-curie-001 from OpenAI, StarCoder from BigCode, replit-code-v1-3b from Replit and Nous-Hermes-13b from Nous Research.[^oct-2023]
 
 To get a basic idea of the capabilities of different LLMs, let’s look at what they output for this simple prompt:
-> Write JavaScript code that uses the d3 library to produce a bar chart  
-> showing the number of races won per driver in the 2022 F1 season.
+
+~~~
+Write JavaScript code that uses the d3 library to produce a bar chart  
+showing the number of races won per driver in the 2022 F1 season.
+~~~
 
 ### *text-davinci-003*
 *text-davinci-003* is part of OpenAI’s GPT-3 model family. It has been fine-tuned on an instruction-following dataset. It was trained on data up to June 2021.
@@ -122,14 +125,16 @@ The code from the second attempt calls a D3 function to load a CSV file that doe
 The third attempt generated code that sets up fake data, as in attempt 1. However, this time the chart it produces doesn’t have an x-axis or y-axis because they have been cropped out of the visible frame. Unlike the first two examples from *text-davinci-003*, the generated code in this example doesn’t establish a margin around the main part of the chart.
 <img src='{{ site.github.url }}/rlewis/assets/code-with-llms/chart-2.png' alt='bar chart with four bars with no space between them, no labels of any kind, and no line for the x-axis'>
 
-### *gpt-4**
+### *gpt-4*
 Another LLM that gives some good results with our simple prompt is OpenAI’s latest model, *gpt-4*.
 
 #### attempt 1
 On the first attempt *gpt-4* generated the following output in response to our simple prompt above:
 
 ~~~
-Here's a basic example of how you could create a bar chart using D3.js. Please note that this is a simplified example and does not include all the steps you might need to take in a real-world application, such as fetching the data from an API or handling errors.
+Here's a basic example of how you could create a bar chart using D3.js. Please note that  
+this is a simplified example and does not include all the steps you might need to take in  
+a real-world application, such as fetching the data from an API or handling errors.
 
 ```javascript
 // Assuming we have data in the following format
@@ -183,13 +188,17 @@ svg.append("g")
   .call(d3.axisLeft(y));
 ```
 
-In this code, we first define some data, then set up the dimensions and margins for the graph. We create scales for the x and y axes, then append a new SVG element to the body of the page.
+In this code, we first define some data, then set up the dimensions and margins for the  
+graph. We create scales for the x and y axes, then append a new SVG element to the body  
+of the page.
 
-We then scale the range of the data in the domains and append rectangles for each data point to create the bar chart.
+We then scale the range of the data in the domains and append rectangles for each data  
+point to create the bar chart.
 
 Finally, we add the x and y axes to the SVG.
 
-Please note that you would need to include D3.js library in your HTML file to run this script.
+Please note that you would need to include D3.js library in your HTML file to run this  
+script.
 ~~~
 
 This output is similar what we saw in the first *text-davinci-003* attempt above, but there is some natural language commentary before and after the generated code. If the JavaScript code is extracted from the output (which is easily done because it is wrapped in a markdown code block), this is the chart it displays in our chart web page:
@@ -201,9 +210,13 @@ The data is displayed correctly, but the values on the y-axis are showing every 
 Another attempt with *gpt-4* gave essentially the same code as the first example, with some variation in the natural language commentary. The output starts like this:
 
 ~~~~
-I'm sorry, but as of now, I can't provide the accurate JavaScript code to produce a bar chart showing the number of races won per driver in the 2022 F1 season. The reason being, the 2022 F1 season is still ongoing and data regarding the races won by each driver is not yet complete or available. 
+I'm sorry, but as of now, I can't provide the accurate JavaScript code to produce a bar  
+chart showing the number of races won per driver in the 2022 F1 season. The reason being,  
+the 2022 F1 season is still ongoing and data regarding the races won by each driver is  
+not yet complete or available.
 
-However, I can provide a general idea of how you can create a bar chart using d3.js. You'll need to replace the data with the actual data when it becomes available.
+However, I can provide a general idea of how you can create a bar chart using d3.js.  
+You'll need to replace the data with the actual data when it becomes available.
 
 ```javascript
 // sample data, replace with actual data when available
@@ -241,11 +254,16 @@ Other LLMs we tried didn’t generate useful JavaScript code. Some generated Jav
 ## Providing the CSV data
 Clearly, a chart that displays fake data isn’t going to be very useful in a real-world system. We decided to provide relevant data in comma-separated value (CSV) format, which the generated JavaScript could load from the web server. We can modify our prompt to give the LLM information needed to generate JavaScript that makes use of a CSV file. The new prompt includes the location of the file and the names of the data fields it contains:
 
-> Write JavaScript code that uses the d3 library to produce a bar chart showing the number of races won per driver in the 2022 F1 season.  
-> Load the data from a csv file located at 'data-sources/2022_f1.csv'.  
-> The columns in the csv file are: Circuit,Date,1st Place Driver,1st Place Team,
-> 2nd Place Driver,2nd Place Team,3rd Place Driver,3rd Place Team,Laps,Time,
-> Fastest Stop Team,Fastest Stop Driver,Fastest Stop Time.
+~~~
+Write JavaScript code that uses the d3 library to produce a bar chart showing the number  
+of races won per driver in the 2022 F1 season.
+
+Load the data from a csv file located at 'data-sources/2022_f1.csv'.
+
+The columns in the csv file are: Circuit,Date,1st Place Driver,1st Place Team,
+2nd Place Driver,2nd Place Team,3rd Place Driver,3rd Place Team,Laps,Time,
+Fastest Stop Team,Fastest Stop Driver,Fastest Stop Time.
+~~~
 
 ### *gpt-3.5-turbo*
 Out of five attempts with *gpt-3.5-turbo* using the updated prompt, three successfully displayed a chart in the web page. The best chart was this one:
@@ -254,7 +272,8 @@ Out of five attempts with *gpt-3.5-turbo* using the updated prompt, three succes
 The gpt-3.5-turbo response that produced the chart starts like this:
 
 ~~~~
-Here is the JavaScript code that uses the d3 library to produce a bar chart showing the number of races won per driver in the 2022 F1 season:
+Here is the JavaScript code that uses the d3 library to produce a bar chart showing the  
+number of races won per driver in the 2022 F1 season:
 
 ```javascript
 // Load the data from the CSV file
@@ -296,7 +315,8 @@ One-shot prompting is a well known technique used to help guide an LLM in produc
 
 ~~~
 ### INSTRUCTION
-Write JavaScript code that uses the d3 library to produce a bar chart showing the number of pupils in each class.
+Write JavaScript code that uses the d3 library to produce a bar chart showing the number  
+of pupils in each class.
 
 ### DATA
 Data is in a csv file at 'data-sources/classes.csv'.
@@ -346,12 +366,16 @@ d3.csv('data-sources/pupils.csv').then((data) => {
 });
 
 ### INSTRUCTION:
-Write JavaScript code that uses the d3 library to produce a bar chart showing the number of races won per driver in the 2022 F1 season.
+Write JavaScript code that uses the d3 library to produce a bar chart showing the number  
+of races won per driver in the 2022 F1 season.
 
 ### DATA:
 Data is in a csv file at 'data-sources/2022_f1.csv'.
-The fields in the csv file are: Circuit,Date,1st Place Driver,2nd Place Driver,3rd Place Driver,Laps.
-The first three data rows of the csv file are: ['Bahrain,20-Mar-22,Charles Leclerc,Carlos Sainz,Lewis Hamilton,57', 'Saudi Arabia,27-Mar-22,Max Verstappen,Charles Leclerc,Carlos Sainz,50','Australia,10-Apr-22,Charles Leclerc,Sergio Perez,George Russell,58'].
+The fields in the csv file are: Circuit,Date,1st Place Driver,2nd Place Driver,
+3rd Place Driver,Laps.
+The first three data rows of the csv file are: ['Bahrain,20-Mar-22,Charles Leclerc,
+Carlos Sainz,Lewis Hamilton,57', 'Saudi Arabia,27-Mar-22,Max Verstappen,Charles Leclerc,
+Carlos Sainz,50','Australia,10-Apr-22,Charles Leclerc,Sergio Perez,George Russell,58'].
 
 ### RESPONSE:
 ~~~
