@@ -1,7 +1,7 @@
 ---
 title: 'Generating D3 code with LLMs'
 author: rlewis
-date: 2024-03-25 00:00:00 Z
+date: 2024-03-26 00:00:00 Z
 summary: Can AI write software? My team at Scott Logic wanted to find out whether LLMs could generate JavaScript code to draw a D3 chart in a web page. Read about how it went in this blog post.
 categories:
 - Artificial Intelligence
