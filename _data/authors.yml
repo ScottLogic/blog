@@ -90,6 +90,7 @@ active-authors:
   - mhowie
   - mking
   - mmcalroy
+  - mmorgan
   - mmoxon
   - mpace
   - mphillips
@@ -114,6 +115,7 @@ active-authors:
   - sbaker
   - sbreingan
   - sburnstone
+  - sconway
   - sforeshew-cain
   - sgladstone
   - shamiltonritchie
@@ -748,6 +750,11 @@ authors:
   sbulut:
     author-summary: "<p>Full-time learner and Test Engineer at Scott Logic</p>"
     name: "Seda Bulut"
+    picture: picture.jpg
+  sconway:
+    name: "Steve Conway"
+    email: sconway@scottlogic.com
+    author-summary: "I am a senior developer at Scott Logic, based in Edinburgh. I work mostly on backend services and cloud applications these days, coding in Java and Python. I've recently been getting up to speed with the current capabilities of LLMs, where everything is on a massively different scale from when I used neural networks in my PhD many years ago."
     picture: picture.jpg
   sdavies:
     name: "Sam Davies"
@@ -1441,4 +1448,9 @@ authors:
     name: "David Titterton"
     email: dtitterton@scottlogic.com
     author-summary: "David is a business development professional specialising in retail banking and financial services. He brings 25+ years of experience serving these sectors for technology and telco companies, in consulting, commercial or delivery roles."
+    picture: picture.jpg
+  mmorgan:
+    name: "Mike Morgan"
+    email: mmorgan@scottlogic.com
+    author-summary: "Developer based in the Leeds office. Have worked on front-end, middle-ware, and back-end services. Currently upskilling on all things Data Engineering."
     picture: picture.jpg
