@@ -408,7 +408,7 @@ When D3 v5 is loaded instead of D3 v7, both instances of code using `d3.nest()` 
 ## Can AI write software?
 Our experiments showed that LLMs can generate code to solve a moderately complex problem, but that getting decent results requires giving the LLM a lot of help to understand the target execution context. We were able to give that help using a one-shot prompting technique, but even with our help none of the LLMs produced correct code more than 80% of the time.
 
-LLMs and more specialised machine learning models will undoubtedly continue to improve in their ability to generate correct code. I expect a steady increase in the nubmber of scenarios where AI can be used to automatically generate code in the real world, but I also expect that for a long time to come developing robust software with AI code contributions will require a lot of human engineering as well.
+LLMs and more specialised machine learning models will undoubtedly continue to improve in their ability to generate correct code. I expect a steady increase in the number of scenarios where AI can be used to automatically generate code in the real world, but I also expect that for a long time to come developing robust software with AI code contributions will require a lot of human engineering as well.
 
 ## Acknowledgements
 This blog post is based on the work of the entire project team at Scott Logic so thanks are due to Ben Pearson, Jodie Laurenson, Husain Mehdi, Andrew Brown and Steve Conway.
