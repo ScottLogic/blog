@@ -1,0 +1,91 @@
+name: Build and Deploy to Github Pages
+
+concurrency:
+  group: "deployment"
+  cancel-in-progress: false
+
+on:
+  push:
+    branches:
+      - gh-pages
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build the blog and upload as a GitHub Pages artifact
+    runs-on: ubuntu-latest
+
+    env:
+      # Used by the setup-ruby action as an alternative to `bundle config path`.
+      # see https://github.com/ruby/setup-ruby#bundle-config
+      BUNDLE_PATH: vendor/bundle
+
+    steps:
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v3
+
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Store the CNAME as an environment variable
+        run: echo "CNAME=$(cat CNAME)" >> $GITHUB_ENV
+
+      # Currently, scripts and SCSS are compiled locally and pushed to the repo.
+      # If we ever wanted to automate this process, we could do so as below.
+#     - name: Setup Node
+#       uses: actions/setup-node@v4
+#       with:
+#         node-version: 20.10.x
+#         cache: npm
+
+#     - name: Install NPM dependencies
+#       run: npm ci
+
+#     - name: Build scripts
+#       run: npm run scripts
+
+#     - name: Build SCSS
+#       run: npm run style
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          bundler-cache: true # Runs `bundle install` and caches gems
+          cache-version: 0 # want to trash the cache and download all the gems again? increment this number!
+
+      - name: Build the blog
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+
+      - name: Package and upload the build output as a GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v2
+
+  deploy:
+    name: Deploy the artifact to GitHub Pages
+    runs-on: ubuntu-latest
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      - id: deploy
+        name: Deploy the artifact to GitHub Pages
+        uses: actions/deploy-pages@v2
+
+      - name: Log output page URL
+        run: echo "${{ steps.deploy.outputs.page_url }}"
