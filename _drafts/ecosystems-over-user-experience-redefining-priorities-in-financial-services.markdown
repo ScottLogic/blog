@@ -1,6 +1,27 @@
 ---
 title: 'Ecosystems over user experience: redefining priorities in financial services'
 date: 2024-03-27 14:43:00 Z
+categories:
+- UX Design
+- Tech
+- Architecture
+tags:
+- ecosystem
+- partnerships
+- differentiation
+- personalisation
+- financial services
+- Banking
+- ''
+- OpenBanking
+- Fintech
+- digital
+- user experience
+- cx
+- UX
+- customer research
+- value proposition
+- Digital
 summary: Observations on industry shift towards building partner ecosystems for personalised,
   differentiated customer value propositions
 author: David Titterton
