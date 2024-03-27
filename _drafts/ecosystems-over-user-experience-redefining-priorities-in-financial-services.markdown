@@ -8,6 +8,7 @@ author: David Titterton
 
 ![pexels-google-deepmind-18069362.jpg](/uploads/pexels-google-deepmind-18069362.jpg)
 *(Image courtesy of Google Deepmind)*
+
 **Key Information**
 
 * Firms are under pressure to grow revenues in a highly commoditised and competitive marketplace.
