@@ -5,8 +5,6 @@ title: "Cloud Business Intelligence: A Comparative Analysis of Power BI, QuickSi
 layout: default_post
 summary: A comparative analysis of three leading Business Intelligence Tools, Microsoft Power BI, Amazon Quicksight and Tableau. We focus on cloud platform usage, and are interested in functionality and ease of use by novice BI users.
 categories:
-  - Tech
-  - Cloud
   - Data Engineering
 tags:
   - bi
