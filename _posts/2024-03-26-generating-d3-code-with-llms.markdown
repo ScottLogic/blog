@@ -7,9 +7,9 @@ categories:
 - Artificial Intelligence
 ---
 
-My team at Scott Logic wanted to see how well large language models (LLMs) could perform on a fully automated coding task. We decided to try using an LLM to generate JavaScript code to display a chart in a web page using the [D3 library](https://d3js.org/).
+My team at Scott Logic wanted to see how well large language models (LLMs) could perform on a fully automated coding task. We decided to try using an LLM to generate JavaScript code displaying a chart in a web page using the [D3 library](https://d3js.org/).
 
-We knew there would be many examples of D3 code available on the internet and so LLMs were likely to have had large amounts of relevant training data. But the task was also more complex than the short, well-defined and self-contained coding problems that LLMs are normally evaluated against. None of us had much experience with LLMs, but through experimentation we soon learned more about what to expect. We found that LLMs could often succeed in the task, but only if we provided them with the right kind of help.
+There are many examples of D3 code available on the internet so we expected LLMs had been trained with a lot of this data and might be able to generate correct code for D3 charts as a result. But the task we had in mind was more complex than the short, well-defined and self-contained coding problems that LLMs are normally evaluated against. No one on the team had much experience with LLMs, but through experimentation we soon learned more about what to expect. We found that LLMs could often succeed in the task, but only if we provided them with the right kind of help.
 
 ## The chart generation system
 Our aim was to use an LLM to produce a D3 chart based on a “user request” explaining what information the chart should display. We wanted the generated code to run automatically within a simple web page, so we needed the code to be right the first time without additional help from the user.
