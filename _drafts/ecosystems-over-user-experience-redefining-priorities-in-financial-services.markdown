@@ -7,6 +7,7 @@ author: David Titterton
 ---
 
 ![pexels-google-deepmind-18069362.jpg](/uploads/pexels-google-deepmind-18069362.jpg)
+*(Image courtesy of Google Deepmind)*
 **Key Information**
 
 * Firms are under pressure to grow revenues in a highly commoditised and competitive marketplace.
@@ -47,7 +48,7 @@ Banks and wider financial services firms are increasingly looking towards partne
 Of course, partnerships and bundled products and services aren’t new, however the ability to more easily and securely share data via new digital ecosystems has removed a number of barriers to launching these partnerships and propositions. This is particularly true for more traditional industries such as banking, insurance and other financial services.
 
 ![pexels-fauxels-3184632.jpg](/uploads/pexels-fauxels-3184632.jpg)
-(Image courtesy of fauxels)
+*(Image courtesy of fauxels)*
 
 This ease of partnering is also encouraging diverse and interesting collaborations that are highly targeted and/or differentiated, difficult to replicate and of greater value to customers than the sum of their component parts.  
 
@@ -67,7 +68,7 @@ Application Programming Interfaces (API’s) are designed and engineered to prov
 Vitality Insurance provides a good example, as an organisation that uses data to highly personalise their service. In the case of their life insurance products, Vitality uses activity tracking data from the Apple watch to assess risk and calculate life insurance premiums. This benefits their customers, as active customers are rewarded through lower insurance payments.
 
 ![Screenshot 2024-03-27 142555.png](/uploads/Screenshot%202024-03-27%20142555.png)
-(Image from Vitality website)
+*(Image from Vitality website)*
 
 Vitality also exemplifies an active ecosystem of diverse partners strongly aligned to their core insurance proposition. Aside from Apple, their partners include Nuffield Health, Vue Cinemas, Waitrose, Headspace and Nike.
 
@@ -81,7 +82,7 @@ Customer research is vital in building an understanding of the different types o
 Only through this research can organisations identify who their customers are, and what tasks and responsibilities they face day-to-day. This level of insight will inform where, in the customer’s life journey, products and services might converge, and where strong partnerships might form to create new, differentiated, personalised value.
 
 ![pexels-linkedin-sales-navigator-3867836.jpg](/uploads/pexels-linkedin-sales-navigator-3867836.jpg)
-(Image courtesy of LinkedIn)
+*(Image courtesy of LinkedIn)*
 
 Of course, the industry leaders in customer experience already know this - they’ve been gathering customer research and insights for years and using it to deliver high quality digital experiences for their customers. This is why their new frontier is the partner ecosystem, harnessing their potential to bring differentiated, personalised products and services to their customers.
 
