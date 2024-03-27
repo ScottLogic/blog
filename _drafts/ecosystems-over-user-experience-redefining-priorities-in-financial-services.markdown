@@ -24,7 +24,7 @@ tags:
 - Digital
 summary: Observations on industry shift towards building partner ecosystems for personalised,
   differentiated customer value propositions
-author: David Titterton
+author: dtitterton
 ---
 
 ![pexels-google-deepmind-18069362.jpg](/uploads/pexels-google-deepmind-18069362.jpg)
