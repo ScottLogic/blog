@@ -30,7 +30,7 @@ Certainly for (at least) the last 5 years, these organisations have been champio
 
 But the tide has now changed - user experience is becoming yesterday’s news. 
 
-Of course - it remains very important - but these industry leaders regard the optimisation of their digital channels simply as table stakes for today's hyper-competitive landscape.
+Of course - it remains very important - but these industry leaders regard the optimisation of their digital channels simply as table stakes for today's super-competitive landscape.
 
 Their focus has shifted towards the creation of highly personalised, differentiated customer value propositions as growth and engagement drivers. And they are building new digital ecosystems to conceive and deliver these to their customers.
 
