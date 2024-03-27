@@ -28,7 +28,7 @@ author: dtitterton
 ---
 
 ![pexels-google-deepmind-18069362.jpg](/uploads/pexels-google-deepmind-18069362.jpg)
-*(Image courtesy of Google Deepmind)*
+*(Image courtesy of Google DeepMind)*
 
 **Key Information**
 
@@ -40,9 +40,9 @@ author: dtitterton
 
 **Context**
 
-In March this year I attended both the MoneyLive Summit and Pay360 events in London. Many of the topics covered were consistent with what I’ve seen, heard and read over the previous 18 months, at events, in industry material, and in meetings with my contacts.
+In March this year I attended both the MoneyLIVE Summit and Pay360 events in London. Many of the topics covered were consistent with what I’ve seen, heard and read over the previous 18 months, at events, in industry material, and in meetings with my contacts.
 
-During this time, I’ve observed a shift in the focus of many innovative and forward thinking banks, building societies, lenders and insurers.
+During this time, I’ve observed a shift in the focus of many innovative and forward-thinking banks, building societies, lenders and insurers.
 
 Certainly for (at least) the last 5 years, these organisations have been champions of user experience - striving for frictionless, elegant, quick customer engagement via their online or mobile channels. They have bragged about reductions in onboarding times, improved conversion rates, increased customer retention and rocketing NPS scores.
 
@@ -58,23 +58,23 @@ Their focus has shifted towards the creation of highly personalised, differentia
 
 **Unlocking new customer value**
 
-The key to unlocking new customer value and higher engagement lies in an organisation’s ability to provide products and services that are highly personalised to the needs of its customers, and differentiated from their competitors.
+The key to unlocking new customer value and higher engagement lies in an organisation’s ability to provide products and services that are highly personalised to the needs of its customers and differentiated from their competitors.
 
-Take retail banking, for example, where products and services (loans, savings accounts, current accounts etc.) have become highly commoditised. They are abundant, interchangeable and often difficult to distinguish from one another. The consequence is that margins are squeezed and banking customer loyalty is reducing. With banks facing stern headwinds, it is clear that there is a real need for new products and services. 
+Take retail banking, for example, where products and services (loans, savings accounts, current accounts etc.) have become highly commoditised. They are abundant, interchangeable, and often difficult to distinguish from one another. The consequence is that margins are squeezed and banking customer loyalty is reducing. With banks facing stern headwinds, it is clear that there is a real need for new products and services. 
 
 Banks and wider financial services firms are increasingly looking towards partnerships to provide this differentiation whilst also providing access to new markets. By bundling products and services together, to meet the needs of customers, industry leaders are bucking the trend of depleting customer loyalty and finding new revenue streams.
 
 
 **Partnering for differentiation**
 
-Of course, partnerships and bundled products and services aren’t new, however the ability to more easily and securely share data via new digital ecosystems has removed a number of barriers to launching these partnerships and propositions. This is particularly true for more traditional industries such as banking, insurance and other financial services.
+Of course, partnerships and bundled products and services aren’t new, however the ability to more easily and securely share data via new digital ecosystems has removed a number of barriers to launching these partnerships and propositions. This is particularly true for more traditional industries such as banking, insurance, and other financial services.
 
 ![pexels-fauxels-3184632.jpg](/uploads/pexels-fauxels-3184632.jpg)
 *(Image courtesy of fauxels)*
 
 This ease of partnering is also encouraging diverse and interesting collaborations that are highly targeted and/or differentiated, difficult to replicate and of greater value to customers than the sum of their component parts.  
 
-A very recent example is NatWest’s strategic partnership with JS Group, aimed at improving social mobility and financial inclusion for higher education students. Their partnership utilises NatWest’s network of relationship managers to guide educational institutions towards using JS Group’s Aspire Cash service for easier, faster and more cost effective facilitation of bursary and hardship funding payments. The Aspire Cash service uses NatWest’s payments infrastructure, providing benefits to universities, students and both JS Group and NatWest.
+A very recent example is NatWest’s strategic partnership with JS Group, aimed at improving social mobility and financial inclusion for higher education students. Their partnership utilises NatWest’s network of relationship managers to guide educational institutions towards using JS Group’s Aspire Cash service for easier, faster and more cost-effective facilitation of bursary and hardship funding payments. The Aspire Cash service uses NatWest’s payments infrastructure, providing benefits to universities, students and both JS Group and NatWest.
 
 Other notable examples include Nottingham Building Society’s partnership with Gen H, and Chetwood Financial tie-up with Mumsnet. These, and others, demonstrate a new breed of partnerships that are going beyond the more traditional space of credit cards and retailer loyalty schemes.
 
@@ -97,7 +97,7 @@ Vitality also exemplifies an active ecosystem of diverse partners strongly align
 
 **An important prerequisite**
 
-So partnerships and data are keys to bringing highly personalised, differentiated products and services to customers. However there is an important prerequisite for finding and creating this new value - firms must learn and know their customers. 
+So partnerships and data are keys to bringing highly personalised, differentiated products and services to customers. However, there is an important prerequisite for finding and creating this new value - firms must learn and know their customers. 
 
 Customer research is vital in building an understanding of the different types of customers and their behaviours. And as the customer landscape continues to rapidly evolve, this needs to be undertaken on an ongoing basis.
 
