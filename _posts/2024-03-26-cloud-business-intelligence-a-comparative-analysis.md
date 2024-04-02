@@ -1,18 +1,22 @@
 ---
+title: 'Cloud Business Intelligence: A Comparative Analysis of Power BI, QuickSight,
+  and Tableau'
+date: 2024-03-26 00:00:00 Z
+categories:
+- Data Engineering
+tags:
+- bi
+- business intelligence
+- data visualisation
+- data visualization
+- data analysis
+- cloud
 author: mmorgan
 contributors: sconway
-title: "Cloud Business Intelligence: A Comparative Analysis of Power BI, QuickSight, and Tableau"
 layout: default_post
-summary: A comparative analysis of three leading Business Intelligence Tools, Microsoft Power BI, Amazon Quicksight and Tableau. We focus on cloud platform usage, and are interested in functionality and ease of use by novice BI users.
-categories:
-  - Data Engineering
-tags:
-  - bi
-  - business intelligence
-  - data visualisation
-  - data visualization
-  - data analysis
-  - cloud
+summary: A comparative analysis of three leading Business Intelligence Tools, Microsoft
+  Power BI, Amazon Quicksight and Tableau. We focus on cloud platform usage, and are
+  interested in functionality and ease of use by novice BI users.
 ---
 
 We, Mike Morgan and Steve Conway, are a pair of Senior Developers at Scott Logic who have
