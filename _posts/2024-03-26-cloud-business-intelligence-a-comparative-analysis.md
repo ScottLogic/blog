@@ -164,7 +164,7 @@ increase. Here's how each BI tool tackles scalability:
 # Statistical Functionality
 
 Of the BI tools discussed here, Power BI has the richest set of statistical functions,
-catering to both basic and advanced analytical needs. This is good because, unlike Power BI,
+catering to both basic and advanced analytical needs. This is good because, unlike Tableau,
 it has minimal integration options. That said, the C# SDK is a very powerful integration option.
 The full list of Power BI functions can be found
 [here](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources).
