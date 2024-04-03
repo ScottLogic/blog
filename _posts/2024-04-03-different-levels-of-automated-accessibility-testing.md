@@ -58,7 +58,7 @@ you configure it to your needs.
 
 We can also run this for different states of our component, for example, if our button changed markup when hovered;
 
-~~~ typescript
+~~~ tsx
 import { render } from "@testing-library/react"
 import userEvent from '@testing-library/user-event'
 import { axe } from "vitest-axe"
@@ -80,7 +80,7 @@ describe("Button", () => {
 We can also add more detailed checking for accessibility attributes by making use of the various [queries](https://testing-library.com/docs/queries/about)
 and [assertions](https://github.com/testing-library/jest-dom) that are provided by [Testing Library](https://testing-library.com).
 
-~~~ typescript
+~~~ tsx
 import { render } from "@testing-library/react"
 import { axe } from "vitest-axe"
 import Button from "./Button"
@@ -131,5 +131,38 @@ Making sure our page is standard compliant is only half the battle, we've also g
 
 We need to ensure 2 things;
 
-1) All interactable elements are reachable and interactable with just the keyboard. That includes your footer links, I may actually want to read your Accessibility Policy.
-2) The flow through the page makes sense. If I'm jumping from the header, to the submit button, to the footer then back to an input, I'm going to have a bad time.
+1. All interactable elements are reachable and interactable with just the keyboard. That includes your footer links, I may actually want to read your Accessibility Policy.
+2. The flow through the page makes sense. If I'm jumping from the header, to the submit button, to the footer then back to an input, I'm going to have a bad time.
+
+Let's take a look at how we can do test this in our Playwright tests:
+
+~~~ typescript
+import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+
+const URL = 'http://localhost:5173/'
+
+test('is navigatable', async ({ page }) => { 
+  await page.goto(URL);
+  
+  const header = page.locator('header[role="banner"]');
+  await header.waitFor();
+
+  await page.keyboard.press("Alt+Tab") //Using Alt+Tab to enable tab navigation in WebKit
+  await expect(await page.getByRole("link", {name: "Vite"})).toBeFocused()
+
+  await page.keyboard.press("Alt+Tab")
+  await expect(await page.getByRole("link", {name:"React"})).toBeFocused()
+
+  await page.keyboard.press("Alt+Tab")
+  const button = await page.getByRole('button')
+  await expect(button).toBeFocused()
+  await expect(button).toHaveText("count is 0")
+
+  await page.keyboard.press("Enter")
+  await expect(button).toBeFocused()
+  await expect(button).toHaveText("count is 1")
+})
+~~~
+
+This navigates through our page, checking it hits the links in the expected order and makes sure it can trigger the click handler for the button by pressing `Enter`. We can also test cursor navigation by pressing the arrow keys instead, e.g. `page.keyboard.press("ArrowLeft")`
