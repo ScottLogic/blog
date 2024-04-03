@@ -1,0 +1,54 @@
+---
+title: Different levels of automated accessibility testing
+date: 2024-04-03 00:00:00 Z
+categories:
+- Accessibility
+- Testing
+- Automation
+author: wmckenzie
+summary: Want to make sure your application is accessible? Here are some different ways you can use your automated tests to make sure.
+---
+
+# Different levels of automated accessibility testing
+
+Accessibility is becoming an increasingly important consideration for web applications, yet it still often feels like a bit of an 
+afterthought in the development and testing process. Even the design team can be guilty of forgetting to ensure their work is accessible
+for all users. Companies are starting to take accessibility more seriously, requiring their applications to pass certain standards
+before they can be put live, but this is usually done right at the end by a separate team that don't necessarily fully understand the 
+full extend of the application, so things can get missed. Additionally retro-fitting accessibility can be a painful process. Wouldn't it 
+be better if we could find and fix things as we develop?
+
+## Make it automatic
+
+If we build accessibility testing into our automated tests (I'm assuming you have automated tests, if not, go sort that, then come back), 
+then we can catch problems as we develop and fix them as part of the process. We can then be aware of things we need to implement and 
+make sure we continue to implement them in future work, highlight required changes in design before stakeholders see and approve the work,
+and just generally feel a lot more confident in our application's readiness for release.
+
+## How do we do it?
+
+There are a few different methods we can employ to test for accessibility in our automated tests. Some can be used at unit test level, 
+others will require a full end-to-end in-browser test. Lets take a look at them:
+
+### Checking for compliance
+
+#### Unit tests
+
+Using tools such as [jest-axe](https://www.npmjs.com/package/jest-axe), or [vitest-axe](https://www.npmjs.com/package/vitest-axe) if 
+your trendy and cool, we can do general compatibility scans of the individual components to make sure they are compliant with our 
+required standards.
+
+``` typescript
+import { render } from "@testing-library/react"
+import { axe } from "vitest-axe"
+import Button from "./Button"
+describe("Button", () => {
+  
+  it("should render an accessible button", async () => {
+    const { container } = render(<Button title="Click Me">OK</Button>)
+    const results = await axe(container)
+    expect(results).toHaveNoViolations()
+  })
+
+})
+```
