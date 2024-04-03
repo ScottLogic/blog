@@ -36,7 +36,7 @@ Using tools such as [jest-axe](https://www.npmjs.com/package/jest-axe), or [vite
 your trendy and cool, we can do general compatibility scans of the individual components to make sure they are compliant with our 
 required standards.
 
-``` typescript
+~~~ typescript
 import { render } from "@testing-library/react"
 import { axe } from "vitest-axe"
 import Button from "./Button"
@@ -49,7 +49,7 @@ describe("Button", () => {
   })
 
 })
-```
+~~~
 
 This will perform a very simple test of rendering the button and making sure it doesn't have any accessibility violations. By default it 
 will check against the latest W3C standards, as well as best-practices but you can reduce the requirements if necessary. The package docs, 
@@ -58,7 +58,7 @@ you configure it to your needs.
 
 We can also run this for different states of our component, for example, if our button changed markup when hovered;
 
-``` typescript
+~~~ typescript
 import { render } from "@testing-library/react"
 import userEvent from '@testing-library/user-event'
 import { axe } from "vitest-axe"
@@ -73,14 +73,14 @@ describe("Button", () => {
   })
 
 })
-```
+~~~
 
 > N.B: colour contrast checks don't work in JSDom so we need to do extra testing to catch those.
 
 We can also add more detailed checking for accessibility attributes by making use of the various [queries](https://testing-library.com/docs/queries/about)
 and [assertions](https://github.com/testing-library/jest-dom) that are provided by [Testing Library](https://testing-library.com).
 
-``` typescript
+~~~ typescript
 import { render } from "@testing-library/react"
 import { axe } from "vitest-axe"
 import Button from "./Button"
@@ -97,13 +97,13 @@ describe("Button", () => {
   })
 
 })
-```
+~~~
 
 ### End-to-End Tests
 
 We can also perform these standards checks in our full end-to-end browser tests. [Axe](https://github.com/dequelabs/axe-core) has plugins available for most browser testing frameworks that can be used to check a loaded browser page. Here's an example in [Playwright](https://playwright.dev/) using the [@axe-core/playwright](https://www.npmjs.com/package/@axe-core/playwright) plugin
 
-``` typescript
+~~~ typescript
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
@@ -121,7 +121,7 @@ test('is accessible', async ({ page }, testInfo) => {
   
   expect(accessibilityScanResults.violations).toEqual([]);
 });
-```
+~~~
 
 As with the button test this does a basic compatibilty scan of the entire page to make sure there are no accessibility violations. We can also do other interactions with the page to change the state and re-run our checks to make sure the DOM is still accessible just as we did with our button component.
 
