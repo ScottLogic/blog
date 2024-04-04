@@ -15,7 +15,7 @@ summary: While the latest AI technologies may be new, your best next steps in ha
   them are tried and tested, and you already have many of the skills you need. I set
   out in this blog your best next steps to get ready for AI in Government.
 author: jmcevoy
-image: "/uploads/getting%20ready%20for%20ai%20govt.png"
+image: "/uploads/Getting%20ready%20for%20AI%20thumbnail.png"
 ---
 
 There’s a lot of hype around the benefits and use cases of AI, especially since OpenAI’s ChatGPT was released at the end of last year. This hype is one of the things that makes it quite hard to predict the long-term versus short-term potential of AI to change key aspects of how the public sector operates.
