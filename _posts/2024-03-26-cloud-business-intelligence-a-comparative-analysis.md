@@ -11,12 +11,13 @@ tags:
 - data visualization
 - data analysis
 - cloud
-author: mmorgan
-contributors: sconway
-layout: default_post
 summary: A comparative analysis of three leading Business Intelligence Tools, Microsoft
   Power BI, Amazon Quicksight and Tableau. We focus on cloud platform usage, and are
   interested in functionality and ease of use by novice BI users.
+author: mmorgan
+contributors: sconway
+image: "/uploads/Cloud%20business%20intelligence-179c40.png"
+layout: default_post
 ---
 
 We, Mike Morgan and Steve Conway, are a pair of Senior Developers at Scott Logic who have
