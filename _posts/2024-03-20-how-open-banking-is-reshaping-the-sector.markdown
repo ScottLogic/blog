@@ -12,6 +12,7 @@ tags:
 - Open Banking APIs
 - embedded finance
 - ISO 20022
+- featured
 summary: I wrote recently about what the future holds for Open Banking in the US.
   But what about the UK? We’re now over five years into the Open Banking era in the
   UK. How is it reshaping the banking sector, and what’s coming next?
