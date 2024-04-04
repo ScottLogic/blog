@@ -50,8 +50,8 @@
   - /2013/06/07/scala-macros-part-3.html
   - /2013/06/05/scala-macros-part-1.html
 /2013/06/07/isolated-scrum-does-scrum-need-to-be-complemented-with-extreme-programming-to-succeed.html:
+  - /2014/05/08/rapid-software-testing.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
 /2013/06/07/scala-macros-part-3.html:
   - /2013/06/17/scala-macros-part-4.html
   - /2013/06/05/scala-macros-part-1.html
@@ -155,8 +155,8 @@
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
 /2014/05/08/rapid-software-testing.html:
+  - /2013/06/07/isolated-scrum-does-scrum-need-to-be-complemented-with-extreme-programming-to-succeed.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
 /2014/05/11/reactivecocoa-tableview-binding.html:
   - /2014/11/04/mutable-array-binding-reactivecocoa.html
   - /2014/07/07/mvvm-reactive-cocoa.html
@@ -438,7 +438,7 @@
   - /2013/01/07/codeproject-mvp-2013.html
 /2015/06/19/aurelia-part-one.html:
   - /2015/06/29/aurelia-part-two.html
-  - /2015/12/07/angular-2.html
+  - /2015/12/24/creating-an-angular-2-build.html
 /2015/06/26/ux-scotland-2015.html:
   - /2018/06/28/ux-scotland-2018.html
   - /2016/06/17/ux-scotland-2016.html
@@ -645,7 +645,7 @@
   - /2020/05/01/rendering-one-million-points-with-d3.html
 /2016/03/28/mondo-api.html:
   - /2016/04/19/mondo-bank-webhook-to-pebble-watch-timeline-using-aws-labmda-functions.html
-  - /2021/06/14/Open-Finance.html
+  - /2024/03/20/how-open-banking-is-reshaping-the-sector.html
 /2016/04/01/the-2016-bcswomen-lovelace-colloquium-a-retrospective.html:
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
@@ -1241,8 +1241,8 @@
   - /2017/06/06/does-npm5-deprecate-yarn.html
   - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
 /2018/04/12/qa-qa-who-the-funk.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/06/07/isolated-scrum-does-scrum-need-to-be-complemented-with-extreme-programming-to-succeed.html
+  - /2014/05/08/rapid-software-testing.html
 /2018/04/16/a-hire-standard.html:
   - /2018/09/27/thoughts-from-the-software-testing-conference-north.html
   - /2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html
@@ -1493,8 +1493,8 @@
   - /2020/02/10/continuous-testing.html
   - /2019/02/06/tester-s-guide-during-agile-transition.html
 /2019/03/22/sdig19.html:
-  - /2024/01/23/reflections-from-ukgovcamp-xl.html
   - /2018/02/14/interaction18.html
+  - /2015/06/26/ux-scotland-2015.html
 /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html:
   - /2017/08/24/adding-webdriver-tests-to-create-react-app-generated-projects.html
   - /2019/03/22/a-tester-s-story-of-adapting-to-the-new-world-of-pipelines-ci-cd.html
@@ -1649,8 +1649,8 @@
   - /2020/01/21/beginners-terraform-serverless.html
   - /2019/05/01/building-a-serverless-comments-system.html
 /2019/08/06/why-scott-logic-celebrated-pride-month.html:
-  - /2022/06/16/pride-2022.html
   - /2021/06/03/pride-2021.html
+  - /2022/06/16/pride-2022.html
 /2019/08/08/reactive-android.html:
   - /2014/07/23/frp-with-bacon-and-d3.html
   - /2016/04/04/a-functional-front-end-with-react.html
@@ -1919,8 +1919,8 @@
   - /2021/04/28/look-up.html
   - /2021/04/09/starting-out-remotely.html
 /2020/04/09/how-to-connect-power-bi-with-azure-devops-and-jira.html:
+  - /2024/03/26/cloud-business-intelligence-a-comparative-analysis.html
   - /2020/02/29/agile-progress-and-quality-reporting.html
-  - /2024/03/07/kanban-not-the-lazy-option.html
 /2020/04/16/spring-autowiring-its-a-kind-of-magic-2.html:
   - /2020/02/25/spring-autowiring-its-a-kind-of-magic.html
   - /2019/07/15/Getting-to-grips-with-Spring.html
@@ -2300,8 +2300,8 @@
   - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
   - /2018/01/13/soft-skills-for-software-developers.html
 /2021/09/28/inclusive-design.html:
+  - /2024/03/22/designing-for-neurodiversity.html
   - /2018/02/14/interaction18.html
-  - /2019/03/22/sdig19.html
 /2021/09/30/Collective-Code-Ownership.html:
   - /2020/12/22/software-crisis.html
   - /2020/12/15/financial-crash-open-source.html
@@ -2412,7 +2412,7 @@
   - /2021/12/08/narrative-dashboard.html
 /2022/02/28/teaser.html:
   - /2022/03/08/beyond-the-hype-microservices.html
-  - /2023/02/06/beyond-the-hype-chatgpt.html
+  - /2019/03/27/attending-Tech(k)now-london-2019.html
 /2022/03/08/beyond-the-hype-microservices.html:
   - /2022/02/28/teaser.html
   - /2022/04/05/beyond-the-hype-microfrontends.html
@@ -2468,8 +2468,8 @@
   - /2018/03/14/apache-spark-question-everything.html
   - /2018/03/22/apache-spark-performance.html
 /2022/07/08/avoiding-the-hype-in-government.html:
+  - /2024/03/22/insights-from-the-government-digital-sustainability-alliance-gdsa-2024-summit.html
   - /2017/09/05/scaling-agile-in-the-public-sector.html
-  - /2021/06/08/digital-government-looking-back-and-looking-forward.html
 /2022/07/15/putting-your-machine-data-to-use-with-splunk.html:
   - /2014/12/19/elk-3-things-i-wish-id-known.html
   - /2023/11/07/understand-your-data-requirements.html
@@ -2487,7 +2487,7 @@
   - /2018/11/09/7-reasons-i-love-open-source.html
 /2022/09/01/ui-vs-ux-design.html:
   - /2023/11/03/elevating-software-the-indispensable-role-of-ux.html
-  - /2014/07/31/hiphop.html
+  - /2024/03/22/designing-for-neurodiversity.html
 /2022/09/12/how-data-has-improved-the-amateur-runner.html:
   - /2017/01/26/london-marathon-visualising.html
   - /2017/02/28/london-marathon-training-visualisation.html
@@ -2556,7 +2556,7 @@
   - /2016/06/01/An-update-on-Electron-Security.html
 /2023/02/06/beyond-the-hype-chatgpt.html:
   - /2023/05/02/beyond-the-hype-is-generative-ai-coming-for-programming-jobs.html
-  - /2021/11/05/gpt3.html
+  - /2023/11/03/spy-logic.html
 /2023/02/07/state-of-open-con.html:
   - /2021/10/21/financial-services-open-source.html
   - /2023/11/22/balancing-act-financial-organizations-and-the-constraints-on-open-source-community-engagement.html
@@ -2573,8 +2573,8 @@
   - /2017/09/01/thoughts-on-jest-snapshots.html
   - /2020/02/11/8-out-of-10-qats-said-they-prefer-cypress.html
 /2023/03/30/im-no-longer-a-tester-im-a-checker-or-am-i.html:
-  - /2023/05/31/rabbitmq-deep-dive-part-two.html
   - /2023/06/20/jsnation-conference-2023.html
+  - /2023/05/31/rabbitmq-deep-dive-part-two.html
 /2023/03/31/the-new-ai-platform.html:
   - /2023/05/04/generative-ai-solution-architecture.html
   - /2023/06/01/generative-terminology.html
@@ -2633,8 +2633,8 @@
   - /2021/11/05/gpt3.html
   - /2021/12/08/narrative-dashboard.html
 /2023/07/07/reset-connect-conference-2023.html:
+  - /2024/03/22/insights-from-the-government-digital-sustainability-alliance-gdsa-2024-summit.html
   - /2023/11/09/the-sustainable-computing-ecosystem.html
-  - /2023/07/20/Environmental-Impact-The-supplier-problem.html
 /2023/07/12/Pixel-Pioneers-Conference-2023.html:
   - /2015/06/26/ux-scotland-2015.html
   - /2018/06/28/ux-scotland-2018.html
@@ -2664,7 +2664,7 @@
   - /2022/02/23/word-embedding-recommendations.html
 /2023/08/11/mental-models-and-the-user-experience.html:
   - /2014/02/04/intro-to-ixd.html
-  - /2022/09/01/ui-vs-ux-design.html
+  - /2024/03/22/designing-for-neurodiversity.html
 /2023/08/17/celebrating-failure.html:
   - /2021/09/28/an-introduction-to-resiliency-in-the-cloud.html
   - /2022/01/22/resilient-systems-and-experimentation.html
@@ -2712,7 +2712,7 @@
   - /2016/03/08/interaction16.html
 /2023/09/28/embodied-carbon-from-software-development.html:
   - /2023/09/12/sustainability-terminology.html
-  - /2024/03/06/technology-carbon-standard-update.html
+  - /2024/03/15/technology-carbon-standard-update.html
 /2023/10/02/how-i-reduced-my-apps-network-usage-by-95-percent.html:
   - /2016/11/04/design-data-and-redux-at-bristech.html
   - /2014/03/19/simulator-enhancements.html
@@ -2760,7 +2760,7 @@
   - /2018/03/20/agile-monster-hunting.html
 /2023/11/07/understand-your-data-requirements.html:
   - /2017/02/07/the-rise-of-big-data-streaming.html
-  - /2018/11/30/Big-Data-London.html
+  - /2017/12/15/white-paper-optimising-data-lakes-for-financial-services.html
 /2023/11/09/the-sustainable-computing-ecosystem.html:
   - /2023/09/12/sustainability-terminology.html
   - /2023/10/26/conscientious-computing-facing-into-big-tech-challenges.html
@@ -2840,17 +2840,17 @@
   - /2024/02/19/beyond-the-hype-can-technology-sustainability-really-make-a-difference.html
   - /2023/06/20/using-the-very-app-we-created-graduate-project-2023.html
 /2024/01/23/reflections-from-ukgovcamp-xl.html:
+  - /2024/03/22/insights-from-the-government-digital-sustainability-alliance-gdsa-2024-summit.html
   - /2019/03/22/sdig19.html
-  - /2023/07/07/reset-connect-conference-2023.html
 /2024/01/25/the-art-of-seo-and-optimising-your-voice-in-a-crowded-market.html:
   - /2023/08/11/how-to-make-your-own-search-engine.html
   - /2022/02/23/word-embedding-recommendations.html
 /2024/02/02/why-you-should-care-about-open-banking-in-the-us.html:
   - /2020/06/17/Open-Banking.html
-  - /2018/08/24/the-ux-of-consent-models-in-open-banking.html
+  - /2024/03/20/how-open-banking-is-reshaping-the-sector.html
 /2024/02/13/announcing-the-proposed-technology-carbon-standard.html:
   - /2024/03/06/technology-carbon-standard-update.html
-  - /2023/07/20/Environmental-Impact-The-supplier-problem.html
+  - /2024/03/15/technology-carbon-standard-update.html
 /2024/02/19/beyond-the-hype-can-technology-sustainability-really-make-a-difference.html:
   - /2024/01/22/beyond-the-hype-was-the-threat-the-cra-seemed-to-pose-to-open-source-just-hype.html
   - /2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html
@@ -2861,8 +2861,29 @@
   - /2023/03/31/the-new-ai-platform.html
   - /2023/06/01/generative-terminology.html
 /2024/03/06/technology-carbon-standard-update.html:
+  - /2024/03/15/technology-carbon-standard-update.html
   - /2024/02/13/announcing-the-proposed-technology-carbon-standard.html
-  - /2023/09/12/sustainability-terminology.html
 /2024/03/07/kanban-not-the-lazy-option.html:
   - /2014/12/02/agile-projects-a-case-study.html
   - /2014/09/18/the-agile-mindset.html
+/2024/03/15/technology-carbon-standard-update.html:
+  - /2024/03/06/technology-carbon-standard-update.html
+  - /2024/02/13/announcing-the-proposed-technology-carbon-standard.html
+/2024/03/20/how-open-banking-is-reshaping-the-sector.html:
+  - /2024/02/02/why-you-should-care-about-open-banking-in-the-us.html
+  - /2020/06/17/Open-Banking.html
+/2024/03/21/reflecting-on-the-2024-public-sector-innovation-conference.html:
+  - /2015/06/26/ux-scotland-2015.html
+  - /2022/08/11/wearedevelopers-world-congress-the-good-the-bad-and-the-not-so-ugly.html
+/2024/03/22/designing-for-neurodiversity.html:
+  - /2022/09/01/ui-vs-ux-design.html
+  - /2018/10/19/living-in-an-accessible-world.html
+/2024/03/22/insights-from-the-government-digital-sustainability-alliance-gdsa-2024-summit.html:
+  - /2023/07/07/reset-connect-conference-2023.html
+  - /2023/11/09/the-sustainable-computing-ecosystem.html
+/2024/03/26/cloud-business-intelligence-a-comparative-analysis.html:
+  - /2020/04/09/how-to-connect-power-bi-with-azure-devops-and-jira.html
+  - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
+/2024/03/26/generating-d3-code-with-llms.html:
+  - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
+  - /2015/09/15/internProject2015.html
