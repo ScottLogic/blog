@@ -38,17 +38,17 @@ The method has two parts: calculating the energy use and then applying the grid 
 
 The key metric is a simple calculation. The estimated annual global energy use for the internet (1,988 TWh) is divided by the estimated global yearly data transferred (2,444 exabytes (EB)):
 
-\$$
+$$
 1988TWh / 2444EB = 0.81kWh/GB
-\$$
+$$
 
 This straightforward equation proportionally marries energy use to data transferred.
 
 So, to estimate the energy used (kWh), multiply the data transferred in gigabytes (GB) by 0.81.
 
-\$$
-E = D_t \\times 0.81
-\$$
+$$
+E = D_t \times 0.81
+$$
 
 That’s too easy, right?
 
