@@ -105,7 +105,7 @@ describe("Button", () => {
 });
 ~~~
 
-### End-to-End Tests
+#### End-to-End Tests
 
 We can also perform these standards checks in our full end-to-end browser tests. [Axe](https://github.com/dequelabs/axe-core) has plugins
 available for most browser testing frameworks that can be used to check a loaded browser page. Here's an example in
