@@ -11,7 +11,7 @@ author: wmckenzie
 summary: Want to make sure your application is accessible? Here are some different ways you can use your automated tests to make sure.
 ---
 
-I'm sure we've all been there, you've completed all your features, testers and product owners have signed them off, all critical bugs are resolved and you're ready for production. You've even passed PEN testing! There's just one last hurdle you've got to overcome... accessibility testing. It should be fine, right? You added alt text to your images and linked your labels with your inputs, you've got it covered... and then the report comes back. 
+I'm sure we've all been there, you've completed all your features, testers and product owners have signed them off, all critical bugs are resolved and you're ready for production. You've even passed PEN testing! There's just one last hurdle you've got to overcome: accessibility testing. It should be fine, right? You added alt text to your images and linked your labels with your inputs, you've got it covered... and then the report comes back. 
 
 "Colour contrast isn't enough"?
 
@@ -19,13 +19,15 @@ I'm sure we've all been there, you've completed all your features, testers and p
 
 "Alerts not read out with screen reader"?
 
-And they've only tested half the pages... this is going to be a nightmare to go back and fix across everything! Surely there's a better way?
+And they've only tested half the pages!
 
-Well, there is... and don't call me Shirley.... 
+This is going to be a nightmare to go back and fix across everything! Surely there's a better way?
+
+Well, there is... and don't call me Shirley... 
 
 ## Make it automatic
 
-What if I told you that you could build accessibility testing into your automated test suites, so that you can make sure your pages and components are accessible from the start? You can catch any issues with design or navigation early on, ensuring that any future work avoids making the same mistakes and reducing the chance of having major changes to make at the last minute.
+What if I told you that you could build accessibility testing into your automated test suites so that you can make sure your pages and components are accessible from the start? You can catch any issues with design or navigation early on, ensuring that any future work avoids making the same mistakes and reducing the chance of having major changes to make at the last minute.
 
 ## How do we do it?
 
@@ -56,8 +58,8 @@ describe("Button", () => {
 });
 ~~~
 
-This will perform a very simple test of rendering the button and making sure it doesn't have any accessibility violations. By default it
-will check against the latest W3C standards, as well as best-practices, but you can reduce the requirements if necessary. The package docs,
+This will perform a very simple test of rendering the button and making sure it doesn't have any accessibility violations. By default, it
+will check against the latest W3C standards, as well as best practices, but you can reduce the requirements if necessary. The package docs,
 combined with the documentation for [axe-core](https://github.com/dequelabs/axe-core/blob/master/doc/API.md#options-parameter), should help
 you configure it to your needs.
 
@@ -133,14 +135,14 @@ As with the button test, this does a basic compatibility scan of the entire page
 
 ## Keyboard navigation
 
-Making sure our page is standard compliant is only half the battle, we've also got to make sure everybody can use it. For users that are unable to use a mouse or trackpad, that means navigating with the keyboard.
+Making sure our page is standard-compliant is only half the battle, we've also got to make sure everybody can use it. For users who are unable to use a mouse or trackpad, that means navigating with the keyboard.
 
 We need to ensure 2 things:
 
 1. All interactive elements are reachable and interactable with just the keyboard. That includes your footer links, I may actually want to read your Accessibility Policy.
 2. The flow through the page makes sense. If I'm jumping from the header, to the submit button, to the footer then back to an input, I'm going to have a bad time.
 
-Let's take a look at how we can do test this in our Playwright tests:
+Let's take a look at how we can test this in our Playwright tests:
 
 ~~~typescript
 import { test, expect } from "@playwright/test";
@@ -171,13 +173,13 @@ test("is navigatable", async ({ page }) => {
 });
 ~~~
 
-This navigates through our page, checking it hits the links in the expected order and makes sure it can trigger the click handler for the button by pressing `Enter`. We can also test cursor navigation by pressing the arrow keys instead, for example `page.keyboard.press("ArrowLeft")`. This is usually required for navigating radio groups or dropdowns.
+This navigates through our page, checking it hits the links in the expected order and makes sure it can trigger the click handler for the button by pressing `Enter`. We can also test cursor navigation by pressing the arrow keys instead, for example, `page.keyboard.press("ArrowLeft")`. This is usually required for navigating radio groups or dropdowns.
 
 ## Speech readers
 
-Lastly we come to speech readers, probably the trickiest (and most annoying), part to actually test, and until now, what I considered the holy grail of automated accessibility testing. Previously, we either had to download a screen reader, like [NVDA](https://www.nvaccess.org/download/), or use built in OS tools like VoiceOver, turn them on, then try to navigate our web pages whilst trying not to go crazy as they read out every little thing our pointer touched, not to mention reading out our code as we type. There were ways round this, but it was still awkward to try to navigate the page and make sure the correct info was read out at each point.
+Lastly, we come to speech readers, probably the trickiest (and most annoying), part to actually test, and until now, what I considered the holy grail of automated accessibility testing. Previously, we either had to download a screen reader, like [NVDA](https://www.nvaccess.org/download/), or use built-in OS tools like VoiceOver, turn them on, then try to navigate our web pages whilst trying not to go crazy as they read out every little thing our pointer touched, not to mention reading out our code as we type. There were ways around this, but it was still awkward to try to navigate the page and make sure the correct info was read out at each point.
 
-Enter [Guidepup](https://www.guidepup.dev/), a screen reader driver for test automation (yes, I just copied their strapline). Guidepup gives us the ability to control either VoiceOver on OSX or NVDA on Windows, as well as retrieving the text that would be read out for items so we can validate them. It also comes with a [Virtual Screen Reader](https://www.guidepup.dev/docs/virtual) that we can use in our unit tests to test components in isolation.
+Enter [Guidepup](https://www.guidepup.dev/), a screen reader driver for test automation (yes, I just copied their strapline). Guidepup gives us the ability to control either VoiceOver on OSX or NVDA on Windows, as well as retrieve the text that would be read out for items so we can validate them. It also comes with a [Virtual Screen Reader](https://www.guidepup.dev/docs/virtual) that we can use in our unit tests to test components in isolation.
 
 Let's start with the Virtual Screen Reader:
 
@@ -220,9 +222,9 @@ describe("App", () => {
 });
 ~~~
 
-As you can see, it's a little bit clunky as the screen reader insists on jumping through all the end tags and inner items, unlike tab navigation where we can set which things are interactable. We could use some `aria-hidden` attributes, but that will only clear things like the logos, we'd still get the end tags. In reality we'd probably tidy this up with a reusable method to jump forward X amount of times, but we're keeping it simple for today.
+As you can see, it's a little bit clunky as the screen reader insists on jumping through all the end tags and inner items, unlike tab navigation where we can set which things are interactive. We could use some `aria-hidden` attributes, but that will only clear things like the logos, we'd still get the end tags. In reality, we'd probably tidy this up with a reusable method to jump forward X amount of times, but we're keeping it simple for today.
 
-The Playwright integrations for VoiceOver and NVDA however, come with some more helpful methods that mimic the built in methods and commands found in each application, such as `findNextHeading` or `findNextControl`. We can use these to streamline our navigation around the page, and more closely resemble how an actual user would be interacting with our application while using a screen reader. According to Guidepup's documentation, any command that VoiceOver or NVDA support, they support.
+The Playwright integrations for VoiceOver and NVDA however, come with some more helpful methods that mimic the built-in methods and commands found in each application, such as `findNextHeading` or `findNextControl`. We can use these to streamline our navigation around the page, and more closely resemble how an actual user would be interacting with our application while using a screen reader. According to Guidepup's documentation, any command that VoiceOver or NVDA support, they support.
 
 Let's try that same test, but with Playwright and VoiceOver:
 
@@ -251,6 +253,7 @@ test("I can navigate the page", async ({ page, voiceOver }) => {
   await voiceOver.perform(voiceOver.keyboardCommands.findNextControl);
   expect(await voiceOver.itemText()).toBe("count is 0 button");
 
+  // Click the button
   await voiceOver.perform(
     voiceOver.keyboardCommands.performDefaultActionForItem
   );
@@ -275,8 +278,8 @@ To configure your local screen reader tool and set up the permissions. Then it's
 
 > Be aware, you will likely still hear your screen reader while your tests are running. I still haven't figured out how to stop this as Guidepup seems to override OS settings.
 
-In all honesty, in my brief experience of using it, it's a bit flakey. I think some of that may be down to running it locally and it trying to control my OS which may have other stuff going on. I haven't had chance to try it on CI/CD yet, but that might be a bit more reliable given proper resource. That being said, it's definitely a huge improvement over what we had previously... which was nothing.
+In all honesty, in my brief experience of using it, it's a bit flakey. I think some of that may be down to running it locally and it trying to control my OS which may have other stuff going on. I haven't had chance to try it on CI/CD yet, but that might be a bit more reliable given the proper resources. That being said, it's definitely a huge improvement over what we had previously... which was nothing.
 
 ## In Conclusion
 
-So that was a very brief tour of what's available but hopefully I've given you a few more options to enhance your automated testing and help ensure your site or application is accessible right from the get-go. Admittedly my examples are pretty basic, and probably aren't the most thorough tests of accessibility. However, hopefully they demonstrate some of the potential, enabling someone with a much better understanding of accessibility testing than I to build that into their automated test suite. The linked in documentation should give you much more info and you can also check out my [example repo](https://github.com/OiNutter/automated-accessibility) that the code samples are pulled from.
+So that was a very brief tour of what's available but hopefully, I've given you a few more options to enhance your automated testing and help ensure your site or application is accessible right from the get-go. Admittedly my examples are pretty basic, and probably aren't the most thorough tests of accessibility. However, hopefully, they demonstrate some of the potential, enabling someone with a much better understanding of accessibility testing than I to build that into their automated test suite. The linked-in documentation should give you much more info and you can also check out my [example repo](https://github.com/OiNutter/automated-accessibility) that the code samples are pulled from.
