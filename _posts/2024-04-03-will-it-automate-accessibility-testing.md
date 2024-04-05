@@ -133,7 +133,7 @@ test("is accessible", async ({ page }, testInfo) => {
 
 As with the button test, this does a basic compatibility scan of the entire page to make sure there are no accessibility violations. We can also do other interactions with the page to change the state and re-run our checks to make sure the DOM is still accessible, just as we did with our button component.
 
-## Keyboard navigation
+### Keyboard navigation
 
 Making sure our page is standard-compliant is only half the battle, we've also got to make sure everybody can use it. For users who are unable to use a mouse or trackpad, that means navigating with the keyboard.
 
@@ -175,7 +175,7 @@ test("is navigatable", async ({ page }) => {
 
 This navigates through our page, checking it hits the links in the expected order and makes sure it can trigger the click handler for the button by pressing `Enter`. We can also test cursor navigation by pressing the arrow keys instead, for example, `page.keyboard.press("ArrowLeft")`. This is usually required for navigating radio groups or dropdowns.
 
-## Speech readers
+### Speech readers
 
 Lastly, we come to speech readers, probably the trickiest (and most annoying) part to actually test, and until now, what I considered the holy grail of automated accessibility testing. Previously, we either had to download a screen reader, like [NVDA](https://www.nvaccess.org/download/), or use built-in OS tools like VoiceOver, turn them on, then try to navigate our web pages whilst trying not to go crazy as they read out every little thing our pointer touched, not to mention reading out our code as we type. There were ways around this, but it was still awkward to try to navigate the page and make sure the correct info was read out at each point.
 
