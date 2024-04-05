@@ -46,6 +46,7 @@ required standards.
 import { render } from "@testing-library/react";
 import { axe } from "vitest-axe";
 import Button from "./Button";
+
 describe("Button", () => {
   it("should render an accessible button", async () => {
     const { container } = render(<Button title="Click Me">OK</Button>);
@@ -67,6 +68,7 @@ import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "vitest-axe";
 import Button from "./Button";
+
 describe("Button", () => {
   it("should render an accessible button when hovered", async () => {
     const { container } = render(<Button title="Click Me">OK</Button>);
@@ -87,6 +89,7 @@ We can also add more detailed checking for accessibility attributes by making us
 import { render } from "@testing-library/react";
 import { axe } from "vitest-axe";
 import Button from "./Button";
+
 describe("Button", () => {
   it("should render an accessible button", async () => {
     const { container } = render(<Button title="Click Me">OK</Button>);
