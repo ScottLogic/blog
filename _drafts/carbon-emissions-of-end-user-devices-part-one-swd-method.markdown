@@ -11,6 +11,8 @@ summary: This is the first of a series of blog posts that examine the various me
 author: drees
 ---
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 # Introduction
 
 This series of blog posts discusses the methods of estimating carbon emissions of end-user devices. Specifically, this looks at web user interfaces, such as websites and web applications, and the devices we use to access them. After intending to write a single blog post, the research journey prompted me to reconsider how to present this to an audience. So, this is the first of a series of blog posts that broach this subject and look at the various methods, concluding with a comparison of the techniques.
