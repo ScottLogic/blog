@@ -3,13 +3,11 @@ title: 'Carbon Emissions of End-User Devices: Part One - SWD Method'
 date: 2024-04-05 09:43:00 Z
 categories:
 - Sustainability
+- Tech
 tags:
 - Sustainability
-summary: This is the first of a series of blog posts that examine the various methods
-  of measuring carbon emissions on end-user devices. In this post, we take a closer
-  look at the Sustainable Web Design Methodology.
+summary: This is the first of a series of blog posts that examine the various methods of measuring carbon emissions on end-user devices. In this post, we take a closer look at the Sustainable Web Design Methodology.
 author: drees
-image: "/uploads/carbon%20emissions%20part%201.png"
 ---
 
 <!-- MATHJAX -->
