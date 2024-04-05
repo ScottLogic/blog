@@ -13,14 +13,14 @@ author: drees
 
 <script>
 MathJax = {
-  tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-  }
+tex: {
+inlineMath: \[\['$', '$'\], \['\\(', '\\)'\]\]
+}
 };
 </script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script type="text/javascript" id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 
 # Introduction
@@ -72,7 +72,7 @@ However, the energy grid is typically served by a mixture of these sources, and 
 So, the product of the estimated energy use and the carbon intensity of that energy gives us an estimated carbon emission.
 
 $$
-C = E \\times C_i
+C = E \times C_i
 $$
 
 Where:
@@ -103,9 +103,9 @@ Of course, if you have actual metrics, you can easily replace these assumptions 
 
 After calculating the energy per visit, we can apply the carbon intensity. We can use the global carbon intensity value (490gCO2e/kWh) for a generalised worldwide perspective or if we assume a global distribution and audience.
 
-\$$
-C_v = E_v \\times 490
-\$$
+$$
+C_v = E_v \times 490
+$$
 
 If we’re confident about where our web page and data are stored and where our users are accessing the web page, we can use a more specific carbon intensity.
 
@@ -145,9 +145,9 @@ Using [websitecarbon.com](http://websitecarbon.com) (which implements the SWD me
 
 With this data, we can use the SWD method to calculate the estimated carbon emissions of the blog page as follows:
 
-\$$
-E_v = (E_t \\times D_n \\times V_n) \+ (E_t \\times D_r \\times V_r)
-\$$
+$$
+E_v = (E_t \times D_n \times V_n) + (E_t \times D_r \times V_r)
+$$
 
 Where:
 
@@ -163,29 +163,29 @@ Where:
 
 * $V_r$ is the percentage of returning visits (25%)
 
-\$$
-E_v = (0.81 \\times 0.0043 \\times 0.75) \+ (0.81 \\times 0.0000106 \\times 0.25) = 0.0026kWh
-\$$
+$$
+E_v = (0.81 \times 0.0043 \times 0.75) + (0.81 \times 0.0000106 \times 0.25) = 0.0026kWh
+$$
 
 Using the system boundaries, we can break down that energy use as follows:
 
-* User device energy: $0.0026 \\times 0.52 = 0.001352kWh$
+* User device energy: $0.0026 \times 0.52 = 0.001352kWh$
 
-* Network energy: $0.0026 \\times 0.14 = 0.000364kWh$
+* Network energy: $0.0026 \times 0.14 = 0.000364kWh$
 
-* Data centre energy: $0.0026 \\times 0.15 = 0.00039kWh$
+* Data centre energy: $0.0026 \times 0.15 = 0.00039kWh$
 
-* Hardware production energy: $0.0026 \\times 0.19 = 0.000494kWh$
+* Hardware production energy: $0.0026 \times 0.19 = 0.000494kWh$
 
 While we have a known energy carbon intensity for the user device, the network, and the data centre where the blog is hosted, we will assume the hardware production energy using the global carbon intensity of 490gCO2e/kWh (given the lack of specific evidence otherwise). With this, we can calculate the estimated CO2 emissions per visit per system:
 
-* User device carbon emissions: $0.001352 \\times 238 = 0.322gCO2e$
+* User device carbon emissions: $0.001352 \times 238 = 0.322gCO2e$
 
-* Network carbon emissions: $0.000364 \\times 238 = 0.087gCO2e$
+* Network carbon emissions: $0.000364 \times 238 = 0.087gCO2e$
 
-* Data centre carbon emissions: $0.00039 \\times 50 = 0.019gCO2e$
+* Data centre carbon emissions: $0.00039 \times 50 = 0.019gCO2e$
 
-* Hardware production carbon emissions: $0.000494 \\times 490 = 0.242gCO2e$
+* Hardware production carbon emissions: $0.000494 \times 490 = 0.242gCO2e$
 
 Giving a total estimated carbon emissions per visit of 0.67gCO2e.
 
