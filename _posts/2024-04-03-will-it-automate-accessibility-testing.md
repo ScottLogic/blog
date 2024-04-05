@@ -1,5 +1,5 @@
 ---
-title: Will it Automate? Accessibility Testing
+title: Will It Automate? Accessibility Testing
 date: 2024-04-03 00:00:00 Z
 categories:
   - Testing
@@ -42,7 +42,7 @@ Using tools such as [jest-axe](https://www.npmjs.com/package/jest-axe), or [vite
 your trendy and cool), we can do general compatibility scans of the individual components to make sure they are compliant with our
 required standards.
 
-```typescript
+~~~typescript
 import { render } from "@testing-library/react";
 import { axe } from "vitest-axe";
 import Button from "./Button";
@@ -53,7 +53,7 @@ describe("Button", () => {
     expect(results).toHaveNoViolations();
   });
 });
-```
+~~~
 
 This will perform a very simple test of rendering the button and making sure it doesn't have any accessibility violations. By default it
 will check against the latest W3C standards, as well as best-practices but you can reduce the requirements if necessary. The package docs,
@@ -62,7 +62,7 @@ you configure it to your needs.
 
 We can also run this for different states of our component, for example, if our button changed markup when hovered;
 
-```tsx
+~~~tsx
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { axe } from "vitest-axe";
@@ -75,7 +75,7 @@ describe("Button", () => {
     expect(results).toHaveNoViolations();
   });
 });
-```
+~~~
 
 > N.B: colour contrast checks don't work in JSDom so we need to do extra testing to catch those.
 
@@ -83,7 +83,7 @@ We can also add more detailed checking for accessibility attributes by making us
 [queries](https://testing-library.com/docs/queries/about) and [assertions](https://github.com/testing-library/jest-dom) that are provided by
 [Testing Library](https://testing-library.com).
 
-```tsx
+~~~tsx
 import { render } from "@testing-library/react";
 import { axe } from "vitest-axe";
 import Button from "./Button";
@@ -98,7 +98,7 @@ describe("Button", () => {
     expect(button).toHaveAttribute("title", "Click Me");
   });
 });
-```
+~~~
 
 ### End-to-End Tests
 
@@ -106,7 +106,7 @@ We can also perform these standards checks in our full end-to-end browser tests.
 available for most browser testing frameworks that can be used to check a loaded browser page. Here's an example in
 [Playwright](https://playwright.dev/) using the [@axe-core/playwright](https://www.npmjs.com/package/@axe-core/playwright) plugin
 
-```typescript
+~~~typescript
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
@@ -124,7 +124,7 @@ test("is accessible", async ({ page }, testInfo) => {
 
   expect(accessibilityScanResults.violations).toEqual([]);
 });
-```
+~~~
 
 As with the button test this does a basic compatibilty scan of the entire page to make sure there are no accessibility violations. We can also do other interactions with the page to change the state and re-run our checks to make sure the DOM is still accessible just as we did with our button component.
 
@@ -139,7 +139,7 @@ We need to ensure 2 things;
 
 Let's take a look at how we can do test this in our Playwright tests:
 
-```typescript
+~~~typescript
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
@@ -166,7 +166,7 @@ test("is navigatable", async ({ page }) => {
   await expect(button).toBeFocused();
   await expect(button).toHaveText("count is 1");
 });
-```
+~~~
 
 This navigates through our page, checking it hits the links in the expected order and makes sure it can trigger the click handler for the button by pressing `Enter`. We can also test cursor navigation by pressing the arrow keys instead, e.g. `page.keyboard.press("ArrowLeft")`. This is usually required for navigating radio groups or dropdowns.
 
@@ -178,7 +178,7 @@ Enter [Guidepup](https://www.guidepup.dev/), a screen reader driver for test aut
 
 Lets start with the Virtual Screen Reader;
 
-```tsx
+~~~tsx
 import { render } from "@testing-library/react";
 import { axe } from "vitest-axe";
 import App from "./App";
@@ -215,7 +215,7 @@ describe("App", () => {
     expect(await virtual.spokenPhraseLog()).toMatchSnapshot();
   });
 });
-```
+~~~
 
 As you can see, it's a little bit clunky as the screen reader insists on jumping through all the end tags and inner items, unlike tab navigation where we can set which things are interactable. We could use some `aria-hidden` attributes but that will only clear things like the logos, we'd still get the end tags. In reality we'd probably tidy this up with a reusable method to jump forward X amount of times but we're keeping it simple for today.
 
