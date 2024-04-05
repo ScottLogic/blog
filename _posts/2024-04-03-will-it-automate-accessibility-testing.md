@@ -13,11 +13,11 @@ summary: Want to make sure your application is accessible? Here are some differe
 
 I'm sure we've all been there, you've completed all your features, testers and product owners have signed them off, all critical bugs are resolved and you're ready for production. You've even passed PEN testing! There's just one last hurdle you've got to overcome: accessibility testing. It should be fine, right? You added alt text to your images and linked your labels with your inputs, you've got it covered... and then the report comes back. 
 
-"Colour contrast isn't enough"?
+"Colour contrast isn't enough"
 
-"Can't submit form with keyboard"?
+"Can't submit form with keyboard"
 
-"Alerts not read out with screen reader"?
+"Alerts not read out with screen reader"
 
 And they've only tested half the pages!
 
@@ -177,7 +177,7 @@ This navigates through our page, checking it hits the links in the expected orde
 
 ## Speech readers
 
-Lastly, we come to speech readers, probably the trickiest (and most annoying), part to actually test, and until now, what I considered the holy grail of automated accessibility testing. Previously, we either had to download a screen reader, like [NVDA](https://www.nvaccess.org/download/), or use built-in OS tools like VoiceOver, turn them on, then try to navigate our web pages whilst trying not to go crazy as they read out every little thing our pointer touched, not to mention reading out our code as we type. There were ways around this, but it was still awkward to try to navigate the page and make sure the correct info was read out at each point.
+Lastly, we come to speech readers, probably the trickiest (and most annoying) part to actually test, and until now, what I considered the holy grail of automated accessibility testing. Previously, we either had to download a screen reader, like [NVDA](https://www.nvaccess.org/download/), or use built-in OS tools like VoiceOver, turn them on, then try to navigate our web pages whilst trying not to go crazy as they read out every little thing our pointer touched, not to mention reading out our code as we type. There were ways around this, but it was still awkward to try to navigate the page and make sure the correct info was read out at each point.
 
 Enter [Guidepup](https://www.guidepup.dev/), a screen reader driver for test automation (yes, I just copied their strapline). Guidepup gives us the ability to control either VoiceOver on OSX or NVDA on Windows, as well as retrieve the text that would be read out for items so we can validate them. It also comes with a [Virtual Screen Reader](https://www.guidepup.dev/docs/virtual) that we can use in our unit tests to test components in isolation.
 
@@ -268,7 +268,7 @@ We can already see that's looking a little cleaner, the unusual React App defaul
 
 Setting this up is a little more involved, but Guidepup has some pretty good [instructions](https://www.guidepup.dev/docs/intro) to help you get everything configured, including how to get it working on your CI/CD server.
 
-In short, you'll need to run 
+In short, you'll need to run:
 
 ~~~
 npx @guidepup/setup
@@ -282,4 +282,4 @@ In all honesty, in my brief experience of using it, it's a bit flakey. I think s
 
 ## In Conclusion
 
-So that was a very brief tour of what's available but hopefully, I've given you a few more options to enhance your automated testing and help ensure your site or application is accessible right from the get-go. Admittedly my examples are pretty basic, and probably aren't the most thorough tests of accessibility. However, hopefully, they demonstrate some of the potential, enabling someone with a much better understanding of accessibility testing than I to build that into their automated test suite. The linked-in documentation should give you much more info and you can also check out my [example repo](https://github.com/OiNutter/automated-accessibility) that the code samples are pulled from.
+So that was a very brief tour of what's available but hopefully, I've given you a few more options to enhance your automated testing and help ensure your site or application is accessible right from the get-go. Admittedly my examples are pretty basic, and probably aren't the most thorough tests of accessibility. However, if I've done it right, they should demonstrate some of the potential, enabling someone with a much better understanding of accessibility testing than I to build that into their automated test suite. The linked-in documentation should give you much more info and you can also check out my [example repo](https://github.com/OiNutter/automated-accessibility) that the code samples are pulled from.
