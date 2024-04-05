@@ -62,9 +62,9 @@ However, the energy grid is typically served by a mixture of these sources, and 
 
 So, the product of the estimated energy use and the carbon intensity of that energy gives us an estimated carbon emission.
 
-\$$
+$$
 C = E \\times C_i
-\$$
+$$
 
 Where:
 
@@ -80,9 +80,9 @@ Again, it is a simple formula for a complex problem.
 
 The example use of the SWD method is a little more complicated, but it demonstrates how it can be used to get more accurate results. It applies some assumptions: that 75% of visits to a web page are from new visitors or, more precisely, uncached visits. For the 25% returning visitors, the data transferred will only be 2% of the uncached data transfer, meaning a significant reduction of data transfer due to cached files.
 
-\$$
-E_v = (D_v \\times 0.81 \\times 0.75) \+ (D_v \\times 0.81 \\times 0.25 \\times 0.02)
-\$$
+$$
+E_v = (D_v \times 0.81 \times 0.75) + (D_v \times 0.81 \times 0.25 \times 0.02)
+$$
 
 where:
 
