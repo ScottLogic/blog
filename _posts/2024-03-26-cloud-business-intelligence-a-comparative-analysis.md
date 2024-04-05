@@ -11,12 +11,13 @@ tags:
 - data visualization
 - data analysis
 - cloud
-author: mmorgan
-contributors: sconway
-layout: default_post
 summary: A comparative analysis of three leading Business Intelligence Tools, Microsoft
   Power BI, Amazon Quicksight and Tableau. We focus on cloud platform usage, and are
   interested in functionality and ease of use by novice BI users.
+author: mmorgan
+contributors: sconway
+image: "/uploads/Cloud%20business%20intelligence-179c40.png"
+layout: default_post
 ---
 
 We, Mike Morgan and Steve Conway, are a pair of Senior Developers at Scott Logic who have
@@ -164,7 +165,7 @@ increase. Here's how each BI tool tackles scalability:
 # Statistical Functionality
 
 Of the BI tools discussed here, Power BI has the richest set of statistical functions,
-catering to both basic and advanced analytical needs. This is good because, unlike Power BI,
+catering to both basic and advanced analytical needs. This is good because, unlike Tableau,
 it has minimal integration options. That said, the C# SDK is a very powerful integration option.
 The full list of Power BI functions can be found
 [here](https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-data-sources).

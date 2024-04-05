@@ -12,6 +12,7 @@ tags:
 summary: As part of neurodiversity celebration week, we're taking a look at how neurodiversity
   impacts UX, and how we can make our design process neuro-inclusive
 author: mwallace
+image: "/uploads/Designing%20for%20Neurodiversity.png"
 ---
 
 *As part of neurodiversity celebration week, we're taking a look at how neurodiversity impacts UX, and how we can make our design process neuro-inclusive*
