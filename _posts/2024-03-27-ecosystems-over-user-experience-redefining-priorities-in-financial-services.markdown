@@ -25,6 +25,7 @@ tags:
 summary: Observations on an industry shift towards building partner ecosystems for
   personalised, differentiated customer value propositions.
 author: dtitterton
+image: "/uploads/ecosystems%20over%20ux.png"
 ---
 
 ![pexels-google-deepmind-18069362.jpg](/uploads/pexels-google-deepmind-18069362.jpg)
