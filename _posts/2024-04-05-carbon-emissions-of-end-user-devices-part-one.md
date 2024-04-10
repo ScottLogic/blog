@@ -9,6 +9,7 @@ summary: This is the first of a series of blog posts that examine the various me
   of measuring carbon emissions on end-user devices. In this post, we take a closer
   look at the Sustainable Web Design Methodology.
 author: drees
+image: "/uploads/carbon%20emissions%20part%201.png"
 ---
 
 <!-- MATHJAX -->
