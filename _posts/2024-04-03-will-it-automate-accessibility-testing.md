@@ -2,13 +2,14 @@
 title: Will It Automate? Accessibility Testing
 date: 2024-04-03 00:00:00 Z
 categories:
-  - Testing
+- Testing
 tags:
-  - accessibility
-  - automation
-  - testing
+- accessibility
+- automation
+- testing
 author: wmckenzie
-summary: Want to make sure your application is accessible? Here are some different ways you can use your automated tests to make sure.
+summary: Want to make sure your application is accessible? Here are some different
+  ways you can use your automated tests to make sure.
 ---
 
 I'm sure we've all been there, you've completed all your features, testers and product owners have signed them off, all critical bugs are resolved and you're ready for production. You've even passed PEN testing! There's just one last hurdle you've got to overcome: accessibility testing. It should be fine, right? You added alt text to your images and linked your labels with your inputs, you've got it covered... and then the report comes back. 
