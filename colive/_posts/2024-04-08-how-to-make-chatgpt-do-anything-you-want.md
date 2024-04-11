@@ -24,7 +24,7 @@ Currently if we ask ChatGPT about this it admits it doesn't have access to curre
 
 ![Asking ChatGPT about the game]({{ site.github.url }}/colive/assets/askingChatGPT.png "Asking ChatGPT about the game")
 
-We need to build new logic around the call to OpenAI's GPT model. Fortunately, OpenAI also offers requests straight to their model through an API, billed by the number of tokens (~3/4 of a word) generated in each response to your account. Now we can write code (here is a short python script as an example stolen directly from [OpenAI's Quickstart tutorial](https://platform.openai.com/docs/quickstart?context=python)) to call the API with our prompt.
+We need to build new logic around the call to OpenAI's GPT model. Fortunately, OpenAI also offers requests straight to their model through an API, billed to your account (billing is done by the number of tokens used in each prompt and generated in each response, where a token can be thought of as a word or part of a word). Now we can write code (here is a short python script as an example stolen directly from [OpenAI's Quickstart tutorial](https://platform.openai.com/docs/quickstart?context=python)) to call the API with our prompt.
 
 ```python
 ChatCompletions
@@ -62,7 +62,7 @@ Our app is still unable to report on the game last week. However, our app now ha
 2. Look up the last game played between the teams mentioned
 3. Return a coherent response to the user containing that game data we extracted in step 2.
 
-To complete these steps, we are going to build an extractor function to identify the teams mentioned, a lookup function to find the data for the teams last game and a summarizer function to bundle up the data into a nicely written response. Exploring step 2 isn't of relevance to this article as it does not involve an LLM. We could use a local database and query it in SQL, or a tool that searches the web or requests data from football API for the game results. Either way this functionality is not novel or new; lets instead explore steps 1 and 3.
+To complete these steps, we are going to build an extractor function to identify the teams mentioned, a lookup function to find the data for the teams' last game and a summarizer function to bundle up the data into a nicely written response. Exploring step 2 isn't of relevance to this article as it does not involve an LLM. We could use a local database and query it in SQL, or a tool that searches the web or requests data from football API for the game results. Either way this functionality is not novel or new; lets instead explore steps 1 and 3.
 
 ## Creating an extractor method
 
@@ -108,7 +108,7 @@ If you do not know the value of an attribute asked to extract, return null for t
 The question: {question}
 ```
 
-This prompt is engineered to ask the LLM for a specific outcome - find from the question provided two football teams. The specific football clubs that should be returned are listed (this data is from Premier League teams during the 2017/18 season in case you are wondering why Huddersfield Town are there). There is also an example of One-Shot Learning - where an example model answer has been provided. Finally, it is mentioned that if the answer cannot be found the LLM should return null and not hallucinate a response.
+This prompt is engineered to ask the LLM for a specific outcome - find from the question provided two football teams. The specific football clubs that should be returned are listed (this data is from Premier League teams during the 2017/18 season in case you are wondering why Huddersfield Town are there). There is also an example of One-Shot Learning - where an example model answer has been provided. Finally, it is mentioned that if the answer cannot be found the LLM should return null and not hallucinate a response (an LLM returning misinformation confidently as fact is often described as the LLM hallucinating).
 
 This works surprisingly well! Beyond clear questions specifying the names of the teams, GPT-3.5 was able to identify the two teams involved in the Manchester Derby and could even understand "the blues" as Chelsea FC.
 
@@ -129,7 +129,7 @@ Only use data listed above.
 Do not infer any data outside of what is listed above.
 ```
 
-Like the extractor prompt, the content within the curly brackets will contain the actual match data. In my example I injected the string representation of a python dictionary containing key value pairs of game data (half-time score, home team, date of the match, etc.). We heavily emphasize in the end of the prompt to only use mentioned data to avoid the potential of misinformation (an LLM returning misinformation confidently as fact is often described as the LLM hallucinating).
+Like the extractor prompt, the content within the curly brackets will contain the actual match data. In my example I injected the string representation of a python dictionary containing key value pairs of game data (half-time score, home team, date of the match, etc.). We heavily emphasize in the end of the prompt to only use mentioned data to deter the model from hallucinating.
 
 ## Wire it all up
 
