@@ -2,7 +2,7 @@
 author: colive
 title: How to make ChatGPT do anything you want
 layout: default_post
-summary: Using an example project this article explore the possibilities of integrating a Large Language Model with custom logic to improve it's utility and power.
+summary: Using an example project this article explores the possibilities of integrating a Large Language Model with custom logic to improve its utility and power.
 category: 
     - Artificial Intelligence
 tags: 
@@ -14,7 +14,7 @@ tags:
 
 OpenAI released an early demo of ChatGPT on the 30th of November 2022. Since then, it has propelled the general public’s awareness of the power of Large Language Models (LLM). In other words, ChatGPT was the first viral AI-powered ChatBot. These Generative Pre-Trained Transformers take a prompt (a block of written text with no other context) and will attempt at producing a coherent written response. GPT models are trained on conversation data to learn the most appropriate response to whatever new prompt they are served, but it should be noted that the training data they have been built from is all they know. They are often compared to parrots due to this behavioural trait, echoing previously seen conversations to construct sensible responses.
 
-By itself a tool that can do this is very powerful. It's currently commonplace on social media to see posts around using models like GPT-3.5 (the current ChatGPT model used "under the hood") to generate templates for emails, social media posts, poems, birthday party ideas and all sorts of other supposedly creative ideas. However, the current limitation of most of these models is integration into other systems and knowledge bases. A pure LLM won't know the result of the football game last week or what Elon Musk last posted. Achieving this is something the large tech companies are actively working on, but it can also be achieved ourselves with very little code!
+By itself a tool that can do this is very powerful. It's currently commonplace on social media to see posts around using models like GPT-3.5 (the current ChatGPT model used "under the hood") to generate templates for emails, social media posts, poems, birthday party ideas and all sorts of other supposedly creative ideas. However, the current limitation of most of these models is integration into other systems and knowledge bases. A pure LLM won't know the result of the football game last week or what Elon Musk last posted. Achieving this is something the large tech companies are actively working on, but it can also be achieved by ourselves with very little code!
 
 In this article I will be using my personal project [PunditBot](https://github.com/Ch0live/pundit-bot) as an example of how this can work, but the concept can be applied to anything. To keep things as simple as possible, let’s talk about achieving the goal we mentioned before - finding out the result of the football game last week.
 
