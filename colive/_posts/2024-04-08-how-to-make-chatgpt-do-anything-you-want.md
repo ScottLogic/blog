@@ -12,7 +12,7 @@ tags:
 
 ## Introduction
 
-OpenAI released an early demo of ChatGPT on the 30th of November 2022. Since then, it has propelled the general public’s awareness of the power of Large Language Models (LLM). In other words, ChatGPT was the first viral ChatBot. These Generative Pre-Trained Transformers take a prompt (a block of written text with no other context) and will attempt at producing a coherent written response. GPT models are trained on conversation data to learn the most appropriate response to whatever new prompt they are served, but it should be noted that the training data they have been built from is all they know. They are often compared to parrots due to this behavioural trait, echoing previously seen conversations to construct sensible responses.
+OpenAI released an early demo of ChatGPT on the 30th of November 2022. Since then, it has propelled the general public’s awareness of the power of Large Language Models (LLM). In other words, ChatGPT was the first viral AI-powered ChatBot. These Generative Pre-Trained Transformers take a prompt (a block of written text with no other context) and will attempt at producing a coherent written response. GPT models are trained on conversation data to learn the most appropriate response to whatever new prompt they are served, but it should be noted that the training data they have been built from is all they know. They are often compared to parrots due to this behavioural trait, echoing previously seen conversations to construct sensible responses.
 
 By itself a tool that can do this is very powerful. It's currently commonplace on social media to see posts around using models like GPT-3.5 (the current ChatGPT model used "under the hood") to generate templates for emails, social media posts, poems, birthday party ideas and all sorts of other supposedly creative ideas. However, the current limitation of most of these models is integration into other systems and knowledge bases. A pure LLM won't know the result of the football game last week or what Elon Musk last posted. Achieving this is something the large tech companies are actively working on, but it can also be achieved ourselves with very little code!
 
@@ -46,9 +46,9 @@ When using the `/v1/chat/completions` endpoint you can specify both a system pro
 
 ## Building from others' work
 
-As with all programming endeavours lets aim not to re-invent the wheel and use an example project to use as a template for our own. In PunditBot I used [the docker genai-stack project](https://github.com/docker/genai-stack). Note that there are many other repositories that can be great for starting a project like this from, this is just the one I chose.
+As with all programming endeavours, let's aim not to re-invent the wheel and use an example project to use as a template for our own. In PunditBot I used [the docker genai-stack project](https://github.com/docker/genai-stack). Note that there are many other repositories that can be great for starting a project like this from, this is just the one I chose.
 
-This repository contains other interesting tools that utilize an LLM model, but most importantly it has a Vite front end application connected to a FastAPI backend, with configuration we can plug our new OpenAI API key into. 
+This repository contains other interesting tools that utilise an LLM model, but most importantly it has a Vite front end application connected to a FastAPI backend, with configuration we can plug our new OpenAI API key into. 
 
 So now we have our own version of ChatGPT - a chat bot interface that uses an LLM for generated answers. A simplified diagram of the app architecture would look like this.
 
@@ -62,7 +62,7 @@ Our app is still unable to report on the game last week. However, our app now ha
 2. Look up the last game played between the teams mentioned
 3. Return a coherent response to the user containing that game data we extracted in step 2.
 
-To complete these steps, we are going to build an extractor function to identify the teams mentioned, a lookup function to find the data for the teams' last game and a summarizer function to bundle up the data into a nicely written response. Exploring step 2 isn't of relevance to this article as it does not involve an LLM. We could use a local database and query it in SQL, or a tool that searches the web or requests data from football API for the game results. Either way this functionality is not novel or new; lets instead explore steps 1 and 3.
+To complete these steps, we are going to build an extractor function to identify the teams mentioned, a lookup function to find the data for the teams' last game and a summariser function to bundle up the data into a nicely written response. Exploring step 2 isn't of relevance to this article as it does not involve an LLM. We could use a local database and query it in SQL, or a tool that searches the web or requests data from football API for the game results. Either way this functionality is not novel or new; let's instead explore steps 1 and 3.
 
 ## Creating an extractor method
 
@@ -112,7 +112,7 @@ This prompt is engineered to ask the LLM for a specific outcome - find from the 
 
 This works surprisingly well! Beyond clear questions specifying the names of the teams, GPT-3.5 was able to identify the two teams involved in the Manchester Derby and could even understand "the blues" as Chelsea FC.
 
-## Creating a summarizer method
+## Creating a summariser method
 
 After step 1 and step 2 we need to return to the user the game data found in a Chat Bot style response. This again is remarkably simple using an LLM, see the example prompt below.
 
@@ -129,7 +129,7 @@ Only use data listed above.
 Do not infer any data outside of what is listed above.
 ```
 
-Like the extractor prompt, the content within the curly brackets will contain the actual match data. In my example I injected the string representation of a python dictionary containing key value pairs of game data (half-time score, home team, date of the match, etc.). We heavily emphasize in the end of the prompt to only use mentioned data to deter the model from hallucinating.
+Like the extractor prompt, the content within the curly brackets will contain the actual match data. In my example I injected the string representation of a python dictionary containing key value pairs of game data (half-time score, home team, date of the match, etc.). We heavily emphasise in the end of the prompt to only use mentioned data to deter the model from hallucinating.
 
 ## Wire it all up
 
@@ -148,7 +148,7 @@ Now there are obvious flaws with the current version I am showcasing above.
 - The UI includes unnecessary information around if "RAG mode" is enabled or not or what model is being used
 	- These are just parts of the UI that came with [the docker genai-stack project](https://github.com/docker/genai-stack) I based the project from and can be cleaned up
 - The response is poorly formatted and hard to read
-	- Some tweaking of the summarizer prompt could be used to enforce new lines between the 2 game reports, plus other visual adjustments if necessary.
+	- Some tweaking of the summariser prompt could be used to enforce new lines between the 2 game reports, plus other visual adjustments if necessary.
 
 Ultimately, this article is concerned with the application of utilising an LLM with external tool. What has been proven here is it is possible to take an LLM model like GPT-3.5 and add new functionality around it to make it more useful for specific applications. There are frameworks (such as [LangChain](https://www.langchain.com/)) that are entirely based on this idea. The idea could be taken a lot further by plugging in more tools - for example we could return a video highlight of the winning goal to both games and render that beneath the game reports.
 
