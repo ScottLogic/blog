@@ -135,6 +135,7 @@ active-authors:
   - vcisse
   - wboothclibborn
   - wduncan
+  - wmckenzie
   - wreilly
   - wtrimble
   - xchen
@@ -1459,3 +1460,8 @@ authors:
     email: mmorgan@scottlogic.com
     author-summary: "Developer based in the Leeds office. Have worked on front-end, middle-ware, and back-end services. Currently upskilling on all things Data Engineering."
     picture: picture.jpg
+  wmckenzie:
+    name: "Will McKenzie"
+    email: wmckenzie@scottlogic.com
+    author-summary: "Senior developer based in the Newcastle office with experience of front and backend development across web and mobile as well as DevOps and automation."
+    picture: wmckenzie.jpg
