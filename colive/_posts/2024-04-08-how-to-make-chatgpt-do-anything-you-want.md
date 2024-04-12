@@ -26,8 +26,7 @@ Currently if we ask ChatGPT about this it admits it doesn't have access to curre
 
 We need to build new logic around the call to OpenAI's GPT model. Fortunately, OpenAI also offers requests straight to their model through an API, billed to your account (billing is done by the number of tokens used in each prompt and generated in each response, where a token can be thought of as a word or part of a word). Now we can write code (here is a short python script as an example stolen directly from [OpenAI's Quickstart tutorial](https://platform.openai.com/docs/quickstart?context=python)) to call the API with our prompt.
 
-```python
-ChatCompletions
+~~~python
 from openai import OpenAI
 client = OpenAI()
 
@@ -40,7 +39,7 @@ completion = client.chat.completions.create(
 )
 
 print(completion.choices[0].message)
-```
+~~~
 
 When using the `/v1/chat/completions` endpoint you can specify both a system prompt (response context for the LLM) and a user prompt (the actual prompt given, often called utterance).
 
@@ -69,31 +68,31 @@ To complete these steps, we are going to build an extractor function to identify
 The method to extract the specific football teams from a user’s utterance could be overly complex, one way to achieve this could be to search through a list of pre-defined keywords. However, this is a task LLMs are surprisingly good at. See the following prompt.
 
 
-```
+~~~
 You are an expert extraction algorithm tasked at extracting what football match (or matches) the user wants to know about. You must return the 2 football clubs that the user has asked about from the question. Return the 2 clubs in a comma separated list.
 	
 Football clubs must be referred to using one of the following names
 
-	- Arsenal FC
-	- Brighton & Hove Albion FC
-	- Chelsea FC
-	- Crystal Palace FC
-	- Everton FC
-	- Southampton FC
-	- Watford FC
-	- West Bromwich Albion FC
-	- Manchester United FC
-	- Newcastle United FC
-	- AFC Bournemouth
-	- Burnley FC
-	- Leicester City FC
-	- Liverpool FC
-	- Stoke City FC
-	- Swansea City AFC
-	- Huddersfield Town AFC
-	- Tottenham Hotspur FC
-	- Manchester City FC
-	- West Ham United FC
+- Arsenal FC
+- Brighton & Hove Albion FC
+- Chelsea FC
+- Crystal Palace FC
+- Everton FC
+- Southampton FC
+- Watford FC
+- West Bromwich Albion FC
+- Manchester United FC
+- Newcastle United FC
+- AFC Bournemouth
+- Burnley FC
+- Leicester City FC
+- Liverpool FC
+- Stoke City FC
+- Swansea City AFC
+- Huddersfield Town AFC
+- Tottenham Hotspur FC
+- Manchester City FC
+- West Ham United FC
 
 For example, for the question
 
@@ -106,7 +105,7 @@ You should return
 If you do not know the value of an attribute asked to extract, return null for the attribute's value.
 
 The question: {question}
-```
+~~~
 
 This prompt is engineered to ask the LLM for a specific outcome - find from the question provided two football teams. The specific football clubs that should be returned are listed (this data is from Premier League teams during the 2017/18 season in case you are wondering why Huddersfield Town are there). There is also an example of One-Shot Learning - where an example model answer has been provided. Finally, it is mentioned that if the answer cannot be found the LLM should return null and not hallucinate a response (an LLM returning misinformation confidently as fact is often described as the LLM hallucinating).
 
@@ -117,7 +116,7 @@ This works surprisingly well! Beyond clear questions specifying the names of the
 After step 1 and step 2 we need to return to the user the game data found in a Chat Bot style response. This again is remarkably simple using an LLM, see the example prompt below.
 
 
-```
+~~~
 You have been asked to find the results of matches between the following Premier League football teams
 
 here is data about the games in a python dictionary format
@@ -127,7 +126,7 @@ here is data about the games in a python dictionary format
 Summarise a response to the question using the data listed above.
 Only use data listed above. 
 Do not infer any data outside of what is listed above.
-```
+~~~
 
 Like the extractor prompt, the content within the curly brackets will contain the actual match data. In my example I injected the string representation of a python dictionary containing key value pairs of game data (half-time score, home team, date of the match, etc.). We heavily emphasise in the end of the prompt to only use mentioned data to deter the model from hallucinating.
 
