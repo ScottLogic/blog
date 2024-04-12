@@ -56,6 +56,10 @@ Another important aspect that wasn’t being covered was the embodied carbon inv
 
 We added this estimation into the common crawl example, making use of some other built-in plugins to change data stored and drive size into the resources-reserved and resources-total figures required by the SCI-M plugin. I think this really highlighted the power of the Impact Framework in terms of creating customised calculation pipelines without writing any more code. Perhaps unsurprisingly, the potential embodied carbon cost turned out to be greater than our operational carbon estimation – another important factor that is not accounted for in AWS carbon reporting.
 
+Here is a flowchart demonstrating our final plugin flow:
+
+![Common Crawl Manifest flow]({{ site.github.url }}/mgriffin/assets/common-crawl-private.svg "A flowchart demonstrating the inputs to the common-crawl-private manifest and how the plugins generate outputs.")
+
 ## Conclusion
 
 Overall, our experience with the 2024 Carbon Hack was extremely rewarding. We were impressed by the rapid pace of changes being made to the Impact Framework, and we're excited to see how other teams have pushed the boundaries of this powerful tool. As the tech industry continues to grapple with its environmental impact, free and open-source tooling with flexible use cases will be essential in increasing adoption of Green Software practices.
