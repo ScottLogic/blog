@@ -1,13 +1,14 @@
 ---
-title: 'Carbon Hack 24: Leveraging the Impact Framework to Estimate the Carbon Cost of Cloud Storage'
+title: 'Carbon Hack 24: Leveraging the Impact Framework to Estimate the Carbon Cost
+  of Cloud Storage'
 date: 2024-04-11 00:00:00 Z
 categories:
 - Sustainability
 tags:
 - Sustainability
-summary: This is a post on Scott Logic's contribution to the Green Software Foundation's 2024 Carbon Hack.
-  Focussing on the energy cost of object storage in the cloud, this post details our process, challenges
-  and experiences during the hackathon.
+summary: This is a post on Scott Logic's contribution to the Green Software Foundation's
+  2024 Carbon Hack. Focussing on the energy cost of object storage in the cloud, this
+  post details our process, challenges and experiences during the hackathon.
 author: mgriffin
 ---
 
