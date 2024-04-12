@@ -10,6 +10,7 @@ summary: This is a post on Scott Logic's contribution to the Green Software Foun
   2024 Carbon Hack. Focussing on the energy cost of object storage in the cloud, this
   post details our process, challenges and experiences during the hackathon.
 author: mgriffin
+image: "/uploads/carbonhack24%20thumbnail.png"
 ---
 
 ## Introduction
