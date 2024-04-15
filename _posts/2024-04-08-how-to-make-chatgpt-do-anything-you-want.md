@@ -1,14 +1,17 @@
 ---
-author: colive
 title: How to make ChatGPT do anything you want
+date: 2024-04-08 00:00:00 Z
+categories:
+- colive
+- Artificial Intelligence
+tags:
+- ChatGPT
+- Large Language Models
+author: colive
 layout: default_post
-summary: Using an example project this article explores the possibilities of integrating a Large Language Model with custom logic to improve its utility and power.
-category: 
-    - Artificial Intelligence
-tags: 
-    - ChatGPT
-    - Large Language Models
---- 
+summary: Using an example project this article explores the possibilities of integrating
+  a Large Language Model with custom logic to improve its utility and power.
+---
 
 ## Introduction
 
