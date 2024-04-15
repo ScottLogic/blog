@@ -26,7 +26,7 @@ image: "/uploads/tcs.PNG"
 
 In the era of increasing environmental awareness, many organisations are eager to showcase their commitment to sustainability. However, not all claims of "green" or "eco-friendly" technology are accurate or substantiated. As an executive, it is becoming increasingly important to distinguish between genuine sustainability efforts and greenwashing -- the practice of making misleading or unsubstantiated claims about the environmental benefits of a product or service. This blog introduces approaches that can help you cut through the noise and make informed decisions about your organisation's technology sustainability. 
 
-[tech-impacts.PNG](/uploads/tech-impacts.PNG)
+![tech-impacts.PNG](/uploads/tech-impacts.PNG)
 
 The technology sustainability landscape is complex, with a multitude of factors contributing to the environmental impact of technology. This complexity can lead to misinformation and greenwashing, making it challenging for organisations to navigate the landscape effectively. What is needed are transparent and reliable resources, helping organisations make informed decisions about their technology sustainability efforts. It’s also important to acknowledge the broad range of impacts of technology – beyond the more direct and obvious electricity consumption of devices – to include the often overlooked upstream and downstream impacts. 
 
@@ -48,7 +48,7 @@ The technology sustainability landscape is complex, with a multitude of factors 
 
 The [Technology Carbon Standard (TCS)](https://www.techcarbonstandard.org/) is an open, standardised framework for assessing and categorising the environmental impact of enterprise technology estates. It serves as a bridge between CxOs / decision-makers and technologists by providing a common language and framework for discussing and assessing the environmental impact of technology. By aligning with the Greenhouse Gas (GHG) Protocol's emissions scopes, the TCS enables consistent mapping, measuring, and prioritisation of a technology's carbon footprint. This transparency empowers CxOs to make data-driven decisions and identify areas for improvement. 
 
-[tcs.PNG](/uploads/tcs.PNG)
+![tcs.PNG](/uploads/tcs.PNG)
 
 ## Leveraging the TCS for Transparency: 
 
