@@ -2,8 +2,9 @@
 title: The Changing World in Life, IT, Software Testing and Artificial Intelligence
 date: 2024-04-15 00:00:00 Z
 categories:
-  - Testing
-summary: This blog looks at the changing world of the IT industry and the psychology behind the changes.
+- Testing
+summary: This blog looks at the changing world of the IT industry and the psychology
+  behind the changes.
 author: lperrett
 ---
 
