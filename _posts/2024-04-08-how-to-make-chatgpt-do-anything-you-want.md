@@ -7,10 +7,11 @@ categories:
 tags:
 - ChatGPT
 - Large Language Models
-author: colive
-layout: default_post
 summary: Using an example project this article explores the possibilities of integrating
   a Large Language Model with custom logic to improve its utility and power.
+author: colive
+image: "/uploads/how%20to%20make%20chatgpt%20do%20anything%20you%20want.png"
+layout: default_post
 ---
 
 ## Introduction
