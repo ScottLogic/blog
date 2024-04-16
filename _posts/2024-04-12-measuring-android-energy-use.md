@@ -1,11 +1,11 @@
 ---
-title: 'Measuring the Androids power'
+title: 'Measuring Energy use of Android Devices'
 date: 2024-04-12 00:00:00 Z
 categories:
 - Sustainability
 tags:
 - Sustainability
-summary: This is a post on the trials of measureing energy usage on android devices. 
+summary: A post about how to gather power usage of android devices without the needs for external tools or equipment.
 author: swoods
 ---
 
@@ -38,6 +38,7 @@ currentPower = BatteryManager.getIntProperty(BATTERY_PROPERTY_CURRENT_NOW)
 ```
 
 We also need the Voltage of the device in question, this is acquired via the via the context and intents of the application.
+
 ```
 intentFilter: IntentFilter = IntentFilter().apply {addAction(Intent.ACTION_BATTERY_CHANGED)}
 receiver: Intent? = context.registerReceiver(null, intentFilter)
@@ -62,9 +63,11 @@ There are a few limitations to measuring the devices power by these methods, mos
 - The phone cannot be plugged in / charging
 
 If the device is plugged in the battery monitor can give incorrect results as it may be charging the device which can cause a negative power measurement.
+
 - Emulators cannot record power correctly. 
 
 When using the app in development using an emulator it cannot record the power correctly as the battery is also an emulation and does not charge/discharge like a proper device.
+
 - Other apps may interfere with results
 
 If there are other apps / system processes running they may impact results. While running tests for the CFoMC project we had a set list of conditions a device must be in for each test.
