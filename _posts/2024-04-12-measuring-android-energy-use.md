@@ -33,26 +33,27 @@ Using a service we can create a reusable method to monitor the energy use throug
 
 The battery API can gather a selection of information out from the device, for calculating the energy use from the API we extract the `BATTERY_PROPERTY_CURRENT_NOW` which is the current current of the battery in Microamps.
 
-```
+~~~~~~
 	currentPower = BatteryManager.getIntProperty(BATTERY_PROPERTY_CURRENT_NOW)
-```
+~~~~~~
 
 We also need the Voltage of the device in question, this is acquired via the via the context and intents of the application.
 
-```
+~~~~~~
 	intentFilter: IntentFilter = IntentFilter().apply {addAction(Intent.ACTION_BATTERY_CHANGED)}
 	receiver: Intent? = context.registerReceiver(null, intentFilter)
 
 	deviceVoltage = receiver?.getIntExtra(EXTRA_VOLTAGE, Int.MIN_VALUE)
-```
+
+~~~~~~
 
 ### Taking the service to useful data
 From the collection of data points we collect, we then can use this information to calculated the energy used into Joules of energy consumed. From the list of data we can work out the energy use between two points. 
 
-```
+~~~~~~
     currentInAmps = recordedCurrent / 1000000.0
     joules = currentInAmps * timeDifference * voltage
-```
+~~~~~~
 
 For our measurements we took samples every 1 second, so when calculated we had a array of joules used in each second of the process. To get the total amount of energy used we had to sum up all these values to a figure for the entire process. 
 
