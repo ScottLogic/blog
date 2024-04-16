@@ -21,7 +21,7 @@ summary: 'In the era of increasing environmental awareness, many organisations a
   approaches that can help you cut through the noise and make informed decisions about
   your organisation''s technology sustainability. '
 author: ocronk
-image: "/uploads/tcs.PNG"
+image: "/uploads/How%20can%20CxOs.png"
 ---
 
 In the era of increasing environmental awareness, many organisations are eager to showcase their commitment to sustainability. However, not all claims of "green" or "eco-friendly" technology are accurate or substantiated. As an executive, it is becoming increasingly important to distinguish between genuine sustainability efforts and greenwashing -- the practice of making misleading or unsubstantiated claims about the environmental benefits of a product or service. This blog introduces approaches that can help you cut through the noise and make informed decisions about your organisation's technology sustainability. 
