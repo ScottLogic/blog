@@ -1,6 +1,6 @@
 ---
 title: Is Agile always the answer?
-date: 2024-04-17 09:00:00 Z
+date: 2024-04-17 08:00:00 Z
 categories:
   - People
 tags:
