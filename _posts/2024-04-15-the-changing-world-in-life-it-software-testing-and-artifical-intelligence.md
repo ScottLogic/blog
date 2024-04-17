@@ -6,6 +6,7 @@ categories:
 summary: This blog looks at the changing world of the IT industry and the psychology
   behind the changes.
 author: lperrett
+image: "/uploads/The%20changing%20world%20thumbnail_.png"
 ---
 
 ## Introduction
