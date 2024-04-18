@@ -23,7 +23,8 @@ The IAP consists of a Typescript, React, and NextJS web application, deployed on
 
 ![IAP Simplified Architecture]({{ site.github.url }}/bpritchard/assets/codebuild/arch-simplified.png "IAP Simplified Architecture")
 
-Among the requirements of the IAP project are that the child apps must: 
+Among the requirements of the IAP project are that the child apps must:
+
     1. Be ephemeral 
     2. Be able to be destroyed 
     3. Have unique URLS 
@@ -55,7 +56,7 @@ There’s a lesson here though - don’t have a glance at SDK and just assume it
 
 ## Step Functions
 
-To truly understand where we were going with the event-driven architecture and come up with an alternative solution, we took a step back and had a look at what we required. These were 
+To truly understand where we were going with the event-driven architecture and come up with an alternative solution, we took a step back and had a look at what we required. These were: 
 
   1. The user can load the current state of the child apps
   2. The user is updated "instantly" when the child app state changes
