@@ -17,9 +17,9 @@ What do you do when you’re a software consultancy that uses small, internally 
 
 Part of life at a consultancy means stints on the bench, allowing us to participate in internal projects. One of those projects is the ‘Internal Application Portal’ (IAP). A team of developers and testers, often rotating due to being pulled onto client projects, have researched, designed, and built a web application for internal use, which deploys containerised versions of our small applications on demand. 
 
-The IAP consists of a Typescript, React, and NextJS web application, deployed on AWS. The small apps, known as child apps, are containerised, and the images are pushed to ECR. From the main IAP web app (the admin app), the user clicks a button, which sends a request to AWS Codebuild through the SDK, triggering a build.
+The IAP consists of a Typescript, React, and NextJS web application, deployed on AWS. The small apps, known as child apps, are containerised, and the images are pushed to ECR. From the main IAP web app (the admin app), the user clicks a button, which sends a request to AWS CodeBuild through the SDK, triggering a build.
 
-CodeBuild is AWS’s fully managed continuous integration service. Developers can configure build jobs, and then CodeBuild runs the build scripts, without needing to configure servers. In the case of the IAP, CodeBuild runs the child app Terraform scripts, which then deploys the infrastructure to host the child apps. The child app Terraform scripts are stored on S3, which are zipped and pushed when the IAP Terraform is deployed.
+[CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html) is AWS’s fully managed continuous integration service. Developers can configure build jobs, and then CodeBuild runs the build scripts, without needing to configure servers. In the case of the IAP, CodeBuild runs the child app Terraform scripts, which then deploys the infrastructure to host the child apps. The child app Terraform scripts are stored on S3, which are zipped and pushed when the IAP Terraform is deployed.
 
 ![IAP Simplified Architecture]({{ site.github.url }}/bpritchard/assets/codebuild/arch-simplified.png "IAP Simplified Architecture")
 
@@ -29,16 +29,16 @@ Among the requirements of the IAP project are that the child apps must:
     3. Have unique URLS 
     4. Only have one instance deployed for each user
 
-These requirements mean that the IAP must keep track of the state of the Codebuild build jobs for the child apps. 
+These requirements mean that the IAP must keep track of the state of the CodeBbuild build jobs for the child apps. 
 
-Initially, the build job status was retrieved by polling Codebuild, using SDK. Polling has it’s limitations and felt like a clunky way of doing things, so we looked to AWS, which would surely have a better solution.
+Initially, the build job status was retrieved by polling CodeBuild, using SDK. Polling has it’s limitations and felt like a clunky way of doing things, so we looked to AWS, which would surely have a better solution.
 
 
 ## EventBridge
 
-A vast majority of AWS services generate [events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html) when there is a change in the service or application. AWS EventBridge can have rules that listen for certain events; for example, a rule could listen for when an EC2 instance changes from ‘Pending’ to ‘Running’. In the case of IAP, a rule was created to listen for the status change in the Codebuild build job. 
+A vast majority of AWS services generate [events](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event.html) when there is a change in the service or application. AWS EventBridge can have rules that listen for certain events; for example, a rule could listen for when an EC2 instance changes from ‘Pending’ to ‘Running’. In the case of IAP, a rule was created to listen for the status change in the CodeBuild build job. 
 
-The EventBridge rule was configured to send the event to an endpoint in our NextJS app, which stored the details in DynamoDB. The team decided to use DynamoDB as the source of truth for the Codebuild build status so that if the NextJS app went down, the status of the child apps wouldn’t be lost. 
+The EventBridge rule was configured to send the event to an endpoint in our NextJS app, which stored the details in DynamoDB. The team decided to use DynamoDB as the source of truth for the CodeBuild build status so that if the NextJS app went down, the status of the child apps wouldn’t be lost. 
 
 Talking of the app going down, we needed to think about redundancy, and what happens if the app goes down whilst a child app build is running. EventBridge can use SQS as a dead letter queue (DLQ); if the endpoint doesn’t return a 200 response, the event is sent to an SQS queue. After a glance at [SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/introduction/), it seemed we’d be able to get the events from the DLQ - happy days! (Side note, how many [TLAs](https://en.wikipedia.org/wiki/Three-letter_acronym) can I fit into this blog post?) 
 
@@ -96,7 +96,7 @@ We first investigated how to handle user input with Step Functions - the answer 
 aws stepfunctions send-task-success --task-token YOUR_TASK_TOKEN
 ~~~
 
-When the task token is returned, the state machine resumes - in our case, this would be used to wait for the user to trigger the destroy on the admin app, and then run the Codebuild build job to destroy the infrastructure.
+When the task token is returned, the state machine resumes - in our case, this would be used to wait for the user to trigger the destroy on the admin app, and then run the CodeBuild build job to destroy the infrastructure.
 
 One of the main benefits we thought Step Functions would have is using Step Functions as the source of truth for the state of the child apps. This would mean we could eliminate a complex flow and reduce the amount of logic in our NextJS app. This was possible in theory, as we could use the AWS API to get the state from each step as needed, reducing our need to handle and store it. In practice, however, when we looked into using callbacks and task tokens, we realised we’d need to store the task token, which means we’d still need our DB. 
 
