@@ -42,7 +42,7 @@ The EventBridge rule was configured to send the event to an endpoint in our Next
 
 Talking of the app going down, we needed to think about redundancy, and what happens if the app goes down whilst a child app build is running. EventBridge can use SQS as a dead letter queue (DLQ); if the endpoint doesn’t return a 200 response, the event is sent to an SQS queue. After a glance at [SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/introduction/), it seemed we’d be able to get the events from the DLQ - happy days! (Side note, how many [TLAs](https://en.wikipedia.org/wiki/Three-letter_acronym) can I fit into this blog post?) 
 
-![IAP EventBridge Architecture]({{ site.github.url }}/bpritchard/assets/codebuild/arch-event-bridge.png "IAP EventBridge Architecture")
+![IAP EventBridge Architecture]({{ site.github.url }}/bpritchard/assets/codebuild/arch-eventbridge.png "IAP EventBridge Architecture")
 
 ### The issue and the lesson
 When implementing the DLQ logic, we discovered that the SQS `ReceiveMessageCommand` only gets up to 10 messages from the queue. If there are less than 10 messages, you may only get a sample of them, for example, if you have 6 messages in the queue, you may receive 3. To ensure you get all of the messages from the queue, you have to repeat the request… and reimplement the original polling, this time with extra AWS resources and steps.
