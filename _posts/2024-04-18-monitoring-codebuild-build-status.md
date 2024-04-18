@@ -1,6 +1,6 @@
 ---
 title: Monitoring AWS CodeBuild Build Status
-date: 2024-04-22 14:40:00 Z
+date: 2024-04-18 14:40:00 Z
 categories:
 - Technology
 tags:
