@@ -247,10 +247,10 @@ authors:
     name: "Ben Mumford"
     picture: picture.jpg
   bpritchard:
-  name: "Beth Pritchard"
-  email: bpritchard@scottlogic.com
-  author-summary: "A developer at Scott Logic, based in Newcastle. Interested in all things cloud. Partial to loud music, video games, and hanging out with my cat"
-  picture: bpritchard.jpg
+    name: "Beth Pritchard"
+    email: bpritchard@scottlogic.com
+    author-summary: "A developer at Scott Logic, based in Newcastle. Interested in all things cloud. Partial to loud music, video games, and hanging out with my cat"
+    picture: bpritchard.jpg
   cburbidge:
     name: "Chester Burbidge"
     author-summary: "Software Engineer at Scott Logic. Experienced in dotnet but interested in all areas of software development, especially 'devops' and functional programming."
