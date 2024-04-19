@@ -4,6 +4,7 @@ date: 2024-04-19 00:00:00 Z
 categories:
   - jcwright
   - Sustainability
+author: jcwright
 layout: default_post
 summary: A look into one approach to measuring energy consumption of CPU benchmarks on AWS.
 ---
