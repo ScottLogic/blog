@@ -1,6 +1,6 @@
 ---
 title: Monitoring AWS CodeBuild Build Status
-date: 2024-04-18 14:40:00 Z
+date: 2024-04-19 00:00:00 Z
 categories:
 - Technology
 tags:
@@ -30,7 +30,7 @@ Among the requirements of the IAP project are that the child apps must:
     3. Have unique URLS 
     4. Only have one instance deployed for each user
 
-These requirements mean that the IAP must keep track of the state of the CodeBbuild build jobs for the child apps. 
+These requirements mean that the IAP must keep track of the state of the CodeBuild build jobs for the child apps. 
 
 Initially, the build job status was retrieved by polling CodeBuild, using SDK. Polling has it’s limitations and felt like a clunky way of doing things, so we looked to AWS, which would surely have a better solution.
 
