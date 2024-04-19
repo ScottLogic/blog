@@ -7,7 +7,7 @@ tags:
 - Technology
 - AWS
 - Cloud
-summary: 'Adventures into event-driven and serverless architecture…'
+summary: Adventures into event-driven and serverless architecture…
 author: bpritchard
 ---
 
