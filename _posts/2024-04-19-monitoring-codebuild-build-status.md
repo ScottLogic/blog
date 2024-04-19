@@ -32,7 +32,7 @@ Among the requirements of the IAP project are that the child apps must:
 
 These requirements mean that the IAP must keep track of the state of the CodeBuild build jobs for the child apps. 
 
-Initially, the build job status was retrieved by polling CodeBuild, using SDK. Polling has it’s limitations and felt like a clunky way of doing things, so we looked to AWS, which would surely have a better solution.
+Initially, the build job status was retrieved by polling CodeBuild, using SDK. Polling has its limitations and felt like a clunky way of doing things, so we looked to AWS, which would surely have a better solution.
 
 
 ## EventBridge
