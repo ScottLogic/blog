@@ -154,12 +154,6 @@ authors:
     name: "Alex Segrove"
     picture: picture.jpg
     author-summary: "Hi, Im Alex - Delivery Manager based in the London office. I spent the last few years in the Government Digital Service heading up delivery for GOV.UK, Digital Identity and Government Data policy, then worked with governments around the world to help them with their own digital transformation."
-  bpritchard:
-    name: "Beth Pritchard"
-    email: bpritchard@scottlogic.com
-    author-summary: "A developer at Scott Logic, based in Newcastle. Interested in all things cloud. Partial to loud music, video games, and hanging out with my cat. (they/them)"
-    twitter-handle: null
-    picture: bpritchard.jpg
   aaspellc:
     name: "Andy Aspell-Clark"
     author-summary: "<p>I am a Senior Developer at Scott Logic. I am interested in all programming topics from how a computer goes from power on to displaying windows on the screen or how a CPU handles branch prediction to how to write a mobile UI using kotlin or cordova.</p>"
@@ -252,6 +246,11 @@ authors:
   bmumford:
     name: "Ben Mumford"
     picture: picture.jpg
+  bpritchard:
+    name: "Beth Pritchard"
+    email: bpritchard@scottlogic.com
+    author-summary: "A developer at Scott Logic, based in Newcastle. Interested in all things cloud. Partial to loud music, video games, and hanging out with my cat."
+    picture: bpritchard.jpg
   cburbidge:
     name: "Chester Burbidge"
     author-summary: "Software Engineer at Scott Logic. Experienced in dotnet but interested in all areas of software development, especially 'devops' and functional programming."
