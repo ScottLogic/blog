@@ -2,9 +2,9 @@
 title: Monitoring AWS CodeBuild Build Status
 date: 2024-04-19 00:00:00 Z
 categories:
-- Technology
+- Tech
 tags:
-- Technology
+- Tech
 - AWS
 - Cloud
 summary: 'Adventures into event-driven and serverless architecture…'
