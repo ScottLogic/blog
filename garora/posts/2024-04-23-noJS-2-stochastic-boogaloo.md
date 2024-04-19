@@ -3,12 +3,14 @@ title: NoJS 2':' Stochastic Boogaloo - Making a tic-tac-toe game with 'randomnes
 categories:
   - Tech
 layout: default_post
-summary: Everyone loves CSS! Continuing in my obsession, I have created a tictactoe game, with an option to have a CPU that plays randommly. This was made without any javascript, only used HTML and CSS. In this blog post I discuss how I made it
+summary: Everyone loves CSS! Continuing in my obsession, I have created a tictactoe game, with an option to have a CPU that plays randomly. This was made without any javascript, only used HTML and CSS. In this blog post I discuss how I made it
 category: Tech
 image: garora/assets/2024-06-26/icon.png
 ---
 
-This is part two to [this post](https://blog.scottlogic.com/2022/01/20/noJS-making-a-calculator-in-pure-css-html.html) where I explain how I made this pure CSS [calculator](https://quarknerd.github.io/noJS/calc.html). Next up I made [tictactoe](), which isn't in itself that an intersting extension, but the challenge came in adding a CPU to play "randommly". In this blog post I ~~make a case for my sanity~~ explain how I made it.
+NEBytes
+
+This is part two to [this post](https://blog.scottlogic.com/2022/01/20/noJS-making-a-calculator-in-pure-css-html.html) where I explain how I made this pure CSS [calculator](https://quarknerd.github.io/noJS/calc.html). Next up I made [tictactoe](), which isn't in itself that an interesting extension, but the challenge came in adding a CPU to play "randomly". In this blog post I ~~make a case for my sanity~~ explain how I made it.
 
 ## Rules
 The only thing I wrote was html and css. No HAML or SCSS or any other pre-processors. The no javascript is enforced by testing the app with javascript disabled by the browser. You can view my full codebase [here](https://github.com/QuarkNerd/noJS/).
@@ -113,7 +115,7 @@ body {
 
 ```
 
-Using the new variables `--has-X-won`, `--has-O-won` and `--has-drawn` we can display the result of the game. We can also change the O `label` scaling logic above to use `--is-O-to-play` and add an equivelent ruleset for X, so that the label become hidden when the game is over. A little bit of html and css is needed to move the squares into the right location, but there is nothing special here so I will skip over it. 
+Using the new variables `--has-X-won`, `--has-O-won` and `--has-drawn` we can display the result of the game. We can also change the O `label` scaling logic above to use `--is-O-to-play` and add an equivalent ruleset for X, so that the label become hidden when the game is over. A little bit of html and css is needed to move the squares into the right location, but there is nothing special here so I will skip over it. 
 
 ### Random
 Now for the real fun part, how to create a ~~sophisticated AI~~ bot to play in an evenly distributed 'random' manner. For this we first create extra labels for all of the locations (for X and O). They will be placed behind a `div` that will act as a `button`. If we animate the labels and make them invisible, the user will not be able to know which label is currently under the button.
@@ -155,7 +157,7 @@ The css looks like
 
 ```
 
-At this point, what we have is a "button" with the word Random. The labels are innaccessible due to the `overflow: hidden`. The height setting on .random.{LETTER} ensures that only the relavent labels are available at any given time.
+At this point, what we have is a "button" with the word Random. The labels are inaccessible due to the `overflow: hidden`. The height setting on .random.{LETTER} ensures that only the relevant labels are available at any given time.
 Now to add some animation.
 
 ```css
@@ -203,7 +205,7 @@ The other problem is that not each block is equally likely to be clicked. If you
 <!-- Repeat for "O random" -->
 ```
 
-By tweeking the animation slightly, we can ensure that only the top label inside `div.final` ever makes it to the button. And by putting the extras in a div, we can treat it as one object for the purposes of sizing. Another possible solution would have been to animate each section indivdually so it joins the end of the queue once it's done, allowing each label to fully cross the button without ever leaving a gap. But this didn't feel as clean.
+By tweaking the animation slightly, we can ensure that only the top label inside `div.final` ever makes it to the button. And by putting the extras in a div, we can treat it as one object for the purposes of sizing. Another possible solution would have been to animate each section individually so it joins the end of the queue once it's done, allowing each label to fully cross the button without ever leaving a gap. But this didn't feel as clean.
 
 ### Audio
 If you've played the game you've probably noticed an audio easter egg. Before trying this I had thought that playing audio would require javascript to function, however the audio control works with javascript disabled at the browser level so I'm going to allow it. 
@@ -226,18 +228,18 @@ audio {
 
 The key part is `overflow: hidden;` which ensures the overflow of the audio control cannot be interacted with, the rest of the values were determined by trial and error.
 
-And then the play button can be made invisble or placed behind an element that has `pointer-events: none;`, which allows clicks to pass through it.
+And then the play button can be made invisible or placed behind an element that has `pointer-events: none;`, which allows clicks to pass through it.
 
 ## Calculator Extension
-Since making the calcultor, the `has` has been introduced, which allows selecting parents based on children. In the calculator this could be used to avoid the excessive nesting. I also added basic trignometric functions, for this I followed the below steps
+Since making the calculator, the `has` has been introduced, which allows selecting parents based on children. In the calculator this could be used to avoid the excessive nesting. I also added basic trigonometric functions, for this I followed the below steps
 
-1. Use integer division (see pervious post) to create a modulo function and map the input to between 0 and 2π
+1. Use integer division (see previous post) to create a modulo function and map the input to between 0 and 2π
 2. Use a bunch of maths and retries to map the input to a value between 0 and π/2
 3. Painfully implement the expansion series of trig functions
-4. Realise that while I've been playing around with this, trig functiona have been added the css spec
+4. Realise that while I've been playing around with this, trig functions have been added the css spec
 5. Question my life choices
 
-Given the advances in the css spec to add trignometric and other mathmatical functions, writing a full scientific calculator is further within reach. While I have not yet attempted this, a possible limitation is that the [css spec](https://www.w3.org/TR/css-values-3/#calc-syntax) only asks browsers to support up to 20 terms in a `calc`, and while I haven't seen this exact limit in action, the main browsers do give up after a certain amount of complexity.
+Given the advances in the css spec to add trigonometric and other mathematical functions, writing a full scientific calculator is further within reach. While I have not yet attempted this, a possible limitation is that the [css spec](https://www.w3.org/TR/css-values-3/#calc-syntax) only asks browsers to support up to 20 terms in a `calc`, and while I haven't seen this exact limit in action, the main browsers do give up after a certain amount of complexity.
 
 ## FAQ
 
