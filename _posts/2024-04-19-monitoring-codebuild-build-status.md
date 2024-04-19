@@ -2,7 +2,7 @@
 title: Monitoring AWS CodeBuild Build Status
 date: 2024-04-19 00:00:00 Z
 categories:
-- Tech
+- Cloud
 tags:
 - Tech
 - AWS
@@ -25,10 +25,10 @@ The IAP consists of a Typescript, React, and NextJS web application, deployed on
 
 Among the requirements of the IAP project are that the child apps must:
 
-    1. Be ephemeral 
-    2. Be able to be destroyed 
-    3. Have unique URLS 
-    4. Only have one instance deployed for each user
+  1. Be ephemeral 
+  2. Be able to be destroyed 
+  3. Have unique URLS 
+  4. Only have one instance deployed for each user
 
 These requirements mean that the IAP must keep track of the state of the CodeBuild build jobs for the child apps. 
 
