@@ -77,27 +77,18 @@ We took pretty much the same approach for the WebAssembly benchmarks. We include
 
 Our Teads spreadsheet from earlier gave us the following energy consumption values:
 
-|---
+|-----
 | Instance | Component | Idle (Wh) | 10% (Wh) | 50% (Wh) | 100% (Wh)
 |-|-|-|-|-|-|
-| t2. large | CPU | 0.97 | 2.77 | 5.71 | 7.81
-| |-|-|-|-|-|
+| t2.large | CPU | 0.97 | 2.77 | 5.71 | 7.81
 | | Memory | 1.6 | 2.4 | 3.2 | 4.8
-| |-|-|-|-|-|
 | | Instance | 4.2 | 6.8 | 10.5 | 14.2
-|-|-|-|-|-|-|
-| m4. large | CPU | 0.97 | 2.77 | 5.71 | 7.81
-| |-|-|-|-|-|
+| m4.large | CPU | 0.97 | 2.77 | 5.71 | 7.81
 | | Memory | 1.6 | 2.4 | 3.2 | 4.8
-| |-|-|-|-|-|
 | | Instance | 4.2 | 6.8 | 10.5 | 14.2
-|-|-|-|-|-|-|
-| m6i. large | CPU | 1.09 | 2.98 | 7.05 | 9.55
-| |-|-|-|-|-|
+| m6i.large | CPU | 1.09 | 2.98 | 7.05 | 9.55
 | | Memory | 1.6 | 2.4 | 3.2 | 4.8
-| |-|-|-|-|-|
 | | Instance | 4.6 | 7.3 | 12.1 | 16.2
-|-|-|-|-|-|-|
 
 We can see that the memory is the same for all instance types, and the CPU is identical for T2 and M4 which is understandable as both instance types use the same CPU models.
 
