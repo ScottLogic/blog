@@ -27,7 +27,7 @@ There's lots of data flying around varying from real time pricing data to instru
 
  
 ## Terminology and types of data
-To begin I think it's useful to classify the different types of message we might send before going into more detail on each in the following sections. The obvious ones are:
+To begin I think it's useful to classify the different types of messages we might send before going into more detail on each in the following sections. The obvious ones are:
 
 <table>
   <tr>
@@ -65,7 +65,7 @@ To begin I think it's useful to classify the different types of message we might
   </tr>
 </table>
 
-Time series data is of course the state of a single thing, but I'd argue that it is distinct because of its periodic nature - an update is sent regardless of whether it has changed or not 
+Time series data is of course the state of a single thing, but I'd argue that it is distinct because of its periodic nature - an update is sent regardless of whether it has changed or not.
 
 In the following sections we'll dive into some of these in more detail but let's discuss one more piece of terminology: *messages*. 
 
@@ -109,7 +109,7 @@ In this example I haven't included a field to say if it is created or updated. A
 
 State messages can be used in lots of scenarios but are a necessity when going towards an event sourcing route with the event log as the source of truth rather than a database.
 
-I've found in practice that the difference between state and events can be a bit greyer than suggested so far. You may encounter half way solutions where an event has some commonly used info, like the email, but not the more detailed information. It's not very pure but it saves a lot of API requests for consumers who only care about the email. 
+I've found in practice that the difference between state and events can be a bit greyer than suggested so far. You may encounter halfway solutions where an event has some commonly used info, like the email, but not the more detailed information. It's not very pure but it saves a lot of API requests for consumers who only care about the email. 
 In a similar vein, sometimes an event is conveying a change in just one field, e.g. a "Phone Number Changed" event and includes the phone number as well as the user ID and so carries all the state. Sometimes a state message may include before and after state or a change list with the field names/paths (e.g. changes=[firstname, person.phone.mobile]) that have changed. 
 
 The following table summarises the differences:
@@ -161,7 +161,7 @@ Relating to the number of consumers, if your API is not that reliable then the s
 Resilience and some of the other points are really a form of coupling. If a service must call another service's API to get data it is more closely coupled to that service than a state message solution where the consumer needs to know nothing about the producer and isn't dependent on its name, resilience, API schema etc.
 
 #### Data Transfer Volumes
-If most consumers only want 2 or 3 fields but the state messages have 200 fields in them it can be wasteful. In this case an event option will be more efficient assuming the synchronous APIs (e.g. REST, GraphQL) are more fine grained. It's not a major plus for small focused state objects (e.g. 10-20 fields) but more important if sending large chunks of data around going into the 10s of KBs.
+If most consumers only want 2 or 3 fields but the state messages have 200 fields in them it can be wasteful. In this case an event option will be more efficient assuming the synchronous APIs (e.g. REST, GraphQL) are finer grained. It's not a major plus for small focused state objects (e.g. 10-20 fields) but more important if sending large chunks of data around going into the 10s of KBs.
 
 #### Consumer simplicity
 
@@ -174,7 +174,7 @@ Sometimes I've heard people assert that a state message is simpler because there
  
  Any service that is responsible for sending the email or SMS has to have its own state so it can compare before and after values and see that the email changed rather than some other field like name.
 
-On the other hand if you had a single event saying "email changed" (with the new email on the event or available via API) then the processing service can be stateless.
+On the other hand, if you had a single event saying "email changed" (with the new email on the event or available via API) then the processing service can be stateless.
 
 In this case the consumer is actually much simpler with events but the problem for state messages can be negated by including a change list. 
 
@@ -189,14 +189,14 @@ For now we'll note that if a service needs a few entities to do its work (that w
 With the state approach you potentially have to handle out of order messages and wait for all messages before you can proceed. Alternatively, a larger aggregation state message with all the entities must be constructed which has its own problems.  
 
 ### Instructions/commands/requests
-An instruction or command is a request to "do X". As an example think about a commerce site or government service that delivers a product by post or courier once a payment is made. Asynchronously this may work 2 ways:
+An instruction or command is a request to "do X". As an example, think about a commerce site or government service that delivers a product by post or courier once a payment is made. Asynchronously this may work 2 ways:
 
  1. there's a delivery microservice that is listening to generic ORDER_PLACED events (or order state) and acts upon them to arrange delivery.
  2. The order application (or an intermediary microservice service that consumes the ORDER_PLACED events) writes out a "PREPARE_DELIVERY" instruction or similar to a delivery company service. 
 
 The latter is an example of an instruction. 
 
-The instruction message will typically contain all the necessary information for the downstream to do its work although it doesn't have to. Generally because an instruction is quite targeted there is no reason to not have the relevant data in the message unless there's any large files or images needed that are best not transmitted on the message bus. 
+The instruction message will typically contain all the necessary information for the downstream to do its work although it doesn't have to. Generally, because an instruction is quite targeted, there is no reason to not have the relevant data in the message unless there are any large files or images needed that are best not transmitted on the message bus. 
 
 ### Commands vs state/events
 
@@ -206,7 +206,7 @@ Now we've looked at instructions let's compare them to state and event messages.
  * A command is more specific and targeted at a particular consumer albeit with loose coupling (via queue or similar). 
  * With a command there is often an expectation of a response back via another message to confirm that it has been received and accepted or acted on. 
 
-My personal take on this is that commands best fit into a workflow where you want to keep coupling low but nonetheless you are requesting something to happen and you care that it does happen. You may want to be able to bring up on a dashboard the state of the user's order and its delivery and take action where there are problems and you don't want to have to pull data from numerous systems to get that view. Such a scenario often benefits from an orchestrator, e.g. something like Camunda or Uber Cadence or AWS Step Functions.
+My personal take on this is that commands best fit into a workflow where you want to keep coupling low but nonetheless you are requesting something to happen, and you care that it does happen. You may want to be able to bring up on a dashboard the state of the user's order and its delivery, and take action where there are problems. You don't want to have to pull data from numerous systems to get that view. Such a scenario often benefits from an orchestrator, e.g. something like Camunda or Uber Cadence or AWS Step Functions.
 
 With events/state messages then the source system (or an orchestrator) doesn't take any responsibility for what happens when it has done its work. It just throws out a message saying "here's some new/updated data" and moves on. It's up to other services to decide what to do and to provide a view on the status of the downstream actions. An obvious corollary of this is that where transmitting state, if any critical (to business function) downstreams depend on it then the messaging system must be very robust because there's no opportunity for retries or flagging errors in the source system. The source has no idea if downstreams got the data and successfully processed it. 
 
@@ -282,6 +282,6 @@ On state and events specifically, I'm not sure there's ever a 100% preferred app
 
  Nonetheless events do mean tighter coupling between services and won't always scale if consumer numbers are high.
 
-Whatever you go for, have a clear plan, try to be consistent and logical and don't make a choice accidentally. Put another way don't randomly mix instructions, state and events within a service without any clear reasoning. This doesn't mean you should try and have a one size fits all enterprise wide pattern. Even in a single domain it may be fine to have one service emitting state and another service listening to that and sending commands to do specific things when the data changes.
+Whatever you go for, have a clear plan, try to be consistent and logical and don't make a choice accidentally. Put another way don't randomly mix instructions, state and events within a service without any clear reasoning. This doesn't mean you should try and have a one size fits all enterprise-wide pattern. Even in a single domain it may be fine to have one service emitting state and another service listening to that and sending commands to do specific things when the data changes.
 
 In part 2 I'll go into more detail on state messages looking at how to pick the right granularity for the data. 
