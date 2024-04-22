@@ -15,7 +15,7 @@ author: dhope
 
 <img class="none" alt="Image of some services,a message broker and messages going between them and two arrows. The arrow pointing at the message broker saying 'previous blog' and the arrow pointing at the mesages saying 'this blog'" src="{{ site.github.url }}/dhope/assets/messagetypes/this_blog_last_blog.svg" />
 
-In my previous [blog post](https://blog.scottlogic.com/2023/11/14/data-distribution.html) I looked at various technologies for sending data asynchronously between services including RabbitMQ, Kafka, AWS Eventbridge. This time round I'll look at the messages themselves which over the last few years I've found to be a more complex and nuanced topic than expected. 
+In my previous [blog post](https://blog.scottlogic.com/2023/11/14/data-distribution.html) I looked at various technologies for sending data asynchronously between services including RabbitMQ, Kafka, AWS EventBridge. This time round I'll look at the messages themselves which over the last few years I've found to be a more complex and nuanced topic than expected. 
 
 To set the scene see the diagram below of an imaginary financial trading application:
 
@@ -23,7 +23,7 @@ To set the scene see the diagram below of an imaginary financial trading applica
 
 There's lots of data flying around varying from real time pricing data to instructions to execute trades. I've coloured the data entities according to their types and we see there's a few different patterns like events and state which we'll discuss in a moment.   
 
- The data bus isn't shown in the diagram because the discussion in this blog is relatively independent of which you pick. You might imagine, for example, that those with "event" in the title like Azure Eventgrid and AWS Eventbridge are only for events but the reality is that most data buses support payloads of 256kB or more meaning you can be flexible in what you send in any technology.  
+ The data bus isn't shown in the diagram because the discussion in this blog is relatively independent of which you pick. You might imagine, for example, that those with "event" in the title like Azure Event Grid and AWS EventBridge are only for events but the reality is that most data buses support payloads of 256kB or more meaning you can be flexible in what you send in any technology.  
 
  
 ## Terminology and types of data
@@ -65,7 +65,7 @@ To begin I think it's useful to classify the different types of message we might
   </tr>
 </table>
 
-Time series data is of course the state of a single thing, but I'd argue that it is distinct because of it's periodic nature - an update is sent regardless of whether it has changed or not 
+Time series data is of course the state of a single thing, but I'd argue that it is distinct because of its periodic nature - an update is sent regardless of whether it has changed or not 
 
 In the following sections we'll dive into some of these in more detail but let's discuss one more piece of terminology: *messages*. 
 
@@ -110,7 +110,7 @@ In this example I haven't included a field to say if it is created or updated. A
 State messages can be used in lots of scenarios but are a necessity when going towards an event sourcing route with the event log as the source of truth rather than a database.
 
 I've found in practice that the difference between state and events can be a bit greyer than suggested so far. You may encounter half way solutions where an event has some commonly used info, like the email, but not the more detailed information. It's not very pure but it saves a lot of API requests for consumers who only care about the email. 
-In a similar vain, sometimes an event is conveying a change in just one field, e.g. a "Phone Number Changed" event and includes the phone number as well as the user ID and so carries all the state. Sometimes a state message may include before and after state or a change list with the field names/paths (e.g. changes=[firstname, person.phone.mobile]) that have changed. 
+In a similar vein, sometimes an event is conveying a change in just one field, e.g. a "Phone Number Changed" event and includes the phone number as well as the user ID and so carries all the state. Sometimes a state message may include before and after state or a change list with the field names/paths (e.g. changes=[firstname, person.phone.mobile]) that have changed. 
 
 The following table summarises the differences:
 <table>
@@ -152,16 +152,16 @@ I wouldn't say there's a right or wrong option as to which to go with. It will d
 
 #### Number of consumers
 <img class="none" alt="A sketch showing a producer service sending out a message that fans to many consumers who all then do a REST call back into the producer to get more data" src="{{ site.github.url }}/dhope/assets/messagetypes/API_hit.svg" />
-As the consumer volume goes up the advantage of the stateful approach is that you don't end up with heavy load on an API. Imagine a cluster of 100 messages going onto a bus arriving at 15 consumers at the same time. You've then got 1500 requests in a second or two to your API
+As the consumer volume goes up the advantage of the stateful approach is that you don't end up with heavy load on an API. Imagine a cluster of 100 messages going onto a bus arriving at 15 consumers at the same time. You've then got 1500 requests in a second or two to your API.
 
 #### Resilience
 Relating to the number of consumers, if your API is not that reliable then the stateful option can be better for resilience because you don't have a dependency on both the message bus and the API, just on the message bus in order to get all the data. 
 
 #### Coupling
-Resilience and some of the other points are really a form of coupling. If a service must call another service's API to get data it is more closely coupled to that service than a state message solution where the consumer needs to know nothing about the producer and isn't dependent on it's name, resilience, API schema etc
+Resilience and some of the other points are really a form of coupling. If a service must call another service's API to get data it is more closely coupled to that service than a state message solution where the consumer needs to know nothing about the producer and isn't dependent on its name, resilience, API schema etc.
 
 #### Data Transfer Volumes
-If most consumers only want 2 or 3 fields but the state messages have 200 fields in them it can be wasteful. In this case an event option will be more efficient assuming the synchronous APIs (e.g. REST, GraphQL) are more fine grained. It's not a major plus for small focused state objects (e.g. 10-20 fields) but more important if sending large chunks of data around going into the 10s of kBs.
+If most consumers only want 2 or 3 fields but the state messages have 200 fields in them it can be wasteful. In this case an event option will be more efficient assuming the synchronous APIs (e.g. REST, GraphQL) are more fine grained. It's not a major plus for small focused state objects (e.g. 10-20 fields) but more important if sending large chunks of data around going into the 10s of KBs.
 
 #### Consumer simplicity
 
@@ -172,7 +172,7 @@ Sometimes I've heard people assert that a state message is simpler because there
  * you've taken the state message approach
  * you don't include a change list, just the current state. 
  
- Any service that is responsible for sending the email or SMS has to have it's own state so it can compare before and after values and see that the email changed rather than some other field like name.
+ Any service that is responsible for sending the email or SMS has to have its own state so it can compare before and after values and see that the email changed rather than some other field like name.
 
 On the other hand if you had a single event saying "email changed" (with the new email on the event or available via API) then the processing service can be stateless.
 
@@ -192,18 +192,18 @@ With the state approach you potentially have to handle out of order messages and
 An instruction or command is a request to "do X". As an example think about a commerce site or government service that delivers a product by post or courier once a payment is made. Asynchronously this may work 2 ways:
 
  1. there's a delivery microservice that is listening to generic ORDER_PLACED events (or order state) and acts upon them to arrange delivery.
- 2. The order application (or an intermediary microservice service that consumes the ORDER_PLACED events) writes out a "PREPARE_DELIVERY" intruction or similar to a delivery company service. 
+ 2. The order application (or an intermediary microservice service that consumes the ORDER_PLACED events) writes out a "PREPARE_DELIVERY" instruction or similar to a delivery company service. 
 
 The latter is an example of an instruction. 
 
-The instruction message will typically contain all the necessary information for the downstream to do it's work although it doesn't have to. Generally because an instruction is quite targeted there is no reason to not have the relevant data in the message unless there's any large files or images needed that are best not transmitted on the message bus. 
+The instruction message will typically contain all the necessary information for the downstream to do its work although it doesn't have to. Generally because an instruction is quite targeted there is no reason to not have the relevant data in the message unless there's any large files or images needed that are best not transmitted on the message bus. 
 
 ### Commands vs state/events
 
 Now we've looked at instructions let's compare them to state and event messages. I would say the differences are:
 
  * A state or event message is quite generic and there could be a few services interested in it. 
- * A command is more specific and targetted at a particular consumer albeit with loose coupling (via queue or similar). 
+ * A command is more specific and targeted at a particular consumer albeit with loose coupling (via queue or similar). 
  * With a command there is often an expectation of a response back via another message to confirm that it has been received and accepted or acted on. 
 
 My personal take on this is that commands best fit into a workflow where you want to keep coupling low but nonetheless you are requesting something to happen and you care that it does happen. You may want to be able to bring up on a dashboard the state of the user's order and its delivery and take action where there are problems and you don't want to have to pull data from numerous systems to get that view. Such a scenario often benefits from an orchestrator, e.g. something like Camunda or Uber Cadence or AWS Step Functions.
@@ -217,7 +217,7 @@ I am not going to say a lot here because the question of what to put in the mess
 * the value type(s) 
 * a timestamp. 
 
-The challenges are primarily around the message bus and the consumer. e.g. working out when all data has arrived in a given time period (See watermarks in [Streaming Systems](https://www.oreilly.com/radar/the-world-beyond-batch-streaming-102/)) and finding the right balance between risk of data loss vs throughput and latency. But the question of what to put in the message itself is comparitively simple. 
+The challenges are primarily around the message bus and the consumer. e.g. working out when all data has arrived in a given time period (See watermarks in [Streaming Systems](https://www.oreilly.com/radar/the-world-beyond-batch-streaming-102/)) and finding the right balance between risk of data loss vs throughput and latency. But the question of what to put in the message itself is comparatively simple. 
 
 ## Message envelopes
 
@@ -230,7 +230,7 @@ A few recommendations are:
  Include a unique ID on a message regardless of whether it's state, command etc. I'd advise UUIDs to guarantee uniqueness. This ID should just be about the message and not the entity. This is useful because:
 
  * for a command an action may not be idempotent, e.g. sending an email is not idempotent and so you must be able to de-duplicate
- * even for state which ideally is idempotent, it's better to avoid duplicating work in consumers and so having an ID to check against makes this easy
+ * even for state which ideally is idempotent, it's better to avoid duplicating work in consumers and so having an ID to check against makes this easy.
 
 
 ### Timestamps
@@ -245,9 +245,9 @@ Don't confuse the version for the message envelope (shared across many entities)
     
 ### Testing and environments
 It's worth allowing for testing and multiple environments in your messages. 
-For example, consider a flag to say if a message is a test message. This will allow easy filtering of test data in prod without polluting your analytics systems
+For example, consider a flag to say if a message is a test message. This will allow easy filtering of test data in production without polluting your analytics systems.
 
-Also consider a environment flag. It is common to flow production data into test environments so as to provide realistic data. Sometimes you'll want to know about this because, coming from prod, referenced IDs won't exist so a flag let's you know this came from anther environment and not all linked data may have flowed into that test environment.
+Also consider an environment flag. It is common to flow production data into test environments to help provide realistic data. Sometimes you'll want to know about this because, as the data came from production, referenced IDs won't exist. A flag lets you know this came from another environment and not all linked data may have flowed into that test environment.
 
 ### Example
 As an example of a message with the above fields:
@@ -278,12 +278,10 @@ On state and events specifically, I'm not sure there's ever a 100% preferred app
 * only one API for getting the data - don't need to keep 2 in sync
 * consumers don't have to assemble objects turning up in random order
 * one source of truth accessible via the one API
-* no need to worry about replays and backfills - just grab historic data from the REST/GraphQL/RPC API
+* no need to worry about replays and backfills - just grab historic data from the REST/GraphQL/RPC API.
 
  Nonetheless events do mean tighter coupling between services and won't always scale if consumer numbers are high.
 
 Whatever you go for, have a clear plan, try to be consistent and logical and don't make a choice accidentally. Put another way don't randomly mix instructions, state and events within a service without any clear reasoning. This doesn't mean you should try and have a one size fits all enterprise wide pattern. Even in a single domain it may be fine to have one service emitting state and another service listening to that and sending commands to do specific things when the data changes.
 
 In part 2 I'll go into more detail on state messages looking at how to pick the right granularity for the data. 
-
-
