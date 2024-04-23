@@ -2,12 +2,15 @@
 title: Is Agile always the answer?
 date: 2024-04-17 08:00:00 Z
 categories:
-  - People
+- People
 tags:
-  - agile
-  - scrum
-  - team
-summary: In software development we often make the assumption that Agile is the best way to manage process on a project but just what do we mean by that, is it true and, if so, why are there so many examples of it not working for teams? In this post I try to take a deeper look at some of these questions.
+- agile
+- scrum
+- team
+summary: In software development we often make the assumption that Agile is the best
+  way to manage process on a project but just what do we mean by that, is it true
+  and, if so, why are there so many examples of it not working for teams? In this
+  post I try to take a deeper look at some of these questions.
 author: dogle
 ---
 
