@@ -12,6 +12,7 @@ summary: In software development we often make the assumption that Agile is the 
   and, if so, why are there so many examples of it not working for teams? In this
   post I try to take a deeper look at some of these questions.
 author: dogle
+image: "/uploads/is%20agile%20always%20the%20answer_.png"
 ---
 
 ## Just what is Agile anyway?
