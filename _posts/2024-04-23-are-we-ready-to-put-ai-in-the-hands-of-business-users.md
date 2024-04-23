@@ -1,28 +1,32 @@
 ---
 title: Are we ready to put AI in the hands of business users?
 date: 2024-04-23 00:00:00 Z
-categories: [ Data Engineering ]
-tags: 
-    - data
-    - bi
-    - business intelligence
-    - data visualisation
-    - ai
-    - artificial intelligence
-    - ml
-    - machine learning
-    - generative ai
-    - generative bi
-    - aws
-    - cloud
-    - quicksight
-    - sagemaker
-    - sagemaker canvas
-summary: Lots of businesses want to use AI, if they can find the right business case for it.  We look at some new and enhanced AWS products which take a low-or-no-code approach to using AI to enhance Business Intelligence tools.
+categories:
+- Data Engineering
+tags:
+- data
+- bi
+- business intelligence
+- data visualisation
+- ai
+- artificial intelligence
+- ml
+- machine learning
+- generative ai
+- generative bi
+- aws
+- cloud
+- quicksight
+- sagemaker
+- sagemaker canvas
+summary: Lots of businesses want to use AI, if they can find the right business case
+  for it.  We look at some new and enhanced AWS products which take a low-or-no-code
+  approach to using AI to enhance Business Intelligence tools.
 author: csalt
 contributors: sgladstone
 layout: default_post
 ---
+
 Generative AI has been grabbing headlines, but many businesses are starting to feel left-behind.  Large-model AI is becoming more and more influential in the market, and with the well-known tech giants starting to introduce easy-access AI stacks, a lot of businesses are left feeling that although there may be a use for AI in their business, they're unable to see what use cases it might help them with.  They see the potential of AI, but struggle to find practical applications for it.  Consumer chatbots are now a common feature of company home pages, but aren't always popular with end users.  With little other use of AI in the business, some companies are starting to feel that they're missing out from the benefits of AI whilst at the same time being not quite sure what they're missing out on.
 
 However, at the same time, it is becoming more and more common to find AI-driven solutions to specific, well-contextualised business problems.
