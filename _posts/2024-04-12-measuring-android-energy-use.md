@@ -1,6 +1,6 @@
 ---
 title: 'Measuring Energy use of Android Devices'
-date: 2024-04-12 00:00:00 Z
+date: 2024-04-23 00:00:00 Z
 categories:
 - Sustainability
 tags:
@@ -58,7 +58,7 @@ Using the Battery Manager API, we can query the device for its battery status at
 ![Android Energy Measurement Method]({{ site.github.url }}/swoods/assets/Anrdoid_Energy_Measure_Method.svg)
 
 ### Services
-Using a [service](https://developer.android.com/develop/background-work/services) this allows us to run a separate process behind the main process which can monitor the devices battery. We can then create a reusable method to monitor the energy use throughout a process. We can choose the sample rate of how often we keep record the power levels, then keep it in a list so we can see changes over time of energy use, to be summarised and collated when the process has finished. 
+Using a [service](https://developer.android.com/develop/background-work/services) this allows us to run a separate process behind the main process which can monitor the devices battery. We can then create a reusable method to monitor the energy use throughout a process. We can choose the sample rate of how often we record the power levels, then keep it in a list so we can see changes over time of energy use, to be summarised and collated when the process has finished. 
 
 ### Battery Manager API
 
@@ -78,8 +78,8 @@ We also need the Voltage of the device in question, because `power = voltage * c
 
 ~~~~~~
 
-### Taking the service to useful data
-From the collection of data points we collect, we then can use this information to calculate the energy used into Joules of energy consumed. From the list of data we can work out the energy use between two points. 
+### Going from raw sample values to energy consumed
+From the collection of data points we collect, we then can use this information to calculate the energy used into Joules. From the list of data we can work out the energy use between two points. 
 
 ~~~~~~
     currentInAmps = recordedCurrent / 1000000.0
