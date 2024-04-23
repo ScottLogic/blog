@@ -13,6 +13,7 @@ summary: This blog is about the different types of message you can put on system
   like Rabbit MQ and Kafka. It discusses the differences between commands, events,
   state and gives a few tips around how to structure your messages.
 author: dhope
+image: "/uploads/Async%20APIs.png"
 ---
 
 <img class="none" alt="Image of some services,a message broker and messages going between them and two arrows. The arrow pointing at the message broker saying 'previous blog' and the arrow pointing at the mesages saying 'this blog'" src="{{ site.github.url }}/dhope/assets/messagetypes/this_blog_last_blog.svg" />
