@@ -24,6 +24,7 @@ summary: Lots of businesses want to use AI, if they can find the right business 
   approach to using AI to enhance Business Intelligence tools.
 author: csalt
 contributors: sgladstone
+image: "/uploads/are%20we%20ready%20to%20put%20ai%20in%20the%20hands%20of%20business%20users.png"
 layout: default_post
 ---
 
