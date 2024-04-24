@@ -1,6 +1,6 @@
 ---
 title: Measuring energy consumption in the cloud
-date: 2024-04-19 00:00:00 Z
+date: 2024-04-24 00:00:00 Z
 categories:
   - jcwright
   - Sustainability
