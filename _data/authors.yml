@@ -296,7 +296,8 @@ authors:
     picture: picture.png
   csalt:
     name: "Caitlin Salt"
-    author-summary: "I'm a Lead Developer at Scott Logic, based in our Bristol office.  My interests are varied and wide-ranging, but I tend to specialise in .NET and cloud-hosted technologies.  When I'm not at a keyboard, I get passionate about almost any sort of outdated and vintage machinery."
+    author-summary: "I'm a Technical Principal at Scott Logic, based in our Bristol office.  My interests are varied and wide-ranging, but I tend to specialise in .NET and cloud-hosted technologies.  When I'm not at a keyboard, I get passionate about almost any sort of outdated and vintage machinery."
+    feed-description: "Blog posts by Caitlin Salt, Technical Principal at Scott Logic"
     picture: picture.jpg
   cstephen:
     name: "Craig Stephen"
