@@ -17,7 +17,7 @@ This blog is one in a series from an internal project undertaken here at Scott L
 
 ## Background
 
-By the time we started the server work, we already had mobile apps built for Android and iOS that could run the CPU benchmarks. To compare between mobile and server we needed to build a test harness to run the same benchmarks, and ideally using the same benchmark code. We also needed to work out a way of actually measuring or calculating the energy used. Despite the project name including the words ‘Carbon Footprint’ our actual point of comparison was energy consumption in watt hours (Wh). The simple reason being the carbon footprint is largely dependent on the source of the electricity so by measuring energy consumption we can more directly compare results.
+By the time we started the server work, we already had mobile apps in development for Android and iOS that could run the chosen CPU benchmarks. To compare between mobile and server we needed to build a test harness to run the same benchmarks, and ideally using the same benchmark code. We also needed to work out a way of actually measuring or calculating the energy used. Despite the project name including the words ‘Carbon Footprint’ our actual point of comparison was energy consumption in watt hours (Wh). The simple reason being the carbon footprint is largely dependent on the source of the electricity so by measuring energy consumption we can more directly compare results.
 
 ## Approaches considered but ultimately rejected
 
@@ -83,17 +83,17 @@ We took pretty much the same approach for the WebAssembly benchmarks. We include
 
 Our Teads spreadsheet from earlier gave us the following energy consumption values:
 
-| Instance  | Component | Idle (Wh) | 10% (Wh) | 50% (Wh) | 100% (Wh) |
-| --------- | --------- | --------- | -------- | -------- | --------- |
-| t2.large  | CPU       | 0.97      | 2.77     | 5.71     | 7.81      |
-|           | Memory    | 1.6       | 2.4      | 3.2      | 4.8       |
-|           | Instance  | 4.2       | 6.8      | 10.5     | 14.2      |
-| m4.large  | CPU       | 0.97      | 2.77     | 5.71     | 7.81      |
-|           | Memory    | 1.6       | 2.4      | 3.2      | 4.8       |
-|           | Instance  | 4.2       | 6.8      | 10.5     | 14.2      |
-| m6i.large | CPU       | 1.09      | 2.98     | 7.05     | 9.55      |
-|           | Memory    | 1.6       | 2.4      | 3.2      | 4.8       |
-|           | Instance  | 4.6       | 7.3      | 12.1     | 16.2      |
+| Instance  | Component | Idle (W) | 10% (W) | 50% (W) | 100% (W) |
+| --------- | --------- | -------- | ------- | ------- | -------- |
+| t2.large  | CPU       | 0.97     | 2.77    | 5.71    | 7.81     |
+|           | Memory    | 1.6      | 2.4     | 3.2     | 4.8      |
+|           | Instance  | 4.2      | 6.8     | 10.5    | 14.2     |
+| m4.large  | CPU       | 0.97     | 2.77    | 5.71    | 7.81     |
+|           | Memory    | 1.6      | 2.4     | 3.2     | 4.8      |
+|           | Instance  | 4.2      | 6.8     | 10.5    | 14.2     |
+| m6i.large | CPU       | 1.09     | 2.98    | 7.05    | 9.55     |
+|           | Memory    | 1.6      | 2.4     | 3.2     | 4.8      |
+|           | Instance  | 4.6      | 7.3     | 12.1    | 16.2     |
 
 Source: [Teads Engineering](https://engineering.teads.com/)
 
