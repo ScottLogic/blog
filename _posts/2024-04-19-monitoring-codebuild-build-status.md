@@ -9,7 +9,7 @@ tags:
 - Cloud
 summary: Adventures into event-driven and serverless architecture…
 author: bpritchard
-image: "\n"
+image: "/uploads/Monitoring%20AWS.png"
 ---
 
 ## The Internal App Portal Project
