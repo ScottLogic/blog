@@ -1,18 +1,18 @@
 ---
 author: garora
-title: NoJS 2 - Stochastic Boogaloo. Making a tic-tac-toe game with 'randomness' using pure HTML and CSS. Without Javascript!
+title: NoJS 2 - Stochastic Boogaloo. Making a tic-tac-toe game with 'randomness' using pure HTML and CSS. Without JavaScript!
 categories:
   - Tech
 layout: default_post
-summary: Everyone loves CSS! Continuing in my obsession, I have created a tictactoe game, with an option to have a CPU that plays randomly. This was made without any javascript, only HTML and CSS. In this blog post I discuss how I made it
+summary: Everyone loves CSS! Continuing in my obsession, I have created a tictactoe game, with an option to have a CPU that plays randomly. This was made without any JavaScript, only HTML and CSS. In this blog post I discuss how I made it
 category: Tech
-image: garora/assets/2024-04-25/icon.png
+image: garora/assets/noJs2/icon.png
 ---
 
 This is part two to [this post](https://blog.scottlogic.com/2022/01/20/noJS-making-a-calculator-in-pure-css-html.html) where I explain how I made this pure CSS [calculator](https://quarknerd.github.io/noJS/calc.html). Next up I made [tictactoe](https://quarknerd.github.io/noJS/tictactoe/), which isn't in itself that interesting of an extension, but the challenge came in adding a CPU to play "randomly". In this blog post I <del>make a case for my sanity</del> explain how I made it.
 
 ## Rules
-The only thing I wrote was html and css. No HAML or SCSS or any other pre-processors. The no javascript is enforced by testing the app with javascript disabled by the browser. You can view my full codebase [here](https://github.com/QuarkNerd/noJS/).
+The only thing I wrote was HTML and CSS. No HAML or SCSS or any other pre-processors. The no JavaScript is enforced by testing the app with JavaScript disabled by the browser. You can view my full codebase [here](https://github.com/QuarkNerd/noJS/).
 
 ## How did I make it?
 
@@ -68,7 +68,7 @@ The first thing we need to do is ensure that the only label that can be clicked 
 
 The first 2 rulesets are used to set a variable based on how many X's and O's have been selected. The `has` operator is a relatively new one. It allows you select parents based on children or select previous siblings based on upcoming siblings. In this case, the variable `--has-x-just-played` is always applied to the `body` element, this allows us to avoid a lot of nesting and duplication of elements. The final ruleset hides any `label` connected to an O `input` when it is X's turn, so that the only clickable `label` is for X.
 
-The simplest bit of the css in this app is displaying the symbols, by default we set all symbols to `display: none` and then
+The simplest bit of the CSS in this app is displaying the symbols, by default we set all symbols to `display: none` and then
 
 ~~~css
   /* display logic */
@@ -111,7 +111,7 @@ body {
 
 ~~~
 
-Using the new variables `--has-X-won`, `--has-O-won` and `--has-drawn` we can display the result of the game. We can also change the O `label` scaling logic above to use `--is-O-to-play` and add an equivalent ruleset for X, so that the label become hidden when the game is over. A little bit of html and css is needed to move the squares into the right location, but there is nothing special there. 
+Using the new variables `--has-X-won`, `--has-O-won` and `--has-drawn` we can display the result of the game. We can also change the O `label` scaling logic above to use `--is-O-to-play` and add an equivalent ruleset for X, so that the label become hidden when the game is over. A little bit of HTML and CSS is needed to move the squares into the right location, but there is nothing special there. 
 
 ### Random
 Now for the real fun part, how to create a <del>sophisticated AI</del> bot to play in an evenly distributed 'random' manner. For this we first create extra labels for all of the locations (for X and O). They will be placed behind a `div` that will act as a `button`. If we animate the labels and make them invisible, the user will not be able to know which label is currently under the button.
@@ -129,7 +129,7 @@ Now for the real fun part, how to create a <del>sophisticated AI</del> bot to pl
 </div>
 ~~~
 
-The css looks like
+The CSS looks like
 
 ~~~css
 .random.O {
@@ -176,7 +176,7 @@ Now to add some animation.
 The `0.1s` duration means that it becomes difficult to predict where in the animation we are at. Here is a view of what it looks like currently. the translucent blue panels show the labels.
 
 <video autoplay controls loop>
-  <source src="{{site.baseurl}}/garora/assets/2024-04-23/random_labels.mp4" type="video/mp4" />
+  <source src="{{site.baseurl}}/garora/assets/noJs2/random_labels.mp4" type="video/mp4" />
   Demonstration of the hidden labels used for randomisation
 </video>
 
@@ -213,9 +213,10 @@ The other problem is that not each block is equally likely to be clicked. If you
 By tweaking the animation slightly, we can ensure that only the top label inside `div.final` ever makes it to the button. This effectively means that whichever label is currently at the top (the lowest numbered available input) has an equivelent at the bottom. We have to ensure that the size of this div is fixed to the button height, because that is the exact amount that is "lost" under the old system. Another possible solution would have been to animate each section individually so it joins the end of the queue once it's done, allowing each label to fully cross the button without ever leaving a gap. But this would throw complications when some buttons were pressed and the labels had to be removed.
 
 ### Audio
-If you've played the game you've probably noticed an audio easter egg. Before trying this I had thought that playing audio would require javascript to function, however the audio control works with javascript disabled at the browser level so I'm going to allow it. 
+If you've played the game you've probably noticed an audio easter egg. Before trying this I had thought that playing audio would require JavaScript to function, however the audio control works with JavaScript disabled at the browser level so I'm going to allow it. 
 
-The audio controls has many buttons (for volume, downloading ect). In order to only make the play button accessible, we first wrap it in a div and then apply the following css.
+The audio controls has many buttons (for volume, downloading etc). In order to only make the play button accessible, we first wrap it in a div and then apply the following CSS.
+
 ~~~css
 .div-around-audio {
     height: 30px;
@@ -241,18 +242,18 @@ Since making the calculator, the `has` has been introduced, which allows selecti
 1. Use integer division (see previous post) to create a modulo function and map the input to between 0 and 2π
 2. Use a bunch of maths and retries to map the input to a value between 0 and π/2
 3. Painfully implement the expansion series of trig functions
-4. Realise that while I've been playing around with this, trig functions have been added the css spec
+4. Realise that while I've been playing around with this, trig functions have been added the CSS spec
 5. Question my life choices
 
-Given the advances in the css spec to add trigonometric and other mathematical functions, writing a full scientific calculator within reach. While I have not yet attempted this, a possible limitation is that the [css spec](https://www.w3.org/TR/css-values-3/#calc-syntax) only asks browsers to support up to 20 terms in a `calc`, and while I haven't seen this exact limit in action, the main browsers do give up after a certain amount of complexity.
+Given the advances in the CSS spec to add trigonometric and other mathematical functions, writing a full scientific calculator within reach. While I have not yet attempted this, a possible limitation is that the [CSS spec](https://www.w3.org/TR/css-values-3/#calc-syntax) only asks browsers to support up to 20 terms in a `calc`, and while I haven't seen this exact limit in action, the main browsers do give up after a certain amount of complexity.
 
 ## FAQ
 
-#### When are you gonna stop?
-Probably now
+#### When are you going to stop with this madness?
+I currently have no plans to continue
 
 #### Did you write this blog post just so you could say the words "Stochastic Boogaloo"?
 No comment
 
 ## Wrap up
-While I was making these apps, there were many points at which I deemed something to be 'impossible'. Things like functioning decimals; an evenly distributed 'random' selector; and functioning audio seemed out of scope for rules and format I had chosen. But because I had the freedom to stop and think about this with no deadline, I was able to overcome the challenges. When working with practical problems, we are faced with real-world pressures and time limits and this can often leave us with an incomplete view of the true power of the tech we work with. I encourage anyone with an interest to explore the limits of a technology and the power of their creativity. Maybe this will help you in your day to day job. However I wouldn't suggest rewriting any of your webapps in css only any time soon.
+While I was making these apps, there were many points at which I deemed something to be 'impossible'. Things like functioning decimals; an evenly distributed 'random' selector; and functioning audio seemed out of scope for rules and format I had chosen. But because I had the freedom to stop and think about this with no deadline, I was able to overcome the challenges. When working with practical problems, we are faced with real-world pressures and time limits and this can often leave us with an incomplete view of the true power of the tech we work with. I encourage anyone with an interest to explore the limits of a technology and the power of their creativity. Maybe this will help you in your day to day job. However I wouldn't suggest rewriting any of your webapps in CSS only any time soon.
