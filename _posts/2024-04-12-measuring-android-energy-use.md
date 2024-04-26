@@ -5,13 +5,13 @@ categories:
 - Sustainability
 tags:
 - Sustainability
-summary: A post about how to gather power usage of android devices without the needs for external tools or equipment.
+summary: A post about how to gather power usage of Android devices without the needs for external tools or equipment.
 author: swoods
 contributors: jisted
 ---
 
 # Introduction
-As part of a project onto the carbon footprint of mobile computing (CFoMC), we required a method to be able to record the energy use of certain computational workloads on differing mobile devices, part of that being android mobile devices. So we needed an method to accurately measure the energy use on a device. 
+As part of a project onto the carbon footprint of mobile computing (CFoMC), we required a method to be able to record the energy use of certain computational workloads on differing mobile devices, part of that being Android mobile devices. So we needed a method to accurately measure the energy use on a device. 
 
 ## Why measure energy use?
 The reason why we wanted to measure the energy use was to compare the energy use of the same code / calculations across different devices. To do this we used some standard off-the-shelf mathematically CPU heavy tests to be able to keep repeatable results. 
@@ -20,10 +20,10 @@ The reason why we wanted to measure the energy use was to compare the energy use
 From investigation we determined there was many ways to measure energy use, generally split into three different methodologies.
 
 ### Hardware Based
-Power meters / monitoring hardware can provide energy vales based on how much power the phone is drawing when fully charged to perform a particular process. This is the preferred method of several companies that perform energy evaluations of applications, but consumer-grade power monitors also claim to have an accuracy of +-2%.
+Power meters / monitoring hardware can provide energy values based on how much power the phone is drawing when fully charged to perform a particular process. This is the preferred method of several companies that perform energy evaluations of applications, but consumer-grade power monitors also claim to have an accuracy of +-2%.
 
 ### Model Based
-This methodology takes indicative energy usage values for a given component and calculates the power used based on modelled data. For example, “Processor x running at frequency x for z amount of time uses this amount of energy.” These calculations are then repeated for each piece of equipment concerned and totalled up to an estimate. These methods do not typically give accurate numerical values, but are used to work out relative consumption. The Android Studio profiler seem to be based on this method. 
+This methodology takes indicative energy usage values for a given component and calculates the power used based on modelled data. For example, “Processor x running at frequency y for z amount of time uses this amount of energy.” These calculations are then repeated for each piece of equipment concerned and totalled up to an estimate. These methods do not typically give accurate numerical values, but are used to work out relative consumption. The Android Studio profiler seems to be based on this method. 
 
 ### Software / API Based
 These solutions consist of software that aims to estimate energy consumption based on data from API calls and calculations based on data gathered by the device. Within this category there are solutions which need to be connected to an external device using the ADB (Android Debug Bridge) and others which can run natively on the device. 
@@ -91,7 +91,7 @@ For our measurements we took samples every 1 second, so when calculated we had a
 ![Example of Data Points]({{ site.github.url }}/swoods/assets/CFoMC_AndroidAppConsole.png)
 
 ### Pitfalls and limitations
-There are a few limitations to measuring the devices power by these methods, most can be negated or controlled by ensure certain device conditions
+There are a few limitations to measuring the devices power by these methods, most can be negated or controlled by ensuring certain device conditions
 
 - The phone cannot be plugged in / charging
 
@@ -112,5 +112,4 @@ Our data collection service is clearly going to be consuming some power when col
 
 ## Links / Sources etc
 - [Battery Manager API](https://developer.android.com/reference/kotlin/android/os/BatteryManager)
-- [Carbon Footprint of Mobile Computing GitHub](https://github.com/ScottLogic/Mobile-Carbon-Android)
 - [Energy Profiling of Android Devices](https://hal.science/hal-03380605v1)
