@@ -13,7 +13,7 @@ Businesses today want to keep an eye on their carbon emissions and do their bit 
 
 You might imagine that the cloud providers with their omniscient observability would be able to provide accurate, real time carbon and energy reporting to each of their customers. Unfortunately they don’t. There’s basic reporting of carbon but it’s inconsistent across providers and often lags behind by several weeks, if not months. This means it’s fine for doing annual reports but it can be frustratingly hard for customers to see if there’s any meaningful change from tweeks to their infrastructure. This blog explains how we got around it.
 
-This blog is one in a series from an internal project undertaken here at Scott Logic. The aim of the project was to investigate the carbon footprint of running code on mobile devices vs the server. We won’t go into the actual results as that’s a topic for a [different blog post]({{ site.github.url }}/blog/2024/04/24/battle-of-the-carbon.html). Instead we wanted to talk through the steps we took to solve the problem for our use case.
+This blog is one in a series from an internal project undertaken here at Scott Logic. The aim of the project was to investigate the carbon footprint of running code on mobile devices vs the server. We won’t go into the actual results as that’s a topic for a different blog post. Instead we wanted to talk through the steps we took to solve the problem for our use case.
 
 ## Background
 
