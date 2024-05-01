@@ -3,9 +3,8 @@ title: Knowledge Graphs - What Are They?
 date: 2024-05-01 10:00:00 Z
 categories:
 - Tech
-summary: I'll admit that for me knowledge graphs and graph databases were always something of a mystery, so I spent some time investigating them to see how they compare to more traditional relational databases. Are they more than just circles and lines?
+summary: I'll admit that for me knowledge graphs and graph databases were always something of a mystery, so I spent some time investigating to see how they compare to more traditional relational databases. Are they more than just circles and lines?
 author: rstrange
-#image: TODO
 ---
 
 Knowledge graph technologies certainly appear to be [on the rise](https://www.linkedin.com/pulse/global-knowledge-graph-market-dynamics-xknsc), and if adoption rates continue to climb these data stores may quickly become something we all need to sit up and take notice of. Indeed, there are already many [applications of knowledge graphs](https://www.wisecube.ai/blog/20-real-world-industrial-applications-of-knowledge-graphs/) out there in domains as diverse as finance, health and social media, all the way to the latest AI and Natural Language Processing techniques. 
@@ -18,14 +17,13 @@ Hopefully this can serve as a useful springboard for anyone else interested in l
 There are a few different definitions around, all of them fairly abstract, but in effect they’re a graphical representation of entities and the relationships between them. They are knowledge that is modelled as a graph of connected entities, hence knowledge graph.
 Below is an example of a knowledge graph showing a choir club alongside two of its members - the knowledge it represents is that Ann and Bob are members of a choir.
 
+<small>A simple knowledge graph</small>
 ![png]({{ site.github.url }}/rstrange/assets/knowledge-graphs/knowledge-graph-simple.png)
 
-<small>A simple knowledge graph</small>
-
-Ann, Bob and Choir are <b>entities</b> in the knowledge graph, commonly referred to as nodes.
+Ann, Bob and Choir are **entities** in the knowledge graph, commonly referred to as nodes.
 These nodes can represent anything we can think of, as knowledge graphs are structureless. Here we’re only representing two types of node, members (Ann and Bob) and clubs (Choir), but we could add whatever we like in. If we decided it worthwhile to model the building the choir takes place in, we could add another circle, write ‘village hall’ inside it and we’re away.
 
-The two MEMBER_OF arrows represent the <b>relationships</b> between these entities, commonly referred to as edges. 
+The two MEMBER_OF arrows represent the **relationships** between these entities, commonly referred to as edges. 
 Here the arrows suggest the relationship has direction; Ann is a member of the Choir, but the Choir is not a member of Ann. In this blog we’ll limit ourselves to relationships that have direction.
 
 So we’ve got a conceptual model of nodes which represent entities, and edges which represent the relationships between those entities. Great!
@@ -41,24 +39,21 @@ I’m using a Neo4j database throughout this blog alongside their visualisation 
 Knowledge graphs, and by extension graph databases, can include implicit data on both the nodes and the edges. 
 For this example, Neo4j has the concept of labels on nodes, and types on edges. Both can then also have additional data properties. Below shows the Choir node with a label ‘Club’ and a property ‘StartTime’. The edge has type ‘MEMBER_OF’ and property ‘MemberSince’.
 
+<small>Label and property on a node</small>
 ![png]({{ site.github.url }}/rstrange/assets/knowledge-graphs/node-with-properties.png)
 
-<small>Label and property on a node</small>
-
-![png]({{ site.github.url }}/rstrange/assets/knowledge-graphs/relationship-with-properties.png)
-
 <small>Type and property on an edge</small>
+![png]({{ site.github.url }}/rstrange/assets/knowledge-graphs/relationship-with-properties.png)
 
 This data is stored directly against these items, and just to show you, you can also retrieve this information in a tabular form as follows:
 
-![png]({{ site.github.url }}/rstrange/assets/knowledge-graphs/table-with-properties.png)
-
 <small>Properties displayed in a table using Neo4j</small>
+![png]({{ site.github.url }}/rstrange/assets/knowledge-graphs/table-with-properties.png)
 
 ### A brief Cypher aside
 The query at the top is an example of Neo4j’s query language Cypher.
 
-~~~
+~~~ 
 MATCH (m:Member) -[r:MEMBER_OF]-> (c:Club{Name:'Choir'})
 RETURN m.Name as Member, r as Relationship, c as Club
 ~~~
@@ -73,15 +68,17 @@ To make things a little more interesting I first expanded out the example from a
 
 For the purposes of comparison I then created three database tables in Sql to hold the same data. Those tables were Club, Member and Membership, where the Membership table holds the many-to-many relationship between clubs and members.
 
+<small>Knowledge graph representation of members and clubs</small>
 ![png]({{ site.github.url }}/rstrange/assets/knowledge-graphs/knowledge-graph-expanded.png)
 
-<small>Knowledge graph representation of members and clubs</small>
-
+<small>Tabular representation of members and clubs</small>
 ![png]({{ site.github.url }}/rstrange/assets/knowledge-graphs/sql-with-joins.png)
 
-<small>Tabular representation of members and clubs</small>
+Both of these representations are pretty easy to read, but traversing the relationships of the tabular representation feels clunky in comparison. 
 
-Both of these representations are pretty easy to read, but traversing the relationships of the tabular representation feels clunky in comparison. If I wanted to know which members go to a club with Bob, in the knowledge graph I can link through the relationships easily to traverse the data, whereas in the table form I need to keep track of the data in my head as I read it.
+For example, what if we wanted to know which members go to a club with Bob? 
+
+I find that in the knowledge graph I can link through the relationships easily to traverse the data, whereas in the table form I need to keep track of the data in my head as I read it.
 
 That may sound obvious, but I think it’s a powerful representation of what knowledge graphs and graph databases are for; they are for when the relationships between data are as interesting or important as the data itself. 
 To put it another way, if you have a connected dataset where you’ll be traversing relationships often, they could be the way to go.
@@ -119,17 +116,21 @@ Even if you don’t fully follow either of these queries Cypher is clearly the m
 Even as someone new to it, it was far easier to query nodes and traverse through relationships in Cypher than SQL.
 
 ### They’re schemaless?
-It’s worth mentioning that as graph databases are schemaless, so they are inherently more extensible than SQL.
-If we wanted to add on a new type of Instructor node in our graph database it would be a simple matter of adding an Instructor node, and joining it to our Judo Node with a new type of ‘Instructs’ relationship. 
-In our relational database we’d need to create a new table for our Instructor to live in, then potentially create a new many-to-many table to handle the relationship, so it would be a more involved job. Alternatively maybe we want to refactor the Member database into a People database, who knows? In order to ensure we don’t end up making silly decisions it becomes useful to know our domain space up front, which often isn’t a given in the real world. The graph database lets us expand out our data in any direction we like, as it isn’t constrained by schema definitions.
+It’s worth mentioning that as graph databases are schemaless they are inherently more extensible than SQL.
+
+If we wanted to add on a new type of Instructor node in our graph database it would be a simple matter of adding an Instructor node, and joining it to our Judo Node with a new type of ‘Instructs’ relationship. In our relational database we’d need to create a new table for our Instructor to live in, then potentially create a new many-to-many table to handle the relationship, so it would be a more involved job. Alternatively maybe we want to refactor the Member database into a People database, who knows? In order to ensure we don’t end up making silly decisions it becomes useful to know our domain space up front, which often isn’t a given in the real world. 
+
+The graph database lets us expand out our data in any direction we like, as it isn’t constrained by schema definitions.
+
 Depending on your use case this can be a very beneficial advantage. If you’re building up a database of relationships from natural language processing for example, it can be very useful to be able to store data in a non-normalised manner to allow your data to grow organically as different entities and relationships present themselves.
+
 This can also have a drawback of course; if your data grows organically to a large scale it might become harder to traverse in a meaningful way - without the rigid boundaries such as the table definitions in SQL you might find yourself in a soup of similarly connected nodes connected by almost-but-not-quite-the-same edges. 
-Depending on the use case this may or may not be a problem, and it’s worth saying that there are tools out there to apply [boundaries to graph databases](https://neo4j.com/labs/neosemantics/4.0/validation/) if you need to. As with any schemaless data store just because the technology allows us to grow our data unfettered by any rules, it doesn't neccesarily mean that we always should.
-Obviously there are cases where you don’t want to constrain your data, but it’s worth thinking about.
+
+It’s worth saying that there are tools out there to apply [boundaries to graph databases](https://neo4j.com/labs/neosemantics/4.0/validation/) if you need to. As with any schemaless data store just because the technology allows us to grow our data unfettered by any rules, it doesn't neccesarily mean that we always should. Obviously there are cases where you don’t want to constrain your data, but it’s worth thinking about.
 
 ### Any other points?
 The equivalents of an Object Relational Mapper (ORM) seem to be a bit thin on the ground, and likely vendor and query language dependent. 
-For example coming from a .Net background I’m used to using Entity Framework as an ORM to provide some protection from threats such as SQL injection attacks. Whilst some support is there they don’t necessarily give you everything, so you’ll need to be sure you’re not opening yourself to any [injection attacks](https://neo4j.com/developer/kb/protecting-against-cypher-injection/) (for whichever valid query language you’re using). 
+For example coming from a .Net background I’m used to using Entity Framework as an ORM to provide some protection from threats such as SQL injection attacks. Whilst some support is there for graph databases they don’t necessarily give you everything, so you’ll need to be sure you’re not opening yourself to any [injection attacks](https://neo4j.com/developer/kb/protecting-against-cypher-injection/) in whichever query language you’re using. 
 
 In addition, just to mention, graph databases are for the most part [ACID](https://en.wikipedia.org/wiki/ACID) compliant. You’ll want to double check the documentation for the vendor you’re interested in, but it’s certainly a valid requirement and one that many graph databases can handle.
 
