@@ -1,6 +1,6 @@
 ---
 title: 'Measuring Energy use of Android Devices'
-date: 2024-04-23 00:00:00 Z
+date: 2024-05-01 00:00:00 Z
 categories:
 - Sustainability
 tags:
