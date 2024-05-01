@@ -10,6 +10,7 @@ summary: This is a post on Scott Logic's contribution to the Green Software Foun
   2024 Carbon Hack. Focussing on the energy cost of object storage in the cloud, this
   post details our process, challenges and experiences during the hackathon.
 author: mgriffin
+image: "/uploads/carbonhack24%20thumbnail.png"
 ---
 
 ## Introduction
@@ -55,6 +56,10 @@ While this initially seemed to be orders of magnitude higher than what AWS repor
 Another important aspect that wasn’t being covered was the embodied carbon involved in producing storage devices. We initially considered adding another plugin for this but eventually realized that its calculations would essentially be the same as the existing [SCI-M](https://github.com/Green-Software-Foundation/if-plugins/tree/main/src/lib/sci-m) plugin. While the common use case for this plugin is in apportioning a fraction of an entire machine, storing data is an operation where you could instead apportion more than one physical device depending on the amount of data you need to store.
 
 We added this estimation into the common crawl example, making use of some other built-in plugins to change data stored and drive size into the resources-reserved and resources-total figures required by the SCI-M plugin. I think this really highlighted the power of the Impact Framework in terms of creating customised calculation pipelines without writing any more code. Perhaps unsurprisingly, the potential embodied carbon cost turned out to be greater than our operational carbon estimation – another important factor that is not accounted for in AWS carbon reporting.
+
+Here is a flowchart demonstrating our final plugin flow:
+
+![Common Crawl Manifest flow]({{ site.github.url }}/mgriffin/assets/common-crawl-private.svg "A flowchart demonstrating the inputs to the common-crawl-private manifest and how the plugins generate outputs.")
 
 ## Conclusion
 

@@ -59,6 +59,7 @@ active-authors:
   - jharris
   - jhenderson
   - jheward
+  - jisted
   - jleftley
   - jmcevoy
   - jporter
@@ -154,12 +155,6 @@ authors:
     name: "Alex Segrove"
     picture: picture.jpg
     author-summary: "Hi, Im Alex - Delivery Manager based in the London office. I spent the last few years in the Government Digital Service heading up delivery for GOV.UK, Digital Identity and Government Data policy, then worked with governments around the world to help them with their own digital transformation."
-  bpritchard:
-    name: "Beth Pritchard"
-    email: bpritchard@scottlogic.com
-    author-summary: "A developer at Scott Logic, based in Newcastle. Interested in all things cloud. Partial to loud music, video games, and hanging out with my cat. (they/them)"
-    twitter-handle: null
-    picture: bpritchard.jpg
   aaspellc:
     name: "Andy Aspell-Clark"
     author-summary: "<p>I am a Senior Developer at Scott Logic. I am interested in all programming topics from how a computer goes from power on to displaying windows on the screen or how a CPU handles branch prediction to how to write a mobile UI using kotlin or cordova.</p>"
@@ -252,6 +247,11 @@ authors:
   bmumford:
     name: "Ben Mumford"
     picture: picture.jpg
+  bpritchard:
+    name: "Beth Pritchard"
+    email: bpritchard@scottlogic.com
+    author-summary: "A developer at Scott Logic, based in Newcastle. Interested in all things cloud. Partial to loud music, video games, and hanging out with my cat."
+    picture: bpritchard.jpg
   cburbidge:
     name: "Chester Burbidge"
     author-summary: "Software Engineer at Scott Logic. Experienced in dotnet but interested in all areas of software development, especially 'devops' and functional programming."
@@ -296,7 +296,8 @@ authors:
     picture: picture.png
   csalt:
     name: "Caitlin Salt"
-    author-summary: "I'm a Lead Developer at Scott Logic, based in our Bristol office.  My interests are varied and wide-ranging, but I tend to specialise in .NET and cloud-hosted technologies.  When I'm not at a keyboard, I get passionate about almost any sort of outdated and vintage machinery."
+    author-summary: "I'm a Technical Principal at Scott Logic, based in our Bristol office.  My interests are varied and wide-ranging, but I tend to specialise in .NET and cloud-hosted technologies.  When I'm not at a keyboard, I get passionate about almost any sort of outdated and vintage machinery."
+    feed-description: "Blog posts by Caitlin Salt, Technical Principal at Scott Logic"
     picture: picture.jpg
   cstephen:
     name: "Craig Stephen"
@@ -1430,7 +1431,7 @@ authors:
     picture: yblowers.jpeg
   lperrett:
     name: "Lisa Perrett"
-    author-summary: "I'm a Senior Test Engineer, based in our Newcastle office"
+    author-summary: "I'm a Senior Test Engineer, based in our Newcastle office.  My other key interests are in Artificial Intelligence and Psychology."
     picture: lisa-profile.png
   lvincent:
     name: "Luke Vincent"
@@ -1465,3 +1466,8 @@ authors:
     email: wmckenzie@scottlogic.com
     author-summary: "Senior developer based in the Newcastle office with experience of front and backend development across web and mobile as well as DevOps and automation."
     picture: wmckenzie.jpg
+  jisted:
+    name: "Josh Isted"
+    email: jisted@scottlogic.com
+    author-summary: "Originally from a humanities and languages background, I'm now a Senior Developer at Scott Logic based in the Newcastle office, with an interest in a bit of everything tech-wise. Outside of that I like going to other countries trying to eat all of their food."
+    picture: jisted.jpg
