@@ -9,6 +9,7 @@ summary: A post about how to gather power usage of Android devices without the n
   for external tools or equipment.
 author: swoods
 contributors: jisted
+image: "/uploads/Measuring%20energy%20of%20android%20devices.png"
 ---
 
 # Introduction
