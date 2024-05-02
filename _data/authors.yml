@@ -60,6 +60,7 @@ active-authors:
   - jharris
   - jhenderson
   - jheward
+  - jisted
   - jleftley
   - jmcevoy
   - jporter
@@ -1470,3 +1471,8 @@ authors:
     email: wmckenzie@scottlogic.com
     author-summary: "Senior developer based in the Newcastle office with experience of front and backend development across web and mobile as well as DevOps and automation."
     picture: wmckenzie.jpg
+  jisted:
+    name: "Josh Isted"
+    email: jisted@scottlogic.com
+    author-summary: "Originally from a humanities and languages background, I'm now a Senior Developer at Scott Logic based in the Newcastle office, with an interest in a bit of everything tech-wise. Outside of that I like going to other countries trying to eat all of their food."
+    picture: jisted.png
