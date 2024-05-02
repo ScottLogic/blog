@@ -17,7 +17,7 @@ This blog is one in a series from an internal project undertaken here at Scott L
 
 ## Background
 
-By the time we started the server work, we already had mobile apps in development for [Android]({{ site.github.url }}/blog/2024/04/12/measuring-android-energy-use.html) and iOS that could run the chosen CPU benchmarks. To compare between mobile and server we needed to build a test harness to run the same benchmarks, and ideally using the same benchmark code. We also needed to work out a way of actually measuring or calculating the energy used. Despite the project name including the words ‘Carbon Footprint’ our actual point of comparison was energy consumption in watt hours (Wh). The simple reason being the carbon footprint is largely dependent on the source of the electricity so by measuring energy consumption we can more directly compare results.
+By the time we started the server work, we already had mobile apps in development for [Android]({{ site.github.url }}/2024/05/01/measuring-android-energy-use.html) and iOS that could run the chosen CPU benchmarks. To compare between mobile and server we needed to build a test harness to run the same benchmarks, and ideally using the same benchmark code. We also needed to work out a way of actually measuring or calculating the energy used. Despite the project name including the words ‘Carbon Footprint’ our actual point of comparison was energy consumption in watt hours (Wh). The simple reason being the carbon footprint is largely dependent on the source of the electricity so by measuring energy consumption we can more directly compare results.
 
 ## Approaches considered but ultimately rejected
 
