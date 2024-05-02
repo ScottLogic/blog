@@ -1,11 +1,12 @@
 ---
-title: 'Measuring Energy use of Android Devices'
+title: Measuring Energy use of Android Devices
 date: 2024-05-01 00:00:00 Z
 categories:
 - Sustainability
 tags:
 - Sustainability
-summary: A post about how to gather power usage of Android devices without the needs for external tools or equipment.
+summary: A post about how to gather power usage of Android devices without the needs
+  for external tools or equipment.
 author: swoods
 contributors: jisted
 ---
