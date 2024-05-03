@@ -7,6 +7,7 @@ summary: I'll admit that for me knowledge graphs and graph databases were always
   of a mystery, so I spent some time investigating to see how they compare to more
   traditional relational databases. Are they more than just circles and lines?
 author: rstrange
+image: "/uploads/Knowledge%20graphs%20-%20What%20are%20they_.png"
 ---
 
 Knowledge graph technologies certainly appear to be [on the rise](https://www.linkedin.com/pulse/global-knowledge-graph-market-dynamics-xknsc), and if adoption rates continue to climb these data stores may quickly become something we all need to sit up and take notice of. Indeed, there are already many [applications of knowledge graphs](https://www.wisecube.ai/blog/20-real-world-industrial-applications-of-knowledge-graphs/) out there in domains as diverse as finance, health and social media, all the way to the latest AI and Natural Language Processing techniques.
