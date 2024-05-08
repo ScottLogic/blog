@@ -23,18 +23,19 @@ The problem I was struggling to solve was; “What can I use this on?”. Our cl
 Then we got to October, and, to my eternal annoyance, Christmas stuff started appearing in the shops (thankfully no Mariah yet), and, despite myself, I started thinking about Christmas things, and more specifically… [Advent of Code](https://adventofcode.com/). For those currently sitting scratching their heads, Advent of Code is a global series of coding challenges, one a day from the start of December until Christmas Day, set by [Eric Wastl](http://was.tl/), which I took part in for the first time the year before. I’d managed a respectable 6th place on the Scott Logic leaderboard and a slightly better 5th place on the client leaderboard. This year I was hoping to improve on that.
 
 ## Formulating a plan
+
 Last year’s efforts I’d written in Python, as a way of keeping my hand in. For the most part, it worked fine but some of the more intensive data processing challenges were painfully slow to run, despite my best efforts at optimising, to the point where, having confirmed that we were basically running the same algorithm, I was using my line manager’s Rust versions to get the final answers. Suffice to say, this year I needed something better. I’d been considering writing in Rust, both because of its obvious performance advantage, and because I’d like to get better at Rust, but my lack of familiarity, combined with the knowledge that the faster you solve the puzzle the more points you get, was giving me trepidation… was BunJS a possible solution? More research was needed!
 
 I decided to take my existing solutions from last year and convert them to Typescript, then benchmark them against the Python versions, and while I was at it, why not compare NodeJS running the same code? The results... were surprising:
 
 ## The results are in
 
-| Language      | Day 10                                   | Day 11                                       | Day 12                                     | Day 13                                    | Day 14                                       | Day 15                                       | Day 16                                    |
-| ------------- | ---------------------------------------- | -------------------------------------------- | ------------------------------------------ | ----------------------------------------- | -------------------------------------------- | -------------------------------------------- | ----------------------------------------- |
-| Python        | 1.570066                                 | <span style="color:green">39.33278733</span> | 145.323992                                 | 13.61234967                               | 4243.105014                                  |                                              | <span style="color:green">1874.640703</a> |
-| BunJS         | <span style="color:green">1.06759</span> | 96.37504                                     | 57.367071                                  | <span style="color:green">3.588709</span> | 1139.287269                                  | 8118.08808                                   | 3896.015796                               |
-| BunJS via NPM | 2.701455                                 | 105.319079                                   | <span style="color:green">49.231411</span> | 6.679770667                               | <span style="color:green">975.7302437</span> | <span style="color:green">8085.080331</span> | 3948.378316                               |
-| NodeJS        | 2.980631669                              | 69.88842698                                  | 74.05843997                                | 5.454815348                               | 1994.470144                                  | 10390.28093                                  | 3724.372108                               |
+| Language      | Day 10                                   | Day 11                                       | Day 12                                     | Day 13                                    | Day 14                                       | Day 15                                       | Day 16                                       |
+| ------------- | ---------------------------------------- | -------------------------------------------- | ------------------------------------------ | ----------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
+| Python        | 1.570066                                 | <span style="color:green">39.33278733</span> | 145.323992                                 | 13.61234967                               | 4243.105014                                  |                                              | <span style="color:green">1874.640703</span> |
+| BunJS         | <span style="color:green">1.06759</span> | 96.37504                                     | 57.367071                                  | <span style="color:green">3.588709</span> | 1139.287269                                  | 8118.08808                                   | 3896.015796                                  |
+| BunJS via NPM | 2.701455                                 | 105.319079                                   | <span style="color:green">49.231411</span> | 6.679770667                               | <span style="color:green">975.7302437</span> | <span style="color:green">8085.080331</span> | 3948.378316                                  |
+| NodeJS        | 2.980631669                              | 69.88842698                                  | 74.05843997                                | 5.454815348                               | 1994.470144                                  | 10390.28093                                  | 3724.372108                                  |
 
 > N.B. For the purposes of keeping the table concise I've focused on a week's worth of tasks in the middle of the month, this gave me problems with a reasonable degree of difficulty but not ones that would be difficult to re-engineer in Typescript. I've also only included the average total time to load data and complete both parts of each problem across 3 runs, rather than comparing each individual segment.
 
@@ -46,21 +47,21 @@ and BunJS stays ahead with 10 total wins, beating Python's 5 and NodeJS's 1. Per
 times via NPM mostly tended to decrease on each execution, suggesting a degree of caching may be taking place.
 
 Also pretty impressive is that both BunJS and NodeJS managed to produce a result on Day 15 where Python continued to crash out. Granted there's probably a flaw in my Python code
-but the Typescript code is pretty much a like for like conversion. I also felt like BunJS' perceived load time was faster, even on solutions where Python had the 
+but the Typescript code is pretty much a like for like conversion. I also felt like BunJS' perceived load time was faster, even on solutions where Python had the
 fastest execution time, the time from pressing enter to starting to getting output often seemed quite long, with BunJS feeling much more responsive.
 
 ## So what did we learn?
 
-Let's start with the main question, is BunJS faster than NodeJS? The results would suggest that on average, yes, BunJS executes the same code faster than NodeJS. 
+Let's start with the main question, is BunJS faster than NodeJS? The results would suggest that on average, yes, BunJS executes the same code faster than NodeJS.
 
-Should you immediately switch all NodeJS projects to BunJS? Probably not, while BunJS was faster, I would say the differences are not really great enough to warrant the 
-overhead of any refactoring, however minor. I also hit a scenario in last years Advent of Code where BunJS couldn't run the solution due to import issues, but NodeJS could, 
-so you may find that converting to Bun will break your project. 
+Should you immediately switch all NodeJS projects to BunJS? Probably not, while BunJS was faster, I would say the differences are not really great enough to warrant the
+overhead of any refactoring, however minor. I also hit a scenario in last years Advent of Code where BunJS couldn't run the solution due to import issues, but NodeJS could,
+so you may find that converting to Bun will break your project.
 
-Should I switch all my Python projects to BunJS? Again, probably not. Python is still really fast, and, particularly for these kinds of problems, there are a lot of packages 
+Should I switch all my Python projects to BunJS? Again, probably not. Python is still really fast, and, particularly for these kinds of problems, there are a lot of packages
 available to make implementing the more complex algorithm's a lot easier, and as I found with last years challenges, sometimes Python can handle the bigger datasets a lot better.
 
-Should I do Advent of Code? Absolutely, while some days puzzles are downright horrible, for the most part it's pretty fun, and you can learn a lot about algorithms and more 
+Should I do Advent of Code? Absolutely, while some days puzzles are downright horrible, for the most part it's pretty fun, and you can learn a lot about algorithms and more
 advanced optimisation techniques.
 
 And in case you're wondering how I did this time around, I managed 2nd place on both. I've no idea how...
