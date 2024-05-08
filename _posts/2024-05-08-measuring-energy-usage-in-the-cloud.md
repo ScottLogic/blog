@@ -11,7 +11,7 @@ summary: This is the second blog from our internal project looking at the Carbon
 
 Businesses today want to keep an eye on their carbon emissions and do their bit to help the climate crisis and so they need to understand and reduce all their emissions including those from cloud computing.
 
-You might imagine that the cloud providers with their omniscient observability would be able to provide accurate, real time carbon and energy reporting to each of their customers. Unfortunately they don’t. There’s basic reporting of carbon but it’s inconsistent across providers and often lags behind by several weeks, if not months. This means it’s fine for doing annual reports but it can be frustratingly hard for customers to see if there’s any meaningful change from tweeks to their infrastructure. This blog explains how we got around it.
+You might imagine that the cloud providers with their omniscient observability would be able to provide accurate, real time carbon and energy reporting to each of their customers. Unfortunately they don’t. There’s basic reporting of carbon but it’s inconsistent across providers and often lags behind by several weeks, if not months. This means it’s fine for doing annual reports but it can be frustratingly hard for customers to see if there’s any meaningful change from tweaks to their infrastructure. This blog explains how we got around it.
 
 This blog is one in a series from an internal project undertaken here at Scott Logic. The aim of the project was to investigate the carbon footprint of running code on mobile devices vs the server. We won’t go into the actual results as that’s a topic for a different blog post. Instead we wanted to talk through the steps we took to solve the problem for our use case.
 
@@ -43,7 +43,7 @@ As previously mentioned, when work on the server started the benchmark apps for 
 
 To get the best comparisons to mobile, we used the same benchmark code from mobile with the same complexity values. Complexity is an integer number that is supplied as an argument to the benchmark functions that affects memory and CPU. The higher the complexity value, the harder the calculations become and therefore the more resources and time they take.
 
-Now armed with a methodology for calculating energy and the benchmark codes, we started building the test harness. We knew we needed:
+Now armed with a methodology for calculating energy and the benchmark code, we started building the test harness. We knew we needed:
 
 1. A test harness that could start each benchmark
 2. A way of deploying the test harness to AWS
@@ -65,13 +65,13 @@ To save money, and because our infrastructure doesn’t need to exist any longer
 
 ### EC2 Instances
 
-We started with t2.large instances. This gave us 2 vCPUs and 8GB of memory. Memory wasn’t really a concern for our purposes and our average utilisation reflects this. We maintained a pretty solid utilisation level of 9.5%. Having 2 vCPUs was beneficial. Specifically, it highlighted the difference between the single threaded and multi threaded workloads. However, the T-series instances had one key disadvantage for us. They can boost. Now normally this would be a good thing but we needed to keep the run conditions as consistent as possible. Because the boosting is based on CPU tokens and is an automated process, we couldn't control for it. This meant we were seeing inconsistancies in our run times.
+We started with t2.large instances. This gave us 2 vCPUs and 8GB of memory. Memory wasn’t really a concern for our purposes and our average utilisation reflects this. We maintained a pretty solid utilisation level of 9.5%. Having 2 vCPUs was beneficial. Specifically, it highlighted the difference between the single threaded and multi threaded workloads. However, the T-series instances had one key disadvantage for us. They can boost. Now normally this would be a good thing but we needed to keep the run conditions as consistent as possible. Because the boosting is based on CPU tokens and is an automated process, we couldn't control for it. This meant we were seeing inconsistencies in our run times.
 
 Another downside to the T-series instances is they run on two different Intel CPU models, the Xeon E5-2676 V3 & Xeon E5-2686 V4. The V4 was able to complete a Spectral benchmark about 100 seconds faster than the V3. This was an issue as we couldn’t specify which model we wanted every time we built up the infrastructure and would sometimes have to terminate the instance a number of times before we got the model we needed. Again, consistency was an issue here.
 
 We switched to the M4 instance family, specifically m4.large. This provided stability in run times, albeit slightly longer due to lack of boosting. Although the [AWS EC2 documentation](https://aws.amazon.com/ec2/instance-types/) lists two different CPU models for this instance type, our instances only ever used the Xeon E5-2686 V4, removing the CPU lottery problem we were having.
 
-M4’s worked fine for Java and Swift. However, for some reason that we were never fully able to explain, it didn’t pay nicely with our WebAssembly benchmarks. Every attempt to run them resulted in a 132 exit code. Eventually this was solved by changing the instance type to m6i.large. Admittedly going with M4 was probably a mistake. Hindsight being 20/20, we should've just gone with the newest instance we had Teads data for from the beginning. It would've saved a lot of time.
+M4’s worked fine for Java and Swift. However, for some reason that we were never fully able to explain, it didn’t play nicely with our WebAssembly benchmarks. Every attempt to run them resulted in a 132 exit code. Eventually this was solved by changing the instance type to m6i.large. Admittedly going with M4 was probably a mistake. Hindsight being 20/20, we should've just gone with the newest instance we had Teads data for from the beginning. It would've saved a lot of time.
 
 ### Running benchmarks in other languages
 
