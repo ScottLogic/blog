@@ -12,6 +12,15 @@ author: wmckenzie
 summary: A festive look at the latest challenger to NodeJS's throne
 ---
 
+<style>
+@media print, screen and (min-width: 64em) {
+    table {
+        margin-left: calc((16.66667% + .9375rem)* -1);
+        margin-right: calc((16.66667% + .9375rem)* -1);
+    }
+}
+</style>
+
 ## A trip down memory lane...
 
 Last year I attended the Infobip Shift conference, where I saw a talk by Tejas Kumar on “[New Trends in Front-End Development](https://www.youtube.com/watch?v=VINfWbaFBVs&list=PLuAItjWV4peETEf336UJKvDsI5RWbshUa&index=31&pp=iAQB)”. In his talk, he demoed building and running a new QwikJS app using Bun instead of Node. I’d been hearing lots of talk about Bun, particularly on the Bytes email blast but hadn’t had a chance to properly check it out so I was particularly interested in seeing how it did.
