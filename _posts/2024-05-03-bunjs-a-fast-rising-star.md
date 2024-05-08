@@ -67,6 +67,10 @@ Should you immediately switch all NodeJS projects to BunJS? Probably not, while 
 overhead of any refactoring, however minor. I also hit a scenario in last years Advent of Code where BunJS couldn't run the solution due to import issues, but NodeJS could,
 so you may find that converting to Bun will break your project.
 
+Should I consider BunJS when starting a new project? Absolutely! For most use cases you're unlikely to have an issue, and transitioning back to NodeJS should be relatively 
+straightforward, should you need to. The out-of-the-box Typescript and ESM handling is especially nice, I found I had a lot of headaches with ESM typescript loaders trying to 
+make the scripts run via NodeJS without compiling, and faster startup times for your application are never a bad thing.
+
 Should I switch all my Python projects to BunJS? Again, probably not. Python is still really fast, and, particularly for these kinds of problems, there are a lot of packages
 available to make implementing the more complex algorithm's a lot easier, and as I found with last years challenges, sometimes Python can handle the bigger datasets a lot better.
 
