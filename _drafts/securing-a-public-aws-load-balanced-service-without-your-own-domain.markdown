@@ -1,5 +1,5 @@
 ---
-title: Securing a public AWS load-balanced service without your own domain
+title: Securing a public AWS load-balanced server without your own domain
 date: 2024-05-09 11:05:00 Z
 categories:
 - Cloud
