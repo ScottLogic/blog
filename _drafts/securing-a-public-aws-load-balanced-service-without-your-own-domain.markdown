@@ -26,7 +26,7 @@ Our API code had not been written with discrete function logic in mind, as the s
 
 ![The Black Knight](/uploads/black-knight.jpg "None shall pass")
 
-The final concern was security. I originally assumed - _spoiler alert!_ - that the load balancer would be public-facing, with authentication performed via the UI and authorization at the load balancer to verify an [OAuth](https://aaronparecki.com/oauth-2-simplified/) token in incoming requests. This was particularly important for us, because we would be using our own OpenAI API key to enable users to access ChatGPT models, so we wanted it all locked down to prevent malicious actors hammering our API and emptying our wallet. Of course, authorization means using https protocol, which in turn requires a valid domain and certificate. Which we didn't yet have.
+The final concern was security. I originally assumed - _spoiler alert!_ - that the load balancer would be public-facing, with authentication performed via the UI and authorization at the load balancer to verify an [OAuth](https://aaronparecki.com/oauth-2-simplified/) token in incoming requests. This was particularly important for us, because we would be using our own [OpenAI](https://openai.com/) API key to enable users to access ChatGPT models, so we wanted it all locked down to prevent malicious actors hammering our API and emptying our wallet. Of course, authorization means using https protocol, which in turn requires a valid domain and certificate. Which we didn't yet have.
 
 ![Sorcery required](/uploads/tim-the-enchanter.jpg "There are some who call me ... Tim")
 
