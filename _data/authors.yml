@@ -24,6 +24,7 @@ active-authors:
   - cprice
   - csalt
   - cstephen
+  - cwilton
   - dgrew
   - dhinrichs
   - dhope
@@ -310,6 +311,10 @@ authors:
     twitter-url: "https://twitter.com/cjsmithie"
     twitter-handle: cjsmithie
     picture: picture.jpg
+  cwilton:
+    name: "Chris Wilton-Magras"
+    author-summary: "<p>Opinionated lead developer, munro bagger, beer brewer, cat lover, occasional fool.</p>"
+    picture: me.jpg
   dcook:
     feed-description: "Dan Cook's thoughts on all things Big Data."
     google-plus-url: "https://plus.google.com/102307699647083644941"
