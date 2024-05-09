@@ -36,11 +36,11 @@ At this stage we weren't even settled on the name "SpyLogic"; that would come la
 
 ## Enter API Gateway
 
-As luck would have it, [API Gateway in its bantamweight HTTP form](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) offers direct integration with Application Load Balancer. This gives me the free, secure https endpoint of my desires: I can configure it as a simple passthrough proxy, with authorization on incoming requests via a lambda function. Then when the time comes, I can just take it out and move authorization to the load balancer. Seems almost too easy ...
+As luck would have it, [API Gateway in its bantamweight HTTP form](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) offers direct integration with [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/application-load-balancer/). This gives me the free, secure https endpoint I seek: I can configure it as a simple passthrough proxy, with authorization on incoming requests via a lambda function. Then when the time comes, I can just take it out and move authorization to the load balancer. Seems almost too easy ...
 
 ![Killer Rabbit of Caerbannog](/uploads/vicious-rabbit.jpg "Death awaits you all with nasty, big, pointy teeth")
 
-## Proxy header troubles
+## Troubles with proxy headers
 
 After stumbling over a few CORS ditches, I eventually came across a deeper problem with our session cookie. For the uninitiated, if you have a proxy server terminating TLS in between client and destination, it will appear to the destination that the request is coming from an insecure origin: the proxy. Therefore it is standard practice for a proxy server to add request headers identifying the client IP / protocol and host of the incoming request. However, in typical fashion there are two ways to achieve this: the original ["de-facto standard" X-Forwarded headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For) and the newer ["standard" Forwarded header](https:/developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded) 🤨. In a predictable turn of events, even though the [Forwarded header is 10 years old this summer](https://www.rfc-editor.org/rfc/rfc7239), many proxy servers still use the original X-Forwarded headers.
 
