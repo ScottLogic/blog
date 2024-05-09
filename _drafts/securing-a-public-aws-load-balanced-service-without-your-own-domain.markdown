@@ -38,7 +38,7 @@ At this stage we weren't even settled on the name "SpyLogic"; that would come la
 
 ## Enter API Gateway
 
-As luck would have it, [API Gateway in its bantamweight HTTP form](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) offers direct integration with [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/application-load-balancer/). This gives me the free, secure https endpoint I seek: I can configure it as a simple passthrough proxy, with authorization on incoming requests via a lambda function. Then when the time comes, I can just take it out and move authorization to the load balancer. Seems almost too easy ...
+As luck would have it, [API Gateway in its bantamweight HTTP form](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api.html) offers direct integration with [Application Load Balancer](https://aws.amazon.com/elasticloadbalancing/application-load-balancer/). This gives me the secure https endpoint I seek: I can configure it as a simple passthrough proxy, with authorization on incoming requests via a lambda function. Yes the URL is an AWS-flavoured one, but that matters not to our React UI. And when the time comes, I can just take out the gateway and move authorization to the load balancer. Seems almost too easy ...
 
 <img alt="Killer Rabbit of Caerbannog" src="/uploads/vicious-rabbit.jpg" title="Death awaits you all with nasty, big, pointy teeth" style="display: block; margin: 0 auto; padding: 1rem 0;" />
 
