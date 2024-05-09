@@ -54,6 +54,7 @@ active-authors:
   - jarnstein
   - jbeckles
   - jbickleywallace
+  - jcwright
   - jdunleavy
   - jgrant
   - jharris
@@ -477,6 +478,10 @@ authors:
     picture: picture.jpg
   jcardy:
     name: "Jonathan Cardy"
+  jcwright:
+    name: "Jay Wright"
+    author-summary: "<p>I'm a developer at Scott Logic, based in Newcastle. My primary interest is in backend development, primarily in Java, and cloud technologies. I also have experience building web applications in React.<p>\n<p>Away from work I'm a keen petrol head and avid Formula One fan. I support McLaren, in case you were wondering.</p>"
+    picture: picture.jpg
   jdunkerley:
     author-summary: "<p>I am a Technical Architect at Scott Logic, based in London. I have many years of using C# within financial services. My current interests are in data analytics and visualisation, particularly using Tableau and Alteryx. I also  enjoying learning about new big data technologies and machine learning.</p>"
     name: "James Dunkerley"
