@@ -75,6 +75,8 @@ This intermediate architecture is different enough to our ultimate solution that
 
 I learned a whole lot about secure cookies, proxy headers, and how fickle different AWS services can be, so in terms of education it was worth some pain. But that pain cost time and money, so let me save you some of your own.
 
+### No!
+
 Domains can be really cheap - $3 a year cheap - so just buy one and architect it right first time! All you'll need to swap out when you have a permanent home for your application is the domain and certificates. At the time of writing, holyhandgrena.de is available for $9/year. Enjoy!
 
 <img alt="Holy Hand Grenade of Antioch" src="/uploads/holy-hand-grenade-footer.png" title="With it thou mayst blow thine enemies to tiny bits, in thy mercy" style="display: block; margin: 0 auto; padding: 1rem 0;" />
