@@ -12,9 +12,9 @@ summary: Meanderings on securing a load balancer without needing your own domain
 author: cwilton
 ---
 
-## The quest
+<img alt="the holy grail" src="/uploads/grail-shaped-beacon.jpg" title="Bad, bad Zoot!" style="display: block; margin: 0 auto" />
 
-![the holy grail](/uploads/grail-shaped-beacon.jpg "Bad, bad Zoot!")
+## The quest
 
 I have recently been working on our company's prompt injection playground: an educational, now open-source application we named [SpyLogic](https://github.com/ScottLogic/prompt-injection). The UI is a standard React Single Page App, and the API is served using Express. I was tasked with deploying the application to AWS, and while the UI deployment uses the ubiquitous CloudFront / S3 pattern, the API layer required some thought.
 
