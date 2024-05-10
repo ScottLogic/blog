@@ -54,13 +54,14 @@ It is possible to [configure Express to trust proxy servers](https://expressjs.c
 
 In fact, at the time of writing [Express ignores the Forwarded header](https://github.com/expressjs/express/issues/5459) as well, so it doesn't even know that requests have passed through our secure API Gateway, instead believing they come from the insecure load balancer. As a result, Express will not include our [secure session cookie](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#security) in responses, so the browser will be unable to preserve a user's session. In a conversational AI application this is a dealbreaker, as every request will begin a new chat, instead of building up a conversation over time.
 
-> Me: In Monty Python and the Holy Grail, who is the first to be cast into the gorge of eternal peril?
+> **Me** In Monty Python and the Holy Grail, who is the first to be cast into the gorge of eternal peril?
 >
-> Bot: Sir Robin is the first to be cast into the Gorge of Eternal Peril.
+> **Bot** Sir Robin is the first to be cast into the Gorge of Eternal Peril.
 >
-> Me: What question was he unable to answer?
+> **Me** What question was he unable to answer?
 >
-> Bot: I don't know. Aaaaaargh!
+> **Bot** I don't know... Aaaaaargh!
+>
 
 ## Express wrangling
 
