@@ -81,6 +81,6 @@ I learned a whole lot about secure cookies, proxy headers, and how fickle differ
 
 ### No!
 
-Let me save you some pain, time _and_ money. Domains can be really cheap - $3 a year cheap - so just buy one and architect it right first time. All you will need to swap out when you have a permanent home for your application is the domain and certificates. At the time of writing, holyhandgrena.de is available for $9/year. Boom!
+Let me save you some time, money _and_ pain. Domains can be really cheap - $3 a year cheap - so just buy one and architect it right first time. When you have a permanent home for your application, all you will need to swap out is domain and certificates. At the time of writing, holyhandgrena.de is available for $9/year. Boom!
 
 <img alt="Holy Hand Grenade of Antioch" src="/uploads/holy-hand-grenade-footer.png" title="With it thou mayst blow thine enemies to tiny bits, in thy mercy" style="display: block; margin: 0 auto; padding: 1rem 0;" />
