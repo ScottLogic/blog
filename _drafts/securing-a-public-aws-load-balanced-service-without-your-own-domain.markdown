@@ -61,7 +61,7 @@ In fact, at the time of writing [Express ignores the Forwarded header](https://g
 > **Me**: What question was he unable to answer?
 >
 > **Bot**: I don't know... Aaaaaargh!
->
+> 
 
 ## Express wrangling
 
@@ -77,10 +77,10 @@ This intermediate architecture is different enough to our ultimate solution that
 
 ## So was it all worth it?
 
-I learned a whole lot about secure cookies, proxy headers, and how fickle different AWS services can be, so in terms of education it was worth some pain. But that pain cost time and money, so let me save you some of your own.
+I learned a whole lot about secure cookies, proxy headers, and how fickle different AWS services can be, so in terms of education it was worth some pain. But that pain cost time and money, so ...
 
 ### No!
 
-Domains can be really cheap - $3 a year cheap - so just buy one and architect it right first time! All you'll need to swap out when you have a permanent home for your application is the domain and certificates. At the time of writing, holyhandgrena.de is available for $9/year. Enjoy!
+Let me save you some pain, time _and_ money. Domains can be really cheap - $3 a year cheap - so just buy one and architect it right first time. All you will need to swap out when you have a permanent home for your application is the domain and certificates. At the time of writing, holyhandgrena.de is available for $9/year. Boom!
 
 <img alt="Holy Hand Grenade of Antioch" src="/uploads/holy-hand-grenade-footer.png" title="With it thou mayst blow thine enemies to tiny bits, in thy mercy" style="display: block; margin: 0 auto; padding: 1rem 0;" />
