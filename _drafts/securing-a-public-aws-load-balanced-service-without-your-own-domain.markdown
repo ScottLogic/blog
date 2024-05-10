@@ -79,7 +79,7 @@ This intermediate architecture is different enough to our ultimate solution that
 
 ## So, was it all worth it?
 
-I learned a whole lot about secure cookies, proxy headers, and how fickle different AWS services can be. In terms of education, it was worth some pain. But that pain cost time and money, so ...
+I learned a whole lot about secure cookies, proxy headers, and how fickle different AWS services can be. In terms of education it was worth some pain, but that pain cost time and money, so ...
 
 ### No!
 
