@@ -67,7 +67,9 @@ In fact, at the time of writing [Express ignores the Forwarded header](https://g
 
 In response to my issue describing this [Forwarded vs X-Forwarded headers problem](https://github.com/expressjs/express/issues/5459), the lovely folks at Express pointed out there is a way to override request properties using the [Express extensions API](https://expressjs.com/en/guide/overriding-express-api.html). Visit the issue for more detail, but the summary is that I can intercept all requests and overwrite the "ip" and "protocol" properties with the values in the Forwarded header (if present), and ignore the X-Forwarded headers entirely. The end result is that our [Express Session middleware](https://www.npmjs.com/package/express-session) sees IP and protocol identifying the secure API Gateway, not the insecure load balancer, thus happily returns the Set-Cookie header to the client, and our user session is successfully established 🥂
 
-So that's how you do it. If you want to see it in action, here's my [repo on GitHub with the final working solution](https://github.com/chriswilty/apigw-fargate-stacks), also including an attempt with Network Load Balancer that didn't work.
+## Victory is mine!
+
+So that's how you do it. If you want to see it in action, here's a [repo on GitHub with the final working solution](https://github.com/chriswilty/apigw-fargate-stacks), also including an attempt with Network Load Balancer that didn't work.
 
 ## A twist in the tale
 
