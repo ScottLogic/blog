@@ -1,6 +1,7 @@
 ---
 title: Securing a public AWS load-balanced server without your own domain
-date: 2024-05-10 12:45:00 Z
+date: 2024-05-09 11:05:00 Z
+published: false
 categories:
 - Cloud
 tags:
