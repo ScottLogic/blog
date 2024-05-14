@@ -69,7 +69,7 @@ There are 3 main components of the set up:
 ![mistral ranking]({{ site.github.url }}/bheyman/assets/mistral_ranking.png "mistral ranking")
 *Mistral ranks just below GPT-4 on MMLU (Measuring massive multitask language understanding)*
   
-We then incorporate this into a small python project that is able to make these calls to the Mistral-Large API endpoint - *All code is provided at the end of this blog post*.
+We then incorporate this into a small python project that is able to make these calls to the Mistral-Large API endpoint - **All code is provided at the end of this blog post**.
 
 ### Creating the schema
 
@@ -88,7 +88,7 @@ After deciding on a schema, it now needs to be populated with some dummy data. T
 
 I passed the schema in a text format into the LLM and this produced some cypher queries for me to input into Neo4j to create the nodes. The cypher generated can be seen [here](https://github.com/bheyman-scottlogic/creating-cypher-queries/blob/main/dummy_data.txt).
 
-> This did take a couple of attempts to create sufficient data but it did work in the end. A small caveat can be noted here that some basic knowledge of cyher will help you confirm the dummy data is useable. Alternatively, you can just run the queries in Neo4j and see what graph you get, if you are adamant about not learning any cypher!
+*This did take a couple of attempts to create sufficient data but it did work in the end. A small caveat can be noted here that some basic knowledge of cyher will help you confirm the dummy data is useable. Alternatively, you can just run the queries in Neo4j and see what graph you get, if you are adamant about not learning any cypher!*
 
 To add this to Neo4j, we go to the Neo4j browser and paste in our cypher queries to populate the database.
 
@@ -105,6 +105,7 @@ The most important part of this is giving the LLM enough background information 
 For this part, the LLM is expected to be proficient at writing cypher queries and this has been incorporated into the prompt. We therefore provide a system prompt that gives the LLM enough context to be proficient at this. We want a cypher query to be returned from a question that we ask it. If it is not possible to generate a corresponding query, then we want the LLM to acknowledge this and not try to create something. This is where [hallucinations](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)) are likely to happen if not explicitly dealt with.
 
 Lets take a look at the prompt used:
+
 ~~~
 You are an expert in NEO4J and generating CYPHER queries. Help create cypher queries in json format {{question: question provided by the user, query: cypher query}}.
 
@@ -146,11 +147,11 @@ The relationships between the nodes are the following:\n
 (:Transaction)-[:PAID_BY]->(:Account)
 ~~~
 
-The semantic help that is added in helps make this a lot more powerful. Without you telling the LLM what category means, it will be a lot harder for the LLM to unpack a natural language question and create a query. 
+The semantic help that is added in makes this a lot more powerful. Without you telling the LLM what category means, it will be a lot harder for the LLM to unpack a natural language question and create a query. 
 
-For example if you ask about online shopping spend, with the extra help as above, the LLM will better understand that we want to know about the *Category* node. Otherwise it may have assumed that online shopping is one of the potential narrative options and generated a completely different query.
+For example if you ask about online shopping spend, with the extra help as above, the LLM will better understand that we want to know about the **Category** node. Otherwise it may have assumed that online shopping is one of the potential narrative options and generated a completely different query.
 
-> This prompt was not all thought of completely at once and was an iterative process that evolved as I asked different questions, found that it would return the wrong thing and then adding in a new line that would help to get what I wanted. This seems to be a common process that occurs when [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering) and it seems that you could continue to iterate for a very long time until your prompt is perfect.
+*This prompt was not all thought of completely at once and was an iterative process that evolved as I asked different questions, found that it would return the wrong thing and then adding in a new line that would help to get what I wanted. This seems to be a common process that occurs when [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering) and it seems that you could continue to iterate for a very long time until your prompt is perfect.*
 
 So what do we get back from this prompt when we make the LLM call?
 
@@ -217,7 +218,7 @@ Only reply with a relevant answer as a string, do not return any of the prompt b
 All amounts are in GBP £
 ~~~
 
-Here we can see that we provide an example for the user prompt format and an example for what we want the answer returned to the user to look like. This is called *one-shot prompting* and scratches the surface of how to improve our LLm prompts. All of this information really helps the LLM to reply in a more consistent format.
+Here we can see that we provide an example for the user prompt format and an example for what we want the answer returned to the user to look like. This is called **one-shot prompting** and scratches the surface of how to improve our LLm prompts. All of this information really helps the LLM to reply in a more consistent format.
 
 The end result is a well written natural language response that presents our data.
 
@@ -231,11 +232,11 @@ question("What did I spend more on Tesco or Aldi?")
 
 Overall, this is an incredible use of large language models. The fact that you are able to ask all these questions without having to thoroughly understand the querying language opens up many doors! You don't have to provide structure in your questions being asked as the LLM is able to infer things from the question being asked and the relative context it has. I had a lot of fun messing around with the data and asking different things and on the most part it was very successful. 
 
-The non-deterministic nature of using LLMs can provide some nuances when generating these queries. Adding in the graph schema and some explanation of what nodes/properties/edges actually represent makes this very powerful and gives the LLM a strong understanding of how everything interacts together.
+The [non-deterministic](https://en.wikipedia.org/wiki/Nondeterministic_algorithm) nature of using LLMs can provide some nuances when generating these queries. Adding in the graph schema and some explanation of what nodes/properties/edges actually represent makes this very powerful and gives the LLM a strong understanding of how everything interacts together.
 
 Large language models are only going to get more powerful and therefore get better at this process. There is also the option to fine-tune a LLM specifically on cypher queries to make it even more powerful and reliable. At this point I am already extremely impressed and look forward to seeing what can be done in the future.
 
-## Further Resources
+## Have a Go Yourself
 
 If you want to have a play around with the code and ask some questions, all you need is a Mistral API key. All the code is available [here](https://github.com/bheyman-scottlogic/creating-cypher-queries). 
 
