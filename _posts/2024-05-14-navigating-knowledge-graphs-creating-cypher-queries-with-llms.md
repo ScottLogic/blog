@@ -21,7 +21,7 @@ Graph databases are not like your typical relational database and are represente
 
 This is where cypher comes in. Cypher is the chosen querying language for Neo4j, one of the most prominent graph database providers around. The only problem is that not that many people have used cypher and no one wants to have to learn new querying languages after sinking all their precious time into learning SQL. How about we use a LLM to try and generate these queries for us?
 
-If you want to learn more about graph databases and knowledge graphs, read an excellent blog post by Richard Strange who gives a great introduction to what they're all about. This can be found on the [Scott Logic Blog](https://blog.scottlogic.com/2024/05/01/knowledge-graphs-what-are-they.html). 
+If you want to learn more about graph databases and knowledge graphs, read an excellent blog post by Richard Strange who gives a great introduction to what they're all about. This can be found on the [Scott Logic blog](https://blog.scottlogic.com/2024/05/01/knowledge-graphs-what-are-they.html). 
 
 ### What sort of insights can we get?
 
@@ -66,7 +66,7 @@ There are 3 main components of the set up:
 
  When deciding what LLM to use, I didn't want to use any of OpenAI’s GPT models. For those who don’t know, there are a number of different models that can be used (Claude and Mistral being two of the largest competitors at the time to OpenAI). I decided to go with Mistral and use their `Large` model to see how it compares with `GPT-4`. It's a lot cheaper to use as well!
 
-![mistral ranking](../bheyman/assets/mistral_ranking.png)
+![mistral ranking]({{ site.github.url }}/bheyman/assets/mistral_ranking.png "mistral ranking")
 *Mistral ranks just below GPT-4 on MMLU (Measuring massive multitask language understanding)*
   
 We then incorporate this into a small python project that is able to make these calls to the Mistral-Large API endpoint - *All code is provided at the end of this blog post*.
@@ -77,7 +77,7 @@ For the schema we want to show how each node of the graph relates to other nodes
 
 A basic schema was created as below.
 
-![schema](../bheyman/assets/schema.png)
+![schema]({{ site.github.url }}/bheyman/assets/schema.png "schema")
 *This shows the different nodes of the graph database, the properties of each node and the relationships between the nodes.*
 
 I found that I had a first draft schema that wasn't 100% working correctly. When I started asking it some questions, these weren't returning the right query and this then directed me to change the schema to something more appropriate and fitting for the data I had. You can use the LLM to help in building the schema, which I found very helpful.
@@ -94,7 +94,7 @@ To add this to Neo4j, we go to the Neo4j browser and paste in our cypher queries
 
 We then get a beautiful looking graph of interlinked nodes!
 
-![graph](../bheyman/assets/graph.png)
+![graph]({{ site.github.url }}/bheyman/assets/graph.png "graph")
 
 ## Using the LLM
 
@@ -130,7 +130,7 @@ I found that the most important part is providing the schema, along with a bit o
 
 There is a small caveat regarding cypher knowledge and the notation for relationships. The syntax may be unfamiliar, but you will need to add this in to represent the relationships accurately. Beyond this you can get away with no further understanding of the querying language.
 
-```json
+```
 Node properties are the following:\n  
 Person {{name: STRING, birth_date: DATE}},  
 Transaction {{transaction_id: INTEGER, transaction_date: DATE, narrative: STRING, type: STRING, amount: INTEGER, balance: INTEGER}}, "date format is 2024-02-15" "narrative can only be one of the following: Bills, Groceries, Entertainment, Rent, Shopping"  
