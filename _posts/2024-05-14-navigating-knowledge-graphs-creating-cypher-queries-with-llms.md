@@ -190,7 +190,7 @@ When we run our example question we get the following response:
 
 We can then put this through another LLM with a different "personality" to get the natural language response for the user.
 
-### Returning Data as Words
+### Returning data as words
 
 The final piece of the puzzle is getting a well worded sentence back to the user that summarises any data returned from the database. 
 
