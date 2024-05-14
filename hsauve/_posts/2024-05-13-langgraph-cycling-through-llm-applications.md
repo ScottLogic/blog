@@ -50,7 +50,7 @@ Once we have created our nodes and edges, it’s time to build our graph, by cre
 
 Let's look at the [multi-agent collaboration example from the LangGraph website](https://langchain-ai.github.io/langgraph/tutorials/multi_agent/multi-agent-collaboration/), we'll tweak some of the tools, and the prompt for the sake of the theme:
 
-```python
+~~~python
 HumanMessage(
                 content="Fetch the number of bikes sold in the UK in 2020,"
                 " then draw a circle graph."
@@ -58,7 +58,7 @@ HumanMessage(
                 " mountain bike, road bike, electric bike, and hybrid bike."
                 " Once you code it up, finish."
             ) 
-```
+~~~
 
 We've got two nodes:
 - a Researcher that has access to Google Search API tools
@@ -70,7 +70,7 @@ Let's compile the workflow and observe:
 
 The Researcher gets to work, and starts with a web search:
 
-```python
+~~~python
 {'Researcher': {
     'messages': [
         HumanMessage(content='', additional_kwargs={
@@ -82,41 +82,54 @@ The Researcher gets to work, and starts with a web search:
         ]
     }
 }
-```
+~~~
 
 It gets the total amount of bikes sold, but not broken down into bike types, so in its returned value, the Researcher lets the router know that it needs additional information.
 
-```python
+~~~python
 {'Researcher': {
     'messages': [
-        HumanMessage(content='The total number of bikes sold in the UK in 2020 was approximately 3.3 million. Now, I will find the breakdown of sales by type of bike (mountain bike, road bike, electric bike, and hybrid bike) to create the circle graph.)
+        HumanMessage(content='The total number of bikes sold in the UK in 2020 was approximately 3.3 million. Now, I will find the breakdown of sales by type of bike (mountain bike, road bike, electric bike, and hybrid bike) to create the circle graph.
+        )
     ]
-    }
 }
-```
+}
+~~~
 
 Once it has all the information it needs, it provides a message informing on its limits and capabilities:
-```python
+~~~python
 {'Researcher': {
     'messages': [
         HumanMessage(content="It seems I don't have direct access to a tool that can create a circle graph. However, I can provide the data in a format that you can use to create a circle graph using any standard graphing tool or software:\n\n- **Electric bikes**: 194,700 bikes\n- **Mountain bikes**: 1,155,000 bikes\n- **Road bikes**: 1,155,000 bikes\n- **Hybrid bikes**: 795,300 bikes
-```
+        )
+    ]
+}
+}
+~~~
 
 The Graph Generator takes over and draws the graph:
 
-```python
+~~~python
 {'Graph_Generator': {
     'messages': [
         HumanMessage(content='', additional_kwargs={'function_call': {'arguments': '{"code":"import matplotlib.pyplot as plt\\n\\n# Data to plot\\nlabels = \'Electric Bikes\', \'Mountain Bikes\', \'Road Bikes\', \'Hybrid Bikes\'\\nsizes = [194700, 1155000, 1155000, 795300]\\ncolors = [\'gold\', \'yellowgreen\', \'lightcoral\', \'lightskyblue\']\\nexplode = (0.1, 0, 0, 0)  # explode 1st slice\\n\\n# Plot\\nplt.pie(sizes, explode=explode, labels=labels, colors=colors,\\nautopct=\'%1.1f%%\', shadow=True, startangle=140)\\n\\nplt.axis(\'equal\')\\nplt.title(\'Bike Sales Distribution in the UK in 2020\')\\nplt.show()"}', 'name': 'python_repl'}}
-```
+        )
+    ]
+}
+}
+~~~
 And informs that the graph is created.
 
-```python
+~~~python
 {'Graph_Generator': {
     'messages': [
         HumanMessage(
             content='Here is the circle graph showing the distribution of bike sales in the UK in 2020 by type:\n\n![Bike Sales Distribution in the UK in 2020](sandbox:/mnt/data/graph.png)\n\nThis graph visually represents the estimated sales of electric bikes, mountain bikes, road bikes, and hybrid bikes in the UK for the year 2020.'
-```
+        )
+    ]
+}
+}
+~~~
 
 And just like that, we get our graph back. 
 
