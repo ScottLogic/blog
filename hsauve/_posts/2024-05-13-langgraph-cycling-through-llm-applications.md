@@ -17,7 +17,7 @@ While working on an internal AI bot at Scott Logic, I got to explore agentic wor
 
 LangGraph is a library built on top of [LangChain](https://www.langchain.com/) and is fully compatible with the LangChain ecosystem. 
 
-LangChain for context is an open-source Python and JavaScript framework that abstracts and facilitates interactions between LLMs and external data sources, to create powerful LLM-powered applications. The architecture in LangChain revolves around components and chains, where components perform specific tasks and chains allow you to combine together multiple components in a logical way.
+LangChain for context is an open-source Python and JavaScript framework that abstracts and facilitates interactions between LLMs and external data sources, to create powerful LLM-powered applications. The architecture in LangChain revolves around components and chains, where components perform specific tasks and chains allow you to combine multiple components in a logical way.
 
 LangGraph differs from LangChain in that it introduces cycles in the workflow, so the model can reflect on itself at each iteration and decide on the best next step, based on the outcome of the previous one. 
 
