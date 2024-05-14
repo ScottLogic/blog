@@ -129,7 +129,9 @@ The Graph Generator takes over and generates the graph below using the Python Re
 
 {'{"code":
 " import matplotlib.pyplot as plt" 
-" Data to plot\\nlabels = \'Electric Bikes\', \'Mountain Bikes\', \'Road Bikes\', \'Hybrid Bikes\"
+" Data to plot\\nlabels ="
+" \'Electric Bikes\', \'Mountain Bikes\',"
+" \'Road Bikes\', \'Hybrid Bikes\"
 " nsizes = [194700, 1155000, 1155000, 795300]"
 " ncolors = [\'gold\', \'yellowgreen\', \'lightcoral\', \'lightskyblue\']"
 " nexplode = (0.1, 0, 0, 0)  # explode 1st slice"
