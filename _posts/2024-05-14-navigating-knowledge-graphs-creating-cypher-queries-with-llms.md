@@ -31,23 +31,23 @@ I have populated a graph database (see below for further details) with some fina
 
 Here are some of the questions and the responses I get back.
 
-```python
+~~~python
 question("Find all persons who made transactions with Aldi?")
 
 >>> "John, I found out that Jane Smith and you have made transactions with Aldi. It seems that both of you have made multiple transactions there."
-```
+~~~
 
-```python
+~~~python
 question("How much did I spend at Tesco?")
 
 >>> "John, you have spent a total of £1750 at Tesco."
-```
+~~~
 
-```python
+~~~python
 question("What did I spend more on Tesco or Aldi?")
 
 >>> "John, you've spent more at Tesco. The total amount there is £1750, while at Aldi, you've spent £225."
-```
+~~~
 *We shall use this question as our example throughout the blog post*
 
 To me this fascinating! What is so versatile about this is that we can ask natural language questions that will then be converted to a cypher query and the data can then be returned to us as natural language again. This is where the combination of graph databases and LLMs becomes really powerful. 
@@ -105,7 +105,7 @@ The most important part of this is giving the LLM enough background information 
 For this part, the LLM is expected to be proficient at writing cypher queries and this has been incorporated into the prompt. We therefore provide a system prompt that gives the LLM enough context to be proficient at this. We want a cypher query to be returned from a question that we ask it. If it is not possible to generate a corresponding query, then we want the LLM to acknowledge this and not try to create something. This is where [hallucinations](https://en.wikipedia.org/wiki/Hallucination_(artificial_intelligence)) are likely to happen if not explicitly dealt with.
 
 Lets take a look at the prompt used:
-```
+~~~
 You are an expert in NEO4J and generating CYPHER queries. Help create cypher queries in json format {{question: question provided by the user, query: cypher query}}.
 
 If you cannot make a query, query should just say "None"
@@ -122,7 +122,7 @@ Here is the graph schema:
 The current date and time is {datetime.now()}
 
 The current user is {current_user}
-```
+~~~
 
 There are a few things in the prompt that help the LLM to make the right decisions. By telling it how it's an expert in Neo4j and cypher it is able to take on this persona. You can then provide the format that you want it to return. I have asked for a JSON format as this is easy to interpret and provides a standard way of presenting the returned information.
 
@@ -130,7 +130,7 @@ I found that the most important part is providing the schema, along with a bit o
 
 There is a small caveat regarding cypher knowledge and the notation for relationships. The syntax may be unfamiliar, but you will need to add this in to represent the relationships accurately. Beyond this you can get away with no further understanding of the querying language.
 
-```
+~~~
 Node properties are the following:\n  
 Person {{name: STRING, birth_date: DATE}},  
 Transaction {{transaction_id: INTEGER, transaction_date: DATE, narrative: STRING, type: STRING, amount: INTEGER, balance: INTEGER}}, "date format is 2024-02-15" "narrative can only be one of the following: Bills, Groceries, Entertainment, Rent, Shopping"  
@@ -144,7 +144,7 @@ The relationships between the nodes are the following:\n
 (:Transaction)-[:PAID_TO]->(:Shop),  
 (:Transaction)-[:CLASSIFIED_AS]->(:Category),  
 (:Transaction)-[:PAID_BY]->(:Account)
-```
+~~~
 
 The semantic help that is added in helps make this a lot more powerful. Without you telling the LLM what category means, it will be a lot harder for the LLM to unpack a natural language question and create a query. 
 
@@ -154,9 +154,9 @@ For example if you ask about online shopping spend, with the extra help as above
 
 So what do we get back from this prompt when we make the LLM call?
 
-```json
+~~~json
 {"question": "What did I spend more on Tesco or Aldi?", "query": "MATCH (p:Person {name: 'John Doe'})-[:MADE]->(t:Transaction)-[:PAID_TO]->(s:Shop) WHERE s.merchant_name IN ['Tesco', 'Aldi'] WITH s.merchant_name as merchant, SUM(t.amount) as total_spent RETURN merchant, total_spent ORDER BY total_spent DESC"}
-```
+~~~
 
 We get a JSON object returned in the format that we specified in our prompt. This makes it easy to extract the query and use this to further extract the data from Neo4j.
 
@@ -166,7 +166,7 @@ Now we have a query, we can use this to query Neo4j and hopefully get some infor
 
 The function below will take the query from our JSON object and run this in our Neo4j instance. It will then return any records from the database in a dictionary or return an exception if not possible.
 
-```python
+~~~python
 def create_query(query):  
     try:  
         session = driver.session()   
@@ -184,7 +184,7 @@ def create_query(query):
         if session:  
             session.close()  
         driver.close()
-```
+~~~
 
 When we run our example question we get the response `[{'merchant': 'Tesco', 'total_spent': 1750}, {'merchant': 'Aldi', 'total_spent': 225}]`
 
@@ -198,7 +198,7 @@ For the user prompt, we can pass the JSON object of the question and the cypher 
 
 For the system prompt we use the following:
 
-```
+~~~
 You are an expert at summarising responses from a graph database. You will be provided with the original question and the response from the database.  
   
 The information will come in the format:  
@@ -215,17 +215,17 @@ You are speaking to {current_user}, if another user is mentioned, you are still 
 Only reply with a relevant answer as a string, do not return any of the prompt back to the user and don't include any IDs as these are only relevant for the database  
   
 All amounts are in GBP £
-```
+~~~
 
 Here we can see that we provide an example for the user prompt format and an example for what we want the answer returned to the user to look like. This is called *one-shot prompting* and scratches the surface of how to improve our LLm prompts. All of this information really helps the LLM to reply in a more consistent format.
 
 The end result is a well written natural language response that presents our data.
 
-```python
+~~~python
 question("What did I spend more on Tesco or Aldi?")
 
 >>> "John, you've spent more at Tesco. The total amount there is £1750, while at Aldi, you've spent £225."
-```
+~~~
 
 ## Main Takeaways
 
