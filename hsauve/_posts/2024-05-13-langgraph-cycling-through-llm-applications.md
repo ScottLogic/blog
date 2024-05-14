@@ -52,10 +52,11 @@ Let's look at the [multi-agent collaboration example from the LangGraph website]
 
 ~~~python
 HumanMessage(
-                content="Fetch the number of bikes sold in the UK in 2020,"
+                content=
+                " Fetch the number of bikes sold in the UK in 2020," 
                 " then draw a circle graph."
-                " The graph should display the types of bikes:"
-                " mountain bike, road bike, electric bike, and hybrid bike."
+                " The graph should display the types of bikes:" 
+                " mountain bike, road bike, electric bike, and hybrid bike." 
                 " Once you code it up, finish."
             ) 
 ~~~
@@ -76,7 +77,9 @@ The Researcher gets to work, and starts with a web search:
         HumanMessage(content='', additional_kwargs={
             'function_call': {
                 'arguments': '{
-                    "query":"total number of bikes sold in the UK in 2020"}', 'name': 'web_search'}
+                    "query":" total number of bikes" 
+                    " sold in the UK in 2020"
+                    }', 'name': 'web_search'}
                     }
         )
         ]
@@ -89,7 +92,12 @@ It gets the total amount of bikes sold, but not broken down into bike types, so 
 ~~~python
 {'Researcher': {
     'messages': [
-        HumanMessage(content='The total number of bikes sold in the UK in 2020 was approximately 3.3 million. Now, I will find the breakdown of sales by type of bike (mountain bike, road bike, electric bike, and hybrid bike) to create the circle graph.
+        HumanMessage(content=
+        " The total number of bikes sold in the UK in 2020"
+        " was approximately 3.3 million." 
+        " Now, I will find the breakdown of sales by type of bike" 
+        " (mountain bike, road bike, electric bike, and hybrid bike)" 
+        " to create the circle graph.
         )
     ]
 }
@@ -101,23 +109,35 @@ Once it has all the information it needs, it provides a message informing on its
 ~~~python
 {'Researcher': {
     'messages': [
-        HumanMessage(content="It seems I don't have direct access to a tool that can create a circle graph. However, I can provide the data in a format that you can use to create a circle graph using any standard graphing tool or software:\n\n- **Electric bikes**: 194,700 bikes\n- **Mountain bikes**: 1,155,000 bikes\n- **Road bikes**: 1,155,000 bikes\n- **Hybrid bikes**: 795,300 bikes
+        HumanMessage(content=
+        " It seems I don't have direct access to a tool that can create a circle graph." 
+        " However, I can provide the data in a format that you can use to create a circle graph"
+        " using any standard graphing tool or software: "
+        " - Electric bikes**: 194,700 bikes" 
+        " - Mountain bikes**: 1,155,000 bikes"
+        " - Road bikes**: 1,155,000 bikes"
+        " - Hybrid bikes**: 795,300 bikes
         )
     ]
 }
 }
 ~~~
 
-The Graph Generator takes over and draws the graph:
+The Graph Generator takes over and generates the graph below using the Python Repl:
 
 ~~~python
-{'Graph_Generator': {
-    'messages': [
-        HumanMessage(content='', additional_kwargs={'function_call': {'arguments': '{"code":"import matplotlib.pyplot as plt\\n\\n# Data to plot\\nlabels = \'Electric Bikes\', \'Mountain Bikes\', \'Road Bikes\', \'Hybrid Bikes\'\\nsizes = [194700, 1155000, 1155000, 795300]\\ncolors = [\'gold\', \'yellowgreen\', \'lightcoral\', \'lightskyblue\']\\nexplode = (0.1, 0, 0, 0)  # explode 1st slice\\n\\n# Plot\\nplt.pie(sizes, explode=explode, labels=labels, colors=colors,\\nautopct=\'%1.1f%%\', shadow=True, startangle=140)\\n\\nplt.axis(\'equal\')\\nplt.title(\'Bike Sales Distribution in the UK in 2020\')\\nplt.show()"}', 'name': 'python_repl'}}
-        )
-    ]
-}
-}
+
+{'{"code":
+" import matplotlib.pyplot as plt" 
+" Data to plot\\nlabels = \'Electric Bikes\', \'Mountain Bikes\', \'Road Bikes\', \'Hybrid Bikes\"
+" nsizes = [194700, 1155000, 1155000, 795300]"
+" ncolors = [\'gold\', \'yellowgreen\', \'lightcoral\', \'lightskyblue\']"
+" nexplode = (0.1, 0, 0, 0)  # explode 1st slice"
+" # Plot\\nplt.pie(sizes, explode=explode, labels=labels, colors=colors," 
+" nautopct=\'%1.1f%%\', shadow=True, startangle=140)"
+" nplt.axis(\'equal\')"
+" plt.title(\'Bike Sales Distribution in the UK in 2020\')"
+" nplt.show()"}'}
 ~~~
 
 And informs that the graph is created.
@@ -126,7 +146,13 @@ And informs that the graph is created.
 {'Graph_Generator': {
     'messages': [
         HumanMessage(
-            content='Here is the circle graph showing the distribution of bike sales in the UK in 2020 by type:\n\n![Bike Sales Distribution in the UK in 2020](sandbox:/mnt/data/graph.png)\n\nThis graph visually represents the estimated sales of electric bikes, mountain bikes, road bikes, and hybrid bikes in the UK for the year 2020.'
+            content=
+            " Here is the circle graph showing"
+            " the distribution of bike sales in the UK in 2020 by type:"
+            " [Bike Sales Distribution in the UK in 2020](sandbox:/mnt/data/graph.png)" 
+            " This graph visually represents the estimated sales of"
+            " electric bikes, mountain bikes, road bikes, and hybrid bikes"
+            " in the UK for the year 2020.'
         )
     ]
 }
