@@ -97,6 +97,7 @@ It gets the total amount of bikes sold, but not broken down into bike types, so 
 ~~~
 
 Once it has all the information it needs, it provides a message informing on its limits and capabilities:
+
 ~~~python
 {'Researcher': {
     'messages': [
