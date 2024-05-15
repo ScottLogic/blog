@@ -29,6 +29,8 @@ BunJS is billed as “a fast Javascript all-in-one toolkit”... they’re defin
 
 The problem I was struggling to solve was; “What can I use this on?”. Our client work would be an ideal candidate, we certainly saw issues with NodeJs slowness that Bun definitely had the potential to help with, however in the world of Fintech new and fancy also means unknown and risky and adopting new tech can be a hard case to make.
 
+[Grumpy Santa Cat]({{ site.github.url }}/wmckenzie/assets/grumpy-santa-cat.jpg)
+
 Then we got to October, and, to my eternal annoyance, Christmas stuff started appearing in the shops (thankfully no Mariah yet), and, despite myself, I started thinking about Christmas things, and more specifically… [Advent of Code](https://adventofcode.com/). For those currently sitting scratching their heads, Advent of Code is a global series of coding challenges, one a day from the start of December until Christmas Day, set by [Eric Wastl](http://was.tl/), which I took part in for the first time the year before. I’d managed a respectable 6th place on the Scott Logic leaderboard and a slightly better 5th place on the client leaderboard. This year I was hoping to improve on that.
 
 ## Formulating a plan
@@ -38,6 +40,8 @@ Last year’s efforts I’d written in Python, as a way of keeping my hand in. F
 I decided to take my existing solutions from last year and convert them to Typescript, then benchmark them against the Python versions, and while I was at it, why not compare NodeJS running the same code? The results... were surprising:
 
 ## The results are in
+
+[Speed Comparisons between langauges]({{ site.github.url }}/wmckenzie/assets/speed-comparison-chart.svg)
 
 | Language      | Day 10                                          | Day 11                                              | Day 12                                            | Day 13                                           | Day 14                                              | Day 15                                              | Day 16                                              |
 | ------------- | ----------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------ | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
