@@ -65,6 +65,8 @@ fastest execution time, the time from pressing enter to starting to getting outp
 
 ## So what did we learn?
 
+![In Conclusion]({{ site.github.url}}/wmckenzie/assets/in-conclusion.jpg)
+
 Let's start with the main question, is BunJS faster than NodeJS? The results would suggest that on average, yes, BunJS executes the same code faster than NodeJS.
 
 Should you immediately switch all NodeJS projects to BunJS? Probably not, while BunJS was faster, I would say the differences are not really great enough to warrant the
