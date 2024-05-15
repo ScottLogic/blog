@@ -8,8 +8,9 @@ tags:
   - typescript
   - NodeJS
   - BunJS
+  - Christmas
 author: wmckenzie
-summary: A festive look at the latest challenger to NodeJS's throne
+summary: A (belated) festive look at the latest challenger to NodeJS's throne
 ---
 
 <style>
@@ -25,7 +26,7 @@ summary: A festive look at the latest challenger to NodeJS's throne
 
 Last year I attended the Infobip Shift conference, where I saw a talk by Tejas Kumar on “[New Trends in Front-End Development](https://www.youtube.com/watch?v=VINfWbaFBVs&list=PLuAItjWV4peETEf336UJKvDsI5RWbshUa&index=31&pp=iAQB)”. In his talk, he demoed building and running a new QwikJS app using Bun instead of Node. I’d been hearing lots of talk about Bun, particularly on the Bytes email blast but hadn’t had a chance to properly check it out so I was particularly interested in seeing how it did.
 
-BunJS is billed as “a fast Javascript all-in-one toolkit”... they’re definitely not lying about the fast part! When he first ran the command to start the app up my colleague and I both looked at each other in amazement and commented “Wow that was fast” (content edited for a PG rating). There wasn’t much more discussed about Bun in the talk, the focus was more on Qwik and it’s approach to Signals, and how that compared to other frameworks (a topic for another time), but it had definitely piqued my interest.
+BunJS is billed as “a fast Javascript all-in-one toolkit”... they’re definitely not lying about the fast part! When he first ran the command to start the app up my colleague and I both looked at each other in amazement and commented “Wow that was fast” (content edited for a PG rating). There wasn’t much more discussed about Bun in the talk, the focus was more on Qwik and its approach to Signals, and how that compared to other frameworks (a topic for another time), but my interest was certainly piqued.
 
 The problem I was struggling to solve was; “What can I use this on?”. Our client work would be an ideal candidate, we certainly saw issues with NodeJs slowness that Bun definitely had the potential to help with, however in the world of Fintech new and fancy also means unknown and risky and adopting new tech can be a hard case to make.
 
@@ -52,15 +53,14 @@ I decided to take my existing solutions from last year and convert them to Types
 
 > N.B. For the purposes of keeping the table concise I've focused on a week's worth of tasks in the middle of the month, this gave me problems with a reasonable degree of difficulty but not ones that would be difficult to re-engineer in Typescript. I've also only included the average total time to load data and complete both parts of each problem across 3 runs, rather than comparing each individual segment.
 
-There's certainly no clear, runaway winner. I'd expected Python to still be the faster option, with BunJS maybe coming close, while still beating NodeJS across the board. However, as we can see, things weren't quite so clear cut.
+There's certainly no clear, runaway winner. I'd expected Python to still be the faster option, with BunJS maybe coming close, while still beating NodeJS across the board. However, as we can see, things weren't quite so clear-cut.
 
-BunJS actually managed to outperform Python across the majority of the examples, with 3 wins to Python and NodeJS's 2s. Even expanding this out to the first 16 days
-and BunJS stays ahead with 10 total wins, beating Python's 5 and NodeJS's 1. Perhaps most interesting was the fact that calling Bun via NPM performed the best, taking
+BunJS actually managed to outperform Python across the majority of the examples, with 3 wins to Python and NodeJS's 2s. Even expanding this out to the first 16 days BunJS stays ahead with 10 total wins, beating Python's 5 and NodeJS's 1. Perhaps most interesting was the fact that calling Bun via NPM performed the best, taking
 6 wins to the direct approach's 4. I would've expected the extra overhead to have a negative impact. Admittedly there may have been some skewing of data on this, the run
 times via NPM mostly tended to decrease on each execution, suggesting a degree of caching may be taking place.
 
 Also pretty impressive is that both BunJS and NodeJS managed to produce a result on Day 15 where Python continued to crash out. Granted there's probably a flaw in my Python code
-but the Typescript code is pretty much a like for like conversion. I also felt like BunJS' perceived load time was faster, even on solutions where Python had the
+but the Typescript code is pretty much a like-for-like conversion. I also felt like BunJS' perceived load time was faster, even on solutions where Python had the
 fastest execution time, the time from pressing enter to starting to getting output often seemed quite long, with BunJS feeling much more responsive.
 
 ## So what did we learn?
@@ -70,7 +70,7 @@ fastest execution time, the time from pressing enter to starting to getting outp
 Let's start with the main question, is BunJS faster than NodeJS? The results would suggest that on average, yes, BunJS executes the same code faster than NodeJS.
 
 Should you immediately switch all NodeJS projects to BunJS? Probably not, while BunJS was faster, I would say the differences are not really great enough to warrant the
-overhead of any refactoring, however minor. I also hit a scenario in last years Advent of Code where BunJS couldn't run the solution due to import issues, but NodeJS could,
+overhead of any refactoring, however minor. I also hit a scenario in last year's Advent of Code where BunJS couldn't run the solution due to import issues, but NodeJS could,
 so you may find that converting to Bun will break your project.
 
 Should I consider BunJS when starting a new project? Absolutely! For most use cases you're unlikely to have an issue, and transitioning back to NodeJS should be relatively 
@@ -78,7 +78,7 @@ straightforward, should you need to. The out-of-the-box Typescript and ESM handl
 make the scripts run via NodeJS without compiling, and faster startup times for your application are never a bad thing.
 
 Should I switch all my Python projects to BunJS? Again, probably not. Python is still really fast, and, particularly for these kinds of problems, there are a lot of packages
-available to make implementing the more complex algorithm's a lot easier, and as I found with last years challenges, sometimes Python can handle the bigger datasets a lot better.
+available to make implementing the more complex algorithms a lot easier, and as I found with last years challenges, sometimes Python can handle the bigger datasets a lot better.
 
 Should I do Advent of Code? Absolutely, while some days puzzles are downright horrible, for the most part it's pretty fun, and you can learn a lot about algorithms and more
 advanced optimisation techniques.
