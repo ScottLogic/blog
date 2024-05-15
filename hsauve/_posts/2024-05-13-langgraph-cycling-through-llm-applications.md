@@ -52,13 +52,13 @@ Let's look at the [multi-agent collaboration example from the LangGraph website]
 
 ~~~python
 HumanMessage(
-                content=
-                " Fetch the number of bikes sold in the UK in 2020," 
-                " then draw a circle graph."
-                " The graph should display the types of bikes:" 
-                " mountain bike, road bike, electric bike, and hybrid bike." 
-                " Once you code it up, finish."
-            ) 
+        content=
+            " Fetch the number of bikes sold in the UK in 2020," 
+            " then draw a circle graph."
+            " The graph should display the types of bikes:" 
+            " mountain bike, road bike, electric bike, and hybrid bike." 
+            " Once you code it up, finish."
+        ) 
 ~~~
 
 We've got two nodes:
@@ -72,16 +72,17 @@ Let's compile the workflow and observe:
 The Researcher gets to work, and starts with a web search:
 
 ~~~python
-{'Researcher': {
-    'messages': [
-        HumanMessage(content='', additional_kwargs={
-            'function_call': {
-                'arguments': '{
-                    "query":" total number of bikes" 
-                    " sold in the UK in 2020"
-                    }', 'name': 'web_search'}
-                    }
-        )
+{
+    "Researcher": {
+        "messages": [
+            HumanMessage(
+                content="", 
+                additional_kwargs={
+                "function_call": {
+                    "arguments": '{"query":" total number of bikes sold in the UK in 2020"}',
+                    "name": "web_search"}
+                }
+            )
         ]
     }
 }
@@ -90,36 +91,40 @@ The Researcher gets to work, and starts with a web search:
 It gets the total amount of bikes sold, but not broken down into bike types, so in its returned value, the Researcher lets the router know that it needs additional information.
 
 ~~~python
-{'Researcher': {
-    'messages': [
-        HumanMessage(content=
-        " The total number of bikes sold in the UK in 2020"
-        " was approximately 3.3 million." 
-        " Now, I will find the breakdown of sales by type of bike" 
-        " (mountain bike, road bike, electric bike, and hybrid bike)" 
-        " to create the circle graph.
-        )
-    ]
-}
+{
+    'Researcher': {
+        'messages': [
+            HumanMessage(
+                content=
+                " The total number of bikes sold in the UK in 2020"
+                " was approximately 3.3 million." 
+                " Now, I will find the breakdown of sales by type of bike" 
+                " (mountain bike, road bike, electric bike, and hybrid bike)" 
+                " to create the circle graph.
+            )
+        ]
+    }
 }
 ~~~
 
 Once it has all the information it needs, it provides a message informing on its limits and capabilities:
 
 ~~~python
-{'Researcher': {
-    'messages': [
-        HumanMessage(content=
-        " It seems I don't have direct access to a tool that can create a circle graph." 
-        " However, I can provide the data in a format that you can use to create a circle graph"
-        " using any standard graphing tool or software: "
-        " - Electric bikes**: 194,700 bikes" 
-        " - Mountain bikes**: 1,155,000 bikes"
-        " - Road bikes**: 1,155,000 bikes"
-        " - Hybrid bikes**: 795,300 bikes
-        )
-    ]
-}
+{
+    'Researcher': {
+        'messages': [
+            HumanMessage(
+                content=
+                " It seems I don't have direct access to a tool that can create a circle graph." 
+                " However, I can provide the data in a format that you can use to create a circle graph"
+                " using any standard graphing tool or software: "
+                " - Electric bikes**: 194,700 bikes" 
+                " - Mountain bikes**: 1,155,000 bikes"
+                " - Road bikes**: 1,155,000 bikes"
+                " - Hybrid bikes**: 795,300 bikes
+            )
+        ]
+    }
 }
 ~~~
 
@@ -127,37 +132,42 @@ The Graph Generator takes over and generates the graph below using the Python Re
 
 ~~~python
 
-{'{"code":
-" import matplotlib.pyplot as plt" 
-" Data to plot\\nlabels ="
-" \'Electric Bikes\', \'Mountain Bikes\',"
-" \'Road Bikes\', \'Hybrid Bikes\"
-" nsizes = [194700, 1155000, 1155000, 795300]"
-" ncolors = [\'gold\', \'yellowgreen\', \'lightcoral\', \'lightskyblue\']"
-" nexplode = (0.1, 0, 0, 0)  # explode 1st slice"
-" # Plot\\nplt.pie(sizes, explode=explode, labels=labels, colors=colors," 
-" nautopct=\'%1.1f%%\', shadow=True, startangle=140)"
-" nplt.axis(\'equal\')"
-" plt.title(\'Bike Sales Distribution in the UK in 2020\')"
-" nplt.show()"}'}
+{
+    '{
+        "code":
+            " import matplotlib.pyplot as plt" 
+            " Data to plot\\nlabels ="
+            " \'Electric Bikes\', \'Mountain Bikes\',"
+            " \'Road Bikes\', \'Hybrid Bikes\"
+            " nsizes = [194700, 1155000, 1155000, 795300]"
+            " ncolors = [\'gold\', \'yellowgreen\', \'lightcoral\', \'lightskyblue\']"
+            " nexplode = (0.1, 0, 0, 0)  # explode 1st slice"
+            " # Plot\\nplt.pie(sizes, explode=explode, labels=labels, colors=colors," 
+            " nautopct=\'%1.1f%%\', shadow=True, startangle=140)"
+            " nplt.axis(\'equal\')"
+            " plt.title(\'Bike Sales Distribution in the UK in 2020\')"
+            " nplt.show()"
+    }
+'}
 ~~~
 
 And informs that the graph is created.
 
 ~~~python
-{'Graph_Generator': {
-    'messages': [
-        HumanMessage(
-            content=
-            " Here is the circle graph showing"
-            " the distribution of bike sales in the UK in 2020 by type:"
-            " [Bike Sales Distribution in the UK in 2020](sandbox:/mnt/data/graph.png)" 
-            " This graph visually represents the estimated sales of"
-            " electric bikes, mountain bikes, road bikes, and hybrid bikes"
-            " in the UK for the year 2020.'
-        )
-    ]
-}
+{
+    'Graph_Generator': {
+        'messages': [
+            HumanMessage(
+                content=
+                    " Here is the circle graph showing"
+                    " the distribution of bike sales in the UK in 2020 by type:"
+                    " [Bike Sales Distribution in the UK in 2020](sandbox:/mnt/data/graph.png)" 
+                    " This graph visually represents the estimated sales of"
+                    " electric bikes, mountain bikes, road bikes, and hybrid bikes"
+                    " in the UK for the year 2020.'
+            )
+        ]
+    }
 }
 ~~~
 
