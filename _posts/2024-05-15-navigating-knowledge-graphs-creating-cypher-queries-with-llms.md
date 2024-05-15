@@ -1,6 +1,6 @@
 ---
 title: Navigating Knowledge Graphs - Creating Cypher Queries with LLMs
-date: 2024-05-14 00:00:00 Z
+date: 2024-05-15 00:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
@@ -12,6 +12,8 @@ author: bheyman
 layout: default_post
 ---
 
+![sequence diagram]({{ site.github.url }}/bheyman/assets/sequence_diagram.png "sequence diagram")
+
 ## Introduction
 
 In this blog post I’ll show you how to create graph database queries using a large language model (LLM) and very minimal query language knowledge. By using a LLM, anyone who wants to start using a graph database can do so, without having to learn a new querying language (“Great news!” I hear you all say).
@@ -20,7 +22,7 @@ Graph databases are not like your typical relational database and are represente
 
 This is where cypher comes in. Cypher is the chosen querying language for Neo4j, one of the most prominent graph database providers around. The only problem is that not that many people have used Cypher and no one wants to have to learn new querying languages after sinking all their precious time into learning SQL. How about we use a LLM to try and generate these queries for us?
 
-If you want to learn more about graph databases and knowledge graphs, read an excellent blog post by Richard Strange who gives a great introduction to what they're all about. This can be found on the [Scott Logic blog](https://blog.scottlogic.com/2024/05/01/knowledge-graphs-what-are-they.html). 
+If you want to learn more about graph databases and knowledge graphs, read Richard's excellent blog post that gives a great introduction to what they're all about. This can be found on the [Scott Logic blog](https://blog.scottlogic.com/2024/05/01/knowledge-graphs-what-are-they.html). 
 
 ### What sort of insights can we get?
 
@@ -59,7 +61,7 @@ There are 3 main components of the set up:
 
 ### Selecting and implementing a large language model
 
- When deciding what LLM to use, I didn't want to use any of OpenAI’s GPT models. For those who don’t know, there are several different models that can be used (Claude and Mistral being two of the largest competitors at the time to OpenAI). I decided to go with Mistral and use their `Large` model to see how it compares with `GPT-4`. It's a lot cheaper to use as well!
+ When deciding what LLM to use, I didn't want to use any of OpenAI’s GPT models. For those who don’t know, there are several different models that can be used (Claude and Mistral being two of the largest competitors at the time to OpenAI). I decided to go with Mistral and use their `Large` model to see how it compares with `GPT-4`. [It's a lot cheaper to use as well!](https://context.ai/compare/mistral-large/gpt-4)
 
 ![mistral ranking]({{ site.github.url }}/bheyman/assets/mistral_ranking.png "mistral ranking")
 *Mistral ranks just below GPT-4 on MMLU (Measuring massive multitask language understanding)*
@@ -85,7 +87,7 @@ I passed the schema in a text format into the LLM, and this produced some Cypher
 
 *This did take a couple of attempts to create sufficient data, but it did work in the end. A small caveat can be noted here that some basic knowledge of Cypher will help you confirm the dummy data is useable. Alternatively, you can just run the queries in Neo4j and see what graph you get, if you are adamant about not learning any Cypher!*
 
-To add this to Neo4j, we go to the Neo4j browser and paste in our Jypher queries to populate the database.
+To add this to Neo4j, we go to the Neo4j browser and paste in our Cypher queries to populate the database.
 
 We then get a beautiful looking graph of inter-linked nodes!
 
@@ -102,7 +104,7 @@ For this part, the LLM is expected to be proficient at writing cypher queries an
 Let's take a look at the prompt used:
 
 ~~~
-You are an expert in NEO4J and generating CYPHER queries. Help create cypher queries in json format {{question: question provided by the user, query: cypher query}}.
+You are an expert in NEO4J and generating CYPHER queries. Help create cypher queries in json format {question: question provided by the user, query: cypher query}.
 
 If you cannot make a query, query should just say "None"
 
@@ -128,11 +130,11 @@ I found that the most important part is providing the schema, along with a bit o
 
 ~~~
 Node properties are the following:\n  
-Person {{name: STRING, birth_date: DATE}},  
-Transaction {{transaction_id: INTEGER, transaction_date: DATE, narrative: STRING, type: STRING, amount: INTEGER, balance: INTEGER}}, "date format is 2024-02-15" "narrative can only be one of the following: Bills, Groceries, Entertainment, Rent, Shopping"  
-Account {{account_number: INTEGER, sort_code: INTEGER, account_type: STRING}},  
-Shop {{merchant_name: STRING, account_number: INTEGER, sort_code: INTEGER}},  
-Category {{transaction_category: STRING}} "This category can either be: {{online shopping, in-store}}"  
+Person {name: STRING, birth_date: DATE},  
+Transaction {transaction_id: INTEGER, transaction_date: DATE, narrative: STRING, type: STRING, amount: INTEGER, balance: INTEGER}, "date format is 2024-02-15" "narrative can only be one of the following: Bills, Groceries, Entertainment, Rent, Shopping"  
+Account {account_number: INTEGER, sort_code: INTEGER, account_type: STRING},  
+Shop {merchant_name: STRING, account_number: INTEGER, sort_code: INTEGER},  
+Category {transaction_category: STRING} "This category can either be: {online shopping, in-store}"  
   
 The relationships between the nodes are the following:\n  
 (:Person)-[:MADE]->(:Transaction),  
@@ -151,7 +153,13 @@ For example, if you ask about online shopping spend, with the extra help as abov
 So, what do we get back from this prompt when we make the LLM call?
 
 ~~~json
-{"question": "What did I spend more on Tesco or Aldi?", "query": "MATCH (p:Person {name: 'John Doe'})-[:MADE]->(t:Transaction)-[:PAID_TO]->(s:Shop) WHERE s.merchant_name IN ['Tesco', 'Aldi'] WITH s.merchant_name as merchant, SUM(t.amount) as total_spent RETURN merchant, total_spent ORDER BY total_spent DESC"}
+{
+    "question": "What did I spend more on Tesco or Aldi?",
+    "query": "MATCH (p:Person {name: 'John Doe'})-[:MADE]->(t:Transaction)-[:PAID_TO]->(s:Shop) 
+        WHERE s.merchant_name IN ['Tesco', 'Aldi']
+        WITH s.merchant_name as merchant, SUM(t.amount) as total_spent 
+        RETURN merchant, total_spent ORDER BY total_spent DESC"
+}
 ~~~
 
 We get a JSON object returned in the format that we specified in our prompt. This makes it easy to extract the query and use this to further extract the data from Neo4j.
@@ -203,7 +211,7 @@ You are an expert at summarising responses from a graph database. You will be pr
   
 The information will come in the format:  
   
-**User prompt: {{"question": "Whats the sum of all my transactions", "query": "MATCH (p:Person {{name: 'Terry Turner'}})-[:MADE]->(t:Transaction) RETURN SUM(t.amount)"}} response: [{{'SUM(t.amount)': 1000}}]**  
+**User prompt: {"question": "Whats the sum of all my transactions", "query": "MATCH (p:Person {name: 'Terry Turner'})-[:MADE]->(t:Transaction) RETURN SUM(t.amount)"} response: [{'SUM(t.amount)': 1000}]**  
   
 Use the "question" as context for your reply  
 Use the response as the main content of your answer. This should however be in prose English ie. use the information to create sentences as a reply.  
@@ -217,7 +225,7 @@ Only reply with a relevant answer as a string, do not return any of the prompt b
 All amounts are in GBP £
 ~~~
 
-Here we can see that we provide an example for the user prompt format and an example for what we want the answer returned to the user to look like. This is called **one-shot prompting** and scratches the surface of how to improve our LLM prompts. All this information really helps the LLM to reply in a more consistent format.
+Here we can see that we provide an example for the user prompt format and an example for what we want the answer returned to the user to look like. This is called [one-shot prompting](https://www.linkedin.com/pulse/zero-shot-one-few-learning-prompt-engineering-pathan) and scratches the surface of how to improve our LLM prompts. All this information really helps the LLM to reply in a more consistent format.
 
 The final result is a well written natural language response that presents our data.
 
