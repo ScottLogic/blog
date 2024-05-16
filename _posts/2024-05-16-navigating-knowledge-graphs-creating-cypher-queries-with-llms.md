@@ -1,6 +1,6 @@
 ---
 title: Navigating Knowledge Graphs - Creating Cypher Queries with LLMs
-date: 2024-05-15 00:00:00 Z
+date: 2024-05-16 00:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
@@ -11,8 +11,6 @@ summary: This blog demonstrates how to generate graph database queries using a l
 author: bheyman
 layout: default_post
 ---
-
-![sequence diagram]({{ site.github.url }}/bheyman/assets/sequence_diagram.png "sequence diagram")
 
 ## Introduction
 
@@ -234,6 +232,12 @@ question("What did I spend more on Tesco or Aldi?")
 
 >>> "John, you've spent more at Tesco. The total amount there is £1750, while at Aldi, you've spent £225."
 ~~~
+
+## The Full Journey
+
+Here you can see the sequence diagram, showing the full flow through each step of the process.
+
+![sequence diagram]({{ site.github.url }}/bheyman/assets/sequence_diagram.png "sequence diagram")
 
 ## Main Takeaways
 
