@@ -22,9 +22,9 @@ Traditional weather forecasting relies upon readings from observation stations. 
 
 This allows them to get an accurate picture of the weather landscape across the UK as well as building up a historical account, which is then used as an input to their predictions and forecasting. To simplify massively if they spot a North-Easterly warm weather front hitting Cornwall they can predict balmy conditions in Bristol. 
 
-Given these observation stations are roughly 40 km apart however there naturally exists gaps in observational knowledge between them. These grey zones can house some interesting and localised weather phenomena themselves, and especially in urban environments these can have very real impacts on people's lives. Having access to finer grained observational data would allow agencies to enrich their knowledge of the weather systems affecting the country, and would be especially useful in [Nowcasting](https://en.wikipedia.org/wiki/Nowcasting_(meteorology)); the concept of producing accurate forecasts over a shorter timeframe.
+Given these observation stations are roughly 40 km apart however there naturally exists gaps in observational knowledge between them. These grey zones can house some interesting and localised weather phenomena themselves, and especially in urban environments these can have very real impacts on people's lives. 
 
-Having access to finer grained data has two main advantages, they could be used as extra forecasting inputs, and they can also be used to validate forecasts produced by other means; if you’ve predicted a heatwave across a city, do the real world measurements support that?
+Having access to finer grained observational data would allow agencies to enrich their knowledge of the weather systems affecting the country, and would be especially useful in [Nowcasting](https://en.wikipedia.org/wiki/Nowcasting_(meteorology)); the concept of producing accurate forecasts over a shorter timeframe. More specifically there are two main advantages, the data could be used as extra forecasting inputs, and used to validate forecasts produced by other means; if you predicted a heatwave across a city, do real world measurements support that?
 
 With more observational data comes more accurate forecasts that can be localised to inform individuals on a more personal scale. Telling you it’s going to rain all day is one thing, telling you localised flooding is expected on the road outside 2 hours from now is another.
 
@@ -32,7 +32,7 @@ How then, to collect this extra data to fill in these grey zones?
 
 Given the target is accurate observations at the granularity of 100s of metres it’s not practical to open the number of observatories this would require. The Met office have already opened their data stores to amateur weather stations in order to help fill in these gaps, and are actively looking into using [radar](https://deepmind.google/discover/blog/nowcasting-the-next-hour-of-rain/) from their observatories to build up this more localised picture for nowcasting.
 
-There’s also the idea of crowd sourced data; using disparate data sourced from a large collection of data points that is cheaper to obtain.
+Then there is the idea of crowd sourced data; using disparate data sourced from a large collection of (usually) public data points that is cheaper to obtain.
 
 Enter the humble car.
 
@@ -66,7 +66,7 @@ And it’s not just road vehicles either. In the future [autonomous drone fleets
 ![png]({{ site.github.url }}/rstrange/assets/car-weather-prediction/drone3.jpg)
 <small>Photo by [Goh Rhy Yan](https://unsplash.com/@gohrhyyan?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/silhouette-of-quadcopter-drone-hovering-near-the-city-p_5BnqHfz3Y?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)</small>
 
-Traditional observatories have a major advantage in that they generate reliable data; the weather agencies know exactly which instruments have been used and can normalise and trust that data. With crowdsourcing we need to ensure we can trust the information we’re receiving to play into how much we trust any resultant forecasts, which will naturally require a selection of data cleaning and processing techniques.
+Traditional observatories have a major advantage in that they generate reliable data; the weather agencies know exactly which instruments have been used and can normalise and trust that data. With crowdsourcing we need to ensure we can trust the information we’re receiving to play into how much we trust any resultant forecasts, which will naturally require a selection of [data cleaning](https://www.geeksforgeeks.org/data-cleansing-introduction/) and processing techniques.
 
 ### That is one big pile of data
 
@@ -84,7 +84,7 @@ How does time of day affect things, or time of year? Should we create targeted m
 
 As with any model there would naturally be an element of experimentation and analysis, and all of this would require strong use of [ML Ops](https://aws.amazon.com/what-is/mlops/) to ensure models were continually refined. Indeed, given the changing nature of car instrumentation, road layouts and usage, not to mention a [shifting climate](https://www.metoffice.gov.uk/weather/climate-change/what-is-climate-change), it might be that any given model state is itself transient, with continual retraining necessary over a given timeframe to ensure it's kept up to date. Ideally all of this retraining would itself be automated, pulling in the latest data for a relevant timescale to produce a model that is constantly retraining itself to be as accurate as possible.
 
-I'm spitballing a bit, and whilst it makes for a fun thought experiment it’s not clear how much is actually being considered or how viabile such ideas might be; it’s certainly non-trivial. It would require a vast resource of people able to trial and experiment, working alongside each other to effectively maximise outcomes on what is clearly a very rich but complex area - but who doesn’t love a good problem to get stuck into!
+I'm spitballing here, and whilst it makes for a fun thought experiment it’s not clear how much is actually being considered or how viabile such ideas might be; it’s certainly non-trivial. It would require a vast resource of people able to trial and experiment, working alongside each other to effectively maximise outcomes on what is clearly a very rich but complex area - but who doesn’t love a good problem to get stuck into!
 
 ### Is it any better than seaweed?
 
