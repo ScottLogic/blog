@@ -80,7 +80,7 @@ make the scripts run via Node.js without compiling, and faster startup times for
 Should I switch all my Python projects to Bun? Again, probably not. Python is still really fast, and, particularly for these kinds of problems, there are a lot of packages
 available to make implementing the more complex algorithms a lot easier. Not to mention, sometimes Python can handle the bigger datasets a lot better, as I found with last year's challenges.
 
-Should I do Advent of Code? Absolutely,! While some days' puzzles are downright horrible, for the most part, it's pretty fun, and you can learn a lot about algorithms and more
+Should I do Advent of Code? Absolutely! While some days' puzzles are downright horrible, for the most part, it's pretty fun, and you can learn a lot about algorithms and more
 advanced optimisation techniques.
 
 And in case you're wondering how I did this time around, I managed 2nd place on both. I've no idea how...
