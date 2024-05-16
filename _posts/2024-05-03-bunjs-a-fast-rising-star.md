@@ -26,9 +26,9 @@ summary: A (belated) festive look at the latest challenger to Node.js's throne
 
 Last year I attended the Infobip Shift conference, where I attended a talk by Tejas Kumar on “[New Trends in Front-End Development](https://www.youtube.com/watch?v=VINfWbaFBVs&list=PLuAItjWV4peETEf336UJKvDsI5RWbshUa&index=31&pp=iAQB)”. In his talk, he demoed building and running a new Qwik app using Bun instead of Node.js. I’d been hearing lots of talk about Bun, particularly on the Bytes email blast but hadn’t had a chance to properly check it out so I was particularly interested in seeing how it did.
 
-Bun is billed as “a fast JavaScript all-in-one toolkit”... they’re not lying about the fast part! When he first ran the command to start the app up my colleague and I both looked at each other in amazement and commented: “wow that was fast” (content edited for a PG rating). There wasn’t much more discussed about Bun in the talk, the focus was more on Qwik and its approach to Signals, and how that compared to other frameworks (a topic for another time), but my interest was certainly piqued.
+Bun is billed as “a fast JavaScript all-in-one toolkit”... they’re not lying about the fast part! When he first ran the command to start the app up my colleague and I both looked at each other in amazement and commented: “Wow that was fast” (content edited for a PG rating). There wasn’t much more discussed about Bun in the talk, the focus was more on Qwik and its approach to Signals, and how that compared to other frameworks (a topic for another time), but my interest was certainly piqued.
 
-The problem I was struggling to solve was: “what can I use this on?”. Our client work would be an ideal candidate, we certainly saw issues with Node.js slowness that Bun had the potential to help with, however in the world of Fintech, new and fancy also means unknown and risky, and adopting new tech can be a hard case to make.
+The problem I was struggling to solve was: “What can I use this on?”. Our client work would be an ideal candidate, we certainly saw issues with Node.js slowness that Bun had the potential to help with, however in the world of Fintech, new and fancy also means unknown and risky, and adopting new tech can be a hard case to make.
 
 ![Grumpy Santa Cat]({{ site.github.url }}/wmckenzie/assets/grumpy-santa-cat.jpg)
 
@@ -42,7 +42,7 @@ I decided to take my existing solutions from last year and convert them to TypeS
 
 ## The results are in
 
-![Speed Comparisons between langauges]({{ site.github.url }}/wmckenzie/assets/speed-comparison-chart.svg)
+![Speed Comparisons between languages]({{ site.github.url }}/wmckenzie/assets/speed-comparison-chart.svg)
 
 | Language      | Day 10                                          | Day 11                                              | Day 12                                            | Day 13                                           | Day 14                                              | Day 15                                              | Day 16                                              |
 | ------------- | ----------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------ | --------------------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
@@ -74,13 +74,13 @@ overhead of any refactoring, however minor. I also hit a scenario in last year's
 so you may find that converting to Bun will break your project.
 
 Should I consider Bun when starting a new project? Absolutely! For most use cases you're unlikely to have an issue, and transitioning back to Node.js should be relatively 
-straightforward, should you need to. The out-of-the-box TypeScript and ESM handling is especially nice, I found I had a lot of headaches with ESM TypeScript loaders trying to 
+straightforward, should you need to. The out-of-the-box TypeScript and ESM handling is especially nice. I found I had a lot of headaches with ESM TypeScript loaders trying to 
 make the scripts run via Node.js without compiling, and faster startup times for your application are never a bad thing.
 
 Should I switch all my Python projects to Bun? Again, probably not. Python is still really fast, and, particularly for these kinds of problems, there are a lot of packages
-available to make implementing the more complex algorithms a lot easier, and as I found with last years challenges, sometimes Python can handle the bigger datasets a lot better.
+available to make implementing the more complex algorithms a lot easier. Not to mention, sometimes Python can handle the bigger datasets a lot better, as I found with last year's challenges.
 
-Should I do Advent of Code? Absolutely, while some days puzzles are downright horrible, for the most part it's pretty fun, and you can learn a lot about algorithms and more
+Should I do Advent of Code? Absolutely,! While some days' puzzles are downright horrible, for the most part, it's pretty fun, and you can learn a lot about algorithms and more
 advanced optimisation techniques.
 
 And in case you're wondering how I did this time around, I managed 2nd place on both. I've no idea how...
