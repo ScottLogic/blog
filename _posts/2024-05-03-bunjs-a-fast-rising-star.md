@@ -61,7 +61,7 @@ times via NPM mostly tended to decrease on each execution, suggesting a degree o
 
 Also pretty impressive is that both Bun and Node.js managed to produce a result on day 15 where Python continued to crash out. Granted there's probably a flaw in my Python code,
 but the TypeScript code is pretty much a like-for-like conversion. I also felt like Bun's perceived load time was faster, even on solutions where Python had the
-fastest execution time, the time from pressing enter to starting to seeing output often seemed quite long, with Bun feeling much more responsive.
+fastest execution time, the time from pressing enter to starting to see output often seemed quite long, with Bun feeling much more responsive.
 
 ## So what did we learn?
 
