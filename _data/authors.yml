@@ -51,6 +51,7 @@ active-authors:
   - hbedford
   - hbellamy
   - hlogan
+  - hsauve
   - hubinf
   - jarnstein
   - jbeckles
@@ -454,6 +455,11 @@ authors:
     twitter-url: "https://twitter.com/HannahPretswell"
     twitter-handle: HannahPretswell
     picture: picture.jpg
+  hsauve:
+    author-summary: "I'm an Associate Developer at Scott Logic based in the Bristol office. My background is in Languages and Marketing."
+    feed-description: 
+    name: "Hélène Sauvé"
+    picture: helene-sauve-picture.jpg
   ilapworth:
     name: "Isaac Lapworth"
     author-summary: "2018 Newcastle intern"
