@@ -9,7 +9,10 @@ tags:
 - Cypher
 - Artificial Intelligence
 - AI
-summary: This blog demonstrates how to generate graph database queries using a large language model. This allows users to ask natural language questions in order to understand their data presented in a knowledge graph better! This can be done without extensive understanding of the querying language.
+summary: This blog demonstrates how to generate graph database queries using a large
+  language model. This allows users to ask natural language questions in order to
+  understand their data presented in a knowledge graph better! This can be done without
+  extensive understanding of the querying language.
 author: bheyman
 layout: default_post
 ---
