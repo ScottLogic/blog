@@ -120,7 +120,7 @@ The current date and time is {datetime.now()}
 The current user is {current_user}
 ~~~
 
-There are a few things in the prompt that help the LLM to make the right decisions. By telling it how it's an expert in Neo4j and Cypher it can take on this persona. You can then provide the format that you want it to return. I have asked for a JSON format as this is easy to interpret and provides a standard way of presenting the returned information.
+There are a few things in the prompt that help the LLM to make the right predictions when generating the next token. By telling it how it's an expert in Neo4j and Cypher it can take on this persona. You can then provide the format that you want it to return. I have asked for a JSON format as this is easy to interpret and provides a standard way of presenting the returned information.
 
 I found that the most important part is providing the schema, along with a bit of semantic help for the LLM to gain context around what Cypher query to create. 
 
@@ -148,7 +148,7 @@ For example, if you ask about online shopping spend, with the extra help as abov
 
 This prompt was not all thought of completely at once and was an iterative process that evolved as I asked different questions, found that it would return the wrong thing and then added in a new line to help get what I wanted. This seems to be a common process that occurs when [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering) and it seems that you could continue to iterate for a very long time until your prompt is perfect.
 
-*It is worth noting that the additional semantic meaning in the prompt is not extensive in this simple application. To give the LLM a much better chance of predicting the next token, we can provide the underlying meaning behind each node and relationship in the graph.*
+*It is worth noting that the additional semantic help in the prompt is not extensive in this simple application. To give the LLM a much better chance of predicting the next token, we can provide the underlying meaning behind each node and relationship in the graph. This can therefore be improved by being as detailed and explicit as possible (You could even use an LLM to provide these details!). The less room for interpretation that is given, the better the response will likely be.*
 
 So, what do we get back from this prompt when we make the LLM call?
 
@@ -247,7 +247,7 @@ Overall, this is an incredible use of large language models. The fact that you c
 
 The [non-deterministic](https://en.wikipedia.org/wiki/Nondeterministic_algorithm) nature of using LLMs can provide some nuances when generating these queries. Adding in the graph schema and some explanation of what nodes/properties/edges  represent makes this very powerful and gives the LLM a strong understanding of how everything interacts together.
 
-Large language models are only going to get more powerful and therefore get better at this process. There is also the option to fine-tune a LLM specifically on Cypher queries to make it even more powerful and reliable. At this point I am already extremely impressed and look forward to seeing what can be done in the future.
+Large language models are only going to get more powerful and therefore get better at this process. There is also the option to [fine-tune a LLM specifically on Cypher queries](https://towardsdatascience.com/fine-tuning-an-llm-model-with-h2o-llm-studio-to-generate-cypher-statements-3f34822ad5) to make it even more powerful and reliable. At this point I am already extremely impressed and look forward to seeing what can be done in the future.
 
 ## Have a Go Yourself
 
