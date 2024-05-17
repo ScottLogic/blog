@@ -1,11 +1,14 @@
 ---
-author: garora
-title: NoJS 2 - Stochastic Boogaloo. Making a tic-tac-toe game with 'randomness' using pure HTML and CSS. Without JavaScript!
+title: NoJS 2 - Stochastic Boogaloo. Making a tic-tac-toe game with 'randomness' using
+  pure HTML and CSS. Without JavaScript!
+date: 2024-05-17 00:00:00 Z
 categories:
-  - Tech
+- Tech
+author: garora
 layout: default_post
-summary: Everyone loves CSS! Continuing in my obsession, I have created a tictactoe game, with an option to have a CPU that plays randomly. This was made without any JavaScript, only HTML and CSS. In this blog post I discuss how I made it
-category: Tech
+summary: Everyone loves CSS! Continuing in my obsession, I have created a tictactoe
+  game, with an option to have a CPU that plays randomly. This was made without any
+  JavaScript, only HTML and CSS. In this blog post I discuss how I made it
 image: garora/assets/noJs2/icon.png
 ---
 
