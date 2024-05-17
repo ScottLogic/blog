@@ -146,7 +146,9 @@ The semantic help that is added in makes this a lot more powerful. Without you t
 
 For example, if you ask about online shopping spend, with the extra help as above, the LLM will better understand that we want to know about the **Category** node. Otherwise, it may have assumed that online shopping is one of the potential narrative options and generated a completely different query.
 
-*This prompt was not all thought of completely at once and was an iterative process that evolved as I asked different questions, found that it would return the wrong thing and then adding in a new line that would help to get what I wanted. This seems to be a common process that occurs when [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering) and it seems that you could continue to iterate for a very long time until your prompt is perfect.*
+This prompt was not all thought of completely at once and was an iterative process that evolved as I asked different questions, found that it would return the wrong thing and then added in a new line to help get what I wanted. This seems to be a common process that occurs when [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering) and it seems that you could continue to iterate for a very long time until your prompt is perfect.
+
+*It is worth noting that the additional semantic meaning in the prompt is not extensive in this simple application. To give the LLM a much better chance of predicting the next token, we can provide the underlying meaning behind each node and relationship in the graph.*
 
 So, what do we get back from this prompt when we make the LLM call?
 
