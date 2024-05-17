@@ -7,6 +7,8 @@ tags:
 - Large Language Models
 - Knowledge Graphs
 - Cypher
+- Artificial Intelligence
+- AI
 summary: This blog demonstrates how to generate graph database queries using a large language model. This allows users to ask natural language questions in order to understand their data presented in a knowledge graph better! This can be done without extensive understanding of the querying language.
 author: bheyman
 layout: default_post
@@ -14,11 +16,11 @@ layout: default_post
 
 ## Introduction
 
-In this blog post I’ll show you how to create graph database queries using a large language model (LLM) and very minimal query language knowledge. By using a LLM, anyone who wants to start using a graph database can do so, without having to learn a new querying language (“Great news!” I hear you all say).
+In this blog post I’ll show you how to create graph database queries using a large language model (LLM) and very minimal query language knowledge. By using an LLM, anyone who wants to start using a graph database can do so, without having to learn a new querying language (“Great news!” I hear you all say).
 
 Graph databases are not like your typical relational database and are represented by a knowledge graph. This is a graph of nodes, connected by edges which act as relationships between the different nodes. Graph databases are extremely useful when trying to query your data and find complex insights with a lot simpler form of querying (It won’t seem like this at first though, I am sure).
 
-This is where cypher comes in. Cypher is the chosen querying language for Neo4j, one of the most prominent graph database providers around. The only problem is that not that many people have used Cypher and no one wants to have to learn new querying languages after sinking all their precious time into learning SQL. How about we use a LLM to try and generate these queries for us?
+This is where cypher comes in. Cypher is the chosen querying language for Neo4j, one of the most prominent graph database providers around. The only problem is that not that many people have used Cypher and no one wants to have to learn new querying languages after sinking all their precious time into learning SQL. How about we use an LLM to try and generate these queries for us?
 
 If you want to learn more about graph databases and knowledge graphs, read Richard's excellent blog post that gives a great introduction to what they're all about. This can be found on the [Scott Logic blog](https://blog.scottlogic.com/2024/05/01/knowledge-graphs-what-are-they.html). 
 
@@ -79,7 +81,7 @@ I found that I had a first draft schema that wasn't 100% working correctly. When
 
 ### Populating the graph database
 
-After deciding on a schema, it now needs to be populated with some dummy data. The great part about this step is that we can also use a LLM to create some dummy data.
+After deciding on a schema, it now needs to be populated with some dummy data. The great part about this step is that we can also use an LLM to create some dummy data.
 
 I passed the schema in a text format into the LLM, and this produced some Cypher queries for me to input into Neo4j to create the nodes. The cypher generated can be seen [here](https://github.com/bheyman-scottlogic/creating-cypher-queries/blob/main/dummy_data.txt).
 
@@ -243,11 +245,13 @@ Here you can see the sequence diagram, showing the full flow through each step o
 
 ## Main Takeaways
 
-Overall, this is an incredible use of large language models. The fact that you can ask all these questions without having to thoroughly understand the querying language opens up many doors! You don't have to provide structure in your questions being asked as the LLM is able to infer things from the question being asked and the relative context it has. I had a lot of fun messing around with the data and asking different things and on the most part it was very successful. 
+Overall, this is an incredible use of large language models. The fact that you can ask all these questions without having to thoroughly understand the querying language opens up many doors! You don't have to provide structure in your questions being asked as the LLM is able to infer things from the question and the relative context it has. I had a lot of fun messing around with the data and asking different things and on the most part it was very successful. 
 
-The [non-deterministic](https://en.wikipedia.org/wiki/Nondeterministic_algorithm) nature of using LLMs can provide some nuances when generating these queries. Adding in the graph schema and some explanation of what nodes/properties/edges  represent makes this very powerful and gives the LLM a strong understanding of how everything interacts together.
+The [non-deterministic](https://en.wikipedia.org/wiki/Nondeterministic_algorithm) nature of using LLMs can provide some nuances when generating these queries and will likely mean that it isn't going to work 100% of the time. Adding in the graph schema and some explanation of what nodes/properties/edges represent makes this very powerful and gives the LLM a strong understanding of how everything interacts together.
 
-Large language models are only going to get more powerful and therefore get better at this process. There is also the option to [fine-tune a LLM specifically on Cypher queries](https://towardsdatascience.com/fine-tuning-an-llm-model-with-h2o-llm-studio-to-generate-cypher-statements-3f34822ad5) to make it even more powerful and reliable. At this point I am already extremely impressed and look forward to seeing what can be done in the future.
+So do you need to learn Cypher? Realistically, it is beneficial to learn Cypher if you plan to work with it. Using an LLM to generate Cypher queries can be a valuable stepping stone for understanding the query structure and gaining deep insights into your data. However, relying solely on LLM-generated queries without understanding the underlying concepts may lead to future issues within a codebase and as a developer. Additionally, it is important to consider the energy costs of using this approach when building an application, as it may not be the most efficient solution.
+
+Finally, large language models are only going to get more powerful and therefore get better at this process. There is also the option to [fine-tune an LLM specifically on Cypher queries](https://towardsdatascience.com/fine-tuning-an-llm-model-with-h2o-llm-studio-to-generate-cypher-statements-3f34822ad5) to make it even more reliable. At this point I am already extremely impressed and look forward to seeing what can be done in the future.
 
 ## Have a Go Yourself
 
