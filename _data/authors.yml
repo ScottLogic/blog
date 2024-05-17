@@ -13,6 +13,7 @@ active-authors:
   - asegrove
   - ashing
   - awhitmell
+  - bheyman
   - bpritchard
   - bwallis
   - ceberhardt
@@ -238,6 +239,10 @@ authors:
     name: "Bogdan Dimitrov"
     author-summary: "<p>I am a Software Developer at Scott Logic working with .NET and HTML5 web technologies.</p>"
     picture: picture.jpg
+  bheyman:
+    name: "Ben Heyman"
+    author-summary: "Software Developer based out of Bristol, having a go at some writing."
+    picture: profilepic1.jpg
   bjedrzejewski:
     name: "Bartosz Jedrzejewski"
     author-summary: '<p>I am a Technical Principal at Scott Logic specialising in microservices and cloud architectures. I am a passionate advocate of the DevOps culture. I also write on <a href="https://www.e4developer.com">e4developer.com</a></p>'
