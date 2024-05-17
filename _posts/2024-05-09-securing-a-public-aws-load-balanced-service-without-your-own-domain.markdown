@@ -12,6 +12,7 @@ tags:
 - edge functions
 summary: Meanderings on securing a load balancer without needing your own domain
 author: cwilton
+image: "/uploads/securing%20a%20public%20aws.png"
 ---
 
 <img alt="the holy grail" src="/uploads/grail-shaped-beacon.jpg" title="Bad, bad Zoot!" style="display: block; margin: 0 auto; padding: 1rem 0;" />
