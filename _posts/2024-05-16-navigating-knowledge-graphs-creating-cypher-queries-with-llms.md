@@ -14,6 +14,7 @@ summary: This blog demonstrates how to generate graph database queries using a l
   understand their data presented in a knowledge graph better! This can be done without
   extensive understanding of the querying language.
 author: bheyman
+image: "/uploads/Navigating%20knowledge%20graphs%20thumbnail.png"
 layout: default_post
 ---
 
