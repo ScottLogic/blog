@@ -3,7 +3,9 @@ title: Could cars help predict the weather?
 date: 2024-05-20 09:00:00 Z
 categories:
 - Tech
-summary: The increase of in-car instrumentation over the years has opened up the opportunity to use this data as an input into weather modelling. Are we all driving around in mystic minivans and clairvoyant coupés?
+summary: The increase of in-car instrumentation over the years has opened up the opportunity
+  to use this data as an input into weather modelling. Are we all driving around in
+  mystic minivans and clairvoyant coupés?
 author: rstrange
 ---
 
