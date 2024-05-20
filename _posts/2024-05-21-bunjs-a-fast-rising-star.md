@@ -1,6 +1,6 @@
 ---
 title: Bun - A fast-rising star?
-date: 2024-05-16 00:00:00 Z
+date: 2024-05-21 00:00:00 Z
 categories:
   - Tech
 tags:
