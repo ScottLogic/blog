@@ -4,10 +4,11 @@ date: 2024-05-13 00:00:00 Z
 categories:
 - hsauve
 - Artificial Intelligence
-layout: default_post
 summary: Exploring LangGraph and its applications in the context of multi-agent Large
   Language Model (LLM) applications.
 author: hsauve
+image: "/uploads/LangGraph%20thumbnail.png"
+layout: default_post
 ---
 
 While Large Language Models excel at generating answers fast, the latest models are not yet skilled at performing very specific tasks that require more [‘System 2’ thinking](https://blog.langchain.dev/reflection-agents/), the more analytical kind that relies on reflection and self-critique. 
