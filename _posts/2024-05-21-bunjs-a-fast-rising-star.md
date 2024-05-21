@@ -2,13 +2,13 @@
 title: Bun - A fast-rising star?
 date: 2024-05-21 00:00:00 Z
 categories:
-  - Tech
+- Tech
 tags:
-  - javascript
-  - TypeScript
-  - Node.js
-  - Bun
-  - Christmas
+- javascript
+- TypeScript
+- Node.js
+- Bun
+- Christmas
 author: wmckenzie
 summary: A (belated) festive look at the latest challenger to Node.js's throne
 ---
