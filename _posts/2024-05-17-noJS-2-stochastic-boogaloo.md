@@ -4,12 +4,12 @@ title: NoJS 2 - Stochastic Boogaloo. Making a tic-tac-toe game with 'randomness'
 date: 2024-05-17 00:00:00 Z
 categories:
 - Tech
-author: garora
-layout: default_post
 summary: Everyone loves CSS! Continuing in my obsession, I have created a tictactoe
   game, with an option to have a CPU that plays randomly. This was made without any
   JavaScript, only HTML and CSS. In this blog post I discuss how I made it
-image: garora/assets/noJs2/icon.png
+author: garora
+image: "/uploads/Making%20a%20tic-tac-toe%20game%20thumbnail.png"
+layout: default_post
 ---
 
 This is part two to [this post](https://blog.scottlogic.com/2022/01/20/noJS-making-a-calculator-in-pure-css-html.html) where I explain how I made this pure CSS [calculator](https://quarknerd.github.io/noJS/calc.html). Next up I made [tictactoe](https://quarknerd.github.io/noJS/tictactoe/), which isn't in itself that interesting of an extension, but the challenge came in adding a CPU to play "randomly". In this blog post I <del>make a case for my sanity</del> explain how I made it.
