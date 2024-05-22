@@ -1,6 +1,6 @@
 ---
 title: 'Battle of the carbon - Android vs Cloud vs iOS'
-date: 2024-05-02 00:00:00 Z
+date: 2024-05-22 00:00:00 Z
 categories:
 - Sustainability
 tags:
@@ -56,8 +56,8 @@ What we didn't keep fair for a lot of the tests was the language. We used Swift 
 
  We used a mix of internal battery APIs as well as external device monitors to record the energy use. Detailed information on how we measure energy for different environments can be found in these Scott Logic blogs. 
 
- - [Measuring Energy use of Android Devices](https://blog.scottlogic.com/2024/05/01/measuring-android-energy-use.html)
- - [Measuring Energy use of Cloud Services](https://blog.scottlogic.com/2024/05/02/measuring-energy-usage-in-the-cloud.html)
+ - [Measuring Energy use of Android Devices]({{ site.github.url }}/2024/05/01/measuring-android-energy-use.html)
+ - [Measuring Energy use of Cloud Services]({{ site.github.url }}/2024/05/08/measuring-energy-usage-in-the-cloud.html)
 
 # Round 1 - Fannkuch
 Otherwise known as the Pancake algorithm, this algorithm works on reorganisation of an array based on certain [criteria](https://benchmarksgame-team.pages.debian.net/benchmarksgame/description/fannkuchredux.html#fannkuchredux). Using the same implementation of this across all devices we have the results. 
