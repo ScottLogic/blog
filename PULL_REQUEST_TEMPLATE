@@ -7,7 +7,7 @@ Have you (please tick each box to show completion):
  - [ ] Added your blog post to a single category?
  - [ ] Added a brief summary for your post? Summaries should be roughly two sentences in length and give potential readers a good idea of the contents of your post.
  - [ ] Checked that the build passes?
- - [ ] Checked your spelling (you can use `npm spellcheck` if that's your thing)
+ - [ ] Checked your spelling (you can use `npm install` followed by `npx mdspell "**/{FILE_NAME}.md" --en-gb -a -n -x -t` if that's your thing)
  - [ ] Ensured that your author profile contains a profile image, and a brief description of yourself? (make it more interesting than just your job title!)
  - [ ] Optimised any images in your post? They should be less than 100KBytes as a general guide.
 

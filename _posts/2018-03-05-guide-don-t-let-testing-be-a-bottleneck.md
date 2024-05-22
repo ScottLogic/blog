@@ -17,9 +17,6 @@ summary: Testing can become a bottleneck within an agile delivery pipeline, resu
   quality.
 author: lpisani
 image: lpisani/assets/agile.png
-cta:
-  link: https://www.scottlogic.com/wp-content/uploads/2018/04/Dont-let-test-be-a-bottleneck_Scott_Logic.pdf
-  text: Download the guide now
 layout: default_post
 ---
 

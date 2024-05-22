@@ -13,6 +13,7 @@ active-authors:
   - asegrove
   - ashing
   - awhitmell
+  - bheyman
   - bpritchard
   - bwallis
   - ceberhardt
@@ -24,6 +25,7 @@ active-authors:
   - cprice
   - csalt
   - cstephen
+  - cwilton
   - dgrew
   - dhinrichs
   - dhope
@@ -50,10 +52,12 @@ active-authors:
   - hbedford
   - hbellamy
   - hlogan
+  - hsauve
   - hubinf
   - jarnstein
   - jbeckles
   - jbickleywallace
+  - jcwright
   - jdunleavy
   - jgrant
   - jharris
@@ -112,6 +116,7 @@ active-authors:
   - rgriffiths
   - rlewis
   - rpilling
+  - rstrange
   - rwilliams
   - rwillis
   - sbaker
@@ -234,6 +239,10 @@ authors:
     name: "Bogdan Dimitrov"
     author-summary: "<p>I am a Software Developer at Scott Logic working with .NET and HTML5 web technologies.</p>"
     picture: picture.jpg
+  bheyman:
+    name: "Ben Heyman"
+    author-summary: "Software Developer based out of Bristol, having a go at some writing."
+    picture: profilepic1.jpg
   bjedrzejewski:
     name: "Bartosz Jedrzejewski"
     author-summary: '<p>I am a Technical Principal at Scott Logic specialising in microservices and cloud architectures. I am a passionate advocate of the DevOps culture. I also write on <a href="https://www.e4developer.com">e4developer.com</a></p>'
@@ -308,6 +317,10 @@ authors:
     twitter-url: "https://twitter.com/cjsmithie"
     twitter-handle: cjsmithie
     picture: picture.jpg
+  cwilton:
+    name: "Chris Wilton-Magras"
+    author-summary: "<p>Opinionated lead developer, munro bagger, beer brewer, cat lover, occasional fool.</p>"
+    picture: me.jpg
   dcook:
     feed-description: "Dan Cook's thoughts on all things Big Data."
     google-plus-url: "https://plus.google.com/102307699647083644941"
@@ -447,6 +460,11 @@ authors:
     twitter-url: "https://twitter.com/HannahPretswell"
     twitter-handle: HannahPretswell
     picture: picture.jpg
+  hsauve:
+    author-summary: "I'm an Associate Developer at Scott Logic based in the Bristol office. My background is in Languages and Marketing."
+    feed-description: 
+    name: "Hélène Sauvé"
+    picture: helene-sauve-picture.jpg
   ilapworth:
     name: "Isaac Lapworth"
     author-summary: "2018 Newcastle intern"
@@ -476,6 +494,10 @@ authors:
     picture: picture.jpg
   jcardy:
     name: "Jonathan Cardy"
+  jcwright:
+    name: "Jay Wright"
+    author-summary: "<p>I'm a developer at Scott Logic, based in Newcastle. My primary interest is in backend development, primarily in Java, and cloud technologies. I also have experience building web applications in React.<p>\n<p>Away from work I'm a keen petrol head and avid Formula One fan. I support McLaren, in case you were wondering.</p>"
+    picture: picture.jpg
   jdunkerley:
     author-summary: "<p>I am a Technical Architect at Scott Logic, based in London. I have many years of using C# within financial services. My current interests are in data analytics and visualisation, particularly using Tableau and Alteryx. I also  enjoying learning about new big data technologies and machine learning.</p>"
     name: "James Dunkerley"
@@ -1471,3 +1493,7 @@ authors:
     email: jisted@scottlogic.com
     author-summary: "Originally from a humanities and languages background, I'm now a Senior Developer at Scott Logic based in the Newcastle office, with an interest in a bit of everything tech-wise. Outside of that I like going to other countries trying to eat all of their food."
     picture: jisted.png
+  rstrange:
+    name: "Richard Strange"
+    author-summary: "I'm a Lead Developer at Scott Logic working in the Bristol office."
+    picture: picture.jpg
