@@ -7,7 +7,6 @@ summary: The increase of in-car instrumentation over the years has opened up the
   to use this data as an input into weather modelling. Are we all driving around in
   mystic minivans and clairvoyant coupés?
 author: rstrange
-image: "/uploads/Could%20cars%20help%20the%20weather?.png"
 ---
 
 Cars have been collecting environmental information for some time, so the concept of using in-car instrumentation to forecast potential issues in order to update the driving experience is [not that new](https://www.autocar.co.uk/car-news/industry/jaguar-land-rover-developing-new-tech-prepares-cars-upcoming-weather). Weather agencies are now looking at using this data to improve localised forecasting. With [experimentation ongoing](https://rmets.onlinelibrary.wiley.com/doi/10.1002/met.2058), it’s possible that future weather forecasts will be driven (pun definitely intended) in part by data streamed directly from motor vehicles owned by you or me.
