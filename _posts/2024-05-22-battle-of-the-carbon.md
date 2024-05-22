@@ -52,7 +52,7 @@ Multiple runs were also used to avoid any background tasks affecting results.
 
 What we didn't keep fair for a lot of the tests was the language. We used Swift on iOS and Java bytecode on Android and both on the server as this is what you'd normally use as a developer.  
 
- ## How to measure energy
+## How to measure energy
 
  We used a mix of internal battery APIs as well as external device monitors to record the energy use. Detailed information on how we measure energy for different environments can be found in these Scott Logic blogs. 
 
