@@ -9,8 +9,9 @@ tags:
 - Node.js
 - Bun
 - Christmas
-author: wmckenzie
 summary: A (belated) festive look at the latest challenger to Node.js's throne
+author: wmckenzie
+image: "/uploads/Bun-fast%20rising%20star%20thumbnail.png"
 ---
 
 <style>
