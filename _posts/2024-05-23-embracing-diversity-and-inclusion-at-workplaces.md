@@ -18,9 +18,9 @@ image: "/uploads/Embracing%20Diversity%20and%20Inclusion%20at%20Workplaces_1.png
 Think of a big box of crayons. Each crayon has a different colour and shade. 
 Now, imagine you're colouring a picture with those crayons. If you only use one colour, your picture might be okay, but it won't be as exciting or interesting as compared to a picture that uses lots of different colours.
 
-In any workplace, *diversity* holds the same importance. Having people who are different from each other in many ways like Where they come from, What they believe in, What skills they have.
+In any workplace, *diversity* holds the same importance. Having people who are different from each other in many ways like where they come from, what they believe in and what skills they have.
 
-When you have different people with different backgrounds and talents working together, it's like using all these different colour crayons to make a really beautiful and colorful picture. Each person brings something special to the team, making it stronger and more creative.
+When you have different people with different backgrounds and talents working together, it's like using all these different colour crayons to make a really beautiful and colourful picture. Each person brings something special to the team, making it stronger and more creative.
 
 **Diversity in the IT Industry**
 
@@ -49,4 +49,4 @@ At its core, *diversity and inclusion* are not just moral imperatives; they're a
 In conclusion, *diversity and inclusion* are indispensable pillars of success in any workplace. By embracing *diversity*, organisations can harness the power 
 of varied perspectives and experiences to deliver innovative solutions that meet the diverse needs of clients. Coupled with a culture of *inclusion*, diverse teams become the driving force behind transformative change and sustainable growth and those who prioritise *diversity and inclusion* will emerge as the true leaders of tomorrow.
 
-To summarise, *Diversity and inclusion* are like the secret ingredients that make teams awesome. They help teams come up with better ideas, solve problems faster, and make clients happier. When everyone feels valued and included, teams can achieve amazing things together!
+To summarise, *diversity and inclusion* are like the secret ingredients that make teams awesome. They help teams come up with better ideas, solve problems faster, and make clients happier. When everyone feels valued and included, teams can achieve amazing things together!
