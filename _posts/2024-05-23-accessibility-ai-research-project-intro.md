@@ -4,9 +4,10 @@ date: 2024-05-23 08:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
-- accessibility 
+- accessibility
 - Artificial Intelligence
-summary: This blog series reports on our R&D project exploring the potential of LLMs to enhance accessibility testing.
+summary: This blog series reports on our R&D project exploring the potential of LLMs
+  to enhance accessibility testing.
 author: rvango
 ---
 
