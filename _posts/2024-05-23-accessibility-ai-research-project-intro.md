@@ -23,7 +23,8 @@ to improve accessibility testing. Join us as we share our findings and experienc
 
 Let’s start with where we are now. The [Web Content Accessibility Guidelines](https://intopia.digital/wp-content/uploads/2023/10/Intopia-WCAG-2.2-Map-Portrait-Mode.pdf) (**WCAG**) provide a set of standards aimed
 at making web content more accessible to people with diverse cognitive and physical needs. 
-However, only about 20 to 30% of these guidelines can currently be tested automatically.
+However, only about [20 to 30% of these guidelines](https://blog.usablenet.com/automated-wcag-testing-is-not-enough-for-web-accessibility-ada-compliance) 
+can currently be tested automatically.
 
 Why is that? Many accessibility tests require context-aware evaluation, something that traditional automated tools
 struggle with. For example, determining whether a heading accurately describes the content that follows isn't something
