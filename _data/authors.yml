@@ -110,6 +110,7 @@ active-authors:
   - pdykes
   - pgraham
   - pling
+  - pmarsh
   - rbeckett
   - rgarside
   - rgraham
@@ -701,6 +702,10 @@ authors:
     name: "Peter Ling"
     author-summary: "I am a Senior Developer, based in Bristol. I'm interested in what technology can do for society, and what creativity can do for the soul."
     picture: PL_Headshot.JPG
+  pmarsh:
+    name: "Peter Marsh"
+    author-summary: "A keen and creative developer based in Edinburgh. Loves making music, drawing and the great outdoors"
+    picture: picture.jpg
   pshek:
     name: "Paulin Shek"
     author-summary: "<p>Paulin is a  Java developer at Scott Logic. When she's not programming, she can be found doing cryptic crosswords and climbing small rocks.</p>"
