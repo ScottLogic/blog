@@ -268,3 +268,5 @@ This tool was helpful in getting a high-level estimate of the associated carbon 
 The lack of integration with the web application means that you would need to turn to another process to visualise the output. Adding support for on-premise data in the web application should be possible but could be a more significant amount of work than some other identified improvements.
 
 I should caveat that I understand that a tool designed for measuring your 'cloud' carbon footprint might not have mature capabilities for on-premise measurement. This is an area without clear established standard tooling but is still an important aspect of many companies carbon footprint.
+
+*[SCCM]: Microsoft System Center Configuration Manager
