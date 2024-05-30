@@ -1497,3 +1497,8 @@ authors:
     name: "Richard Strange"
     author-summary: "I'm a Lead Developer at Scott Logic working in the Bristol office."
     picture: picture.jpg
+  rvango:
+    name: "Remi Van Goethem"
+    email: rvgoethem@scottlogic.com
+    author-summary: "I am a Lead Dev in the Edinburgh office. I take ideas, add a dash of design, a sprinkle of code, et voilà!"
+    picture: picture.png
