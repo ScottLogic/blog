@@ -21,6 +21,7 @@ summary: In the past few years, we’ve seen a return to the large-scale technol
   there is a better way forward – one in which we focus on bold and better GovTech,
   not 'Big IT'.
 author: sforeshew-cain
+image: "/uploads/GovTech%20thumbnail.png"
 ---
 
 It feels like we’re standing still, spinning our wheels, and – at times – sliding backwards.
