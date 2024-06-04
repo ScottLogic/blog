@@ -14,6 +14,12 @@ tags:
 - delivery
 - delivery leadership
 - delivery management
+summary: In the past few years, we’ve seen a return to the large-scale technology
+  procurement approach that the Government Digital Service was explicitly set up to
+  tackle. We learned lessons from the past back in 2011 – and if we don't continue
+  to learn from the past, we're doomed to repeat it. As I explain in this blog post,
+  there is a better way forward – one in which we focus on bold and better GovTech,
+  not 'Big IT'.
 author: sforeshew-cain
 ---
 
