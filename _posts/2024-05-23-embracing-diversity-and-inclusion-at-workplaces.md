@@ -11,7 +11,7 @@ summary: Embracing diversity and inclusion in workplaces is akin to using a mult
   also drive transformative change, making diversity and inclusion indispensable for
   success and industry leadership.
 author: snandal
-image: "/uploads/embracing%20diversity.png"
+image: "/uploads/Embracing%20diversity_.png"
 ---
 
 Think of a big box of crayons. Each crayon has a different colour and shade. 
