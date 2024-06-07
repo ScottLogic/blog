@@ -41,6 +41,8 @@ I have a military background and many tasks in the military are directed at the 
 
 I'm also a big fan of Jazz as a musical genre. The central idea common to all types of Jazz music from New Orleans to Fusion is that of improvisation. As a very generalised example, a Jazz band may play a piece of music through as written (or straight) once or twice and then members of the group will take turns in improvising over the piece before ending with another straight play through. This, in my opinion is what makes Jazz so interesting, the freedom to improvise can facilitate some truly great music that may not have happened otherwise and means that you can hear the same band play the same piece many times and always get something new. This is very much towards the other end of the detail spectrum, the piece of music providing the high level rules for the task and the band making up the rest. In fact in [Free jazz](https://en.wikipedia.org/wiki/Free_jazz) we go even further and throw the rule book out almost entirely!
 
+![Ornette Coleman]({{site.baseurl}}/dogle/assets/why-we-should-care-about-process/ornette-coleman.jpg)
+
 ## How we create software and does it matter?
 
 So what has all this go to do with software development? The concept of self-organizing teams moves the pointer away from the granular end of how we can direct tasks and instead the team improvises its own process within the rules provided. An agile team for example may take the Manifesto for Agile Software Development as a starting point and build out their own process within that boundary and maybe others set out by management.
@@ -53,6 +55,8 @@ One reason we should care of course is because we're the people who are going to
 
 In the early 1980's the [General Motors factory in Fremont California](https://en.wikipedia.org/wiki/Fremont_Assembly) was notoriously one of the worst in the country. Workers were regularly late or didn't turn up at all and cars were riddled with defects. The plant was eventually shut down but was reopened when GM later decided to partner with Toyota who were looking to break into the American market. Toyota took over using Lean manufacturing techniques and quickly transformed the factory to having one of the lowest defect rates in the country with absenteeism falling from 20% to 2% using the same labour force. One of the secrets behind this transformation was in putting trust in the workforce and giving them control over their own processes. Rather than tell workers the best way to do their job, workers were given control over their own processes to the extent of even being able to stop production entirely if they encountered a problem. Toyota understood that the people best equipped to decided the optimal way to do a job are those who do the job every day. This seems logical when you step back and look at it. 
 
+![Fremont factory]({{site.baseurl}}/dogle/assets/why-we-should-care-about-process/fremont.jpg)
+
 If we want to find the best way to develop software, then we have to ask the people developing the software. We need to make sure the development team are directly involved in defining the process which they are going to use every day and that the process can be easily and quickly changed without friction or blockers from above.
 
 ## Control -> Ownership -> Engagement -> Interest -> Fun
@@ -63,9 +67,15 @@ Back in the Air Force, we occasionally had military exercises where everyone wou
 
 While this is an amusing story, it illustrates an important point. The personnel in the story had by that time been on exercise for over a week and they were cold, wet and tired. The drills happened at least a few times a day and those participating were expected to respond correctly first time or else receive a dressing down from the officers in charge. By the time of the incident in question, people had lost any enthusiasm they may have had for participating. No one walking towards the tent that evening after a long day wanted to get dragged into yet another drill which would not only take up most of their evening but also put them in the firing line if they didn't get the drill correct. This resulted in people either avoiding the obvious problem or else pretending they hadn't seen it.
 
+![Exercise]({{site.baseurl}}/dogle/assets/why-we-should-care-about-process/opeval.jpg)
+
 People who are not enjoying what they do or feel that they are not safe to make mistakes are not motivated to run towards the smoke. In software this translates to scenarios such as developers seeing issues and not raising them. They may be worried about getting the blame or maybe they just don't care enough to get sucked into trying to fix the issue. It's far easier to pretend you haven't seen it and hope someone else picks it up. An important realisation is that no amount of top down enforcement of rules will address this problem, change will only happen when people start to care about the project.
 
 Giving teams control fosters a sense of ownership, ownership creates engagement, engagement leads to interest and if something is interesting, then it's fun!
+
+## Software development teams
+
+Let's take a pause here and consider how all this applies to developing software. It's important to state upfront that there is no "correct" answer to how much freedom teams need to thrive. Clearly, the intricate detail end of the scale will likely cause issues for most teams and restrict a teams ability to fully define their own process. On the other hand providing no instruction at all, or very little is often not helpful either. A company, for example, may mandate that teams must all be practising Scrum: this might seem logical at fist as all team are doing the same thing while still having some flexibility within that framework. In practice however it may be that some Scrum practices do not work well for certain teams and restricting teams from changing those practices, simply because it doesn't fit the provided framework, may very well prevent teams from finding the process which works best for them. It' worth noting that all teams need a starting point and suggesting that teams use a certain framework to get started is most likely useful, the key here is to allow teams to then evolve those processes as they go forward and not restrict that process unnecessarily.
 
 ## Conclusion
 
