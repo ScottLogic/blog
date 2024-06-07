@@ -7,7 +7,7 @@ categories:
 summary: Exploring LangGraph and its applications in the context of multi-agent Large
   Language Model (LLM) applications.
 author: hsauve
-image: "/uploads/LangGraph%20thumbnail.png"
+image: "/uploads/Langraph%20thumbnail.png"
 layout: default_post
 ---
 
