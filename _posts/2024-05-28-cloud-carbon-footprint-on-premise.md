@@ -13,7 +13,7 @@ The Cloud Carbon Footprint tool was discussed in a [previous blog post](https://
 
 ## Usage Overview
 
-The system requires a .csv file as an input, which must contain a minimum set of columns, with Machine Name, cost, power usage effectiveness and CPU utilization being optional. If CPU Utilization is not specified then it is assumed to be 50% by default, which can also be configured to use a different amount for server, desktop, and laptop machine types.
+The system requires a .csv file as an input, which must contain a minimum set of columns, with Machine Name, cost, power usage effectiveness and CPU utilization being optional. If CPU utilization is not specified then it is assumed to be 50% by default; it can also be configured to use a different amount for server, desktop, and laptop machine types.
 
 Each row has a start and end time that covers the period it relates to, as well as daily, weekly, monthly, and annual uptime amounts in hours. This allows a row to cover a period where the hardware is only active some of the time. For example, you could generate a weekly .csv file for your company laptop which has eight daily hours, forty weekly hours etc.
 
@@ -21,11 +21,11 @@ This .csv file must then be passed to a command, which generates an output .csv 
 
 ## Testing
 
-Using the [example .csv file](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint/blob/trunk/packages/cli/src/__tests__/EstimateOnPremiseData/on_premise_data_input.test.csv) provided by CCF, the command line tool successfully created a corresponding estimations csv. This covers a period of 7 days, with 4 hours of daily uptime and 12 hours of weekly uptime, which suggests a system running 3 days a week. The monthly and annual uptime are both set to 36, which seems a little confusing. This possibly represents an example where only a monthly estimation was desired, but the tool forces all uptime types to be populated. The values are multiples of the daily calculated amounts so there does not appear to be any additional benefit to this other than convenience.
+Using the [example .csv file](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint/blob/trunk/packages/cli/src/__tests__/EstimateOnPremiseData/on_premise_data_input.test.csv) provided by CCF, the command line tool successfully created a corresponding estimations .csv. This covers a period of 7 days, with 4 hours of daily uptime and 12 hours of weekly uptime, which suggests a system running 3 days a week. The monthly and annual uptime are both set to 36, which seems a little confusing. This possibly represents an example where only a monthly estimation was desired, but the tool forces all uptime types to be populated. The values are multiples of the daily calculated amounts so there does not appear to be any additional benefit to this other than convenience.
 
-As I started to test out the tool using some generated .csv files, I often found that the process would fail. Very minimal information was given about what went wrong, the error message was simply: `Something went wrong: Input data is incorrect. Please check your input data file and try again.`. This wasn’t very helpful and necessitated investigating the source code to resolve the problem, which I will cover later.
+As I started to test out the tool using some generated .csv files, I often found that the process would fail. Very minimal information was given about what went wrong, as the error message was simply: `Something went wrong: Input data is incorrect. Please check your input data file and try again.`. This wasn’t very helpful and necessitated investigating the source code to resolve the problem, which I will cover later.
 
-The .csv input format does not appear to be an exact match for any standard input source and so required some additional work to prepare data for estimation. Thankfully this wasn’t too extensive a task, and with the help of some Python scripting using the [Pandas](https://pandas.pydata.org/) library, I was able to transform an exported SCCM spreadsheet into the minimum required data.
+The .csv input format does not appear to be an exact match for any standard input source and so required some additional work to prepare data for estimation. Thankfully this wasn’t too extensive a task, and with the help of some Python scripting using the [Pandas](https://pandas.pydata.org/) library, I was able to transform an exported SCCM spreadsheet into the minimum required data:
 
 ~~~python
 import pandas as pd
@@ -103,7 +103,7 @@ There was less extensive validation than I might have expected, like ensuring th
 
 ### Report Generation
 
-Apart from an entry function on the main App, the reporting is isolated in an on-premise package. It has a unique OnPremiseDataReport type, which is passed a standard ComputeEstimator and MemoryEstimator. These are the same classes that are used in the cloud calculations but here a specific on-premise memory coefficient is given to the MemoryEstimator. Currently the on-premise and all cloud providers use a value of 0.000392kWh / Gb but the system is setup so that they could be different.
+Apart from an entry function on the main App, the reporting is isolated in an on-premise package. It has a unique OnPremiseDataReport type, which is passed a standard ComputeEstimator and MemoryEstimator. These are the same classes that are used in the cloud calculations but here a specific on-premise memory coefficient is given to the MemoryEstimator. Currently the on-premise and all cloud providers use a value of 0.000392kWh / Gb but the system is set up so that they could be different.
 
 ### Processor families
 
@@ -133,7 +133,7 @@ When neither manufacturer produces a result, an on-premise specific average is u
 
 ### Region Data
 
-The input requires a country and a region but unless the country is 'United States' then the region is discarded. If it is, then the two are combined into a single string like 'United States-Texas'. This is then used in another on-premise specific lookup table to find the regional carbon intensity. There is an 'Unknown' region, which contains an average value that the code falls back on if the given region cannot be found.
+The input requires a country and a region but unless the country is 'United States' then the region is discarded. If the region is used, then the two are combined into a single string like 'United States-Texas'. This is then used in another on-premise specific lookup table to find the regional carbon intensity. There is an 'Unknown' country, which contains an average value that the code falls back on if the given country or region cannot be found.
 
 There does not appear to be any facility to plug in a different set of emissions factors from an external source like [Electricity Maps](https://app.electricitymaps.com/map). The list is also quite limited, missing various countries that were present in my sample data. The full list of supported countries is:
 
@@ -159,7 +159,7 @@ There does not appear to be any facility to plug in a different set of emissions
 | United States | 0.00042394 |
 | Unknown | 0.0003228315385 |
 
-With the following regions supported for United States:
+The following regions are supported for the United States:
 
 | **Region** | **Tonnes CO2e per kWh** |
 | --- | --- |
@@ -177,9 +177,9 @@ Given that the validation forces you to put something in the region column, ther
 
 ### Machine Type
 
-The machine type can be specified as either server, desktop, or laptop. This can influence the CPU utilization and average watts used in calculations. If the type does not match one of these then this results in the CPU utilization being passed through (either specified on the row or the 50% default) and the Average watts being undefined, so that it is later calculated via:
+The machine type can be specified as either server, desktop, or laptop. This can influence the CPU utilization and average watts used in calculations. If the type does not match one of these then the CPU utilization is passed through (either specified on the row or the 50% default) and the average watts is left undefined, so that it is later calculated via:
 
-Average Watts = Min Watts + (average CPU utilization / 100) \* (Max Watts - Min Watts)
+Average Watts = Min Watts + (Average CPU Utilization / 100) \* (Max Watts - Min Watts)
 
 If it does match one of the three types, then it will only have an effect if additional defaults have been configured like so:
 
@@ -200,15 +200,15 @@ ON_PREMISE?: {
 }
 ~~~
 
-Then the CPU utilization and average watts will be overridden by these config values, skipping the calculation in the Compute Estimator. This seems a little surprising as it would be more natural to use these as fallback defaults, which would only be used if the CPU utilization was not specified on any given row.
+In this case, the CPU utilization and average watts will be overridden by these config values, skipping the calculation in the Compute Estimator. This seems a little surprising as it would be more natural to use these as fallback defaults, which would only be used if the CPU utilization was not specified on any given row.
 
 ### Start and End Times
 
-These are required fields but do not appear to have any meaningful use currently. As mentioned in the validation section, the format is not checked and appears to only retain the hours, minutes, and milliseconds in the output data.
+These are required fields but do not appear to have any meaningful use currently. As mentioned in the validation section, the format is not checked and the fields appear to only retain the hours, minutes, and milliseconds in the output data.
 
 ## Integration with the web application
 
-At present the CLI tool is the only consumer of the on-premise reporting. While some of the Estimator classes are re-used, there is a lot of custom setup to use them, and on-premise specific coefficients used for computation. There is a [closed issue](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint/issues/833) mentioning this but I don’t see any other indication that this is currently planned on the project backlog.
+At present the CLI tool is the only consumer of the on-premise reporting. While some of the Estimator classes are re-used, there is a lot of custom setup to use them and on-premise specific coefficients used for computation. There is a [closed issue](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint/issues/833) mentioning this but I don’t see any other indication that any changes are planned on the project backlog.
 
 ## Usage Considerations
 
@@ -253,7 +253,7 @@ At present the CLI tool is the only consumer of the on-premise reporting. While 
 - Allow for usage of electricity maps and other live APIs.
 - Make use of start and end times to get specific Carbon Intensity if provided.
 - Unify the on-premise specific Carbon Intensity values with those used for cloud estimation. Should allow the list to expand and allow easier maintenance.
-- Same for identification of CPUS.
+- Same for identification of CPUs.
 
 ### Integrate the On-Premise code with the API/client.
 - Add an API endpoint to submit a CSV file that can be added to the data cache.
