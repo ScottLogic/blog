@@ -41,7 +41,7 @@ I have a military background and many tasks in the military are directed at the 
 
 I'm also a big fan of Jazz as a musical genre. The central idea common to all types of Jazz music from New Orleans to Fusion is that of improvisation. As a very generalised example, a Jazz band may play a piece of music through as written (or straight) once or twice and then members of the group will take turns in improvising over the piece before ending with another straight play through. This, in my opinion is what makes Jazz so interesting, the freedom to improvise can facilitate some truly great music that may not have happened otherwise and means that you can hear the same band play the same piece many times and always get something new. This is very much towards the other end of the detail spectrum, the piece of music providing the high level rules for the task and the band making up the rest. In fact in [Free jazz](https://en.wikipedia.org/wiki/Free_jazz) we go even further and throw the rule book out almost entirely!
 
-![Ornette Coleman]({{site.baseurl}}/dogle/assets/why-we-should-care-about-process/ornette-coleman.jpg)
+<img alt="Ornette Coleman" src="{{site.baseurl}}/dogle/assets/why-we-should-care-about-process/ornette-coleman.jpg" title="Ornette Coleman" style="display: block; margin: 0 auto; padding: 1rem 0;" />
 
 ## How we create software and does it matter?
 
@@ -83,4 +83,4 @@ Why should you care about process? Well first up, because you're most likely the
 
 ---
 
-[^ref-1]: more information on the Toyota story you can read more in [Lessons on culture change at Toyota](https://www.dustinroman.com/lessons-about-changing-culture-gm-toyota-case-study/) and [How GM learned from the Toyota way at Fremont](https://www.latimes.com/archives/la-xpm-1985-12-22-mn-20128-story.html).
+[^ref-1]: For more information on the Toyota story see [Lessons on culture change at Toyota](https://www.dustinroman.com/lessons-about-changing-culture-gm-toyota-case-study/) and [How GM learned from the Toyota way at Fremont](https://www.latimes.com/archives/la-xpm-1985-12-22-mn-20128-story.html).
