@@ -1,5 +1,5 @@
 ---
-title: 'Why we should care about process'
+title: Why we should care about process
 date: 2024-06-10 00:00:00 Z
 categories:
 - People
@@ -7,9 +7,12 @@ tags:
 - Agile
 - Self-Organizing Teams
 - Delivery
-summary: In agile teams the development team often has some, if not total control over the process of developing software. In this article I'll look at why I believe that's important and why I think we should care, and care passionately about the processes we use to develop software.
+summary: In agile teams the development team often has some, if not total control
+  over the process of developing software. In this article I'll look at why I believe
+  that's important and why I think we should care, and care passionately about the
+  processes we use to develop software.
 author: dogle
-image: "dogle/assets/why-we-should-care-about-process/scale.jpg"
+image: dogle/assets/why-we-should-care-about-process/scale.jpg
 ---
 
 ## Self-Organizing Teams
