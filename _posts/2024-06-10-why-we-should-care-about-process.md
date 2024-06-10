@@ -12,7 +12,7 @@ summary: In agile teams the development team often has some, if not total contro
   that's important and why I think we should care, and care passionately about the
   processes we use to develop software.
 author: dogle
-image: dogle/assets/why-we-should-care-about-process/scale.jpg
+image: "/uploads/Why%20we%20should%20care%20about%20process.png"
 ---
 
 ## Self-Organizing Teams
