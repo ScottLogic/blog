@@ -1,6 +1,6 @@
 ---
 title: 'Why we should care about process'
-date: 2024-06-02 00:00:00 Z
+date: 2024-06-10 00:00:00 Z
 categories:
 - People
 tags:
