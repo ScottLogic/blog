@@ -7,6 +7,7 @@ active-authors:
   - acarr
   - acaulfield
   - ahickman
+  - alaws
   - alee
   - amcgill
   - amjones
@@ -201,6 +202,10 @@ authors:
   ahickman:
     name: "Andy Hickman"
     author-summary: "<p>I am a Principal Consultant at Scott Logic. I have led software teams in several organisations as a Delivery Manager, CTO and Software Development Manager. My interest is in the approaches – whether they are Agile practices, technical skills, management styles or tools – that make software teams most effective.</p>"
+    picture: picture.jpg
+  alaws:
+    name: "Amy Laws"
+    author-summary: "I'm an Associate Software Developer at Scott Logic, based in our Newcastle Office."
     picture: picture.jpg
   alee:
     name: "Andy Lee"
