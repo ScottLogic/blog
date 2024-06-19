@@ -1,5 +1,5 @@
 ---
-title: Cloud Carbon Footprint for On-Premise
+title: Using Cloud Carbon Footprint to estimate On-Premise emissions
 date: 2024-05-28 00:00:00 Z
 categories:
 - Sustainability
@@ -9,19 +9,54 @@ summary: The Cloud Carbon Footprint tool also provides support for carbon calcul
 
 ## Introduction
 
-The Cloud Carbon Footprint tool was discussed in a [previous blog post](https://blog.scottlogic.com/2023/10/19/tools-for-measuring-cloud-carbon-emissions.html), as a third party method of estimating emissions associated with cloud workloads. However, it can also use data from [On-Premise](https://www.cloudcarbonfootprint.org/docs/on-premise) sources for its estimations. This blog post gives an overview of how it should be used and investigates how it works via testing and analysis of its code. I consider the issues with its use and list some contributions that could be made to improve it.
+The Cloud Carbon Footprint tool was discussed in a [previous blog post](https://blog.scottlogic.com/2023/10/19/tools-for-measuring-cloud-carbon-emissions.html), as a third party method of estimating emissions associated with cloud workloads. However, moving to the cloud is not suitable for every workload - you may have reasons to keep your data on-premises for example. It's also possible that your local energy is produced via greener methods than cloud providers, so moving to the cloud could result in greater carbon emissions, as well as generating electronic waste from hardware disposal.
+
+For those considering these options, or just looking to manage their other tech related emissions, Cloud Carbon Footprint can also use data from [On-Premise](https://www.cloudcarbonfootprint.org/docs/on-premise) sources for its estimations. This blog post gives an overview of how it should be used and investigates how it works via testing and analysis of its code. I consider the issues with its use and list some contributions that could be made to improve it.
 
 ## Usage Overview
 
-The system requires a .csv file as an input, which must contain a minimum set of columns, with Machine Name, cost, power usage effectiveness and CPU utilization being optional. If CPU utilization is not specified then it is assumed to be 50% by default; it can also be configured to use a different amount for server, desktop, and laptop machine types.
+The tool will estimate your carbon emissions for you, based on a list of compute resources. This information is provided as a CSV file with the following columns:
+
+- `cpuDescription`
+- `memory`
+- `machineType`
+- `startTime`
+- `endTime`
+- `country`
+- `region`
+- `machineName` (optional)
+- `cost` (optional)
+- `cpuUtilization` (optional, default: 50%)
+- `powerUsageEffectiveness` (optional, default: 1.58)
+- `dailyUptime`
+- `weeklyUptime`
+- `monthlyUptime`
+- `annualUptime`
+
+You can also configure the tool to use a different CPU utilization value depending on the machineType value, which can be server, desktop or laptop.
 
 Each row has a start and end time that covers the period it relates to, as well as daily, weekly, monthly, and annual uptime amounts in hours. This allows a row to cover a period where the hardware is only active some of the time. For example, you could generate a weekly .csv file for your company laptop which has eight daily hours, forty weekly hours etc.
 
-This .csv file must then be passed to a command, which generates an output .csv file with estimated energy usage and CO2e emissions. This command is `yarn run estimate-on-premise-data --onPremiseInput <Input File Name>`. You can optionally add the argument `--onPremiseOutput <Output File Name>`.
+### Getting started
 
-## Testing
+Given a suitable input file, this must then be passed to a command, which generates an output .csv file with estimated energy usage and CO2e emissions. This command is `yarn run estimate-on-premise-data --onPremiseInput <Input File Name>`. You can optionally add the argument `--onPremiseOutput <Output File Name>`.
 
-Using the [example .csv file](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint/blob/trunk/packages/cli/src/__tests__/EstimateOnPremiseData/on_premise_data_input.test.csv) provided by CCF, the command line tool successfully created a corresponding estimations .csv. This covers a period of 7 days, with 4 hours of daily uptime and 12 hours of weekly uptime, which suggests a system running 3 days a week. The monthly and annual uptime are both set to 36, which seems a little confusing. This possibly represents an example where only a monthly estimation was desired, but the tool forces all uptime types to be populated. The values are multiples of the daily calculated amounts so there does not appear to be any additional benefit to this other than convenience.
+An [example .csv file](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint/blob/trunk/packages/cli/src/__tests__/EstimateOnPremiseData/on_premise_data_input.test.csv) is provided by CCF, which should successfully create a corresponding estimations .csv. You can see that this features a single row of hardware data, which covers a period of 7 days, with differing uptime amounts that each receive an estimation of the energy used and carbon emitted.
+
+## Gotchas to watch out for
+
+### Understanding the example file
+
+While the above mentioned example .csv file is a good starting point, it perhaps isn't the most clear example of the purpose of the uptime values. These are set to:
+
+- `dailyUptime` - **4** _(Half a working day?)_
+- `weeklyUptime` - **12** _(Three days a week?)_
+- `monthlyUptime` - **36** _(Three weeks a month?)_
+- `annualUptime` - **36** _(Is it only interested in one month?)_
+
+A more understandable example might use more common examples like an 8 hour day for a desktop/laptop or 24 hours for a server. It possibly also demonstrates a limitation of the tool, where only a monthly estimation was desired, but it forces you to populate all of the uptime columns. The produced estimations for weeks, months and years are multiples of the daily amounts so there does not appear to be any additional benefit to this other than convenience.
+
+### Creating your own input
 
 As I started to test out the tool using some generated .csv files, I often found that the process would fail. Very minimal information was given about what went wrong, as the error message was simply: `Something went wrong: Input data is incorrect. Please check your input data file and try again.`. This wasn’t very helpful and necessitated investigating the source code to resolve the problem, which I will cover later.
 
@@ -85,15 +120,13 @@ if __name__ == "__main__":
     main(input_excel_file, output_csv_file, sheet_name)
 ~~~
 
-## Code Analysis
-
 ### Input/Output
 
-Despite the documentation stating that the input must be placed in the `packages/cli` folder of the tool, it uses the path directly so you can pass in an absolute path from outside of the tool. However, the output file name is combined with the process' current working directory, so there is not currently a way to control the output location.
+There is no way to control the output directory. This is because the output file name is combined with the process' current working directory when it comes to writing the output. However, despite the documentation stating that the input must be placed in the `packages/cli` folder of the tool, it uses the path directly so you can pass in an absolute path from outside of the tool.
 
-It also uses the same default output file name each time so care may need to be taken to ensure that results are not overwritten. Because of this, another error that can occur is having the previous .csv file open in Excel, which prevents the new file from being written.
+You can easily overwrite your inputs if you run the tool several times in a row, as it uses the same default output file name each time. Because of this, another error that can occur is having the previous .csv file open in Excel, which prevents the new file from being written.
 
-The whole csv file is read into memory at once, using the 'csvtojson' library – this was not a problem in my test cases but is something to bear in mind if dealing with an extremely large amount of data.
+If you're using an extremely large amount of data, be aware that this could be very slow and use a lot of RAM, as the whole csv file is read into memory at once. This was not a problem in my test cases but it's something to bear in mind.
 
 ### Data Validation
 
@@ -208,21 +241,21 @@ These are required fields but do not appear to have any meaningful use currently
 
 ## Integration with the web application
 
-At present the CLI tool is the only consumer of the on-premise reporting. While some of the Estimator classes are re-used, there is a lot of custom setup to use them and on-premise specific coefficients used for computation. There is a [closed issue](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint/issues/833) mentioning this but I don’t see any other indication that any changes are planned on the project backlog.
+At present, you can only generate on-premise reports using the CLI, there is no way to visualise your results in the web app. You would need to turn to another spreadsheet tool to create charts from the output and break down areas of concern. There is a [closed issue](https://github.com/cloud-carbon-footprint/cloud-carbon-footprint/issues/833) that mentions viewing is on their backlog but yet to be implemented, though I haven't been able to find any references to it or updates since.
 
 ## Usage Considerations
 
 ### Positives
 
-- Easy to generate information in required format.
+- Easy to generate the input information that the tool requires.
 - Does not block execution if given data does not match expectations.
-- Uses the same core estimation code.
+- Uses the same core estimation code as the cloud reporting.
 
 ### Downsides
 
-- Error messages are not obvious.
+- Error messages are too vague.
 - Little transparency on when fallback averages have been used.
-- Lots of lists of values specific to the on-premise calculations.
+- There are many hard-coded values specific to the on-premise calculations, which seem unnecessary and could easily fall behind those used in the cloud process.
 - No support for Carbon Intensity APIs.
 - No integration with the API/Client application.
 - Only supports Compute and Memory operational emissions – no storage, networking, or embodied carbon.
@@ -263,10 +296,12 @@ At present the CLI tool is the only consumer of the on-premise reporting. While 
 
 ## Conclusion
 
-This tool was helpful in getting a high-level estimate of the associated carbon emissions based on a large list of hardware resources. The fact that the tool seamlessly falls back on average values is beneficial in being able to use the tool easily. However, it could be seen as lacking in transparency around the values used for its calculations. Combined with the amount of hardware and countries that are not supported means I would not recommend it for accurate reporting in its current form.
+While this tool shows promise, I would not recommend it for accurate reporting in its current form. By their own admission, it is lacking some of the aspects that the cloud tool covers, only making estimations for Compute and Memory usage. However, it did prove to be helpful in getting an approximate estimate of the associated carbon emissions of a large list of hardware resources.
 
-The lack of integration with the web application means that you would need to turn to another process to visualise the output. Adding support for on-premise data in the web application should be possible but could be a more significant amount of work than some other identified improvements.
+The fact that the tool seamlessly falls back on average values is beneficial in being able to use the tool easily. However, it could be seen as lacking in transparency around the values used for its calculations. The amount of hardware and countries that are not supported is another limiting factor.
 
-I should caveat that I understand that a tool designed for measuring your 'cloud' carbon footprint might not have mature capabilities for on-premise measurement. This is an area without clear established standard tooling but is still an important aspect of many companies carbon footprint.
+The tool doesn't integrate with the web application and does not appear to be on their roadmap. This means that you would need to turn to another process to visualise the output. Adding support for on-premise data in the web application should be possible but could be a more significant amount of work than some other identified improvements.
+
+I should caveat that I understand that a tool designed for measuring your 'cloud' carbon footprint might not have mature capabilities for on-premise measurement. This is an area without clear established standard tooling but is still an important aspect of many companies' carbon footprint.
 
 *[SCCM]: Microsoft System Center Configuration Manager
