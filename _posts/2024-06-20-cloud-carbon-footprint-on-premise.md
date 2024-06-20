@@ -1,6 +1,6 @@
 ---
 title: Using Cloud Carbon Footprint to estimate On-Premise emissions
-date: 2024-05-28 00:00:00 Z
+date: 2024-06-20 00:00:00 Z
 categories:
 - Sustainability
 author: mgriffin
