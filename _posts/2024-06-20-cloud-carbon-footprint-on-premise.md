@@ -4,7 +4,9 @@ date: 2024-06-20 00:00:00 Z
 categories:
 - Sustainability
 author: mgriffin
-summary: The Cloud Carbon Footprint tool also provides support for carbon calculations from On-Premise sources. I investigate how it works and list some pros and cons with its usage, along with some contributions we are hoping to make.
+summary: The Cloud Carbon Footprint tool also provides support for carbon calculations
+  from On-Premise sources. I investigate how it works and list some pros and cons
+  with its usage, along with some contributions we are hoping to make.
 ---
 
 ## Introduction
