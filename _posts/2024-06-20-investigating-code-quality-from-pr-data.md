@@ -36,7 +36,7 @@ We provide our analyser with a GitHub or GitLab URL, and it then scrapes the PRs
 These metrics are then saved to a Parquet file, which can be exported to a [ClickHouse](https://clickhouse.com/clickhouse) database and imported into [Apache Superset](https://superset.apache.org/) to create a dashboard which allows us to visualise and explore the data captured.
 
 ### Let's see this in action
-To demonstrate our tool, we have used it to analyse 1000 PRs the main repositories for a number of different programming languages, namely [Python](https://github.com/python/cpython), [Rust](https://github.com/rust-lang/rust), [JDK](https://github.com/openjdk/jdk), NodeJS(https://github.com/nodejs/node) and [.NET](https://github.com/microsoft/dotnet). We've then produced some charts displaying a range of the metrics we produce, with the aim of gaining an insight into the development of these languages.
+To demonstrate our tool, we have used it to analyse 1000 PRs the main repositories for a number of different programming languages, namely [Python](https://github.com/python/cpython), [Rust](https://github.com/rust-lang/rust), [JDK](https://github.com/openjdk/jdk), [NodeJS](https://github.com/nodejs/node) and [.NET](https://github.com/microsoft/dotnet). We've then produced some charts displaying a range of the metrics we produce, with the aim of gaining an insight into the development of these languages.
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-dotnet.jpg
  "Number of PRs opened per Month .NET")
