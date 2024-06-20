@@ -38,12 +38,25 @@ These metrics are then saved to a Parquet file, which can be exported to a [Clic
 ### Let's see this in action
 To demonstrate our tool, we have used it to analyse 1000 PRs the main repositories for a number of different programming languages, namely [Python](https://github.com/python/cpython), [Rust](https://github.com/rust-lang/rust), [JDK](https://github.com/openjdk/jdk) and [.NET](https://github.com/microsoft/dotnet).
 
-##### PR Creation and Duration
+##### PR Duration and Review Time
+![jpg]({{ site.github.url }}/alaws/assets/AI-quality-analysis/AI-quality-analysis-pr-duration.jpg
+ "PR Duration")
+
+PR duration is a measure of the time elapsed between a PR opened, and it ultimately being either merged or closed.
 
 ##### Contributors
-- number of different contributors
-- contributor experience
+![jpg]({{ site.github.url }}/alaws/assets/AI-quality-analysis/AI-quality-analysis-contributions-per-user.jpg
+ "Number of Contributors Per User")
+
+Here, we define a contribution as having made a commit on a PR. The number of commits in that PR aren't considered.
 
 ##### Comment Tone and Disagreements
-![png]({{ site.github.url }}/alaws/assets/AI-quality-analysis/AI-quality-analysis-number-of-disagreements.jpg
+![jpg]({{ site.github.url }}/alaws/assets/AI-quality-analysis/AI-quality-analysis-comment-tone.jpg
+ "Tone Analysis of Review Comments")
+ 
+![jpg]({{ site.github.url }}/alaws/assets/AI-quality-analysis/AI-quality-analysis-number-of-disagreements.jpg
  "Number of Disagreements in PR Comments")
+
+##### Identifying LLM "Pain Points"
+![jpg]({{ site.github.url }}/alaws/assets/AI-quality-analysis/AI-quality-analysis-LLM-pain-points.jpg
+ "LLM Pain Points")
