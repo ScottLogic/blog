@@ -40,40 +40,38 @@ To demonstrate our tool, we have used it to analyse 1000 PRs from the main repos
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-dotnet.jpg
 "Number of PRs opened per Month .NET")
-*Number of PRs opened per month in the .NET repository*
-
+&nbsp;
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-combined.jpg
 Number of PRs opened per week")
-*Number of PRs opened per week in the CPython, Rust JDK and NodeJS repositories*
 
 Firstly, a note on PR creation dates. Our tool gathers the 1000 most recent PRs from each repository. For CPython and Rust, these were all created between May and June 2024. In the case of NodeJS and Rust, the earliest PRs come from January and March 2024 respectively. In contrast, with .NET, there are PRs from October 2014. Remarkably, there were 257 PRs opened in the CPython in the week commencing 20th May 2024.
 
 ##### PR Duration and Review Time
 
-![png]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-pr-duration.jpg
+![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-pr-duration.jpg
 "PR Duration")
 
 `PR Duration` is a measure of the time elapsed between a PR opened, and it ultimately being either merged or closed. However, it may be the case that a PR sits in review for a period of time, before the reviewer first looks at it. Similarly, once it is approved, there may be a time delay before it is merged. For this reason, we added the additional measures of `Time to First Review` and `Time From First Review to Last Commit`. This is perfectly illustrated by .NET, which has a noticeably high PR duration. However, if you raise a PR, you'd spend the majority of this time waiting for the first review, but would be likely to quickly merge/close your PR after the initial review.
 
 ##### Contributors
 
-![png]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-contributions-per-user.jpg
+![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-contributions-per-user.jpg
 "Number of Contributors Per User")
 
 Here, we define a contribution as having made a commit on a PR. The number of commits in that PR aren't considered. All languages seem to accept PRs from new contributors, but .NET seems to have some very seasoned contributors, with one person having contributed to 161 out of the last 1000 PRs.
 
 ##### Comment Subject, Tone and Disagreements
 
-![png]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-LLM-pain-points.jpg
+![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-LLM-pain-points.jpg
 "LLM Pain Points")
 Here, we asked an LLM to count the number of times reviewers picked up on issues that are characteristics of AI-generated code. It's worth mentioning that all the pain points we identified were picked up to some degree in each of these repositories. Not adhering to project standards is the most frequently identified issue across all of the repositories.
 
-![png]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-comment-tone.jpg
+![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-comment-tone.jpg
 "Tone Analysis of Review Comments")
 Here an LLM was asked to take a comment and interpret which of the following tones described the comment: polite, neutral, satisfied, frustrated, excited, impolite, sad. Encouragingly, we see that the reviewers for these repositories are polite in the majority of their comments and are never sad. However, they are frustrated more often than they are excited, especially in the JDK repository.
 
-![png]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-number-of-disagreements.jpg
+![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-number-of-disagreements.jpg
 "Number of Disagreements in PR Comments")
 To calculate the number of disagreements, comment threads are passed into an LLM, which is then asked to count disagreements within that thread. The total number of disagreements across all comment threads on a PR is then calculated. The JDK repository is home to some keenly debated changes, as there are 3 PRs with over 40 disagreements in their comments. Notably, these PRs also have some of the highest numbers of comments, reaching up to 184 on one PR.
 
