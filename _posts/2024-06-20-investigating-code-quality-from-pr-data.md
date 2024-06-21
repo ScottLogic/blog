@@ -40,10 +40,11 @@ To demonstrate our tool, we have used it to analyse 1000 PRs from the main repos
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-dotnet.jpg
 "Number of PRs opened per Month .NET")
-*Number of PRs opened per month in the .NET repository*
+_Number of PRs opened per month in the .NET repository_
+
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-combined.jpg
 Number of PRs opened per week")
-*Number of PRs opened per week in the CPython, Rust JDK and NodeJS repositories*
+_Number of PRs opened per week in the CPython, Rust JDK and NodeJS repositories_
 
 Firstly, a note on PR creation dates. Our tool gathers the 1000 most recent PRs from each repository. For CPython and Rust, these were all created between May and June 2024. In the case of NodeJS and Rust, the earliest PRs come from January and March 2024 respectively. In contrast, with .NET, there are PRs from October 2014. Remarkably, there were 257 PRs opened in the CPython in the week commencing 20th May 2024.
 
