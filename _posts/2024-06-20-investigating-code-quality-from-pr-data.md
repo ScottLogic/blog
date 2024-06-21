@@ -17,11 +17,11 @@ The role of a software developer is multi-faceted, and writing code is just one 
 
 When a developer wants to make changes to a code base, they raise a pull request (PR) which contains the proposed changes to the code and a written summary of the changes made. Other developers will then review this PR, leaving comments or suggestions, before ultimately deciding whether to approve the changes.
 
-PRs contain a huge amount of valuable data that can start to give us an idea of the code's quality. If the [CI/CD pipeline](https://about.gitlab.com/topics/ci-cd/) repeatedly fails, the code may not have been thoroughly tested or properly formatted. If a PR receives lots of review comments, it's likely that there are a number of changes that need to be made. Equally, if it takes weeks for a PR to be approved, it may be a reflection of the amount of work required to get the code to a point that the other developers are happy with it (either that, or the developers are just slow to submit their reviews...)
+PRs contain a huge amount of valuable data that can start to give us an idea of the code's quality. If the [CI/CD pipeline](https://about.gitlab.com/topics/ci-cd/) repeatedly fails, the code may not have been thoroughly tested or properly formatted. If a PR receives lots of review comments, it's likely that there are a number of changes that need to be made. Equally, if it takes weeks for a PR to be approved, it may be a reflection of the amount of work required to get the code to a point that the other developers are happy with it (either that, or the developers are just slow to submit their reviews...).
 
 ### Enter LLMs
 
-There are some common "pain points" with AI-generated code. Things like not adhering to project conventions, not using functions that exist in other parts of the code base, producing algorithms with sub-optimal performance, or code that is hard to read, is often a clue that code may have been AI-generated, and are likely to be picked up in a review. 
+There are some common "pain points" with AI-generated code. Things like not adhering to project conventions, not using functions that exist in other parts of the code base, producing algorithms with sub-optimal performance, or code that is hard to read, are often clues that code may have been AI-generated, and are likely to be picked up in a review. 
 
 Therefore, what's written in comments is also a valuable source of information. For example, what do reviewers frequently suggest needs to be changed? Is a developer frustrated to make this suggestion (perhaps they've made the same suggestion several times already)? Are developers generally polite to their colleagues, but harsher on code that they suspect is AI-generated?
 
@@ -31,19 +31,19 @@ Interestingly, this also gives us an insight into the dynamics within developmen
 
 ### Pulling this together into a tool
 
-We provide our analyser with a GitHub or GitLab URL, and it then scrapes the PRs that have been raised within that repository. We then take the data and process it, to produce a range of different metrics, which are we have grouped into deterministic or AI. Our deterministic metrics use data such as the number of files changed, number of comments, requests for change, PR duration and PR contributors. The AI metrics use LLMs to analyse things like comment tone and subject, and detect disagreements within comment threads.
+We provide our analyser with a GitHub or GitLab URL, and it then scrapes the PRs that have been raised within that repository. We then take the data and process it, to produce a range of different metrics which we have grouped into deterministic or AI. Our deterministic metrics use data such as the number of files changed, number of comments, equests for change, PR duration, and PR contributors. The AI metrics use LLMs to analyse things like comment tone and subject, and detect disagreements within comment threads.
 
 These metrics are then saved to a Parquet file, which can be exported to a [ClickHouse](https://clickhouse.com/clickhouse) database and imported into [Apache Superset](https://superset.apache.org/) to create a dashboard which allows us to visualise and explore the data captured.
 
 ### Let's see this in action
-To demonstrate our tool, we have used it to analyse 1000 PRs the main repositories for a number of different programming languages, namely [Python](https://github.com/python/cpython), [Rust](https://github.com/rust-lang/rust), [JDK](https://github.com/openjdk/jdk), [NodeJS](https://github.com/nodejs/node) and [.NET](https://github.com/microsoft/dotnet). We've then produced some charts displaying a range of the metrics we produce, with the aim of gaining an insight into the development of these languages.
+To demonstrate our tool, we have used it to analyse 1000 PRs from the main repositories for a number of different programming languages, namely [Python](https://github.com/python/cpython), [Rust](https://github.com/rust-lang/rust), [JDK](https://github.com/openjdk/jdk), [NodeJS](https://github.com/nodejs/node), and [.NET](https://github.com/microsoft/dotnet). We've then produced some charts displaying a range of the metrics we produce, with the aim of gaining an insight into the development of these languages.
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-dotnet.jpg
  "Number of PRs opened per Month .NET")
  ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-combined.jpg
  "Number of PRs opened per week")
 
-Firstly, a note on PR creation dates. Our tool gathers the 1000 most recent PRs from each repository. For CPython and Rust, these were all created between May and June 2024. In the case of NodeJS and Rust, the earliest PRs come from January and March 2024 respectively. In contrast, .NET, there are PRs from October 2014. Remarkably, there were 257 PRs opened in the CPython in the week commencing 20th May 2024.
+Firstly, a note on PR creation dates. Our tool gathers the 1000 most recent PRs from each repository. For CPython and Rust, these were all created between May and June 2024. In the case of NodeJS and Rust, the earliest PRs come from January and March 2024 respectively. In contrast, with .NET, there are PRs from October 2014. Remarkably, there were 257 PRs opened in the CPython in the week commencing 20th May 2024.
 
 ##### PR Duration and Review Time
 ![png]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-pr-duration.jpg
@@ -55,7 +55,7 @@ Firstly, a note on PR creation dates. Our tool gathers the 1000 most recent PRs 
 ![png]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-contributions-per-user.jpg
  "Number of Contributors Per User")
 
-Here, we define a contribution as having made a commit on a PR. The number of commits in that PR aren't considered. All languages seem to accept PRs from new contributors, but .NET and Rust seem to have some very seasoned contributors, with one person having worked on 161 and 157 PRs out of the last 1000.
+Here, we define a contribution as having made a commit on a PR. The number of commits in that PR aren't considered. All languages seem to accept PRs from new contributors, but .NET seems to have some very seasoned contributors, with one person having contributed to 161 out of the last 1000 PRs.
 
 ##### Comment Subject, Tone and Disagreements
 
@@ -72,4 +72,4 @@ Here an LLM was asked to take a comment and interpret which of the following ton
 To calculate the number of disagreements, comment threads are passed into an LLM, which is then asked to count disagreements within that thread. The total number of disagreements across all comment threads on a PR is then calculated. The JDK repository is home to some keenly debated changes, as there are 3 PRs with over 40 disagreements in their comments. Notably, these PRs also have some of the highest numbers of comments, reaching up to 184 on one PR.
 
 ### Conclusion
-The data extracted from pull requests can provide some interesting insights into the quality of the code, but also provides some interesting opportunities. If we were to run our analysis on repositories that are known to use AI code generation tools, and compared them to repositories that are known to be human-written, we can start to analyse the impacts that these tools are having on the quality of the software we produce.
+The data extracted from pull requests can provide some interesting insights into the quality of the code, but also provides some interesting opportunities. If we were to run our analysis on repositories that are known to use AI code generation tools, and compared them to repositories that are known to be human-written, we could start to analyse the impacts that these tools are having on the quality of the software we produce.
