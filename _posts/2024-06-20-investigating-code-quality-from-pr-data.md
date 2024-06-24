@@ -2,13 +2,13 @@
 title: Investigating Code Quality from PR Data
 date: 2024-06-20 00:00:00 Z
 categories:
-  - Artifical Intelligencce
+  - Artificial Intelligence
 tags:
 summary: Many of us are now using Generative AI to produce code, but what impact is this having on code quality? By analaysing the data contained in PRs, our team has built a tool to investigate this.
 author: alaws
 ---
 
-Generative AI is everywhere, and software development is no exception. Tools such as [GitHub Copilot](https://github.com/features/copilot?ef_id=_k_Cj0KCQjwvb-zBhCmARIsAAfUI2survphNzpvvdMMG2eOv8HEvVDSkuQo8qHKN-KwDROjlvRPqA8CocwaAuTSEALw_wcB_k_&OCID=AIDcmm4lwmjeex_SEM__k_Cj0KCQjwvb-zBhCmARIsAAfUI2survphNzpvvdMMG2eOv8HEvVDSkuQo8qHKN-KwDROjlvRPqA8CocwaAuTSEALw_wcB_k_&gad_source=1&gclid=Cj0KCQjwvb-zBhCmARIsAAfUI2survphNzpvvdMMG2eOv8HEvVDSkuQo8qHKN-KwDROjlvRPqA8CocwaAuTSEALw_wcB) and [OpenAI's ChatGPT](https://openai.com/chatgpt/) help developers to rapidly write significant volumes of code, supposedly increasing developer productivity, but this refers purely to the speed at which code is written. The quality of the code is arguably more important, but much more difficult to quantify.
+Generative AI is everywhere, and software development is no exception. Tools such as [GitHub Copilot](https://github.com/features/copilot?ef_id=_k_Cj0KCQjwvb-zBhCmARIsAAfUI2survphNzpvvdMMG2eOv8HEvVDSkuQo8qHKN-KwDROjlvRPqA8CocwaAuTSEALw_wcB_k_&OCID=AIDcmm4lwmjeex_SEM__k_Cj0KCQjwvb-zBhCmARIsAAfUI2survphNzpvvdMMG2eOv8HEvVDSkuQo8qHKN-KwDROjlvRPqA8CocwaAuTSEALw_wcB_k_&gad_source=1&gclid=Cj0KCQjwvb-zBhCmARIsAAfUI2survphNzpvvdMMG2eOv8HEvVDSkuQo8qHKN-KwDROjlvRPqA8CocwaAuTSEALw_wcB) and [OpenAI's ChatGPT](https://openai.com/chatgpt/) help developers to rapidly write significant volumes of code, reportedly increasing developer productivity. However, this refers purely to the speed at which code is written. The quality of the code produced is arguably more important, but much more difficult to quantify.
 
 The role of a software developer is multi-faceted, and writing code is just one part of the job. Therefore, if GenAI coding tools allow us to write code more quickly, but that code ultimately takes longer to review or is harder to maintain, is it really making us more productive?
 
@@ -19,17 +19,16 @@ When a developer wants to make changes to a code base, they raise a pull request
 PRs contain a huge amount of valuable data that can start to give us an idea of the code's quality. If the [CI/CD pipeline](https://about.gitlab.com/topics/ci-cd/) repeatedly fails, the code may not have been thoroughly tested or properly formatted. If a PR receives lots of review comments, it's likely that there are a number of changes that need to be made. Equally, if it takes weeks for a PR to be approved, it may be a reflection of the amount of work required to get the code to a point that the other developers are happy with it (either that, or the developers are just slow to submit their reviews...).
 
 ### Enter LLMs
-Although LLMs are able to write code, there are some common issues, or pain points, that are characteristic of AI-generated code. Things like not adhering to project conventions, not using functions that exist in other parts of the code base, producing algorithms with sub-optimal performance, or code that is hard to read, are often clues that code may have been AI-generated, and are likely to be picked up in a review.
+
+Although LLMs are able to write code, there are some common issues, or pain points, that are characteristic of AI-generated code. Things like not adhering to project conventions, not using functions that exist in other parts of the code base or writing code that is hard to read, are often clues that code may have been AI-generated, and are likely to be picked up in a review.
 
 Therefore, what's written in comments is also a valuable source of information. For example, what do reviewers frequently suggest needs to be changed? Is a developer frustrated to make this suggestion (perhaps they've made the same suggestion several times already)? Are developers generally polite to their colleagues, but harsher on code that they suspect is AI-generated?
 
-These are all questions we can begin to answer with the help of LLMs (Large Language Models), which are able to interpret and generate human language. Therefore, we can pass review comments, or even pieces of code, to an LLM and use them to start to answer these questions.
-
-Interestingly, this also gives us an insight into the dynamics within development teams, but more on that later.
+These are all questions we can begin to answer with the help of LLMs (Large Language Models), which are able to interpret and generate human language. Therefore, we can pass review comments, or even pieces of code, to an LLM and use them to start to answer these questions. Interestingly, this also gives us an insight into the dynamics within development teams, but more on that later.
 
 ### Pulling this together into a tool
 
-We provide our analyser with a GitHub or GitLab URL, and it then scrapes the PRs that have been raised within that repository. We then take the data and process it, to produce a range of different metrics which we have grouped into deterministic or AI. Our deterministic metrics use data such as the number of files changed, number of comments, equests for change, PR duration, and PR contributors. The AI metrics use LLMs to analyse things like comment tone and subject, and detect disagreements within comment threads.
+Our team built a command line tool, to which we provide a GitHub or GitLab URL. It then scrapes the PRs that have been raised within that repository. We take the PR data and process it, to produce a range of different metrics which we have grouped into deterministic or AI. Our deterministic metrics use data such as the number of files changed, number of comments, requests for change, PR duration, and PR contributors. The AI metrics use LLMs to analyse things like comment tone and subject, and to detect disagreements within comment threads.
 
 These metrics are then saved to a Parquet file, which can be exported to a [ClickHouse](https://clickhouse.com/clickhouse) database and imported into [Apache Superset](https://superset.apache.org/) to create a dashboard which allows us to visualise and explore the data captured.
 
@@ -52,13 +51,6 @@ Firstly, a note on PR creation dates. Our tool gathers the 1000 most recent PRs 
 
 `PR Duration` is a measure of the time elapsed between a PR opened, and it being either merged or closed. However, it may be the case that a PR sits in review for a period of time, before a reviewer first at it. Similarly, once it is approved, there may be a time delay before it's merged. For this reason, we added the additional measures of `Time to First Review` and `Time From First Review to Last Commit`. This is perfectly illustrated by .NET, which has a noticeably high PR duration. However, if you raise a PR, you'd spend the majority of this time waiting for the first review, but would be likely to quickly merge/close your PR after the initial review.
 
-##### Contributors
-
-![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-contributions-per-user.jpg
-"Number of Contributors Per User")
-
-Here, we define a contribution as having made a commit on a PR. The number of commits in that PR aren't considered. All languages seem to accept PRs from new contributors, but .NET seems to have some very seasoned contributors, with one person having contributed to 161 out of the last 1000 PRs.
-
 ##### Comment Subject, Tone and Disagreements
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-LLM-pain-points.jpg
@@ -67,7 +59,7 @@ Here, we asked an LLM to count the number of times reviewers picked up on issues
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-comment-tone.jpg
 "Tone Analysis of Review Comments")
-Here an LLM was asked to take a comment and interpret which of the following tones described the comment: polite, neutral, satisfied, frustrated, excited, impolite, sad. Encouragingly, we see that the reviewers for these repositories are polite in the majority of their comments and are never sad. However, they are frustrated more often than they are excited, especially in the JDK repository.
+Here an LLM was asked to take a comment and interpret which of the following tones described the comment: polite, neutral, satisfied, frustrated, excited, impolite, sad. Encouragingly, we see that the reviewers for these repositories are polite in the majority of their comments and are never sad. However, they are frustrated more often than they are excited, particularly in the JDK repository.
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-number-of-disagreements.jpg
 "Number of Disagreements in PR Comments")
