@@ -1,6 +1,6 @@
 ---
 title: Investigating Code Quality from PR Data
-date: 2024-06-20 00:00:00 Z
+date: 2024-06-24 00:00:00 Z
 categories:
   - Artificial Intelligence
 tags:
