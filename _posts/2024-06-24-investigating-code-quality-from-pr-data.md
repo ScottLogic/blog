@@ -32,27 +32,26 @@ Our team built a command line tool, to which we provide a GitHub or GitLab URL. 
 
 These metrics are then saved to a Parquet file, which can be exported to a [ClickHouse](https://clickhouse.com/clickhouse) database and imported into [Apache Superset](https://superset.apache.org/) to create a dashboard which allows us to visualise and explore the data captured.
 
-To demonstrate our tool, we have used it to analyse 1000 PRs from four different repositories, namely [CPython](https://github.com/python/cpython), [Rust](https://github.com/rust-lang/rust), [OpenJDK](https://github.com/openjdk/jdk), and [TypeScript](https://github.com/microsoft/TypeScript). We've then produced some charts displaying a range of the metrics we produce, with the aim of gaining an insight into the development of these projects.
+To demonstrate our tool, we have used it to analyse 1000 PRs from four different repositories, namely [CPython](https://github.com/python/cpython), [Rust](https://github.com/rust-lang/rust), [OpenJDK](https://github.com/openjdk/jdk), and [TypeScript](https://github.com/microsoft/TypeScript). We've then produced some charts displaying a range of the metrics we produce, with the aim of gaining an insight into the development of these projects and the quality of code contained in the PRs.
 
 ##### PR Creation
 
-![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-combined.jpg
-"Number of PRs opened per month")
+![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-combined.jpg "Number of PRs opened per month")
 
-Firstly, a note on PR creation dates. Our tool gathers the 1000 most recent PRs from each repository. For CPython and Rust, these were all created between May and June 2024. In contrast, with TypeScript, the earliest PRs were . Remarkably, in May 2024, there were 602 PRs opened in the CPython repository, and 623 opened in Rust.
+Firstly, a note on PR creation dates. Our tool gathers the 1000 most recent PRs from each repository. For CPython and Rust, these were all created between May and June 2024. In contrast, with TypeScript, there have been a fairly consistent number of PRs opened each month since August 2023 . Remarkably, in May 2024, there were 602 PRs opened in the CPython repository, and 623 opened in Rust.
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-day-pr-opened.jpg
-"Percentage of PRs opened on each day)
+"Percentage of PRs opened per day of the week")
+
 Looking at the percentage of PRs that were opened on each day per repository, we can clearly see that across all the languages, there are fewer opened on weekends. Developers working on OpenJDK must enjoy a good work-life balance, as only 6% of their PRs were opened on weekends.
 
-![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-time-pr-opened.jpg
-"Percentage of PRs opened per hour)
+![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-time-pr-opened.jpg "Percentage of PRs opened per hour of the day")
 
 From this chart, it seems like TypeScript developers are night owls. They open very few PRs before 1 pm and really come alive when when activity on the other repositories starts to trail off (around 4pm). However, when we investigate the [contributors](https://github.com/microsoft/TypeScript/graphs/contributors) further, we can see that the developers are located all over the world, with the majority being based in the US. In our tool, if a timezone isn't returned from the GitHub API, we revert to UTC by default. Therefore, what appears to middle of the night in the UK is probably more likely to be during working day in the US.
 
 ##### PR Duration and Review Time
 
-![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-time-to-first-review-by-day.jpg
+![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-time-to-first-review-by-day.jpg
 "Time to First Review By Day")
 
 `PR Duration` is a measure of the time elapsed between a PR opened, and it being either merged or closed. However, it may be the case that a PR sits in review for a period of time, before a reviewer first at it. For this reason, we added the additional measure of `Time to First Review`.
@@ -71,11 +70,11 @@ To calculate the number of disagreements, comment threads are passed into an LLM
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-comment-tone.jpg
 "Tone Analysis of Review Comments")
-Here an LLM was asked to take a comment and interpret which of the following tones described the comment: polite, neutral, satisfied, frustrated, excited, impolite, sad. Encouragingly, we see that the reviewers for these repositories are polite in the majority of their comments and are almost never sad. However, they are frustrated more often than they are excited, particularly in the JDK repository.
+Here an LLM was asked to take a comment and interpret which of the following tones described the comment: polite, neutral, satisfied, frustrated, excited, impolite, sad. Encouragingly, we see that the reviewers for these repositories are polite in the majority of their comments and are almost never sad. Developers contributing to OpenJDK seem to very rarely express any excitement towards their fellow developers proposed changes, or maybe this reflects a lack of enthusiasm for reviewing PRs?
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-tone-per-day.jpg
 "Comment Tone Analysis per Day")
-There are some interesting insights that can be drawn from examining the tone of comments left on the PRs opened on each day. Of all the impolite comments written, the majority are left on code written on a Friday, so the quality of code written must be slip towards the end of the week. In contrast, reviewers ration their excitement on PRs opened on a Monday. Perhaps they are also reviewing on a Monday, and are not overly enthusiastic about the prospect? Or perhaps developers get the more mundane programming tasks over and done with at the start of the week?
+There are some interesting insights that can be drawn from examining the tone of comments left on the PRs opened on each day. Of all the impolite comments written, the majority are left on code written on a Friday, which may be an indication that the quality of code written begins to slip towards the end of the week. In contrast, reviewers ration their excitement on PRs opened on a Monday. Perhaps they are also reviewing on a Monday, and are not overly enthusiastic about the prospect? Or perhaps developers get the more mundane programming tasks over and done with at the start of the week?
 
 ### Conclusion
 
