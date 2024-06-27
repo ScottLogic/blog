@@ -8,6 +8,16 @@ summary: Many of us are now using Generative AI to produce code, but what impact
 author: alaws
 ---
 
+PRs contain valuable data which can help us to get an insight into the process of writing code, and the teams involved. For example, we can use LLMs to analyse the tone of PR review comments - showing us the attitudes that reviewers have towards code.
+
+![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-tone-per-day.jpg
+"Comment Tone Analysis per Day")
+
+Of all the impolite comments written, the majority are left on code written on a Friday, which may be an indication that the quality of code written begins to slip towards the end of the week. In contrast, reviewers ration their excitement on PRs opened on a Monday. Perhaps they are also reviewing on a Monday, and are not overly enthusiastic about the prospect? Or perhaps developers are getting the more mundane programming tasks over and done with at the start of the week?
+
+Our team has built a command line tool which, when pointed at a repository, uses data from PRs to produce a variety of different metrics. These metrics then help us to understand a bit more about the dynamics within teams, the quality of code produced, and the speed at which new code is released. 
+
+### Motivation
 Generative AI is everywhere, and software development is no exception. Tools such as [GitHub Copilot](https://github.com/features/copilot?ef_id=_k_Cj0KCQjwvb-zBhCmARIsAAfUI2survphNzpvvdMMG2eOv8HEvVDSkuQo8qHKN-KwDROjlvRPqA8CocwaAuTSEALw_wcB_k_&OCID=AIDcmm4lwmjeex_SEM__k_Cj0KCQjwvb-zBhCmARIsAAfUI2survphNzpvvdMMG2eOv8HEvVDSkuQo8qHKN-KwDROjlvRPqA8CocwaAuTSEALw_wcB_k_&gad_source=1&gclid=Cj0KCQjwvb-zBhCmARIsAAfUI2survphNzpvvdMMG2eOv8HEvVDSkuQo8qHKN-KwDROjlvRPqA8CocwaAuTSEALw_wcB) and [OpenAI's ChatGPT](https://openai.com/chatgpt/) help developers to rapidly write significant volumes of code, reportedly increasing developer productivity. However, this refers purely to the speed at which code is written. The quality of the code produced is arguably more important, but much more difficult to quantify.
 
 The role of a software developer is multi-faceted, and writing code is just one part of the job. Therefore, if GenAI coding tools allow us to write code more quickly, but that code ultimately takes longer to review or is harder to maintain, is it really making us more productive?
@@ -28,7 +38,7 @@ These are all questions we can begin to answer with the help of LLMs (Large Lang
 
 ### Pulling this together into a tool
 
-Our team built a command line tool, to which we provide a GitHub or GitLab URL. It then scrapes the PRs that have been raised within that repository. We take the PR data and process it, to produce a range of different metrics which we have grouped into deterministic or AI. Our deterministic metrics use data such as the number of files changed, number of comments, requests for change, PR duration, and PR contributors. The AI metrics use LLMs to analyse things like comment tone and subject, and to detect disagreements within comment threads.
+Our team built a tool, to which we provide a GitHub or GitLab URL. It then scrapes the PRs that have been raised within that repository. We take the PR data and process it, to produce a range of different metrics which we have grouped into deterministic or AI. Our deterministic metrics use data such as the number of files changed, number of comments, requests for change, PR duration, and PR contributors. The AI metrics use LLMs to analyse things like comment tone and subject, and to detect disagreements within comment threads.
 
 These metrics are then saved to a Parquet file, which can be exported to a [ClickHouse](https://clickhouse.com/clickhouse) database and imported into [Apache Superset](https://superset.apache.org/) to create a dashboard which allows us to visualise and explore the data captured.
 
@@ -71,10 +81,6 @@ To calculate the number of disagreements, comment threads are passed into an LLM
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-comment-tone.jpg
 "Tone Analysis of Review Comments")
 Here an LLM was asked to take a comment and interpret which of the following tones described the comment: polite, neutral, satisfied, frustrated, excited, impolite, sad. Encouragingly, we see that the reviewers for these repositories are polite in the majority of their comments and are almost never sad. Developers contributing to OpenJDK seem to very rarely express any excitement towards their fellow developers proposed changes, or maybe this reflects a lack of enthusiasm for reviewing PRs?
-
-![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-tone-per-day.jpg
-"Comment Tone Analysis per Day")
-There are some interesting insights that can be drawn from examining the tone of comments left on the PRs opened on each day. Of all the impolite comments written, the majority are left on code written on a Friday, which may be an indication that the quality of code written begins to slip towards the end of the week. In contrast, reviewers ration their excitement on PRs opened on a Monday. Perhaps they are also reviewing on a Monday, and are not overly enthusiastic about the prospect? Or perhaps developers get the more mundane programming tasks over and done with at the start of the week?
 
 ### Conclusion
 
