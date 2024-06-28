@@ -1,6 +1,6 @@
 ---
 author: hbedford
-title: Building a Multi Agent Chatbot Without langchain
+title: Building a Multi Agent Chatbot Without LangChain
 layout: default_post
 summary: In this blog, I describe creating InferGPT, a personalized chatbot, using Python, FastAPI, and React instead of LangChain. Our backend handles complex queries with a multi-agent system and Neo4j database, aiming to provide tailored responses.
 category: Artificial Intelligence
@@ -49,7 +49,7 @@ We aimed to minimise the overuse of LLM models. Where possible, such as in the c
 8. __Scratchpad__: A simple object that the supervisor uses to record every answer to each question.
 9. __Answer__ Agent: With each result written to the scratchpad, the director can then invoke the answer agent to summarise the scratchpad, resulting in the final response for the user.
 
-We chose a [neo4j database](https://blog.scottlogic.com/2024/05/01/knowledge-graphs-what-are-they.html) over traditional sql. Here, the relationships between entities are treated as first class citizens. This means that traversing the graph and making “connections” between data points is a lot more efficient and intuitive. We would leverage this to answer user specific questions, and in the future, perhaps infer details by traversing the graph fewer times than necessary.
+We chose a [neo4j database](https://blog.scottlogic.com/2024/05/01/knowledge-graphs-what-are-they.html) over traditional SQL. Here, the relationships between entities are treated as first class citizens. This means that traversing the graph and making “connections” between data points is a lot more efficient and intuitive. We would leverage this to answer user specific questions, and in the future, perhaps infer details by traversing the graph fewer times than necessary.
 
 #### Handling Failures
 
