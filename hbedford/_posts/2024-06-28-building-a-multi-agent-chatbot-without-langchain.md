@@ -35,7 +35,7 @@ The main design focus was the backend. With Chris’s vision, we had a starting 
 
 We aimed to minimise the overuse of LLM models. Where possible, such as in the code connecting the individual agents, we used more traditional development strategies. Below is one of the first iterations of our backend system:
 
-![InferGPT Backend]({{ site.github.url }}/hbedford/assets/infer-gpt-design.png "InferGPT Backend Design")
+![InferGPT Backend]({{ site.github.url }}/hbedford/assets/infer-gpt-design.jpg "InferGPT Backend Design")
 
 #### Key Flow
 
