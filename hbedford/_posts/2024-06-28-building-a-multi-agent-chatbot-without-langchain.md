@@ -17,7 +17,7 @@ Our goal is to help our external stakeholder, [Chris Booth](https://uk.linkedin.
 
 When I asked ChatGPT for a film recommendation, I got a generic response:
 
-![Film Recommendation]({{ site.github.url }}/[hbedford]/assets/chat-gpt-film-recommendation.png "ChatGPT Film Recommendation")
+![Film Recommendation]({{ site.github.url }}/hbedford/assets/chat-gpt-film-recommendation.png "ChatGPT Film Recommendation")
 
 The idea is that InferGPT wouldn’t be so confident in its response. Instead, it would know who it was talking to, what genres they like, and ideally, what they have watched recently. Armed with this knowledge, the conversation becomes a lot more engaging. Instead of producing what seems like a random list of films, we could infer information to give a more targeted response. Even better, we could ask the user for feedback to improve the chatbot's confidence.
 
@@ -27,7 +27,7 @@ When it came to building this chatbot, we had many options. We spent the first m
 
 Because of our familiarity with it and to keep the project focused, we decided to implement a simple frontend application in [React](https://react.dev/), a library the team was comfortable with. It would be used to make simple requests to our backend (a [FastAPI](https://fastapi.tiangolo.com/)) to get chat completions. Below is the simple UI that we made:
 
-![InferGPT UI]({{ site.github.url }}/[hbedford]/assets/infer-gpt-ui.png "InferGPT UI")
+![InferGPT UI]({{ site.github.url }}/hbedford/assets/infer-gpt-ui.png "InferGPT UI")
 
 ### Designing the Backend
 
@@ -35,7 +35,7 @@ The main design focus was the backend. With Chris’s vision, we had a starting 
 
 We aimed to minimise the overuse of LLM models. Where possible, such as in the code connecting the individual agents, we used more traditional development strategies. Below is one of the first iterations of our backend system:
 
-![InferGPT Backend]({{ site.github.url }}/[hbedford]/assets/infer-gpt-design.png "InferGPT Backend Design")
+![InferGPT Backend]({{ site.github.url }}/hbedford/assets/infer-gpt-design.png "InferGPT Backend Design")
 
 #### Key Flow
 
@@ -59,11 +59,11 @@ The supervisor loops through the questions it needs to solve, implementing retry
 
 To test this design, we produced some dummy user data. We injected a lot of monetary transactions into the neo4j database. Doing this created a complex graph of interconnected nodes. Reading the graph by eye would prove very difficult to extract useful information. A snapshot of (some!) of the test data:
 
-![InferGPT Data]({{ site.github.url }}/[hbedford]/assets/graph-data.png "Dummy Transaction Data")
+![InferGPT Data]({{ site.github.url }}/hbedford/assets/graph-data.png "Dummy Transaction Data")
 
 Say we wanted to sum up the total spending to a single merchant. This is where the datastore agent would come in, one of our question agents. It is capable of [generating cypher queries](https://blog.scottlogic.com/2024/05/16/navigating-knowledge-graphs-creating-cypher-queries-with-llms.html) (the querying language for neo4j) from natural language, based on a schema that it has on the graph. Now, we’d be able to ask these sorts of questions, make comparisons between companies and spending, all without knowing how to write a single query ourselves. Below is an example result of such a question:
 
-![InferGPT Example]({{ site.github.url }}/[hbedford]/assets/infer-gpt-example.png "Example Data Driven Question")
+![InferGPT Example]({{ site.github.url }}/hbedford/assets/infer-gpt-example.png "Example Data Driven Question")
 
 This is great; we have a way to ask natural language questions on a complex data source. But how does this fit in with the grand vision? How will you infer information to make better decisions? The answer is that this is only the first, small step towards the bigger goal. We have shown that it is possible to build a multi-agent chatbot, from scratch, to answer data-driven questions.
 
