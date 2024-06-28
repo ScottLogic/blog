@@ -1,3 +1,5 @@
+@use '../colours';
+
 #mobileMenu:not( .mm-menu ) { display: none; }
 
 
@@ -25,22 +27,22 @@ header {
       margin: 0 0 0 rem-calc(40px, 16px)
     }
     @include breakpoint(large) {
-      margin: rem-calc(38px, 16px) 0 0 0;
+      margin: rem-calc(24px, 16px) 0 0 0;
     }
     a {
-      background: url('./assets/logo-mobile.svg') no-repeat 0 0;
+      background: url('./assets/logo.svg') no-repeat 0 0;
       width: 183px;
-      height: 15px;
+      height: 40px;
       display: block;
       text-indent: -9999px;
     }
     @include breakpoint(large) {
-      margin: rem-calc(38px, 16px) 0 0 0;
+      margin: rem-calc(24px, 16px) 0 0 0;
       width: 421px;
       a {
         background: url('./assets/logo.svg') no-repeat 0 0;
         width: 436px;
-        height: 20px;
+        height: 40px;
         display: block;
         text-indent: -9999px;
       }
@@ -158,7 +160,7 @@ header.no-hero {
   }
 
   a, .header-nav_bottom a {
-    color: $black;
+    color: colours.$black;
   }
 
   .header-nav_top {
@@ -166,11 +168,11 @@ header.no-hero {
       li {
 
         a {
-          color: $black;
+          color: colours.$black;
         }
         a:hover {
-          color: $black;
-          border-color: $black;
+          color: colours.$black;
+          border-color: colours.$black;
         }
       }
     }
@@ -188,9 +190,9 @@ header.no-hero {
       margin: rem-calc(38px, 16px) 0 0 0;
     }
     a {
-      background: url('./assets/logo-mobile-black.svg') no-repeat 0 0;
+      background: url('./assets/logo.svg') no-repeat 0 0;
       width: 183px;
-      height: 15px;
+      height: 40px;
       display: block;
       text-indent: -9999px;
     }
@@ -198,9 +200,9 @@ header.no-hero {
       margin: rem-calc(38px, 16px) 0 0 0;
       width: 421px;
       a {
-        background: url('./assets/logo-black.svg') no-repeat 0 0;
+        background: url('./assets/logo.svg') no-repeat 0 0;
         width: 436px;
-        height: 20px;
+        height: 40px;
         display: block;
         text-indent: -9999px;
       }
@@ -221,18 +223,18 @@ header.fixed-header {
     border-bottom: 0px solid rgba(206, 210, 211, 0.3);
 
     a, .header-nav_bottom a {
-      color: $black;
+      color: colours.$black;
     }
 
     .header-nav_top {
       ul {
         li {
           a {
-            color: $black;
+            color: colours.$black;
           }
           a:hover {
-            color: $black;
-            border-color: $black;
+            color: colours.$black;
+            border-color: colours.$black;
             text-decoration: none;
           }
         }
@@ -268,7 +270,7 @@ header.fixed-header {
         margin: rem-calc(27px, 16px) 0 0 0;
       }
       a {
-        background: url('./assets/logo-mobile.svg') no-repeat 0 0;
+        background: url('./assets/logo.svg') no-repeat 0 0;
         width: 183px;
         height: 15px;
         display: block;
@@ -278,9 +280,9 @@ header.fixed-header {
         margin: rem-calc(27px, 16px) 0 rem-calc(22px, 16px) 0;
         width: 421px;
         a {
-          background: url('./assets/logo-black.svg') no-repeat 0 0;
+          background: url('./assets/logo.svg') no-repeat 0 0;
           width: 436px;
-          height: 20px;
+          height: 40px;
           display: block;
           text-indent: -9999px;
         }

@@ -1,7 +1,4 @@
-$light-grey: #f9f9fb;
-$font-grey: #b6b6b6;
-$turquoise: #1eb2bb;
-$orange-yellow: #f7c25b;
+@use 'colours';
 
 $max-width: 1400px;
 
@@ -10,7 +7,7 @@ $monospaceFontSize: $baseFontSize * 0.9;
 $smallLayoutUnit: 5px;
 $layoutUnit: 10px;
 
-$footer-height: 100px;
+$footer-height: 216px;
 
 $font-family: "objektiv-mk1", Helvetica, Arial, sans-serif !important;
 
@@ -19,7 +16,7 @@ html, body {
     margin: 0 auto;
     padding: 0;
     height: 100%;
-    background-color: $white;
+    background-color: colours.$white;
 }
 
 #off-canvas-wrapper {
@@ -67,7 +64,7 @@ a {
 }
 
 a:hover {
-  color: $turquoise;
+  color: colours.$teal;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -123,7 +120,7 @@ li {
 }
 
 blockquote, blockquote p {
-  color: $black;
+  color: colours.$black;
 }
 
 header nav {
@@ -154,22 +151,22 @@ header nav {
 
   li:nth-child(1),  li:nth-child(4) {
     a:hover, a.active {
-      color: $black;
-      border-bottom: 5px solid $pink;
+      color: colours.$black;
+      border-bottom: 5px solid colours.$pink;
     }
   }
 
   li:nth-child(2) {
     a:hover, a.active {
-      color: $black;
-      border-bottom: 5px solid $turquoise;
+      color: colours.$black;
+      border-bottom: 5px solid colours.$teal;
     }
   }
 
   li:nth-child(3) {
     a:hover, a.active {
-      color: $black;
-      border-bottom: 5px solid $orange;
+      color: colours.$black;
+      border-bottom: 5px solid colours.$orange;
     }
   }
 }
@@ -200,8 +197,8 @@ header nav {
   }
 
   a:hover {
-    color: $black;
-    border-bottom: 1px solid $black;
+    color: colours.$black;
+    border-bottom: 1px solid colours.$black;
     padding-bottom: 0.0625rem;
   }
 }

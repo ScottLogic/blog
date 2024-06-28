@@ -21,7 +21,7 @@ summary-short: A relatively new architectural style for building web-based appli
 contributors:
 - shogarth
 - dkerr
-image: "/uploads/BeyondTheHype---pink---social_Artboard-1.jpg"
+image: "/uploads/BeyondTheHype%20-%20pink%20and%20pink%20-%20episode%202%20-%20social.png"
 layout: default_post
 ---
 
@@ -33,10 +33,18 @@ In this month’s episode, Colin is joined by Dean Kerr (Lead Developer, Scott L
 
 Links from the podcast:
 
- - [Micro Frontends — Spotify Approach Iframes](https://medium.com/@m.biomee/micro-fronends-spotify-approach-iframes-part-2-bb15c14449bf) - Mostafa Biomee 
- - [Microservice Websites](https://gustafnk.github.io/microservice-websites/) - Gustaf Nilsson Kotte
- - [Webpack Module Federation](https://webpack.js.org/concepts/module-federation/) 
- - [Sites vs. Apps defined: the Documents-to-Applications Continuum](https://ar.al/notes/the-documents-to-applications-continuum/) - Aral Balkan
- - [You probably don't need a micro-frontend](https://blog.scottlogic.com/2021/02/17/probably-dont-need-microfrontends.html) - Colin Eberhardt, Dean Kerr, Sam Hograth, Robat Williams, Chris Price, Chris Kurzeja
+* [Micro Frontends — Spotify Approach Iframes](https://medium.com/@m.biomee/micro-fronends-spotify-approach-iframes-part-2-bb15c14449bf) - Mostafa Biomee
 
-Search for Beyond the Hype on Apple, Spotify or wherever you get your podcasts.
+* [Microservice Websites](https://gustafnk.github.io/microservice-websites/) - Gustaf Nilsson Kotte
+
+* [Webpack Module Federation](https://webpack.js.org/concepts/module-federation/)
+
+* [Sites vs. Apps defined: the Documents-to-Applications Continuum](https://ar.al/notes/the-documents-to-applications-continuum/) - Aral Balkan
+
+* [You probably don't need a micro-frontend](https://blog.scottlogic.com/2021/02/17/probably-dont-need-microfrontends.html) - Colin Eberhardt, Dean Kerr, Sam Hograth, Robat Williams, Chris Price, Chris Kurzeja
+
+You can subscribe to the podcast on these platforms:
+
+* [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
+
+* [Spotify](https://open.spotify.com/show/2BlwBJ7JoxYpxU4GBmuR4x)

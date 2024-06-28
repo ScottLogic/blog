@@ -4,14 +4,14 @@ date: 2018-06-26 00:00:00 Z
 categories:
 - hmumford
 - Tech
-author: hmumford
-layout: default_post
 summary: Code examples and definitions of the SOLID principles to show how easy it
   is to voilate them and how you can refactor code to adhere to them.
+author: hmumford
 image: hmumford/assets/featured/solid.jpg
+layout: default_post
 ---
 
-During my [Graduate Programme](https://www.scottlogic.com/careers/graduates-programme/) at Scott Logic, I joined a study group to learn about software engineering design patterns and core principles.
+During my Graduate Programme at Scott Logic, I joined a study group to learn about software engineering design patterns and core principles.
 The SOLID principles are the foundations of good software design. During the study group I learnt how we can use these principles in enterprise development to solve common programming problems. 
 Writing these code examples below to show the 'bad way' and the 'good way', gave me some clarity about visualising and understanding these core principles.
 

@@ -1,11 +1,27 @@
 {% if author.picture %}
   {% if post.author %}
-  <img src="{{ site.baseurl }}/{{ post.author }}/{{ author.picture }}" alt="{{ author.name }}"/>
+  <img
+    src="{{ site.baseurl }}/{{ post.author }}/{{ author.picture }}"
+    role="presentation"
+    alt=""
+  />
   {% elsif page.author %}
-  <img src="{{ site.baseurl }}/{{ page.author }}/{{ author.picture }}" alt="{{ author.name }}"/>
+  <img
+    src="{{ site.baseurl }}/{{ page.author }}/{{ author.picture }}"
+    role="presentation"
+    alt=""
+  />
   {% else %}
-  <img src="{{ site.baseurl }}/assets/avatar.png" alt="{{ author.name }}"/>
+  <img
+    src="{{ site.baseurl }}/assets/avatar.png"
+    role="presentation"
+    alt=""
+  />
   {% endif %}
 {% else %}
-<img src="{{ site.baseurl }}/assets/avatar.png" alt="{{ author.name }}"/>
+<img
+  src="{{ site.baseurl }}/assets/avatar.png"
+  role="presentation"
+  alt=""
+/>
 {% endif %}

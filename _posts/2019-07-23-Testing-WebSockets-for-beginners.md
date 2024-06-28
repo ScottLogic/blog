@@ -12,14 +12,14 @@ tags:
 - JavaScript
 author: efiennes
 contributors:
-- hwilliams-sl
+- hwilliams
 layout: default_post
 summary: What is a WebSocket and how do you test it? Herb Williams and I have been
   looking into this for a while now. This is what we found out.
 image: efiennes/assets/Sockets6.jpg
 ---
 
-In a series of posts which will span the research of myself and my colleague [Herb Williams](@hwilliams-sl), we will talk about our conclusions and general messing about with tools to test WebSockets.
+In a series of posts which will span the research of myself and my colleague [Herb Williams][hwilliams], we will talk about our conclusions and general messing about with tools to test WebSockets.
 
 We are going to look at the characteristics of WebSockets, what they do, how to test them and investigate the art of the possible with automation for functional and non-functional checking.
 
@@ -115,3 +115,5 @@ However, what about enterprise environments that may have 10s of the things runn
 As long as you have the specifications for the WebSocket APIs in place and the code mostly stable, this should be a very rewarding piece of work to complete which will save you having to do a lot of manual work going forward.
 
 The next post will look at what options are out there for functional automation of WebSocket checking.
+
+[hwilliams]: {{site.baseurl}}/hwilliams

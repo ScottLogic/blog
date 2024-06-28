@@ -2,7 +2,7 @@
 title: Generative AI Solution Architecture for Complex Enterprises
 date: 2023-05-04 10:30:00 Z
 categories:
-- Tech
+- Artificial Intelligence
 tags:
 - Artificial Intelligence
 - ChatGPT
@@ -22,7 +22,7 @@ summary: This post offers a proposed architecture for mitigating the risks of de
   I provide a primer on the business risks of Enterprise GenAI along with the technology
   risks and challenges.
 author: ocronk
-image: uploads/Gen-AI-Solution-Architecture-for-Complex-Enterprises.jpg
+image: "/uploads/Generative%20AI%20Solution%20Architecture.png"
 ---
 
 My career as a technology strategist and architect has tended to require looking further out – considering not just the opportunities from technology but also the risks. Nowhere in contemporary technology is that more pertinent than GenAI (Generative AI). So, as we follow the track of generative AI, will we eventually see the light at the end of the tunnel, or will that light be the headlights of an oncoming train?!
@@ -178,3 +178,7 @@ GenAI is making Architecture more exciting – most new applications have been f
 The bottom line is that you need to work with your risk, security, regulatory and/or legal stakeholders as early as possible – collaborate with them so they understand the unique characteristics of GenAI. Treat the associated non-functional requirements and quality attributes as first-class citizens. These are an area for innovation that generally gets overlooked but are vital for safe and successful enterprise adoption of groundbreaking ML models. And if you are looking for a friendly, pragmatic partner on GenAI R&D please do get in touch with [myself](mailto:oliver@scottlogic.com) or [Colin Eberhardt](mailto:colin@scottlogic.com)!
 
 As a final note – massive thanks to the [Architect Tomorrow community](https://www.youtube.com/watch?v=l-zHfUkVYzc) and the Scott Logic AI team who have helped pull this together.
+
+## Download our white paper
+
+I've recently written a white paper on de-risking generative AI in highly regulated environments – you can [download the white paper here](https://www.scottlogic.com/white-paper-de-risk-generative-ai). And you can visit our page on how to [Harness the potential of AI](https://www.scottlogic.com/harness-ai-business-potential) for more of our thinking in this area.

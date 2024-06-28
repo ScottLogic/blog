@@ -1,0 +1,423 @@
+---
+title: A Software Developer's Perspective on the European Accessibility Act
+date: 2024-05-28 09:00:00 Z
+categories:
+- Tech
+tags:
+- accessibility
+- law
+summary: A developer takes a dive into the lands of legislation. What is the EAA and
+  what does it mean for me and my company?
+author: pmarsh
+---
+
+<p>
+  Within Scott Logic is the accessibility and ethical software working group, a
+  modest team eager to explore the nuanced and crucial but often overlooked
+  domain of software accessibility. Some time ago we caught wind of the European
+  Accessibility Act (EAA), a new set of rules which will be enforced from June
+  2025. We quickly realised it was a rather compelling reason to get more folk
+  in the company interested and clued-up on accessibility. But what exactly does
+  the act cover, what does it mean for software companies and for Scott Logic
+  which builds software for other companies? What things must be done before the
+  looming 2025 deadline?
+</p>
+
+<p>
+  Eager to gain a fuller understanding of the act I took a dive into the web,
+  taking care to dodge bias from accessibility product marketing teams, scouring
+  various articles and having a go at interpreting dense legal text. What
+  follows is my best summary of what I've found!
+</p>
+
+<p>
+  <em
+    >Note: I am just a humble developer, and have had no legal training. This
+    article is not legal advice. I may well even get some things wrong.</em
+  >
+</p>
+
+<p>
+  <em
+    >My research was conducted in the interest of Scott Logic, and is therefore
+    concerned with services rather than products (usually physical goods). If
+    you are interested in how the act affects products, I suggest you take a
+    look at a different article. If you are interested in services, then read
+    on…</em
+  >
+</p>
+
+<h2>In Short</h2>
+
+<ul>
+  <li>
+    <p>
+      The EAA defines a set of <strong>accessibility requirements</strong> for
+      <strong>specified products and services</strong> put on the EU market from
+      2025.
+    </p>
+    <p>
+      <em
+        >we will get into those requirements and specified products and services
+        later, but they pretty much boil down to WCAG. Note that even if a
+        company does not operate in the EU, they must still comply in order to
+        sell to the EU.</em
+      >
+    </p>
+  </li>
+
+  <li>
+    <p>
+      Specified products and services must
+      <strong>provide accessibility information</strong>.
+    </p>
+    <p>
+      <em
+        >This amounts to having an accessibility statement or section in the
+        terms and conditions. Companies must know how their product/service is
+        meeting requirements, or where they are falling down (if it would cost
+        too much to fix - see scope).</em
+      >
+    </p>
+  </li>
+
+  <li>
+    <p>
+      Companies must <strong>conduct audits</strong> to ensure continued
+      compliance.
+    </p>
+    <p>
+      <em
+        >Products/services must remain accessible as they change over time.
+        Crucially, it makes it impossible for accessibility to be overlooked,
+        since you must prove at regular intervals how accessible you are.
+        Accountability is a powerful thing!</em
+      >
+    </p>
+  </li>
+</ul>
+
+<h2>The Requirements</h2>
+
+<p>
+  The thing about the requirements <sup>[1 - annex I]</sup> is that some of it
+  is up to interpretation. For example:
+</p>
+
+<blockquote>
+  “[make] websites, including the related online applications, and mobile
+  device-based services, including mobile applications, accessible in a
+  consistent and adequate way by making them perceivable, operable,
+  understandable and robust”
+</blockquote>
+<sup>[1 - Annex I, section 3(c)]</sup>
+
+<p>
+  This is written to be broadly applicable. So how am I, as a developer, meant
+  to apply my technical knowledge to adhere to that?
+</p>
+
+<p>
+  Luckily for us, the act comes with a <em>harmonised technical standard</em>. A
+  <em>technical standard</em> is a much more focussed, technology based,
+  low-level set of rules to follow. WCAG, which I hope you have heard of, is
+  also such a standard. <em>Harmonised</em> means that following the standard
+  guarantees your service to be in line with the act.
+</p>
+
+<p>
+  The particular standard that comes with the EAA is given the catchy name:
+  <strong>EN 301 549 version 4.1.1</strong> <sup>[2]</sup>. Complying with this
+  standard guarantees that you are complying with the act. So, what's included
+  in EN 301 549 version 4.1.1? Well… We don't know. They are aiming to publish
+  it in 2025, which is unfortunate given that the act is to be enforced from
+  June 2025! However, looking at previous versions of EN 301 549, we can
+  anticipate that it will look extremely similar to WCAG (2.2 AA) and WCAG2ICT
+  which extends those rules for the web to apply more broadly to include non-web
+  applications <sup>[3]</sup>.
+</p>
+
+<h2>The Scope</h2>
+
+<p>The act defines a list of services that it covers:</p>
+
+<ul>
+  <li>Consumer banking</li>
+  <li>E-commerce</li>
+  <li>Audiovisual services (e.g. Netflix)</li>
+  <li>
+    Websites and apps for air, bus, rail and waterborne passenger transport
+  </li>
+  <li>E-books</li>
+  <li>Communications platforms</li>
+</ul>
+
+<p>
+  Is that all? Yes - indeed the scope is not comprehensive, but it covers many
+  of the crucial services that people need.
+</p>
+
+<p>
+  When it comes to products, we cover general purpose computer hardware like
+  computers, smartphones and their operating systems, as well as e-readers and
+  many self-service terminals, like ATMs and ticket machines.
+</p>
+
+<h2>What's Not in Scope?</h2>
+
+<ul>
+  <li>
+    <p><strong>Internal technologies not on the market.</strong></p>
+    <p>
+      The EAA does not apply to software that is only used by employees within a
+      company. There are already other EU <sup>[Directive - 2000/78]</sup> and
+      UK <sup>[Equality act 2010]</sup> laws which cover equal access to the
+      workplace, which is why this directive does not duplicate those laws.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>
+        Products and services which would require a “fundamental alteration” in
+        order to meet the requirements</strong
+      >
+      <sup>[1 - article 14]</sup>.
+    </p>
+    <p>
+      I couldn't find any specific criteria for what qualifies as a “fundamental
+      alteration". However companies will have to write a convincing case for
+      this exemption and then it is up to the authorities to decide if they
+      qualify.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong>
+        Products and services where it would impose a disproportionate burden
+        (financially) to make them accessible</strong
+      ><sup>[1 - article 14]</sup>.
+    </p>
+    <p>
+      If the changes needed to comply with the act (taking into account changes
+      to the product, training etc) will cost too much compared with the cost of
+      providing the service then that product / service is exempt.
+    </p>
+  </li>
+
+  <li>
+    <p><strong>Microenterprises </strong><sup>[1 - article 4]</sup>.</p>
+    <p>
+      Meaning enterprises with fewer than 10 employees and an annual turnover or
+      balance sheet not exceeding €2 million. However these make up over 90% of
+      the EU's non-financial business sector, contributing to a third of the
+      value.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <strong
+        >Healthcare and housing services, household products, tourism.</strong
+      >
+    </p>
+    <p>
+      Are a few of the essential services not in the specified list that all
+      people should have equal access to.
+    </p>
+  </li>
+</ul>
+
+<h2>What happens if I don't comply with the act?</h2>
+
+<p>
+  First off, the act is an EU directive, which means that it is up to individual
+  member states to come up with and enforce laws. The act provides standards
+  that companies selling to these companies must meet, but individual countries
+  may choose to impose even stricter laws than the act sets out.
+</p>
+
+<p>
+  Furthermore the individual states can choose how punishment is dealt to those
+  not following the laws they've put into place. The act only asserts that
+  penalties for non-compliance must be “effective, proportionate and dissuasive”
+  <sup>[1 - article 30. 2.]</sup>.
+</p>
+
+<p>
+  So in effect the consequences of not complying depend on which country your
+  business sells to.
+</p>
+
+<h2>My Takeaway</h2>
+
+<p>So to answer the questions I set out at the start:</p>
+
+<ul>
+  <li>
+    <p><strong>What does the act cover?</strong></p>
+    <p>
+      In essence, the public sector services named the scope must conform to
+      WCAG 2.2 AA (or a standard which will look very similar), provide
+      accessibility information about the service and conduct audits to ensure
+      compliance over time.
+    </p>
+  </li>
+
+  <li>
+    <p><strong>What does it mean for software companies?</strong></p>
+    <p>
+      If you come under the scope, then you'd better carefully check whether
+      your service is accessible! Study up on WCAG 2.2 AA, or speak to an
+      accessibility specialist. If you haven't planned ahead for accessibility,
+      retroactively adding accessibility features can often take a long time, so
+      start sooner rather than later!
+    </p>
+    <p>
+      Developers will need to have a higher base level of accessibility skills
+      to be able to maintain software while staying accessible. Companies
+      creating a new service should consider accessibility from the start and at
+      all stages from design to deployment. From personal experience, it is much
+      easier to build it in from the start than to fix things later.
+    </p>
+  </li>
+
+  <li>
+    <p><strong>What does it mean for Scott Logic?</strong></p>
+    <p>
+      At Scott Logic the requirements we need to adhere to depend on our client.
+      For public service organisations, of course Scott Logic builds accessible
+      software. For internal systems we build for businesses, we always strive
+      to make them as user friendly as possible. Internally, we will continue to
+      increase skills and awareness amongst our consultants so that we are ready
+      to build software that is as accessible as possible.
+    </p>
+  </li>
+</ul>
+
+<p>
+  I went into this research with the naive expectation that would fix all the
+  accessibility problems with the internet in one fell swoop. It's no wonder
+  that my first feeling when I concluded the research was disappointment. While
+  it seems there will be a large impact for products, not all crucial services
+  will be required to be accessible. I had also hoped that the directive would
+  have an impact for services used internally within companies by employees.
+  While that's not the case, I'm hopeful that the increased awareness of
+  accessibility within the tech community will have positive knock-on effects on
+  those areas as well.
+</p>
+
+<p>
+  A few colleagues also pointed out the loopholes that companies might use to
+  evade the costs implementing accessibility. They pointed out that certain
+  member states could be less diligent in tracking and enforcing compliance with
+  the law. A cunning company could take a gamble and sell their service in one
+  of these more lax states, avoiding stricter enforcement while still reaping
+  the benefits of the EU free market. They also noted that many companies will
+  probably make the case for the disproportionate burden exemption and it is
+  still unclear how lenient or strict these will be applied is yet to be seen.
+</p>
+
+<p>
+  My outlook brightened when a more optimistic colleague pointed out that
+  actually this is the first EU accessibility directive to apply standards to
+  public sector technologies. We've effectively gone from zero to this which is
+  a great step in the right direction, and all progress comes one step at a
+  time.
+</p>
+
+<blockquote>
+  "when it comes to accessibility right now, the bar is on the floor. The EAA
+  just picks it up."
+</blockquote>
+
+<p>
+  She also reasoned that legislation will influence culture around
+  accessibility. Now that the law is enforcing a certain standard of
+  accessibility, overall knowledge and awareness will increase, companies (even
+  those not directly affected by the act) will brag about how accessible they
+  are, and individuals will feel empowered to complain and take action when they
+  encounter inaccessible services.
+</p>
+
+<p>
+  Historically accessibility has been viewed as an afterthought, and often a
+  burden. The EAA marks a shift where accessibility is a necessity and sets a
+  new expectation from consumers for companies providing any service. Let's hope
+  we keep taking steps toward an accessible web for all!
+</p>
+
+<h2>References and Further Reading</h2>
+
+<p>
+  Here are the sources I referenced in the article, including the official text
+  of the EAA.
+</p>
+
+<ol>
+  <li>
+    <a
+      href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32019L0882"
+      >The full original text of the act</a
+    >
+  </li>
+
+  <li>
+    <a
+      href="https://www.etsi.org/human-factors-accessibility/en-301-549-v3-the-harmonized-european-standard-for-ict-accessibility"
+      >ETSI: EN 301 549 V3 the harmonized European Standard for ICT
+      Accessibility</a
+    >
+  </li>
+
+  <li>
+    <a href="https://www.youtube.com/watch?v=kF53zy2Zzes"
+      >TPGi talk: What is the European Accessibility Act (EAA)? Countdown to EAA
+      2025 (YouTube, 1hr)</a
+    >
+  </li>
+</ol>
+
+<p>
+  I encourage you to read information from other sources too. Other posts online
+  will provide a different perspective! These ones I found particularly
+  informative:
+</p>
+
+<ul>
+  <li>
+    <p>
+      <a href="https://www.edf-feph.org/publications/eaa-toolkit/"
+        >EDF: Toolkit for transposition</a
+      >
+      - Written by the European Disability Forum, this document provides
+      guidance to member states writing laws to implement the act. It explains
+      much of the act in detail but in language that is easier to understand. It
+      also specifies areas where the act could be helping disabled people more.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <a href="https://www.youtube.com/watch?v=kF53zy2Zzes"
+        >TPGi talk: What is the European Accessibility Act (EAA)? Countdown to
+        EAA 2025 (YouTube, 1hr)</a
+      >
+      - This is a balanced and detailed summary of the act given by a member of
+      the W3C guidelines working group.
+    </p>
+  </li>
+
+  <li>
+    <p>
+      <a
+        href="https://www.craigabbott.co.uk/blog/european-accessibility-act-what-you-need-to-know/"
+        >Craig Abbot Blog
+      </a>
+      - A personal blog written by an accessibility specialist. Gives an
+      optimistic view of the act and lots of reasons why businesses should get a
+      move on and become more accessible
+    </p>
+  </li>
+</ul>

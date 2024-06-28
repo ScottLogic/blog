@@ -1,6 +1,8 @@
+{% assign author-id = include.author-id %}
+{% assign author = site.data.authors.authors[author-id] %}
 <div class="author-information cell">
-  <img src="{{ site.baseurl }}/{{ authorUsername }}/{{ author.picture }}" alt="{{ author.name }}"/>
-  <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>
+  <img src="{{ site.baseurl }}/{{ author-id }}/{{ author.picture }}" alt="{{ author.name }}"/>
+  <a rel="author" href="{{ site.baseurl }}/{{ author-id }}">{{ author.name }}</a>
 </div>
 <div class="cell">
   {{ author.author-summary }}

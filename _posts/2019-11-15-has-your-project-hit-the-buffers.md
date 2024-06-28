@@ -6,16 +6,17 @@ categories:
 - Delivery
 tags:
 - project
-- recovery,
-- delivery,
+- recovery
+- ''
+- delivery
 - rescue
-author: mphillips
-layout: default_post
 summary: When a project goes off the rails, the question becomes how to get delivery
   back on track, or even whether to cancel the project entirely. Here at Scott Logic,
   we have many years of experience helping businesses to recover projects and I wanted
   to share some insights from that experience.
+author: mphillips
 image: mphillips/assets/Project-Rescue-image.jpg
+layout: default_post
 ---
 
 ## An independent review might help get it back on track
@@ -44,7 +45,7 @@ Diagnosis often means digging deep to get to the root causes. The skill is combi
 
 ## (Re-)Focus on business value
 
-The business value that was the original objective of the project can often be overshadowed and obscured as the focus shifts to the complexities of delivery. When building a recovery plan, it’s critical to focus again on delivering real business value, not simply the perceived solution. By applying this perspective and a degree of rigour, the areas of highest priority will become clear – along with what can be left out. [Evidence-Based Management](https://www.scottlogic.com/what-we-do/agile-and-devops/) (EBM) is one way to remove some of the emotion from these decisions and help ensure this focus on value.
+The business value that was the original objective of the project can often be overshadowed and obscured as the focus shifts to the complexities of delivery. When building a recovery plan, it’s critical to focus again on delivering real business value, not simply the perceived solution. By applying this perspective and a degree of rigour, the areas of highest priority will become clear – along with what can be left out. Evidence-Based Management(EBM) is one way to remove some of the emotion from these decisions and help ensure this focus on value.
 
 ## How Scott Logic can help
 

@@ -4,13 +4,14 @@ date: 2023-02-07 00:00:00 Z
 categories:
 - ceberhardt
 - Tech
-author: ceberhardt
 summary: The rapid rise in the consumption or usage of open source hasn’t been met
   with an equal rise in contribution – to put it simply, there are far more takers
   than givers, and the challenges created by this imbalance are starting to emerge.
-layout: video_post
+author: ceberhardt
 video_url: https://www.youtube.com/embed/aW-gVidiQsg
 short-author-aside: true
+image: "/uploads/Could%20PS%20solve%20the%20OSS%20Sustainability%20Challenges.png"
+layout: video_post
 ---
 
 The rapid rise in the consumption or usage of open source hasn’t been met with an equal rise in contribution – to put it simply, there are far more takers than givers, and the challenges created by this imbalance are starting to emerge.
@@ -19,5 +20,5 @@ Most industries turn to open source for innovation and collaboration, however, t
 
 In this talk we’ll take a data-driven approach to highlight the needs of public sector organisations and explore potential opportunities. Finally, we’ll look at how this sector might be the key to solving OSS’ sustainability challenges for the long term.
 
-![state of opencon](/ceberhardty/assets/04-Could-the-Public-sector-solve-OSS-sustainability-challenges.png)
+![state of opencon](/ceberhardt/assets/04-Could-the-Public-sector-solve-OSS-sustainability-challenges.png)
 

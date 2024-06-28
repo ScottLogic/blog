@@ -3,7 +3,7 @@ title: A Developer's intro to TensorFlow and Keras
 date: 2018-10-25 00:00:00 Z
 categories:
 - amorgan
-- Tech
+- Artificial Intelligence
 tags:
 - dev
 - TensorFlow

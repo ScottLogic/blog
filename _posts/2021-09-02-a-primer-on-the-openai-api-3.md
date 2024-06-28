@@ -3,7 +3,7 @@ title: A primer on the OpenAI API - Part 3
 date: 2021-09-02 00:00:00 Z
 categories:
 - cprice
-- Tech
+- Artificial Intelligence
 author: cprice
 layout: default_post
 summary: "...or what I should have known before I jumped in and started playing around.

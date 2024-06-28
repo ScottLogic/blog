@@ -12,7 +12,7 @@ author: ceberhardt
 contributors:
 - jheward
 - rgriffiths
-image: "/uploads/BeyondTheHype---orange---social_Artboard-1.jpg"
+image: "/uploads/BeyondTheHype%20-%20orange%20and%20orange%20-%20episode%203%20-%20social.png"
 layout: default_post
 ---
 
@@ -35,7 +35,5 @@ Links from the podcast:
 You can subscribe to the podcast on these platforms:
 
 * [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
-
-* [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29tLzM5NTE1MC9yc3M?sa=X&ved=0CAMQ4aUDahcKEwjAxKuhz_v7AhUAAAAAHQAAAAAQAQ)
 
 * [Spotify](https://open.spotify.com/show/2BlwBJ7JoxYpxU4GBmuR4x)

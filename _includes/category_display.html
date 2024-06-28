@@ -1,5 +1,6 @@
 {% assign post = include.post %}
 {% assign read_more = include.read_more %}
+{% assign found_category = "false" %}
 
 <span class="category">
     {% for post_category in post.categories | downcase %}

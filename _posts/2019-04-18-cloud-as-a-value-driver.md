@@ -6,16 +6,16 @@ categories:
 - Resources
 tags:
 - featured
-author: ceberhardt
-layout: default_post
 summary: The Financial Services industry is having to change and adapt in the face
   of regulations, competition, changes in buying habits and client expectations. This
   white paper encourages the industry to look at public cloud not as a tool for driving
   down costs, but as a vehicle for technical and business agility.
+author: ceberhardt
 image: ceberhardt/assets/featured/cloud-value-driver.png
 cta:
   link: http://blog.scottlogic.com/ceberhardt/assets/white-papers/cloud-as-a-value-driver.pdf
   text: Download the White Paper
+layout: default_post
 ---
 
 The Financial Services industry is having to change and adapt in the face of regulations, competition, changes in buying habits and client expectations. Technology is central to many of these changes, and in order to respond quickly it must be an enabler, not an inhibitor.
@@ -28,4 +28,4 @@ Public cloud platforms give an unprecedented level of technical agility. Their p
 
 The public cloud provides a platform for change, and a foundation for business agility. It allows you to create new services, experiment with new technology, explore SaaS offerings and provide greater user engagement with a rapid time-to-market.
 
-If you are interested in reading more, download the white paper: ["Thinking differently - the cloud as a value driver" - in PDF format]({{site.baseurl}}/ceberhardt/assets/white-papers/cloud-as-a-value-driver.pdf).
+If you are interested in reading more, download the white paper: ["Thinking differently - the cloud as a value driver" - in PDF format](https://go.scottlogic.com/thinking-differently).

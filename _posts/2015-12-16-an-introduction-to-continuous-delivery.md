@@ -8,17 +8,17 @@ tags:
 - DevOps
 - Continuous Delivery
 - Agile
-author: mtinning
-layout: default_post
 summary: This post explores continuous delivery within an agile context, and goes
   into detail about what it really means to be doing continuous delivery.
+author: mtinning
+layout: default_post
 ---
 
 ![Traffic]({{ site.baseurl }}/mtinning/assets/traffic-header.jpg "Traffic")
 
 __Continuous Delivery - isn't that the same as Agile?__
 
-Agile has been great for software development. By developing new features in an iterative manner and introducing a rich toolkit with which to govern the development of software and the behaviour of teams, it has taken a lot of the guesswork out of creating new software. Scott Logic has it's own Agile process - [Assured Agile](http://www.scottlogic.com/services/assured-agile) - that is designed to successfully deliver large software projects with distributed teams. It's no coincidence that Agile methodologies produce robust software that meets business requirements.
+Agile has been great for software development. By developing new features in an iterative manner and introducing a rich toolkit with which to govern the development of software and the behaviour of teams, it has taken a lot of the guesswork out of creating new software. Scott Logic has it's own Agile process - Assured Agile - that is designed to successfully deliver large software projects with distributed teams. It's no coincidence that Agile methodologies produce robust software that meets business requirements.
 
 While Agile techniques focus on the development of software - and maximises the probability that the software will meet business requirements - it doesn't necessarily make shipping software any easier. This is where Continuous Delivery comes in. Continuous Delivery takes many of the core principles that have become commonplace in software development over the last 15 years - change management, iterative development, short cycles with frequent feedback, frequent releases - and runs with them all the way to the delivery stage.
 

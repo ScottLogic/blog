@@ -1,3 +1,5 @@
+@use 'colours';
+
 @mixin footer-colour-scheme($bg-colour, $fg-colour) {
   background-color: $bg-colour;
 
@@ -6,14 +8,14 @@
       color: $fg-colour;
       font-weight: 400;
       &:hover {
-        color: $black;
+        color: colours.$black;
       }
     }
   }
 
   .footer_bottom-layer {
     a {
-      color: $black;
+      color: colours.$black;
       font-weight: 400;
       &:hover {
         text-decoration: underline;
@@ -27,30 +29,38 @@
 }
 
 footer {
-  @include footer-colour-scheme($light-teal, $teal);
-  &.pink {
-    @include footer-colour-scheme($light-pink, $pink);
-  }
-  &.orange {
-    @include footer-colour-scheme($light-orange, $orange);
-  }
-  &.yellow {
-    @include footer-colour-scheme($light-yellow, $yellow);
-  }
-
-  height: 100px;
+	@include footer-colour-scheme(colours.$light-teal, colours.$teal);
+	&.pink {
+		@include footer-colour-scheme(colours.$light-pink, colours.$pink);
+	}
+	&.orange {
+		@include footer-colour-scheme(colours.$light-orange, colours.$orange);
+	}
+	&.yellow {
+		@include footer-colour-scheme(colours.$light-yellow, colours.$yellow);
+	}
+	
+	.footer_top-layer {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		height: rem-calc(120px, 16px);
+	}
+	
+	height: $footer-height;
 	width: 100%;
 	display: block;
-	padding: rem-calc(20px, 16px) 0;
+	padding: rem-calc(32px, 16px) rem-calc(16px, 16px) rem-calc(24px, 16px);
 	text-align: center;
 
 	.footer-logo {
-		width: 159px;
-		height: 17px;
+		width: 135px;
+		height: 30px;
 		display: inline-block;
 		vertical-align: bottom;
 		a {
-			background: url('./assets/footer-logo.svg') no-repeat;
+			background: url('./assets/logo.svg') no-repeat;
 			width: 100%;
 			height: 100%;
 			display: block;
@@ -61,29 +71,33 @@ footer {
 	.footer-links {
 		display: inline-block;
 		vertical-align: bottom;
-		line-height: rem-calc(16px, 16px);
-		margin-left: rem-calc(20px, 16px);
+		margin-left: rem-calc(14px, 16px);
 
 		a {
 			display: inline-block;
 			font-size: rem-calc(14px, 16px);
-			margin-right: rem-calc(14px, 16px);
+			margin-left: rem-calc(14px, 16px);
 			vertical-align: middle;
 
-			&.footer-links_twitter {
-				width: rem-calc(18px, 16px);
-				height: rem-calc(14px, 16px);
+			&.footer-links_linkedin {
+				width: rem-calc(20px, 16px);
+				height: rem-calc(20px, 16px);
 			}
 
-			&.footer-links_linkedin {
-				width: rem-calc(16px, 16px);
-				height: rem-calc(16px, 16px);
+			&.footer-links_youtube {
+				width: rem-calc(20px, 16px);
+				height: rem-calc(20px, 16px);
+			}
+
+			&.footer-links_bcorp {
+				width: rem-calc(50px, 16px);
+				height: rem-calc(73px, 16px);
 			}
 		}
 	}
 
 	.footer_bottom-layer {
-		margin-top: rem-calc(10px, 16px);
+		margin-top: rem-calc(16px, 16px);
 		ul {
 			list-style: none;
 			margin: 0;
@@ -92,10 +106,10 @@ footer {
 				display: inline-block;
 				vertical-align: bottom;
 				font-size: rem-calc(12px, 16px);
-				padding: 0 rem-calc(5px, 16px);
-				color: $black;
+				padding: 0 rem-calc(7px, 16px);
+				color: colours.$black;
 				a {
-					color: $black;
+					color: colours.$black;
 					&:hover {
 						text-decoration: underline;
 					}

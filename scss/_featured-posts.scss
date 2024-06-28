@@ -1,3 +1,5 @@
+@use 'colours';
+
 @mixin featured-colours($bg-colour, $fg-colour) {
   .summary {
     background-color: $bg-colour;
@@ -22,8 +24,12 @@
   img {
       border-radius: 50%;
       max-height: 3rem;
+      max-width: 3rem;
       margin-right: 0.25rem;
       filter: grayscale(100%);
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
   }
   @include breakpoint(large) {
     margin-right: -75%;
@@ -73,15 +79,15 @@
       }
     }
 
-    @include featured-colours($light-teal, $teal);
+    @include featured-colours(colours.$light-teal, colours.$teal);
     &.pink {
-      @include featured-colours($light-pink, $pink);
+      @include featured-colours(colours.$light-pink, colours.$pink);
     }
     &.orange {
-      @include featured-colours($light-orange, $orange);
+      @include featured-colours(colours.$light-orange, colours.$orange);
     }
     &.yellow {
-      @include featured-colours($light-yellow, $yellow);
+      @include featured-colours(colours.$light-yellow, colours.$yellow);
     }
   }
 }

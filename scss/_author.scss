@@ -1,3 +1,5 @@
+@use 'colours';
+
 .default-author {
   .h4 {
     font-size: 15px;
@@ -15,7 +17,7 @@
   }
 
   .talk_date {
-      color: grey;
+      color: colours.$grey;
       font-size: 13px;
       font-family: $font-family;
   }
@@ -27,8 +29,11 @@
     img {
         border-radius: 50%;
         filter: grayscale(100%);
-	max-height: 180px;
-	max-width: 180px;
+        max-height: 6.25rem;
+        max-width: 6.25rem;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
     }
 
     .avatar {
@@ -39,18 +44,18 @@
         text-align: right;
 
       a {
-        border-bottom: 3px solid $turquoise;
+        border-bottom: 3px solid colours.$teal;
       }
 
       a:hover {
-        color: $white;
-        background-color: $turquoise;
+        color: colours.$white;
+        background-color: colours.$teal;
       }
     }
 
   .blog {
     margin-bottom: 0;
-    color: $turquoise;
+    color: colours.$teal;
     font-weight: $font-bold;
   }
 

@@ -12,7 +12,7 @@ contributors:
 - dmcnamee
 - xchen
 - jarnstein
-image: "/uploads/BeyondTheHype---green---social_Artboard-1.jpg"
+image: "/uploads/BeyondTheHype%20-%20green%20and%20green%20-%20episode%204%20-%20social.png"
 layout: default_post
 ---
 
@@ -28,9 +28,16 @@ There are also limitations to BDD, so they discuss when it provides value, and w
 
 Links from the podcast:
 
- - [Introducing BDD](https://dannorth.net/introducing-bdd/) - Dan North
- - [The Tragedy of Given-When-Then](https://theitriskmanager.com/2019/04/06/the-tragedy-of-given-when-then/) - Chris Matts
- - [The Three Amigos](https://cucumber.io/docs/bdd/who-does-what/)
- - [The Value at the Intersection of TDD, DDD, and BDD](https://www.mobilelive.ca/blog/value-of-tdd-bdd-ddd) - Darshan Satya
+* [Introducing BDD](https://dannorth.net/introducing-bdd/) - Dan North
 
-Search for Beyond the Hype on Apple, Spotify or wherever you get your podcasts.
+* [The Tragedy of Given-When-Then](https://theitriskmanager.com/2019/04/06/the-tragedy-of-given-when-then/) - Chris Matts
+
+* [The Three Amigos](https://cucumber.io/docs/bdd/who-does-what/)
+
+* [The Value at the Intersection of TDD, DDD, and BDD](https://www.mobilelive.ca/blog/value-of-tdd-bdd-ddd) - Darshan Satya
+
+You can subscribe to the podcast on these platforms:
+
+* [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
+
+* [Spotify](https://open.spotify.com/show/2BlwBJ7JoxYpxU4GBmuR4x)
