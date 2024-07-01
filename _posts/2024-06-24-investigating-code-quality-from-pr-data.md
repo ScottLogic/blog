@@ -50,7 +50,7 @@ Our tool gathers the 1000 most recent PRs from each repository. For CPython and 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-day-pr-opened.jpg
 "Percentage of PRs opened per day of the week")
 
-The date and times that PRs were opened can give us an indication as to whether the developers working on these repositories are doing it as part of a job or as a hobby, in their spare time. However, this relies on the assumption that who are contributing as part of their job are raising PRs during working hours (i.e. Monday to Friday, 9-5), and people who are contributing as a hobby are more likely to be making contributions outside of these hours.
+The date and times that PRs were opened can give us an indication as to whether the developers working on these repositories are doing it as part of a job or as a hobby, in their spare time. However, this relies on the assumption that who are contributing as part of their job are raising PRs during working hours, and people who are contributing as a hobby are more likely to be making contributions at weekends or in the evening.
 
 Looking at the percentage of PRs that were opened on each day per repository, we can clearly see that across all the languages, there are fewer opened on weekends, suggesting that the majority of developers contributing to these repositories are doing so as part of a job. If this is the case, the developers working on OpenJDK must particularly enjoy a good work-life balance, as only 6% of their PRs were opened on weekends.
 
