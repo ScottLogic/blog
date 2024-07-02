@@ -1,6 +1,6 @@
 ---
 title: Investigating Code Quality from PR Data
-date: 2024-06-24 00:00:00 Z
+date: 2024-07-02 00:00:00 Z
 categories:
   - Artificial Intelligence
 tags:
@@ -15,7 +15,7 @@ PRs contain valuable data which can help us to get an insight into the process o
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-tone-per-day.jpg
 "Comment Tone Analysis per Day")
 
-Of all the impolite comments written, the majority are left on code written on a Friday, which may be an indication that the quality of code written begins to slip towards the end of the week. In contrast, reviewers ration their excitement on PRs opened on a Monday. Perhaps they are also reviewing on a Monday, and are not overly enthusiastic about the prospect? Or perhaps developers are getting the more mundane programming tasks over and done with at the start of the week?
+Of all the impolite comments written, the majority are left on code written on a Friday, which may be an indication that the quality of code written begins to slip towards the end of the week. In contrast, reviewers ration their excitement on PRs opened on a Monday. Perhaps they are also reviewing on a Monday, and are not overly enthusiastic about the prospect? Or perhaps developers are getting the more mundane tasks over and done with at the start of the week?
 
 Our team has built a command line tool which, when pointed at a repository, uses data from PRs to produce a variety of different metrics. These metrics then help us to understand a bit more about the dynamics within teams, the quality of code produced, and the speed at which new code is released.
 
@@ -29,9 +29,9 @@ PRs contain a huge amount of valuable data that can start to give us an idea of 
 
 ### Enter LLMs
 
-LLMs (Large Language Models), are noted for their ability to be able to interpret and generate human language, which also extends to code. Although LLMs can write code, there are some common issues, or pain points, that are characteristic of AI-generated code, which may be picked up in PR review comments. Things like not adhering to project conventions or not using functions that exist in other parts of the code base, are often clues that code may have been AI-generated.
+LLMs (Large Language Models), are noted for their ability to be able to interpret and generate human language, and this also extends to code. Although LLMs can write code, there are some common pain points that are characteristic of AI-generated code and may impact code quality. Things like not adhering to project conventions or not using functions that exist in other parts of the code base, are often clues that code may have been AI-generated.
 
-Therefore, what's written in comments is also a valuable source of information. For example, what do reviewers frequently suggest needs to be changed? Is a developer frustrated to make this suggestion (perhaps they've made the same suggestion several times already)? Are developers generally polite to their colleagues, but harsher on code that they suspect is AI-generated? We can pass review comments, or even pieces of code, to an LLM and use them to start to answer these questions.
+These issues are likely to be noticed by reviewers. Therefore, what's written in comments is a valuable source of information. For example, what do reviewers frequently suggest needs to be changed? Is a developer frustrated to make this suggestion (perhaps they've made the same suggestion several times already)? Are developers generally polite to their colleagues, but harsher on code that they suspect is AI-generated? We can pass review comments, or even pieces of code, to an LLM and use them to start to answer these questions.
 
 ### Pulling this together into a tool
 
@@ -50,7 +50,7 @@ Our tool gathers the 1000 most recent PRs from each repository. For CPython and 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-day-pr-opened.jpg
 "Percentage of PRs opened per day of the week")
 
-The date and times that PRs were opened can give us an indication as to whether the developers working on these repositories are doing it as part of a job or as a hobby, in their spare time. However, this relies on the assumption that who are contributing as part of their job are raising PRs during working hours, and people who are contributing as a hobby are more likely to be making contributions at weekends or in the evening.
+The date and times that PRs were opened can give us an indication as to whether the developers working on these repositories are doing it as part of a job or as a hobby. However, this relies on the assumption that those who are contributing as part of their job are raising PRs during working hours, and those contributing as a hobby are more likely to be making contributions during weekends or evenings.
 
 Looking at the percentage of PRs that were opened on each day per repository, we can clearly see that across all the languages, there are fewer opened on weekends, suggesting that the majority of developers contributing to these repositories are doing so as part of a job. If this is the case, the developers working on OpenJDK must particularly enjoy a good work-life balance, as only 6% of their PRs were opened on weekends.
 
