@@ -21,7 +21,7 @@ Our team has built a command line tool which, when pointed at a repository, uses
 
 ### Motivation
 
-Generative AI is everywhere, and software development is no exception. Tools such as [GitHub Copilot](https://github.com/features/copilot) and [OpenAI's ChatGPT](https://openai.com/chatgpt/) help developers to rapidly write significant volumes of code, reportedly increasing developer productivity. However, this refers purely to the speed at which code is written. The quality of the code produced is arguably more important, but much more difficult to quantify.
+Generative AI is everywhere, and software development is no exception. Tools such as [GitHub Copilot](https://github.com/features/copilot) and [OpenAI's ChatGPT](https://openai.com/chatgpt/) help developers to quickly write significant amounts of code, reportedly increasing developer productivity. However, this refers purely to the speed at which code is written. The quality of the code produced is arguably more important, but much more difficult to quantify.
 
 The role of a software developer is multi-faceted, and writing code is just one part of the job. Therefore, if GenAI coding tools allow us to write code more quickly, but that code ultimately takes longer to review or is harder to maintain, is it really making us more productive?
 
@@ -35,7 +35,7 @@ These issues are likely to be noticed by reviewers. Therefore, what's written in
 
 ### Pulling this together into a tool
 
-Our team built a tool, to which we provide a GitHub or GitLab URL. It then scrapes the PRs that have been raised within that repository. We take the PR data and process it, to produce a range of different metrics which we can be classified as either deterministic or AI-powered. Our deterministic metrics use data such as the number of files changed, number of comments, requests for change, PR duration, and PR contributors. The AI-powered metrics use LLMs to analyse things like comment tone and subject, and to detect disagreements within comment threads.
+Our team built a tool, to which we provide a GitHub or GitLab URL. It then scrapes the PRs that have been raised within that repository. We take the PR data and process it, to produce a range of different metrics which we classify as either deterministic or AI-powered. Our deterministic metrics use data such as the number of files changed, number of comments, requests for change, PR duration, and PR contributors. The AI-powered metrics use LLMs to analyse things like comment tone and subject, and to detect disagreements within comment threads.
 
 These metrics are then saved to a Parquet file, which can be exported to a [ClickHouse](https://clickhouse.com/clickhouse) database and imported into [Apache Superset](https://superset.apache.org/) to create a dashboard which allows us to visualise and explore the data captured.
 
@@ -45,18 +45,18 @@ To demonstrate our tool, we have used it to analyse 1000 PRs from four different
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-combined.jpg "Number of PRs opened per month")
 
-Our tool gathers the 1000 most recent PRs from each repository. For CPython and Rust, these were all created between May and June 2024. In contrast, with TypeScript, there has been a fairly consistent number of PRs opened each month since August 2023. Remarkably, in May 2024, there were 602 PRs opened in the CPython repository, and 623 opened in Rust, which shows us the speed at which these languages are developed.
+We configured the tool to pull the latest 1,000 PRs for each repository (as of 17/06/24). For CPython and Rust, these were all created between May and June 2024. In contrast, with TypeScript, there has been a fairly consistent number of PRs opened each month since August 2023. Remarkably, in May 2024, there were 602 PRs opened in the CPython repository, and 623 opened in Rust, which shows us the speed at which these languages are developed.
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-day-pr-opened.jpg
 "Percentage of PRs opened per day of the week")
 
 The date and times that PRs were opened can give us an indication as to whether the developers working on these repositories are doing it as part of a job or as a hobby. However, this relies on the assumption that those who are contributing as part of their job are raising PRs during working hours, and those contributing as a hobby are more likely to be making contributions during weekends or evenings.
 
-Looking at the percentage of PRs that were opened on each day per repository, we can clearly see that across all the languages, there are fewer opened on weekends, suggesting that the majority of developers contributing to these repositories are doing so as part of a job. If this is the case, the developers working on OpenJDK must particularly enjoy a good work-life balance, as only 6% of their PRs were opened on weekends.
+Looking at the percentage of PRs that were opened on each day per repository, we can clearly see that across all the languages, there are fewer opened on weekends, suggesting that the majority of developers contributing to these repositories are doing so as part of a job. If this is the case, the developers working on OpenJDK must particularly enjoy a particularly good work-life balance, as only 6% of their PRs were opened on weekends.
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-time-pr-opened.jpg "Percentage of PRs opened per hour of the day")
 
-Working on the assumption that developers are predominantly raising PRs during the working day, the times at which PRs are opened can give us an idea of the geographical distributions of the developers working on each repository. For example, we might expect that within a company, the team working on one project are co-located, so depending on time zones, the PRs are raised at specific times within the day.
+Working on the assumption that developers are predominantly raising PRs during the working day, the times at which PRs are opened can give us an idea of the geographical distributions of the developers working on each repository. For example, we might expect that within a company, the team members working on one project are co-located, so depending on time zones, the PRs are raised at specific times within the day.
 
 The above graph shows a rolling average of the percentage of PRs opened at each time, using a period of 3 hours. The graph produced from the Rust repository is flatter, suggesting that there is a more even geographical distribution of developers, compared to the other languages. CPython and OpenJDK seem to have some geographical distribution, with a modest concentration of their developers being based in America and Europe respectively. In contrast, Typescript seems to have a high concentration of developers based in America and Canada, which can be confirmed by exploring the [repository contributors](https://github.com/microsoft/TypeScript/graphs/contributors).
 
