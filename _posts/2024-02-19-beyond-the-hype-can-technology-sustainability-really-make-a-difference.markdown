@@ -43,6 +43,4 @@ The conversation covers the nuances around operational versus embodied carbon em
 
 * [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
 
-* [Google Podcasts](https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5saWJzeW4uY29tLzM5NTE1MC9yc3M?sa=X&ved=0CAMQ4aUDahcKEwjAxKuhz_v7AhUAAAAAHQAAAAAQAQ)
-
 * [Spotify](https://open.spotify.com/show/2BlwBJ7JoxYpxU4GBmuR4x)
