@@ -19,9 +19,9 @@ tags:
 - resilience strategies
 summary: The impending Digital Operational Resilience Act (DORA) aims to strengthen
   the IT security of financial entities such as banks, insurance companies and investment
-  firms across Europe. In this blog post, I share Monzo's modern resilience strategy
-  and look at why traditional resilience strategies will put organisations at significant
-  risk.
+  firms across Europe. In this blog post, I share Monzo's smart, modern resilience
+  strategy and look at why traditional resilience strategies put organisations at
+  significant risk.
 author: acarr
 ---
 
