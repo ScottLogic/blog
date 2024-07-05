@@ -23,7 +23,7 @@ summary: The impending Digital Operational Resilience Act (DORA) aims to strengt
   strategy and look at why traditional resilience strategies put organisations at
   significant risk.
 author: acarr
-image: "/uploads/Monzo%20stand-in.png"
+image: "/uploads/Monzo%20approach%20to%20Dora.png"
 ---
 
 The impending [Digital Operational Resilience Act (DORA)](https://eur-lex.europa.eu/eli/reg/2022/2554/oj) aims to strengthen the IT security of financial entities such as banks, insurance companies and investment firms across Europe. While the regulations will standardise ICT risk management, business continuity, and incident response, they won’t recommend best practice resilience strategies that banks should adopt.
