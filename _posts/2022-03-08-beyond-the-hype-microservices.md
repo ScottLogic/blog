@@ -25,9 +25,16 @@ Microservices have become the standard architectural pattern for everything. Itâ
 
 Links from the podcast:
 
- - [Microservices for Life](https://blog.scottlogic.com/2020/08/24/microservices-for-life.html) - Ian Sugar
- - [Code reuse in microservices architecture](https://blog.scottlogic.com/2016/06/13/code-reuse-in-microservices-architecture.html) - with Spring Boot - Bartosz Jedrzejewski
- - [Designing Microservice architectures the right way](https://www.youtube.com/watch?v=j6ow-UemzBc) - Michael Bryzek
- - [When To Use Microservices (And When Not To!)](https://www.youtube.com/watch?v=GBTdnfD6s5Q) - Sam Newman & Martin Fowler
+* [Microservices for Life](https://blog.scottlogic.com/2020/08/24/microservices-for-life.html) - Ian Sugar
 
-Search for Beyond the Hype on Apple, Spotify or wherever you get your podcasts.
+* [Code reuse in microservices architecture](https://blog.scottlogic.com/2016/06/13/code-reuse-in-microservices-architecture.html) - with Spring Boot - Bartosz Jedrzejewski
+
+* [Designing Microservice architectures the right way](https://www.youtube.com/watch?v=j6ow-UemzBc) - Michael Bryzek
+
+* [When To Use Microservices (And When Not To!)](https://www.youtube.com/watch?v=GBTdnfD6s5Q) - Sam Newman & Martin Fowler
+
+You can subscribe to the podcast on these platforms:
+
+* [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
+
+* [Spotify](https://open.spotify.com/show/2BlwBJ7JoxYpxU4GBmuR4x)
