@@ -65,6 +65,8 @@ The above graph shows a rolling average of the percentage of PRs opened at each 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-pr-duration.jpg
 "PR Duration for each Repository")
 
+*Note: this graph only includes PRs which received review comments.*
+
 `PR Duration` is a measure of the time elapsed between a PR being opened, and it being either merged or closed. If a PR takes a long time to be approved, it could be that the reviewers are dubious that the proposed changes will be an improvement, or that they need some further work before the reviewers are happy. However, it may be the case that a PR sits in review for a period of time, before a reviewer first looks at it. For this reason, we added the additional measures of `Time to First Review` and `First Review to Last Commit`.
 
 TypeScript PRs have a longer average duration than the other repositories. There could be many different reasons for this, including PRs containing lower quality code, reviewers being particularly strict or upholding high standards or simply reviewers being slow to submit their feedback.
