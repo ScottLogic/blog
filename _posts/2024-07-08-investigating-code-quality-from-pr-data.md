@@ -1,6 +1,6 @@
 ---
 title: Investigating Code Quality from PR Data
-date: 2024-07-02 00:00:00 Z
+date: 2024-07-08 00:00:00 Z
 categories:
   - Artificial Intelligence
 tags:
@@ -10,7 +10,7 @@ author: alaws
 
 When a developer wants to make changes to a code base, they raise a pull request (PR) which contains the proposed changes to the code and a written summary of the changes made. Other developers will then review this PR, leaving comments or suggestions, before ultimately deciding whether to approve the changes.
 
-PRs contain valuable data which can help us to get an insight into the process of writing code, and the teams involved. For example, we can use LLMs to analyse the tone of PR review comments - showing us the attitudes that reviewers have towards code.
+PRs contain valuable data which can help us to get an insight into the process of writing code, and the teams involved. For example, we can use LLMs to analyse the tone of PR review comments - showing us the attitude that reviewers have towards the proposed code changes..
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-tone-per-day.jpg
 "Comment Tone Analysis per Day")
@@ -45,18 +45,18 @@ To demonstrate our tool, we have used it to analyse 1000 PRs from four different
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-date-combined.jpg "Number of PRs opened per month")
 
-We configured the tool to pull the latest 1,000 PRs for each repository (as of 17/06/24). For CPython and Rust, these were all created between May and June 2024. In contrast, with TypeScript, there has been a fairly consistent number of PRs opened each month since August 2023. Remarkably, in May 2024, there were 602 PRs opened in the CPython repository, and 623 opened in Rust, which shows us the speed at which these languages are developed.
+We configured the tool to pull the latest 1,000 PRs for each repository (as of 17/06/24). For CPython and Rust, these were all created between May and June 2024. In contrast, with TypeScript, there has been a fairly consistent number of PRs opened each month since August 2023. Remarkably, in May 2024, there were 602 PRs opened in the CPython repository, and 623 opened in Rust, which shows us the speed at which these languages are evolving.
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-day-pr-opened.jpg
 "Percentage of PRs opened per day of the week")
 
 The date and times that PRs were opened can give us an indication as to whether the developers working on these repositories are doing it as part of a job or as a hobby. However, this relies on the assumption that those who are contributing as part of their job are raising PRs during working hours, and those contributing as a hobby are more likely to be making contributions during weekends or evenings.
 
-Looking at the percentage of PRs that were opened on each day per repository, we can clearly see that across all the languages, there are fewer opened on weekends, suggesting that the majority of developers contributing to these repositories are doing so as part of a job. If this is the case, the developers working on OpenJDK must particularly enjoy a particularly good work-life balance, as only 6% of their PRs were opened on weekends.
+Looking at the percentage of PRs that were opened on each day per repository, we can clearly see that across all the languages, there are fewer opened on weekends, suggesting that the majority of developers contributing to these repositories are doing so as part of a job. If this is the case, the developers working on OpenJDK must enjoy a particularly good work-life balance, as only 6% of their PRs were opened on weekends.
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-time-pr-opened.jpg "Percentage of PRs opened per hour of the day")
 
-Working on the assumption that developers are predominantly raising PRs during the working day, the times at which PRs are opened can give us an idea of the geographical distributions of the developers working on each repository. For example, we might expect that within a company, the team members working on one project are co-located, so depending on time zones, the PRs are raised at specific times within the day.
+Working on the assumption that developers are predominantly raising PRs during the working day, the times at which PRs are opened can give us an idea of the geographical distributions of the developers working on each repository. For example, we might expect that within a company, the team members working on one project are likely to be located in the same timezone, the PRs are raised at specific times within the day.
 
 The above graph shows a rolling average of the percentage of PRs opened at each time, using a period of 3 hours. The graph produced from the Rust repository is flatter, suggesting that there is a more even geographical distribution of developers, compared to the other languages. CPython and OpenJDK seem to have some geographical distribution, with a modest concentration of their developers being based in America and Europe respectively. In contrast, Typescript seems to have a high concentration of developers based in America and Canada, which can be confirmed by exploring the [repository contributors](https://github.com/microsoft/TypeScript/graphs/contributors).
 
@@ -93,3 +93,5 @@ These PRs also have some of the highest numbers of comments - reaching up to 214
 ### Conclusion
 
 The data extracted from pull requests can provide some interesting insights into the quality of the code, but also provides some interesting opportunities. If we were to run our analysis on repositories that are known to use AI code generation tools, and compared them to repositories that are known to be human-written, we could start to analyse the impacts that these tools are having on the quality of the software we produce.
+
+Many thanks to all members of the AI Repository Analysis team including Chris Price, Diana Prahoveanu, James Strong, Jonny Spruce, Matthew Beanland, and Nick Gillen for helping to put together the tool which made this blog possible.
