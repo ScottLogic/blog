@@ -12,6 +12,7 @@ summary: Are story points just a waste of time? In this post, I take a critical 
   they are most commonly used. I argue that story points often cause more harm than
   good and that maybe you don't need them at all.
 author: dogle
+image: "/uploads/Story%20points%20are%20pointless.png"
 ---
 
 More and more I am of the opinion that putting points against stories is a waste of time. I've spent many hours, as I'm sure have you, sitting in meetings of various shapes and sizes guessing numbers and looking back I'm starting to question if it was really worth it. I'll say upfront, I'm going to be fairly critical of story pointing here, I'm not just being a grumpy old Yorkshireman! I think if we want to be truly agile, we need to make sure we are always questioning the way we work, looking for the value and actively making changes where we think there is room for improvement. [Allen Holub](https://holub.com/) once said "You don't change things by kicking the tires or working round the edges, you have to open the bonnet and get into the engine" (or words to that effect). Story pointing is often a fundamental part of many teams' ways of working and as such it can often be overlooked or ring-fenced when looking at improving process. Without further ado then, here's why I think story pointing is probably wasting your time.
