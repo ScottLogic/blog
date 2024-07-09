@@ -1,5 +1,5 @@
 ---
-title: Supply chain security in NPM - reasons to be optimistic about the future
+title: Supply chain security in NPM - the future's brighter than I thought
 date: 2024-07-09 12:00:00 Z
 categories:
 - Open Source
