@@ -29,12 +29,12 @@ The [package provenance](https://github.blog/2023-04-19-introducing-npm-package-
 
 Looking at NPM attacks over recent years, compromised NPM accounts of maintainers of legitimate and popular packages was a recurring theme up until around 2023. Attackers would use the account to publish a new version containing malicious changes, taking advantage of the wide distribution afforded by the pre-established popularity.
 
-In late 2022, NPM began requiring mandatory 2FA for the most popular packages, and also encouraged 2FA for other users. Practically this means a one-time code from an authenticator app is required when running the `npm publish` command. Judging by the absence of this method in more recent attacks, this has appears to have been successful.
+In late 2022, NPM began requiring mandatory 2FA for the most popular packages, and also encouraged 2FA for other users. Practically this means a one-time code from an authenticator app is required when running the `npm publish` command. Judging by the absence of this method in more recent attacks, this appears to have been successful.
 
 
 ## OpenSSF Best Practices Badge
 
-This [badge programme](https://github.com/coreinfrastructure/best-practices-badge?tab=readme-ov-file#summary-of-best-practices-criteria-passing-level) by the [Open Source Security Foundation](https://openssf.org/) offers general advice (which includes security) for maintainers, tools for tracking progress, and a badge that can be shown on a repository’s home page. Over a thousand projects have achieved a passing grade so far, and around a hundred have achieved silver or gold level. It would be great to see wider adoption, or even only using the security advice if maintainer time is constrained.
+This [badge programme](https://github.com/coreinfrastructure/best-practices-badge?tab=readme-ov-file#summary-of-best-practices-criteria-passing-level) by the [Open Source Security Foundation](https://openssf.org/) offers general advice (which includes security) for maintainers, tools for tracking progress, and a badge that can be shown on a repository’s home page. Over a thousand projects have achieved a passing grade so far, and around a hundred have achieved silver or gold level. It would be great to see wider adoption, or even simply use of the advice if there isn't maintainer time to achieve the badge.
 
 
 ## OpenSSF Securing Critical Projects
@@ -58,7 +58,7 @@ For this reason, I suggest that in some ways we can also think about consuming o
 
 ## Supply chain security products
 
-There is a thriving market of products which can not only alert developers to known attacks/vulnerabilities affecting their app, but also proactively analyse the package ecosystem for new ones. Much better than relying on finding out through the news, or worse - first-hand. Many of these products even a free tier for open source projects or small teams.
+There is a thriving market of products which can not only alert developers to known attacks/vulnerabilities affecting their app, but also proactively analyse the package ecosystem for new ones. Much better than relying on finding out through the news, or worse - first-hand. Many of these products offer a free tier for open source projects or small teams.
 
 If you’re not using something like this, or have it as feature of an existing platform you’re using, then I highly suggest you consider doing so. It may be too optimistic to assume that it’s someone else in your organisation is or should be doing something about it! Be sure to take good care in selecting a tool however - big and popular might give some peace of mind but isn’t always the best.
 
