@@ -35,7 +35,7 @@ In this blog post, I want to share one such resilience strategy – Monzo’s �
 
 ## **What prompted these operational resilience regulations?**
 
-The growing adoption of cloud technologies across financial services played a key role in the originsof both DORA and the UK’s Operational Resilience regime. In the days of on-premises hosting of banking systems, outages presented self-contained risks to the banks that suffered them. But we’re now in an era in which the big three cloud hyperscalers – Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) – host critical infrastructure for banks across the globe. If one of those hyperscalers has a major outage, it could have a significant economic impact.
+The growing adoption of cloud technologies across financial services played a key role in the origins of both DORA and the UK’s Operational Resilience regime. In the days of on-premises hosting of banking systems, outages presented self-contained risks to the banks that suffered them. But we’re now in an era in which the big three cloud hyperscalers – Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP) – host critical infrastructure for banks across the globe. If one of those hyperscalers has a major outage, it could have a significant economic impact.
 
 The four key areas of the Bank of England’s Operational Resilience regulations are governance, operational risk management, business continuity planning, and the management of outsourced relationships. The key pillars of DORA are regulations covering ICT risk management, ICT third-party risk management, digital operational resilience testing, ICT-related incidents, information sharing, and oversight of critical third-party providers.
 
@@ -63,6 +63,6 @@ While implementing such a system requires careful planning and investment, the l
 
 If TSB had followed a similar approach to Monzo, it could have started running a small amount of its customers’ data flow through the new system, while also running the same functions in the old system and comparing the outputs. The issues would have been highlighted quickly, allowing the customers to be moved back quickly to the old system until the issues were resolved.
 
-Monzo's success story exemplifies how embracing modern IT practices, such as scale-out technologies and live alternate systems, can be a starting point to revolutionise resilience and streamline compliance with the UK PRA Operational Resilience regime and DORA. As the examples from TSB and HSBC demonstrate, manual processes and risk mitigation aren’t as good as automated checks and balances, which is built in to the Monzo approach.
+Monzo's success story exemplifies how embracing modern IT practices, such as scale-out technologies and live alternate systems, can be a starting point to revolutionise resilience and streamline compliance with the UK PRA Operational Resilience regime and DORA. As the examples from TSB and HSBC demonstrate, manual processes and risk mitigation aren’t as good as automated checks and balances, which are built in to the Monzo approach.
 
 It does require careful planning and investment to design in resilience from the outset, but the benefits are reduced risk, lower costs, and happier customers. And in the end, that is what Operational Resilience is all about.
