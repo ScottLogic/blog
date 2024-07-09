@@ -3,18 +3,19 @@ title: Supply chain security in NPM - we can be optimistic about the future
 date: 2024-07-09 12:00:00 Z
 categories:
 - Open Source
-summary: Malicious code in dependency packages are making headlines every month, and
-  package managers like NPM aren’t the only vector for supply chain attacks via 3rd
-  party code. My usual sentiments include “oh another one, what a surprise”, before
-  thoughts turn to that someone really ought to be doing something about this. It
-  turns out that quite a few things are being done - read on and you too might gain
-  a brighter view and possibly even be inspired to be part of making that better future.
+summary: It seems barely a month goes by without a new supply chain attack making
+  the headlines, and malicious code in dependency packages from package managers such
+  as NPM is a common method. My usual sentiments include “oh another one, what a surprise”,
+  before thoughts eventually turn to - someone *really* ought to be doing something
+  about this. Fortunately, it turns out that quite a few things are indeed being done
+  - there's progress, activity, and promising ideas for the future. The outlook is
+  brighter than what we might have assumed.
 author: rwilliams
 ---
 
-Malicious code in dependency packages are making headlines every month, and package managers like NPM aren’t the only vector for supply chain attacks via 3rd party code. My usual sentiments include _“oh another one, what a surprise”_, before thoughts turn to that someone _really_ ought to be doing something about this. It turns out that quite a few things are being done - read on and you too might gain a brighter view and possibly even be inspired to be part of making that better future.
+It seems barely a month goes by without a new supply chain attack making the headlines, and malicious code in dependency packages from package managers such as NPM is a common method. My usual sentiments include _“oh another one, what a surprise”_, before thoughts eventually turn to - someone _really_ ought to be doing something about this. Fortunately, it turns out that quite a few things are indeed being done - there's progress, activity, and promising ideas for the future. The outlook is brighter than what we might have assumed.
 
-I’ll begin at the beginning of the supply chain, and work through to the ultimate developer consumer who builds and runs an application using dependency packages. Many of the topics are applicable to other package managers, but I’ll take an NPM perspective.
+I'll begin with package creation, and then meander through the supply chain to the ultimate developer consumer who builds and runs applications using dependency packages. Many of the topics are applicable to other package managers, but I’ll take an NPM perspective.
 
 
 ## Package provenance
