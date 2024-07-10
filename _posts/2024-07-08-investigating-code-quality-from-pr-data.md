@@ -10,7 +10,7 @@ author: alaws
 
 When a developer wants to make changes to a code base, they raise a pull request (PR) which contains the proposed changes to the code and a written summary of the changes made. Other developers will then review this PR, leaving comments or suggestions, before ultimately deciding whether to approve the changes.
 
-PRs contain valuable data which can help us to get an insight into the process of writing code, and the teams involved. For example, we can use LLMs to analyse the tone of PR review comments - showing us the attitude that reviewers have towards the proposed code changes..
+PRs contain valuable data which can help us to get an insight into the process of writing code, and the teams involved. For example, we can use LLMs to analyse the tone of PR review comments - showing us the attitude that reviewers have towards the proposed code changes.
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-tone-per-day.jpg
 "Comment Tone Analysis per Day")
@@ -94,6 +94,6 @@ These PRs also have some of the highest numbers of comments - reaching up to 214
 
 ### Conclusion
 
-The data extracted from pull requests can provide some interesting insights into the quality of the code, but also provides some interesting opportunities. If we were to run our analysis on repositories that are known to use AI code generation tools, and compared them to repositories that are known to be human-written, we could start to analyse the impacts that these tools are having on the quality of the software we produce.
+The data extracted from pull requests can provide some insights into the quality of the code, but also provides some interesting opportunities. If we were to run our analysis on repositories that are known to use AI code generation tools, and compared them to repositories that are known to be human-written, we could start to analyse the impacts that these tools are having on the quality of the software we produce.
 
 Many thanks to all members of the AI Repository Analysis team including Chris Price, Diana Prahoveanu, James Strong, Jonny Spruce, Matthew Beanland, and Nick Gillen for helping to put together the tool which made this blog possible.
