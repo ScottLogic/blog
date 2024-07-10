@@ -56,7 +56,7 @@ Looking at the percentage of PRs that were opened on each day per repository, we
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-time-pr-opened.jpg "Percentage of PRs opened per hour of the day")
 
-Working on the assumption that developers are predominantly raising PRs during the working day, the times at which PRs are opened can give us an idea of the geographical distributions of the developers working on each repository. For example, we might expect that within a company, the team members working on one project are likely to be located in the same timezone, the PRs are raised at specific times within the day.
+Working on the assumption that developers are predominantly raising PRs during the working day, the times at which PRs are opened can give us an idea of the geographical distributions of the developers working on each repository. For example, we might expect that within a company, the team members working on one project are likely to be located in the same timezone, and the PRs are raised at specific times within the day.
 
 The above graph shows a rolling average of the percentage of PRs opened at each time, using a period of 3 hours. The graph produced from the Rust repository is flatter, suggesting that there is a more even geographical distribution of developers, compared to the other languages. CPython and OpenJDK seem to have some geographical distribution, with a modest concentration of their developers being based in America and Europe respectively. In contrast, Typescript seems to have a high concentration of developers based in America and Canada, which can be confirmed by exploring the [repository contributors](https://github.com/microsoft/TypeScript/graphs/contributors).
 
