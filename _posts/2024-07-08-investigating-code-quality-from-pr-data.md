@@ -52,7 +52,7 @@ We configured the tool to pull the latest 1,000 PRs for each repository (as of 1
 
 The date and times that PRs were opened can give us an indication as to whether the developers working on these repositories are doing it as part of a job or as a hobby. However, this relies on the assumption that those who are contributing as part of their job are raising PRs during working hours, and those contributing as a hobby are more likely to be making contributions during weekends or evenings.
 
-Looking at the percentage of PRs that were opened on each day per repository, we can clearly see that across all the languages, there are fewer opened on weekends, suggesting that the majority of developers contributing to these repositories are doing so as part of a job. If this is the case, the developers working on OpenJDK must enjoy a particularly good work-life balance, as only 6% of their PRs were opened on weekends.
+Looking at the percentage of PRs that were opened on each day per repository, we can clearly see that across all of the repositories, there are fewer opened on weekends, suggesting that the majority of developers contributing to these repositories are doing so as part of a job. If this is the case, the developers working on OpenJDK must enjoy a particularly good work-life balance, as only 6% of their PRs were opened on weekends.
 
 ![jpg]({{ site.github.url }}/alaws/assets/code-quality/code-quality-analysis-time-pr-opened.jpg "Percentage of PRs opened per hour of the day")
 
