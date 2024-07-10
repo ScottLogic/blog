@@ -96,4 +96,4 @@ These PRs also have some of the highest numbers of comments - reaching up to 214
 
 The data extracted from pull requests can provide some interesting insights into the quality of the code, but also provides some interesting opportunities. If we were to run our analysis on repositories that are known to use AI code generation tools, and compared them to repositories that are known to be human-written, we could start to analyse the impacts that these tools are having on the quality of the software we produce.
 
-Many thanks to all members of the AI Repository Analysis team including Chris Price, Diana Prahoveanu, James Strong, Jonny Spruce, Matthew Beanland, and Nick Gillen for helping to put together the tool which made this blog possible.
+Many thanks to all members of the AI Repository Analysis team including Chris Price, Diana Prahoveanu, James Strong, Jonny Spruce, Matthew Beanland, and Nick Gillen for helping to put together the tool which made this blog post possible.
