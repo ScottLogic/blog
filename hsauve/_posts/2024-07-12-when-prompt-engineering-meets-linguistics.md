@@ -91,12 +91,12 @@ Role: Close friend
 Input: It’s getting late, don't you think?
 
 Steps: Consider the following elements: 
-- We’re at a party, it’s 2 a.m and I ask you the above {input}. 
+We’re at a party, it’s 2 a.m and I ask you the above {input}. 
 You know that I love a good night sleep and you have seen me yawning ostensibly 
 for the past 20 minutes.
 
-Expectation: Your task is to understand the underlying meaning of {input}, and based on the context, 
-provide me with an appropriate answer.
+Expectation: Your task is to understand the underlying meaning of {input}, 
+and based on the context, provide me with an appropriate answer.
 
 Narrowing: Your answer needs to be no more than three sentences.
 ~~~
