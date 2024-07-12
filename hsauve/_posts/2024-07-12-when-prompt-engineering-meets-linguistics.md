@@ -41,7 +41,7 @@ LLMs do not ‘think’. Their conversational abilities are what lead us to attr
 
 The word 'context' comes from the latin *con-texere*, which means 'to weave together'. Context is like weaving connections together and creating a frame in which an idea or an event lives.
 
-![My Image]({{ site.github.url }}/hsauve-scottlogic/assets/prompt-engineer/weaving.jpg "Two people weaving")
+![My Image]({{ site.github.url }}/hsauve/assets/prompt-engineer/weaving.jpg "Two people weaving")
 
 *Photo by [Karolina Kaboompics](https://www.pexels.com/@karolina-grabowska/) on [Pexels](https://www.pexels.com/photo/top-view-photo-of-person-weaving-4219653/)*
 
@@ -80,7 +80,7 @@ A prompt could contain several actions, which you may want to break down into di
 ## How does that work in action?
 
 First let’s take a look at how ChatGPT (GPT-4o) responds to: ```It’s getting late, don’t you think?``` 
-![My Image]({{ site.github.url }}/hsauve-scottlogic//assets/prompt-engineer/gpt-late.png "ChatGPT's response to a query")
+![My Image]({{ site.github.url }}/hsauve/assets/prompt-engineer/gpt-late.png "ChatGPT's response to a query")
 
 With zero context provided, ChatGPT gets philosophical. Interestingly enough however, the LLM is prompting me to say what's on my mind.
 Now let's formulate that again with the context it needs to provide a better suited and more appropriate response. We'll use the RISEN method for this exercise.
@@ -97,7 +97,7 @@ Expectation: Your task is to understand the underlying meaning of {input}, and b
 Narrowing: Your answer needs to be no more than three sentences.
 ~~~
 
-![My Image]({{ site.github.url }}/hsauve-scottlogic//assets/prompt-engineer/improved-gpt-late.png "ChatGPT's improved response")
+![My Image]({{ site.github.url }}/hsauve/assets/prompt-engineer/improved-gpt-late.png "ChatGPT's improved response")
 
 With a bit more context, ChatGPT gets me. Well-deserved sleep it is!
 
