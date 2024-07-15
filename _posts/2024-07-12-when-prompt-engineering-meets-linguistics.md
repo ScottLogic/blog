@@ -2,9 +2,11 @@
 title: In conversation with AI - when Prompt Engineering meets Linguistics
 date: 2024-07-12 00:00:00 Z
 categories:
-  - Artificial Intelligence
-tags:
-summary: As we keep on building the InferGPT chatbot, the task of crafting prompts is one that our team is experimenting with. In this blog I'll explore some of the challenges of prompt engineering from a Linguistics angle.
+- hsauve
+- Artificial Intelligence
+summary: As we keep on building the InferGPT chatbot, the task of crafting prompts
+  is one that our team is experimenting with. In this blog I'll explore some of the
+  challenges of prompt engineering from a Linguistics angle.
 author: hsauve
 ---
 
