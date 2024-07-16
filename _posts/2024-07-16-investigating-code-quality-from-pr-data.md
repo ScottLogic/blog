@@ -2,9 +2,10 @@
 title: Investigating Code Quality from PR Data
 date: 2024-07-16 00:00:00 Z
 categories:
-  - Artificial Intelligence
-tags:
-summary: Many of us are now using Generative AI to produce code, but what impact is this having on code quality? By analysing the data contained in PRs, our team has built a tool to investigate this.
+- Artificial Intelligence
+summary: Many of us are now using Generative AI to produce code, but what impact is
+  this having on code quality? By analysing the data contained in PRs, our team has
+  built a tool to investigate this.
 author: alaws
 ---
 
