@@ -11,7 +11,7 @@ summary: It seems barely a month goes by without a new supply chain attack makin
   - there's progress, activity, and promising ideas for the future. The outlook is
   brighter than what we might have assumed.
 author: rwilliams
-Image: "/uploads/Supply%20chain%20security%20in%20NPM.png"
+image: "/uploads/Supply%20chain%20security%20in%20NPM.png"
 ---
 
 It seems barely a month goes by without a new supply chain attack making the headlines, and malicious code in dependency packages from package registries such as NPM is a common method. My usual sentiments include _“oh another one, what a surprise”_, before thoughts eventually turn to - someone _really_ ought to be doing something about this. Fortunately, it turns out that quite a few things are indeed being done - there's progress, activity, and promising ideas for the future. The outlook is brighter than what we might have assumed.
