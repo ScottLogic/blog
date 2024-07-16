@@ -8,6 +8,7 @@ summary: As we keep on building the InferGPT chatbot, the task of crafting promp
   is one that our team is experimenting with. In this blog I'll explore some of the
   challenges of prompt engineering from a Linguistics angle.
 author: hsauve
+image: "/uploads/When%20prompt%20injections%20meets%20lingusitics.png"
 ---
 
 As we keep on building the [InferGPT](https://blog.scottlogic.com/2024/06/28/building-a-multi-agent-chatbot-without-langchain.html) chatbot internally at Scott Logic, the task of crafting prompts is one that our team is experimenting with, and through iterative testing and analysis, we’re getting a sense of the techniques that return the best results. 
