@@ -55,11 +55,11 @@ Technology is shifting from being a definitive source of facts and knowledge (e.
 
 **Believable Falsehoods**: GenAI's ability to generate highly convincing text, images, and video has opened the floodgates for misinformation. Bad actors can leverage these tools to create fake news, deepfakes, and scams at an unprecedented scale.
 
-Biassed Outputs: LLMs can absorb and amplify the biases present in their training data and prompts used by users, leading to discriminatory outputs that perpetuate societal inequities. Addressing these biases is a complex challenge as incorrect statements can be perpetuated rather than corrected.
+**Biassed Outputs**: LLMs can absorb and amplify the biases present in their training data and prompts used by users, leading to discriminatory outputs that perpetuate societal inequities. Addressing these biases is a complex challenge as incorrect statements can be perpetuated rather than corrected.
 
-**Intellectual Property Issues: ** GenAI's knack for remixing and recombining existing content raises thorny questions around intellectual property rights, attribution, and plagiarism.
+**Intellectual Property Issues**: GenAI's knack for remixing and recombining existing content raises thorny questions around intellectual property rights, attribution, and plagiarism.
 
-As these ethical risks mount, they threaten to undermine trust in GenAI and hinder its adoption, even in cases where the technology could drive significant value. Again compound AI architectures and careful integration with data platforms are key to addressing many of these. But some (for example IP issues) might be insurmountable with the current generation of the technology.
+As ethical risks mount, they threaten to undermine trust in GenAI and hinder its adoption, even in cases where the technology could drive significant value. Again compound AI architectures and careful integration with data platforms are key to addressing many of these. But some (for example IP issues) might be insurmountable with the current generation of the technology.
 
 # The Potential of a GenAI 2.0
 
