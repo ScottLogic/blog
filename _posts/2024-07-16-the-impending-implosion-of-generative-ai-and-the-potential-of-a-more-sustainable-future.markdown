@@ -65,8 +65,7 @@ As ethical risks mount, they threaten to undermine trust in GenAI and hinder its
 
 Whilst in the near term greater experience deploying these solutions may lead to a better understanding of appropriate and compelling use-cases this won’t address the underlying sustainability challenges. Expectations not matching reality and fundamental sustainability challenges may ultimately cause first-gen GenAI platforms to implode under their own weight. However, from the ashes, my prediction is that a second generation of the technology will rise - one that ideally is:
 
-* **Laser-focused on high-value problems** 
- - realistically solvable with compound AI with a clearer path to return on investment
+* **Laser-focused on high-value problems** - realistically solvable with compound AI with a clearer path to return on investment
 
 * **Dramatically more efficient** in its use of energy and computing resources
 
