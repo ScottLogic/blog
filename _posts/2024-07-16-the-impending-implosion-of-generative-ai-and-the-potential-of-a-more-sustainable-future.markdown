@@ -9,11 +9,11 @@ tags:
 - Artificial Intelligence
 - ocronk
 summary: Generative AI has a Sustainability problem - across environmental, cost and
-  and expectations. Many companies are racing to implement GenAI in their projects,
-  lured by its hyped potential to revolutionise industries. However in applying GenAI
-  to enterprise implementations, I am seeing firsthand the sustainability challenges
-  threatening to implode the first generation of this technology. This blog talks
-  about what I hope will rise from the ashes of such an implosion.
+  continuing to meet expectations. Many companies are racing to implement GenAI in
+  their projects, lured by its hyped potential to revolutionise industries. However
+  in applying GenAI to enterprise implementations, I am seeing firsthand the sustainability
+  challenges threatening to implode the first generation of this technology. This
+  blog talks about what I hope will rise from the ashes of such an implosion.
 author: ocronk
 image: "/uploads/sustainable-tech.png"
 Field name: 
