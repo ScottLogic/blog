@@ -15,6 +15,7 @@ summary: Generative AI has a Sustainability problem - across environmental, cost
   threatening to implode the first generation of this technology. This blog talks
   about what I hope will rise from the ashes of such an implosion.
 author: ocronk
+image: "/uploads/sustainable-tech.png"
 Field name: 
 ---
 
@@ -30,7 +31,7 @@ In May 2023,[ we called out the risks and challenges of implementing GenAI at la
 
 Despite these advancements, many organisations are still making the mistake of blindly applying AI models on their own, expecting miraculous results and returns on often significant upfront and ongoing investments. Sadly, those with non-trivial use cases (those that stretch too far beyond language processing) are quickly met with disappointment. While LLMs excel at document summarisation and given the right input generation of content, stretching them too far beyond this core competency into a broader silver bullet solution often leads to prototypes that fail to deliver in real-world production deployments.
 
-To address some of these shortcomings, the trend is shifting towards [Compound AI](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) and [Agentic AI](https://blog.scottlogic.com/2024/06/28/building-a-multi-agent-chatbot-without-langchain.html), which can combine LLMs with other technologies to create more sophisticated automation solutions. In particular seeding GenAI with enterprise data to provide context and alignment. This shift can not only compensate for some of the limitations of LLMs but can also help lower costs by offloading work from expensive AI models to more cost-effective traditional software and data engineering approaches. By leveraging the strengths of various technologies, organisations can build robust and scalable GenAI solutions that deliver real value.
+To address some of these shortcomings, there is a shift towards [Compound AI](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/) and [Agentic AI](https://blog.scottlogic.com/2024/06/28/building-a-multi-agent-chatbot-without-langchain.html), which can combine LLMs with other technologies to create more sophisticated automation solutions. In particular seeding GenAI with enterprise data to provide context and alignment. This shift can not only compensate for some of the limitations of LLMs but can also help lower costs by offloading work from expensive AI models to more cost-effective traditional software and data engineering approaches. By leveraging the strengths of various technologies, organisations can build robust and scalable GenAI solutions that deliver real value.
 
 ## Significant Sustainability Challenges
 
