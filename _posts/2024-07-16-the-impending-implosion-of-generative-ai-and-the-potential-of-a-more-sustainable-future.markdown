@@ -1,5 +1,5 @@
 ---
-title: Will Generative AI Implode and Can it Become More Sustainable?
+title: Will Generative AI Implode and Become More Sustainable?
 date: 2024-07-16 23:30:00 Z
 categories:
 - Artificial Intelligence
