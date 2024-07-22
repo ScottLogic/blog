@@ -1,0 +1,11 @@
+username  
+|   atom.xml  
+|   feed.xml  
+|   index.html  
+|   <picture file name> // store your picture at the root of your author folder
++---assets  
+|   |   // Put images for posts here  
+|   +---featured  
+|          // Put images for featured articles here  
++---_posts
+        // Put blog posts here
