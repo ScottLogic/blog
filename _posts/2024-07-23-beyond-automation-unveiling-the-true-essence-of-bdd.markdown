@@ -68,15 +68,14 @@ It goes against the Intention revealing & Focused principles. It is a common mis
 Example from [web](https://automationpanda.com/2017/01/30/bdd-101-writing-good-gherkin/):
 
 < <span style="color: red;">Bad</span> >
-```gherkin  
-Scenario: Google Image search shows pictures 
-    Given the user opens a web browser 
-    And the user navigates to "https://www.google.com/" 
-    When the user enters "panda" into the search bar 
-    Then links related to "panda" are shown on the results page 
-    When the user clicks on the "Images" link at the top of the results page 
-    Then images related to "panda" are shown on the results page 
-```
+### Scenario: Google Image search shows pictures 
+    * Given the user opens a web browser 
+    * And the user navigates to "https://www.google.com/" 
+    * When the user enters "panda" into the search bar 
+    * Then links related to "panda" are shown on the results page 
+    * When the user clicks on the "Images" link at the top of the results page 
+    * Then images related to "panda" are shown on the results page 
+
 < <span style="color: green;">Good</span> >
 ```gherkin 
   Scenario: Search from the search bar 
