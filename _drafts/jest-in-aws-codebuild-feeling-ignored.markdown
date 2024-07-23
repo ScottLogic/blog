@@ -26,9 +26,9 @@ I recently wasted a morning trying to work out why my Jest tests were running ju
 
 After throwing in a heap of debugging, and even toying with [CodeBuild breakpoints](https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html#ssm-pause-build), I inevitably reached my facepalm moment. And boy did I feel silly...
 
-Here's the lowdown, in case you ever find yourself in a similar situation.
-
 <img src="/uploads/jester-grrr.png" alt="Angry jester" title="I jest you not" style="display: block; margin: 1rem auto;" />
+
+Here's the lowdown, in case you ever find yourself in a similar situation.
 
 ## Jest Config
 
