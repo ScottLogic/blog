@@ -14,7 +14,7 @@ summary: Ignore Patterns in Jest config can lead to "no tests found" in CI
 author: cwilton
 ---
 
-[Jest](https://jestjs.io/) is a widely used JavaScript testing framework. It can be used "zero-config" with its sensible defaults, but you can tweak it with numerous configuration options.![jester-grrr.png](/uploads/jester-grrr.png)
+[Jest](https://jestjs.io/) is a widely used JavaScript testing framework. It can be used "zero-config" with its sensible defaults, but you can tweak it with numerous configuration options.
 
 I recently wasted a morning trying to work out why my Jest tests were running successfully locally, but weren't even being found when running in AWS CodeBuild. Here's the lowdown in case you ever find yourself in a similar situation.
 
@@ -24,7 +24,7 @@ I recently wasted a morning trying to work out why my Jest tests were running su
 
 As stated in the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring), care is needed when adding ignore patterns to your Jest config, else you might end up accidentally ignoring all your tests when run in your build environment. Because a pattern will be matched anywhere in a path, the recommendation is to use the `<rootDir>` token so that the pattern will only match within your project:
 
-```js
+```
 const config: Config = {
   modulePathIgnorePatterns: ['<rootDir>/build'],
 };
