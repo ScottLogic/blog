@@ -147,7 +147,12 @@ active-authors:
   - yblowers
   - zrubin
   - zwali
+  - asaha
 authors:
+  asaha:
+    name: 'Asrut Saha'
+    picture: picture.jpg
+    author-summary: "I am a Senior QA at SL with roughly 12 years of testing experience."
   amcgill:
     name: 'Alex McGill'
     picture: picture.jpg
