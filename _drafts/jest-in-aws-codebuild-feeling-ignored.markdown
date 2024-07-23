@@ -22,4 +22,12 @@ I recently wasted a morning trying to work out why my Jest tests were running su
 
 ## Jest Config
 
-As stated in the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring), when adding ignore patterns to your Jest config
+As stated in the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring), care is needed when adding ignore patterns to your Jest config, else you might end up accidentally ignoring all your tests when run in your build environment. Because a pattern will be matched anywhere in a path, the recommendation is to use the `<rootDir>` token so that the pattern will only match within your project:
+
+```js
+const config: Config = {
+  modulePathIgnorePatterns: ['<rootDir>/build'],
+};
+```
+
+Why is this important?
