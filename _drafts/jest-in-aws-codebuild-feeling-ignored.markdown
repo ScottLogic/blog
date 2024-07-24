@@ -31,7 +31,7 @@ After throwing in a heap of debugging, and even toying with [CodeBuild breakpoin
 
 Here's the lowdown, in case you ever find yourself in a similar situation.
 
-## Jest Config
+## Jest config
 
 Take a look at this seemingly innocuous config snippet:
 
@@ -41,7 +41,7 @@ Take a look at this seemingly innocuous config snippet:
 };
 </code></pre>
 
-I normally use [ts-jest transformer](https://kulshekhar.github.io/ts-jest/docs/) so I can write test _and_ implementation code in TypeScript. Historically I have chosen to ignore the build folder to hide it from Jest's module loader, to avoid accidentally importing from any of the built JavaScript files (which my IDE might suggest in its efforts to be helpful, and I might blindly accept in my efforts to be productive).
+For various reasons including efficiency (Jest can feel sloooow at the best of times), I have historically chosen to ignore the build directory to hide it from Jest's module loading. I'd never given it much thought until now; it was just one of those boilerplate snippets I find myself repeating whenever I add Jest to a project.
 
 However, the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring) state clearly that care is needed when defining ignore patterns, else you might end up accidentally ignoring all your tests or modules when run in a Continuous Integration build environment. These patterns are matched anywhere in the _absolute path_ to a resource, not just within the project directory, so the recommendation is to use the `<rootDir>` token to match strictly within your project:
 
@@ -50,7 +50,7 @@ However, the [Jest configuration docs](https://jestjs.io/docs/configuration#modu
 };
 </code></pre>
 
-## Pipeline Shenanigans
+## Pipeline shenanigans
 
 My carelessness went unnoticed until I put together an [AWS CodePipeline](https://aws.amazon.com/codepipeline/) to run the tests in CodeBuild before deployment. And to my surprise, they failed. Let's look again at that error message:
 
@@ -65,11 +65,11 @@ As you can see, CodeBuild puts everything under a directory named "codebuild", w
 
 <img src="/uploads/homer-hedge.gif" alt="Homer disappears into a hedge" title="Can I disappear now please" style="display: block; margin: 1rem auto;" />
 
-## Final Thoughts
+## What did we learn?
 
 Even salty old coding dogs need an occasional reminder: [RTFM](https://en.wikipedia.org/wiki/RTFM)!
 
-In fact, when using ts-jest I have no need to exclude the build folder in my config, as I can rely on includes / excludes in my test <span style="">ts-config.json</span>. But I will still need to remember this when working on purely JavaScript projects.
+In fact, when using ts-jest I have no need to exclude the build directory in my Jest config, as I can rely on includes / excludes in my test `tsconfig.json`. Therefore I will be removing that line from my personal TypeScript / Jest boiletplate from now on. But I may still want to exclude built files when working on purely JavaScript projects, so this is a lesson learned.
 
-Note that the use of `<rootDir>/` is encouraged for all Jest's path patterns, including `coveragePathIgnorePatterns`, `moduleNameMapper`, `watchPathIgnorePatterns` and more. You have been warned.
+Note that the use of `<rootDir>/` is encouraged for most of Jest's path patterns, including `coveragePathIgnorePatterns`, `moduleNameMapper`, `watchPathIgnorePatterns` and more. Ignore that at your peril!
 
