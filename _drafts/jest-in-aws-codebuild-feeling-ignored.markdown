@@ -43,7 +43,7 @@ Take a look at this seemingly innocuous config snippet:
 
 For various reasons including efficiency (Jest can feel sloooow to get going at the best of times), I have historically chosen to ignore the build directory to hide it from Jest's module loading. I'd never given it much thought until now; it's just one of those boilerplate snippets I find myself repeating whenever I add Jest to a project.
 
-However, the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring) state clearly that care is needed when defining ignore patterns, else you might end up accidentally ignoring all your tests or modules when run in a Continuous Integration build environment. These patterns are matched anywhere in the _absolute path_ to a resource, not just within the project directory, so the recommendation is to use the `<rootDir>` token to match strictly within your project:
+However, the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring) state clearly that care is needed when defining ignore patterns, else you might end up accidentally ignoring all your tests or modules when run in a Continuous Integration build environment. The reason is this: patterns match anywhere in the _absolute path_ to a resource, not just within the project directory, so the recommendation is to use the `<rootDir>` token to match strictly within your project:
 
 <pre style="margin-left: 0; margin-right: 0;"><code>const config: Config = {
   modulePathIgnorePatterns: ['&lt;rootDir&gt;/build'],
@@ -52,7 +52,7 @@ However, the [Jest configuration docs](https://jestjs.io/docs/configuration#modu
 
 ## Pipeline shenanigans
 
-My carelessness went unnoticed until I put together an [AWS CodePipeline](https://aws.amazon.com/codepipeline/) to run the tests in CodeBuild before deployment. And to my surprise, they failed. Let's look again at that error message:
+My carelessness went unnoticed until I put together an [AWS CodePipeline](https://aws.amazon.com/codepipeline/) to run the tests in CodeBuild before deployment. Let's look again at that error message:
 
 <pre style="margin-left: 0; margin-right: 0;"><code>&gt; jest
 
@@ -69,7 +69,7 @@ As you can see, CodeBuild puts everything under a directory named "codebuild", w
 
 Even salty old coding dogs need an occasional reminder: [RTFM](https://en.wikipedia.org/wiki/RTFM)!
 
-In fact, when using [ts-jest transformer](https://kulshekhar.github.io/ts-jest/docs/) I have no need to ignore the build directory in my Jest config, as I can rely on includes / excludes in my test `tsconfig.json`. Therefore I will be removing that line from my personal TypeScript / Jest boiletplate from now on. But I may still want to exclude built files when working on purely JavaScript projects, so this is a valuable lesson learned.
+In fact, when using [ts-jest transformer](https://kulshekhar.github.io/ts-jest/docs/) as I normally do, I have no need to ignore the build directory in my Jest config, as I can rely on includes / excludes in my test `tsconfig.json`. Therefore I will be removing that line from my personal TypeScript / Jest boilerplate from now on.
 
-Note that the use of `<rootDir>/` is encouraged for most of Jest's path patterns, including `coveragePathIgnorePatterns`, `moduleNameMapper`, `watchPathIgnorePatterns` and more. Ignore that at your peril!
+But the use of `<rootDir>/` is encouraged for most of Jest's path pattern config properties, including `coveragePathIgnorePatterns`, `moduleNameMapper`, `watchPathIgnorePatterns` and more, so this is a valuable lesson learned. Ignore at your peril!
 
