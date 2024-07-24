@@ -20,7 +20,7 @@ The ultimate goal of BDD is to enhance collaboration among different stakeholder
 
 Each practice has its own purpose. The following figure shows the input and output from each BDD practice.
 
-![BDDpractices.PNG]({{ site.github.url }}/uploads/BDDpractices.PNG)
+![BDDpractices.png]({{ site.github.url }}/uploads/BDDpractices.png)
 
 In discovery practice, we typically start with the product owner (or business analyst, or customer) providing information about the user story. Sufficient detail is presented to give stakeholders a basic understanding and to enable exploration of the story's scope. This user story serves as the input for the discovery activity.
 
