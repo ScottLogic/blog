@@ -18,8 +18,7 @@ author: cwilton
 
 I recently wasted a morning trying to work out why my Jest tests were running just fine locally, but weren't even being found when run in AWS CodeBuild:
 
-<pre style="margin-left: 0; margin-right: 0;"><code>
-&gt; jest
+<pre style="margin-left: 0; margin-right: 0;"><code>&gt; jest
 
 No tests found, exiting with code 1
 Run with `--passWithNoTests` to exit with code 0
@@ -36,8 +35,7 @@ Here's the lowdown, in case you ever find yourself in a similar situation.
 
 Take a look at this seemingly innocuous config snippet:
 
-<pre style="margin-left: 0; margin-right: 0;"><code>
-const config: Config = {
+<pre style="margin-left: 0; margin-right: 0;"><code>const config: Config = {
   modulePathIgnorePatterns: ['build'],
   ...
 };
@@ -47,9 +45,8 @@ I normally use [ts-jest transformer](https://kulshekhar.github.io/ts-jest/docs/)
 
 However, the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring) state clearly that care is needed when defining ignore patterns, else you might end up accidentally ignoring all your tests or modules when run in a Continuous Integration build environment. These patterns are matched anywhere in the _absolute path_ to a resource, not just within the project directory, so the recommendation is to use the `<rootDir>` token to match strictly within your project:
 
-<pre style="margin-left: 0; margin-right: 0;"><code>
-const config: Config = {
-  modulePathIgnorePatterns: ['<rootDir>/build'],
+<pre style="margin-left: 0; margin-right: 0;"><code>const config: Config = {
+  modulePathIgnorePatterns: ['&lt;rootDir&gt;/build'],
 };
 </code></pre>
 
@@ -57,8 +54,7 @@ const config: Config = {
 
 My carelessness went unnoticed until I put together an [AWS CodePipeline](https://aws.amazon.com/codepipeline/) to run the tests in CodeBuild before deployment. And to my surprise, they failed. Let's look again at that error message:
 
-<pre style="margin-left: 0; margin-right: 0;"><code>
-&gt; jest
+<pre style="margin-left: 0; margin-right: 0;"><code>&gt; jest
 
 No tests found, exiting with code 1
 Run with `--passWithNoTests` to exit with code 0
