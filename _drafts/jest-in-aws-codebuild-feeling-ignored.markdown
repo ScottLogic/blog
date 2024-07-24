@@ -69,7 +69,7 @@ As you can see, CodeBuild puts everything under a directory named "codebuild", w
 
 Even salty old coding dogs need an occasional reminder: [RTFM](https://en.wikipedia.org/wiki/RTFM)!
 
-In fact, when using ts-jest I have no need to exclude the build directory in my Jest config, as I can rely on includes / excludes in my test `tsconfig.json`. Therefore I will be removing that line from my personal TypeScript / Jest boiletplate from now on. But I may still want to exclude built files when working on purely JavaScript projects, so this is a lesson learned.
+In fact, when using [ts-jest transformer](https://kulshekhar.github.io/ts-jest/docs/) I have no need to ignore the build directory in my Jest config, as I can rely on includes / excludes in my test `tsconfig.json`. Therefore I will be removing that line from my personal TypeScript / Jest boiletplate from now on. But I may still want to exclude built files when working on purely JavaScript projects, so this is a valuable lesson learned.
 
 Note that the use of `<rootDir>/` is encouraged for most of Jest's path patterns, including `coveragePathIgnorePatterns`, `moduleNameMapper`, `watchPathIgnorePatterns` and more. Ignore that at your peril!
 
