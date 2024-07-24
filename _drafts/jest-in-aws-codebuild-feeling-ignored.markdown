@@ -16,17 +16,15 @@ author: cwilton
 
 [Jest](https://jestjs.io/) is a widely used JavaScript testing framework. It can be used "zero-config" with its sensible defaults, but you can tweak it with numerous configuration options.
 
-I recently wasted a morning trying to work out why my Jest tests were running just fine locally, but weren't even being found when running in AWS CodeBuild:
+I recently wasted a morning trying to work out why my Jest tests were running just fine locally, but weren't even being found when run in AWS CodeBuild:
 
-<pre style="margin-left: 0; margin-right: 0;">
-<code>
+<pre style="margin-left: 0; margin-right: 0;"><code>
 &gt; jest
 
 No tests found, exiting with code 1
 Run with `--passWithNoTests` to exit with code 0
 No files found in /codebuild/output/src323229886/src/backend.
-</code>
-</pre>
+</code></pre>
 
 After throwing in a heap of debugging, and even toying with [CodeBuild breakpoints](https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html#ssm-pause-build), I inevitably reached my facepalm moment. And boy did I feel silly...
 
@@ -36,12 +34,44 @@ Here's the lowdown, in case you ever find yourself in a similar situation.
 
 ## Jest Config
 
-As stated in the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring), care is needed when adding ignore patterns to your Jest config, else you might end up accidentally ignoring all your tests when run in your build environment. Because a pattern will be matched anywhere in a path, the recommendation is to use the `<rootDir>` token so that the pattern will only match within your project:
+Take a look at this seemingly innocuous config snippet:
 
-```
+<pre style="margin-left: 0; margin-right: 0;"><code>
+const config: Config = {
+  modulePathIgnorePatterns: ['build'],
+  ...
+};
+</code></pre>
+
+I normally use [ts-jest transformer](https://kulshekhar.github.io/ts-jest/docs/) so I can write tests _and_ implementation code in TypeScript, but I choose to ignore the build folder to hide it from Jest's module loader, to avoid accidentally importing from any of the built JavaScript files (which my IDE might suggest in its efforts to be helpful, and I might blindly accept in my efforts to be productive).
+
+However, the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring) state clearly that care is needed when defining ignore patterns, else you might end up accidentally ignoring all your tests or modules when run in a Continuous Integration build environment. These patterns are matched anywhere in the _absolute path_ to a resource, not just within the project directory, so the recommendation is to use the `<rootDir>` token to match strictly within your project:
+
+<pre style="margin-left: 0; margin-right: 0;"><code>
 const config: Config = {
   modulePathIgnorePatterns: ['<rootDir>/build'],
 };
-```
+</code></pre>
 
-Why is this important?
+## Pipeline Shenanigans
+
+My carelessness went unnoticed until I put together an [AWS CodePipeline](https://aws.amazon.com/codepipeline/) to run the tests in CodeBuild before deployment. And to my surprise, they failed. Let's look again at that error message:
+
+<pre style="margin-left: 0; margin-right: 0;"><code>
+&gt; jest
+
+No tests found, exiting with code 1
+Run with `--passWithNoTests` to exit with code 0
+<span style="font-weight: bold">No files found in /codebuild/output/src323229886/src/backend.</span>
+</code></pre>
+
+Yep, CodeBuild puts everything under a directory named "codebuild", which includes the word "build" ... Which I am ignoring.
+
+<img src="/uploads/homer-hedge.gif" alt="Homer disappears into a hedge" title="Can I disappear now please" style="display: block; margin: 1rem auto;" />
+
+## Final Words
+
+Even salty old coding dogs need an occasional reminder: [RTFM](https://en.wikipedia.org/wiki/RTFM)!
+
+Note that the use of `<rootDir>/` is encouraged for all Jest's path patterns, including `coveragePathIgnorePatterns`, `moduleNameMapper`, `watchPathIgnorePatterns` and more. You have been warned.
+
