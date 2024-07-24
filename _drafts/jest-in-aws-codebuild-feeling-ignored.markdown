@@ -65,7 +65,7 @@ As you can see, CodeBuild puts everything under a directory named "codebuild", w
 Because path patterns in Jest config match anywhere in the _absolute path_ to a resource, not just within the project directory, the recommendation in the docs is to use the `<rootDir>` token to match strictly within your project:
 
 <pre style="margin-inline: 0; margin-block: 1.5rem"><code>const config: Config = {
-  modulePathIgnorePatterns: ['&lt;rootDir&gt;/build'],
+  modulePathIgnorePatterns: ['<span style="font-weight: bold">&lt;rootDir&gt;</span>/build'],
 };
 </code></pre>
 
@@ -77,4 +77,4 @@ Even salty old coding dogs need an occasional reminder: [RTFM](https://en.wikipe
 
 In fact, when using [ts-jest transformer](https://kulshekhar.github.io/ts-jest/docs/) as I normally do, I have no need to ignore the build directory in my Jest config, as I can rely on includes / excludes in my test `tsconfig.json`. Therefore I will be removing that line from my personal TypeScript / Jest boilerplate from now on.
 
-But the use of `<rootDir>/` is encouraged for most of Jest's path pattern config properties, including `coveragePathIgnorePatterns`, `moduleNameMapper`, `watchPathIgnorePatterns` and more, so this is a valuable lesson learned. Ignore at your peril!
+But the use of `<rootDir>` is encouraged for most of Jest's path pattern config properties, including `coveragePathIgnorePatterns`, `moduleNameMapper`, `watchPathIgnorePatterns` and more, so this is a valuable lesson learned. Ignore at your peril!
