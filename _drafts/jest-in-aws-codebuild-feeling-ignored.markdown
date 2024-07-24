@@ -61,7 +61,7 @@ Run with `--passWithNoTests` to exit with code 0
 <span style="font-weight: bold">No files found in /codebuild/output/src323229886/src/backend.</span>
 </code></pre>
 
-Yep, CodeBuild puts everything under a directory named "codebuild", which includes the word "build" ... Which I am ignoring.
+As you can see, CodeBuild puts everything under a directory named "codebuild", which includes the word "build" ... which I am explicitly ignoring.
 
 <img src="/uploads/homer-hedge.gif" alt="Homer disappears into a hedge" title="Can I disappear now please" style="display: block; margin: 1rem auto;" />
 
