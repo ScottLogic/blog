@@ -16,6 +16,8 @@ author: cwilton
 
 [Jest](https://jestjs.io/) is a widely used JavaScript testing framework. It can be used "zero-config" with sensible defaults, but you can tweak it with numerous configuration options. It turns out you can also tweak it to mess with your own head.
 
+<img src="/uploads/jester-grrr.png" alt="Angry jester" title="I jest you not" style="display: block; margin: 1rem auto;" />
+
 I recently wasted a morning trying to work out why my Jest tests were running just fine locally, but weren't even being _found_ when run in [AWS CodeBuild](https://aws.amazon.com/codebuild/features/?nc=sn&loc=2):
 
 <pre style="margin-inline: 0; margin-block: 1.5rem"><code>&gt; jest
@@ -26,10 +28,6 @@ No files found in /codebuild/output/src323229886/src/backend.
 </code></pre>
 
 After throwing in a heap of debugging, and even toying with [CodeBuild breakpoints](https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html#ssm-pause-build), I inevitably reached my facepalm moment. And boy did I feel silly...
-
-<img src="/uploads/jester-grrr.png" alt="Angry jester" title="I jest you not" style="display: block; margin: 1rem auto;" />
-
-Here's the lowdown, in case you ever find yourself in a similar situation.
 
 ## Jest config
 
