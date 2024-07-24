@@ -41,18 +41,15 @@ Take a look at this seemingly innocuous config snippet:
 };
 </code></pre>
 
-For various reasons including efficiency (Jest can feel sloooow to get going at the best of times), I have historically chosen to ignore the build directory to hide it from Jest's module loading. I'd never given it much thought until now; it's just one of those boilerplate snippets I find myself repeating whenever I add Jest to a project.
-
-However, the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring) state clearly that care is needed when defining ignore patterns, else you might end up accidentally ignoring all your tests or modules when run in a Continuous Integration build environment. The reason is this: patterns match anywhere in the _absolute path_ to a resource, not just within the project directory, so the recommendation is to use the `<rootDir>` token to match strictly within your project:
-
-<pre style="margin-left: 0; margin-right: 0;"><code>const config: Config = {
-  modulePathIgnorePatterns: ['&lt;rootDir&gt;/build'],
-};
-</code></pre>
+For various reasons including efficiency (Jest can feel sloooow to get going at the best of times), I have historically chosen to ignore the build directory to hide it from Jest's module loading. I'd never given it much thought until now; it's just one of those boilerplate snippets I find myself carelessly repeating whenever I add Jest to a project.
 
 ## Pipeline shenanigans
 
-My carelessness went unnoticed until I put together an [AWS CodePipeline](https://aws.amazon.com/codepipeline/) to run the tests in CodeBuild before deployment. Let's look again at that error message:
+My carelessness went unnoticed until I put together an [AWS CodePipeline](https://aws.amazon.com/codepipeline/) to run the tests in CodeBuild before deployment, and to my surprise, the job failed.
+
+Hmm. Cue much head scratching and aforementioned debugging. I eventually went back to check the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring), which state that care is needed when defining ignore patterns, else you might end up accidentally ignoring all your tests when run in a Continuous Integration build environment. Well now, that sounds familiar...
+
+Let's look again at the error message:
 
 <pre style="margin-left: 0; margin-right: 0;"><code>&gt; jest
 
@@ -61,9 +58,18 @@ Run with `--passWithNoTests` to exit with code 0
 <span style="font-weight: bold">No files found in /codebuild/output/src323229886/src/backend.</span>
 </code></pre>
 
-As you can see, CodeBuild puts everything under a directory named "codebuild", which includes the word "build" ... which I am explicitly ignoring.
+As you can see, CodeBuild puts everything under a directory named "codebuild", which includes the word "build" ... which I am explicitly instructing Jest to ignore.
 
 <img src="/uploads/homer-hedge.gif" alt="Homer disappears into a hedge" title="Can I disappear now please" style="display: block; margin: 1rem auto;" />
+
+Because path patterns in Jest config match anywhere in the _absolute path_ to a resource, not just within the project directory, the recommendation in the docs is to use the `<rootDir>` token to match strictly within your project:
+
+<pre style="margin-left: 0; margin-right: 0;"><code>const config: Config = {
+  modulePathIgnorePatterns: ['&lt;rootDir&gt;/build'],
+};
+</code></pre>
+
+Et voilà: the tests are found, and the job passes ✅
 
 ## What did we learn?
 
@@ -72,4 +78,3 @@ Even salty old coding dogs need an occasional reminder: [RTFM](https://en.wikipe
 In fact, when using [ts-jest transformer](https://kulshekhar.github.io/ts-jest/docs/) as I normally do, I have no need to ignore the build directory in my Jest config, as I can rely on includes / excludes in my test `tsconfig.json`. Therefore I will be removing that line from my personal TypeScript / Jest boilerplate from now on.
 
 But the use of `<rootDir>/` is encouraged for most of Jest's path pattern config properties, including `coveragePathIgnorePatterns`, `moduleNameMapper`, `watchPathIgnorePatterns` and more, so this is a valuable lesson learned. Ignore at your peril!
-
