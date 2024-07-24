@@ -41,7 +41,7 @@ Take a look at this seemingly innocuous config snippet:
 };
 </code></pre>
 
-For various reasons including efficiency (Jest can feel sloooow at the best of times), I have historically chosen to ignore the build directory to hide it from Jest's module loading. I'd never given it much thought until now; it was just one of those boilerplate snippets I find myself repeating whenever I add Jest to a project.
+For various reasons including efficiency (Jest can feel sloooow to get going at the best of times), I have historically chosen to ignore the build directory to hide it from Jest's module loading. I'd never given it much thought until now; it's just one of those boilerplate snippets I find myself repeating whenever I add Jest to a project.
 
 However, the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring) state clearly that care is needed when defining ignore patterns, else you might end up accidentally ignoring all your tests or modules when run in a Continuous Integration build environment. These patterns are matched anywhere in the _absolute path_ to a resource, not just within the project directory, so the recommendation is to use the `<rootDir>` token to match strictly within your project:
 
