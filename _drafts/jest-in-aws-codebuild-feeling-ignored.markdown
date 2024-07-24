@@ -18,7 +18,7 @@ author: cwilton
 
 I recently wasted a morning trying to work out why my Jest tests were running just fine locally, but weren't even being _found_ when run in [AWS CodeBuild](https://aws.amazon.com/codebuild/features/?nc=sn&loc=2):
 
-<pre style="margin-left: 0; margin-right: 0;"><code>&gt; jest
+<pre style="margin-inline: 0; margin-block: 1.5rem"><code>&gt; jest
 
 No tests found, exiting with code 1
 Run with `--passWithNoTests` to exit with code 0
@@ -35,7 +35,7 @@ Here's the lowdown, in case you ever find yourself in a similar situation.
 
 Take a look at this seemingly innocuous config snippet:
 
-<pre style="margin-left: 0; margin-right: 0;"><code>const config: Config = {
+<pre style="margin-inline: 0; margin-block: 1.5rem"><code>const config: Config = {
   modulePathIgnorePatterns: ['build'],
   ...
 };
@@ -51,7 +51,7 @@ Hmm. Cue much head scratching and aforementioned debugging. I eventually went ba
 
 Let's look again at the error message:
 
-<pre style="margin-left: 0; margin-right: 0;"><code>&gt; jest
+<pre style="margin-inline: 0; margin-block: 1.5rem"><code>&gt; jest
 
 No tests found, exiting with code 1
 Run with `--passWithNoTests` to exit with code 0
@@ -64,7 +64,7 @@ As you can see, CodeBuild puts everything under a directory named "codebuild", w
 
 Because path patterns in Jest config match anywhere in the _absolute path_ to a resource, not just within the project directory, the recommendation in the docs is to use the `<rootDir>` token to match strictly within your project:
 
-<pre style="margin-left: 0; margin-right: 0;"><code>const config: Config = {
+<pre style="margin-inline: 0; margin-block: 1.5rem"><code>const config: Config = {
   modulePathIgnorePatterns: ['&lt;rootDir&gt;/build'],
 };
 </code></pre>
