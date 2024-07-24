@@ -16,7 +16,7 @@ author: cwilton
 
 [Jest](https://jestjs.io/) is a widely used JavaScript testing framework. It can be used "zero-config" with its sensible defaults, but you can tweak it with numerous configuration options. It turns out you can also tweak it to mess with your own sanity.
 
-I recently wasted a morning trying to work out why my Jest tests were running just fine locally, but weren't even being found when run in AWS CodeBuild:
+I recently wasted a morning trying to work out why my Jest tests were running just fine locally, but weren't even being _found_ when run in AWS CodeBuild:
 
 <pre style="margin-left: 0; margin-right: 0;"><code>&gt; jest
 
