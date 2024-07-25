@@ -1,6 +1,7 @@
 ---
 title: 'Jest in AWS CodeBuild: feeling ignored'
 date: 2024-07-25 10:00:00 Z
+published: false
 categories:
 - Testing
 tags:
