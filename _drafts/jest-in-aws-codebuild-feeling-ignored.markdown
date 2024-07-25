@@ -29,7 +29,7 @@ No files found in /codebuild/output/src323229886/src/backend.
 
 After throwing in a heap of debugging, and even toying with [CodeBuild breakpoints](https://docs.aws.amazon.com/codebuild/latest/userguide/session-manager.html#ssm-pause-build), I inevitably reached my facepalm moment. And boy did I feel silly...
 
-## Jest config
+## Ignorance is a choice
 
 Take a look at this seemingly innocuous config snippet:
 
@@ -39,11 +39,11 @@ Take a look at this seemingly innocuous config snippet:
 };
 </code></pre>
 
-For various reasons including efficiency (Jest can feel sloooow to get going at the best of times), I have historically chosen to ignore the build directory to hide it from Jest's module loading. I'd never given it much thought until now; it's just one of those boilerplate snippets I find myself carelessly repeating whenever I add Jest to a project.
+For various reasons I can no longer fully recall (which is a lesson in itself), I have historically chosen to ignore the build directory to hide it from Jest's module loading. I'd never given it much thought until now; it's just one of those boilerplate snippets I find myself carelessly repeating whenever I add Jest to a project.
 
-## Pipeline shenanigans
+## Computer says no
 
-My carelessness went unnoticed until I put together an [AWS CodePipeline](https://aws.amazon.com/codepipeline/) to run the tests in CodeBuild before deployment, and to my surprise, the job failed.
+My carelessness went unnoticed until I put together an [AWS CodePipeline](https://aws.amazon.com/codepipeline/) to run tests in CodeBuild before deployment, and to my surprise, the job failed.
 
 Hmm. Cue much head scratching and aforementioned debugging. I eventually went back to check the [Jest configuration docs](https://jestjs.io/docs/configuration#modulepathignorepatterns-arraystring), which state that care is needed when defining ignore patterns, else you might end up accidentally ignoring all your tests when run in a Continuous Integration build environment. Well now, that sounds familiar...
 
@@ -60,6 +60,8 @@ As you can see, CodeBuild puts everything under a directory named "codebuild", w
 
 <img src="/uploads/homer-hedge.gif" alt="Homer disappears into a hedge" title="Can I disappear now please" style="display: block; margin: 1rem auto;" />
 
+## Rooting for the bad guy
+
 Because path patterns in Jest config match anywhere in the _absolute path_ to a resource, not just within the project directory, the recommendation in the docs is to use the `<rootDir>` token to match strictly within your project:
 
 <pre style="margin-inline: 0; margin-block: 1.5rem"><code>const config: Config = {
@@ -69,7 +71,7 @@ Because path patterns in Jest config match anywhere in the _absolute path_ to a 
 
 Et voilà: the tests are found, and the job passes ✅
 
-## What did we learn?
+## Every day is a school day
 
 Even salty old coding dogs need an occasional reminder: [RTFM](https://en.wikipedia.org/wiki/RTFM)!
 
