@@ -62,7 +62,7 @@ As you can see, CodeBuild puts everything under a directory named "codebuild", w
 
 ## Rooting for the bad guy
 
-Because path patterns in Jest config match anywhere in the _absolute path_ to a resource, not just within the project directory, the recommendation in the docs is to use the `<rootDir>` token to match strictly within your project:
+Because path patterns in Jest config match anywhere in the _absolute path_ to a resource, not just within the project directory, the recommendation is to use the `<rootDir>` token to match strictly within your project:
 
 <pre style="margin-inline: 0; margin-block: 1.5rem"><code>const config: Config = {
   modulePathIgnorePatterns: ['<span style="font-weight: bold">&lt;rootDir&gt;</span>/build'],
