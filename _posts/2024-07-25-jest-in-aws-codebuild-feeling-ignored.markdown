@@ -35,7 +35,7 @@ After throwing in a heap of debugging, and even toying with [CodeBuild breakpoin
 Take a look at this seemingly innocuous config snippet:
 
 <pre style="margin-inline: 0; margin-block: 1.5rem"><code>const config: Config = {
-  modulePathIgnorePatterns: ['build'],
+  modulePathIgnorePatterns: ['build/'],
   ...
 };
 </code></pre>
@@ -66,7 +66,7 @@ As you can see, CodeBuild puts everything under a directory named "codebuild", w
 Because path patterns in Jest config match anywhere in the _absolute path_ to a resource, not just within the project directory, the recommendation is to use the `<rootDir>` token to match strictly within your project:
 
 <pre style="margin-inline: 0; margin-block: 1.5rem"><code>const config: Config = {
-  modulePathIgnorePatterns: ['<span style="font-weight: bold">&lt;rootDir&gt;</span>/build'],
+  modulePathIgnorePatterns: ['<span style="font-weight: bold">&lt;rootDir&gt;</span>/build/'],
 };
 </code></pre>
 
