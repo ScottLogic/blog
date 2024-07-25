@@ -39,7 +39,7 @@ Take a look at this seemingly innocuous config snippet:
 };
 </code></pre>
 
-For various reasons I can no longer fully recall (which is a lesson in itself), I have historically chosen to ignore the build directory to hide it from Jest's module loading. I'd never given it much thought until now; it's just one of those boilerplate snippets I find myself carelessly repeating whenever I add Jest to a project.
+For various reasons I can no longer fully recall (which is a lesson in itself), I have historically chosen to ignore the build directory in TypeScript projects to hide it from Jest's module loading. I'd never given it much thought until now; it's just one of those boilerplate snippets I find myself carelessly repeating whenever I add Jest to a project.
 
 ## Computer says no
 
