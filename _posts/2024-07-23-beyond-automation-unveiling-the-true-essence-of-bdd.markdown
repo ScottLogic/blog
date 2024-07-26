@@ -16,7 +16,11 @@ Many organisations claim they are applying Behaviour-Driven Development (BDD). W
 
 These days, some still believe that writing a test case in the Given-When-Then format constitutes BDD, or that BDD is synonymous with a test automation framework. However, all successful BDD practitioners will tell you this is not true. A test automation framework is indeed a valuable by-product of the BDD methodology, but BDD achieves much more than that.
 
+## **The Goal of BDD** 
+
 The ultimate goal of BDD is to enhance collaboration among different stakeholders and ensure technical teams have a better understanding of business requirements. BDD comprises three practices: discovery, formulation, and automation. People typically focus on the latter two practices: formulating BDD scenarios using Gherkin syntax and automating them. However, they sometimes neglect the discovery practice, which lays the foundation for the other two. A solid foundation is crucial for producing high-quality BDD artefacts.
+
+## **BDD Practices** 
 
 Each practice has its own purpose. The following figure shows the input and output from each BDD practice.
 
@@ -58,7 +62,7 @@ Example from Seb, R and Gaspar, N (2021). The BDD Books - Formulation:
 The original scenario's words, including HTML element names (such as "BasketItemCount") and implementation actions (such as "click"), must be replaced with business language. 
 
 ### **2.	Scenarios are written as test procedures.**
-It goes against the Intention revealing & Focused principles. It is a common mistake that people writing imperative scenario rather than declarative one. Scenarios should show what the actor in the scenario wants to achieve, rather than describing how they will do it. It's a misconception that BDD scenarios are synonymous with step-by-step test scripts written in the Given/When/Then style. 
+It goes against the Intention revealing & Focused principles. It is a common mistake that people write imperative scenarios rather than declarative ones. Scenarios should show what the actor in the scenario wants to achieve, rather than describing how they will do it. It's a misconception that BDD scenarios are synonymous with step-by-step test scripts written in the Given/When/Then style. 
 
 Example from [web](https://automationpanda.com/2017/01/30/bdd-101-writing-good-gherkin/):
 
@@ -98,11 +102,11 @@ It goes against the BRIEF principles. Most BDD scenarios should be granular, foc
 ### **5.	Data tables and scenario outlines are either neglected or overused.**
 Gherkin data tables and scenario outlines are designed to enhance readability and should be used appropriately. It's important to strike a balance and avoid either neglecting or overusing them. Using scenario outlines can sometimes lead to adding unnecessary data. For example, using "banana" and "apple" as inputs does not add much value because both are just short text strings and fall into the same category. Only essential and behaviour-relevant data should be included in the example tables, as large tables can be difficult for readers to understand and even worse, increase test execution time. These types of data can be verified through exploratory testing instead of including everything in the feature file.
 
-## **Conclusion**
+## **Automation Offers Only Partial Benefits**
 
 Once the scenarios on a feature file are automated, the feature file becomes executable test artefacts. As BDD is a test-driven methodology, we can automate scenarios before code implementation. Although BDD itself is not testing, it fits well within the testing strategy. A significant side effect of the BDD methodology is the creation of automated tests. These tests can be executed either locally or integrated within a CI pipeline. The outcome of this practice is not only an automation test framework but, more importantly, a living document that evolves alongside the software, ensuring that it always reflects the current state of the system.
 
+## **Conclusion**
+
 Overall, the purpose of BDD methodology is to enhance collaboration across the entire team. While automated testing is a valuable outcome of the process, it is not the sole benefit it offers. A successful BDD practice requires everyone on the team to understand its principles and adhere to best practices.
-
-
 
