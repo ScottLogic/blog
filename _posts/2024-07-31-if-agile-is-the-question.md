@@ -1,6 +1,6 @@
 ---
 title: If agile is the answer, what is the question?
-date: 2024-07-24 08:00:00 Z
+date: 2024-07-31 06:00:00 Z
 categories:
 - Delivery
 tags:
@@ -11,9 +11,9 @@ summary: We often talk about how to be agile, about particular ceremonies and pr
 author: dogle
 ---
 
-The other day a colleague asked a question on our Scott Logic Slack channel, the question was this: 
+The other day a colleague asked this question on one of our internal Slack channels: 
 
-> "If you were writing headings in a document, and using the capitilisation style of capitalising the first letter of just the important words in a header, how would you capitlisatise 'what we are trying to achieve?'"
+> "If you were writing headings in a document, and using the capitalisation style of capitalising the first letter of just the important words in a header, how would you capitalise 'what we are trying to achieve?'"
 
 The answers were many and varied, ranging from serious answers with supporting documentation to tongue-in-cheek responses, the answer which won the day though was this: 
 
@@ -29,19 +29,19 @@ It seems to me that there is a growing movement to reject agile and the things i
 
 # Back to basics
 
-Whether or not we believe this is true of agile or merely agile done badly is irrelevant, clearly the message is that, for many people, the term agile refers to a process which they believe is broken. A term which perhaps no longer works for today's development teams, is outdated, misused and imposed on teams as a one-size-fits-all solution to software development. What we mean when we say we're being agile is very important then and seems to differ dramatically dependent on who you talk to. 
-[In the past](https://blog.scottlogic.com/2024/04/17/is-agile-the-answer.html) I’ve said that when looking to define agile development we can do worse than to look to the [manifesto](https://agilemanifesto.org/). I think that still holds true: agile existed before the manifesto of course (it just wasn’t called that) but it wasn’t until February 2001 at Snowbird Utah that people came together and tried to clarify what they thought was important and common to the various alternate approaches to software development they were practising. What they quickly agreed upon were four things which they valued: 
+Whether or not we believe this is true of agile or merely agile done badly is irrelevant. Clearly the message is that, for many people, the term agile refers to a process which they believe is broken. A process which perhaps no longer works for today's development teams, is outdated, misused and imposed on teams as a one-size-fits-all solution to software development. What we mean when we say we're being agile is very important then and seems to differ dramatically dependent on who you talk to. 
+[In the past](https://blog.scottlogic.com/2024/04/17/is-agile-the-answer.html) I’ve said that when looking to define agile development we can do worse than to look to the [manifesto](https://agilemanifesto.org/). I think that still holds true: agile existed before the manifesto of course (it just wasn’t called that) but it wasn’t until February 2001 in Snowbird, Utah that people came together and tried to clarify what they thought was important and common to the various alternate approaches to software development they were practising. What they quickly agreed upon were four things which they valued: 
 
-- Individuals and interactions
-- Working software
-- Customer collaboration
-- Responding to change 
+- Individuals and interactions.
+- Working software.
+- Customer collaboration.
+- Responding to change.
 
-agile then, by this definition, is about people, about getting working software out the door, about collaborating with those who we are building the software for and about being flexible in our approach. Overall, this is a pretty uncontroversial list of things, and when taken at face value, I see no reason why it’s less true today than it ever was. 
+Agile then, by this definition, is about people, about getting working software out the door, about collaborating with those who we are building the software for and about being flexible in our approach. Overall, this is a pretty uncontroversial list of things, and when taken at face value, I see no reason why it’s less true today than it ever was. 
 
 # Our survey says...
 
-Of course, as we’ve seen agile means different things to different people. The agile community of practice here at Scott Logic recently ran a survey, in it we asked people to define what they felt was meant by the term agile development and to tell us what problem they think it solves. The results are interesting. I've put together an ordered list of the most common things people mentioned when asked to describe what agile means to them.  
+As we’ve seen, agile means different things to different people. The agile community of practice here at Scott Logic recently ran a survey in which we asked people to define what they felt was meant by the term agile development and to tell us what problem they think it solves. The results are interesting. I've put together an ordered list of the most common things people mentioned when asked to describe what agile means to them.  
 
 1. Iterative approach.
 2. Being flexible.
@@ -64,7 +64,7 @@ For me it comes down to this:
 
 > "Being agile helps us most when we either don't fully know our goal or else we are unsure of the path to get there e.g. if we don't really know all the requirements upfront and need to discover them as we go. In this scenario we can't map out a complete route to the finish line so need to make small steps, checking each time if we are closer or farther away than we were before."
 
-That’s just my opinion, but it seems fairly consistent with what others think too. Here are the top ten responses from the survey:
+That’s just my opinion, but it seems fairly consistent with what others think too. Here are the top ten most common responses from the survey:
 
 1. It's impossible to know all the requirements upfront.
 2. We need to have regular feedback loops.
@@ -77,7 +77,7 @@ That’s just my opinion, but it seems fairly consistent with what others think 
 9. It removes inefficiency from the process.
 10. It avoids rework.
 
-Our survey results show that, overwhelmingly the number one problem people are trying to solve with agile development is that there they either don’t know all the requirements for a project upfront or else that those requirements are subject to change. Other responses align closely with that problem e.g. the need for quick feedback loops, the need for stakeholders to know what we are building as we go and the problem of building something only to find out it was the wrong thing. 
+Our survey results show that, overwhelmingly the number one problem people are trying to solve with agile development is that they either don’t know all the requirements for a project upfront or that those requirements are subject to change. Other responses align closely with that problem e.g. the need for quick feedback loops, the need for stakeholders to know what we are building as we go and the problem of building something only to find out it was the wrong thing. 
 
 I think that makes sense, if we think about our earlier question of why software development is different from building a house, one of the main differences is that we've built a house before, we know what’s involved and we probably understand most if not all the requirements upfront. We're unlikely to get started and then discover that we now need to turn the house into an office block for example. We also have a set finish point, we know when we’re done and the house is complete. In software we often don’t know exactly what we are building, we have a rough idea and discover it as we go. We've also probably never built this software before because if we had, there presumably wouldn’t be a need for it. Lastly we might not ever be done, software evolves and shifts over time as we add new features and remove old things.
 
