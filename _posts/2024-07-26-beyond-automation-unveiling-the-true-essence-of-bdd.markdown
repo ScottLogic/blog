@@ -16,7 +16,7 @@ summary: Many organisations mistakenly think Behaviour-Driven Development (BDD) 
   focused, and valuable, ultimately creating living documentation that accurately
   reflects the system's behaviour.
 author: xchen
-image: "/uploads/BDDpractices.png"
+image: "/uploads/Beyond%20automation%20thumbnail.png"
 ---
 
 Many organisations claim they are applying Behaviour-Driven Development (BDD). When you discuss BDD with them, they often present numerous feature files as evidence of their adoption of the BDD methodology.
