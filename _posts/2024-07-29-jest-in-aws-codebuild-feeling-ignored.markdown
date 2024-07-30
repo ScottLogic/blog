@@ -12,6 +12,7 @@ tags:
 - config
 summary: Ignore Patterns in Jest config can lead to "no tests found" in CI
 author: cwilton
+image: "/uploads/JEST%20in%20AWS%20CodeBuild.png"
 ---
 
 [Jest](https://jestjs.io/) is a widely used JavaScript testing framework. It can be used "zero-config" with sensible defaults, but you can tweak it with numerous configuration options. It turns out you can also tweak it to mess with your own head.
