@@ -12,6 +12,7 @@ summary: We often talk about how to be agile, about particular ceremonies and pr
   what we mean when we talk about agile, what it's come to represent and what the
   point is behind aiming for agility.
 author: dogle
+image: "/uploads/If%20agile%20is%20the%20answer%20thumbnail.png"
 ---
 
 The other day a colleague asked this question on one of our internal Slack channels: 
