@@ -17,6 +17,7 @@ summary: Government departments are not alone in struggling to move artificial i
   and share some insights from our client work which I think point towards how the
   government can harness AI with greater confidence.
 author: godds
+image: "/uploads/AI%20in%20Govt.png"
 ---
 
 Government departments are struggling to move artificial intelligence (AI) prototypes into production. But they’re not alone in this – I’ve seen economy-wide research (that I’m not allowed to cite, sorry!) indicating that most organisations are still at the investigation stage, a handful are at the piloting stage, and very few have deployed Generative AI (GenAI) in production.
