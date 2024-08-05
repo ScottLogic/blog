@@ -20,10 +20,10 @@ author: ocronk
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/32274287/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes/font-color/252525" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
 
-In this episode, I'm joined for a discussion on observability by Scott Rowan, Senior Developer at Scott Logic, and Daniel Gomez Blanco, Principal Engineer at Skyscanner and a member of the Open Telemetry Governance Committee.\
- \
-The conversation explores what observability means in modern distributed software architectures, how it differs from traditional monitoring, and the challenges of implementing observability at scale. The discussion touches on practical aspects of implementing observability and how this approach can lead to faster problem detection and resolution, as well as cost savings by reducing the volume of less useful data collected.\
- \
+In this episode, I'm joined for a discussion on observability by Scott Rowan, Senior Developer at Scott Logic, and Daniel Gomez Blanco, Principal Engineer at Skyscanner and a member of the Open Telemetry Governance Committee.
+
+The conversation explores what observability means in modern distributed software architectures, how it differs from traditional monitoring, and the challenges of implementing observability at scale. The discussion touches on practical aspects of implementing observability and how this approach can lead to faster problem detection and resolution, as well as cost savings by reducing the volume of less useful data collected.
+
 The rise in popularity of observability has gone hand in hand with the rise of microservices and event-driven architectures. But although it’s a relatively new kid on the block, is observability hyped or a necessary evolution in managing modern software systems?
 
 **Links from this episode**
