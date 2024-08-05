@@ -2,10 +2,12 @@
 title: Investigating Code Quality from PR Data
 date: 2024-07-16 00:00:00 Z
 categories:
-  - Artificial Intelligence
-tags:
-summary: Many of us are now using Generative AI to produce code, but what impact is this having on code quality? By analysing the data contained in PRs, our team has built a tool to investigate this.
+- Artificial Intelligence
+summary: Many of us are now using Generative AI to produce code, but what impact is
+  this having on code quality? By analysing the data contained in PRs, our team has
+  built a tool to investigate this.
 author: alaws
+image: "/uploads/investigating%20code%20quality%20from%20pr%20data.png"
 ---
 
 When a developer wants to make changes to a code base, they raise a pull request (PR) which contains the proposed changes to the code and a written summary of the changes made. Other developers will then review this PR, leaving comments or suggestions, before ultimately deciding whether to approve the changes.

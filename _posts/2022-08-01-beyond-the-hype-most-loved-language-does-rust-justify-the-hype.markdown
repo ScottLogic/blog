@@ -39,3 +39,9 @@ Links from the podcast:
 * [WebAssembly](https://webassembly.org/)
 
 * [Asynchronous Programming in Rust](https://rust-lang.github.io/async-book/)
+
+You can subscribe to the podcast on these platforms:
+
+* [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
+
+* [Spotify](https://open.spotify.com/show/2BlwBJ7JoxYpxU4GBmuR4x)
