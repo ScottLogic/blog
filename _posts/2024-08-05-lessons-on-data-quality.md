@@ -7,6 +7,11 @@ summary: Our team set out to investigate if we could use Binoculars, a method of
 author: alaws
 ---
 
+Our team had previously built a tool to [investigate code quality from PR data](https://blog.scottlogic.com/2024/07/16/investigating-code-quality-from-pr-data.html). Building on this work, we set about finding a method to detect AI-written code, so we could investigate any potential differences in code quality between human and AI-written code.
+
+During our time on this project, we learnt some important lessons, including just how hard it can be to detect AI-written code, and the importance of good-quality data when conducting research.
+
+## Binoculars
 [Binoculars](https://github.com/ahans30/Binoculars) is a zero-shot method of detecting LLM-generated text, meaning it is designed to be able to perform classification without having previously seen any examples of these categories. This has the advantage of allowing it to achieve good classification accuracy, even on previously unseen data.
 
 A Binoculars score is essentially a normalized measure of how surprising the tokens in a string are to a Large Language Model (LLM). As you might expect, LLMs tend to generate text that is unsurprising to an LLM, and hence result in a lower Binoculars score. In contrast, human-written text often shows greater variation, and hence is more surprising to an LLM, which leads to higher Binoculars scores.
@@ -15,14 +20,14 @@ Because of this difference in scores between human and AI-written text, classifi
 
 ## Creating a Dataset
 
-Before we could start using Binoculars, we needed to create a sizeable dataset that contained both human and AI-written code. To achieve this, we developed a code-generation pipeline, which collected human-written code and used it to produce AI-written files or individual functions, depending on how it was configured.
+Before we could start using Binoculars, we needed to create a sizeable dataset of human and AI-written code, that contained samples of various tokens lengths. To achieve this, we developed a code-generation pipeline, which collected human-written code and used it to produce AI-written files or individual functions, depending on how it was configured.
 
 ![jpg]({{ site.github.url }}/alaws/assets/data-quality/old-code-generation-pipeline.png)
 _Our proposed pipeline for generating AI code samples_
 
 First, we provided the pipeline with the URLs of some GitHub repositories and used the GitHub API to scrape the files in the repositories. To ensure that the code was human written, we chose repositories that were archived before the release of Generative AI coding tools like [GitHub Copilot](https://github.com/features/copilot).
 
-If we were using the pipeline to generate functions, we would first use an LLM ([GPT-3.5-turbo](https://platform.openai.com/docs/models/gpt-3-5-turbo)) to identify individual functions from the file and extract them programmatically.
+If we were using the pipeline to generate functions, we would first use an LLM ([GPT-3.5-turbo](https://platform.openai.com/docs/models/gpt-3-5-turbo)) to identify individual functions from the file and extract them programmatically. Using an LLM allowed us to extract functions across a large variety of languages, with relatively low effort.
 
 Finally, we asked an LLM to produce a written summary of the file/function and used a second LLM to write a file/function matching this summary.
 
@@ -51,16 +56,18 @@ _ROC Curve showing classification performance using various thresholds, for each
 
 To get an indication of classification, we also plotted our results on a [ROC Curve](<https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc#:~:text=An%20ROC%20curve%20(receiver%20operating,False%20Positive%20Rate)>), which shows the classification performance across all thresholds. The AUC (Area Under the Curve) value is then calculated, which is a single value representing the performance across all thresholds.
 
-The above ROC Curve shows the same findings, with a clear split in classification accuracy when we compare token lengths above and below 300 tokens. This, coupled with the fact that performance was worse than random chance for input lengths of 25 tokens, suggested that to for Binoculars to reliably classify code as human or AI-written, there may be minimum input token length requirement.
+The ideal ROC curve would be positioned towards the top left-hand corner of the chart, rising vertically from the origin (0,0) to the top-left corner (0,1) and then running horizontally to the top-right corner (1,1). This shape indicates that the classifier is perfect in distinguishing between the two classes, achieving an AUC value of 1.
+
+The above ROC Curve shows the same findings, with a clear split in classification accuracy when we compare token lengths above and below 300 tokens. This, coupled with the fact that performance was worse than random chance for input lengths of 25 tokens, suggested that for Binoculars to reliably classify code as human or AI-written, there may be a minimum input token length requirement.
 
 #### Models Used to Calculate Binoculars Scores
 
-Here, we investigated the effect that the model used to calculate Binoculars score has on classification accuracy and the time taken to calculate the scores. Specifically, we wanted to see if the size of the model impacted performance.
+Here, we investigated the effect that the model used to calculate Binoculars score has on classification accuracy and the time taken to calculate the scores. Specifically, we wanted to see if the size of the model, i.e. the number of parameters, impacted performance. Although a larger number of parameters allows a model to identify more intricate patterns in the data, it does not necessarily result in better classification performance. Larger models come with an increased ability to remember the specific data that they were trained on. Because the models we were using had been trained on open-sourced code, we hypothesised that some of the code in our dataset may have also been in the training data. Therefore, although this code was human-written, it would be less surprising to the LLM, hence lowering the Binoculars score and decreasing classification accuracy.
 
-To investigate this, we tested 3 models , namely [IBM Granite 3B](https://huggingface.co/ibm-granite/granite-3b-code-base), [DeepSeek Coder 1.3B](https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base) and [CodeLlama 7B](https://huggingface.co/codellama/CodeLlama-7b-hf) using datasets containing Python and JavaScript code.
+Previously, we had used CodeLlama7B for calculating Binoculars scores, but hypothesised that using smaller models might improve performance. To investigate this, we tested 3 different sized models, namely [DeepSeek Coder 1.3B](https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base), [IBM Granite 3B](https://huggingface.co/ibm-granite/granite-3b-code-base) and [CodeLlama 7B](https://huggingface.co/codellama/CodeLlama-7b-hf) using datasets containing Python and JavaScript code. 
 
 ![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_model_box_plot_old.png)
-_Box plots showing the distribution Binoculars scores calculated using each model_
+_Box plots showing the distribution of Binoculars scores calculated using each model_
 
 ![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_model_roc_curve_old.png)
 _ROC Curve showing classification performance using various thresholds, for each model used to calculate Binoculars score_
@@ -98,7 +105,7 @@ These findings were particularly surprising, because we expected that the state-
 
 ## Discovering a Problem
 
-Although these findings were interesting, they were also surprising, which meant we needed to exhibit caution. We decided to reexamine our process, starting with the data. It could be the case that we were seeing such good classification results because the quality our AI-written code was poor.
+Although these findings were interesting, they were also surprising, which meant we needed to exhibit caution. We decided to reexamine our process, starting with the data. It could be the case that we were seeing such good classification results because the quality of our AI-written code was poor.
 
 After taking a closer look at our dataset, we found that this was indeed the case. There were a few noticeable issues. Firstly, the code we had scraped from GitHub contained a lot of short, config files which were polluting our dataset. There were also a lot of files with long licence and copyright statements.
 
@@ -151,7 +158,9 @@ With the source of the issue being in our dataset, the obvious solution was to r
 ![jpg]({{ site.github.url }}/alaws/assets/data-quality/new-code-generation-pipeline.png)
 _Our new pipeline for generating AI code samples_
 
-First, we swapped our data source to use the [github-code-clean](https://huggingface.co/datasets/codeparrot/github-code-clean) dataset, in which the code files had been filtered to remove files that are auto-generated, have short line lengths, or a high proportion of non-alphanumeric characters.
+First, we swapped our data source to use the [github-code-clean](https://huggingface.co/datasets/codeparrot/github-code-clean) dataset, containing 115 million code files taken from GitHub. These files had been filtered to remove files that are auto-generated, have short line lengths, or a high proportion of non-alphanumeric characters. 
+
+Using this dataset posed some risks because it was likely to be a training dataset for the LLMs we were using to calculate Binoculars score, which could lead to scores which were lower than expected for human-written code. However, the size of the models were small compared to the size of the github-code-clean dataset, and we were randomly sampling this dataset to produce the datasets used in our investigations. Therefore, it was very unlikely that the models had memorized the files contained in our datasets. Therefore, the benefits in terms of increased data quality outweighed these relatively small risks.
 
 We had also identified that using LLMs to extract functions wasn't particularly reliable, so we changed our approach for extracting functions to use [tree-sitter](https://tree-sitter.github.io/tree-sitter/), a code parsing tool which can programmatically extract functions from a file.
 
@@ -212,6 +221,7 @@ _ROC Curve showing classification performance when the amount of context is limi
 The chart reveals a key insight. The AUC values have improved compared to our first attempt, indicating only a limited amount of surrounding code that should be added, but more research is needed to identify this threshold.
 
 ## Lessons Learnt
+Although our research efforts didn't lead to a reliable method of detecting AI-written code, we learnt some valuable lessons along the way.
 
 #### The foundation of good research is good quality data
 
@@ -222,5 +232,9 @@ Although data quality is difficult to quantify, it is crucial to ensure any rese
 Automation can be both a blessing and a curse, so exhibit caution when you're using it. Automation allowed us to rapidly generate the huge amounts of data we needed to conduct this research, but by relying on automation too much, we failed to spot the issues in our data. In hindsight, we should have dedicated more time to manually checking the outputs of our pipeline, rather than rushing ahead to conduct our investigations using Binoculars.
 
 Although our data issues were a setback, we had set up our research tasks in such a way that they could be easily rerun, predominantly by using notebooks. Research process often need refining and to be repeated, so should be developed with this in mind.
+
+## Conclusion
+
+Despite our promising earlier findings, our final results have lead us to the conclusion that Binoculars isn't a viable method for this task. Reliably detecting AI-written code has proven to be an intrinsically hard problem, and one which remains an open, but exciting research area.
 
 Many thanks to the AI Repository Analysis team including Chris Price, Diana Prahoveanu, James Strong, Jonny Spruce, Matthew Beanland, and Nick Gillen for all their work on this research.
