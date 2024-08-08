@@ -1,5 +1,5 @@
 ---
-title: AI in Government – The central role of data
+title: AI in Government – the central role of data
 date: 2024-08-08 13:22:00 Z
 categories:
 - Artificial Intelligence
