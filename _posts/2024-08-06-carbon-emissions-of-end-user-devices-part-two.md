@@ -10,6 +10,7 @@ summary: This is the second of a series of blog posts that examine the various m
   and tools for power profiling and measuring the energy use of devices with a bottom-up
   approach.
 author: drees
+image: "/uploads/Carbon%20emissions%20of%20end%20user%20devices%20ptii.png"
 ---
 
 <!-- MATHJAX -->
