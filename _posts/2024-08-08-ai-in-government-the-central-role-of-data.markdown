@@ -23,6 +23,7 @@ summary: Data is important to every element of the safe and successful harnessin
   share insights from our recent work and conversations with government about practical
   ways forward.
 author: godds
+image: "/uploads/AI%20in%20Govt%20the%20central%20role%20of%20data.png"
 ---
 
 You’ve probably heard that data is the foundation of AI – and that’s true. But it is also intrinsically important to every element of the safe and successful harnessing of AI.
