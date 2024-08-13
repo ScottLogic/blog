@@ -4,7 +4,7 @@ function loadClapCount() {
         return el.getAttribute("data-url");
     });
     jQuery.ajax({
-        url: "https://ltxkcod9s9.execute-api.us-east-1.amazonaws.com/production/get-multiple",
+        url: "https://ip2o6c571d.execute-api.eu-west-2.amazonaws.com/production/get-multiple",
         method: "POST",
         data: JSON.stringify(urls),
         headers: {

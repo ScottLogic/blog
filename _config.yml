@@ -28,6 +28,8 @@ canonical:
   url: https://blog.scottlogic.com
 scottlogic:
   url: https://www.scottlogic.com
+applause-button-api:
+  url: "https://ip2o6c571d.execute-api.eu-west-2.amazonaws.com/production"
 permalink: "/:year/:month/:day/:title.html"
 safe: true
 twitter_handle: Scott_Logic
