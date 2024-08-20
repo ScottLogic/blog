@@ -22,6 +22,7 @@ summary: I reflect on recent discussions with civil servants and our own researc
   same time, I’ll explore the necessary checks and balances on how far AI should be
   applied in delivering services to UK citizens.
 author: godds
+image: "/uploads/AI%20in%20government%20balancing%20productivity.png"
 ---
 
 To begin with a quote regularly and [erroneously attributed to Henry Ford](https://quoteinvestigator.com/2011/07/28/ford-faster-horse/), “If I had asked my customers what they wanted, they would have said a faster horse.”
