@@ -54,7 +54,7 @@ Explainability refers to the ability to understand and interpret how an AI syste
 
 However, it’s a complex area and research is still underway into explainability techniques. In the recent hype around GenAI, the focus has been much more on demonstrating what it can do, rather than how it does it. For now, public sector projects will need to weigh up the pros and cons of using AI products from vendors (where the models are less likely to be explainable) versus developing their own models. [As the Ada Lovelace Institute suggests](https://www.adalovelaceinstitute.org/policy-briefing/foundation-models-public-sector/), it might also be wise for the government to be ‘fast followers’, “adopting established technologies and practices once they have been tried and tested,” rather than trying to be at the cutting edge.
 
-As important as explainability will be in the harnessing of AI by the public sector, it isn’t a silver bullet. Particularly while techniques are still maturing, explainability will depend on people who are trained in interpreting the explanations of a model’s outputs, based on sufficient knowledge of the context and how the model works.
+As important as explainability will be in the adoption of AI by the public sector, it isn’t a silver bullet. Particularly while techniques are still maturing, explainability will depend on people who are trained in interpreting the explanations of a model’s outputs, based on sufficient knowledge of the context and how the model works.
 
 ## Beyond the hype, human involvement remains vital
 
