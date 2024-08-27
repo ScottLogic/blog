@@ -23,6 +23,7 @@ summary: As the government progresses from prototype to production to ongoing op
   structural biases? In this blog post, I’ll explore key elements of what’s involved
   in ensuring that services are as representative, fair and impartial as possible.
 author: godds
+image: "/uploads/AI%20in%20govt%20addressing%20bias.png"
 ---
 
 Generative AI (GenAI) holds up a mirror to humanity. The training data for a Large Language Model (LLM) like ChatGPT includes large sets of unstructured textual data from across the internet, including Wikipedia pages, books, and articles. Its responses to prompts synthesise that data with no inherent understanding of biases or points of view.
