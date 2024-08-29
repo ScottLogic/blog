@@ -78,9 +78,9 @@ But before we get to the solution, we need to properly understand the problem.
 ## What is 'hallucination'?
 
 Since about 2017, researchers in natural language processing have used the word
-'hallucination' to describe a variety of behaviours. Since ChatGPT propelled
+'hallucination' to describe a variety of behaviours[^1]. Since ChatGPT propelled
 LLMs to public awareness, this word has become commonplace. But what does it
-actually mean?[^1]
+actually mean?
 
 Sometimes, it refers to **unfaithfulness**, a jargon word in natural language
 processing. This means that its output contains information which is not
