@@ -38,7 +38,7 @@ this problem. Solutions abound:
 [integrating external data sources](https://arxiv.org/pdf/2104.07567),
 or even just
 [asking the LLM to evaluate its own answer](https://aclanthology.org/2023.findings-emnlp.123.pdf)
-are just some of the ingeneous techniques engineers and scientists have
+are just some of the ingenious techniques engineers and scientists have
 proposed.
 
 According to OpenAI,
