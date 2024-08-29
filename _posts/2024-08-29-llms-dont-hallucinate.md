@@ -82,7 +82,7 @@ actually mean?
 
 Sometimes, it refers to **unfaithfulness**, a jargon word in natural language
 processing. This means that its output contains information which is not
-epistemically supported[^6] by the input.
+supported by the input.
 
 For example, if you try to get an LLM to summarise a meeting transcript, and its
 summary includes events which weren't described in the transcript, the LLM has
@@ -92,9 +92,9 @@ When academics talk about 'hallucination', they most often mean something like
 'unfaithfulness' – though other meanings are common, too.
 
 Sometimes, 'hallucination' refers to **unfactuality**: producing outputs which
-contain falsehoods, or other falsehood-like things, such as epistemically
-unjustifiable claims, or claims which contradict the LLM's training data. This
-is probably the most common usage in non-academic circles.
+contain falsehoods, or other falsehood-like things, such as unjustifiable
+claims, or claims which contradict the LLM's training data. This is probably the
+most common usage in non-academic circles.
 
 By the way, sometimes, 'hallucination' has another meaning altogether:
 **nonsense**. Nonsense is one of those things which is hard to define, but you
@@ -455,7 +455,6 @@ where it can't.
 [^3]: For example, see [a Harvard study on hallucination in the legal context](https://doi.org/10.48550/arXiv.2405.20362), this [philosophical article](https://arxiv.org/pdf/2212.03551) and this [Forbes article](https://www.forbes.com/sites/lanceeliot/2022/08/24/ai-ethics-lucidly-questioning-this-whole-hallucinating-ai-popularized-trend-that-has-got-to-stop) expressing concern about the use of the word 'hallucination', this [BBC journalist on using LLMs in journalism](https://www.bbc.co.uk/rd/blog/2024-06-mitigating-llm-hallucinations-in-text-summarisation), and this [PBS article which quotes an academic saying 'this isn't fixable'](https://www.pbs.org/newshour/science/chatbots-can-make-things-up-can-we-fix-ais-hallucination-problem).
 [^4]: See for example [Jiang, Xuhui et al 2024. A Survey on Large Language Model Hallucination via a Creativity Perspective](https://arxiv.org/abs/2402.06647).
 [^5]: See for example [Huang, Lei et al 2023. A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions](https://arxiv.org/abs/2311.05232).
-[^6]: One thing 'epistemically supports' another thing just in case, if you already knew the first thing, you'd have good reason to believe the second thing, too. For example, that my flatmate, Sophie, is cross, provides epistemic support for the notion that her job interview didn't go well earlier today.
 [^7]: Like when [an LLM made up the 1985 World Ski Championships](https://medium.com/@gcentulani/understanding-hallucination-in-llms-causes-consequences-and-mitigation-strategies-b5e1d0268069).
 [^8]: As one person found to their misfortune, when [a New York lawyer filed a brief containing six references to non-existent cases](https://www.bbc.co.uk/news/world-us-canada-65735769).
 [^9]: [Meta's AI academic assistant Galactica flopped after three days](https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-gpt-3-science), following a backlash over its tendency to output falsehoods.
