@@ -48,7 +48,7 @@ Moore's-Law-style, until LLM hallucination is a distant memory, like the
 [inefficiencies in early steam engines](https://www.thehistorycorner.org/articles-by-the-team/a-dream-too-lofty-why-the-steam-engine-failed-in-the-18th-century).
 
 But is it so simple? A growing chorus of academics, engineers and journalists
-are calling this narrative in this question.[^3] **Maybe hallucination isn't a
+are calling this narrative into question.[^3] **Maybe hallucination isn't a
 solvable problem at all.**
 
 <p>
