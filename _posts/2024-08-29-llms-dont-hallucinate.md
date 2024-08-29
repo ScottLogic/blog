@@ -10,10 +10,8 @@ layout: default_post
 
 **LLMs make stuff up.**
 
-LLMs can confidently tell you all about
-[the winners of non-existent sporting events](https://medium.com/@gcentulani/understanding-hallucination-in-llms-causes-consequences-and-mitigation-strategies-b5e1d0268069).
-They can [invent legal cases](https://www.bbc.co.uk/news/world-us-canada-65735769),
-and [fabricate fake science](https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-gpt-3-science/).
+LLMs can confidently tell you all about the winners of non-existent sporting
+events[^7], They can invent legal cases[^8], and fabricate fake science[^9].
 These kinds of outputs are often called **hallucinations**.
 
 <p>
@@ -458,3 +456,6 @@ where it can't.
 [^4]: See for example [Jiang, Xuhui et al 2024. A Survey on Large Language Model Hallucination via a Creativity Perspective](https://arxiv.org/abs/2402.06647).
 [^5]: See for example [Huang, Lei et al 2023. A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions](https://arxiv.org/abs/2311.05232).
 [^6]: One thing 'epistemically supports' another thing just in case, if you already knew the first thing, you'd have good reason to believe the second thing, too. For example, that my flatmate, Sophie, is cross, provides epistemic support for the notion that her job interview didn't go well earlier today.
+[^7]: Like when [an LLM made up the 1985 World Ski Championships](https://medium.com/@gcentulani/understanding-hallucination-in-llms-causes-consequences-and-mitigation-strategies-b5e1d0268069).
+[^8]: As one person found to their misfortune, when [a New York lawyer filed a brief containing six references to non-existent cases](https://www.bbc.co.uk/news/world-us-canada-65735769).
+[^9]: [Meta's AI academic assistant Galactica flopped after three days](https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-gpt-3-science), following a backlash over its tendency to output falsehoods.
