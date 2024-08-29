@@ -91,7 +91,7 @@ been 'unfaithful'.
 When academics talk about 'hallucination', they most often mean something like
 'unfaithfulness' – though other meanings are common, too.
 
-Sometimes, 'hallucination' refers to **unfactuality**: producing outputs which
+Sometimes, 'hallucination' refers to **non-factuality**: producing outputs which
 contain falsehoods, or other falsehood-like things, such as unjustifiable
 claims, or claims which contradict the LLM's training data. This is probably the
 most common usage in non-academic circles.
