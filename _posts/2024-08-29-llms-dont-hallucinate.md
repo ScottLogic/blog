@@ -253,7 +253,7 @@ the external world. It doesn't respond to evidence. It doesn't gather evidence
 through perception (or, indeed, by any other means). And it doesn't attempt to
 use language as a means of communicating information with other minds.
 
-So the concept 'hallucination' fundamentally mischaracterises the nature of LLMs
+So the concept of 'hallucination' fundamentally mischaracterises the nature of LLMs
 by assuming that false or unfaithful outputs are abnormal for LLMs. In fact,
 such outputs, while rare (at least in recent models), are nonetheless normal,
 like a dice rolling six sixes in a row.
