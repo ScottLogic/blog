@@ -280,7 +280,7 @@ in LLM applications that just won't work, under the false impression that the
 This isn't a hypothetical concern. LLMs have been set to
 [writing entire travel articles](https://arstechnica.com/information-technology/2023/08/microsoft-ai-suggests-food-bank-as-a-cannot-miss-tourist-spot-in-canada),
 [making legal submissions](https://www.texaslawblog.law/2023/06/sanctions-handed-down-to-lawyers-who-cited-fake-cases-relying-on-chatgpt),
-[providing customers with information on company policies](https://bc.ctvnews.ca/air-canada-s-chatbot-gave-a-b-c-man-the-wrong-information-now-the-airline-has-to-pay-for-the-mistake-1.6769454)
+and [providing customers with information on company policies](https://bc.ctvnews.ca/air-canada-s-chatbot-gave-a-b-c-man-the-wrong-information-now-the-airline-has-to-pay-for-the-mistake-1.6769454)
 with catastrophic results.
 
 And think about some of these common or proposed use cases:
@@ -296,7 +296,7 @@ And think about some of these common or proposed use cases:
 Given that LLMs will, rarely, but inevitably, output garbage, all of these will
 need to be done with enormous care to avoid causing serious damage.
 
-Furthermore, there's a risk that LLMs may act as a so-called 'moral crumple
+Furthermore, there's a risk that an LLM may act as a so-called 'moral crumple
 zone', effectively soaking up responsibility for failures on behalf of the
 humans who were really responsible. And where there's a lack of accountability,
 organisations are unable to make good decisions or learn from their
@@ -399,10 +399,10 @@ The word 'bulls\*\*t' is a huge step forward:
   truth and faithfulness are not goals, it's perfectly possible for it to
   produce false or unfaithful output purely by chance.
 - **It explains why LLMs often produce true and faithful output**, even if it is
-  accidental. After all, the best way to sound like you know what you're talking
-  about is to actually say true things!
+  accidental. Plausible-sounding things, by their nature, have a good chance of
+  being true.
 - **It correctly identifies false and unfaithful outputs as normal for an LLM**
-  - unlike 'hallucination'.
+  \- unlike 'hallucination'.
 
 Previously, we thought that an LLM reliably outputs true and faithful content,
 except when it occasionally hallucinates. Now, we recognise that an LLM in fact
