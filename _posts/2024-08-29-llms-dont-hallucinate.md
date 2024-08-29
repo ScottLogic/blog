@@ -236,11 +236,11 @@ By comparison, for humans to produce false or unfaithful data would indeed be
 abnormal behaviour for humans.
 
 But there are explanations for why humans sometimes produce such outputs: maybe
-they had an incentive to lie, or they were playing a game, or they were joking.
-Or indeed, perhaps they 'hallucinating' in the traditional sense!
+they were lying, or they were playing a game, or they were joking. Or indeed,
+perhaps they 'hallucinating' in the traditional sense!
 
-In contrast, an LLM can never have an incentive to lie, can never play a game,
-and can never tell a joke. It's a pile of matrices.
+In contrast, an LLM can never lie, can never play a game, and can never tell a
+joke. It's a pile of matrices.
 
 And there are mechanisms which explain why humans normally don't produce
 unfaithful or unfactual content. We have mental models of the external world. We
