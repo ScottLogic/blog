@@ -369,7 +369,7 @@ Canonical examples include:
 Why is this a good match for describing how LLMs behave? Well, LLMs are trained
 to imitate language patterns from its training data. The LLM has succeeded at
 its task when its output is linguistically plausible. Not when it's true,
-well-evidenced, or faithful to the input - just when it's linguistically
+well-evidenced, or faithful to the input – just when it's linguistically
 plausible. In other words, its goal is to 'sound like' what a human would say.
 
 This is just like what a human does when they bulls\*\*t. When someone
