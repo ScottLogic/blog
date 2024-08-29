@@ -97,6 +97,10 @@ By the way, sometimes, 'hallucination' has another meaning altogether:
 know it when you see it. This isn't my focus for this article, so let's leave
 nonsense aside for proper treatment another day.
 
+If you want to go deep on how people are using the word 'hallucination' to talk
+about LLMs, I've investigated this in detail on
+[my personal blog](https://joeac.net/blog/2024/07/16/word_hallucination_with_reference_to_llms).
+
 So what people mean by 'hallucination' is pretty diverse. But all of these
 different usages have something in common: 'hallucination' is regarded as
 **abnormal behaviour**.
