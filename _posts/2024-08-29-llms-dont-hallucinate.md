@@ -28,16 +28,12 @@ These kinds of outputs are often called **hallucinations**.
   </figure>
 </p>
 
-Thankfully, the greatest minds of the human race are hard at work ironing out
-this problem. Solutions abound:
-[improving the quality of your training data](https://medium.com/@gcentulani/understanding-hallucination-in-llms-causes-consequences-and-mitigation-strategies-b5e1d0268069),
-[testing the system diligently](https://www.ibm.com/topics/ai-hallucinations),
-[fine-tuning the model with human feedback](https://openai.com/index/gpt-4/),
-[integrating external data sources](https://arxiv.org/pdf/2104.07567),
-or even just
-[asking the LLM to evaluate its own answer](https://aclanthology.org/2023.findings-emnlp.123.pdf)
-are just some of the ingenious techniques engineers and scientists have
-proposed.
+Thankfully, the greatest minds of the human race are hard at work ironing
+out this problem. Solutions abound: improving the quality of your training
+data[^10], testing the system diligently[^11], fine-tuning the model with human
+feedback[^12], integrating external data sources[^13], or even just asking the
+LLM to evaluate its own answer[^14] are just some of the ingenious techniques
+engineers and scientists have proposed.
 
 According to OpenAI,
 [GPT-4 reduces hallucination by 40%](https://openai.com/index/gpt-4) compared
@@ -458,3 +454,8 @@ where it can't.
 [^7]: Like when [an LLM made up the 1985 World Ski Championships](https://medium.com/@gcentulani/understanding-hallucination-in-llms-causes-consequences-and-mitigation-strategies-b5e1d0268069).
 [^8]: As one person found to their misfortune, when [a New York lawyer filed a brief containing six references to non-existent cases](https://www.bbc.co.uk/news/world-us-canada-65735769).
 [^9]: [Meta's AI academic assistant Galactica flopped after three days](https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-gpt-3-science), following a backlash over its tendency to output falsehoods.
+[^10]: See for example [Gianluca Centulani on Medium](https://medium.com/@gcentulani/understanding-hallucination-in-llms-causes-consequences-and-mitigation-strategies-b5e1d0268069).
+[^11]: See for example [IBM's introduction to LLM hallucination](https://www.ibm.com/topics/ai-hallucinations)
+[^12]: As claimed by [OpenAI's GPT-4](https://openai.com/index/gpt-4).
+[^13]: See for example [Shuster et al 2021. Retrieval Augmentation Reduces Hallucination in Conversation](https://arxiv.org/pdf/2104.07567).
+[^14]: See for example [Ji et al 2024. Towards Mitigating Hallucination in Large Language Models via Self-Reflection](https://aclanthology.org/2023.findings-emnlp.123.pdf).
