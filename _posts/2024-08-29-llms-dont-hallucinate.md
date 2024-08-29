@@ -8,13 +8,13 @@ image: "/jcarstairs/assets/mirage.jpg"
 layout: default_post
 ---
 
-It's well known that LLMs make stuff up.
+**LLMs make stuff up.**
 
 LLMs can confidently tell you all about
 [the winners of non-existent sporting events](https://medium.com/@gcentulani/understanding-hallucination-in-llms-causes-consequences-and-mitigation-strategies-b5e1d0268069).
 They can [invent legal cases](https://www.bbc.co.uk/news/world-us-canada-65735769),
 and [fabricate fake science](https://www.technologyreview.com/2022/11/18/1063487/meta-large-language-model-ai-only-survived-three-days-gpt-3-science/).
-These kinds of outputs are often called 'hallucinations'.
+These kinds of outputs are often called **hallucinations**.
 
 <p>
   <figure role="presentation">
@@ -48,8 +48,8 @@ Moore's-Law-style, until LLM hallucination is a distant memory, like the
 [inefficiencies in early steam engines](https://www.thehistorycorner.org/articles-by-the-team/a-dream-too-lofty-why-the-steam-engine-failed-in-the-18th-century).
 
 But is it so simple? A growing chorus of academics, engineers and journalists
-are calling this narrative in this question.[^3] Maybe hallucination isn't a
-solvable problem at all.
+are calling this narrative in this question.[^3] **Maybe hallucination isn't a
+solvable problem at all.**
 
 <p>
   <figure role="presentation">
@@ -69,9 +69,11 @@ Indeed, it's increasingly clear that the word 'hallucination' fundamentally
 distorts the way LLMs actually work. This means our judgements of what LLMs are
 capable of could be systematically off the mark.
 
-I think we need to do better. What we need is **a new word**, one which captures
-how LLMs behave without baking in false assumptions about how they work. But
-before we get to the solution, we need to properly understand the problem.
+**We need a new word**. We need a word which captures how LLMs behave, but
+doesn't bake in false assumptions about how LLMs work. We need a word which
+enables accurate and honest discussions about how best to apply LLMs.
+
+But before we get to the solution, we need to properly understand the problem.
 
 ## What is 'hallucination'?
 
