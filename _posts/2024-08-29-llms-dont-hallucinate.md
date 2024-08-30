@@ -19,11 +19,12 @@ These kinds of outputs are often called **hallucinations**.
     <img
       src="{{ site.github.url }}/jcarstairs/assets/mirage.webp"
       alt=""
+      role="presentation"
     />
-    <figcaption>
+    <figcaption role="presentation">
       A desert mirage.
-      <a href="https://commons.wikimedia.org/wiki/File:Desert_mirage,_Egypt.jpg">Photo credit: Ashabot, Wikimedia</a>,
-      <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>
+      <a role="presentation" href="https://commons.wikimedia.org/wiki/File:Desert_mirage,_Egypt.jpg">Photo credit: Ashabot, Wikimedia</a>,
+      <a role="presentation" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a>
     </figcaption>
   </figure>
 </p>
@@ -50,11 +51,12 @@ solvable problem at all.**
     <img
       src="{{ site.github.url }}/jcarstairs/assets/ai-safety-summit.webp"
       alt=""
+      role="presentation"
     />
-    <figcaption>
+    <figcaption role="presentation">
       Taken at the AI Safety Summit hosted at Bletchley Park, Nov 2023.
-      <a href="https://www.flickr.com/photos/ukgov/53302448690/in/album-72177720312359636/">Photo credit: Marcel Grabowski</a>,
-      <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>
+      <a role="presentation" href="https://www.flickr.com/photos/ukgov/53302448690/in/album-72177720312359636/">Photo credit: Marcel Grabowski</a>,
+      <a role="presentation" href="https://creativecommons.org/licenses/by-nc-nd/2.0/">CC BY-NC-ND 2.0</a>
     </figcaption>
   </figure>
 </p>
@@ -135,10 +137,11 @@ unusual behaviour for the die.
     <img
       src="{{ site.github.url }}/jcarstairs/assets/dice.webp"
       alt=""
+      role="presentation"
     />
-    <figcaption>
-      <a href="https://www.deviantart.com/barefootliam-stock/art/five-ivory-dice-97476774">Photo credit: barefootliam-stock</a>,
-      <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+    <figcaption role="presentation">
+      <a role="presentation" href="https://www.deviantart.com/barefootliam-stock/art/five-ivory-dice-97476774">Photo credit: barefootliam-stock</a>,
+      <a role="presentation" href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
     </figcaption>
   </figure>
 </p>
@@ -161,12 +164,13 @@ falls off, I can reasonably expect there to be an explanation.
     <img
       src="{{ site.github.url }}/jcarstairs/assets/picture-falling-off-wall.webp"
       alt=""
+      role="presentation"
     />
-    <figcaption>
+    <figcaption role="presentation">
       A picture hook behaving abnormally. Mind you, the chap on the ladder
       appears to have bigger problems right now.
-      <a href="https://www.lookandlearn.com/history-images/YW039819V/Episodes-illustrating-forces-in-physics-dynamics-and-mechanics">Photo credit: lookandlearn.com</a>,
-      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+      <a role="presentation" href="https://www.lookandlearn.com/history-images/YW039819V/Episodes-illustrating-forces-in-physics-dynamics-and-mechanics">Photo credit: lookandlearn.com</a>,
+      <a role="presentation" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
     </figcaption>
   </figure>
 </p>
@@ -221,11 +225,12 @@ the most plausible next word in the given sequence. So the case where the LLM
     <img
       src="{{ site.github.url }}/jcarstairs/assets/predictive-text.webp"
       alt=""
+      role="presentation"
     />
-    <figcaption>
+    <figcaption role="presentation">
       The solution given by LLMs is new. The problem of predictive text is not.
-      <a href="https://www.flickr.com/photos/bike/4474418938">Photo credit: Richard Masoner</a>,
-      <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.en">CC BY-SA 2.0</a>
+      <a role="presentation" href="https://www.flickr.com/photos/bike/4474418938">Photo credit: Richard Masoner</a>,
+      <a role="presentation" href="https://creativecommons.org/licenses/by-sa/2.0/deed.en">CC BY-SA 2.0</a>
     </figcaption>
   </figure>
 </p>
@@ -307,13 +312,14 @@ mistakes[^2].
     <img
       src="{{ site.github.url }}/jcarstairs/assets/crumple-zone.webp"
       alt=""
+      role="presentation"
     />
-    <figcaption>
+    <figcaption role="presentation">
       Just as crumple zones in a car is designed to absorb the impact of a
       collision to protect its driver, so misplaced and misunderstood LLMs
       could act to absorb responsibility from decision-makers.
-      <a href="https://commons.wikimedia.org/wiki/File:Escort_wreck_006.jpg">Photo credit: Karrmann, Wikimedia</a>,
-      <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0</a>
+      <a role="presentation" href="https://commons.wikimedia.org/wiki/File:Escort_wreck_006.jpg">Photo credit: Karrmann, Wikimedia</a>,
+      <a role="presentation" href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0</a>
     </figcaption>
   </figure>
 </p>
@@ -384,11 +390,12 @@ saying something true or meaningful about whisky is not the task at hand.
     <img
       src="{{ site.github.url }}/jcarstairs/assets/whisky.webp"
       alt=""
+      role="presentation"
     />
-    <figcaption>
+    <figcaption role="presentation">
       I like the long notes of smoke and spices in this one. Mmm, gingery.
-      <a href="https://timelessmoon.getarchive.net/amp/media/whisky-alcohol-drink-food-drink-e8ec93">Photo credit: Pixabay</a>,
-      <a href="https://creativecommons.org/publicdomain/zero/1.0">CC CC0 1.0</a>
+      <a role="presentation" href="https://timelessmoon.getarchive.net/amp/media/whisky-alcohol-drink-food-drink-e8ec93">Photo credit: Pixabay</a>,
+      <a role="presentation" href="https://creativecommons.org/publicdomain/zero/1.0">CC CC0 1.0</a>
     </figcaption>
   </figure>
 </p>
