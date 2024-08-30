@@ -4,7 +4,7 @@ title: LLMs don't 'hallucinate'
 date: 2024-08-29 00:00:00 Z
 summary: Describing LLMs as 'hallucinating' fundamentally distorts how LLMs work. We can do better.
 category: AI
-image: "/jcarstairs/assets/mirage.jpg"
+image: "/jcarstairs/assets/mirage.webp"
 layout: default_post
 ---
 
@@ -17,7 +17,7 @@ These kinds of outputs are often called **hallucinations**.
 <p>
   <figure role="presentation">
     <img
-      src="{{ site.github.url }}/jcarstairs/assets/mirage.jpg"
+      src="{{ site.github.url }}/jcarstairs/assets/mirage.webp"
       alt=""
     />
     <figcaption>
@@ -48,7 +48,7 @@ solvable problem at all.**
 <p>
   <figure role="presentation">
     <img
-      src="{{ site.github.url }}/jcarstairs/assets/ai-safety-summit.jpg"
+      src="{{ site.github.url }}/jcarstairs/assets/ai-safety-summit.webp"
       alt=""
     />
     <figcaption>
@@ -133,7 +133,7 @@ unusual behaviour for the die.
 <p>
   <figure role="presentation">
     <img
-      src="{{ site.github.url }}/jcarstairs/assets/dice.jpg"
+      src="{{ site.github.url }}/jcarstairs/assets/dice.webp"
       alt=""
     />
     <figcaption>
@@ -159,7 +159,7 @@ falls off, I can reasonably expect there to be an explanation.
 <p>
   <figure role="presentation">
     <img
-      src="{{ site.github.url }}/jcarstairs/assets/picture-falling-off-wall.jpg"
+      src="{{ site.github.url }}/jcarstairs/assets/picture-falling-off-wall.webp"
       alt=""
     />
     <figcaption>
@@ -219,7 +219,7 @@ the most plausible next word in the given sequence. So the case where the LLM
 <p>
   <figure role="presentation">
     <img
-      src="{{ site.github.url }}/jcarstairs/assets/predictive-text.jpg"
+      src="{{ site.github.url }}/jcarstairs/assets/predictive-text.webp"
       alt=""
     />
     <figcaption>
@@ -305,7 +305,7 @@ mistakes[^2].
 <p>
   <figure role="presentation">
     <img
-      src="{{ site.github.url }}/jcarstairs/assets/crumple-zone.jpg"
+      src="{{ site.github.url }}/jcarstairs/assets/crumple-zone.webp"
       alt=""
     />
     <figcaption>
@@ -382,7 +382,7 @@ saying something true or meaningful about whisky is not the task at hand.
 <p>
   <figure role="presentation">
     <img
-      src="{{ site.github.url }}/jcarstairs/assets/whisky.jpg"
+      src="{{ site.github.url }}/jcarstairs/assets/whisky.webp"
       alt=""
     />
     <figcaption>
