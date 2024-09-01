@@ -1,5 +1,5 @@
 ---
-title: Evolving with AI From Traditional Testing to Model Evaluation I
+title: Evolving with AI from Traditional Testing to Model Evaluation I
 date: 2024-09-01 10:00:00 Z
 categories:
 - Machine Learning
