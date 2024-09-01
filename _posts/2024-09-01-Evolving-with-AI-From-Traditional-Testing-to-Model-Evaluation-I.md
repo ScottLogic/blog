@@ -2,16 +2,15 @@
 title: Evolving with AI From Traditional Testing to Model Evaluation I
 date: 2024-09-01 10:00:00 Z
 categories:
-- Artificial Intelligence
 - Machine Learning
 - Testing
 - Model Evaluation
+- Artificial Intelligence
 tags:
-- Artificial Intelligence
-- AI
-- Testing
 - Machine Learning
+- Testing
 - Model Evaluation
+- Artificial Intelligence
 summary: Having worked on developing Machine Learning skill definitions and L&D pathway recently, in this
   blog post I have tried to explore the evolving role of test engineers in the era of machine learning, highlighting the key challenges ML brings, strategies for effective model evaluation and finally tried to outline a roadmap for developing the necessary skills to excel in ML model testing.
 author: snandal
