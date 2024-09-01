@@ -40,25 +40,25 @@ We now need to do more than just check if a system works as expected. We must al
 
 ## Looking at the unique challenges that testing ML models brings
 
-**1.	Unpredictable Outputs:** Unlike regular software, where the same input always gives the same result, ML models can give different results because they work with probabilities. This makes testing harder because instead of just checking if the output is correct, we need to evaluate how accurate and reliable the model’s predictions are.
+**Unpredictable Outputs:** Unlike regular software, where the same input always gives the same result, ML models can give different results because they work with probabilities. This makes testing harder because instead of just checking if the output is correct, we need to evaluate how accurate and reliable the model’s predictions are.
 
-**2.	Dependence on Data:** The quality of an ML model depends a lot on the data it was trained on. Testing ML models means we need to deeply understand the training data and its weaknesses because any bias or missing information in the data can lead to incorrect results.
+**Dependence on Data:** The quality of an ML model depends a lot on the data it was trained on. Testing ML models means we need to deeply understand the training data and its weaknesses because any bias or missing information in the data can lead to incorrect results.
 
-**3.	Performance Metrics:** Traditional testing metrics like pass/fail don’t apply directly to ML models. Instead, we use statistical metrics like accuracy, precision, recall, F1 score and AUC-ROC to evaluate model performance. Understanding and choosing the right metrics is key to effective testing.
+**Performance Metrics** Traditional testing metrics like pass/fail don’t apply directly to ML models. Instead, we use statistical metrics like accuracy, precision, recall, F1 score and AUC-ROC to evaluate model performance. Understanding and choosing the right metrics is key to effective testing.
 
-**4.	Model Degradation over time:** As new data becomes available; an ML model’s performance can degrade causing a problem known as model drift. This means continuous monitoring and retraining are equally important, adding complexity to the testing process.
+**Model Degradation over time** As new data becomes available; an ML model’s performance can degrade causing a problem known as model drift. This means continuous monitoring and retraining are equally important, adding complexity to the testing process.
 
 ## Model Evaluation Vs. Model Testing
 
 Before we dive deep into discussing possible strategies for ML model testing, it is important to understand the difference between Model evaluation and Model testing.
 
-Model evaluation and testing might sound similar, but there is a key difference between the two. Evaluation focuses on assessing the model’s performance in a controlled environment, while model testing checks how well the model works in real-world conditions.
+Model evaluation and model testing might sound similar, but there is a key difference between the two. Evaluation focuses on assessing the model’s performance in a controlled environment, while model testing checks how well the model works in real-world conditions.
 
 Let’s look at it with a simple example of a spam detection model that filters out unwanted emails. 
 
-During the model evaluation phase (validation mode), we will use a labelled dataset of emails to calculate metrics like accuracy, precision and recall. For example, the model might successfully identify 95% of spam emails in this dataset.
+During the **model evaluation** phase (validation mode), we will use a labelled dataset of emails to calculate metrics like accuracy, precision and recall. For example, the model might successfully identify 95% of spam emails in this dataset.
 
-After evaluation, we will test (prediction mode) the model with real incoming emails to see how well it handles a variety of messages, if it can correctly filter out spam in different languages, formats, or tricky emails that look legitimate. Model testing makes sure the model works well in the real environment where it will be used, way beyond the controlled conditions of evaluation.
+After evaluation, during **model testing** phase (prediction mode) the model will be subjected to real incoming emails to see how well it handles a variety of messages, if it can correctly filter out spam in different languages, formats, or tricky emails that look legitimate. Model testing makes sure the model works well in the real environment where it will be used, way beyond the controlled conditions of evaluation.
 
 ## Strategies for Testing ML Models
 
@@ -82,17 +82,17 @@ To effectively address the challenges that ML brings, test engineers can benefit
 
 Consider a hospital implementing an ML model to predict the likelihood of patients being readmitted within 30 days of discharge. 
 
-**1.	Define Objectives:** The goal is to identify most high-risk patients so that the hospital can take proactive measures to reduce readmission rates and improve patient care.
+**Defining Objectives:** The goal here is to identify most high-risk patients so that the hospital can take proactive measures to reduce readmission rates and improve patient care.
 
-**2.	Data Validation:** Start by validating the dataset, ensuring that it includes a balanced representation of various patient, medical history, treatment plans etc. Use cross-validation to train the model and select the most effective algorithm for predicting readmissions.
+**Data Validation:** Further start by validating the dataset, ensuring that it includes a balanced representation of various patient, medical history, treatment plans etc. Use cross-validation to train the model and select the most effective algorithm for predicting readmissions.
 
-**3.	Metric Selection:** Choose sensitivity/recall and specificity as key metrics. High sensitivity ensures that most high-risk patients are identified, while specificity ensures that the model doesn't over-predict readmissions, leading to unnecessary interventions.
+**Metric Selection:** Choose sensitivity/recall and specificity as key metrics. High sensitivity ensures that most high-risk patients are identified, while specificity ensures that the model doesn't over-predict readmissions, leading to unnecessary interventions.
 
-**4.	Stress Testing:** Test the model with scenarios where patient data is incomplete, such as missing medical history or inconsistent treatment records. Assess how the model performs when handling these edge cases, which are common in real-world medical data.
+**Stress Testing:** Test the model with scenarios where patient data is incomplete, such as missing medical history or inconsistent treatment records. Assess how the model performs when handling these edge cases, which are common in real-world medical data.
 
-**5.	A/B Testing:** Implement the ML model alongside the existing manual risk assessment process. Compare the model's predictions with the manual predictions in real-time, focusing on how well the model improves patient outcomes.
+**A/B Testing:** Implement the ML model alongside the existing manual risk assessment process. Compare the model's predictions with the manual predictions in real-time, focusing on how well the model improves patient outcomes.
 
-**6.	Post-Deployment Monitoring:** After deployment, continuously monitor the model’s performance, looking for signs of model drift as new patient data becomes available. Implement a feedback loop where the model is retrained regularly with the latest data to maintain accuracy and relevance.
+**Post-Deployment Monitoring:** After deployment, continuously monitor the model’s performance, looking for signs of model drift as new patient data becomes available. Implement a feedback loop where the model is retrained regularly with the latest data to maintain accuracy and relevance.
 
 ## Skills Needed for ML Model Testing
 
