@@ -18,12 +18,6 @@ author: snandal
 image: 
 ---
 
-<script type="text/javascript" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-</script>
-
-Recently worked on developing Machine learning skill definitions and L&D pathway. In this blog post I have tried to explore the evolving role of test engineers in the era of machine learning, highlighting the key challenges ML brings, strategies for effective model evaluation and finally tried to outline a roadmap for developing the necessary skills to excel in ML model testing.
-
 Machine learning (ML) is no longer just a concept for the future, it is now a vital part of many everyday applications. From personalised recommendations on streaming services to detecting fraud in banking and from self-driving cars to advancements in healthcare, ML is changing the way industries work.
 For a test engineer, the increasing use of ML brings new challenges and opportunities. As ML technology advances, the role of a test engineer also changes. Unlike traditional software, which gives consistent and predictable results, ML models work with probabilities and patterns, making testing and evaluation more complex.
 In this blog we will try to look at how ML has developed, how it might affect our job as test engineers and the important strategies, considerations and skills needed to effectively evaluate and test ML models. We will also try to draw a roadmap to help us grow professionally in this area.
@@ -32,7 +26,7 @@ In this blog we will try to look at how ML has developed, how it might affect ou
 
 Machine learning has significantly advanced since its early days. Initially, ML models were fairly simple, handling tasks like basic predictions or classifications. However, with improvements in computing power, access to large amounts of data and more complex algorithms, ML has grown into a powerful tool capable of handling sophisticated tasks like natural language processing and images recognition.
 This progress has made ML widespread across industries, leading businesses to increasingly rely on data-driven decisions. As companies embrace ML, the need for thorough and reliable testing of these models has become more important, which directly affects the role of test engineers.
-Before we get into the testing process, it is important to understand what makes ML models different and what impact they can have on our job as a test engineer. 
+Before we get into the testing process, it is important to understand what makes ML models different and **what impact they can have on our job as a test engineer.** 
 At their core, ML models learn from data. They are trained on large datasets to recognise patterns and make predictions or decisions based on new information. Unlike traditional software, where rules are clearly programmed, ML models develop their logic through training, making their behaviour less predictable and sometimes harder to understand.
 Traditionally, a test engineer's job involved testing systems where a given input always produced the same output, making results predictable. However, with ML, this approach changes. ML models are probabilistic, meaning their outputs can vary depending on the training data and some built-in randomness. This shift has significantly changed how software testing is done.
 We now need to do more than just check if a system works as expected. We must also evaluate how well a model performs, whether it's reliable and fair. This requires combining traditional testing skills with additional knowledge specific to ML.
