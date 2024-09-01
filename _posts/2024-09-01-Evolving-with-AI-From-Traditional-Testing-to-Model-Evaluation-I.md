@@ -44,9 +44,9 @@ We now need to do more than just check if a system works as expected. We must al
 
 **Dependence on Data:** The quality of an ML model depends a lot on the data it was trained on. Testing ML models means we need to deeply understand the training data and its weaknesses because any bias or missing information in the data can lead to incorrect results.
 
-**Performance Metrics** Traditional testing metrics like pass/fail don’t apply directly to ML models. Instead, we use statistical metrics like accuracy, precision, recall, F1 score and AUC-ROC to evaluate model performance. Understanding and choosing the right metrics is key to effective testing.
+**Performance Metrics:** Traditional testing metrics like pass/fail don’t apply directly to ML models. Instead, we use statistical metrics like accuracy, precision, recall, F1 score and AUC-ROC to evaluate model performance. Understanding and choosing the right metrics is key to effective testing.
 
-**Model Degradation over time** As new data becomes available; an ML model’s performance can degrade causing a problem known as model drift. This means continuous monitoring and retraining are equally important, adding complexity to the testing process.
+**Model Degradation over time:** As new data becomes available; an ML model’s performance can degrade causing a problem known as model drift. This means continuous monitoring and retraining are equally important, adding complexity to the testing process.
 
 ## Model Evaluation Vs. Model Testing
 
@@ -99,26 +99,26 @@ Consider a hospital implementing an ML model to predict the likelihood of patien
 To effectively perform model evaluation, a test engineer would need a combination of technical, analytical and domain-specific skills:
 
 **1. Understanding of Machine Learning Concepts**
-•	Understanding fundamental ML concepts such as model learning algorithms – supervised learning, unsupervised learning and reinforcement learning, model performance issues like overfitting and underfitting and the types of models (e.g., regression, classification, clustering).
-•	Familiarity and understanding of model evaluation metrics such as accuracy, precision, recall, F1 score, AUC-ROC, mean squared error, R-squared, etc. and knowing when and how to apply them.
+- Understanding fundamental ML concepts such as model learning algorithms – supervised learning, unsupervised learning and reinforcement learning, model performance issues like overfitting and underfitting and the types of models (e.g., regression, classification, clustering).
+- Familiarity and understanding of model evaluation metrics such as accuracy, precision, recall, F1 score, AUC-ROC, mean squared error, R-squared, etc. and knowing when and how to apply them.
 
 **2. Statistical Knowledge**
-•	Understanding statistical measures - mean, median, variance, standard deviation and concepts like hypothesis testing, p-values, confidence intervals and correlation.
-•	Knowledge of probability distributions and how they apply to model outputs and uncertainties.
+- Understanding statistical measures - mean, median, variance, standard deviation and concepts like hypothesis testing, p-values, confidence intervals and correlation.
+- Knowledge of probability distributions and how they apply to model outputs and uncertainties.
 
 **3. Programming Skills**
-•	Proficiency in one of the scripting languages - Python or R, which are commonly used for ML model evaluation. Familiarity with libraries like Scikit-learn, TensorFlow or PyTorch is advantageous.
-•	Ability to write scripts to automate the evaluation of models, including running tests across different datasets and tracking performance over time.
+- Proficiency in one of the scripting languages - Python or R, which are commonly used for ML model evaluation. Familiarity with libraries like Scikit-learn, TensorFlow or PyTorch is advantageous.
+- Ability to write scripts to automate the evaluation of models, including running tests across different datasets and tracking performance over time.
 
 **4. Data Analysis and Validation**
-•	Skills in data cleaning, handling missing data, outliers, data normalisation and feature engineering.
-•	Ability to validate datasets for biases, errors and representativeness, ensuring that the training data is of high quality and relevant to the model’s objectives.
-•	Proficiency in using tools like Python’s Pandas, Matplotlib and Seaborn for EDA to understand the dataset before feeding it into an ML model.
+- Skills in data cleaning, handling missing data, outliers, data normalisation and feature engineering.
+- Ability to validate datasets for biases, errors and representativeness, ensuring that the training data is of high quality and relevant to the model’s objectives.
+- Proficiency in using tools like Python’s Pandas, Matplotlib and Seaborn for EDA to understand the dataset before feeding it into an ML model.
 
 **5. Familiarity with common ML Tools and Platforms**
-•	Experience with tools like Scikit-learn for traditional ML, or TensorFlow/PyTorch for deep learning models.
-•	Familiarity with tools like MLflow, which assist in tracking experiments, managing models and automating the retraining process.
-•	Knowledge of using version control systems like Git for managing code and model versions.
+- Experience with tools like Scikit-learn for traditional ML, or TensorFlow/PyTorch for deep learning models.
+- Familiarity with tools like MLflow, which assist in tracking experiments, managing models and automating the retraining process.
+- Knowledge of using version control systems like Git for managing code and model versions.
 
 **6. Knowledge of using version control systems like Git for managing code and model versions.**
 
