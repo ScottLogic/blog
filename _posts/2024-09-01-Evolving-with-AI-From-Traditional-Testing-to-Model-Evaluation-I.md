@@ -12,7 +12,7 @@ tags:
 - Testing
 - Machine Learning
 - Model Evaluation
-summary: Recently worked on developing Machine learning skill definitions and L&D pathway. In this
+summary: Having worked on developing Machine Learning skill definitions and L&D pathway recently, in this
   blog post I have tried to explore the evolving role of test engineers in the era of machine learning, highlighting the key challenges ML brings, strategies for effective model evaluation and finally tried to outline a roadmap for developing the necessary skills to excel in ML model testing.
 author: snandal
 image: 
