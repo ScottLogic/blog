@@ -125,8 +125,6 @@ To effectively perform model evaluation, a test engineer would need a combinatio
 * Familiarity with tools like MLflow, which assist in tracking experiments, managing models and automating the retraining process.
 * Knowledge of using version control systems like Git for managing code and model versions.
 
-**6. Knowledge of using version control systems like Git for managing code and model versions.**
-
 By combining these skills along with domain knowledge of the business context in which the model will be deployed, it can be effectively evaluate and tested, ensuring that it meets both technical and business requirements while remaining reliable, accurate and fair.
 
 ## Roadmap for Developing ML Model Testing Skills
