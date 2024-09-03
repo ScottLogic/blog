@@ -12,27 +12,29 @@ image: ""
 ---
 # Introduction
 
-The intersection of sustainability and software development is gaining attention, with increasing awareness of the environmental impact of IT practices. A recent blog by [Pini Reznik]( https://blog.re-cinq.com/posts/enviromental-cost-of-agile/) discusses the environmental impact of Agile software development, highlighting how its emphasis on speed and adaptability often leads to resource waste, particularly in cloud computing. Essentially, we have a tendency to want to ship as early as possible without optimising the product. This leads to requiring more hardware resources to run and thus higher running costs and carbon emissions.
+The intersection of sustainability and software development is gaining attention, with increasing awareness of the environmental impact of IT practices. A recent blog by [Pini Reznik](https://blog.re-cinq.com/posts/enviromental-cost-of-agile/) discusses the environmental impact of Agile software development, highlighting how its emphasis on speed and adaptability often leads to resource waste, particularly in cloud computing. Essentially, we have a tendency to want to ship as early as possible without optimising the product. This leads to requiring more hardware resources to run and thus higher running costs and carbon emissions.
 They suggest that adopting Lean software development practices aligns well with sustainability goals. There is some great advice and insight in the article, but not all teams can choose their methodology. For them, an Agile approach such as Scrum may be better for a lot of their work, but that does not mean they should ignore sustainability or their impact on the environment.
 
 In this article we explore how sustainability fits in with Scrum software development and how the different Scrum roles of Product Owner, Scrum Master and Team Member can build sustainability into their workflow.
 
 # Always mind your surroundings
 
-An old team leader of mine would often quote Liam Neeson from Batman Begins when reviewing code – “Always mind your surroundings.” His point was that you must consider the wider system when making changes, not just focus on the small part that you are working on. This is even more true with sustainable technology. Before we look at any processes that incorporate sustainability goals, we need to know what context we are working in. Without this context, it is hard to make the right choices. This is where Scott Logic’s [Technology Carbon Standard] (https://www.techcarbonstandard.org/) or TCS for short, a proposed method for analysing an organisation’s technology carbon footprint, is useful.
+An old team leader of mine would often quote Liam Neeson from Batman Begins when reviewing code – “Always mind your surroundings.” His point was that you must consider the wider system when making changes, not just focus on the small part that you are working on. This is even more true with sustainable technology. Before we look at any processes that incorporate sustainability goals, we need to know what context we are working in. Without this context, it is hard to make the right choices. This is where Scott Logic’s [Technology Carbon Standard](https://www.techcarbonstandard.org/) or TCS for short, a proposed method for analysing an organisation’s technology carbon footprint, is useful.
 
 The TCS allows organizations to categorise the emissions of their IT estate. Mapping the IT estate like this allows two things:
+
 1. Conversations between different stakeholders and specialists using the mapped TCS as a common frame of reference.
 2. Application of different estimation and measurement techniques, which are sign posted in the TCS, to make emissions reportable and transparent.
 
 By building upon this transparency, each traditional Scrum role—Product Owner, Scrum Master, and Team Member—can contribute to sustainable development practices by integrating environmentally conscious decisions into their workflows.
+
 During each sprint, the team works together to make changes to the system, optimising their code as they go. Individually, these optimisations can make minor differences to your operational emissions. Over time, these changes to improve performance will have a culminative impact on your operational environment, as detailed below. The best part is that these changes often come with extra benefits in the form of reduced running costs, and software that runs faster and more securely. Depending on the change, the optimisation process can be tackled as an epic in its own right, a user story that impacts a specific feature, or part of the standard development process such as refactoring and testing.
 
 ## Mapping The Technology Estate
 
 The first step in developing an understanding of the context of your technical environment is to map the estate. Identify what is important and needs to be measured. The TCS provides categories to help you do this.
 
-![Technology Carbon Standard categories]({{site.github.url}}/jcamilleri/assets/TCSCategories.png 'Technology Carbon Standard categories')
+![Technology Carbon Standard categories]({{site.github.url}}/jcamilleri/assets/TCSCategories.PNG 'Technology Carbon Standard categories')
 
 The categories are very flexible and designed to be scalable to the needs of a team. It can take in the entire IT estate of a business or zoom into a specific project. 
 
