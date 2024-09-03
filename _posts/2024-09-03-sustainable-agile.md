@@ -45,22 +45,17 @@ Once you have finished mapping your project or tech estate, you should have a ta
 
 | Emissions Category | Items |
 | -------------------|-------|
-| Upstream Emissions (Cat U) |
 | Software |Wordpress Sites, Zoom, Chrome, Firefox, Jira |
 | Employee Hardware |Team Laptops, Monitors, Printer |
 | Networking and Infrastructure Hardware | Out of scope for this project |
 | Servers and Storage Hardware | Linux dev server |
-| Operational Emissions |
-| Direct (Cat O) |
 | Employee Devices | Team Laptops, Monitors, Printer |
 | Networking and Infrastructure | Out of scope for this project |
 | Servers and Storage | Linux dev server| 
 | Generators (Cat G) | None |
-| Indirect (Cat C) |
 | Cloud Services | AWS Services |
 | SaaS | GitHub , NPM |
 | Managed Services | N/A |
-| Downstream Emissions (Cat D) |
 | End-User Devices | End users accessing www.example.com via web browser, Android and iOS apps |
 | Network Data Transfer | www.example.com, api.example.com |
 | Downstream Infrastructure | N/A |
@@ -99,7 +94,7 @@ You can integrate the sustainability metrics discussed above into decision-makin
 
 As the Scrum Master you ensure the team adheres to Agile principles and facilitates processes.
 
-- *P*rocess Optimization*: You can identify and eliminate wasteful practices in the development process, such as unnecessary meetings or redundant testing, that consume excessive energy.
+- *Process Optimization*: You can identify and eliminate wasteful practices in the development process, such as unnecessary meetings or redundant testing, that consume excessive energy.
 - *Green Agile Practices*: Promote the use of energy-efficient tools and methods and ensure that sustainability is part of the team’s definition of done.
 - *Integrating Technology Carbon Standard Practices*: The Scrum Master can educate the team on the Technology Carbon Standard, embedding it into the team's continuous improvement practices.
 
