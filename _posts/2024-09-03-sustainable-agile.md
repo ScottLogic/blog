@@ -40,7 +40,12 @@ At the project level, you just need to focus on the items you want in scope for 
 
 Category C is used for cloud environments, software as a service and other IT services that you do not host yourself. If you are unsure what category to put a system into, ask if you pay the electricity bill for that system, or if you pay a third party for access to that system. If you are paying the electricity bill, it is classed as a direct emission (category O). Otherwise, it is indirect (category C).
 
-Your systems also have an impact downstream – minimum specification drive hardware sales and software performance and network traffic use resources of your consumers and the infrastructure used to reach them. These impacts are mapped to Category D.
+Your systems also have an impact downstream: 
+- the minimum specification of your software drives hardware sales and therefore old hardware disposal. 
+- software performance and network traffic use the resources of your consumers and the infrastructure used to reach them. 
+
+These impacts are mapped to Category D.
+
 Once you have finished mapping your project or tech estate, you should have a table that looks something like this:
 
 | Emissions Category | Items |
