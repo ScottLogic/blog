@@ -54,7 +54,7 @@ Before we dive deep into discussing possible strategies for ML model testing, it
 
 Model evaluation and model testing might sound similar, but there is a key difference between the two. Evaluation focuses on assessing the model’s performance in a controlled environment, while model testing checks how well the model works in real-world conditions.
 
-Let’s look at it with a simple example of a spam detection model that filters out unwanted emails. 
+Let's look at it with a simple example of a spam detection model that filters out unwanted emails. 
 
 During the **model evaluation** phase (validation mode), we will use a labelled dataset of emails to calculate metrics like accuracy, precision and recall. For example, the model might successfully identify 95% of spam emails in this dataset.
 
