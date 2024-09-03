@@ -501,6 +501,10 @@ authors:
     name: "James Brunton"
     author-summary: "<p>James was an Intern at Scott Logic, based in Newcastle.</p>"
     picture: picture.jpg
+  jcamilleri:
+    name: "James Camilleri"
+    author-summary: "I'm a Lead Developer at Scott logic based in the Bristol office."
+    picture: picture.jpg
   jcardy:
     name: "Jonathan Cardy"
   jcwright:
