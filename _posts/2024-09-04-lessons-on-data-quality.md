@@ -1,6 +1,6 @@
 ---
 title: "Detecting AI-written code: lessons on the importance of data quality"
-date: 2024-08-12 09:00:00 Z
+date: 2024-09-04 09:00:00 Z
 categories:
   - Artificial Intelligence
 summary: Our team set out to investigate if we could use Binoculars, a method of detecting LLM-generated text, to detect AI-written code, and learnt some valuable lessons on the importance of data quality along the way.
@@ -22,7 +22,7 @@ Because of this difference in scores between human and AI-written text, classifi
 
 Before we could start using Binoculars, we needed to create a sizeable dataset of human and AI-written code, that contained samples of various tokens lengths. To achieve this, we developed a code-generation pipeline, which collected human-written code and used it to produce AI-written files or individual functions, depending on how it was configured.
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/old-code-generation-pipeline.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/old-code-generation-pipeline.jpg)
 _Our proposed pipeline for generating AI code samples_
 
 First, we provided the pipeline with the URLs of some GitHub repositories and used the GitHub API to scrape the files in the repositories. To ensure that the code was human written, we chose repositories that were archived before the release of Generative AI coding tools like [GitHub Copilot](https://github.com/features/copilot).
@@ -45,12 +45,12 @@ The original Binoculars paper identified that the number of [tokens](https://pla
 
 From our code generation pipeline, we collected human and AI-written code files, written in a variety of programming languages, that were 25, 50, 100, 200, 300, 400, 500 tokens in length (+/- 10%). We then calculated the Binoculars score for each file.
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_plot_chart_old.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_plot_chart_old.jpg)
 _Average Binoculars score for AI and Non-AI written code, at each token length_
 
 The above graph shows the average Binoculars score at each token length, for human and AI-written code. For inputs shorter than 150 tokens, there is little difference between the scores between human and AI-written code. However, from 200 tokens onward, the scores for AI-written code are generally lower than human-written code, with increasing differentiation as token lengths grow, meaning that at these longer token lengths, Binoculars would better be at classifying code as either human or AI-written.
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_roc_chart_old.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_roc_chart_old.jpg)
 
 _ROC Curve showing classification performance using various thresholds, for each token length_
 
@@ -66,10 +66,10 @@ Here, we investigated the effect that the model used to calculate Binoculars sco
 
 Previously, we had used CodeLlama7B for calculating Binoculars scores, but hypothesised that using smaller models might improve performance. To investigate this, we tested 3 different sized models, namely [DeepSeek Coder 1.3B](https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base), [IBM Granite 3B](https://huggingface.co/ibm-granite/granite-3b-code-base) and [CodeLlama 7B](https://huggingface.co/codellama/CodeLlama-7b-hf) using datasets containing Python and JavaScript code. 
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_model_box_plot_old.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_model_box_plot_old.jpg)
 _Box plots showing the distribution of Binoculars scores calculated using each model_
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_model_roc_curve_old.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_model_roc_curve_old.jpg)
 _ROC Curve showing classification performance using various thresholds, for each model used to calculate Binoculars score_
 
 Our results showed that for Python code, all the models generally produced higher Binoculars scores for human-written code compared to AI-written code. We see the same pattern for JavaScript, with DeepSeek showing the largest difference. The ROC curves indicate that for Python, the choice of model has little impact on classification performance, while for JavaScript, smaller models like DeepSeek 1.3B perform better in differentiating code types.
@@ -88,7 +88,7 @@ Unsurprisingly, here we see that the smallest model (DeepSeek 1.3B) is around 5 
 
 Previously, we had focussed on datasets of whole files. Next, we looked at code at the function/method level to see if there is an observable difference when things like boilerplate code, imports, licence statements are not present in our inputs.
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_function_roc_curve_old.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_function_roc_curve_old.jpg)
 _ROC Curve showing classification performance when calculating Binoculars score at the function level_
 
 This resulted in a big improvement in AUC scores, especially when considering inputs over 180 tokens in length, confirming our findings from our effective token length investigation.
@@ -97,7 +97,7 @@ This resulted in a big improvement in AUC scores, especially when considering in
 
 Next, we set out to investigate whether using different LLMs to write code would result in differences in Binoculars scores. A dataset containing human-written code files written in a variety of programming languages was collected, and equivalent AI-generated code files were produced using [`GPT-3.5-turbo`](https://platform.openai.com/docs/models/gpt-3-5-turbo) (which had been our default model), [`GPT-4o`](https://platform.openai.com/docs/models/gpt-4o), [`ChatMistralAI`](https://js.langchain.com/v0.2/docs/integrations/chat/mistral/), and [`deepseek-coder-6.7b-instruct`](https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct).
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_code_charts_old.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_code_charts_old.jpg)
 
 Amongst the models, GPT-4o had the lowest Binoculars scores, indicating its AI-generated code is more easily identifiable despite being a state-of-the-art model. The ROC curve further confirmed a better distinction between GPT-4o-generated code and human code compared to other models.
 
@@ -155,7 +155,7 @@ _An example of a code snippet, taken from an AI-written Java file from our datas
 
 With the source of the issue being in our dataset, the obvious solution was to revisit our code generation pipeline.
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/new-code-generation-pipeline.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/new-code-generation-pipeline.jpg)
 _Our new pipeline for generating AI code samples_
 
 First, we swapped our data source to use the [github-code-clean](https://huggingface.co/datasets/codeparrot/github-code-clean) dataset, containing 115 million code files taken from GitHub. These files had been filtered to remove files that are auto-generated, have short line lengths, or a high proportion of non-alphanumeric characters. 
@@ -182,7 +182,7 @@ With our new pipeline taking a minimum and maximum token parameter, we started b
 
 In our first iteration, we took all the functions in our dataset, and produced datasets containing 16, 32, 64, 128, 256, and 512, by setting the minimum and maximum token lengths to +/- 10% of the target size.
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_plot_chart_new.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_plot_chart_new.jpg)
 
 _Average Binoculars score for AI and Non-AI written code, at each token length_
 
@@ -198,7 +198,7 @@ _Distribution of number of tokens for human and AI-written functions._
 
 We hypothesise that this is because the AI-written functions generally have low numbers of tokens, so to produce the larger token lengths in our datasets, we add significant amounts of the surrounding human-written code from the original file, which skews the Binoculars score.
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_roc_chart_new.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_roc_chart_new.jpg)
 
 _ROC Curve showing classification performance using various thresholds, for each token length_
 
@@ -208,13 +208,13 @@ Looking at the AUC values, we see that for all token lengths, the Binoculars sco
 
 Due to the poor performance at longer token lengths, here, we produced a new version of the dataset for each token length, in which we only kept the functions with token length at least half of the target number of tokens. This meant that in the case of the AI-generated code, the human-written code which was added did not contain more tokens than the code we were examining.
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_context_limited_plot_chart_new.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_context_limited_plot_chart_new.jpg)
 
 _Average Binoculars score for AI and Non-AI written code when the amount of context is limited, at each token length_
 
 Here, we see a clear separation between Binoculars scores for human and AI-written code for all token lengths, with the expected result of the human-written code having a higher score than the AI-written. However, this difference becomes smaller at longer token lengths.
 
-![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_roc_chart_context_limited.png)
+![jpg]({{ site.github.url }}/alaws/assets/data-quality/binoculars_score_roc_chart_context_limited.jpg)
 
 _ROC Curve showing classification performance when the amount of context is limited, for each token length_
 
