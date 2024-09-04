@@ -147,7 +147,7 @@ Here’s a step-by-step roadmap for a test engineer to develop ML model testing 
 
 By following this roadmap, test engineers can successfully transition into ML model testing, ensuring they stay relevant in an evolving field.
 
-**In Conclusion**, testing and evaluating ML models requires a mix of traditional testing skills and an understanding of statistical methods. With the right testing strategies and by following a structured approach to testing, incorporating data validation, metric analysis, stress testing and continuous monitoring, we can ensure that our ML model provides real value and meets business objectives.
+**In Conclusion**, evaluating and testing ML models requires a mix of traditional testing skills and an understanding of statistical methods. With the right testing strategies and by following a structured approach to testing, incorporating data validation, metric analysis, stress testing and continuous monitoring, we can ensure that our ML model provides real value and meets business objectives.
 
 Additionally, staying informed about the latest trends and tools can help handle the challenges of ML testing effectively and make a significant impact on your organisation’s success.
 Machine learning is complex but also an exciting opportunity to explore new dimensions of software quality. Let’s embrace these challenges as a chance to grow and expand our skills in field of software testing.
