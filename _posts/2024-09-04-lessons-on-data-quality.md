@@ -7,6 +7,7 @@ summary: Our team set out to investigate if we could use Binoculars, a method of
   LLM-generated text, to detect AI-written code, and learnt some valuable lessons
   on the importance of data quality along the way.
 author: alaws
+image: "/uploads/Detecting%20AI-written%20code.png"
 ---
 
 Our team had previously built a tool to [investigate code quality from PR data](https://blog.scottlogic.com/2024/07/16/investigating-code-quality-from-pr-data.html). Building on this work, we set about finding a method to detect AI-written code, so we could investigate any potential differences in code quality between human and AI-written code.
