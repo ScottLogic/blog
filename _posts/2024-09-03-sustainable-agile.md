@@ -61,7 +61,7 @@ Once you have finished mapping your project or tech estate, you should have a ta
 | Servers and Storage | Linux dev server| 
 | Generators (Cat G) | None |
 | Cloud Services | AWS Services |
-| SaaS | GitHub , NPM |
+| SaaS | GitHub, NPM |
 | Managed Services | N/A |
 | End-User Devices | End users accessing www.example.com via web browser, Android and iOS apps |
 | Network Data Transfer | www.example.com, api.example.com |
