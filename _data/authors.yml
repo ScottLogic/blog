@@ -151,11 +151,11 @@ active-authors:
   - zwali
 authors:
   asaha:
-    name: 'Asrut Saha'
+    name: "Asrut Saha"
     picture: picture.jpg
     author-summary: "I am a Senior QA at SL with roughly 12 years of testing experience."
   amcgill:
-    name: 'Alex McGill'
+    name: "Alex McGill"
     picture: picture.jpg
     author-summary: "I've spent the last few years using Angular in Investment Banking. When I'm not working you'll find me looking after my puppy!"
   aaiken:
@@ -187,8 +187,8 @@ authors:
     twitter-url: "https://twitter.com/awbarron"
     twitter-handle: AWBarron
   aberrill:
-    author-summary: 'Test Engineer at Scott Logic with a great interest in test automation and accessibility'
-    name: 'Alex Berrill'
+    author-summary: "Test Engineer at Scott Logic with a great interest in test automation and accessibility"
+    name: "Alex Berrill"
     picture: picture.jpg
   acarr:
     feed-description: "Andrew's thoughts on technology"
@@ -439,15 +439,15 @@ authors:
     name: "Gary Thompson"
     picture: picture.jpg
   gsingh:
-    author-summary: 'I am a senior developer at Scott Logic. I am passionate about solution designing and front end-based technologies and in my free time I enjoy watching and playing Cricket.'
-    name: 'Gagan Singh'
+    author-summary: "I am a senior developer at Scott Logic. I am passionate about solution designing and front end-based technologies and in my free time I enjoy watching and playing Cricket."
+    name: "Gagan Singh"
     picture: picture.jpg
   hbellamy:
     name: "Harry Bellamy"
     author-summary: "<p>I am a Lead Developer at Scott Logic.</p>"
   hlogan:
-    author-summary: 'I''m a developer at Scott Logic, Glasgow with a background in data science and Java/Python development.'
-    name: 'Heather Logan'
+    author-summary: "I'm a developer at Scott Logic, Glasgow with a background in data science and Java/Python development."
+    name: "Heather Logan"
     picture: picture.jpg
   hgoode:
     name: "Harry Goode"
@@ -471,7 +471,7 @@ authors:
     picture: picture.jpg
   hsauve:
     author-summary: "I'm an Associate Developer at Scott Logic based in the Bristol office. My background is in Languages and Marketing."
-    feed-description: 
+    feed-description:
     name: "Hélène Sauvé"
     picture: helene-sauve-picture.jpg
   ilapworth:
@@ -503,7 +503,7 @@ authors:
     picture: picture.jpg
   jcamilleri:
     name: "James Camilleri"
-    author-summary: "I'm a Lead Developer at Scott logic based in the Bristol office."
+    author-summary: "I'm a Lead Developer at Scott logic based in the Bristol office. I specialise in C#, Agile methodologies and sustainabile software."
     picture: picture.jpg
   jcardy:
     name: "Jonathan Cardy"
@@ -696,8 +696,8 @@ authors:
     name: "Nicholas Wolverson"
     picture: picture.jpg
   osouthwell:
-    author-summary: 'I''m a software developer at Scott Logic, based in Bristol. I''m at least a little bit interested in almost everything.'
-    name: 'Ollie Southwell'
+    author-summary: "I'm a software developer at Scott Logic, based in Bristol. I'm at least a little bit interested in almost everything."
+    name: "Ollie Southwell"
     picture: picture.jpg
   okenyon:
     name: "Oliver Kenyon"
@@ -1407,9 +1407,9 @@ authors:
     picture: picture.jpeg
   colive:
     name: "Charlie Olive"
-    feed-description: 'Write ups on technical topics learnt through my Consultant role at Scott Logic'
+    feed-description: "Write ups on technical topics learnt through my Consultant role at Scott Logic"
     email: colive@scottlogic.com
-    author-summary: 'Developer based in the Bristol office. Most experienced in back end and RESTful services, curiously learning about everything else. I also run a lot.'
+    author-summary: "Developer based in the Bristol office. Most experienced in back end and RESTful services, curiously learning about everything else. I also run a lot."
     picture: unnamed2.jpg
   bwallis:
     name: "Beth Wallis"
@@ -1430,9 +1430,9 @@ authors:
     author-summary: "I am a senior developer from Scott Logic, Newcastle. I am a fullstack developer with experience in web, mobile, backend and cloud technologies. I have done a bit of everything and I am enthusiastic to share my knowledge with the rest of the world."
     picture: picture.jpg
   klau:
-    name: 'Kiet Lau'
+    name: "Kiet Lau"
     email: klau@scottlogic.com
-    author-summary: 'I am a Bristol-based software engineer specializing in DevOps and infrastructure, with passions for 🦾🤖 and 🌱💚'
+    author-summary: "I am a Bristol-based software engineer specializing in DevOps and infrastructure, with passions for 🦾🤖 and 🌱💚"
     picture: picture.jpg
   aaltitude:
     name: "Ashleigh at Altitude Foundation"
@@ -1445,7 +1445,7 @@ authors:
     picture: picture.JPG
     author-summary: "<p>I'm a Senior UX designer at Scott Logic, based in Edinburgh. I love building websites, designing apps and watching football!</p>"
   sgladstone:
-    name: 'Sam Gladstone'
+    name: "Sam Gladstone"
     email: sgladstone@scottlogic.com
     author-summary: "I'm a developer based out of our Bristol office. I'm a bit of a generalist; I like to get stuck into a range of problems from the business side to anywhere across the tech stack."
     picture: Image.png
