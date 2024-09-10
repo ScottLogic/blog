@@ -1,7 +1,7 @@
 ---
 author: jcarstairs
 title: LLMs don't 'hallucinate'
-date: 2024-09-06 00:00:00 Z
+date: 2024-09-10 00:00:00 Z
 summary: Describing LLMs as 'hallucinating' fundamentally distorts how LLMs work. We can do better.
 category: AI
 image: "/jcarstairs/assets/mirage.webp"
