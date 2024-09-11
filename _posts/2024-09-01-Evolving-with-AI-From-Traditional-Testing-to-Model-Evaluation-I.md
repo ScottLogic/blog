@@ -2,9 +2,6 @@
 title: Evolving with AI from Traditional Testing to Model Evaluation I
 date: 2024-09-01 10:00:00 Z
 categories:
-- Machine Learning
-- Testing
-- Model Evaluation
 - Artificial Intelligence
 tags:
 - Machine Learning
@@ -17,16 +14,16 @@ author: snandal
 image: "/uploads/Evolving%20with%20AI%20From%20Traditional%20Testing%20to%20Model%20Evaluation%20I.png"
 ---
 
-Machine learning (ML) is no longer just a concept for the future, it is now a vital part of many everyday applications. From personalised recommendations on streaming services to detecting fraud in banking and from self-driving cars to advancements in healthcare, ML is changing the way industries work.
+Machine learning (ML) is no longer just a concept for the future, it is now a vital part of many everyday applications. From personalised recommendations on streaming services and self-driving cars to detecting fraud in banking and advancements in healthcare, ML is changing the way industries work.
 
 For a test engineer, the increasing use of ML brings new challenges and opportunities. As ML technology advances, the role of a test engineer also changes. Unlike traditional software, which gives consistent and predictable results, ML models work with probabilities and patterns, making testing and evaluation more complex.
 
-In this blog we will try to look at how ML has developed, how it might affect our job as test engineers and the important strategies, considerations and skills needed to effectively evaluate and test ML models. 
-We will also try to draw a roadmap to help us grow professionally in this area.
+In this blog, we will look at how ML has developed, how it might affect our job as test engineers and the important strategies, considerations and skills needed to effectively evaluate and test ML models. 
+We will also draw a roadmap to help us grow professionally in this area.
 
 ## How Machine Learning Has Evolved
 
-Machine learning has significantly advanced since its early days. Initially, ML models were fairly simple, handling tasks like basic predictions or classifications. However, with improvements in computing power, access to large amounts of data and more complex algorithms, ML has grown into a powerful tool capable of handling sophisticated tasks like natural language processing and images recognition.
+Machine learning has significantly advanced since its early days. Initially, ML models were fairly simple, handling tasks like basic predictions or classifications. However, with improvements in computing power, access to large amounts of data and more complex algorithms, ML has grown into a powerful tool capable of handling sophisticated tasks like natural language processing and image recognition.
 
 This progress has made ML widespread across industries, leading businesses to increasingly rely on data-driven decisions. As companies embrace ML, the need for thorough and reliable testing of these models has become more important, which directly affects the role of test engineers.
 
@@ -36,7 +33,7 @@ At their core, ML models learn from data. They are trained on large datasets to 
 
 Traditionally, a test engineer's job involved testing systems where a given input always produced the same output, making results predictable. However, with ML, this approach changes. ML models are probabilistic, meaning their outputs can vary depending on the training data and some built-in randomness. This shift has significantly changed how software testing is done.
 
-We now need to do more than just check if a system works as expected. We must also evaluate how well a model performs, whether it's reliable and fair. This requires combining traditional testing skills with additional knowledge specific to ML.
+We now need to do more than just check whether a system works as expected. We must also evaluate how well a model performs, whether it's reliable and fair. This requires combining traditional testing skills with additional knowledge specific to ML.
 
 ## Looking at the unique challenges that testing ML models brings
 
@@ -46,7 +43,7 @@ We now need to do more than just check if a system works as expected. We must al
 
 **Performance Metrics:** Traditional testing metrics like pass/fail don’t apply directly to ML models. Instead, we use statistical metrics like accuracy, precision, recall, F1 score and AUC-ROC to evaluate model performance. Understanding and choosing the right metrics is key to effective testing.
 
-**Model Degradation over time:** As new data becomes available; an ML model’s performance can degrade causing a problem known as model drift. This means continuous monitoring and retraining are equally important, adding complexity to the testing process.
+**Model Degradation Over Time:** As new data becomes available, an ML model’s performance can degrade causing a problem known as model drift. This means continuous monitoring and retraining are equally important, adding complexity to the testing process.
 
 ## Model Evaluation Vs. Model Testing
 
@@ -82,7 +79,7 @@ To effectively address the challenges that ML brings, test engineers can benefit
 
 Consider a hospital implementing an ML model to predict the likelihood of patients being readmitted within 30 days of discharge. 
 
-**Defining Objectives:** The goal here is to identify most high-risk patients so that the hospital can take proactive measures to reduce readmission rates and improve patient care.
+**Defining Objectives:** The goal here is to identify the most high-risk patients so that the hospital can take proactive measures to reduce readmission rates and improve patient care.
 
 **Data Validation:** Further start by validating the dataset, ensuring that it includes a balanced representation of various patient, medical history, treatment plans etc. Use cross-validation to train the model and select the most effective algorithm for predicting readmissions.
 
@@ -116,7 +113,7 @@ To effectively perform model evaluation, a test engineer would need a combinatio
 **4. Data Analysis and Validation**
 
 * Skills in data cleaning, handling missing data, outliers, data normalisation and feature engineering.
-* Ability to validate datasets for biases, errors and representativeness, ensuring that the training data is of high quality and relevant to the model’s objectives.
+* Ability to validate datasets for biases, errors and representativeness, ensuring that the training data is of high quality and relevant to the model objectives.
 * Proficiency in using tools like Python’s Pandas, Matplotlib and Seaborn for EDA to understand the dataset before feeding it into an ML model.
 
 **5. Familiarity with common ML Tools and Platforms**
@@ -147,9 +144,11 @@ Here’s a step-by-step roadmap for a test engineer to develop ML model testing 
 
 By following this roadmap, test engineers can successfully transition into ML model testing, ensuring they stay relevant in an evolving field.
 
-**In Conclusion**, evaluating and testing ML models requires a mix of traditional testing skills and an understanding of statistical methods. With the right testing strategies and by following a structured approach to testing, incorporating data validation, metric analysis, stress testing and continuous monitoring, we can ensure that our ML model provides real value and meets business objectives.
+## In Conclusion
+
+Evaluating and testing ML models requires a mix of traditional testing skills and an understanding of statistical methods. With the right testing strategies and by following a structured approach to testing, incorporating data validation, metric analysis, stress testing and continuous monitoring, we can ensure that our ML model provides real value and meets business objectives.
 
 Additionally, staying informed about the latest trends and tools can help handle the challenges of ML testing effectively and make a significant impact on your organisation’s success.
-Machine learning is complex but also an exciting opportunity to explore new dimensions of software quality. Let’s embrace these challenges as a chance to grow and expand our skills in field of software testing.
+Machine learning is complex but also an exciting opportunity to explore new dimensions of software quality. Let’s embrace these challenges as a chance to grow and expand our skills in the field of software testing.
 
 *Hoping to publish my next blog soon, where I will dive deeper into evaluation metrics and how to choose the right ones for assessing machine learning models effectively.*
