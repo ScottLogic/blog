@@ -7,8 +7,6 @@ summary: Scott Logic's Technology Carbon Estimator helps organizations assess th
 author: mgriffin
 ---
 
-Introducing Our Technology Carbon Estimator
-
 In February of this year, Scott Logic [announced](https://blog.scottlogic.com/2024/02/13/announcing-the-proposed-technology-carbon-standard.html) our proposed [Technology Carbon Standard](https://www.techcarbonstandard.org/), setting out an approach to describing an organisation’s technology footprint. This standard has proven invaluable in mapping our own carbon footprint, as well as those of clients we've worked with. As awareness of the environmental impact of digital infrastructure grows, it has become crucial to understand and manage technology-related emissions. Around the time of the standard’s release, we began developing a high-level, rough order of magnitude estimation tool to complement it: our [Technology Carbon Estimator](https://www.techcarbonstandard.org/estimator).
 
 ![Technology Carbon Estimator]({{ site.github.url }}/mgriffin/assets/tech-carbon-estimator.png "A screenshot of our Tech Carbon Estimator, showing some of the input and a result.")
@@ -25,7 +23,7 @@ As we started this project, it was unclear exactly where this Estimator would be
 
 We used [Angular](https://angular.dev/) to accomplish this, partially due to the team’s familiarity with the framework, but it also provides some relevant benefits as well. While the Angular framework is large, it will use 'Tree Shaking' out of the box to build the minimal code required and keep the download size low - so that we practice what we preach about the downstream impacts of web traffic. We’d like to reduce its size further in future, as currently the largest component is a library used for the results chart.
 
-It's also been a goal to keep accessibility in mind, recognizing one of the UN’s Sustainable Development Goals being ‘Reduced Inequalities’. We strive to ensure that the site has good keyboard support and ARIA descriptions for visual elements like the results chart. This has been a challenging area to navigate, as it's often difficult to implement accessibility changes without creating some drawbacks for certain groups. Instead, we must carefully weigh the pros and cons of different approaches, seeking solutions that benefit the greatest number of users.
+It's also been a goal to keep accessibility in mind, recognizing one of the UN’s Sustainable Development Goals being [‘Reduced Inequalities’](https://www.un.org/sustainabledevelopment/inequality/). We strive to ensure that the site has good keyboard support and ARIA descriptions for visual elements like the results chart. This has been a challenging area to navigate, as it's often difficult to implement accessibility changes without creating some drawbacks for certain groups. Instead, we must carefully weigh the pros and cons of different approaches, seeking solutions that benefit the greatest number of users.
 
 ## Understanding the Estimator’s Accuracy and Limitations
 
