@@ -8,6 +8,7 @@ summary: Scott Logic's Technology Carbon Estimator helps organizations assess th
   It highlights high-impact areas and allows users to explore how changes can reduce
   their environmental impact.
 author: mgriffin
+image: "/uploads/Introducing%20our%20TCE.png"
 ---
 
 In February of this year, Scott Logic [announced](https://blog.scottlogic.com/2024/02/13/announcing-the-proposed-technology-carbon-standard.html) our proposed [Technology Carbon Standard](https://www.techcarbonstandard.org/), setting out an approach to describing an organisation’s technology footprint. This standard has proven invaluable in mapping our own carbon footprint, as well as those of clients we've worked with. As awareness of the environmental impact of digital infrastructure grows, it has become crucial to understand and manage technology-related emissions. Around the time of the standard’s release, we began developing a high-level, rough order of magnitude estimation tool to complement it: our [Technology Carbon Estimator](https://www.techcarbonstandard.org/estimator).
