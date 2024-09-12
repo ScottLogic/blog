@@ -1,6 +1,6 @@
 ---
 title: Introducing Our Technology Carbon Estimator
-date: 2024-09-04 00:00:00 Z
+date: 2024-09-12 00:00:00 Z
 categories:
 - Sustainability
 summary: Scott Logic's Technology Carbon Estimator helps organizations assess their tech-related carbon footprint by providing an accessible, proportional view of emissions. It highlights high-impact areas and allows users to explore how changes can reduce their environmental impact.
