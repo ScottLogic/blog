@@ -14,7 +14,7 @@ summary: Having worked on developing Machine Learning skill definitions and L&D 
   for effective model evaluation and finally tried to outline a roadmap for developing
   the necessary skills to excel in ML model testing.
 author: snandal
-image: "/uploads/Evolving%20with%20AI%20From%20Traditional%20Testing%20to%20Model%20Evaluation%20I.png"
+image: "/uploads/Evolving%20with%20AI%20to%20model%20evaluation.png"
 ---
 
 Machine learning (ML) is no longer just a concept for the future, it is now a vital part of many everyday applications. From personalised recommendations on streaming services and self-driving cars to detecting fraud in banking and advancements in healthcare, ML is changing the way industries work.
