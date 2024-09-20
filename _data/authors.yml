@@ -4,6 +4,7 @@ active-authors:
   - abarron
   - aberrill
   - abirch
+  - acanham
   - acarr
   - acaulfield
   - ahickman
@@ -190,6 +191,9 @@ authors:
     author-summary: 'Test Engineer at Scott Logic with a great interest in test automation and accessibility'
     name: 'Alex Berrill'
     picture: picture.jpg
+  acanham:
+    name: "Annabel Canham"
+    author-summary: "Developer at Scott Logic and aspiring cloud architect."
   acarr:
     feed-description: "Andrew's thoughts on technology"
     name: "Andrew Carr"
