@@ -12,13 +12,13 @@ Over the course of a year, we’ve come a long way—transforming what was once 
 
 ## What is FINOS CCC?
 
-As stated on the [official page](https://www.finos.org/common-cloud-controls-project) for the Common Cloud Control project on the FINOS website “FINOS Common Cloud Control (FINOS CCC) is the codename for an open standard project, originally proposed by Citi and now open source under Fintech Open Source Foundation (FINOS), to describe consistent controls for compliant public cloud deployments in the financial services sector”.
+As stated on the [official page](https://www.finos.org/common-cloud-controls-project) for the CCC project on the FINOS website, “FINOS Common Cloud Control (FINOS CCC) is the codename for an open standard project, originally proposed by Citi and now open source under Fintech Open Source Foundation (FINOS), to describe consistent controls for compliant public cloud deployments in the financial services sector”.
 
 This statement outlines several important aspects of the project. First and foremost, it is designed to cater specific needs of the **financial services sector**, which includes banking, insurance, investment and wealth management, mortgage lending, and more. An **open standard** refers to a set of guidelines or specifications developed collaboratively that can be used freely or with minimal restrictions. **Consistent controls** imply standardized security, compliance, and governance measures applied uniformly across the infrastructure, applications and processes. These controls ensure that policies related to data protection, access management, auditing, encryption, and monitoring are reliably implemented. **Compliance public cloud deployments** involve using public cloud services, such as AWS, Microsoft Azure, or Google Cloud, that meet the regulatory and legal standards required by regulating authorities. 
 
 In summary, FINOS CCC project aims to establish a set of guidelines that enforce security, compliance, and governance for public cloud services used by financial institutions.
 
-# Why do we need consistent controls for public cloud?
+## Why do we need it?
 
 Financial service sector retains sensitive data about their customers. They store personal identification information of the customer such as full name, date of birth, social security numbers, national identification numbers, home address, email addresses, phone numbers, etc. They also sometimes store customer income and credit data such as employment status, employer details, salary information, other income sources, credit score, defaults and bankruptcies, etc. Not only that, but financial services also usually have records of customer in-store & online purchase history, withdrawals, deposits, investment activities and related transactional and behavioral patterns. In a nutshell, they hold a vast amount of sensitive customer information, which could cause severe reputation and financial damage in an unfortunate event of a data breach.
 
@@ -26,27 +26,27 @@ In the past, regulatory requirements for financial institutes mandated that data
 
 Jim Adams, CTO and Head of Technology Infrastructure at Citi, the world’s fifth largest bank, said, “There is a need for a Cloud Standard that will improve certain security and control measures across the Financial Services industry, whilst simplifying and democratizing access for all institutions to operate and benefit by leveraging the public cloud. It is important to collaborate with our peers to ensure consistency across cloud service providers, ensuring the industry can realize true multi-cloud strategies,” in his statement on July 27, 2023 .
 
-# Timeline and Contributors
+## Timeline and Contributors
 
-On July 27, 2023, in New York FINOS announced the formation of an open standard project, based upon an approach developed by FINOS Platinum Member Citi, to describe consistent controls for compliant public cloud deployments in the financial services sector.
+**On July 27, 2023, in New York,** FINOS announced the formation of an open standard project, based upon an approach developed by FINOS Platinum Member Citi, to describe consistent controls for compliant public cloud deployments in the financial services sector.
 
-On October 24, 2023, in Las Vegas, FINOS announced the open sourcing of FINOS Common Cloud Controls (FINOS CCC) under the Community Specification License.
+**On October 24, 2023, in Las Vegas,** FINOS announced the open sourcing of FINOS Common Cloud Controls (FINOS CCC) under the Community Specification License.
 
 The project, seeded by Citi and approved in July by the FINOS Governing Board, has quickly garnered participation from over 20 leading financial institutions, cloud service providers and technology vendors. Some key member organizations involved in the formation and development of the project include Citi, Bank of Montreal (BMO), Goldman Sachs, JPMorgan, Morgan Stanley, Royal Bank of Canada (RBC), Deutsche Bank, London Stock Exchange Group (LSEG), Natwest, Google Cloud, Microsoft, NIST, Red Hat, Symphony, ControlPlane, GitHub, GitLab, and Scott Logic. 
 
-# Anatomy of FINOS CCC
+## Anatomy of FINOS CCC
 
 The Common Cloud Controls (CCC) project encompasses multiple layers. A key goal of this initiative is to establish a unified taxonomy for the services offered by various cloud service providers. For instance, AWS provides virtual computing services under the name Elastic Compute Cloud (EC2), while Azure refers to it as Virtual Machine (VM), and Google offers a similar service called Google Compute Engine (GCE). Despite the different names, these services provide comparable functionalities. Regardless of the cloud provider, it’s essential to have controls in place. These controls are tied to specific infrastructure components, which must be identified and classified using cloud-agnostic terminology before controls can be designed for better clarity. Hence identifying these common features is the foundational step in creating the CCC standard.
 
-Threats in the cloud are reasonably understood. The MITRE ATT&CK framework is a globally recognized knowledge base used to understand and analyze the behavior of cyber adversaries. It provides a structured way to describe and categorize the tactics, techniques, and procedures (TTPs) that attackers use to infiltrate and compromise systems. CCC also aims to create a mapping of threats found in Mitre framework with the common features identified by the cloud services taxonomy in their controls. 
+Threats in the cloud are reasonably understood. The [MITRE ATT&CK](https://attack.mitre.org/) framework is a globally recognized knowledge base used to understand and analyze the behavior of cyber adversaries. It provides a structured way to describe and categorize the tactics, techniques, and procedures (TTPs) that attackers use to infiltrate and compromise systems. CCC also aims to create a mapping of threats found in Mitre framework with the common features identified by the cloud services taxonomy in their controls. 
 
-FINOS CCC project uses OSCAL (Open Security Controls Assessment Language) developed by NIST (National Institute of Standards and Technology) as their control language. OSCAL utilizes a machine-readable format for defining controls, which facilitates automated assessments, reporting, automated generation of compliance documentation and many more.
+FINOS CCC project uses [OSCAL](https://pages.nist.gov/OSCAL/) (Open Security Controls Assessment Language) developed by NIST (National Institute of Standards and Technology) as their control language. OSCAL utilizes a machine-readable format for defining controls, which facilitates automated assessments, reporting, automated generation of compliance documentation and many more.
 
 The project also aims to validate controls through a series of tests. If you are aware of the controls required in your public cloud, you can use the tests provided in the CCC standard to verify whether those controls are properly implemented.
 
 It is envisaged that eventually, CCC will offer certification for CSPs who conform to the standard.
 
-# Common Cloud Controls with Example Code
+# Elaborate with examples
 
 To provide you with a clearer understanding of what a control is, let's take a closer look at a specific example: the control that prevent bucket deletion through irrevocable bucket retention policy in object storage. This control is designed to ensure that critical storage resources, like data buckets, are not accidentally or maliciously deleted, thereby protecting the integrity and availability of stored data. By examining this control, we can better understand what are the associated threats and how to mitigate those risks in cloud environments.
 
@@ -84,7 +84,7 @@ mitre_attack:
     - T1485: Data Destruction
 ~~~
 
-The feature CCC.ObjStor.F11, found in the features.yaml file under the object storage category, allows for controlling access to buckets based on predefined policies. This functionality can be leveraged to deny the deletion of buckets, ensuring that once a bucket is created, it cannot be deleted. This feature directly supports the control we are discussing, as it helps enforce safeguards against accidental or malicious deletion of storage resources, aligning with the security objectives of the control.
+The feature `CCC.ObjStor.F11`, found in the features.yaml file under the object storage category, allows for controlling access to buckets based on predefined policies. This functionality can be leveraged to deny the deletion of buckets, ensuring that once a bucket is created, it cannot be deleted. This feature directly supports the control we are discussing, as it helps enforce safeguards against accidental or malicious deletion of storage resources, aligning with the security objectives of the control.
 
 ~~~yaml
 id: CCC.ObjStor.F11
@@ -95,9 +95,9 @@ description: |
 
 In summary, if your architecture relies on object storage to retain customer data in a financial institution, it's critical to prevent the deletion of storage buckets, whether due to accidental or malicious actions. This can be achieved by implementing retention policies and using object-level access controls to restrict deletion rights. By doing so, you ensure that vital customer data remains secure and compliant with regulatory requirements, safeguarding against data loss.
 
-For more details refer to the project's GitHub page [link](https://github.com/finos/common-cloud-controls)
+For more details refer to the project's [GitHub](https://github.com/finos/common-cloud-controls) page.
 
-# What are the goals of FINOS CCC?
+## Goals of FINOS CCC
 
 Base on the Common Cloud Control GitHub repo the project aims to fulfil following goals, 
 * Defining Best Practices Around Cloud Security
@@ -106,7 +106,7 @@ Base on the Common Cloud Control GitHub repo the project aims to fulfil followin
 * A Path Towards Common Implementation
 * A Path Towards Certification
 
-or a more detailed explanation of each project goal and how they are achieved, please refer to the README.md file in the project's GitHub repository.
+or a more detailed explanation of each project goal and how they are achieved, please refer to the [README.md](https://github.com/finos/common-cloud-controls) file in the project's GitHub repository.
 
 # What ScottLogic offers for the FINOS CCC?
 
