@@ -7,30 +7,34 @@ tags:
   - Cloud
   - AWS
   - Terraform
-summary: Comparing the experience of coding with terraform and AWS CDK.
+summary: Comparing the experience of coding with Terraform and AWS CDK.
 author: acanham
 ---
 
 # Terraform VS CDK
 
-If you’ve worked in software for more than 5 minutes, then you’ve probably heard of cloud computing. And if you’ve worked in cloud computing for more than 5 minutes, you’ve probably heard of either Terraform or AwsCDK (also known as just CDK).
+If you’ve worked in software for more than 5 minutes, then you’ve probably heard of cloud computing. And if you’ve worked in cloud computing for more than 5 minutes, you’ve probably heard of either Terraform or AwsCDK (also known as CDK).
 
-Both Terraform and CDK are tools known as infrastructure as code (IaC) which speed up cloud development by allowing a user to code their cloud resources before deploying them. This allows the cloud architecture to be treated as code, that is, replicated, reviewed and stored just like any other code.  
+Both Terraform and CDK are tools known as infrastructure as code (IaC) which speed up cloud development by allowing a user to code their cloud resources before deploying them.  
+This allows the cloud architecture to be treated as code, that is, replicated, reviewed and stored just like any other code.  
 It also means that we can deploy or destroy a complex mesh of cloud resources with just one command; saving a lot of time, effort, money and mistakes.
-As a developer with 2 and a half years experience with cloud, over 2 years of experience with terraform, I’ve recently finished an upskilling project learning CDK. In this blog, I’ll cover some of the differences between the two and which one you might prefer to use.
+
+As a developer with 2 and a half years experience with cloud, over 2 years of experience with Terraform, I’ve recently finished an upskilling project learning CDK.  
+In this blog, I’ll cover some of the differences between the two and which one you might prefer to use.  
 To begin explaining their differences, it’s easier to start with explaining how they work.
 
 ## Terraform workings
 
-Terraform works with something called the ‘terraform state’ , a JSON file (stored either locally or within the cloud) which acts as a record for all the resources that terraform has deployed to the cloud.When deploying, terraform will write to the state, and when deleting, it will remove from the state. This enables terraform to know what to delete and which resources to change/replace when alterations are deployed.
+Terraform works with something called the ‘Terraform state’ , a JSON file (stored either locally or within the cloud) which acts as a record for all the resources that Terraform has deployed to the cloud.  
+When deploying, Terraform will write to the state, and when deleting, it will remove from the state.  This enables Terraform to know what to delete and which resources to change/replace when alterations are deployed.
 
-The terraform state leads to some of the major common issues people run into when using terraform.  
-If anything is not deployed with terraform, but is changed manually, it is not recorded on the terraform state and can lead to errors when re-deploying.
-As the terraform state isn't directly tied to aws, and terraform itself is cloud agnostic, it can be used on any major cloud platform.
+The Terraform state leads to some of the major common issues people run into when using Terraform.  
+If anything is not deployed with Terraform, but is changed manually, it is not recorded on the Terraform state and can lead to errors when re-deploying.
+As the Terraform state isn't directly tied to aws, and Terraform itself is cloud agnostic, it can be used on any major cloud platform.
 
 ## CDK workings
 
-CDK on the other hand, is fully integrated into aws, and uses cloudformation to deploy its stacks. While this eliminates the problems which come with the terraform state, any issues you have with cloudformation deployment will likely be inherited into CDK, such as stack resource limits (although at 500 resources, the limit is arguably big enough for a well-coded stack).
+CDK on the other hand, is fully integrated into aws, and uses cloudformation to deploy its stacks. While this eliminates the problems which come with the Terraform state, any issues you have with cloudformation deployment will likely be inherited into CDK, such as stack resource limits (although at 500 resources, the limit is arguably big enough for a well-coded stack).
 
 ## Getting to grips with Terraform
 
@@ -43,10 +47,10 @@ resource "aws_instance" "example_instance" {
 }
 ~~~
 
-One particular issue with terraform (which I guarantee you will come across on any multi-env terraform project) is almost embarrassing in its solution.
+One particular issue with Terraform (which I guarantee you will come across on any multi-env Terraform project) is almost embarrassing in its solution.
 
 There are occasions where you’d want to create a resource only when you’re in a certain environment; like an IAM policy allowing user permissions or a bastion host which you want on a dev environment, and not a prod one.
-The way to go around this with terraform is to use the ‘count’ meta-argument.
+The way to go around this with Terraform is to use the ‘count’ meta-argument.
 ‘count’ allows you to specify how many instances of a resource you’d like to create, and can be thought of as a loop.
 
 ~~~ruby
@@ -88,12 +92,12 @@ resource "aws_instance" "example_instance" {
 
 It’s ironic that this is predominantly the main use for ‘count’ and most users hate it, yet in its 8 years as open source, no one came up with a better solution.
 
-However, I will admit that the well written documentation, and the sheer number of examples you can find online makes learning and solving problems in terraform a lot easier than they could be.
+However, I will admit that the well written documentation, and the sheer number of examples you can find online makes learning and solving problems in Terraform a lot easier than they could be.
 
-Another thing I find useful with terraform is that it appears asynchronous, meaning that any resource can be referred to in any other terraform file. Order does not matter. I can create an EC2 which references a VPC further down the file and have no issues.
+Another thing I find useful with Terraform is that it appears asynchronous, meaning that any resource can be referred to in any other Terraform file. Order does not matter. I can create an EC2 which references a VPC further down the file and have no issues.
 This comes in quite useful in cloud computing with the amount of interlinked dependencies and will still allow for tidy, organised codebase.
 
-It's important to note that terraform isn’t actually asynchronous, it takes what is given to it, and creates a dependency chain upon compiling; hence some cyclic dependencies such as security groups require separating.
+It's important to note that Terraform isn’t actually asynchronous, it takes what is given to it, and creates a dependency chain upon compiling; hence some cyclic dependencies such as security groups require separating.
 
 ~~~ruby
 resource "aws_security_group" "A" {
@@ -132,7 +136,7 @@ For example, we can reference B from security group A with no issue, but we can'
 
 ## Getting to grips with CDK
 If you have any experience with TypeScript, JavaScript, Python, Java, C# or Go, then you can already code CDK.  There is no new language to learn, you can integrate it entirely into your codebase.
-As there’s no need to learn an entire language before you can start to write up resources, this results in a quicker initial learning curve.  I noticed this on my upskilling project.  Devs who had never touched aws or terraform picked up on CDK quicker than people tend to do with terraform.  In part because there were fewer barriers with language, layout and syntax.
+As there’s no need to learn an entire language before you can start to write up resources, this results in a quicker initial learning curve.  I noticed this on my upskilling project.  Devs who had never touched aws or Terraform picked up on CDK quicker than people tend to do with Terraform.  In part because there were fewer barriers with language, layout and syntax.
 
 Another property speeding up the learning curve is that CDK can ‘fill in the gaps’ of cloud computing.  
 A great example is the automatic creation of subnets (public and private), NAT gateways, an Internet Gateway, route tables and ready-configured security groups AS WELL AS the creation of our EC2 instance, AMI and VPC, all done within the creation of a single instance.
@@ -161,7 +165,7 @@ Bearing in mind that both of these are using their out-of-the-box libraries (no 
 <summary>Terraform - 184 lines</summary>
 
 
-```
+```ruby
 resource "aws_vpc" "example_vpc" {
   cidr_block = "10.0.0.0/24"
 }
@@ -356,7 +360,7 @@ resource "aws_lb_listener" "example_alb_listener" {
 
 
 
-```
+```typescript
 const vpc = new Vpc(this, id);
 const instanceSG = new ec2.SecurityGroup(this, "instanceSG",{vpc,         allowAllOutbound:false})
 
@@ -417,7 +421,7 @@ listener.addAction("action", {
 
 </details>
 
-While you can argue that some of the line number difference could be down to the standard formatting I've used, there's no argument that CDK undeniably uses fewer characters (1624) than terraform (4985)
+While you can argue that some of the line number difference could be down to the standard formatting I've used, there's no argument that CDK undeniably uses fewer characters (1624) than Terraform (4985)
 I can confirm that the Terraform example took me twice as long to configure than the CDK one.
 
 However this 'fill in the gaps' approach with CDK does come with its downsides.  By making the resources deployed less explicit within the codebase, you potentially run into issues with bugeting, security, and even hitting the max resource quotas without even knowing that you were deploying said resource.
@@ -429,9 +433,9 @@ As mentioned, CDK helpfully created two NAT gateways (one per public subnet) per
 When attempting to deploy a 3rd environment, we hit the max number of ElasticIPs in the region (5) without even realising that we were deploying any.
 If you're reading carefully, you'll notice that the architecture is very similar to the one above used for our comparison, and be able to spot where Terraform creates the NAT Gateway, but not CDK...
 
-The main difficulty I had with learning CDK was the lack of examples online.  It has only been around since 2019, whereas terraform was launched in 2014, meaning that the CDK documentation isn’t quite as clear, there are fewer code examples, and still has the odd bug (the one we came across required cancelling and rerunning cdk deploy if using addAsgCapacityProvider).
+The main difficulty I had with learning CDK was the lack of examples online.  It has only been around since 2019, whereas Terraform was launched in 2014, meaning that the CDK documentation isn’t quite as clear, there are fewer code examples, and still has the odd bug (the one we came across required cancelling and rerunning cdk deploy if using addAsgCapacityProvider).
 
-It would also be a crime on my part to forget to mention that CDK allows you to directly integrate your cloud infrastructure into object oriented code, whereas terraform has to be in separated files in a different language to the rest of your code.
+It would also be a crime on my part to forget to mention that CDK allows you to directly integrate your cloud infrastructure into object oriented code, whereas Terraform has to be in separated files in a different language to the rest of your code.
 While this can be incredibly useful for someone more used to object-oriented coding, the majority of my uses for CDK was limited to just resources, so I didn’t get an opportunity to give this an honest go.
 
 That being said, I’ve definitely saved some time with CDK and found that other Devs new to the cloud have picked it up well.
@@ -439,11 +443,11 @@ That being said, I’ve definitely saved some time with CDK and found that other
 ## So..... Which one's "better"?
 
 Well like with most tech… it depends….
-Personally I’d lean towards terraform, however that could be more to do with my familiarity with the tech, and my love of high quality documentation and (somewhat) asynchronous development.
+Personally I’d lean towards Terraform, however that could be more to do with my familiarity with the tech, and my love of high quality documentation and (somewhat) asynchronous development.
 
-If you want a cloud agnostic IaC, and want to be precise in all your resources you’re deploying, with very little human interaction with the resource state, then terraform is the go to choice.
-However, if you’re already familiar with other coding languages, would like to integrate your cloud architecture with your codebase further than you can with terraform, want to specialise in aws and (understandably) hate updating route tables and security groups, then CDK is the way forward.
+If you want a cloud agnostic IaC, and want to be precise in all your resources you’re deploying, with very little human interaction with the resource state, then Terraform is the go to choice.
+However, if you’re already familiar with other coding languages, would like to integrate your cloud architecture with your codebase further than you can with Terraform, want to specialise in aws and (understandably) hate updating route tables and security groups, then CDK is the way forward.
 
 As an amateur cloud architect, I’m glad to have had some practical experience with both.  
 
-Although terraform has been an industry standard for years now, it has recently had a change of licence, and of 10th August 2023, is no longer open source, so it'll be interesting to see the trends and popularity of different cloud IaC technologies, whether terraform will keep the title of industry standard, or whether it will be overtaken by CDK, CDK for terraform (a recent new contender from hashicorp since 2022), or even openTofu, a new, opensource IaC which was forked off an older version of terraform, now maintained by the linux foundation.
+Although Terraform has been an industry standard for years now, it has recently had a change of licence, and of 10th August 2023, is no longer open source, so it'll be interesting to see the trends and popularity of different cloud IaC technologies, whether Terraform will keep the title of industry standard, or whether it will be overtaken by CDK, CDK for Terraform (a recent new contender from hashicorp since 2022), or even openTofu, a new, opensource IaC which was forked off an older version of Terraform, now maintained by the linux foundation.
