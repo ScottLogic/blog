@@ -50,7 +50,7 @@ It is envisaged that eventually, CCC will offer certification for CSPs who confo
 
 To provide you with a clearer understanding of what a control is, let's take a closer look at a specific example: the control that prevent bucket deletion through irrevocable bucket retention policy in object storage. This control is designed to ensure that critical storage resources, like data buckets, are not accidentally or maliciously deleted, thereby protecting the integrity and availability of stored data. By examining this control, we can better understand what are the associated threats and how to mitigate those risks in cloud environments.
 
-This control defined in the `controls.yaml` under object storage is mapped to a specific threat within the system, identified as `CCC.TH06`, which we will explore in more detail later. Additionally, this control is mapped to a NIST control, specifically identified as PR.DS-1, which is part of the framework's guidelines for protecting data. There are also specific methods to test whether this control is effectively implemented within your cloud service provider, ensuring that it meets security and compliance standards.
+This control defined in the `controls.yaml` under object storage is mapped to a specific threat within the system, identified as `CCC.TH06`, which we will explore in more detail later. Additionally, this control is mapped to a NIST control, specifically identified as `PR.DS-1`, which is part of the framework's guidelines for protecting data. There are also specific methods to test whether this control is effectively implemented within your cloud service provider, ensuring that it meets security and compliance standards.
 
 ~~~ yaml
 id: CCC.ObjStor.C03
