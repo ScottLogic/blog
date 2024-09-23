@@ -100,11 +100,12 @@ For more details refer to the project's [GitHub](https://github.com/finos/common
 ## Goals of FINOS CCC
 
 Base on the Common Cloud Control GitHub repo the project aims to fulfil following goals, 
-- Defining Best Practices Around Cloud Security
-- One Target For CSPs To Conform To
-- Sharing The Burden Of A Common Definition
-- A Path Towards Common Implementation
-- A Path Towards Certification
+
+* Defining Best Practices Around Cloud Security
+* One Target For CSPs To Conform To
+* Sharing The Burden Of A Common Definition
+* A Path Towards Common Implementation
+* A Path Towards Certification
 
 or a more detailed explanation of each project goal and how they are achieved, please refer to the [README.md](https://github.com/finos/common-cloud-controls) file in the project's GitHub repository.
 
