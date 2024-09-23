@@ -46,7 +46,7 @@ The project also aims to validate controls through a series of tests. If you are
 
 It is envisaged that eventually, CCC will offer certification for CSPs who conform to the standard.
 
-# Elaborate with examples
+## Controls, Threats and Features
 
 To provide you with a clearer understanding of what a control is, let's take a closer look at a specific example: the control that prevent bucket deletion through irrevocable bucket retention policy in object storage. This control is designed to ensure that critical storage resources, like data buckets, are not accidentally or maliciously deleted, thereby protecting the integrity and availability of stored data. By examining this control, we can better understand what are the associated threats and how to mitigate those risks in cloud environments.
 
@@ -108,7 +108,7 @@ Base on the Common Cloud Control GitHub repo the project aims to fulfil followin
 
 or a more detailed explanation of each project goal and how they are achieved, please refer to the [README.md](https://github.com/finos/common-cloud-controls) file in the project's GitHub repository.
 
-# What ScottLogic offers for the FINOS CCC?
+## ScottLogic FINOS CCC Team
 
 Scott Logic was one of the first organizations to collaborate with the FINOS Foundation in establishing the FINOS CCC, under the leadership of Colin Eberhardt and Robert Griffiths. Robert, serving as the project’s sponsorship lead within Scott Logic, played a pivotal role in guiding this significant initiative as a key member of the FINOS CCC Steering Committee. Alongside Rob, Stevie Shiells, who chairs the Community Structure working group, and I, as the chair of the Taxonomy working group, represent Scott Logic in driving this open-source project. We've also received numerous invaluable contributions from our team over time, including Joshua Isted, Cara Fisher, David Ogle, Mike Smith, Euthyme Ziogas, Daniel Moorhouse, and Ivan Mladjenovic. If you're interested in supporting Scott Logic's vision of empowering open source projects, reach out to any of us to get started on contributing to this exciting initiative.
 
