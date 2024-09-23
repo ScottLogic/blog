@@ -156,16 +156,12 @@ To demonstrate this, I'll show the following architecture on both Terraform and 
 
 *to do: image*
 
-Bearing in mind that both of these are using their out-of-the-box libraries (no 3rd party modules or constructs), here's both architectures side-by-side:
-<table>
-<tr>
-<th> Terraform </th>
-<th> CDK </th>
-</tr>
-<tr>
-<td markdown="1" valign="top">
+Bearing in mind that both of these are using their out-of-the-box libraries (no 3rd party modules or constructs), here's the architecture coded both ways.
+<details>
+<summary>Terraform - 184 lines</summary>
 
-~~~ruby
+
+```
 resource "aws_vpc" "example_vpc" {
   cidr_block = "10.0.0.0/24"
 }
@@ -350,16 +346,19 @@ resource "aws_lb_listener" "example_alb_listener" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.example_target_group.arn
   }
-
 }
-~~~
+```
 
-</td>
-<td valign="top">
+</details>
 
-~~~typescript
+<details>
+<summary>CDK - 55 lines</summary>
+
+
+
+```
 const vpc = new Vpc(this, id);
-const instanceSG = new ec2.SecurityGroup(this, "instanceSG",{vpc,allowAllOutbound:false})
+const instanceSG = new ec2.SecurityGroup(this, "instanceSG",{vpc,         allowAllOutbound:false})
 
 const instance1 = new ec2.Instance(this, "instance1", {
   vpc,
@@ -384,7 +383,6 @@ const instance2 = new ec2.Instance(this, "instance2", {
   }),
   securityGroup: instanceSG
 });
-
 
 const albSecurityGroup = new ec2.SecurityGroup(this, "albSG", {
   vpc,
@@ -415,11 +413,11 @@ listener.addAction("action", {
     }),
   ]),
 });
-~~~
-</td>
-</tr>
-</table>
+```
 
+</details>
+
+While you can argue that some of the line number difference could be down to the standard formatting I've used, there's no argument that CDK undeniably uses fewer characters (1624) than terraform (4985)
 I can confirm that the Terraform example took me twice as long to configure than the CDK one.
 
 However this 'fill in the gaps' approach with CDK does come with its downsides.  By making the resources deployed less explicit within the codebase, you potentially run into issues with bugeting, security, and even hitting the max resource quotas without even knowing that you were deploying said resource.
