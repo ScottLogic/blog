@@ -1,5 +1,5 @@
 ---
-title: Introducing FINOS Common Cloud Control (CCC)
+title: Introducing FINOS Common Cloud Controls (CCC)
 categories: 
 - Open Source
 author: smendis-scottlogic
@@ -16,7 +16,7 @@ Over the course of a year, we’ve come a long way—transforming what was once 
 
 As stated on the [official page](https://www.finos.org/common-cloud-controls-project) for the CCC project on the FINOS website, 
 
-> “FINOS Common Cloud Control (FINOS CCC) is the codename for an open standard project, originally proposed by Citi and now open source under Fintech Open Source Foundation (FINOS), to describe consistent controls for compliant public cloud deployments in the financial services sector”.
+> “FINOS Common Cloud Controls (FINOS CCC) is the codename for an open standard project, originally proposed by Citi and now open source under Fintech Open Source Foundation (FINOS), to describe consistent controls for compliant public cloud deployments in the financial services sector”.
 
 This statement outlines several important aspects of the project. First and foremost, it is designed to cater specific needs of the **financial services sector**, which includes banking, insurance, investment and wealth management, mortgage lending, and more. An **open standard** refers to a set of guidelines or specifications developed collaboratively that can be used freely or with minimal restrictions. **Consistent controls** imply standardized security, compliance, and governance measures applied uniformly across the infrastructure, applications and processes. These controls ensure that policies related to data protection, access management, auditing, encryption, and monitoring are reliably implemented. **Compliance public cloud deployments** involve using public cloud services, such as AWS, Microsoft Azure, or Google Cloud, that meet the regulatory and legal standards required by regulating authorities. 
 
@@ -38,7 +38,7 @@ According to the Linux Foundation [announcement](https://www.linuxfoundation.org
 
 ## Goals of FINOS CCC
 
-Base on the Common Cloud Control GitHub repo the project aims to fulfil following goals, 
+Base on the Common Cloud Controls GitHub repo the project aims to fulfil following goals, 
 
 * Defining Best Practices Around Cloud Security
 * One Target For CSPs To Conform To
@@ -90,7 +90,7 @@ test_requirements:
         Confirm that the bucket retention policy cannot be modified or unset.
 ~~~
 
-This control defined in the file named `controls.yaml` under object storage, is mapped to a specific threat within the standard, identified as `CCC.TH06`, which we will explore in more detail later. Additionally, this control is mapped to a NIST control, specifically identified as `PR.DS-1`, which is part of the framework's guidelines for protecting data. There are also specific methods to test whether this control is effectively implemented within your cloud service provider, ensuring that it meets security and compliance standards.
+This control defined in the file named `controls.yaml` under object storage [link](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/controls.yaml). It is mapped to a specific threat within the standard, identified as `CCC.TH06`, which we will explore in more detail later. Additionally, this control is mapped to a NIST control, specified as `PR.DS-1`, which is part of the NIST framework's guidelines for protecting data. There are also specific methods to test whether this control is effectively implemented within your cloud service provider, ensuring that it meets security and compliance standards.
 
 ~~~yaml
 id: CCC.TH06
@@ -104,7 +104,7 @@ mitre_attack:
     - T1485: Data Destruction
 ~~~
 
-Let’s examine the threat `CCC.TH06` in the file named `common-threats.yaml`, which pertains to the accidental or malicious deletion of data. This threat highlights the potential risk where important data could be lost due to human error or intentional actions by bad actors. This particular threat is also linked to the MITRE ATT&CK framework under the ID `T1485`, which refers to data destruction as a method used by attackers to disrupt operations or erase traces of their activities. Additionally, this threat is mapped to specific feature within the standard identified as `CCC.ObjStor.F11`. 
+Let’s examine the threat `CCC.TH06` in the file named `common-threats.yaml` [link](https://github.com/finos/common-cloud-controls/blob/main/services/common-threats.yaml). This pertains to the accidental or malicious deletion of data and highlights the potential risk where important data could be lost due to human error or intentional actions by bad actors. This particular threat is also linked to the MITRE ATT&CK framework under the ID `T1485`, which refers to data destruction. Additionally, this threat is mapped to specific feature within the standard identified as `CCC.ObjStor.F11`. 
 
 ~~~yaml
 id: CCC.ObjStor.F11
@@ -113,15 +113,19 @@ description: |
     Supports controlling access to specific objects within the object store.
 ~~~
 
-The feature `CCC.ObjStor.F11`, found in the file named `features.yaml` under the object storage, describes controlled access to buckets based on predefined policies. This functionality can be leveraged to deny the deletion of buckets, ensuring that once a bucket is created, it cannot be deleted. This feature directly supports the control we are discussing, as it helps enforce safeguards against accidental or malicious deletion of storage resources, aligning with the security objectives of the control.
+The feature `CCC.ObjStor.F11`, found in the file named `features.yaml` under the object storage [link](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/features.yaml), describes controlled access to buckets based on predefined policies. This functionality can be leveraged to deny the deletion of buckets.
 
-In summary, if your architecture relies on object storage to retain customer data in a financial institution, it's critical to prevent the deletion of storage buckets, whether due to accidental or malicious actions. This can be achieved by implementing retention policies and using object-level access controls to restrict deletion rights. By doing so, you ensure that vital customer data remains secure and compliant with regulatory requirements, safeguarding against data loss.
+In summary, if your architecture relies on object storage to retain customer data in a financial institution, it's critical to prevent the deletion of storage buckets, due to accidental or malicious actions. This can be achieved by implementing retention policies and using object-level access controls to restrict deletion rights. By doing so, you ensure that vital customer data remains secure and compliant with regulatory requirements, safeguarding against data loss.
 
 For more details refer to the project's [GitHub](https://github.com/finos/common-cloud-controls) page.
 
 
 ## Scott Logic FINOS CCC Team
 
-Scott Logic was one of the first organizations to collaborate with the FINOS Foundation in establishing the FINOS CCC, under the leadership of Colin Eberhardt and Robert Griffiths. Robert, serving as the project’s sponsorship lead within Scott Logic, played a pivotal role in guiding this significant initiative as a key member of the FINOS CCC Steering Committee. Alongside Rob, Stevie Shiells, who chairs the Community Structure working group, and I, as the chair of the Taxonomy working group, represent Scott Logic in driving this open-source project. We've also received numerous invaluable contributions from our team at Scott Logic over time, including Joshua Isted, Cara Fisher, David Ogle, Mike Smith, Euthyme Ziogas, Daniel Moorhouse, and Ivan Mladjenovic. If you're interested in supporting Scott Logic's vision of empowering open source projects, reach out to any of us to get started on contributing to this exciting initiative.
+Scott Logic was one of the first organizations to collaborate with the FINOS Foundation in establishing the FINOS CCC, under the leadership of Colin Eberhardt and Robert Griffiths. Rob, as the project’s sponsorship lead at Scott Logic, plays a pivotal role in driving this initiative by being a key member of the FINOS CCC Steering Committee. Alongside Rob, Stevie Shiells, who chairs the Community Structure working group, and I, as the chair of the Taxonomy working group, represent Scott Logic in driving this open-source project. We have received, and continue to receive, valuable contributions over time from our Scott Logic team, including Joshua Isted, Cara Fisher, David Ogle, Mike Smith, Euthyme Ziogas, Daniel Moorhouse, and Ivan Mladjenovic.
+
+## Join Us
+
+FINOS Common Cloud Controls (FINOS CCC) is an ongoing project, and we welcome continued involvement. If you're passionate about supporting Scott Logic's vision of fostering and empowering open-source initiatives, we encourage you to get in touch with any of our team members. Whether you're looking to contribute your skills or collaborate with like-minded individuals, there's always an opportunity to make a meaningful impact on this exciting and evolving initiative. Reach out to us to get started!
 
 ---
