@@ -46,7 +46,7 @@ Base on the Common Cloud Controls GitHub repo the project aims to fulfil followi
 * A Path Towards Common Implementation
 * A Path Towards Certification
 
-or a more detailed explanation of each project goal and how they are achieved, please refer to the [README.md](https://github.com/finos/common-cloud-controls) file in the project's GitHub repository.
+For a more detailed explanation of each project goal and how they are achieved, please refer to the [README.md](https://github.com/finos/common-cloud-controls) file in the project's GitHub repository.
 
 ## Timeline and Contributors
 
