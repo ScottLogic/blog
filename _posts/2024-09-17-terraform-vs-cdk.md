@@ -34,27 +34,27 @@ As the Terraform state isn't directly tied to aws, and Terraform itself is cloud
 
 ## CDK workings
 
-CDK on the other hand, is fully integrated into aws, and uses cloudformation to deploy its stacks. While this eliminates the problems which come with the Terraform state, any issues you have with cloudformation deployment will likely be inherited into CDK, such as stack resource limits (although at 500 resources, the limit is arguably big enough for a well-coded stack).
+CDK on the other hand, is fully integrated into aws, and uses [cloudformation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) to deploy its stacks. While this eliminates the problems which come with the Terraform state, any issues you have with a cloudformation deployment will likely be inherited into CDK, such as stack resource limits (although at 500 resources, the limit is arguably big enough for a well-coded stack).
 
 ## Getting to grips with Terraform
 
 Terraform is written in hashicorp language (hcl), which is similar to JSON. Personally I find it quite easy to read, however at first it took some time to get to grips with. Particularly on how to write variables, and writing/ using modules.
 
-<pre><code>
-resource "aws_instance" "example_instance" {
+<pre><code>resource "aws_instance" "example_instance" {
     instance_type = "t2.micro"
     ami = var.ami_name
 }
 </code></pre>
 
-One particular issue with Terraform (which I guarantee you will come across on any multi-env Terraform project) is almost embarrassing in its solution.
+One particular issue with Terraform (which I guarantee you will come across on any multi-env Terraform project) is almost *embarrassing* in its solution.
 
 There are occasions where you’d want to create a resource only when you’re in a certain environment; like an IAM policy allowing user permissions or a bastion host which you want on a dev environment, and not a prod one.
 The way to go around this with Terraform is to use the ‘count’ meta-argument.
 ‘count’ allows you to specify how many instances of a resource you’d like to create, and can be thought of as a loop.
 
-<pre><code>
-resource "aws_instance" "example_instance" {
+An example of using 'count' to deploy 3 separate EC2 instances is shown below:
+
+<pre><code>resource "aws_instance" "example_instance" {
     count = 3
     instance_type = "t2.micro"
     ami = var.ami_name
@@ -66,11 +66,9 @@ resource "aws_instance" "example_instance" {
 
 Its original use was for creating many resources with the same configuration (as seen above), but it’s mainly used as a ‘create one of these only in this environment’ argument.
 
-In fact, I’ve personally never seen it be used to create more than one resource.
-It seems like there should be an easier way of doing this. As using different environments is so common in cloud computing that it’s almost laughable that there isn’t an integrated environment argument for resource creation.
+For example, creating an instance only in a Production envrionment:
 
-<pre><code>
-variable "environment" {
+<pre><code>variable "environment" {
   type = string
   description = "Environment where resources are deployed"
 
@@ -90,6 +88,9 @@ resource "aws_instance" "example_instance" {
 }
 </code></pre>
 
+In fact, I’ve personally never seen it be used to create more than one resource.  
+It seems like there should be an easier way of alternating resources with each environment, as using different environments is so common in cloud computing that it’s almost laughable that there isn’t an integrated environment argument for resource creation.
+
 It’s ironic that this is predominantly the main use for ‘count’ and most users hate it, yet in its 8 years as open source, no one came up with a better solution.
 
 However, I will admit that the well written documentation, and the sheer number of examples you can find online makes learning and solving problems in Terraform a lot easier than they could be.
@@ -97,10 +98,9 @@ However, I will admit that the well written documentation, and the sheer number 
 Another thing I find useful with Terraform is that it appears asynchronous, meaning that any resource can be referred to in any other Terraform file. Order does not matter. I can create an EC2 which references a VPC further down the file and have no issues.
 This comes in quite useful in cloud computing with the amount of interlinked dependencies and will still allow for tidy, organised codebase.
 
-It's important to note that Terraform isn’t actually asynchronous, it takes what is given to it, and creates a dependency chain upon compiling; hence some cyclic dependencies such as security groups require separating.
+It's important to note that Terraform isn’t *actually* asynchronous, it takes what is given to it, and creates a dependency chain upon compiling; hence some cyclic dependencies such as security groups require separating.
 
-<pre><code>
-resource "aws_security_group" "A" {
+<pre><code>resource "aws_security_group" "A" {
   vpc_id = aws_vpc.example_vpc.id
 
   egress {
@@ -132,7 +132,9 @@ resource "aws_security_group_rule" "Traffic from A to B" {
 }
 </code></pre>
 
-For example, we can reference B from security group A with no issue, but we can't directly reference A from B, so the chain of dependency upon deployment is Security group B, then A (reliant on B), then adding the rule referencing A to B (reliant on both A and B).
+For example, we can reference Security Group B from Security Group A with no issue, but we can't directly reference Security Group A from Security Group B (as this would create a cyclic dependency).
+
+So the chain of dependency upon deployment is Security group B, then Security Group A (reliant on B), and *then* adding the rule referencing A to B (reliant on both A and B).
 
 ## Getting to grips with CDK
 
@@ -140,10 +142,9 @@ If you have any experience with TypeScript, JavaScript, Python, Java, C# or Go, 
 As there’s no need to learn an entire language before you can start to write up resources, this results in a quicker initial learning curve. I noticed this on my upskilling project. Devs who had never touched aws or Terraform picked up on CDK quicker than people tend to do with Terraform. In part because there were fewer barriers with language, layout and syntax.
 
 Another property speeding up the learning curve is that CDK can ‘fill in the gaps’ of cloud computing.  
-A great example is the automatic creation of subnets (public and private), NAT gateways, an Internet Gateway, route tables and ready-configured security groups AS WELL AS the creation of our EC2 instance, AMI and VPC, all done within the creation of a single instance.
+A great example is the automatic creation of subnets (public and private), NAT gateways, an Internet Gateway, route tables and ready-configured security groups AS WELL AS the creation of our EC2 instance, AMI and VPC, all done within the creation of a single instance, as shown below:
 
-<pre><code>
-new ec2.Instance(this, "instance", {
+<pre><code>new ec2.Instance(this, "instance", {
   vpc: new Vpc(this, id),
   instanceType: ec2.InstanceType.of(
     ec2.InstanceClass.T2,
@@ -429,6 +430,9 @@ As mentioned, CDK helpfully created two NAT gateways (one per public subnet) per
 When attempting to deploy a 3rd environment, we hit the max number of ElasticIPs in the region (5) without even realising that we were deploying any.
 If you're reading carefully, you'll notice that the architecture is very similar to the one above used for our comparison, and be able to spot where Terraform creates the NAT Gateway, but not CDK...
 
+It's also worth mentioning that there is a way to code with CDK which avoids creating resources which aren't explicitly specified: L1 constructs, which are essentially basic cloudformation resources, translated into an easy to use coding language.  
+The majority of our use of CDK on project was with L2 constructs (shown in the examples), which have this abstraction built in.  I won't say anything further about different construct levels here, but you can find further information on the [CDK documentation](https://docs.aws.amazon.com/cdk/v2/guide/constructs.html#:~:text=Compared%20to%20L1%20constructs%2C%20L2%20constructs%20provide%20a,the%20boilerplate%20code%20and%20glue%20logic%20for%20you.)
+
 The main difficulty I had with learning CDK was the lack of examples online. It has only been around since 2019, whereas Terraform was launched in 2014, meaning that the CDK documentation isn’t quite as clear, there are fewer code examples, and still has the odd bug (the one we came across required cancelling and rerunning cdk deploy if using addAsgCapacityProvider).
 
 It would also be a crime on my part to forget to mention that CDK allows you to directly integrate your cloud infrastructure into object oriented code, whereas Terraform has to be in separated files in a different language to the rest of your code.
@@ -446,4 +450,4 @@ However, if you’re already familiar with other coding languages, would like to
 
 As an amateur cloud architect, I’m glad to have had some practical experience with both.
 
-Although Terraform has been an industry standard for years now, it has recently had a change of licence, and of 10th August 2023, is no longer open source, so it'll be interesting to see the trends and popularity of different cloud IaC technologies, whether Terraform will keep the title of industry standard, or whether it will be overtaken by CDK, CDK for Terraform (a recent new contender from hashicorp since 2022), or even openTofu, a new, opensource IaC which was forked off an older version of Terraform, now maintained by the linux foundation.
+Although Terraform has been an industry standard for years now, it has recently had a change of licence, and of 10th August 2023, is no longer open source, so it'll be interesting to see the trends and popularity of different cloud IaC technologies, whether Terraform will keep the title of industry standard, or whether it will be overtaken by AWS CDK, [CDK for Terraform ](https://developer.hashicorp.com/terraform/cdktf)(a recent new contender from hashicorp since 2022), or even [openTofu](https://opentofu.org/), a new, opensource IaC which was forked off an older version of Terraform, now maintained by the linux foundation.
