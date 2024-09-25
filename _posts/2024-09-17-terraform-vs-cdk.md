@@ -159,7 +159,7 @@ This drastically cuts down on the lines of code needed to deploy resources, as w
 
 To demonstrate this, I'll show the following architecture on both Terraform and CDK.
 
-_to do: image_
+![architechture diagram]({{site.github.url}}/acanham/assets/architecture.png "architecture")
 
 Bearing in mind that both of these are using their out-of-the-box libraries (no 3rd party modules or constructs), here's the architecture coded both ways.
 
