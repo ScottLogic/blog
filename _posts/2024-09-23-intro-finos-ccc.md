@@ -22,20 +22,6 @@ This statement outlines several important aspects of the project. First and fore
 
 In summary, FINOS CCC project aims to establish a set of guidelines that enforce security, compliance, and governance for public cloud services used by financial institutions.
 
-## Why do we need it?
-
-The financial services sector retains sensitive data about their customers. They store personally identifiable information of the customer such as name, date of birth, social security numbers, national identification numbers, home address, email addresses, phone numbers, etc. They also sometimes store customer income and credit data such as employment status, employer details, salary information, other income sources, credit score, defaults and bankruptcies, etc. Not only that, but financial services also usually have records of customer in-store & online purchase history, withdrawals, deposits, investment activities and related transactional and behavioral patterns. In a nutshell, they hold a vast amount of sensitive customer information, which could cause severe reputational and financial damage in an unfortunate event of a data breach.
-
-In the past, regulatory requirements for financial institutes mandated that data be stored in highly secured on-premise data centres. However, with the growing adoption of cloud services, the financial services sector is increasingly moving towards the public cloud. Key benefits driving this shift include agility, scalability, cost optimization, accelerated innovation, geographic availability, and enhanced resilience. Some of the potential drawbacks and challenges, particularly given the sensitive nature of the financial data are security concerns, compliance and regulatory challenges, loss of control, downtime, data privacy risks, vendor lock-in and skills gap. 
-
-![PROS_AND_CONS_OF_CLOUD]({{ site.github.url }}/smendis-scottlogic/assets/pros-n-cons.png)
-
-Let’s elaborate more on few key concerns in moving financial data to the public cloud. Despite the robust security measures cloud providers offer, financial data is highly sensitive, and breaches can be devastating. Public cloud environments are multi-tenant, meaning data from multiple organizations shares the same infrastructure. While cloud providers enforce strict isolation, the risk of data leakage still exists. The cloud provider’s employees may have access to critical data, posing potential insider threats. When it comes to regulatory challenges, regulations in some regions require that sensitive financial data must be stored within national borders. Cloud providers may not offer appropriate data centre locations, or ensure compliance with data residency laws can be complex. Auditing and proving compliance in cloud environments can be more challenging, especially with limited visibility into the provider’s operations.
-
-According to the Linux Foundation [announcement](https://www.linuxfoundation.org/press/finos-announces-open-standards-project-for-financial-services-common-cloud-controls) on July 27, 2023 Jim Adams, CTO and Head of Technology Infrastructure at Citi, the world’s fifth largest bank, stated
-
-> “There is a need for a Cloud Standard that will improve certain security and control measures across the Financial Services industry, whilst simplifying and democratizing access for all institutions to operate and benefit by leveraging the public cloud. It is important to collaborate with our peers to ensure consistency across cloud service providers, ensuring the industry can realize true multi-cloud strategies,”
-
 ## Goals of FINOS CCC
 
 Base on the Common Cloud Controls GitHub repo the project aims to fulfil following goals, 
@@ -46,7 +32,21 @@ Base on the Common Cloud Controls GitHub repo the project aims to fulfil followi
 * A Path Towards Common Implementation
 * A Path Towards Certification
 
-For a more detailed explanation of each project goal and how they are achieved, please refer to the [README.md](https://github.com/finos/common-cloud-controls) file in the project's GitHub repository.
+For a more detailed explanation of each project goal and how they are achieved, please refer to the project's [GitHub](https://github.com/finos/common-cloud-controls) repository.
+
+## Why do we need it?
+
+These goals were shaped by the unique challenges faced by the financial sector. Not like a small startup adopting cloud, when a financial institute migrates towards using the cloud, they have face more challenged based on the sensitive nature of their data. They store personally identifiable information of their customers, such as full name, date of birth, social security numbers, national identification numbers, home address, email addresses, phone numbers, etc. They also sometimes store customer income and credit data such as employment status, employer details, salary information, other income sources, credit score, defaults and bankruptcies, etc. Not only that, they also have records of customer in-store & online purchase history, withdrawals, deposits, investment activities and related transactional and behavioral patterns.
+
+In the past, regulatory requirements for financial institutes mandated that data be stored in highly secured on-premise data centres. However, with the growing adoption of cloud services, the financial services sector is increasingly moving towards adapting the public cloud. Key benefits driving this shift include agility, scalability, cost optimization, accelerated innovation, geographic availability, and enhanced resilience. Some of the potential drawbacks and challenges, particularly given the sensitive nature of the financial data are security concerns, compliance and regulatory challenges, loss of control, downtime, data privacy risks, vendor lock-in and skills gap. 
+
+![PROS_AND_CONS_OF_CLOUD]({{ site.github.url }}/smendis-scottlogic/assets/pros-n-cons.png)
+
+Let’s elaborate more on few key concerns in moving financial data to the public cloud. Despite the robust security measures cloud providers offer, financial data is highly sensitive, and breaches can be devastating. Public cloud environments are multi-tenant, meaning data from multiple organizations shares the same infrastructure. While cloud providers enforce strict isolation, the risk of data leakage still exists. The cloud provider’s employees may have access to critical data, posing potential insider threats. When it comes to regulatory challenges, regulations in some regions require that sensitive financial data must be stored within national borders. Cloud providers may not offer appropriate data centre locations, or ensure compliance with data residency laws can be complex. Auditing and proving compliance in cloud environments can be more challenging, especially with limited visibility into the provider’s operations.
+
+According to the Linux Foundation [announcement](https://www.linuxfoundation.org/press/finos-announces-open-standards-project-for-financial-services-common-cloud-controls) on July 27, 2023 Jim Adams, CTO and Head of Technology Infrastructure at Citi, the world’s fifth largest bank, stated
+
+> “There is a need for a Cloud Standard that will improve certain security and control measures across the Financial Services industry, whilst simplifying and democratizing access for all institutions to operate and benefit by leveraging the public cloud. It is important to collaborate with our peers to ensure consistency across cloud service providers, ensuring the industry can realize true multi-cloud strategies,”
 
 ## Timeline and Contributors
 
@@ -70,52 +70,77 @@ It is envisaged that eventually, CCC will offer certification for CSPs who confo
 
 ## Controls, Threats and Features
 
-To provide you with a clearer understanding of what a control is, let's take a closer look at a specific example: the control that prevents bucket deletion through irrevocable bucket retention policy in object storage. This control is designed to ensure that critical storage resources, like data buckets, are not accidentally or maliciously deleted, thereby protecting the integrity and availability of stored data. By examining this control, we can better understand what are the associated threats and how to mitigate those risks in cloud environments.
+To provide you with a clearer understanding of what a control is, let's take a closer look at a specific example.
 
 ~~~ yaml
-id: CCC.ObjStor.C03
-title: Prevent bucket deletion through irrevocable bucket retention policy
+id: CCC.ObjStor.08
+title: Prevent object replication to destinations outside of defined 
+    trust perimeter
 control_family: Data
 objective: |
-    Ensure that object storage bucket is not deleted after creation,
-    and that the preventative measure cannot be unset.
+    Prevent replicating objects to untrusted destinations outside of 
+    defined trust perimeter. An untrusted destination is defined as a 
+    resource that exists outside of a specified trusted identity or network 
+    perimeter (i.e., a data perimeter).
 threats:
-    - CCC.TH06
-nist_csf: PR.DS-1
+    - CCC.ObjStor.TH01 # Data exfiltration via insecure lifecycle policies
+nist_csf: PR.DS-4
 test_requirements:
-    tlp_green:
-    01: |
-        Verify that the bucket cannot be deleted as long as the retention policy is in effect.
-    02: |
-        Confirm that the bucket retention policy cannot be modified or unset.
+    - id: CCC.ObjStor.C08.TR01
+    text: |
+        Object replication to destinations outside of the defined trust 
+        perimeter is automatically blocked, preventing replication to 
+        untrusted resources.
+    tlp_levels:
+        - tlp_green
+        - tlp_amber
+        - tlp_red
 ~~~
 
-This control defined in the file named `controls.yaml` under object storage [link](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/controls.yaml). It is mapped to a specific threat within the standard, identified as `CCC.TH06`, which we will explore in more detail later. Additionally, this control is mapped to a NIST control, specified as `PR.DS-1`, which is part of the NIST framework's guidelines for protecting data. There are also specific methods to test whether this control is effectively implemented within your cloud service provider, ensuring that it meets security and compliance standards.
+This control defined in the file named `controls.yaml` under object storage [link](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/controls.yaml). This control is designed to ensure that data can not be replicated outside of defined trust identity or network. This control is mapped to a specific threat within the standard, identified as `CCC.ObjStor.TH01`, which we will explore in more detail later. Additionally, this control is mapped to a NIST control, specified as `PR.DS-4` [link]( https://csf.tools/reference/nist-cybersecurity-framework/v1-1/pr/pr-ds/pr-ds-4/), which is part of the NIST framework's guidelines for protecting data. There are also specific methods to test whether this control is effectively implemented within your cloud service provider, ensuring that it meets security and compliance standards.
 
 ~~~yaml
-id: CCC.TH06
-title: Accidental or malicious deletion of critical data
+id: CCC.ObjStor.TH01 # Data exfiltration via insecure lifecycle policies
+title: Data exfiltration via insecure lifecycle policies
 description: |
-    Critical data can be deleted either through accidental action by authorized users 
-    or through malicious intent by threat actors exploiting vulnerabilities or misconfigurations.
-features: 
-    - CCC.ObjStor.F11
-mitre_attack:
-    - T1485: Data Destruction
+    Misconfigured lifecycle policies may unintentionally allow data to be
+    exfiltrated or destroyed prematurely, resulting in a loss of availability
+    and potential exposure of sensitive data.
+features:
+    - CCC.ObjStor.F08 # Lifecycle Policies
+    - CCC.F11 # Backup
+mitre_technique:
+    - T1020 # Automated Exfiltration
+    - T1537 # Transfer Data to Cloud Account
+    - T1567 # Exfiltration Over Web Services
+    - T1048 # Exfiltration Over Alternative Protocol
+    - T1485 # Data Destruction
 ~~~
 
-Let’s examine the threat `CCC.TH06` in the file named `common-threats.yaml` [link](https://github.com/finos/common-cloud-controls/blob/main/services/common-threats.yaml). This pertains to the accidental or malicious deletion of data and highlights the potential risk where important data could be lost due to human error or intentional actions by bad actors. This particular threat is also linked to the MITRE ATT&CK framework under the ID `T1485`, which refers to data destruction. Additionally, this threat is mapped to specific feature within the standard identified as `CCC.ObjStor.F11`. 
+Let’s examine the threat `CCC.ObjStor.TH01` in the file named [`threats.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/threats.yaml). This highlights the potential risk where important data could be exfiltrated via misconfigure lifecycle policies. This particular threat is also linked to few threats in MITRE ATT&CK framework under the IDs [`T1020`](https://attack.mitre.org/techniques/T1020/), [`T1537`](https://attack.mitre.org/techniques/T1537/), [`T1567`](https://attack.mitre.org/techniques/T1567/), [`T1048`](https://attack.mitre.org/techniques/T1048/), [`T1485`](https://attack.mitre.org/techniques/T1485/)., which discus exfiltration and data destruction. This threat is also mapped to specific features within the standard identified as `CCC.ObjStor.F08` and `CCC.F11`. 
 
 ~~~yaml
-id: CCC.ObjStor.F11
-title: Object Level Access Control
+id: CCC.ObjStor.F08
+title: Lifecycle Policies
 description: |
-    Supports controlling access to specific objects within the object store.
+    Supports defining policies to automate data management tasks.
 ~~~
 
-The feature `CCC.ObjStor.F11`, found in the file named `features.yaml` under the object storage [link](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/features.yaml), describes controlled access to buckets based on predefined policies. This functionality can be leveraged to deny the deletion of buckets.
+The feature `CCC.ObjStor.F08`, found in the file named [`features.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/features.yaml) under the object storage, describes the ability to define lifecycle policies for object buckets. This functionality is the main target of the threat identified in `CCC.ObjStor.TH01`.
 
-In summary, if your architecture relies on object storage to retain customer data in a financial institution, it's critical to prevent the deletion of storage buckets, due to accidental or malicious actions. This can be achieved by implementing retention policies and using object-level access controls to restrict deletion rights. By doing so, you ensure that vital customer data remains secure and compliant with regulatory requirements, safeguarding against data loss.
+~~~yaml
+id: CCC.F11 # Backup
+title: Backup
+description: |
+    Provides the ability to create copies of associated data or
+    configurations in the form of automated backups, snapshot-based backups,
+    and/or incremental backups.
+~~~
+
+The feature `CCC.F11`, found in the file named [`common-features.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/common-features.yaml), describes the ability to backup data stored in object storage. This functionality can be used against premature destruction of data resulting in loss of availability as identified in the threat `CCC.ObjStor.TH01`.
+
+
+In summary, if your architecture relies on object storage to retain customer data in a financial institution, it's critical to prevent replication data to destinations outside of defined trust identities and networks. This can be achieved by implementing backups and proper lifecycle policies for object storage. By doing so, you ensure that vital customer data remains secure and compliant with regulatory requirements, safeguarding against data loss.
 
 For more details refer to the project's [GitHub](https://github.com/finos/common-cloud-controls) page.
 
@@ -124,8 +149,10 @@ For more details refer to the project's [GitHub](https://github.com/finos/common
 
 Scott Logic was one of the first organizations to collaborate with the FINOS Foundation in establishing the FINOS CCC, under the leadership of Colin Eberhardt and Robert Griffiths. Rob, as the project’s sponsorship lead at Scott Logic, plays a pivotal role in driving this initiative by being a key member of the FINOS CCC Steering Committee. Alongside Rob, Stevie Shiells, who chairs the Community Structure working group, and I, as the chair of the Taxonomy working group, represent Scott Logic in driving this open-source project. We have received, and continue to receive, valuable contributions over time from our Scott Logic team, including Joshua Isted, Cara Fisher, David Ogle, Mike Smith, Euthyme Ziogas, Daniel Moorhouse, and Ivan Mladjenovic.
 
-## Join Us
+## Conclusion
 
-FINOS Common Cloud Controls (FINOS CCC) is an ongoing project, and we welcome continued involvement. If you're passionate about supporting Scott Logic's vision of fostering and empowering open-source initiatives, we encourage you to get in touch with any of our team members. Whether you're looking to contribute your skills or collaborate with like-minded individuals, there's always an opportunity to make a meaningful impact on this exciting and evolving initiative. Reach out to us to get started!
+We have a diverse community of professionals within the FINOS CCC family, with a wide range of contributors, including CTOs, security experts, and industry professionals. The wealth of experience they bring to our discussions is mesmerizing. I enjoy contributing to this project because of the valuable exposure I gain from seeing how these experts approach various challenges.
+
+FINOS Common Cloud Controls (FINOS CCC) is an ongoing project, and welcome continued involvement. If you're passionate about supporting Scott Logic's vision of fostering and empowering open-source initiatives, we encourage you to get in touch with any of our team members. Whether you're looking to contribute your skills or collaborate with like-minded individuals, there's always an opportunity to make a meaningful impact on this exciting and evolving initiative.
 
 ---
