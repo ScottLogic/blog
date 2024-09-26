@@ -24,7 +24,7 @@ In summary, FINOS CCC project aims to establish a set of guidelines that enforce
 
 ## Goals of FINOS CCC
 
-Base on the Common Cloud Controls GitHub repo the project aims to fulfil following goals, 
+Based on the Common Cloud Controls GitHub repo the project aims to fulfil following goals: 
 
 * Defining Best Practices Around Cloud Security
 * One Target For CSPs To Conform To
