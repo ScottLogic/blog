@@ -36,7 +36,9 @@ For a more detailed explanation of each project goal and how they are achieved, 
 
 ## Why do we need it?
 
-These goals were shaped by the unique challenges faced by the financial sector. Not like a small startup adopting cloud, when a financial institute migrates towards using the cloud, they have face more challenged based on the sensitive nature of their data. They store personally identifiable information of their customers, such as full name, date of birth, social security numbers, national identification numbers, home address, email addresses, phone numbers, etc. They also sometimes store customer income and credit data such as employment status, employer details, salary information, other income sources, credit score, defaults and bankruptcies, etc. Not only that, they also have records of customer in-store & online purchase history, withdrawals, deposits, investment activities and related transactional and behavioral patterns.
+These goals were shaped by the unique challenges faced by the financial sector. Not like a small startup adopting cloud, when a financial institute migrates towards using the cloud, they face more challenges based on the sensitive nature of their data. 
+
+Financial institutes store personally identifiable information of their customers, such as full name, date of birth, social security numbers, national identification numbers, home address, email addresses, phone numbers, etc. They also sometimes store customer income and credit data such as employment status, employer details, salary information, other income sources, credit score, defaults and bankruptcies, etc. Not only that, they also have records of customer in-store & online purchase history, withdrawals, deposits, investment activities and related transactional and behavioral patterns.
 
 In the past, regulatory requirements for financial institutes mandated that data be stored in highly secured on-premise data centres. However, with the growing adoption of cloud services, the financial services sector is increasingly moving towards adapting the public cloud. Key benefits driving this shift include agility, scalability, cost optimization, accelerated innovation, geographic availability, and enhanced resilience. Some of the potential drawbacks and challenges, particularly given the sensitive nature of the financial data are security concerns, compliance and regulatory challenges, loss of control, downtime, data privacy risks, vendor lock-in and skills gap. 
 
@@ -73,22 +75,22 @@ It is envisaged that eventually, CCC will offer certification for CSPs who confo
 To provide you with a clearer understanding of what a control is, let's take a closer look at a specific example.
 
 ~~~ yaml
-id: CCC.ObjStor.08
-title: Prevent object replication to destinations outside of defined 
+id: CCC.C10 # Prevent data replication to destinations outside of defined
+title: Prevent data replication to destinations outside of defined
     trust perimeter
 control_family: Data
 objective: |
-    Prevent replicating objects to untrusted destinations outside of 
+    Prevent replication of data to untrusted destinations outside of 
     defined trust perimeter. An untrusted destination is defined as a 
     resource that exists outside of a specified trusted identity or network 
     perimeter (i.e., a data perimeter).
 threats:
-    - CCC.ObjStor.TH01 # Data exfiltration via insecure lifecycle policies
-nist_csf: PR.DS-4
+    - CCC.TH04 # Data is replicated to untrusted or external locations
+nist_csf: PR.DS-5 # Protections against data leaks are implemented
 test_requirements:
-    - id: CCC.ObjStor.C08.TR01
+    - id: CCC.C10.TR01
     text: |
-        Object replication to destinations outside of the defined trust 
+        Replication of data to destinations outside of the defined trust 
         perimeter is automatically blocked, preventing replication to 
         untrusted resources.
     tlp_levels:
@@ -97,50 +99,35 @@ test_requirements:
         - tlp_red
 ~~~
 
-This control defined in the file named `controls.yaml` under object storage [link](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/controls.yaml). This control is designed to ensure that data can not be replicated outside of defined trust identity or network. This control is mapped to a specific threat within the standard, identified as `CCC.ObjStor.TH01`, which we will explore in more detail later. Additionally, this control is mapped to a NIST control, specified as `PR.DS-4` [link]( https://csf.tools/reference/nist-cybersecurity-framework/v1-1/pr/pr-ds/pr-ds-4/), which is part of the NIST framework's guidelines for protecting data. There are also specific methods to test whether this control is effectively implemented within your cloud service provider, ensuring that it meets security and compliance standards.
+This control defined in the file named `common-controls.yaml` under object storage [link](hhttps://github.com/finos/common-cloud-controls/blob/main/services/common-controls.yaml). This control is designed to ensure that data us bit replicated outside of a trusted identity or network. This control is mapped to a specific threat within the standard, identified as `CCC.TH04`, which we will explore in more detail later. Additionally, this control is mapped to a NIST control, specified as `PR.DS-5` [link]( https://csf.tools/reference/nist-cybersecurity-framework/v1-1/pr/pr-ds/pr-ds-5/), which is part of the NIST framework's guidelines for protecting data leaks. There are also specific methods to test whether this control is effectively implemented within your cloud service provider, ensuring that it meets security and compliance standards.
 
 ~~~yaml
-id: CCC.ObjStor.TH01 # Data exfiltration via insecure lifecycle policies
-title: Data exfiltration via insecure lifecycle policies
+id: CCC.TH04 # Data is replicated to untrusted or external locations
+title: Data is replicated to untrusted or external locations
 description: |
-    Misconfigured lifecycle policies may unintentionally allow data to be
-    exfiltrated or destroyed prematurely, resulting in a loss of availability
-    and potential exposure of sensitive data.
+    An attacker could replicate data to untrusted or external locations if replication configurations 
+    are not properly restricted. This could result in data leakage or exposure to unauthorized entities 
+    outside the organization's trusted perimeter.
 features:
-    - CCC.ObjStor.F08 # Lifecycle Policies
-    - CCC.F11 # Backup
+    - CCC.F21 # Replication
 mitre_technique:
-    - T1020 # Automated Exfiltration
-    - T1537 # Transfer Data to Cloud Account
-    - T1567 # Exfiltration Over Web Services
-    - T1048 # Exfiltration Over Alternative Protocol
-    - T1485 # Data Destruction
+    - T1565 # Data Manipulation
 ~~~
 
-Let’s examine the threat `CCC.ObjStor.TH01` in the file named [`threats.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/threats.yaml). This highlights the potential risk where important data could be exfiltrated via misconfigure lifecycle policies. This particular threat is also linked to few threats in MITRE ATT&CK framework under the IDs [`T1020`](https://attack.mitre.org/techniques/T1020/), [`T1537`](https://attack.mitre.org/techniques/T1537/), [`T1567`](https://attack.mitre.org/techniques/T1567/), [`T1048`](https://attack.mitre.org/techniques/T1048/), [`T1485`](https://attack.mitre.org/techniques/T1485/)., which discus exfiltration and data destruction. This threat is also mapped to specific features within the standard identified as `CCC.ObjStor.F08` and `CCC.F11`. 
+Let’s examine the threat `CCC.TH04` in the file named [`common-threats.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/common-threats.yaml). This highlights the potential risk where data can be replicated to external untrusted location. This particular threat is also linked to a specific threat in MITRE ATT&CK framework under the IDs [`T1565`](https://attack.mitre.org/techniques/T1565/), which discus data manipulation. This threat is also mapped to a specific feature within the standard identified as `CCC.F21`. 
 
 ~~~yaml
-id: CCC.ObjStor.F08
-title: Lifecycle Policies
+id: CCC.F21 # Replication
+title: Replication
 description: |
-    Supports defining policies to automate data management tasks.
+    Provides the ability to copy data or resource to multiple locations to ensure
+    availability and durability.
 ~~~
 
-The feature `CCC.ObjStor.F08`, found in the file named [`features.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/features.yaml) under the object storage, describes the ability to define lifecycle policies for object buckets. This functionality is the main target of the threat identified in `CCC.ObjStor.TH01`.
+The feature `CCC.F21`, found in the file named [`common-features.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/common-features.yaml) under the object storage, describes the ability to replicate data. This functionality is the main target of the threat identified in `CCC.TH04`.
 
-~~~yaml
-id: CCC.F11 # Backup
-title: Backup
-description: |
-    Provides the ability to create copies of associated data or
-    configurations in the form of automated backups, snapshot-based backups,
-    and/or incremental backups.
-~~~
+In summary, if your architecture relies on object storage to retain customer data in a financial institution, it's critical to prevent replication data to destinations outside of defined trust identities and networks. The threat identified under this control exploits the data replication feature of object storage.
 
-The feature `CCC.F11`, found in the file named [`common-features.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/common-features.yaml), describes the ability to backup data stored in object storage. This functionality can be used against premature destruction of data resulting in loss of availability as identified in the threat `CCC.ObjStor.TH01`.
-
-
-In summary, if your architecture relies on object storage to retain customer data in a financial institution, it's critical to prevent replication data to destinations outside of defined trust identities and networks. This can be achieved by implementing backups and proper lifecycle policies for object storage. By doing so, you ensure that vital customer data remains secure and compliant with regulatory requirements, safeguarding against data loss.
 
 For more details refer to the project's [GitHub](https://github.com/finos/common-cloud-controls) page.
 
