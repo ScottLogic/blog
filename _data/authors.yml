@@ -104,6 +104,7 @@ active-authors:
   - mridene
   - mwallace
   - nbetts
+  - nbarber
   - ocronk
   - oforeman
   - osharon
@@ -681,6 +682,11 @@ authors:
     author-summary: "<p>Senior UX Designer at Scott Logic. I like to talk about user-centered design, usability, and accessibility. When I'm not working I'm doing something creative or playing board games.</p>"
     name: "Mark Wallace"
     picture: profile.jpeg
+  nbarber:
+    name: "Nick Barber"
+    email: "nbarber@scottlogic.com"
+    author-summary: "Lead Test Engineer based in Newcastle with an interest in sustainable technology"
+    picture: picture.jpg
   nhemley:
     name: "Nicholas Hemley"
   nowen:
