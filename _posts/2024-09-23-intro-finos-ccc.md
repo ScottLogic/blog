@@ -75,58 +75,106 @@ It is envisaged that eventually, CCC will offer certification for CSPs who confo
 To provide you with a clearer understanding of what a control is, let's take a closer look at a specific example.
 
 ~~~ yaml
-id: CCC.C10 # Prevent data replication to destinations outside of defined
-title: Prevent data replication to destinations outside of defined
-    trust perimeter
-control_family: Data
+ id: CCC.ObjStor.C02 # Enforce uniform bucket-level access to prevent inconsistent
+title: Enforce uniform bucket-level access to prevent inconsistent
+    permissions
+control_family: Identity and Access Management
 objective: |
-    Prevent replication of data to untrusted destinations outside of 
-    defined trust perimeter. An untrusted destination is defined as a 
-    resource that exists outside of a specified trusted identity or network 
-    perimeter (i.e., a data perimeter).
+    Ensure that uniform bucket-level access is enforced across all 
+    object storage buckets. This prevents the use of ad-hoc or 
+    inconsistent object-level permissions, ensuring centralized, 
+    consistent, and secure access management in accordance with the 
+    principle of least privilege.
 threats:
-    - CCC.TH04 # Data is replicated to untrusted or external locations
-nist_csf: PR.DS-5 # Protections against data leaks are implemented
+    - CCC.TH01 # Access control is misconfigured
+    - CCC.ObjStor.TH02 # Improper enforcement of object modification locks
+nist_csf: PR.AC-4 # Access permissions and authorizations are managed, incorporating the principles of least privilege and separation of duties
+control_mappings:
+    CCM:
+    - DCS-09 # Access Control
+    ISO_27001:
+    - 2013 A.9.4.1 # Information Access Restriction
+    NIST_800_53:
+    - AC-3 # Access Enforcement
+    - AC-6 # Least Privilege
 test_requirements:
-    - id: CCC.C10.TR01
+    - id: CCC.ObjStor.C02.TR01
     text: |
-        Replication of data to destinations outside of the defined trust 
-        perimeter is automatically blocked, preventing replication to 
-        untrusted resources.
+        Admin users can configure bucket-level permissions uniformly across 
+        all buckets, ensuring that object-level permissions cannot be 
+        applied without explicit authorization.
     tlp_levels:
-        - tlp_green
         - tlp_amber
         - tlp_red
 ~~~
 
-This control defined in the file named `common-controls.yaml` under object storage [link](hhttps://github.com/finos/common-cloud-controls/blob/main/services/common-controls.yaml). This control is designed to ensure that data us bit replicated outside of a trusted identity or network. This control is mapped to a specific threat within the standard, identified as `CCC.TH04`, which we will explore in more detail later. Additionally, this control is mapped to a NIST control, specified as `PR.DS-5` [link]( https://csf.tools/reference/nist-cybersecurity-framework/v1-1/pr/pr-ds/pr-ds-5/), which is part of the NIST framework's guidelines for protecting data leaks. There are also specific methods to test whether this control is effectively implemented within your cloud service provider, ensuring that it meets security and compliance standards.
+This control defined in the file [`controls.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/controls.yaml) under object storage. This control is designed to prevent the use of ad-hoc object level permissions in buckets. This control is mapped to specific threats within the standard, identified as `CCC.TH01` and `CCC.ObjStor.TH02`, which we will explore in more detail later. Additionally, this control is mapped to a NIST control, specified as [`PR.AC-4`]( https://csf.tools/reference/nist-cybersecurity-framework/v1-1/pr/pr-ds/pr-ac-4/), which is part of the NIST framework's guidelines for access control. There are also specific methods to test whether this control is effectively implemented within your cloud service provider, ensuring that it meets security and compliance standards.
 
 ~~~yaml
-id: CCC.TH04 # Data is replicated to untrusted or external locations
-title: Data is replicated to untrusted or external locations
+id: CCC.TH01 # Access control is misconfigured
+title: Access control is misconfigured
 description: |
-    An attacker could replicate data to untrusted or external locations if replication configurations 
-    are not properly restricted. This could result in data leakage or exposure to unauthorized entities 
-    outside the organization's trusted perimeter.
+    An attacker can exploit misconfigured access controls to grant excessive
+    privileges or gain unauthorized access to sensitive resources.
 features:
-    - CCC.F21 # Replication
+    - CCC.F06 # Identity Based Access Control
 mitre_technique:
+    - T1078 # Valid Accounts
+    - T1548 # Abuse Elevation Control Mechanism
+    - T1203 # Exploitation for Credential Access
+    - T1098 # Account Manipulation
+    - T1484 # Domain or Tenant Policy Modification
+    - T1546 # Event Triggered Execution
+    - T1537 # Transfer Data to Cloud Account
+    - T1567 # Exfiltration Over Web Services
+    - T1048 # Exfiltration Over Alternative Protocol
+    - T1485 # Data Destruction
+    - T1565 # Data Manipulation
+    - T1027 # Obfuscated Files or Information
+~~~
+
+Let’s examine the threat `CCC.TH01` in the file [`common-threats.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/common-threats.yaml). This highlights the potential risk where attackers exploit access control to gain high privilege access to data. This is identified as a common threat but applicable to object storage. Hence listed under `common_threats` section in the file [`threats.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/threats.yaml) under object storage. This particular threat is also linked to few specific threat in MITRE ATT&CK framework under the IDs [`T1078`](https://attack.mitre.org/techniques/T1078/), [`T1548`](https://attack.mitre.org/techniques/T1548/), [`T1203`](https://attack.mitre.org/techniques/T1203/), [`T1098`](https://attack.mitre.org/techniques/T1098/), [`T1484`](https://attack.mitre.org/techniques/T1484/), [`T1546`](https://attack.mitre.org/techniques/T1546/), [`T1537`](https://attack.mitre.org/techniques/T1537/), [`T1567`](https://attack.mitre.org/techniques/T1567/), [`T1048`](https://attack.mitre.org/techniques/T1048/), [`T1485`](https://attack.mitre.org/techniques/T1485/), [`T1565`](https://attack.mitre.org/techniques/T1565/), [`T1027`](https://attack.mitre.org/techniques/T1027/), which discus data and access manipulation. This threat is also mapped to a specific feature within the standard identified as `CCC.F06` with the title **Identity Based Access Control**. 
+
+~~~yaml
+id: CCC.ObjStor.TH02 # Improper enforcement of object modification locks
+title: Improper enforcement of object modification locks
+description: |
+    Attackers may exploit vulnerabilities in object modification locks to
+    delete or alter objects despite the lock being in place, leading to data
+    loss or tampering.
+features:
+    - CCC.ObjStor.F09 # Object Modification Locks
+mitre_technique:
+    - T1027 # Obfuscated Files or Information
+    - T1485 # Data Destruction
+    - T1490 # Inhibit System Recovery
+    - T1491 # Defacement
     - T1565 # Data Manipulation
 ~~~
 
-Let’s examine the threat `CCC.TH04` in the file named [`common-threats.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/common-threats.yaml). This highlights the potential risk where data can be replicated to external untrusted location. This particular threat is also linked to a specific threat in MITRE ATT&CK framework under the IDs [`T1565`](https://attack.mitre.org/techniques/T1565/), which discus data manipulation. This threat is also mapped to a specific feature within the standard identified as `CCC.F21`. 
+Let's examine the threat `CCC.ObjStor.TH02` in the file named [`threats.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/threats.yaml) under object storage. This is an object storage specific threat that discuss attackers exploiting vulnerabilities in object modification locks to destruct data. This particular threat is also linked to few specific threat in MITRE ATT&CK framework under the IDs [`T1027`](https://attack.mitre.org/techniques/T1027/), [`T1485`](https://attack.mitre.org/techniques/T1485/), [`T1490`](https://attack.mitre.org/techniques/T1490/), [`T1491`](https://attack.mitre.org/techniques/T1491/), [`T1565`](https://attack.mitre.org/techniques/T1565/), which discus data destruction and manipulation. This threat is also mapped to a specific feature within the standard identified as `CCC.ObjStor.F09` with the title **Object Modification Locks**. 
 
 ~~~yaml
-id: CCC.F21 # Replication
-title: Replication
+id: CCC.F06 # Identity Based Access Control
+title: Identity Based Access Control
 description: |
-    Provides the ability to copy data or resource to multiple locations to ensure
-    availability and durability.
+    Provides the ability to determine access to resources based on
+    attributes associated with a user identity.
 ~~~
 
-The feature `CCC.F21`, found in the file named [`common-features.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/common-features.yaml) under the object storage, describes the ability to replicate data. This functionality is the main target of the threat identified in `CCC.TH04`.
+The feature `CCC.F06`, found in the file named [`common-features.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/common-features.yaml) is a common feature that referred by the object storage threat `CCC.TH01` discussed above. This feature is also listed under `common_features` in the file [`features.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/features.yaml) under the object storage, identifying it as a feature in object storage. This functionality of this feature is to control access to the object storage buckets based on identity.
 
-In summary, if your architecture relies on object storage to retain customer data in a financial institution, it's critical to prevent replication data to destinations outside of defined trust identities and networks. The threat identified under this control exploits the data replication feature of object storage.
+~~~yaml
+id: CCC.ObjStor.F09 # Object Modification Locks
+title: Object Modification Locks
+description: |
+    Allows locking of objects to disable modification and/or deletion of an
+    object for a defined period of time.
+~~~
+
+The feature `CCC.ObjStor.F09`, found in the file named [`features.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/features.yaml) under object storage is an object storage specific feature that referred by the threat `CCC.ObjStor.TH02` discussed above. This functionality of this feature is to provide object locks for data stored in object buckets disabling modifications and/or deletion.
+
+In summary, if your architecture relies on object storage and its features such as *identity based access storage* and *object modification locks* you are susceptible to threats such as *access control is misconfigured* and *improper enforcement of object modification locks*. To prevent those attacks taking place, it's critical to implement controls such as *enforce uniform bucket-level access to prevent inconsistent* for all your object storage buckets that retain sensitive data, in your financial institute. You can validate whether thess controls are in place by executing validation tests that are listed under the controls.
 
 
 For more details refer to the project's [GitHub](https://github.com/finos/common-cloud-controls) page.
