@@ -1,17 +1,16 @@
 ---
-title: Terraform vs CDK
-date: 2024-09-17 10:00:00 Z
+title: Terraform VS CDK
+date: 2024-10-01 10:00:00 Z
 categories:
   - Cloud
 tags:
   - Cloud
   - AWS
   - Terraform
+  - CDK
 summary: Comparing the experience of coding with Terraform and AWS CDK.
 author: acanham
 ---
-
-# Terraform VS CDK
 
 If you’ve worked in software for more than 5 minutes, then you’ve probably heard of cloud computing. And if you’ve worked in cloud computing for more than 5 minutes, you’ve probably heard of either Terraform or AwsCDK (also known as CDK).
 
@@ -171,8 +170,7 @@ Bearing in mind that both of these are using their out-of-the-box libraries (no 
 
 <details>
 <summary>Terraform - 178 lines</summary>
-<pre><code class=ruby>
-resource "aws_vpc" "example_vpc" {
+<pre><code class=ruby>resource "aws_vpc" "example_vpc" {
   cidr_block = "10.0.0.0/24"
 }
 
@@ -358,8 +356,7 @@ resource "aws_lb_listener" "example_alb_listener" {
 <details>
 <summary>CDK - 58 lines</summary>
 
-<pre><code>
-const vpc = new Vpc(this, id);
+<pre><code>const vpc = new Vpc(this, id);
 const instanceSG = new ec2.SecurityGroup(this, "instanceSG", {
   vpc,
   allowAllOutbound: false,
