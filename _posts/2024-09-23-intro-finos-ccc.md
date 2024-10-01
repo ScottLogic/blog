@@ -29,35 +29,43 @@ In summary, FINOS CCC project aims to establish a set of guidelines that enforce
 
 ## Goals of FINOS CCC
 
-Based on the Common Cloud Controls GitHub repo the project aims to fulfil following goals: 
+Based on the Common Cloud Controls [GitHub](https://github.com/finos/common-cloud-controls) repo the project aims to fulfil following goals: 
 
-* Defining Best Practices Around Cloud Security
-* One Target For CSPs To Conform To
-* Sharing The Burden Of A Common Definition
-* A Path Towards Common Implementation
-* A Path Towards Certification
-
-For a more detailed explanation of each project goal and how they are achieved, please refer to the project's [GitHub](https://github.com/finos/common-cloud-controls) repository.
+- Defining Best Practices Around Cloud Security
+- One Target For CSPs To Conform To
+- Sharing The Burden Of A Common Definition
+- A Path Towards Common Implementation
+- A Path Towards Certification
 
 ## Why do we need it?
 
 These goals were shaped by the unique challenges of the financial sector. Unlike a small startup adopting the cloud, financial institutions face greater challenges due to the complexity and specific requirements of financial applications, as well as the sensitive nature of their data. In such cases, machine-verifiable deployments that are secure, compliant, and adhere to industry best practices are highly beneficial. The project is also driven by the need for a clear migration path between cloud vendors, ensuring institutions are not overly dependent on any single provider. By establishing a common set of controls, it creates a framework that ensures a system's architecture meets the compliance requirements of each institution while demonstrating compliance across multiple cloud providers. This approach allows a system built and deployed on one cloud to be seamlessly rebuilt on another, as it adheres to the same best practices and has already passed the necessary compliance checks of the new provider. As a result, higher-level cloud services, specific to each cloud service provider (CSP), can be fully utilized without resorting to the lowest common denominator, ensuring that the unique strengths of each CSP are leveraged.
 
-In the past, regulatory requirements for the financial institutes mandated that data be stored in highly secured on-premises data centres. However, with the growing adoption of cloud services, the financial services sector is increasingly moving towards adapting the public cloud. Please refer to the diagram below for comparison of key benefits and drawbacks of moving complex financial applications to public cloud.
+## Pros and Cons
+
+In the past, regulatory requirements for the financial institutes mandated that data be stored in highly secured, custom on-premises data centres. However, with the growing adoption of cloud services, the financial services sector is increasingly moving towards adapting the public cloud. The diagram shows a comparison of the main advantages and disadvantages of migrating complex financial applications to the public cloud.
 
 ![PROS_AND_CONS_OF_CLOUD]({{ site.github.url }}/smendis-scottlogic/assets/pros-n-cons.png)
 
-Let’s elaborate more on few key concerns in moving financial data to the public cloud. Despite the robust security measures cloud providers offer, financial data is highly sensitive, and breaches can be devastating. Public cloud environments are multi-tenant, meaning data from multiple organizations shares the same infrastructure. While cloud providers enforce strict isolation, the risk of data leakage still exists. The cloud provider’s employees may have access to critical data, posing potential insider threats. When it comes to regulatory challenges, regulations in some regions require that sensitive financial data must be stored within national borders. Cloud providers may not offer appropriate data centre locations, hence complying to data residency laws could sometimes be difficult. Auditing in cloud environments can be more challenging, especially with limited visibility into the provider’s operations. When complex system architectures evolve over time on a cloud provider of choice, it makes it more difficult to migrate to a different cloud provider, because of native offerings or because of lack of skilled workforce.
+Let’s elaborate more on few key concerns in moving financial data to the public cloud. Despite the robust security measures cloud providers offer, financial data is highly sensitive, and breaches can be devastating.  When complex system architectures evolve over time on a cloud provider of choice, it makes it more difficult to migrate to a different cloud provider. This may be due to the use of native offerings or lack of skilled workforce specialized in multiple cloud services. Public cloud environments are multi-tenant, meaning data from multiple organizations shares the same infrastructure. While cloud providers enforce strict isolation, the risk of data leakage still exists. The cloud provider’s employees may have access to critical data, posing potential insider threats. When it comes to regulatory challenges, regulations in some regions require that sensitive financial data must be stored within national borders. Cloud providers may not offer appropriate data centre locations, hence complying to data residency laws could sometimes be difficult. Auditing in cloud environments can be more challenging, especially with limited visibility into the provider’s operations.
 
-According to the Linux Foundation [announcement](https://www.linuxfoundation.org/press/finos-announces-open-standards-project-for-financial-services-common-cloud-controls) on July 27, 2023 **Jim Adams**, CTO and Head of Technology Infrastructure at Citi, the world’s fifth largest bank, stated
+Despite the challenges, the advantages of migrating to the cloud are considerable. One of the most notable is the reduction in operational costs associated with maintaining and upgrading physical servers and hardware. Additionally, cloud services tend to be more energy-efficient. The ability to scale resources on demand is not only simpler but also much faster with cloud solutions. Furthermore, the wide range of available software as a service (SaaS) offerings reduces the need for specialized expertise, enabling innovation and accelerating development processes.
 
-> “There is a need for a Cloud Standard that will improve certain security and control measures across the Financial Services industry, whilst simplifying and democratizing access for all institutions to operate and benefit by leveraging the public cloud. It is important to collaborate with our peers to ensure consistency across cloud service providers, ensuring the industry can realize true multi-cloud strategies,”
+Cloud infrastructure also enhances business agility by allowing companies to quickly adapt to market changes. The pay-as-you-go model offers financial flexibility, where businesses only pay for the resources they actually use, preventing unnecessary expenditures. Cloud providers also typically offer built-in security features and compliance certifications, reducing the burden on internal IT teams to maintain security protocols.
+
+Disaster recovery and data backup solutions are another key benefit, as cloud platforms provide reliable, automated solutions for minimizing downtime in the event of disruptions. These advantages collectively lead to improved business continuity, performance, and scalability in ways that traditional, on-premises setups struggle to match.
 
 ## Timeline and Contributors
 
-**On July 27, 2023, in New York,** FINOS announced the formation of an open standard project, based upon an approach developed by FINOS Platinum Member Citi, to describe consistent controls for compliant public cloud deployments in the financial services sector.
+**On July 27, 2023, in New York,** FINOS announced the formation of an open standard project, based upon an approach developed by FINOS Platinum Member Citi, to describe consistent controls for compliant public cloud deployments in the financial services sector [link](https://www.linuxfoundation.org/press/finos-announces-open-standards-project-for-financial-services-common-cloud-controls). 
 
-**On October 24, 2023, in Las Vegas,** FINOS announced the open sourcing of FINOS Common Cloud Controls (FINOS CCC) under the Community Specification License.
+In conjunction with the announcement of formation, **Jim Adams**, CTO and Head of Technology Infrastructure at Citi, the world’s fifth largest bank, stated,
+
+> “There is a need for a Cloud Standard that will improve certain security and control measures across the Financial Services industry, whilst simplifying and democratizing access for all institutions to operate and benefit by leveraging the public cloud. It is important to collaborate with our peers to ensure consistency across cloud service providers, ensuring the industry can realize true multi-cloud strategies”
+
+Refer to the FINOS announcement on formation for the full statement by Citi CTO.
+
+**On October 24, 2023, in Las Vegas,** FINOS announced the open sourcing of FINOS Common Cloud Controls (FINOS CCC) under the Community Specification License [link](https://www.finos.org/press/finos-announces-open-sourcing-common-cloud-controls).
 
 The project, seeded by Citi and approved in July by the FINOS Governing Board, has quickly garnered participation from over 20 leading financial institutions, cloud service providers and technology vendors. Some key member organizations involved in the formation and development of the project include Citi, Bank of Montreal (BMO), Goldman Sachs, JPMorgan, Morgan Stanley, Royal Bank of Canada (RBC), Deutsche Bank, London Stock Exchange Group (LSEG), Natwest, Google Cloud, Microsoft, NIST, Red Hat, Symphony, ControlPlane, GitHub, GitLab, and Scott Logic. 
 
