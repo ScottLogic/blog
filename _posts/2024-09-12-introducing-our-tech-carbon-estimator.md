@@ -41,7 +41,7 @@ While the Estimator is not suitable for formal reporting purposes, we believe it
 
 ## Try the Technology Carbon Estimator Today
 
-We invite you to try out our Technology Carbon Estimator for yourself. Input your organisation's data, see how changes can affect the output, and gain insights into where your biggest opportunities for carbon reduction might lie. And of course, we're here to help you interpret and act on your results – don't hesitate to reach out to us for a deeper discussion of your findings and next steps.
+We invite you to try out our Technology Carbon Estimator for yourself (available on the [Technology Carbon Standard](https://www.techcarbonstandard.org/estimator) and [Scott Logic](https://www.scottlogic.com/technology-carbon-estimator) sites). Input your organisation's data, see how changes can affect the output, and gain insights into where your biggest opportunities for carbon reduction might lie. And of course, we're here to help you interpret and act on your results – don't hesitate to reach out to us for a deeper discussion of your findings and next steps.
 
 By providing this tool, we hope to empower organisations to take meaningful action on their technology carbon footprint. While it's just one step on the journey to sustainability, we believe it's an important one. Try the estimator today and join us in working towards a more sustainable future for technology.
 
