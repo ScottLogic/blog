@@ -3,12 +3,12 @@ title: Introducing FINOS Common Cloud Controls (CCC)
 categories: 
 - Open Source
 author: smendis-scottlogic
-summary: FINOS Common Cloud Controls (CCC) is an open standard by FINOS, to describe consistent controls for compliance public cloud deployments in financial services sector. The project is sponsored by Scott Logic, aligning with its mission to promote and support open-source initiatives. This is an effort to introduce FINOS CCC and its goals.
+summary: FINOS Common Cloud Controls (CCC) is an open standard by FINOS, to describe consistent controls for compliant public cloud deployments in the financial services sector. The project is sponsored by Scott Logic, aligning with its mission to promote and support open-source initiatives. This is an effort to introduce FINOS CCC and its goals.
 ---
 
-Since September last year (2023), I have been working on a somewhat unusual software project. The project is sponsored by Scott Logic, aligning with its commitment to open source. I was excited, not only for the opportunity to contribute to an open-source project but also by the idea of playing a role in shaping the cloud itself.
+Since September last year (2023), I have been working on a somewhat unusual software project. The project is sponsored by Scott Logic, aligning with its commitment to open source. I was excited, not only for the opportunity to contribute to an open-source project, but also by the idea of playing a role in shaping the cloud itself.
 
-Over the course of a year, we’ve come a long way—transforming what was once a vague, uncertain vision into releasable open standard. This blog post aims to introduce the FINOS Common Cloud Controls (CCC) project, outlining its objectives, timeline, and benefits.
+Over the course of a year, we’ve come a long way — transforming what was once a vague, uncertain vision into a releasable open standard. This blog post aims to introduce the FINOS Common Cloud Controls (CCC) project, outlining its objectives, timeline, and benefits.
 
 ## What is FINOS CCC?
 
@@ -18,9 +18,14 @@ As stated on the [official page](https://www.finos.org/common-cloud-controls-pro
 
 > “FINOS Common Cloud Controls (FINOS CCC) is the codename for an open standard project, originally proposed by Citi and now open source under Fintech Open Source Foundation (FINOS), to describe consistent controls for compliant public cloud deployments in the financial services sector”.
 
-This statement outlines several important aspects of the project. First and foremost, it is designed to cater specific needs of the **financial services sector**, which includes banking, insurance, investment and wealth management, mortgage lending, and more. An **open standard** refers to a set of guidelines or specifications developed collaboratively that can be used freely or with minimal restrictions. **Consistent controls** imply standardized security, compliance, and governance measures applied uniformly across the infrastructure, applications and processes. These controls ensure that policies related to data protection, access management, auditing, encryption, and monitoring are reliably implemented. **Compliance public cloud deployments** involve using public cloud services, such as AWS, Microsoft Azure, or Google Cloud, that meet the regulatory and legal standards required by regulating authorities. 
+This statement outlines several important aspects of the project. 
 
-In summary, FINOS CCC project aims to establish a set of guidelines that enforce security, compliance, and governance for public cloud services used by financial institutions.
+- The project is designed to cater specific needs of the **financial services sector**, which includes banking, insurance, investment and wealth management, mortgage lending, and more.
+- An **open standard** refers to a set of guidelines or specifications developed collaboratively that can be used freely or with minimal restrictions.
+- **Consistent controls** imply standardized security, compliance, and governance measures applied uniformly across the infrastructure, applications and processes. These controls ensure that policies related to data protection, access management, auditing, encryption, and monitoring are reliably implemented.
+- **Compliant public cloud deployments** involve using public cloud services, such as AWS, Microsoft Azure, or Google Cloud, that meet the regulatory and legal standards required by regulating authorities. 
+
+In summary, FINOS CCC project aims to establish a set of guidelines that enforce security, compliance, and governance for public cloud services used by the financial institutions.
 
 ## Goals of FINOS CCC
 
@@ -40,11 +45,11 @@ These goals were shaped by the unique challenges faced by the financial sector. 
 
 Financial institutes store personally identifiable information of their customers, such as full name, date of birth, social security numbers, national identification numbers, home address, email addresses, phone numbers, etc. They also sometimes store customer income and credit data such as employment status, employer details, salary information, other income sources, credit score, defaults and bankruptcies, etc. Not only that, they also have records of customer in-store & online purchase history, withdrawals, deposits, investment activities and related transactional and behavioral patterns.
 
-In the past, regulatory requirements for financial institutes mandated that data be stored in highly secured on-premise data centres. However, with the growing adoption of cloud services, the financial services sector is increasingly moving towards adapting the public cloud. Key benefits driving this shift include agility, scalability, cost optimization, accelerated innovation, geographic availability, and enhanced resilience. Some of the potential drawbacks and challenges, particularly given the sensitive nature of the financial data are security concerns, compliance and regulatory challenges, loss of control, downtime, data privacy risks, vendor lock-in and skills gap. 
+In the past, regulatory requirements for the financial institutes mandated that data be stored in highly secured on-premises data centres. However, with the growing adoption of cloud services, the financial services sector is increasingly moving towards adapting the public cloud.
 
 ![PROS_AND_CONS_OF_CLOUD]({{ site.github.url }}/smendis-scottlogic/assets/pros-n-cons.png)
 
-Let’s elaborate more on few key concerns in moving financial data to the public cloud. Despite the robust security measures cloud providers offer, financial data is highly sensitive, and breaches can be devastating. Public cloud environments are multi-tenant, meaning data from multiple organizations shares the same infrastructure. While cloud providers enforce strict isolation, the risk of data leakage still exists. The cloud provider’s employees may have access to critical data, posing potential insider threats. When it comes to regulatory challenges, regulations in some regions require that sensitive financial data must be stored within national borders. Cloud providers may not offer appropriate data centre locations, or ensure compliance with data residency laws can be complex. Auditing and proving compliance in cloud environments can be more challenging, especially with limited visibility into the provider’s operations.
+Let’s elaborate more on few key concerns in moving financial data to the public cloud. Despite the robust security measures cloud providers offer, financial data is highly sensitive, and breaches can be devastating. Public cloud environments are multi-tenant, meaning data from multiple organizations shares the same infrastructure. While cloud providers enforce strict isolation, the risk of data leakage still exists. The cloud provider’s employees may have access to critical data, posing potential insider threats. When it comes to regulatory challenges, regulations in some regions require that sensitive financial data must be stored within national borders. Cloud providers may not offer appropriate data centre locations, hence complying to data residency laws could get difficult. Auditing in cloud environments can be more challenging, especially with limited visibility into the provider’s operations.
 
 According to the Linux Foundation [announcement](https://www.linuxfoundation.org/press/finos-announces-open-standards-project-for-financial-services-common-cloud-controls) on July 27, 2023 Jim Adams, CTO and Head of Technology Infrastructure at Citi, the world’s fifth largest bank, stated
 
@@ -64,7 +69,7 @@ The Common Cloud Controls (CCC) project encompasses multiple layers. A key goal 
 
 Threats in the cloud are reasonably understood. The [MITRE ATT&CK](https://attack.mitre.org/) framework is a globally recognized knowledge base used to understand and analyze the behavior of cyber adversaries. It provides a structured way to describe and categorize the tactics, techniques, and procedures (TTPs) that attackers use to infiltrate and compromise systems. CCC also aims to create a mapping of threats found in Mitre framework with the common features identified by the cloud services taxonomy in their controls. 
 
-FINOS CCC project uses [OSCAL](https://pages.nist.gov/OSCAL/) (Open Security Controls Assessment Language) developed by NIST (National Institute of Standards and Technology) as their control language. OSCAL utilizes a machine-readable format for defining controls, which facilitates automated assessments, reporting, automated generation of compliance documentation and many more.
+FINOS CCC project uses [OSCAL](https://pages.nist.gov/OSCAL/) (Open Security Controls Assessment Language) developed by NIST (National Institute of Standards and Technology) as their control language. OSCAL utilizes a machine-readable format for defining controls, which facilitates automated assessments, reporting, automated generation of compliance documentation and much more.
 
 The project also aims to validate controls through a series of tests. If you are aware of the controls required in your public cloud, you can use the tests provided in the CCC standard to verify whether those controls are properly implemented.
 
@@ -174,7 +179,7 @@ description: |
 
 The feature `CCC.ObjStor.F09`, found in the file named [`features.yaml`](https://github.com/finos/common-cloud-controls/blob/main/services/storage/object/features.yaml) under object storage is an object storage specific feature that referred by the threat `CCC.ObjStor.TH02` discussed above. This functionality of this feature is to provide object locks for data stored in object buckets disabling modifications and/or deletion.
 
-In summary, if your architecture relies on object storage and its features such as *identity based access storage* and *object modification locks* you are susceptible to threats such as *access control is misconfigured* and *improper enforcement of object modification locks*. To prevent those attacks taking place, it's critical to implement controls such as *enforce uniform bucket-level access to prevent inconsistent* for all your object storage buckets that retain sensitive data, in your financial institute. You can validate whether thess controls are in place by executing validation tests that are listed under the controls.
+In summary, if your architecture relies on object storage and its features such as *identity based access storage* and *object modification locks*, you are susceptible to threats such as *access control is misconfigured* and *improper enforcement of object modification locks*. To prevent those attacks from taking place, it's critical to implement controls such as *enforce uniform bucket-level access to prevent inconsistent* for all your object storage buckets that retain sensitive data in your financial institute. You can validate whether thess controls are in place by executing validation tests that are listed under the controls.
 
 
 For more details refer to the project's [GitHub](https://github.com/finos/common-cloud-controls) page.
@@ -182,7 +187,7 @@ For more details refer to the project's [GitHub](https://github.com/finos/common
 
 ## Scott Logic FINOS CCC Team
 
-Scott Logic was one of the first organizations to collaborate with the FINOS Foundation in establishing the FINOS CCC, under the leadership of Colin Eberhardt and Robert Griffiths. Rob, as the project’s sponsorship lead at Scott Logic, plays a pivotal role in driving this initiative by being a key member of the FINOS CCC Steering Committee. Alongside Rob, Stevie Shiells, who chairs the Community Structure working group, and I, as the chair of the Taxonomy working group, represent Scott Logic in driving this open-source project. We have received, and continue to receive, valuable contributions over time from our Scott Logic team, including Joshua Isted, Cara Fisher, David Ogle, Mike Smith, Euthyme Ziogas, Daniel Moorhouse, and Ivan Mladjenovic.
+Scott Logic was among the first organizations to collaborate with the FINOS Foundation in establishing the FINOS CCC, under the leadership of Colin Eberhardt and Robert Griffiths. As the project's sponsorship lead at Scott Logic, Rob plays a key role in advancing this initiative as a member of the FINOS CCC Steering Committee. Alongside Rob, Stevie Shiells, chair of the Community Structure working group, and I, as chair of the Taxonomy working group, represent Scott Logic in leading this open-source project. We've also received, and continue to benefit from, valuable contributions from our Scott Logic team members: Joshua Isted, Cara Fisher, David Ogle, Mike Smith, Euthyme Ziogas, Daniel Moorhouse, and Ivan Mladjenovic.
 
 ## Conclusion
 
