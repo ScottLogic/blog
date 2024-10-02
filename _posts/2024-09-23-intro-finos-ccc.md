@@ -61,9 +61,9 @@ Disaster recovery and data backup solutions are another key benefit, as cloud pl
 
 ## Timeline and Contributors
 
-**On July 27, 2023, in New York,** FINOS announced the formation of an open standard project, based upon an approach developed by FINOS Platinum Member **Citi**, to describe consistent controls ([link](https://www.linuxfoundation.org/press/finos-announces-open-standards-project-for-financial-services-common-cloud-controls)). 
+**On July 27, 2023, in New York,** FINOS announced the formation of an open standard project, based upon an approach developed by FINOS Platinum Member Citi, to describe consistent controls ([link](https://www.linuxfoundation.org/press/finos-announces-open-standards-project-for-financial-services-common-cloud-controls)). 
 
-In conjunction with the announcement of formation, **Jim Adams**, *CTO and Head of Technology Infrastructure* at **Citi**, the world’s fifth largest bank, stated [link](https://www.linuxfoundation.org/press/finos-announces-open-standards-project-for-financial-services-common-cloud-controls),
+In conjunction with the announcement of formation, **Jim Adams**, *CTO and Head of Technology Infrastructure* at Citi, the world’s fifth largest bank, stated [link](https://www.linuxfoundation.org/press/finos-announces-open-standards-project-for-financial-services-common-cloud-controls),
 
 > “There is a need for a Cloud Standard that will improve certain security and control measures across the Financial Services industry, whilst simplifying and democratizing access for all institutions to operate and benefit by leveraging the public cloud. It is important to collaborate with our peers to ensure consistency across cloud service providers, ensuring the industry can realize true multi-cloud strategies”.
 
