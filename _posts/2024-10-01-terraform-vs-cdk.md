@@ -15,11 +15,12 @@ author: acanham
 If you’ve worked in software for more than 5 minutes, then you’ve probably heard of cloud computing. And if you’ve worked in cloud computing for more than 5 minutes, you’ve probably heard of either Terraform or AWS CDK (also known as CDK).
 
 Both Terraform and CDK are tools known as infrastructure as code (IaC) which speed up cloud development by allowing a user to code their cloud resources before deploying them.  
-This allows the cloud architecture to be treated as code, that is, replicated, reviewed and stored just like any other code.  
-It also means that we can deploy or destroy a complex mesh of cloud resources with just one command; saving a lot of time, effort, money and mistakes.
-Using IaC for cloud deployment has become an industry standard thanks to its security properties.  If you want a record of all resources deployed (without having to search through cloudtrail logs), who deployed them and when, and allow the ability to review the resources in code before deploying, you can create a role with deployment permissions, and allow only a CI/CD runner to have that role.  Meaning a person cannot physically deploy without first having their resources reviewed, scrutinised, approved, and their deployment recorded by the CI/CD job.
+This allows the cloud architecture to be treated as code, that is, replicated, reviewed and stored just like any other code.  It also means that we can deploy or destroy a complex mesh of cloud resources with just one command; saving a lot of time, effort, money and mistakes.  
 
-As a developer with 2 and a half years experience with cloud, over 2 years of experience with Terraform, I’ve recently finished an upskilling project learning CDK.  
+Using IaC for cloud deployment has become an industry standard thanks to its security properties.  
+If you want a record of all resources deployed (without having to search through cloudtrail logs), who deployed them and when, and allow the ability to review the resources in code before deploying, you can create a role with deployment permissions, and allow only a CI/CD runner to have that role.  This means that a person cannot physically deploy without first having their resources reviewed, scrutinised, approved, and their deployment recorded by the CI/CD job.
+
+As a developer with 2 and a half years experience with cloud computing and over 2 years of experience with Terraform, I’ve recently finished an upskilling project learning CDK.  
 In this blog, I’ll cover some of the differences between the two and which one you might prefer to use.  To explain their differences, it’s easier to start with explaining how they work...
 
 # Terraform workings
@@ -35,9 +36,9 @@ As the Terraform state isn't directly tied to AWS, and Terraform itself is cloud
 
 CDK on the other hand, is fully integrated into AWS, and uses [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) to deploy its stacks.
 When you deploy CDK code, it will compile the stack into a CloudFormation template, a machine-readable list of resources in either YAML or JSON format.  
-After this the template is then deployed and can be viewed under `CloudFormation` in the AWS Console.
+After this, the template is then deployed and can be viewed under `CloudFormation` in the AWS Console.
 
-While this eliminates the problems which come with the Terraform state, any issues you have with a CloudFormation deployment will be inherited by CDK, such as stack drift (the same error we get with terraform where the stack has changed significantly from its template) or stack resource limits (although at 500 resources, the limit is arguably big enough for a well-coded stack).
+While this eliminates the problems which come with the Terraform state, any issues that you have with a CloudFormation deployment will be inherited by CDK, such as stack drift (the same error we get with Terraform where the stack has changed significantly from its template) or stack resource limits (although at 500 resources, the limit is arguably big enough for a well-coded stack).
 
 # Getting to grips with Terraform
 
@@ -67,7 +68,7 @@ An example of using 'count' to deploy 3 separate EC2 instances is shown below:
 }
 </code></pre>
 
-Its original use was for creating many resources with the same configuration (as seen above), but it’s mainly used as a ‘create one of these only in this environment’ argument.
+Its original intended use was for creating many resources with the same configuration (as seen above), but it’s mainly used as a ‘create one of these only in this environment’ argument.
 
 For example, creating an instance only in a Dev environment:
 
@@ -81,12 +82,12 @@ For example, creating an instance only in a Dev environment:
   }
 }
 
-resource "aws_instance" "example_instance" {
-    count = var.environment == "Prod" ? 0 :1
+resource "aws_instance" "only_exists_in_dev" {
+    count = var.environment == "Prod" ? 0 : 1
     instance_type = "t2.micro"
     ami = var.ami_name
     tags = {
-      Name = "instance ${count.index}"
+      Envrionment = var.environment
     }
 }
 </code></pre>
@@ -142,15 +143,15 @@ So the chain of dependency upon deployment is Security group B, then Security Gr
 When working with Terraform you have to write out every single resource you declare, you can however put it behind a layer of abstraction by using Terraform modules.
 If you're familiar with CDK, Terraform modules are the Terraform equivalent of Constructs.  You can create and declare them locally, or you can use modules provided on the [Terraform registry](https://registry.terraform.io/browse/providers) from both official providers and community contributors.
 
-However if you want an architecture which is incredibly tight security-wise, it's common practice to resort to only using locally defined modules, so that the code is explicit on every single resource created.
+However if you want an architecture which is incredibly tight security-wise, it's common practice to resort to only using locally defined modules, so that the code is explicit with every single resource created.
 
 # Getting to grips with CDK
 
-If you have any experience with TypeScript, JavaScript, Python, Java, C# or Go, then you can already code CDK. There is no new language to learn, you can integrate it entirely into your codebase.
-As there’s no need to learn an entire language before you can start to write up resources, this results in a quicker initial learning curve. I noticed this on my upskilling project. Devs who had never touched AWS or Terraform picked up on CDK quicker than people tend to do with Terraform. In part because there were fewer barriers with language, layout and syntax.
+If you have any experience with TypeScript, JavaScript, Python, Java, C# or Go, then you can already code CDK. There is no new language to learn, you can integrate it entirely into your codebase.  
+As there’s no need to learn an entire language before you can start to write up resources, this leads to a quicker initial learning curve. I noticed this on my upskilling project: Devs who had never touched AWS or Terraform picked up on CDK quicker than people tend to do with Terraform. In part because there were fewer barriers with language, layout and syntax.
 
 Another property speeding up the learning curve is that CDK can ‘fill in the gaps’ of cloud computing.  
-A great example is the automatic creation of subnets (public and private), NAT gateways, an Internet Gateway, route tables and ready-configured security groups AS WELL AS the creation of our EC2 instance, AMI and VPC, all done within the creation of a single instance, as shown below:
+A great example is the automatic creation of subnets (public and private), NAT Gateways, an Internet Gateway, route tables and ready-configured security groups AS WELL AS the creation of our EC2 instance, AMI and VPC, all done within the creation of a single instance, as shown below:
 
 <pre><code>new ec2.Instance(this, "instance", {
   vpc: new Vpc(this, id),
@@ -164,13 +165,18 @@ A great example is the automatic creation of subnets (public and private), NAT g
 });
 </code></pre>
 
-This drastically cuts down on the lines of code needed to deploy resources, as well as reducing the time taken working on connecting resources up.
+When using standard L2 Constructs in CDK, the CDK compiler will fill in gaps as shown above, and (most usefully) will analyse which resources are connected to which, and will create route tables and security groups and even configure them for you based on those connections.  While you may have to add a connection or correct a security group if CDK does miss out a connection, in most cases CDK has it covered.
 
-To demonstrate this, I'll show the following architecture on both Terraform and CDK.
+CDK's resource abstraction dramatically cuts down on the lines of code needed to deploy resources, as well as reducing the time taken working on connecting resources up.
+
+To demonstrate this, I'll show the following architecture on both Terraform and CDK:
+
+An `Internet Gateway`, connected to an `Application Load Balancer (ALB)` inside a `VPC` in a subnet group consisting of two `Public subnets`.  This is routed to two `NAT Gateways` (one per Public subnet), which each point to an `EC2` in their corresponding `Private subnets`.
+Both the `EC2s` and `ALB` have `Security Groups` controlling traffic in/out.
 
 ![AWS architecture for a basic server]({{site.github.url}}/acanham/assets/architecture.png)
 
-Bearing in mind that both of these are using their out-of-the-box libraries (no 3rd party modules or constructs), here's the architecture coded both ways.
+Bearing in mind that both of these examples are using their out-of-the-box libraries (no 3rd party modules or constructs), here's the architecture coded both ways.
 
 <details>
 <summary>Terraform - 178 lines</summary>
@@ -431,10 +437,10 @@ However this 'fill in the gaps' approach with CDK does come with its downsides. 
 
 An example of this from my recent upskilling project was hitting the maximum number of ElasticIPs for a region.
 Each environment had two private and two public subnets, with our EC2 instances in the private subnets connected to the ALB in the public subnets.
-As mentioned, CDK helpfully created two NAT gateways (one per public subnet) per environment, which also requires an ElasticIP per NAT gateway.
+As mentioned, CDK helpfully created two NAT Gateways (one per public subnet) per environment, which also requires an ElasticIP per NAT Gateway.
 
 When attempting to deploy a 3rd environment, we hit the max number of ElasticIPs in the region (5) without even realising that we were deploying any.
-If you're reading carefully, you'll notice that the architecture is very similar to the one above used for our comparison, and be able to spot where Terraform creates the NAT Gateway, but not CDK...
+If you're reading carefully, you'll notice that the architecture is very similar to the one above used for our comparison, and be able to spot where Terraform creates the NAT Gateways and ElasticIPs, but not CDK...
 
 It's also worth mentioning that there is a way to code with CDK which avoids creating resources which aren't explicitly specified: L1 constructs, which are essentially basic CloudFormation resources, translated into an easy to use coding language.  
 The majority of our use of CDK on project was with L2 constructs (shown in the examples), which have this abstraction built in.  There is an alternative option of [L3 constructs](https://docs.aws.amazon.com/cdk/v2/guide/constructs.html#:~:text=Compared%20to%20L1%20constructs%2C%20L2%20constructs%20provide%20a,the%20boilerplate%20code%20and%20glue%20logic%20for%20you.), which abstract away resource creation even further, to the stage of creating complete application architectures.  
