@@ -144,7 +144,7 @@ If you're familiar with CDK, Terraform modules are the Terraform equivalent of C
 
 However if you want an architecture which is incredibly tight security-wise, it's common practice to resort to only using locally defined modules, so that the code is explicit on every single resource created.
 
-## Getting to grips with CDK
+# Getting to grips with CDK
 
 If you have any experience with TypeScript, JavaScript, Python, Java, C# or Go, then you can already code CDK. There is no new language to learn, you can integrate it entirely into your codebase.
 As there’s no need to learn an entire language before you can start to write up resources, this results in a quicker initial learning curve. I noticed this on my upskilling project. Devs who had never touched AWS or Terraform picked up on CDK quicker than people tend to do with Terraform. In part because there were fewer barriers with language, layout and syntax.
@@ -164,7 +164,7 @@ A great example is the automatic creation of subnets (public and private), NAT g
 });
 </code></pre>
 
-This drastically cuts down on the lines of code needed to deploy resources, as well as reducing the time taking working on connecting resources up.
+This drastically cuts down on the lines of code needed to deploy resources, as well as reducing the time taken working on connecting resources up.
 
 To demonstrate this, I'll show the following architecture on both Terraform and CDK.
 
@@ -447,7 +447,7 @@ While this can be incredibly useful for someone more used to object-oriented cod
 
 That being said, I’ve definitely saved some time with CDK and found that other developers new to the cloud have picked it up well.
 
-## So..... Which one's "better"?
+# So..... Which one's "better"?
 
 Well like with most tech… it depends….
 Personally I’d lean towards Terraform, however that could be more to do with my familiarity with the tech, the explicitness which comes with the lack of abstraction, and my love of high quality documentation and (somewhat) asynchronous development.
