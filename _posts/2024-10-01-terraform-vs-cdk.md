@@ -12,18 +12,17 @@ summary: Comparing the experience of coding with Terraform and AWS CDK.
 author: acanham
 ---
 
-If you’ve worked in software for more than 5 minutes, then you’ve probably heard of cloud computing. And if you’ve worked in cloud computing for more than 5 minutes, you’ve probably heard of either Terraform or AwsCDK (also known as CDK).
+If you’ve worked in software for more than 5 minutes, then you’ve probably heard of cloud computing. And if you’ve worked in cloud computing for more than 5 minutes, you’ve probably heard of either Terraform or AWS CDK (also known as CDK).
 
 Both Terraform and CDK are tools known as infrastructure as code (IaC) which speed up cloud development by allowing a user to code their cloud resources before deploying them.  
 This allows the cloud architecture to be treated as code, that is, replicated, reviewed and stored just like any other code.  
 It also means that we can deploy or destroy a complex mesh of cloud resources with just one command; saving a lot of time, effort, money and mistakes.
-Using IaC for cloud deployment has become an industry standard thanks to its security properties.  If you want to have a record of all resources deployed (without having to search through cloudtrail logs), who deployed them, when, and allow the ability to review the resources in code before deploying, you can create a role with deployment permissions, and allow only a CI/CD runner to have to have that role.  Meaning a person cannot physically deploy without first having their resources reviewed, scrutinised, approved, and their deployment recorded by the CI/CD job.
+Using IaC for cloud deployment has become an industry standard thanks to its security properties.  If you want a record of all resources deployed (without having to search through cloudtrail logs), who deployed them and when, and allow the ability to review the resources in code before deploying, you can create a role with deployment permissions, and allow only a CI/CD runner to have that role.  Meaning a person cannot physically deploy without first having their resources reviewed, scrutinised, approved, and their deployment recorded by the CI/CD job.
 
 As a developer with 2 and a half years experience with cloud, over 2 years of experience with Terraform, I’ve recently finished an upskilling project learning CDK.  
-In this blog, I’ll cover some of the differences between the two and which one you might prefer to use.  
-To begin explaining their differences, it’s easier to start with explaining how they work.
+In this blog, I’ll cover some of the differences between the two and which one you might prefer to use.  To explain their differences, it’s easier to start with explaining how they work...
 
-## Terraform workings
+# Terraform workings
 
 Terraform works with something called the ‘Terraform state’ , a JSON file (stored either locally or within the cloud) which acts as a record for all the resources that Terraform has deployed to the cloud.  
 When deploying, Terraform will write to the state, and when deleting, it will remove from the state. This enables Terraform to know what to delete and which resources to change/replace when alterations are deployed.
@@ -32,17 +31,17 @@ The Terraform state leads to some of the major common issues people run into whe
 If anything is not deployed with Terraform, but is changed manually, it is not recorded on the Terraform state and can lead to errors when re-deploying.
 As the Terraform state isn't directly tied to AWS, and Terraform itself is cloud agnostic, it can be used on any major cloud platform.
 
-## CDK workings
+# CDK workings
 
-CDK on the other hand, is fully integrated into AWS, and uses [cloudformation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) to deploy its stacks.
-When you deploy CDK code, it will compile the stack into a cloudformation template, a machine-readable list of resources in either YAML or JSON format.  
-After this the template is then deployed and can be viewed in the cloudformation UI.
+CDK on the other hand, is fully integrated into AWS, and uses [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) to deploy its stacks.
+When you deploy CDK code, it will compile the stack into a CloudFormation template, a machine-readable list of resources in either YAML or JSON format.  
+After this the template is then deployed and can be viewed under `CloudFormation` in the AWS Console.
 
-While this eliminates the problems which come with the Terraform state, any issues you have with a cloudformation deployment will likely be inherited into CDK, such as stack resource limits (although at 500 resources, the limit is arguably big enough for a well-coded stack).
+While this eliminates the problems which come with the Terraform state, any issues you have with a CloudFormation deployment will be inherited by CDK, such as stack drift (the same error we get with terraform where the stack has changed significantly from its template) or stack resource limits (although at 500 resources, the limit is arguably big enough for a well-coded stack).
 
-## Getting to grips with Terraform
+# Getting to grips with Terraform
 
-Terraform is written in hashicorp language (hcl), which is similar to JSON. Personally I find it quite easy to read, however at first it took some time to get to grips with. Particularly on how to write variables, and writing/ using modules.
+Terraform is written in hashicorp language (HCL), which reads similar to JSON. Personally I find it quite easy to read, however at first it took some time to get to grips with. Particularly on how to write variables, and writing/ using modules.
 
 <pre><code>resource "aws_instance" "example_instance" {
     instance_type = "t2.micro"
@@ -140,6 +139,11 @@ For example, we can reference Security Group B from Security Group A with no iss
 
 So the chain of dependency upon deployment is Security group B, then Security Group A (reliant on B), and *then* adding the rule referencing A to B (reliant on both A and B).
 
+When working with Terraform you have to write out every single resource you declare, you can however put it behind a layer of abstraction by using Terraform modules.
+If you're familiar with CDK, Terraform modules are the Terraform equivalent of Constructs.  You can create and declare them locally, or you can use modules provided on the [Terraform registry](https://registry.terraform.io/browse/providers) from both official providers and community contributors.
+
+However if you want an architecture which is incredibly tight security-wise, it's common practice to resort to only using locally defined modules, so that the code is explicit on every single resource created.
+
 ## Getting to grips with CDK
 
 If you have any experience with TypeScript, JavaScript, Python, Java, C# or Go, then you can already code CDK. There is no new language to learn, you can integrate it entirely into your codebase.
@@ -164,7 +168,7 @@ This drastically cuts down on the lines of code needed to deploy resources, as w
 
 To demonstrate this, I'll show the following architecture on both Terraform and CDK.
 
-![architecture diagram]({{site.github.url}}/acanham/assets/architecture.png "architecture")
+![AWS architecture for a basic server]({{site.github.url}}/acanham/assets/architecture.png)
 
 Bearing in mind that both of these are using their out-of-the-box libraries (no 3rd party modules or constructs), here's the architecture coded both ways.
 
@@ -423,7 +427,7 @@ listener.addAction("action", {
 While you can argue that some of the line number difference could be down to the standard formatting I've used, there's no argument that CDK undeniably uses fewer characters (1633) than Terraform (4646)
 I can confirm that the Terraform example took me twice as long to configure than the CDK one.
 
-However this 'fill in the gaps' approach with CDK does come with its downsides. By making the resources deployed less explicit within the codebase, you potentially run into issues with budgeting, security, and even hitting the max resource quotas without even knowing that you were deploying said resource.
+However this 'fill in the gaps' approach with CDK does come with its downsides. By making the resources deployed less explicit within the codebase, you potentially run into issues with budgeting, security, monitoring, and even hitting the max resource quotas without even knowing that you were deploying said resource.
 
 An example of this from my recent upskilling project was hitting the maximum number of ElasticIPs for a region.
 Each environment had two private and two public subnets, with our EC2 instances in the private subnets connected to the ALB in the public subnets.
@@ -432,8 +436,9 @@ As mentioned, CDK helpfully created two NAT gateways (one per public subnet) per
 When attempting to deploy a 3rd environment, we hit the max number of ElasticIPs in the region (5) without even realising that we were deploying any.
 If you're reading carefully, you'll notice that the architecture is very similar to the one above used for our comparison, and be able to spot where Terraform creates the NAT Gateway, but not CDK...
 
-It's also worth mentioning that there is a way to code with CDK which avoids creating resources which aren't explicitly specified: L1 constructs, which are essentially basic cloudformation resources, translated into an easy to use coding language.  
-The majority of our use of CDK on project was with L2 constructs (shown in the examples), which have this abstraction built in.  I won't say anything further about different construct levels here, but you can find further information on the [CDK documentation](https://docs.aws.amazon.com/cdk/v2/guide/constructs.html#:~:text=Compared%20to%20L1%20constructs%2C%20L2%20constructs%20provide%20a,the%20boilerplate%20code%20and%20glue%20logic%20for%20you.)
+It's also worth mentioning that there is a way to code with CDK which avoids creating resources which aren't explicitly specified: L1 constructs, which are essentially basic CloudFormation resources, translated into an easy to use coding language.  
+The majority of our use of CDK on project was with L2 constructs (shown in the examples), which have this abstraction built in.  There is an alternative option of [L3 constructs](https://docs.aws.amazon.com/cdk/v2/guide/constructs.html#:~:text=Compared%20to%20L1%20constructs%2C%20L2%20constructs%20provide%20a,the%20boilerplate%20code%20and%20glue%20logic%20for%20you.), which abstract away resource creation even further, to the stage of creating complete application architectures.  
+Much like the Terraform Registry, there is also the [CDK construct hub](https://constructs.dev/#:~:text=Construct%20Hub%20helps%20developers%20find) for community-written constructs.  However from opinions I've heard so far, the Terraform module registry is much more favoured than the construct hub. 
 
 The main difficulty I had with learning CDK was the lack of examples online. It has only been around since 2019, whereas Terraform was launched in 2014, meaning that the CDK documentation isn’t quite as clear, there are fewer code examples, and still has the odd bug (the one we came across required cancelling and rerunning `cdk deploy` if using `addAsgCapacityProvider`).
 
@@ -445,11 +450,11 @@ That being said, I’ve definitely saved some time with CDK and found that other
 ## So..... Which one's "better"?
 
 Well like with most tech… it depends….
-Personally I’d lean towards Terraform, however that could be more to do with my familiarity with the tech, and my love of high quality documentation and (somewhat) asynchronous development.
+Personally I’d lean towards Terraform, however that could be more to do with my familiarity with the tech, the explicitness which comes with the lack of abstraction, and my love of high quality documentation and (somewhat) asynchronous development.
 
-If you want a cloud agnostic IaC, and want to be precise in all your resources you’re deploying, with very little human interaction with the resource state, then Terraform is the go to choice.
+If you want a cloud agnostic IaC, and want to be explicit in all your resources you’re deploying, then Terraform is the go to choice.
 However, if you’re already familiar with other coding languages, would like to integrate your cloud architecture with your codebase further than you can with Terraform, want to specialise in AWS and (understandably) hate updating route tables and security groups, then CDK is the way forward.
 
-As an amateur cloud architect, I’m glad to have had some practical experience with both.
+As an amateur cloud architect, I’m glad to have had some practical experience with both, but I would rather stick with Terraform in future endeavors.
 
 Although Terraform has been an industry standard for years now, it has recently had a change of license, and of 10th August 2023, is no longer open source, so it'll be interesting to see the trends and popularity of different cloud IaC technologies, whether Terraform will keep the title of industry standard, or whether it will be overtaken by AWS CDK, [CDK for Terraform ](https://developer.hashicorp.com/terraform/cdktf)(a recent new contender from hashicorp since 2022), or even [openTofu](https://opentofu.org/), a new, opensource IaC which was forked off an older version of Terraform, now maintained by the linux foundation.
