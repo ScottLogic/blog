@@ -174,7 +174,7 @@ To demonstrate this, I'll show the following architecture on both Terraform and 
 An `Internet Gateway`, connected to an `Application Load Balancer (ALB)` inside a `VPC` in a subnet group consisting of two `Public subnets`.  This is routed to two `NAT Gateways` (one per Public subnet), which each point to an `EC2` in their corresponding `Private subnets`.
 Both the `EC2s` and `ALB` have `Security Groups` controlling traffic in/out.
 
-![AWS architecture for a basic server]({{site.github.url}}/acanham/assets/architecture.png)
+![AWS architecture for a basic load-balanced server]({{site.github.url}}/acanham/assets/architecture.png)
 
 Bearing in mind that both of these examples are using their out-of-the-box libraries (no 3rd party modules or constructs), here's the architecture coded both ways.
 
