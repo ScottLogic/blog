@@ -14,7 +14,7 @@ author: acanham
 
 If you’ve worked in software for more than 5 minutes, then you’ve probably heard of cloud computing. And if you’ve worked in cloud computing for more than 5 minutes, you’ve probably heard of either Terraform or AWS CDK (also known as CDK).
 
-Both Terraform and CDK are tools known as infrastructure as code (IaC) which speed up cloud development by allowing a user to code their cloud resources before deploying them.  
+Both Terraform and CDK are tools for implementing infrastructure as code (IaC) which speed up cloud development by allowing a user to code their cloud resources before deploying them.  
 This allows the cloud architecture to be treated as code, that is, replicated, reviewed and stored just like any other code.  It also means that we can deploy or destroy a complex mesh of cloud resources with just one command; saving a lot of time, effort, money and mistakes.  
 
 Using IaC for cloud deployment has become an industry standard thanks to its security properties.  
