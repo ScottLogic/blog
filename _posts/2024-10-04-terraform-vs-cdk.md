@@ -23,7 +23,7 @@ If you want a record of all resources deployed (without having to search through
 As a developer with 2 and a half years experience with cloud computing and over 2 years of experience with Terraform, I’ve recently finished an upskilling project learning CDK.  
 In this blog, I’ll cover some of the differences between the two and which one you might prefer to use.  To explain their differences, it’s easier to start with explaining how they work...
 
-# Terraform workings
+## Terraform workings
 
 Terraform works with something called the ‘Terraform state’ , a JSON file (stored either locally or within the cloud) which acts as a record for all the resources that Terraform has deployed to the cloud.  
 When deploying, Terraform will write to the state, and when deleting, it will remove from the state. This enables Terraform to know what to delete and which resources to change/replace when alterations are deployed.
@@ -32,7 +32,7 @@ The Terraform state leads to some of the major common issues people run into whe
 If anything is not deployed with Terraform, but is changed manually, it is not recorded on the Terraform state and can lead to errors when re-deploying.
 As the Terraform state isn't directly tied to AWS, and Terraform itself is cloud agnostic, it can be used on any major cloud platform.
 
-# CDK workings
+## CDK workings
 
 CDK on the other hand, is fully integrated into AWS, and uses [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html) to deploy its stacks.
 When you deploy CDK code, it will compile the stack into a CloudFormation template, a machine-readable list of resources in either YAML or JSON format.  
@@ -40,7 +40,7 @@ After this, the template is then deployed and can be viewed under `CloudFormatio
 
 While this eliminates the problems which come with the Terraform state, any issues that you have with a CloudFormation deployment will be inherited by CDK, such as stack drift (the same error we get with Terraform where the stack has changed significantly from its template) or stack resource limits (although at 500 resources, the limit is arguably big enough for a well-coded stack).
 
-# Getting to grips with Terraform
+## Getting to grips with Terraform
 
 Terraform is written in hashicorp language (HCL), which reads similar to JSON. Personally I find it quite easy to read, however at first it took some time to get to grips with. Particularly on how to write variables, and writing/ using modules.
 
@@ -145,7 +145,7 @@ If you're familiar with CDK, Terraform modules are the Terraform equivalent of C
 
 However if you want an architecture which is incredibly tight security-wise, it's common practice to resort to only using locally defined modules, so that the code is explicit with every single resource created.
 
-# Getting to grips with CDK
+## Getting to grips with CDK
 
 If you have any experience with TypeScript, JavaScript, Python, Java, C# or Go, then you can already code CDK. There is no new language to learn, you can integrate it entirely into your codebase.  
 As there’s no need to learn an entire language before you can start to write up resources, this leads to a quicker initial learning curve. I noticed this on my upskilling project: Devs who had never touched AWS or Terraform picked up on CDK quicker than people tend to do with Terraform. In part because there were fewer barriers with language, layout and syntax.
@@ -453,7 +453,7 @@ While this can be incredibly useful for someone more used to object-oriented cod
 
 That being said, I’ve definitely saved some time with CDK and found that other developers new to the cloud have picked it up well.
 
-# So..... Which one's "better"?
+## So..... Which one's "better"?
 
 Well like with most tech… it depends….
 Personally I’d lean towards Terraform, however that could be more to do with my familiarity with the tech, the explicitness which comes with the lack of abstraction, and my love of high quality documentation and (somewhat) asynchronous development.
