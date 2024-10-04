@@ -1,6 +1,6 @@
 ---
 title: Terraform VS CDK
-date: 2024-10-01 10:00:00 Z
+date: 2024-10-04 10:00:00 Z
 categories:
   - Cloud
 tags:
