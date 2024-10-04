@@ -2,12 +2,12 @@
 title: Terraform VS CDK
 date: 2024-10-04 10:00:00 Z
 categories:
-  - Cloud
+- Cloud
 tags:
-  - Cloud
-  - AWS
-  - Terraform
-  - CDK
+- Cloud
+- AWS
+- Terraform
+- CDK
 summary: Comparing the experience of coding with Terraform and AWS CDK.
 author: acanham
 ---
