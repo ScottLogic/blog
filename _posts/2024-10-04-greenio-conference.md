@@ -7,6 +7,8 @@ tags:
 - Sustainability
 summary: 'David and Oliver share some key takeaways from the Green IO conference.'
 author: drees
+contributors:
+- ocronk
 image: "uploads/green_io.jpg"
 ---
 
@@ -38,7 +40,7 @@ Demanding transparency from providers is negotiable as **Tereze Gaile** from Sal
 Artificial Intelligence was of course another focal point, with discussions on emerging methods and data for measuring AI's impact on sustainability. However, a common theme was the lack of transparency and data available to guide organisations in developing sustainable AI models. The growing demand for AI is driving the need for more computing resources, which in turn increases the need for building more data centres. There is potential to use existing open-source AI models where possible, but more importantly, the necessity of AI in every instance should be questioned.
 
 ![Sustainability and AI; a love-hate relationship?]({{site.github.url}}/drees/assets/sustainability_and_ai_panel.png 'Sustainability and AI; a love-hate relationship?')
-*Anne Currie, Chris Adams, Maxime Fazilleau and Sandra Pallier discuss sustainability and AI with Gaël Duez*
+*Gaël Duez (left) discusses sustainability and AI with (left to right) Sandra Pallier, Maxime Fazilleau, Chris Adams, and Anne Currie*
 
 ## The Tech Carbon Standard
 
