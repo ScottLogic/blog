@@ -1,15 +1,15 @@
 ---
-title: 'Key takeaways from the Green IO Conference London 2024'
+title: Key takeaways from the Green IO Conference London 2024
 date: 2024-10-04 09:43:00 Z
 categories:
 - Sustainability
 tags:
 - Sustainability
-summary: 'David and Oliver share some key takeaways from the Green IO conference.'
+summary: David and Oliver share some key takeaways from the Green IO conference.
 author: drees
 contributors:
 - ocronk
-image: "uploads/green_io.jpg"
+image: uploads/green_io.jpg
 ---
 
 # Green IO London 2024
