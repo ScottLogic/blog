@@ -10,6 +10,7 @@ tags:
 - CDK
 summary: Comparing the experience of coding with Terraform and AWS CDK.
 author: acanham
+image: "/uploads/Terraform%20vs%20CDK.png"
 ---
 
 If you’ve worked in software for more than 5 minutes, then you’ve probably heard of cloud computing. And if you’ve worked in cloud computing for more than 5 minutes, you’ve probably heard of either Terraform or AWS CDK (also known as CDK).
