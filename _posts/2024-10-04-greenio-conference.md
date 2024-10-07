@@ -21,6 +21,7 @@ The event featured a full day of talks by a diverse range of speakers, covering 
 ## Key Takeaways
 
 A major theme of the event was the urgent need for standardised and consistent data to measure emissions more accurately. The consensus is that without reliable data, organisations struggle to make informed decisions about third-party services and internal processes that could mitigate their digital carbon footprint.
+
 There were also discussions on the misleading nature of greenwashing, where companies report market-based carbon emissions that don't fully reflect their actual environmental impact. This highlights the need for more transparency and accurate reporting to truly reduce digital emissions.
 
 **Chris Adams'** keynote emphasised the growing role of legal frameworks such as the European CSRD and California's CCDAA in driving consensus around emissions reporting. While these regulations are important, Adams cautioned against letting bureaucratic consensus slow down meaningful action.
