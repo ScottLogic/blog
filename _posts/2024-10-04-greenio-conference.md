@@ -53,4 +53,4 @@ In conclusion, the event made it clear that while there are many promising appro
 
 For those that missed the event, Oliver Cronk had the opportunity to record parts of the event and interview some of the speakers:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kD3t5cB97n0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe title="GreenIO highlights and interviews with Architect Tomorrow" width="560" height="315" src="https://www.youtube.com/embed/kD3t5cB97n0" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
