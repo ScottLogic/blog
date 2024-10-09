@@ -14,6 +14,8 @@ summary: An overview of the essential points to look out for while testing for a
 author: kcoombes
 ---
 
+# Elevate Your Accessibility Testing: 10 Key Steps and 5 Inclusive Strategies
+
 I am often asked by colleagues and clients about accessibility testing, as it is something I have done on many occasions as part of my job as a tester.
 
 Even today, it is still an area of testing that often isn’t taught about in either university or on testing courses, yet it’s so important to make sure that software is useful to a wide range of users with diverse needs, as there is no such thing as ‘a typical end user’, so it doesn’t make any sense to exclude potential users because the software isn’t built or designed in a way that is accessible to them.
@@ -64,6 +66,8 @@ Accessibility is an ongoing process. Regularly test your user interface as you m
 
 These basics will help you start thinking about accessibility from the very beginning of your project and make sure that your software or site is more inclusive.
 
+****
+
 One way to elevate your testing and take it to the next level is not only to carry out thorough accessibility testing, but also assess your product for wider Diversity and Inclusion considerations. Creating software that is diversity-friendly involves considering a wide range of user needs, backgrounds, and experiences. 
 
 Here are some tips to help make your software more inclusive and accommodating to diverse users:
@@ -99,7 +103,9 @@ Involve people from diverse backgrounds in the design process and make space for
 
 Additionally, provide training and resources for your team on topics such as unconscious bias, cultural sensitivity, and accessibility. 
 
-**Resources**
+****
+
+## Resources
 
 Each of these tools and resources is geared toward making accessibility testing more manageable and helping teams create digital products that work for everyone.
 
