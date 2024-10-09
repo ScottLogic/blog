@@ -22,6 +22,8 @@ Even today, it is still an area of testing that often isn’t taught about in ei
 
 It is a wide-ranging topic, but here I will give an overview of ten essential points to look out for while testing for accessibility, resources for further learning, plus a couple of extra ways to look out for not just accessibility but also diversity issues in testing.
 
+## Accessibility - 10 Key Steps
+
 **1. Understand Accessibility Standards**
 
 Read and understand the main accessibility guidelines, such as the Web Content Accessibility Guidelines (WCAG). These provide the basics of best practice for creating accessible content and user interfaces and thoroughly understanding the guidelines will allow you to carry out better and more targeted testing.
@@ -67,6 +69,8 @@ Accessibility is an ongoing process. Regularly test your user interface as you m
 These basics will help you start thinking about accessibility from the very beginning of your project and make sure that your software or site is more inclusive.
 
 ***
+
+## Inclusivity - 5 Additional Checks
 
 One way to elevate your testing and take it to the next level is not only to carry out thorough accessibility testing, but also assess your product for wider Diversity and Inclusion considerations. Creating software that is diversity-friendly involves considering a wide range of user needs, backgrounds, and experiences. 
 
