@@ -109,7 +109,7 @@ Additionally, provide training and resources for your team on topics such as unc
 
 ***
 
-## Resources
+## Additional Resources
 
 Each of these tools and resources is geared toward making accessibility testing more manageable and helping teams create digital products that work for everyone.
 
