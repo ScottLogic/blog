@@ -92,81 +92,75 @@ Each of these tools and resources is geared toward making accessibility testing 
 
 **Standards & Guidelines**
 
-**Web Content Accessibility Guidelines (WCAG)**
+[Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standards-guidelines/wcag/)
 
 The WCAG outlines the global standard for web accessibility. These guidelines define how to make web content more accessible to people with disabilities.
 
-**ARIA (Accessible Rich Internet Applications)**
+[ARIA (Accessible Rich Internet Applications)](https://www.w3.org/TR/wai-aria/)
 
 Defines ways to make web content and applications more accessible, especially for dynamic content and advanced user interface controls developed with HTML, JavaScript, and related technologies.
 
 **Tools for Automated Accessibility Testing**
 
-**WAVE Accessibility Evaluation Tool**
+[WAVE Accessibility Evaluation Tool](https://wave.webaim.org/)
 WAVE is a suite of evaluation tools that help authors make their web content more accessible to individuals with disabilities.
 
-**Axe Accessibility Tools**
+[Axe Accessibility Tools](https://www.deque.com/axe/)
 A comprehensive set of tools to integrate accessibility checks into the workflow.
 
-**Lighthouse (Google)**
+[Lighthouse (Google)](https://developer.chrome.com/docs/lighthouse/overview/)
 Lighthouse is an open-source, automated tool for improving the quality of web pages, including accessibility.
 
-**Accessibility Insights**
+[Accessibility Insights](https://accessibilityinsights.io/)
 A set of free, open-source tools to help find and fix accessibility issues in web and desktop applications.
-
-**Tenon.io**
-A fully automated accessibility testing tool that integrates into the development process.
 
 **Screen Readers and Testing Tools**
 
-**NVDA (NonVisual Desktop Access)**
+[NV Access](https://www.nvaccess.org/)
 A free, open-source screen reader for Windows.
 
-**JAWS (Job Access With Speech)**
+[JAWS (Job Access With Speech)](https://www.freedomscientific.com/products/software/jaws/)
 One of the most widely used screen readers for Windows.
 
-**VoiceOver**
+[VoiceOver](https://support.google.com/accessibility/android/answer/6007100?hl=en)
 Built-in screen reader for macOS and iOS.
 
-**TalkBack**
+[TalkBack](https://support.google.com/accessibility/android/answer/6007100?hl=en)
 Screen reader for Android devices.
 
 **Browser Extensions**
 
-**axe DevTools Browser Extension**
+[axe DevTools Browser Extension](https://www.deque.com/axe/browser-extensions/)
 Provides instant accessibility feedback in Chrome and Firefox.
 
-**WCAG Colour Contrast Checker**
-A Chrome extension that checks for contrast issues based on WCAG guidelines.
-
-**HeadingsMap**
+[HeadingsMap](https://addons.mozilla.org/en-US/firefox/addon/headingsmap/)
 A Firefox extension that helps visualize the structure of headings on a webpage, a key aspect of accessibility.
 
 **Accessibility Communities & Forums**
 
-**WebAIM**
+[WebAIM](https://webaim.org/)
 WebAIM provides resources, training, and guidelines to make web content accessible to people with disabilities.
 
-**The A11Y Project**
+[The A11Y Project](https://www.a11yproject.com/)
 A community-driven effort to make digital accessibility easier, offering a range of resources including checklists, articles, and testing tips.
 
-**Inclusive Design Principles**
+[Inclusive Design Principles](https://www.designcouncil.org.uk/fileadmin/uploads/dc/Documents/the-principles-of-inclusive-design.pdf)
 A set of principles for developing accessible and inclusive web design practices.
 
 **Colour and Contrast Testing Tools**
 
-**Colour Contrast Analyzer**
+[Colour Contrast Analyzer](https://developer.paciellogroup.com/color-contrast-checker/)
 A downloadable tool for testing colour contrast, ensuring readability and compliance with WCAG standards.
 
-**Accessible Colours**
+[Accessible Colours](https://accessible-colors.com/)
 A simple tool to find colour combinations that are accessible and compliant with WCAG.
 
 **Mobile Accessibility Testing**
 
-**Android Accessibility Scanner**
+[Android Accessibility Scanner](https://support.google.com/accessibility/android/answer/6376570?hl=en)
 Google’s Accessibility Scanner helps find and fix accessibility issues in Android apps.
 
-**iOS Accessibility Inspector**
+[iOS Accessibility Inspector](https://developer.apple.com/videos/play/wwdc2019/254/)
 A tool built into iOS for checking the accessibility of apps.
 
 **Other Useful Resources**
