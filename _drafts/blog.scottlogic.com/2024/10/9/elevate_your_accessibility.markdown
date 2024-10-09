@@ -29,6 +29,8 @@ Provide descriptive alt text for all images. This allows screen readers to conve
 
 Make sure that that text has sufficient contrast against its background. Poor contrast can make it difficult for users with visual impairments to read content. Use tools to check for contrast ratios that meet WCAG standards.
 
+![Illustration of a person in a wheelchair accessing a building via a ramp](/uploads/42106845_8943894.jpg)
+
 **6. Responsive Design**
 
 Test your user interface on different devices and screen sizes to make sure that it is accessible on mobile phones, tablets, and desktops. This helps users who may need to zoom in or use larger text.
@@ -67,7 +69,7 @@ Make sure that your software supports multiple languages and cultural contexts. 
 
 Use images, icons, and illustrations that reflect a diverse and inclusive range of people, including different ethnicities, ages, orientations, abilities, and gender expressions. Be mindful of not reinforcing harmful stereotypes in your visual and textual content.
 
-![13955560_5381412.jpg](/uploads/13955560_5381412.jpg)
+![Illustration of three people with laptops working together around a table](/uploads/13955560_5381412.jpg)
 
 
 **4. Privacy and Safety**
