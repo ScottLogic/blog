@@ -1,13 +1,24 @@
 ---
 title: 'Elevate Your Accessibility Testing: 10 Key Steps and 5 Inclusive Strategies'
 date: 2024-10-09 11:00:00 Z
+categories:
+- Testing
+tags:
+- Accessibility
+- Inclusivity
+- Diversity
+- Usability
+summary: An overview of the essential points to look out for while testing for accessibility,
+  resources for further learning, plus a couple of extra ways to look out for not
+  just accessibility but also diversity issues in testing.
+author: kcoombes
 ---
 
 I am often asked by colleagues and clients about accessibility testing, as it is something I have done on many occasions as part of my job as a tester.
 
 Even today, it is still an area of testing that often isn’t taught about in either university or on testing courses, yet it’s so important to make sure that software is useful to a wide range of users with diverse needs, as there is no such thing as ‘a typical end user’, so it doesn’t make any sense to exclude potential users because the software isn’t built or designed in a way that is accessible to them.
 
-It is a wide-ranging topic, but here I will give an overview of ten essential points to look out for while testing for accessibility, ideas for further learning, plus a couple of extra ways to look out for not just accessibility but also diversity issues in testing.
+It is a wide-ranging topic, but here I will give an overview of ten essential points to look out for while testing for accessibility, resources for further learning, plus a couple of extra ways to look out for not just accessibility but also diversity issues in testing.
 
 **1. Understand Accessibility Standards**
 
