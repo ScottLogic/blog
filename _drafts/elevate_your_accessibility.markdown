@@ -14,7 +14,8 @@ summary: An overview of the essential points to look out for while testing for a
 author: kcoombes
 ---
 
-# Elevate Your Accessibility Testing: 10 Key Steps and 5 Inclusive Strategies
+# Elevate Your Accessibility Testing
+10 Key Steps and 5 Inclusive Strategies to help you raise your game
 
 I am often asked by colleagues and clients about accessibility testing, as it is something I have done on many occasions as part of my job as a tester.
 
@@ -34,7 +35,7 @@ Make sure that your user interface uses proper HTML elements for their intended 
 
 **3. Keyboard Navigation**
 
-Test moving through and operating your user interface using only the keyboard. Make sure that all interactive elements (links, buttons, forms) can be accessed and used without a mouse. This is crucial for users with different mobility-related needs.
+Test moving through and operating your user interface using only the keyboard. Make sure that all interactive elements (links, buttons, forms) can be accessed and used without a mouse. This is crucial for users with different mobility-related needs and users who prefer keyboard navigation.
 
 **4. Text Alternatives for Images**
 
@@ -52,7 +53,7 @@ Test your user interface on different devices and screen sizes to make sure that
 
 **7. Form Labels and Instructions**
 
-Make sure that every form field has a clear and descriptive label. For example, instead of just “Name,” use “Full Name” if that is what is required. Make sure that that error messages are easy to understand, sensibly placed, and indicate how to correct the error.
+Make sure that every form field has a clear and descriptive label. For example, instead of just “Name,” use “Full Name” if that is what is required. They should make sense in isolation, and not require context to make sense. Make sure that that error messages are easy to understand, sensibly placed, and indicate how to correct the error.
 
 **8. Test with Screen Readers**
 
