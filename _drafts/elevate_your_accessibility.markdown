@@ -1,5 +1,5 @@
 ---
-title: 'Elevate Your Accessibility Testing: 10 Key Steps and 5 Inclusive Strategies'
+title: 'Elevate Your Accessibility Testing - 10 Key Steps and 5 Inclusive Strategies to help you raise your game'
 date: 2024-10-09 11:00:00 Z
 categories:
 - Testing
@@ -14,12 +14,11 @@ summary: An overview of the essential points to look out for while testing for a
 author: kcoombes
 ---
 
-# Elevate Your Accessibility Testing
-10 Key Steps and 5 Inclusive Strategies to help you raise your game
+# Elevate Your Accessibility Testing - 10 Key Steps and 5 Inclusive Strategies to help you raise your game
 
 I am often asked by colleagues and clients about accessibility testing, as it is something I have done on many occasions as part of my job as a tester.
 
-Even today, it is still an area of testing that often isn’t taught about in either university or on testing courses, yet it’s so important to make sure that software is useful to a wide range of users with diverse needs, as there is no such thing as ‘a typical end user’, so it doesn’t make any sense to exclude potential users because the software isn’t built or designed in a way that is accessible to them.
+Even today, it is still an area of testing that often isn’t taught about in either university or on testing courses, yet it’s so important to make sure that software is useful to a wide range of users with diverse needs. There is no such thing as ‘a typical end user’, so it doesn’t make any sense to exclude potential users because the software isn’t built or designed in a way that is accessible to them.
 
 It is a wide-ranging topic, but here I will give an overview of ten essential points to look out for while testing for accessibility, resources for further learning, plus a couple of extra ways to look out for not just accessibility but also diversity issues in testing.
 
@@ -35,7 +34,7 @@ Make sure that your user interface uses proper HTML elements for their intended 
 
 **3. Keyboard Navigation**
 
-Test moving through and operating your user interface using only the keyboard. Make sure that all interactive elements (links, buttons, forms) can be accessed and used without a mouse. This is crucial for users with different mobility-related needs and users who prefer keyboard navigation.
+Test moving through and operating your user interface using only the keyboard. Make sure that all interactive elements (links, buttons, forms) can be accessed and used without a mouse. This is crucial for users with different mobility-related requirements and users who prefer keyboard navigation.
 
 **4. Text Alternatives for Images**
 
