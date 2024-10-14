@@ -1,7 +1,6 @@
 ---
-title: Elevate Your Accessibility Testing - 10 Key Steps and 5 Inclusive Strategies
-  to help you raise your game
-date: 2024-10-14 11:00:00 Z
+title: 'Elevate Your Accessibility Testing - 10 Key Steps and 5 Inclusive Strategies to help you raise your game'
+date: 2024-10-14 00:00:00 Z
 categories:
 - Testing
 tags:
