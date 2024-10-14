@@ -593,9 +593,10 @@ authors:
     name: "Kira Clark"
     picture: picture.png
   kcoombes:
-    author-summary: "I am a Test Engineer from Newcastle"
+    author-summary: "Kay is a Senior Test Engineer who is passionate about raising awareness of accessibility, diversity and inclusion in technology testing. Outside of work, Kay enjoys learning Mandarin Chinese and Japanese languages."
     name: "Kay Coombes"
-    picture: picture.jpeg
+    picture: kay.jpg
+    feed-description: "Kay Coombes - Scott Logic Blogs."
   kdavis:
     author-summary: "Software developer at Scott Logic, based in Newcastle."
     name: "Katie Davis"

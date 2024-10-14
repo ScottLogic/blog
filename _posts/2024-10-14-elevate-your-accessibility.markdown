@@ -1,6 +1,6 @@
 ---
-title: 'Elevate Your Accessibility Testing: 10 Key Steps and 5 Inclusive Strategies'
-date: 2024-10-09 11:00:00 Z
+title: 'Elevate Your Accessibility Testing - 10 Key Steps and 5 Inclusive Strategies to help you raise your game'
+date: 2024-10-14 11:00:00 Z
 categories:
 - Testing
 tags:
@@ -14,11 +14,15 @@ summary: An overview of the essential points to look out for while testing for a
 author: kcoombes
 ---
 
+# Elevate Your Accessibility Testing - 10 Key Steps and 5 Inclusive Strategies to help you raise your game
+
 I am often asked by colleagues and clients about accessibility testing, as it is something I have done on many occasions as part of my job as a tester.
 
-Even today, it is still an area of testing that often isn’t taught about in either university or on testing courses, yet it’s so important to make sure that software is useful to a wide range of users with diverse needs, as there is no such thing as ‘a typical end user’, so it doesn’t make any sense to exclude potential users because the software isn’t built or designed in a way that is accessible to them.
+Even today, it is still an area of testing that often isn’t taught about in either university or on testing courses, yet it’s so important to make sure that software is useful to a wide range of users with diverse needs. There is no such thing as ‘a typical end user’, so it doesn’t make any sense to exclude potential users because the software isn’t built or designed in a way that is accessible to them.
 
 It is a wide-ranging topic, but here I will give an overview of ten essential points to look out for while testing for accessibility, resources for further learning, plus a couple of extra ways to look out for not just accessibility but also diversity issues in testing.
+
+## Accessibility - 10 Key Steps
 
 **1. Understand Accessibility Standards**
 
@@ -30,7 +34,7 @@ Make sure that your user interface uses proper HTML elements for their intended 
 
 **3. Keyboard Navigation**
 
-Test moving through and operating your user interface using only the keyboard. Make sure that all interactive elements (links, buttons, forms) can be accessed and used without a mouse. This is crucial for users with different mobility-related needs.
+Test moving through and operating your user interface using only the keyboard. Make sure that all interactive elements (links, buttons, forms) can be accessed and used without a mouse. This is crucial for users with different mobility-related requirements and users who prefer keyboard navigation.
 
 **4. Text Alternatives for Images**
 
@@ -40,7 +44,7 @@ Provide descriptive alt text for all images. This allows screen readers to conve
 
 Make sure that that text has sufficient contrast against its background. Poor contrast can make it difficult for users with visual impairments to read content. Use tools to check for contrast ratios that meet WCAG standards.
 
-![Illustration of a person in a wheelchair accessing a building via a ramp](/uploads/42106845_8943894.jpg)
+![Illustration of a person in a wheelchair accessing a building via a ramp]({{site.github.url}}/kcoombes/assets/accessible_office.jpg)
 
 **6. Responsive Design**
 
@@ -48,7 +52,7 @@ Test your user interface on different devices and screen sizes to make sure that
 
 **7. Form Labels and Instructions**
 
-Make sure that every form field has a clear and descriptive label. For example, instead of just “Name,” use “Full Name” if that is what is required. Make sure that that error messages are easy to understand, sensibly placed, and indicate how to correct the error.
+Make sure that every form field has a clear and descriptive label. For example, instead of just “Name,” use “Full Name” if that is what is required. They should make sense in isolation, and not require context to make sense. Make sure that that error messages are easy to understand, sensibly placed, and indicate how to correct the error.
 
 **8. Test with Screen Readers**
 
@@ -63,6 +67,10 @@ Avoid automatically updating content (like moving carousels or pop-ups) without 
 Accessibility is an ongoing process. Regularly test your user interface as you make updates and stay informed about evolving accessibility standards and best practices.
 
 These basics will help you start thinking about accessibility from the very beginning of your project and make sure that your software or site is more inclusive.
+
+***
+
+## Inclusivity - 5 Additional Checks
 
 One way to elevate your testing and take it to the next level is not only to carry out thorough accessibility testing, but also assess your product for wider Diversity and Inclusion considerations. Creating software that is diversity-friendly involves considering a wide range of user needs, backgrounds, and experiences. 
 
@@ -80,7 +88,7 @@ Make sure that your software supports multiple languages and cultural contexts. 
 
 Use images, icons, and illustrations that reflect a diverse and inclusive range of people, including different ethnicities, ages, orientations, abilities, and gender expressions. Be mindful of not reinforcing harmful stereotypes in your visual and textual content.
 
-![Illustration of three people with laptops working together around a table](/uploads/13955560_5381412.jpg)
+![Illustration of three people with laptops working together around a table]({{site.github.url}}/kcoombes/assets/diverse_office.jpg)
 
 
 **4. Privacy and Safety**
@@ -99,7 +107,9 @@ Involve people from diverse backgrounds in the design process and make space for
 
 Additionally, provide training and resources for your team on topics such as unconscious bias, cultural sensitivity, and accessibility. 
 
-**Resources**
+***
+
+## Additional Resources
 
 Each of these tools and resources is geared toward making accessibility testing more manageable and helping teams create digital products that work for everyone.
 
@@ -182,5 +192,6 @@ A tool built into iOS for checking the accessibility of apps.
 A free resource for developing accessible web design and code patterns.
 
 **Images Used in Blog Post**
-[Freepik](www.freepik.com)
+
+[Freepik](https://www.freepik.com)
 
