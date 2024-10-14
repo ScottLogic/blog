@@ -13,6 +13,7 @@ summary: An overview of the essential points to look out for while testing for a
   resources for further learning, plus a couple of extra ways to look out for not
   just accessibility but also diversity issues in testing.
 author: kcoombes
+image: "/uploads/Elevate%20your%20accessibility.png"
 ---
 
 # Elevate Your Accessibility Testing - 10 Key Steps and 5 Inclusive Strategies to help you raise your game
