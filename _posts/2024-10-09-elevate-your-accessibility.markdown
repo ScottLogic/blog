@@ -193,5 +193,5 @@ A free resource for developing accessible web design and code patterns.
 
 **Images Used in Blog Post**
 
-[Freepik](www.freepik.com)
+[Freepik](https://www.freepik.com)
 
