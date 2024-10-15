@@ -55,14 +55,14 @@ We believe it's important to understand how much architecture is needed based on
 
 It is vital as architects that we see the bigger picture in the context of change. However, it is easy to get lost looking upwards and forget about the implementation detail. We often see architects who lack the deep domain and/or technical knowledge required to ensure that the solutions they design are efficient to implement, with logical components and interfaces that map closely onto available solutions and interfaces.
 
-We believe it is vital that architects have the skills to consider the wider context and understand implementation details where they matter, so that designed solutions can be implemented and trust can be built with implementation teams.
+We believe it is vital for architects to have the skills both to consider the wider context and to understand implementation details where they matter, so that designed solutions can be implemented and so that trust can be built with implementation teams.
 
 ### **6) The right tool for the job**
 
-We recognise that whilst there are many problems with well-defined solutions, there are many subtleties and unique challenges that exist that require creative problem solving. There is no one-size fits all, and no perfect solution. Every choice is about balancing trade-offs.
+We recognise that whilst there are many problems with well-defined solutions, there are many unique challenges that require creative problem-solving. There is no perfect, one-size-fits-all solution. Every choice is about balancing trade-offs.
 
-We believe that simplicity has myriad benefits, and we always aim to select the right tools (within organisational constraints) for the job to deliver the simplest viable solution. This is why we are technology and vendor agnostic, and step beyond the hype, so we can build the right solution for you unencumbered by vendor and technology bias.
+We believe that simplicity has myriad benefits, and we always aim to select the right tools (within organisational constraints) for the job to deliver the simplest viable solution. This is why we are technology- and vendor-agnostic, and step beyond the hype so that we can build the right solution for you, unencumbered by vendor and technology bias.
 
 ### **7) Continuous Improvement**
 
-As Architects we are champions for good design (pragmatically balanced with making progress. As organisations go through the change journey, we use our deep technical expertise and understanding of the broader context to continuously identify areas for improvement to make small wins as we go, that deliver both immediate, and longer-term business value.
+As architects, we are champions for good design (pragmatically balanced with making progress). As organisations go through the change journey, we use our deep technical expertise and understanding of the broader context to continuously identify areas for improvement. In this way, we make small wins as we go, delivering both immediate and longer-term business value.
