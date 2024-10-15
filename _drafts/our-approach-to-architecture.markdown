@@ -29,9 +29,9 @@ It is vital to know both *why* a change is being implemented and the environment
 
 The deep understanding we gain of the business drivers, priorities and budgets (time and cost) provides a clear steer towards the business value we are targeting, and allows us to ensure that the solutions we develop remain aligned with delivering that value.
 
-Understanding the organisation – its strategic goals, risk appetite, capabilities, structure and policies provides a guide to ensure that solutions that are designed fit well within the existing organisation.
+That same understanding of the organisation – its strategic goals, risk appetite, capabilities, structure and policies – helps us tailor the solutions we design for a seamless fit within the existing organisation.
 
-Finally understanding the technical context – the existing estate, how the change relates to it, and broader architectural principles ensures that solutions are pragmatic and aligned with the technical direction of the organisation.
+Finally, understanding the technical context – the existing estate, how the change relates to it, and broader architectural principles – ensures that solutions are pragmatic and aligned with the technical direction of the organisation.
 
 ### **2) Bring everyone on the journey**
 
