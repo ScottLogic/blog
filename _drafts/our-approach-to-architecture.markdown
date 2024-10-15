@@ -25,7 +25,7 @@ We recognise that there is no one-size-fits-all approach to architecture. Our ar
 
 ## **1) Context is king**
 
-Knowing why a change is being implemented and the environment it is being implemented in is vital to ensure that an optimal solution can be designed.
+It is vital to know both *why a change is being implemented and the *environment within which it is being implemented to ensure that an optimal solution can be designed.
 
 Ensuring that we have a deep understanding of the business drivers, priorities and budgets (time and cost) provides clear guidance of where the business value is and enables us to ensure that solutions remain aligned with delivering business value.
 
