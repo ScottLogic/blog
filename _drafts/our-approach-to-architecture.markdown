@@ -66,3 +66,7 @@ We believe that simplicity has myriad benefits, and we always aim to select the 
 ### **7) Continuous Improvement**
 
 As architects, we are champions for good design (pragmatically balanced with making progress). As organisations go through the change journey, we use our deep technical expertise and understanding of the broader context to continuously identify areas for improvement. In this way, we make small wins as we go, delivering both immediate and longer-term business value.
+
+## How can we help you?
+
+For more on how our approach to architecture can help your organisation, [visit our Architecture & Tech Advisory page](https://www.scottlogic.com/what-we-do/architecture-tech-advisory).
