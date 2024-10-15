@@ -23,11 +23,11 @@ We recognise that there is no one-size-fits-all approach to architecture. Our ar
 
 ## **Our architecture principles**
 
-## **1) Context is king**
+### **1) Context is king**
 
-It is vital to know both *why a change is being implemented and the *environment within which it is being implemented to ensure that an optimal solution can be designed.
+It is vital to know both *why* a change is being implemented and the environment within which it is being implemented to ensure that an optimal solution can be designed.
 
-Ensuring that we have a deep understanding of the business drivers, priorities and budgets (time and cost) provides clear guidance of where the business value is and enables us to ensure that solutions remain aligned with delivering business value.
+The deep understanding we gain of the business drivers, priorities and budgets (time and cost) provides a clear steer towards the business value we are targeting, and allows us to ensure that the solutions we develop remain aligned with delivering that value.
 
 Understanding the organisation – its strategic goals, risk appetite, capabilities, structure and policies provides a guide to ensure that solutions that are designed fit well within the existing organisation.
 
