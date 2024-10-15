@@ -16,8 +16,6 @@ author: kcoombes
 image: "/uploads/Elevate%20your%20accessibility.png"
 ---
 
-# Elevate Your Accessibility Testing - 10 Key Steps and 5 Inclusive Strategies to help you raise your game
-
 I am often asked by colleagues and clients about accessibility testing, as it is something I have done on many occasions as part of my job as a tester.
 
 Even today, it is still an area of testing that often isn’t taught about in either university or on testing courses, yet it’s so important to make sure that software is useful to a wide range of users with diverse needs. There is no such thing as ‘a typical end user’, so it doesn’t make any sense to exclude potential users because the software isn’t built or designed in a way that is accessible to them.
