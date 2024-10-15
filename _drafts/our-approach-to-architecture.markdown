@@ -17,7 +17,7 @@ In this article, we are publishing Scott Logic’s approach to architecture, and
 
 Delivering large IT change in complex, mission-critical environments is hard. Too often there are stories of large budget or time overruns, or even total failure to deliver IT projects. Whilst there are myriad reasons for these failures, in many cases they can be attributed to poorly implemented architecture.
 
-We believe Architecture has a two-fold purpose. Firstly, it is about helping an organisation do the ‘right’ thing in any given context. Secondly, it is about ensuring that once an organisation has made a choice to do a particular thing, it is executed in the ‘right’ way.
+We believe architecture has a two-fold purpose. Firstly, it is about helping an organisation do the ‘right’ thing in any given context. Secondly, it is about ensuring that once an organisation has made a choice to do a particular thing, it is executed in the ‘right’ way.
 
 We recognise that there is no one-size-fits-all approach to architecture. Our architects are experienced in quickly assessing the context and finding the right combination of methodology, tools and communication styles that work for the project and for your organisation.
 
@@ -35,15 +35,15 @@ Finally, understanding the technical context – the existing estate, how the ch
 
 ### **2) Bring everyone on the journey**
 
-It is important that all stakeholders are aligned to enable maximum business value to be delivered. As Architects we act as a translator between business, technical, product, design and delivery stakeholders ensuring that the impact of decisions is understood by all, from their perspective.
+For maximum business value to be delivered, all stakeholders must be aligned. As architects, we act as translators between business, technical, product, design and delivery stakeholders, ensuring that the impact of decisions is understood by all, from their different perspectives.
 
-We believe in a one-team approach where Architects should be closely integrated with stakeholders for key disciplines and able to provide iterative designs and feedback, working in the open to integrate Architecture into the whole delivery cycle.
+We believe in a one-team approach where architects are closely integrated with stakeholders from key disciplines and able to provide iterative designs and feedback, working in the open to integrate architecture into the whole delivery cycle.
 
 ### **3) Principled, but pragmatic**
 
-Far too often we see Architects in ivory towers who are too removed from the realities of delivery who rigidly stick to principles and heavyweight governance processes. Whilst one facet of Architecture is to ensure adherence to principles and governance processes, this cannot be at the expense of delivery progress.
+Far too often, we see architects in ivory towers, too removed from the realities of delivery and sticking rigidly to principles and heavyweight governance processes. Whilst one facet of architecture is to ensure adherence to principles and governance processes, this cannot be at the expense of delivery progress.
 
-We recognise that principles need to be balanced with pragmatism. With Architects championing the technical vision, but willing to be flexible to allow delivery to progress, reacting to new information and changes rapidly, and making intentional, informed decisions on designs and plans to allow value to be delivered iteratively, but remain aligned with strategic goals.
+We recognise that principles need to be balanced with pragmatism. With architects championing the technical vision, but willing to be flexible to allow delivery to progress, reacting to new information and changes rapidly, and making intentional, informed decisions on designs and plans to allow value to be delivered iteratively, but remain aligned with strategic goals.
 
 ### **4) Just enough architecture**
 
