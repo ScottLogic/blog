@@ -42,9 +42,10 @@ At the project level, you just need to focus on the items you want in scope for 
 
 Category C is used for cloud environments, software as a service and other IT services that you do not host yourself. If you are unsure what category to put a system into, ask if you pay the electricity bill for that system, or if you pay a third party for access to that system. If you are paying the electricity bill, it is classed as a direct emission (category O). Otherwise, it is indirect (category C).
 
-Your systems also have an impact downstream: 
+Your systems also have an impact downstream:
+
 - the minimum specification of your software drives hardware sales and therefore old hardware disposal. 
-- software performance and network traffic use the resources of your consumers and the infrastructure used to reach them. 
+- software performance and network traffic use the resources of your consumers, and the infrastructure used to reach them. 
 
 These impacts are mapped to Category D.
 
@@ -75,8 +76,8 @@ A full discussion on how to measure the estate is beyond the scope of this artic
 
 Once you have mapped out and measured or at least estimated the carbon emissions of your project, find a way to make them available, ideally via a dashboard. There are a few tools that can assist you in this regard:
 
-- [Cloud Carbon Footprint]( https://www.cloudcarbonfootprint.org/): In addition to the dashboards provided by your cloud provider, the CCF tool can be used to get up to date metrics from a variety of cloud providers to create a dashboard for your carbon emissions. Installation ca be a little involved, but once it is set up, it is quite easy to use.
-- [Scaphandre](https://github.com/hubblo-org/scaphandre): This is an open-source utility for measuring the energy utilisation of processes on a server. It can be configured to output the data to any target such as Prometheus. When no other data is available (such as in an On Prem environment), CPU utilisation, which Scaphandre measures, can be a good proxy for carbon emissions, as higher CPU usage is normally a good indicator of this.
+- [Cloud Carbon Footprint]( https://www.cloudcarbonfootprint.org/): In addition to the dashboards provided by your cloud provider, the CCF tool can be used to get up to date metrics from a variety of cloud providers to create a dashboard for your carbon emissions. Installation can be a little involved, but once it is set up, it is quite easy to use.
+- [Scaphandre](https://github.com/hubblo-org/scaphandre): This is an open-source utility for measuring the energy utilisation of processes on a server. It can be configured to output the data to any target such as Prometheus. When no other data is available (such as in an On Prem environment), CPU utilisation, which Scaphandre measures, can be a good proxy for carbon emissions. Higher CPU usage is normally a good indicator of higher power usage, which means increased carbon emissions.
 - [Green Metrics Tool](https://github.com/green-coding-solutions/green-metrics-tool): This tool from Green Coding Berlin is a great benchmarking tool. Again, getting it set up can be a little involved, and you need to be able to run your application in a dockerised environment. However, once it is set up it gives very professionally researched metrics back in a very nicely presented dashboard. It is best treated in a comparable way to a performance benchmarking tool. Rather than telling you your carbon emissions in your production environment, you run the tool in a lab environment. You can build this yourself or pay for access to Green Coding Berlin’s platform (which may be cheaper and certainly easier overall). Once you have your benchmark measurement, you should re-run the tool after each sprint. From that you can see if your carbon emissions have changed since the last product increment.
 - [CO2.js]( https://www.thegreenwebfoundation.org/co2-js/): CO2.js is a useful library for estimating the emissions of a website or other app.
 - [Firefox Profiler]( https://www.thegreenwebfoundation.org/news/carbon-emissions-in-browser-devtools-firefox-profiler-and-co2-js/): Firefox profiler can also be used to measure and estimate the carbon footprint of a web page.
@@ -91,17 +92,18 @@ Having talked about how we map and measure the carbon emissions of the project, 
 
 As a product owner, you are already responsible for defining the product’s features, liaising with stakeholders, and prioritising the backlog.
 
-- *Feature Prioritization*: Try to prioritize features that reduce the product's environmental footprint, such as optimizing code efficiency or reducing server load. 
+- *Feature Prioritization*: Try to prioritize features that reduce the product's environmental footprint, such as optimising code efficiency or reducing server load. Remember, there are often multiple advantages to these features, making the cost of running the software lower and potentially more secure as well as reducing their carbon footprint. Look for these synergies and go for those features first.
 - *Estimation*: Encourage team members to incorporate sustainable considerations into their estimates. Help them to carve out time to craft high quality software – remember, doing so can help reduce your running costs and total cost of ownership by keeping systems well designed and efficient.
 - *Lifecycle Thinking*: Consider the entire product lifecycle, focusing on features that enhance durability and reduce waste.
 
-You can integrate the sustainability metrics discussed above into decision-making, ensuring that carbon reduction is a key factor in planning and prioritization. For example, if you had a user story that would allow a product to use a smaller, or even eliminate a cloud appliance, prioritising it would reflect in the cloud emissions metrics.
+You can integrate the sustainability metrics discussed above into decision-making, ensuring that carbon reduction is a key factor in planning and prioritization. For example, if you had a user story to use a smaller cloud appliance, or even eliminate it entirely, prioritising it would reflect in the cloud emissions metrics.
+ 
 
 ## If you are the Scrum Master
 
 As the Scrum Master you ensure the team adheres to Agile principles and facilitates processes.
 
-- *Process Optimization*: You can identify and eliminate wasteful practices in the development process, such as unnecessary meetings or redundant testing, that consume excessive energy.
+- *Process Optimisation*: You can identify and eliminate wasteful practices in the development process, such as unnecessary meetings or redundant testing, that consume excessive energy.
 - *Green Agile Practices*: Promote the use of energy-efficient tools and methods and ensure that sustainability is part of the team’s definition of done.
 - *Integrating Technology Carbon Standard Practices*: The Scrum Master can educate the team on the Technology Carbon Standard, embedding it into the team's continuous improvement practices.
 
@@ -128,7 +130,7 @@ For some guidance on potentially useful software patterns that promote green cod
 
 - *Develop Carbon Aware Metrics*: Craft tests that can surface carbon emission data and check the feedback over time. If a test shows that the new feature uses a lot of carbon compared to other, similar features, make the developer aware. Similarly, check if a change to an existing feature has improved or worsened the carbon emissions of the system under test.
 
-Design, with your team, what measurements, proxies and models can be used to measure and estimate carbon emissions. The mapping and measurement exercises described above should provide a variety of metrics that can be incorporated into your testing routine.
+Design, with your team, what measurements, proxies and models can be used to measure and estimate carbon emissions. The mapping and measurement exercises described above should provide a variety of metrics that can be incorporated into your testing routine. To achieve this, you could try the techniques above, such as outputting carbon data to a dashboard or using a benchmarking style tool like the Green Metrics Tool. Then run your standard end to end tests against an instrumented test environment.
 
 ### Other Specialities
 
@@ -141,11 +143,11 @@ The team should review the sustainability metrics they create in the sprint demo
 
 # Conclusion
 
-When it comes to sustainable software, here at Scott Logic we try to follow the mantra is “Map, Measure, Mitigate!”
+When it comes to sustainable software, here at Scott Logic we try to follow the mantra “Map, Measure, Mitigate!”
 
 - *Map*: Map your carbon emissions so that you know where the carbon lives in your system and can start to understand what you can influence and how you can influence it.
-- *Measure*: Do your best to apply appropriate measurements to the difference components in your system. Remember that some kind of measurement is better than nothing, so when you can’t measure something directly, measure an appropriate proxy that will indicate if your carbon emissions have changed. And if you can’t do that, work out a robust method to estimate the carbon emissions of that part of the system.
-- *Mitigate*: As a team, each of you has a role in reducing the carbon emissions of your products. As a Product Owner, help your team to make time to reduce carbon emissions. As a Scrum Master make the data available and review it with your team. And as a Team Member, whatever your specialisation, use your skills to optimise your products and make them more efficient.
+- *Measure*: Do your best to apply appropriate measurements to the different components in your system. Remember that some kind of measurement is better than nothing, so when you can’t measure something directly, measure an appropriate proxy that will indicate if your carbon emissions have changed. And if you can’t do that, work out a robust method to estimate the carbon emissions of that part of the system.
+- *Mitigate*: As a team, each of you has a role in reducing the carbon emissions of your products. As a Product Owner, allow your team the time to reduce carbon emissions. As a Scrum Master make the data available and review it with your team. And as a Team Member, whatever your specialisation, use your skills to optimise your products and make them more efficient.
 
 While Agile software development aims to deliver software in small increments, sustainable agile tries to do this while being mindful of efficiency and the expenditure of resources. Sometimes teams can meet these aims at the same time, in the same product increment. At other times this will not be possible or feasible, either for technical or business reasons. Under these circumstances the Product Owner should be made aware of the trade off and prioritise a follow up task to make the feature sustainable at the next opportunity. Ideally in the next product increment.
 
