@@ -43,19 +43,19 @@ We believe in a one-team approach where architects are closely integrated with s
 
 Far too often, we see architects in ivory towers, too removed from the realities of delivery and sticking rigidly to principles and heavyweight governance processes. Whilst one facet of architecture is to ensure adherence to principles and governance processes, this cannot be at the expense of delivery progress.
 
-We recognise that principles need to be balanced with pragmatism. With architects championing the technical vision, but willing to be flexible to allow delivery to progress, reacting to new information and changes rapidly, and making intentional, informed decisions on designs and plans to allow value to be delivered iteratively, but remain aligned with strategic goals.
+We recognise that principles need to be balanced with pragmatism. With our approach, architects champion the technical vision, but are willing to be flexible to allow delivery to progress. They react to new information and changes rapidly, and make intentional, informed decisions on designs and plans to allow value to be delivered iteratively, while remaining aligned with strategic goals.
 
 ### **4) Just enough architecture**
 
-We prefer to operate in an Agile by Default way. Just in the way it can be counter-productive to have too much governance, and ‘big up front design’, it can also be risky to have not enough analysis and design before implementation – it's cheaper to change things on paper than after they are built.
+We prefer to operate in an Agile by Default way. Just as it can be counterproductive to have too much governance and ‘big up-front design’, it can also be risky to have not enough analysis and design before implementation. It's cheaper to change things on paper than after they are built.
 
-We believe it's important to understand how much Architecture is needed based on the organisational and project context. We aim ‘right size’ the governance and design activities so that Architecture can be an enabler of change, not a blocker of progress, and find the right balance where Architecture is used to govern architecturally significant decisions, and delegate other decisions to implementation teams to enable rapid, but controlled delivery.
+We believe it's important to understand how much architecture is needed based on the organisational and project context. We aim to ‘right size’ the governance and design activities so that architecture can be an enabler of change, not a blocker of progress. In this way, architecture is used to govern architecturally significant decisions, with other decisions being delegated to implementation teams to enable rapid but controlled delivery.
 
 ### **5) The devil is in the detail**
 
-It is vital as architects that we see the bigger picture in the context of change. However, it is easy to get lost looking upwards and forget about the implementation detail. We often see Architects that lack the deep domain and/or technical knowledge required to ensure that solutions designed are efficient to implement, whose logical components and interfaces map closely to available solutions and interfaces.
+It is vital as architects that we see the bigger picture in the context of change. However, it is easy to get lost looking upwards and forget about the implementation detail. We often see architects who lack the deep domain and/or technical knowledge required to ensure that the solutions they design are efficient to implement, with logical components and interfaces that map closely onto available solutions and interfaces.
 
-We believe it is vital that architects have the skills to consider both the wider context and understand implementation details where it matters, so that designed solutions are implementable and that trust can be built with implementation teams.
+We believe it is vital that architects have the skills to consider the wider context and understand implementation details where they matter, so that designed solutions can be implemented and trust can be built with implementation teams.
 
 ### **6) The right tool for the job**
 
