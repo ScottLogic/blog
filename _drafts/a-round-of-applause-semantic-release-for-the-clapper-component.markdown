@@ -43,6 +43,8 @@ If you stick with the defaults, this is what you get:
 
 It's worth going into a little more detail on each of these steps.
 
+<img src="/uploads/infinity-steps.jpg" alt="Impossible staircase" title="Continuous deployment anyone?" style="display: block; margin: 1rem auto; max-height: 12rem;" />
+
 ### Verify Conditions
 
 #### [GitHub plugin][github-plugin]
