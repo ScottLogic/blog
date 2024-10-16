@@ -41,13 +41,7 @@ If you stick with the defaults, this is what you get:
 - **Success**: Add a comment to each issue and PR associated with the release ([GitHub plugin][github-plugin]).
 - **Fail**: Open or update a GitHub issue for the release attempt, documenting what failed ([GitHub plugin][github-plugin]).
 
-It's worth going into a little more detail on each of the above steps.
-
-### Verify Conditions
-
-As I will be using a GitHub workflow to run the release, I don't need to worry about the GITHUB_TOKEN secret - it will be made available to the release job, so long as I add it to the environment before calling `semantic-release`. This is trivial with GitHub workflows.
-
-An NPM_TOKEN secret is something I needed to ask Colin to generate specifically for the repo, but otherwise it's the same as for GITHUB_TOKEN.
+It's worth going into a little more detail on some of these steps.
 
 ### Analyze Commits
 
