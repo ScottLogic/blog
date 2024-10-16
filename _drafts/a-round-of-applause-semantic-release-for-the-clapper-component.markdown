@@ -91,7 +91,7 @@ Equally, when things go wrong it's nice to receive a notification, via a new iss
 
 ## Flexible Configuration
 
-This felt almost _too easy_! I did choose to add extra config to keep documentation in npm up to date, but even that was trivial. Default behaviour of semantic-release may be enough for you, but it is simple to extend using [official and community plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md), and each plugin can be configured, meaning the possibilities are almost limitless. And if you do need something you can't find, you can write your own plugin.
+This felt almost _too easy_! I did add a little configuration to keep documentation in npm up to date, but even that was trivial. Default behaviour of semantic-release may be enough for you, but it is simple to extend using [official and community plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md), and each plugin can be configured, meaning the possibilities are almost limitless. And if you do need something you can't find, you can write your own plugin.
 
 ## Final Thoughts
 
@@ -101,9 +101,9 @@ I'm really pleased with this little gem:
 
 I had no idea it would be this easy, but I just published my first package with provenance!
 
-<img src="/uploads/clap-small.png" alt="Applause!" title="You can clap now" style="display: block; margin: 1rem auto;" />
-
 You can clap now 😉
+
+<img src="/uploads/clap-small.png" alt="Applause!" title="You can clap now" style="display: block; margin: 1rem auto;" />
 
 
 [commit-analyzer-plugin]: <https://github.com/semantic-release/commit-analyzer>
