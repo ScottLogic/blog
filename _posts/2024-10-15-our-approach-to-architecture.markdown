@@ -11,6 +11,7 @@ summary: This is the first in a series of articles where we outline our approach
   delivering complex, mission-critical programmes. In this post, we define our approach
   to Architecture...
 author: jheward
+image: "/uploads/Our%20approach%20to%20architecture.png"
 ---
 
 In this article, we are publishing Scott Logic’s approach to architecture, and how we avoid common pitfalls. This is the first in a series of articles we will be publishing that define our approach to IT consultancy through the lens of principles we have honed over two decades of delivering complex, critical change for the world's largest [financial](https://www.scottlogic.com/our-work/case-study-saxo-bank) [institutions ](https://www.scottlogic.com/our-work/case-study-nordpool)and [government](https://www.scottlogic.com/our-work/scottish-government-full-service-programme-delivery) [organisations](https://www.scottlogic.com/our-work/scottish-government-delivering-scotaccount) – principles that we adhere to across our consultancy services and roles.
