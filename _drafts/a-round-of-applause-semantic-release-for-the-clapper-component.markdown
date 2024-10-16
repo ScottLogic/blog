@@ -17,11 +17,11 @@ summary: Using semantic-release to publish an npm package with provenance, via a
 author: cwilton
 ---
 
-You may not have noticed a small change to our blog posts this week, but it's a significant one for inclusivity. Recently I noticed that the [applause button component](https://www.npmjs.com/package/applause-button), which allows readers to show their appreciation for a blog post by giving it a clap, was not accessible by keyboard 🫣 
+You may not have noticed a small change to our blog posts this week, but it's a significant one for inclusivity. Recently I noticed that the [applause button](https://www.npmjs.com/package/applause-button) component, which allows readers to show their appreciation for a blog post by giving it a clap, was not accessible by keyboard 🫣 
 
-<img src="/uploads/mouse-laugh.jpg" alt="Mouse laughing" title="Not so smart now huh?!" style="display: block; margin: 1rem auto;" />
+<img src="/uploads/mouse-laugh.jpg" alt="Mouse laughing" title="Not so smart now huh?!" style="display: block; margin: 1rem auto; max-height: 12rem;" />
 
-Yep, kinda embarrassing, and a problem that I and colleague [Dave Ogle](https://blog.scottlogic.com/dogle/) were keen to put right straight away. The usual fixes applied here: using a `<button>` gave immediate relief, though of course there were styling issues to resolve, some structural rearrangements, and a few animations to sort out. On that front, I dampened those animations unless the user has [no preference on reduced motion](https://css-tricks.com/nuking-motion-with-prefers-reduced-motion/), and there is work in progress to correct colour contrast issues.
+Yep, kinda embarrassing, and a problem that I and colleague [Dave Ogle](https://blog.scottlogic.com/dogle/) were keen to put right straight away. Using a `<button>` gave immediate relief, though of course there were styling issues to resolve, some structural rearrangements, and a few animations to sort out. On that front, I dampened those animations unless the user has [no preference on reduced motion](https://css-tricks.com/nuking-motion-with-prefers-reduced-motion/), and there is work in progress to correct colour contrast issues.
 
 ## Release the Kraken
 
