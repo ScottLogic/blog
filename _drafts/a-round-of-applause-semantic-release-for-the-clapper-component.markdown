@@ -45,7 +45,7 @@ It's worth going into a little more detail on some of these steps.
 
 ### Analyze Commits
 
-By default, [Commit Analyzer plugin][commit-analyzer-plugin] uses [Angular commit message conventions](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit) to determine whether a release is major (breaking changes), minor (new feature) or patch (bug fixes). This plugin uses [conventional-changelog][conventional-changelog] under the bonnet.
+By default, [Commit Analyzer plugin][commit-analyzer-plugin] uses [Angular commit message conventions](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit) to determine whether a release is major (breaking changes), minor (new feature) or patch (bug fixes). The plugin uses [conventional-changelog][conventional-changelog] under the bonnet.
 
 It's important to note that neither `docs` nor `chore` commit types trigger a release by default, and I chose to deviate from the default by including `docs` changes in patch releases, otherwise our package README on npm could become out of sync.
 
