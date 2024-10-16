@@ -9,6 +9,7 @@ tags:
 - neurodiversity
 - diversity and inclusion
 - design
+- featured
 summary: As part of neurodiversity celebration week, we're taking a look at how neurodiversity
   impacts UX, and how we can make our design process neuro-inclusive
 author: mwallace
