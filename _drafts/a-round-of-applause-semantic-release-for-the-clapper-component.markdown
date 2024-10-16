@@ -71,9 +71,11 @@ However, we do need our package in npm to have the correct version number, so th
 
 ### Publish
 
-Here's another lovely thing about semantic-release: contributors have provided a set of [recipes for common release tasks](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations), including a recipe for [releasing to npm via GitHub Actions](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations/github-actions#node-project-configuration). While [npm Provenance](https://github.blog/security/supply-chain-security/introducing-npm-package-provenance/) is a relatively new concept, it is gaining traction; packages can gain a provenance badge by providing a verifiable link back to the source code _and_ to the build configuration. GitHub Actions are one of the current verifiable build systems, which is another good reason to use them instead of Travis.
+Here's another lovely thing about semantic-release: contributors have provided a set of [recipes for common release tasks](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations), including a recipe for [releasing to npm via GitHub Actions](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations/github-actions#node-project-configuration).
 
-The workflow is simple to set up following the above recipe. The only extra config needed for provenance is this section inside `package.json`:
+I also wanted to try out releasing with [npm provenance](https://github.blog/security/supply-chain-security/introducing-npm-package-provenance/), a relatively new concept which is gaining traction: packages can gain a provenance badge by providing a verifiable link back to the source code _and_ to the build configuration, to give consumers full knowledge of how your package was built from sources. GitHub Actions are one of the current verifiable build systems, which is another good reason to use them instead of Travis.
+
+The workflow is simple to set up following the recipe linked above. The only extra config needed for provenance is this section inside `package.json`:
 
 <pre style="margin-inline: 0; margin-block: 1.5rem"><code>"publishConfig": {
   "provenance": true
