@@ -47,41 +47,27 @@ It's worth going into a little more detail on each of these steps.
 
 ### Verify Conditions
 
-#### [GitHub plugin][github-plugin]
+[GitHub plugin][github-plugin] checks for and validates GITHUB_TOKEN, which must be injected into the environment when running the release. This is straightforward in a GitHub workflow. GitHub creates this token as a secret on your behalf, so you only need to reference it.
 
-Checks for and validates GITHUB_TOKEN, which must be injected into the environment when running the release. This is straightforward in a GitHub workflow. GitHub creates this token as a secret on your behalf, so you only need to reference it.
-
-#### [npm plugin][npm-plugin]
-
-Checks for and validates NPM_TOKEN. As above, this must be made available in the enviroment at runtime, however, you must [generate this token yourself](https://docs.npmjs.com/creating-and-viewing-access-tokens) and then [add it to your GitHub repo](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) as a secret.
+[npm plugin][npm-plugin] checks for and validates NPM_TOKEN. As above, this must be made available in the enviroment at runtime, however, you must [generate this token yourself](https://docs.npmjs.com/creating-and-viewing-access-tokens) and then [add it to your GitHub repo](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) as a secret.
 
 ### Analyze Commits
 
-#### [Commit Analyzer plugin][commit-analyzer-plugin]
-
-This plugin uses [Angular commit message conventions](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit) by default to determine whether a release is major (breaking changes), minor (new feature) or patch (bug fixes); other commit message formats are available. Under the bonnet, the plugin uses [conventional-changelog][conventional-changelog].
+[Commit Analyzer plugin][commit-analyzer-plugin] uses [Angular commit message conventions](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit) by default to determine whether a release is major (breaking changes), minor (new feature) or patch (bug fixes); other commit message formats are available. Under the bonnet, the plugin uses [conventional-changelog][conventional-changelog].
 
 It's important to note that neither `docs` nor `chore` commit types trigger a release by default, and I chose to deviate from that by including `docs` changes in patch releases, otherwise our npm package README could become out of sync with the README in GitHub.
 
 ### Generate Notes
 
-#### [Release Notes Generator plugin][release-notes-plugin]
-
-By default, commits are grouped by type: `fix` as Bug Fixes, `feat` as Features, `perf` as Performance Improvements, and BREAKING CHANGES as a separate group at the bottom. Again, I chose to deviate from defaults to include `docs` as Documentation, but you don't have to follow suit.
+[Release Notes Generator plugin][release-notes-plugin] groups commits by type: `fix` as Bug Fixes, `feat` as Features, `perf` as Performance Improvements, and BREAKING CHANGES as a separate group at the bottom. Again, I chose to deviate from defaults to include `docs` as Documentation, but you don't have to follow suit.
 
 Take a look at [semantic-release's own release page for v23.0.0](https://github.com/semantic-release/semantic-release/releases/tag/v23.0.0) to see how grouped release notes look.
 
 ### Prepare
 
-#### [npm plugin][npm-plugin]
+[npm plugin][npm-plugin] generates a tarball of the npm package.
 
-Generates a tarball of the npm package.
-
-#### [GitHub plugin][github-plugin]
-
-Generates zip and tarball of source code for the GitHub release.
-
-#### A note on bundling
+[GitHub plugin][github-plugin] generates zip and tarball of source code for the GitHub release.
 
 It is [recommended not to increment version number](https://semantic-release.gitbook.io/semantic-release/support/faq#making-commits-during-the-release-process-adds-significant-complexity) in the GitHub repository during a release, as that adds complexity: the release process will need permissions to create and push a commit, which is likely to be restricted on the release branch. Instead, you will see in the applause-button [package.json](https://github.com/ColinEberhardt/applause-button/blob/master/package.json#L4) we have version set to `0.0.0-semantically-managed`, to indicate we don't need to worry about version numbers during development. This is a key tenet of semantic versioning: let code changes determine release numbering, rather than working towards pre-determined releases.
 
@@ -91,11 +77,9 @@ Additionally, we have an npm script (`prepack`) which runs the build before prep
 
 ### Publish
 
-#### [npm plugin][npm-plugin]
-
 Here's another thing to love about semantic-release: contributors have provided a set of [recipes for common release tasks](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations), including a recipe for [releasing to npm via GitHub Actions](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations/github-actions#node-project-configuration).
 
-I also wanted to try out releasing with [npm provenance](https://github.blog/security/supply-chain-security/introducing-npm-package-provenance/), a relatively new concept which is gaining traction: packages can gain a provenance badge by providing a verifiable link back to the source code _and_ to the build configuration, to give consumers full knowledge of how a package was built from sources. GitHub Actions are one of the current verifiable build systems, which is another good reason to use them instead of Travis.
+Using the [npm plugin][npm-plugin], I also wanted to test drive releasing with [npm provenance](https://github.blog/security/supply-chain-security/introducing-npm-package-provenance/), a relatively new concept which is gaining traction: packages can gain a provenance badge by providing a verifiable link back to the source code _and_ to the build configuration, to give consumers full knowledge of how a package was built from sources. GitHub Actions are one of the current verifiable build systems, which is another good reason to use them instead of Travis.
 
 The workflow is simple to set up following the recipe linked above, and the only extra config needed for provenance is this section inside `package.json`:
 
@@ -105,13 +89,11 @@ The workflow is simple to set up following the recipe linked above, and the only
 
 ### Success or Fail
 
-#### [GitHub plugin][github-plugin]
-
-Adding comments and labels to released issues is a nice touch. Here's an example:
+[GitHub plugin][github-plugin] adds comments and labels to released issues, which is a nice touch. Here's an example:
 
 <img src="/uploads/semantic-release-comment-b224e8.png" alt="Issue release comment" title="Hello semantic-release bot!" style="display: block; margin: 1rem auto;" />
 
-Equally, when things go wrong it's nice to receive a notification, via a new issue detailing the errors. This helps track both the problem and the eventual solution.
+When things go wrong, the plugin will create a new issue in your repo detailing the errors. This helps track both the problem and the eventual solution.
 
 ## Convention over Configuration
 
