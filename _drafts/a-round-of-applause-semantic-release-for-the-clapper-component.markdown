@@ -25,7 +25,7 @@ Yep, kinda embarrassing, and a problem that I and colleague [Dave Ogle](https://
 
 ## Release the Kraken
 
-Time's up, inaccessible clapper! But this is where things became more interesting: how was the applause-button component released and published? I could see [semantic-release](https://www.npmjs.com/package/semantic-release) and [travis-deploy-once](https://www.npmjs.com/package/travis-deploy-once) dependencies in the `package.json`, and a Travis CI config file in the repo root, but I had no idea how to access the Travis build, nor even if it was still running because the last release was almost 4 years ago... 😱
+Time's up, inaccessible clapper! But this is where things became more interesting: how was the applause-button component released and published? I could see [semantic-release](https://www.npmjs.com/package/semantic-release) and [travis-deploy-once](https://www.npmjs.com/package/travis-deploy-once) dependencies in the `package.json`, and a Travis CI config file in the repo root, but I had no idea how to access the Travis build, nor even if it was still working as the last release was almost 4 years ago... 😱
 
 I decided everything would be simpler and more transparent if I switched to using a [GitHub workflow](https://docs.github.com/en/actions/writing-workflows/about-workflows) for the release. Luckily for me, the owner of the [applause-button GitHub repo](https://github.com/ColinEberhardt/applause-button) is our very own [Colin Eberhardt](https://blog.scottlogic.com/ceberhardt/), who graciously gave me maintainer rights and free rein to tinker as I saw fit 🛠️
 
@@ -36,9 +36,9 @@ If you stick with the defaults, this is what you get:
 - **Verify Conditions**: Check GitHub and NPM access tokens are present and valid ([GitHub plugin][github-plugin] and [NPM plugin][npm-plugin]).
 - **Analyze Commits**: Determine what version we are releasing, by analyzing all commits since the previous release ([Commit Analyzer plugin][commit-analyzer-plugin]).
 - **Generate Notes**: Generate release notes based on commit messages ([Release Notes Generator plugin][release-notes-plugin]).
-- **Prepare**: Create a Tag and Release in GitHub ([GitHub plugin][github-plugin]). Check out the repo, update version number in package.json, and create a package tarball for NPM ([NPM plugin][npm-plugin]).
+- **Prepare**: Create a tag and release in GitHub ([GitHub plugin][github-plugin]); check out the branch, update version number in package.json, and create a package tarball for NPM ([NPM plugin][npm-plugin]).
 - **Publish**: Publish the package to NPM ([NPM plugin][npm-plugin]).
-- **Success**: Add a comment to each Issue and PR associated with the release ([GitHub plugin][github-plugin]).
+- **Success**: Add a comment to each issue and PR associated with the release ([GitHub plugin][github-plugin]).
 - **Fail**: Open or update a GitHub issue for the release attempt, documenting what failed ([GitHub plugin][github-plugin]).
 
 It's worth going into a little more detail on each of the above steps.
