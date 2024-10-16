@@ -17,7 +17,7 @@ summary: Using semantic-release to publish an npm package with provenance, via a
 author: cwilton
 ---
 
-You may not have noticed a small change to our blog posts this week, but it's a significant one for inclusivity. Recently I noticed that the [applause button](https://www.npmjs.com/package/applause-button) component, which allows readers to show their appreciation for a blog post by giving it a clap, was not accessible by keyboard 🫣 
+You may not have noticed a small change to our blog posts this week, but it's a significant one for inclusivity. Recently I noticed that our [applause button](https://www.npmjs.com/package/applause-button) component, which allows readers to show their appreciation for a blog post by giving it a clap, was not accessible by keyboard 🫣 
 
 <img src="/uploads/mouse-laugh.jpg" alt="Mouse laughing" title="Not so smart now huh?!" style="display: block; margin: 1rem auto; max-height: 12rem;" />
 
@@ -33,11 +33,11 @@ I began by reading the [semantic-release documentation](https://github.com/seman
 
 If you stick with the defaults, this is what you get:
 
-- **Verify Conditions**: Check GitHub and NPM access tokens are present and valid ([GitHub plugin][github-plugin] and [NPM plugin][npm-plugin]).
+- **Verify Conditions**: Check GitHub and npm access tokens are present and valid ([GitHub plugin][github-plugin] and [npm plugin][npm-plugin]).
 - **Analyze Commits**: Determine what version we are releasing, by analyzing all commits since the previous release ([Commit Analyzer plugin][commit-analyzer-plugin]).
 - **Generate Notes**: Generate release notes based on commit messages ([Release Notes Generator plugin][release-notes-plugin]).
-- **Prepare**: Create a tag and release in GitHub ([GitHub plugin][github-plugin]); check out the branch, update version number in package.json, and create a package tarball for NPM ([NPM plugin][npm-plugin]).
-- **Publish**: Publish the package to NPM ([NPM plugin][npm-plugin]).
+- **Prepare**: Create a tag and release in GitHub ([GitHub plugin][github-plugin]); check out the branch, update version number in package.json, and create a package tarball for npm ([npm plugin][npm-plugin]).
+- **Publish**: Publish the package to npm ([npm plugin][npm-plugin]).
 - **Success**: Add a comment to each issue and PR associated with the release ([GitHub plugin][github-plugin]).
 - **Fail**: Open or update a GitHub issue for the release attempt, documenting what failed ([GitHub plugin][github-plugin]).
 
@@ -53,7 +53,7 @@ An NPM_TOKEN secret is something I needed to ask Colin to generate specifically 
 
 By default, [Commit Analyzer plugin][commit-analyzer-plugin] uses [Angular commit message conventions](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit) to determine whether a release is major (breaking changes), minor (new feature) or patch (bug fixes). This plugin uses [conventional-changelog][conventional-changelog] under the bonnet.
 
-It's important to note that neither `docs` nor `chore` commit types trigger a release by default, and I chose to deviate from the default by including `docs` changes in patch releases, otherwise our package README on NPM could become out of sync.
+It's important to note that neither `docs` nor `chore` commit types trigger a release by default, and I chose to deviate from the default by including `docs` changes in patch releases, otherwise our package README on npm could become out of sync.
 
 ### Generate Notes
 
@@ -63,15 +63,15 @@ Take a look at [semantic-release's own release page for v23.0.0](https://github.
 
 ### Prepare
 
-This step is implemented by [NPM plugin][npm-plugin] and [GitHub plugin][github-plugin], to prepare bundles for release - a tarball for the NPM package, and zip and tarball of source code for the GitHub release. However, there are important differences in the bundles generated for the two.
+This step is implemented by [npm plugin][npm-plugin] and [GitHub plugin][github-plugin], to prepare bundles for release - a tarball for the npm package, and zip and tarball of source code for the GitHub release. However, there are important differences in the bundles generated for the two.
 
 It is [recommended not to increment version number](https://semantic-release.gitbook.io/semantic-release/support/faq#making-commits-during-the-release-process-adds-significant-complexity) in the GitHub repo during a release, as that adds a lot of complexity: the release process will need permissions to create and push a commit, which is likely to be restricted on the release branch. Instead, you will see in the [applause-button package.json](https://github.com/ColinEberhardt/applause-button/blob/master/package.json#L4) we have version set to "0.0.0-semantically-managed", to indicate we don't need to worry about version numbering during development. This is a key tenet of semantic versioning: let code changes determine release numbering, rather than working towards pre-determined releases.
 
-However, we do need our package in NPM to have the correct version number, so the [NPM plugin][npm-plugin] makes that change locally before creating the tarball, using the version number calculated in the Analyze Commits step. Additionally, we have an npm script (`prepack`) which runs the build before packaging, to generate  production-ready JavaScript and CSS files. Therefore the package tarball also contains a dist folder with these assets, which the GitHub source bundles do not have.
+However, we do need our package in npm to have the correct version number, so the [npm plugin][npm-plugin] makes that change locally before creating the tarball, using the version number calculated in the Analyze Commits step. Additionally, we have an npm script (`prepack`) which runs the build before packaging, to generate  production-ready JavaScript and CSS files. Therefore the package tarball also contains a dist folder with these assets, which the GitHub source bundles do not have.
 
 ### Publish
 
-Here's another lovely thing about semantic-release: they provide a set of [recipes for common release tasks](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations), including a recipe for [releasing to NPM via GitHub Actions](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations/github-actions#node-project-configuration). While [NPM Provenance](https://github.blog/security/supply-chain-security/introducing-npm-package-provenance/) is a relatively new concept, it is gaining traction; packages can gain a provenance badge by providing a verifiable link back to the source code _and_ to the build configuration. GitHub Actions are one of the current verifiable build systems, which is another good reason to use them instead of Travis.
+Here's another lovely thing about semantic-release: they provide a set of [recipes for common release tasks](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations), including a recipe for [releasing to npm via GitHub Actions](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations/github-actions#node-project-configuration). While [npm Provenance](https://github.blog/security/supply-chain-security/introducing-npm-package-provenance/) is a relatively new concept, it is gaining traction; packages can gain a provenance badge by providing a verifiable link back to the source code _and_ to the build configuration. GitHub Actions are one of the current verifiable build systems, which is another good reason to use them instead of Travis.
 
 The workflow is simple to set up following the above recipe. The only extra config needed for provenance is this section inside `package.json`:
 
@@ -89,7 +89,7 @@ Equally, when things go wrong it's nice to receive a notification, via a new iss
 
 ## Flexible Configuration
 
-This felt almost _too easy_! I did choose to add extra config to keep documentation in NPM up to date, but even that was trivial. Default behaviour of semantic-release may be enough for you, but it is simple to extend using [official and community plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md), and each plugin can be configured, meaning the possibilities are almost limitless. And if you do need something you can't find, you can write your own plugin.
+This felt almost _too easy_! I did choose to add extra config to keep documentation in npm up to date, but even that was trivial. Default behaviour of semantic-release may be enough for you, but it is simple to extend using [official and community plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md), and each plugin can be configured, meaning the possibilities are almost limitless. And if you do need something you can't find, you can write your own plugin.
 
 ## Final Thoughts
 
