@@ -61,7 +61,7 @@ This step is implemented by [npm plugin][npm-plugin] and [GitHub plugin][github-
 
 It is [recommended not to increment version number](https://semantic-release.gitbook.io/semantic-release/support/faq#making-commits-during-the-release-process-adds-significant-complexity) in the GitHub repo during a release, as that adds a lot of complexity: the release process will need permissions to create and push a commit, which is likely to be restricted on the release branch. Instead, you will see in the [applause-button package.json](https://github.com/ColinEberhardt/applause-button/blob/master/package.json#L4) we have version set to `0.0.0-semantically-managed`, to indicate we don't need to worry about version numbering during development. This is a key tenet of semantic versioning: let code changes determine release numbering, rather than working towards pre-determined releases.
 
-However, we do need our package in npm to have the correct version number, so the [npm plugin][npm-plugin] makes that change locally before creating the tarball, using the version number calculated in the Analyze Commits step. Additionally, we have an npm script (`prepack`) which runs the build before packaging, to generate  production-ready JavaScript and CSS files. Therefore the package tarball also contains a dist folder with these assets, which the GitHub source bundles do not have.
+However, we do need our package in npm to have the correct version number, so the [npm plugin][npm-plugin] makes that change locally before creating the tarball, using the version number calculated in the Analyze Commits step. Additionally, we have an npm script (`prepack`) which runs the build before preparing the npm package, to generate  production-ready JavaScript and CSS files. Therefore the package tarball also contains a dist folder with these assets, which the GitHub source bundles do not have.
 
 ### Publish
 
@@ -69,7 +69,7 @@ Here's another lovely thing about semantic-release: contributors have provided a
 
 I also wanted to try out releasing with [npm provenance](https://github.blog/security/supply-chain-security/introducing-npm-package-provenance/), a relatively new concept which is gaining traction: packages can gain a provenance badge by providing a verifiable link back to the source code _and_ to the build configuration, to give consumers full knowledge of how your package was built from sources. GitHub Actions are one of the current verifiable build systems, which is another good reason to use them instead of Travis.
 
-The workflow is simple to set up following the recipe linked above. The only extra config needed for provenance is this section inside `package.json`:
+The workflow is simple to set up following the recipe linked above; the only extra config needed for provenance is this section inside `package.json`:
 
 <pre style="margin-inline: 0; margin-block: 1.5rem"><code>"publishConfig": {
   "provenance": true
