@@ -56,9 +56,10 @@ Checks for and validates NPM_TOKEN. As above, this must be made available in the
 ### Analyze Commits
 
 #### [Commit Analyzer plugin][commit-analyzer-plugin]
-By default, this plugin uses [Angular commit message conventions](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit) to determine whether a release is major (breaking changes), minor (new feature) or patch (bug fixes). It uses [conventional-changelog][conventional-changelog] under the bonnet. Other commit message conventions are available.
 
-It's important to note that neither `docs` nor `chore` commit types trigger a release by default, and I chose to deviate from the default by including `docs` changes in patch releases, otherwise our package README on npm could become out of sync.
+This plugin uses [Angular commit message conventions](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit) by default to determine whether a release is major (breaking changes), minor (new feature) or patch (bug fixes); other commit message formats are available. Under the bonnet, the plugin uses [conventional-changelog][conventional-changelog].
+
+It's important to note that neither `docs` nor `chore` commit types trigger a release by default, and I chose to deviate from that by including `docs` changes in patch releases, otherwise our npm package README could become out of sync with the README in GitHub.
 
 ### Generate Notes
 
