@@ -87,7 +87,7 @@ Equally, when things go wrong it's nice to receive a notification, via a new iss
 
 This felt almost _too easy_! I did add a little configuration to keep documentation in npm up to date, but even that was trivial. Default behaviour of semantic-release may be enough for you, but it is simple to extend using [official and community plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md), and each plugin can be configured, meaning the possibilities are almost limitless. And if you do need something you can't find, you can write your own plugin.
 
-## Final Thoughts
+## The End Result
 
 I'm really pleased with this little gem:
 
