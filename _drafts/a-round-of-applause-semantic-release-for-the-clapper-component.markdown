@@ -45,25 +45,25 @@ It's worth going into a little more detail on each of these steps.
 
 <img src="/uploads/infinity-steps.jpg" alt="Impossible staircase" title="Continuous deployment anyone?" style="display: block; margin: 1rem auto; max-height: 12rem;" />
 
-### Verify Conditions
+### 🛡️ Verify Conditions
 
 [GitHub plugin][github-plugin] checks for and validates GITHUB_TOKEN, which must be injected into the environment when running the release. This is straightforward in a GitHub workflow. GitHub creates this token as a secret on your behalf, so you only need to reference it.
 
 [npm plugin][npm-plugin] checks for and validates NPM_TOKEN. As above, this must be made available in the enviroment at runtime, however, you must [generate this token yourself](https://docs.npmjs.com/creating-and-viewing-access-tokens) and then [add it to your GitHub repo](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository) as a secret.
 
-### Analyze Commits
+### 🔍 Analyze Commits
 
 [Commit Analyzer plugin][commit-analyzer-plugin] uses [Angular commit message conventions](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit) by default to determine whether a release is major (breaking changes), minor (new feature) or patch (bug fixes); other commit message formats are available. Under the bonnet, the plugin uses [conventional-changelog][conventional-changelog].
 
 It's important to note that neither `docs` nor `chore` commit types trigger a release by default, and I chose to deviate from that by including `docs` changes in patch releases, otherwise our npm package README could become out of sync with the README in GitHub.
 
-### Generate Notes
+### ✏️ Generate Notes
 
 [Release Notes Generator plugin][release-notes-plugin] groups commits by type: `fix` as Bug Fixes, `feat` as Features, `perf` as Performance Improvements, and BREAKING CHANGES as a separate group at the bottom. Again, I chose to deviate from defaults to include `docs` as Documentation, but you don't have to follow suit.
 
 Take a look at [semantic-release's own release page for v23.0.0](https://github.com/semantic-release/semantic-release/releases/tag/v23.0.0) to see how grouped release notes look.
 
-### Prepare
+### 🚧 Prepare
 
 [npm plugin][npm-plugin] generates a tarball of the npm package.
 
@@ -75,7 +75,7 @@ However, we do need our package in npm to have the correct version number, there
 
 Additionally, we have an npm script (`prepack`) which runs the build before preparing the npm package, to generate  production-ready JavaScript and CSS files. Therefore, the npm tarball also contains a dist folder with these assets, which the GitHub source bundles do not have.
 
-### Publish
+### <img src="/uploads/npm.svg" alt="npm logo" /> Publish
 
 Here's another thing to love about semantic-release: contributors have provided a set of [recipes for common release tasks](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations), including a recipe for [releasing to npm via GitHub Actions](https://semantic-release.gitbook.io/semantic-release/recipes/ci-configurations/github-actions#node-project-configuration).
 
@@ -87,7 +87,7 @@ The workflow is simple to set up following the recipe linked above, and the only
   "provenance": true
 }</code></pre>
 
-### Success or Fail
+### 🏁 Success or Fail
 
 [GitHub plugin][github-plugin] adds comments and labels to released issues, which is a nice touch. Here's an example:
 
