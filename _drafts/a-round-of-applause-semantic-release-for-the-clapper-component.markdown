@@ -83,9 +83,9 @@ The workflow is simple to set up following the recipe linked above. The only ext
 
 ### Success or Fail
 
-Adding comments to released issues is a nice touch. Here's an example:
+Adding comments and labels to released issues is a nice touch. Here's an example:
 
-<img src="/uploads/semantic-release-comment.png" alt="Issue release comment" title="Hello semantic-release bot!" style="display: block; margin: 1rem auto;" />
+<img src="/uploads/semantic-release-comment-b224e8.png" alt="Issue release comment" title="Hello semantic-release bot!" style="display: block; margin: 1rem auto;" />
 
 Equally, when things go wrong it's nice to receive a notification, via a new issue detailing the errors. This helps track both the problem and the eventual solution.
 
