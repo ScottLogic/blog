@@ -29,7 +29,7 @@ Time's up, inaccessible clapper! But this is where things became more interestin
 
 I decided everything would be simpler and more transparent if I switched to using a [GitHub workflow](https://docs.github.com/en/actions/writing-workflows/about-workflows) for the release. Luckily for me, the owner of the [applause-button GitHub repo](https://github.com/ColinEberhardt/applause-button) is our very own [Colin Eberhardt](https://blog.scottlogic.com/ceberhardt/), who graciously gave me maintainer rights and free rein to tinker as I saw fit 🛠️
 
-I began by reading the [semantic-release documentation](https://github.com/semantic-release/semantic-release). This is my first encounter with the package, and I am blown away by how easy the authors have made it to use - it can genuinely be used with zero configuration, the defaults being entirely sensible. The actual work is carried out by [semantic-release plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/plugins.md), with semantic-release orchestrating the process; each plugin implements one or more release steps, as described in the link above, and in each step semantic-release invokes each of the registered plugins in the order defined in configuration.
+I began by reading the [semantic-release documentation](https://github.com/semantic-release/semantic-release). This is my first encounter with the package, and I am blown away by how easy the authors have made it to use - it can genuinely be used with zero configuration, the defaults being entirely sensible. The actual work is carried out by [semantic-release plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/usage/plugins.md), with semantic-release orchestrating the process; each plugin implements one or more release steps, as described in the link above.
 
 If you stick with the defaults, this is what you get:
 
@@ -41,7 +41,7 @@ If you stick with the defaults, this is what you get:
 - **Success**: Add a comment to each issue and PR associated with the release.
 - **Fail**: Open or update a GitHub issue for the release attempt, documenting what failed.
 
-It's worth going into a little more detail on some of these steps.
+It's worth going into a little more detail on each of these steps.
 
 ### Verify Conditions
 
