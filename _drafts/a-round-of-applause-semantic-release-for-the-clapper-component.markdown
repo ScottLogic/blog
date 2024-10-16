@@ -97,7 +97,7 @@ When things go wrong, the plugin will create a new issue in your repo detailing 
 
 ## Convention over Configuration
 
-This felt almost _too easy_! I did add a little configuration to keep documentation in npm up to date, but even that was trivial. Default behaviour of semantic-release may be enough for you, but it is simple to extend using [official and community plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md); each plugin can be used with defaults or configured as needed, meaning the possibilities are almost limitless. And if you do need something you can't find, you can write your own plugin.
+This felt almost _too easy_! I did add a little configuration to keep documentation in npm up to date, but even that was trivial. Default behaviour of semantic-release may be enough for you, but it is simple to extend by configuring the default plugins, or by adding any of the [official and community plugins](https://github.com/semantic-release/semantic-release/blob/master/docs/extending/plugins-list.md); each plugin can be used with defaults or configured as needed, meaning the possibilities are almost limitless. And if you do need something you can't find, you can write your own plugin.
 
 ## The End Result
 
