@@ -87,7 +87,7 @@ The workflow is simple to set up following the recipe linked above, and the only
   "provenance": true
 }</code></pre>
 
-### 🏁 Success or Fail
+### 😄😭 Success or Fail
 
 [GitHub plugin][github-plugin] adds comments and labels to released issues, which is a nice touch. Here's an example:
 
