@@ -19,7 +19,7 @@ author: cwilton
 
 You may not have noticed a small change to our blog posts this week, but it's a significant one for inclusivity. Recently I noticed that our [applause button](https://www.npmjs.com/package/applause-button) component, which allows readers to show their appreciation for a blog post by giving it a clap, was only accessible by mouse, not by keyboard 🫣 
 
-<img src="/uploads/mouse-laugh.jpg" alt="Mouse laughing" title="Not so smart now huh?!" style="display: block; margin: 1rem auto; max-height: 12rem;" />
+<img src="/uploads/mouse-laugh.jpg" alt="Mouse laughing" title="Not so smart now huh?!" style="display: block; margin: 0 auto; max-height: 10rem;" />
 
 Yep, kinda embarrassing, and a problem that I and colleague [Dave Ogle](https://blog.scottlogic.com/dogle/) were keen to put right straight away. Using a `<button>` gave immediate relief, though of course there were styling issues to resolve, some structural rearrangements, and a few animations to sort out. On that front, I dampened those animations unless the user has [no preference on reduced motion](https://css-tricks.com/nuking-motion-with-prefers-reduced-motion/), and there is work in progress to correct colour contrast issues.
 
@@ -43,7 +43,7 @@ If you stick with the defaults, this is what you get:
 
 It's worth going into a little more detail on each of these steps.
 
-<img src="/uploads/infinity-steps.jpg" alt="Impossible staircase" title="Continuous deployment anyone?" style="display: block; margin: 1rem auto; max-height: 12rem;" />
+<img src="/uploads/infinity-steps.jpg" alt="Impossible staircase" title="Continuous deployment anyone?" style="display: block; margin: 0 auto; max-height: 16rem; padding-block: 1rem;" />
 
 ### ✅ Verify Conditions
 
@@ -91,7 +91,7 @@ The workflow is simple to set up following the recipe linked above, and the only
 
 [GitHub plugin][github-plugin] adds comments and labels to released issues, which is a nice touch. Here's an example:
 
-<img src="/uploads/semantic-release-comment-b224e8.png" alt="Issue release comment" title="Hello semantic-release bot!" style="display: block; margin: 1rem auto;" />
+<img src="/uploads/semantic-release-comment-b224e8.png" alt="Issue release comment" title="Hello semantic-release bot!" style="display: block; margin: 0 auto;" />
 
 When things go wrong, the plugin will create a new issue in your repo detailing the errors. This helps track both the problem and the eventual solution.
 
@@ -103,13 +103,13 @@ This felt almost _too easy_! I did add a little configuration to keep documentat
 
 I'm really pleased with this little gem:
 
-<img src="/uploads/provenance-applause-button.png" alt="Published with provenance" title="groovy" style="display: block; margin: 1rem auto;" />
+<img src="/uploads/provenance-applause-button.png" alt="Published with provenance" title="groovy" style="display: block; margin: 0 auto;" />
 
 I had no idea it would be this easy, but I just published my first npm package with provenance!
 
 You can clap now 😉
 
-<img src="/uploads/clap-small.png" alt="Applause!" title="You can clap now" style="display: block; margin: 1rem auto;" />
+<img src="/uploads/clap-small.png" alt="Applause!" title="You can clap now" style="display: block; margin: 0 auto;" />
 
 
 [commit-analyzer-plugin]: <https://github.com/semantic-release/commit-analyzer>
