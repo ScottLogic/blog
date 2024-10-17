@@ -105,7 +105,7 @@ I'm really pleased with this little gem:
 
 <img src="/uploads/provenance-applause-button.png" alt="Published with provenance" title="groovy" style="display: block; margin: 1rem auto;" />
 
-I had no idea it would be this easy, but I just published my first package with provenance!
+I had no idea it would be this easy, but I just published my first npm package with provenance!
 
 You can clap now 😉
 
