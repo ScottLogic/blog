@@ -123,7 +123,7 @@ For some guidance on potentially useful software patterns that promote green cod
 - *Efficient Build Pipelines*: Optimise your build pipelines to run quickly and efficiently, paying attention to what resources are consumed when they run, and how often they run.
 - *Shut Down Unused Processes*: Look for zombie processes that are running, taking up resources, but are not actually being used by anyone. Also keep an eye out for system that are left running when not in use for extended periods. For example, are integration environments only used in the day, but left running all night?
 - *Check the Energy Mix*: Where does your hosting provider get its energy? Is it from renewable sources? If not, is there a viable alternative that can deliver the same feature at a similar or lower cost that runs from renewables? If your software is cloud hosted, could you move to a more sustainable location?
-- *Optimise Regular Jobs*: If there are automated processes that run regularly, check that they are doing so efficiently and are definitely required. It may also be worth check if they can be run at a time or location with a cleaner energy mix.
+- *Optimise Regular Jobs*: If there are automated processes that run regularly, check that they are doing so efficiently and are definitely required. It may also be worth checking if they can be run at a time or location with a cleaner energy mix.
 
 ### As a Tester
 
@@ -173,13 +173,13 @@ Product Owner:
 
 Scrum Master:
 
-- Optimize team processes to reduce waste.
+- Optimise team processes to reduce waste.
 - Promote energy-efficient tools and ensure sustainability is in the Definition of Done.
 - Embed sustainability practices in continuous improvement.
 
 Team Members:
 
-- Developers: Write efficient code, optimize architecture.
+- Developers: Write efficient code, optimise architecture.
 - DevOps: Streamline pipelines, shut down unused processes, and seek green hosting solutions.
 - Testers: Surface carbon-aware metrics and integrate emissions feedback into testing.
 
