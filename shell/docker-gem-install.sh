@@ -2,7 +2,9 @@
 set -eo pipefail
 
 SCRIPTDIR="$(dirname "$0")"
-REPOROOT="$(realpath "$SCRIPTDIR/..")"
+# Replace e.g. /c/ of Git Bash paths on windows with C:/ to keep Docker happy
+# Sed is pretty nasty huh ;)
+REPOROOT="$(realpath "$SCRIPTDIR/.." | sed 's/^\/\([a-z]\)\//\u\1:\//')"
 
 CONTAINER_WORKDIR=/srv/jekyll
 
