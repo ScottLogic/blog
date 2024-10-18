@@ -26,7 +26,7 @@ _Ensure that that your [SSH configuration][github-ssh] will also let you connect
 
 If you wish to develop changes to the blog locally, you may find that there's a lot of content, and prefer just to download the bits you need.
 
-```bash
+```shell
 # see comment above about configuring SSH, and modify the clone URL accordingly to use the correct SSH identity
 # you may also consider forking the blog repository, and cloning your personal fork instead
 git clone --depth 1 --filter=blob:none --no-checkout git@github.com:ScottLogic/blog.git
@@ -71,7 +71,7 @@ First, install Ruby and (if on Linux) a few build dependencies for Nokogiri.
 
 On Linux:
 
-```bash
+```shell
 sudo apt-get install ruby2.3 ruby2.3-dev build-essential dh-autoreconf libxslt-dev libxml2-dev zlib1g-dev
 ```
 
@@ -84,14 +84,14 @@ Secondly, update Gem and install the Jekyll, Bundler and Nokogiri gems.
 
 On Linux:
 
-```bash
+```shell
 sudo gem update
 sudo gem install jekyll bundler nokogiri
 ```
 
 On Windows, in a PowerShell instance with elevated priveleges:
 
-```bash
+```shell
 gem update
 gem install jekyll bundler nokogiri
 ```
@@ -99,7 +99,7 @@ gem install jekyll bundler nokogiri
 Thirdly, configure Bundler to store project dependencies in `vendor/bundle`, and,
 when in the root directory of your clone of the blog, install the project dependencies.
 
-```bash
+```shell
 bundle config path vendor/bundle
 cd PATH/TO/BLOG
 bundle install
@@ -112,7 +112,7 @@ Finally, run `jekyll -v` to check whether Jekyll is working. If so, you're good 
 Once you've got all the prerequisites for your operating system, you can run the blog.
 Navigate to the root directory of your clone of the blog and execute Jekyll using Bundler.
 
-```bash
+```shell
 bundle exec jekyll serve
 ```
 
@@ -120,33 +120,36 @@ The blog will then be available on [localhost][localhost].
 
 If you need to re-compile the scripts or SCSS, you can use the NPM scripts.
 
-```bash
-npm install
+```shell
+npm ci
 npm run scripts
 npm run style
 ```
 
 ### Docker
 
-Use a bash-compatible shell.
+Use a bash-compatible shell; Git bash on Windows should work fine.
 
 **Install gem dependencies**
 
-First, output gem dependencies to a directory `container_gem_cache` on our host machine:
+First, we output gem dependencies to directory `container_gem_cache` on the host machine:
 
-```bash
+```shell
 ./shell/docker-gem-install.sh
 ```
 
 **Run dev watch**
 
-Now we can serve the blog:
+Now we can serve the blog with live reloading. Replace "jbloggs" with your ScottLogic username:
 
-```bash
-BLOG_USERNAME=abirch ./shell/docker-dev-watch.sh
+```shell
+BLOG_USERNAME=jbloggs ./shell/docker-dev-watch.sh
 ```
 
-Visit the blog on [localhost][localhost].
+It'll take a while to build first time (up to 5 minutes), and you'll likely see a fair few warnings in the terminal for
+older posts, but once it's done you should see message "done in XXX.YYY seconds".
+
+Navigate to [localhost][localhost] in your browser.
 
 ## CI/CD
 
