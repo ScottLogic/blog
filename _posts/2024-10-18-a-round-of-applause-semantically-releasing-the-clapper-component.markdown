@@ -23,7 +23,7 @@ You may not have noticed a small change to our blog posts this week, but it's a 
 
 <img src="/uploads/mouse-laugh-809511.jpg" alt="Mouse laughing" title="Not so smart now huh?!" style="display: block; margin: 0 auto; max-height: 10rem;" />
 
-Yep, kinda embarrassing, and a problem that I and colleague [Dave Ogle](https://blog.scottlogic.com/dogle/) were keen to put right straight away. Using `<button>` for a clickable element unsurprisingly gives [a wealth of improvements over <code style="padding:0" class="language-html highlighter-rouge">&lt;div&gt;</code>](https://www.builder.io/blog/buttons), though of course there were styling issues to resolve, some structural rearrangements, and a few animations to sort out. On that front, I dampened those animations unless the user has [no preference on reduced motion](https://css-tricks.com/nuking-motion-with-prefers-reduced-motion/), and there is work in progress to correct colour contrast issues.
+Yep, kinda embarrassing, and a problem that I and colleague [Dave Ogle](https://blog.scottlogic.com/dogle/) were keen to put right straight away. Using <code style="background-color: transparent">&lt;button&gt;</code>` for a clickable element unsurprisingly gives [a wealth of improvements over <code style="background-color: transparent">&lt;div&gt;</code>](https://www.builder.io/blog/buttons), though of course there were styling issues to resolve, some structural rearrangements, and a few animations to sort out. On that front, I dampened those animations unless the user has [no preference on reduced motion](https://css-tricks.com/nuking-motion-with-prefers-reduced-motion/), and there is work in progress to correct colour contrast issues.
 
 ## Release the Kraken
 
