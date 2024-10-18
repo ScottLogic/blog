@@ -1,7 +1,6 @@
 ---
 title: 'A round of applause: semantically releasing the clapper component'
 date: 2024-10-18 11:30:00 Z
-published: false
 categories:
 - Tech
 - Open Source
