@@ -150,4 +150,40 @@ When it comes to sustainable software, here at Scott Logic we try to follow the 
 
 While Agile software development aims to deliver software in small increments, sustainable agile tries to do this while being mindful of efficiency and the expenditure of resources. Sometimes teams can meet these aims at the same time, in the same product increment. At other times this will not be possible or feasible, either for technical or business reasons. Under these circumstances the Product Owner should be made aware of the trade off and prioritise a follow up task to make the feature sustainable at the next opportunity. Ideally in the next product increment.
 
+Agile software development, and specifically Scrum also bring another advantage that makes it well placed to address sustainability concerns - Agile teams are cross functional, meaning that you are more likely to have the necessary skills to make your products more efficient and sustainable.
+
 By following these practices and principles, teams can do their part in making technology more sustainable. 
+
+# Summary
+
+So, in summary, a team that wants to be more sustainable should...
+
+Create context so that they can understand how their changes will impact their carbon emissions.
+
+- Map: Understand your carbon footprint by mapping emissions across your IT estate.
+- Measure: Use appropriate tools and techniques to measure or estimate emissions, applying proxies where direct measurement isn't possible.
+- Mitigate: Use each Scrum role’s unique contribution to reduce emissions across the development process.
+
+Once the context is created, each role should do their part.
+
+Product Owner:
+
+- Prioritize features that reduce environmental impact.
+- Encourage sustainability in estimates and product lifecycle planning.
+
+Scrum Master:
+
+- Optimize team processes to reduce waste.
+- Promote energy-efficient tools and ensure sustainability is in the Definition of Done.
+- Embed sustainability practices in continuous improvement.
+
+Team Members:
+
+- Developers: Write efficient code, optimize architecture.
+- DevOps: Streamline pipelines, shut down unused processes, and seek green hosting solutions.
+- Testers: Surface carbon-aware metrics and integrate emissions feedback into testing.
+
+As a team, remember that:
+
+- Sustainability should be a shared responsibility across all Scrum roles.
+- Review sustainability metrics during demos and retrospectives to drive continuous improvement.
