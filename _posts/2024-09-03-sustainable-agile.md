@@ -5,6 +5,7 @@ categories:
 - Sustainability
 tags:
 - Sustainability
+- Agile
 summary: A look at how agile practices can be used to drive sustainable software development 
  with a focus on how each role can contribute to lowering their product's carbon emissions.
 author: jcamilleri
@@ -42,12 +43,10 @@ At the project level, you just need to focus on the items you want in scope for 
 
 Category C is used for cloud environments, software as a service and other IT services that you do not host yourself. If you are unsure what category to put a system into, ask if you pay the electricity bill for that system, or if you pay a third party for access to that system. If you are paying the electricity bill, it is classed as a direct emission (category O). Otherwise, it is indirect (category C).
 
-Your systems also have an impact downstream:
+Your systems also have an impact downstream which are mapped to Category D in the TCS:
 
 - the minimum specification of your software drives hardware sales and therefore old hardware disposal. 
 - software performance and network traffic use the resources of your consumers, and the infrastructure used to reach them. 
-
-These impacts are mapped to Category D.
 
 Once you have finished mapping your project or tech estate, you should have a table that looks something like this:
 
@@ -90,10 +89,10 @@ Having talked about how we map and measure the carbon emissions of the project, 
 
 ## If you are the Product Owner
 
-As a product owner, you are already responsible for defining the product’s features, liaising with stakeholders, and prioritising the backlog.
+As a Product Owner, you are already responsible for defining the product’s features, liaising with stakeholders, and prioritising the backlog.
 
 - *Feature Prioritization*: Try to prioritize features that reduce the product's environmental footprint, such as optimising code efficiency or reducing server load. Remember, there are often multiple advantages to these features, making the cost of running the software lower and potentially more secure as well as reducing their carbon footprint. Look for these synergies and go for those features first.
-- *Estimation*: Encourage team members to incorporate sustainable considerations into their estimates. Help them to carve out time to craft high quality software – remember, doing so can help reduce your running costs and total cost of ownership by keeping systems well designed and efficient.
+- *Estimation*: Encourage team members to incorporate sustainable considerations into their estimates. Help them to carve out time to craft high quality software – by doing so, you can help reduce your running costs and the total cost of ownership of the system, by allowing time to keep systems well designed and efficient.
 - *Lifecycle Thinking*: Consider the entire product lifecycle, focusing on features that enhance durability and reduce waste.
 
 You can integrate the sustainability metrics discussed above into decision-making, ensuring that carbon reduction is a key factor in planning and prioritization. For example, if you had a user story to use a smaller cloud appliance, or even eliminate it entirely, prioritising it would reflect in the cloud emissions metrics.
