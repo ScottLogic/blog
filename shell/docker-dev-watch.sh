@@ -2,7 +2,8 @@
 set -eo pipefail
 
 SCRIPTDIR="$(dirname "$0")"
-REPOROOT="$(realpath "$SCRIPTDIR/..")"
+# Replace e.g. /c/ of Git Bash paths on windows with C:/ to keep Docker happy
+REPOROOT="$(realpath "$SCRIPTDIR/.." | sed 's/^\/\([a-z]\)\//\u\1:\//')"
 
 CONTAINER_WORKDIR=/srv/jekyll
 
@@ -52,7 +53,6 @@ set -x
 
 # run jekyll serve
 # https://jekyllrb.com/docs/configuration/options/
-# TODO: consider serving with --incremental if updates are slow
 exec docker run -it --rm --init \
 --name sl-jekyll-run \
 -v "$REPOROOT/$BLOG_USERNAME":"$CONTAINER_WORKDIR/"$BLOG_USERNAME":ro" \
@@ -62,4 +62,4 @@ exec docker run -it --rm --init \
 -p "$PORT":"$PORT" \
 -p 35729:35729 \
 -p 3000:3000 \
-jekyll/jekyll:3.8.6 jekyll serve --livereload -d /dist --port "$PORT"
+jekyll/jekyll:3.8.6 jekyll serve --livereload -d /dist --port "$PORT" --incremental
