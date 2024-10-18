@@ -116,7 +116,7 @@ As team members, you will be the ones making these smaller changes that will add
 - *Sustainable Architecture*: Advocate for and implement architectural designs that minimize resource use, such as serverless architectures or microservices that scale efficiently.
 
 The TCS can be used as a framework for evaluating the impact of code changes. As the TCS grows and improves you will find tips for code and architecture design, and links to current tools that can assist you.
-For some guidance on potentially useful software patterns that promote green coding, take a look at Green Software Foundation’s https://patterns.greensoftware.foundation/. Each of these patterns should be judged on their own merit, with their suitability for your specific product in mind.
+For some guidance on potentially useful software patterns that promote green coding, take a look at Green Software Foundation’s [Green Software Patterns](https://patterns.greensoftware.foundation/). Each of these patterns should be judged on their own merit, with their suitability for your specific product in mind.
 
 ### As a DevOps Engineer
 
