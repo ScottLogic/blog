@@ -1,24 +1,24 @@
 ---
-title: Into The Multicloud
+title: Into The Multi-cloud
 date: 2024-10-18 00:00:00 Z
 categories:
 - Cloud
-summary: TODO
+summary: Cloud computing is a major part of modern day software development. Big cloud providers work hard to get your business and keep it but there is a school of thought which says we shouldn't put all our eggs in one cloud shaped basket. In this post I'll take a look at the concept of the multi-cloud and ask if it's something we should consider more often when designing software solutions. 
 author: dogle
 ---
 
-## Introducing, the Multicloud
+## Introducing, the Multi-cloud
 
 <img src="{{site.baseurl}}/dogle/assets/multicloud/sm.jpg" alt="Spiderman" title="With great cloud provider comes great problems" style="display: block; margin: 1rem auto;" />
 
 Today most software projects utilise some form of cloud computing to host their infrastructure, often choosing one of the big three providers, Google (GCP), Microsoft (Azure) or Amazon (AWS). What I think is less common, is to consider multiple cloud providers when looking to host resources although it is something which comes up from time to time. For example, Monzo has taken steps to address resiliency though running a [live alternative system](https://www.linkedin.com/posts/joemerriman1989_monzo-banks-multi-cloud-environment-is-now-activity-7196510667674132481-7o5y/) in a second cloud provider. DataStax provides services to help deploy the Cassandra database [across multi-cloud](https://www.datastax.com/blog/datastax-helps-enterprises-achieve-multi-cloud-deployments-open-source-apache) and MongoDB's Atlas [facilitates multi-cloud deployment](https://www.mongodb.com/resources/basics/multicloud). Solutions and implementations are out there then, but what is the problem that we're solving and why would we bother?
 
-## Why Multicloud?
+## Why Multi-cloud?
 
 <img src="{{site.baseurl}}/dogle/assets/multicloud/pota.jpg" alt="Planet Of The Apes final scene" title="You blew it up! Damn you! Goddamn you all to hell!" style="display: block; margin: 1rem auto;" />
 
-One argument is that multi-cloud deployment provides redundancy. If a cloud provider such as AWS were to go down for whatever reason we can mitigate the risk by placing some of our resources with other providers. Sounds great on the face of it, however is it really a concern? Distributing resources across multicloud is hard as a rule, that's why companies such as DataStax provide solutions to help. Vendors such as AWS go out of their way to make sure it's easy to keep everything in their cloud and it's not a common use case to split across multiple clouds so there is not much documentation out there. Add to that providers like AWS are huge, if you've followed best practice and built in redundancy into your resources across multiple regions and availability zones the odds of the whole thing going down are incredibly small and if it did happen for whatever reason it's more than likely most other things would be down as well and you would have bigger issues.
-So it seems overall there isn't much value right now in distributing over multiple clouds from a redundancy perspective. It's super hard, and the use-case for needing it is super unlikely. There are however other reasons to think about multicloud, namely vendor lock-in.
+One argument is that multi-cloud deployment provides redundancy. If a cloud provider such as AWS were to go down for whatever reason we can mitigate the risk by placing some of our resources with other providers. Sounds great on the face of it, however is it really a concern? Distributing resources across multi-cloud is hard as a rule, that's why companies such as DataStax provide solutions to help. Vendors such as AWS go out of their way to make sure it's easy to keep everything in their cloud and it's not a common use case to split across multiple clouds so there is not much documentation out there. Add to that providers like AWS are huge, if you've followed best practice and built in redundancy into your resources across multiple regions and availability zones the odds of the whole thing going down are incredibly small and if it did happen for whatever reason it's more than likely most other things would be down as well and you would have bigger issues.
+So it seems overall there isn't much value right now in distributing over multiple clouds from a redundancy perspective. It's super hard, and the use-case for needing it is super unlikely. There are however other reasons to think about multi-cloud, namely vendor lock-in.
 
 ## Vendor Lock-in
 
