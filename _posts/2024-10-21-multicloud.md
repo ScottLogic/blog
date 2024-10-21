@@ -9,6 +9,7 @@ summary: Cloud computing is a major part of modern day software development. Big
   I'll take a look at the concept of the multi-cloud and ask if it's something we
   should consider more often when designing software solutions.
 author: dogle
+image: "/uploads/Into%20the%20multi-cloud.png"
 ---
 
 ## Introducing, the Multi-cloud
