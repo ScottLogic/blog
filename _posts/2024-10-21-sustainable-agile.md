@@ -1,6 +1,6 @@
 ---
 title: 'Sustainability in Agile: How Scrum Roles Can Drive Greener Practices'
-date: 2024-10-21 11:00:00 Z
+date: 2024-10-21 00:00:00 Z
 categories:
 - Sustainability
 tags:
