@@ -1,8 +1,8 @@
 ---
 title: Building an Assignment Algorithm - Episode 3 / 3
-date: 2024-08-16 9:22:00 Z
+date: 2024-08-16 9:30:00 Z
 categories:
-- Algorithms
+- Tech
 tags:
 - Algorithms
 summary: How we built an assignment algorithm, the third and final blog in the series.
@@ -106,7 +106,7 @@ You can find a flowchart with more detail below:
 <div style="position: relative; width: 100%; height: 0; padding-top: 120.0000%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
  border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+  <iframe title="Flowchart representing the entire algorithm" loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
     src="https://www.canva.com/design/DAGUMczeZ0g/zzjhOfeMNDN88TuDguYPyg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
   </iframe>
 </div>
