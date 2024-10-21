@@ -84,7 +84,7 @@ T1 has a maximum capacity of 3 attendees, the other two talks have a maximum cap
 
 Each attendee makes an ordered list of the talks. For example Anakin’s first choice is “Parenting 101”, his second choice is “The Dark Side of Work-Life Balance” and third choice is “Lightsaber Practise and Etiquette”. We can represent this as [1st: T3, 2nd: T1, 3rd: T2], or even more simply [3,1,2]. If we do the same for the other attendees, we have:
 
-<center> A - [3,1,2] B - [1,3,2] C - [1,2,3] D - [1,3,2] E - [3,1,2]</center>
+<div style="text-align: center;"> A - [3,1,2] B - [1,3,2] C - [1,2,3] D - [1,3,2] E - [3,1,2]</div>
 <br>
 ![fig1: The attendees with their different choices]({{ site.github.url }}/jwarren/assets/assignment-algorithm-1/characterChoices.png)
 *fig1: the attendees choices represented graphically.*
@@ -118,7 +118,7 @@ A choice is cemented if at that stage, every group can accept the top attendee. 
 <div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
  border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+  <iframe title="First example, sorting by choice" loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
     src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGNXzlAgEI&#x2F;AbkC2uJ3dy-q513EnbhUuA&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
   </iframe>
 </div>
@@ -132,7 +132,7 @@ Essentially we are thinking ahead by saying people who have a very popular secon
 <div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
  border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+  <iframe title="Second example, sorting by surplus difference" loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
     src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGNXzlAgEI&#x2F;AbkC2uJ3dy-q513EnbhUuA&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
   </iframe>
 </div>
