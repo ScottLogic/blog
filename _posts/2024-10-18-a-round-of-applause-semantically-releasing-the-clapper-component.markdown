@@ -16,6 +16,7 @@ summary: Using semantic-release to publish an npm package with provenance, via a
   workflow... Almost too easy! A decidedly non-epic journey that began with accessibility
   improvements to our applause button.
 author: cwilton
+image: "/uploads/Semantically%20realeasing%20the%20clapper%20component.png"
 ---
 
 You may not have noticed a small change to our blog posts this week, but it's a significant one for inclusivity. Recently I noticed that our [applause button](https://www.npmjs.com/package/applause-button) component, which allows readers to show their appreciation for a blog post by giving it a clap, was only accessible by mouse, not by keyboard 🫣 
