@@ -10,7 +10,7 @@ summary: A look at how agile practices can be used to drive sustainable software
   with a focus on how each role can contribute to lowering their product's carbon
   emissions.
 author: jcamilleri
-image: ''
+image: "/uploads/Sustainability%20in%20Agile.png"
 ---
 
 # Introduction
