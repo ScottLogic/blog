@@ -6,11 +6,13 @@ categories:
 tags:
 - Sustainability
 - Agile
-summary: A look at how agile practices can be used to drive sustainable software development 
- with a focus on how each role can contribute to lowering their product's carbon emissions.
+summary: A look at how agile practices can be used to drive sustainable software development
+  with a focus on how each role can contribute to lowering their product's carbon
+  emissions.
 author: jcamilleri
-image: ""
+image: ''
 ---
+
 # Introduction
 
 The intersection of sustainability and software development is gaining attention, with increasing awareness of the environmental impact of IT practices. A recent blog by [Pini Reznik](https://blog.re-cinq.com/posts/enviromental-cost-of-agile/) discusses the environmental impact of Agile software development, highlighting how its emphasis on speed and adaptability often leads to resource waste, particularly in cloud computing. Essentially, we have a tendency to want to ship as early as possible without optimising the product. This leads to requiring more hardware resources to run and thus higher running costs and carbon emissions.
