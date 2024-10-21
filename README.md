@@ -1,51 +1,84 @@
 # Scott Logic Blogs
 
-See below for technical details of the blog creation stack and, 
-e.g., instructions on how to install and run the blog site locally.
+If you are looking to write a blog post, then you don't _need_ to read any further, as you can author posts using
+SiteLeaf: see our [company intranet][confluence-getting-started] for instructions on how to create a new page and view
+it before publication on the blog.
 
-Note that if you're looking to **author a blog post**, then you don't need to read any further!
-Instead, please see our [company extranet][confluence-getting-started]
-for instructions on how to create a new page and view it before publication on the blog.
+The below instructions allow more control over the process, though they do require a smidgen of git knowledge and a
+GitHub account.
 
 ## Technical Stack
 
 The blog is a static website, designed to be hosted on [GitHub pages][github-pages].
 
-The underlying content is generated through a series of Ruby gems and libraries, starting with a dedicated github-pages [gem][ruby-github-pages].
+The underlying content is generated through a series of Ruby gems and libraries, starting with a dedicated github-pages
+[gem][ruby-github-pages].
 
 Within that stack, [Jekyll][jekyll-docs] is used as the static content generation engine,
 consuming template files written in either **HTML** or **Markdown** (syntax extended by [Kramdown][kramdown-syntax]).
-
 Common content or structure can be further injected or managed using the [Liquid][ruby-liquid] templating language.
 
-## Cloning the repository
+## Authoring
 
-_[Sparse checkout][sparse-checkout-guide] requires Git 2.25.0_
+To write a blog post, it is recommended to fork the repo, then perform a sparse checkout that excludes all previous
+posts and all authors other than yourself. This will result in the quickest build.
 
-_Ensure that that your [SSH configuration][github-ssh] will also let you connect to [private GitHub repositories][github-ssh-multiple-accounts]._
+The alternative is to perform a full checkout and build all posts (more than 15 years' worth!) which can take five
+minutes or more to complete. If you are working on technical issues or improvements, then you may need some blog posts
+to see the result of your changes; in this case, there is little alternative but to perform a full checkout.
 
-If you wish to develop changes to the blog locally, you may find that there's a lot of content, and prefer just to download the bits you need.
+### Fork the repository
+
+At the top of the [ScottLogic blog GitHub repo][scottlogic-blog-repo] you will find the "fork" button. You
+will need to be logged into your GitHub account first, then clicking the button will generate your own fork and navigate
+to the resulting fork. Then click the <code style="white-space: nowrap">&lt;&gt; Code</code> button at the top to see
+your clone options; HTTPS clone is the simplest. Copy the URL, then:
 
 ```shell
-# see comment above about configuring SSH, and modify the clone URL accordingly to use the correct SSH identity
-# you may also consider forking the blog repository, and cloning your personal fork instead
-git clone --depth 1 --filter=blob:none --no-checkout git@github.com:ScottLogic/blog.git
+# Clone your fork without checking anything out:
+git clone --depth 1 --filter=blob:none --no-checkout YOUR-REPO-URL-HERE
 cd blog
-git sparse-checkout init --cone
-# if you want to write blog posts, modify this variable with the author name you
-# wish to write posts under (typically derived from your SL email address)
-AUTHOR='abirch'
-git sparse-checkout set _includes _layouts _data category scripts scss assets "$AUTHOR"
+
+# Optional: tell sparse checkout what to include (excludes _posts by default).
+# Use your Scott Logic username in the below command:
+git sparse-checkout set _data _includes _layouts assets category scripts scss shell YOUR-SL-USERNAME-HERE
 git checkout gh-pages
 ```
 
-This gets the repository down to ~8MB and ~150 files (whereas checking out all authors' posts would take hundreds of megabytes).
+### First-time authors
 
-## Run local copy of blog (for blog devs only)
+If this is your first post, you'll need to set yourself up as an author. For this, you will need a directory in the repo
+root named after your Scott Logic username. Within this you will need a set of files: `atom.xml`, `feed.xml`,
+`index.html`, and an image file of yourself. Just copy an existing author's files and modify their contents: it should
+be obvious what needs changing. Then add yourself to `_data/authors.yml`, again using an existing author as a template.
+You will need to add
 
-__NOTE__: Instructions are work in progress.
+- an entry under `authors`
+- your username under `active-authors`
 
-If you plan to use Docker, then you can [skip ahead][install-docker] now!
+Finally, if you performed a _sparse checkout_ as recommended, you will need to add directory `_posts` in the root of
+your local copy.
+
+### Adding a new post
+
+Below is a summary for getting started; for more comprehensive instructions on authoring posts, including markdown
+syntax and linking to images, see the pages on our [company intranet][confluence-getting-started].
+
+Within the `_posts` directory, add a markdown file for your new post, named with date and title similar to existing
+posts, e.g. `2024-10-31-Your-snappy-post-title.md`. Copy the headers from a recent post, and modify the values for
+yours. You may add as many tags (keywords) as you like, but a maximum of two Categories; see `_data/categories.yml` for
+our current categories.
+
+Note that Jekyll will not display your post unless the header date is in the past, so if you do not see your post when
+running locally, check the date (and time) first. As you can probably guess, this is how you can set a "Go Live" date
+in the future, if you don't want your post to appear immediately.
+
+Once you have your skeleton file in place, you can run the blog and start writing. Saving changes should trigger a
+rebuild.
+
+### Run the blog locally
+
+By far the easiest route is to use Docker: if you have it installed, you can [skip ahead][run-docker] now!
 
 The blog consists of static HTML pages with content generated using:
 - [github-pages][ruby-github-pages] for deployment hooks
@@ -62,8 +95,6 @@ given that the project contains a valid [Gemfile][project-gemfile],
 then using Bundler should bring in most of the dependencies automatically.
 However, due to Nokogiri's reliance on Native XML parsers you may require additional steps.
 Thorough instructions for setting up your development environment are detailed below.
-
-### Native environment
 
 #### Prerequisites
 
@@ -89,7 +120,7 @@ sudo gem update
 sudo gem install jekyll bundler nokogiri
 ```
 
-On Windows, in a PowerShell instance with elevated priveleges:
+On Windows, in a PowerShell instance with elevated privileges:
 
 ```shell
 gem update
@@ -118,7 +149,7 @@ bundle exec jekyll serve
 
 The blog will then be available on [localhost][localhost].
 
-If you need to re-compile the scripts or SCSS, you can use the NPM scripts.
+If you are working on fixes or new features, and need to re-compile the scripts or SCSS, you can use these npm scripts:
 
 ```shell
 npm ci
@@ -126,19 +157,20 @@ npm run scripts
 npm run style
 ```
 
-### Docker
+### Running with Docker
 
 Use a bash-compatible shell; Git bash on Windows should work fine.
 
-**Install gem dependencies**
+#### Install gem dependencies
 
-First, we output gem dependencies to directory `container_gem_cache` on the host machine:
+First, we output gem dependencies to directory `container_gem_cache` on the host machine. This is analogous to running
+"npm install" for an npm package:
 
 ```shell
 ./shell/docker-gem-install.sh
 ```
 
-**Run dev watch**
+#### Run in watch mode
 
 Now we can serve the blog with live reloading. Replace "jbloggs" with your ScottLogic username:
 
@@ -146,10 +178,11 @@ Now we can serve the blog with live reloading. Replace "jbloggs" with your Scott
 BLOG_USERNAME=jbloggs ./shell/docker-dev-watch.sh
 ```
 
-It'll take a while to build first time (up to 5 minutes), and you'll likely see a fair few warnings in the terminal for
-older posts, but once it's done you should see message "done in XXX.YYY seconds".
+It'll take a while to build first time, but once it's done you should see message "done in XXX.YYY seconds".
+Then you can navigate to [localhost][localhost] in your browser.
 
-Navigate to [localhost][localhost] in your browser.
+Note that if you performed a _sparse checkout_ as recommended, and if this is your first post, then you won't see any
+blog posts when the site loads unless you've already added a file for your new blog post.
 
 ## CI/CD
 
@@ -189,11 +222,10 @@ changes. This workflow runs only on a manual dispatch on the `gh-pages` branch.
 [calibreapp-image-actions]: https://github.com/calibreapp/image-actions
 [confluence-getting-started]: https://scottlogic.atlassian.net/wiki/spaces/INT/pages/3577479175/Getting+started+with+the+Scott+Logic+blog
 [sparse-checkout-guide]: https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/#sparse-checkout-and-partial-clones
-[github-ssh]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
-[github-ssh-multiple-accounts]: https://gist.github.com/oanhnn/80a89405ab9023894df7
 
 [github-pages]: https://pages.github.com/
 [github-pages-docs]: https://docs.github.com/en/pages
+[run-docker]: #running-with-docker
 [jekyll-docs]: https://jekyllrb.com/docs/
 [kramdown-syntax]: https://kramdown.gettalong.org/syntax.html
 [localhost]: http://localhost:4000
@@ -205,6 +237,5 @@ changes. This workflow runs only on a manual dispatch on the `gh-pages` branch.
 [ruby-liquid]: https://shopify.github.io/liquid/
 [ruby-downloads]: https://www.ruby-lang.org/en/downloads/
 [pa11y-ci]: https://github.com/pa11y/pa11y-ci
-[project-gemfile]: Gemfile
-[install-docker]: #docker
-
+[project-gemfile]: ./Gemfile
+[scottlogic-blog-repo]: https://github.com/ScottLogic/blog
