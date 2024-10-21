@@ -2,7 +2,7 @@
 title: Building an Assignment Algorithm - Episode 1 / 3
 date: 2024-10-21 9:30:00 Z
 categories:
-- Algorithms
+- Tech
 tags:
 - Algorithms
 summary: How we built an assignment algorithm, the first blog in a series of 3.
