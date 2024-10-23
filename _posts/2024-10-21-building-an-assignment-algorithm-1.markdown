@@ -33,7 +33,6 @@ author: jwarren
         border-top: 1px solid #ccc;
         margin-top: 1em;
     }
-
     details[open]::after {
         content: '';
         display: block;
@@ -41,11 +40,8 @@ author: jwarren
         margin-top: 1em;
         margin-bottom: 1em;
     }
-        details {
-        font-size: 0.9em;
-    }
-
 </style>
+
 <!-- MathJax the maths equations -->
 <script type="text/javascript" async
  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -64,6 +60,7 @@ The conference would be split into time slots where multiple talks take place in
 4. Account for talks repeated in different slots (if they were believed in advance to be popular). i.e. Attendees shouldn’t be given the same talk twice.
 
 ## Genesis: a single time slot
+
 We began by isolating the problem of how to assign talks for just one time slot, which  is a set of concurrent talks. However before we get bogged down in technical details, let's start with an example. 
 
 An intergalactic 3-talk conference for universal problems has 5 attendees:
@@ -87,9 +84,7 @@ Each attendee makes an ordered list of the talks. For example Anakin’s first c
 <div style="text-align: center;"> A - [3,1,2] B - [1,3,2] C - [1,2,3] D - [1,3,2] E - [3,1,2]</div>
 <br>
 ![fig1: The attendees with their different choices]({{ site.github.url }}/jwarren/assets/assignment-algorithm-1/characterChoices.png)
-*fig1: the attendees choices represented graphically.*
-
-You can see this information explained in fig1.
+*fig1: the attendees' choices represented graphically.*
 
 ## Basic solution
 
@@ -115,6 +110,7 @@ We can solve one problem by making sure people who don’t get their first choic
 A choice is cemented if at that stage, every group can accept the top attendee. i.e. The group is not full. (As the diagram will show). Here’s an example of this in practice.
 
 ### Sort by choice example
+
 <div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
  border-radius: 8px; will-change: transform;">
@@ -129,6 +125,7 @@ But how can we capture this in a rule? Chewbacca’s second choice (T2, Health a
 Essentially we are thinking ahead by saying people who have a very popular second choice will be more likely to get their first choice. Let’s look at another example with this factored in.
 
 ### Sort by surplus difference example
+
 <div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
  border-radius: 8px; will-change: transform;">
@@ -139,6 +136,7 @@ Essentially we are thinking ahead by saying people who have a very popular secon
 
 It works! Balance in the force has been restored. 
 Sorting by choice (first, second or third) is a way of avoiding a further need to compromise in the immediate present. It is a short term consideration. However, as we saw, only taking this short-term idea into account may not lead to a better outcome. For this reason, we introduced an ordering by surplus difference. Ordering by surplus difference is essentially looking ahead and avoiding attendees having to compromise in the future. In the context of a single time slot, it is a (relatively) long term consideration. Taking both the short term and the long term considerations into account requires a balance as they need to be ordered simultaneously. 
+
 <details><summary>If you would like to know how we calculated these values, click the 'more' button for more details</summary>
 Surplus difference is calculated by finding the difference between the room surplus of the current choice and the room surplus of their next unassigned choice. Room surplus is calculated as follows:
 <br>
@@ -170,7 +168,9 @@ To account for the attendee choice, surplus difference would be multiplied by a 
 \[\text{current group weighting} = 2 - \frac{1}{\text{choice for their current group}}\]
 The weight gives more emphasis to the surplus difference if a user’s current group is their second choice, over whether a user is in their 1st choice. The formula given is if the user is on their first choice, the weight will be \(1\), if the user is on their 2nd choice, the weight will be \(1.5\) and if the user is on their 3rd choice, the weight will be \( 1.\dot{6} \). The thought behind this was that though the “felt“ difference for the first few choices would be important to the user, the remaining choices would be marginally worse but have diminishing importance between them.
 </details>
+
 <br>
 
-### What's next? 
+### What's next?
+
 So you may be wondering, how do we define and measure compromise? And how can we do this over the course of multiple slots? These are good questions and will be answered in the next blog in the series. We’ll also get into the nitty gritty of the maths behind it all. Stay tuned!
