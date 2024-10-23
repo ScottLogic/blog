@@ -65,11 +65,11 @@ We began by isolating the problem of how to assign talks for just one time slot,
 
 An intergalactic 3-talk conference for universal problems has 5 attendees:
 
-A. Anakin
-B. Boba fett
-C. Chewbacca
-D. Darth Maul
-E. Emperor Palpatine
+- **A**nakin
+- **B**oba fett
+- **C**hewbacca
+- **D**arth Maul
+- **E**mperor Palpatine
 
 The three talks run concurrently (denoted T1, T2, T3):
 
@@ -81,7 +81,7 @@ T1 has a maximum capacity of 3 attendees, the other two talks have a maximum cap
 
 Each attendee makes an ordered list of the talks. For example Anakin’s first choice is “Parenting 101”, his second choice is “The Dark Side of Work-Life Balance” and third choice is “Lightsaber Practise and Etiquette”. We can represent this as [1st: T3, 2nd: T1, 3rd: T2], or even more simply [3,1,2]. If we do the same for the other attendees, we have:
 
-<div style="text-align: center;"> A - [3,1,2] B - [1,3,2] C - [1,2,3] D - [1,3,2] E - [3,1,2]</div>
+<div style="text-align: center;"> A [3,1,2] | B [1,3,2] | C [1,2,3] <br> D [1,3,2] | E [3,1,2]</div>
 <br>
 ![fig1: The attendees with their different choices]({{ site.github.url }}/jwarren/assets/assignment-algorithm-1/characterChoices.png)
 *fig1: the attendees' choices represented graphically.*
@@ -165,7 +165,10 @@ Surplus difference is calculated by finding the difference between the room surp
 </table>
 
 To account for the attendee choice, surplus difference would be multiplied by a weight, defined as so:
-\[\text{current group weighting} = 2 - \frac{1}{\text{choice for their current group}}\]
+\[\text{w} = 2 - \frac{1}{c}\]
+Where 
+\[w=\text{current group weighting}\]
+\[c=\text{choice for their current group}\]
 The weight gives more emphasis to the surplus difference if a user’s current group is their second choice, over whether a user is in their 1st choice. The formula given is if the user is on their first choice, the weight will be \(1\), if the user is on their 2nd choice, the weight will be \(1.5\) and if the user is on their 3rd choice, the weight will be \( 1.\dot{6} \). The thought behind this was that though the “felt“ difference for the first few choices would be important to the user, the remaining choices would be marginally worse but have diminishing importance between them.
 </details>
 
