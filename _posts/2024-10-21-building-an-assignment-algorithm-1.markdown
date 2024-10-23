@@ -73,15 +73,15 @@ An intergalactic 3-talk conference for universal problems has 5 attendees:
 
 The three talks run concurrently (denoted T1, T2, T3):
 
- - The Dark Side of Work-Life Balance: Avoiding Burnout in the Empire (T1)
- - Lightsaber Practise and Etiquette: Health and safety in the workplace (T2)
- - Parenting 101: how to tell a son that you’re his father (T3)
+ - T1: The Dark Side of Work-Life Balance: Avoiding Burnout in the Empire
+ - T2: Lightsaber Practise and Etiquette: Health and safety in the workplace
+ - T3: Parenting 101: how to tell a son that you’re his father
 
 T1 has a maximum capacity of 3 attendees, the other two talks have a maximum capacity of 1.
 
 Each attendee makes an ordered list of the talks. For example Anakin’s first choice is “Parenting 101”, his second choice is “The Dark Side of Work-Life Balance” and third choice is “Lightsaber Practise and Etiquette”. We can represent this as [1st: T3, 2nd: T1, 3rd: T2], or even more simply [3,1,2]. If we do the same for the other attendees, we have:
 
-<div style="text-align: center;"> A [3,1,2] | B [1,3,2] | C [1,2,3] <br> D [1,3,2] | E [3,1,2]</div>
+<div style="text-align: center;"> A [3,1,2] &emsp;|&emsp; B [1,3,2] &emsp;|&emsp; C [1,2,3] <br> D [1,3,2] &emsp;|&emsp; E [3,1,2]</div>
 <br>
 ![fig1: The attendees with their different choices]({{ site.github.url }}/jwarren/assets/assignment-algorithm-1/characterChoices.png)
 *fig1: the attendees' choices represented graphically.*
@@ -98,11 +98,11 @@ Let’s begin with a simple solution. We go through the list of attendees alphab
 
 In summary:
 
-1. A - T3 (1st)
-2. B - T1 (1st)
-3. C - T1 (1st)
-4. D - T1 full, gets 2nd choice T3
-5. E - T3 full, 2nd choice T3 full, 3rd choice T2
+1. A - <u>T3</u> (1st)
+2. B - <u>T1</u> (1st)
+3. C - <u>T1</u> (1st)
+4. D - T1 full, gets 2nd choice <u>T3</u>
+5. E - T3 full, 2nd choice T3 full, gets 3rd choice <u>T2</u>
 
 A second choice and a third choice is not ideal among 5 attendees. Of course the ordering here is contrived, but how would we process the assignments for an optimal result, no matter the situation?
 
