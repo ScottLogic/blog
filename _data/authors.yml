@@ -126,6 +126,7 @@ active-authors:
   - sbreingan
   - sburnstone
   - sconway
+  - sdewar
   - sforeshew-cain
   - sgladstone
   - shamiltonritchie
@@ -818,6 +819,10 @@ authors:
     twitter-url: "https://twitter.com/iwantmyrealname"
     twitter-handle: iwantmyrealname
     google-plus-url: "https://plus.google.com/+SamDavies_ActuallyMyRealName"
+    picture: picture.jpg
+  sdewar:
+    name: "Stuart Dewar"
+    author-summary: "Senior Test Engineer based in Edinburgh with a keen interest on automation and technical areas of testing. When i'm not testing you'll find me on the golf course testing my own patience and sanity."
     picture: picture.jpg
   sduncan:
     name: "Simon Duncan"
