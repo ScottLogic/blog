@@ -137,6 +137,7 @@ active-authors:
   - smartin
   - smendis-scottlogic
   - snandal
+  - srowan
   - ssibanda
   - swoods
   - tclarke-scottlogic
@@ -1535,3 +1536,8 @@ authors:
     email: rvgoethem@scottlogic.com
     author-summary: "I am a Lead Dev in the Edinburgh office. I take ideas, add a dash of design, a sprinkle of code, et voilà!"
     picture: picture.png
+  srowan:
+    name: "Scott Rowan"
+    author-summary: "Senior Developer based in Glasgow. Background in physics and cybersecurity, but now work predominately in financial technologies. Of all things software, I have a particular interest in large-scale distributed systems and the infrastructure challenges that arise as a result."
+    email: srowan@scottlogic.com
+    picture: picture.jpg
