@@ -54,29 +54,29 @@ Our delivery managers focus on creating an environment of mutual trust and psych
 
 * provide channels for regular feedback on team and individual performance.
 
-# 3) Agile by default, pragmatic by nature
+## 3) Agile by default, pragmatic by nature
 
 We favour an agile approach to our engagements, adopting iterative planning, development and review cycles to provide transparency and rapid feedback on progress.
 
 It is our experience that agile methodologies foster better collaboration, bringing cross-functional team members together in close partnership with our clients to prioritise the flow of value. This is especially true where requirements are not fully known and the path to reaching the end goal is still unclear. Taking an exploratory, "inspect and adapt" approach allows for early course correction and the ability to respond to change, steering the project towards the desired business outcomes.
 
-We recognise that businesses also need a plan! We are adept at reconciling agile approaches with planning and budgeting cycles using approaches such as rolling wave or quarterly planning to cater for different planning horizons, whether in feature- or project-driven environments.
+We recognise that you also need a plan! We are adept at reconciling agile approaches with planning and budgeting cycles using approaches such as rolling wave or quarterly planning to cater for different planning horizons, whether in feature- or project-driven environments.
 
 Where necessary, we take a pragmatic approach to scaling agile teams, preferring light-touch coordination and dependency management over heavily process-driven frameworks.
 
-# 4) A healthy attitude to risk
+## 4) A healthy attitude to risk
 
-We know our clients don’t like surprises – at least not of the negative variety! We involve the whole team in identifying risks, assumptions, issues and dependencies (RAID items) and we review these regularly with key stakeholders to ensure they are well understood and carefully managed. We record key decisions so that we have a clear record of how and why we arrived at a given conclusion and its expected impact.
+We know our clients don’t like surprises – at least not of the negative variety! We involve the whole team in identifying risks, assumptions, issues and dependencies (RAID items) and we review these regularly with you to ensure they are well understood and carefully managed. We record key decisions so that we have a clear record of how and why we arrived at a given conclusion and its expected impact.
 
 We use techniques like project pre-mortems and risk workshops to get everyone thinking about what could go wrong and ways to avoid or mitigate those challenges. These exercises can also identify opportunities that add value for the business or end user.
 
 We intentionally plan activities such as spikes (small investigations or experiments) to validate assumptions, reduce the likelihood or impact of risks, and – where possible – decouple dependencies.
 
-# 5) Effective monitoring and control
+## 5) Effective monitoring and control
 
-Our delivery approach is designed to provide assurance to our clients that projects are well-managed and on track to deliver the agreed outcomes on time and on budget. We strive to create an environment of transparency and trust so that, should things not go to plan, we can have open and honest conversations that lead to a mutually agreed plan of action.
+Our delivery approach is designed to provide assurance to our clients that projects are well-managed and on track to deliver the agreed outcomes on time and on budget. We strive to create an environment of transparency and trust so that, should things not go to plan, we can have open and honest conversations with you, leading to a mutually agreed plan of action.
 
-To ensure good project oversight, we work with our clients to establish and maintain:
+To ensure good project oversight, we work with you to establish and maintain:
 
 * A shared understanding of the scope of the work, including mechanisms for prioritising work and adapting to change, a plan to deliver the agreed outcomes, and our progress against that plan.
 
