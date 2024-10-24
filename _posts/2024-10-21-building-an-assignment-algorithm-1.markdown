@@ -165,7 +165,7 @@ Surplus difference is calculated by finding the difference between the room surp
 </table>
 
 To account for the attendee choice, surplus difference would be multiplied by a weight, defined as so:
-\[\text{w} = 2 - \frac{1}{c}\]
+\[w = 2 - \frac{1}{c}\]
 Where 
 \[w=\text{current group weighting}\]
 \[c=\text{choice for their current group}\]
