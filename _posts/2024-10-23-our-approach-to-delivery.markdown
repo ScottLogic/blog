@@ -12,7 +12,7 @@ summary: There is no one-size-fits-all approach to delivery. Here we describe th
   grounding principles and behaviours that enable us to deliver excellent results
   for our clients with a reassuringly human touch.
 author: jwalledge
-image: "/uploads/Our%20approach%20to%20Delivery.png"
+image: "/uploads/Our%20approach%20to%20delivery-9855f2.png"
 ---
 
 In the second in our series of blogs setting out how we work with our clients, we discuss our approach to Delivery. You can [read about our approach to Architecture here](https://blog.scottlogic.com/2024/10/15/our-approach-to-architecture.html).
