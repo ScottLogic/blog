@@ -6,15 +6,15 @@ categories:
 - Open Source
 tags:
 - featured
-author: phughes
-summary: In this online event, we brought together an expert panel from Ofgem, Northren
+summary: In this online event, we brought together an expert panel from Ofgem, Northern
   Powergrid and NatWest Group to explore the challenges and opportunities ahead for
   the energy industry, and the practical lessons that can be gained from a global
   corporate that has been on the same journey and is now leading the way into the
   retail banking world of tomorrow.
-layout: video_post
+author: phughes
 video_url: https://www.youtube.com/embed/QPIRG9HfAT8
 short-author-aside: true
+layout: video_post
 ---
 
 The global energy transition is well underway and the new licence directions relating to digitalisation and Open Data require a significant transformation in the UK power sector.
