@@ -17,7 +17,7 @@ author: sdewar
 # Introduction
 Karate is an automation framework designed to make automation testing easy, super readable and more reliable than other 
 offerings in the open source space - don't even ask me how many times I've been bitten by Selenium's reluctance to play 
-nice with UI elements.
+nice with UI elements or been snowed under trying to get my head around a complex multi-util, multi file test scenario.
 
 Karate is essentially a Gherkin-like programming language, with the ability to use Java & JavaScript almost seamlessly
 in order to handle more complex and unique functionality should you require it. It's primarily an API Automation
@@ -34,10 +34,11 @@ implementing the step-definitions correctly, which means higher time investment 
 background. 
 
 Karate lets us use keywords straight out the box, no need for step-definitions & no need for code, everything is
-already there hidden away, we really don't need to dive any deeper in order to get testing our services.
+already there hidden away, we really don't need to dive any deeper into the technical behind-the-scenes implementation 
+in order to get testing our services.
 
 Let's take a look - say we want to send a request to an endpoint to list users (we'll use [reqres](https://reqres.in/) 
-for this):
+for the examples in this Blog):
 
 ~~~karate
 Feature: 'users' endpoint Scenarios
@@ -103,7 +104,7 @@ Obviously once our Test Suite grows arms and legs, we don't want to authenticate
 for large complex test flows that are happy with the same authorization token - enter `callSingle`. 
 
 Karate allows us to move any piece of commonly used functionality out into a Feature File that can be "called" (via 
-`call`, `call once` or `callSingle`). Here, we can move the authentication request into a callSingle call and put it
+`call`, `call once` or `callSingle`). Here, we can move the authentication request into a `callSingle` call and put it
 into the Background. Usually, all code within the `Background` is executed for every Scenario in that Feature File, but
 in the case of `callSingle`, we only run it once across **all** Features that make the same call.
 
@@ -130,7 +131,8 @@ Scenario: Given we send a request to the 'users' endpoint, a 200 response is ret
 
 Now we can have a series of requests and scenarios that only authenticate once - we've also configured our 
 `callSingleCache` to refresh every 4 minutes to avoid tokens reaching their expiry. This will not only speed up 
-execution but also improve test readability so that it's even clearer on what our Scenarios are testing.
+execution but also improve test readability since our Scenarios are even more straight to the point on what they are 
+testing.
 
 I previously mentioned we also have `call` & `callOnce`, with their main purpose to facilitate code re-use. These can be
 used similarly to `callSingle`, with `call` happening for every Scenario inside your Feature and `callOnce` only once
@@ -139,9 +141,11 @@ the waters of a Scenario that you can just move out into another file and replac
 
 Within the world of development, we try to re-use code as much as possible - but within test automation this can
 seriously hamper test readability and time spent understanding, debugging & fixing your tests. Tests should be clear
-on what they are testing and if that means we have to re-use code then I think that's absolutely fine.
+on what they are testing and if that means we have to re-use code then I think that's absolutely fine. In my experience 
+of using Karate, I feel that it provides a really nice middle-ground that empowers the tester to make the decision on 
+how readable their test scenarios are.
 
-## Hybrid Scenarios
+## Hybrid Scenarios (+ a sneak peek into Karate UI Automation)
 Let's now touch on Hybrid Scenarios briefly. So far everything has been API focussed, but I want to show how we can
 easily incorporate a simple UI test alongside API calls. 
 
@@ -167,6 +171,8 @@ Scenario: Given we create a User, we can successfully login via the UI
 
     # Update baseUrl to the UI
     * baseUrl 'https://reqres.in/ui'
+  
+    # This doesn't actually exist, but used just as an example
     Given driver `${baseUrl}/login`
     And waitFor(usernameLocator).input('sdewar@scottlogic.com')
     And waitFor(passwordLocator).input('test123')
@@ -193,8 +199,7 @@ Background:
   # Tell Karate that this is our "base url" for all Scenarios in this Feature File
   * baseUrl 'https://reqres.in/api'
     
-Scenario Outline: Given we send a <Scenario> username & password combination, the 'register' endpoint returns a 
-    <Status>
+Scenario Outline: Given we send a <Scenario> username & password combination, the 'register' endpoint returns a <Status>
     Given path 'register'
     And request { username: '< Username >', password: '< Password >' }
     When method POST
@@ -206,7 +211,6 @@ Examples:
 | valid    | eve.holt@reqres.in | cityslicka | 200    | { "id": #number, "token": #string } |
 | invalid  | eve.holt@reqres.in |            | 400    | { "error": "Missing password" }     |
 ~~~
-
 
 Here, we will send off a request to the `register` endpoint, with & without a password and make assertions based on
 that.  
@@ -227,7 +231,7 @@ Background:
 @setup
 Scenario:
 
-    # The background section is not execution for the "setup" part Dynamic Scenario Outlines
+    # The background section is not executed for the "setup" part Dynamic Scenario Outlines
     # So we need to re-set any variables & urls here
     * baseUrl 'https://reqres.in/api'
     Given path 'users'
@@ -244,7 +248,7 @@ Examples:
 | karate.setup().userData |
 ~~~
 
-Since we told our Outline to use the `userData` array as its data source via our `Examples` table, it will have access 
+Since we told our Scenario Outline to use the `userData` array as its data source via our `Examples` table, it will have access 
 to any key-value pair present in that array. Here's a snippet of the data array from the `users` endpoint:
 
 ~~~json
