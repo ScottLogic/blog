@@ -11,7 +11,7 @@ author: snandal
 image: "/uploads/Evolving%20with%20AI%20From%20Traditional%20Testing%20to%20Model%20Evaluation%20I.png"
 ---
 
-## Understanding GenAI models
+# Understanding GenAI models
 
 Generative AI (GenAI) models are designed to create content, recognise patterns and make predictions. In addition, they have an ability to improve over time as they are exposed to more data. 
 
