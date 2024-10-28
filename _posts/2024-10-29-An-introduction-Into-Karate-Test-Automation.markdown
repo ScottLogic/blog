@@ -8,7 +8,7 @@ tags:
 - Automation
 - API
 summary: In this blog i'll introduce the Karate Test Automation Framework and talk about some of the fun and
-  interesting _features_ it provides.   
+  interesting features it provides.   
 author: sdewar
 image: ""
 ---
@@ -38,7 +38,7 @@ already there hidden away, we really don't need to dive any deeper in order to g
 Let's take a look - say we want to send a request to an endpoint to list users (we'll use [reqres](https://reqres.in/) 
 for this):
 
-<pre style="margin-inline: 0; margin-block: 1.5rem"><code>
+~~~karate
 Feature: Given we send a request to the 'users' endpoint, a 200 response is returned
 
     Background:
@@ -52,7 +52,7 @@ Feature: Given we send a request to the 'users' endpoint, a 200 response is retu
         When method GET
         Then status 200
         And match response.data[*].first_name contains "Tobias"
-</code></pre>
+~~~
 
 That's all we need - this test that will verify that the `users` endpoint returns a 200. Additionally, we run an 
 assertion on the array of users to verify that one of the `first_names` equals "Tobias" - the `[*]` means we want to 
@@ -72,7 +72,7 @@ is a time and place for it.
 Say we want to add some authentication to our request, we typically will need to get a token in which we can 
 authenticate with, save the token from the response and then add our Authorization header like so:
 
-<pre style="margin-inline: 0; margin-block: 1.5rem"><code>
+~~~karate
     Scenario: Given we send a request to the 'users' endpoint, a 200 response is returned
 
         # Send a request to the "authenticate" endpoint and store the access token locally to this Scenario only
@@ -89,7 +89,7 @@ authenticate with, save the token from the response and then add our Authorizati
         And header Authorization = `Bearer ${token}`
         When method GET
         Then status 200
-</code></pre>
+~~~
 
 Obviously once our Test Suite grows arms and legs, we don't want to authenticate for every single request, especially
 for large complex test flows that are happy with the same authorization token - enter `callSingle`. 
@@ -99,7 +99,7 @@ Karate allows us to move any piece of commonly used functionality out into a Fea
 into the Background. Usually, all code within the `Background` is executed for every Scenario in that Feature File, but
 in the case of `callSingle`, we only run it once across **all** Features that make the same call.
 
-<pre style="margin-inline: 0; margin-block: 1.5rem"><code>
+~~~karate
 Feature: Given we send a request to the 'users' endpoint, a 200 response is returned
 
     Background:
@@ -118,7 +118,7 @@ Feature: Given we send a request to the 'users' endpoint, a 200 response is retu
         And header Authorization = `Bearer ${auth.token}`
         When method GET
         Then status 200
-</code></pre>
+~~~
 
 Now we can have a series of requests and scenarios that only authenticate once - we've also configured our 
 `callSingleCache` to refresh every 4 minutes to avoid tokens reaching their expiry. This will not only speed up 
@@ -140,7 +140,7 @@ easily incorporate a simple UI test alongside API calls.
 Say we want to test logging into our application via the UI - but first we need to create our user - what would this 
 look like in terms of an actual Scenario?
 
-<pre style="margin-inline: 0; margin-block: 1.5rem"><code>
+~~~karate
 Feature: Check that we can Login using the UI
 
     Background:
@@ -164,7 +164,7 @@ Feature: Check that we can Login using the UI
         And waitFor(passwordLocator).input('test123')
         When waitFor(signInButtonLocator).click()
         Then waitForUrl(${baseUrl}/home)
-</code></pre>
+~~~
 
 Firstly, we have our API call to create the new user. We then need to tell Karate that our `baseUrl` has now changed to
 the UI one. Then we instantiate a `driver` instance, and use locators stored in a `homePagelocators.json` file in order
@@ -177,8 +177,8 @@ Lastly, I want to talk about Dynamic Scenario Outlines.
 If you're used to Cucumber then you've probably got an understanding of Scenario Outlines - they let you run through
 the exact same test steps but with your variables & data driven directly from a table, for example:
 
-<pre style="margin-inline: 0; margin-block: 1.5rem"><code>
-    Scenario Outline: Given we send a <Scenario> username & password combination, the 'register' endpoint returns a 
+~~~karate
+Scenario Outline: Given we send a <Scenario> username & password combination, the 'register' endpoint returns a 
     <Status>
         Given path 'register'
         And request { username: '< Username >', password: '< Password >' }
@@ -190,7 +190,8 @@ the exact same test steps but with your variables & data driven directly from a 
     | Scenario | Username           | Password   | Status | Response                            |
     | valid    | eve.holt@reqres.in | cityslicka | 200    | { "id": #number, "token": #string } |
     | invalid  | eve.holt@reqres.in |            | 400    | { "error": "Missing password" }     |
-</code></pre>
+~~~
+
 
 Here, we will send off a request to the `register` endpoint, with & without a password and make assertions based on
 that.  
@@ -200,7 +201,7 @@ table at run-time.
 Let's say we wanted to clean up our test environment of users. We would first want to GET a list of all users, then 
 initiate a DELETE request using the `id` of the user:
 
-<pre style="margin-inline: 0; margin-block: 1.5rem"><code>
+~~~karate
     @setup
     Scenario:
 
@@ -217,12 +218,12 @@ initiate a DELETE request using the `id` of the user:
 
     Examples: 
     | karate.setup().userData |
-</code></pre>
+~~~
 
 Since we told our Outline to use the `userData` array as its data source via our `Examples` table, it will have access 
 to any key-value pair present in that array. Here's a snippet of the data array from the `users` endpoint:
 
-<pre style="margin-inline: 0; margin-block: 1.5rem"><code>
+~~~json
 { 
     "data": [
         {
@@ -241,7 +242,7 @@ to any key-value pair present in that array. Here's a snippet of the data array 
         }
     ]
 }
-</code></pre>
+~~~
 
 This is great for running through a bulk set of tests where we don't necessarily know some vital inputs before 
 execution.
