@@ -10,6 +10,7 @@ tags:
 - Inclusion
 - Diversity
 - Global Disability Awareness Day
+- featured
 summary: In this blog post, two of our consultants share their insights from a panel
   discussion focused on enhancing the accessibility of digital products and services.
   They delve into the challenges encountered by disabled users, emphasize the significance

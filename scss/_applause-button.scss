@@ -1,27 +1,30 @@
-applause-button {
-  position: -webkit-sticky;
-  position: -moz-sticky;
-  position: -ms-sticky;
-  position: -o-sticky;
+.social applause-button {
+  display: block;
   position: sticky;
-  top: 100px;
-  width: 60px;
-  height: 60px;
+  top: 6rem;
+  width: 4rem;
+  z-index: 100; /* always on top */
 
-  .count {
-    color: inherit;
-    width: 60px !important;
+  .clap-count {
+    border-radius: 50%;
+    padding-inline: 0.5rem;
+    background-color: white;
+    font-size: 1.25rem;
+  }
+  &.clap .clap-count {
+    animation-name: hideThenShow !important;
   }
 
-  .style-root:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: " ";
-    display: block;
-    border-radius: 50%;
+  .style-root {
+    gap: 0.25rem;
+    flex-direction: column-reverse;
+  }
+
+  button.shockwave {
     background-color: white;
+
+    svg {
+      overflow: visible;
+    }
   }
 }
