@@ -15,27 +15,36 @@ image: "/uploads/Evolving%20with%20AI%20From%20Traditional%20Testing%20to%20Mode
 
 Generative AI (GenAI) models are designed to create content, recognise patterns and make predictions. In addition, they have an ability to improve over time as they are exposed to more data. 
 
-GenAI chat models, such as GPT-4 by OpenAI, can generate human-like text and other forms of content autonomously. They can produce outputs that are remarkably like human-created content, making them useful for a wide range of applications. They leverage artificial intelligence, machine learning, and natural language processing to understand, interpret and respond to user queries. 
+GenAI chat models, such as GPT-4 by OpenAI, can generate human-like text and other forms of content autonomously. They can produce outputs that are remarkably like human-created content, making them useful for a wide range of applications. They leverage artificial intelligence, machine learning and natural language processing to understand, interpret and respond to user queries. 
 
-## Two key aspects of these models are
 
-**Functionality:** Gen AI models are programmed and trained to perform a wide range of tasks, from answering FAQs to executing complex commands. These models possess natural language understanding, contextual awareness and can understand and process diverse inputs, providing relevant and accurate responses. 
+## Two key aspects of these models are:
 
-**Learning Ability:** Through machine learning algorithms, these models have ability to continuously learn from interactions and to improve their responses over time. By analysing vast amounts of data and feedback from users, the AI can refine its understanding and prediction capabilities and hence very adaptable to new patterns, trends, and user behaviours, making it more accurate, reliable, and effective in dynamic environments. 
+**Functionality:** GenAI models are programmed and trained to perform a wide range of tasks, from answering FAQs to executing complex commands. These models possess natural language understanding, contextual awareness and can understand and process diverse inputs, providing relevant and accurate responses. 
 
-This technology is revolutionising multiple industries like Healthcare, Entertainment, Marketing, Finance by enhancing creativity, productivity, and efficiency. And hence there is the need for its effective testing to ensure that these models meet the desired standards of performance and user engagement. 
+**Learning Ability:** Through machine learning algorithms, these models have ability to continuously learn from interactions and to improve their responses over time. By analysing vast amounts of data and feedback from users, AI can refine its understanding and prediction capabilities and hence very adaptable to new patterns, trends and user behaviours; making it more accurate, reliable and effective in dynamic environments. 
 
-## What all does Gen AI testing involve
 
-**Functionality Testing:** Verifying that all features of the Gen AI model under test work as intended. This includes validating input handling, output accuracy, and error handling capabilities to guarantee that the AI behaves as expected in all scenarios.
+This technology is revolutionising multiple industries like Healthcare, Entertainment, Marketing, Finance by enhancing creativity and efficiency. And hence there is the need for its effective testing to ensure that these models meet the desired standards of performance and user engagement. 
 
-**Usability Testing:** Assessing how easy and intuitive it is for users to interact with the system. This includes evaluating the user interface, navigation and overall user experience to ensure that the GenAI based application is user-friendly.
 
-**Performance Testing:** Ensuring that a substantial number of queries/inputs can be handled without degradation in performance. This type of testing measures the responsiveness, stability, and speed of the Gen AI model under various loads.
+## What all does GenAI testing involve
 
-**Security Testing:** Checking for vulnerabilities that might compromise user data or privacy. This involves a comprehensive evaluation of the AI model's security measures to protect against unauthorised access, data breaches, and other potential threats. 
+**1. Functionality Testing: Verifying that all features of the Gen AI model under test work as intended.** 
+This includes validating input handling, output accuracy and error handling capabilities to ensure that the model behaves as expected in all scenarios.
 
-**Compatibility Testing:** Making sure the system functions seamlessly across different platforms and devices. This involves testing the Gen AI model on various operating systems, browsers, and hardware configurations to ensure consistent performance and functionality.
+**2. Usability Testing: Assessing how easy and intuitive it is for users to interact with the model.** 
+This includes evaluating the user interface, navigation and overall user experience to ensure that the model is user-friendly.
+
+**3. Performance Testing: Ensuring that a substantial number of queries/inputs/prompts can be handled without degradation in performance.** 
+This includes measuring the responsiveness, stability and speed of the model under various loads.
+
+**4. Security Testing: Checking for vulnerabilities that might compromise user data or privacy.** 
+This involves a comprehensive evaluation of the model's security measures to protect against unauthorised access, data breaches and other potential threats. 
+
+**5. Compatibility Testing: Making sure that the model functions seamlessly across different platforms and devices.** 
+This involves testing the model on various devices, operating systems, browsers, hardware configurations to ensure consistent performance and functionality.
+
 
 ## Challenges in AI Chatbot Testing
 
