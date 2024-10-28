@@ -1,16 +1,17 @@
 ---
 title: 'An introduction into Karate Test Automation'
-date: 2024-10-25 12:00:00 Z
+date: 2024-10-29 12:00:00 Z
 categories:
 - Testing
 tags:
 - Testing
 - Automation
 - API
+- Open Source
+- Karate
 summary: In this blog i'll introduce the Karate Test Automation Framework and talk about some of the fun and
   interesting features it provides.   
 author: sdewar
-image: ""
 ---
 
 # Introduction
@@ -39,19 +40,19 @@ Let's take a look - say we want to send a request to an endpoint to list users (
 for this):
 
 ~~~karate
-Feature: Given we send a request to the 'users' endpoint, a 200 response is returned
+Feature: 'users' endpoint Scenarios
 
-    Background:
+Background:
 
-        # Tell Karate that this is our "base url" for all Scenarios in this Feature File
-        * baseUrl 'https://reqres.in/api'
+    # Tell Karate that this is our "base url" for all Scenarios in this Feature File
+    * baseUrl 'https://reqres.in/api'
 
-    Scenario: Given we send a request to the 'users' endpoint, a 200 response is returned
+Scenario: Given we send a request to the 'users' endpoint, a 200 response is returned
 
-        Given path 'users'
-        When method GET
-        Then status 200
-        And match response.data[*].first_name contains "Tobias"
+    Given path 'users'
+    When method GET
+    Then status 200
+    And match response.data[*].first_name contains "Tobias"
 ~~~
 
 That's all we need - this test that will verify that the `users` endpoint returns a 200. Additionally, we run an 
@@ -73,22 +74,29 @@ Say we want to add some authentication to our request, we typically will need to
 authenticate with, save the token from the response and then add our Authorization header like so:
 
 ~~~karate
-    Scenario: Given we send a request to the 'users' endpoint, a 200 response is returned
+Feature: 'users' endpoint Scenarios
 
-        # Send a request to the "authenticate" endpoint and store the access token locally to this Scenario only
-        Given path 'login'
-        And request { username: 'eve.holt@reqres.in', password: 'cityslicka' }
-        When method POST
-        Then status 200
+Background:
 
-        # Lets save our token - note how we can use * or any gherkin style keyword interchangeably
-        # 'response' is always a reference to the last response body
-        * def token = response.token
+    # Tell Karate that this is our "base url" for all Scenarios in this Feature File
+    * baseUrl 'https://reqres.in/api'
+    
+Scenario: Given we send a request to the 'users' endpoint, a 200 response is returned
 
-        Given path 'users'
-        And header Authorization = `Bearer ${token}`
-        When method GET
-        Then status 200
+    # Send a request to the "authenticate" endpoint and store the access token locally to this Scenario only
+    Given path 'login'
+    And request { username: 'eve.holt@reqres.in', password: 'cityslicka' }
+    When method POST
+    Then status 200
+
+    # Lets save our token - note how we can use * or any gherkin style keyword interchangeably
+    # 'response' is always a reference to the last response body
+    * def token = response.token
+
+    Given path 'users'
+    And header Authorization = `Bearer ${token}`
+    When method GET
+    Then status 200
 ~~~
 
 Obviously once our Test Suite grows arms and legs, we don't want to authenticate for every single request, especially
@@ -100,24 +108,24 @@ into the Background. Usually, all code within the `Background` is executed for e
 in the case of `callSingle`, we only run it once across **all** Features that make the same call.
 
 ~~~karate
-Feature: Given we send a request to the 'users' endpoint, a 200 response is returned
+Feature: 'users' endpoint Scenarios
 
-    Background:
+Background:
 
-        # Tell Karate that this is our "base url" for all Scenarios in this Feature File
-        * baseUrl 'https://reqres.in/api'
+    # Tell Karate that this is our "base url" for all Scenarios in this Feature File
+    * baseUrl 'https://reqres.in/api'
 
-        * karate.configure('callSingleCache', { minutes: 4 })
-        # AuthenticateAs.feature has our authentication request from the snippet above
-        # Any variables defined within AuthenticateAs.feature are accessible in this Feature via 'auth.variable'
-        * def auth = karate.callSingle('AutenticateAs.feature', { username: 'eve.holt@reqres.in', password: 'cityslicka' })
+    * karate.configure('callSingleCache', { minutes: 4 })
+    # AuthenticateAs.feature has our authentication request from the snippet above
+    # Any variables defined within AuthenticateAs.feature are accessible in this Feature via 'auth.variable'
+    * def auth = karate.callSingle('AutenticateAs.feature', { username: 'eve.holt@reqres.in', password: 'cityslicka' })
 
-    Scenario: Given we send a request to the 'users' endpoint, a 200 response is returned
+Scenario: Given we send a request to the 'users' endpoint, a 200 response is returned
 
-        Given path 'users'
-        And header Authorization = `Bearer ${auth.token}`
-        When method GET
-        Then status 200
+    Given path 'users'
+    And header Authorization = `Bearer ${auth.token}`
+    When method GET
+    Then status 200
 ~~~
 
 Now we can have a series of requests and scenarios that only authenticate once - we've also configured our 
@@ -143,27 +151,27 @@ look like in terms of an actual Scenario?
 ~~~karate
 Feature: Check that we can Login using the UI
 
-    Background:
+Background:
 
-        # Tell Karate that this is our "base url" for all Scenarios in this Feature File
-        * baseUrl 'https://reqres.in/api'
-            
-        * call read 'homePagelocators.json'     
+    # Tell Karate that this is our "base url" for all Scenarios in this Feature File
+    * baseUrl 'https://reqres.in/api'
+        
+    * call read 'homePagelocators.json'     
 
-    Scenario: Given we create a User, we can successfully login via the UI
+Scenario: Given we create a User, we can successfully login via the UI
 
-        Given path 'register'
-        And request { email: 'sdewar@scottlogic.com', password: 'test123' }
-        When method POST
-        Then status 200
+    Given path 'register'
+    And request { email: 'sdewar@scottlogic.com', password: 'test123' }
+    When method POST
+    Then status 200
 
-        # Update baseUrl to the UI
-        * baseUrl 'https://reqres.in/ui'
-        Given driver `${baseUrl}/login`
-        And waitFor(usernameLocator).input('sdewar@scottlogic.com')
-        And waitFor(passwordLocator).input('test123')
-        When waitFor(signInButtonLocator).click()
-        Then waitForUrl(${baseUrl}/home)
+    # Update baseUrl to the UI
+    * baseUrl 'https://reqres.in/ui'
+    Given driver `${baseUrl}/login`
+    And waitFor(usernameLocator).input('sdewar@scottlogic.com')
+    And waitFor(passwordLocator).input('test123')
+    When waitFor(signInButtonLocator).click()
+    Then waitForUrl(`${baseUrl}/home`)
 ~~~
 
 Firstly, we have our API call to create the new user. We then need to tell Karate that our `baseUrl` has now changed to
@@ -178,18 +186,25 @@ If you're used to Cucumber then you've probably got an understanding of Scenario
 the exact same test steps but with your variables & data driven directly from a table, for example:
 
 ~~~karate
+Feature: 'register' endpoint Scenarios
+  
+Background:
+
+  # Tell Karate that this is our "base url" for all Scenarios in this Feature File
+  * baseUrl 'https://reqres.in/api'
+    
 Scenario Outline: Given we send a <Scenario> username & password combination, the 'register' endpoint returns a 
     <Status>
-        Given path 'register'
-        And request { username: '< Username >', password: '< Password >' }
-        When method POST
-        Then status < Status >
-        And match response == < Response >
+    Given path 'register'
+    And request { username: '< Username >', password: '< Password >' }
+    When method POST
+    Then status < Status >
+    And match response == < Response >
 
-    Examples: 
-    | Scenario | Username           | Password   | Status | Response                            |
-    | valid    | eve.holt@reqres.in | cityslicka | 200    | { "id": #number, "token": #string } |
-    | invalid  | eve.holt@reqres.in |            | 400    | { "error": "Missing password" }     |
+Examples: 
+| Scenario | Username           | Password   | Status | Response                            |
+| valid    | eve.holt@reqres.in | cityslicka | 200    | { "id": #number, "token": #string } |
+| invalid  | eve.holt@reqres.in |            | 400    | { "error": "Missing password" }     |
 ~~~
 
 
@@ -202,22 +217,31 @@ Let's say we wanted to clean up our test environment of users. We would first wa
 initiate a DELETE request using the `id` of the user:
 
 ~~~karate
-    @setup
-    Scenario:
+Feature: Delete Users using Dynamic Scenario Outline
 
-        * baseUrl 'https://reqres.in/api'
-        Given path 'users'
-        When method GET
-        Then status 200
-        * def userData = response.data
+Background:
 
-    Scenario Outline: Delete all users by fetching the ID's from the users endpoint
-        Given path `users/${id}`
-        When method DELETE
-        Then status 204
+  # Tell Karate that this is our "base url" for all Scenarios in this Feature File
+  * baseUrl 'https://reqres.in/api'
+    
+@setup
+Scenario:
 
-    Examples: 
-    | karate.setup().userData |
+    # The background section is not execution for the "setup" part Dynamic Scenario Outlines
+    # So we need to re-set any variables & urls here
+    * baseUrl 'https://reqres.in/api'
+    Given path 'users'
+    When method GET
+    Then status 200
+    * def userData = response.data
+
+Scenario Outline: Delete all users by fetching the ID's from the users endpoint
+    Given path `users/${id}`
+    When method DELETE
+    Then status 204
+
+Examples: 
+| karate.setup().userData |
 ~~~
 
 Since we told our Outline to use the `userData` array as its data source via our `Examples` table, it will have access 
@@ -245,14 +269,17 @@ to any key-value pair present in that array. Here's a snippet of the data array 
 ~~~
 
 This is great for running through a bulk set of tests where we don't necessarily know some vital inputs before 
-execution.
+execution. There's a few others ways to do something similar in Karate, but another benefit of Dynamic Scenario Outlines
+is that Karate will still respect any parallel execution configuration, meaning we can run this across `x` threads with
+no extra config outside of the parallel runner configuration.
 
 # Conclusion
 The aim of this blog post was just to show some features of the Karate Test Framework that make API (and UI!) testing
 really easy, readable and accessible. Perhaps paving the way for a follow-up where we can dive deeper into other 
-features of the framework.
+features of the framework. 
 
 ***
+
 ## Resources
 
 The Documentation for Karate is really solid, with lots of examples and good explanations of each bit of functionality.
