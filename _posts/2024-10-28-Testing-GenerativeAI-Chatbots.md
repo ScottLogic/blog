@@ -182,26 +182,5 @@ In summary, **Botium** is a comprehensive tool that provides all the necessary f
 
 Below are some useful resources on the tool : 
 
-### [Testmybot/Botium Bindings](https://github.com/codeforequity-at/botium-bindings) 
-
-If you are looking for a simpler open-source tool to automate your chatbot testing, **[TestMyBot](https://github.com/codeforequity-at/botium-bindings)** is another option that provides tools and libraries to automate the testing of conversational bots, ensuring they function correctly and deliver a consistent user experience. **[TestMyBot](https://github.com/codeforequity-at/botium-bindings)** is built on top of **[Botium](https://cyara.com/products/botium/)**, leveraging Botium’s capabilities while providing a simplified interface for developers for basic testing needs. 
-
-**Key Features of TestMyBot** 
-
-- **Focused Scope:** TestMyBot focuses solely on conversation flow testing without the extensive configuration required for load, stress, or security testing. 
-
-- **Scripted and Automated Testing:** TestMyBot allows for both scripted and automated testing of chatbot interactions. It supports comprehensive testing from user input to the chatbot’s response, covering the entire interaction flow. 
-
-- **Framework Integration:** TestMyBot works with various chatbot frameworks, including Botpress, Microsoft Bot Framework, Rasa and more. It can test chatbots deployed on different platforms like Facebook Messenger, Slack and custom web chat interfaces.  
-
-- **Assertion & Validation:** TestMyBot uses assertions to validate specific aspects of the chatbot's responses.  
-
-- **Integration with CI/CD Pipelines:** TestmyBot can be integrated with continuous integration and continuous deployment (CI/CD) pipelines, enabling automated testing as part of the development workflow.  
-
-- **Streamlined Interface:** TestmyBot is very easy to use for beginners and optimised for straightforward testing. 
-
-**TestMyBot** is a powerful tool for automating the testing of chatbots, ensuring they deliver a reliable and consistent user experience. It simplifies basic chatbot testing, making it an excellent choice for quick setup and straightforward tests. 
-
-Below are some useful resources on the tool : 
 
 *By following a structured approach and using these tools, organisations can effectively test and refine GenAI chatbot models, ensuring high-quality outputs.*
