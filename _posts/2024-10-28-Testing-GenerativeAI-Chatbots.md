@@ -31,7 +31,9 @@ This technology is revolutionising multiple industries like Healthcare, Entertai
 ## Why is it important to test GenAI chatbots?
 
 Testing GenAI chatbots is crucial for several reasons. These models operate in dynamic and diverse environments, interacting directly with users who can have very varied expectations, behaviours and cultural contexts. Without thorough testing, a chatbot may fail to deliver relevant or appropriate responses, potentially leading to user frustration or mistrust. Proper testing ensures the chatbot can handle a wide range of user queries, delivering quality and user-friendly interactions. 
+
 Moreover, these models are now often used in sensitive industries, such as healthcare and finance. Providing reliable, unbiased and secure information is very crucial in these sectors. Testing helps identify and mitigate risks related to privacy, bias and security vulnerabilities, ensuring user data is protected. 
+
 As chatbots continuously learn from interactions, testing also enables consistent performance monitoring, which is important to maintain reliability and prevent unintended behaviours from emerging over time. 
 
 In essence, robust testing safeguards both user experience and brand reputation, making it indispensable for any organisation deploying GenAI chatbots.
