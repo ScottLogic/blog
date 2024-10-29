@@ -1,11 +1,11 @@
 ---
 title: Building an Assignment Algorithm - Episode 2 / 3
-date: 2024-08-16 9:22:00 Z
+date: 2024-10-21 9:22:00 Z
 categories:
 - Tech
 tags:
 - Algorithms
-summary: How we built an assignment algorithm, the second blog in a series of 3.
+summary: Join us for the second installment of how we built an assignment algorithm. This blog will pick up from where we left off in part 1, exploring the measure of compromise over the course of multiple talk slots.
 author: jwarren
 ---
 
@@ -33,7 +33,6 @@ author: jwarren
         border-top: 1px solid #ccc;
         margin-top: 1em;
     }
-
     details[open]::after {
         content: '';
         display: block;
@@ -41,12 +40,10 @@ author: jwarren
         margin-top: 1em;
         margin-bottom: 1em;
     }
-        details {
-        font-size: 0.9em;
+    details {
         font-style: italic;
     }
     details.no-italic {
-        font-size: 0.8em;
         font-style: normal;
     }
 </style>
@@ -61,9 +58,10 @@ Last year, we were given the task to create a conference talk-assignment-algorit
 
 We would not want the same attendees to always get their second choice, or worse still their third choice across multiple slots. Therefore, to be able to empirically measure this, we conceptualised the amount by which a single attendee has received different choices in the past as a value called “compromise”. For example, an attendee didn’t get their first choice, so they had to compromise with a second/third choice.  
 
-This time we will discuss  how we measured compromise,  and then explore its interesting interplay when sorting with surplus difference. 
+This time we will discuss how we measured compromise, and then explore its interesting interplay when sorting with surplus difference. 
 
 ## Compromise
+
 Every time slot, attendees are given a slot compromise score according to what choice they were assigned. The greater the score, the more the attendee has had to compromise on their choice. We believe people are generally not too concerned about getting their 2nd choice, but comparatively a lot more disappointed to get their 3rd choice. Therefore we made the slot compromise score grow at an increasing rate. For example, the 3rd choice over the 2nd choice is worse than getting your 2nd choice over your 1st choice.  
 
 In the end, we decided the compromise for getting the first choice should be 0 (no compromise at all),  the compromise for getting the 2nd choice is 2 and the compromise for getting their 3rd choice was 5. Take note of the incremental difference between first to second and second to third - the slot compromise score becomes increasingly worse.
@@ -80,6 +78,7 @@ This can also be reformulated to:
 Looking back however, perhaps getting your 5th choice or your 6th choice wouldn’t be much different so perhaps choosing a curve that tends to a fixed value would be better (perhaps of the form \(1-\frac{1}{x}\)), as we have done with surplus difference. In any case, there were only 3 choices per slot for our application, so this worked fine.  
 <br>
 </details>
+
 <br>
 This slot compromise score is accrued after every slot assignment is added to a user’s aggregate compromise score. As it says on the tin, this tracks how much an attendee has had to compromise across multiple slots. 
 
@@ -101,7 +100,8 @@ As seen in the table below.
 ![fig1: The progression of aggregate compromise over 4 slots]({{ site.github.url }}/jwarren/assets/assignment-algorithm-2/table1.JPG)
  
 
-## Sorting with Compromise 
+## Sorting with Compromise
+
 To be as fair as possible to all attendees, we want to make sure people who have a higher compromise score take precedence over those who have had to compromise less in the past. 
 
 Let’s introduce a new attendee, Bob, with exactly the same votes as Alice (to bypass surplus difference sorting). We also assume that each talk has only capacity for one attendee, like a one-to-one. There will be another arbitrary attendee who fits around Alice and Bob, but we won’t consider their score in this example. This is how the compromise score would affect the outcome between Bob and Alice. 
@@ -114,14 +114,14 @@ Let’s introduce a new attendee, Bob, with exactly the same votes as Alice (to 
 ![fig2: The play off between Alice and Bob's aggregate compromise.]({{ site.github.url }}/jwarren/assets/assignment-algorithm-2/table2.JPG)
 
 
-## Sorting Compromise and Surplus Difference 
+## Sorting Compromise and Surplus Difference
+
 This is where things get interesting. Compromise measures how much a user has been assigned talks which have not been their 1st choices. Surplus measures the repercussions of giving a user a worse choice. In short, Compromise is a conference scoped measure of fairness, Surplus is a slot scoped measure of fairness. Comparing these correctly will mean the users will be ordered in a way that will minimise overall compromise.  
 
 Prioritising compromise sorting will mean that everyone will have an equal compromise, but as a whole there will be more compromise. Prioritising surplus difference sorting will mean that less compromise is made as a whole, but the spread of compromise may be uneven.  
 
- 
+Let’s look at the example from the last blog:
 
-Let’s look at the example from the last blog: 
 <div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
  border-radius: 8px; will-change: transform;">
@@ -177,8 +177,6 @@ And the \(\text{standardisedSurplusScore}\) is:
 \]
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: smaller;">(here max surplus has to be positive)</span>
-
-
 <br>
 <br>
 &emsp;&emsp;\(\text{if maxSurplus} \neq 0 \text{ and attendee surplus difference} < 0 \text{:}\)
@@ -188,7 +186,6 @@ And the \(\text{standardisedSurplusScore}\) is:
 \]
 
 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: smaller;">(here min surplus has to be negative)</span>
-
 <br>
 <br>
 &emsp;&emsp;\(\text{if maxSurplus} = 0  \text{:}\)
@@ -207,7 +204,9 @@ The \(\text{standardisedSurplusScore}\) should be in comparison to the maximum v
 The value of 2.72 comes from the fact that for a normal distribution, 95.4% of values are found within 2 standard deviations of the average and 99.7% of values are found within 3 standard deviations of the average. This gave a rough range between 2-3 and after some fine tuning, 2.72 gave the optimal result. 
 <br>
 </details>
+
 <br>
 
-## Conclusion 
+## Conclusion
+
 In this blog we have seen how we can measure and maintain fairness across multiple time slots using the idea of compromise. We have also seen how this interacts with sorting surplus differences and how it’s important to find a balance between the two. In the next and final blog in this series, we will look at how ordering time slots can make a significant difference to the outcome of the algorithm, along with concluding how the algorithm comes together as a whole. 

@@ -5,7 +5,7 @@ categories:
 - Tech
 tags:
 - Algorithms
-summary: How we built an assignment algorithm, the first blog in a series of 3.
+summary: You're organising a conference and the delegates have voted for what talks they would like to attend. How do you give them the fairest choice possible with constraints on talk size? Join us for the first blog in a series of 3 which go into the nitty gritty of an algorithm that gave rapid results, 30% fairer than those done by hand!
 author: jwarren
 ---
 
@@ -48,7 +48,7 @@ author: jwarren
 </script>
 
 
-Last year, our team was working on an app that organised conferences. Our most interesting mission, in my opinion, was to design and build an algorithm that assigned talks to attendees according to their choices. This algorithm would save organisers the time, human error and brain power required to ensure all attendees are fairly allocated. After having built and run our algorithm, we achieved results that improved the fairness of previously time-costly hand-calculated assignments by 30% (according to our measure), only taking seconds of calculation!
+Last year, our team was working on an app that organised conferences. Our most interesting mission, in my opinion, was to design and build an algorithm that assigned talks to attendees according to their choices. This algorithm would save organisers the time, human error and brain power required to ensure all attendees are fairly allocated. After having built and run our algorithm, we achieved results that improved the fairness of previously time-costly, hand-calculated assignments by 30%, run in only a matter of seconds!
 
 ## The brief
 
