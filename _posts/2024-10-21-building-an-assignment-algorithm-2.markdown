@@ -154,41 +154,55 @@ We considered normalisation, however, the highest value (no matter whether an ou
 Finally, we landed on using the Z-score for aggregate compromise. The Z-score is a statistical value which measures how many standard deviations (a measure of spread) a dataset value is from the average. You can find out more on the Z-score <a href="https://www.investopedia.com/terms/z/zscore.asp">here</a>. This means that compromise will play a more significant role in sorting when the aggregate compromise value is an outlier, however it would have a relatively small effect if the value is close to the average of the attendees aggregate compromise, no matter how large the compromise or the surplus is.  
 
 <details class="no-italic"><summary>Click the 'more' button for to see how we compared compromise and surplus difference exactly, along with the rationale.</summary>
-<p>
-    \(\text{sorting score} = standardisedSurplusScore - standardisedCompromiseScore \)
-</p>
-
+<br>
+<br>
+The value which we use to sort attendees can be calculated as:
+\[
+\begin{align}
+\text{sorting score} \; = \quad \;
+&\text{standardisedSurplusScore} \\
+-\; &\text{standardisedCompromiseScore}
+\end{align}
+\]
+<br>
+<br>
 <p>
     Where the \(\text{standardisedCompromiseScore}\) is: 
 </p>
 
-\[standardisedCompromiseScore = 
-\left( \frac{\text{mean surplus difference}}{\text{max surplus}} \right) \times 
-\left( \frac{\text{attendee Z score}}{2.72} \right)^3
+\[
+\begin{align}
+standardisedCompromiseScore \; = \quad \;
+&\left( \frac{\text{mean surplus difference}}{\text{max surplus}} \right) \\ \\
+\times \; &\left( \frac{\text{attendee Z score}}{2.72} \right)^3
+\end{align}
 \]
 
-<p style="font-size: smaller; text-align: right;">
-    N.B. The Z score is calculated with the median to avoid extreme value skewing.
-</p>
+<div style="display: flex; justify-content: flex-end;">
+    <p style="font-size: smaller; width: 50%; text-align: right;">
+        N.B. The Z score is calculated with the median to avoid extreme value skewing.
+    </p>
+</div>
 
 <p>
     And the \(\text{standardisedSurplusScore}\) is:
 </p>
 
 <p>
-    \(\text{if maxSurplus} \neq 0 \text{ and attendee surplus difference} > 0 \text{:}\)
+    &emsp;&emsp;
+    \(\text{if } maxSurplus \neq 0 \text{ and attendee surplus difference} > 0 \text{:}\)
 </p>
 
-\[standardisedSurplusScore = 
-\frac{\text{attendee surplus difference}}{\text{max surplus difference}}
+\[standardisedSurplusScore = \frac{\text{attendee surplus difference}}{\text{max surplus difference}}
 \]
 
 <p style="font-size: smaller; text-align: right;">
-    (here max surplus has to be positive)
+    (here max surplus will be positive)
 </p>
 
 <p>
-    \(\text{if maxSurplus} \neq 0 \text{ and attendee surplus difference} < 0 \text{:}\)
+    &emsp;&emsp;
+    \(\text{if } maxSurplus \neq 0 \text{ and attendee surplus difference} < 0 \text{:}\)
 </p>
 
 \[standardisedSurplusScore =
@@ -196,23 +210,26 @@ Finally, we landed on using the Z-score for aggregate compromise. The Z-score is
 \]
 
 <p style="font-size: smaller; text-align: right;">
-    (here min surplus has to be negative)
+    (here min surplus will be negative)
 </p>
 
 <p>
-    \(\text{if maxSurplus} = 0  \text{:}\)
+    &emsp;&emsp;
+    \(\text{if } maxSurplus  = 0  \text{:}\)
 </p>
 
 \[standardisedSurplusScore =
 \text{attendee surplus difference}
 \]
 
+<br>
+<br>
 <div>
-<p>
+<h4>
     The rationale behind this was as follows: 
-</p>
+</h4>
 <p>
-    The \(\text{standardisedSurplusScore}\) should be in comparison to the maximum value, otherwise the compromise would give an extreme value. We want the compromise to be in the same range of values as the \(\text{standardisedSurplusScore}\), except for the outlying compromise, and therefore (\(\frac{\text{mean surplus difference}}{\text{max surplus}}\)) brings the \(\text{standardisedCompromiseScore}\) into the relative range of values, and (\(\frac{\text{attendee Z score}}{2.72}\)) should be in the range of \(\pm 1.3\), with the larger values being extremal. When this overtakes the \(\text{standardisedSurplusScore}\), (surpassing the value just greater than 1), we want this to occur quite rapidly because extremal compromise is much more important to deal with. Therefore we cube it. Cubing not only rises quickly, but unlike squaring, it maintains the \(\pm\), which is important for capturing whether the value is above or below the median. After some fine tuning, it also appears to give an optimal result.  
+    The \(\text{standardisedSurplusScore}\) should be in comparison to the maximum value, otherwise the compromise would give an extreme value. We want the compromise to be in the same range of values as the \(\text{standardisedSurplusScore}\), except for the outlying compromise, and therefore \(\frac{\text{mean surplus difference}}{\text{max surplus}}\) brings the \(\text{standardisedCompromiseScore}\) into the relative range of values, and \(\frac{\text{attendee Z score}}{2.72}\) should be in the range of \(\pm 1.3\), with the larger values being extremal. When this overtakes the \(\text{standardisedSurplusScore}\), (surpassing the value just greater than 1), we want this to occur quite rapidly because extremal compromise is much more important to deal with. Therefore we cube it. Cubing not only rises quickly, but unlike squaring, it maintains the \(\pm\), which is important for capturing whether the value is above or below the median. After some fine tuning, it also appears to give an optimal result.  
 <br>
 The value of 2.72 comes from the fact that for a normal distribution, 95.4% of values are found within 2 standard deviations of the average and 99.7% of values are found within 3 standard deviations of the average. This gave a rough range between 2-3 and after some fine tuning, 2.72 gave the optimal result. 
 </p>
