@@ -96,8 +96,6 @@ Testing GenAI chatbot models involves evaluating multiple aspects, such as the q
 - Using feedback to update and enhance test cases, ensuring they remain relevant and comprehensive. 
 - Iteratively improving the chatbot’s accuracy and relevance based on real user interactions and suggestions. 
 
-By following this structured approach, organisations can effectively test and refine their GenAI chatbot models, ensuring they deliver high-quality, relevant and ethically sound outputs. 
-
 
 ## Test Approaches
 
@@ -181,6 +179,6 @@ Another powerful and versatile framework designed specifically for testing conve
 In summary, **Botium** is a comprehensive tool that provides all the necessary features for effective automated testing of GenAI chatbot outputs. Its cross-platform support, robust testing capabilities, and integration with CI/CD pipelines make it an indispensable tool for developers aiming to maintain and improve the performance of their conversational AI applications.
 
 Below are some useful resources on the tool : 
-
+- [Automated testing of a Google Dialogflow chatbot through Botium](https://www.youtube.com/watch?v=b8CgSkJmxCA)
 
 *By following a structured approach and using these tools, organisations can effectively test and refine GenAI chatbot models, ensuring high-quality outputs.*
