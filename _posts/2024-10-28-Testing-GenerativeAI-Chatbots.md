@@ -38,23 +38,6 @@ As chatbots continuously learn from interactions, testing also enables consisten
 
 In essence, robust testing safeguards both user experience and brand reputation, making it indispensable for any organisation deploying GenAI chatbots.
 
-## What all does GenAI chatbot testing involve?
-
-- **Functionality Testing: Verifying that all features of the Gen AI chatbot model under test work as intended.** 
-This includes validating input handling, output accuracy and error handling capabilities to ensure that the model behaves as expected in all scenarios.
-
-- **Usability Testing: Assessing how easy and intuitive it is for users to interact with the model.** 
-This includes evaluating the user interface, navigation and overall user experience to ensure that the model is user-friendly.
-
-- **Performance Testing: Ensuring that a substantial number of queries/inputs/prompts can be handled without degradation in performance.** 
-This includes measuring the responsiveness, stability and speed of the model under various loads.
-
-- **Security Testing: Checking for vulnerabilities that might compromise user data or privacy.** 
-This involves a comprehensive evaluation of the model's security measures to protect against unauthorised access, data breaches and other potential threats. 
-
-- **Compatibility Testing: Making sure that the model functions seamlessly across different platforms and devices.** 
-This involves testing the model on various devices, operating systems, browsers, hardware configurations to ensure consistent performance and functionality.
-
 
 ## Challenges in GenAI chatbot testing
 
@@ -72,6 +55,24 @@ Hence GenAI model testing require sophisticated techniques such as probabilistic
 **5. Continuous learning and Evolution:** AI systems are designed to continuously learn from user interactions and evolve over time. This dynamic nature poses a significant challenge for testing, as it requires ongoing monitoring and testing of these models, to ensure consistent performance; and to identify and address any unintended issues that arise from continuous learning.
 
 Despite all these challenges, regular monitoring, combined with robust testing strategies can help ensure the accuracy, reliability and user satisfaction of their GenAI chatbot model.  
+
+
+## What all does GenAI chatbot testing involve?
+
+- **Functionality Testing: Verifying that all features of the Gen AI chatbot model under test work as intended.** 
+This includes validating input handling, output accuracy and error handling capabilities to ensure that the model behaves as expected in all scenarios.
+
+- **Usability Testing: Assessing how easy and intuitive it is for users to interact with the model.** 
+This includes evaluating the user interface, navigation and overall user experience to ensure that the model is user-friendly.
+
+- **Performance Testing: Ensuring that a substantial number of queries/inputs/prompts can be handled without degradation in performance.** 
+This includes measuring the responsiveness, stability and speed of the model under various loads.
+
+- **Security Testing: Checking for vulnerabilities that might compromise user data or privacy.** 
+This involves a comprehensive evaluation of the model's security measures to protect against unauthorised access, data breaches and other potential threats. 
+
+- **Compatibility Testing: Making sure that the model functions seamlessly across different platforms and devices.** 
+This involves testing the model on various devices, operating systems, browsers, hardware configurations to ensure consistent performance and functionality.
 
 
 ## How to test?
