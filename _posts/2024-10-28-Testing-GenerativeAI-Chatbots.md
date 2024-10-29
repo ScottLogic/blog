@@ -151,6 +151,11 @@ One innovative automated testing tool designed to evaluate and improve the perfo
 
 In summary, **Promptfoo** is a powerful and versatile tool designed to enhance the automated testing of GenAI chatbot models. Its dynamic prompt testing, contextual understanding, seamless integration with development pipelines makes it an essential tool for developers who are seeking to maintain and improve the quality and performance of their conversational AI application. 
 
+Below are some useful resources on the tool : 
+- [Promptfoo - Initial Set up](https://www.youtube.com/watch?v=VKyJYgz8IiQ)
+- [How to assess an LLM with the Promptfoo](https://www.youtube.com/watch?v=0sk5rb_ErOE)
+- [Using Promptfoo to COMPARE Prompts, LLMs, and Providers](https://www.youtube.com/watch?v=KhINc5XwhKs&t=753s)
+
 ### Botium
 
 Another powerful and versatile framework designed specifically for testing conversational GenAI models is **[Botium](https://cyara.com/products/botium/)**. It supports a wide range of chatbot platforms and provides extensive functionality to automate and streamline their testing process. 
@@ -175,6 +180,8 @@ Another powerful and versatile framework designed specifically for testing conve
 
 In summary, **Botium** is a comprehensive tool that provides all the necessary features for effective automated testing of GenAI chatbot outputs. Its cross-platform support, robust testing capabilities, and integration with CI/CD pipelines make it an indispensable tool for developers aiming to maintain and improve the performance of their conversational AI applications.
 
+Below are some useful resources on the tool : 
+
 ### [Testmybot/Botium Bindings](https://github.com/codeforequity-at/botium-bindings) 
 
 If you are looking for a simpler open-source tool to automate your chatbot testing, **[TestMyBot](https://github.com/codeforequity-at/botium-bindings)** is another option that provides tools and libraries to automate the testing of conversational bots, ensuring they function correctly and deliver a consistent user experience. **[TestMyBot](https://github.com/codeforequity-at/botium-bindings)** is built on top of **[Botium](https://cyara.com/products/botium/)**, leveraging Botium’s capabilities while providing a simplified interface for developers for basic testing needs. 
@@ -194,5 +201,7 @@ If you are looking for a simpler open-source tool to automate your chatbot testi
 - **Streamlined Interface:** TestmyBot is very easy to use for beginners and optimised for straightforward testing. 
 
 **TestMyBot** is a powerful tool for automating the testing of chatbots, ensuring they deliver a reliable and consistent user experience. It simplifies basic chatbot testing, making it an excellent choice for quick setup and straightforward tests. 
+
+Below are some useful resources on the tool : 
 
 *By following a structured approach and using these tools, organisations can effectively test and refine GenAI chatbot models, ensuring high-quality outputs.*
