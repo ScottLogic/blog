@@ -36,7 +36,7 @@ Moreover, these models are now often used in sensitive industries, such as healt
 
 As chatbots continuously learn from interactions, testing also enables consistent performance monitoring, which is important to maintain reliability and prevent unintended behaviours from emerging over time. 
 
-In essence, robust testing safeguards both user experience and brand reputation, making it indispensable for any organisation deploying GenAI chatbots.
+In summary, implementing robust testing for GenAI chatbots is essential for any organisation to protect both the user experience and the brand’s reputation.
 
 
 ## Challenges in GenAI chatbot testing
