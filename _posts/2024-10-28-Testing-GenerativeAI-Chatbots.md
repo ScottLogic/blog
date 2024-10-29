@@ -1,5 +1,5 @@
 ---
-title: Testing GenerativeAI Chatbots
+title: Testing GenerativeAI Chatbot Models
 date: 2024-10-28 10:00:00 Z
 categories:
 - Artificial Intelligence
@@ -61,7 +61,7 @@ Hence GenAI model testing require sophisticated techniques such as probabilistic
 
 **5. Continuous learning and Evolution:** AI systems are designed to continuously learn from user interactions and evolve over time. This dynamic nature poses a significant challenge for testing, as it requires ongoing monitoring and testing of these models, to ensure consistent performance; and to identify and address any unintended issues that arise from continuous learning.
 
-Despite all these challenges, regular monitoring, combined with robust testing strategies can help organisations ensure the accuracy, reliability and user satisfaction of their GenAI chatbot model.  
+Despite all these challenges, regular monitoring, combined with robust testing strategies can help ensure the accuracy, reliability and user satisfaction of their GenAI chatbot model.  
 
 
 ## How to test 
@@ -129,7 +129,7 @@ Below are some notable options available that can be used to set up automated te
 
 ## Popular automated testing tools for GenAI Chatbot Testing
 
-### Promptfoo 
+### [Promptfoo](https://www.promptfoo.dev/) 
 
 One innovative automated testing tool designed to evaluate and improve the performance of GenAI based chatbot models is **Promptfoo**. It focuses on providing comprehensive testing capabilities to ensure that the chatbot delivers accurate and reliable responses in various scenarios. 
 
@@ -151,7 +151,7 @@ One innovative automated testing tool designed to evaluate and improve the perfo
 
 In summary, **Promptfoo** is a powerful and versatile tool designed to enhance the automated testing of GenAI chatbot models. Its dynamic prompt testing, contextual understanding, seamless integration with development pipelines makes it an essential tool for developers who are seeking to maintain and improve the quality and performance of their conversational AI application. 
 
-### Botium 
+### [Botium](https://cyara.com/products/botium/) 
 
 Another powerful and versatile framework designed specifically for testing conversational GenAI models is **Botium**. It supports a wide range of chatbot platforms and provides extensive functionality to automate and streamline their testing process. 
 
@@ -175,7 +175,7 @@ Another powerful and versatile framework designed specifically for testing conve
 
 In summary, **Botium** is a comprehensive tool that provides all the necessary features for effective automated testing of GenAI chatbot outputs. Its cross-platform support, robust testing capabilities, and integration with CI/CD pipelines make it an indispensable tool for developers aiming to maintain and improve the performance of their conversational AI applications.
 
-### Testmybot 
+### [Testmybot/Botium Bindings](https://github.com/codeforequity-at/botium-bindings) 
 
 If you are looking for a simpler open-source tool to automate your chatbot testing, **TestMyBot** is another option that provides tools and libraries to automate the testing of conversational bots, ensuring they function correctly and deliver a consistent user experience. **TestMyBot** is built on top of **Botium**, leveraging Botium’s capabilities while providing a simplified interface for developers for basic testing needs. 
 
