@@ -66,7 +66,7 @@ Every time slot, attendees are given a slot compromise score according to what c
 
 In the end, we decided the compromise for getting the first choice should be 0 (no compromise at all),  the compromise for getting the 2nd choice is 2 and the compromise for getting their 3rd choice was 5. Take note of the incremental difference between first to second and second to third - the slot compromise score becomes increasingly worse.
 
-<details><summary>If you would like to know how we calculated these values, click the 'more' button for more details</summary>
+<details><summary>If you would like to know how we calculated these values, click the 'more' button for details</summary>
 This is based on the formula:
 \[Cₙ = n + Cₙ₋₁\]
 <span style="font-size: smaller;">where \(C\)ₙ is the compromise for the nth choice and \(C1 = 0\).</span>
@@ -134,7 +134,7 @@ If Chewbacca’s aggregate compromise was greater than the emperors, then the so
 
 ![fig3: Prioritising sorting by compromise: the play off between Chewbacca and The Emperor]({{ site.github.url }}/jwarren/assets/assignment-algorithm-2/table3.JPG)
 
-However, if Chewbacca’s aggregate compromise was 5 and the emperor’s compromise was 4, we would want a different outcome. Since the difference between the two aggregate compromises is small, we would rather Chewbacca move and have his 2nd choice (and have an aggregate compromise of 7) rather than the Emperor to take his 3rd choice, shooting his aggregate compromise from 4 up to 9. I would argue therefore that Chewbacca should take his 2nd choice shown in the slideshow, meaning Chewbaca would have an aggregate compromise of 7 and the Emperor have an aggregate compromise of 4. This is prioritising sorting by surplus difference. All of this is to say, we can’t sort one way after the other, we need to sort compromise and surplus difference simultaneously to cover all circumstances. 
+However, if Chewbacca’s aggregate compromise was 5 and the emperor’s compromise was 4, we would want a different outcome. Since the difference between the two aggregate compromises is small, we would rather Chewbacca move and have his 2nd choice (and have an aggregate compromise of 7) rather than the Emperor to take his 3rd choice, shooting his aggregate compromise from 4 up to 9. I would argue therefore that Chewbacca should take his 2nd choice shown in the slideshow, meaning Chewbacca would have an aggregate compromise of 7 and the Emperor have an aggregate compromise of 4. This is prioritising sorting by surplus difference. All of this is to say, we can’t sort one way after the other, we need to sort compromise and surplus difference simultaneously to cover all circumstances. 
 
 ![fig4: Prioritising sorting by surplus difference: the 2nd play off between Chewbacca and The Emperor]({{ site.github.url }}/jwarren/assets/assignment-algorithm-2/table4.JPG)
 
@@ -154,55 +154,69 @@ We considered normalisation, however, the highest value (no matter whether an ou
 Finally, we landed on using the Z-score for aggregate compromise. The Z-score is a statistical value which measures how many standard deviations (a measure of spread) a dataset value is from the average. You can find out more on the Z-score <a href="https://www.investopedia.com/terms/z/zscore.asp">here</a>. This means that compromise will play a more significant role in sorting when the aggregate compromise value is an outlier, however it would have a relatively small effect if the value is close to the average of the attendees aggregate compromise, no matter how large the compromise or the surplus is.  
 
 <details class="no-italic"><summary>Click the 'more' button for to see how we compared compromise and surplus difference exactly, along with the rationale.</summary>
-<br>
-<br>
-\(\text{sorting score} = standardisedSurplusScore - standardisedCompromiseScore \)
-<br>
-<br>
-<br>
-Where the \(\text{standardisedCompromiseScore}\) is: 
+<p>
+    \(\text{sorting score} = standardisedSurplusScore - standardisedCompromiseScore \)
+</p>
+
+<p>
+    Where the \(\text{standardisedCompromiseScore}\) is: 
+</p>
+
 \[standardisedCompromiseScore = 
-\left( \frac{\text{mean surplus difference}}{\text{max surplus}} \right) \times \left( \frac{\text{attendee Z score}}{2.72} \right)^3
+\left( \frac{\text{mean surplus difference}}{\text{max surplus}} \right) \times 
+\left( \frac{\text{attendee Z score}}{2.72} \right)^3
 \]
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: smaller;">N.B. The Z score is calculated with the median to avoid extreme value skewing.</span>
-<br>
-<br>
-And the \(\text{standardisedSurplusScore}\) is:
-<br>
-<br>
-&emsp;&emsp;\(\text{if maxSurplus} \neq 0 \text{ and attendee surplus difference} > 0 \text{:}\)
+
+<p style="font-size: smaller; text-align: right;">
+    N.B. The Z score is calculated with the median to avoid extreme value skewing.
+</p>
+
+<p>
+    And the \(\text{standardisedSurplusScore}\) is:
+</p>
+
+<p>
+    \(\text{if maxSurplus} \neq 0 \text{ and attendee surplus difference} > 0 \text{:}\)
+</p>
 
 \[standardisedSurplusScore = 
 \frac{\text{attendee surplus difference}}{\text{max surplus difference}}
 \]
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: smaller;">(here max surplus has to be positive)</span>
-<br>
-<br>
-&emsp;&emsp;\(\text{if maxSurplus} \neq 0 \text{ and attendee surplus difference} < 0 \text{:}\)
+<p style="font-size: smaller; text-align: right;">
+    (here max surplus has to be positive)
+</p>
+
+<p>
+    \(\text{if maxSurplus} \neq 0 \text{ and attendee surplus difference} < 0 \text{:}\)
+</p>
 
 \[standardisedSurplusScore =
 \frac{\text{attendee surplus difference}}{| \text{min surplus difference} |}
 \]
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: smaller;">(here min surplus has to be negative)</span>
-<br>
-<br>
-&emsp;&emsp;\(\text{if maxSurplus} = 0  \text{:}\)
+<p style="font-size: smaller; text-align: right;">
+    (here min surplus has to be negative)
+</p>
+
+<p>
+    \(\text{if maxSurplus} = 0  \text{:}\)
+</p>
 
 \[standardisedSurplusScore =
 \text{attendee surplus difference}
 \]
- 
-<br>
-The rationale behind this was as follows: 
-<br>
-<br>
-The \(\text{standardisedSurplusScore}\) should be in comparison to the maximum value, otherwise the compromise would give an extreme value. We want the compromise to be in the same range of values as the \(\text{standardisedSurplusScore}\), except for the outlying compromise, and therefore (\(\frac{\text{mean surplus difference}}{\text{max surplus}}\)) brings the \(\text{standardisedCompromiseScore}\) into the relative range of values, and (\(\frac{\text{attendee Z score}}{2.72}\)) should be in the range of \(\pm 1.3\), with the larger values being extremal. When this overtakes the \(\text{standardisedSurplusScore}\), (surpassing the value just greater than 1), we want this to occur quite rapidly because extremal compromise is much more important to deal with. Therefore we cube it. Cubing not only rises quickly, but unlike squaring, it maintains the \(\pm\), which is important for capturing whether the value is above or below the median. After some fine tuning, it also appears to give an optimal result.  
-<br>
+
+<div>
+<p>
+    The rationale behind this was as follows: 
+</p>
+<p>
+    The \(\text{standardisedSurplusScore}\) should be in comparison to the maximum value, otherwise the compromise would give an extreme value. We want the compromise to be in the same range of values as the \(\text{standardisedSurplusScore}\), except for the outlying compromise, and therefore (\(\frac{\text{mean surplus difference}}{\text{max surplus}}\)) brings the \(\text{standardisedCompromiseScore}\) into the relative range of values, and (\(\frac{\text{attendee Z score}}{2.72}\)) should be in the range of \(\pm 1.3\), with the larger values being extremal. When this overtakes the \(\text{standardisedSurplusScore}\), (surpassing the value just greater than 1), we want this to occur quite rapidly because extremal compromise is much more important to deal with. Therefore we cube it. Cubing not only rises quickly, but unlike squaring, it maintains the \(\pm\), which is important for capturing whether the value is above or below the median. After some fine tuning, it also appears to give an optimal result.  
 <br>
 The value of 2.72 comes from the fact that for a normal distribution, 95.4% of values are found within 2 standard deviations of the average and 99.7% of values are found within 3 standard deviations of the average. This gave a rough range between 2-3 and after some fine tuning, 2.72 gave the optimal result. 
-<br>
+</p>
+</div>
 </details>
 
 <br>
