@@ -129,9 +129,9 @@ Below are some notable options available that can be used to set up automated te
 
 ## Popular automated testing tools for GenAI Chatbot Testing
 
-### [Promptfoo](https://www.promptfoo.dev/) 
+### Promptfoo
 
-One innovative automated testing tool designed to evaluate and improve the performance of GenAI based chatbot models is **Promptfoo**. It focuses on providing comprehensive testing capabilities to ensure that the chatbot delivers accurate and reliable responses in various scenarios. 
+One innovative automated testing tool designed to evaluate and improve the performance of GenAI based chatbot models is **[Promptfoo](https://www.promptfoo.dev/)**. It focuses on providing comprehensive testing capabilities to ensure that the chatbot delivers accurate and reliable responses in various scenarios. 
 
 **Key Features of Promptfoo** 
 
@@ -151,9 +151,9 @@ One innovative automated testing tool designed to evaluate and improve the perfo
 
 In summary, **Promptfoo** is a powerful and versatile tool designed to enhance the automated testing of GenAI chatbot models. Its dynamic prompt testing, contextual understanding, seamless integration with development pipelines makes it an essential tool for developers who are seeking to maintain and improve the quality and performance of their conversational AI application. 
 
-### [Botium](https://cyara.com/products/botium/) 
+### Botium
 
-Another powerful and versatile framework designed specifically for testing conversational GenAI models is **Botium**. It supports a wide range of chatbot platforms and provides extensive functionality to automate and streamline their testing process. 
+Another powerful and versatile framework designed specifically for testing conversational GenAI models is **[Botium](https://cyara.com/products/botium/)**. It supports a wide range of chatbot platforms and provides extensive functionality to automate and streamline their testing process. 
 
 **Key Features of Botium** 
 
@@ -177,7 +177,7 @@ In summary, **Botium** is a comprehensive tool that provides all the necessary f
 
 ### [Testmybot/Botium Bindings](https://github.com/codeforequity-at/botium-bindings) 
 
-If you are looking for a simpler open-source tool to automate your chatbot testing, **TestMyBot** is another option that provides tools and libraries to automate the testing of conversational bots, ensuring they function correctly and deliver a consistent user experience. **TestMyBot** is built on top of **Botium**, leveraging Botium’s capabilities while providing a simplified interface for developers for basic testing needs. 
+If you are looking for a simpler open-source tool to automate your chatbot testing, **[TestMyBot](https://github.com/codeforequity-at/botium-bindings)** is another option that provides tools and libraries to automate the testing of conversational bots, ensuring they function correctly and deliver a consistent user experience. **[TestMyBot](https://github.com/codeforequity-at/botium-bindings)** is built on top of **[Botium](https://cyara.com/products/botium/)**, leveraging Botium’s capabilities while providing a simplified interface for developers for basic testing needs. 
 
 **Key Features of TestMyBot** 
 
@@ -195,5 +195,4 @@ If you are looking for a simpler open-source tool to automate your chatbot testi
 
 **TestMyBot** is a powerful tool for automating the testing of chatbots, ensuring they deliver a reliable and consistent user experience. It simplifies basic chatbot testing, making it an excellent choice for quick setup and straightforward tests. 
 
-*At Scott Logic, we have conducted several projects exploring the effectiveness of automated testing for AI chatbots. One of the tools we have used extensively is **PromptFoo**. This tool has provided us with valuable insights and enhanced our testing processes, ensuring our chatbots deliver high-quality interactions. 
-Stay tuned for our upcoming blog, where we will provide an in-depth review of **PromptFoo**, including its features, benefits, and how it can be leveraged to improve GenAI chatbot testing.*
+*By following a structured approach and using these tools, organisations can effectively test and refine GenAI chatbot models, ensuring high-quality outputs.*
