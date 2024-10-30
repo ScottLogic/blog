@@ -1,6 +1,11 @@
 ---
 title: Our Differentiated Approach to Testing
 date: 2024-10-30 08:40:00 Z
+tags:
+- testing
+- quality
+summary: The principles that underpin our approach to testing at Scott Logic, and
+  how this shapes the services we offer our clients.
 ---
 
 This is the third in a series of blogs setting out how we work with our clients. Scott Logic has been delivering change and providing expertise to clients in private and public settings for 20 years. Our approach to testing is part of a wider Development and Delivery approach. You can read about Architecture here and Delivery here. 
