@@ -192,6 +192,7 @@ In summary, **Botium** is a comprehensive tool that provides all the necessary f
 
 Below are some useful resources on the tool : 
 
+- [Testing Conversational AI ](https://www.youtube.com/watch?v=1Z1a482_ZlA)
 - [Automated testing of a Google Dialogflow chatbot through Botium](https://www.youtube.com/watch?v=b8CgSkJmxCA)
 
 *By following a structured approach and using these tools, organisations can effectively test and refine GenAI chatbot models, ensuring high-quality outputs.*
