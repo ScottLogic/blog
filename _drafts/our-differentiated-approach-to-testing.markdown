@@ -27,7 +27,9 @@ Our experience with tools is broad and deep, covering many types of testing tool
 
 ## 3) Quality for humans
 
-The platforms, applications and other products we work on exist to serve people. We apply technical skills and knowledge in our work, and strive for excellence in what we deliver, but regardless of the tools, techniques and infrastructure we use, we recognise that ultimately it is people who will decide whether the products they use give them what they need, are helpful and whether they want to continue using them. Therefore, we keep people in mind when we test. We understand that their needs are diverse, and their perceptions of quality are subjective and variable. We think about the ways technology could help them, how it could hinder them and how it could fail them.
+The platforms, applications and other products we work on exist to serve people. We apply technical skills and knowledge in our work, and strive for excellence in what we deliver; but regardless of the tools, techniques and infrastructure we use, we recognise that ultimately it is people who will decide whether the products they use give them what they need, are helpful, and whether they want to continue using them. 
+
+Therefore, we keep people in mind when we test. We understand that their needs are diverse, and their perceptions of quality are subjective and variable. We think about the ways technology could help them, how it could hinder them and how it could fail them.
 
 ## 4) Risks over Requirements
 
