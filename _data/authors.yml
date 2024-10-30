@@ -26,6 +26,7 @@ active-authors:
   - ckoris
   - colive
   - cprice
+  - crobb
   - csalt
   - cstephen
   - cwilton
@@ -1535,3 +1536,8 @@ authors:
     email: rvgoethem@scottlogic.com
     author-summary: "I am a Lead Dev in the Edinburgh office. I take ideas, add a dash of design, a sprinkle of code, et voilà!"
     picture: picture.png
+  crobb:
+    name: "Callum Robb"
+    email: crobb@scottlogic.com
+    author-summary: "I am a Senior Test Engineer based in Edinburgh."
+    picture: picture.jpg
