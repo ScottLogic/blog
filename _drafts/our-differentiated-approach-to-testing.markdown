@@ -1,6 +1,8 @@
 ---
 title: Our Differentiated Approach to Testing
 date: 2024-10-30 08:40:00 Z
+categories:
+- Testing
 tags:
 - testing
 - quality
