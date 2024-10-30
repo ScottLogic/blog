@@ -43,7 +43,7 @@ In summary, implementing robust testing for GenAI chatbots is essential for any 
 Testing GenAI chatbots presents several unique challenges and limitations due to the intricacies of AI algorithms and the complexity of natural language processing. Below is an overview of some of the key challenges faced in testing GenAI chatbot models:
 
 **1. Non-Deterministic Responses:** GenAI chatbot models exhibit non-deterministic behaviour, meaning that they can generate completely different responses to the exact same input, under exact same conditions. These variations in responses are not necessarily errors, but mere deviations from previous behaviour, making it harder to define what constitutes a "correct" and “expected” response. 
-Hence GenAI model testing require sophisticated techniques such as probabilistic testing, where multiple iterations of the same test case are executed to assess the overall performance of the model. 
+Hence GenAI model testing requires sophisticated techniques such as probabilistic testing, where multiple iterations of the same test case are executed to assess the overall performance of the model. 
 
 **2. Extensive Test Data Requirements:** GenAI chatbot models require substantial training data to accurately learn and interpret user inputs. For specialised domains, domain-specific test data is necessary. Collecting a diverse and representative dataset can be particularly challenging, especially in niche areas. Insufficient data can lead to reduced accuracy and reliability in the chatbot's responses, especially in context-specific scenarios. 
 
