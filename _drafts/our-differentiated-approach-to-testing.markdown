@@ -41,6 +41,15 @@ Testers often bring a unique mindset to a team, applying curiosity and critical 
 
 ## 6) Collaborate and cross-skill
 
-We believe that testers are not gatekeepers, or the sole advocates for quality. Industry development practices which often encouraged testers to operate independently from the rest of the team have thankfully been replaced with a recognition that collaboration and continuous testing are valuable. To contribute within a high performing development team, an understanding of the skills of others is hugely helpful. Our testers bring a range of technical skills which complement their testing mindset. They understand that knowledge of design, coding and other crafts can improve their testing. Meanwhile, they share testing expertise with others, helping them to test designs, code or even their assumptions.
+We believe that testers are not gatekeepers, or the sole advocates for quality. Industry development practices which often encouraged testers to operate independently from the rest of the team have thankfully been replaced with a recognition that collaboration and continuous testing are valuable. To contribute within a high-performing development team, an understanding of the skills of others is hugely helpful. 
 
-These principles provide a framework for excellent testing, and a broader view of quality. Our consultants bring experience and skills across a wide range of contexts and understand that products benefit from continuous evaluation. We don’t simply ‘shift left’ into design and build, or ‘shift right’ into production monitoring. We look for opportunities throughout a product’s life to investigate and provide valuable information to Product Owners, Development teams and other important stakeholders. Whether for new products, features or maintenance and changes, we work hand in hand with the wider team to make sure that testability and quality are given focus throughout development, delivery, operation and maintenance.
+Our testers bring a range of technical skills which complement their testing mindset. They understand that knowledge of design, coding and other crafts can improve their testing. Meanwhile, they share testing expertise with others, helping them to test designs, code, or even their assumptions.
+
+\
+These principles provide a framework for excellent testing, and a broader view of quality. Our consultants bring experience and skills across a wide range of contexts and understand that products benefit from continuous evaluation. We don’t simply ‘shift left’ into design and build, or ‘shift right’ into production monitoring. We look for opportunities throughout a product’s life to investigate and provide valuable information to Product Owners, Development teams and other important stakeholders. 
+
+Whether for new products, features or maintenance and changes, we work hand in hand with the wider team to make sure that testability and quality are given focus throughout development, delivery, operation and maintenance.
+
+## How can we help you?
+
+For more on how our approach to testing can help your organisation minimise risk and maximise value, [visit our Application Development page](https://www.scottlogic.com/what-we-do/application-development).
