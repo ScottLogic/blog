@@ -24,7 +24,7 @@ GenAI chatbot models, such as GPT-4 by OpenAI, can generate human-like text and 
 **2. Learning Ability:** Through machine learning algorithms, these models have ability to continuously learn from interactions and to improve their responses over time. By analysing vast amounts of data and feedback from users, AI can refine its understanding and prediction capabilities and is hence very adaptable to new patterns, trends and user behaviours; making it more accurate, reliable and effective in dynamic environments. 
 
 
-This technology is revolutionising multiple industries like Healthcare, Entertainment, Marketing, Finance by enhancing creativity and efficiency. And hence there is the need for its effective testing to ensure that these models meet the desired standards of performance and user engagement. 
+This technology is revolutionising multiple industries like Healthcare, Entertainment, Marketing, and Finance by enhancing creativity and efficiency. And hence there is the need for its effective testing to ensure that these models meet the desired standards of performance and user engagement. 
 
 
 ## Why is it important to test GenAI chatbots?
