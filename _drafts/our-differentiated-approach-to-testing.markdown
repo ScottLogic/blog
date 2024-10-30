@@ -21,13 +21,13 @@ We know that testing cannot be standardised. Businesses, customers and products 
 
 ## 2) Value in tooling
 
-We have extensive experience with tools and automation frameworks, and this has given us practical insights into their benefits. We look for opportunities to use automation to provide rapid, repeatable checks and to expand coverage. 
+We have extensive experience with tools and automation frameworks, and this has given us practical insights into their benefits. We look for opportunities to use automation to provide rapid, repeatable checks and to expand coverage.
 
 Our experience with tools is broad and deep, covering many types of testing tools including those for Performance, Accessibility, Compatibility and API testing. To understand the value of tools and automation, we balance their benefits with the cost and effort of establishing and maintaining them. Only then can we take an agnostic and holistic approach in recommending the most suitable tools for testing.
 
 ## 3) Quality for humans
 
-The platforms, applications and other products we work on exist to serve people. We apply technical skills and knowledge in our work, and strive for excellence in what we deliver; but regardless of the tools, techniques and infrastructure we use, we recognise that ultimately it is people who will decide whether the products they use give them what they need, are helpful, and whether they want to continue using them. 
+The platforms, applications and other products we work on exist to serve people. We apply technical skills and knowledge in our work, and strive for excellence in what we deliver; but regardless of the tools, techniques and infrastructure we use, we recognise that ultimately it is people who will decide whether the products they use give them what they need, are helpful, and whether they want to continue using them.
 
 Therefore, we keep people in mind when we test. We understand that their needs are diverse, and their perceptions of quality are subjective and variable. We think about the ways technology could help them, how it could hinder them and how it could fail them.
 
@@ -41,12 +41,11 @@ Testers often bring a unique mindset to a team, applying curiosity and critical 
 
 ## 6) Collaborate and cross-skill
 
-We believe that testers are not gatekeepers, or the sole advocates for quality. Industry development practices which often encouraged testers to operate independently from the rest of the team have thankfully been replaced with a recognition that collaboration and continuous testing are valuable. To contribute within a high-performing development team, an understanding of the skills of others is hugely helpful. 
+We believe that testers are not gatekeepers, or the sole advocates for quality. Industry development practices which often encouraged testers to operate independently from the rest of the team have thankfully been replaced with a recognition that collaboration and continuous testing are valuable. To contribute within a high-performing development team, an understanding of the skills of others is hugely helpful.
 
 Our testers bring a range of technical skills which complement their testing mindset. They understand that knowledge of design, coding and other crafts can improve their testing. Meanwhile, they share testing expertise with others, helping them to test designs, code, or even their assumptions.
 
-\
-These principles provide a framework for excellent testing, and a broader view of quality. Our consultants bring experience and skills across a wide range of contexts and understand that products benefit from continuous evaluation. We don’t simply ‘shift left’ into design and build, or ‘shift right’ into production monitoring. We look for opportunities throughout a product’s life to investigate and provide valuable information to Product Owners, Development teams and other important stakeholders. 
+Taken together, these six principles provide a framework for excellent testing, and a broader view of quality. Our consultants bring experience and skills across a wide range of contexts and understand that products benefit from continuous evaluation. We don’t simply ‘shift left’ into design and build, or ‘shift right’ into production monitoring. We look for opportunities throughout a product’s life to investigate and provide valuable information to Product Owners, Development teams and other important stakeholders.
 
 Whether for new products, features or maintenance and changes, we work hand in hand with the wider team to make sure that testability and quality are given focus throughout development, delivery, operation and maintenance.
 
