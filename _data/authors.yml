@@ -120,6 +120,7 @@ active-authors:
   - rgriffiths
   - rlewis
   - rpilling
+  - rrogers
   - rstrange
   - rwilliams
   - rwillis
@@ -784,6 +785,11 @@ authors:
     author-summary: "<p>I'm a software developer at Scott Logic, Edinburgh. I joined in August 2017 after four years studying Computer Science and Mathematics at the University of Edinburgh.</p>"
     twitter-url: "https://twitter.com/trrhodes"
     picture: picture.jpg
+  rrogers:
+    name: "Rich Rogers"
+    twitter-handle: richrtesting
+    author-summary: "<p>I am the Testing Capability Lead for Scott Logic. I have been involved in Testing and software delivery for 25 years, working for organisations in the UK and Australia.</p>"
+    picture: RR.jpg
   rschuller:
     author-summary: "Graduate Developer, Bristol"
     name: "Ricardo Schuller"
