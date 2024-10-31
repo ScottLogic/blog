@@ -54,13 +54,14 @@ Scenario: Given we send a request to the 'users' endpoint, a 200 response is ret
 ~~~
 
 The above example kicks things off with our Feature File format:
-* Feature - the thing or "feature" we'll be testing in this file
+
+* Feature - the piece of functionality or "feature" we'll be testing
 * Background - this is code that is run before every Scenario, save for special cases where `call once` or `callSingle`
 is used (more on that later).
-* Scenario - our test Scenario - we can have as many of these as we need
+* Scenario - our sequence of steps in order to test functionality
 
-We need to set our `baseUrl` so that our API requests know where to send the requests to, so we set this in the 
-Background. We can easily override this in any given Scenario if we so wished to change our target API.
+Firstly, we set our `baseUrl` in the `Background` section so that our HTTP requests know where to send the requests to. 
+We can easily override this in any given Scenario if we so wished to change our target API.
 
 Typically, within our Scenario's, we'll follow a `Given, When, And, Then` syntax - which is 100% interchangeable. These
 keywords don't have any underlying functionality other than to tell Karate we're at the start of a new instruction. The 
@@ -84,7 +85,7 @@ This next feature is both a nice saver in terms of execution cost/time but also 
 that this is not necessarily a great pattern in terms of test readability, but there certainly still is a time and place  
 for it.
 
-Say we want to add some authentication to our request - we would request a token, and then add that as a header in
+Say we want to add some authentication into the mix - we would request a token, and then add that as a header in
 all subsequent requests. How we approach that in Karate looks like this:
 
 ~~~karate
@@ -100,9 +101,6 @@ Scenario: Grab a valid authentication token and send a request to the 'users' en
   And request { username: 'eve.holt@reqres.in', password: 'cityslicka' }
   When method POST
   Then status 200
-
-  # Lets save our token - note how we can use * or any gherkin style keyword interchangeably
-  # 'response' is always a reference to the last response body
   * def token = response.token
 
   Given path 'users'
@@ -129,7 +127,8 @@ Karate allows us to move any piece of commonly used functionality out into a Fea
 into the `Background`. Usually, all code within the `Background` is executed for every Scenario in that Feature File, 
 but in the case of `callSingle`, we only run it once across **all** Features that make the same call.
 
-For example, we have created `AuthenticateAs.feature` which contains our request to login and save the token. 
+For example, we have created `AuthenticateAs.feature` which contains our request to login and store the token into a 
+`token` variable. 
 
 ~~~karate 
 # AuthenticateAs.feature
@@ -230,7 +229,7 @@ screen. One example is `waitFor(locator)` - which will wait until a given locato
 chain commands on the back of the locator being found as opposed to waiting for the locator, storing it, then performing
 an action. 
 
-This means we have a tidy of steps that will spin up our driver, wait for elements to appear and perform 
+This means we have a tidy of steps that will spin up our driver, wait for elements to appear, perform 
 actions accordingly and then wait for the URL to change to the home page to show we've logged in with our new user 
 successfully.
 
@@ -238,12 +237,13 @@ successfully.
 Lastly, I want to talk about Dynamic Scenario Outlines. 
 
 If you're used to Cucumber then you've probably got an understanding of 
-[Scenario Outlines](https://cucumber.io/docs/gherkin/reference/) - they let you run through the exact same test steps 
-but with your variables and data driven directly from a table. 
+[Scenario Outlines](https://cucumber.io/docs/gherkin/reference/#scenario-outline) - they let you run through the exact 
+same test steps but with your variables and data driven directly from a table. 
 
 The example below is 2 different Scenarios, but for each iteration (or row) we substitute the values in angle-brackets 
-with values from each column of the table. This is really powerful when we have a lot of different tests we want to run 
-but with different input data each time - meaning big savings on lines of code and improved test maintainability.
+with values from each column of the table. This is really powerful when we have a lot of different tests that follow the
+same steps, but with different input data each time, meaning big savings on lines of code and improved test 
+maintainability.
 
 ~~~karate
 Feature: 'register' endpoint Scenarios
@@ -305,9 +305,9 @@ Let's say we wanted to clean up our test environment of users, but in order to d
 ID's and then send a DELETE request to `https://reqres.in/api/users/${id}` for each one.
 
 In the below example, we have a `@setup` Scenario which is our data setup for our Scenario Outline.
-Up until now we are used to the Background section running for every Scenario, but that's not the case here, so we need
+Up until now we are used to the `Background` section running for every Scenario, but that's not the case here, so we need
 to tell Karate about our `baseUrl` again. The `@setup` section then sends a GET request to the 
-`https://reqres.in/api/users` endpoint and we save the `data` array from the response into a `userData` variable.
+`https://reqres.in/api/users` endpoint and then we save the `data` array from the response into a `userData` variable.
 
 Now, within our Examples table, we can give our Scenario Outline access to the `userData` array from the `@setup` 
 Scenario by using `karate.setup().userData`. This means that our Scenario Outline is aware of each JSON object within 
