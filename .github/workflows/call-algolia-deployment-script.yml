@@ -57,8 +57,8 @@ jobs:
           BLOG_POSTS_DEPLOY_TO_ALGOLIA_ENDPOINT_PRODUCTION: ${{ secrets.BLOG_POSTS_DEPLOY_TO_ALGOLIA_ENDPOINT_PRODUCTION }} # Production endpoint
           BLOG_POSTS_DEPLOY_TO_ALGOLIA_ENDPOINT_DEVELOP: ${{ secrets.BLOG_POSTS_DEPLOY_TO_ALGOLIA_ENDPOINT_DEVELOP }} # Develop endpoint
         run: |
-          # Ensure 'gray-matter' and 'axios' are installed for front-matter parsing
-          npm install gray-matter axios
+          # Ensure 'gray-matter', 'axios' and 'dotenv' are installed for front-matter parsing
+          npm install gray-matter axios dotenv
 
           # Run the custom script, passing the list of files and extracting their metadata
           node ./send-blogs-to-deploy-endpoint.js "${{ steps.changes.outputs.new_files }}" "${{ steps.changes.outputs.modified_files }}" "${{ steps.changes.outputs.deleted_files }}"
