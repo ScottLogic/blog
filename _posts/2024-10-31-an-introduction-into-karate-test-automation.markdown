@@ -38,7 +38,7 @@ or extra digging into the technical behind-the-scenes implementation in order to
 Let's take a look - say we want to send a request to an endpoint to list users (we'll use [reqres](https://reqres.in/) 
 for the examples in this post):
 
-```karate
+~~~karate
 Feature: 'users' endpoint Scenarios
 
 Background:
@@ -51,7 +51,7 @@ Scenario: Given we send a request to the 'users' endpoint, a 200 response is ret
   When method GET
   Then status 200
   And match response.data[*].first_name contains "Tobias"
-```
+~~~
 
 The above example kicks things off with our Feature File format:
 * Feature - the thing or "feature" we'll be testing in this file
@@ -87,7 +87,7 @@ for it.
 Say we want to add some authentication to our request - we would request a token, and then add that as a header in
 all subsequent requests. How we approach that in Karate looks like this:
 
-```karate
+~~~karate
 Feature: 'users' endpoint Scenarios
 
 Background:
@@ -109,7 +109,7 @@ Scenario: Grab a valid authentication token and send a request to the 'users' en
   And header Authorization = `Bearer ${token}`
   When method GET
   Then status 200
-```
+~~~
 
 This Scenario contains two API calls - the first of which is a POST request to the `login` path with some valid known 
 credentials. We also assert that this request returns a HTTP 200 response code.
@@ -131,7 +131,7 @@ but in the case of `callSingle`, we only run it once across **all** Features tha
 
 For example, we have created `AuthenticateAs.feature` which contains our request to login and save the token. 
 
-```karate 
+~~~karate 
 # AuthenticateAs.feature
 Feature: Util for authenticating as a user and providing an auth token
 
@@ -146,7 +146,7 @@ Scenario: Send a request to login and save the token
   When method POST
   Then status 200
   * def token = response.token
-```
+~~~
 
 `'#(username)'` is how we tell Karate to use any JSON values that were passed in whilst calling the file.
 
@@ -155,7 +155,7 @@ it a JSON object containing some parameters that we want to use for our authenti
 a local variable called `auth` - meaning that we can access any variables defined in `AuthenticateAs.feature` via 
 `auth.variable`.
 
-```karate
+~~~karate
 Feature: 'users' endpoint Scenarios
 
 Background:
@@ -171,7 +171,7 @@ Scenario: Given we send a request to the 'users' endpoint, a 200 response is ret
   And header Authorization = `Bearer ${auth.token}`
   When method GET
   Then status 200
-```
+~~~
 
 Now we can have a series of requests and scenarios that only authenticate once, since we've used `karate.callSingle()` -
 we've also configured our `callSingleCache` to refresh every 4 minutes to avoid tokens reaching their expiry. This will 
@@ -196,7 +196,7 @@ easily incorporate a simple UI test alongside API calls.
 Say we want to test logging into our application via the UI - but first we need to create our user - what would this 
 look like in terms of an actual Scenario?
 
-```karate
+~~~karate
 Feature: Check that we can Login using the UI
 
 Background:
@@ -218,7 +218,7 @@ Scenario: Given we create a user, we can successfully login via the UI using the
   And waitFor(passwordLocator).input('pistol')
   When waitFor(signInButtonLocator).click()
   Then waitForUrl(`${baseUrl}/home`)
-```
+~~~
 
 Firstly, we have our POST request to create the new user via the `register` endpoint. We then need to tell Karate that 
 our `baseUrl` has now changed to the UI because when we instantiate a 
@@ -245,7 +245,7 @@ The example below is 2 different Scenarios, but for each iteration (or row) we s
 with values from each column of the table. This is really powerful when we have a lot of different tests we want to run 
 but with different input data each time - meaning big savings on lines of code and improved test maintainability.
 
-```karate
+~~~karate
 Feature: 'register' endpoint Scenarios
   
 Background:
@@ -264,7 +264,7 @@ Examples:
   | Scenario | Username           | Password  | Status | Response                                  |
   | valid    | eve.holt@reqres.in | pistol    | 200    | { "id": 4, "token": "QpwL5tke4Pnpja7X4" } |
   | invalid  | eve.holt@reqres.in |           | 400    | { "error": "Missing password" }           |
-```
+~~~
 
 In this example, the first row means we'll send a POST request containing a valid username and password to the 
 `register` endpoint. We then assert on a valid `200` response from the endpoint and also do a response body assertion.
@@ -276,7 +276,7 @@ table at run-time.
 
 For some initial context, here's a snippet of the response from `https://reqres.in/api/users`:
 
-```json
+~~~json
 {
   "page": 1,
   "per_page": 6,
@@ -299,7 +299,7 @@ For some initial context, here's a snippet of the response from `https://reqres.
         }
     ]
 }
-```
+~~~
 
 Let's say we wanted to clean up our test environment of users, but in order to do that we need to know all user 
 ID's and then send a DELETE request to `https://reqres.in/api/users/${id}` for each one.
@@ -316,7 +316,7 @@ the array, and it automatically has access to all values from each object and he
 The steps within the Scenario Outline then make a DELETE request to the `users/${id}` path, and we assert on a 204 
 response meaning we successfully initiated a DELETE on that specific user ID.
 
-```karate
+~~~karate
 Feature: Delete Users using Dynamic Scenario Outline
 
 Background:
@@ -340,17 +340,17 @@ Scenario Outline: Delete all users by fetching the ID's from the users endpoint
 
 Examples: 
   | karate.setup().userData |
-```
+~~~
 
 If our ID's were predictable then we could have used something like we have below, but when they are generated at 
 run-time then we require a `@setup` routine in order to fetch our non-deterministic data.
 
-```karate
+~~~karate
 Examples:
   | IDs |
   | 7   |
   | 8   |
-```
+~~~
 
 This is great for running through a bulk set of tests where we don't necessarily know some vital inputs before 
 execution. There's a few others ways to do something similar in Karate, but another benefit of Dynamic Scenario Outlines
