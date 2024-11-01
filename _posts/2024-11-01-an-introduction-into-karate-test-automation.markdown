@@ -1,6 +1,6 @@
 ---
 title: 'An Introduction into Karate Test Automation'
-date: 2024-10-31 12:00:00 Z
+date: 2024-11-01 12:00:00 Z
 categories:
 - Testing
 tags:
