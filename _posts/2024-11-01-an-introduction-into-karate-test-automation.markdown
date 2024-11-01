@@ -1,5 +1,5 @@
 ---
-title: 'An Introduction into Karate Test Automation'
+title: An Introduction into Karate Test Automation
 date: 2024-11-01 09:00:00 Z
 categories:
 - Testing
@@ -9,8 +9,8 @@ tags:
 - API
 - Open Source
 - Karate
-summary: In this blog I'll introduce the Karate Test Automation Framework and talk about some of the fun and
-  interesting features it provides.   
+summary: In this blog I'll introduce the Karate Test Automation Framework and talk
+  about some of the fun and interesting features it provides.
 author: sdewar
 ---
 
