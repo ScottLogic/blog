@@ -787,8 +787,7 @@ authors:
     picture: picture.jpg
   rrogers:
     name: "Rich Rogers"
-    twitter-handle: richrtesting
-    author-summary: "<p>I am the Testing Capability Lead for Scott Logic. I have been involved in Testing and software delivery for 25 years, working for organisations in the UK and Australia.</p>"
+    author-summary: "<p>I am the Testing Capability Lead for Scott Logic. I have been involved in testing and software delivery for 25 years, working for organisations in the UK and Australia.</p>"
     picture: RR.jpg
   rschuller:
     author-summary: "Graduate Developer, Bristol"
