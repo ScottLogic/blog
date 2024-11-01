@@ -1,6 +1,6 @@
 ---
 title: 'An Introduction into Karate Test Automation'
-date: 2024-11-01 12:00:00 Z
+date: 2024-11-01 09:00:00 Z
 categories:
 - Testing
 tags:
@@ -33,7 +33,7 @@ less readable code in the background.
 
 Karate lets us write our test scenarios straight out the box - there's no need to write Java glue code or 
 step-definitions like Cucumber. The example below showcases this perfectly - there's no additional setup needed
-or extra digging into the technical behind-the-scenes implementation in order to get testing our services.
+or extra digging into the technical, behind-the-scenes implementation in order to get testing our services.
 
 Let's take a look - say we want to send a request to an endpoint to list users (we'll use [reqres](https://reqres.in/) 
 for the examples in this post):
@@ -229,12 +229,12 @@ screen. One example is `waitFor(locator)` - which will wait until a given locato
 chain commands on the back of the locator being found as opposed to waiting for the locator, storing it, then performing
 an action. 
 
-This means we have a tidy of steps that will spin up our driver, wait for elements to appear, perform 
+This means we have a tidy set of steps that will spin up our driver, wait for elements to appear, perform 
 actions accordingly and then wait for the URL to change to the home page to show we've logged in with our new user 
 successfully.
 
 ## Dynamic Scenario Outlines
-Lastly, I want to talk about Dynamic Scenario Outlines. 
+Lastly, I want to talk about [Dynamic Scenario Outlines](https://karatelabs.github.io/karate/#dynamic-scenario-outline. 
 
 If you're used to Cucumber then you've probably got an understanding of 
 [Scenario Outlines](https://cucumber.io/docs/gherkin/reference/#scenario-outline) - they let you run through the exact 
@@ -305,8 +305,11 @@ Let's say we wanted to clean up our test environment of users, but in order to d
 ID's and then send a DELETE request to `https://reqres.in/api/users/${id}` for each one.
 
 In the below example, we have a `@setup` Scenario which is our data setup for our Scenario Outline.
-Up until now we are used to the `Background` section running for every Scenario, but that's not the case here, so we need
-to tell Karate about our `baseUrl` again. The `@setup` section then sends a GET request to the 
+Up until now we are used to the `Background` section running before every Scenario, but anything tagged with `@setup` 
+will actually run before the `Background`. This means we need to set our `baseUrl` within the `@setup` scenario. We'll 
+still want to keep our `baseUrl` defined within the `Background` since any other scenarios still need to know the target
+URL.
+The `@setup` section then sends a GET request to the 
 `https://reqres.in/api/users` endpoint and then we save the `data` array from the response into a `userData` variable.
 
 Now, within our Examples table, we can give our Scenario Outline access to the `userData` array from the `@setup` 
@@ -367,7 +370,7 @@ We have only scratched the surface in terms of everything that the framework off
 a deeper dive into some of the other key features such as exploring the comprehensive assertion features, image 
 comparison, built in HTML reporting or data driven tests via tags.
 
-The Documentation for Karate is really solid, with lots of examples and good explanations of each bit of functionality.
+The documentation for Karate is really solid, with lots of examples and good explanations of each bit of functionality.
 There's also a very active community on Stack Overflow asking and answering questions - you'll find the author of 
 Karate answering a lot of queries. Lastly, I've provided a link to a blog from Automation Panda about Gherkin which
 provides a comprehensive overview of the language.
