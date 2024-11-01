@@ -234,7 +234,7 @@ actions accordingly and then wait for the URL to change to the home page to show
 successfully.
 
 ## Dynamic Scenario Outlines
-Lastly, I want to talk about [Dynamic Scenario Outlines](https://karatelabs.github.io/karate/#dynamic-scenario-outline. 
+Lastly, I want to talk about [Dynamic Scenario Outlines](https://karatelabs.github.io/karate/#dynamic-scenario-outline). 
 
 If you're used to Cucumber then you've probably got an understanding of 
 [Scenario Outlines](https://cucumber.io/docs/gherkin/reference/#scenario-outline) - they let you run through the exact 
