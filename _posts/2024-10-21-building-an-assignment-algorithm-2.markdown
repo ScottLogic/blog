@@ -84,7 +84,7 @@ Therefore, we decided the compromise for each choice should be:
 
 Take note of the incremental difference between first to second and second to third - the slot compromise score becomes increasingly worse.
 
-<details><summary class="heading">The Slot Compromise Formula</summary>
+<details><summary class="heading" id="SlotCompromiseFormula">The Slot Compromise Formula</summary>
 This is based on the formula:
 \[Cₙ = n + Cₙ₋₁\]
 <span style="font-size: smaller;">where \(C\)ₙ is the compromise for the nth choice and \(C1 = 0\).</span>
@@ -127,7 +127,7 @@ Let’s introduce a new attendee, Bob, with exactly the same votes as Alice (to 
 ![fig2: The play off between Alice and Bob's aggregate compromise.]({{ site.github.url }}/jwarren/assets/assignment-algorithm-2/table2.JPG)
 
 - Slot 1: Bob is given his 2nd choice (chosen arbitrarily), so his aggregate compromise rises to 2. However, Alice is given her 3rd choice and so has had to compromise more in this first round. In slot 2 Alice will take precedence over Bob.  
-- Slot 2: Alice gets her first choice, Bob gets his 2nd choice. Even though Bob gets a worse score than Alice in the second slot, Alice’s aggregate compromise is higher. This is because she was given her 3rd choice in the first slot and we consider one 3rd choice worse than two 2nd choices - refer to the slot compromise formula under the first expanding more+ section (under the Compromise heading).  
+- Slot 2: Alice gets her first choice, Bob gets his 2nd choice. Even though Bob gets a worse score than Alice in the second slot, Alice’s aggregate compromise is higher. This is because she was given her 3rd choice in the first slot and we consider one 3rd choice worse than two 2nd choices - refer to the <a href="#SlotCompromiseFormula">slot compromise formula</a>.  
 - Slot 3: Alice gets her second choice and Bob gets his 3rd.  
 - Slot 4: Bob’s aggregate compromise score has surpassed Alice’s, and so he will take precedence in choice here.  
 
