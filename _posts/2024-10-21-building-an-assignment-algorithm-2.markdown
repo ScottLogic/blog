@@ -9,20 +9,27 @@ summary: Join us for the second installment of how we built an assignment algori
 author: jwarren
 ---
 
-<!-- from: 2023-11-24-llm-mem.md -->
 <style> 
     summary {
-        font-weight: 300;
+        font-weight: 700;
+        font-style: italic;
+        font-size: 1.25em;
+        cursor: pointer;
         display: block;
-        font-style: normal 
+        margin-bottom: 0.5em;
+    }
+    summary::before {
+        content: '►';
     }
     summary::after {
-        cursor: pointer;
-        content: '[+more]';
+        content: '[click to expand]';
         text-decoration: underline;
         text-decoration-style: dotted;
         padding-left: 0.5em;
         font-size: 0.8em;
+    }
+    details[open] > summary::before {
+        content: '▼';
     }
     details[open] > summary::after {
         content: ' [−less]';
@@ -64,7 +71,13 @@ This time we will discuss how we measured compromise, and then explore its inter
 
 Every time slot, attendees are given a slot compromise score according to what choice they were assigned. The greater the score, the more the attendee has had to compromise on their choice. We believe people are generally not too concerned about getting their 2nd choice, but comparatively a lot more disappointed to get their 3rd choice. Therefore we made the slot compromise score grow at an increasing rate. For example, the 3rd choice over the 2nd choice is worse than getting your 2nd choice over your 1st choice.  
 
-In the end, we decided the compromise for getting the first choice should be 0 (no compromise at all),  the compromise for getting the 2nd choice is 2 and the compromise for getting their 3rd choice is 5. Take note of the incremental difference between first to second and second to third - the slot compromise score becomes increasingly worse.
+Therefore, we decided the compromise for each choice should be:
+
+- 1st choice: 0 (no compromise at all)
+- 2nd choice: 2
+- 3rd choice: 5
+
+Take note of the incremental difference between first to second and second to third - the slot compromise score becomes increasingly worse.
 
 <details><summary>If you would like to know how we calculated these values, click the 'more' button for details</summary>
 This is based on the formula:
