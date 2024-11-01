@@ -17,9 +17,7 @@ author: jwarren
         cursor: pointer;
     }
     summary.heading {
-        font-weight: 700;
-        font-size: 1.25em;
-        margin-bottom: 0.5em;
+        font-weight: 600;
     }
     summary.heading::before {
         content: '►';
