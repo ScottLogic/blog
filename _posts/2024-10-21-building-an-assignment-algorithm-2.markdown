@@ -11,30 +11,37 @@ author: jwarren
 
 <style> 
     summary {
-        font-weight: 700;
-        font-style: italic;
-        font-size: 1.25em;
-        cursor: pointer;
+        font-weight: 300;
         display: block;
+        font-style: normal
+        cursor: pointer;
+    }
+    summary.heading {
+        font-weight: 700;
+        font-size: 1.25em;
         margin-bottom: 0.5em;
     }
-    summary::before {
+    summary.heading::before {
         content: '►';
+        padding-right: 0.3em;
     }
     summary::after {
-        content: '[click to expand]';
+        content: '[+more]';
         text-decoration: underline;
         text-decoration-style: dotted;
         padding-left: 0.5em;
         font-size: 0.8em;
     }
-    details[open] > summary::before {
+    summary.heading::after {
+        content: '[click to expand]';
+    }
+    details[open] > summary.heading::before {
         content: '▼';
     }
     details[open] > summary::after {
         content: ' [−less]';
     }
-        details[open]::before {
+    details[open]::before {
         content: '';
         display: block;
         border-top: 1px solid #ccc;
@@ -55,7 +62,7 @@ author: jwarren
     }
 </style>
 
-<!-- MathJax the maths equations -->
+<!-- MathJax for the maths equations -->
 <script type="text/javascript" async
  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
@@ -79,7 +86,7 @@ Therefore, we decided the compromise for each choice should be:
 
 Take note of the incremental difference between first to second and second to third - the slot compromise score becomes increasingly worse.
 
-<details><summary>If you would like to know how we calculated these values, click the 'more' button for details</summary>
+<details><summary class="heading">The Slot Compromise Formula</summary>
 This is based on the formula:
 \[Cₙ = n + Cₙ₋₁\]
 <span style="font-size: smaller;">where \(C\)ₙ is the compromise for the nth choice and \(C1 = 0\).</span>
@@ -152,8 +159,8 @@ However, if Chewbacca’s aggregate compromise was 5 and the emperor’s comprom
 
 All of this is to say, we can’t sort one way after the other, we need to sort compromise and surplus difference simultaneously to cover all circumstances. Capturing these nuances in an algorithm however is easier said than done. Aggregate compromise, by nature, increases in size every slot so it is hard to compare with surplus difference, which remains roughly within the same range. 
 
-<details><summary>For an example click the 'more' button.</summary>
-In slot 2, aggregate compromise per attendee could range from 0-5 (1st choice = 0, 3rd choice = 5), but in slot 10, the aggregate compromise per attendee could range between 0 and 50. Ignoring the fact that the algorithm would not be working very well if one person had 10x 3rd choices (giving an aggregate compromise score of 50)!  
+<details><summary>To dive deeper, click here</summary>
+For example, in slot 2, aggregate compromise per attendee could range from 0-5 (1st choice = 0, 3rd choice = 5), but in slot 10, the aggregate compromise per attendee could range between 0 and 50. Ignoring the fact that the algorithm would not be working very well if one person had 10x 3rd choices (giving an aggregate compromise score of 50)!  
 <br>
 <br>
 However, in both slot 2 and 10, the average surplus difference may be within the range of -6 and 6, assuming the average room surplus is 3. See the <a href="{{site.baseurl}}/2024/08/16/building-an-assignment-algorithm-1.html">first blog</a> in the series for how the surplus difference is calculated. 
@@ -165,7 +172,7 @@ We considered normalisation, however, the highest value (no matter whether an ou
 
 Finally, we landed on using the <a href="https://www.investopedia.com/terms/z/zscore.asp">Z-score</a> for aggregate compromise. The Z-score is a statistical value which measures how many standard deviations (a measure of spread) a dataset value is from the average. This means that compromise will play a more significant role in sorting when the aggregate compromise value is an outlier, however it would have a relatively small effect if the value is close to the average of the attendees' aggregate compromise, no matter how large the compromise or the surplus is.  
 
-<details class="no-italic"><summary>Click the 'more' button for to see how we compared compromise and surplus difference exactly, along with the rationale.</summary>
+<details class="no-italic"><summary class="heading">Comparing Compromise and Surplus Difference</summary>
 <br>
 <br>
 The value which we use to sort attendees can be calculated as:
