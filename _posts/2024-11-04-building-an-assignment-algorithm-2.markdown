@@ -1,11 +1,13 @@
 ---
 title: Building an Assignment Algorithm - Episode 2 / 3
-date: 2024-11-04 9:00:00 Z
+date: 2024-11-04 09:00:00 Z
 categories:
 - Tech
 tags:
 - Algorithms
-summary: Join us for the second installment of how we built an assignment algorithm. This blog will pick up from where we left off in part 1, exploring the measure of compromise over the course of multiple talk slots.
+summary: Join us for the second installment of how we built an assignment algorithm.
+  This blog will pick up from where we left off in part 1, exploring the measure of
+  compromise over the course of multiple talk slots.
 author: jwarren
 ---
 

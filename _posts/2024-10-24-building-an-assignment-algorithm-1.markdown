@@ -5,7 +5,11 @@ categories:
 - Tech
 tags:
 - Algorithms
-summary: You're organising a conference and the delegates have voted for what talks they would like to attend. How do you give them the fairest choice possible with constraints on talk size? Join us for the first blog in a series of 3 which go into the nitty gritty of an algorithm that gave rapid results, 30% fairer than those done by hand!
+summary: You're organising a conference and the delegates have voted for what talks
+  they would like to attend. How do you give them the fairest choice possible with
+  constraints on talk size? Join us for the first blog in a series of 3 which go into
+  the nitty gritty of an algorithm that gave rapid results, 30% fairer than those
+  done by hand!
 author: jwarren
 ---
 
