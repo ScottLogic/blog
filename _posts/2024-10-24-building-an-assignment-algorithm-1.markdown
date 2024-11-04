@@ -180,4 +180,4 @@ The weight gives more emphasis to the surplus difference if a user’s current g
 
 ### What's next?
 
-So you may be wondering, how do we define and measure compromise? And how can we do this over the course of multiple slots? These are good questions and will be answered in the next blog in the series. We’ll also get into the nitty gritty of the maths behind it all. Stay tuned!
+So you may be wondering, how do we define and measure compromise? And how can we do this over the course of multiple slots? These are good questions and are covered in the [next blog in the series]({{site.baseurl}}/2024/11/04/building-an-assignment-algorithm-2.html). We’ll also get into the nitty gritty of the maths behind it all. Stay tuned!

@@ -68,7 +68,7 @@ author: jwarren
 </script>
 
 
-Last year, we were given the task to create a conference talk-assignment-algorithm, for our company’s internal conferences. In the [first blog]({{site.baseurl}}/2024/08/16/building-an-assignment-algorithm-1.html), we explored how to assign talks in a single time slot, which is really the bedrock of the algorithm. However, looking at the bigger picture, being fair across multiple time slots is also highly important. 
+Last year, we were given the task to create a conference talk-assignment-algorithm, for our company’s internal conferences. In the [first blog]({{site.baseurl}}/2024/10/24/building-an-assignment-algorithm-1.html), we explored how to assign talks in a single time slot, which is really the bedrock of the algorithm. However, looking at the bigger picture, being fair across multiple time slots is also highly important. 
 
 We would not want the same attendees to always get their second choice, or worse still their third choice across multiple slots. Therefore, to be able to empirically measure this, we conceptualised the amount by which a single attendee has received different choices in the past as a value called “compromise”. For example, an attendee didn’t get their first choice, so they had to compromise with a second/third choice.  
 
