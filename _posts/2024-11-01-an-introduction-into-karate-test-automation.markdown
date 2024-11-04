@@ -12,6 +12,7 @@ tags:
 summary: In this blog I'll introduce the Karate Test Automation Framework and talk
   about some of the fun and interesting features it provides.
 author: sdewar
+image: "/uploads/An%20introduction%20into%20Karate.png"
 ---
 
 Karate is an automation framework designed to make automation testing easy, super readable and more reliable than other 
