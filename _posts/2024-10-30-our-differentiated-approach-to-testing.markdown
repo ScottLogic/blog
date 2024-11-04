@@ -9,6 +9,7 @@ tags:
 summary: The principles that underpin our approach to testing at Scott Logic, and
   how this shapes the services we offer our clients.
 author: rrogers
+image: "/uploads/Our%20approach%20to%20testing.png"
 ---
 
 This is the third in a series of blogs setting out how we work with our clients – you can read here about [our approach to Architecture](https://blog.scottlogic.com/2024/10/15/our-approach-to-architecture.html) and [our approach to Delivery](https://blog.scottlogic.com/2024/10/23/our-approach-to-delivery.html).
