@@ -1,6 +1,6 @@
 ---
 title: Building an Assignment Algorithm - Episode 2 / 3
-date: 2024-10-21 9:22:00 Z
+date: 2024-11-04 9:00:00 Z
 categories:
 - Tech
 tags:
