@@ -101,7 +101,7 @@ While SLMs may not have the same raw language capabilities as LLMs, their effici
 
 Grounding GenAI in the context and reality of the use case it is being applied to is essential for production deployment of real-world applications. This is where carefully considered Data and Integration Architecture is vital. The appropriate choice of data architecture components with accurate, relevant data is going to be vital for most use cases.
 
-## Infrastructure Architecture Revolution: Neuromorphic Edge Computing?
+## Infrastructure Architecture Revolution: ASICs plus Neuromorphic Edge Computing?
 
 Alongside advancements in models, GenAI 2.0 will need to be powered by a revolution in computing infrastructure:
 
@@ -111,9 +111,11 @@ By pushing AI computation to the edge of the network – closer to where data is
 
 By strategically locating edge data centres in areas that require heat (e.g. district heating systems, industrial processes, indoor agriculture), the waste heat from AI computation can be efficiently repurposed. This "renewables-compute-heat coupling" can significantly improve GenAI's overall energy use, carbon intensity and sustainability (particularly as compute workloads can displace gas that would have been used for heating) compared to centralised public-cloud-based architectures that are often located in cities with high levels of electricity demand and carbon intensity.
 
-### Novel Hardware Architectures including Neuromorphic Chips
+### Novel Hardware Architectures including ASICs and Neuromorphic Chips
 
-CPUs and GPUs are not the only technologies for running AI. [Google has been working on](https://cloud.google.com/tpu/docs/intro-to-tpu) its [TPU (Tensor Processing Unit) technology](https://deepgram.com/ai-glossary/tensor-processing-unit-tpu) for many years. There are also fascinating [Neuromorphic computing](https://medium.com/@IEEE_Computer_Society_VIT/neuromorphic-hardware-and-computing-f7cc8f71ed58) architectures like those pioneered by [FinalSpark](https://finalspark.com/) and [SpiNNcloud](https://spinncloud.com/). These are designed to mimic the energy efficiency and processing capabilities of biological brains. By leveraging biological neural networks, neuromorphic chips can achieve orders-of-magnitude improvements in performance per watt compared to traditional hardware. This could make large-scale AI far more sustainable. The ultra-low power consumption of neuromorphic chips also makes them well-suited for deployment in edge environments where energy may be limited. 
+CPUs and GPUs are not the only technologies for running AI. [Google has been working on](https://cloud.google.com/tpu/docs/intro-to-tpu) its [TPU (Tensor Processing Unit) technology](https://deepgram.com/ai-glossary/tensor-processing-unit-tpu) for many years. These TPUs are Google's custom developed Application-specific integrated circuits (ASICs). ASICs can be an order of magnitude more efficient for AI workloads as they are custom designed to accelerate AI and ML workloads. I expect to see the ASICs to re-emerge as the GenAI market matures (with GPUs being used for development and model training rather than [inferencing](https://generativeai.pub/can-asics-overtake-nvidia-in-ai-inference-9fb82d4f3d77)).  
+
+There are also fascinating [Neuromorphic computing](https://medium.com/@IEEE_Computer_Society_VIT/neuromorphic-hardware-and-computing-f7cc8f71ed58) architectures like those pioneered by [FinalSpark](https://finalspark.com/) and [SpiNNcloud](https://spinncloud.com/). These are designed to mimic the energy efficiency and processing capabilities of biological brains. By leveraging biological neural networks, neuromorphic chips can achieve orders-of-magnitude improvements in performance per watt compared to traditional hardware. This could make large-scale AI far more sustainable. The ultra-low power consumption of neuromorphic chips also makes them well-suited for deployment in edge environments where energy may be limited. 
 
 By combining novel hardware like neuromorphic chips with edge computing, the next generation of AI could achieve unprecedented levels of efficiency and sustainability. That's not to say that GPUs won’t be used at all going forwards. Perhaps they will be used for certain training or prototyping stages of AI development. However, if AI-powered solutions are to be ubiquitous and affordable, large-scale operational deployment (including inferencing) will need vastly more efficient approaches.
 
