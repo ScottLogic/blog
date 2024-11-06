@@ -1,23 +1,22 @@
 ---
 title: Building an Assignment Algorithm - Episode 3 / 3
-date: 2024-08-16 9:30:00 Z
+date: 2024-11-05 9:30:00 Z
 categories:
 - Tech
 tags:
 - Algorithms
-summary: How we built an assignment algorithm, the third and final blog in the series.
+summary: The final installment of the assignment algorithm series! This blog covers the last piece of the puzzle - slot sorting, as well as wrapping up all that has been discussed in the previous 2 episodes. 
 author: jwarren
 ---
 
-<!-- from: 2023-11-24-llm-mem.md -->
 <style> 
     summary {
         font-weight: 300;
         display: block;
-        font-style: normal 
+        font-style: normal;
+        cursor: pointer;
     }
     summary::after {
-        cursor: pointer;
         content: '[+more]';
         text-decoration: underline;
         text-decoration-style: dotted;
@@ -27,13 +26,12 @@ author: jwarren
     details[open] > summary::after {
         content: ' [−less]';
     }
-        details[open]::before {
+    details[open]::before {
         content: '';
         display: block;
         border-top: 1px solid #ccc;
         margin-top: 1em;
     }
-
     details[open]::after {
         content: '';
         display: block;
@@ -42,22 +40,19 @@ author: jwarren
         margin-bottom: 1em;
     }
         details {
-        font-size: 0.9em;
         font-style: italic;
     }
-    details.no-italic {
-        font-size: 0.8em;
-        font-style: normal;
-    }
 </style>
+
+The third and final blog of the series, well done for making it thus far! We will look at the last piece of the puzzle - slot sorting, which can make a substantial difference to the outcome of our algorithm. Then we will wrap up - looking at how all the elements of the algorithm discussed in the past 3 blogs in this series come together. You can find the [first blog here]({{site.baseurl}}/2024/10/24/building-an-assignment-algorithm-1.html), and the [second blog here]({{site.baseurl}}/2024/11/04/building-an-assignment-algorithm-2.html). 
 
 In the first two blogs in this series, we looked at the mechanics of how we assigned talks to attendees algorithmically for a conference. This involved: 
 
 1. Sorting by surplus difference: Looking ahead, seeing what talks are more popular and thereafter ordering attendees accordingly. Calculating who would need to compromise (if at all) on their first choice for an optimal result.
 2. Sorting by aggregate compromise: Examining how attendees compromising over multiple time slots. Sorting the attendees in a way that avoided an individual(s) being the sacrificial lamb and taking the burden of all the compromise.
-3. The interplay between these two sorting methods: How surplus difference and aggregate compromise had to be combined and run simultaneously, for the algorithm to give an optimal result.  
-  
-In this third and final blog in the series, we will look at how ordering the slots can make a substantial difference to the outcome of the algorithm. We will also look at how all the elements of the algorithm discussed in the past 3 blogs in this series come together. You can find the [first blog here]({{site.baseurl}}/2024/08/16/building-an-assignment-algorithm-1.html), and the [second blog here]({{site.baseurl}}/2024/08/16/building-an-assignment-algorithm-2.html). 
+3. The interplay between these two sorting methods: How surplus difference and aggregate compromise had to be combined and run simultaneously, for the algorithm to give an optimal result.
+
+<br>
 
 ## Slot Sorting
 
@@ -71,11 +66,16 @@ Alternatively, let’s say we order the slots from an uneven spread of surplus d
 
 The plot thickens if there are duplicate talks. Duplicate talks are the same talk given in different time slots - if for example, the talk is thought to be popular or important. Obviously, attendees shouldn’t attend the same talk twice, so care must be taken in not assigning the same talk twice. We won’t go into this in too much depth, but this does affect slot sorting. 
 
-<details><summary>Click the 'more' button to find out how.</summary>
+<details><summary>Click here to find out how.</summary>
+<br>
+<p>
 Firstly, slots containing the most duplicate talks go first. Duplicate talks are put at the front so that the most forced choices happen at the beginning, meaning that the attendees’ aggregate compromise has time (/remaining slots to assign) to even out, in comparison to other attendees, by the end of the algorithm.  
-
+</p>
+<p>
 Next, we sort by how spread-out choices are. Duplicate talk slots with an even spread of choices to go first. This way, users aren't assigned a bad set of choices because the good assignments are no longer possible. This would be due to the previously assigned slots, which were oversubscribed (and therefore compromise high). Whereas as we discussed earlier, we want non-duplicate talk slots with a small spread (ie as many oversubscribed talks as possible) to go first. This is so that again, we generate as much compromise at the beginning of the algorithm run as possible, which will then even out over all the delegates by the end. After trialling and testing this method, we found it led to optimal results. 
+</p>
 </details>
+
 <br>
 There is one more element to the algorithm that we haven’t introduced yet, which is needed before we bring everything together.  
 
@@ -103,6 +103,7 @@ Here is the list of steps to be taken for the algorithm:
 5. Slot compromise for each user is calculated and then added to their aggregate compromise 
 
 You can find a flowchart with more detail below:
+
 <div style="position: relative; width: 100%; height: 0; padding-top: 120.0000%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
  border-radius: 8px; will-change: transform;">
@@ -110,8 +111,10 @@ You can find a flowchart with more detail below:
     src="https://www.canva.com/design/DAGUMczeZ0g/zzjhOfeMNDN88TuDguYPyg/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
   </iframe>
 </div>
-(The first slide is the overview, then each subsequent slide describes one step in that overview). 
 
+(The first slide is the overview, then the subsequent slides describes each step from the overview). 
+
+<br>
 
 ## Conclusion
 

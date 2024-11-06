@@ -260,4 +260,4 @@ The value of 2.72 comes from the fact that for a normal distribution, 95.4% of v
 
 ## Conclusion
 
-In this blog we have seen how we can measure and maintain fairness across multiple time slots using the idea of compromise. We have also seen how this interacts with sorting surplus differences and how it’s important to find a balance between the two. In the next and final blog in this series, we will look at how ordering time slots can make a significant difference to the outcome of the algorithm, along with concluding how the algorithm comes together as a whole. 
+In this blog we have seen how we can measure and maintain fairness across multiple time slots using the idea of compromise. We have also seen how this interacts with sorting surplus differences and how it’s important to find a balance between the two. In the [next and final blog in this series]({{site.baseurl}}/2024/11/11/building-an-assignment-algorithm-3.html), we will look at how ordering time slots can make a significant difference to the outcome of the algorithm, along with concluding how the algorithm comes together as a whole. 
