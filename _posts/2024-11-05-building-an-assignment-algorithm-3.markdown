@@ -44,25 +44,25 @@ author: jwarren
     }
 </style>
 
-The third and final blog of the series, well done for making it thus far! We will look at the last piece of the puzzle - slot sorting, which can make a substantial difference to the outcome of our algorithm. Then we will wrap up - looking at how all the elements of the algorithm discussed in the past 3 blogs in this series come together. You can find the [first blog here]({{site.baseurl}}/2024/10/24/building-an-assignment-algorithm-1.html), and the [second blog here]({{site.baseurl}}/2024/11/04/building-an-assignment-algorithm-2.html). 
+The third and final blog of the series, well done for making it thus far! We will look at the last piece of the puzzle - slot sorting, which can make a substantial difference to the outcome of our algorithm. Then we will wrap up - looking at how all the elements of the algorithm discussed in this series come together. You can find the [first episode here]({{site.baseurl}}/2024/10/24/building-an-assignment-algorithm-1.html), and the [second episode here]({{site.baseurl}}/2024/11/04/building-an-assignment-algorithm-2.html). 
 
-In the first two blogs in this series, we looked at the mechanics of how we assigned talks to attendees algorithmically for a conference. This involved: 
+In the first two episodes in this series, we looked at the mechanics of how we assigned talks to attendees algorithmically for a conference. This involved: 
 
 1. Sorting by surplus difference: Looking ahead, seeing what talks are more popular and thereafter ordering attendees accordingly. Calculating who would need to compromise (if at all) on their first choice for an optimal result.
-2. Sorting by aggregate compromise: Examining how attendees compromising over multiple time slots. Sorting the attendees in a way that avoided an individual(s) being the sacrificial lamb and taking the burden of all the compromise.
-3. The interplay between these two sorting methods: How surplus difference and aggregate compromise had to be combined and run simultaneously, for the algorithm to give an optimal result.
+2. Sorting by aggregate compromise: Examining how attendees compromise over multiple time slots. Sorting the attendees in a way that avoided an individual(s) being the sacrificial lamb and taking the burden of all the compromise.
+3. The interplay between these two sorting methods: How surplus difference and aggregate compromise must be combined and run simultaneously, for the algorithm to give an optimal result.
 
 <br>
 
 ## Slot Sorting
 
-We assign talks one timeslot at a time. However, what time slot should we start with? Would the order even make a difference?  
+We assign talks one time slot at a time. However, what time slot should we start with? Would the order even make a difference?  
 
 Since we do assign talks according to compromise, any mass accumulation of compromise in one slot will be evened out in the subsequent slot(s). However, if there is a mass accumulation of compromise in the last slot (that assignments are made in), then there won’t be any scope for this to be evened-out. Therefore, we decided that we wanted to make all the difficult decisions, high in compromise, earlier on in the process. Meaning that there would be space for compromise to be evened out amongst the attendees, after having run the process through the rest of the slots. That is to say, the slots with the least even-spread of surplus difference should go first.  
 
 For example, imagine everyone had the exact same preferences in the last slot (unevenly distributed preferences), with talks having a capacity constraint. Furthermore, let’s say the compromise levels are all equal because the algorithm has managed to be very fair up to this final slot. Everyone having the same preferences would lead to a few people getting 3rd choices. So, the end result of the algorithm is unfortunately unfair for some individuals, because there’s a lack of slots left to compensate any compromise.  
 
-Alternatively, let’s say we order the slots from an uneven spread of surplus difference to an even spread. Beginning with a slot of unevenly distributed surplus difference, everyone has the same talk preferences (as we finished with in the previous example). People in this slot would still get their third choices, but this time there are many slots for these attendees to get priority. Those who got their 3rd choice before, would be only getting first (and occasionally second) choices for the rest of the algorithmic process. Now for the last slot, there is an even spread of surplus difference, let’s say everyone’s first choice is for separate talks and they all receive their first choice. Since this algorithm has run over multiple slots already, we can assume the spread of compromise between the attendees is also very even. Since everyone gets their first choice, 0 compromise would be made, the spread of compromise remains even and everyone is happy.  
+Alternatively, let’s say we order the slots from an uneven spread of surplus difference to an even spread. Beginning with a slot of unevenly distributed surplus difference, everyone has the same talk preferences (as we finished with in the previous example). People in this slot would still get their third choices, but this time there are many slots for these attendees to get priority. Those who got their 3rd choice before, would be more likely to get first choices for the rest of the algorithmic process. Now for the last slot, there is an even spread of surplus difference, let’s say everyone’s first choice is for separate talks and they all receive their first choice. Since this algorithm has run over multiple slots already, we can assume the spread of compromise between the attendees is also very even. Since everyone gets their first choice, 0 compromise would be made, the spread of compromise remains even and everyone is happy.  
 
 The plot thickens if there are duplicate talks. Duplicate talks are the same talk given in different time slots - if for example, the talk is thought to be popular or important. Obviously, attendees shouldn’t attend the same talk twice, so care must be taken in not assigning the same talk twice. We won’t go into this in too much depth, but this does affect slot sorting. 
 
@@ -79,11 +79,11 @@ Next, we sort by how spread-out choices are. Duplicate talk slots with an even s
 <br>
 There is one more element to the algorithm that we haven’t introduced yet, which is needed before we bring everything together.  
 
-## Under Subscribed Talk Assignments:
+## Undersubscribed Talk Assignments:
 
-If there is an undersubscribed talk (there are less people than the talks prescribed minimum attendees), then users are moved from other groups into this group. Users are chosen from other groups as follows… 
+If there is an undersubscribed talk (there are less people than the talk's prescribed minimum attendees), then users are moved from other groups into this group. Users are chosen from other groups as follows… 
 
-Pick an attendee with the under subscribed talk as a 2nd choice, from the most overly subscribed talk possible. If no attendees have this under subscribed talk as a second choice, the process begins again for attendees with this as a 3rd choice etc. This process then repeats until the under subscribed talk's prescribed min attendees has been reached. 
+Pick an attendee with the undersubscribed talk as a 2nd choice, from the most oversubscribed talk possible. If no attendees have this undersubscribed talk as a second choice, the process begins again for attendees with this as a 3rd choice and so on. This process then repeats until the undersubscribed talk's prescribed minimum attendees has been reached. 
 
 ## Bringing it all together 
 
@@ -102,7 +102,7 @@ Here is the list of steps to be taken for the algorithm:
     </ol>
 5. Slot compromise for each user is calculated and then added to their aggregate compromise 
 
-You can find a flowchart with more detail below:
+Here is a flowchart of the process:
 
 <div style="position: relative; width: 100%; height: 0; padding-top: 120.0000%;
  padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
@@ -118,6 +118,6 @@ You can find a flowchart with more detail below:
 
 ## Conclusion
 
-In this blog we looked at how we ordered slots, what to do with undersubscribed talk assignments and then how all the elements in the past 3 blogs string together into a unified whole. Thank you for sticking with me through this algorithm journey. It wasn’t light reading, and you’ve done well to make it to the end. I hope you have found some useful insights to take away and possibly even found a means to apply them to your own projects.  
+In this blog we looked at how we ordered slots, what to do with undersubscribed talk assignments and then how all the elements in these 3 posts mesh together into a unified whole. Thank you for sticking with me through this algorithm journey. It wasn’t light reading, and you’ve done well to make it to the end. I hope you have found some useful insights to take away and possibly even found a means to apply them to your own projects.  
 
 Designing this app taught me much about algorithm design. It’s important to start with a high-level skeletal structure, and then with this structure, meat can be put on the bones for precision and clarity. I suppose this is true for planning most projects. The fact that surprised me the most was that some tiny details could have a significant effect on the output of an algorithm, such as how slot sorting was inverted depending on the presence of duplicate talks. I certainly enjoyed this challenge and look forward to the next opportunity to do something similar. 
