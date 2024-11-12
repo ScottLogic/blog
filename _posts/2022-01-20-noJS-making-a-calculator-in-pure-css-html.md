@@ -67,7 +67,7 @@ Now to generate a number. We need to use CSS variables. To declare one, create a
 <input type="radio" name="theFirstDigit" id="set-to-3" /> 
 <!-- insert labels -->
 
-<div class="number-display"></div>
+<div class="number-dsplay"></div>
 ~~~
 
 and 

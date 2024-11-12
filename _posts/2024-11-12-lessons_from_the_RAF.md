@@ -3,7 +3,10 @@ title: What I learnt about software development from the RAF
 date: 2024-11-12 00:00:00 Z
 categories:
 - People
-summary: Twenty one years ago today I left home and joined the Royal Air Force. Today I'm a lead software developer at Scott Logic and my career is very different, but I often reflect on my time in the military and the parallels between it and software development. To mark the event I thought I'd share a few thoughts on the subject.
+summary: Twenty one years ago today I left home and joined the Royal Air Force. Today
+  I'm a lead software developer at Scott Logic and my career is very different, but
+  I often reflect on my time in the military and the parallels between it and software
+  development. To mark the event I thought I'd share a few thoughts on the subject.
 author: dogle
 ---
 
