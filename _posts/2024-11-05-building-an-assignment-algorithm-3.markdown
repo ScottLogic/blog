@@ -79,21 +79,42 @@ The spread score is calculated before any assignments are made, using the follow
 </p>
 
 <ol>
-    <li>The popularity score: Each talk is given a “popular score” based on a sum of what choices people have made for that talk, minus a value representing the capacity of the talk venue. If a talk has a high “popular score”, it is oversubscribed. More details are given at the end of this expanding section. </li>
-    <li>The popularity ranking: order all the talks by the “popular score”, irrespective of slot to make a popularity list. Its order in the popularity list is its "popularity ranking"</li>
-    <li>The spread score: For each talk in a slot, sum the value calculated by subtracting each talk's "popularity ranking" from the total number of talks (in the whole conference). This is the slot’s “spread score”. </li>
+    <li><b>The intial oversubscribed score:</b> Each talk is given an "intial oversubscribed score” based on a sum of what choices people have made for that talk, minus a value representing the capacity of the talk venue. More details are given at the end of this expanding section.</li>
+    <li><b>The oversubscribed ranking:</b> Order all the talks by the "intial oversubscribed score", irrespective of slot to make an oversubscribed list. A talk's order in the oversubscribed list is its "oversubscribed ranking"</li>
+    <li><b>The relative oversubscribed score:</b> Subtract each talk's "oversubscribed ranking" from the total number of talks (in the whole conference).</li>
+    <li><b>The spread score:</b> For all the talks in a given slot, sum the relative oversubscribed score. This is the slot’s “spread score”. </li>
 </ol>
 
 <p>
-For example, if a talk is 1st in the popularity list of a 10 talk conference, its popularity ranking is 1 (being first), which would add 10-1=9 to the spread score of the slot it is from. The last talk in the list (least popular talk) would have a popularity ranking of 10, which would add 1-1=0 to the spread score of the slot it is from. The higher up the popularity list, the more oversubscribed the talk, the higher the value given to its associated slot. That is to say, the more oversubscribed talks a slot has, the higher its spread score, the more uneven its spread. 
+For example, if a talk is the most oversubscribed in the "oversubscribed list" from a 10 talk conference:
+</p>
+
+<ul>
+    <li>The talk's intial oversubscribed ranking = 1</li>
+    <li>The <i>relative</i> oversubscribed score = 10-1 = 9</li>
+    <li>+9 to the slot's "spread score", for the slot which the talk is part of.</li>
+</ul>
+
+<p>
+For the last talk in the "oversubscribed list":
+</p>
+
+<ul>
+    <li>The talk's intial oversubscribed ranking = 10</li>
+    <li>The <i>relative</i> oversubscribed score = 10-10 = 0</li>
+    <li>+0 to the slot's "spread score", for the slot which the talk is part of.</li>
+</ul>
+
+<p>
+The more oversubscribed the talk, the higher the value given to its associated slot's "spread score". Therefore, the more oversubscribed talks a slot has, the higher its spread score, the more uneven its spread. 
 </p>
 
 <h4>
-The “popular score”,  is given as follows:
+The "intial oversubscribed score”,  is given as follows:
 </h4>
 
 <p>
-For every 1st choice someone made for a talk, the talk is given +20 to their popular score (irrespective of whether everyone gets this first choice). +8 for every 2nd choice and +3 for every 3rd choice. So for every choice a talk gets (no matter whether it's assigned or not)...
+For every 1st choice someone made for a talk, the talk is given +20 to their initial oversubscribed score (irrespective of whether everyone gets this first choice). +8 for every 2nd choice and +3 for every 3rd choice. So for every choice a talk gets (no matter whether it's assigned or not)...
 </p>
 
 <ul style="list-style-type:none;">
