@@ -5,7 +5,7 @@ categories:
 - Tech
 tags:
 - Algorithms
-summary: The final installment of the assignment algorithm series! This blog covers the last piece of the puzzle - slot sorting, as well as wrapping up all that has been discussed in the previous 2 episodes. 
+summary: The final installment of the assignment algorithm series! This episode covers the last piece of the puzzle - slot sorting, as well as wrapping up all that has been discussed in the previous 2 episodes. 
 author: jwarren
 ---
 
@@ -44,12 +44,12 @@ author: jwarren
     }
 </style>
 
-The third and final blog of the series, well done for making it thus far! We will look at the last piece of the puzzle - slot sorting, which can make a substantial difference to the outcome of our algorithm. Then we will wrap up - looking at how all the elements of the algorithm discussed in this series come together. You can find the [first episode here]({{site.baseurl}}/2024/10/24/building-an-assignment-algorithm-1.html), and the [second episode here]({{site.baseurl}}/2024/11/04/building-an-assignment-algorithm-2.html). 
+The third and final post of the series, well done for making it this far! We will look at the last piece of the puzzle - slot sorting, which can make a substantial difference to the outcome of our algorithm. Then we will wrap up - looking at how all the elements of the algorithm discussed in this series come together. You can find the [first episode here]({{site.baseurl}}/2024/10/24/building-an-assignment-algorithm-1.html), and the [second episode here]({{site.baseurl}}/2024/11/04/building-an-assignment-algorithm-2.html). 
 
 In the first two episodes in this series, we looked at the mechanics of how we assigned talks to attendees algorithmically for a conference. This involved: 
 
 1. Sorting by surplus difference: Looking ahead, seeing what talks are more popular and thereafter ordering attendees accordingly. Calculating who would need to compromise (if at all) on their first choice for an optimal result.
-2. Sorting by aggregate compromise: Examining how attendees compromise over multiple time slots. Sorting the attendees in a way that avoided an individual(s) being the sacrificial lamb and taking the burden of all the compromise.
+2. Sorting by aggregate compromise: Examining how attendees compromise over multiple time slots. Sorting the attendees in a way that avoids an individual(s) being the sacrificial lamb and taking the burden of all the compromise.
 3. The interplay between these two sorting methods: How surplus difference and aggregate compromise must be combined and run simultaneously, for the algorithm to give an optimal result.
 
 <br>
@@ -62,10 +62,14 @@ Since we do assign talks according to compromise, any mass accumulation of compr
 
 For example, imagine everyone had the exact same preferences in the last slot (unevenly distributed preferences), with talks having a capacity constraint. Furthermore, let’s say the compromise levels are all equal because the algorithm has managed to be very fair up to this final slot. Everyone having the same preferences would lead to a few people getting 3rd choices. So, the end result of the algorithm is unfortunately unfair for some individuals, because there’s a lack of slots left to compensate any compromise.  
 
-Alternatively, let’s say we order the slots from an uneven spread of surplus difference to an even spread. Beginning with a slot of unevenly distributed surplus difference, everyone has the same talk preferences (as we finished with in the previous example). People in this slot would still get their third choices, but this time there are many slots for these attendees to get priority. Those who got their 3rd choice before, would be more likely to get first choices for the rest of the algorithmic process. Now for the last slot, there is an even spread of surplus difference, let’s say everyone’s first choice is for separate talks and they all receive their first choice. Since this algorithm has run over multiple slots already, we can assume the spread of compromise between the attendees is also very even. Since everyone gets their first choice, 0 compromise would be made, the spread of compromise remains even and everyone is happy.  
+Alternatively, let’s say we order the slots from an uneven spread of surplus difference to an even spread. Beginning with a slot of unevenly distributed surplus difference, everyone has the same talk preferences (as we finished with in the previous example). People in this slot would still get their third choices, but this time there are many slots for these attendees to get priority. Those who got their 3rd choice before, would be more likely to get first choices for the rest of the algorithmic process. Now for the last slot, there is an even spread of surplus difference, let’s say everyone’s first choice is for separate talks and they all receive their first choice. Since this algorithm has run over multiple slots already, we can assume the spread of compromise between the attendees is also very even. Since everyone gets their first choice, there is no compromise, the spread of compromise remains even and everyone is happy.  
 
 <details><summary>Click here for a more precise definition of spread.</summary>
+
 <br>
+<h4>
+The spread score:
+</h4>
 <p>
 Spread is a measure given to a slot of how oversubscribed the talks that it contains are. For example, if a slot has many oversubscribed talks, it has an uneven spread and a high “spread score”. If there are no oversubscribed talks, there is an even spread.
 </p>
@@ -73,16 +77,18 @@ Spread is a measure given to a slot of how oversubscribed the talks that it cont
 <p>
 The spread score is measured before any assignments are made. The process is as follows...
 
-1. Each talk is given a “popular score” based on a sum of what choices people have made for that talk, minus a value for the capacity of the talk venue. If a talk has a high “popular score”, it is oversubscribed.
-2. Order all the talks by the “popular score”, irrespective of slot to make a popularity list
-3. For each talk, according to its ranking in the ordered popularity list, you accrue a value to the slot it’s part of. This is the slot’s “spread score”. ie if a talk is 1st in the popularity list of a 10 talk conference, you would +10 to the spread score of the slot it is from, the last talk in the list (least popular talk) would +1 to the spread score of the slot it is from. 
+<ol>
+    <li>Each talk is given a “popular score” based on a sum of what choices people have made for that talk, minus a value for the capacity of the talk venue. If a talk has a high “popular score”, it is oversubscribed.</li>
+    <li>Order all the talks by the “popular score”, irrespective of slot to make a popularity list</li>
+    <li>For each talk, according to its ranking in the ordered popularity list, you accrue a value to the slot it’s part of. This is the slot’s “spread score”. ie if a talk is 1st in the popularity list of a 10 talk conference, you would +10 to the spread score of the slot it is from, the last talk in the list (least popular talk) would +1 to the spread score of the slot it is from. </li>
+</ol>
 
 The higher up the popularity list, the more oversubscribed the talk, the higher the value given to its associated slot. That is to say, the more oversubscribed talks a slot has, the higher its spread score, the more uneven its spread. 
 </p>
 
-<h3>
+<h4>
 The “popular score”,  is given as follows:
-</h3>
+</h4>
 
 <p>
 For every 1st choice someone made for a talk, the talk is given +20 to their popular score (irrespective of whether everyone gets this first choice). +8 for every 2nd choice and +3 for every 3rd choice. So for every choice a talk gets (no matter whether it's assigned or not)...
@@ -95,6 +101,7 @@ The value attached to the venue capacity which we minus from the sum of these ch
 </p>
 </details>
 
+<br>
 The plot thickens if there are duplicate talks. Duplicate talks are the same talk given in different time slots - if for example, the talk is thought to be popular or important. Obviously, attendees shouldn’t attend the same talk twice, so care must be taken in not assigning the same talk twice. We won’t go into this in too much depth, but this does affect slot sorting. 
 
 <details><summary>Click here to find out how.</summary>
@@ -149,6 +156,6 @@ Here is a flowchart of the process:
 
 ## Conclusion
 
-In this blog we looked at how we ordered slots, what to do with undersubscribed talk assignments and then how all the elements in these 3 posts mesh together into a unified whole. Thank you for sticking with me through this algorithm journey. It wasn’t light reading, and you’ve done well to make it to the end. I hope you have found some useful insights to take away and possibly even found a means to apply them to your own projects.  
+In this post we looked at how we ordered slots, what to do with undersubscribed talk assignments and then how all the elements in these 3 posts mesh together into a unified whole. Thank you for sticking with me through this algorithm journey. It wasn’t light reading, and you’ve done well to make it to the end. I hope you have found some useful insights to take away and possibly even found a means to apply them to your own projects.  
 
 Designing this app taught me much about algorithm design. It’s important to start with a high-level skeletal structure, and then with this structure, meat can be put on the bones for precision and clarity. I suppose this is true for planning most projects. The fact that surprised me the most was that some tiny details could have a significant effect on the output of an algorithm, such as how slot sorting was inverted depending on the presence of duplicate talks. I certainly enjoyed this challenge and look forward to the next opportunity to do something similar. 
