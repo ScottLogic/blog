@@ -79,38 +79,38 @@ The spread score is calculated before any assignments are made, using the follow
 </p>
 
 <ol>
-    <li><b>The intial oversubscribed score:</b> Each talk is given an "intial oversubscribed score” based on a sum of what choices people have made for that talk, minus a value representing the capacity of the talk venue. More details are given at the end of this expanding section.</li>
-    <li><b>The oversubscribed ranking:</b> Order all the talks by the "intial oversubscribed score", irrespective of slot to make an oversubscribed list. A talk's order in the oversubscribed list is its "oversubscribed ranking"</li>
-    <li><b>The relative oversubscribed score:</b> Subtract each talk's "oversubscribed ranking" from the total number of talks (in the whole conference).</li>
-    <li><b>The spread score:</b> For all the talks in a given slot, sum the relative oversubscribed score. This is the slot’s “spread score”. </li>
+    <li><b>The initial oversubscribed score:</b> Each talk is given an initial oversubscribed score based on a sum of what choices people have made for that talk, minus a value representing the capacity of the talk venue. More details are given at the end of this expanding section.</li>
+    <li><b>The oversubscribed ranking:</b> Order all the talks by the initial oversubscribed score, irrespective of slot to make an "oversubscribed list". A talk's order in the oversubscribed list is its oversubscribed ranking</li>
+    <li><b>The relative oversubscribed score:</b> Subtract each talk's oversubscribed ranking from the total number of talks in the whole conference. Note we <u>don't</u> subtract this from the number of talks in a <u>slot</u>.</li>
+    <li><b>The spread score:</b> For all the talks in a given slot, sum the relative oversubscribed scores. This is the slot’s “spread score”. </li>
 </ol>
 
 <p>
-For example, if a talk is the most oversubscribed in the "oversubscribed list" from a 10 talk conference:
+For example, if a Talk A from Slot-1 is the most oversubscribed in the oversubscribed list from a 10 talk conference:
 </p>
 
 <ul>
-    <li>The talk's intial oversubscribed ranking = 1</li>
-    <li>The <i>relative</i> oversubscribed score = 10-1 = 9</li>
-    <li>+9 to the slot's "spread score", for the slot which the talk is part of.</li>
+    <li>Talk A's initial oversubscribed ranking = 1</li>
+    <li>Talk A's relative oversubscribed score = 10-1 = 9</li>
+    <li>+9 to the Slot-1's spread score</li>
 </ul>
 
 <p>
-For the last talk in the "oversubscribed list":
+For Talk B from Slot-2, the last talk in the oversubscribed list (the least oversubscribed):
 </p>
 
 <ul>
-    <li>The talk's intial oversubscribed ranking = 10</li>
-    <li>The <i>relative</i> oversubscribed score = 10-10 = 0</li>
-    <li>+0 to the slot's "spread score", for the slot which the talk is part of.</li>
+    <li>Talk B's initial oversubscribed ranking = 10</li>
+    <li>Talk B's relative oversubscribed score = 10-10 = 0</li>
+    <li>+0 to the Slot-2's spread score.</li>
 </ul>
 
 <p>
-The more oversubscribed the talk, the higher the value given to its associated slot's "spread score". Therefore, the more oversubscribed talks a slot has, the higher its spread score, the more uneven its spread. 
+The more oversubscribed the talk, the higher the value given to its associated slot's spread score. Therefore, the more oversubscribed talks a slot has, the higher its spread score, the more uneven its spread. 
 </p>
 
 <h4>
-The "intial oversubscribed score”,  is given as follows:
+The initial oversubscribed score,  is given as follows:
 </h4>
 
 <p>
