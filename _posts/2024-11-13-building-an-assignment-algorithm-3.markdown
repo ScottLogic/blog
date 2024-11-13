@@ -121,18 +121,23 @@ Calculating the initial oversubscribed score:
 \[IOS = \sum_{i=1}^{nst} CSᵢ - VCS\]
 
 Where...
-\[IOS = ${Initial Oversubscribed Score,}\]
-\[nst = ${number of slot talks}\]
-\[CSᵢ = ${i^th talk's Choice Score} \\
-    = \begin{cases} 
-    20 & \text{if 1st choice} \\ 
-    8 & \text{if 2nd choice} \\ 
-    3 & \text{if 3rd choice} \\ 
-    \end{cases}\]
-\[VCS = ${Venue Capacity Score} = ${Venue Capacity} x 20 \]
+\[
+\begin{align*}
+\text{IOS} &= \text{Initial Oversubscribed Score}, \\
+\text{nst} &= \text{number of slot talks}, \\
+\text{CS}_i &= \text{i-th talk's Choice Score}
+    = 
+    \begin{cases} 
+    20 & \text{if 1st choice}, \\ 
+    8 & \text{if 2nd choice}, \\ 
+    3 & \text{if 3rd choice} 
+    \end{cases}, \\
+\text{VCS} &= \text{Venue Capacity Score} = \text{Venue Capacity} \times 20 
+\end{align*}
+\]
 
 <p>
-We are assuming there are ony 3 choices here. The choice score is given irrespective of whether everyone gets this first choice. This means that one attendee given a slot of 3 choices will effectively be assigning 3 different choice scores to 3 different talks, no matter which talk is assigned to the attendee in the end.
+We are assuming there are ony 3 choices here. The choice score is given irrespective of whether everyone gets this first choice. This means that 1 attendee given a slot of 3 choices will effectively be assigning 3 different choice scores to 3 different talks, in this singular slot, no matter which talk is assigned to the attendee in the end.
 </p>
 <p>
 The value attached to the venue capacity score is the equivalent of the room capacity full of 1st choices. So if the capacity is 10 people, this would be the equivalent of 10 x 20 = 200. This accounts for a popular talk having a large venue - it would not necessarily be oversubscribed. 
