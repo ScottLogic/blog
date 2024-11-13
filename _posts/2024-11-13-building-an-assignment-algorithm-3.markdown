@@ -1,11 +1,13 @@
 ---
 title: Building an Assignment Algorithm - Episode 3 / 3
-date: 2024-11-13 9:30:00 Z
+date: 2024-11-13 09:30:00 Z
 categories:
 - Tech
 tags:
 - Algorithms
-summary: The final installment of the assignment algorithm series! This episode covers the last piece of the puzzle - slot sorting, as well as wrapping up all that has been discussed in the previous 2 episodes. 
+summary: The final installment of the assignment algorithm series! This episode covers
+  the last piece of the puzzle - slot sorting, as well as wrapping up all that has
+  been discussed in the previous 2 episodes.
 author: jwarren
 ---
 
