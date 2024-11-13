@@ -1,6 +1,6 @@
 ---
 title: Building an Assignment Algorithm - Episode 3 / 3
-date: 2024-11-05 9:30:00 Z
+date: 2024-11-13 9:30:00 Z
 categories:
 - Tech
 tags:
@@ -44,6 +44,11 @@ author: jwarren
     }
 </style>
 
+<!-- MathJax for the maths equations -->
+<script type="text/javascript" async
+ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
 The third and final post of the series, well done for making it this far! We will look at the last piece of the puzzle - slot sorting, which can make a substantial difference to the outcome of our algorithm. Then we will wrap up - looking at how all the elements of the algorithm discussed in this series come together. You can find the [first episode here]({{site.baseurl}}/2024/10/24/building-an-assignment-algorithm-1.html), and the [second episode here]({{site.baseurl}}/2024/11/04/building-an-assignment-algorithm-2.html). 
 
 In the first two episodes in this series, we looked at the mechanics of how we assigned talks to attendees algorithmically for a conference. This involved: 
@@ -79,29 +84,29 @@ The spread score is calculated before any assignments are made, using the follow
 </p>
 
 <ol>
-    <li><b>The initial oversubscribed score:</b> Each talk is given an initial oversubscribed score based on a sum of what choices people have made for that talk, minus a value representing the capacity of the talk venue. More details are given at the end of this expanding section.</li>
+    <li><b>The initial oversubscribed score:</b> Each talk is given an initial oversubscribed score based on a sum of what choices people have made for that talk, minus the "venue capacity score". More precise details are given at the <a href="#initialOversubscribedScore">end of this expanding section</a>.</li>
     <li><b>The oversubscribed ranking:</b> Order all the talks by the initial oversubscribed score, irrespective of slot to make an "oversubscribed list". A talk's order in the oversubscribed list is its oversubscribed ranking</li>
-    <li><b>The relative oversubscribed score:</b> Subtract each talk's oversubscribed ranking from the total number of talks in the whole conference. Note we <u>don't</u> subtract this from the number of talks in a <u>slot</u>.</li>
+    <li><b>The relative oversubscribed score:</b> Subtract each talk's oversubscribed ranking from the total number of talks in the <u>whole conference</u>. Note we <u>don't</u> subtract this from the number of talks in a <u>slot</u>.</li>
     <li><b>The spread score:</b> For all the talks in a given slot, sum the relative oversubscribed scores. This is the slot’s “spread score”. </li>
 </ol>
 
 <p>
-For example, if a Talk A from Slot-1 is the most oversubscribed in the oversubscribed list from a 10 talk conference:
+For example, if a Talk-A from Slot-1 is the most oversubscribed in the oversubscribed list from a 10 talk conference:
 </p>
 
 <ul>
-    <li>Talk A's initial oversubscribed ranking = 1</li>
-    <li>Talk A's relative oversubscribed score = 10-1 = 9</li>
+    <li>Talk-A's initial oversubscribed ranking = 1</li>
+    <li>Talk-A's relative oversubscribed score = 10-1 = 9</li>
     <li>+9 to the Slot-1's spread score</li>
 </ul>
 
 <p>
-For Talk B from Slot-2, the last talk in the oversubscribed list (the least oversubscribed):
+For Talk-B from Slot-2, the last talk in the oversubscribed list (the least oversubscribed):
 </p>
 
 <ul>
-    <li>Talk B's initial oversubscribed ranking = 10</li>
-    <li>Talk B's relative oversubscribed score = 10-10 = 0</li>
+    <li>Talk-B's initial oversubscribed ranking = 10</li>
+    <li>Talk-B's relative oversubscribed score = 10-10 = 0</li>
     <li>+0 to the Slot-2's spread score.</li>
 </ul>
 
@@ -109,23 +114,30 @@ For Talk B from Slot-2, the last talk in the oversubscribed list (the least over
 The more oversubscribed the talk, the higher the value given to its associated slot's spread score. Therefore, the more oversubscribed talks a slot has, the higher its spread score, the more uneven its spread. 
 </p>
 
-<h4>
-The initial oversubscribed score,  is given as follows:
+<h4 id="initialOversubscribedScore">
+Calculating the initial oversubscribed score:
 </h4>
 
+\[IOS = \sum_{i=1}^{nst} CSᵢ - VCS\]
+
+Where...
+\[IOS = ${Initial Oversubscribed Score,}\]
+\[nst = ${number of slot talks}\]
+\[CSᵢ = ${i^th talk's Choice Score} \\
+    = \begin{cases} 
+    20 & \text{if 1st choice} \\ 
+    8 & \text{if 2nd choice} \\ 
+    3 & \text{if 3rd choice} \\ 
+    \end{cases}\]
+\[VCS = ${Venue Capacity Score} = ${Venue Capacity} x 20 \]
+
 <p>
-For every 1st choice someone made for a talk, the talk is given +20 to their initial oversubscribed score (irrespective of whether everyone gets this first choice). +8 for every 2nd choice and +3 for every 3rd choice. So for every choice a talk gets (no matter whether it's assigned or not)...
+We are assuming there are ony 3 choices here. The choice score is given irrespective of whether everyone gets this first choice. This means that one attendee given a slot of 3 choices will effectively be assigning 3 different choice scores to 3 different talks, no matter which talk is assigned to the attendee in the end.
+</p>
+<p>
+The value attached to the venue capacity score is the equivalent of the room capacity full of 1st choices. So if the capacity is 10 people, this would be the equivalent of 10 x 20 = 200. This accounts for a popular talk having a large venue - it would not necessarily be oversubscribed. 
 </p>
 
-<ul style="list-style-type:none;">
-    <li>1st choice: +20</li>
-    <li>2nd choice: +8</li>
-    <li>3rd choice: +3</li>
-</ul>
-
-<p>
-The value attached to the venue capacity which we minus from the sum of these choice values is the equivalent of the room capacity full of 1st choices. So if the capacity is 10 people, this would be the equivalent of 10 x 20 = 200.
-</p>
 </details>
 
 <br>
