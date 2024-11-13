@@ -91,7 +91,7 @@ The spread score is calculated before any assignments are made, using the follow
 </ol>
 
 <p>
-For example, if a Talk-A from Slot-1 is the most oversubscribed in the oversubscribed list from a 10 talk conference:
+For example, if Talk-A from Slot-1 is the most oversubscribed in the oversubscribed list from a 10 talk conference:
 </p>
 
 <ul>
@@ -115,10 +115,10 @@ The more oversubscribed the talk, the higher the value given to its associated s
 </p>
 
 <h4 id="initialOversubscribedScore">
-Calculating the initial oversubscribed score:
+Calculating the Initial Oversubscribed Score:
 </h4>
 <p>
-The Initial Oversubscribed Score (IOS) is given by the following equation.
+The Initial Oversubscribed Score (IOS) is given by the following equation...
 </p> 
 
 \[IOS = \sum_{i=1}^{n} CSᵢ - VCS\]
@@ -126,14 +126,14 @@ The Initial Oversubscribed Score (IOS) is given by the following equation.
 Where...
 \[
 \begin{align*}
-n &= \text{number of talks in a slot}, \\
+n &= \text{number of talks in a slot}, \\[1em]
 \text{CS}_i &=\text{i}^{\text{th}} \text{ talk's Choice Score}
     = 
     \begin{cases} 
     20 & \text{if 1st choice}, \\ 
     8 & \text{if 2nd choice}, \\ 
     3 & \text{if 3rd choice} 
-    \end{cases} \\
+    \end{cases} \\[1em]
 \text{VCS} &= \text{Venue Capacity Score} = \text{Venue Capacity} \times 20 
 \end{align*}
 \]
@@ -142,7 +142,7 @@ n &= \text{number of talks in a slot}, \\
 In the above maths equations, we are assuming there are ony 3 choices in a slot. 
 </p>
 <p>
-The choice score is given for every choice made - 1st, 2nd and 3rd - irrespective of what choice is assigned ot the attendee in the end. For example, 1 attendee given a slot of 3 choices will effectively be making 3 different choice scores for 3 different talks, in this singular slot.
+The choice score is given for every choice made - 1st, 2nd and 3rd - irrespective of what choice is assigned ot the attendee in the end. For example, 1 attendee given a slot of 3 choices will effectively be making 3 different choice scores for 3 different talks in this singular slot.
 </p>
 <p>
 The value attached to the venue capacity score is the equivalent of the room capacity full of 1st choices. So if the capacity is 10 people, this would be the equivalent of 10 x 20 = 200. This accounts for a popular talk having a large venue - it would not necessarily be oversubscribed. 
