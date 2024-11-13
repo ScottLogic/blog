@@ -8,6 +8,7 @@ summary: Twenty one years ago today I left home and joined the Royal Air Force. 
   I often reflect on my time in the military and the parallels between it and software
   development. To mark the event I thought I'd share a few thoughts on the subject.
 author: dogle
+image: "/uploads/What%20I%20learnt%20about%20software%20development%20from%20the%20RAF.png"
 ---
 
 On the 12th of November 2003 I joined the Royal Air Force and it's safe to say I had no idea what lay in store for me. I left my home in North Wales and headed south to undertake recruit basic training at RAF Halton in Buckinghamshire. Nine years later I left the air force, headed for university to study for a career in software development. Today I'm a lead software developer here at Scott Logic and a lot of things are very different as I'm sure you can imagine, but not everything, there are still a few things I learnt early on in life which are as valuable today in my current role as they ever were.
