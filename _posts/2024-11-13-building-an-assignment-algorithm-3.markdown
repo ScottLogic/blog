@@ -42,6 +42,9 @@ author: jwarren
         details {
         font-style: italic;
     }
+    li + li {
+        margin-top: 10px;
+    }
 </style>
 
 <!-- MathJax for the maths equations -->
@@ -126,7 +129,7 @@ The Initial Oversubscribed Score (IOS) is given by the following equation...
 Where...
 \[
 \begin{align*}
-n &= \text{number of talks in a slot}, \\[1em]
+n &= \text{number of choices made in a slot}, \\[1em]
 \text{CS}_i &=\text{i}^{\text{th}} \text{ talk's Choice Score}
     = 
     \begin{cases} 
@@ -142,7 +145,7 @@ n &= \text{number of talks in a slot}, \\[1em]
 In the above maths equations, we are assuming there are ony 3 choices in a slot. 
 </p>
 <p>
-The choice score is given for every choice made - 1st, 2nd and 3rd - irrespective of what choice is assigned ot the attendee in the end. For example, 1 attendee given a slot of 3 choices will effectively be making 3 different choice scores for 3 different talks in this singular slot.
+A choice score is given for every choice made irrespective of what choice is assigned to the attendee in the end. For example, 1 attendee given a slot of 3 talks will make 3 choices - 1st, 2nd and 3rd - which effectively will make 3 different choice scores in this singular slot.
 </p>
 <p>
 The value attached to the venue capacity score is the equivalent of the room capacity full of 1st choices. So if the capacity is 10 people, this would be the equivalent of 10 x 20 = 200. This accounts for a popular talk having a large venue - it would not necessarily be oversubscribed. 
