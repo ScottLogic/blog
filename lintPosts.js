@@ -2,8 +2,8 @@ const globby = require("globby");
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
 const fs = require("fs");
-const { exit } = require("process");
-const LINTER_MATCH_PATTERN="_posts/**/*.{md,markdown,html}"
+const LINTER_MATCH_PATTERN="_posts/**/*.{md,markdown,html}";
+const MAX_CATEGORIES = 3;
 
 const flatMap = (arr, mapFunc) =>
   arr.reduce((prev, x) => prev.concat(mapFunc(x)), []);
@@ -72,10 +72,10 @@ const lintPosts = () => {
           category = frontMatter.data.category.toLowerCase();
         // if the frontmatter defines a 'categories' field with at least one but no more than 3 values:
 
-        } else if (frontMatterCats && frontMatterCats.length && frontMatterCats.length <= 3) {
+        } else if (frontMatterCats && frontMatterCats.length && frontMatterCats.length <= MAX_CATEGORIES) {
           category = frontMatter.data.categories[0].toLowerCase();
         } else {
-          console.error("The post " + path + " does not have at least one but no more than 3 categories defined");
+          console.error("The post " + path + " does not have at least one and no more than " + MAX_CATEGORIES + " categories defined.");
           fail = true;
           return;
         }
