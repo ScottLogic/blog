@@ -2,7 +2,6 @@
 title: Overlooked Aspects of Being a Tester
 date: 2018-04-20 00:00:00 Z
 categories:
-- croberts
 - People
 tags:
 - Tester,
@@ -10,8 +9,7 @@ tags:
 - featured
 author: croberts
 layout: default_post
-summary: 'I will consider behaviours and characteristics that are sometimes under
-  appreciated when defining what a good, or even great tester looks like. '
+summary: 'I will consider behaviours and characteristics that are sometimes under appreciated when defining what a good, or even great tester looks like. '
 image: croberts/assets/brain.jpg
 ---
 

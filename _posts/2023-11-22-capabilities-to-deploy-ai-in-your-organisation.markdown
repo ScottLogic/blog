@@ -10,10 +10,7 @@ tags:
 - research culture
 - capabilities
 - capability models
-summary: In this post, I provide an overview of the capability models that are out
-  there, summarise the distinct capabilities required for AI/ML projects, and make
-  the case for what I believe to be the most important capability your organisation
-  will require.
+summary: In this post, I provide an overview of the capability models that are out there, summarise the distinct capabilities required for AI/ML projects, and make the case for what I believe to be the most important capability your organisation will require.
 author: jheward
 image: "/uploads/JH%20Blog.png"
 ---

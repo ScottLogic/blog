@@ -5,10 +5,7 @@ categories:
 - Testing
 tags:
 - testing
-summary: User stories are a pivotal component of Agile Software Development, serving
-  as concise and user-centric descriptions of desired software functionality. Hence,
-  here I am, discussing how crucial it is to put user stories right for setting the
-  foundation for a well-structured, user-focused, and efficient development process.
+summary: User stories are a pivotal component of Agile Software Development, serving as concise and user-centric descriptions of desired software functionality. Hence, here I am, discussing how crucial it is to put user stories right for setting the foundation for a well-structured, user-focused, and efficient development process.
 author: snandal
 image: "/uploads/The%20power%20of%20a%20well%20written%20user%20story-396f37.png"
 ---

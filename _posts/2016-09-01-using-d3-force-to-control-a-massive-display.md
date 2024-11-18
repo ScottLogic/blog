@@ -2,13 +2,10 @@
 title: Using d3-force to control a massive tiny display
 date: 2016-09-01 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post
-summary: This post describes my entry into one of the hack events at JSConf.IS which
-  challenged us to take control of the Northern Lights. It hopefully also serves as
-  a nice introduction to creating visualisations with d3-force.
+summary: This post describes my entry into one of the hack events at JSConf.IS which challenged us to take control of the Northern Lights. It hopefully also serves as a nice introduction to creating visualisations with d3-force.
 ---
 
 I recently attended the very first [JSConf.IS](https://jsconf.is) in Reykjavik. It was a great conference and I can highly recommend it for next year. I've already blogged about [my highlights](highlights-from-jsconfis.html) so I thought I'd cover some of the other festivities.

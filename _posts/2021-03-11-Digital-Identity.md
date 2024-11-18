@@ -2,7 +2,6 @@
 title: Digital Identity in UK Government
 date: 2021-03-11 00:00:00 Z
 categories:
-- nbetts
 - Delivery
 tags:
 - Government,
@@ -13,11 +12,7 @@ tags:
 author: nbetts
 layout: default_post
 image: nbetts/assets/digital-fingerprint.jpg
-summary: Since the Government Gateway launched two decades ago , there is now an array
-  of Government online portals available, allowing citizens to securely authenticate
-  with a digital identity, and access Government services.   In this blog post, I
-  discuss the legacy of the Government identity services, and the recent Cabinet Office
-  push for the 'development of a single sign-on and identity assurance system.'
+summary: Since the Government Gateway launched two decades ago , there is now an array of Government online portals available, allowing citizens to securely authenticate with a digital identity, and access Government services.   In this blog post, I discuss the legacy of the Government identity services, and the recent Cabinet Office push for the 'development of a single sign-on and identity assurance system.'
 ---
 
 <img src="{{ site.baseurl }}/nbetts/assets/digital-fingerprint.jpg" alt="Digital Identity" width="100%"/>

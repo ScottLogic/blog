@@ -2,12 +2,10 @@
 title: Single Page Applications - Angular vs Knockout
 date: 2014-07-30 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 image: alee/assets/featured/chess.jpg
-summary: A comparison of Angular and Knockout in an enterprise scale single page application,
-  by building the same sample application with both tools.
+summary: A comparison of Angular and Knockout in an enterprise scale single page application, by building the same sample application with both tools.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/07/30/spa-angular-knockout.html
 disqus-id: "/2014/07/30/spa-angular-knockout.html"

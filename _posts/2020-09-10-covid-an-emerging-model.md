@@ -2,13 +2,10 @@
 title: COVID - An emerging normal
 date: 2020-09-10 00:00:00 Z
 categories:
-- robsmith
 - Delivery
 author: robsmith
 layout: default_post
-summary: Back in May I wrote a blog, Beyond COVID, discussing the changes we may see
-  in the UK after the lockdown. With restrictions now lifting (or maybe not lifting),
-  it seems to be a good time to revisit my thoughts and look ahead to the future.
+summary: Back in May I wrote a blog, Beyond COVID, discussing the changes we may see in the UK after the lockdown. With restrictions now lifting (or maybe not lifting), it seems to be a good time to revisit my thoughts and look ahead to the future.
 image: robsmith/assets/thumbnail_beyond_covid.jpg
 ---
 

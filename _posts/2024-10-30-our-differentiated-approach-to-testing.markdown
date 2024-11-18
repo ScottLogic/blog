@@ -6,8 +6,7 @@ categories:
 tags:
 - testing
 - quality
-summary: The principles that underpin our approach to testing at Scott Logic, and
-  how this shapes the services we offer our clients.
+summary: The principles that underpin our approach to testing at Scott Logic, and how this shapes the services we offer our clients.
 author: rrogers
 image: "/uploads/Our%20approach%20to%20testing.png"
 ---

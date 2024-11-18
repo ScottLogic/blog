@@ -2,11 +2,9 @@
 title: Securing Web Applications, Part 2. SQL (and other) Injection Attacks
 date: 2016-02-11 00:00:00 Z
 categories:
-- rsillem
 - Tech
 author: rsillem
-summary: In this post, we discuss SQL and other injection attacks against web apps,
-  and how to defend against them.
+summary: In this post, we discuss SQL and other injection attacks against web apps, and how to defend against them.
 layout: default_post
 ---
 

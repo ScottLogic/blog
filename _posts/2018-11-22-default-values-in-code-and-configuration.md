@@ -2,13 +2,10 @@
 title: Default values in code and configuration
 date: 2018-11-22 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post
-summary: Beneath the user interface of our applications, we as developers both define
-  and use default values in code and configuration. Choosing carefully helps make
-  what we build quicker, easier, and less error-prone to use.
+summary: Beneath the user interface of our applications, we as developers both define and use default values in code and configuration. Choosing carefully helps make what we build quicker, easier, and less error-prone to use.
 ---
 
 Beneath the user interface of our applications, we as developers both define and use default values in code and configuration. Choosing carefully helps make what we build quicker, easier, and less error-prone to use.

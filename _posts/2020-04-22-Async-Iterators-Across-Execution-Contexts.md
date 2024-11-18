@@ -2,14 +2,10 @@
 title: Cross-window async iterators using Comlink
 date: 2020-04-22 00:00:00 Z
 categories:
-- sburnstone
 - Tech
 author: sburnstone
 layout: default_post
-summary: Async iterators are a great language feature that make working with asynchronous
-  streams of data a joy to use. We'll take a look at consuming an async iterator running
-  in a Web Worker from the main thread and see how we can use a library called Comlink
-  to abstract away the fact it's running in a different execution context.
+summary: Async iterators are a great language feature that make working with asynchronous streams of data a joy to use. We'll take a look at consuming an async iterator running in a Web Worker from the main thread and see how we can use a library called Comlink to abstract away the fact it's running in a different execution context.
 ---
 
 Async iterators are a great language feature that make working with asynchronous streams of data a joy to use. We'll take a look at consuming an async iterator running in a Web Worker from the main thread and see how we can use a library called Comlink to abstract away the fact it's running in a different execution context.

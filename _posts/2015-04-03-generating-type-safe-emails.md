@@ -2,12 +2,10 @@
 title: Generating Type-Safe Email Templates Using Single File Generators
 date: 2015-04-03 00:00:00 Z
 categories:
-- isullivan
 - Tech
 author: isullivan
 layout: default_post
-summary: This post shows how 'single file generators' can be used to generate type-safe
-  email templates
+summary: This post shows how 'single file generators' can be used to generate type-safe email templates
 disqus-id: "/2015/04/03/generating-type-safe-emails.html"
 ---
 

@@ -2,7 +2,6 @@
 title: 'Introducing: React Hooks for OpenFin'
 date: 2019-09-06 00:00:00 Z
 categories:
-- dkerr
 - Tech
 tags:
 - featured
@@ -10,8 +9,7 @@ author: dkerr
 title-short: OpenFin React Hooks
 layout: default_post
 image: dkerr/assets/featured/react.png
-summary: An introduction to our recently released open-source React Hooks library,
-  OpenFin React Hooks. Developed especially for OpenFin and its developer community.
+summary: An introduction to our recently released open-source React Hooks library, OpenFin React Hooks. Developed especially for OpenFin and its developer community.
 ---
 
 There's been a lot of excitement recently around the addition of [Hooks into React](https://reactjs.org/docs/hooks-intro.html).

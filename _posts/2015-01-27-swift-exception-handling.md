@@ -2,15 +2,12 @@
 title: Exception Handling in Swift
 date: 2015-01-27 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2015/01/27/swift-exception-handling.html
 disqus-id: "/2015/01/27/swift-exception-handling.html"
-summary: Swift doesn't support throwing exceptions, nor does it support catching them.
-  This wouldn't be a problem if you could develop iOS apps in pure Swift, but unfortunately
-  at the moment you cannot.
+summary: Swift doesn't support throwing exceptions, nor does it support catching them. This wouldn't be a problem if you could develop iOS apps in pure Swift, but unfortunately at the moment you cannot.
 ---
 
 Swift doesn't support throwing exceptions, nor does it support catching them. This wouldn't be a problem if you could develop iOS apps in pure Swift, but unfortunately at the moment you cannot. When developing an app most of the APIs you'll be working with are Objective-C APIs that have been bridged to Swift. These APIs can, and do throw exceptions. So how do you catch them?

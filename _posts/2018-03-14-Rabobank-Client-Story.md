@@ -2,13 +2,11 @@
 title: Helping shape an effective DevOps Culture
 date: 2018-03-14 00:00:00 Z
 categories:
-- khurley
 - Tech
 author: khurley
 layout: default_post
 redirect_to: https://www.scottlogic.com/helping-shape-an-effective-devops-culture/
-summary: How Scott Logic consultants worked with Rabobank's London IT department to
-  improve DevOps practices.
+summary: How Scott Logic consultants worked with Rabobank's London IT department to improve DevOps practices.
 ---
 
 Just ahead of the second annual Fin:Code conference in London this week, it’s great to have a client story to announce!

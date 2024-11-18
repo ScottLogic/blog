@@ -9,10 +9,7 @@ tags:
 - Inclusion
 - ''
 - allyship
-summary: Every year at this time, I like to share my thoughts on the continuing relevance
-  of Pride Month. This year, we're going to share insights from the Scott Logic team
-  on what Pride and allyship mean to them, and why they value working in an inclusive
-  environment. I get the ball rolling here.
+summary: Every year at this time, I like to share my thoughts on the continuing relevance of Pride Month. This year, we're going to share insights from the Scott Logic team on what Pride and allyship mean to them, and why they value working in an inclusive environment. I get the ball rolling here.
 author: sforeshew-cain
 image: "/uploads/Pride-flag-social.jpg"
 ---

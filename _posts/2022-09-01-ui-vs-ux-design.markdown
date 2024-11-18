@@ -2,7 +2,6 @@
 title: UI vs UX Design
 date: 2022-09-01 11:04:00 Z
 categories:
-- delliott
 - UX Design
 tags:
 - user experience
@@ -10,8 +9,7 @@ tags:
 - ux design
 - ux
 - ui
-summary: UX and UI often get used interchangably, but there are key differences. Which
-  one do you need?
+summary: UX and UI often get used interchangably, but there are key differences. Which one do you need?
 author: delliott
 ---
 

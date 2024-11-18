@@ -6,13 +6,7 @@ categories:
 tags:
 - Sustainability
 - Tech
-summary: You think software has enough variables, right? Well there is another one
-  that has become a big consideration when designing, developing and deploying software
-  and its name is Sustainability. This area of consideration comes with its own terminology
-  and with this blog post I hope to shed some light onto the nomenclature. So when
-  someone comes up to you and says  "I want to design a sustainable, carbon aware
-  system that focuses on reducing the operational carbon of my business but also minimises
-  embodied carbon", you will know exactly what they are looking for!
+summary: You think software has enough variables, right? Well there is another one that has become a big consideration when designing, developing and deploying software and its name is Sustainability. This area of consideration comes with its own terminology and with this blog post I hope to shed some light onto the nomenclature. So when someone comes up to you and says  "I want to design a sustainable, carbon aware system that focuses on reducing the operational carbon of my business but also minimises embodied carbon", you will know exactly what they are looking for!
 author: jhowlett
 image: "/uploads/software%20sus.png"
 ---

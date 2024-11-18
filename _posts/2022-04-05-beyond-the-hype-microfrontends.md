@@ -2,22 +2,12 @@
 title: Beyond the Hype - Do you actually need a microfrontend?
 date: 2022-04-05 00:00:00 Z
 categories:
-- ceberhardt
 - Podcast
 tags:
 - featured
-summary: A relatively new architectural style for building web-based applications,
-  micro-frontends are an extension of the popular microservices pattern where the
-  vertical slice of functionality that a microservice provides is extended all the
-  way to the front-end. With micro-frontends, you can more easily scale your development
-  teams by composing applications from loosely coupled frontend components. In this
-  podcast we ask the question 'Do you actually need a micro-frontend?'
+summary: A relatively new architectural style for building web-based applications, micro-frontends are an extension of the popular microservices pattern where the vertical slice of functionality that a microservice provides is extended all the way to the front-end. With micro-frontends, you can more easily scale your development teams by composing applications from loosely coupled frontend components. In this podcast we ask the question 'Do you actually need a micro-frontend?'
 author: ceberhardt
-summary-short: A relatively new architectural style for building web-based applications,
-  micro-frontends are an extension of the popular microservices pattern where the
-  vertical slice of functionality that a microservice provides is extended all the
-  way to the front-end. In this podcast we ask the question 'Do you actually need
-  a micro-frontend?'
+summary-short: A relatively new architectural style for building web-based applications, micro-frontends are an extension of the popular microservices pattern where the vertical slice of functionality that a microservice provides is extended all the way to the front-end. In this podcast we ask the question 'Do you actually need a micro-frontend?'
 contributors:
 - shogarth
 - dkerr

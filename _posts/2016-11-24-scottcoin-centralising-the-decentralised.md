@@ -2,15 +2,11 @@
 title: Scottcoin, centralising the decentralised
 date: 2016-11-24 00:00:00 Z
 categories:
-- amjones
 - Tech
 author: amjones
 layout: default_post
 title-short: Scottcoin
-summary: We’ve recently been investigating uses for the blockchain and as part of
-  this, we’ve developed our own system called Scottcoin. This post will explore the
-  core components of the Bitcoin system, how a transaction goes through it, how our
-  internal version differs and what advantages and disadvantages it brings.
+summary: We’ve recently been investigating uses for the blockchain and as part of this, we’ve developed our own system called Scottcoin. This post will explore the core components of the Bitcoin system, how a transaction goes through it, how our internal version differs and what advantages and disadvantages it brings.
 ---
 
 We’ve recently been investigating uses for the blockchain and as part of this, we’ve developed our own system called Scottcoin which powers our office tuck shop. This post will explore the core components of the Bitcoin system, how a transaction goes through it, how our internal version differs and what advantages and disadvantages it brings.

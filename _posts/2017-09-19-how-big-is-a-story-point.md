@@ -2,16 +2,12 @@
 title: How Big is a Story Point?
 date: 2017-09-19 00:00:00 Z
 categories:
-- gthompson
 - Delivery
 tags:
 - featured
 author: gthompson
 layout: default_post
-summary: If you're new to Agile you've probably heard the term Story Point a few times
-  and, especially if you come from a more traditional project management or product
-  background, you may be trying to figure out what a Story Point is and how big one
-  is. This article tries to explain what this is in a more digestible format.
+summary: If you're new to Agile you've probably heard the term Story Point a few times and, especially if you come from a more traditional project management or product background, you may be trying to figure out what a Story Point is and how big one is. This article tries to explain what this is in a more digestible format.
 image: gthompson/assets/featured/mountain.jpg
 ---
 

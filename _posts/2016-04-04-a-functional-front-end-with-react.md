@@ -2,7 +2,6 @@
 title: A Functional Front-End with React
 date: 2016-04-04 00:00:00 Z
 categories:
-- mtinning
 - Tech
 tags:
 - Functional
@@ -11,9 +10,7 @@ tags:
 - RxJs
 author: mtinning
 layout: default_post
-summary: This post uses React to show how we can use features from functional programming
-  in everyday JavaScript, and integrates RxJS to show how these approaches are common
-  across many frameworks today.
+summary: This post uses React to show how we can use features from functional programming in everyday JavaScript, and integrates RxJS to show how these approaches are common across many frameworks today.
 ---
 
 One trend that has started gaining some serious traction in the past couple of years is functional programming. Unlike an object-oriented approach, which encourages decomposition of a program into 'objects' which relate to a particular domain, a functional approach guides the developer to decompose a program into small functions, which are then combined to form an application. Once confined to the halls of academia, it has recently seen a resurgence as a popular tool to solve a number of the problems that we face in modern development, especially complex applications and distributed systems.

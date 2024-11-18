@@ -2,15 +2,11 @@
 title: Creating an Angular 2 build with Gulp, TSLint and DefinitelyTyped
 date: 2015-12-24 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 title-short: An Angular 2.0 Build
 layout: default_post
-summary: From my perspective Angular 2 is a great improvement over Angular 1. The
-  framework is simpler, and as a result your code is more concise, making use of modern
-  JavaScript concepts. However, this does come at a cost; with Angular 2 the required
-  tooling is really quite complicated.
+summary: From my perspective Angular 2 is a great improvement over Angular 1. The framework is simpler, and as a result your code is more concise, making use of modern JavaScript concepts. However, this does come at a cost; with Angular 2 the required tooling is really quite complicated.
 ---
 
 From my perspective Angular 2 is a great improvement over Angular 1. The framework is simpler, and as a result your code is more concise, making use of modern JavaScript concepts. However, this does come at a cost; with Angular 2 the required tooling is really quite complicated.

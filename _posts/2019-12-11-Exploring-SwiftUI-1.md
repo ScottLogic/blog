@@ -1,9 +1,7 @@
 ---
-title: Exploring SwiftUI Part 1 - A brief history of Apple UI development and Initial
-  impressions
+title: Exploring SwiftUI Part 1 - A brief history of Apple UI development and Initial impressions
 date: 2019-12-11 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Swift,
@@ -13,9 +11,7 @@ tags:
 author: bquinn
 layout: default_post
 image: bquinn/assets/swiftui-96x96.png
-summary: This is the first of a series of blog posts exploring SwiftUI, the new UI
-  framework for native Apple development. This post will focus on my initial impressions,
-  having gone through the first part of Apple's SwiftUI tutorials.
+summary: This is the first of a series of blog posts exploring SwiftUI, the new UI framework for native Apple development. This post will focus on my initial impressions, having gone through the first part of Apple's SwiftUI tutorials.
 ---
 
 I will be writing a series of blog posts exploring the new SwiftUI framework for developing on Apple platforms, with a specific focus on developing for iPhone. SwiftUI was released with Xcode 11 late in October, although tools for SwiftUI development are only available when running on macOS Catalina 10.15. It is an exciting new UI framework written for Swift, as I explored in my [previous post](https://blog.scottlogic.com/2019/09/02/swift-ui-a-new-player-in-ui-frameworks.html), which looked at what the release of SwiftUI will mean for development on Apple platforms. This post will focus on my initial impressions having gone through the first part of Apple's SwiftUI tutorials. But before I look at SwiftUI, it's worth taking a little look at its predecessors to understand what it's trying to improve upon.

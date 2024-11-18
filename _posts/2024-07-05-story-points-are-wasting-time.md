@@ -7,10 +7,7 @@ tags:
 - Agile
 - Self-Organizing Teams
 - Delivery
-summary: Are story points just a waste of time? In this post, I take a critical look
-  at the common practice of story pointing tickets, examining their origins and how
-  they are most commonly used. I argue that story points often cause more harm than
-  good and that maybe you don't need them at all.
+summary: Are story points just a waste of time? In this post, I take a critical look at the common practice of story pointing tickets, examining their origins and how they are most commonly used. I argue that story points often cause more harm than good and that maybe you don't need them at all.
 author: dogle
 image: "/uploads/Story%20points%20are%20pointless.png"
 ---

@@ -2,12 +2,10 @@
 title: A primer on the OpenAI API - Part 1
 date: 2021-08-31 00:00:00 Z
 categories:
-- cprice
 - Artificial Intelligence
 author: cprice
 layout: default_post
-summary: "...or what I should have known before I jumped in and started playing around.
-  In this post I cover the basics of tokens, the model and prompt design."
+summary: "...or what I should have known before I jumped in and started playing around. In this post I cover the basics of tokens, the model and prompt design."
 ---
 
 ...or what I should have known before I jumped in

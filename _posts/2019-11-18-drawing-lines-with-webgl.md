@@ -2,16 +2,13 @@
 title: Drawing Lines with WebGL
 date: 2019-11-18 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - WebGL
 - D3FC
 author: mstobbs
 layout: default_post
-summary: Connecting points on a chart with a line is one of the most basic uses of
-  a charting library. When drawing that line in WebGL, however, it's not as straightforward
-  as you might think.
+summary: Connecting points on a chart with a line is one of the most basic uses of a charting library. When drawing that line in WebGL, however, it's not as straightforward as you might think.
 image: mstobbs/assets/dot-to-do-drawing-lines-with-webgl/Line%20ABC.jpg
 ---
 

@@ -2,14 +2,10 @@
 title: On OpenFin and Interoperability
 date: 2020-12-07 00:00:00 Z
 categories:
-- mbuhagiar
 - Tech
 author: mbuhagiar
 layout: default_post
-summary: OpenFin enables the use modern web technologies in place of older legacy
-  systems. In this post we investigate the 3 primary communication techniques made
-  available when using OpenFin to build the next generation of applications for the
-  financial desktop.
+summary: OpenFin enables the use modern web technologies in place of older legacy systems. In this post we investigate the 3 primary communication techniques made available when using OpenFin to build the next generation of applications for the financial desktop.
 contributors: shamiltonritchie
 ---
 

@@ -12,9 +12,7 @@ tags:
 - provenance
 - npm
 - accessibility
-summary: Using semantic-release to publish an npm package with provenance, via a GitHub
-  workflow... Almost too easy! A decidedly non-epic journey that began with accessibility
-  improvements to our applause button.
+summary: Using semantic-release to publish an npm package with provenance, via a GitHub workflow... Almost too easy! A decidedly non-epic journey that began with accessibility improvements to our applause button.
 author: cwilton
 image: "/uploads/Semantically%20realeasing%20the%20clapper%20component.png"
 ---

@@ -2,15 +2,12 @@
 title: A First Look at ReactiveCocoa 3.0
 date: 2015-04-24 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: This blog post takes a look at the new ReactiveCocoa 3.0 swift interface,
-  which introduces generics, a pipe-forward operator and an interesting use of curried
-  functions.
+summary: This blog post takes a look at the new ReactiveCocoa 3.0 swift interface, which introduces generics, a pipe-forward operator and an interesting use of curried functions.
 image: ceberhardt/assets/featured/reactive-cocoa.png
 title-short: ReactiveCocoa 3.0
 ---

@@ -2,16 +2,12 @@
 title: Better React Components with TypeScript Union Types
 date: 2021-07-27 00:00:00 Z
 categories:
-- pburgess
 - Tech
 tags:
 - TypeScript
 author: pburgess
 layout: default_post
-summary: TypeScript can enhance the experience of developing React components. However
-  to fully represent the types of some dynamic components, we need to harness the
-  power of union types. This article examines an example where union types improves
-  our component typing.
+summary: TypeScript can enhance the experience of developing React components. However to fully represent the types of some dynamic components, we need to harness the power of union types. This article examines an example where union types improves our component typing.
 ---
 
 In a previous article I explained how [TypeScript union types could lead to us writing better code](https://blog.scottlogic.com/2021/06/28/union-types.html) by explicitly representing the types of variables. If you are not familiar with union types I recommend reading that article first. In this article I'm going to extend the use of union types to React to see how we can get the same benefits extended to React components.

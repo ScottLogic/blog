@@ -2,20 +2,13 @@
 title: The A word. The BAD A word.
 date: 2018-05-14 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testing,
 - Automation
 author: efiennes
 layout: default_post
-summary: 'A bad beginning... A testing bedtime story that even Crackanory would reject
-  for transmission on the basis it was too crackpot and twisted to be credible. Gather
-  closer my precious readers, sitting comfortably? Good, then I can begin. Abide me
-  carefully because I am going to tell you the secrets of how to have a magic unicorn,
-  hen’s teeth, Harry Potter, automate-the-lot, works every time, end-to-end automated
-  checking solution..... Alas, no chickens, I am not, because there is no such thing.
-  The End. Sleep well all. '
+summary: 'A bad beginning... A testing bedtime story that even Crackanory would reject for transmission on the basis it was too crackpot and twisted to be credible. Gather closer my precious readers, sitting comfortably? Good, then I can begin. Abide me carefully because I am going to tell you the secrets of how to have a magic unicorn, hen’s teeth, Harry Potter, automate-the-lot, works every time, end-to-end automated checking solution..... Alas, no chickens, I am not, because there is no such thing. The End. Sleep well all. '
 image: efiennes/assets/code2.jpg
 ---
 

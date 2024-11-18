@@ -2,7 +2,6 @@
 title: Agile Progress and Quality Reporting
 date: 2020-02-29 00:00:00 Z
 categories:
-- jmelon
 - Delivery
 tags:
 - Agile
@@ -13,11 +12,7 @@ tags:
 - Little's Law
 author: jmelon
 layout: default_post
-summary: Traditional metrics tracking progress against a plan are not fit for purpose
-  in an agile environment. Quality metrics often focus mainly on bugs producing numbers
-  that are most often not very meaningful. I am discussing a different approach to
-  both using Flow to judge process efficiency and a measure of practices used to express
-  quality.
+summary: Traditional metrics tracking progress against a plan are not fit for purpose in an agile environment. Quality metrics often focus mainly on bugs producing numbers that are most often not very meaningful. I am discussing a different approach to both using Flow to judge process efficiency and a measure of practices used to express quality.
 image: jmelon/assets/Heatmap.png
 ---
 

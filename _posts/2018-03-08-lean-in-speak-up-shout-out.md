@@ -2,15 +2,13 @@
 title: Lean In, Speak Up, Shout Out
 date: 2018-03-08 00:00:00 Z
 categories:
-- pshek
 - People
 tags:
 - women
 - conference
 - speakers
 author: pshek
-summary: A call to arms for better representation of women at tech conferences, followed
-  by some practical tips for first-time speakers.
+summary: A call to arms for better representation of women at tech conferences, followed by some practical tips for first-time speakers.
 layout: default_post
 ---
 

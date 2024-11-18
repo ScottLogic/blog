@@ -2,7 +2,6 @@
 title: Adventures with Scala Macros - Part 2
 date: 2013-06-06 00:00:00 Z
 categories:
-- jphillpotts
 - Tech
 tags:
 - Scala
@@ -11,8 +10,7 @@ tags:
 author: jphillpotts
 layout: default_post
 source: site
-summary: In this article we'll look at ways to overcome one of the main restrictions
-  of def macros - the ability to only generate functions.
+summary: In this article we'll look at ways to overcome one of the main restrictions of def macros - the ability to only generate functions.
 oldlink: http://www.scottlogic.com/blog/2013/06/06/scala-macros-part-2.html
 disqus-id: "/2013/06/06/scala-macros-part-2.html"
 ---

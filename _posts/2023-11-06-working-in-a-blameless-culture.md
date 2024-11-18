@@ -7,9 +7,7 @@ tags:
 - agile
 - scrum
 - team
-summary: A blameless culture can have a huge positive impact on the way your team
-  works, both internally and with others. In this post I'll explore what a blameless
-  culture is, why it's important and how to promote it within your own team.
+summary: A blameless culture can have a huge positive impact on the way your team works, both internally and with others. In this post I'll explore what a blameless culture is, why it's important and how to promote it within your own team.
 author: dogle
 ---
 

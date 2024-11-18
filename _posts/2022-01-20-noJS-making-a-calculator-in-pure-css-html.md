@@ -2,15 +2,12 @@
 title: NoJS - Creating a calculator with only pure HTML and CSS. No Javascript!
 date: 2022-01-20 00:00:00 Z
 categories:
-- garora
 - Tech
 tags:
 - featured
 author: garora
 layout: default_post
-summary: Everyone loves CSS! So I built a calculator where the CSS handles the logic
-  without the help of javascript. In this blog post, I will discuss how I achieved
-  this and maybe make a case for my sanity for making it.
+summary: Everyone loves CSS! So I built a calculator where the CSS handles the logic without the help of javascript. In this blog post, I will discuss how I achieved this and maybe make a case for my sanity for making it.
 image: garora/assets/2022-01-26/calc.png
 ---
 

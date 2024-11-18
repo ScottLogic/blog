@@ -2,7 +2,6 @@
 title: Sculpting Shapes with a WebGL Fragment Shader
 date: 2019-10-17 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - WebGL
@@ -10,9 +9,7 @@ tags:
 author: mstobbs
 layout: default_post
 image: mstobbs/assets/sculpting-shapes-with-webgl-fragment-shader/chisel.jpg
-summary: When first using WebGL, even rendering a simple shape can be a challenge.
-  In this post, I take a look at the approach we've taken in D3FC to render shapes
-  using the fragment shader.
+summary: When first using WebGL, even rendering a simple shape can be a challenge. In this post, I take a look at the approach we've taken in D3FC to render shapes using the fragment shader.
 ---
 
 I recently had the opportunity to help implement some of the functionality of [D3FC](https://d3fc.io/) in [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API). D3FC is a library which extends the [D3](https://d3js.org/) library, providing commonly used components to make it easier to build interactive charts. 

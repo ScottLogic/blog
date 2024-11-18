@@ -2,7 +2,6 @@
 title: What's quality got to do with IT?
 date: 2019-02-15 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - testing,
@@ -15,10 +14,7 @@ tags:
 author: efiennes
 layout: default_post
 image: efiennes/assets/Stop.png
-summary: What is quality? Is it "just" testing? If not, then what else? How do you
-  measure it? Should you even try? What does it really mean if you have 1 person or
-  a team looking after the quality?  After being told the quality was my new role,
-  I did some research to find out the answers to these questions and more.
+summary: What is quality? Is it "just" testing? If not, then what else? How do you measure it? Should you even try? What does it really mean if you have 1 person or a team looking after the quality?  After being told the quality was my new role, I did some research to find out the answers to these questions and more.
 ---
 
 This is the full version of my talk for our Edinburgh office [tech talks](https://www.eventbrite.co.uk/e/an-evening-of-tech-talks-at-scott-logic-tickets-51818533629#) last year. This is the platform that our company offers to all staff to speak about what they do and how they do it. If you want to join a company that will encourage you in your public speaking ambitions, come and [talk to us](https://www.scottlogic.com/careers/).

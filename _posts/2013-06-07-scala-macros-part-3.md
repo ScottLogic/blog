@@ -2,7 +2,6 @@
 title: Adventures with Scala Macros - Part 3
 date: 2013-06-07 00:00:00 Z
 categories:
-- jphillpotts
 - Tech
 tags:
 - Scala
@@ -11,8 +10,7 @@ tags:
 author: jphillpotts
 layout: default_post
 source: site
-summary: Taking a macro that can extract path elements from a query string and turning
-  it into a fully fledged RESTful API, backed by an in-memory database.
+summary: Taking a macro that can extract path elements from a query string and turning it into a fully fledged RESTful API, backed by an in-memory database.
 oldlink: http://www.scottlogic.com/blog/2013/06/07/scala-macros-part-3.html
 disqus-id: "/2013/06/07/scala-macros-part-3.html"
 ---

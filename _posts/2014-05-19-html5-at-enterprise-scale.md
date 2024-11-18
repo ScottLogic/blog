@@ -2,12 +2,9 @@
 title: White Paper - HTML5 At Enterprise Scale
 date: 2014-05-19 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 author: ceberhardt
-summary: Moving from desktop or plugin technologies (Flex, Silverlight, Java Applets)
-  to HTML5 is a challenge for developers of large-scale enterprise applications. This
-  White Paper discusses the challenges and offers potential solutions.
+summary: Moving from desktop or plugin technologies (Flex, Silverlight, Java Applets) to HTML5 is a challenge for developers of large-scale enterprise applications. This White Paper discusses the challenges and offers potential solutions.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/05/19/html5-at-enterprise-scale.html
 disqus-id: "/2014/05/19/html5-at-enterprise-scale.html"

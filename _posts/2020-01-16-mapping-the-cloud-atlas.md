@@ -2,12 +2,9 @@
 title: Mapping the cloud atlas
 date: 2020-01-16 00:00:00 Z
 categories:
-- jdunkerley
 - Cloud
 author: jdunkerley
-summary: In this webinar, James maps out a set of well-defined and understood steps
-  on an organisation's cloud journey, to help you plan your onward route towards cloud
-  maturity.
+summary: In this webinar, James maps out a set of well-defined and understood steps on an organisation's cloud journey, to help you plan your onward route towards cloud maturity.
 layout: video_post
 video_url: https://www.youtube.com/embed/bcSBsplLi80
 short-author-aside: true

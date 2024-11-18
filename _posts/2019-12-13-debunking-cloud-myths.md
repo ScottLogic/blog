@@ -2,12 +2,9 @@
 title: Debunking Cloud Myths
 date: 2019-12-13 00:00:00 Z
 categories:
-- jdunkerley
 - Cloud
 author: jdunkerley
-summary: In this webinar, James provides a balanced and clear-eyed view of the pros
-  and cons of migrating to the cloud in relation to four key factors - agility, cost,
-  security, and vendor lock-in.
+summary: In this webinar, James provides a balanced and clear-eyed view of the pros and cons of migrating to the cloud in relation to four key factors - agility, cost, security, and vendor lock-in.
 layout: video_post
 video_url: https://www.youtube.com/embed/b0BP3eGC1BA
 short-author-aside: true

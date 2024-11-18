@@ -2,7 +2,6 @@
 title: I spent 2 weeks making Narration.studio to save an hour writing this post
 date: 2020-11-02 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - javascript
@@ -10,9 +9,7 @@ tags:
 - narration.studio
 author: swaterman
 layout: default_post
-summary: 'Narration.studio is my latest project: a web app for automatically editing
-  voiceovers. In this first part, I introduce the project and the motivations behind
-  it.'
+summary: 'Narration.studio is my latest project: a web app for automatically editing voiceovers. In this first part, I introduce the project and the motivations behind it.'
 summary-short: 'Introducing Narration.studio: automatic in-browser audio editing'
 image: swaterman/assets/narration-studio-1/coldsweat.png
 ---

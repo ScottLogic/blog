@@ -2,12 +2,10 @@
 title: Agile Monsters
 date: 2018-03-20 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Delivery
 author: tclarke-scottlogic
 layout: default_post
-summary: This Halloween, coming to a project near you... What horrors lurk on Agile
-  projects when they go wrong? And how do we slay these beasts?
+summary: This Halloween, coming to a project near you... What horrors lurk on Agile projects when they go wrong? And how do we slay these beasts?
 ---
 
 I am a strong advocate of Agile development practices. I think they solve a lot of problems specific to the software development process, creating happier, more invested, more productive teams.

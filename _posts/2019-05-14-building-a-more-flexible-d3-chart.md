@@ -2,14 +2,11 @@
 title: Building a more flexible D3 chart
 date: 2019-05-14 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 layout: default_post
 image: alee/assets/flexible-d3fc-chart/chart-screenshot.jpg
-summary: The d3fc cartesian chart provides a simple way to compose the most commonly
-  used type of chart, while keep its API simple. But would it be possible to keep
-  that simplicity while making a chart component that is more flexible?
+summary: The d3fc cartesian chart provides a simple way to compose the most commonly used type of chart, while keep its API simple. But would it be possible to keep that simplicity while making a chart component that is more flexible?
 ---
 
 [D3](https://d3js.org/){:target="_blank"} is great for creating bespoke visualisations, and is often used for showing charts. Our [d3fc](https://d3fc.io/){:target="_blank"} library extends D3 with some commonly used components such as [series](https://d3fc.io/api/series-api.html), and a simple way to compose them all together as a cartesian [chart](https://d3fc.io/api/chart-api.html){:target="_blank"}.

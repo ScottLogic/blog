@@ -5,11 +5,7 @@ categories:
 - Podcast
 tags:
 - Quantum Computing
-summary: In this episode, we talk about Quantum Computing with Denis Mandich, CTO
-  of Qrypt. As well as discussing quantum physics, we cover the practical aspects
-  of cloud-based Quantum Computers and what can be achieved today through circuit
-  design. Finally, we look to the future to discuss the impact this breakthrough technology
-  is likely to have.
+summary: In this episode, we talk about Quantum Computing with Denis Mandich, CTO of Qrypt. As well as discussing quantum physics, we cover the practical aspects of cloud-based Quantum Computers and what can be achieved today through circuit design. Finally, we look to the future to discuss the impact this breakthrough technology is likely to have.
 author: ceberhardt
 image: "/uploads/BeyondTheHype%20-%20pink%20and%20yellow%20-%20episode%2010%20-%20social.png"
 ---

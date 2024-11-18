@@ -2,6 +2,7 @@ const globby = require("globby");
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
 const fs = require("fs");
+const { exit } = require("process");
 const LINTER_MATCH_PATTERN="_posts/**/*.{md,markdown,html}"
 
 const flatMap = (arr, mapFunc) =>
@@ -87,6 +88,8 @@ const lintPosts = () => {
         }
 
         const summary = frontMatter.data.summary;
+        console.log("test")
+        console.log(path);
         const postDateString = path.split("/")[2].substring(0, 10);
         const postDate = new Date(postDateString);
         if (postDate > new Date("2018-03-26")) {

@@ -2,12 +2,9 @@
 title: Building Microservices with Spring Boot - Part 1
 date: 2019-10-31 00:00:00 Z
 categories:
-- jhenderson
 - Tech
 author: jhenderson
-summary: A practical series on building Microservices with Spring Boot and Spring
-  Cloud. In this post we get started by building some services for an online shop
-  and tie them together with 2 more services, backed by Netflix's Eureka and Zuul.
+summary: A practical series on building Microservices with Spring Boot and Spring Cloud. In this post we get started by building some services for an online shop and tie them together with 2 more services, backed by Netflix's Eureka and Zuul.
 layout: default_post
 ---
 

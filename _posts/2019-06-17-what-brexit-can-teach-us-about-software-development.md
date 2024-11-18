@@ -2,13 +2,10 @@
 title: What Brexit Can Teach Us About Software Development
 date: 2019-06-17 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Delivery
 author: tclarke-scottlogic
 layout: default_post
-summary: Political Journalists - "How can everything have gone so wrong, it must be
-  betrayal." Software Engineers - "Oh yes, this all seems very familiar, I see what
-  you did there, ayup."
+summary: Political Journalists - "How can everything have gone so wrong, it must be betrayal." Software Engineers - "Oh yes, this all seems very familiar, I see what you did there, ayup."
 ---
 
 Over the last few years, British Politics has been an amazing case study in attempting to bring an ambitious, far-ranging project to reality.

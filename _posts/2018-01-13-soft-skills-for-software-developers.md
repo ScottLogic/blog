@@ -2,14 +2,11 @@
 title: Soft Skills for Software Developer
 date: 2018-01-13 00:00:00 Z
 categories:
-- bjedrzejewski
 - Delivery
 tags:
 - featured
 author: bjedrzejewski
-summary: Being software developer requires technical insight and analytical approach.
-  Yet, this is just part of the role. This article explores soft skills that are important
-  part of every software developers life.
+summary: Being software developer requires technical insight and analytical approach. Yet, this is just part of the role. This article explores soft skills that are important part of every software developers life.
 layout: default_post
 image: bjedrzejewski/assets/featured/rabbit.jpg
 ---

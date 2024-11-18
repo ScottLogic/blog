@@ -2,12 +2,10 @@
 title: Building a Perspective plugin with d3fc
 date: 2019-04-18 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 layout: default_post
-summary: How we built a plugin for Perspective from JP Morgan, using d3fc to display
-  a generic charting view that can show multiple chart types.
+summary: How we built a plugin for Perspective from JP Morgan, using d3fc to display a generic charting view that can show multiple chart types.
 ---
 
 ## What is Perspective?

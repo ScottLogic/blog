@@ -2,13 +2,9 @@
 title: An Organization's Journey to a DevOps Mindset and Culture
 date: 2018-03-13 00:00:00 Z
 categories:
-- bjedrzejewski
 - Delivery
 author: bjedrzejewski
-summary: 'DevOps culture is a critical part of successfully delivering an enterprise
-  scale project. Getting that culture into a company requires a mindset change. In
-  this article, I explore the journey to the DevOps Culture, DevOps Mindset and provide
-  some practical advice based on my experiences. '
+summary: 'DevOps culture is a critical part of successfully delivering an enterprise scale project. Getting that culture into a company requires a mindset change. In this article, I explore the journey to the DevOps Culture, DevOps Mindset and provide some practical advice based on my experiences. '
 layout: default_post
 ---
 

@@ -2,14 +2,11 @@
 title: Efficiently loading massive D3 datasets using Apache Arrow
 date: 2021-10-15 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post
 image: cprice/assets/arrow/big-data.png
-summary: In a previous blog post, Colin focused on rendering massive numbers of points
-  using D3. In this post I'll consider how you can efficiently load that data using
-  Apache Arrow.
+summary: In a previous blog post, Colin focused on rendering massive numbers of points using D3. In this post I'll consider how you can efficiently load that data using Apache Arrow.
 ---
 
 In a previous blog post, Colin focused on rendering massive numbers of points using D3. In this post I'll consider how you can efficiently load that data using Apache Arrow.

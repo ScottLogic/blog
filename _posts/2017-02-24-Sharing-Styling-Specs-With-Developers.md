@@ -2,15 +2,13 @@
 title: Sharing styling specs with developers
 date: 2017-02-24 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design
 author: tmakarem
 layout: default_post
 image: tmakarem/assets/featured/spec.png
-summary: This post looks at the pros and cons of some of the automated handoff tools
-  available for designers to share style specs with developers.
+summary: This post looks at the pros and cons of some of the automated handoff tools available for designers to share style specs with developers.
 ---
 
 When we design websites and applications, we decide on elements such as colours, fonts, layout, grids, components (e.g. buttons, tables, tabs), gestures and transitions. Throughout the process, we hand over designs to developers. To ensure that design decisions are captured, we also provide styling specifications. These are a combination of style guides, information architecture maps, annotated mockups and/or prototypes of the flow and transitions.

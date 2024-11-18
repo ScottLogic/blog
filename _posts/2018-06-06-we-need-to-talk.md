@@ -2,7 +2,6 @@
 title: We need to talk....
 date: 2018-06-06 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testing,
@@ -10,10 +9,7 @@ tags:
 - Tekkie_Brekkie
 author: efiennes
 layout: default_post
-summary: During this post, I will offer you, the unfortunate reader, the unsolicited
-  and equally unneeded, benefit of my advice as an "expert" (*cough*) veteran of 1
-  public speaking engagement. Look out for my top tips, they are sure to be about
-  as much use as the 'open here' arrow on a miniature sachet of tomato sauce.
+summary: During this post, I will offer you, the unfortunate reader, the unsolicited and equally unneeded, benefit of my advice as an "expert" (*cough*) veteran of 1 public speaking engagement. Look out for my top tips, they are sure to be about as much use as the 'open here' arrow on a miniature sachet of tomato sauce.
 image: efiennes/assets/Hourglass2.jpg
 ---
 

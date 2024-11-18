@@ -2,7 +2,6 @@
 title: Deconstructing Test Bash with R - Twitter Mining and Sentiment Analysis
 date: 2016-11-09 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - data analysis
@@ -15,8 +14,7 @@ tags:
 - events
 author: rhamilton
 title-short: R for Twitter Mining and Sentiment Analysis
-summary: How I used R to collect and analyse all of the tweets made about Test Bash
-  Manchester, a recent software testing conference.
+summary: How I used R to collect and analyse all of the tweets made about Test Bash Manchester, a recent software testing conference.
 image: rhamilton/assets/twitter.jpg
 layout: default_post
 ---

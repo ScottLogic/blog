@@ -6,9 +6,7 @@ categories:
 tags:
 - API
 - legacy IT
-summary: Nothing is preventing your organisation from innovating today in order to
-  keep pace with user expectations, because properly using APIs helps you escape from
-  the bonds of your legacy estate.
+summary: Nothing is preventing your organisation from innovating today in order to keep pace with user expectations, because properly using APIs helps you escape from the bonds of your legacy estate.
 author: godds
 image: "/uploads/no%20excuses%20guide%20to%20apis.png"
 layout: default_post

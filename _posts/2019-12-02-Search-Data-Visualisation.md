@@ -2,15 +2,13 @@
 title: Generating SVG and PDF reports from Elasticsearch
 date: 2019-12-02 00:00:00 Z
 categories:
-- swoods
 - Tech
 tags:
 - D3
 - NodeJS
 author: swoods
 layout: default_post
-summary: Protecting your data by generating visual reports for your users in an optimal
-  way without exposing the raw data using serverside generation.
+summary: Protecting your data by generating visual reports for your users in an optimal way without exposing the raw data using serverside generation.
 ---
 
 The purpose of this blog is to look at ways of representing data visually from Elasticsearch. We wish to create reports without exposing the raw data to end users. The aim is to investigate if we can generate visualisations in the cloud in an efficient and cost effective way. We will be using serverless architecture specificially AWS Lambda functions.

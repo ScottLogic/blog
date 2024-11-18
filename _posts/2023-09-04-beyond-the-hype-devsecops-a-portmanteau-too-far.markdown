@@ -7,10 +7,7 @@ categories:
 tags:
 - DevOps
 - DevSecOps
-summary: 'In this episode, Oliver and Peter from Scott Logic are joined by Laura Bell
-  Main, CEO and co-founder of SafeStack, for a lively discussion on DevSecOps. They
-  touch on techniques such as “assume breach” and “shift left”, and the relationship
-  to DevOps, which is trying to solve a similar problem. '
+summary: 'In this episode, Oliver and Peter from Scott Logic are joined by Laura Bell Main, CEO and co-founder of SafeStack, for a lively discussion on DevSecOps. They touch on techniques such as “assume breach” and “shift left”, and the relationship to DevOps, which is trying to solve a similar problem. '
 author: ceberhardt
 image: "/uploads/BeyondTheHype%20-%20orange%20and%20blue%20-%20episode%2014%20-%20social.png"
 contributors: ocronk

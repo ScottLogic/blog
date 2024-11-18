@@ -2,14 +2,10 @@
 title: An animated chart with HTML5 Canvas
 date: 2016-05-23 00:00:00 Z
 categories:
-- sking
 - Tech
 author: sking
 layout: default_post
-summary: For the past few weeks, Laurie Collingwood and myself have been working on
-  a prototype banking app with an animated graph. In this post we’ll discuss some
-  of what we’ve learned during the project and talk generally about animation with
-  HTML5 canvas.
+summary: For the past few weeks, Laurie Collingwood and myself have been working on a prototype banking app with an animated graph. In this post we’ll discuss some of what we’ve learned during the project and talk generally about animation with HTML5 canvas.
 ---
 
 {:center: style="text-align: center"}

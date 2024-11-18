@@ -2,7 +2,6 @@
 title: 'Exploring SwiftUI 4: Creating a Redux Library Supporting Data binding'
 date: 2020-02-06 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Swift,
@@ -14,9 +13,7 @@ tags:
 - Redux
 author: bquinn
 layout: default_post
-summary: In this post I explore the Bindable SwiftUI Redux package I created, and
-  explain the motivations behind using Redux for state management in SwiftUI, and
-  the challenges faced in integrating the two frameworks.
+summary: In this post I explore the Bindable SwiftUI Redux package I created, and explain the motivations behind using Redux for state management in SwiftUI, and the challenges faced in integrating the two frameworks.
 image: bquinn/assets/swiftui-logo.png
 ---
 

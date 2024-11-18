@@ -2,12 +2,10 @@
 title: Creating a High Performance Stock Ticker Using Haskell
 date: 2015-11-15 00:00:00 Z
 categories:
-- isullivan
 - Data Engineering
 author: isullivan
 layout: default_post
-summary: This post demonstrates how to create an efficient stock ticker app using
-  HTML5 WebSockets and a Haskell server.
+summary: This post demonstrates how to create an efficient stock ticker app using HTML5 WebSockets and a Haskell server.
 disqus-id: "/2015/11/15/stock-ticker.html"
 ---
 

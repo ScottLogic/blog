@@ -2,16 +2,12 @@
 title: Mapping UK place name endings (With command line cartography tools)
 date: 2017-06-25 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: Place names in UK and Ireland are very much influenced by their surroundings,
-  with endings such as -hill, -ford, and -wood quite clearly referencing local geography.
-  This blog post uses the new NDJSON command line tools for processing, transforming
-  and joining datasets to create an optimised visualisation.
+summary: Place names in UK and Ireland are very much influenced by their surroundings, with endings such as -hill, -ford, and -wood quite clearly referencing local geography. This blog post uses the new NDJSON command line tools for processing, transforming and joining datasets to create an optimised visualisation.
 image: ceberhardt/assets/featured/uk-place-names.png
 ---
 

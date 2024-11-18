@@ -2,11 +2,9 @@
 title: PropertyCross 1.3 Released
 date: 2014-01-31 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
-summary: PropertyCross has just announced a v1.3 release, which includes two new frameworks,
-  a number of updates and an improved build system.
+summary: PropertyCross has just announced a v1.3 release, which includes two new frameworks, a number of updates and an improved build system.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/01/31/propertycross-1-3-released.html
 disqus-id: "/2014/01/31/propertycross-1-3-released.html"

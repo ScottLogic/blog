@@ -2,13 +2,10 @@
 title: You probably don’t need a micro-frontend
 date: 2021-02-17 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post
-summary: Micro-frontends is a relatively new architectural style for building web-based
-  applications, which as the name suggests, is an extension of the popular microservices
-  pattern. In this blog post I argue that this is a pattern you might not need!
+summary: Micro-frontends is a relatively new architectural style for building web-based applications, which as the name suggests, is an extension of the popular microservices pattern. In this blog post I argue that this is a pattern you might not need!
 image: ceberhardt/assets/microfrontends/microfrontends.png
 ---
 

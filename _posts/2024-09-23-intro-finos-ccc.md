@@ -3,11 +3,7 @@ title: Introducing FINOS Common Cloud Controls (CCC)
 date: 2024-09-23 00:00:00 Z
 categories:
 - Open Source
-summary: FINOS Common Cloud Controls (CCC) is an open standard by FINOS, to describe
-  consistent controls for compliant public cloud deployments in the financial services
-  sector. The project is supported by Scott Logic, aligning with its mission to promote
-  and support open-source initiatives. This is an effort to introduce FINOS CCC and
-  its goals.
+summary: FINOS Common Cloud Controls (CCC) is an open standard by FINOS, to describe consistent controls for compliant public cloud deployments in the financial services sector. The project is supported by Scott Logic, aligning with its mission to promote and support open-source initiatives. This is an effort to introduce FINOS CCC and its goals.
 author: smendis-scottlogic
 image: "/uploads/Introducing%20FINOS%20CCC.png"
 ---

@@ -2,12 +2,10 @@
 title: Building a RESTful API with ASP.NET 5
 date: 2016-01-20 00:00:00 Z
 categories:
-- nsoper
 - Tech
 author: nsoper
 layout: default_post
-summary: This blog describes my first experience of writing a RESTful API with Microsoft's
-  new MVC 6 framework which is due to be released as part of ASP.NET 5 in early 2016.
+summary: This blog describes my first experience of writing a RESTful API with Microsoft's new MVC 6 framework which is due to be released as part of ASP.NET 5 in early 2016.
 ---
 
 *Very soon after we first published this post, Microsoft announced they had changed the name from **ASP.NET 5** to **ASP.NET Core 1.0**. Rather than re-writing this post, I've summarised the reasons for the change [in a new post]({{site.baseurl}}/2016/01/21/aspnet5-to-aspnetcore.html).*

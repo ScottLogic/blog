@@ -2,14 +2,10 @@
 title: Insights for Test Engineers from Scott Logic’s Grad Summit 2022
 date: 2022-04-29 00:00:00 Z
 categories:
-- kcoombes
 - People
 author: kcoombes
 layout: default_post
-summary: 'In this article, I summarise the talks and workshops that I attended during
-  the 2022 Scott Logic Grad Summit, an event that brought together 70 graduates who
-  joined the company in the last two year, and share the insights that I gained as
-  a tester from each event. '
+summary: 'In this article, I summarise the talks and workshops that I attended during the 2022 Scott Logic Grad Summit, an event that brought together 70 graduates who joined the company in the last two year, and share the insights that I gained as a tester from each event. '
 image: kcoombes/assets/summit-2.png
 ---
 

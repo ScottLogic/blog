@@ -2,18 +2,13 @@
 title: What Type of Tester are You?
 date: 2019-07-25 00:00:00 Z
 categories:
-- hwilliams
 - Testing
 tags:
 - Testing
 - People
 author: hwilliams
 layout: default_post
-summary: If, like myself, you’ve enjoyed a pretty long career in professional software
-  testing, you will by now have recognised just what a diverse group of people testers
-  are. After reflecting on the various individuals I’ve worked with over the years,
-  I thought it would be a great idea to write about some of their qualities. So here’s
-  a poem, yes a poem! To sum it all up!
+summary: If, like myself, you’ve enjoyed a pretty long career in professional software testing, you will by now have recognised just what a diverse group of people testers are. After reflecting on the various individuals I’ve worked with over the years, I thought it would be a great idea to write about some of their qualities. So here’s a poem, yes a poem! To sum it all up!
 ---
 
 If, like myself, you’ve enjoyed a pretty long career in professional software testing, you will by now have recognised just what a diverse group of people testers are. After reflecting on the various individuals I’ve worked with over the years, I thought it would be a great idea to write about some of their qualities. So here’s a poem, yes a poem! To sum it all up!

@@ -5,10 +5,7 @@ categories:
 - Sustainability
 tags:
 - Sustainability
-summary: This is the second of a series of blog posts that examine the various methods
-  of measuring carbon emissions on end-user devices. In this post, we look at methods
-  and tools for power profiling and measuring the energy use of devices with a bottom-up
-  approach.
+summary: This is the second of a series of blog posts that examine the various methods of measuring carbon emissions on end-user devices. In this post, we look at methods and tools for power profiling and measuring the energy use of devices with a bottom-up approach.
 author: drees
 image: "/uploads/Carbon%20emissions%20of%20end%20user%20devices%20ptii.png"
 ---

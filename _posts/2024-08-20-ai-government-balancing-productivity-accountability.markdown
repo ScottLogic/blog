@@ -17,10 +17,7 @@ tags:
 - productivity
 - compliance
 - security
-summary: I reflect on recent discussions with civil servants and our own research
-  to consider how AI might increase productivity and offer new capabilities. At the
-  same time, I’ll explore the necessary checks and balances on how far AI should be
-  applied in delivering services to UK citizens.
+summary: I reflect on recent discussions with civil servants and our own research to consider how AI might increase productivity and offer new capabilities. At the same time, I’ll explore the necessary checks and balances on how far AI should be applied in delivering services to UK citizens.
 author: godds
 image: "/uploads/AI%20in%20government%20balancing%20productivity.png"
 ---

@@ -2,13 +2,10 @@
 title: The Energy Transition
 date: 2020-08-24 00:00:00 Z
 categories:
-- phughes
 - Delivery
 author: phughes
 layout: default_post
-summary: The change from fossil fuels as our primary source of energy to renewables
-  has vast and immediate implications for our power infrastructure and its operators.
-  It will take smart and open thinking leaders to create a smart and open power network.
+summary: The change from fossil fuels as our primary source of energy to renewables has vast and immediate implications for our power infrastructure and its operators. It will take smart and open thinking leaders to create a smart and open power network.
 image: phughes/assets/energy-teeside.jpg
 ---
 

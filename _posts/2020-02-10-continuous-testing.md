@@ -2,7 +2,6 @@
 title: Continuous Testing – Creating a testable CI/CD pipeline.
 date: 2020-02-10 00:00:00 Z
 categories:
-- cakehurstryan
 - Testing
 tags:
 - Testing,

@@ -2,7 +2,6 @@
 title: 'Data visualisation and scale: leveraging the macro and the micro'
 date: 2016-05-16 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design
@@ -10,8 +9,7 @@ author: tmakarem
 title-short: Leveraging the Macro and the Micro
 layout: default_post
 image: tmakarem/assets/featured/007_guardian2.png
-summary: The size of things is relative to the scale that we set. This might sound
-  like a trivial notion, but it is key to creating meaningful data visualisations.
+summary: The size of things is relative to the scale that we set. This might sound like a trivial notion, but it is key to creating meaningful data visualisations.
 ---
 
 The size of things is relative to the scale that we set. This might sound like a trivial notion, but it is key to creating meaningful data visualisations.

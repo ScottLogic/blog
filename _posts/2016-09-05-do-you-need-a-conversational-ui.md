@@ -2,17 +2,13 @@
 title: Do You Need A Conversational UI?
 date: 2016-09-05 00:00:00 Z
 categories:
-- godds
 - UX Design
 tags:
 - featured
 author: godds
 image: godds/assets/featured/do-you-need-conv-ui.png
 layout: default_post
-summary: Despite all the excitement around chatbots, conversational UIs and conversational
-  commerce, you need to take a step back and consider whether they could be appropriate
-  for your services. This post weighs up the potential against the current reality
-  and highlights aspects to consider.
+summary: Despite all the excitement around chatbots, conversational UIs and conversational commerce, you need to take a step back and consider whether they could be appropriate for your services. This post weighs up the potential against the current reality and highlights aspects to consider.
 ---
 
 The [excitement](http://venturebeat.com/2016/04/12/the-chatbot-gold-rush-is-officially-here/) around the potential of conversational UIs and [conversational commerce](http://blog.scottlogic.com/2016/05/18/make-banking-talk.html) can give the impression that it is THE solution to everything. However, digital conversations are nothing more than an extra channel through which you might want to engage users. The paradigm should be considered in the same way as all other channels, such as mobile, web and physical presence: as part of a (potentially) broader omni-channel strategy. [As I have previously written](http://smarter.scottlogic.com/insights/how-to-start-your-omni-channel-journey), that strategy should be based around an understanding of your (potential) users, the situations they are in and the tasks they carry out in those situations, i.e. contexts of use.

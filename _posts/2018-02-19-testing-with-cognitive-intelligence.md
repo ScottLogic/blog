@@ -2,7 +2,6 @@
 title: Testing with Cognitive Intelligence
 date: 2018-02-19 00:00:00 Z
 categories:
-- lramchandani
 - Testing
 tags:
 - Testing,
@@ -12,10 +11,7 @@ tags:
 - Machine-learning
 author: lramchandani
 layout: default_post
-summary: I have written about something that I found very interesting, Cognitive intelligence.
-  My blog will contain information about cognitive intelligence,the benefits of testing
-  with cognitive tools, what sectors currently use this, available platforms and finally
-  if cognitive intelligence will take over a tester’s role.
+summary: I have written about something that I found very interesting, Cognitive intelligence. My blog will contain information about cognitive intelligence,the benefits of testing with cognitive tools, what sectors currently use this, available platforms and finally if cognitive intelligence will take over a tester’s role.
 ---
 
 ###What is cognitive computing?

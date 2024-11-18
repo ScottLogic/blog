@@ -11,12 +11,7 @@ tags:
 - Accessibility
 - Embedded Accessibility
 layout: default_post
-summary: 'In my previous post, I introduced and approach to testing called Testing
-  with Intent. Essentially, the approach focuses on testing from the perspective of
-  a user intending to do something. Adopting this approach brings you benefits in
-  both your test suites and your products accessibility. That post discussed why the
-  topic is important and how you can benefit if you adopt it. Now, it’s time to look
-  at the technical side of how this actually works in practice. '
+summary: 'In my previous post, I introduced and approach to testing called Testing with Intent. Essentially, the approach focuses on testing from the perspective of a user intending to do something. Adopting this approach brings you benefits in both your test suites and your products accessibility. That post discussed why the topic is important and how you can benefit if you adopt it. Now, it’s time to look at the technical side of how this actually works in practice. '
 author: sgladstone
 ---
 

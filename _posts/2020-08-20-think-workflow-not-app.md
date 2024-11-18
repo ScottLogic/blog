@@ -2,12 +2,9 @@
 title: Think workflow, not app
 date: 2020-08-20 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
-summary: This webinar explored the potential of desktop container technologies to
-  cultivate an integrated desktop ecosystem, and shares some techniques for taking
-  a workflow-focused approach to software design.
+summary: This webinar explored the potential of desktop container technologies to cultivate an integrated desktop ecosystem, and shares some techniques for taking a workflow-focused approach to software design.
 layout: video_post
 video_url: https://www.youtube.com/embed/n7MDNTYFDEc
 short-author-aside: true

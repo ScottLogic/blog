@@ -2,16 +2,13 @@
 title: 'Architecting a regenerative future: Thoughts from INTERSECTION23'
 date: 2023-09-27 19:18:00 Z
 categories:
-- ocronk
 - Sustainability
 tags:
 - sustainability
 - sustainable software
 - blog
 - architecture
-summary: A write up of some of the bold thinking that came out of the INTERSECTION
-  x23 conference in September. Do we need to go beyond sustainability and consider
-  a regenerative future when it comes to technology architecture?
+summary: A write up of some of the bold thinking that came out of the INTERSECTION x23 conference in September. Do we need to go beyond sustainability and consider a regenerative future when it comes to technology architecture?
 author: ocronk
 image: "/uploads/thoughts%20from%20is23.png"
 ---

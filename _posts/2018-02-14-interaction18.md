@@ -2,13 +2,11 @@
 title: Interaction18
 date: 2018-02-14 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
 image: godds/assets/featured/interaction18.jpg
 layout: default_post
-summary: Last week, designers from across the globe gathered for the annual Interaction
-  conference. Here are some of my thoughts and takeaways from the event.
+summary: Last week, designers from across the globe gathered for the annual Interaction conference. Here are some of my thoughts and takeaways from the event.
 ---
 
 Last week, designers from across the globe gathered for the annual Interaction conference. This year's event was held in Lyon, with the aim of reflecting on how technology and design are shaping the world moving forward by building bridges across cultures, disciplines and industries to reach shared goals. The conference's fantastic venue, a former sugar factory warehouse, acted as a suitable reminder of the forward-moving world we live in. However, the venue's location at the confluence of the Rhone and Saone rivers proved an even more appropriate metaphor for the convergence of the seemingly contradictory themes that emerged during the week: one of optimistic creation of new, better solutions to existing frictions, the other of caution about the world we are shaping.

@@ -2,13 +2,10 @@
 title: Bridging UI libraries for decoupled, long-lived, widely-reusable components
 date: 2018-12-12 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post
-summary: It's useful to be able to use components built using one framework, within
-  different frameworks. In this post, I explore considerations and patterns, and finish
-  off with an example using React and D3.
+summary: It's useful to be able to use components built using one framework, within different frameworks. In this post, I explore considerations and patterns, and finish off with an example using React and D3.
 ---
 
 Components are a key part of modern frontend development, allowing us to compose trees of encapsulated pieces into complete applications in a maintainable way.

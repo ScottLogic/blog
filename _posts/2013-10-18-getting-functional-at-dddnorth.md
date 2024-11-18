@@ -2,7 +2,6 @@
 title: Getting Functional at DDDNorth
 date: 2013-10-18 00:00:00 Z
 categories:
-- shogarth
 - Tech
 tags:
 - Conferences
@@ -11,8 +10,7 @@ author: shogarth
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2013/10/18/getting-functional-at-dddnorth.html
 disqus-id: "/2013/10/18/getting-functional-at-dddnorth.html"
-summary: Last weekend I had the pleasure of attending this year's DDDNorth conference
-  at Sunderland University.
+summary: Last weekend I had the pleasure of attending this year's DDDNorth conference at Sunderland University.
 ---
 
 Last weekend I had the pleasure of attending this year's [DDDNorth](http://dddnorth.co.uk/) conference at Sunderland University. DDD events are organised by the community, so anyone is free to submit a session. The community votes on which sessions they would like to see at the event. This year's event took on a distinctly functional feel - advocates of wisdom of the crowds, feel free to interpret this as a sign of things to come. I'd like to reflect upon the excellent sessions I attended.

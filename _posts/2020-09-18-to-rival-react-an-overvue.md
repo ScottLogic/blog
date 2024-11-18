@@ -2,7 +2,6 @@
 title: 'To Rival React: an OverVue'
 date: 2020-09-18 00:00:00 Z
 categories:
-- jporter
 - Tech
 tags:
 - vue,
@@ -12,9 +11,7 @@ tags:
 - vuex
 author: jporter
 layout: default_post
-summary: This blog post is written for developers who have not used the Vue ecosystem
-  before and want to decide whether to use it in a project or not. To help with this
-  decision, this blog post will give a brief overview of the technology and ecosystem.
+summary: This blog post is written for developers who have not used the Vue ecosystem before and want to decide whether to use it in a project or not. To help with this decision, this blog post will give a brief overview of the technology and ecosystem.
 image: jporter/assets/512px-Vue.js_Logo_2.svg.png
 ---
 

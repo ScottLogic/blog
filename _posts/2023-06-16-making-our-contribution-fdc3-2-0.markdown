@@ -7,10 +7,7 @@ tags:
 - FDC3
 - open source
 - desktop containers
-summary: I'm excited to share that we are imminently reaching our next milestone as
-  we release our set of test suites against FDC3 2.0. In this post,  I explain what
-  the FDC3 Conformance Framework is and how it works, and share our experiences from
-  our contribution journey.
+summary: I'm excited to share that we are imminently reaching our next milestone as we release our set of test suites against FDC3 2.0. In this post,  I explain what the FDC3 Conformance Framework is and how it works, and share our experiences from our contribution journey.
 author: acaulfield
 ---
 

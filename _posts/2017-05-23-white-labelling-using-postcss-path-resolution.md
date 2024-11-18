@@ -2,11 +2,9 @@
 title: White-labelling using PostCSS path resolution
 date: 2017-05-23 00:00:00 Z
 categories:
-- nowen
 - Tech
 author: nowen
-summary: Theming an application is a concern for many organisations and products.
-  In this post I'll present a simple way to manage branding using current tooling.
+summary: Theming an application is a concern for many organisations and products. In this post I'll present a simple way to manage branding using current tooling.
 layout: default_post
 ---
 

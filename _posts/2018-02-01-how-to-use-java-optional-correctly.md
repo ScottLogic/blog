@@ -2,14 +2,11 @@
 title: How to use Java Optional correctly
 date: 2018-02-01 00:00:00 Z
 categories:
-- bjedrzejewski
 - Tech
 tags:
 - featured
 author: bjedrzejewski
-summary: Java Optional has been around for a while now. It is a pity that this language
-  feature is not used more often by developers. This is a simple demonstration of
-  how to use it correctly.
+summary: Java Optional has been around for a while now. It is a pity that this language feature is not used more often by developers. This is a simple demonstration of how to use it correctly.
 layout: default_post
 image: bjedrzejewski/assets/featured/directions.jpg
 ---

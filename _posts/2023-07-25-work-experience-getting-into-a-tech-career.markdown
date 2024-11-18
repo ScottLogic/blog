@@ -10,10 +10,7 @@ tags:
 - internships
 - software engineering
 - software development
-summary: Ashleigh has been working alongside staff at Altitude Foundation for work
-  experience this year. While on work experience, the team at Altitude Foundation
-  tasked them with interviewing staff from Scott Logic to find out a bit about their
-  careers and how young people could find a path into the tech industry.
+summary: Ashleigh has been working alongside staff at Altitude Foundation for work experience this year. While on work experience, the team at Altitude Foundation tasked them with interviewing staff from Scott Logic to find out a bit about their careers and how young people could find a path into the tech industry.
 author: aaltitude
 image: "/uploads/what%20i%20learned%20about%20getting%20into%20a%20tech%20career.png"
 ---

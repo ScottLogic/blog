@@ -2,7 +2,6 @@
 title: Attending Tech(K)now London 2019
 date: 2019-03-27 00:00:00 Z
 categories:
-- efiennes
 - Tech
 tags:
 - "#featured"
@@ -17,13 +16,7 @@ contributors:
 - lramchandani
 layout: default_post
 image: efiennes/assets/NCLhands1.jpg
-summary: If I said the words "a tech conference for women" - what would you imagine?
-  Would it be the attendees sitting in circles, holding hands and admiring each other's
-  beads? Do you picture 'sisters' singing kumbaya and plotting the downfall of the
-  patriarchy?  Would you picture sessions such as "how to code for fluffy-wuffy knitting
-  sites?" Would you wonder if it was full of hardcode coding and hacking sessions
-  to get women further up the knowledge ladder? Some of the Scott Logic tech staff
-  went to a technical conference for women. This is what it was like.
+summary: If I said the words "a tech conference for women" - what would you imagine? Would it be the attendees sitting in circles, holding hands and admiring each other's beads? Do you picture 'sisters' singing kumbaya and plotting the downfall of the patriarchy?  Would you picture sessions such as "how to code for fluffy-wuffy knitting sites?" Would you wonder if it was full of hardcode coding and hacking sessions to get women further up the knowledge ladder? Some of the Scott Logic tech staff went to a technical conference for women. This is what it was like.
 ---
 
 ## Elizabeth:

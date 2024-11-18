@@ -2,7 +2,6 @@
 title: Rethinking the Java DTO
 date: 2020-01-03 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - java
@@ -12,9 +11,7 @@ tags:
 - software-engineering
 author: swaterman
 layout: default_post
-summary: DTOs help translate data between server and client. By going back to first
-  principles, how can we utilise static type-checking and integration with modern
-  IDEs to write a better DTO?
+summary: DTOs help translate data between server and client. By going back to first principles, how can we utilise static type-checking and integration with modern IDEs to write a better DTO?
 summary-short: By going back to first principles, how can we write a better DTO?
 image: swaterman/assets/rethinking-the-java-dto/layers.png
 ---

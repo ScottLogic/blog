@@ -2,7 +2,6 @@
 title: 'By the Hook: A Practical Introduction to React Hooks'
 date: 2019-05-09 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - JavaScript
@@ -12,9 +11,7 @@ tags:
 author: mstobbs
 layout: default_post
 image: mstobbs/assets/black-and-white-hook.jpg
-summary: Hooks are one of the most exciting features of React in recent times, allowing
-  the developer to "hook" into React features without having to use class components.
-  In this post, we take a dive into Hooks and learn how, when and why to use them.
+summary: Hooks are one of the most exciting features of React in recent times, allowing the developer to "hook" into React features without having to use class components. In this post, we take a dive into Hooks and learn how, when and why to use them.
 ---
 
 In a [recent interview](https://www.youtube.com/watch?v=G-aO5hzo1aw) with [Dan Abramov](https://twitter.com/dan_abramov), [Mattias Petter Johansson](https://twitter.com/mpjme) converted the components in the [tic tac toe game](https://reactjs.org/tutorial/tutorial.html) used in the React tutorial docs from classes to functions using Hooks. At the end of the interview, Dan gave some suggestions on how Hooks could be used to not only convert the classes into functions, but to improve the overall quality of the code.

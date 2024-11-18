@@ -2,13 +2,10 @@
 title: Drawing Area Polygons with WebGL
 date: 2019-11-27 00:00:00 Z
 categories:
-- oforeman
 - Tech
 author: oforeman
 layout: default_post
-summary: Drawing and shading an area around a line is a useful feature for any charting
-  library. In this post we will be exploring the approach we took to implementing
-  this functionality for the D3FC library using WebGL.
+summary: Drawing and shading an area around a line is a useful feature for any charting library. In this post we will be exploring the approach we took to implementing this functionality for the D3FC library using WebGL.
 ---
 
 I've recently had the opportunity to work on the [D3FC](https://d3fc.io/) library to help implement some new functionality in [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API). D3FC extends the [D3](https://d3js.org/) library to provide commonly used components to simplify the process of creating interactive charts.

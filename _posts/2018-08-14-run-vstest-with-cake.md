@@ -2,13 +2,11 @@
 title: Running VsTest with Cake
 date: 2018-08-14 00:00:00 Z
 categories:
-- cburbidge
 - Tech
 tags:
 - Cake
 author: cburbidge
-summary: Cake (C# Make) is an awesome tool for writing scripts to build and test projects.
-  This post details how the VsTest runner can be invoked using Cake.
+summary: Cake (C# Make) is an awesome tool for writing scripts to build and test projects. This post details how the VsTest runner can be invoked using Cake.
 layout: default_post
 ---
 

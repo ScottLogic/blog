@@ -2,13 +2,8 @@
 title: 'Beyond the Hype - Microservices: are they the only architecture you need?'
 date: 2022-03-08 00:00:00 Z
 categories:
-- ceberhardt
 - Podcast
-summary: Microservices have become the standard architectural pattern for everything.
-  It’s a great and versatile pattern, but what people rarely talk about is the cost.
-  You didn’t think you got all that good stuff (polyglot, scalable, decoupled...)
-  for free, did you? In this episode, we talk about the real-world impact of choosing
-  this pattern and when it might not be the right choice.
+summary: Microservices have become the standard architectural pattern for everything. It’s a great and versatile pattern, but what people rarely talk about is the cost. You didn’t think you got all that good stuff (polyglot, scalable, decoupled...) for free, did you? In this episode, we talk about the real-world impact of choosing this pattern and when it might not be the right choice.
 author: ceberhardt
 contributors:
 - isugar

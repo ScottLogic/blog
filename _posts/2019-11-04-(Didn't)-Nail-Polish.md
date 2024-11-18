@@ -2,7 +2,6 @@
 title: "(Didn't) Nail Polish"
 date: 2019-11-04 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testing,
@@ -11,11 +10,7 @@ tags:
 - speaking
 author: efiennes
 layout: default_post
-summary: When I was invited by the organisers of the Polish TestWarez conference to
-  speak at their event, I had no idea what to expect. I've never visited Poland and
-  had no idea of the testing scene there. However, being someone who loves meeting
-  new people and going new places, I decided to say yes and worry about the detail
-  once I got there. This is the account of my experience.
+summary: When I was invited by the organisers of the Polish TestWarez conference to speak at their event, I had no idea what to expect. I've never visited Poland and had no idea of the testing scene there. However, being someone who loves meeting new people and going new places, I decided to say yes and worry about the detail once I got there. This is the account of my experience.
 image: efiennes/assets/Name.jpg
 ---
 

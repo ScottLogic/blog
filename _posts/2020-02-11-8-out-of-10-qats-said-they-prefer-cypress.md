@@ -2,7 +2,6 @@
 title: 8 Out of 10 QATs Said They Prefer Cypress.
 date: 2020-02-11 00:00:00 Z
 categories:
-- hwilliams
 - Testing
 tags:
 - Cypress,
@@ -10,11 +9,7 @@ tags:
 - testing,qa
 author: hwilliams
 layout: default_post
-summary: A short story on my maiden voyage into the world of Cypress - the test tool,
-  not the country. This is an overview on how I discovered Cypress, how I configured
-  it, created tests and how I drifted away from the standard setup to utilise the
-  provided TypeScript and Cucumber plugins to make it work with the application development
-  project we were delivering.
+summary: A short story on my maiden voyage into the world of Cypress - the test tool, not the country. This is an overview on how I discovered Cypress, how I configured it, created tests and how I drifted away from the standard setup to utilise the provided TypeScript and Cucumber plugins to make it work with the application development project we were delivering.
 image: hwilliams/assets/8-out-of-10-cats-sitting.jpeg
 ---
 

@@ -1,9 +1,7 @@
 ---
-title: The Scaled Agile Framework – When it works, it works well. When it doesn’t
-  work, it’s waterfall.
+title: The Scaled Agile Framework – When it works, it works well. When it doesn’t work, it’s waterfall.
 date: 2018-05-14 00:00:00 Z
 categories:
-- phands
 - Delivery
 tags:
 - Agile,
@@ -13,9 +11,7 @@ tags:
 - featured
 author: phands
 layout: default_post
-summary: Scaled Agile Frameworks can be used to upscale agile practices for multiple
-  development teams. Here I consider when it can go right, when it can wrong and some
-  pitfalls to watch out for.
+summary: Scaled Agile Frameworks can be used to upscale agile practices for multiple development teams. Here I consider when it can go right, when it can wrong and some pitfalls to watch out for.
 image: phands/assets/featured/scaled.jpg
 ---
 

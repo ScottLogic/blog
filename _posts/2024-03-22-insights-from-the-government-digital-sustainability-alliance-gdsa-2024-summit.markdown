@@ -10,10 +10,7 @@ tags:
 - sustainable software
 - Sustainability
 - ocronk
-summary: Notes on the recent Government Digital Sustainability Alliance (GDSA) summit
-  at the Science Museum in London. This event brought together 200 people from government
-  departments, 30 delivery partners and academia. This blog is a summary of some of
-  what Oliver considered to be the key points covered on the day.
+summary: Notes on the recent Government Digital Sustainability Alliance (GDSA) summit at the Science Museum in London. This event brought together 200 people from government departments, 30 delivery partners and academia. This blog is a summary of some of what Oliver considered to be the key points covered on the day.
 author: ocronk
 image: "/uploads/ewaste-20240320_121417.jpg"
 ---

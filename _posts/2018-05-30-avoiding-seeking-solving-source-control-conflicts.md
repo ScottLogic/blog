@@ -2,13 +2,10 @@
 title: Avoiding, seeking, and solving source control conflicts
 date: 2018-05-30 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post
-summary: Nobody looks forward to conflicts when collaborating on code. There are things
-  we can do however to minimise unwanted ones, promote useful ones, and make them
-  easier to solve correctly.
+summary: Nobody looks forward to conflicts when collaborating on code. There are things we can do however to minimise unwanted ones, promote useful ones, and make them easier to solve correctly.
 ---
 
 Nobody looks forward to conflicts when collaborating on code. There are things we can do however to minimise unwanted ones, promote useful ones, and make them easier to solve correctly. That will contribute to better quality and higher productivity through better use of [finite cognitive resource](http://seriouspony.com/blog/2013/7/24/your-app-makes-me-fat).

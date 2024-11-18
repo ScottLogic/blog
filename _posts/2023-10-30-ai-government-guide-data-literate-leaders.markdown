@@ -11,9 +11,7 @@ tags:
 - Machine Learning
 - ChatGPT
 - data literacy
-summary: While the latest AI technologies may be new, your best next steps in harnessing
-  them are tried and tested, and you already have many of the skills you need. I set
-  out in this blog your best next steps to get ready for AI in Government.
+summary: While the latest AI technologies may be new, your best next steps in harnessing them are tried and tested, and you already have many of the skills you need. I set out in this blog your best next steps to get ready for AI in Government.
 author: jmcevoy
 image: "/uploads/Getting%20ready%20for%20AI%20thumbnail.png"
 ---

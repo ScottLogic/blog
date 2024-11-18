@@ -2,7 +2,6 @@
 title: Reminiscence of a Scrum Master (Part 5)
 date: 2022-02-18 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 tags:
 - agile
@@ -14,9 +13,7 @@ tags:
 - master
 author: fhubin
 layout: default_post
-summary: The fifth and final in a series of articles, in which we will explore the
-  qualities and behaviours necessary to be an effective Scrum Master and why those
-  qualities and behaviours are important in specific situations.
+summary: The fifth and final in a series of articles, in which we will explore the qualities and behaviours necessary to be an effective Scrum Master and why those qualities and behaviours are important in specific situations.
 ---
 
 In the previous parts ([link to part 1](https://blog.scottlogic.com/2021/10/18/reminiscence-of-a-scrum-master-part-i.html), [link to part 2](https://blog.scottlogic.com/2021/11/17/reminiscence-of-a-scrum-master-part-ii.html), [link to part 3](https://blog.scottlogic.com/2021/12/17/reminiscence-of-a-scrum-master-part-iii.html), [link to part 4](https://blog.scottlogic.com/2022/01/21/reminiscence-of-a-scrum-master-part-iv.html)), we focussed on why you are a Scrum Master, what to do when you land into your new work environment, how to set up a framework that creates a healthy routine for the team, how to develop the discipline that will make a team’s performance predictable and how to empower the team and make it as self-organised as possible.

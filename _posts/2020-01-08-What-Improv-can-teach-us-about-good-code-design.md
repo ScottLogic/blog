@@ -2,12 +2,10 @@
 title: What the art of Improv can teach us about the craft of software
 date: 2020-01-08 00:00:00 Z
 categories:
-- garora
 - Tech
 author: garora
 layout: default_post
-summary: Improv is one of my favourite pastimes. In this post I explore some of the
-  most fundamental rules of Improv and what they can teach about writing good code.
+summary: Improv is one of my favourite pastimes. In this post I explore some of the most fundamental rules of Improv and what they can teach about writing good code.
 ---
 
 In my spare time, I perform Improvised Comedy with Durham University’s [Shellshock](https://www.facebook.com/shellshockimpro/). I've been thinking about how software developers

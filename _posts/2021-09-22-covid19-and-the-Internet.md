@@ -2,14 +2,11 @@
 title: Covid-19 and the Internet
 date: 2021-09-22 00:00:00 Z
 categories:
-- kangel
 - People
 author: kangel
 layout: default_post
 title-short: Covid-19 and the Internet
-summary: Covid-19 has changed our lives in every possible way, but now that lockdowns
-  are beginning to lift, it's important to take a moment to consider some changes
-  that might have flown under the radar.
+summary: Covid-19 has changed our lives in every possible way, but now that lockdowns are beginning to lift, it's important to take a moment to consider some changes that might have flown under the radar.
 ---
 
 Covid-19 has fundamentally changed the face of our society, from the ways in which we work to how we socialise with one another. However, one side effect that might have flown under the radar due to how normalised it has become is the effect of coronavirus on our Internet usage. A recent [Ofcom report](https://www.ofcom.org.uk/about-ofcom/latest/media/media-releases/2020/uk-internet-use-surges) found that in April 2020 - the height of lockdown - the amount of average time spent online rose to four hours a day. Some of this use is to be expected; the amount of video calls being made doubled and the use of group apps and Zoom also skyrocketed; but this reliance on online media also increased in other areas. For example, the report stated one in three now watch online video more than traditional TV, and two in five were content creators themselves. However, this is not necessarily a neutral phenomenon: [studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7530416/) have suggested that there is a deleterious effect on people’s mental health when they spend increasingly more time on the Internet. Rather than simply suggest people log off, however, I believe that it is important to analyse why this might be and make some suggestions towards a healthier relationship with our technology. This is especially important for generations who have never known a world without the Internet, as the line between the real world and the virtual world has become increasingly blurred. 

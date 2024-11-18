@@ -2,14 +2,10 @@
 title: Introduction to contract testing
 date: 2019-01-07 00:00:00 Z
 categories:
-- efiennes
 - Testing
 author: efiennes
 layout: default_post
-summary: Have you heard of contract testing and want to know more?  Are your company
-  asking you to consider this future-facing way of testing? Are you wondering of its
-  relevance to you as a functional or non-functional tester? Then this article can
-  help you with some of the questions you have on the subject.
+summary: Have you heard of contract testing and want to know more?  Are your company asking you to consider this future-facing way of testing? Are you wondering of its relevance to you as a functional or non-functional tester? Then this article can help you with some of the questions you have on the subject.
 image: efiennes/assets/hutshell.png
 ---
 

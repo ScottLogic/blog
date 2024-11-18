@@ -2,7 +2,6 @@
 title: 'Guide: Don''t Let Testing be a Bottleneck'
 date: 2018-03-05 00:00:00 Z
 categories:
-- lpisani
 - Resources
 tags:
 - test
@@ -10,11 +9,7 @@ tags:
 - testing
 - agile
 - featured
-summary: Testing can become a bottleneck within an agile delivery pipeline, resulting
-  in delays and poorer quality software being released. This guide provides simple
-  but effective ideas and techniques to successfully embed testing into the agile
-  culture, eliminating those bottlenecks and increasing the confidence in your software
-  quality.
+summary: Testing can become a bottleneck within an agile delivery pipeline, resulting in delays and poorer quality software being released. This guide provides simple but effective ideas and techniques to successfully embed testing into the agile culture, eliminating those bottlenecks and increasing the confidence in your software quality.
 author: lpisani
 image: lpisani/assets/agile.png
 layout: default_post

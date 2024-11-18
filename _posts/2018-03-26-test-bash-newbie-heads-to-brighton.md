@@ -2,7 +2,6 @@
 title: Test Bash Newbie Heads To Brighton
 date: 2018-03-26 00:00:00 Z
 categories:
-- cmcormack
 - Testing
 tags:
 - TestBash,
@@ -11,9 +10,7 @@ tags:
 - featured
 author: cmcormack
 layout: default_post
-summary: Test Bash Brighton is one of the biggest testing conferences in the UK. I
-  was given the privilege of attending and was so taken in by it all I felt compelled
-  to write up my thoughts, feelings and experiences in detail!
+summary: Test Bash Brighton is one of the biggest testing conferences in the UK. I was given the privilege of attending and was so taken in by it all I felt compelled to write up my thoughts, feelings and experiences in detail!
 image: cmcormack/assets/giphy.gif
 ---
 

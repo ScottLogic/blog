@@ -2,13 +2,11 @@
 title: Exploring the Web Audio API with D3
 date: 2016-01-06 00:00:00 Z
 categories:
-- wferguson
 - Tech
 tags:
 - featured
 author: wferguson
-summary: In this post, I investigate the HTML5 Web Audio API, using it with D3 to
-  perform real-time audio visualisation.
+summary: In this post, I investigate the HTML5 Web Audio API, using it with D3 to perform real-time audio visualisation.
 title-short: Web Audio with D3
 layout: default_post
 image: wferguson/assets/featured/webaudio.png

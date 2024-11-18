@@ -2,13 +2,10 @@
 title: Is there a need for speed in the Cloud?
 date: 2021-08-18 00:00:00 Z
 categories:
-- jbeckles
 - Cloud
 author: jbeckles
 layout: default_post
-summary: As Cloud deployments become more powerful with increased provider competition,
-  where does High Performance Computing (HPC) fit into the equation? This blog post
-  explores the considerations for using HPC in the Cloud.
+summary: As Cloud deployments become more powerful with increased provider competition, where does High Performance Computing (HPC) fit into the equation? This blog post explores the considerations for using HPC in the Cloud.
 ---
 
 Cloud computing gives software applications the ability to scale up on demand. With sufficient financial resources, enough compute power can be thrown at a (well-written) software application to achieve desirable performance goals. Why then have cloud providers introduced High Performance Computing components (think hardware accelerators, fast network adapters, etc.) into their clouds? If you can already scale vertically (to a large extent) with high-level programming languages, why would you add the complexity of hardware-level programming into the mix?!

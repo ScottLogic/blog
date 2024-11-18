@@ -3,9 +3,7 @@ title: B-ing a force for good
 date: 2023-10-25 00:00:00 Z
 categories:
 - People
-summary: Scott Logic has become a certified B Corp! So I wanted to share why that’s
-  important for our business and what it means to me personally as someone who has
-  been in the organisation for a long time.
+summary: Scott Logic has become a certified B Corp! So I wanted to share why that’s important for our business and what it means to me personally as someone who has been in the organisation for a long time.
 author: godds
 image: "/uploads/B-ingAForceForGood.png"
 ---

@@ -11,11 +11,7 @@ tags:
 - Prompt Engineering
 - AI safety
 - cybersecurity
-summary: In this episode, I'm joined by Doro Hinrichs and Kira Clark from Scott Logic
-  and Peter Gostev, Head of AI at Moonpig. Together, we explore whether we can ever
-  really trust and secure Generative AI – and what impact this will have on product
-  and service design – before offering pragmatic advice on what organisations can
-  do to navigate this terrain.
+summary: In this episode, I'm joined by Doro Hinrichs and Kira Clark from Scott Logic and Peter Gostev, Head of AI at Moonpig. Together, we explore whether we can ever really trust and secure Generative AI – and what impact this will have on product and service design – before offering pragmatic advice on what organisations can do to navigate this terrain.
 author: ocronk
 image: "/uploads/BeyondTheHype---green-and-pink---episode-20---social.png"
 contributors:

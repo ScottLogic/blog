@@ -2,14 +2,12 @@
 title: The Dependencies' Reckoning - Considerations when selecting third-party software
 date: 2022-03-24 00:00:00 Z
 categories:
-- osharon
 - Open Source
 tags:
 - featured
 author: osharon
 layout: default_post
-summary: In lights of various incidents where third-party software caused numerous
-  failures, we'll review the considerations we take when selecting third-party software.
+summary: In lights of various incidents where third-party software caused numerous failures, we'll review the considerations we take when selecting third-party software.
 image: osharon/assets/featured/jenga.png
 ---
 

@@ -2,17 +2,12 @@
 title: A Tester's story of adapting to the new world of pipelines - CI/CD
 date: 2019-03-22 00:00:00 Z
 categories:
-- pkhan
 - Testing
 tags:
 - Testing
 author: pkhan
 layout: default_post
-summary: As a tester, how do you adapt when a new technology or process is introduced
-  within your team? Do you accept it as a challenge? Do you research to find a solution
-  along with the team? Do you reach out to people in the community to see how they
-  approached it? Here's my story of how my journey while adapting to the new world
-  of ci/cd pipeline.
+summary: As a tester, how do you adapt when a new technology or process is introduced within your team? Do you accept it as a challenge? Do you research to find a solution along with the team? Do you reach out to people in the community to see how they approached it? Here's my story of how my journey while adapting to the new world of ci/cd pipeline.
 image: psultana/assets/Pipeline.png
 ---
 

@@ -2,7 +2,6 @@
 title: Cutting development costs in AWS with Cloud Custodian
 date: 2018-10-16 00:00:00 Z
 categories:
-- dsmith
 - Cloud
 tags:
 - cloud,
@@ -12,11 +11,7 @@ tags:
 - Custodian
 author: dsmith
 layout: default_post
-summary: Cloud Custodian is an open source project from Capital One. It allows you
-  to enforce your cloud compliance rules in an automated way. One key use case of
-  Custodian is to reduce costs by shutting down unused resources. In this post, I'll
-  walk through setting up a Custodian and writing a policy. This will shut down EC2
-  instances outside working hours to save money.
+summary: Cloud Custodian is an open source project from Capital One. It allows you to enforce your cloud compliance rules in an automated way. One key use case of Custodian is to reduce costs by shutting down unused resources. In this post, I'll walk through setting up a Custodian and writing a policy. This will shut down EC2 instances outside working hours to save money.
 ---
 
 ## Introduction

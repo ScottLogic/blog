@@ -2,13 +2,10 @@
 title: Power Moves
 date: 2020-09-30 00:00:00 Z
 categories:
-- phughes
 - Delivery
 author: phughes
 layout: default_post
-summary: The energy transition will challenge everything especially your digital capabilities.
-  The smart energy leaders are now talking to those who have been down this road before,
-  are you?
+summary: The energy transition will challenge everything especially your digital capabilities. The smart energy leaders are now talking to those who have been down this road before, are you?
 image: phughes/assets/power-moves.png
 ---
 

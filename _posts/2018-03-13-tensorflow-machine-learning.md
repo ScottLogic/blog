@@ -2,16 +2,12 @@
 title: Machine Learning with TensorFlow
 date: 2018-03-13 00:00:00 Z
 categories:
-- rrhodes
 - Tech
 tags:
 - featured
 author: rrhodes
 layout: default_post
-summary: 'Following from my recent article on Machine Learning with Scikit Learn,
-  I decided to experiment with the library that is most loved by developers today:
-  TensorFlow. Similar to Scikit Learn, this post walks through a simple example of
-  TensorFlow to categorise handwritten digits.'
+summary: 'Following from my recent article on Machine Learning with Scikit Learn, I decided to experiment with the library that is most loved by developers today: TensorFlow. Similar to Scikit Learn, this post walks through a simple example of TensorFlow to categorise handwritten digits.'
 image: rrhodes/assets/featured/brain.jpg
 ---
 

@@ -10,8 +10,7 @@ tags:
 - GenAI
 - Artificial Intelligence
 - public sector
-summary: Reflections from the recent 2024 Public Sector Innovation Conference in London,
-  on the topic of Artificial Intelligence
+summary: Reflections from the recent 2024 Public Sector Innovation Conference in London, on the topic of Artificial Intelligence
 author: nbetts
 image: "/uploads/Reflecting%20on%20the%202024%20PSI%20thumbnail.png"
 ---

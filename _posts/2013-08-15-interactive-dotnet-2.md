@@ -2,16 +2,13 @@
 title: Interactive.NET (2 - C#)
 date: 2013-08-15 00:00:00 Z
 categories:
-- nwolverson
 - Tech
 tags:
 - blog
 author: nwolverson
 layout: default_post
 source: site
-summary: In the previous part of this series discussing running an interactive environment
-  (REPL) on .NET I covered the non-C# options. This post explores the options for
-  an interactive or lightweight C# environment.
+summary: In the previous part of this series discussing running an interactive environment (REPL) on .NET I covered the non-C# options. This post explores the options for an interactive or lightweight C# environment.
 oldlink: http://www.scottlogic.com/blog/2013/08/15/interactive-dotnet-2.html
 disqus-id: "/2013/08/15/interactive-dotnet-2.html"
 ---

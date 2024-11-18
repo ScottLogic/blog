@@ -2,13 +2,9 @@
 title: 'Panel: Digital Identity in Government'
 date: 2021-06-15 00:00:00 Z
 categories:
-- nbetts
 - Tech
 author: nbetts
-summary: In this panel discussion, Ash Smith (GDS), Cheryl Stevens (DWP) and Mike
-  Crockart (The Scottish Government) discuss their approaches to identity assurance,
-  including opportunities to improve the user experience and potential obstacles to
-  overcome along the way.
+summary: In this panel discussion, Ash Smith (GDS), Cheryl Stevens (DWP) and Mike Crockart (The Scottish Government) discuss their approaches to identity assurance, including opportunities to improve the user experience and potential obstacles to overcome along the way.
 layout: video_post
 video_url: https://www.youtube.com/embed/oSG7_aVa3m8
 short-author-aside: true

@@ -2,16 +2,13 @@
 title: Change, Presented Two Ways
 date: 2017-06-29 00:00:00 Z
 categories:
-- godds
 - UX Design
 tags:
 - featured
 author: godds
 image: godds/assets/featured/change-presented-two-ways.png
 layout: default_post
-summary: Inspired by a recent dot chart visualisation focusing on the change of a
-  value in different circumstances, this blog post presents the same data visualised
-  using a slopegraph and compares and contrasts the two forms.
+summary: Inspired by a recent dot chart visualisation focusing on the change of a value in different circumstances, this blog post presents the same data visualised using a slopegraph and compares and contrasts the two forms.
 ---
 
 A few days ago I stumbled across the following visualisation from a PEW Research article, [‘U.S. Image Suffers as Publics Around World Question Trump’s Leadership’](http://www.pewglobal.org/2017/06/26/u-s-image-suffers-as-publics-around-world-question-trumps-leadership/).

@@ -2,12 +2,9 @@
 title: Higher or Lower – ML in JS
 date: 2018-02-27 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
-summary: This talk will introduce the recently launched TensorFlow.js library, demonstrate
-  what’s possible right now (with some audience participation!) and ponder on the
-  future directions this technology might take us.
+summary: This talk will introduce the recently launched TensorFlow.js library, demonstrate what’s possible right now (with some audience participation!) and ponder on the future directions this technology might take us.
 layout: video_post
 video_url: https://www.youtube.com/embed/U866dA0u4eE
 short-author-aside: true

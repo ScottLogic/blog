@@ -2,14 +2,11 @@
 title: Improving Grunt Performance
 date: 2015-10-05 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 title-short: Improving Grunt Performance
 layout: default_post
-summary: JavaScript builds are getting more complex and time consuming. This blog
-  post shares a few steps I took to improve the performance of one of our project's
-  grunt build, hopefully some of the tools I used will be of use to others.
+summary: JavaScript builds are getting more complex and time consuming. This blog post shares a few steps I took to improve the performance of one of our project's grunt build, hopefully some of the tools I used will be of use to others.
 ---
 
 Many years ago, when I first tried my hand at web development, the rapid development cycles were a welcome change; simply save your changes and hit refresh. This was in contrast to the C++ work I was also doing which was quite tedious, waiting for the code to compile, link and eventually execute after each and every change.

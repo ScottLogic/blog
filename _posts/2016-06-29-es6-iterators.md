@@ -2,13 +2,10 @@
 title: ES6 Iterators, RxJS, IxJS and the Async Iterators proposal
 date: 2016-06-29 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post
-summary: A quick walk through ES6 iterators and iterables. It covers extending d3fc's
-  random data component to implement the required protocols and how this can lead
-  to greater interoperability with utility libraries like RxJS/IxJS.
+summary: A quick walk through ES6 iterators and iterables. It covers extending d3fc's random data component to implement the required protocols and how this can lead to greater interoperability with utility libraries like RxJS/IxJS.
 ---
 
 A quick walk through ES6 iterators and iterables. It covers extending [d3fc's](https://d3fc.io/) random data component to implement the required protocols and how this can lead to greater interoperability with utility libraries like RxJS/IxJS.

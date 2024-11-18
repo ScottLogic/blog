@@ -2,12 +2,10 @@
 title: The Power of the Higher Order
 date: 2016-09-20 00:00:00 Z
 categories:
-- asheehan
 - Tech
 author: asheehan
 layout: default_post
-summary: A practical look into higher order components and what they bring to the
-  table, along with a general discussion of code reuse in React
+summary: A practical look into higher order components and what they bring to the table, along with a general discussion of code reuse in React
 ---
 
 One of the things I love about React is how easy it is to split up and reuse code.

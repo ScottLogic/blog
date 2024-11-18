@@ -2,12 +2,10 @@
 title: Securing access to Firebase Test Lab
 date: 2019-03-21 00:00:00 Z
 categories:
-- zrubin
 - Tech
 author: zrubin
 layout: default_post
-summary: This post addresses how to grant access to Firebase Test Lab without also
-  granting access to your wider Google Cloud Platform services.
+summary: This post addresses how to grant access to Firebase Test Lab without also granting access to your wider Google Cloud Platform services.
 ---
 
 Mobile apps pose interesting challenges for automated testing. While both Android and iOS ecosystems offer virtual devices (_Emulators_ on Android and _Simulators_ on iOS) that can run automated tests, it’s always wise to also test on physical devices. However, it can be challenging to manually integrate mobile devices into CI pipelines to deliver robust and scalable automated testing. As a result, many companies provide cloud-based Device Farm services through which time on both virtual and physical devices can be rented to run automated tests.

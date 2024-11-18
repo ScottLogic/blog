@@ -2,21 +2,13 @@
 title: Recommended Reading For Designers
 date: 2015-12-17 00:00:00 Z
 categories:
-- godds
 - UX Design
 tags:
 - featured
 author: godds
 image: godds/assets/featured/recommended-reading.png
 layout: default_post
-summary: I am often asked for recommended reading on design by people from all sorts
-  of different backgrounds. My answers vary wildly depending on the person asking
-  and the angle or topic I think might be most relevant to them. However, there are
-  certain books that come up quite often so here are a rounded collection of recommendations.
-  It may surprise some that only a handful of these books are actually about design
-  but I strongly believe that you can learn as much, if not more, from outside the
-  world of design. After all, analysing, understanding and repurposing are some of
-  the most powerful skills for designers to hone.
+summary: I am often asked for recommended reading on design by people from all sorts of different backgrounds. My answers vary wildly depending on the person asking and the angle or topic I think might be most relevant to them. However, there are certain books that come up quite often so here are a rounded collection of recommendations. It may surprise some that only a handful of these books are actually about design but I strongly believe that you can learn as much, if not more, from outside the world of design. After all, analysing, understanding and repurposing are some of the most powerful skills for designers to hone.
 ---
 
 I am often asked for recommended reading on design by people from all sorts of different backgrounds. My answers vary wildly depending on the person asking and the angle or topic I think might be most relevant to them. However, there are certain books that come up quite often so here are a rounded collection of recommendations. It may surprise some that only a handful of these books are actually about design but I strongly believe that you can learn as much, if not more, from outside the world of design. After all, analysing, understanding and repurposing are some of the most powerful skills for designers to hone.

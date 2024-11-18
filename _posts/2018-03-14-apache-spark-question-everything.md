@@ -2,7 +2,6 @@
 title: Apache Spark - question everything
 date: 2018-03-14 00:00:00 Z
 categories:
-- msinton
 - Data Engineering
 tags:
 - Scala,
@@ -14,10 +13,7 @@ tags:
 - Performance
 author: msinton
 layout: default_post
-summary: Spark is well known in Big Data for its incredible performance and expressive
-  API. However, it just takes one small misstep to transform a massively parallel
-  powerhouse into a pathetically poor performer. This post presents an example and
-  the steps that can be taken to indentify the problem.
+summary: Spark is well known in Big Data for its incredible performance and expressive API. However, it just takes one small misstep to transform a massively parallel powerhouse into a pathetically poor performer. This post presents an example and the steps that can be taken to indentify the problem.
 ---
 
 >You know my methods, Watson. There was not one of them which

@@ -2,13 +2,10 @@
 title: Transpiling WebAssembly to support Multi Return Values
 date: 2018-05-29 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post
-summary: The WebAssembly specification is evolving, with many new features on the
-  way. This blog post makes one of these future features available today, multi value
-  returns, using the Babel approach of transpiling.
+summary: The WebAssembly specification is evolving, with many new features on the way. This blog post makes one of these future features available today, multi value returns, using the Babel approach of transpiling.
 image: ceberhardt/assets/astexplorer.png
 ---
 

@@ -7,9 +7,7 @@ tags:
 - ".NET"
 - MAUI
 - cross-platform
-summary: Xamarin Forms has now been superseded with .NET MAUI.  In this blog post,
-  I'm looking at the process of upgrading an existing Xamarin Forms project to MAUI.  How
-  much effort is needed and what will still work or needs to be updated.
+summary: Xamarin Forms has now been superseded with .NET MAUI.  In this blog post, I'm looking at the process of upgrading an existing Xamarin Forms project to MAUI.  How much effort is needed and what will still work or needs to be updated.
 author: dhunter
 image: "/uploads/Migrating-from-Xamarin-Forms.png"
 ---

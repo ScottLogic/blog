@@ -2,7 +2,6 @@
 title: Living in an accessible world
 date: 2018-10-19 00:00:00 Z
 categories:
-- cbrown
 - People
 tags:
 - accessibility
@@ -14,9 +13,7 @@ tags:
 - featured
 author: cbrown
 layout: default_post
-summary: A common misconception is that accessibility is for users that are deemed
-  ‘disabled’ in modern society. This blog explores what 'accessibility' really is
-  and how we can develop with it in mind.
+summary: A common misconception is that accessibility is for users that are deemed ‘disabled’ in modern society. This blog explores what 'accessibility' really is and how we can develop with it in mind.
 image: cbrown/assets/accessible.jpg
 ---
 

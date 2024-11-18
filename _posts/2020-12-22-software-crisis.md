@@ -2,13 +2,10 @@
 title: What the financial crash can teach us about open source
 date: 2020-12-22 00:00:00 Z
 categories:
-- ceberhardt
 - Open Source
 author: ceberhardt
 layout: default_post
-summary: A talk I gave at the virtual Open Source Strategy Forum conference in 2020,
-  where I compared some of the challenges facing open source (complexity, fragility,
-  sustainability) to those which triggered the financial crisis of 2008.
+summary: A talk I gave at the virtual Open Source Strategy Forum conference in 2020, where I compared some of the challenges facing open source (complexity, fragility, sustainability) to those which triggered the financial crisis of 2008.
 image: ceberhardt/assets/ossf/castle.jpeg
 ---
 

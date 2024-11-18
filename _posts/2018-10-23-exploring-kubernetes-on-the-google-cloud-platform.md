@@ -2,7 +2,6 @@
 title: Exploring Kubernetes on Google Cloud Platform
 date: 2018-10-23 00:00:00 Z
 categories:
-- magnussmith
 - Tech
 tags:
 - Kubernetes
@@ -11,9 +10,7 @@ tags:
 - featured
 author: magnussmith
 layout: default_post
-summary: This post explores some of the ideas and technology features behind Docker
-  and Kubernetes. We delve into deploying a simple Java application on the Google
-  Cloud Platform using a managed Kubernetes Cluster.
+summary: This post explores some of the ideas and technology features behind Docker and Kubernetes. We delve into deploying a simple Java application on the Google Cloud Platform using a managed Kubernetes Cluster.
 image: magnussmith/assets/containers.jpg
 ---
 

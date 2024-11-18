@@ -17,12 +17,7 @@ tags:
 - Google Cloud Platform
 - Microsoft Azure
 - resilience strategies
-summary: The impending Digital Operational Resilience Act (DORA) aims to strengthen
-  the IT security of financial entities such as banks, insurance companies and investment
-  firms across Europe. The Bank of England launched an equivalent 'Operational Resilience'
-  regime in March 2022. In this blog post, I share Monzo's smart, modern resilience
-  strategy and look at why traditional resilience strategies put organisations at
-  significant risk.
+summary: The impending Digital Operational Resilience Act (DORA) aims to strengthen the IT security of financial entities such as banks, insurance companies and investment firms across Europe. The Bank of England launched an equivalent 'Operational Resilience' regime in March 2022. In this blog post, I share Monzo's smart, modern resilience strategy and look at why traditional resilience strategies put organisations at significant risk.
 author: acarr
 image: "/uploads/Monzo%20stand-in%20new.png"
 ---

@@ -2,7 +2,6 @@
 title: Low Latency Java with the Disruptor
 date: 2021-12-01 00:00:00 Z
 categories:
-- mjrichards
 - Tech
 tags:
 - java,
@@ -13,9 +12,7 @@ tags:
 - locks
 author: mjrichards
 layout: default_post
-summary: The Disruptor was developed by LMAX to improve Java inter-thread communication
-  for extreme low latency applications. In this post I will outline what is the Disruptor
-  and see what we can learn from the framework for building future applications.
+summary: The Disruptor was developed by LMAX to improve Java inter-thread communication for extreme low latency applications. In this post I will outline what is the Disruptor and see what we can learn from the framework for building future applications.
 ---
 
 Performance is a relatively ambiguous term without having a clear definition of what our goals are. In this post I wanted to side with latency being a key indicator of performance by exploring a concurrency library called the [Disruptor](https://lmax-exchange.github.io/disruptor/"). The Disruptor was developed by LMAX to improve Java inter-thread communication and is mostly suited towards applications that are on the high to extreme end of latency sensitivity, maintaining high throughput while ensuring very high response times. Typically such services look to reduce response times between the consumer and producers to as low as 1ms or less and in the most extreme cases dwindle down to hundreds of microseconds. I will try to outline what is the Disruptor, describing some of the problems it solves, what we can learn from the Disruptor and deliberate whether we should be using it to build some of our applications.

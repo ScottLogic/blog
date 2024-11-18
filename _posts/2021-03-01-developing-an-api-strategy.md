@@ -2,13 +2,9 @@
 title: Developing an API strategy
 date: 2021-03-01 00:00:00 Z
 categories:
-- jheward
 - Tech
 author: jheward
-summary: An API Strategy is vital for focusing resources, aligning stakeholders and
-  ensuring that APIs deliver a good return on investment. In this session, I provide
-  my perspective here on the major elements of an API strategy and discusses some
-  of the areas to consider when designing one.
+summary: An API Strategy is vital for focusing resources, aligning stakeholders and ensuring that APIs deliver a good return on investment. In this session, I provide my perspective here on the major elements of an API strategy and discusses some of the areas to consider when designing one.
 layout: video_post
 video_url: https://www.youtube.com/embed/_eoRPD8gnDo
 short-author-aside: true

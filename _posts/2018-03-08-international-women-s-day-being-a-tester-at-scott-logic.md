@@ -2,7 +2,6 @@
 title: 'International Women’s Day: Being a tester at Scott Logic'
 date: 2018-03-08 00:00:00 Z
 categories:
-- lramchandani
 - People
 tags:
 - Testing,
@@ -11,8 +10,7 @@ tags:
 - Day
 author: lramchandani
 layout: default_post
-summary: This blog is based on my experience as a tester and how I got into testing.
-  Furthermore, the blog explains my time at Scott Logic so far.
+summary: This blog is based on my experience as a tester and how I got into testing. Furthermore, the blog explains my time at Scott Logic so far.
 image: ''
 ---
 

@@ -2,12 +2,10 @@
 title: A primer on the OpenAI API - Part 2
 date: 2021-09-01 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post
-summary: '...or what I should have known before I jumped in and started playing around.
-  In this post I cover logprobs and the "creativity" controls.'
+summary: '...or what I should have known before I jumped in and started playing around. In this post I cover logprobs and the "creativity" controls.'
 ---
 
 ...or what I should have known before I jumped in

@@ -2,14 +2,10 @@
 title: 'White Paper: The Journey to DevOps'
 date: 2019-03-25 00:00:00 Z
 categories:
-- bjedrzejewski
 - Resources
 author: bjedrzejewski
 layout: default_post
-summary: DevOps methodology is currently at the peak of its popularity. Despite this
-  popularity, the journey towards the adoption is often difficult. This white paper
-  provides actionable advice on how to assess your DevOps maturity and embark on the
-  journey towards adoptions.
+summary: DevOps methodology is currently at the peak of its popularity. Despite this popularity, the journey towards the adoption is often difficult. This white paper provides actionable advice on how to assess your DevOps maturity and embark on the journey towards adoptions.
 cta:
   link: http://blog.scottlogic.com/bjedrzejewski/assets/white-papers/the-journey-to-devops.pdf
   text: Download the White Paper

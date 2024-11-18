@@ -2,12 +2,10 @@
 title: C++ for Java Programmers - Losing the Fear
 date: 2021-04-22 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Tech
 author: tclarke-scottlogic
 layout: default_post
-summary: Follow-up article to "Why Java Developers Should Learn C++". If you are interested
-  in picking up C++, or enjoyed my previous post, this can help you get started.
+summary: Follow-up article to "Why Java Developers Should Learn C++". If you are interested in picking up C++, or enjoyed my previous post, this can help you get started.
 ---
 
 > Also, my next planned post is going to be on some of the best introductory functionality of C++, how it relates to equivalents in Java, and some advice about how to interact with it when learning C++. So hopefully that'll be helpful. - [Thomas Clarke, July 2019]({{ site.baseurl }}/2019/07/19/why-java-developers-should-learn-c++.html)

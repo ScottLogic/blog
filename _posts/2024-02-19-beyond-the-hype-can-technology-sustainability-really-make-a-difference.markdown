@@ -11,11 +11,7 @@ tags:
 - green technologies
 - carbon emissions
 - greenhouse gases
-summary: In this episode, Oliver Cronk is joined by experts including Jeremy Axe,
-  Group CTO at DS Smith, and consultants Darren Smith and Katie Davis from Scott Logic.
-  Together, they unpack topics like the energy usage and carbon emissions of IT infrastructure,
-  the challenges in accurately measuring sustainability, and whether claims of ‘green
-  tech’ are substantiated or just hype.
+summary: In this episode, Oliver Cronk is joined by experts including Jeremy Axe, Group CTO at DS Smith, and consultants Darren Smith and Katie Davis from Scott Logic. Together, they unpack topics like the energy usage and carbon emissions of IT infrastructure, the challenges in accurately measuring sustainability, and whether claims of ‘green tech’ are substantiated or just hype.
 author: ceberhardt
 image: "/uploads/BeyondTheHype---pink-and-orange---social---E16.jpg"
 contributors:

@@ -2,7 +2,6 @@
 title: Apache Spark - Performance
 date: 2018-03-22 00:00:00 Z
 categories:
-- mdebeneducci
 - Data Engineering
 tags:
 - Java,

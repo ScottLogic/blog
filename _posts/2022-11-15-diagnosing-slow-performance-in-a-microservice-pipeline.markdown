@@ -10,10 +10,7 @@ tags:
 - Microservices
 - Pipeline
 - Metrics
-summary: Performance improvements can be a daunting task. This post looks at some
-  of the methods and tools available in GCP to help report the performance of your
-  cloud application, how this can help communicate with the client and how it can
-  enable you to narrow down performance issues in a pipeline made up of multiple services.
+summary: Performance improvements can be a daunting task. This post looks at some of the methods and tools available in GCP to help report the performance of your cloud application, how this can help communicate with the client and how it can enable you to narrow down performance issues in a pipeline made up of multiple services.
 author: abarron
 ---
 

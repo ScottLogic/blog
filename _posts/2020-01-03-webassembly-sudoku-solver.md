@@ -2,16 +2,12 @@
 title: A WebAssembly Powered Augmented Reality Sudoku Solver
 date: 2020-01-03 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: An Augmented Reality Sudoku solver using the  WebAssembly build of OpenCV
-  (a C++ computer vision library), Tensorflow (a machine learning library) and solver
-  written in Rust. It neatly demonstrates how WebAssembly allows you to write performance-critical
-  web-based applications in a wide range of languages.
+summary: An Augmented Reality Sudoku solver using the  WebAssembly build of OpenCV (a C++ computer vision library), Tensorflow (a machine learning library) and solver written in Rust. It neatly demonstrates how WebAssembly allows you to write performance-critical web-based applications in a wide range of languages.
 image: ceberhardt/assets/sudoku-solver/solved.jpg
 ---
 

@@ -2,13 +2,10 @@
 title: The Agile Mindset
 date: 2014-09-18 00:00:00 Z
 categories:
-- dthomas
 - Delivery
 author: dthomas
 layout: default_post
-summary: Agile is a term that is heavily overloaded within software development. In
-  this blog I take a look at Agile as a mindset for development, as opposed to a set
-  of tools and practices.
+summary: Agile is a term that is heavily overloaded within software development. In this blog I take a look at Agile as a mindset for development, as opposed to a set of tools and practices.
 oldlink: http://www.scottlogic.com/blog/2014/09/18/the-agile-mindset.html
 disqus-id: "/2014/09/18/the-agile-mindset.html"
 ---

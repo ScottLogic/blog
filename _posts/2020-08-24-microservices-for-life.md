@@ -2,14 +2,10 @@
 title: Microservices for Life
 date: 2020-08-24 00:00:00 Z
 categories:
-- isugar
 - Tech
 author: isugar
 layout: default_post
-summary: With so many organisations claiming to do microservices, it’s time to re-examine.
-  Let's explore the principles of microservices and how the mindset transcends specific
-  technology choices of the moment. It's more about people and change than it is about
-  technology.
+summary: With so many organisations claiming to do microservices, it’s time to re-examine. Let's explore the principles of microservices and how the mindset transcends specific technology choices of the moment. It's more about people and change than it is about technology.
 ---
 
 **Microservices** is no longer new and shiny. Maybe it never was - it being a term coined in the early 2010s to describe an emerging set of common architectural characteristics, a kind of “lightweight” Service Oriented Architecture. Many organisations, following the lead of pioneers such as Netflix or independently, were doing it long before it had a name. 

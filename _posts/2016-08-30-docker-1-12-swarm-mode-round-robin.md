@@ -2,11 +2,9 @@
 title: Docker 1.12 swarm mode - round robin inside and out
 date: 2016-08-30 00:00:00 Z
 categories:
-- csmith
 - Data Engineering
 author: csmith
-summary: This post demonstrates how Docker 1.12 swarm mode round robins the containers
-  in a service both for incoming connections (ingress) and DNS within the swarm.
+summary: This post demonstrates how Docker 1.12 swarm mode round robins the containers in a service both for incoming connections (ingress) and DNS within the swarm.
 layout: default_post
 ---
 

@@ -3,9 +3,7 @@ title: Technology Carbon Standard Update - 15th March 2024
 date: 2024-03-15 00:00:00 Z
 categories:
 - Sustainability
-summary: The Scott Logic sustainability team has recently added significant new content
-  to the open-source Technology Carbon Standard website. Here we summarise the recent
-  changes to the site and what we're looking to add next.
+summary: The Scott Logic sustainability team has recently added significant new content to the open-source Technology Carbon Standard website. Here we summarise the recent changes to the site and what we're looking to add next.
 author: kdavis
 ---
 

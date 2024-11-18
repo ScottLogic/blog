@@ -2,15 +2,13 @@
 title: The State Of In-Car UIs
 date: 2015-05-01 00:00:00 Z
 categories:
-- wloveland
 - UX Design
 tags:
 - featured
 author: wloveland
 title-short: The State Of In-Car UIs
 layout: default_post
-summary: An examination of the current state of in-car UIs, and how Apple, Google
-  and Tesla are significantly shaking things up.
+summary: An examination of the current state of in-car UIs, and how Apple, Google and Tesla are significantly shaking things up.
 image: wloveland/assets/featured/car-ui.jpg
 ---
 

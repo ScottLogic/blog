@@ -2,14 +2,12 @@
 title: Making a RTL plugin in less
 date: 2015-02-19 00:00:00 Z
 categories:
-- lpage
 - Tech
 author: lpage
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2015/02/19/rtl-plugin.html
 disqus-id: "/2015/02/19/rtl-plugin.html"
-summary: I mentioned in the previous post that I would create a plugin for less which
-  converted from LTR to RTL. Here is a tutorial post on creating that plugin.
+summary: I mentioned in the previous post that I would create a plugin for less which converted from LTR to RTL. Here is a tutorial post on creating that plugin.
 ---
 
 I mentioned in the previous post that I would create a plugin for less which converted from LTR to RTL. Here is a tutorial post on creating that plugin.

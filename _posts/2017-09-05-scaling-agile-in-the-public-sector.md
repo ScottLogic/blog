@@ -2,14 +2,10 @@
 title: Scaling Agile in the Public Sector
 date: 2017-09-05 00:00:00 Z
 categories:
-- shunton
 - Delivery
 author: shunton
 layout: default_post
-summary: With a well publicised history of multi-billion pound IT failures and operating
-  inefficiencies the UK government took the decision to adopt agile across the public
-  sector. This is a brief look at the history of that adoption and lessons learned
-  for those with an interest in agile project delivery.
+summary: With a well publicised history of multi-billion pound IT failures and operating inefficiencies the UK government took the decision to adopt agile across the public sector. This is a brief look at the history of that adoption and lessons learned for those with an interest in agile project delivery.
 ---
 
 The public sector has long been affected by projects that have cost the taxpayer millions, and in some cases, billions in failed delivery.

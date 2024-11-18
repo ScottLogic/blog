@@ -2,14 +2,11 @@
 title: Magical domain modelling with F#
 date: 2018-06-01 00:00:00 Z
 categories:
-- cburbidge
 - Tech
 tags:
 - F#
 author: cburbidge
-summary: The F# language has many features which can lead to expressing complex domains
-  in a terse and typesafe way. To show this we can codify the world of Dogshorts,
-  the private school for young witches and wizards.
+summary: The F# language has many features which can lead to expressing complex domains in a terse and typesafe way. To show this we can codify the world of Dogshorts, the private school for young witches and wizards.
 layout: default_post
 ---
 

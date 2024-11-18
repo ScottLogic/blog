@@ -2,16 +2,13 @@
 title: We’ve heard of clean code, it’s time for Clean Design
 date: 2019-05-08 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design
 author: tmakarem
 layout: default_post
 image: "/tmakarem/assets/featured/LayerNames.png"
-summary: Clean Design is the cleanliness of your design files and the practices of
-  creating these files rather than the design outcome you generate from them. In this
-  post, you can find a few tips on how you can start applying Clean Design.
+summary: Clean Design is the cleanliness of your design files and the practices of creating these files rather than the design outcome you generate from them. In this post, you can find a few tips on how you can start applying Clean Design.
 ---
 
 ###What is Clean Design?

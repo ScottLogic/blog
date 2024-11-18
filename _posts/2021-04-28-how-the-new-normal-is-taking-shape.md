@@ -2,14 +2,9 @@
 title: How the New Normal is taking shape
 date: 2021-04-28 00:00:00 Z
 categories:
-- nwilson
 - People
 author: nwilson
-summary: In this talk, Manila McLean, Newcastle Building Society CIO, and I reflect
-  on our experiences and learnings from how we've led our respective businesses to
-  address the challenges of the pandemic. We look ahead to how our organisations will
-  be returning to the office - and what this means for ways of working, managing productivity
-  and staff wellbeing.
+summary: In this talk, Manila McLean, Newcastle Building Society CIO, and I reflect on our experiences and learnings from how we've led our respective businesses to address the challenges of the pandemic. We look ahead to how our organisations will be returning to the office - and what this means for ways of working, managing productivity and staff wellbeing.
 layout: video_post
 video_url: https://www.youtube.com/embed/IErt5aSsHd0
 short-author-aside: true

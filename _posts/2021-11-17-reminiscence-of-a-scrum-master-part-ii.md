@@ -2,7 +2,6 @@
 title: Reminiscence of a Scrum Master (Part 2)
 date: 2021-11-17 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 tags:
 - delivery
@@ -10,9 +9,7 @@ tags:
 - empowerment
 author: fhubin
 layout: default_post
-summary: The second in a series of articles, in which we will explore the qualities
-  and behaviours necessary to be an effective Scrum Master and why those qualities
-  and behaviours are important in specific situations.
+summary: The second in a series of articles, in which we will explore the qualities and behaviours necessary to be an effective Scrum Master and why those qualities and behaviours are important in specific situations.
 ---
 
 In the previous article ([link](https://blog.scottlogic.com/2021/10/18/reminiscence-of-a-scrum-master-part-i.html)), we talked about why you are a Scrum Master and not someone else, what you should do as you land, and the skills that will help you on your way. In this second article, we will see how to create a framework that will foster good practices and help the team perform. 

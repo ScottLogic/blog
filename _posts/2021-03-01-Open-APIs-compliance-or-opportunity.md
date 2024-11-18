@@ -2,14 +2,9 @@
 title: Open APIs – compliance or opportunity
 date: 2021-03-01 00:00:00 Z
 categories:
-- nbetts
 - Open Source
 author: nbetts
-summary: I talk in this session about the real use cases for Open APIs, and how organisations
-  are starting to move from a compliance mindset to seeing the opportunities that
-  opening up data can deliver – from compliance-driven APIs within the banking sector,
-  to future opportunities that OpenFinance may offer to consumers, to the adoption
-  of Open APIs in other industry sectors.
+summary: I talk in this session about the real use cases for Open APIs, and how organisations are starting to move from a compliance mindset to seeing the opportunities that opening up data can deliver – from compliance-driven APIs within the banking sector, to future opportunities that OpenFinance may offer to consumers, to the adoption of Open APIs in other industry sectors.
 layout: video_post
 video_url: https://www.youtube.com/embed/ZWCkQJJlJn4
 short-author-aside: true

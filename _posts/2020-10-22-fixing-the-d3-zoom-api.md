@@ -2,14 +2,10 @@
 title: Fixing the d3-zoom API... for my use-case
 date: 2020-10-22 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post
-summary: d3-zoom is incredibly robust, powerful and flexible. However, its flexibility
-  means it can be quite complex to configure and use correctly. This post covers one
-  way of wrapping it up, reducing its flexibility but vastly simplifying its use for
-  my use-case.
+summary: d3-zoom is incredibly robust, powerful and flexible. However, its flexibility means it can be quite complex to configure and use correctly. This post covers one way of wrapping it up, reducing its flexibility but vastly simplifying its use for my use-case.
 ---
 
 d3-zoom is incredibly robust, powerful and flexible. However, its flexibility means it can be quite complex to configure and use correctly. This post covers one way of wrapping it up, reducing its flexibility but vastly simplifying its use for my use-case.

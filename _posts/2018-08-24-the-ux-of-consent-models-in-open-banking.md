@@ -2,7 +2,6 @@
 title: The UX of Consent Models in Open Banking
 date: 2018-08-24 00:00:00 Z
 categories:
-- cyule
 - UX Design
 tags:
 - OpenBanking,
@@ -24,11 +23,7 @@ tags:
 - featured
 author: cyule
 layout: default_post
-summary: Open Banking came into force in January 2018. It was introduced to shake-up
-  the fundamentals of the UK financial sector by aiming to create competition and
-  foster collaboration. This blog post will take a brief look at what Open Banking
-  means for the user experience by reviewing some of the current Consent Models (permissioning
-  flows) for adding a users’ bank account to the account aggregator Yolt.
+summary: Open Banking came into force in January 2018. It was introduced to shake-up the fundamentals of the UK financial sector by aiming to create competition and foster collaboration. This blog post will take a brief look at what Open Banking means for the user experience by reviewing some of the current Consent Models (permissioning flows) for adding a users’ bank account to the account aggregator Yolt.
 image: cyule/assets/featured/openbanking.png
 ---
 

@@ -2,7 +2,6 @@
 title: A Continuous Change Culture
 date: 2017-06-27 00:00:00 Z
 categories:
-- shunton
 - Delivery
 author: shunton
 layout: default_post

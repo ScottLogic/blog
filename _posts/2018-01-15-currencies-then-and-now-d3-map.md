@@ -2,13 +2,10 @@
 title: Mapping currency strength changes with D3
 date: 2018-01-15 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post
-summary: In this post, I create an interactive map of relative changes in currency
-  strength, using D3's geographic projections, world map data, and a currency exchange
-  API.
+summary: In this post, I create an interactive map of relative changes in currency strength, using D3's geographic projections, world map data, and a currency exchange API.
 ---
 
 In this post, I'll describe how I used D3 and free currency exchange data to create an interactive map of relative changes in currency strength. The end result is an interactive world map where you can select your base country and reference (past) date, to view which countries' currencies have strengthened or weakened since that date.

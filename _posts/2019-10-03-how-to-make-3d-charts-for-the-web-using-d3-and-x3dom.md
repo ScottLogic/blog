@@ -2,12 +2,10 @@
 title: How to Make 3D Charts for the Web Using D3 and X3DOM
 date: 2019-10-03 00:00:00 Z
 categories:
-- asureshkumar
 - Tech
 author: asureshkumar
 layout: default_post
-summary: In this blog post we consider a practical example of how the D3 and X3DOM
-  libraries can be used together to build dynamic 3D charts for the web.
+summary: In this blog post we consider a practical example of how the D3 and X3DOM libraries can be used together to build dynamic 3D charts for the web.
 ---
 
 ## Introduction

@@ -2,13 +2,10 @@
 title: A piecemeal approach to introducing Agile
 date: 2014-08-11 00:00:00 Z
 categories:
-- dthomas
 - Delivery
 author: dthomas
 layout: default_post
-summary: One of the common ways of introducing Agile is to incrementally move the
-  current process to a more Agile one. Here I take a look at the strengths and weakness
-  of this approach.
+summary: One of the common ways of introducing Agile is to incrementally move the current process to a more Agile one. Here I take a look at the strengths and weakness of this approach.
 oldlink: http://www.scottlogic.com/blog/2014/08/11/a-piecemeal-approach-to-introducing-agile.html
 disqus-id: "/2014/08/11/a-piecemeal-approach-to-introducing-agile.html"
 ---

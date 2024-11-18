@@ -2,13 +2,10 @@
 title: An introduction to MVC frameworks
 date: 2013-12-06 00:00:00 Z
 categories:
-- dkerr
 - Tech
 author: dkerr
 layout: default_post
-summary: The recent rise of web applications that have all the functionality of their
-  desktop counterparts has highlighted the fact that JavaScript MVC Frameworks are
-  now an essential part of any modern web developers toolkit.
+summary: The recent rise of web applications that have all the functionality of their desktop counterparts has highlighted the fact that JavaScript MVC Frameworks are now an essential part of any modern web developers toolkit.
 oldlink: http://www.scottlogic.com/blog/2013/12/06/JavaScript-MVC-frameworks.html
 disqus-id: "/2013/12/06/JavaScript-MVC-frameworks.html"
 ---

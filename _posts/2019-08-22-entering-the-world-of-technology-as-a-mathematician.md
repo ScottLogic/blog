@@ -2,7 +2,6 @@
 title: 'Entering the world of technology as a mathematician '
 date: 2019-08-22 00:00:00 Z
 categories:
-- rgarside
 - People
 tags:
 - Interns,
@@ -11,9 +10,7 @@ tags:
 author: rgarside
 layout: default_post
 image: rgarside/assets/Isabelle-Atkins.jpg
-summary: At first, Isabelle Atkins was hesitant about applying for a summer internship
-  at Scott Logic, assuming it would require more computational knowledge than she
-  had – but she was pleasantly surprised.
+summary: At first, Isabelle Atkins was hesitant about applying for a summer internship at Scott Logic, assuming it would require more computational knowledge than she had – but she was pleasantly surprised.
 ---
 
 ### How Isabelle Atkins rose to the challenge of an internship in our Bristol office.

@@ -1,9 +1,7 @@
 ---
-title: "(Not) Only Tools And Sources. You need more than know-how and technology to
-  succeed. “You know it makes sense!”"
+title: "(Not) Only Tools And Sources. You need more than know-how and technology to succeed. “You know it makes sense!”"
 date: 2019-03-20 00:00:00 Z
 categories:
-- lramchandani
 - Testing
 tags:
 - Personality
@@ -15,8 +13,7 @@ tags:
 - Horses
 author: lramchandani
 layout: default_post
-summary: My aim in this blog post is to help you recognise these traits and make use
-  of them in yourselves and others as we strive to survive in the tech jungle.
+summary: My aim in this blog post is to help you recognise these traits and make use of them in yourselves and others as we strive to survive in the tech jungle.
 ---
 
 ## (Not) Only Tools And Sources. You need more than know-how and technology to succeed. “You know it makes sense!”

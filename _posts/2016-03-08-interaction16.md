@@ -2,14 +2,12 @@
 title: Interaction 16
 date: 2016-03-08 00:00:00 Z
 categories:
-- wloveland
 - UX Design
 tags:
 - featured
 author: wloveland
 layout: default_post
-summary: On the 1st of March myself and Graham Odds travelled to Helsinki, Finland
-  to attend the 8th annual Interaction week.
+summary: On the 1st of March myself and Graham Odds travelled to Helsinki, Finland to attend the 8th annual Interaction week.
 image: wloveland/assets/featured/interaction.jpg
 ---
 

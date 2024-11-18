@@ -10,12 +10,7 @@ tags:
 - digital government
 - government
 - ''
-summary: The pandemic response required a remarkable level of collaboration between
-  and beyond government departments. In this blog post, I’m going to look at the Clinically
-  Extremely Vulnerable People Service, outlining the different areas of collaboration
-  upon which the service depended, and reflecting on the lessons that government can
-  take forward to achieve its vision of a responsible, efficient and effective data
-  ecosystem.
+summary: The pandemic response required a remarkable level of collaboration between and beyond government departments. In this blog post, I’m going to look at the Clinically Extremely Vulnerable People Service, outlining the different areas of collaboration upon which the service depended, and reflecting on the lessons that government can take forward to achieve its vision of a responsible, efficient and effective data ecosystem.
 author: jmcevoy
 ---
 

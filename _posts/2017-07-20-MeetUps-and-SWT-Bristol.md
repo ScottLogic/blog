@@ -2,7 +2,6 @@
 title: Test meetups - could be your cup of tea!
 date: 2017-07-20 00:00:00 Z
 categories:
-- mmathew
 - Testing
 author: mmathew
 layout: default_post

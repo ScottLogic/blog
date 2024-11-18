@@ -2,13 +2,10 @@
 title: Email Digests with Elasticsearch via a Serverless Architecture
 date: 2019-11-28 00:00:00 Z
 categories:
-- oforeman
 - Tech
 author: oforeman
 layout: default_post
-summary: An overview of the methods we used to create and deliver digests (emails
-  containing information on a topic that users are subscribed to) using Elasticsearch
-  and serverless architecture on AWS.
+summary: An overview of the methods we used to create and deliver digests (emails containing information on a topic that users are subscribed to) using Elasticsearch and serverless architecture on AWS.
 ---
 
 ## Overview

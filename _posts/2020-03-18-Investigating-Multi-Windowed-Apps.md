@@ -2,13 +2,10 @@
 title: Investigating Multi-Window Browser Applications
 date: 2020-03-18 00:00:00 Z
 categories:
-- sburnstone
 - Tech
 author: sburnstone
 layout: default_post
-summary: Frontend web technologies are increasingly being used beyond traditional
-  web applications. Could the next frontier be multi-window web apps that run in both
-  the browser and on the desktop?
+summary: Frontend web technologies are increasingly being used beyond traditional web applications. Could the next frontier be multi-window web apps that run in both the browser and on the desktop?
 ---
 
 From server to mobile, we've seen web technologies being used to create applications well beyond the traditional website. While tools such as [Electron](https://www.electronjs.org/) exist to also enable desktop app development, I was recently asked by a colleague to investigate how feasible it was to create a multi-window desktop-like app directly in the browser.

@@ -2,17 +2,12 @@
 title: Leadership learnings from ‘Empowering Women’
 date: 2022-01-20 00:00:00 Z
 categories:
-- ccocks
 - People
 tags:
 - featured
 author: ccocks
 layout: default_post
-summary: 'Empowering Women to Lead Digital Transformation in Scotland (EWLDT) is a
-  course delivered by Empowering You in association with the Scottish Digital Academy,
-  Scottish Government and ScotlandIS. Here, two graduates of the Autumn 2021 cohort
-  – Jen Campbell and Atika Bennamane – share their experiences of the course and some
-  of the key learnings that have accelerated them along their leadership journey. '
+summary: 'Empowering Women to Lead Digital Transformation in Scotland (EWLDT) is a course delivered by Empowering You in association with the Scottish Digital Academy, Scottish Government and ScotlandIS. Here, two graduates of the Autumn 2021 cohort – Jen Campbell and Atika Bennamane – share their experiences of the course and some of the key learnings that have accelerated them along their leadership journey. '
 ---
 
 Empowering Women to Lead Digital Transformation in Scotland (EWLDT) is a course delivered by Empowering You in association with the Scottish Digital Academy, Scottish Government and ScotlandIS. At Scott Logic, we were proud to be one of the sponsors of the autumn 2021 cohort which graduated in December.

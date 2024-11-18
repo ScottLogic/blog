@@ -2,15 +2,12 @@
 title: 'TypeScript Builders: Improving your types one step at a time'
 date: 2020-09-16 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - typescript
 - types
 - featured
-summary: TypeScript's type system is amazing, but it can't do everything. In this
-  post, I demonstrate how the builder pattern takes my types to the next level. We
-  walk through an example in detail, so you can start using builders too.
+summary: TypeScript's type system is amazing, but it can't do everything. In this post, I demonstrate how the builder pattern takes my types to the next level. We walk through an example in detail, so you can start using builders too.
 author: swaterman
 summary-short: Using the builder pattern, we can take our types to the next level.
 image: swaterman/assets/ts-builders/Builders-Usage.svg

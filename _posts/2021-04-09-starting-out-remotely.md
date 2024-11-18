@@ -2,7 +2,6 @@
 title: Starting out... remotely
 date: 2021-04-09 00:00:00 Z
 categories:
-- ckurzeja
 - People
 tags:
 - remote
@@ -20,10 +19,7 @@ tags:
 - featured
 author: ckurzeja
 layout: default_post
-summary: Working remotely all of the time has been an unusual and disorienting experience
-  for everyone at Scott Logic. But what has it been like for the more junior consultants,
-  being onboarded onto their first client projects while physically isolated from
-  each other?
+summary: Working remotely all of the time has been an unusual and disorienting experience for everyone at Scott Logic. But what has it been like for the more junior consultants, being onboarded onto their first client projects while physically isolated from each other?
 ---
 
 _This is the fourth in a series of blog posts that we’re publishing about how to build effective remote teams. We’re sharing insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Platform as they shape optimal ways of working on this important project. You can read the earlier posts in the series here: [Remote Possibilities](https://blog.scottlogic.com/2020/12/02/remote-possibilities.html), [Sense and Sustainability](https://blog.scottlogic.com/2020/12/17/sense-and-sustainability.html) and [On the Importance of a Team Manifesto](https://blog.scottlogic.com/2021/01/26/on-the-importance-of-a-team-manifesto.html)._

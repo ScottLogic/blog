@@ -2,7 +2,6 @@
 title: Thoughts from the Software Testing Conference North
 date: 2018-09-27 00:00:00 Z
 categories:
-- lpisani
 - Testing
 tags:
 - test
@@ -10,10 +9,7 @@ tags:
 - conference
 author: lpisani
 layout: default_post
-summary: It's been a busy year for the Scott Logic testing team since we last visited
-  the Software Testing Conference North. This year offered the opportunity to catch
-  up with other members of the testing community, and to hear how companies are tackling
-  their testing challenges.
+summary: It's been a busy year for the Scott Logic testing team since we last visited the Software Testing Conference North. This year offered the opportunity to catch up with other members of the testing community, and to hear how companies are tackling their testing challenges.
 ---
 
 It's been a busy year for the Scott Logic testing team since we last visited [Software Testing Conference North](http://north.softwaretestingconference.com/). This year offered the opportunity to catch up with other members of the testing community, and to hear how companies such as EE Digital, MoneySupermarket, Lloyds Banking Group are tackling challenges and opportunities.

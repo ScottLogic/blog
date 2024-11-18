@@ -2,13 +2,10 @@
 title: AWS Builders Day 2019
 date: 2019-03-26 00:00:00 Z
 categories:
-- dcastellano
 - Tech
 author: dcastellano
 layout: default_post
-summary: In this article, I share my take on the recent AWS Builders Day in Edinburgh.
-  I delve into a couple of the talks i attended which were primarily focused around
-  AWS AppSync, AWS Amplify and GraphQL.
+summary: In this article, I share my take on the recent AWS Builders Day in Edinburgh. I delve into a couple of the talks i attended which were primarily focused around AWS AppSync, AWS Amplify and GraphQL.
 ---
 
 Last week I had the opportunity to attend the AWS Builders day at the EICC in Edinburgh. This was a one-day event that had a variety of talks focused on three different areas. The areas covered were Modern Application Development, Analytics & Machine Learning and Backends & Architecture. I chose mostly from the Modern Application Development track but switched to a couple of talks within Backends and Architecture at the end of the day.

@@ -2,7 +2,6 @@
 title: Investigating TypeScript compiler APIs
 date: 2015-01-20 00:00:00 Z
 categories:
-- nwolverson
 - Tech
 tags:
 - blog
@@ -11,12 +10,9 @@ author: nwolverson
 image: nwolverson/assets/featured/compiler.jpg
 image-attribution: image courtesy of <a href='https://www.flickr.com/photos/stvan4245/'>KāSteve</a>
 layout: default_post
-summary: 'TypeScript 1.4 was released last Friday, bringing union types, type aliases,
-  and some ES6-related features. It also brought a new compiler and language services
-  API to facilitate better tool support. Here I''ll give a brief introduction with
-  some pointers on places to get started.
+summary: 'TypeScript 1.4 was released last Friday, bringing union types, type aliases, and some ES6-related features. It also brought a new compiler and language services API to facilitate better tool support. Here I''ll give a brief introduction with some pointers on places to get started.
 
-'
+  '
 oldlink: http://www.scottlogic.com/blog/2015/01/20/typescript-compiler-api.html
 disqus-id: "/2015/01/20/typescript-compiler-api.html"
 ---

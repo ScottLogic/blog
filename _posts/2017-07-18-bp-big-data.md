@@ -2,15 +2,11 @@
 title: The Big Data technologies that saved BP $7bn
 date: 2017-07-18 00:00:00 Z
 categories:
-- acarr
 - Data Engineering
 tags:
 - featured
 author: acarr
-summary: Yesterday the Financial Times boldly declared that BP saved $7bn since 2014
-  by investing in Big Data technologies. I spent a couple of hours researching Big
-  Data technologies associated with BP members of staff to try and build up a picture
-  of exactly which technologies they are using.
+summary: Yesterday the Financial Times boldly declared that BP saved $7bn since 2014 by investing in Big Data technologies. I spent a couple of hours researching Big Data technologies associated with BP members of staff to try and build up a picture of exactly which technologies they are using.
 layout: default_post
 image: acarr/assets/featured/oil.jpg
 ---

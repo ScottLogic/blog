@@ -2,12 +2,9 @@
 title: An Interactive Tab Bar Controller Transition
 date: 2013-09-26 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
-summary: This blog post looks at creating an interactive tab bar controller transition,
-  where you can swipe left and right to navigate between the tabs. The transition
-  itself is a 'paperfold' effect - very pretty!
+summary: This blog post looks at creating an interactive tab bar controller transition, where you can swipe left and right to navigate between the tabs. The transition itself is a 'paperfold' effect - very pretty!
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2013/09/26/tabbar-custom-transitions.html
 disqus-id: "/2013/09/26/tabbar-custom-transitions.html"

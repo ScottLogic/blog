@@ -2,15 +2,12 @@
 title: Switching in Swift
 date: 2019-12-04 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Swift
 author: bquinn
 layout: default_post
-summary: 'The switch statement in Swift is a powerful and expressive way of performing
-  flow control. It pairs very nicely with a few other language features: enumerations,
-  extensions and type inference.'
+summary: 'The switch statement in Swift is a powerful and expressive way of performing flow control. It pairs very nicely with a few other language features: enumerations, extensions and type inference.'
 image: bquinn/assets/Swift_logo_color.svg
 ---
 

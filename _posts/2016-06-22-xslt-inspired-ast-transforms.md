@@ -2,16 +2,10 @@
 title: Recursive Pattern Matching and Transformation of JavaScript AST
 date: 2016-06-22 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post
-summary: I've recently been playing around with the JavaScript Abstract Syntax Trees
-  (AST), with the aim of transforming some JavaScript code into various other languages
-  (Java, C#, Objective-C). As part of my research, I looked at how Babel performs
-  AST transforms. If you're not familiar with Babel, and the plugins which perform
-  the transformations, I'd recommend this blog post by Shuhei Kagawa that describes
-  the development of a simple plugin for Angular 2 code generation.
+summary: I've recently been playing around with the JavaScript Abstract Syntax Trees (AST), with the aim of transforming some JavaScript code into various other languages (Java, C#, Objective-C). As part of my research, I looked at how Babel performs AST transforms. If you're not familiar with Babel, and the plugins which perform the transformations, I'd recommend this blog post by Shuhei Kagawa that describes the development of a simple plugin for Angular 2 code generation.
 ---
 
 I've recently been playing around with the JavaScript [Abstract Syntax Trees](https://en.m.wikipedia.org/wiki/Abstract_syntax_tree) (AST), with the aim of transforming some JavaScript code into various other languages (Java, C#, Objective-C). As part of my research, I looked at how Babel performs AST transforms. If you're not familiar with Babel, and the plugins which perform the transformations, I'd recommend [this blog post by Shuhei Kagawa](http://shuheikagawa.com/blog/2015/09/13/lets-create-a-babel-plugin/) that describes the development of a simple plugin for Angular 2 code generation.

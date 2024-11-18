@@ -2,13 +2,9 @@
 title: Mutation Testing - Who will test the tests themselves?
 date: 2017-09-25 00:00:00 Z
 categories:
-- jwhite
 - Testing
 author: jwhite
-summary: Having good tests is vital for maintaing code but it is difficult to assess
-  the quality of your tests. Mutation testing provides one way of evaluating your
-  tests. In this post I will be using PIT with Java to demonstrate the capabilities
-  of mutation testing.
+summary: Having good tests is vital for maintaing code but it is difficult to assess the quality of your tests. Mutation testing provides one way of evaluating your tests. In this post I will be using PIT with Java to demonstrate the capabilities of mutation testing.
 layout: default_post
 ---
 

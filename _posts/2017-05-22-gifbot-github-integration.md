@@ -2,13 +2,10 @@
 title: gifbot - Building a GitHub App
 date: 2017-05-22 00:00:00 Z
 categories:
-- ceberhardt
 - Cloud
 author: ceberhardt
 layout: default_post
-summary: This post takes a look at the recently launched GitHub App platform, that
-  allows developers to create integrations and services which can be shared with others.
-  The post describes the development of gifbot, a simple and fun App!
+summary: This post takes a look at the recently launched GitHub App platform, that allows developers to create integrations and services which can be shared with others. The post describes the development of gifbot, a simple and fun App!
 image: ceberhardt/assets/featured/bot.png
 ---
 

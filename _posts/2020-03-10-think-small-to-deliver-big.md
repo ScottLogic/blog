@@ -2,13 +2,10 @@
 title: 'White Paper: Think Small to Deliver Big'
 date: 2020-03-10 00:00:00 Z
 categories:
-- robsmith
 - Resources
 author: robsmith
 layout: default_post
-summary: This white paper explores the benefits of starting small to ultimately build
-  big, why this is difficult to do in practice, how to identify opportunities to break
-  down bigger problems, and practical approaches to avoid failure.
+summary: This white paper explores the benefits of starting small to ultimately build big, why this is difficult to do in practice, how to identify opportunities to break down bigger problems, and practical approaches to avoid failure.
 cta:
   link: http://blog.scottlogic.com/robsmith/assets/white-papers/think-small-to-deliver-big.pdf
   text: Download the White Paper

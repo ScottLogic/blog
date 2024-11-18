@@ -2,7 +2,6 @@
 title: From university to industry – a small step or a giant leap?
 date: 2019-08-30 00:00:00 Z
 categories:
-- mwalker
 - People
 tags:
 - Intern,
@@ -11,8 +10,7 @@ tags:
 author: mwalker
 layout: default_post
 image: mwalker/assets/Adam-McDevitt.jpg
-summary: Find out how Adam McDevitt found his time during the summer internship in
-  our Edinburgh office, working on the 'Looking at you' project.
+summary: Find out how Adam McDevitt found his time during the summer internship in our Edinburgh office, working on the 'Looking at you' project.
 ---
 
 ### How Adam McDevitt found his summer internship in our Edinburgh office.

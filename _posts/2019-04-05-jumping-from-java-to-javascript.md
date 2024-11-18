@@ -2,7 +2,6 @@
 title: Jumping from Javascript to Java. How hard can it be?
 date: 2019-04-05 00:00:00 Z
 categories:
-- phands
 - Tech
 tags:
 - Java,
@@ -10,9 +9,7 @@ tags:
 - Development
 author: phands
 layout: default_post
-summary: A lot of developers start specialising in Javascript, and have an inherent
-  fear of Java (I know I did!) In this blog post I look at a few tips to get over
-  that initial fear and start coding in Java, from a Javascript background.
+summary: A lot of developers start specialising in Javascript, and have an inherent fear of Java (I know I did!) In this blog post I look at a few tips to get over that initial fear and start coding in Java, from a Javascript background.
 image: phands/assets/javascript-to-java.png
 ---
 

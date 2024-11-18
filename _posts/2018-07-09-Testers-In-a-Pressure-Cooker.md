@@ -2,15 +2,12 @@
 title: Testers In A Pressure Cooker
 date: 2018-07-09 00:00:00 Z
 categories:
-- lramchandani
 - Testing
 tags:
 - Testing
 author: lramchandani
 layout: default_post
-summary: This blog is based on my experience as a tester and how it can be pressurising
-  in certain situations. I have talked about the issues and how it can resolved and
-  we can have a positive environment.
+summary: This blog is based on my experience as a tester and how it can be pressurising in certain situations. I have talked about the issues and how it can resolved and we can have a positive environment.
 image: ''
 ---
 

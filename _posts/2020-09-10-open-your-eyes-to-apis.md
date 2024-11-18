@@ -2,13 +2,11 @@
 title: Open your eyes to APIs
 date: 2020-09-10 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
 image: godds/assets/featured/apis.png
 layout: default_post
-summary: APIs "done properly" can be a significant strategic enabler, or even a whole
-  new business proposition. This piece highlights some examples of this in action.
+summary: APIs "done properly" can be a significant strategic enabler, or even a whole new business proposition. This piece highlights some examples of this in action.
 ---
 
 Imagine using your smartphone solely to make telephone calls. Just <b>imagine</b>.

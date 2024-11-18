@@ -2,13 +2,11 @@
 title: Mock the Back-End with Node
 date: 2018-03-20 00:00:00 Z
 categories:
-- alee
 - Tech
 tags:
 - JavaScript
 author: alee
-summary: Mock the back-end of your web application, using Node.js, to make developing
-  and testing the front-end easier.
+summary: Mock the back-end of your web application, using Node.js, to make developing and testing the front-end easier.
 layout: default_post
 ---
 

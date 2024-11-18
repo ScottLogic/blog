@@ -1,6 +1,5 @@
 ---
-title: 'Balancing Act: Financial Organisations and the Constraints on Open Source
-  Community Engagement'
+title: 'Balancing Act: Financial Organisations and the Constraints on Open Source Community Engagement'
 date: 2023-11-22 09:06:00 Z
 categories:
 - Open Source
@@ -8,11 +7,7 @@ tags:
 - Open Source
 - Finance
 - Fintech
-summary: 'As I was reading this year''s State of Open Source in Finance report, I
-  reflected on my time working in financial services and the ongoing struggle they
-  had adopting and contributing to open source. In this blog I look at the report''s
-  findings, how things have (and have not) changed in FS and how larger organisations
-  can foster an open source culture. '
+summary: 'As I was reading this year''s State of Open Source in Finance report, I reflected on my time working in financial services and the ongoing struggle they had adopting and contributing to open source. In this blog I look at the report''s findings, how things have (and have not) changed in FS and how larger organisations can foster an open source culture. '
 author: mhowie
 image: "/uploads/new%20balancing%20act%20tn.png"
 ---

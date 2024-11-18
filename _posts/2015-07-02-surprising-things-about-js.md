@@ -2,15 +2,13 @@
 title: Seven Surprising JavaScript 'Features'
 date: 2015-07-02 00:00:00 Z
 categories:
-- lpage
 - Tech
 tags:
 - featured
 author: lpage
 title-short: Surprising JavaScript
 layout: default_post
-summary: A look at some of the more unusual parts of JavaScript by examining seven
-  things I've learnt recently.
+summary: A look at some of the more unusual parts of JavaScript by examining seven things I've learnt recently.
 image: lpage/assets/featured/javascript.jpg
 ---
 

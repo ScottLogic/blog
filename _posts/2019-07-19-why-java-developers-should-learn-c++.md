@@ -2,12 +2,10 @@
 title: Why Java Developers Should Learn C++
 date: 2019-07-19 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Tech
 author: tclarke-scottlogic
 layout: default_post
-summary: Why Java Developers can gain from C++, what C++ can gain from Java Developers,
-  and how the language has made itself more comfortable for you to make the transition.
+summary: Why Java Developers can gain from C++, what C++ can gain from Java Developers, and how the language has made itself more comfortable for you to make the transition.
 ---
 
 ~~~C++

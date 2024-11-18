@@ -2,7 +2,6 @@
 title: 'The Inside Track: Six steps to Graduate Programme success'
 date: 2021-03-15 00:00:00 Z
 categories:
-- jspruce
 - People
 tags:
 - jobs,
@@ -24,8 +23,7 @@ tags:
 - training
 author: jspruce
 layout: default_post
-summary: My experiences of what you can expect before, during and after going through
-  the Scott Logic Graduate Programme, and how onboarding worked during Lockdown.
+summary: My experiences of what you can expect before, during and after going through the Scott Logic Graduate Programme, and how onboarding worked during Lockdown.
 ---
 
 _As a recent participant, here are my experiences of what you can expect before, during and after going through the Scott Logic graduate programme._

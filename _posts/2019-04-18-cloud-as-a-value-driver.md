@@ -2,14 +2,10 @@
 title: 'White Paper: Thinking differently - the cloud as a value driver'
 date: 2019-04-18 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 tags:
 - featured
-summary: The Financial Services industry is having to change and adapt in the face
-  of regulations, competition, changes in buying habits and client expectations. This
-  white paper encourages the industry to look at public cloud not as a tool for driving
-  down costs, but as a vehicle for technical and business agility.
+summary: The Financial Services industry is having to change and adapt in the face of regulations, competition, changes in buying habits and client expectations. This white paper encourages the industry to look at public cloud not as a tool for driving down costs, but as a vehicle for technical and business agility.
 author: ceberhardt
 image: ceberhardt/assets/featured/cloud-value-driver.png
 cta:

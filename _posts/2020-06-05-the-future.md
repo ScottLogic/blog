@@ -2,7 +2,6 @@
 title: The future is not what it used to be.
 date: 2020-06-05 00:00:00 Z
 categories:
-- phughes
 - Delivery
 tags:
 - Consulting,
@@ -11,10 +10,7 @@ tags:
 - Pandemic
 author: phughes
 layout: default_post
-summary: Those organisations who emerged stronger and more competitive from the 2008
-  global financial crisis are at it again. They have benefited significantly from
-  past bold and decisive moves and now they are wasting no time adapting to the next
-  version of the future. So what are the tenets of change this time?
+summary: Those organisations who emerged stronger and more competitive from the 2008 global financial crisis are at it again. They have benefited significantly from past bold and decisive moves and now they are wasting no time adapting to the next version of the future. So what are the tenets of change this time?
 image: phughes/assets/thefuture.jpg
 ---
 

@@ -2,13 +2,10 @@
 title: Upcoming WebHID API - access Bluetooth/USB HID devices in web applications
 date: 2019-04-03 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post
-summary: The WebHID API will allow web applications to use human input/output devices
-  connected via Bluetooth or USB. This post takes an early look at where it fits in,
-  the possibilities enables, and how to use it.
+summary: The WebHID API will allow web applications to use human input/output devices connected via Bluetooth or USB. This post takes an early look at where it fits in, the possibilities enables, and how to use it.
 ---
 
 Later on this year (2019), a host of new APIs are due to land in the Google Chrome (Chromium) browser. They form part of "[Project Fugu](https://blog.chromium.org/2018/11/our-commitment-to-more-capable-web.html)", an effort to [close the capability gap](https://developers.google.com/web/updates/capabilities) between web and native applications. The [WebHID API](https://wicg.github.io/webhid) for human interface devices is [one of these](https://bugs.chromium.org/p/chromium/issues/list?q=label:Proj-Fugu).

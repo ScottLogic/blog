@@ -9,9 +9,7 @@ tags:
 - ''
 - government
 - digital government
-summary: Here, Chris Ferguson discusses why the face of public sector technology should
-  be able to implement timely, meaningful change – and how waste can guide you in
-  the right direction.
+summary: Here, Chris Ferguson discusses why the face of public sector technology should be able to implement timely, meaningful change – and how waste can guide you in the right direction.
 author: cferguson
 image: "/uploads/never%20a%20waste.png"
 ---

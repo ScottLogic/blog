@@ -2,16 +2,13 @@
 title: A week with prototyping tools
 date: 2018-03-09 00:00:00 Z
 categories:
-- rmarcalo
 - UX Design
 tags:
 - featured
 author: rmarcalo
 layout: default_post
 image: rmarcalo/assets/featured/prototyping-tools.png
-summary: Animation prototyping tools have been increasing in popularity, but also
-  in variety. I spent a week exploring these tools and in this post I will try to
-  gauge which tool is most appropriate for the needs and workflows of our team.
+summary: Animation prototyping tools have been increasing in popularity, but also in variety. I spent a week exploring these tools and in this post I will try to gauge which tool is most appropriate for the needs and workflows of our team.
 ---
 
 In the last few years prototyping tools, in particular those focusing on animation, have seen tremendous growth. As a designer trying to focus on the busy day-to-day of a project, it’s hard to fit experimentation with new tools into the workflow, and to commit to using new tools for your project.

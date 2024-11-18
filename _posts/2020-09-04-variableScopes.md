@@ -2,16 +2,10 @@
 title: Variable scopes in Postman
 date: 2020-09-04 00:00:00 Z
 categories:
-- sbulut
 - Testing
 author: sbulut
 layout: default_post
-summary: Variables allow you to store and reuse values in your requests and scripts.
-  Storing a value in a variable allows you to reference it throughout your environments
-  and collections. It’s also practical because if you want to update a value, you
-  have to change it only in one place. There are a few types of variables in Postman
-  and might be confusing where to use which so in this blogpost I will try to explain
-  that.
+summary: Variables allow you to store and reuse values in your requests and scripts. Storing a value in a variable allows you to reference it throughout your environments and collections. It’s also practical because if you want to update a value, you have to change it only in one place. There are a few types of variables in Postman and might be confusing where to use which so in this blogpost I will try to explain that.
 ---
 
 A variable is a symbolic name for - or a reference to - information. The variable’s name represents what information the variable contains. Variables allow you to store and reuse values in your requests and scripts. The type of variables in Postman might be confusing as there are quite a few of them, such as environment variables, collection variables, data variables etc. Similar to working with variables in other programming languages, in Postman, all variables conform to a specific hierarchy. 

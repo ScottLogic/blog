@@ -2,17 +2,13 @@
 title: Four tips for achieving successful UX workshops
 date: 2017-01-11 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design
 author: tmakarem
 layout: default_post
 image: tmakarem/assets/featured/022_Double-Diamond.jpg
-summary: Facilitating UX workshops can be challenging when ideating with non-designers
-  who have not participated in a UX workshop and are sceptical about its value. In
-  this post, I suggest four tips for achieving successful UX workshops and gaining
-  the trust of the more sceptical participants.
+summary: Facilitating UX workshops can be challenging when ideating with non-designers who have not participated in a UX workshop and are sceptical about its value. In this post, I suggest four tips for achieving successful UX workshops and gaining the trust of the more sceptical participants.
 ---
 
 To design innovative experiences we need to experiment freely and openly. Running UX workshops is one of the contexts in which we facilitate that experimentation. This works well when designers brainstorm together because they are trained with that mindset. Facilitating UX workshops becomes more challenging when ideating with non-designers who have not participated in a UX workshop and are sceptical about its value.

@@ -2,13 +2,10 @@
 title: 'Source control: The fundamental concepts'
 date: 2020-01-07 00:00:00 Z
 categories:
-- slaing
 - Tech
 author: slaing
 layout: default_post
-summary: The more advanced, time saving and helpful techniques of any source control
-  tool require an understanding of the fundamental concepts of any source control,
-  here we cover the most important ones
+summary: The more advanced, time saving and helpful techniques of any source control tool require an understanding of the fundamental concepts of any source control, here we cover the most important ones
 ---
 
 There are some key aspects of any source control product; understanding what they are and [when to use them]({{ site.github.url }}/2019/12/19/source-control-when.html) is crucial to being able to use them effectively. Without a basic understanding of the fundamentals then the more advanced features (such as [`git rebase`](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)) will be even harder to grasp.

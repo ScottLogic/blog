@@ -2,12 +2,9 @@
 title: Configuring Java applications at runtime with Spring Profiles
 date: 2020-07-10 00:00:00 Z
 categories:
-- jharris
 - Tech
 author: jharris
-summary: We explore how to use Spring Profiles as a handy way to select the configuration
-  at runtime by wiring in different beans, as well as looking at how to autowire different
-  beans in for integration tests.
+summary: We explore how to use Spring Profiles as a handy way to select the configuration at runtime by wiring in different beans, as well as looking at how to autowire different beans in for integration tests.
 layout: default_post
 ---
 

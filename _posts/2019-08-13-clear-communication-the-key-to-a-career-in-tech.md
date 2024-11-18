@@ -2,7 +2,6 @@
 title: 'Clear communication: the key to a career in tech'
 date: 2019-08-13 00:00:00 Z
 categories:
-- rgarside
 - People
 tags:
 - Interns,
@@ -11,8 +10,7 @@ tags:
 author: rgarside
 layout: default_post
 image: rgarside/assets/Sibela-Chinareva.jpg
-summary: Find out how Sibela Chinareva found her time during the summer internship
-  in our Bristol office, and the importance of clear communication.
+summary: Find out how Sibela Chinareva found her time during the summer internship in our Bristol office, and the importance of clear communication.
 ---
 
 ### How Sibela Chinareva enjoyed her internship in our Bristol office.

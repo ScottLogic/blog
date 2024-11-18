@@ -2,7 +2,6 @@
 title: Real-time data analysis using Spark
 date: 2013-07-29 00:00:00 Z
 categories:
-- jphillpotts
 - Data Engineering
 tags:
 - Scala
@@ -13,10 +12,7 @@ tags:
 author: jphillpotts
 layout: default_post
 source: site
-summary: "Big Data is a hot topic these days, and one aspect of that problem space
-  is\nprocessing streams of high velocity data in near-real time. Here we're going
-  \nto look at using Big Data-style techniques in Scala on a stream of data from \na
-  WebSocket.\n"
+summary: "Big Data is a hot topic these days, and one aspect of that problem space is\nprocessing streams of high velocity data in near-real time. Here we're going \nto look at using Big Data-style techniques in Scala on a stream of data from \na WebSocket.\n"
 oldlink: http://www.scottlogic.com/blog/2013/07/29/spark-stream-analysis.html
 disqus-id: "/2013/07/29/spark-stream-analysis.html"
 ---

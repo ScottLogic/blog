@@ -2,16 +2,11 @@
 title: 'APIs: Making GaaP a reality'
 date: 2021-03-01 00:00:00 Z
 categories:
-- godds
 - Tech
 tags:
 - featured
 author: godds
-summary: With APIs, Open Standards and modern tooling, the vision of GaaP is more
-  readily achievable than ever before, but it requires a different understanding of
-  the role of government — from master and commander to convener and enabler. In this
-  talk, I bring to life why I believe APIs are key to establishing digital foundations
-  that will enable us to better serve citizens' personalised needs at scale.
+summary: With APIs, Open Standards and modern tooling, the vision of GaaP is more readily achievable than ever before, but it requires a different understanding of the role of government — from master and commander to convener and enabler. In this talk, I bring to life why I believe APIs are key to establishing digital foundations that will enable us to better serve citizens' personalised needs at scale.
 layout: video_post
 video_url: https://www.youtube.com/embed/Wg4aCNgcwuU
 short-author-aside: true

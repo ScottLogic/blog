@@ -2,12 +2,10 @@
 title: What happens if you await a Promise twice?
 date: 2021-01-07 00:00:00 Z
 categories:
-- abirch
 - Tech
 author: abirch
 layout: default_post
-summary: JavaScript provides a Promise abstraction that can be used to express 'give
-  me the result later'. What happens if you ask for the result twice?
+summary: JavaScript provides a Promise abstraction that can be used to express 'give me the result later'. What happens if you ask for the result twice?
 ---
 
 _The following is distilled from a discussion on our `#javascript` Slack channel._

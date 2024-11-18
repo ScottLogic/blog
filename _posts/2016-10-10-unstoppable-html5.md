@@ -2,11 +2,9 @@
 title: 'White Paper: Unstoppable HTML5'
 date: 2016-10-10 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 author: ceberhardt
-summary: A white paper which takes a looks at the continued growth of HTML5 and how
-  it is now a viable solution for desktop application development.
+summary: A white paper which takes a looks at the continued growth of HTML5 and how it is now a viable solution for desktop application development.
 layout: default_post
 cta:
   link: http://blog.scottlogic.com/ceberhardt/assets/white-papers/unstoppable-html5.pdf

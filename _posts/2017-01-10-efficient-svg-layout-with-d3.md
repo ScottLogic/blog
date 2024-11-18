@@ -2,15 +2,10 @@
 title: Efficient SVG layout with d3
 date: 2017-01-10 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post
-summary: When creating d3 visualisations it's common to want some form of responsive
-  layout. However, SVG and canvas don't provide a native way to do this. Most examples
-  found online either use fixed dimensions or resort to some form of manual layout
-  to achieve the required effect. This post introduces an alternative approach using
-  CSS and custom elements.
+summary: When creating d3 visualisations it's common to want some form of responsive layout. However, SVG and canvas don't provide a native way to do this. Most examples found online either use fixed dimensions or resort to some form of manual layout to achieve the required effect. This post introduces an alternative approach using CSS and custom elements.
 ---
 
 When creating d3 visualisations it's common to want some form of responsive layout. However, SVG and canvas don't provide a native way to do this. Most examples found online either use fixed dimensions or resort to some form of manual layout to achieve the required effect. This post introduces an alternative approach using CSS and custom elements.

@@ -2,12 +2,10 @@
 title: Interview Questions Explorer - Edinburgh Interns 2016
 date: 2016-08-26 00:00:00 Z
 categories:
-- jfriel
 - Tech
 author: jfriel
 title-short: Interview Question Explorer
-summary: 'An overview of the Edinburgh Interns summer project: A react application
-  to filter and search interview questions stored on Google Drive'
+summary: 'An overview of the Edinburgh Interns summer project: A react application to filter and search interview questions stored on Google Drive'
 layout: default_post
 ---
 

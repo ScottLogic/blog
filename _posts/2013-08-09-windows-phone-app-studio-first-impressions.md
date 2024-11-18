@@ -2,13 +2,9 @@
 title: Windows Phone App Studio - Shows Potential ...
 date: 2013-08-09 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
-summary: A couple of days ago Microsoft announced Windows Phone App Studio, a web
-  based tool for the rapid creation of Windows Phone applications. In this blog post
-  I take this new technology for a spin to see what it's capable of, and the interesting
-  potential it has for creating 'personal' apps.
+summary: A couple of days ago Microsoft announced Windows Phone App Studio, a web based tool for the rapid creation of Windows Phone applications. In this blog post I take this new technology for a spin to see what it's capable of, and the interesting potential it has for creating 'personal' apps.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2013/08/09/windows-phone-app-studio-first-impressions.html
 disqus-id: "/2013/08/09/windows-phone-app-studio-first-impressions.html"

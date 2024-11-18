@@ -2,11 +2,9 @@
 title: End-to-End testing with Angular and Knockout
 date: 2014-08-06 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
-summary: Writing end-to-end tests for a Single Page Application (SPA) built with Angular
-  or Knockout, and how to improve the robustness of those tests.
+summary: Writing end-to-end tests for a Single Page Application (SPA) built with Angular or Knockout, and how to improve the robustness of those tests.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/08/06/angular-knockout-e2e-testing.html
 disqus-id: "/2014/08/06/angular-knockout-e2e-testing.html"

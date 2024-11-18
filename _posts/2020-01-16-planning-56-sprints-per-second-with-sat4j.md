@@ -2,7 +2,6 @@
 title: Planning 56 sprints per second with SAT4J
 date: 2020-01-16 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - java
@@ -10,9 +9,7 @@ tags:
 - scrum
 author: swaterman
 layout: default_post
-summary: SAT solvers are surprisingly fast and probably under-used. Could one help
-  us improve sprint planning meetings? Maybe, but first you'll have to change the
-  way you think about user stories.
+summary: SAT solvers are surprisingly fast and probably under-used. Could one help us improve sprint planning meetings? Maybe, but first you'll have to change the way you think about user stories.
 summary-short: Can a SAT solver automate sprint planning?
 image: swaterman/assets/planning-56-sprints-per-second-with-sat4j/stories-messy.png
 ---

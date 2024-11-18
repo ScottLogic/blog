@@ -2,15 +2,10 @@
 title: GitHub Copilot Experiences - a glimpse of an AI-assisted future
 date: 2021-07-03 00:00:00 Z
 categories:
-- ceberhardt
 - Artificial Intelligence
 author: ceberhardt
 layout: default_post
-summary: I've been lucky enough to be granted access to the preview of Copilot, GitHub's
-  new 'AI pair programmer' that is causing quite a stir. This blog post shares my
-  initial thoughts and experiences with this tool. In brief, I'm stunned by its capabilities.
-  It has genuinely made me say 'wow' out loud a few times in the past few hours, not
-  something you expect from your developer tooling.
+summary: I've been lucky enough to be granted access to the preview of Copilot, GitHub's new 'AI pair programmer' that is causing quite a stir. This blog post shares my initial thoughts and experiences with this tool. In brief, I'm stunned by its capabilities. It has genuinely made me say 'wow' out loud a few times in the past few hours, not something you expect from your developer tooling.
 image: ceberhardt/assets/copilot/moving-average.png
 ---
 

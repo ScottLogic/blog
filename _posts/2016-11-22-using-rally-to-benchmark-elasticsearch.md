@@ -2,13 +2,10 @@
 title: Using Rally to benchmark Elasticsearch queries
 date: 2016-11-22 00:00:00 Z
 categories:
-- dsmith
 - Data Engineering
 author: dsmith
 layout: default_post
-summary: In this post I describe how to use Elastic's Rally to generate benchmarks
-  for your private Elasticsearch queries and clusters.  I'll be creating a benchmark
-  which allows comparison of an unscored query with one where scoring is enabled.
+summary: In this post I describe how to use Elastic's Rally to generate benchmarks for your private Elasticsearch queries and clusters.  I'll be creating a benchmark which allows comparison of an unscored query with one where scoring is enabled.
 ---
 
 Elasticsearch is a popular open source search and analysis engine which is used in applications ranging from search to large-scale log aggregation and analysis.

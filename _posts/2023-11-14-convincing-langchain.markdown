@@ -8,9 +8,7 @@ tags:
 - llm
 - scottbot
 - jwarren
-summary: Have you ever tried explaining something to a child, who pretends to understand,
-  but in reality doesn’t have the foggiest what you’re saying? That’s the experience
-  I’ve had with LangChain agents.
+summary: Have you ever tried explaining something to a child, who pretends to understand, but in reality doesn’t have the foggiest what you’re saying? That’s the experience I’ve had with LangChain agents.
 author: jwarren
 image: "/uploads/How%20to%20convince%20langchain.png"
 ---

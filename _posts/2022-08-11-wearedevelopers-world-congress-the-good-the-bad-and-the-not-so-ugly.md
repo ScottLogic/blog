@@ -2,12 +2,10 @@
 title: WeAreDevelopers World Congress - The good, the bad, and the not-so-ugly
 date: 2022-08-11 00:00:00 Z
 categories:
-- awhitmell
 - People
 author: awhitmell
 layout: default_post
-summary: A balanced overview of the WeAreDevelopers World Congress 2022 tries to answer
-  the question, "Are international conferences worth all that time and effort?"
+summary: A balanced overview of the WeAreDevelopers World Congress 2022 tries to answer the question, "Are international conferences worth all that time and effort?"
 ---
 
 <img src="{{site.github.url}}/awhitmell/assets/berlin/group.jpg" alt="Scott Logic group photo at the conference" width = fill style="float: centre;" />

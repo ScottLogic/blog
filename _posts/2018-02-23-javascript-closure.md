@@ -2,14 +2,12 @@
 title: JavaScript Closure
 date: 2018-02-23 00:00:00 Z
 categories:
-- dogle
 - Tech
 tags:
 - featured
 author: dogle
 layout: default_post
-summary: In this blog post I'll be exploring Lexical Scope in JavaScript and answering
-  the question "What is Closure?"
+summary: In this blog post I'll be exploring Lexical Scope in JavaScript and answering the question "What is Closure?"
 image: dogle/assets/featured/fence.jpg
 ---
 

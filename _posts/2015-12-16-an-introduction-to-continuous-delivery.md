@@ -2,14 +2,12 @@
 title: An Introduction to Continuous Delivery
 date: 2015-12-16 00:00:00 Z
 categories:
-- mtinning
 - Delivery
 tags:
 - DevOps
 - Continuous Delivery
 - Agile
-summary: This post explores continuous delivery within an agile context, and goes
-  into detail about what it really means to be doing continuous delivery.
+summary: This post explores continuous delivery within an agile context, and goes into detail about what it really means to be doing continuous delivery.
 author: mtinning
 layout: default_post
 ---

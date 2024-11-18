@@ -2,13 +2,9 @@
 title: Tools, Bots and Automation for better Open Source Projects
 date: 2018-12-14 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
-summary: With open source projects, we often work with strangers, people we may never
-  speak to, let alone meet. Creating a quality product, with such a disparate team
-  can be quite a challenge. This talk takes a look at how tools and automation are
-  a critical component when creating a successful open source project.
+summary: With open source projects, we often work with strangers, people we may never speak to, let alone meet. Creating a quality product, with such a disparate team can be quite a challenge. This talk takes a look at how tools and automation are a critical component when creating a successful open source project.
 layout: video_post
 video_url: https://www.youtube.com/embed/pEWRMtCibFw
 short-author-aside: true

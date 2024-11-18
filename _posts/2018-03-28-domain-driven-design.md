@@ -2,12 +2,10 @@
 title: Domain-Driven Design
 date: 2018-03-28 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Tech
 author: tclarke-scottlogic
 layout: default_post
-summary: Key lessons I took from Eric Evans' book "Domain Driven Design". A brief
-  summary of the book's concepts and why you should read it.
+summary: Key lessons I took from Eric Evans' book "Domain Driven Design". A brief summary of the book's concepts and why you should read it.
 ---
 
 > Manufacturing is a popular metaphor for software development [...]

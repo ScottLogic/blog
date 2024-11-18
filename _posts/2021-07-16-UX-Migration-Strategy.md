@@ -2,15 +2,13 @@
 title: UX Migration Strategy for Legacy Applications
 date: 2021-07-16 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design, Migration strategy
 author: tmakarem
 layout: default_post
 image: "/tmakarem/assets/3.png"
-summary: In this article, I focus on the migration strategy for legacy applications
-  from a UX perspective and highlight the elements that businesses should think about.
+summary: In this article, I focus on the migration strategy for legacy applications from a UX perspective and highlight the elements that businesses should think about.
 ---
 
 ### 1. ASSESS IMPACT ON USERS

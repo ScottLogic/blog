@@ -2,13 +2,10 @@
 title: Build your own WebAssembly Compiler
 date: 2019-05-17 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post
-summary: Have you ever wanted to write your own compiler? ... yes? ... of course you
-  have! I've always wanted to have a go at writing a compiler, and with the recent
-  release of WebAssembly, I had the perfect excuse to have a go.
+summary: Have you ever wanted to write your own compiler? ... yes? ... of course you have! I've always wanted to have a go at writing a compiler, and with the recent release of WebAssembly, I had the perfect excuse to have a go.
 image: ceberhardt/assets/wasm-compiler/wasm-mandelbrot.png
 ---
 

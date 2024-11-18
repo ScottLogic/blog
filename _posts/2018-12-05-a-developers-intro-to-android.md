@@ -2,15 +2,11 @@
 title: A Developer's Intro to Android
 date: 2018-12-05 00:00:00 Z
 categories:
-- jporter
 - Tech
 tags:
 - Android
 - Intro
-summary: Hi, I'm James. I recently worked on an Android project for Scott Logic and
-  want to share with you some of my tips for starting out as an app developer. If
-  you are a developer wanting to learn how to code Android apps then this article
-  is for you.
+summary: Hi, I'm James. I recently worked on an Android project for Scott Logic and want to share with you some of my tips for starting out as an app developer. If you are a developer wanting to learn how to code Android apps then this article is for you.
 author: jporter
 layout: default_post
 ---

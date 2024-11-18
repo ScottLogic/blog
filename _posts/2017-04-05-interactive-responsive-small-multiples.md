@@ -2,15 +2,11 @@
 title: Interactive and Responsive Small Multiples with D3
 date: 2017-04-05 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post
 image: ceberhardt/assets/small-multiples/small-multiples.png
-summary: Small multiples repeat the same basic chart, typically with the same axes,
-  to display different slices of a dataset. They are an excellent way of showing rich
-  multi-dimensional data, without becoming a dense mess of lines. This post looks
-  at how to implement small multiples with D3 and d3fc.
+summary: Small multiples repeat the same basic chart, typically with the same axes, to display different slices of a dataset. They are an excellent way of showing rich multi-dimensional data, without becoming a dense mess of lines. This post looks at how to implement small multiples with D3 and d3fc.
 ---
 
 Small multiples repeat the same basic chart, typically with the same axes, to display different slices of a dataset. They are an excellent way of showing rich multi-dimensional data, without becoming a dense mess of lines. They are also one of my favourite charts!

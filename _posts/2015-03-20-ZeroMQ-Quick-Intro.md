@@ -2,14 +2,11 @@
 title: A quick and dirty introduction to ZeroMQ
 date: 2015-03-20 00:00:00 Z
 categories:
-- hpowell
 - Tech
 author: hpowell
 title-short: Introduction to ZeroMQ
 layout: default_post
-summary: ZeroMQ is an opinionated, light weight, blazing fast messaging library.  Here
-  I take a look at how to get up and running with it and the building blocks it provides
-  you with.
+summary: ZeroMQ is an opinionated, light weight, blazing fast messaging library.  Here I take a look at how to get up and running with it and the building blocks it provides you with.
 summary-short: Short introduction to ZeroMQ
 ---
 

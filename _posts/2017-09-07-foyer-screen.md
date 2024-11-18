@@ -2,15 +2,12 @@
 title: Foyer Screen - 2017 Edinburgh Intern Project
 date: 2017-09-07 00:00:00 Z
 categories:
-- agard
 - People
 tags:
 - featured
 author: agard
 layout: default_post
-summary: As the Edinburgh 2017 Summer Interns, Arran Rashid and I have spent twelve
-  weeks working on a new foyer screen for the Scott Logic offices, this post describes
-  the project and our time at Scott Logic.
+summary: As the Edinburgh 2017 Summer Interns, Arran Rashid and I have spent twelve weeks working on a new foyer screen for the Scott Logic offices, this post describes the project and our time at Scott Logic.
 image: agard/assets/featured/display.png
 ---
 

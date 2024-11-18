@@ -2,14 +2,11 @@
 title: Popout Windows in React
 date: 2019-10-29 00:00:00 Z
 categories:
-- aaiken
 - Tech
 tags:
 - react
 author: aaiken
-summary: In a React app, opening and sharing data with a new (non-modal) window might
-  seem like a challenge, but it's possible - and I've provided a component to make
-  it even simpler.
+summary: In a React app, opening and sharing data with a new (non-modal) window might seem like a challenge, but it's possible - and I've provided a component to make it even simpler.
 layout: default_post
 ---
 

@@ -2,7 +2,6 @@
 title: 'Exploring SwiftUI Part 2: State management inspired by React'
 date: 2020-01-06 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - SwiftUI,
@@ -12,9 +11,7 @@ tags:
 - Mobile
 author: bquinn
 layout: default_post
-summary: In this post I look at how SwiftUI manages state with Combine, and how it
-  compares to using React with Redux. SwiftUI is Apple's new declarative UI framework
-  for developing UI natively, while React is a declarative UI framework for the web.
+summary: In this post I look at how SwiftUI manages state with Combine, and how it compares to using React with Redux. SwiftUI is Apple's new declarative UI framework for developing UI natively, while React is a declarative UI framework for the web.
 image: bquinn/assets/swiftui-logo.png
 ---
 

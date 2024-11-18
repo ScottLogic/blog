@@ -2,16 +2,13 @@
 title: Designing with accessibility in mind
 date: 2019-09-11 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design, accessibility, WCAG
 author: tmakarem
 layout: default_post
 image: "/tmakarem/assets/Accessibility/redesign-dashboard.png"
-summary: The process for meeting accessibility standards can seem overwhelming. In
-  this post, I explore three ways of approaching accessibility that make achieving
-  it more manageable.
+summary: The process for meeting accessibility standards can seem overwhelming. In this post, I explore three ways of approaching accessibility that make achieving it more manageable.
 ---
 
 Web content accessibility is rarely prioritised when creating designs, and very few websites are accessible. In 2008, 70% of the sites reviewed by the *[Business Disability Forum](http://www.sightandsound.co.uk/p/making-websites-more-accessible/?platform=hootsuite)* were assessed as lacking accessibility.

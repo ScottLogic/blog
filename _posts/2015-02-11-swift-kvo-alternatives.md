@@ -2,14 +2,10 @@
 title: Exploring KVO alternatives with Swift
 date: 2015-02-11 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post
-summary: Swift has access to all of the Objective-C APIs, which means that anything
-  you could do with Objective-C you can now do with Swift. However, there are times
-  when it is worth exploring a better, pure-Swift, alternative. This post explores
-  the pros and cons of KVO versus a couple of Swift alternatives.
+summary: Swift has access to all of the Objective-C APIs, which means that anything you could do with Objective-C you can now do with Swift. However, there are times when it is worth exploring a better, pure-Swift, alternative. This post explores the pros and cons of KVO versus a couple of Swift alternatives.
 oldlink: http://www.scottlogic.com/blog/2015/02/11/swift-kvo-alternatives.html
 disqus-id: "/2015/02/11/swift-kvo-alternatives.html"
 ---

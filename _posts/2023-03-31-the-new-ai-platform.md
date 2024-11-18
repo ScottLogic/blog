@@ -3,11 +3,7 @@ title: AI is morphing from tool to platform (and the next technology epoch begin
 date: 2023-03-31 00:00:00 Z
 categories:
 - Artificial Intelligence
-summary: The buzz and excitement around generative AI is continuing to grow as their
-  capabilities rapidly expand. However, their ability to generate content is just
-  the starting point. From my perspective, the emergent reasoning capability, coupled
-  with their intelligent use of tools, is what will make this technology truly transformational,
-  and will mark the start of a new technology epoch.
+summary: The buzz and excitement around generative AI is continuing to grow as their capabilities rapidly expand. However, their ability to generate content is just the starting point. From my perspective, the emergent reasoning capability, coupled with their intelligent use of tools, is what will make this technology truly transformational, and will mark the start of a new technology epoch.
 author: ceberhardt
 image: "/uploads/AI-as-platform-quote.jpg"
 ---

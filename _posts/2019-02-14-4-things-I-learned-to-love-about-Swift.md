@@ -2,15 +2,12 @@
 title: 4 things I learned to love about Swift
 date: 2019-02-14 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - Swift
 author: mstobbs
 layout: default_post
-summary: When first learning to develop in Swift, there were many cases in which I
-  would become frustrated at some of its unique features. However, the more I learned
-  about Swift, the more I realised these features weren't so crazy after all.
+summary: When first learning to develop in Swift, there were many cases in which I would become frustrated at some of its unique features. However, the more I learned about Swift, the more I realised these features weren't so crazy after all.
 image: mstobbs/assets/apple-laptop.jpg
 ---
 

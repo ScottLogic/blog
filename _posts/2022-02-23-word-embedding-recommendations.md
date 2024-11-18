@@ -2,15 +2,10 @@
 title: Article recommendations and increasing engagement with OpenAI GPT-3 Embeddings
 date: 2022-02-23 00:00:00 Z
 categories:
-- ceberhardt
 - Artificial Intelligence
 author: ceberhardt
 layout: default_post
-summary: It is quite common for blogs, or news / content distribution websites, to
-  organise their content around categories of tags. However, this approach is time-consuming,
-  and from measuring behaviours, it doesn't seem to do much to encourage browsing.
-  In this blog post I use the new OpenAI embedding API to create highly targeted article
-  recommendations, resulting in a four-fold (x4) increase in engagement.
+summary: It is quite common for blogs, or news / content distribution websites, to organise their content around categories of tags. However, this approach is time-consuming, and from measuring behaviours, it doesn't seem to do much to encourage browsing. In this blog post I use the new OpenAI embedding API to create highly targeted article recommendations, resulting in a four-fold (x4) increase in engagement.
 image: ceberhardt/assets/embeddings/tsne-blog.png
 ---
 

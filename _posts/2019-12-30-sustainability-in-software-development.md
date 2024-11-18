@@ -2,15 +2,10 @@
 title: Sustainability in Software Development
 date: 2019-12-30 00:00:00 Z
 categories:
-- bjedrzejewski
 - Tech
 author: bjedrzejewski
 layout: default_post
-summary: Delivering software fast and with as few bugs as possible is not an easy
-  thing to do. Developers often blame the lack focus on technical debt for a buggy
-  solution, while testers point to well... lack of testing. In this blog post I will
-  talk about the idea of "sustainability" in software delivery and how thinking and
-  using it may make your project more successful.
+summary: Delivering software fast and with as few bugs as possible is not an easy thing to do. Developers often blame the lack focus on technical debt for a buggy solution, while testers point to well... lack of testing. In this blog post I will talk about the idea of "sustainability" in software delivery and how thinking and using it may make your project more successful.
 ---
 
 ##More than just features / The "curse of Scrum"

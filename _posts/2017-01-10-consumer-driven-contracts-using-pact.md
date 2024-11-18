@@ -2,15 +2,12 @@
 title: Consumer Driven Contracts using Pact
 date: 2017-01-10 00:00:00 Z
 categories:
-- dsmith
 - Tech
 tags:
 - featured
 author: dsmith
 layout: default_post
-summary: In this post I will talk about Consumer Driven Contracts in Microservices
-  architectures.  I will also give an example of how to use Pact in a modern JavaScript
-  application.
+summary: In this post I will talk about Consumer Driven Contracts in Microservices architectures.  I will also give an example of how to use Pact in a modern JavaScript application.
 image: dsmith/assets/featured/contracts.jpg
 ---
 

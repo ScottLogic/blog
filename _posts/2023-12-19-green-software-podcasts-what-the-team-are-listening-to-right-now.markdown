@@ -3,15 +3,12 @@ title: 'Conscientious Computing - Podcasts: What we are listening to right now!'
 date: 2023-12-19 10:36:00 Z
 categories:
 - Sustainability
-- chayes
 - Tech
 tags:
 - Sustainability
 - Tech
 - sustainable software
-summary: Many of us love a good podcast so I reached out to our project team to see
-  what they were listening to in the tech and sustainability space. Here are their
-  recommendations
+summary: Many of us love a good podcast so I reached out to our project team to see what they were listening to in the tech and sustainability space. Here are their recommendations
 author: chayes
 image: "/uploads/Conscientious%20Computing%20-%20Pod.png"
 ---

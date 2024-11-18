@@ -2,14 +2,10 @@
 title: Analysing multi-window Electron application performance using Chromium tracing
 date: 2019-05-21 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post
-summary: The 'Performance' tab of Chromium (Google Chrome) DevTools isn't always enough
-  for analysing complex multi-window Electron web-desktop applications. In this post,
-  I'll introduce the related but lesser-known Tracing tool, and show how it can be
-  used with Electron.
+summary: The 'Performance' tab of Chromium (Google Chrome) DevTools isn't always enough for analysing complex multi-window Electron web-desktop applications. In this post, I'll introduce the related but lesser-known Tracing tool, and show how it can be used with Electron.
 ---
 
 The _Performance_ tab of Chromium (Google Chrome) DevTools is a powerful tool for analysing application performance. It can however be found lacking when looking at some aspects of complex multi-window Electron web-desktop applications. In this post, I'll introduce the related but lesser-known _Tracing_ tool, and show how it can be used with Electron.

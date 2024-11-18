@@ -2,11 +2,9 @@
 title: Fostering a DevOps culture
 date: 2020-02-26 00:00:00 Z
 categories:
-- bjedrzejewski
 - Delivery
 author: bjedrzejewski
-summary: In this webinar, Bartosz shares his experience and practical advice on how
-  to increase your organisation's chances of DevOps success.
+summary: In this webinar, Bartosz shares his experience and practical advice on how to increase your organisation's chances of DevOps success.
 layout: video_post
 video_url: https://www.youtube.com/embed/1YP9wd1Ypo8
 short-author-aside: true

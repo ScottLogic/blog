@@ -2,14 +2,11 @@
 title: Weird Flex, but OK; Interactive Charts with Flexbox
 date: 2020-10-09 00:00:00 Z
 categories:
-- jmorris
 - Tech
 author: jmorris
 layout: default_post
 image: jmorris/assets/Jamie-Morris-crop-3.jpg
-summary: This blog post looks at how CSS flexbox item sizing works, how it is used
-  to create responsive layouts, and how it can be used to display interactive charts
-  without using any Javascript.
+summary: This blog post looks at how CSS flexbox item sizing works, how it is used to create responsive layouts, and how it can be used to display interactive charts without using any Javascript.
 ---
 
 This blog post looks at how CSS flexbox item sizing works, how it is used to create responsive layouts, and how it can be used to display interactive charts without using any JavaScript.

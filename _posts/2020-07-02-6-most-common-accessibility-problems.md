@@ -2,7 +2,6 @@
 title: The 6 Most Common Accessibility Problems (and How to Fix Them)
 date: 2020-07-02 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - a11y
@@ -11,10 +10,7 @@ tags:
 author: mstobbs
 layout: default_post
 image: mstobbs/assets/6-most-common-accessibility-problems/increase-colour-contrast.png
-summary: Accessibility is essential to provide a high-quality experience for all of
-  your users. However, it can be easy for failures to slip into our applications.
-  In this post, we'll look at the six most common accessibility problems and discuss
-  why they matter and how they can be fixed.
+summary: Accessibility is essential to provide a high-quality experience for all of your users. However, it can be easy for failures to slip into our applications. In this post, we'll look at the six most common accessibility problems and discuss why they matter and how they can be fixed.
 ---
 
 <style>

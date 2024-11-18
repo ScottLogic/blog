@@ -2,7 +2,6 @@
 title: The Science behind Data Visualisation
 date: 2013-08-09 00:00:00 Z
 categories:
-- godds
 - UX Design
 tags:
 - UX design
@@ -11,9 +10,7 @@ tags:
 - featured
 author: godds
 image: godds/assets/featured/science-behind-visualisation.jpg
-summary: An outline of principles that will help you design more compelling data visualisations,
-  from the respective strengths of various means for visually encoding values to the
-  most appropriate patterns for conveying relationships.
+summary: An outline of principles that will help you design more compelling data visualisations, from the respective strengths of various means for visually encoding values to the most appropriate patterns for conveying relationships.
 summary-short: How to improve your data visualisations.
 layout: default_post
 source: site

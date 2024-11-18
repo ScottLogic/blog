@@ -2,18 +2,13 @@
 title: Building a Jump Scroll Marketing Page with Meteor and OrionJS
 date: 2015-09-18 00:00:00 Z
 categories:
-- tbarclay
 - Tech
 tags:
 - featured
 author: tbarclay
 title-short: Meteor and OrionJS
 image: tbarclay/assets/featured/spluxr.jpg
-summary: Recently I needed to make a site for a personal project, and although I work
-  on dynamic web apps for a living, I hadn't had to make a proper, honest-to-goodness
-  website for years. There are plenty of well-known options out there for making sites
-  quickly, like Wordpress and Squarespace, but why go for the quick option, I said
-  to myself, when there's a learning opportunity to be had!
+summary: Recently I needed to make a site for a personal project, and although I work on dynamic web apps for a living, I hadn't had to make a proper, honest-to-goodness website for years. There are plenty of well-known options out there for making sites quickly, like Wordpress and Squarespace, but why go for the quick option, I said to myself, when there's a learning opportunity to be had!
 summary-short: This looks at building a jump-scroll website using Meteor and OrionJS
 layout: default_post
 ---

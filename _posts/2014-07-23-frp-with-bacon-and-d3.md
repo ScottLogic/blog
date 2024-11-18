@@ -2,14 +2,10 @@
 title: Functional Reactive Programming with Bacon.js and D3
 date: 2014-07-23 00:00:00 Z
 categories:
-- dgorst
 - Tech
 author: dgorst
 image: dgorst/assets/featured/domino.jpg
-summary: Reactive programming is a paradigm which allows you to better represent a
-  work flow where changes in one part of your data model propagate down to other parts
-  of the model. This blog post demonstrates an example of this, by listening for updates
-  to Wikipedia and reacting accordingly.
+summary: Reactive programming is a paradigm which allows you to better represent a work flow where changes in one part of your data model propagate down to other parts of the model. This blog post demonstrates an example of this, by listening for updates to Wikipedia and reacting accordingly.
 summary-short: ''
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/07/23/frp-with-bacon-and-d3.html

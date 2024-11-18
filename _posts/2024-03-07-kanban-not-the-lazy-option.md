@@ -9,10 +9,7 @@ tags:
 - Agile
 - Continuous Improvement
 - Metrics
-summary: We’ve had some really good results using Kanban on a product development
-  project.  During this blog post I’ll introduce the situation we initially found
-  ourselves in, give some background as to what Kanban is, then walk through some
-  of the things we did.
+summary: We’ve had some really good results using Kanban on a product development project.  During this blog post I’ll introduce the situation we initially found ourselves in, give some background as to what Kanban is, then walk through some of the things we did.
 author: tjohnson
 image: "/uploads/Kanban-6fd8cc.png"
 ---

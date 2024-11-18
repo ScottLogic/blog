@@ -3,12 +3,7 @@ title: ActivityPub - the open standard that makes Mastodon special
 date: 2022-11-15 11:15:00 Z
 categories:
 - Open Source
-- mgrabara
-summary: After the recent acquisition of Twitter by Elon Musk, you may have heard
-  someone mentioning Mastodon. Alongside other open source and decentralised social
-  platforms, it is built on the top of ActivityPub specification. In this post I give
-  an overview of ActivityPub, explain the idea of fediverse and share my personal
-  experience as a participant.
+summary: After the recent acquisition of Twitter by Elon Musk, you may have heard someone mentioning Mastodon. Alongside other open source and decentralised social platforms, it is built on the top of ActivityPub specification. In this post I give an overview of ActivityPub, explain the idea of fediverse and share my personal experience as a participant.
 author: mgrabara
 ---
 

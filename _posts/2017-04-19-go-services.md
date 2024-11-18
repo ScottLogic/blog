@@ -2,12 +2,10 @@
 title: Creating Simple Web Services in Go
 date: 2017-04-19 00:00:00 Z
 categories:
-- wferguson
 - Tech
 author: wferguson
 layout: default_post
-summary: Following on from making a simple particle simulation in Go, I decided to
-  try and implement a simple set of web services too.
+summary: Following on from making a simple particle simulation in Go, I decided to try and implement a simple set of web services too.
 ---
 
 A few months ago I [blogged](http://blog.scottlogic.com/2016/11/01/go-particle-simulation.html) about creating a particle simulation in Go as a method of trying to learn the language. In order to expand on that, I tried to implement a more standard application - a simple set of web services supporting creation, listing, and deletion of messages.

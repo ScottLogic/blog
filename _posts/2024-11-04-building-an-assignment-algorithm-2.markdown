@@ -5,9 +5,7 @@ categories:
 - Tech
 tags:
 - Algorithms
-summary: Join us for the second installment of how we built an assignment algorithm.
-  This blog will pick up from where we left off in part 1, exploring the measure of
-  compromise over the course of multiple talk slots.
+summary: Join us for the second installment of how we built an assignment algorithm. This blog will pick up from where we left off in part 1, exploring the measure of compromise over the course of multiple talk slots.
 author: jwarren
 ---
 

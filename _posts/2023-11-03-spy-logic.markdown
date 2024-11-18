@@ -13,12 +13,11 @@ tags:
 - security
 - ChatGPT
 - chatbot
-summary: Our journey of  learning about Prompt Injection Attacks, securing Generative
-  AI, and how we became undercover spies on the way.
+summary: Our journey of  learning about Prompt Injection Attacks, securing Generative AI, and how we became undercover spies on the way.
 author: dhinrichs
 contributors: hlogan
 image: "/uploads/Spy%20Logic%20thumbnail_.png"
-Field name: 
+Field name:
 ---
 
 ## How our whole team became undercover spies to learn about Prompt Injection Attacks

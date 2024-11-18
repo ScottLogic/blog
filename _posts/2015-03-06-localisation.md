@@ -2,12 +2,10 @@
 title: State of localisation on the web
 date: 2015-03-06 00:00:00 Z
 categories:
-- lpage
 - Tech
 author: lpage
 layout: default_post
-summary: Localising a web application to a high standard is difficult. Why is that?
-  Consider the following differently formatted numbers...
+summary: Localising a web application to a high standard is difficult. Why is that? Consider the following differently formatted numbers...
 ---
 
 Localising a web application to a high standard is difficult. Why is that? Consider the following differently formatted numbers...

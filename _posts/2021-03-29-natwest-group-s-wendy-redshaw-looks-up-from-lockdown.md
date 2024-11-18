@@ -2,7 +2,6 @@
 title: NatWest Group's Wendy Redshaw Looks Up From Lockdown
 date: 2021-03-29 00:00:00 Z
 categories:
-- gkendall
 - People
 tags:
 - Look
@@ -24,10 +23,7 @@ tags:
 - innovation
 author: gkendall
 layout: default_post
-summary: As part of our Look Up From Lockdown campaign, NatWest Group’s Chief Digital
-  Information Officer Wendy Redshaw shares her experiences and learnings from addressing
-  the challenges of the pandemic, and looks ahead to what the future holds and how
-  the organisation will be returning to the office.
+summary: As part of our Look Up From Lockdown campaign, NatWest Group’s Chief Digital Information Officer Wendy Redshaw shares her experiences and learnings from addressing the challenges of the pandemic, and looks ahead to what the future holds and how the organisation will be returning to the office.
 image: gkendall/assets/Look-Up-From-Lockdown-blog-graphic-Wendy-Redshaw.jpg
 ---
 

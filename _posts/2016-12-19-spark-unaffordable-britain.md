@@ -2,11 +2,9 @@
 title: Unaffordable Country In Apache Spark
 date: 2016-12-19 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
-summary: Recreating the data used for the Guardian's Unaffordable Country visualisation
-  in Apache Spark.
+summary: Recreating the data used for the Guardian's Unaffordable Country visualisation in Apache Spark.
 layout: default_post
 ---
 

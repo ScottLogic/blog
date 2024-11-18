@@ -2,15 +2,11 @@
 title: Cassandra vs. MariaDB
 date: 2017-03-01 00:00:00 Z
 categories:
-- dogle
 - Data Engineering
 author: dogle
 contributors:
 - lcollingwood
-summary: We've been comparing Cassandra and MariaDB in single node setups, exploring
-  the issues of each in terms of performance and ease of use from a development perspective.
-  In this article we explore the issues at play in such a setup such as the differences
-  in queries, speed of response and the features that seperate these two technologies.
+summary: We've been comparing Cassandra and MariaDB in single node setups, exploring the issues of each in terms of performance and ease of use from a development perspective. In this article we explore the issues at play in such a setup such as the differences in queries, speed of response and the features that seperate these two technologies.
 layout: default_post
 ---
 

@@ -2,16 +2,13 @@
 title: Body as Interface
 date: 2016-05-25 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design
 author: tmakarem
 layout: default_post
 image: tmakarem/assets/featured/017_Body-Paint.jpg
-summary: Body as interface is plausible either when the body is in a controlled environment
-  or when the device becomes part of the body. Exploring this notion allows us to
-  stop designing interfaces and start designing experiences.
+summary: Body as interface is plausible either when the body is in a controlled environment or when the device becomes part of the body. Exploring this notion allows us to stop designing interfaces and start designing experiences.
 ---
 
 When we think of Interfaces, we often imagine some sort of device or application. An interface does not have to be limited to an object. It is a point of communication between two systems, whether they are objects or living beings. Certain iPhones support User TouchID that allow you to unlock the phone by placing your thumb on a biometric reader. The biometric reader acts as an interface. I could argue that the thumb is an interface as well.

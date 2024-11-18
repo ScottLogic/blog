@@ -2,15 +2,10 @@
 title: Which WebGL drawing call should I use?
 date: 2020-04-16 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post
-summary: WebGL presents you with a blank canvas (literally!) and leaves you with what
-  feels like an overwhelming set of decisions to make before you can render your idea
-  on screen. This post introduces a quick reference guide to picking the right draw
-  call for those trying to decipher the difference between drawArrays, drawElements
-  and their oddly-ANGLE'd instanced equivalents.
+summary: WebGL presents you with a blank canvas (literally!) and leaves you with what feels like an overwhelming set of decisions to make before you can render your idea on screen. This post introduces a quick reference guide to picking the right draw call for those trying to decipher the difference between drawArrays, drawElements and their oddly-ANGLE'd instanced equivalents.
 ---
 
 Getting started with WebGL at a low-level is hard and in many cases you'd be better off with a [high-level](https://www.babylonjs.com/) [library](https://threejs.org/). However, I've found that having an understanding of the low-level API can be useful when trying to understand the trade-offs these libraries make and how to optimise your usage of them.

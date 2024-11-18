@@ -2,7 +2,6 @@
 title: Specs-travaganza!
 date: 2020-05-29 00:00:00 Z
 categories:
-- csanderson
 - UX Design
 tags:
 - UX,
@@ -14,9 +13,7 @@ tags:
 - collaboration
 author: csanderson
 layout: default_post
-summary: Design specs are often overlooked or unwelcome as part of the design process.
-  However, by employing the same UX principles to this stage as we do to the rest
-  of our work, we can optimise handover from design to development.
+summary: Design specs are often overlooked or unwelcome as part of the design process. However, by employing the same UX principles to this stage as we do to the rest of our work, we can optimise handover from design to development.
 image: csanderson/assets/1_wms4Lo4Gni_0DKbpL5OZIw.png
 ---
 

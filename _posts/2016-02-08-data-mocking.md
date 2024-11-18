@@ -2,15 +2,13 @@
 title: Data Mocking - A way to test the untestable
 date: 2016-02-08 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - testing
 - data
 - mocking
 author: rhamilton
-summary: Some of the biggest challenges when testing software can be getting the software
-  into some very specific states...
+summary: Some of the biggest challenges when testing software can be getting the software into some very specific states...
 layout: default_post
 ---
 

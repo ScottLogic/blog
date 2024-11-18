@@ -8,10 +8,7 @@ tags:
 - featured
 - testing
 - jest
-summary: Jest is a JavaScript unit testing framework that is popular amongst developers
-  wanting to ensure code correctness. Jest is not typically used for tasks like performance
-  testing, but offers some useful features in snapshot testing that can be enhanced
-  to carry out such tasks.
+summary: Jest is a JavaScript unit testing framework that is popular amongst developers wanting to ensure code correctness. Jest is not typically used for tasks like performance testing, but offers some useful features in snapshot testing that can be enhanced to carry out such tasks.
 author: klau
 image: uploads/Enhancing%20Jest%20Snapshot.png
 ---

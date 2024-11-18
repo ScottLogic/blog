@@ -2,7 +2,6 @@
 title: Testing WebSockets for beginners
 date: 2019-07-23 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - WebSockets,
@@ -14,8 +13,7 @@ author: efiennes
 contributors:
 - hwilliams
 layout: default_post
-summary: What is a WebSocket and how do you test it? Herb Williams and I have been
-  looking into this for a while now. This is what we found out.
+summary: What is a WebSocket and how do you test it? Herb Williams and I have been looking into this for a while now. This is what we found out.
 image: efiennes/assets/Sockets6.jpg
 ---
 

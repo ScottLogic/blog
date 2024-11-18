@@ -7,9 +7,7 @@ categories:
 tags:
 - sustainable software
 - Cloud
-summary: If you do one thing to optimise cloud carbon footprint start with your choice
-  of region. Consider the balance between cost, environmental, security and performance
-  considerations when it comes to choosing a cloud region consciously.
+summary: If you do one thing to optimise cloud carbon footprint start with your choice of region. Consider the balance between cost, environmental, security and performance considerations when it comes to choosing a cloud region consciously.
 author: ocronk
 image: "/uploads/Conscientious%20Cloud%203%20Thumbnail.png"
 contributors: jhowlett

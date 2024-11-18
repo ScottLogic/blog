@@ -2,7 +2,6 @@
 title: 'Getting out of academia: Joining Scott Logic with a PhD'
 date: 2018-12-21 00:00:00 Z
 categories:
-- phands
 - People
 tags:
 - Career,
@@ -10,9 +9,7 @@ tags:
 - Development
 author: phands
 layout: default_post
-summary: Earning a PhD takes hard work, intelligence and a bunch of other skills.
-  In this post I expand on how I left academia after qualifying and was made to feel
-  like my qualification was truly valued at Scott Logic.
+summary: Earning a PhD takes hard work, intelligence and a bunch of other skills. In this post I expand on how I left academia after qualifying and was made to feel like my qualification was truly valued at Scott Logic.
 image: phands/assets/work-code-example.png
 ---
 

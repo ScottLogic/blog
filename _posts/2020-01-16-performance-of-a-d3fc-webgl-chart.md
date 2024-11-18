@@ -2,13 +2,10 @@
 title: Analysing and improving the performance of a D3FC-WebGL chart
 date: 2020-01-16 00:00:00 Z
 categories:
-- oforeman
 - Tech
 author: oforeman
 layout: default_post
-summary: In this post we will be investigating how we can improve the performance
-  of a chart created using D3FC and WebGL by using a lower level API from the d3fc-webgl
-  package.
+summary: In this post we will be investigating how we can improve the performance of a chart created using D3FC and WebGL by using a lower level API from the d3fc-webgl package.
 ---
 
 Recently I've been working with the new [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) features of the [D3FC](https://d3fc.io/) library to implement some charts. D3FC extends the [D3](https://d3js.org/) charting library by providing commonly used components to simplify the process of creating interactive charts.

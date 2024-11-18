@@ -2,7 +2,6 @@
 title: Sharing our Experience - Migrating to Agile mid-Project
 date: 2018-08-16 00:00:00 Z
 categories:
-- shunton
 - Delivery
 tags:
 - agile,
@@ -10,9 +9,7 @@ tags:
 - featured
 author: shunton
 layout: default_post
-summary: Sharing our experience of delivering a complex, technical project, and why
-  we decided to switch to Agile (Scrum) mid-project to take control of the project
-  delivery.
+summary: Sharing our experience of delivering a complex, technical project, and why we decided to switch to Agile (Scrum) mid-project to take control of the project delivery.
 image: shunton/assets/featured/migrate.jpg
 ---
 

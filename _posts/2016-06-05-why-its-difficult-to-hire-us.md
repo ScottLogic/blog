@@ -2,7 +2,6 @@
 title: A study of software testers
 date: 2016-06-05 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - software testing survey
@@ -12,8 +11,7 @@ tags:
 - featured
 author: rhamilton
 title-short: A study of software testers
-summary: I decided to do some research into testers and the challenges we face in
-  the work place to find some answers. These are some my findings.
+summary: I decided to do some research into testers and the challenges we face in the work place to find some answers. These are some my findings.
 image: rhamilton/assets/featured/survey.png
 layout: default_post
 ---

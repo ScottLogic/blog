@@ -3,9 +3,7 @@ title: LF Europe Summit Journal - Day One
 date: 2023-09-20 05:41:00 Z
 categories:
 - Tech
-summary: This year I’m attending the Linux Foundation Europe Summit, a sizable event
-  bringing together 1,000s of people involved in open source. I typically take extensive
-  notes of the sessions I attend, so thought I’d share them here on our blog.
+summary: This year I’m attending the Linux Foundation Europe Summit, a sizable event bringing together 1,000s of people involved in open source. I typically take extensive notes of the sessions I attend, so thought I’d share them here on our blog.
 author: ceberhardt
 image: uploads/legal-ai-large.jpeg
 ---

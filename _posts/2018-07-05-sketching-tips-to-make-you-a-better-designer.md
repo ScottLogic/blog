@@ -2,16 +2,13 @@
 title: Sketching tips to make you a better designer
 date: 2018-07-05 00:00:00 Z
 categories:
-- sobrien
 - UX Design
 tags:
 - featured
 author: sobrien
 layout: default_post
 image: sobrien/assets/featured/sketching-tips.png
-summary: There are many directions a design can take when generating ideas for a project.
-  Sketching can quickly get the ball rolling and help you look beyond perfection,
-  ensuring you can continually iterate with minimal cost.
+summary: There are many directions a design can take when generating ideas for a project. Sketching can quickly get the ball rolling and help you look beyond perfection, ensuring you can continually iterate with minimal cost.
 ---
 
 <img src="{{ site.baseurl }}/sobrien/assets/sketching-tips/image1.png" />

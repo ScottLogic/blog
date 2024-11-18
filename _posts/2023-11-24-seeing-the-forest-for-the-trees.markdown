@@ -3,8 +3,7 @@ title: Seeing the Forest for the Trees
 date: 2023-11-24 09:28:00 Z
 categories:
 - Artificial Intelligence
-summary: An introduction to the random forest machine learning model, an older, yet
-  interesting approach based on decision trees.
+summary: An introduction to the random forest machine learning model, an older, yet interesting approach based on decision trees.
 author: jstrong
 image: "/uploads/Seeing%20the%20forest%20for%20the%20trees.png"
 ---

@@ -2,14 +2,10 @@
 title: Good code practices with React and Redux
 date: 2018-08-28 00:00:00 Z
 categories:
-- garora
 - Tech
 author: garora
 layout: default_post
-summary: React and Redux are 2 tools that together make it simpler to create functional
-  UIs. However there are many potential pitfalls when it comes to using them. In this
-  blog I will walk you through some practices to keep in mind as you write your own
-  code.
+summary: React and Redux are 2 tools that together make it simpler to create functional UIs. However there are many potential pitfalls when it comes to using them. In this blog I will walk you through some practices to keep in mind as you write your own code.
 ---
 
 This summer I completed an internship at Scott Logic, in their Newcastle office. Having little experience of real software projects, I found I have learnt a lot from this experience. We worked on a kiosk for the honesty.store. The honesty.store is the office tuck shop, it is based on the idea that people pay for the items on the website and just take the item. The kiosk would allow users to send themselves a Slack reminder to pay for the item.

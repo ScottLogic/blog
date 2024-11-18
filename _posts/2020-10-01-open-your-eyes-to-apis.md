@@ -2,16 +2,13 @@
 title: 'White Paper: Open your eyes to APIs'
 date: 2020-10-01 00:00:00 Z
 categories:
-- godds
 - Resources
 tags:
 - featured
 author: godds
 image: godds/assets/featured/apis.png
 layout: default_post
-summary: This white paper is designed to help you better understand the potential
-  of the humble Application Programming Interface (API) in unlocking genuine digital
-  transformation.
+summary: This white paper is designed to help you better understand the potential of the humble Application Programming Interface (API) in unlocking genuine digital transformation.
 cta:
   link: http://blog.scottlogic.com/godds/assets/white-papers/open-your-eyes-to-apis.pdf
   text: Download the White Paper

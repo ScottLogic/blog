@@ -2,7 +2,6 @@
 title: Pros, Cons, Tips and Tricks when using Prettier in a large codebase
 date: 2019-12-05 00:00:00 Z
 categories:
-- rpilling
 - Tech
 tags:
 - prettier,
@@ -10,10 +9,7 @@ tags:
 - featured
 author: rpilling
 layout: default_post
-summary: 'Prettier, or code formatting in general can polarise developers - everyone
-  has an opinion on braces. There are changes we can make and tricks we can apply
-  to streamline all of this. Or: How I Learnt to Stop Worrying and Love Automated
-  Code Formatting'
+summary: 'Prettier, or code formatting in general can polarise developers - everyone has an opinion on braces. There are changes we can make and tricks we can apply to streamline all of this. Or: How I Learnt to Stop Worrying and Love Automated Code Formatting'
 ---
 
 Prettier, and code formatting can polarise developers - everyone has an opinion on braces. There are changes we can make and tricks we can apply to streamline all of this. Or: How I Learnt to Stop Worrying and Love Automated Code Formatting

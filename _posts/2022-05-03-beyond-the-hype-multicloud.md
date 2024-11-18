@@ -2,12 +2,8 @@
 title: Beyond the Hype - Is multi-cloud a myth?
 date: 2022-05-03 00:00:00 Z
 categories:
-- ceberhardt
 - Podcast
-summary: In this month’s episode, we talk multi-cloud. This is a challenging topic,
-  even the first step—nailing down what the term actually means—isn’t easy. How does
-  it differ from hybrid-cloud or poly-cloud? Does the term refer to the deployment
-  approach for a single application or an entire organisation?
+summary: In this month’s episode, we talk multi-cloud. This is a challenging topic, even the first step—nailing down what the term actually means—isn’t easy. How does it differ from hybrid-cloud or poly-cloud? Does the term refer to the deployment approach for a single application or an entire organisation?
 author: ceberhardt
 contributors:
 - jheward

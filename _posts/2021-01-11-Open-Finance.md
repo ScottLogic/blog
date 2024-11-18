@@ -2,7 +2,6 @@
 title: From Open Banking to Open Finance
 date: 2021-01-11 00:00:00 Z
 categories:
-- nbetts
 - Delivery
 tags:
 - Open
@@ -18,12 +17,7 @@ tags:
 author: nbetts
 layout: default_post
 image: nbetts/assets/openfinance.jpg
-summary: Open Banking is a huge step in the right direction towards Open Data, however
-  it only provides a thin slice of a customer’s finances, as consumers we still don’t
-  have a solution that allows us to fully view and manage our “financial health” based
-  on our personal lifestyle circumstances.  Could Open Finance be the answer?   In
-  this post I’ll explain what Open Finance is, and further explore the possible opportunities
-  and obstacles ahead.
+summary: Open Banking is a huge step in the right direction towards Open Data, however it only provides a thin slice of a customer’s finances, as consumers we still don’t have a solution that allows us to fully view and manage our “financial health” based on our personal lifestyle circumstances.  Could Open Finance be the answer?   In this post I’ll explain what Open Finance is, and further explore the possible opportunities and obstacles ahead.
 ---
 
 <img src="{{ site.baseurl }}/nbetts/assets/openfinance.jpg" alt="Open Finance" width="100%"/>

@@ -2,13 +2,9 @@
 title: The oft-untapped business potential of APIs
 date: 2020-10-12 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
-summary: Genuine digital transformation is not possible unless Application Programming
-  Interfaces (APIs) are embraced and understood across a whole organisation, rather
-  than just within technical teams. In this webinar, I tried to start taking non-technical
-  folk on that journey.
+summary: Genuine digital transformation is not possible unless Application Programming Interfaces (APIs) are embraced and understood across a whole organisation, rather than just within technical teams. In this webinar, I tried to start taking non-technical folk on that journey.
 layout: video_post
 video_url: https://www.youtube.com/embed/8YnCXXYAVKg
 short-author-aside: true

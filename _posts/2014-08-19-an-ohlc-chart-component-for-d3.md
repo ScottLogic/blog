@@ -2,14 +2,11 @@
 title: An OHLC Chart Component for D3
 date: 2014-08-19 00:00:00 Z
 categories:
-- tsimmons
 - Tech
 author: tsimmons
 title-short: An OHLC Chart with D3
 summary-short: a reusable D3 component for OHLC series
-summary: An open-high-low-close chart is a type of financial chart used to show price
-  movements in a financial instrument over time. In this post, we'll make a reusable
-  D3 component for an OHLC chart series.
+summary: An open-high-low-close chart is a type of financial chart used to show price movements in a financial instrument over time. In this post, we'll make a reusable D3 component for an OHLC chart series.
 layout: default_post
 image: tsimmons/assets/featured/chart.png
 oldlink: http://www.scottlogic.com/blog/2014/08/19/an-ohlc-chart-component-for-d3.html

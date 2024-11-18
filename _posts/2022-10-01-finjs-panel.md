@@ -2,11 +2,9 @@
 title: Evaluating Workflow Technology
 date: 2022-10-01 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
-summary: A panel discussion from FinJS London 2022, exploring the latest developments
-  in desktop workflows
+summary: A panel discussion from FinJS London 2022, exploring the latest developments in desktop workflows
 layout: video_post
 video_url: https://www.youtube.com/embed/aQsI09b6m_A
 short-author-aside: true

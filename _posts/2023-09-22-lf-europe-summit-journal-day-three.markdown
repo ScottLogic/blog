@@ -3,10 +3,7 @@ title: LF Europe Summit Journal - Day Three
 date: 2023-09-22 09:31:00 Z
 categories:
 - Tech
-summary: This year I’m attending the Linux Foundation Europe Summit, a sizable event
-  bringing together 1,000s of people involved in open source. Day three made us think
-  about allyship, yet more AI and the looming shadow of the EU Cyber Resilience Act
-  (CRA).
+summary: This year I’m attending the Linux Foundation Europe Summit, a sizable event bringing together 1,000s of people involved in open source. Day three made us think about allyship, yet more AI and the looming shadow of the EU Cyber Resilience Act (CRA).
 author: ceberhardt
 image: uploads/allyship.jpeg
 ---

@@ -4,10 +4,7 @@ date: 2023-01-03 00:00:00 Z
 categories:
 - Tech
 author: pholman
-summary: Here are five books that influenced my coding style and working practices
-  early in my career. A top list of anything is deeply personal, so I’ve tried to
-  select books I found both inspirational and informative, with an equal focus on
-  technical and non-technical skills.
+summary: Here are five books that influenced my coding style and working practices early in my career. A top list of anything is deeply personal, so I’ve tried to select books I found both inspirational and informative, with an equal focus on technical and non-technical skills.
 ---
 
 Here are five books that influenced my coding style and working practices early in my career. A top list of anything is deeply personal, so I’ve tried to select books I found both inspirational and informative, with an equal focus on technical and non-technical skills.

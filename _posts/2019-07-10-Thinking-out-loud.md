@@ -2,16 +2,12 @@
 title: Thinking out loud
 date: 2019-07-10 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - PublicSpeaking
 author: efiennes
 layout: default_post
-summary: Thinking of getting into the madness that is public speaking? This is the
-  2nd part to my lighthearted look at the whole sharing lark. In this post, I'm talking
-  about what can go wrong on the day for a hapless speaker and offering up some suggestions
-  about what you can do to mitigate or address those issues.
+summary: Thinking of getting into the madness that is public speaking? This is the 2nd part to my lighthearted look at the whole sharing lark. In this post, I'm talking about what can go wrong on the day for a hapless speaker and offering up some suggestions about what you can do to mitigate or address those issues.
 image: efiennes/assets/Gremlins.jpg
 ---
 

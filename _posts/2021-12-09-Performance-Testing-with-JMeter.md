@@ -2,7 +2,6 @@
 title: Performance Testing with JMeter
 date: 2021-12-09 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Testing,
@@ -10,9 +9,7 @@ tags:
 author: bquinn
 layout: default_post
 image: bquinn/assets/jmeter.png
-summary: Apache JMeter is a very popular performance testing tool which I used recently
-  for load testing a server. In this post I will take a brief look at how to use it
-  to perform a basic HTTP load test on a server.
+summary: Apache JMeter is a very popular performance testing tool which I used recently for load testing a server. In this post I will take a brief look at how to use it to perform a basic HTTP load test on a server.
 ---
 
 ![jmeter.png]({{site.baseurl}}/bquinn/assets/jmeter.png)

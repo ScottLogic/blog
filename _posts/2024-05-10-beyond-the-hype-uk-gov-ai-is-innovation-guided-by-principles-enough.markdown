@@ -13,9 +13,7 @@ tags:
 - innovation
 - AI safety
 - public sector
-summary: In this episode, I'm joined by Jess McEvoy and Peter Chamberlin for a discussion
-  about the UK government’s approach to addressing AI challenges with its pro-innovation
-  mantra, and whether this creates the right environment for success.
+summary: In this episode, I'm joined by Jess McEvoy and Peter Chamberlin for a discussion about the UK government’s approach to addressing AI challenges with its pro-innovation mantra, and whether this creates the right environment for success.
 author: ceberhardt
 image: "/uploads/BeyondTheHype%20-%20green%20and%20blue%20-%20episode%2018.jpg"
 ---

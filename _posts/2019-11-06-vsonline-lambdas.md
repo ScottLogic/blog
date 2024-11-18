@@ -2,11 +2,9 @@
 title: Creating A Quick Python AWS Lambda Using Visual Studio Online
 date: 2019-11-06 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
-summary: A very quick experiment into setting up a new development environment in
-  GitHub and Visual Studio Online for creating Python-based AWS Lambdas
+summary: A very quick experiment into setting up a new development environment in GitHub and Visual Studio Online for creating Python-based AWS Lambdas
 layout: default_post
 image: jdunkerley/assets/vsonline/vsonlinegetstarted.jpg
 ---

@@ -2,13 +2,9 @@
 title: Alteryxing The Advent of Code 2020 - Week 1
 date: 2020-12-07 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
-summary: It's the end of week one in the Advent of Code and, as has become a little
-  bit of an annual tradition, I and other's from the Alteryx community are trying
-  to solve with the base tools. In this post, I look back over the first 5 puzzles
-  and how I (and others) have solved them.
+summary: It's the end of week one in the Advent of Code and, as has become a little bit of an annual tradition, I and other's from the Alteryx community are trying to solve with the base tools. In this post, I look back over the first 5 puzzles and how I (and others) have solved them.
 layout: default_post
 image: jdunkerley/assets/advent-2020-1/logo.jpg
 ---

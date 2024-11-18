@@ -2,7 +2,6 @@
 title: 'Visual Studio Remotes: Simplifying developer environments'
 date: 2019-10-08 00:00:00 Z
 categories:
-- mmoxon
 - Tech
 tags:
 - VSCode
@@ -10,8 +9,7 @@ tags:
 - SSH
 author: mmoxon
 layout: default_post
-summary: For the past few months I've been using Visual Studio Code Remotes, a powerful
-  new feature that is available in Visual Studio code.
+summary: For the past few months I've been using Visual Studio Code Remotes, a powerful new feature that is available in Visual Studio code.
 ---
 
 ## Introduction

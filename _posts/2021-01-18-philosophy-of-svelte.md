@@ -2,16 +2,13 @@
 title: The Philosophy of Svelte
 date: 2021-01-18 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - svelte
 author: mstobbs
 layout: default_post
 image: mstobbs/assets/philosophy-of-svelte/svelte-philosopher.png
-summary: Svelte is one of the most exciting parts of front-end development today.
-  But what is it, exactly? In this post, we take a look at the philosophy behind Svelte
-  and see how it affects everything Svelte does.
+summary: Svelte is one of the most exciting parts of front-end development today. But what is it, exactly? In this post, we take a look at the philosophy behind Svelte and see how it affects everything Svelte does.
 ---
 
 In 2019, I presented "An Introduction to Svelte" at Scott Logic's monthly "Newcastle TekTalks". I planned to do a blog post afterwards, writing down what I had already presented.

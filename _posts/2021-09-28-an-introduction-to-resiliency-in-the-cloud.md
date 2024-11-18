@@ -2,13 +2,9 @@
 title: An introduction to resiliency in the cloud
 date: 2021-09-28 00:00:00 Z
 categories:
-- jleftley
 - Cloud
 author: jleftley
-summary: In this talk, I explore some of the foundations and common approaches for
-  designing resilient systems in cloud environments. I also look into how experimenting
-  with our systems, by deliberately introducing failures, can help us better understand
-  their behaviour.
+summary: In this talk, I explore some of the foundations and common approaches for designing resilient systems in cloud environments. I also look into how experimenting with our systems, by deliberately introducing failures, can help us better understand their behaviour.
 layout: video_post
 video_url: https://www.youtube.com/embed/PE842URiHrI
 short-author-aside: true

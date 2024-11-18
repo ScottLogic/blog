@@ -2,13 +2,10 @@
 title: 'X3D: Declarative 3D for the Modern Web'
 date: 2019-08-27 00:00:00 Z
 categories:
-- asureshkumar
 - Tech
 author: asureshkumar
 layout: default_post
-summary: In this post we look at X3D and how it offers a simple declarative approach
-  for including 3D visualisations in web pages in a way that is supported by major
-  browsers.
+summary: In this post we look at X3D and how it offers a simple declarative approach for including 3D visualisations in web pages in a way that is supported by major browsers.
 ---
 
 ## Introduction

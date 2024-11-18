@@ -2,7 +2,6 @@
 title: Eclipse Kepler and @Nullable
 date: 2013-09-09 00:00:00 Z
 categories:
-- aaylett
 - Tech
 tags:
 - Eclipse
@@ -13,10 +12,7 @@ image: aaylett/assets/featured/eclipse.jpg
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2013/09/09/nullable-in-kepler.html
 disqus-id: "/2013/09/09/nullable-in-kepler.html"
-summary: When Eclipse Juno came out last year, I was excited to see some support for
-  `@Nullable` annotations.  I didn't get very far with them at the time, though, as
-  the implementation was quite strict.  With the release of Kepler though, it's much
-  easer to make productive use of `@Nullable` to help avoid errors.
+summary: When Eclipse Juno came out last year, I was excited to see some support for `@Nullable` annotations.  I didn't get very far with them at the time, though, as the implementation was quite strict.  With the release of Kepler though, it's much easer to make productive use of `@Nullable` to help avoid errors.
 ---
 
 When Eclipse Juno came out last year, I was excited to see some support for

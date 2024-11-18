@@ -11,10 +11,7 @@ tags:
 - Blog
 - GPT
 - Sustainability
-summary: Developing LLM applications using Test-Driven Development principles can
-  be expensive due to the incurred cost of every usage. In this post, we discussed
-  how our attempt to tackle the inherit non-deterministic nature of LLMs increased
-  our operational costs and the techniques we employed to minimise them.
+summary: Developing LLM applications using Test-Driven Development principles can be expensive due to the incurred cost of every usage. In this post, we discussed how our attempt to tackle the inherit non-deterministic nature of LLMs increased our operational costs and the techniques we employed to minimise them.
 author: fvlachos
 image: "/uploads/Implementing%20cost%20effective%20tdd.png"
 ---

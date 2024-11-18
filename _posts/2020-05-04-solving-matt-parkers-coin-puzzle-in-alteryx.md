@@ -2,11 +2,9 @@
 title: Solving Matt Parker's Coin Puzzle in Alteryx
 date: 2020-05-04 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
-summary: In this post, we look at creating a brute-force search approach to solve
-  Matt Parker's Coin Puzzle using some binary manipulation within Alteryx
+summary: In this post, we look at creating a brute-force search approach to solve Matt Parker's Coin Puzzle using some binary manipulation within Alteryx
 layout: default_post
 image: jdunkerley/assets/coinpuzzle/logo.png
 ---

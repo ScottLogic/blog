@@ -2,15 +2,13 @@
 title: Mandelbrot Generation With Concurrent Functional Swift
 date: 2014-10-29 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured
 author: ceberhardt
 title-short: Concurrent Functional Swift
 layout: default_post
-summary: This post show how the simple task of computing a Mandelbrot set can be split
-  up across multiple threads (and processors) using functional techniques.
+summary: This post show how the simple task of computing a Mandelbrot set can be split up across multiple threads (and processors) using functional techniques.
 image: ceberhardt/assets/featured/concurrent.png
 oldlink: http://www.scottlogic.com/blog/2014/10/29/concurrent-functional-swift.html
 disqus-id: "/2014/10/29/concurrent-functional-swift.html"

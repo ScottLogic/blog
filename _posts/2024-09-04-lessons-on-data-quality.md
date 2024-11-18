@@ -3,9 +3,7 @@ title: 'Detecting AI-written code: lessons on the importance of data quality'
 date: 2024-09-04 09:00:00 Z
 categories:
 - Artificial Intelligence
-summary: Our team set out to investigate if we could use Binoculars, a method of detecting
-  LLM-generated text, to detect AI-written code, and learnt some valuable lessons
-  on the importance of data quality along the way.
+summary: Our team set out to investigate if we could use Binoculars, a method of detecting LLM-generated text, to detect AI-written code, and learnt some valuable lessons on the importance of data quality along the way.
 author: alaws
 image: "/uploads/Detecting%20AI-written%20code.png"
 ---

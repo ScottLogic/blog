@@ -2,13 +2,10 @@
 title: Date-Driven Delivery vs. Delivery-Driven Dates
 date: 2018-10-08 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 author: fhubin
 layout: default_post
-summary: The habit of setting a release date for a project is often an obstacle to
-  the success of said project. Focusing on delivering quickly and often usually makes
-  more sense from a commercial and from a technical perspectives.
+summary: The habit of setting a release date for a project is often an obstacle to the success of said project. Focusing on delivering quickly and often usually makes more sense from a commercial and from a technical perspectives.
 ---
 
 # Date-Driven Delivery vs. Delivery-Driven Dates

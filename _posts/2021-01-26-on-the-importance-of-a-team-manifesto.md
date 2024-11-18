@@ -2,7 +2,6 @@
 title: On the importance of a Team Manifesto
 date: 2021-01-26 00:00:00 Z
 categories:
-- ckurzeja
 - Delivery
 tags:
 - remote
@@ -20,9 +19,7 @@ tags:
 author: ckurzeja
 layout: default_post
 image: ckurzeja/assets/North-Star.jpg
-summary: Before COVID, the creation of a Team Manifesto for a software project was
-  seen as good practice but not essential. In this post, I explain why Team Manifestos
-  have become much more important to us in the context of remote-first team formation.
+summary: Before COVID, the creation of a Team Manifesto for a software project was seen as good practice but not essential. In this post, I explain why Team Manifestos have become much more important to us in the context of remote-first team formation.
 ---
 
 _This is the third in a series of blog posts that we’re publishing about how to build effective remote teams. We’re sharing insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Service as they shape optimal ways of working on this important project. You can read the earlier posts in the series here: [Remote Possibilities](https://blog.scottlogic.com/2020/12/02/remote-possibilities.html) and [Sense and Sustainability](https://blog.scottlogic.com/2020/12/17/sense-and-sustainability.html)._

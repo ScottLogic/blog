@@ -2,11 +2,9 @@
 title: Securing Web Applications Against Man In The Middle Attacks
 date: 2016-02-01 00:00:00 Z
 categories:
-- rsillem
 - Tech
 author: rsillem
-summary: In this post, the causes, effects and mitigations of Man in the Middle attacks
-  against web apps are discussed.
+summary: In this post, the causes, effects and mitigations of Man in the Middle attacks against web apps are discussed.
 layout: default_post
 image: "/rsillem/assets/security-mitm/fiddler-1.png"
 ---

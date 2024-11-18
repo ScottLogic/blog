@@ -2,7 +2,6 @@
 title: 'The Inside Track: How established talent is recruited by Scott Logic'
 date: 2021-03-15 00:00:00 Z
 categories:
-- ckoris
 - People
 tags:
 - jobs,
@@ -20,10 +19,7 @@ tags:
 - process
 author: ckoris
 layout: default_post
-summary: I wanted to share my experiences of the Scott Logic recruitment process from
-  initial contact through to securing the job (with a lockdown in-between!) so as
-  to give you a very clear idea of what to expect, and why the company stood out for
-  me.
+summary: I wanted to share my experiences of the Scott Logic recruitment process from initial contact through to securing the job (with a lockdown in-between!) so as to give you a very clear idea of what to expect, and why the company stood out for me.
 ---
 
 I have discovered the paths that lead to recruitment at Scott Logic can be very different. For instance, there is a defined ‘testing’ process for graduates – [you can read about it here](https://blog.scottlogic.com/2021/03/15/the-inside-track-six-steps-to-graduate-programme-success.html) – but for established talent such as myself who have been working in the sector for many years, it’s far more interview-driven.

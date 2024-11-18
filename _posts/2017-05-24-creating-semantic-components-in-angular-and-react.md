@@ -2,11 +2,9 @@
 title: Creating semantic components in Angular and React
 date: 2017-05-24 00:00:00 Z
 categories:
-- nowen
 - Tech
 author: nowen
-summary: Using two of the currently most popular web frameworks I'll demonstrate how
-  to create semantic looking code.
+summary: Using two of the currently most popular web frameworks I'll demonstrate how to create semantic looking code.
 layout: default_post
 ---
 

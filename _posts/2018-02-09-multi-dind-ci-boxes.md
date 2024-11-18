@@ -2,16 +2,12 @@
 title: "(Multi-stage docker) in docker as CI Sledgehammer"
 date: 2018-02-09 00:00:00 Z
 categories:
-- nwolverson
 - Cloud
 author: nwolverson
 layout: default_post
-summary: 'With an objective of building some docker images on cloud CI infrastructure
-  I introduce one build-template sledgehammer I''ve been using recently, multi-stage
-  docker builds running in docker-in-docker host container, with examples of AWS CodeBuild
-  and Gitlab CI, and musing on other options.
+summary: 'With an objective of building some docker images on cloud CI infrastructure I introduce one build-template sledgehammer I''ve been using recently, multi-stage docker builds running in docker-in-docker host container, with examples of AWS CodeBuild and Gitlab CI, and musing on other options.
 
-'
+  '
 ---
 
 With an objective of building some docker images on cloud CI infrastructure, I'm going to introduce one build-template sledgehammer I've

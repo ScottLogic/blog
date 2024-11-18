@@ -12,10 +12,7 @@ tags:
 - MLOPs
 - productionising
 - prototype
-summary: Government departments are not alone in struggling to move artificial intelligence
-  (AI) prototypes into production. Here, I reflect on some of the reasons for this
-  and share some insights from our client work which I think point towards how the
-  government can harness AI with greater confidence.
+summary: Government departments are not alone in struggling to move artificial intelligence (AI) prototypes into production. Here, I reflect on some of the reasons for this and share some insights from our client work which I think point towards how the government can harness AI with greater confidence.
 author: godds
 image: "/uploads/AI%20in%20Govt.png"
 ---

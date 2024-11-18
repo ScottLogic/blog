@@ -2,12 +2,9 @@
 title: ReactiveCocoa - The Definitive Guide
 date: 2014-03-13 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
-summary: It feels like everyone in the iOS community is talking about ReactiveCocoa
-  at the moment. In this blog post I talk briefly about what ReactiveCocoa is and
-  the 'Definitive Guide' which I wrote for raywenderlich.com
+summary: It feels like everyone in the iOS community is talking about ReactiveCocoa at the moment. In this blog post I talk briefly about what ReactiveCocoa is and the 'Definitive Guide' which I wrote for raywenderlich.com
 layout: default_post
 originalArticleLink: http://www.raywenderlich.com/62699/reactivecocoa-tutorial-pt1
 ---

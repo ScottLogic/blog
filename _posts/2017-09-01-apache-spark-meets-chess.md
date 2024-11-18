@@ -2,14 +2,11 @@
 title: Chess data mining with Apache Spark and Lichess
 date: 2017-09-01 00:00:00 Z
 categories:
-- bjedrzejewski
 - Data Engineering
 tags:
 - featured
 author: bjedrzejewski
-summary: Lichess makes over 100GB of chess games from 2017 available on their website.
-  This post shows how this data can be transformed with Apache Spark and analysed.
-  Something for Data Engineers and Chess Enthusiasts alike!
+summary: Lichess makes over 100GB of chess games from 2017 available on their website. This post shows how this data can be transformed with Apache Spark and analysed. Something for Data Engineers and Chess Enthusiasts alike!
 layout: default_post
 image: bjedrzejewski/assets/featured/chess.jpg
 ---

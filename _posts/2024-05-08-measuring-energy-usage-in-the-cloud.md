@@ -3,9 +3,7 @@ title: Measuring energy consumption in the cloud
 date: 2024-05-08 00:00:00 Z
 categories:
 - Sustainability
-summary: This is the second blog from our internal project looking at the Carbon Footprint
-  of Mobile Computation. In it we reveal how we got around the problem of how to measure
-  energy consumption on AWS, and how we built a test harness in Java to run our benchmarks.
+summary: This is the second blog from our internal project looking at the Carbon Footprint of Mobile Computation. In it we reveal how we got around the problem of how to measure energy consumption on AWS, and how we built a test harness in Java to run our benchmarks.
 author: jcwright
 image: "/uploads/measuring%20energy%20consumption%20in%20the%20cloud.png"
 layout: default_post

@@ -2,11 +2,9 @@
 title: First look at Polymer 3.0
 date: 2017-11-10 00:00:00 Z
 categories:
-- nowen
 - Tech
 author: nowen
-summary: I'll be taking a first look at Polymer 3.0, including how to integrate other
-  technologies, as well as comparing it with other front-end frameworks.
+summary: I'll be taking a first look at Polymer 3.0, including how to integrate other technologies, as well as comparing it with other front-end frameworks.
 layout: default_post
 ---
 

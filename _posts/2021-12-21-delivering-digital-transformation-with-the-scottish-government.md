@@ -2,7 +2,6 @@
 title: Delivering Digital Transformation with the Scottish Government
 date: 2021-12-21 00:00:00 Z
 categories:
-- shunton
 - Delivery
 tags:
 - digital
@@ -13,8 +12,7 @@ tags:
 - government
 author: shunton
 layout: default_post
-summary: Our journey of digital transformation with the Scottish Government and the
-  completion of a major milestone in the delivery of a payments service.
+summary: Our journey of digital transformation with the Scottish Government and the completion of a major milestone in the delivery of a payments service.
 ---
 
 Since early 2019, Scott Logic has been working with the Scottish Government’s digital directorate, supporting its digital strategy, *A changing nation: how Scotland will thrive in a digital world*. This ambitious strategy focuses on a digital and collaborative government that delivers services to meet the needs of the public.

@@ -2,7 +2,6 @@
 title: Sense and Sustainability
 date: 2020-12-17 00:00:00 Z
 categories:
-- ckurzeja
 - Delivery
 tags:
 - remote
@@ -21,10 +20,7 @@ tags:
 author: ckurzeja
 layout: default_post
 image: ckurzeja/assets/Lake-through-a-lens.jpg
-summary: Remote working every day for months on end is a form of sensory deprivation.
-  Our team working on the Scottish Government Payment Service is coming up with practical
-  ways to address this and promote sustainable working. We want to share them here
-  in case any are useful on your own projects.
+summary: Remote working every day for months on end is a form of sensory deprivation. Our team working on the Scottish Government Payment Service is coming up with practical ways to address this and promote sustainable working. We want to share them here in case any are useful on your own projects.
 ---
 
 _This is the second in a series of blog posts that we’re publishing about how to build effective remote teams. We’re sharing insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Service as they shape optimal ways of working on this important project. You can read the first post in the series here: [Remote Possibilities](https://blog.scottlogic.com/2020/12/02/remote-possibilities.html)._

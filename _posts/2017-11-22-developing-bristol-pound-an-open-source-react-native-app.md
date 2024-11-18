@@ -2,17 +2,13 @@
 title: Developing Bristol Pound - An Open Source React Native App
 date: 2017-11-22 00:00:00 Z
 categories:
-- ceberhardt
 - Open Source
 author: ceberhardt
 contributors:
 - gginghina
 - cmeehan
 layout: default_post
-summary: A few weeks ago the new Bristol Pound mobile app was launched, allowing users
-  of this local currency to find vendors, view transactions and make payments on both
-  iOS and Android. This post describes our experience of writing this application
-  using React Native.
+summary: A few weeks ago the new Bristol Pound mobile app was launched, allowing users of this local currency to find vendors, view transactions and make payments on both iOS and Android. This post describes our experience of writing this application using React Native.
 image: ceberhardt/assets/bristol-pound/bristol-pound-app.jpg
 colour: pink
 header-shape: shape4

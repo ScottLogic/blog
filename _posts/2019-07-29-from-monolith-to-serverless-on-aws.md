@@ -2,13 +2,9 @@
 title: From Monolith to Serverless on AWS
 date: 2019-07-29 00:00:00 Z
 categories:
-- jhenderson
 - Cloud
 author: jhenderson
-summary: Transitioning from building monolithic applications to serverless applications
-  is not always easy. This article explores the challenges that one developer from
-  a monolithic background faced while building a serverless application on Amazon
-  Web Services.
+summary: Transitioning from building monolithic applications to serverless applications is not always easy. This article explores the challenges that one developer from a monolithic background faced while building a serverless application on Amazon Web Services.
 layout: default_post
 ---
 

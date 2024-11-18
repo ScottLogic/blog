@@ -2,7 +2,6 @@
 title: On the dangers of sending your testers to conferences
 date: 2019-10-23 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testbash,
@@ -17,9 +16,7 @@ contributors:
 - cakehurstryan
 - hwilliams
 layout: default_post
-summary: All companies need to be warned about the consequences of sending their testers
-  to conferences.... (especially ones that are inclusive and considerate of their
-  attendees)
+summary: All companies need to be warned about the consequences of sending their testers to conferences.... (especially ones that are inclusive and considerate of their attendees)
 image: efiennes/assets/Salford.jpg
 ---
 

@@ -2,13 +2,11 @@
 title: Static Shock - Using Modern Static Site Generators
 date: 2016-02-23 00:00:00 Z
 categories:
-- tbarclay
 - Tech
 author: tbarclay
 title-short: Static Site with Jekyll
 layout: default_post
-summary: This post discusses building a modern single page marketing site using a
-  static site generator
+summary: This post discusses building a modern single page marketing site using a static site generator
 ---
 
 A few months ago I [wrote about creating a single-page marketing site]({{ site.baseurl }}/2015/09/18/meteor-scroll.html). At the time I had been playing quite a bit with the full-stack reactive JavaScript framework, [Meteor](https://www.meteor.com/), so in a fit of "when you have a hammer everything looks like a nail" fervour, that's what I used. That really wasn't the right choice for a site like this for a number of reasons, so here I'll talk about re-implementing the same site in a more sensible way. 

@@ -2,7 +2,6 @@
 title: Embrace your Obsessions!
 date: 2020-02-10 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - minesweeper
@@ -10,11 +9,8 @@ tags:
 - advice
 author: swaterman
 layout: default_post
-summary: For the past 3 months, I have been a bit obsessed with Minesweeper. It has
-  plagued my honeymoon, stolen my free time, and been the subject of two tech talks.
-  That's a good thing.
-summary-short: I have been obsessed with Minesweeper - an experience I can highly
-  recommend!
+summary: For the past 3 months, I have been a bit obsessed with Minesweeper. It has plagued my honeymoon, stolen my free time, and been the subject of two tech talks. That's a good thing.
+summary-short: I have been obsessed with Minesweeper - an experience I can highly recommend!
 image: swaterman/assets/embrace-your-obsessions/web.png
 ---
 

@@ -7,10 +7,7 @@ tags:
 - Agile
 - Self-Organizing Teams
 - Delivery
-summary: We often talk about how to be agile, about particular ceremonies and processes
-  but what problem is it we are trying to solve? In this post I'll take a look at
-  what we mean when we talk about agile, what it's come to represent and what the
-  point is behind aiming for agility.
+summary: We often talk about how to be agile, about particular ceremonies and processes but what problem is it we are trying to solve? In this post I'll take a look at what we mean when we talk about agile, what it's come to represent and what the point is behind aiming for agility.
 author: dogle
 image: "/uploads/If%20agile%20is%20the%20answer%20thumbnail.png"
 ---

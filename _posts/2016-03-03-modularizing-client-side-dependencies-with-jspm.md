@@ -2,7 +2,6 @@
 title: Modularizing Client Side Dependencies With jspm
 date: 2016-03-03 00:00:00 Z
 categories:
-- tferguson
 - Tech
 tags:
 - featured
@@ -10,12 +9,8 @@ author: tferguson
 title-short: Modularizing With jspm
 layout: default_post
 gravatar: 46b3ff75f0c69eca7f80876307e1f386
-summary: Making the jump to fully modularized applications in javascript is now incredibly
-  easy with ES6 modules and javascript package manager (jspm). We'll take a look at
-  the refreshing simplicity in the jspm workflow and how it goes about achieiving
-  this.
-summary-short: Making the jump to fully modularized applications in javascript is
-  now incredibly easy with ES6 modules and javascript package manager (jspm).
+summary: Making the jump to fully modularized applications in javascript is now incredibly easy with ES6 modules and javascript package manager (jspm). We'll take a look at the refreshing simplicity in the jspm workflow and how it goes about achieiving this.
+summary-short: Making the jump to fully modularized applications in javascript is now incredibly easy with ES6 modules and javascript package manager (jspm).
 image: tferguson/assets/featured/jspm.png
 ---
 

@@ -2,7 +2,6 @@
 title: Apache Storm Taster
 date: 2018-01-29 00:00:00 Z
 categories:
-- dogle
 - Tech
 tags:
 - Storm,
@@ -10,8 +9,7 @@ tags:
 - Java
 author: dogle
 layout: default_post
-summary: A quick look at Apache Storm with a short word count walk-through example
-  using a Redis Database.
+summary: A quick look at Apache Storm with a short word count walk-through example using a Redis Database.
 image: dogle/assets/storm-taster/storm-flow.png
 ---
 

@@ -2,15 +2,13 @@
 title: An update on Electron Security
 date: 2016-06-01 00:00:00 Z
 categories:
-- dkerr
 - Tech
 tags:
 - featured
 author: dkerr
 title-short: Electron Security update
 layout: default_post
-summary: It’s been a couple of months since my first post about the security of Electron.
-  With v1.0 having recently been released I felt it was time for a a fresh look
+summary: It’s been a couple of months since my first post about the security of Electron. With v1.0 having recently been released I felt it was time for a a fresh look
 image: dkerr/assets/featured/electron.jpg
 ---
 

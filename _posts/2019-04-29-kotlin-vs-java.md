@@ -2,16 +2,13 @@
 title: 'Toppling the Giant: Kotlin vs. Java'
 date: 2019-04-29 00:00:00 Z
 categories:
-- jporter
 - Tech
 tags:
 - Kotlin,
 - Java
 author: jporter
 layout: default_post
-summary: Can Kotlin, the latest language to join the JVM, supersede its predecessor
-  Java? Let's compare the two languages that are currently battling for supremacy
-  in the world of Android.
+summary: Can Kotlin, the latest language to join the JVM, supersede its predecessor Java? Let's compare the two languages that are currently battling for supremacy in the world of Android.
 image: jporter/assets/kotlin-logo.png
 ---
 

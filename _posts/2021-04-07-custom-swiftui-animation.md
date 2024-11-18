@@ -2,7 +2,6 @@
 title: Blob, the Builder - A Step by Step Guide to SwiftUI Animation
 date: 2021-04-07 00:00:00 Z
 categories:
-- dgrew
 - Tech
 tags:
 - SwiftUI
@@ -10,9 +9,7 @@ tags:
 - Animation
 author: dgrew
 layout: default_post
-summary: A step by step guide through the process of building my first bespoke animation
-  with SwiftUI. Touching on technical aspects specific to SwiftUI and more general
-  concepts relating to animation.
+summary: A step by step guide through the process of building my first bespoke animation with SwiftUI. Touching on technical aspects specific to SwiftUI and more general concepts relating to animation.
 ---
 
 A year ago, most of my time as a developer had been spent writing backend applications. My frontend skills extended just far enough to write basic HTML and CSS. Animation was the pinnacle of frontend witchcraft and something I could only marvel at.

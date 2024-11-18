@@ -2,13 +2,10 @@
 title: How we ran our first Design Sprint
 date: 2019-10-25 00:00:00 Z
 categories:
-- awojtczuk
 - UX Design
 author: awojtczuk
 layout: default_post
-summary: Earlier this year, 3 of us ran our first formal Design Sprint for an internal
-  project. In this post I share what we did in detail, and highlight some first-timer
-  difficulties.
+summary: Earlier this year, 3 of us ran our first formal Design Sprint for an internal project. In this post I share what we did in detail, and highlight some first-timer difficulties.
 ---
 
 Earlier this year, I worked with a few of my colleagues in the Scott Logic User Experience (UX) Design team to run our first Design Sprint on one of our internal projects. It was a great learning experience and turned out to be a very effective way of working for a team of 3 UX Designers. We have already started applying what we’ve learned on our client projects. We are hoping to run an enhanced version of a Design Sprint 2.0. on another project in the near future.

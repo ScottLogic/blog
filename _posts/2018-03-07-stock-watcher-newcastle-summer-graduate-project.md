@@ -2,7 +2,6 @@
 title: Stock Watcher - Newcastle summer graduate project
 date: 2018-03-07 00:00:00 Z
 categories:
-- emason
 - People
 tags:
 - Graduate
@@ -12,9 +11,7 @@ tags:
 - graduates
 author: emason
 layout: default_post
-summary: The Newcastle graduates were given the task of creating a stock watchlist
-  application that allowed users to track the prices of various stocks. This post
-  describes the project and offers some thoughts into how it went.
+summary: The Newcastle graduates were given the task of creating a stock watchlist application that allowed users to track the prices of various stocks. This post describes the project and offers some thoughts into how it went.
 ---
 
 After a few weeks of HTML5 and Java training, the Newcastle summer graduates were given the task of creating a stock portfolio watchlist application that allowed the user to track the prices of various stocks. There were several requirements for this app, including a responsive design that suited anything from desktop PCs to mobile devices, being able to display visual information about stocks in multiple reorderable lists, and the ability to save these watchlists within a user account. 

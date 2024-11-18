@@ -2,12 +2,9 @@
 title: Successful microservices architecture with the Twelve-Factor App
 date: 2017-07-17 00:00:00 Z
 categories:
-- bjedrzejewski
 - Data Engineering
 author: bjedrzejewski
-summary: Using microservices in your architecture is a very popular choice. Unfortunately
-  it is also challenging to get it right. With the help of Twelve-Factor methodology,
-  I will tell you how to set yourself up for a success rather than a disappointment.
+summary: Using microservices in your architecture is a very popular choice. Unfortunately it is also challenging to get it right. With the help of Twelve-Factor methodology, I will tell you how to set yourself up for a success rather than a disappointment.
 layout: default_post
 ---
 

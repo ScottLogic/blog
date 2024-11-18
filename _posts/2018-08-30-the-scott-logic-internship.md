@@ -2,11 +2,8 @@
 title: My Internship at Scott Logic
 date: 2018-08-30 00:00:00 Z
 categories:
-- ilapworth
 - People
-summary: Thinking of applying to be a Scott Logic intern? In this blog post I give
-  a retrospective on the role, from the initial application, through to the prospective
-  job offer.
+summary: Thinking of applying to be a Scott Logic intern? In this blog post I give a retrospective on the role, from the initial application, through to the prospective job offer.
 author: ilapworth
 summary-short: Retro on the internship
 layout: default_post

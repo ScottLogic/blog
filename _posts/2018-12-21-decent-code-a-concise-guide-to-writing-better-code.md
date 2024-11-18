@@ -2,13 +2,10 @@
 title: 'Introducing decent-code: A concise guide to writing better code'
 date: 2018-12-21 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post
-summary: Where does one start when looking to write better code? And how do we maintain
-  code quality and consistency when working in a team? These two questions drove me
-  to create a language-agnostic guide to writing decent code.
+summary: Where does one start when looking to write better code? And how do we maintain code quality and consistency when working in a team? These two questions drove me to create a language-agnostic guide to writing decent code.
 ---
 
 Where does one start when looking to write better code? And how do we maintain code quality and consistency when working in a team?

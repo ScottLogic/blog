@@ -2,7 +2,6 @@
 title: 'SwiftUI: A new player in UI frameworks'
 date: 2019-09-02 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Swift,
@@ -13,9 +12,7 @@ tags:
 - UI
 author: bquinn
 layout: default_post
-summary: SwiftUI is Apple's new UI framework for all its platforms - watchOS, tvOS,
-  iOS and macOS. This post explores the significance of its release, comparing it
-  to both to former native iOS development and competitor frameworks.
+summary: SwiftUI is Apple's new UI framework for all its platforms - watchOS, tvOS, iOS and macOS. This post explores the significance of its release, comparing it to both to former native iOS development and competitor frameworks.
 image: bquinn/assets/swiftui-96x96.png
 ---
 

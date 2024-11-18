@@ -5,9 +5,7 @@ categories:
 - Tech
 tags:
 - Tech
-summary: JSON Web Tokens are a secure way of transmitting information between two
-  parties. This article explores what they are, how they are made, the kinds of JWTs
-  that are commonly used and their key benefits.
+summary: JSON Web Tokens are a secure way of transmitting information between two parties. This article explores what they are, how they are made, the kinds of JWTs that are commonly used and their key benefits.
 author: colive
 image: "/uploads/What%20are%20WebTokens_.png"
 layout: default_post

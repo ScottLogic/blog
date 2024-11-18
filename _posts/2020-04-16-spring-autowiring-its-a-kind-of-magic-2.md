@@ -2,18 +2,14 @@
 title: Spring Autowiring - It's a kind of magic - Part 2
 date: 2020-04-16 00:00:00 Z
 categories:
-- pgraham
 - Tech
 tags:
 - java
 - spring
 - spring-boot
 author: pgraham
-summary: The second in a series of posts exploring the things that Spring Boot does
-  when it magically Autowires application dependencies. Is it really a kind of magic,
-  or is there no such thing?
-summary-short: The second post in a series taking a detailed look at the reality of
-  Spring Autowiring magic.
+summary: The second in a series of posts exploring the things that Spring Boot does when it magically Autowires application dependencies. Is it really a kind of magic, or is there no such thing?
+summary-short: The second post in a series taking a detailed look at the reality of Spring Autowiring magic.
 layout: default_post
 ---
 

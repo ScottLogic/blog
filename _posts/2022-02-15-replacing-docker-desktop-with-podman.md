@@ -2,7 +2,6 @@
 title: Disguising Podman as Docker Desktop on Windows
 date: 2022-02-15 00:00:00 Z
 categories:
-- mjrichards
 - Cloud
 tags:
 - java,
@@ -12,10 +11,7 @@ tags:
 - containers
 author: mjrichards
 layout: default_post
-summary: Podman offers a like for like alternative to Docker Desktop that offers higher
-  container security and no licensing costs. This post uncovers the steps required
-  in order to be able to seamlessly replace Docker Desktop with Podman with very little
-  effort
+summary: Podman offers a like for like alternative to Docker Desktop that offers higher container security and no licensing costs. This post uncovers the steps required in order to be able to seamlessly replace Docker Desktop with Podman with very little effort
 ---
 
 [Podman](https://podman.io/) is an open-source daemonless alternative to [Docker](https://www.docker.com/), capable of building and running Open Container Initiative (OCI) containers on Unix. Thanks to Docker open sourcing both their image specification and Docker Engine back in 2015, technologies like Podman have been able to containerise applications in a consistent yet compatible manner without too many troubles. For those of you reading this, you are all probably familiar with Docker's recent licensing changes to Docker Desktop. If not, please do read more about it [here](https://www.docker.com/blog/updating-product-subscriptions/). While the Docker CLI is still free for everyone to use, this may be more troublesome to set-up on a windows environment without Docker Desktop. I found Podman to be a relatively simple replacement for Docker and thought a simple step by step procedure was worth documenting. This article will discuss how to set-up Podman as a drop-in replacement for Docker Desktop without having to remember a single new command in the command line.

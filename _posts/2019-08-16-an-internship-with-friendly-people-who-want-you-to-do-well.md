@@ -2,7 +2,6 @@
 title: An internship with friendly people who want you to do well
 date: 2019-08-16 00:00:00 Z
 categories:
-- rgarside
 - People
 tags:
 - Interns,
@@ -10,9 +9,7 @@ tags:
 - Internships
 author: rgarside
 layout: default_post
-summary: Tilly wanted her internship to be at a consultancy firm, allowing her to
-  get some experience working in a real-world environment as part of a team. From
-  Scott Logic, she learnt how important a good working culture is too.
+summary: Tilly wanted her internship to be at a consultancy firm, allowing her to get some experience working in a real-world environment as part of a team. From Scott Logic, she learnt how important a good working culture is too.
 ---
 
 ### How Tilly Woodfield found her summer internship in our Bristol office.

@@ -2,13 +2,10 @@
 title: ASP.NET 5 to ASP.NET Core 1.0
 date: 2016-01-21 00:00:00 Z
 categories:
-- nsoper
 - Tech
 author: nsoper
 layout: default_post
-summary: Literally a couple of hours after we released the previous post on writing
-  a RESTful API with ASP.NET 5, I learned that Microsoft have renamed the new platform.
-  This is a very short summary of that decision.
+summary: Literally a couple of hours after we released the previous post on writing a RESTful API with ASP.NET 5, I learned that Microsoft have renamed the new platform. This is a very short summary of that decision.
 ---
 
 Earlier today I released a post called [Building a RESTful API with ASP.NET 5]({{site.baseurl}}/2016/01/20/restful-api-with-aspnet50.html).

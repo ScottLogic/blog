@@ -2,12 +2,9 @@
 title: The new normal for your desktop
 date: 2020-06-24 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
-summary: This webinar explores the potential and realities of an emerging vision for
-  a more integrated desktop application ecosystem, as facilitated by various open-source
-  and vendor products.
+summary: This webinar explores the potential and realities of an emerging vision for a more integrated desktop application ecosystem, as facilitated by various open-source and vendor products.
 layout: video_post
 video_url: https://www.youtube.com/embed/e0h1vJcIrdE
 short-author-aside: true

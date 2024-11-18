@@ -2,14 +2,10 @@
 title: 'Swift: The Beautiful Language'
 date: 2019-07-19 00:00:00 Z
 categories:
-- bquinn
 - Tech
 author: bquinn
 layout: default_post
-summary: Swift combines the type and memory safety of a language like Java with the
-  simplicity and ease of languages like JavaScript and Python. This article will explore
-  some of the language features that, in my opinion, make Swift the most beautiful
-  language to read and write.
+summary: Swift combines the type and memory safety of a language like Java with the simplicity and ease of languages like JavaScript and Python. This article will explore some of the language features that, in my opinion, make Swift the most beautiful language to read and write.
 ---
 
 # What is Swift?

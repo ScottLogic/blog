@@ -2,12 +2,10 @@
 title: What it means to be Agile
 date: 2017-05-17 00:00:00 Z
 categories:
-- shunton
 - Delivery
 author: shunton
 layout: default_post
-summary: While there is much written about Agile, it’s important to understand not
-  only the principles of the frameworks but also what it means to *be* Agile.
+summary: While there is much written about Agile, it’s important to understand not only the principles of the frameworks but also what it means to *be* Agile.
 ---
 
 While there is much written about Agile, it’s important to understand not only the principles of the frameworks but also what it means to *be* Agile.

@@ -2,15 +2,12 @@
 title: TypeScript compiler APIs revisited
 date: 2017-05-02 00:00:00 Z
 categories:
-- nwolverson
 - Tech
 tags:
 - blog
 author: nwolverson
 layout: default_post
-summary: Two years ago I wrote about TypeScript compiler APIs. There has recently
-  been further progress in this area and I explore the newly exposed API in TypeScript
-  2.3.
+summary: Two years ago I wrote about TypeScript compiler APIs. There has recently been further progress in this area and I explore the newly exposed API in TypeScript 2.3.
 ---
 
 Two years ago I [wrote about TypeScript compiler APIs](http://blog.scottlogic.com/2015/01/20/typescript-compiler-api.html). That investigation, and discussions around that blog post and elsewhere pointed to some deficiencies in the exposed API. In particular, constructing a TypeScript AST directly (not from source code) and manipulating the AST, and emitting or pretty-printing TypeScript from an existing AST, were not directly supported. 

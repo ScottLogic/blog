@@ -2,11 +2,9 @@
 title: HTML5 Mobile - Long-press to re-order scrollable lists
 date: 2014-11-25 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
-summary: How to use a long-press to trigger re-ordering a list in Ionic Framework,
-  instead of Ionic’s default implementation, which requires a button to switch modes.
+summary: How to use a long-press to trigger re-ordering a list in Ionic Framework, instead of Ionic’s default implementation, which requires a button to switch modes.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/11/25/ionic-sorter.html
 disqus-id: "/2014/11/25/ionic-sorter.html"

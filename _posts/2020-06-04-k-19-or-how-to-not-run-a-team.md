@@ -2,7 +2,6 @@
 title: K-19 or How to not run a team
 date: 2020-06-04 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 tags:
 - delivery
@@ -10,9 +9,7 @@ tags:
 - empowerment
 author: fhubin
 layout: default_post
-summary: In this article, I would like to look at some traps that often impact performance
-  in the workplace and outline some efficient ways to ensure your team is doing a
-  good job.
+summary: In this article, I would like to look at some traps that often impact performance in the workplace and outline some efficient ways to ensure your team is doing a good job.
 ---
 
 In this article, I would like to look at some traps that often impact performance in the workplace and outline some efficient ways to ensure your team is doing a good job.

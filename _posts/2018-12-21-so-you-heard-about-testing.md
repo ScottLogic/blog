@@ -2,12 +2,10 @@
 title: So, you heard about testing…
 date: 2018-12-21 00:00:00 Z
 categories:
-- fbromley
 - People
 author: fbromley
 layout: default_post
-summary: What can testing offer you, and what can you offer it? Here's what I have
-  found out about testing as a graduate from a non-computing degree.
+summary: What can testing offer you, and what can you offer it? Here's what I have found out about testing as a graduate from a non-computing degree.
 ---
 
 Are you graduating? Or have you recently graduated? You’re in an ocean of opportunity, with so many ways   to go it’s impossible to go anywhere. 

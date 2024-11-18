@@ -10,10 +10,7 @@ tags:
 - lgbtqia
 - diversity and inclusion
 - diversity equity and inclusion
-summary: To a lot of people who identify as LGBTQIA+, coming out for the first time
-  can be daunting enough. To some it’s celebrated, to some it’s met with relief and
-  to others, unfortunately, it can be negative beyond belief. But here’s the catch,
-  we have to do it again and again and again…
+summary: To a lot of people who identify as LGBTQIA+, coming out for the first time can be daunting enough. To some it’s celebrated, to some it’s met with relief and to others, unfortunately, it can be negative beyond belief. But here’s the catch, we have to do it again and again and again…
 author: bwallis
 image: uploads/You%20only%20have%20to%20come%20out%20once-%20tn.png
 ---

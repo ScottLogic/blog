@@ -2,14 +2,10 @@
 title: 'Web Audio API Part 2: Moving to Electron'
 date: 2016-07-05 00:00:00 Z
 categories:
-- wferguson
 - Tech
 author: wferguson
 layout: default_post
-summary: Back in January, I blogged about using the Web Audio API with D3, creating
-  an app using Knockout and RequireJS. I've since expanded on that application, migrating
-  it to Electron and adding new functionality along the way -- like MP3 tag extraction
-  and recursive folder searching.
+summary: Back in January, I blogged about using the Web Audio API with D3, creating an app using Knockout and RequireJS. I've since expanded on that application, migrating it to Electron and adding new functionality along the way -- like MP3 tag extraction and recursive folder searching.
 ---
 
 Back in January, I [blogged](http://blog.scottlogic.com/2016/01/06/audio-api-with-d3.html) about using the Web Audio API with D3, creating an app using Knockout and RequireJS. I've since expanded on that application, migrating it to Electron and adding new functionality along the way -- like MP3 tag extraction and recursive folder searching.

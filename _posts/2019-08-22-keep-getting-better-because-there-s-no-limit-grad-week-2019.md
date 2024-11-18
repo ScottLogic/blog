@@ -2,7 +2,6 @@
 title: "“Keep getting better, because there’s no limit” – Grad Week 2019"
 date: 2019-08-22 00:00:00 Z
 categories:
-- pdykes
 - People
 tags:
 - Grad
@@ -10,8 +9,7 @@ tags:
 - graduates
 author: pdykes
 layout: default_post
-summary: In this blog, we will introduce four of our new graduate colleagues as they
-  share their experiences of their route into Scott Logic and how Grad Week has gone.
+summary: In this blog, we will introduce four of our new graduate colleagues as they share their experiences of their route into Scott Logic and how Grad Week has gone.
 image: pdykes/assets/Grad%20Week%20blog%20images-1.jpg
 ---
 

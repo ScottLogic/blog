@@ -8,9 +8,7 @@ tags:
 - CDP
 - Big Data
 - Data Strategy
-summary: This blog discusses the different data requirements that exist in a typical
-  organisation and provides some suggestions over how to classify them and match them
-  to technologies
+summary: This blog discusses the different data requirements that exist in a typical organisation and provides some suggestions over how to classify them and match them to technologies
 author: dhope
 image: "/uploads/understanding%20your%20data%20requirements.png"
 ---

@@ -2,18 +2,14 @@
 title: Arrow functions in Knockout.js
 date: 2014-02-28 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 image: cprice/assets/featured/arrows.jpg
-image-attribution: image courtesy of <a href="http://www.flickr.com/photos/byronj/12637612753/sizes/z/">Byron
-  James</a>
+image-attribution: image courtesy of <a href="http://www.flickr.com/photos/byronj/12637612753/sizes/z/">Byron James</a>
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/02/28/arrow-functions-in-knockoutjs.html
 disqus-id: "/2014/02/28/arrow-functions-in-knockoutjs.html"
-summary: Recently, Knockout's original author Steve Sanderson released a plugin called
-  knockout-projections which optimises the performance of the observable array methods
-  filter and map.
+summary: Recently, Knockout's original author Steve Sanderson released a plugin called knockout-projections which optimises the performance of the observable array methods filter and map.
 ---
 
 Recently, Knockout's original author Steve Sanderson released a plugin called [knockout-projections](https://github.com/stevesanderson/knockout-projections) which optimises the performance of the observable array methods filter and map. In this post, I'll take a peek into the future by combining this plugin with the forthcoming ES6 arrow functions to produce some very terse and highly efficient collection bindings.

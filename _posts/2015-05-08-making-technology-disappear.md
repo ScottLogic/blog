@@ -2,7 +2,6 @@
 title: 'White Paper: Making Technology Disappear'
 date: 2015-05-08 00:00:00 Z
 categories:
-- godds
 - Resources
 tags:
 - featured
@@ -12,10 +11,7 @@ summary-short: Building omni-channel systems for Capital Markets.
 contributors:
 - ceberhardt
 layout: default_post
-summary: Creating omni-channel experiences in enterprise is more often than not a
-  challenge in terms of strategy and mindset rather than technology. This white paper
-  outlines a twinned design and technical approach that ensures focus is squarely
-  on users and the contexts within they use a system.
+summary: Creating omni-channel experiences in enterprise is more often than not a challenge in terms of strategy and mindset rather than technology. This white paper outlines a twinned design and technical approach that ensures focus is squarely on users and the contexts within they use a system.
 cta:
   link: http://blog.scottlogic.com/ceberhardt/assets/white-papers/building-omnichannel-systems.pdf
   text: Download the White Paper

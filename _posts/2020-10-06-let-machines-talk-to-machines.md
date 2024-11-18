@@ -2,14 +2,11 @@
 title: Let machines talk to machines
 date: 2020-10-06 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
 image: godds/assets/featured/apis.png
 layout: default_post
-summary: While APIs are nothing new, their technical nature means that their purposes
-  and capabilities are rarely understood or championed by non-technical people in
-  organisations, despite their huge significance in our digital world...
+summary: While APIs are nothing new, their technical nature means that their purposes and capabilities are rarely understood or championed by non-technical people in organisations, despite their huge significance in our digital world...
 ---
 
 Embracing and understanding Application Programming Interfaces (APIs) across a whole organisation, rather

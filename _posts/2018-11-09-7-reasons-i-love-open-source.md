@@ -2,12 +2,10 @@
 title: 7 Reasons I ❤️ Open Source
 date: 2018-11-09 00:00:00 Z
 categories:
-- ceberhardt
 - Open Source
 author: ceberhardt
 layout: default_post
-summary: Here's why I spend so much of my time—including evenings and weekends—on
-  GitHub, as an active member of the open source community.
+summary: Here's why I spend so much of my time—including evenings and weekends—on GitHub, as an active member of the open source community.
 canonical_url: https://opensource.com/article/18/11/reasons-love-open-source
 ---
 

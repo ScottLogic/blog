@@ -3,9 +3,7 @@ title: LF Europe Summit Journal - Day Two
 date: 2023-09-20 19:47:00 Z
 categories:
 - Tech
-summary: This year I’m attending the Linux Foundation Europe Summit, a sizable event
-  bringing together 1,000s of people involved in open source. Day two was packed with
-  surveys, statistics and the fragility of the node ecosystem..
+summary: This year I’m attending the Linux Foundation Europe Summit, a sizable event bringing together 1,000s of people involved in open source. Day two was packed with surveys, statistics and the fragility of the node ecosystem..
 author: ceberhardt
 image: uploads/opentofu.jpeg
 ---

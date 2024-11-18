@@ -2,12 +2,9 @@
 title: Java Enums - how to use them smarter
 date: 2016-07-28 00:00:00 Z
 categories:
-- bjedrzejewski
 - Tech
 author: bjedrzejewski
-summary: 'A short introduction to Java enum capabilities followed by concrete examples
-  of good use. How enums help with implementing lazy loaded singleton, following open/closed
-  principle and using strategy pattern. '
+summary: 'A short introduction to Java enum capabilities followed by concrete examples of good use. How enums help with implementing lazy loaded singleton, following open/closed principle and using strategy pattern. '
 layout: default_post
 ---
 

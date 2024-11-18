@@ -9,8 +9,7 @@ tags:
 - API
 - Open Source
 - Karate
-summary: In this blog I'll introduce the Karate Test Automation Framework and talk
-  about some of the fun and interesting features it provides.
+summary: In this blog I'll introduce the Karate Test Automation Framework and talk about some of the fun and interesting features it provides.
 author: sdewar
 image: "/uploads/An%20introduction%20into%20Karate.png"
 ---

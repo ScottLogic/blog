@@ -11,11 +11,7 @@ tags:
 - legislation
 - regulation
 - COVID-19
-summary: 'A few years ago while working on a digital product in a government department,
-  my team learnt a valuable lesson: rules can help you go faster. In this post, I
-  explain the positive difference that regulatory and legislative frameworks can make
-  to the design and delivery of digital services, with some examples from the government''s
-  response to the pandemic.'
+summary: 'A few years ago while working on a digital product in a government department, my team learnt a valuable lesson: rules can help you go faster. In this post, I explain the positive difference that regulatory and legislative frameworks can make to the design and delivery of digital services, with some examples from the government''s response to the pandemic.'
 author: jmcevoy
 image: "/uploads/Rules-help-you-go-faster-social-post.jpg"
 ---

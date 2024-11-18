@@ -2,16 +2,10 @@
 title: Code generating a WebAssembly 6502 emulator from specifications
 date: 2020-08-26 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post
-summary: Writing emulators that bring old computer hardware back to life is a popular
-  hobby, and one that I have been enjoying recently through my own goal of writing
-  an Atari 2600 emulator. However, writing a CPU emulator can get a little repetitive
-  and tedious, so I thought I'd explore a different approach - generating the CPU
-  emulation code from a specification rather than manually translating it. This blog
-  post shares the fruitful results.
+summary: Writing emulators that bring old computer hardware back to life is a popular hobby, and one that I have been enjoying recently through my own goal of writing an Atari 2600 emulator. However, writing a CPU emulator can get a little repetitive and tedious, so I thought I'd explore a different approach - generating the CPU emulation code from a specification rather than manually translating it. This blog post shares the fruitful results.
 image: ceberhardt/assets/2600/atari-2600.png
 ---
 

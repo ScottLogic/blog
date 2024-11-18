@@ -2,12 +2,10 @@
 title: OAUTH2 Authentication with ADFS 3.0
 date: 2015-03-09 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post
-summary: A quick run through of the steps involved in integrating a Node.js client
-  with Active Directory Federation Services for authentication using OAUTH2.
+summary: A quick run through of the steps involved in integrating a Node.js client with Active Directory Federation Services for authentication using OAUTH2.
 ---
 
 A quick run through of the steps involved in integrating a Node.js client with Active Directory Federation Services for authentication using OAUTH2.

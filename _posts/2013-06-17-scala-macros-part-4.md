@@ -2,7 +2,6 @@
 title: Adventures with Scala Macros - Part 4
 date: 2013-06-17 00:00:00 Z
 categories:
-- jphillpotts
 - Tech
 tags:
 - Scala
@@ -11,8 +10,7 @@ tags:
 author: jphillpotts
 layout: default_post
 source: site
-summary: In the final article in the series, we take the RESTful API we've created
-  and integrate it with MongoDB for persistence using the Salat library.
+summary: In the final article in the series, we take the RESTful API we've created and integrate it with MongoDB for persistence using the Salat library.
 oldlink: http://www.scottlogic.com/blog/2013/06/17/scala-macros-part-4.html
 disqus-id: "/2013/06/17/scala-macros-part-4.html"
 ---

@@ -2,12 +2,9 @@
 title: Alteryxing The Advent of Code 2020 - Week 4
 date: 2020-12-30 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
-summary: 'It''s the end of the #AdventofCode for 2020. I take a look back over the
-  final 6 puzzles and sees how much was possible in BaseA Alteryx. How close did I
-  get to solving all 50 stars in BaseA! '
+summary: 'It''s the end of the #AdventofCode for 2020. I take a look back over the final 6 puzzles and sees how much was possible in BaseA Alteryx. How close did I get to solving all 50 stars in BaseA! '
 layout: default_post
 image: jdunkerley/assets/advent-2020-4/logo.jpg
 ---

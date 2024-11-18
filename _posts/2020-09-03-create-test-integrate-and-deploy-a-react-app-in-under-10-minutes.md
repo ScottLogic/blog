@@ -2,12 +2,10 @@
 title: Create, Test, Integrate and Deploy a React App in under 10 minutes!
 date: 2020-09-03 00:00:00 Z
 categories:
-- dogle
 - Tech
 author: dogle
 layout: default_post
-summary: 'In this blog post I''ll be demonstrating how quickly it''s possible to setup,
-  integrate and deploy a React application using the right tools. '
+summary: 'In this blog post I''ll be demonstrating how quickly it''s possible to setup, integrate and deploy a React application using the right tools. '
 ---
 
 ## Introduction

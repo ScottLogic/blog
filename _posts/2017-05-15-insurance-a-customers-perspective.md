@@ -2,16 +2,13 @@
 title: 'Insurance: A Customer''s Perspective'
 date: 2017-05-15 00:00:00 Z
 categories:
-- jrice
 - UX Design
 tags:
 - featured
 author: jrice
 image: jrice/assets/featured/insurance.jpg
 layout: default_post
-summary: Insurance is stuck between a rock and a hard place when it comes to user
-  experience. This post will detail some thoughts on what can be done in the short
-  term to steer their customer’s experience in the right direction.
+summary: Insurance is stuck between a rock and a hard place when it comes to user experience. This post will detail some thoughts on what can be done in the short term to steer their customer’s experience in the right direction.
 ---
 
 Personal Insurance companies are stuck between a rock and a hard place when it comes to user experience. Oliver King, co-founder of Engine, puts it into perspective:

@@ -2,16 +2,11 @@
 title: The Career Canvas
 date: 2022-11-29 19:47:00 Z
 categories:
-- acaulfield
 - People
 tags:
 - women in tech
 - wors
-summary: Last week I attended 'Women of Silicon Roundabout' - the UK's largest tech
-  event for women. Jess McEvoy and I delivered a workshop on 'How to build a business
-  case for your next promotion'. I wanted to share some of the content more widely,
-  including a Career Canvas tool for mapping out your goals and motivations, and to
-  help you build your business case.
+summary: Last week I attended 'Women of Silicon Roundabout' - the UK's largest tech event for women. Jess McEvoy and I delivered a workshop on 'How to build a business case for your next promotion'. I wanted to share some of the content more widely, including a Career Canvas tool for mapping out your goals and motivations, and to help you build your business case.
 author: acaulfield
 ---
 

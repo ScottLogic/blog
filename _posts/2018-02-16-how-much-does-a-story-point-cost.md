@@ -2,7 +2,6 @@
 title: How much does a story point cost?
 date: 2018-02-16 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 tags:
 - agile

@@ -2,13 +2,10 @@
 title: When is the right time to commit or use a branch?
 date: 2019-12-19 00:00:00 Z
 categories:
-- slaing
 - Tech
 author: slaing
 layout: default_post
-summary: We're told that we need to commit early and often. But what does this mean...?
-  What is the right frequency? When should branches be used? When do they work well,
-  and when should they be avoided?
+summary: We're told that we need to commit early and often. But what does this mean...? What is the right frequency? When should branches be used? When do they work well, and when should they be avoided?
 ---
 
 We're told that we need to [commit early and often](https://blog.beanstalkapp.com/post/147799908084/commit-early-commit-often). But what does this mean...? What is the right frequency? When should branches be used? When do they work well, and when should they be avoided?

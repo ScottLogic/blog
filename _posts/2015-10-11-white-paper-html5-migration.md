@@ -2,17 +2,13 @@
 title: 'White Paper: HTML5 Migration – Get started with a Little Bang'
 date: 2015-10-11 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 author: ceberhardt
 layout: default_post
 cta:
   link: http://blog.scottlogic.com/ceberhardt/assets/white-papers/html5-migration.pdf
   text: Download the White Paper
-summary: This white paper explores and addresses the importance of migrating complex
-  business applications from Flex and Silverlight to HTML5. It highlights the risks
-  involved in delaying your migration and provides a solution that tackles cost concerns
-  at the same time as delivering an early return on investment.
+summary: This white paper explores and addresses the importance of migrating complex business applications from Flex and Silverlight to HTML5. It highlights the risks involved in delaying your migration and provides a solution that tackles cost concerns at the same time as delivering an early return on investment.
 ---
 
 This white paper explores and addresses the importance of migrating complex business applications from Flex and Silverlight to HTML5. It highlights the risks involved in delaying your migration and provides a solution that tackles cost concerns at the same time as delivering an early return on investment.

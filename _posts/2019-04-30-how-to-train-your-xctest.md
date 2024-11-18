@@ -2,7 +2,6 @@
 title: How to train your XCTest
 date: 2019-04-30 00:00:00 Z
 categories:
-- cbrown
 - Testing
 tags:
 - xctest
@@ -15,11 +14,7 @@ tags:
 - xcuitest
 author: cbrown
 layout: default_post
-summary: Apple’s XCTest framework can be used to write automated Unit and UI tests
-  for iOS applications. It comes packaged with a range of capabilities which can aid
-  you in your testing pursuit. It's not without its downfalls though. This blog explores
-  the troubles XCTest brings and how we can tackle them to work towards peaceful iOS
-  testing.
+summary: Apple’s XCTest framework can be used to write automated Unit and UI tests for iOS applications. It comes packaged with a range of capabilities which can aid you in your testing pursuit. It's not without its downfalls though. This blog explores the troubles XCTest brings and how we can tackle them to work towards peaceful iOS testing.
 image: cbrown/assets/xctest-logo.jpg
 ---
 

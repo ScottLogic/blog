@@ -2,16 +2,12 @@
 title: Asynchronous Recursion with Callbacks, Promises and Async.
 date: 2017-09-14 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: Creating asynchronous functions that are recursive can be a bit of a challenge.
-  This blog post takes a look at various different approaches, including callbacks
-  and promises, and ultimately demonstrates how async functions result in a much simpler
-  and cleaner solution.
+summary: Creating asynchronous functions that are recursive can be a bit of a challenge. This blog post takes a look at various different approaches, including callbacks and promises, and ultimately demonstrates how async functions result in a much simpler and cleaner solution.
 image: ceberhardt/assets/featured/spiral.jpg
 colour: pink
 header-shape: shape2

@@ -2,7 +2,6 @@
 title: Using WebdriverIO Part 2
 date: 2016-04-25 00:00:00 Z
 categories:
-- dtheasby
 - Testing
 tags:
 - testing
@@ -13,8 +12,7 @@ tags:
 - Automation
 author: dtheasby
 layout: default_post
-summary: This is part 2 of the Using WebdriverIO guide where we'll be taking a closer
-  look at the tests and implementing the page-object model.
+summary: This is part 2 of the Using WebdriverIO guide where we'll be taking a closer look at the tests and implementing the page-object model.
 ---
 
 Following on from Using WebdriverIO [part 1]({{site.baseurl}}/2016/04/25/UsingWebdriverIO-Part1.html), where Gulp was set up to take care of the selenium environment setup and tear down, we should now have an easily accessible and stable test process. The full code for the end project can be found [here](https://github.com/dtheasby/webdriverio-examples). 

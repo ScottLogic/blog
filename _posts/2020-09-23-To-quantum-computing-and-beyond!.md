@@ -2,15 +2,12 @@
 title: To quantum computing and beyond!
 date: 2020-09-23 00:00:00 Z
 categories:
-- garora
 - Tech
 tags:
 - featured
 author: garora
 layout: default_post
-summary: The world is racing for quantum supremacy, to solve problems once thought
-  impossible on any reasonable timescale. In this post, I explain the fundamental
-  principles that allow this to be possible.
+summary: The world is racing for quantum supremacy, to solve problems once thought impossible on any reasonable timescale. In this post, I explain the fundamental principles that allow this to be possible.
 image: garora/assets/2020-09-23/chips_talking.png
 ---
 

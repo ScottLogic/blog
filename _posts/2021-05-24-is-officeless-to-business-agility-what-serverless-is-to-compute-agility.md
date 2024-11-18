@@ -2,14 +2,9 @@
 title: Is Officeless to business agility what Serverless is to compute agility?
 date: 2021-05-24 00:00:00 Z
 categories:
-- nwilson
 - People
 author: nwilson
-summary: The shift in thinking from discrete change projects to continuous product
-  delivery and the evolution of the IT organisation to incorporate DevOps means that
-  we can now be truly agile in technology delivery. But there is much more to business
-  agility than technology. The barrier to further business agility is often the physical
-  manifestation of the organisation itself.
+summary: The shift in thinking from discrete change projects to continuous product delivery and the evolution of the IT organisation to incorporate DevOps means that we can now be truly agile in technology delivery. But there is much more to business agility than technology. The barrier to further business agility is often the physical manifestation of the organisation itself.
 layout: default_post
 ---
 

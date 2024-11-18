@@ -2,12 +2,10 @@
 title: 'Git rebasing: What is it and how can you use it?'
 date: 2020-01-09 00:00:00 Z
 categories:
-- slaing
 - Tech
 author: slaing
 layout: default_post
-summary: Rebasing is a technique available in Git, often shrouded in mystery or steered
-  away from, this post explains what it is and how it can be used
+summary: Rebasing is a technique available in Git, often shrouded in mystery or steered away from, this post explains what it is and how it can be used
 ---
 
 I've talked before about [how the history of a codebase is as important as the codebase itself]({{ site.github.url }}/2019/12/11/source-control-basics). Rebase is the tool that can make the single biggest impact to achieving this. Prior knowledge of [the fundamental concepts]({{ site.github.url }}/2020/01/07/source-control-fundamentals.html) of source control is crucial to understanding this post.

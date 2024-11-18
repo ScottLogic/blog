@@ -2,7 +2,6 @@
 title: Enabling the Government Data Strategy
 date: 2021-10-28 00:00:00 Z
 categories:
-- acarr
 - Data Engineering
 tags:
 - data,
@@ -20,10 +19,7 @@ tags:
 - privacy
 author: acarr
 layout: default_post
-summary: The UK Government has an ambitious data strategy that aims to encourage and
-  facilitate data sharing between departments and businesses. Elements of the strategy
-  appear relatively straightforward, but how will the government fully realise the
-  potential, and align citizens with this bold new approach?
+summary: The UK Government has an ambitious data strategy that aims to encourage and facilitate data sharing between departments and businesses. Elements of the strategy appear relatively straightforward, but how will the government fully realise the potential, and align citizens with this bold new approach?
 ---
 
 The UK Government has an ambitious data strategy that aims to encourage and facilitate data sharing between departments and businesses. The Cabinet Secretary focused on its importance in his annual lecture last week, highlighting the significant benefits better use of data will bring. Elements of the strategy appear relatively straightforward, but how will the government fully realise the potential, and align citizens with this bold new approach?

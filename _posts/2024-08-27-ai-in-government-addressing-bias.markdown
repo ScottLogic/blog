@@ -18,10 +18,7 @@ tags:
 - reliability
 - machine learning models
 - AI models
-summary: As the government progresses from prototype to production to ongoing operation
-  with AI-assisted services for UK citizens, how can it minimise the risk of replicating
-  structural biases? In this blog post, I’ll explore key elements of what’s involved
-  in ensuring that services are as representative, fair and impartial as possible.
+summary: As the government progresses from prototype to production to ongoing operation with AI-assisted services for UK citizens, how can it minimise the risk of replicating structural biases? In this blog post, I’ll explore key elements of what’s involved in ensuring that services are as representative, fair and impartial as possible.
 author: godds
 image: "/uploads/AI%20in%20govt%20addressing%20bias.png"
 ---

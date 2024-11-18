@@ -2,7 +2,6 @@
 title: An RSI component for D3 charts
 date: 2014-11-14 00:00:00 Z
 categories:
-- mjose
 - Tech
 tags:
 - d3
@@ -11,9 +10,7 @@ tags:
 - risk
 author: mjose
 title-short: An RSI component for D3 charts
-summary: An RSI (Relative Strength Index) D3 component which can be added to a D3
-  chart. In the blog I've also tried to explain a little bit about RSI and it's uses
-  in calculating risk when trading markets.
+summary: An RSI (Relative Strength Index) D3 component which can be added to a D3 chart. In the blog I've also tried to explain a little bit about RSI and it's uses in calculating risk when trading markets.
 layout: default_post
 source: site
 oldlink: http://www.scottlogic.com/blog/2014/11/14/d3_chartcomponents_rsi.html

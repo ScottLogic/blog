@@ -2,12 +2,10 @@
 title: Creating a Parallel Particle Simulation in Go
 date: 2017-06-02 00:00:00 Z
 categories:
-- wferguson
 - Tech
 author: wferguson
 layout: default_post
-summary: Following on from my previous blog post where I created a simple particle
-  simulation using Go, I looked at adding some complexity.
+summary: Following on from my previous blog post where I created a simple particle simulation using Go, I looked at adding some complexity.
 ---
 
 In my [previous post](http://blog.scottlogic.com/2016/11/01/go-particle-simulation.html), I created a fairly simple particle simulation where particles obey gravity, bouncing around in a box. This was a great way to get started with a non-trivial Go application. However, as the the particles didn't interact with each other, there was limited potential for the simulation as a whole. In this post, I look at building on this simulation with another where particles obey forces of repulsion (and attraction).

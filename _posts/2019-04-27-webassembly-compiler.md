@@ -2,14 +2,11 @@
 title: Build Your Own WebAssembly Compiler - London Node User Group - April 2019
 date: 2019-04-27 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured
 author: ceberhardt
-summary: This talk, from London Node User Group, looked at some of the internals of
-  WebAssembly, exploring how it works ‘under the hood’ with a demonstration of how
-  you can create your own (simple) compiler that targets this runtime.
+summary: This talk, from London Node User Group, looked at some of the internals of WebAssembly, exploring how it works ‘under the hood’ with a demonstration of how you can create your own (simple) compiler that targets this runtime.
 layout: video_post
 video_url: https://www.youtube.com/embed/laM5bM_cMjA
 image: ceberhardt/assets/featured/wasm.png
