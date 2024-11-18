@@ -2,7 +2,6 @@
 title: How to make ChatGPT do anything you want
 date: 2024-04-08 00:00:00 Z
 categories:
-- colive
 - Artificial Intelligence
 tags:
 - ChatGPT

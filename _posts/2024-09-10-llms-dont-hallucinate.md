@@ -2,7 +2,7 @@
 title: LLMs don't 'hallucinate'
 date: 2024-09-10 00:00:00 Z
 categories:
-- AI
+- Artificial Intelligence
 tags:
 - Artificial Intelligence
 summary: Describing LLMs as 'hallucinating' fundamentally distorts how LLMs work.

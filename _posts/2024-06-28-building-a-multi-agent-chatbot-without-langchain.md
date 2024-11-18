@@ -2,7 +2,6 @@
 title: Building a Multi Agent Chatbot Without LangChain
 date: 2024-06-28 00:00:00 Z
 categories:
-- hbedford
 - Artificial Intelligence
 tags:
 - Open Source

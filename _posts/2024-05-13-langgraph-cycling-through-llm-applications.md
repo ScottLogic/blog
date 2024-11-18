@@ -2,7 +2,6 @@
 title: LangGraph - cycling through multi-agent LLM applications
 date: 2024-05-13 00:00:00 Z
 categories:
-- hsauve
 - Artificial Intelligence
 summary: Exploring LangGraph and its applications in the context of multi-agent Large
   Language Model (LLM) applications.
