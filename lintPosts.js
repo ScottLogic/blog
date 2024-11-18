@@ -2,6 +2,7 @@ const globby = require("globby");
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
 const fs = require("fs");
+const LINTER_MATCH_PATTERN="_posts/**/*.{md,markdown,html}"
 
 const flatMap = (arr, mapFunc) =>
   arr.reduce((prev, x) => prev.concat(mapFunc(x)), []);
@@ -57,7 +58,7 @@ const lintPosts = () => {
   let fail = false;
 
   // lint each blog post
-  globby(["*/_posts/**/*.{md,html}"]).then(paths => {
+  globby([LINTER_MATCH_PATTERN]).then(paths => {
     paths.forEach(path => {
       try {
         const blogPost = fs.readFileSync(path, "utf8");
