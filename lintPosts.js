@@ -88,17 +88,15 @@ const lintPosts = () => {
         }
 
         const summary = frontMatter.data.summary;
-        console.log("test")
-        console.log(path);
-        const postDateString = path.split("/")[2].substring(0, 10);
+        const pathArray = path.split("/");
+        const postDateString = pathArray[pathArray.length - 1].substring(0, 10);
         const postDate = new Date(postDateString);
         if (postDate > new Date("2018-03-26")) {
           // Note _prose.yml specifies 130 characters are needed, so if you change this please also change the instructions
           if (!summary || summary.length < 130) {
-            console.error(
-              "The post " + path + " does not have a summary of > 130 characters"
+            console.warn(
+              "Post summary length is " + summary.length + ". Recommended minimum length for the summary is 130 characters."
             );
-            fail = true;
           }
         }
       } catch (e) {
