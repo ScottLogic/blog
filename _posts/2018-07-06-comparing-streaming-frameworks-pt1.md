@@ -2,7 +2,6 @@
 title: Comparing Apache Spark, Storm, Flink and Samza stream processing engines - Part 1
 date: 2018-07-06 00:00:00 Z
 categories:
-- aaspellc
 - Data Engineering
 author: acarr
 contributors:
