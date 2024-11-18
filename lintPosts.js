@@ -93,7 +93,11 @@ const lintPosts = () => {
         const postDate = new Date(postDateString);
         if (postDate > new Date("2018-03-26")) {
           // Note _prose.yml specifies 130 characters are needed, so if you change this please also change the instructions
-          if (!summary || summary.length < 130) {
+          if(!summary) {
+              console.error("The post " + path + " does not have a summary.")
+              fail = true;
+          }
+          else if (summary.length < 130) {
             console.warn(
               "Post summary length is " + summary.length + ". Recommended minimum length for the summary is 130 characters."
             );
