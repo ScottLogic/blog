@@ -1,7 +1,7 @@
 {% assign author-id = include.author-id %}
 {% assign author = site.data.authors.authors[author-id] %}
 <div class="author-information cell">
-  <img src="{{ site.baseurl }}/{{ author-id }}/{{ author.picture }}" alt="{{ author.name }}"/>
+  {% include author_picture.html author-id=author-id %}
   <a rel="author" href="{{ site.baseurl }}/{{ author-id }}">{{ author.name }}</a>
 </div>
 <div class="cell">
