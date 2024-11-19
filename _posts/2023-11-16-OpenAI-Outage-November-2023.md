@@ -7,6 +7,7 @@ tags:
 - Artificial Intelligence
 - llm
 - scottbot
+- jwarren
 summary: In the light of OpenAI’s system outage, a ripple of unprepared AI powered
   systems crashed across the world. How can we best secure our LLM based applications
   against such occurrences?

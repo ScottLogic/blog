@@ -6,6 +6,7 @@ categories:
 tags:
 - sustainable software
 - Sustainability
+- ocronk
 - architecture
 - Tech
 - cloud
