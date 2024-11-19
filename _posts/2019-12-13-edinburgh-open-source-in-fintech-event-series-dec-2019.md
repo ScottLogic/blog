@@ -12,7 +12,9 @@ tags:
 - Edinburgh
 author: pdykes
 layout: default_post
-summary: 'In partnership with FINOS, we held the first event of the Edinburgh Open Source Fintech Meetup on 4 December, with great talks by Colin Eberhardt, Calum Miller and Reg Wilkinson – you can watch videos of the talks here. '
+summary: 'In partnership with FINOS, we held the first event of the Edinburgh Open
+  Source Fintech Meetup on 4 December, with great talks by Colin Eberhardt, Calum
+  Miller and Reg Wilkinson – you can watch videos of the talks here. '
 image: pdykes/assets/Edinburgh-Open-Source-Fintech-Meetup---screen-resolution-24-for-blog.jpg
 ---
 

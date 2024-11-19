@@ -5,7 +5,8 @@ categories:
 - Tech
 author: alee
 layout: default_post
-summary: A working example of how to create a new plugin for Perspective, using a ready made template to get started quickly, and open source mapping API from OpenLayers.
+summary: A working example of how to create a new plugin for Perspective, using a
+  ready made template to get started quickly, and open source mapping API from OpenLayers.
 ---
 
 JP Morgan's [Perspective](https://jpmorganchase.github.io/perspective/){:target="_blank"} is an open source streaming analytics engine that uses WebAssembly to quickly analyse a dataset and display views via a plugin framework.

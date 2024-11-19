@@ -7,7 +7,9 @@ tags:
 - types
 author: swaterman
 layout: default_post
-summary: Redux is a great state management library, but its types are too broad. Using the builder pattern, we can generate exact types and ensure type-safety throughout an app.
+summary: Redux is a great state management library, but its types are too broad. Using
+  the builder pattern, we can generate exact types and ensure type-safety throughout
+  an app.
 summary-short: The type definitions for Redux are too broad, let's fix it with builders
 image: swaterman/assets/reducer-builder/properties.png
 ---

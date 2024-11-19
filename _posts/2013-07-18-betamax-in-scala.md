@@ -10,7 +10,9 @@ tags:
 author: jphillpotts
 layout: default_post
 source: site
-summary: "<a href=\"http://betamax.software\">Betamax</a> is a tool to help with testing \napplications that consume web services by allowing the developer to record \nresponses and then replay them. In this post we look at how we can use it in Scala.\n"
+summary: "<a href=\"http://betamax.software\">Betamax</a> is a tool to help with testing
+  \napplications that consume web services by allowing the developer to record \nresponses
+  and then replay them. In this post we look at how we can use it in Scala.\n"
 oldlink: http://www.scottlogic.com/blog/2013/07/18/betamax-in-scala.html
 disqus-id: "/2013/07/18/betamax-in-scala.html"
 ---

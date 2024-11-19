@@ -8,7 +8,8 @@ tags:
 - BuildITRight
 author: shogarth
 layout: default_post
-summary: My personal reflections on the sessions that I attended at the 2019 Build IT Right conference. Continuous Delivery, embracing conflict and fighting entropy.
+summary: My personal reflections on the sessions that I attended at the 2019 Build
+  IT Right conference. Continuous Delivery, embracing conflict and fighting entropy.
 ---
 
 Yesterday I attended Build IT Right, just around the corner from the Newcastle Scott Logic offices. Advertised as a conference to adapt to emerging patterns, it certainly delivered on that promised, turning out to be one of the more thought-provoking events that I've attended in a long time.

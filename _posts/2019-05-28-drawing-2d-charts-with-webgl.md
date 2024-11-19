@@ -6,7 +6,9 @@ categories:
 author: alee
 layout: default_post
 image: alee/assets/2d-charts-webgl/shapes.png
-summary: Is WebGL faster than Canvas for drawing 2D shapes, and if so can we harness that speed to visualise very large data sets? I wanted to learn WebGL so I decided to investigate this question and learn at the same time.
+summary: Is WebGL faster than Canvas for drawing 2D shapes, and if so can we harness
+  that speed to visualise very large data sets? I wanted to learn WebGL so I decided
+  to investigate this question and learn at the same time.
 ---
 
 [D3](https://d3js.org/){:target="_blank"} is often used for rendering chart visualisations, and our [d3fc](https://d3fc.io/){:target="_blank"} library extends D3 with some commonly used components such as [series](https://d3fc.io/api/series-api.html){:target="_blank"}. It offers SVG implementations, which are a bit more flexible and easier to interact with, and Canvas implementations, which offer better performance for large data sets.

@@ -10,7 +10,9 @@ tags:
 - featured
 author: dsmith
 layout: default_post
-summary: This article is for anyone interested in learning more about Amazon Web Services (AWS). It talks about training resources, getting practical experience and staying up-to-date.
+summary: This article is for anyone interested in learning more about Amazon Web Services
+  (AWS). It talks about training resources, getting practical experience and staying
+  up-to-date.
 image: dsmith/assets/featured/aws-logo.png
 ---
 

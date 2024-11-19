@@ -5,7 +5,10 @@ categories:
 - UX Design
 author: rmarcalo
 layout: default_post
-summary: We have recently been working on concept designs for a banking app aimed at the new generation of bank users. The main screen of one of such concepts hinges on a seamless transition between different views to communicate the relationship in the underlying data.
+summary: We have recently been working on concept designs for a banking app aimed
+  at the new generation of bank users. The main screen of one of such concepts hinges
+  on a seamless transition between different views to communicate the relationship
+  in the underlying data.
 ---
 
 We have recently been working on concept designs for a banking app aimed at the new generation of bank users. The main screen of one of such concepts hinges on a seamless transition between different views to communicate the relationship in the underlying data.

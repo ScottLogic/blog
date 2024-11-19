@@ -7,7 +7,10 @@ tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: When it comes to creating complex bespoke charts, of all the JavaScript visualisation / charting frameworks, D3 is the clear winner. This blog post takes a step-by-step look at the process of of building an ‘advanced’ financial charting using D3, with additional components from d3fc.
+summary: When it comes to creating complex bespoke charts, of all the JavaScript visualisation
+  / charting frameworks, D3 is the clear winner. This blog post takes a step-by-step
+  look at the process of of building an ‘advanced’ financial charting using D3, with
+  additional components from d3fc.
 image: ceberhardt/assets/yahoo-finance.png
 redirect_from:
 - "/2015/07/08/yahoo-finance-chart.html"

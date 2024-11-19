@@ -9,7 +9,10 @@ tags:
 - programming language
 - system programming
 - featured
-summary: In this episode, Simon Martin, Chris Price and Rob Pilling share their interest and insights into Rust. This relatively new programming language has caught the attention of the development community, being voted the ‘most-loved’ language seven years in a row in the StackOverflow survey.
+summary: In this episode, Simon Martin, Chris Price and Rob Pilling share their interest
+  and insights into Rust. This relatively new programming language has caught the
+  attention of the development community, being voted the ‘most-loved’ language seven
+  years in a row in the StackOverflow survey.
 author: ceberhardt
 contributors:
 - cprice

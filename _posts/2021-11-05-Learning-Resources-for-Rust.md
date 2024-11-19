@@ -8,7 +8,9 @@ tags:
 - learning
 author: jstrachan
 layout: default_post
-summary: Have you ever wanted to learn Rust or just simply know why everyone is so hyped about it? Well, I’ve put together a pile of links to interesting resources to get you started!
+summary: Have you ever wanted to learn Rust or just simply know why everyone is so
+  hyped about it? Well, I’ve put together a pile of links to interesting resources
+  to get you started!
 ---
 
 Whilst it's no longer the [newcomer on the scene](https://ziglang.org/), [Rust](https://www.rust-lang.org/) continues to be [very popular with developers](https://insights.stackoverflow.com/survey/2020#most-loved-dreaded-and-wanted) and [generate headlines](https://rome.tools/blog/2021/09/21/rome-will-be-rewritten-in-rust). If you have ever wanted to learn the language, or just find out what all the hype is about, this post is for you. I'll run through a variety of links to interesting resources to get you started.

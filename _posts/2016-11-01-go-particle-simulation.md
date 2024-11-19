@@ -7,7 +7,8 @@ tags:
 - featured
 author: wferguson
 layout: default_post
-summary: In this post, I take a look at writing a simple particle simulation as a way of learning some of the basics of the Go language.
+summary: In this post, I take a look at writing a simple particle simulation as a
+  way of learning some of the basics of the Go language.
 image: wferguson/assets/featured/particles.png
 ---
 

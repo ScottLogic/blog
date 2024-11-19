@@ -7,7 +7,10 @@ tags:
 - open banking
 - banking
 - APIs
-summary: If you work in banking in the US, you should care about Open Banking. To help argue the case, I look at the legal changes in the US that will likely push towards an Open Banking standard and argue that implementing Open Banking can reduce your regular operational costs as a bank.
+summary: If you work in banking in the US, you should care about Open Banking. To
+  help argue the case, I look at the legal changes in the US that will likely push
+  towards an Open Banking standard and argue that implementing Open Banking can reduce
+  your regular operational costs as a bank.
 author: acarr
 image: "/uploads/open%20banking%20us_.png"
 ---

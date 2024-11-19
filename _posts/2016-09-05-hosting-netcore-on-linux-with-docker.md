@@ -5,7 +5,9 @@ categories:
 - Tech
 author: nsoper
 layout: default_post
-summary: This blog describes my experience of upgrading a basic RESTful API from .NET Core RC1 to .NET Core 1.0, and using Docker to host it on Linux.  Docker is completely new to me so I'll give my thoughts as a noob.
+summary: This blog describes my experience of upgrading a basic RESTful API from .NET
+  Core RC1 to .NET Core 1.0, and using Docker to host it on Linux.  Docker is completely
+  new to me so I'll give my thoughts as a noob.
 ---
 
 This post builds on my previous [introduction to .NET Core]({{site.baseurl}}/2016/01/20/restful-api-with-aspnet50.html). First I upgrade that RESTful API from .NET Core RC1 to .NET Core 1.0, then I add support for Docker and describe how to host it on Linux in a production environment.

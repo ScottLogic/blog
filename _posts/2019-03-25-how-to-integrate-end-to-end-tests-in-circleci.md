@@ -11,7 +11,8 @@ tags:
 - integration
 author: sladen
 layout: default_post
-summary: Adding a job can look intimidating, for an outsider. Here is how I approached this task to integrate my end to end tests into an existing workflow
+summary: Adding a job can look intimidating, for an outsider. Here is how I approached
+  this task to integrate my end to end tests into an existing workflow
 image: sladen/assets/circleCI.png
 ---
 

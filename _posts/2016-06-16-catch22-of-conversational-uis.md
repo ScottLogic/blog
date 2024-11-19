@@ -6,7 +6,9 @@ categories:
 author: godds
 image: godds/assets/featured/catch22-conversational.png
 layout: default_post
-summary: This blog post highlights an awkward problem in one of the key building blocks of an automated conversational UI and suggests a few strategies for how to deal with it.
+summary: This blog post highlights an awkward problem in one of the key building blocks
+  of an automated conversational UI and suggests a few strategies for how to deal
+  with it.
 ---
 
 The left-right-bubbles-with-text-input interface is universally intuitive (to smartphone users!) as the mechanism for conducting conversation through text.  With Facebook Messenger, iMessage, Skype and most other messaging apps all following in WeChat’s footsteps and opening their platforms to 3rd parties, many – [Scott Logic included](http://blog.scottlogic.com/2016/05/18/make-banking-talk.html) – are exploring how services and brands can meaningfully use conversational interactions with end users.  Conversational interfaces using voice, such as Siri, Amazon Echo, Cortana and Google Now are similarly following suit as ultimately their only real difference is the audio input/output compared to text.

@@ -5,7 +5,9 @@ categories:
 - Tech
 author: asureshkumar
 layout: default_post
-summary: In this post we look at X3D and how it offers a simple declarative approach for including 3D visualisations in web pages in a way that is supported by major browsers.
+summary: In this post we look at X3D and how it offers a simple declarative approach
+  for including 3D visualisations in web pages in a way that is supported by major
+  browsers.
 ---
 
 ## Introduction

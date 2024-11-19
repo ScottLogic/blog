@@ -13,7 +13,8 @@ author: efiennes
 contributors:
 - hwilliams
 layout: default_post
-summary: What is a WebSocket and how do you test it? Herb Williams and I have been looking into this for a while now. This is what we found out.
+summary: What is a WebSocket and how do you test it? Herb Williams and I have been
+  looking into this for a while now. This is what we found out.
 image: efiennes/assets/Sockets6.jpg
 ---
 

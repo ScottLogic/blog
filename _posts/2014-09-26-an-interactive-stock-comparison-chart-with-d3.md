@@ -5,7 +5,8 @@ categories:
 - Tech
 author: tsimmons
 title-short: A Comparison Chart with D3
-summary: Comparison charts, as their name suggests, are great for comparing the percentage price change of multiple stocks in time. In this post, we'll make one using D3.
+summary: Comparison charts, as their name suggests, are great for comparing the percentage
+  price change of multiple stocks in time. In this post, we'll make one using D3.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/09/26/an-interactive-stock-comparison-chart-with-d3.html
 disqus-id: "/2014/09/26/an-interactive-stock-comparison-chart-with-d3.html"

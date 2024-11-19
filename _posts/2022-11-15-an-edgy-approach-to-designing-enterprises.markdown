@@ -9,7 +9,9 @@ tags:
 - architecture
 - experience
 - Open Source
-summary: EDGY is a new graphical design language for visualising enterprises. This new open source design language shows great promise as a tool to bridge across siloed teams. This post explores the preview edition at a high level.
+summary: EDGY is a new graphical design language for visualising enterprises. This
+  new open source design language shows great promise as a tool to bridge across siloed
+  teams. This post explores the preview edition at a high level.
 author: ocronk
 ---
 

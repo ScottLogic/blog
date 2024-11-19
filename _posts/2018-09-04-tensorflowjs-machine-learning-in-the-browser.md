@@ -5,7 +5,9 @@ categories:
 - Tech
 author: wcaine
 title-short: 'TensorFlow.js: Machine Learning in the Browser'
-summary: The TensorFlow team have developed a JavaScript library for performing machine learning tasks in the browser. We take a look at some of its uses and discuss some of the problems encountered while working with it.
+summary: The TensorFlow team have developed a JavaScript library for performing machine
+  learning tasks in the browser. We take a look at some of its uses and discuss some
+  of the problems encountered while working with it.
 layout: default_post
 image: "/wcaine/assets/tfjs.png"
 ---

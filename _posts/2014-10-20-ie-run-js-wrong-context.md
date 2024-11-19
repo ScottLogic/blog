@@ -8,7 +8,10 @@ tags:
 - popup windows
 - JavaScript
 author: lpage
-summary: This is a blog post about IE and how it handles windows running code which interacts with each other. I've created a test case that shows IE combine together two stacks so that code runs in a context which, when looking at the source code, seems impossible.
+summary: This is a blog post about IE and how it handles windows running code which
+  interacts with each other. I've created a test case that shows IE combine together
+  two stacks so that code runs in a context which, when looking at the source code,
+  seems impossible.
 image: ''
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/10/20/ie-run-js-wrong-context.html

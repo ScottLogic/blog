@@ -11,7 +11,9 @@ tags:
 - Web
 author: bdimitrov-SL
 layout: default_post
-summary: There aren't many examples of OAuth2 working with a SAML 2.0 as an authentication method on the Internet. The purpose of this post is to provide a simple implementation of these two technologies working together.
+summary: There aren't many examples of OAuth2 working with a SAML 2.0 as an authentication
+  method on the Internet. The purpose of this post is to provide a simple implementation
+  of these two technologies working together.
 ---
 
 There aren't many examples of OAuth2 working with SAML 2.0 as an authentication method on the Internet. The purpose of this post is to provide a simple implementation of these two technologies working together.

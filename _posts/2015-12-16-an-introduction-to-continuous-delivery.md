@@ -7,7 +7,8 @@ tags:
 - DevOps
 - Continuous Delivery
 - Agile
-summary: This post explores continuous delivery within an agile context, and goes into detail about what it really means to be doing continuous delivery.
+summary: This post explores continuous delivery within an agile context, and goes
+  into detail about what it really means to be doing continuous delivery.
 author: mtinning
 layout: default_post
 ---

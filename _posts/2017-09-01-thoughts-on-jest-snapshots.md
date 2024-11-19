@@ -12,7 +12,10 @@ tags:
 - React
 author: janakerman
 layout: default_post
-summary: Jest is a testing framework that provides the testing tools we now expect to see in a modern software project. It provides fast parallelised test running, with a familiar assertion syntax, built in code coverage, Snapshots and more. In this post, I'll be investigating Snapshots and laying out some thoughts!
+summary: Jest is a testing framework that provides the testing tools we now expect
+  to see in a modern software project. It provides fast parallelised test running,
+  with a familiar assertion syntax, built in code coverage, Snapshots and more. In
+  this post, I'll be investigating Snapshots and laying out some thoughts!
 summary-short: Investigating Jest Snapshots
 ---
 

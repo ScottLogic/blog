@@ -10,7 +10,8 @@ tags:
 - Development
 author: imaxwell
 layout: default_post
-summary: Do you think Test Driven Development is simply writing the tests before you write the code?  If you do, then this post is for you.
+summary: Do you think Test Driven Development is simply writing the tests before you
+  write the code?  If you do, then this post is for you.
 ---
 
 Is Test Driven Development right for you?  That can be a hard question to answer if you don't fully understand what Test Driven Development is.  Worse still, you may think you know, but be labouring under misapprehensions.  Lets clear up some of that confusion.

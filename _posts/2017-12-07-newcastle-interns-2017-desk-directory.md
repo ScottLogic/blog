@@ -15,7 +15,11 @@ tags:
 author: jbrunton
 layout: default_post
 title-short: Desk Directory
-summary: As interns at the Newcastle office we were tasked with creating an interactive desk directory to allow new employees to better acquaint themselves with their building and colleagues, with the speculative goal of replacing the company-wide internal phone directory. The original brief specified we should present a graphical view of the office layout generated from an existing office plan stored in Google Sheets.
+summary: As interns at the Newcastle office we were tasked with creating an interactive
+  desk directory to allow new employees to better acquaint themselves with their building
+  and colleagues, with the speculative goal of replacing the company-wide internal
+  phone directory. The original brief specified we should present a graphical view
+  of the office layout generated from an existing office plan stored in Google Sheets.
 ---
 
 As interns at the Newcastle office we were tasked with creating an interactive desk directory to allow new employees to better acquaint themselves with their building and colleagues, with the speculative goal of replacing the company-wide internal phone directory. The original brief specified we should present a graphical view of the office layout generated from an existing office plan stored in Google Sheets.

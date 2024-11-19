@@ -14,7 +14,11 @@ tags:
 - Banks
 author: cyule
 layout: default_post
-summary: In order to make well-informed design decisions when it comes to the approach for cross-platform design, we need to first understand the subtleties and idioms of both platforms. With this knowledge we can define a cross-platform design strategy which should result in efficient design and development cycles and an effective app experience.
+summary: In order to make well-informed design decisions when it comes to the approach
+  for cross-platform design, we need to first understand the subtleties and idioms
+  of both platforms. With this knowledge we can define a cross-platform design strategy
+  which should result in efficient design and development cycles and an effective
+  app experience.
 image: cyule/assets/Monzo-Home.png
 ---
 

@@ -6,7 +6,8 @@ categories:
 tags:
 - testing
 - development
-summary: The dev-test hybrids are coming. This is a guide on what a hybrid is and how they can help you and your team.
+summary: The dev-test hybrids are coming. This is a guide on what a hybrid is and
+  how they can help you and your team.
 author: kclark
 image: "/uploads/the%20hybrids%20are%20coming.png"
 ---

@@ -14,7 +14,8 @@ tags:
 - events
 author: rhamilton
 title-short: R for Twitter Mining and Sentiment Analysis
-summary: How I used R to collect and analyse all of the tweets made about Test Bash Manchester, a recent software testing conference.
+summary: How I used R to collect and analyse all of the tweets made about Test Bash
+  Manchester, a recent software testing conference.
 image: rhamilton/assets/twitter.jpg
 layout: default_post
 ---

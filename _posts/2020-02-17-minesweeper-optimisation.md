@@ -10,8 +10,11 @@ tags:
 - javascript
 author: swaterman
 layout: default_post
-summary: After hearing about Svelte, a performance-first web framework, I tried it out in a web-based Minesweeper solver. SHOCKINGLY, it didn't automatically make my code fast - that took a process of iterative optimisation
-summary-short: Svelte is a performance-first web framework - but it doesn't automatically make your code fast. Optimisation does
+summary: After hearing about Svelte, a performance-first web framework, I tried it
+  out in a web-based Minesweeper solver. SHOCKINGLY, it didn't automatically make
+  my code fast - that took a process of iterative optimisation
+summary-short: Svelte is a performance-first web framework - but it doesn't automatically
+  make your code fast. Optimisation does
 image: swaterman/assets/minesweeper-optimisation/layers.jpg
 ---
 

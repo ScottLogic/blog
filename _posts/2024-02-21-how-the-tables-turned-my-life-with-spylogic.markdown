@@ -10,7 +10,8 @@ tags:
 - Artificial Intelligence
 - ChatGPT
 - Tester
-summary: Story narration inspired blog post on the process of manually testing chatbot AI.
+summary: Story narration inspired blog post on the process of manually testing chatbot
+  AI.
 author: kclark
 image: "/uploads/my%20life%20with%20spylogic.png"
 ---

@@ -11,7 +11,8 @@ tags:
 - testers
 author: rhamilton
 title-short: Help Your Testers Succeed in 8 Minutes
-summary: At the Agile North East Lightning Talks Competition I had 8 minutes to tell a room full of people how to help testers succeed.
+summary: At the Agile North East Lightning Talks Competition I had 8 minutes to tell
+  a room full of people how to help testers succeed.
 image: rhamilton/assets/passion.jpg
 layout: default_post
 ---

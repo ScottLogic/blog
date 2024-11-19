@@ -6,7 +6,9 @@ categories:
 tags:
 - featured
 author: nowen
-summary: Does npm 5 deprecate yarn? With promises of increased speed and consistent package versions yarn has a new competitor, but in this post I'll show the reasons for why, for the time being, I'll be sticking with yarn.
+summary: Does npm 5 deprecate yarn? With promises of increased speed and consistent
+  package versions yarn has a new competitor, but in this post I'll show the reasons
+  for why, for the time being, I'll be sticking with yarn.
 layout: default_post
 image: nowen/assets/featured/npm-yarn-benchmark-og.png
 ---

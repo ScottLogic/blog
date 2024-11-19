@@ -5,7 +5,9 @@ categories:
 - Resources
 author: acarr
 layout: default_post
-summary: Data lakes? Most Financial Service organisations either have one or are considering one. This white paper explains key considerations and a warning to help guide their creation or optimisation to fulfil its requirement
+summary: Data lakes? Most Financial Service organisations either have one or are considering
+  one. This white paper explains key considerations and a warning to help guide their
+  creation or optimisation to fulfil its requirement
 cta:
   link: http://blog.scottlogic.com/acarr/assets/data-lakes-white-paper.pdf
   text: Download the White Paper

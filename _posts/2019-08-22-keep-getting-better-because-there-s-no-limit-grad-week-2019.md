@@ -9,7 +9,8 @@ tags:
 - graduates
 author: pdykes
 layout: default_post
-summary: In this blog, we will introduce four of our new graduate colleagues as they share their experiences of their route into Scott Logic and how Grad Week has gone.
+summary: In this blog, we will introduce four of our new graduate colleagues as they
+  share their experiences of their route into Scott Logic and how Grad Week has gone.
 image: pdykes/assets/Grad%20Week%20blog%20images-1.jpg
 ---
 

@@ -15,7 +15,9 @@ tags:
 - PAYE
 - National
 - Insurance
-summary: The extension of IR35 tax reforms to the private sector has the potential to be highly disruptive. As I’ll explain here, it is vital to act now – and help is at hand.
+summary: The extension of IR35 tax reforms to the private sector has the potential
+  to be highly disruptive. As I’ll explain here, it is vital to act now – and help
+  is at hand.
 author: robsmith
 image: robsmith/assets/IR35-blog-image---exit-sign.jpg
 layout: default_post

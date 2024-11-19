@@ -7,7 +7,11 @@ tags:
 - Java
 author: sbreingan
 layout: default_post
-summary: Spring Boot applications have quickly become one of the most popular Java frameworks due to the speed and simplicity of creating production ready applications. Sometimes the world of Spring can be confusing - in this post I give an overview of some fundamentals of Spring, what Spring Boot is actually doing, and where to start if things go wrong.
+summary: Spring Boot applications have quickly become one of the most popular Java
+  frameworks due to the speed and simplicity of creating production ready applications.
+  Sometimes the world of Spring can be confusing - in this post I give an overview
+  of some fundamentals of Spring, what Spring Boot is actually doing, and where to
+  start if things go wrong.
 image: sbreingan/assets/springs.jpg
 ---
 

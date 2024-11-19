@@ -12,7 +12,10 @@ tags:
 - CI,
 author: hwilliams
 layout: default_post
-summary: Automation plays a crucial role in the execution of regression test suites. A Continuous Integration (CI) tool can run 100’s of tests as part of a build deployment pipeline. The CI tool proceeds through several steps until the pipeline is complete. Wonderful! - but what do we do if failing tests block your pipeline?
+summary: Automation plays a crucial role in the execution of regression test suites.
+  A Continuous Integration (CI) tool can run 100’s of tests as part of a build deployment
+  pipeline. The CI tool proceeds through several steps until the pipeline is complete.
+  Wonderful! - but what do we do if failing tests block your pipeline?
 image: hwilliams/assets/wile-coyote-fail.jpg
 ---
 

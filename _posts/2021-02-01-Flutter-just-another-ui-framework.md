@@ -14,7 +14,8 @@ tags:
 author: bquinn
 layout: default_post
 image: bquinn/assets/Flutter_logo.png
-summary: Flutter is a cross-platform mobile UI framework which allows you to  develop an app for Android and iOS with one codebase. But is it any good?
+summary: Flutter is a cross-platform mobile UI framework which allows you to  develop
+  an app for Android and iOS with one codebase. But is it any good?
 ---
 
 ![Flutter_logo_text.png]({{site.baseurl}}/bquinn/assets/Flutter_logo_text.png)

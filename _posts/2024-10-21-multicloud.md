@@ -3,7 +3,11 @@ title: Into The Multi-cloud
 date: 2024-10-21 00:00:00 Z
 categories:
 - Cloud
-summary: Cloud computing is a major part of modern day software development. Big cloud providers work hard to get your business and keep it but there is a school of thought which says we shouldn't put all our eggs in one cloud shaped basket. In this post I'll take a look at the concept of the multi-cloud and ask if it's something we should consider more often when designing software solutions.
+summary: Cloud computing is a major part of modern day software development. Big cloud
+  providers work hard to get your business and keep it but there is a school of thought
+  which says we shouldn't put all our eggs in one cloud shaped basket. In this post
+  I'll take a look at the concept of the multi-cloud and ask if it's something we
+  should consider more often when designing software solutions.
 author: dogle
 image: "/uploads/Into%20the%20multi-cloud.png"
 ---

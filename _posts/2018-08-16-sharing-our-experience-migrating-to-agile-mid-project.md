@@ -9,7 +9,9 @@ tags:
 - featured
 author: shunton
 layout: default_post
-summary: Sharing our experience of delivering a complex, technical project, and why we decided to switch to Agile (Scrum) mid-project to take control of the project delivery.
+summary: Sharing our experience of delivering a complex, technical project, and why
+  we decided to switch to Agile (Scrum) mid-project to take control of the project
+  delivery.
 image: shunton/assets/featured/migrate.jpg
 ---
 

@@ -5,7 +5,9 @@ categories:
 - Tech
 author: garora
 layout: default_post
-summary: The function console.log is a JS developer's best friend. In this post I explore the console API in greater detail to help you in your next big project, or help you mess around.
+summary: The function console.log is a JS developer's best friend. In this post I
+  explore the console API in greater detail to help you in your next big project,
+  or help you mess around.
 ---
 
 Modern browsers give us conditional breakpoints, the ability to step back in pure functions and a whole lot more. We used `console.log`! However, the `console` API offers a lot more. Let's find out what that "more" is.

@@ -5,7 +5,10 @@ categories:
 - Tech
 author: cprice
 layout: default_post
-summary: This post quickly introduces data join before moving on to some of the edge cases we've run into when building components on top of data join. It covers how you can solve them with vanilla D3 and why you might find our d3fc-data-join component useful.
+summary: This post quickly introduces data join before moving on to some of the edge
+  cases we've run into when building components on top of data join. It covers how
+  you can solve them with vanilla D3 and why you might find our d3fc-data-join component
+  useful.
 ---
 
 You can't build much with D3 without running into data joins. Whilst I found them initially cryptic, I've come to appreciate them as a simple but powerful primitive for binding data to the DOM. [Mike Bostock](https://twitter.com/mbostock) (the author of D3) has already created a number of tutorials on the subject, [Thinking with Joins](https://bost.ocks.org/mike/join/), The  [General Update Pattern](http://bl.ocks.org/mbostock/3808218) series and [Towards Reusable Charts](https://bost.ocks.org/mike/chart/) are definitely worth a read.

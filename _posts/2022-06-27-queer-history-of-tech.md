@@ -5,7 +5,8 @@ categories:
 - Tech
 author: bpritchard
 layout: default_post
-summary: A whistle-stop tour through some of the LGBTQ+ computer science pioneers ,the technology they created, and the impact they have had on modern computing.
+summary: A whistle-stop tour through some of the LGBTQ+ computer science pioneers
+  ,the technology they created, and the impact they have had on modern computing.
 ---
 
 Sometimes I forget that other LGBTQ+ people aren’t as loudly out as I am - it can be difficult to say ['Hello, World!'](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program) (sorry!). It says a lot about the culture of my workplace and the state of the general population that I can be fiercely, loudly out as a gay non-binary person and feel nothing but support from my colleagues. It’s easy for me, as a young person, to forget that it hasn’t always been like this. 

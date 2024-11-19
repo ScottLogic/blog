@@ -8,7 +8,10 @@ tags:
 - Artificial Intelligence
 - AI
 - Prompt Engineering
-summary: In this episode, I'm joined by my colleague, Oliver Cronk, and Chris Booth from NatWest for a lively discussion about the much-hyped ChatGPT – covering its origins and recent advances, the new discipline of prompt engineering, and some practical applications and limitations of this technology.
+summary: In this episode, I'm joined by my colleague, Oliver Cronk, and Chris Booth
+  from NatWest for a lively discussion about the much-hyped ChatGPT – covering its
+  origins and recent advances, the new discipline of prompt engineering, and some
+  practical applications and limitations of this technology.
 author: ceberhardt
 image: "/uploads/BeyondTheHype%20-%20blue%20and%20yellow%20-%20episode%209%20-%20social.png"
 ---

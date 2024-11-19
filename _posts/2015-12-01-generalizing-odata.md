@@ -8,7 +8,10 @@ tags:
 - odata
 author: tkelly
 layout: default_post
-summary: OData Controllers offer an easy interface between data and your application, but require one controller per model type. These controllers often have a large amount of almost identical code. In this blog post, we look at using C# Generics to remove this duplication.
+summary: OData Controllers offer an easy interface between data and your application,
+  but require one controller per model type. These controllers often have a large
+  amount of almost identical code. In this blog post, we look at using C# Generics
+  to remove this duplication.
 summary-short: Creating an OData Controller making use of Generics.
 ---
 

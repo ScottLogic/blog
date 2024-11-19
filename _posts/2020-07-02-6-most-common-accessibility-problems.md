@@ -10,7 +10,10 @@ tags:
 author: mstobbs
 layout: default_post
 image: mstobbs/assets/6-most-common-accessibility-problems/increase-colour-contrast.png
-summary: Accessibility is essential to provide a high-quality experience for all of your users. However, it can be easy for failures to slip into our applications. In this post, we'll look at the six most common accessibility problems and discuss why they matter and how they can be fixed.
+summary: Accessibility is essential to provide a high-quality experience for all of
+  your users. However, it can be easy for failures to slip into our applications.
+  In this post, we'll look at the six most common accessibility problems and discuss
+  why they matter and how they can be fixed.
 ---
 
 <style>

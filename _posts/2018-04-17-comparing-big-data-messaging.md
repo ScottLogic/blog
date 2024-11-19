@@ -7,7 +7,9 @@ tags:
 - featured
 author: acarr
 layout: default_post
-summary: Distributed log technologies have matured in the last few years.  In this article, I review the attributes of distributed log technologies, compare four of the most popular and suggest how to choose the one that's right for you.
+summary: Distributed log technologies have matured in the last few years.  In this
+  article, I review the attributes of distributed log technologies, compare four of
+  the most popular and suggest how to choose the one that's right for you.
 image: dnicholas/assets/featured/distributed.jpg
 ---
 

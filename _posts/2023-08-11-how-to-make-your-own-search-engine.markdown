@@ -29,7 +29,9 @@ tags:
 - encoding
 - TF-IDF
 - tokenization
-summary: Understand how Google and other search engines use LLMs to gain insights into the semantic meaning of the language in search queries using embedding and cosine similarity.
+summary: Understand how Google and other search engines use LLMs to gain insights
+  into the semantic meaning of the language in search queries using embedding and
+  cosine similarity.
 author: wboothclibborn
 image: "/uploads/LLM%20Thumbnail.png"
 ---

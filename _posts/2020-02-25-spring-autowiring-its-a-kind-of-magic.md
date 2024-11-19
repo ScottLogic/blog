@@ -8,7 +8,9 @@ tags:
 - spring
 - spring-boot
 author: pgraham
-summary: A series of posts exploring the things that Spring Boot does when it magically Autowires application dependencies. Is it really a kind of magic, or is there no such thing?
+summary: A series of posts exploring the things that Spring Boot does when it magically
+  Autowires application dependencies. Is it really a kind of magic, or is there no
+  such thing?
 summary-short: A detailed look at the reality of Spring Autowiring magic.
 layout: default_post
 ---

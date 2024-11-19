@@ -13,7 +13,9 @@ tags:
 - master
 author: fhubin
 layout: default_post
-summary: The first in a series of articles, in which we will explore the qualities and behaviours necessary to be an effective Scrum Master and why those qualities and behaviours are important in specific situations.
+summary: The first in a series of articles, in which we will explore the qualities
+  and behaviours necessary to be an effective Scrum Master and why those qualities
+  and behaviours are important in specific situations.
 ---
 
 In this series of articles, we will explore the qualities and behaviours necessary to be an effective Scrum Master and why those qualities and behaviours are important in specific situations.

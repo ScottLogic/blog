@@ -5,7 +5,11 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: WebAssembly, despite the name, is a universal runtime that is finding traction on a number of platforms beyond the web. In this blog post I explore just one example, the use of WebAssembly as a smart contract engine on the blockchain. This post looks at the creation of a simple meetup-style event with ticket allocation governed by a smart contract written in JavaScript.
+summary: WebAssembly, despite the name, is a universal runtime that is finding traction
+  on a number of platforms beyond the web. In this blog post I explore just one example,
+  the use of WebAssembly as a smart contract engine on the blockchain. This post looks
+  at the creation of a simple meetup-style event with ticket allocation governed by
+  a smart contract written in JavaScript.
 image: ceberhardt/assets/blockchain/finwasm-logo.png
 ---
 

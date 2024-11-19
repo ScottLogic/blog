@@ -5,9 +5,10 @@ categories:
 - Tech
 author: nwolverson
 layout: default_post
-summary: 'I show a simple use of the PostGIS Postgres database extension to combine route data from Strava and postcode data.
+summary: 'I show a simple use of the PostGIS Postgres database extension to combine
+  route data from Strava and postcode data.
 
-  '
+'
 ---
 
 ### The idea

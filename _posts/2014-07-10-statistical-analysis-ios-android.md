@@ -8,7 +8,9 @@ tags:
 author: ceberhardt
 title-short: A Comparison of the iOS and Android Stores
 image: ceberhardt/assets/featured/android-ios-stats.png
-summary: A few months ago I published a blog post which showed the results of analysing the meta-data of 75,000 apps from the iTunes App Store. This blog post continues the analysis by adding 60,000 Android apps into the mix.
+summary: A few months ago I published a blog post which showed the results of analysing
+  the meta-data of 75,000 apps from the iTunes App Store. This blog post continues
+  the analysis by adding 60,000 Android apps into the mix.
 summary-short: Comparing 75,000 iOS apps with 60,000 Android apps.
 layout: default_post
 originalArticleLink: http://www.shinobicontrols.com/blog/posts/2014/07/09/a-statistical-comparison-of-the-ios-and-android-stores

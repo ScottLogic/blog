@@ -5,7 +5,10 @@ categories:
 - Delivery
 author: robsmith
 layout: default_post
-summary: Since the Agile movement went mainstream towards the end of the last decade many organisations have invested heavily to “go Agile”.  People have been trained, Scrum Masters hired, tools purchased and whole change programmes executed. But what have we achieved and have the expectations for agility been met?
+summary: Since the Agile movement went mainstream towards the end of the last decade
+  many organisations have invested heavily to “go Agile”.  People have been trained,
+  Scrum Masters hired, tools purchased and whole change programmes executed. But what
+  have we achieved and have the expectations for agility been met?
 ---
 
 Earlier this week I met with one of our longest standing clients. Discussing her wider challenges she remarked, “We’ve been Agile now for about eight years and we’re not as Agile as we used to be. I don’t however know whether this is good or bad”. This type of question is not uncommon and I suspect the context is familiar to many organisations.

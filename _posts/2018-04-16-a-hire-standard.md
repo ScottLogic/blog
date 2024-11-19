@@ -11,7 +11,10 @@ tags:
 - learning
 author: efiennes
 layout: default_post
-summary: Thinking of applying to work with us as a tester? This is a post to help you work out if we are a good fit for you. We'll do this by telling you how we work out if you are a good fit for us. Hopefully this will be of interest to anyone trying to evaluate if the benefits we offer are in line with the environment they want.
+summary: Thinking of applying to work with us as a tester? This is a post to help
+  you work out if we are a good fit for you. We'll do this by telling you how we work
+  out if you are a good fit for us. Hopefully this will be of interest to anyone trying
+  to evaluate if the benefits we offer are in line with the environment they want.
 ---
 
 ### Our tester offering

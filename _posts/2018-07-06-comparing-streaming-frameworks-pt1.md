@@ -1,5 +1,6 @@
 ---
-title: Comparing Apache Spark, Storm, Flink and Samza stream processing engines - Part 1
+title: Comparing Apache Spark, Storm, Flink and Samza stream processing engines -
+  Part 1
 date: 2018-07-06 00:00:00 Z
 categories:
 - Data Engineering
@@ -7,7 +8,10 @@ author: acarr
 contributors:
 - aaspellc
 layout: default_post
-summary: Distributed stream processing engines have been on the rise in the last few years, first Hadoop became popular as a batch processing engine, then focus shifted towards stream processing engines. Stream processing engines can make the job of processing data that comes in via a stream easier than ever before.
+summary: Distributed stream processing engines have been on the rise in the last few
+  years, first Hadoop became popular as a batch processing engine, then focus shifted
+  towards stream processing engines. Stream processing engines can make the job of
+  processing data that comes in via a stream easier than ever before.
 image: aaspellc/assets/stream-processing.jpeg
 ---
 

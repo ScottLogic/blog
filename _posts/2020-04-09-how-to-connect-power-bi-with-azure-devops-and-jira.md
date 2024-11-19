@@ -10,7 +10,10 @@ tags:
 - Time
 author: jmelon
 layout: default_post
-summary: In this post, I am discussing my exploratory journey into Power BI and how to connect it to Azure DevOps and Jira so we can create more advanced analytics such as Cycle Time scatter plots and Cumulative Flow Diagrams. It is the short step-by-step tutorial that I would have liked to find on my own hunt for information on the topic.
+summary: In this post, I am discussing my exploratory journey into Power BI and how
+  to connect it to Azure DevOps and Jira so we can create more advanced analytics
+  such as Cycle Time scatter plots and Cumulative Flow Diagrams. It is the short step-by-step
+  tutorial that I would have liked to find on my own hunt for information on the topic.
 image: jmelon/assets/AD CT scatter plots with different x-axises.png
 ---
 

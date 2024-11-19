@@ -5,7 +5,11 @@ categories:
 - Tech
 author: cprice
 layout: default_post
-summary: This post demonstrates one way to add Selenium e2e tests to a `create-react-app` generated app. It uses Jest as the test runner, embraces modern JavaScript features (including async/await, modules, fat-arrow functions, templated strings, etc.) and attempts to ensure that modern editors are able to provide useful auto-complete suggestions when authoring tests.
+summary: This post demonstrates one way to add Selenium e2e tests to a `create-react-app`
+  generated app. It uses Jest as the test runner, embraces modern JavaScript features
+  (including async/await, modules, fat-arrow functions, templated strings, etc.) and
+  attempts to ensure that modern editors are able to provide useful auto-complete
+  suggestions when authoring tests.
 ---
 
 This post discusses one way to add Selenium e2e tests to a `create-react-app` generated app. It uses Jest as the test runner, embraces modern JavaScript features (including async/await, modules, fat-arrow functions, templated strings, etc.) and attempts to ensure that modern editors are able to provide useful auto-complete suggestions when authoring tests.

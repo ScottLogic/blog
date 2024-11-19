@@ -5,7 +5,11 @@ categories:
 - Tech
 author: cprice
 layout: default_post
-summary: In highly-visual, rapidly-updating, multi-window, buzzword-laden apps performance is a big concern. With WebWorkers, SharedWorkers and ServiceWorkers we have a number of options for moving complex scripting tasks off the critical path. However, rendering can be more of a dark art. In this post I'll dig into how one browser (Chromium) uses renderer processes and how you can use this knowledge to your advantage.
+summary: In highly-visual, rapidly-updating, multi-window, buzzword-laden apps performance
+  is a big concern. With WebWorkers, SharedWorkers and ServiceWorkers we have a number
+  of options for moving complex scripting tasks off the critical path. However, rendering
+  can be more of a dark art. In this post I'll dig into how one browser (Chromium)
+  uses renderer processes and how you can use this knowledge to your advantage.
 ---
 
 In highly-visual, rapidly-updating, multi-window, buzzword-laden apps performance is a big concern. With WebWorkers, SharedWorkers and ServiceWorkers we have a number of options for moving complex scripting tasks off the critical path. However, rendering can be more of a dark art. In this post I'll dig into how one browser (Chromium) uses renderer processes and how you can use this knowledge to your advantage.

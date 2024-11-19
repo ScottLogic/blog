@@ -10,7 +10,9 @@ tags:
 author: mwalker
 layout: default_post
 image: mwalker/assets/Jerome-Illgner-2.jpg
-summary: Jerome wanted an internship that would allow him to work on big, challenging projects and get on with real development work – at Scott Logic, he got what he wished for!
+summary: Jerome wanted an internship that would allow him to work on big, challenging
+  projects and get on with real development work – at Scott Logic, he got what he
+  wished for!
 ---
 
 ### How Jerome Illgner enjoyed his summer internship in our Edinburgh office.

@@ -9,7 +9,8 @@ tags:
 - DevOps
 - featured
 author: ddiep
-summary: Learn about what a data platform is and how it can translate enormous amounts of unstructured data into meaningful reports on your business operations.
+summary: Learn about what a data platform is and how it can translate enormous amounts
+  of unstructured data into meaningful reports on your business operations.
 layout: default_post
 ---
 

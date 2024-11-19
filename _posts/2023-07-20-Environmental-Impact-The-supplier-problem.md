@@ -4,7 +4,12 @@ date: 2023-07-20 00:00:00 Z
 categories:
 - People
 - Sustainability
-summary: Those involved in managing organisations' environmental impact often point to the 'supply chain challenge', that is, the difficulty of measuring the GHG emissions associated with suppliers' goods and services. But most businesses are themselves also suppliers, so if we're all waiting for our suppliers to answer the question before we can, then we're stuck in a deadlock. This post shares our first (probably imperfect) stab at trying to progress this issue.
+summary: Those involved in managing organisations' environmental impact often point
+  to the 'supply chain challenge', that is, the difficulty of measuring the GHG emissions
+  associated with suppliers' goods and services. But most businesses are themselves
+  also suppliers, so if we're all waiting for our suppliers to answer the question
+  before we can, then we're stuck in a deadlock. This post shares our first (probably
+  imperfect) stab at trying to progress this issue.
 author: godds
 Image: "/uploads/Environmental%20Impact%20blog.png"
 ---

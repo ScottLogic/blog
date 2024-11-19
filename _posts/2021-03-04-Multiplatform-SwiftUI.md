@@ -8,7 +8,9 @@ tags:
 - SwiftUI
 author: rgrey
 layout: default_post
-summary: An exploration of how to setup up a basic multi-platform SwiftUI project, including platform specific files, common files and conditionally compiled platform code.
+summary: An exploration of how to setup up a basic multi-platform SwiftUI project,
+  including platform specific files, common files and conditionally compiled platform
+  code.
 ---
 
 Most native application development tends to focus on the main  device families such as phones and tablets. Apple are introducing technologies that lower the complexity of supporting their additional platforms such as watchOS and tvOS. 

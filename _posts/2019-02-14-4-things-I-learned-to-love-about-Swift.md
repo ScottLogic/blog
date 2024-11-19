@@ -7,7 +7,9 @@ tags:
 - Swift
 author: mstobbs
 layout: default_post
-summary: When first learning to develop in Swift, there were many cases in which I would become frustrated at some of its unique features. However, the more I learned about Swift, the more I realised these features weren't so crazy after all.
+summary: When first learning to develop in Swift, there were many cases in which I
+  would become frustrated at some of its unique features. However, the more I learned
+  about Swift, the more I realised these features weren't so crazy after all.
 image: mstobbs/assets/apple-laptop.jpg
 ---
 

@@ -4,7 +4,9 @@ date: 2016-01-25 00:00:00 Z
 categories:
 - Data Engineering
 author: csmith
-summary: This post uses Docker Compose to spin up a three container HTTP server. One container services the HTTP requests and delegates work to two other containers in a load-balanced way. Erlang is used for development to add a bit of extra challenge!
+summary: This post uses Docker Compose to spin up a three container HTTP server. One
+  container services the HTTP requests and delegates work to two other containers
+  in a load-balanced way. Erlang is used for development to add a bit of extra challenge!
 layout: default_post
 ---
 

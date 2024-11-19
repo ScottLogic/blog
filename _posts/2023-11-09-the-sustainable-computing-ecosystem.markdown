@@ -8,7 +8,9 @@ tags:
 - sustainable software
 - Sustainability
 - Tech
-summary: Part of the Conscientious Computing series this blog talks about the emerging ecosystem of organisations that are promoting sustainability within software development, cloud computing, infrastructure, and digital services.
+summary: Part of the Conscientious Computing series this blog talks about the emerging
+  ecosystem of organisations that are promoting sustainability within software development,
+  cloud computing, infrastructure, and digital services.
 author: ocronk
 image: "/uploads/conscientous%20computing2.png"
 contributors: jhowlett

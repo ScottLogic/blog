@@ -12,7 +12,8 @@ tags:
 - Automation
 author: kday
 layout: default_post
-summary: This post discusses one way to add Playwright to a create-react-app generated app, and shows how easy it is to use for cross-browser UI automation.
+summary: This post discusses one way to add Playwright to a create-react-app generated
+  app, and shows how easy it is to use for cross-browser UI automation.
 ---
 
 Shortly after I finished writing my [previous post](https://blog.scottlogic.com/2020/01/22/react-app-puppeteer.html), the same team behind Puppeteer released [Playwright](https://github.com/microsoft/playwright), a similar Node library with two notable differences – it offers cross-browser functionality out of the box, and is from Microsoft, not Google.

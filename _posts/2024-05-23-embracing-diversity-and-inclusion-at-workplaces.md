@@ -5,7 +5,11 @@ categories:
 - People
 tags:
 - People
-summary: Embracing diversity and inclusion in workplaces is akin to using a multitude of colourful crayons to create vibrant and innovative solutions. In the dynamic realm of IT consultancy, diverse teams not only outperform homogeneous ones but also drive transformative change, making diversity and inclusion indispensable for success and industry leadership.
+summary: Embracing diversity and inclusion in workplaces is akin to using a multitude
+  of colourful crayons to create vibrant and innovative solutions. In the dynamic
+  realm of IT consultancy, diverse teams not only outperform homogeneous ones but
+  also drive transformative change, making diversity and inclusion indispensable for
+  success and industry leadership.
 author: snandal
 image: "/uploads/Embracing%20diversity%20and%20inclusion-728267.png"
 ---

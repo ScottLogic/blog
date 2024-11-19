@@ -8,7 +8,9 @@ tags:
 - ''
 - Summer
 - Internships
-summary: From his internship at Scott Logic, Harry was particularly keen to expand his skills and knowledge around web applications, and also get a real taste of what it’s like to build software for complex and demanding clients.
+summary: From his internship at Scott Logic, Harry was particularly keen to expand
+  his skills and knowledge around web applications, and also get a real taste of what
+  it’s like to build software for complex and demanding clients.
 author: mnicholson
 image: mnicholson/assets/Harry-Brooks.jpg
 layout: default_post

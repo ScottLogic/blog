@@ -6,7 +6,10 @@ categories:
 author: ceberhardt
 title-short: An Angular 2.0 Build
 layout: default_post
-summary: From my perspective Angular 2 is a great improvement over Angular 1. The framework is simpler, and as a result your code is more concise, making use of modern JavaScript concepts. However, this does come at a cost; with Angular 2 the required tooling is really quite complicated.
+summary: From my perspective Angular 2 is a great improvement over Angular 1. The
+  framework is simpler, and as a result your code is more concise, making use of modern
+  JavaScript concepts. However, this does come at a cost; with Angular 2 the required
+  tooling is really quite complicated.
 ---
 
 From my perspective Angular 2 is a great improvement over Angular 1. The framework is simpler, and as a result your code is more concise, making use of modern JavaScript concepts. However, this does come at a cost; with Angular 2 the required tooling is really quite complicated.

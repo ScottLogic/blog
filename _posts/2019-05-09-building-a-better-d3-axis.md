@@ -8,7 +8,10 @@ contributors:
 - ceberhardt
 layout: default_post
 image: alee/assets/new-d3fc-features/axis-screenshot.jpg
-summary: Recently we've been looking at enhancing the D3 axis component to implement a number of common features including more flexible label placement (e.g. positioning labels between ticks) and rotation / offset of labels to avoid collisions. This blog post demonstrates some of these features and how they were implemented.
+summary: Recently we've been looking at enhancing the D3 axis component to implement
+  a number of common features including more flexible label placement (e.g. positioning
+  labels between ticks) and rotation / offset of labels to avoid collisions. This
+  blog post demonstrates some of these features and how they were implemented.
 ---
 
 [D3](https://d3js.org/) is a popular and widely used library for creating bespoke visualisation. It has a relatively low-level API, allowing you to create a highly diverse range of data-driven graphics based on SVG elements and canvas. Our goal with [D3FC](https://d3fc.io/) is to make it easier to create conventional charts (i.e. cartesian charts), by extending the D3 vocabulary to include [series](https://d3fc.io/api/series-api.html), [annotations](https://d3fc.io/api/annotation-api.html) and of course [charts](https://d3fc.io/api/chart-api.html) themselves.

@@ -5,7 +5,11 @@ categories:
 - Resources
 author: ceberhardt
 layout: default_post
-summary: This white paper identifies the core building blocks that are required to build an integrated desktop application ecosystem using a combination of web and legacy technologies, looks at the associated challenges, and reviews the various open source and commercial products that form the foundations of this ecosystem of the future.
+summary: This white paper identifies the core building blocks that are required to
+  build an integrated desktop application ecosystem using a combination of web and
+  legacy technologies, looks at the associated challenges, and reviews the various
+  open source and commercial products that form the foundations of this ecosystem
+  of the future.
 cta:
   link: http://blog.scottlogic.com/ceberhardt/assets/white-papers/building-an-integrated-desktop-application-ecosystem.pdf
   text: Download the White Paper

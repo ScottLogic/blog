@@ -8,7 +8,10 @@ tags:
 - components
 author: jporter
 layout: default_post
-summary: This is part two of a series introducing Vue to developers who are new to the ecosystem and evaluating whether to include it in their next project. In this post we will look at Vue components but check out part one if you are looking for an initial overview.
+summary: This is part two of a series introducing Vue to developers who are new to
+  the ecosystem and evaluating whether to include it in their next project. In this
+  post we will look at Vue components but check out part one if you are looking for
+  an initial overview.
 ---
 
 This is part two of a series introducing Vue to developers who are new to the ecosystem and evaluating whether to include it in their next project. In this post we will look at Vue components, but check out [Part 1](https://blog.scottlogic.com/2020/09/18/to-rival-react-an-overvue.html) if you are looking for an initial overview. While Vue 3 has just been released, this post will focus on Vue 2 which is commonly used.

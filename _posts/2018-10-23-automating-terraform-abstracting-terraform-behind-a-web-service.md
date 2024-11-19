@@ -9,7 +9,9 @@ author: masmith
 contributors:
 - csalt
 layout: default_post
-summary: You may have heard of "Infrastructure as Code" - but have you heard of "Infrastructure as Code as a Service"?  We wanted to reliably and routinely set up hardware on demand as and when we needed it; this was our approach.
+summary: You may have heard of "Infrastructure as Code" - but have you heard of "Infrastructure
+  as Code as a Service"?  We wanted to reliably and routinely set up hardware on demand
+  as and when we needed it; this was our approach.
 image: ''
 ---
 

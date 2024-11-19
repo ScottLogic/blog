@@ -3,7 +3,11 @@ title: How AI may impact software architecture
 date: 2023-06-06 14:17:00 Z
 categories:
 - Artificial Intelligence
-summary: AI tools are being trialled in many areas including software development, with huge potential to transform ways of working. What might the impact of AI be on software architecture? In this post, I make some predictions and argue that software architecture may become more data-driven, with prototype architectures and architectural diagrams being generated from the actual code itself.
+summary: AI tools are being trialled in many areas including software development,
+  with huge potential to transform ways of working. What might the impact of AI be
+  on software architecture? In this post, I make some predictions and argue that software
+  architecture may become more data-driven, with prototype architectures and architectural
+  diagrams being generated from the actual code itself.
 author: acarr
 image: "/uploads/Scott-Logic---Andrew-Carr---How-AI-may-impact-solution-architecture.jpg"
 ---

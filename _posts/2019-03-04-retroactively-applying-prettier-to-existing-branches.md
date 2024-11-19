@@ -5,7 +5,9 @@ categories:
 - Tech
 author: rwilliams
 layout: default_post
-summary: Changes to code formatting tooling/policy can be painful to integrate with work-in-progress branches. Here's an approach to solving the situation quickly and easily using a single Git rebase command.
+summary: Changes to code formatting tooling/policy can be painful to integrate with
+  work-in-progress branches. Here's an approach to solving the situation quickly and
+  easily using a single Git rebase command.
 ---
 
 Changes to code formatting tooling/policy can be painful to integrate with work-in-progress on previously-created branches. Developers can expect a fair amount of conflicts to resolve before they can merge back to the main branch, because the formatting changes affect so many files and lines in the codebase. Avoiding the situation is likely impractical; there will almost always be some work-in-progress branches on a busy project.

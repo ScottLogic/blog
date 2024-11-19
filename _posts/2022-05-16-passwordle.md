@@ -5,7 +5,8 @@ categories:
 - Tech
 author: jbeckles
 layout: default_post
-summary: Ever wondered how to tell how strong your pasword is? This blog post explores this question using the popular Wordle puzzle game for context.
+summary: Ever wondered how to tell how strong your pasword is? This blog post explores
+  this question using the popular Wordle puzzle game for context.
 ---
 
 What does password strength have to do with [Wordle](https://www.nytimes.com/games/wordle/index.html)? For those who don't know, Wordle is a word-based puzzle game where you are given six chances to guess the five-letter word of the day. The main rules are as follows:

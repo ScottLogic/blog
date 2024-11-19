@@ -8,7 +8,11 @@ tags:
 - Grad Project
 - Grad Summit
 - Graduate Programme
-summary: After months of hard work, rattling lines of code away, time in meetings, questions, debates, pair programming, banging your head against the wall after hours spent on one elusive bug, new technologies, old technologies, refactoring, testing, polishing and then… the day arrives. Our grad project app is to be released into the wild, used by the very ones who created it.
+summary: After months of hard work, rattling lines of code away, time in meetings,
+  questions, debates, pair programming, banging your head against the wall after hours
+  spent on one elusive bug, new technologies, old technologies, refactoring, testing,
+  polishing and then… the day arrives. Our grad project app is to be released into
+  the wild, used by the very ones who created it.
 author: jwarren
 image: "/uploads/Scottlogic---Josh-Warren.jpg"
 ---

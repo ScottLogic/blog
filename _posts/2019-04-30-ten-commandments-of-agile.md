@@ -13,7 +13,10 @@ tags:
 author: pgraham
 layout: default_post
 image: pgraham/assets/foo.png
-summary: Adapted from a Lightning Talk this is a brief blog post visiting ten points about agile software development that people may recognise from their own experiences.  The aim is to inspire readers to focus on a specific improvements for their own agile teams.
+summary: Adapted from a Lightning Talk this is a brief blog post visiting ten points
+  about agile software development that people may recognise from their own experiences.  The
+  aim is to inspire readers to focus on a specific improvements for their own agile
+  teams.
 ---
 
 I recently entered a talk into a Lightning Talks competition for a local meetup - [Agile North East](https://www.meetup.com/Agile-North-East/).  My aim was to quickly visit ten points about agile software development that people in the audience would recognise from their own experiences.  I hoped that the points would resonate and inspire some of them to focus on a specific improvement for their own teams.  I hope that this blog post can do the same for those who read it.

@@ -5,7 +5,8 @@ categories:
 - Tech
 author: lpage
 layout: default_post
-summary: When it comes to coding style in JavaScript, what makes most sense - one var declaration, multiple at the start or scoped?
+summary: When it comes to coding style in JavaScript, what makes most sense - one
+  var declaration, multiple at the start or scoped?
 ---
 
 Anyone familiar with Crockford and jshint will be familiar with the onevar rule: all variables must be declared in a single var statement at the top of the file.

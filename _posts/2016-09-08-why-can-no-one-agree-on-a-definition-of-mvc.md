@@ -4,7 +4,9 @@ date: 2016-09-08 00:00:00 Z
 categories:
 - Tech
 author: jharris
-summary: If you look up the MVC pattern on the web you can easily find definitions that differ and contradict each other.  In this post I'll look at some definitions of MVC and consider what the differences mean for applying the pattern in practice.
+summary: If you look up the MVC pattern on the web you can easily find definitions
+  that differ and contradict each other.  In this post I'll look at some definitions
+  of MVC and consider what the differences mean for applying the pattern in practice.
 layout: default_post
 ---
 

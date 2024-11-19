@@ -5,7 +5,9 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: This post describes a binding helper that allows you to bind arrays directly to table views with ReactiveCocoa. In this update to my previous post, the helper is extended to support mutable arrays.
+summary: This post describes a binding helper that allows you to bind arrays directly
+  to table views with ReactiveCocoa. In this update to my previous post, the helper
+  is extended to support mutable arrays.
 oldlink: http://www.scottlogic.com/blog/2014/11/04/mutable-array-binding-reactivecocoa.html
 disqus-id: "/2014/11/04/mutable-array-binding-reactivecocoa.html"
 ---

@@ -12,7 +12,8 @@ tags:
 - featured
 author: rhamilton
 title-short: A snapshot of software testers in 2016
-summary: 'Continuing my research into Software Testers I examine how and why people are getting into testing careers and present a snapshot of testers in 2016 '
+summary: 'Continuing my research into Software Testers I examine how and why people
+  are getting into testing careers and present a snapshot of testers in 2016 '
 image: rhamilton/assets/featured/camera.jpg
 layout: default_post
 ---

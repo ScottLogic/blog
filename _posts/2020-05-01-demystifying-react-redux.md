@@ -10,7 +10,9 @@ tags:
 author: mstobbs
 layout: default_post
 image: mstobbs/assets/demystifying-react-redux/Provider%20Satellite.jpg
-summary: One of the most common complaints when someone starts learning React Redux is that it's too magic. In this post, we'll be pulling back the curtain on React Redux to discover how it really works.
+summary: One of the most common complaints when someone starts learning React Redux
+  is that it's too magic. In this post, we'll be pulling back the curtain on React
+  Redux to discover how it really works.
 ---
 
 Last year, the React team introduced Hooks - allowing many React features which were previously only accessible by class components to be available to functional components. While there was a high amount of praise and excitement for the release, there were also some complaints. One of the most common arguments was that they were too "magic".

@@ -5,7 +5,8 @@ categories:
 - Delivery
 author: tclarke-scottlogic
 layout: default_post
-summary: A discussion of how companies develop rules in line with the values they hold, and how to deal with situations where those rules obstruct you from your job.
+summary: A discussion of how companies develop rules in line with the values they
+  hold, and how to deal with situations where those rules obstruct you from your job.
 ---
 
 > LAFORGE: The tank can't withstand that kind of pressure. 

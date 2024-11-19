@@ -7,7 +7,10 @@ tags:
 - featured
 author: okenyon
 layout: default_post
-summary: Apache Kafka provides distributed log store used by increasing numbers of companies and often forming the heart of systems processing huge amounts of data. This post shows how to use it for storing meteorological data and displaying this in a graphical dashboard with Graphite and Grafana
+summary: Apache Kafka provides distributed log store used by increasing numbers of
+  companies and often forming the heart of systems processing huge amounts of data.
+  This post shows how to use it for storing meteorological data and displaying this
+  in a graphical dashboard with Graphite and Grafana
 image: okenyon/assets/featured/clouds.jpg
 ---
 

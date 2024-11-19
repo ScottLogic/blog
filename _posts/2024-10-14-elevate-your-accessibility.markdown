@@ -1,5 +1,6 @@
 ---
-title: Elevate Your Accessibility Testing - 10 Key Steps and 5 Inclusive Strategies to help you raise your game
+title: Elevate Your Accessibility Testing - 10 Key Steps and 5 Inclusive Strategies
+  to help you raise your game
 date: 2024-10-14 00:00:00 Z
 categories:
 - Testing
@@ -8,7 +9,9 @@ tags:
 - Inclusivity
 - Diversity
 - Usability
-summary: An overview of the essential points to look out for while testing for accessibility, resources for further learning, plus a couple of extra ways to look out for not just accessibility but also diversity issues in testing.
+summary: An overview of the essential points to look out for while testing for accessibility,
+  resources for further learning, plus a couple of extra ways to look out for not
+  just accessibility but also diversity issues in testing.
 author: kcoombes
 image: "/uploads/Elevate%20your%20accessibility.png"
 ---

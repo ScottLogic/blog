@@ -8,7 +8,8 @@ tags:
 - Automation
 - Regression
 - test-automation
-summary: 'A look at how building an automated regression test suite in the early days of a project will provide benefits further down the line. '
+summary: 'A look at how building an automated regression test suite in the early days
+  of a project will provide benefits further down the line. '
 author: tgilbert
 ---
 

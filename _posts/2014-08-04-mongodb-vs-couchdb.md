@@ -4,7 +4,9 @@ date: 2014-08-04 00:00:00 Z
 categories:
 - Tech
 author: dgorst
-summary: As part of a project I'm working on, I have a requirement for a NoSQL database. There are numerous offerings out there, of which MongoDB and CouchDB appear to be the most popular. So which system should I choose?
+summary: As part of a project I'm working on, I have a requirement for a NoSQL database.
+  There are numerous offerings out there, of which MongoDB and CouchDB appear to be
+  the most popular. So which system should I choose?
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/08/04/mongodb-vs-couchdb.html
 disqus-id: "/2014/08/04/mongodb-vs-couchdb.html"

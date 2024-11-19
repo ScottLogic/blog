@@ -5,7 +5,8 @@ categories:
 - Testing
 author: tclarke-scottlogic
 layout: default_post
-summary: Why do we write tests? When should we write tests? Which tests is it alright to skip? And have that angry mob of TDD developers actually achieved 100% test coverage?
+summary: Why do we write tests? When should we write tests? Which tests is it alright
+  to skip? And have that angry mob of TDD developers actually achieved 100% test coverage?
 ---
 
 This is, without question, the worst possible conversation a developer could have with a project sponsor near a deadline.

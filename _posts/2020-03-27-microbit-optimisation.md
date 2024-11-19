@@ -9,8 +9,11 @@ tags:
 - micro:bit
 author: swaterman
 layout: default_post
-summary: Some might say I pushed the Micro:Bit too far. This post is not for those people. If your Micro:Bit is also struggling, this post will show you how to optimise your code and push it further
-summary-short: How can we use Chrome's built-in JavaScript profiler to optimise our Micro:Bit JavaScript?
+summary: Some might say I pushed the Micro:Bit too far. This post is not for those
+  people. If your Micro:Bit is also struggling, this post will show you how to optimise
+  your code and push it further
+summary-short: How can we use Chrome's built-in JavaScript profiler to optimise our
+  Micro:Bit JavaScript?
 image: swaterman/assets/microbit-optimisation/testbench.png
 ---
 

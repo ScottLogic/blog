@@ -5,7 +5,10 @@ categories:
 - Delivery
 author: phughes
 layout: default_post
-summary: According to the power sector regulator, Ofgem, “The fastest route to NetZero is via data and digitalisation”. The endeavor of making energy data open presents a significant challenge — but power companies can take reassurance and learn valuable lessons from the success of the UK’s rapid implementation of Open Banking.
+summary: According to the power sector regulator, Ofgem, “The fastest route to NetZero
+  is via data and digitalisation”. The endeavor of making energy data open presents
+  a significant challenge — but power companies can take reassurance and learn valuable
+  lessons from the success of the UK’s rapid implementation of Open Banking.
 image: phughes/assets/energy-panel.png
 ---
 

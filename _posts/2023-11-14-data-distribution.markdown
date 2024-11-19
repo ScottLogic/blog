@@ -13,7 +13,9 @@ tags:
 - Distributed Log
 - Queue
 - Pub/Sub
-summary: This blog discusses the different ways we might choose to distribute data between services including queues and distributed log technologies and their relative strengths and weaknesses
+summary: This blog discusses the different ways we might choose to distribute data
+  between services including queues and distributed log technologies and their relative
+  strengths and weaknesses
 author: dhope
 image: "/uploads/data%20distri.png"
 ---

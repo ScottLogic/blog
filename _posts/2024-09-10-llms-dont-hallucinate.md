@@ -5,7 +5,8 @@ categories:
 - Artificial Intelligence
 tags:
 - Artificial Intelligence
-summary: Describing LLMs as 'hallucinating' fundamentally distorts how LLMs work. We can do better.
+summary: Describing LLMs as 'hallucinating' fundamentally distorts how LLMs work.
+  We can do better.
 author: jcarstairs
 image: "/uploads/LLMs%20dont%20hallucinate.png"
 layout: default_post

@@ -7,7 +7,9 @@ tags:
 - featured
 author: cakehurstryan
 layout: default_post
-summary: This year marked the kick-off of Scott Logic’s involvement in LGBTQ+ Pride Month activities around the company, involving people in activities and events that educated, stimulated conversations and raised £850.00 for local LGBTQ+ charities.
+summary: This year marked the kick-off of Scott Logic’s involvement in LGBTQ+ Pride
+  Month activities around the company, involving people in activities and events that
+  educated, stimulated conversations and raised £850.00 for local LGBTQ+ charities.
 image: cakehurstryan/assets/lgbt-work.jpeg
 ---
 

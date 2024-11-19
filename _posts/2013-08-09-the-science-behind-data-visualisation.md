@@ -10,7 +10,9 @@ tags:
 - featured
 author: godds
 image: godds/assets/featured/science-behind-visualisation.jpg
-summary: An outline of principles that will help you design more compelling data visualisations, from the respective strengths of various means for visually encoding values to the most appropriate patterns for conveying relationships.
+summary: An outline of principles that will help you design more compelling data visualisations,
+  from the respective strengths of various means for visually encoding values to the
+  most appropriate patterns for conveying relationships.
 summary-short: How to improve your data visualisations.
 layout: default_post
 source: site

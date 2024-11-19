@@ -5,7 +5,10 @@ categories:
 - Artificial Intelligence
 tags:
 - Open Source
-summary: In this blog, I describe creating InferGPT, a personalized chatbot, using Python, FastAPI, and React without the use of LangChain. Our backend handles complex queries with a multi-agent system and Neo4j database, aiming to provide tailored responses.
+summary: In this blog, I describe creating InferGPT, a personalized chatbot, using
+  Python, FastAPI, and React without the use of LangChain. Our backend handles complex
+  queries with a multi-agent system and Neo4j database, aiming to provide tailored
+  responses.
 author: hbedford
 image: "/uploads/Building%20a%20Multi%20Agent%20Chatbot%20Without%20LangChain_.png"
 layout: default_post

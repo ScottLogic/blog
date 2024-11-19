@@ -5,7 +5,12 @@ categories:
 - Tech
 author: rcaulcott-cooper
 layout: default_post
-summary: Every year Scott Logic takes on a number of interns who spend 12 weeks writing code, working on projects and having a great time in the offices. My name is Ruth, and along with Chris Barrett, I am an intern in the Newcastle office; and this summer we’ve been working on creating a real-time financial charting application. The application is built on top of Scott Logic’s own open source d3fc library, which itself is built upon the increasingly popular d3.js (Data driven documents) library for javascript.
+summary: Every year Scott Logic takes on a number of interns who spend 12 weeks writing
+  code, working on projects and having a great time in the offices. My name is Ruth,
+  and along with Chris Barrett, I am an intern in the Newcastle office; and this summer
+  we’ve been working on creating a real-time financial charting application. The application
+  is built on top of Scott Logic’s own open source d3fc library, which itself is built
+  upon the increasingly popular d3.js (Data driven documents) library for javascript.
 ---
 
 Every year Scott Logic takes on a number of interns who spend 12 weeks writing code, working on projects and having a great time in the offices. My name is Ruth, and along with Chris Barrett, I am an intern in the Newcastle office; and this summer we’ve been working on creating a real-time financial charting application. The application is built on top of Scott Logic’s own open source [d3fc](https://d3fc.io/) library, which itself is built upon the increasingly popular [d3.js](http://d3js.org/) (Data driven documents) library for javascript.

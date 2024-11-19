@@ -5,7 +5,11 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: Timezones, and daylight saving - the practice of moving clocks forward by one hour once a year - are a pain. They make it hard to schedule international meetings, plan travel, or may simply cause you to be an hour late for work once a year. For a developer, they are even worse! This blog post takes a visual journey through the last 120 years of timezones, daylight saving and the ever changing world time.
+summary: Timezones, and daylight saving - the practice of moving clocks forward by
+  one hour once a year - are a pain. They make it hard to schedule international meetings,
+  plan travel, or may simply cause you to be an hour late for work once a year. For
+  a developer, they are even worse! This blog post takes a visual journey through
+  the last 120 years of timezones, daylight saving and the ever changing world time.
 image: ceberhardt/assets/timezone/small-multiples.png
 ---
 

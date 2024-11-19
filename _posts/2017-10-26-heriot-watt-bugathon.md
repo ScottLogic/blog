@@ -9,7 +9,11 @@ tags:
 - Bugathon
 author: rrhodes
 layout: default_post
-summary: Following the success of Scott Logic's first Bugathon in Newcastle last March, members of the Edinburgh and Newcastle teams grouped together to organise another Bugathon at Heriot-Watt University's Edinburgh campus. Held on Wednesday, October 18th, this post gives an insight into the work carried out by Scott Logic to prepare and run the event.
+summary: Following the success of Scott Logic's first Bugathon in Newcastle last March,
+  members of the Edinburgh and Newcastle teams grouped together to organise another
+  Bugathon at Heriot-Watt University's Edinburgh campus. Held on Wednesday, October
+  18th, this post gives an insight into the work carried out by Scott Logic to prepare
+  and run the event.
 ---
 
 "What's a Bugathon?", I hear you ask. Perhaps Hackathons spring to mind? The two ideas share a common purpose - racing against the clock to complete a given challenge. However, unlike a Hackathon, you’re not aiming to build new software. Instead you're aiming to rigorously test existing software to find (and report) as many bugs as possible with the hope of winning a prize. Following the success of Scott Logic's first Bugathon in Newcastle earlier this year, members of the Edinburgh and Newcastle teams grouped together to plan a second Bugathon for Wednesday, October 18th, at Heriot-Watt University.

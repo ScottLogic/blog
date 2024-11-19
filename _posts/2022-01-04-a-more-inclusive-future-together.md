@@ -7,7 +7,11 @@ tags:
 - featured
 author: godds
 canonical_url: https://www.computing.co.uk/blog/4040785/inclusive-future
-summary: So many companies – including Scott Logic – have created ‘one-size-fits-all’ working practices and cultures that are based on a range of assumptions about what ‘fits', while excluding swathes of people. I’m determined that we tackle this issue, and in this blog post I share our journey so far towards being as inclusive an employer as possible.
+summary: So many companies – including Scott Logic – have created ‘one-size-fits-all’
+  working practices and cultures that are based on a range of assumptions about what
+  ‘fits', while excluding swathes of people. I’m determined that we tackle this issue,
+  and in this blog post I share our journey so far towards being as inclusive an employer
+  as possible.
 image: godds/assets/featured/more-inclusive-future.png
 layout: default_post
 short-author-aside: true

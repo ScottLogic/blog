@@ -4,7 +4,8 @@ date: 2014-11-10 00:00:00 Z
 categories:
 - Tech
 author: cgrant
-summary: Explaining the very basics of AVFoundation while building a Mac Application that stitches 3 .mov files together.
+summary: Explaining the very basics of AVFoundation while building a Mac Application
+  that stitches 3 .mov files together.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/11/10/Video-Stitching-With-AVFoundation.html
 disqus-id: "/2014/11/10/Video-Stitching-With-AVFoundation.html"

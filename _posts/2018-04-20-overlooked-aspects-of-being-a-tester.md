@@ -9,7 +9,8 @@ tags:
 - featured
 author: croberts
 layout: default_post
-summary: 'I will consider behaviours and characteristics that are sometimes under appreciated when defining what a good, or even great tester looks like. '
+summary: 'I will consider behaviours and characteristics that are sometimes under
+  appreciated when defining what a good, or even great tester looks like. '
 image: croberts/assets/brain.jpg
 ---
 

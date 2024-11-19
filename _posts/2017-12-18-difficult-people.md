@@ -3,7 +3,11 @@ title: Difficult People
 date: 2017-12-18 00:00:00 Z
 categories:
 - Delivery
-summary: In our professional work life we regularly come across difficult people we’d love to avoid, ignore or get away from - this is especially true if you are a consultant or contractor and work with so many different people. In reality however, we have to collaborate also with difficult people. In this article I want to look at the situations, types of people and some techniques that can help.
+summary: In our professional work life we regularly come across difficult people we’d
+  love to avoid, ignore or get away from - this is especially true if you are a consultant
+  or contractor and work with so many different people. In reality however, we have
+  to collaborate also with difficult people. In this article I want to look at the
+  situations, types of people and some techniques that can help.
 author: jmelon
 image: jmelon/assets/going_bananas.jpeg
 layout: default_post

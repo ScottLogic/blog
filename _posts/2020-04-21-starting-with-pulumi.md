@@ -11,7 +11,10 @@ tags:
 - Terraform
 author: awelsh
 layout: default_post
-summary: Pulumi is one of a number of newer IaC solutions, providing developers with real code for defining their infrastructure resources and services. This post assumes some prior knowledge of IaC concepts and technologies, particular Terraform and Serverless, along with CircleCI
+summary: Pulumi is one of a number of newer IaC solutions, providing developers with
+  real code for defining their infrastructure resources and services. This post assumes
+  some prior knowledge of IaC concepts and technologies, particular Terraform and
+  Serverless, along with CircleCI
 ---
 
 As [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_code) (IaC) has become more and more popular over recent times, there has always been that one aspect which has stood out to most developers - it hasn’t ever felt like real code. Offerings such as [Terraform](https://www.terraform.io/), for which you use HashiCorp's own Configuration Language (HCL), always come with another learning curve and result in a solution that feels disconnected from the product we are buliding.

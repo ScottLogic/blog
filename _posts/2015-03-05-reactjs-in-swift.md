@@ -5,7 +5,9 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: This blog post explores the novel approach taken by the React.js team, where the UI is expressed as a function of the current application state, and re-implements it with Swift.
+summary: This blog post explores the novel approach taken by the React.js team, where
+  the UI is expressed as a function of the current application state, and re-implements
+  it with Swift.
 ---
 
 This blog post explores the novel approach taken by the [React.js](http://facebook.github.io/react/) team, where the UI is expressed as a function of the current application state, and re-implements it with Swift.

@@ -4,7 +4,9 @@ date: 2020-12-14 00:00:00 Z
 categories:
 - Tech
 author: jdunkerley
-summary: As week 2 comes to a close on the Advent of Code, a look back at how the puzzles have been solved using BaseA by the community and me. The challenge has definitely increased this week!
+summary: As week 2 comes to a close on the Advent of Code, a look back at how the
+  puzzles have been solved using BaseA by the community and me. The challenge has
+  definitely increased this week!
 layout: default_post
 image: jdunkerley/assets/advent-2020-2/logo.jpg
 ---

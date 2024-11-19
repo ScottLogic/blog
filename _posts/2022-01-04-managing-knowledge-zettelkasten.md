@@ -5,7 +5,9 @@ categories:
 - Tech
 author: ebrown
 layout: default_post
-summary: There is a lot of information available to us, but we often just read and forget. Using a digital Zettelkasten is an effective way to store and make use of the things you learn.
+summary: There is a lot of information available to us, but we often just read and
+  forget. Using a digital Zettelkasten is an effective way to store and make use of
+  the things you learn.
 image: ebrown/assets/vscodefoam.webp
 ---
 

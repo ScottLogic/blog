@@ -10,7 +10,10 @@ tags:
 - Pandemic
 author: phughes
 layout: default_post
-summary: Those organisations who emerged stronger and more competitive from the 2008 global financial crisis are at it again. They have benefited significantly from past bold and decisive moves and now they are wasting no time adapting to the next version of the future. So what are the tenets of change this time?
+summary: Those organisations who emerged stronger and more competitive from the 2008
+  global financial crisis are at it again. They have benefited significantly from
+  past bold and decisive moves and now they are wasting no time adapting to the next
+  version of the future. So what are the tenets of change this time?
 image: phughes/assets/thefuture.jpg
 ---
 

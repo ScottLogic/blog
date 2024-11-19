@@ -4,7 +4,8 @@ date: 2021-09-28 00:00:00 Z
 categories:
 - UX Design
 author: aternar
-summary: This talk offers a taster of the vast world of Inclusive Design by exploring how understanding human diversity leads to the creation of better, more human products.
+summary: This talk offers a taster of the vast world of Inclusive Design by exploring
+  how understanding human diversity leads to the creation of better, more human products.
 layout: video_post
 video_url: https://www.youtube.com/embed/hnS4ftya7OQ
 short-author-aside: true

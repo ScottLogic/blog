@@ -5,7 +5,10 @@ categories:
 - Artificial Intelligence
 tags:
 - featured
-summary: It’s been over a year since I last blogged about OpenAI. Whilst DALL-E 2, ChatGPT and GPT4 have grabbed all of the headlines, there were a lot of other interesting things showing up on their blog in the background. This post runs through just over six months of progress from Sept 2021 - March 2022.
+summary: It’s been over a year since I last blogged about OpenAI. Whilst DALL-E 2,
+  ChatGPT and GPT4 have grabbed all of the headlines, there were a lot of other interesting
+  things showing up on their blog in the background. This post runs through just over
+  six months of progress from Sept 2021 - March 2022.
 author: cprice
 image: cprice/assets/never-ending-typewriter.png
 layout: default_post

@@ -5,7 +5,9 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: We've updated StockFlux, our OpenFin demo app, to make use of the recently-released OpenFin Layouts APIs. This blog post takes a quick look at the features we've added, and the APIs used.
+summary: We've updated StockFlux, our OpenFin demo app, to make use of the recently-released
+  OpenFin Layouts APIs. This blog post takes a quick look at the features we've added,
+  and the APIs used.
 contributors:
 - msuperina
 image: ceberhardt/assets/stockflux/stockflux.png

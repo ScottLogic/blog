@@ -9,7 +9,10 @@ tags:
 - Development
 author: phands
 layout: default_post
-summary: "“But we already do it in the codebase” is a statement most developers have heard as a reply to a question about some sub-optimal code. But is consistency worth the price of lower quality applications? Or is it an excuse used for a less virtuous approach?"
+summary: "“But we already do it in the codebase” is a statement most developers have
+  heard as a reply to a question about some sub-optimal code. But is consistency worth
+  the price of lower quality applications? Or is it an excuse used for a less virtuous
+  approach?"
 image: phands/assets/consistency-is-key.png
 ---
 

@@ -11,7 +11,10 @@ tags:
 - Keras
 author: amorgan
 layout: default_post
-summary: Recently I've been doing a bit of research on machine learning and particularly TensorFlow and Keras. This blog provides a brief introduction to the tech, and then a simple tutorial using both TensorFlow and Keras, exploring the differences between the two.
+summary: Recently I've been doing a bit of research on machine learning and particularly
+  TensorFlow and Keras. This blog provides a brief introduction to the tech, and then
+  a simple tutorial using both TensorFlow and Keras, exploring the differences between
+  the two.
 ---
 
 Recently I've been doing a bit of research on machine learning and particularly TensorFlow and Keras. I don't really have any prior experience of this field, and so far I've found that most of the resources I come across either look at these topics from quite a high level or just run through an example without explaining the steps. So I thought I'd write a blog post to help fill in the gap between those two.

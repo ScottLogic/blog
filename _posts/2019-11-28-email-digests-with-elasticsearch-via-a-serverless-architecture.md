@@ -5,7 +5,9 @@ categories:
 - Tech
 author: oforeman
 layout: default_post
-summary: An overview of the methods we used to create and deliver digests (emails containing information on a topic that users are subscribed to) using Elasticsearch and serverless architecture on AWS.
+summary: An overview of the methods we used to create and deliver digests (emails
+  containing information on a topic that users are subscribed to) using Elasticsearch
+  and serverless architecture on AWS.
 ---
 
 ## Overview

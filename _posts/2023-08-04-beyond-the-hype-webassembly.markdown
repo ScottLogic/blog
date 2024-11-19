@@ -12,7 +12,11 @@ tags:
 - Component Model
 - Adobe
 - Cosmonic
-summary: In this episode, I'm joined by Bailey Hayes from Cosmonic and Sean Isom from Adobe to go beyond the hype with WebAssembly. We start by discussing the early days of WebAssembly, and where it all began, in the browser. We debate the infamous tweet that compares WebAssembly to Docker, and look at the future promise of the Component Model, which aims to break down language barriers.
+summary: In this episode, I'm joined by Bailey Hayes from Cosmonic and Sean Isom from
+  Adobe to go beyond the hype with WebAssembly. We start by discussing the early days
+  of WebAssembly, and where it all began, in the browser. We debate the infamous tweet
+  that compares WebAssembly to Docker, and look at the future promise of the Component
+  Model, which aims to break down language barriers.
 author: ceberhardt
 image: "/uploads/BeyondTheHype%20-%20pink%20and%20yellow%20-%20episode%2013%20-%20social.png"
 ---

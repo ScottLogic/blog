@@ -4,7 +4,9 @@ date: 2017-06-13 00:00:00 Z
 categories:
 - UX Design
 author: godds
-summary: Why don't we adopt responsive design on the desktop? In this talk I demonstrate the power and fresh challenge of applying responsive design to desktop productivity applications.
+summary: Why don't we adopt responsive design on the desktop? In this talk I demonstrate
+  the power and fresh challenge of applying responsive design to desktop productivity
+  applications.
 layout: video_post
 video_url: https://www.youtube.com/embed/CjfuZWMps5k
 short-author-aside: true

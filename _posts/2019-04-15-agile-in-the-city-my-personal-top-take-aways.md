@@ -10,7 +10,9 @@ tags:
 - featured
 author: jmelon
 layout: default_post
-summary: After attending Agile in the City in Britain’s bustling capital for the first time I’d like to share my experience of the event together with a brief overview of my personal highlights and learnings.
+summary: After attending Agile in the City in Britain’s bustling capital for the first
+  time I’d like to share my experience of the event together with a brief overview
+  of my personal highlights and learnings.
 image: jmelon/assets/AgileLon_WereSupporting_MPU.jpg
 ---
 

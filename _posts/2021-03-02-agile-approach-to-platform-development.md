@@ -4,7 +4,11 @@ date: 2021-03-02 00:00:00 Z
 categories:
 - Delivery
 author: redwin
-summary: In this talk, Hugh Wallace, Transformation Lead at the Scottish Government, offers his insights on introducing and sustaining a new, agile approach to developing the Scottish Government's payments platform. I provide the supplier perspective on this partnership, drawing on Scott Logic’s experience of being delivery partner for the Scottish Government Payment Service.
+summary: In this talk, Hugh Wallace, Transformation Lead at the Scottish Government,
+  offers his insights on introducing and sustaining a new, agile approach to developing
+  the Scottish Government's payments platform. I provide the supplier perspective
+  on this partnership, drawing on Scott Logic’s experience of being delivery partner
+  for the Scottish Government Payment Service.
 layout: video_post
 video_url: https://www.youtube.com/embed/AXLrHVTQLX8
 short-author-aside: true

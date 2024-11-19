@@ -9,7 +9,9 @@ tags:
 - green technologies
 - climate change
 - climate catastrophe
-summary: In this post, I share the top things that resonated with me from the Reset Connect Conference 2023 and crucially some of the topics that I felt were missing – and that we at Scott Logic are actively researching and working on.
+summary: In this post, I share the top things that resonated with me from the Reset
+  Connect Conference 2023 and crucially some of the topics that I felt were missing
+  – and that we at Scott Logic are actively researching and working on.
 author: acaulfield
 ---
 

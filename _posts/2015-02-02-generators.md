@@ -4,7 +4,9 @@ date: 2015-02-02 00:00:00 Z
 categories:
 - Tech
 author: jbandenburg
-summary: The upcoming JavaScript standard ES6 introduces generators, which provides us with a new pattern for writing asynchronous code. I compare this pattern to the established patterns of callbacks and Promises.
+summary: The upcoming JavaScript standard ES6 introduces generators, which provides
+  us with a new pattern for writing asynchronous code. I compare this pattern to the
+  established patterns of callbacks and Promises.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2015/02/02/generators.html
 disqus-id: "/2015/02/02/generators.html"

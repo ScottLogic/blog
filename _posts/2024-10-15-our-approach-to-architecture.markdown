@@ -6,7 +6,10 @@ categories:
 tags:
 - architecture
 - principles
-summary: This is the first in a series of articles where we outline our approach to consultancy through the lens of principles we have honed through our experience delivering complex, mission-critical programmes. In this post, we define our approach to Architecture...
+summary: This is the first in a series of articles where we outline our approach to
+  consultancy through the lens of principles we have honed through our experience
+  delivering complex, mission-critical programmes. In this post, we define our approach
+  to Architecture...
 author: jheward
 image: "/uploads/Our%20approach%20to%20architecture-d04837.png"
 ---

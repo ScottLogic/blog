@@ -5,7 +5,10 @@ categories:
 - Tech
 author: awallis
 layout: default_post
-summary: The standard LDAP JNDI implementation that ships with Java leaks a classloader reference when used from a web application hosted in a web container. While Tomcat and Jetty both include factory-fitted workarounds, JBoss  does not. This post describes a JBoss-specific fix.
+summary: The standard LDAP JNDI implementation that ships with Java leaks a classloader
+  reference when used from a web application hosted in a web container. While Tomcat
+  and Jetty both include factory-fitted workarounds, JBoss  does not. This post describes
+  a JBoss-specific fix.
 ---
 
 I recently devoted some time to tracking down a couple of PermGen errors in a web application hosted on JBoss. After 

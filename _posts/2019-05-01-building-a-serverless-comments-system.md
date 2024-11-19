@@ -4,7 +4,9 @@ date: 2019-05-01 00:00:00 Z
 categories:
 - Cloud
 author: jwren
-summary: Comments systems appear across the web, I'll explain the process of using AWS' AppSync and DynamoDB to create a simple serverless version for use on a blog to provide a comment system that updates in real-time.
+summary: Comments systems appear across the web, I'll explain the process of using
+  AWS' AppSync and DynamoDB to create a simple serverless version for use on a blog
+  to provide a comment system that updates in real-time.
 layout: default_post
 ---
 

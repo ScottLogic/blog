@@ -1,10 +1,14 @@
 ---
-title: 'Data Mesh: What''s different about it, what it means to DWP, and how you might approach it yourselves'
+title: 'Data Mesh: What''s different about it, what it means to DWP, and how you might
+  approach it yourselves'
 date: 2021-03-05 00:00:00 Z
 categories:
 - Tech
 author: acarr
-summary: Data Mesh is an emerging architectural paradigm for big data that addresses the challenges inherent in the data lake and data warehouse approaches. In this talk, I define what it is, and Charlie Boundy, DWP Deputy Director and Head of Data Science, brings it to life through DWP's technology and data vision.
+summary: Data Mesh is an emerging architectural paradigm for big data that addresses
+  the challenges inherent in the data lake and data warehouse approaches. In this
+  talk, I define what it is, and Charlie Boundy, DWP Deputy Director and Head of Data
+  Science, brings it to life through DWP's technology and data vision.
 layout: video_post
 video_url: https://www.youtube.com/embed/fYsWnJPGEEI
 short-author-aside: true

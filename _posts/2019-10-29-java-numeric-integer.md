@@ -13,7 +13,10 @@ tags:
 - featured
 author: mamos
 layout: default_post
-summary: I am constantly amazed at how unfamiliar otherwise competent developers can be with numeric types. In a series of two blog posts I will explain what you need to know to understand the JVM's numeric types. This first installment covers the integer types.
+summary: I am constantly amazed at how unfamiliar otherwise competent developers can
+  be with numeric types. In a series of two blog posts I will explain what you need
+  to know to understand the JVM's numeric types. This first installment covers the
+  integer types.
 ---
 
 I am constantly amazed at how unfamiliar otherwise competent developers can be with numeric types. Without understanding the representation of numbers used by computers, developers cannot anticipate the issues that may arise and avoid them. Working on the JVM brings additional quirks to be careful of too.

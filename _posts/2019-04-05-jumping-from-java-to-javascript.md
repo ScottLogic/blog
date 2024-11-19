@@ -9,7 +9,9 @@ tags:
 - Development
 author: phands
 layout: default_post
-summary: A lot of developers start specialising in Javascript, and have an inherent fear of Java (I know I did!) In this blog post I look at a few tips to get over that initial fear and start coding in Java, from a Javascript background.
+summary: A lot of developers start specialising in Javascript, and have an inherent
+  fear of Java (I know I did!) In this blog post I look at a few tips to get over
+  that initial fear and start coding in Java, from a Javascript background.
 image: phands/assets/javascript-to-java.png
 ---
 

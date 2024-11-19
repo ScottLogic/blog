@@ -7,7 +7,11 @@ tags:
 - featured
 author: cmeehan
 layout: default_post
-summary: The popularity of Infrastructure as Code has skyrocketed in the last few years. Such tools allow the rapid and reliable provisioning of resources straight to the cloud, saving huge amounts of time and effort in the long run. One of the most prominent of these tools is Terraform, which this post will focus on, particularly with regards to AWS.
+summary: The popularity of Infrastructure as Code has skyrocketed in the last few
+  years. Such tools allow the rapid and reliable provisioning of resources straight
+  to the cloud, saving huge amounts of time and effort in the long run. One of the
+  most prominent of these tools is Terraform, which this post will focus on, particularly
+  with regards to AWS.
 image: cmeehan/assets/terraform.jpg
 ---
 

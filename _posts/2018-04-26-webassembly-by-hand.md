@@ -7,7 +7,10 @@ tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: WebAssembly is a new language for the web, although unlike JavaScript it's not a language you are expected to use directly. However, it is actually possible to write WebAssembly directly by hand and it turns out this is an educational and enjoyable process, which I will explore in this blog post.
+summary: WebAssembly is a new language for the web, although unlike JavaScript it's
+  not a language you are expected to use directly. However, it is actually possible
+  to write WebAssembly directly by hand and it turns out this is an educational and
+  enjoyable process, which I will explore in this blog post.
 image: ceberhardt/assets/featured/wasm.png
 ---
 

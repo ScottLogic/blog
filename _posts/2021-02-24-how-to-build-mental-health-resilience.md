@@ -13,7 +13,10 @@ tags:
 - lockdown
 author: lpisani
 layout: default_post
-summary: Resilience is the ability to adapt or recover from a range of issues, including trauma, burnout, and conflict. We do not always get to choose the situations we find ourselves in, but typically we get to choose what our response to those situations might be.
+summary: Resilience is the ability to adapt or recover from a range of issues, including
+  trauma, burnout, and conflict. We do not always get to choose the situations we
+  find ourselves in, but typically we get to choose what our response to those situations
+  might be.
 ---
 
 I’m sure you’ll agree that this third UK lockdown has been the hardest to endure. It’s not difficult to understand why. Even at the best of times, winter can be difficult for people. The joy we felt at the vaccine approvals has been tempered by the realities of how long they’ll take to roll out (even though an amazing rate is being achieved). And ultimately, we’re all really fed up by now of being locked down.

@@ -10,7 +10,8 @@ tags:
 - Testing
 author: croberts
 layout: default_post
-summary: System Integration Testing can often be very complex. This article aims to explore some of the common pitfalls of SIT and aid in preventing or overcoming these.
+summary: System Integration Testing can often be very complex. This article aims to
+  explore some of the common pitfalls of SIT and aid in preventing or overcoming these.
 image: ''
 ---
 

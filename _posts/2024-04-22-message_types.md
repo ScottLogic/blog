@@ -9,7 +9,9 @@ tags:
 - Event
 - State Transfer
 - Async command
-summary: This blog is about the different types of message you can put on systems like Rabbit MQ and Kafka. It discusses the differences between commands, events, state and gives a few tips around how to structure your messages.
+summary: This blog is about the different types of message you can put on systems
+  like Rabbit MQ and Kafka. It discusses the differences between commands, events,
+  state and gives a few tips around how to structure your messages.
 author: dhope
 image: "/uploads/Async%20APIs.png"
 ---

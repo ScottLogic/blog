@@ -9,7 +9,10 @@ tags:
 - ''
 - delivery
 - rescue
-summary: When a project goes off the rails, the question becomes how to get delivery back on track, or even whether to cancel the project entirely. Here at Scott Logic, we have many years of experience helping businesses to recover projects and I wanted to share some insights from that experience.
+summary: When a project goes off the rails, the question becomes how to get delivery
+  back on track, or even whether to cancel the project entirely. Here at Scott Logic,
+  we have many years of experience helping businesses to recover projects and I wanted
+  to share some insights from that experience.
 author: mphillips
 image: mphillips/assets/Project-Rescue-image.jpg
 layout: default_post

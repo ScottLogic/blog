@@ -4,7 +4,8 @@ date: 2020-05-18 00:00:00 Z
 categories:
 - Tech
 author: jdunkerley
-summary: In this post, we work through building up a cubic spline from first principles first in Python, and then converting the Python code into an Alteryx macro
+summary: In this post, we work through building up a cubic spline from first principles
+  first in Python, and then converting the Python code into an Alteryx macro
 layout: default_post
 image: jdunkerley/assets/spline/test_plot.png
 ---

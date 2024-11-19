@@ -5,7 +5,8 @@ categories:
 - Artificial Intelligence
 author: cprice
 layout: default_post
-summary: "...or what I should have known before I jumped in and started playing around. In this post I cover few shot learning and fine-tuning."
+summary: "...or what I should have known before I jumped in and started playing around.
+  In this post I cover few shot learning and fine-tuning."
 ---
 
 ...or what I should have known before I jumped in

@@ -5,7 +5,11 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: My previous blog post took a first look at ReactiveCocoa 3.0 (RC3), where I described the new Signal interface, and the pipe forward operator. In this blog post I continue my exploration of the RC3 APIs and turn my attention to signal producers. I also discuss a few points around the overall clarity of the new ReactiveCocoa APIs.
+summary: My previous blog post took a first look at ReactiveCocoa 3.0 (RC3), where
+  I described the new Signal interface, and the pipe forward operator. In this blog
+  post I continue my exploration of the RC3 APIs and turn my attention to signal producers.
+  I also discuss a few points around the overall clarity of the new ReactiveCocoa
+  APIs.
 ---
 
 My previous blog post [took a first look at ReactiveCocoa 3.0 (RC3)](http://blog.scottlogic.com/2015/04/24/first-look-reactive-cocoa-3.html), where I described the new `Signal` interface, and the pipe forward operator. In this blog post I continue my exploration of the RC3 APIs and turn my attention to signal producers. I also discuss a few points around the overall clarity of the new ReactiveCocoa APIs.

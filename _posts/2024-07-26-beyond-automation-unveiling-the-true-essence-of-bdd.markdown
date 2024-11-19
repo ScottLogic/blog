@@ -7,7 +7,14 @@ tags:
 - Testing
 - BDD
 - Blog
-summary: Many organisations mistakenly think Behaviour-Driven Development (BDD) is simply about writing test cases in Given-When-Then format or using test automation frameworks. While automation is a valuable by-product, the true essence of BDD lies in enhancing team collaboration and understanding business requirements. BDD includes three practices- discovery, formulation, and automation, with the discovery phase being foundational. Adhering to best practices ensures that BDD scenarios are clear, focused, and valuable, ultimately creating living documentation that accurately reflects the system's behaviour.
+summary: Many organisations mistakenly think Behaviour-Driven Development (BDD) is
+  simply about writing test cases in Given-When-Then format or using test automation
+  frameworks. While automation is a valuable by-product, the true essence of BDD lies
+  in enhancing team collaboration and understanding business requirements. BDD includes
+  three practices- discovery, formulation, and automation, with the discovery phase
+  being foundational. Adhering to best practices ensures that BDD scenarios are clear,
+  focused, and valuable, ultimately creating living documentation that accurately
+  reflects the system's behaviour.
 author: xchen
 image: "/uploads/Beyond%20automation%20thumbnail.png"
 ---

@@ -9,7 +9,9 @@ tags:
 - featured
 author: cmcormack
 layout: default_post
-summary: It negatively affects all of us mentally and physiologically, yet we seem unable to stop. But are we really doomed to increasingly crumble under the weight of our workload, or can we change our ways to fit the agile world?
+summary: It negatively affects all of us mentally and physiologically, yet we seem
+  unable to stop. But are we really doomed to increasingly crumble under the weight
+  of our workload, or can we change our ways to fit the agile world?
 image: cmcormack/assets/tenor.gif
 ---
 

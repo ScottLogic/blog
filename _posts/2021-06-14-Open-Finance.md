@@ -4,7 +4,9 @@ date: 2021-06-14 00:00:00 Z
 categories:
 - Tech
 author: nbetts
-summary: In this talk, I delve further into the proposed transition from Open Banking to Open Finance, discussing some of the possible opportunities and challenges on the journey.
+summary: In this talk, I delve further into the proposed transition from Open Banking
+  to Open Finance, discussing some of the possible opportunities and challenges on
+  the journey.
 layout: video_post
 video_url: https://www.youtube.com/embed/c5-GvBWdvC0
 short-author-aside: true

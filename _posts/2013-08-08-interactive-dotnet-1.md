@@ -8,7 +8,8 @@ tags:
 author: nwolverson
 layout: default_post
 source: site
-summary: In the first part of a series on running an interactive environment (REPL) on .NET, I talk a little about why you might want one, and cover the non-C# options.
+summary: In the first part of a series on running an interactive environment (REPL)
+  on .NET, I talk a little about why you might want one, and cover the non-C# options.
 oldlink: http://www.scottlogic.com/blog/2013/08/08/interactive-dotnet-1.html
 disqus-id: "/2013/08/08/interactive-dotnet-1.html"
 ---

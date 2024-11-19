@@ -11,7 +11,9 @@ tags:
 - chat
 - problems
 author: dmcnamee
-summary: For businesses that are transforming their development practices, testing, as ever is either overlooked, or the last thing to get a makeover. So how do you go about providing real value with changes to your testing practices.
+summary: For businesses that are transforming their development practices, testing,
+  as ever is either overlooked, or the last thing to get a makeover. So how do you
+  go about providing real value with changes to your testing practices.
 image: dmcnamee/assets/transform-flowers.jpg
 layout: default_post
 ---

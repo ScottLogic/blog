@@ -5,7 +5,9 @@ categories:
 - Sustainability
 tags:
 - Sustainability
-summary: This is the first of a series of blog posts that examine the various methods of measuring carbon emissions on end-user devices. In this post, we take a closer look at the Sustainable Web Design Methodology.
+summary: This is the first of a series of blog posts that examine the various methods
+  of measuring carbon emissions on end-user devices. In this post, we take a closer
+  look at the Sustainable Web Design Methodology.
 author: drees
 ---
 

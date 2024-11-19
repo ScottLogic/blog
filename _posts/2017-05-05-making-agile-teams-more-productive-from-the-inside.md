@@ -4,7 +4,9 @@ date: 2017-05-05 00:00:00 Z
 categories:
 - Delivery
 author: bjedrzejewski
-summary: It is a great joy to be a member of a productive team that delivers exceptional value. In this blog post I will share things that developers can be doing to make that happen. Ideas presented are funded in Agile principles and Lean manufacturing.
+summary: It is a great joy to be a member of a productive team that delivers exceptional
+  value. In this blog post I will share things that developers can be doing to make
+  that happen. Ideas presented are funded in Agile principles and Lean manufacturing.
 layout: default_post
 ---
 

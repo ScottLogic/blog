@@ -4,7 +4,10 @@ date: 2018-04-30 00:00:00 Z
 categories:
 - Tech
 author: bjedrzejewski
-summary: It seems that everyone is trying to build a microservices based system these days. Some of those attempts succeed when others fail miserably. In this article, I will look at one thing that often connects the winners- the use of DevOps practices and culture.
+summary: It seems that everyone is trying to build a microservices based system these
+  days. Some of those attempts succeed when others fail miserably. In this article,
+  I will look at one thing that often connects the winners- the use of DevOps practices
+  and culture.
 layout: default_post
 ---
 

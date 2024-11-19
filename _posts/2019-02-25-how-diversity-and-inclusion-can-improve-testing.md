@@ -7,7 +7,9 @@ tags:
 - featured
 author: cakehurstryan
 layout: default_post
-summary: As we become increasingly technical as testers we run the risk of joining an engineering monoculture. Diversity of thought and people within teams can help to address that and allow us to improve quality.
+summary: As we become increasingly technical as testers we run the risk of joining
+  an engineering monoculture. Diversity of thought and people within teams can help
+  to address that and allow us to improve quality.
 image: cakehurstryan/assets/Gummy.jpg
 ---
 

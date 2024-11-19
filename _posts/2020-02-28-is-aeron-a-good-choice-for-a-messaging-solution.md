@@ -5,7 +5,8 @@ categories:
 - Tech
 author: imaxwell
 layout: default_post
-summary: A look at the design principals behind the Aeron messaging system and the consequences on its suitability for Scott Logic's purposes.
+summary: A look at the design principals behind the Aeron messaging system and the
+  consequences on its suitability for Scott Logic's purposes.
 ---
 
 # Is Aeron a Good Choice for a Messaging Solution

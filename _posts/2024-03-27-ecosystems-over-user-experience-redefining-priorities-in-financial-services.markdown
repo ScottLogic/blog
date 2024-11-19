@@ -22,7 +22,8 @@ tags:
 - customer research
 - value proposition
 - Digital
-summary: Observations on an industry shift towards building partner ecosystems for personalised, differentiated customer value propositions.
+summary: Observations on an industry shift towards building partner ecosystems for
+  personalised, differentiated customer value propositions.
 author: dtitterton
 image: "/uploads/ecosystems%20over%20ux.png"
 ---

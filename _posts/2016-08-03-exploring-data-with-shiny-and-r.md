@@ -12,7 +12,9 @@ tags:
 - data
 author: rhamilton
 title-short: Exploring Data With R and Shiny
-summary: I developed a web application to enable exploration of the data collected by a survey of software testers. I explain how R and Shiny can be used to create reactive web applications which make data accessible to a wider audience.
+summary: I developed a web application to enable exploration of the data collected
+  by a survey of software testers. I explain how R and Shiny can be used to create
+  reactive web applications which make data accessible to a wider audience.
 image: rhamilton/assets/bubbles.jpg
 layout: default_post
 ---

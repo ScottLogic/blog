@@ -7,7 +7,8 @@ tags:
 - Agile
 author: shogarth
 layout: default_post
-summary: Agile is a thing that you are, not a thing that you do, or buy. We can't treat Agile as an off the shelf product. Focus on promoting agility.
+summary: Agile is a thing that you are, not a thing that you do, or buy. We can't
+  treat Agile as an off the shelf product. Focus on promoting agility.
 ---
 
 [It occurred to me](https://twitter.com/samhogy/status/1114100347201626112) that the Agile Manifesto turned 18 this year, making it old enough to drink in pubs in the UK. That's quite a long time. In all honesty, how do you think it's going?

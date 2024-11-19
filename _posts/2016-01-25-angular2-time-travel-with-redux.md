@@ -5,7 +5,10 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: This post looks at integrating Angular 2 with Immutable.js and Redux, a popular Flux store implementation. It also demonstrates that the functional approach, encouraged by these technologies, allow for powerful concepts such as time travel, where you can replay actions and application state.
+summary: This post looks at integrating Angular 2 with Immutable.js and Redux, a popular
+  Flux store implementation. It also demonstrates that the functional approach, encouraged
+  by these technologies, allow for powerful concepts such as time travel, where you
+  can replay actions and application state.
 ---
 
 This post looks at integrating Angular 2 with Immutable.js and Redux, a popular Flux store implementation. It also demonstrates that the functional approach, encouraged by these technologies, allow for powerful concepts such as time travel, where you can replay actions and application state.

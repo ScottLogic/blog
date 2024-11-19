@@ -9,7 +9,11 @@ tags:
 - data
 author: csalt
 layout: default_post
-summary: Regular expressions are very powerful, but something that many developers are wary of using&mdash;they have a reputation of being difficult to understand.  If you appreciate their underlying principles, you can understand them better, and if your code takes advantage of this, you may be able to refactor them into a more readable form.
+summary: Regular expressions are very powerful, but something that many developers
+  are wary of using&mdash;they have a reputation of being difficult to understand.  If
+  you appreciate their underlying principles, you can understand them better, and
+  if your code takes advantage of this, you may be able to refactor them into a more
+  readable form.
 ---
 
 Regular expressions are a key feature of many languages and text-processing systems, but are also something that many developers are uncomfortable using.  They have a reputation for being difficult to understand unless you are an expert, so that complex expressions effectively become "write-only code".  There is a well-known quote attributed to [Jamie Zawinski](https://jwz.org/) over twenty years ago, that 'some people, when confronted with a problem, think "I know, I'll use regular expressions." Now they have two problems.'  However much interactive tools like [RegExr](https://regexr.com/) help, there are still many developers who think regular expressions are unmaintainable, or even a code smell.

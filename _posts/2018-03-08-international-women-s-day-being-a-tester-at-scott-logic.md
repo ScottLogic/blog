@@ -10,7 +10,8 @@ tags:
 - Day
 author: lramchandani
 layout: default_post
-summary: This blog is based on my experience as a tester and how I got into testing. Furthermore, the blog explains my time at Scott Logic so far.
+summary: This blog is based on my experience as a tester and how I got into testing.
+  Furthermore, the blog explains my time at Scott Logic so far.
 image: ''
 ---
 

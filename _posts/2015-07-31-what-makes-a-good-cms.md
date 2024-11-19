@@ -5,7 +5,8 @@ categories:
 - Tech
 author: isullivan
 layout: default_post
-summary: Code quality is important in large systems and web sites are no exception. This post shows how Umbraco enables developers to write clean and maintainable code.
+summary: Code quality is important in large systems and web sites are no exception.
+  This post shows how Umbraco enables developers to write clean and maintainable code.
 disqus-id: "/2015/07/31/what-makes-a-good-cms.html"
 ---
 

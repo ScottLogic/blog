@@ -6,7 +6,8 @@ categories:
 tags:
 - accessibility
 - Artificial Intelligence
-summary: This blog series reports on our R&D project exploring the potential of LLMs to enhance accessibility testing.
+summary: This blog series reports on our R&D project exploring the potential of LLMs
+  to enhance accessibility testing.
 author: rvango
 image: "/uploads/llms%20accessibility.png"
 ---

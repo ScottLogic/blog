@@ -4,7 +4,9 @@ date: 2019-05-31 00:00:00 Z
 categories:
 - Tech
 author: jwren
-summary: React and Vue are two popular web application frameworks aimed to make developing user interfaces easier. This post summarises a few of the similarities and differences between them I found after using both.
+summary: React and Vue are two popular web application frameworks aimed to make developing
+  user interfaces easier. This post summarises a few of the similarities and differences
+  between them I found after using both.
 layout: default_post
 ---
 

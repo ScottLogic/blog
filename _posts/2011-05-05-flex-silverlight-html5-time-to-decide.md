@@ -12,7 +12,10 @@ disqus-id: "/blog/colin/2011/05/flex-silverlight-html5-time-to-decide/"
 cta:
   link: http://blog.scottlogic.com/ceberhardt/assets/white-papers/flex-silverlight-html5.pdf
   text: Download the White Paper
-summary: When meeting current and prospective clients the subject of web technology choice often arises. There has been a great deal of confusion and uncertainty out there, even before Microsoft's perceived change of stance with respect to Silverlight emerged.
+summary: When meeting current and prospective clients the subject of web technology
+  choice often arises. There has been a great deal of confusion and uncertainty out
+  there, even before Microsoft's perceived change of stance with respect to Silverlight
+  emerged.
 ---
 
 When meeting current and prospective clients the subject of web technology choice often arises. There has been a great deal of confusion and uncertainty out there, even before Microsoft's perceived change of stance with respect to Silverlight emerged.

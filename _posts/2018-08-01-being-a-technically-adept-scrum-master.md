@@ -10,7 +10,9 @@ tags:
 - DevOps
 author: phands
 layout: default_post
-summary: Being a scrum master from a technical background, resisting the appeal of being a more technical team member, can be tricky. In this article, I weight up the pros and cons of technical scrum masters, and some pitfalls to try and avoid
+summary: Being a scrum master from a technical background, resisting the appeal of
+  being a more technical team member, can be tricky. In this article, I weight up
+  the pros and cons of technical scrum masters, and some pitfalls to try and avoid
 ---
 
 ## How to be a Technically Adept Scrum Master without being a Developer

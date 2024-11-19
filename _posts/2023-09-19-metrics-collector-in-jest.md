@@ -7,7 +7,9 @@ categories:
 tags:
 - testing
 - jest
-summary: Discover how to streamline metrics collection in Jest test suites using a centralized 'metricsCollector' utility, simplifying test maintenance and enhancing data-driven testing practices.
+summary: Discover how to streamline metrics collection in Jest test suites using a
+  centralized 'metricsCollector' utility, simplifying test maintenance and enhancing
+  data-driven testing practices.
 author: gsingh
 image: "/uploads/optimising%20test%20suite%20metrics.png"
 ---

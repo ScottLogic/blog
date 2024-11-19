@@ -4,7 +4,8 @@ date: 2014-01-29 00:00:00 Z
 categories:
 - Tech
 author: ceberhardt
-summary: The book, iOS 7 By Tutorials, which I contributed four chapters to, is now in print.
+summary: The book, iOS 7 By Tutorials, which I contributed four chapters to, is now
+  in print.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/01/29/ios7-by-tutorials-in-print.html
 disqus-id: "/2014/01/29/ios7-by-tutorials-in-print.html"

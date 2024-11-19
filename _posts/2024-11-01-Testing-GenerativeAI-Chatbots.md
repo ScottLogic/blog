@@ -6,7 +6,12 @@ categories:
 tags:
 - Testing
 - Artificial Intelligence
-summary: In the fast-changing world of digital technology, GenAI systems have emerged as revolutionary tools for businesses and individuals. As these intelligent systems become a bigger part of our lives, it is important to understand their functionality and to ensure their effectiveness. In this blog post, we will discuss how we can make sure that our Gen AI-powered systems are not only working properly but are also efficient and easy to use. 
+summary: In the fast-changing world of digital technology, GenAI systems have emerged
+  as revolutionary tools for businesses and individuals. As these intelligent systems
+  become a bigger part of our lives, it is important to understand their functionality
+  and to ensure their effectiveness. In this blog post, we will discuss how we can
+  make sure that our Gen AI-powered systems are not only working properly but are
+  also efficient and easy to use. 
 author: snandal
 image: "{{ site.github.url }}/uploads/Testing%20GenarativeAI%20Chatbots.png"
 ---

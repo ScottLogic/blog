@@ -5,7 +5,9 @@ categories:
 - Testing
 author: pkhan
 layout: default_post
-summary: 'Agile transformation is challenging, especially for testers who are accustomed to working in a silo. This blog is my own story during transitioning from waterfall to agile. It is about what to expect as tester when you start working in Agile!!!  '
+summary: 'Agile transformation is challenging, especially for testers who are accustomed
+  to working in a silo. This blog is my own story during transitioning from waterfall
+  to agile. It is about what to expect as tester when you start working in Agile!!!  '
 image: psultana/asset/Parveen.png
 ---
 

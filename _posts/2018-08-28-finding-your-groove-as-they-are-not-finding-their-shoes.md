@@ -9,7 +9,10 @@ tags:
 - featured
 author: efiennes
 layout: default_post
-summary: When my off-spring were younger and needed me more, I struggled to find the time to learn, I struggled to work out what to learn and I struggled with how to break it down to make it manageable. This is the article I wish I had been able to find and read all those years ago for anyone going through that frustration today.
+summary: When my off-spring were younger and needed me more, I struggled to find the
+  time to learn, I struggled to work out what to learn and I struggled with how to
+  break it down to make it manageable. This is the article I wish I had been able
+  to find and read all those years ago for anyone going through that frustration today.
 image: efiennes/assets/groove.jpg
 ---
 

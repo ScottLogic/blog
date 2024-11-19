@@ -7,7 +7,8 @@ tags:
 - accessibility
 - automation
 - testing
-summary: Want to make sure your application is accessible? Here are some different ways you can use your automated tests to make sure.
+summary: Want to make sure your application is accessible? Here are some different
+  ways you can use your automated tests to make sure.
 author: wmckenzie
 image: "/uploads/Will%20it%20automate_%20thumbnail.png"
 ---

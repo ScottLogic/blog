@@ -7,7 +7,8 @@ author: rdoyle
 title-short: Akka, Scala and the Mandelbrot Set
 layout: default_post
 image: rdoyle/assets/featured/mandelbrot.jpg
-summary: Actor Models make writing concurrent and scalable software much easier. This post uses Akka and Scala to demonstrate some of the benefits of the Actor model.
+summary: Actor Models make writing concurrent and scalable software much easier. This
+  post uses Akka and Scala to demonstrate some of the benefits of the Actor model.
 summary-short: Exploring the use of the Actor Model
 oldlink: http://www.scottlogic.com/blog/2014/08/15/using-akka-and-scala-to-render-a-mandelbrot-set.html
 disqus-id: "/2014/08/15/using-akka-and-scala-to-render-a-mandelbrot-set.html"

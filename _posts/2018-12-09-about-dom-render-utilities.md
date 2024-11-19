@@ -8,7 +8,10 @@ tags:
 - DOM
 author: msuperina
 layout: default_post
-summary: This article describes an experiment about building my own DOM render utilities. It is written incrementally following a sequence of commits, each of which brings in a new feature. The results are a tiny library, some learning along the way, and too many questions left unsolved !
+summary: This article describes an experiment about building my own DOM render utilities.
+  It is written incrementally following a sequence of commits, each of which brings
+  in a new feature. The results are a tiny library, some learning along the way, and
+  too many questions left unsolved !
 ---
 
 This article describes an experiment I wanted to try for a long time: build my 

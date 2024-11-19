@@ -11,7 +11,10 @@ tags:
 - ways of working
 - COVID-19
 - ''
-summary: Over the summer, in partnership with Scott Logic, the Institute for Government (IfG) ran a series of roundtable discussions with senior civil servants and government experts on the topic of Data Sharing in Government. This is the first in a series of blog posts in which I'll share some reflections on key themes that arose.
+summary: Over the summer, in partnership with Scott Logic, the Institute for Government
+  (IfG) ran a series of roundtable discussions with senior civil servants and government
+  experts on the topic of Data Sharing in Government. This is the first in a series
+  of blog posts in which I'll share some reflections on key themes that arose.
 author: jmcevoy
 ---
 

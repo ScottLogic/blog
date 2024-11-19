@@ -13,7 +13,9 @@ tags:
 - webdriver
 author: cbrown
 layout: default_post
-summary: This blog takes a high level look at some of the challenges faced when conducting automated cross-browser testing and discusses potential solutions to tackle these challenges.
+summary: This blog takes a high level look at some of the challenges faced when conducting
+  automated cross-browser testing and discusses potential solutions to tackle these
+  challenges.
 ---
 
 ## Introduction

@@ -12,7 +12,9 @@ tags:
 - useDispatch
 author: thands
 layout: default_post
-summary: Earlier this year React released hooks, shaking the codebase of developers all over the world and changing the way we write React web applications. Functional components with hooks have largely replaced class components and now Redux has followed.
+summary: Earlier this year React released hooks, shaking the codebase of developers
+  all over the world and changing the way we write React web applications. Functional
+  components with hooks have largely replaced class components and now Redux has followed.
 image: thands/assets/hooks.jpg
 ---
 

@@ -5,7 +5,8 @@ categories:
 - Tech
 author: garora
 layout: default_post
-summary: Improv is one of my favourite pastimes. In this post I explore some of the most fundamental rules of Improv and what they can teach about writing good code.
+summary: Improv is one of my favourite pastimes. In this post I explore some of the
+  most fundamental rules of Improv and what they can teach about writing good code.
 ---
 
 In my spare time, I perform Improvised Comedy with Durham University’s [Shellshock](https://www.facebook.com/shellshockimpro/). I've been thinking about how software developers

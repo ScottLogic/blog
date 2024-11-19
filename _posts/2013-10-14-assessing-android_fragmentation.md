@@ -7,7 +7,8 @@ author: shogarth
 image: shogarth/assets/featured/fragmentation.png
 image-attribution: image courtesy of YoLaGringo
 layout: default_post
-summary: Android is fragmented. This is a feature, not a bug. Embrace this and you embrace the future.
+summary: Android is fragmented. This is a feature, not a bug. Embrace this and you
+  embrace the future.
 oldlink: http://www.scottlogic.com/blog/2013/10/14/assessing-android_fragmentation.html
 disqus-id: "/2013/10/14/assessing-android_fragmentation.html"
 ---

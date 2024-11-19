@@ -10,7 +10,9 @@ tags:
 author: mstobbs
 layout: default_post
 image: mstobbs/assets/introduction-rtk-query/dog-fetching.jpg
-summary: RTK Query is the latest addition to the Redux family, intended to make loading data from a server as easy as possible. In this post, we'll look at why I'm so excited for it, and answer the question "but why does redux care about data fetching?"
+summary: RTK Query is the latest addition to the Redux family, intended to make loading
+  data from a server as easy as possible. In this post, we'll look at why I'm so excited
+  for it, and answer the question "but why does redux care about data fetching?"
 ---
 
 Redux is the most used state management library for frontend apps - [28% of React apps](https://twitter.com/chrisachard/status/1272963246371241984) on Github use it! Despite this, there remains one complaint so common it's almost cliché: boilerplate. Even Dan Abramov, the creator of Redux, complained about this when he returned to a Redux codebase:

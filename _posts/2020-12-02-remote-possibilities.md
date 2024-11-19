@@ -13,7 +13,9 @@ tags:
 - formation
 - retrospectives
 - COVID-19
-summary: This is the first in a series of blogs on how to build effective remote teams. We’ll share insights and experiences from the Scott Logic delivery team working on the Scottish Government Payment Service as they shape optimal ways of working.
+summary: This is the first in a series of blogs on how to build effective remote teams.
+  We’ll share insights and experiences from the Scott Logic delivery team working
+  on the Scottish Government Payment Service as they shape optimal ways of working.
 author: pdykes
 image: pdykes/assets/Remote-working-image.jpg
 layout: default_post

@@ -4,7 +4,9 @@ date: 2014-08-01 00:00:00 Z
 categories:
 - Tech
 author: ceberhardt
-summary: It was just two months ago that Apple took us by surprise in releasing the Swift programming language. This blog post reflects on the first few months of Swift adoption.
+summary: It was just two months ago that Apple took us by surprise in releasing the
+  Swift programming language. This blog post reflects on the first few months of Swift
+  adoption.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/08/01/swift-vs-objectivec.html
 disqus-id: "/2014/08/01/swift-vs-objectivec.html"

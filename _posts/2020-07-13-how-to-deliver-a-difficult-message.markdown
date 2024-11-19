@@ -11,7 +11,9 @@ tags:
 - stakeholder
 author: fhubin
 layout: default_post
-summary: In this article, I would share some thoughts about how to approach something we all dread and why it is important to be transparent in an appropriately sensitive way.
+summary: In this article, I would share some thoughts about how to approach something
+  we all dread and why it is important to be transparent in an appropriately sensitive
+  way.
 ---
 
 In a client-supplier relationship, communication is of paramount importance. And good communication requires transparency. A supplier in charge of a doomed project telling their client that all is going well would not be doing a very good job. Similarly, a client whose budget has been cut telling a supplier that all is well would also not be delivering the right message.

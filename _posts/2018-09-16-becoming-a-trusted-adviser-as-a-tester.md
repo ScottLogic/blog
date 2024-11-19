@@ -9,7 +9,10 @@ tags:
 - adviser
 author: efiennes
 layout: default_post
-summary: Testers are called on to give advice as part of their role. How can do we do that   in a way that is in the best interest of our team and product without our natural bias getting in the way?   Leveraging the concept of the trusted adviser is one solution to this.
+summary: Testers are called on to give advice as part of their role. How can do we
+  do that   in a way that is in the best interest of our team and product without
+  our natural bias getting in the way?   Leveraging the concept of the trusted adviser
+  is one solution to this.
 image: 'image: /efiennes/assets/12Good.PNG'
 ---
 

@@ -17,7 +17,11 @@ tags:
 - Government Digital Service
 - MLOps
 - event-driven architectures
-summary: Data is important to every element of the safe and successful harnessing of AI. For the government, data challenges are not new, nor are they insurmountable. In this post, I’ll look at some of those challenges across the data lifecycle, and share insights from our recent work and conversations with government about practical ways forward.
+summary: Data is important to every element of the safe and successful harnessing
+  of AI. For the government, data challenges are not new, nor are they insurmountable.
+  In this post, I’ll look at some of those challenges across the data lifecycle, and
+  share insights from our recent work and conversations with government about practical
+  ways forward.
 author: godds
 image: "/uploads/AI%20in%20Govt%20the%20central%20role%20of%20data.png"
 ---

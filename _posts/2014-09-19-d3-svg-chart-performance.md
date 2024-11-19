@@ -4,7 +4,9 @@ date: 2014-09-19 00:00:00 Z
 categories:
 - Tech
 author: tsimmons
-summary: In this post, we'll take a look at some of the performance issues you might encounter when making interactive charts using SVG, and how you might go about fixing them.
+summary: In this post, we'll take a look at some of the performance issues you might
+  encounter when making interactive charts using SVG, and how you might go about fixing
+  them.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/09/19/d3-svg-chart-performance.html
 disqus-id: "/2014/09/19/d3-svg-chart-performance.html"

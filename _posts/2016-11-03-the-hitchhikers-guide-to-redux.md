@@ -7,7 +7,8 @@ author: shogarth
 layout: video_post
 video_url: https://www.youtube.com/embed/ZI1pWmq_CmQ
 short-author-aside: true
-summary: This talk from Bristech 2016 takes a look into the use of Redux for state management in front-end React applications
+summary: This talk from Bristech 2016 takes a look into the use of Redux for state
+  management in front-end React applications
 ---
 
 Redux is a library that is gaining rapid traction in the JavaScript development community for all the right reasons. It's "this changes everything" calibre. The Hitchhiker's Guide to Redux will present you with a glimpse of the future of front-end development, from a beginner's point of view.

@@ -5,7 +5,10 @@ categories:
 - Data Engineering
 author: acarr
 layout: default_post
-summary: What started as one faulty gas reading in the summer of 2017, ended up as a series of wasted calls where my bill kept getting higher and higher until it reached £11k.  How could this have been handled faster and left me without considering moving energy provider.
+summary: What started as one faulty gas reading in the summer of 2017, ended up as
+  a series of wasted calls where my bill kept getting higher and higher until it reached
+  £11k.  How could this have been handled faster and left me without considering moving
+  energy provider.
 ---
 
 It all started with a faulty reading in the summer of 2017.  I say faulty reading, it was an inspector from the energy company who came round to read my meter, and somehow instead of reading something in the region of 5068 (my last estimate), the inspector entered my reading as 9236.

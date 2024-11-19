@@ -13,7 +13,9 @@ tags:
 - Redux
 author: bquinn
 layout: default_post
-summary: In this post I explore the Bindable SwiftUI Redux package I created, and explain the motivations behind using Redux for state management in SwiftUI, and the challenges faced in integrating the two frameworks.
+summary: In this post I explore the Bindable SwiftUI Redux package I created, and
+  explain the motivations behind using Redux for state management in SwiftUI, and
+  the challenges faced in integrating the two frameworks.
 image: bquinn/assets/swiftui-logo.png
 ---
 

@@ -8,7 +8,10 @@ tags:
 - Testing
 author: smangan
 layout: default_post
-summary: 'A quick introduction into API automated testing using Postman and Newman. Postman tests can be so simple and straight forward. Newman gives the capability of running Postman tests through the command line. I''ll discuss implementing basic tests to showing how valuable Postman tests can be in a CI/CD environment.  '
+summary: 'A quick introduction into API automated testing using Postman and Newman.
+  Postman tests can be so simple and straight forward. Newman gives the capability
+  of running Postman tests through the command line. I''ll discuss implementing basic
+  tests to showing how valuable Postman tests can be in a CI/CD environment.  '
 image: smangan/assets/postman.png
 ---
 

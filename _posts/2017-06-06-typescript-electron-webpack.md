@@ -6,7 +6,9 @@ categories:
 tags:
 - featured
 author: jdunkerley
-summary: A walkthrough of setting up a WebPack 2 based build process for creating an Electron application in TypeScript, including configuring a build in Visual Studio Team Services.
+summary: A walkthrough of setting up a WebPack 2 based build process for creating
+  an Electron application in TypeScript, including configuring a build in Visual Studio
+  Team Services.
 layout: default_post
 image: jdunkerley/assets/featured/electron.png
 ---

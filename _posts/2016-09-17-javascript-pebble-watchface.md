@@ -5,7 +5,8 @@ categories:
 - Tech
 author: wferguson
 layout: default_post
-summary: In this article, I take a look at writing a watchface for Pebble using their newly released JavaScript SDK.
+summary: In this article, I take a look at writing a watchface for Pebble using their
+  newly released JavaScript SDK.
 ---
 
 Pebble [recently released](https://developer.pebble.com/blog/2016/08/30/announcing-pebble-sdk4/) their version 4.0 development kit, and one of the primary features was the addition of writing watchfaces and apps in JavaScript. There are a few [notable limitations](https://developer.pebble.com/blog/2016/08/15/introducing-rockyjs-watchfaces/#limitations) to the SDK as it stands, such as not being able to communicate between phone and watch via message keys, and most importantly not being able to publish on the Pebble store. The Pebble runs JavaScript using Samsung's [JerryScript](https://github.com/Samsung/jerryscript), intended for Internet of Things devices.

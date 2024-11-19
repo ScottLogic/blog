@@ -7,7 +7,10 @@ tags:
 - TypeScript
 author: pburgess
 layout: default_post
-summary: 'When using TypeScript for many developers it is natural to compare to Object Oriented languages. However TypeScript is different. This article looks at one tool that does not exist in Object Oriented languages: Union Types, and how you can use it to improve your TypeScript.'
+summary: 'When using TypeScript for many developers it is natural to compare to Object
+  Oriented languages. However TypeScript is different. This article looks at one tool
+  that does not exist in Object Oriented languages: Union Types, and how you can use
+  it to improve your TypeScript.'
 ---
 
 TypeScript has rapidly grown in popularity in the last few years, and with good reason. It takes a rather flexible language in JavaScript, and fixes one of the big weaknesses of the language, being descriptive typing, with very little compromise having to be made.

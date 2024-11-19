@@ -4,7 +4,8 @@ date: 2014-12-12 00:00:00 Z
 categories:
 - Tech
 author: alee
-summary: Some lessons I've learned trying to optimise a HTML5 mobile App so that it's fast and responsive even on old or budget phones with limited performance.
+summary: Some lessons I've learned trying to optimise a HTML5 mobile App so that it's
+  fast and responsive even on old or budget phones with limited performance.
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/12/12/html5-android-optimisation.html
 disqus-id: "/2014/12/12/html5-android-optimisation.html"

@@ -9,7 +9,9 @@ tags:
 - waterfall
 author: efiennes
 layout: default_post
-summary: '"Testing is dead". I hear this particular chestnut a lot. From those who earnestly believe it, from those who don''t understand the role, from content writers generating clickbait. Are testers really all etemmu now?'
+summary: '"Testing is dead". I hear this particular chestnut a lot. From those who
+  earnestly believe it, from those who don''t understand the role, from content writers
+  generating clickbait. Are testers really all etemmu now?'
 ---
 
 ### I etemmu, you etemmu, we all etemmu too

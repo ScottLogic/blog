@@ -10,7 +10,9 @@ tags:
 - Spark
 - Flink
 author: dcook
-summary: With the advent of the Internet of Things, the world of Big Data couldn't be more relevant.  This post gives an overview of technologies that achieve processing at scale and in real time.
+summary: With the advent of the Internet of Things, the world of Big Data couldn't
+  be more relevant.  This post gives an overview of technologies that achieve processing
+  at scale and in real time.
 layout: default_post
 ---
 

@@ -12,7 +12,8 @@ tags:
 - Automation
 author: kday
 layout: default_post
-summary: This post looks at adding Puppeteer to a create-react-app generated app, and shows how easy it is to get Puppeteer up and running.
+summary: This post looks at adding Puppeteer to a create-react-app generated app,
+  and shows how easy it is to get Puppeteer up and running.
 ---
 
 This post extends a previous [blog post by Chris Price](https://blog.scottlogic.com/2017/08/24/adding-webdriver-tests-to-create-react-app-generated-projects.html), and looks at adding Puppeteer to a `create-react-app` generated app. It follows the same structure – Jest test runner, modern JavaScript features, similar architecture – and shows how easy it is to get Puppeteer up and running.

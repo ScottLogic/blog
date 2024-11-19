@@ -11,7 +11,9 @@ tags:
 - UI
 - WAVE
 - aXE
-summary: Comparison of two common automated accessibility testing tools – WAVE and aXe – detailing what they have in common, what they do differently, and detailing which one may be used based on a user's personal preference.
+summary: Comparison of two common automated accessibility testing tools – WAVE and
+  aXe – detailing what they have in common, what they do differently, and detailing
+  which one may be used based on a user's personal preference.
 author: aberrill
 image: "/uploads/Accessability%20tooling.png"
 ---

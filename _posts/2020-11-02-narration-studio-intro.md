@@ -9,7 +9,9 @@ tags:
 - narration.studio
 author: swaterman
 layout: default_post
-summary: 'Narration.studio is my latest project: a web app for automatically editing voiceovers. In this first part, I introduce the project and the motivations behind it.'
+summary: 'Narration.studio is my latest project: a web app for automatically editing
+  voiceovers. In this first part, I introduce the project and the motivations behind
+  it.'
 summary-short: 'Introducing Narration.studio: automatic in-browser audio editing'
 image: swaterman/assets/narration-studio-1/coldsweat.png
 ---

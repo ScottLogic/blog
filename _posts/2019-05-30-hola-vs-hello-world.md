@@ -7,7 +7,10 @@ tags:
 - Testing
 author: lramchandani
 layout: default_post
-summary: Have you ever considered the similarities between learning a new human language and a programming language? I have always been fascinated by this topic and it has inspired me to write a blog post to help those like me, who worry when we see the code.
+summary: Have you ever considered the similarities between learning a new human language
+  and a programming language? I have always been fascinated by this topic and it has
+  inspired me to write a blog post to help those like me, who worry when we see the
+  code.
 ---
 
 Have you ever considered the similarities between learning a new human language and a programming language?

@@ -12,7 +12,8 @@ tags:
 - featured
 author: rhamilton
 title-short: Foreign Currency Trading Heuristic Testing Cheat Sheet
-summary: After 18 months testing FX trading software I decided to create and share a heuristic cheat sheet to help explore trading apps.
+summary: After 18 months testing FX trading software I decided to create and share
+  a heuristic cheat sheet to help explore trading apps.
 layout: default_post
 image: rhamilton/assets/featured/fx-cheat-sheet.jpg
 ---

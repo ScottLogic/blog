@@ -6,7 +6,11 @@ categories:
 author: jwhite
 contributors:
 - dketley
-summary: In this post we compare how Cassandra and MariaDB can be configured to operate in clusters and how this affects response time for queries. We found Cassandra to scale well and to be highly configurable. MariaDB can be used with Galera Cluster but it does not provide horizontal scaling. Also NDB can be used to scale MySQL but it was not as configurable as Cassandra.
+summary: In this post we compare how Cassandra and MariaDB can be configured to operate
+  in clusters and how this affects response time for queries. We found Cassandra to
+  scale well and to be highly configurable. MariaDB can be used with Galera Cluster
+  but it does not provide horizontal scaling. Also NDB can be used to scale MySQL
+  but it was not as configurable as Cassandra.
 layout: default_post
 ---
 

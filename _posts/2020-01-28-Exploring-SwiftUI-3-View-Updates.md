@@ -11,7 +11,8 @@ tags:
 - UI
 author: bquinn
 layout: default_post
-summary: In this post I take a closer look at how SwiftUI uses declarative syntax to construct view hierarchies, and how it transmits state updates to the UI.
+summary: In this post I take a closer look at how SwiftUI uses declarative syntax
+  to construct view hierarchies, and how it transmits state updates to the UI.
 image: bquinn/assets/swiftui-logo.png
 ---
 

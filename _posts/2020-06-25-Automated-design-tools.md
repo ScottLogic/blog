@@ -12,7 +12,10 @@ tags:
 - Zeplin
 author: csanderson
 layout: default_post
-summary: Recently, a whole range of tools have been introduced promising to fully automate visual design specs, so that designers never have to manually create specs again. But is it really that simple? Just like other forms of automation, there are pros and cons to these tools that are important to consider.
+summary: Recently, a whole range of tools have been introduced promising to fully
+  automate visual design specs, so that designers never have to manually create specs
+  again. But is it really that simple? Just like other forms of automation, there
+  are pros and cons to these tools that are important to consider.
 image: csanderson/assets/1_qdfKcSwDPdUrsqI28FcUtw.gif
 ---
 

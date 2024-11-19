@@ -7,7 +7,10 @@ tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: This blog post introduces the WebGL components which we recently added to D3FC, this suite of components make it easy to render charts with very large numbers of datapoints using D3. Throughout this post I'll describe the creation of the following visualisation, which displays 1 million books from the Hathi Trust library
+summary: This blog post introduces the WebGL components which we recently added to
+  D3FC, this suite of components make it easy to render charts with very large numbers
+  of datapoints using D3. Throughout this post I'll describe the creation of the following
+  visualisation, which displays 1 million books from the Hathi Trust library
 image: ceberhardt/assets/d3fc-webgl/hathi-library-visualisation.png
 ---
 

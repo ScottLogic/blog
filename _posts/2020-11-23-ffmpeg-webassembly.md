@@ -5,7 +5,10 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: The WebAssembly build of FFmpeg allows you to run this powerful video processing tool directly within the browser. In this blog post I explore FFmpeg.wasm and create a simple client-side transcoder that streams data into a video element, with a bit of RxJS thrown in for good measure.
+summary: The WebAssembly build of FFmpeg allows you to run this powerful video processing
+  tool directly within the browser. In this blog post I explore FFmpeg.wasm and create
+  a simple client-side transcoder that streams data into a video element, with a bit
+  of RxJS thrown in for good measure.
 image: ceberhardt/assets/featured/ffmpeg-wasm.png
 ---
 

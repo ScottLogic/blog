@@ -3,7 +3,9 @@ title: Mental Models and the User Experience
 date: 2023-08-11 00:00:00 Z
 categories:
 - UX Design
-summary: We all have a unique view of the world around us. It's important for designers to consider the impact of mental models on the overall user experience. Let's take a deeper look into how mental models play a role in design.
+summary: We all have a unique view of the world around us. It's important for designers
+  to consider the impact of mental models on the overall user experience. Let's take
+  a deeper look into how mental models play a role in design.
 author: drees
 image: "/uploads/Mental%20Models%20Thumbnail.png"
 layout: default_post

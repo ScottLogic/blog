@@ -13,7 +13,9 @@ tags:
 author: bquinn
 layout: default_post
 image: bquinn/assets/share-knowledge.png
-summary: Admittedly not three concepts you would usually hear together. However, there are some interesting parallels in models of ownership that might challenge the way we manage projects.
+summary: Admittedly not three concepts you would usually hear together. However, there
+  are some interesting parallels in models of ownership that might challenge the way
+  we manage projects.
 ---
 
 ![ESLint.png]({{site.baseurl}}/bquinn/assets/share-knowledge.png)

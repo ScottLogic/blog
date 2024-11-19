@@ -5,7 +5,9 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate some more complex RAC3 usages within the context of an application built using the Model-View-ViewModel (MVVM) pattern.
+summary: This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate
+  some more complex RAC3 usages within the context of an application built using the
+  Model-View-ViewModel (MVVM) pattern.
 ---
 
 This is my final article on ReactiveCocoa 3.0 (RAC3), where I demonstrate some more complex RAC3 usages within the context of an application built using the Model-View-ViewModel (MVVM) pattern.

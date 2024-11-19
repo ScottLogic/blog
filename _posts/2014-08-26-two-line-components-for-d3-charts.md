@@ -6,7 +6,8 @@ categories:
 tags:
 - d3
 author: aaiken
-summary: In this article I'm going to create two simple, reusable D3 components for adding line annotations to charts.
+summary: In this article I'm going to create two simple, reusable D3 components for
+  adding line annotations to charts.
 image: aaiken/assets/featured/annotation.png
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/08/26/two-line-components-for-d3-charts.html

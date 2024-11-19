@@ -5,7 +5,11 @@ categories:
 - People
 author: jmorris
 layout: default_post
-summary: Three years after graduating and joining Scott Logic as a consultant, I was recently promoted to the position of Senior Developer. It can be challenging to find the right second job after leaving university; in Scott Logic, I found myself in the perfect environment to reach that particular milestone within the company. I wanted to share my experiences through this blog post.
+summary: Three years after graduating and joining Scott Logic as a consultant, I was
+  recently promoted to the position of Senior Developer. It can be challenging to
+  find the right second job after leaving university; in Scott Logic, I found myself
+  in the perfect environment to reach that particular milestone within the company.
+  I wanted to share my experiences through this blog post.
 image: jmorris/assets/Jamie-Morris-crop-3.jpg
 ---
 

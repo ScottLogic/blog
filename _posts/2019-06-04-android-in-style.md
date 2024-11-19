@@ -9,7 +9,10 @@ tags:
 - CSS
 author: jporter
 layout: default_post
-summary: Styling in Android can be a difficult experience for developers not familiar with how the framework works. However, once you start to understand the "Android way" the development experience can be both logical and enjoyable (excepting a few Android quirks, but for the Android developer - c’est la vie).
+summary: Styling in Android can be a difficult experience for developers not familiar
+  with how the framework works. However, once you start to understand the "Android
+  way" the development experience can be both logical and enjoyable (excepting a few
+  Android quirks, but for the Android developer - c’est la vie).
 ---
 
 ## Introduction

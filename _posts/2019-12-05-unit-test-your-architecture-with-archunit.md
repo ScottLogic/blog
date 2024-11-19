@@ -7,7 +7,8 @@ tags:
 - Java
 author: shogarth
 layout: default_post
-summary: An introduction to ArchUnit; an open-source, extensible Java unit testing library for enforcing your architectural and coding rules.
+summary: An introduction to ArchUnit; an open-source, extensible Java unit testing
+  library for enforcing your architectural and coding rules.
 ---
 
 Automated tests provide fast, frequent and early feedback when code changes are made. Historically we've talked about unit tests, integration tests and acceptance tests, looking at increasing levels of code to business functionality. What if we could apply the same concepts to our architecture?

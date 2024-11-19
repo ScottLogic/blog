@@ -5,7 +5,9 @@ categories:
 - Tech
 author: hsteele
 layout: default_post
-summary: We usually need to consider data persistence when writing an application. In this first part we look at how to model your domain in preparation for use with Entity Framework.
+summary: We usually need to consider data persistence when writing an application.
+  In this first part we look at how to model your domain in preparation for use with
+  Entity Framework.
 image: 'image: huwsteele/assets/image.jpg'
 ---
 

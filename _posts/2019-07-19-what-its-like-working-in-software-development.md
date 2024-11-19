@@ -7,7 +7,8 @@ tags:
 - featured
 author: cmcknight
 layout: default_post
-summary: Looking back on the questions I had when I was just starting out, I wanted to share my thoughts and advice to anyone interested in getting into software development.
+summary: Looking back on the questions I had when I was just starting out, I wanted
+  to share my thoughts and advice to anyone interested in getting into software development.
 ---
 
 I joined Scott Logic through its Graduate Programme and benefited from a fantastic induction, support from a mentor, and the opportunity to work on challenging projects that stretched me and gave me hands-on experience.

@@ -9,7 +9,9 @@ tags:
 - React
 - conferences
 - AI
-summary: I recently spent some time remotely attending JSNation, a hybrid-format JavaScript conference held in Amsterdam alongside sister conference React Summit. In this post, I'll cover some points of interest from around half the talks I chose to attend.
+summary: I recently spent some time remotely attending JSNation, a hybrid-format JavaScript
+  conference held in Amsterdam alongside sister conference React Summit. In this post,
+  I'll cover some points of interest from around half the talks I chose to attend.
 author: rwilliams
 image: "/uploads/Scottlogic---Social-media-cards---Robat-Williams.jpg"
 ---

@@ -6,7 +6,8 @@ categories:
 author: dmiley
 title-short: 'Riot: A React Alternative'
 layout: default_post
-summary: Migrating a Knockout project to a webpack redux application using Riot, and why I didn't use React.
+summary: Migrating a Knockout project to a webpack redux application using Riot, and
+  why I didn't use React.
 ---
 
 <img style="display:block; margin: auto" src='{{ site.baseurl }}/dmiley/assets/riot-act.jpg' title="The Riot Act" />

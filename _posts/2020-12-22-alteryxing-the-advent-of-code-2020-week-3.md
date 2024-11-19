@@ -4,7 +4,10 @@ date: 2020-12-22 00:00:00 Z
 categories:
 - Tech
 author: jdunkerley
-summary: '19 days in, the end of the third week of the #AdventofCode. The challenges have got harder and some have taken a little more than just BaseA Alteryx functionality but am still going strong. Here''s my look back at solving the puzzles over the last 7 days. '
+summary: '19 days in, the end of the third week of the #AdventofCode. The challenges
+  have got harder and some have taken a little more than just BaseA Alteryx functionality
+  but am still going strong. Here''s my look back at solving the puzzles over the
+  last 7 days. '
 layout: default_post
 image: jdunkerley/assets/advent-2020-3/logo.jpg
 ---

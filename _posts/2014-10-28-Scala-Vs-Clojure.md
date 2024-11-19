@@ -6,7 +6,9 @@ categories:
 author: hpowell
 title-short: Scala vs. Clojure
 layout: default_post
-summary: Having recently dipped my toe into the world of functional programming with both Scala and Clojure I thought it'd be useful to do a quick compare and contrast of these two JVM based languages.
+summary: Having recently dipped my toe into the world of functional programming with
+  both Scala and Clojure I thought it'd be useful to do a quick compare and contrast
+  of these two JVM based languages.
 summary-short: Comparing and contrasting these JVM based languages
 image: hpowell/assets/featured/functional.jpg
 oldlink: http://www.scottlogic.com/blog/2014/10/28/Scala-Vs-Clojure.html

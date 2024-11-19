@@ -5,7 +5,8 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: This blog post shares a few quick tips and patterns that I've been using to structure JavaScript promises; keeping them clean, simple and readable.
+summary: This blog post shares a few quick tips and patterns that I've been using
+  to structure JavaScript promises; keeping them clean, simple and readable.
 ---
 
 This blog post shares a few quick tips and patterns that I've been using to structure JavaScript promises; keeping them clean, simple and readable.

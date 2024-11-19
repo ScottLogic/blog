@@ -10,7 +10,10 @@ tags:
 - Value Based Metrics
 author: jmelon
 layout: default_post
-summary: In this post, I discuss agility in more general terms than thinking about any specific framework. My aim is to highlight the overarching purpose of agility for businesses as a whole as opposed to concentrating at the team level as I have seen so often.
+summary: In this post, I discuss agility in more general terms than thinking about
+  any specific framework. My aim is to highlight the overarching purpose of agility
+  for businesses as a whole as opposed to concentrating at the team level as I have
+  seen so often.
 image: jmelon/assets/detour_small.png
 ---
 

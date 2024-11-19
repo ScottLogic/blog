@@ -5,7 +5,9 @@ categories:
 - People
 author: amcdevitt
 layout: default_post
-summary: The summer 2019 intern developers at the Edinburgh office created a web-based art installation that makes use of computer vision. This post describes our application and what you can expect from an internship at Scott Logic.
+summary: The summer 2019 intern developers at the Edinburgh office created a web-based
+  art installation that makes use of computer vision. This post describes our application
+  and what you can expect from an internship at Scott Logic.
 ---
 
 ## Introduction

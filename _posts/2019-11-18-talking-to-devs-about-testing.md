@@ -8,7 +8,10 @@ tags:
 - featured
 author: cakehurstryan
 layout: default_post
-summary: As a tester in a cross disciplined agile team I frequently talk to and teach developers what Exploratory Testing is and how to do it. This account shows what I've been talking about and explains why it's beneficial for other testers to do the same.
+summary: As a tester in a cross disciplined agile team I frequently talk to and teach
+  developers what Exploratory Testing is and how to do it. This account shows what
+  I've been talking about and explains why it's beneficial for other testers to do
+  the same.
 image: cakehurstryan/assets/explorer2.jpg
 ---
 

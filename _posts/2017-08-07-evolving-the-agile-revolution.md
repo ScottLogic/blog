@@ -7,7 +7,8 @@ tags:
 - featured
 author: shunton
 layout: default_post
-summary: This blog post discusses concerns around agile delivery, particularly within the public sector
+summary: This blog post discusses concerns around agile delivery, particularly within
+  the public sector
 image: shunton/assets/featured/revolution.jpg
 ---
 

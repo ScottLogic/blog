@@ -5,7 +5,8 @@ categories:
 - Delivery
 author: dthomas
 layout: default_post
-summary: The exact method used for introducing Agile will depend on the nature of our client. Here I look at how different clients might affect the approach we take.
+summary: The exact method used for introducing Agile will depend on the nature of
+  our client. Here I look at how different clients might affect the approach we take.
 oldlink: http://www.scottlogic.com/blog/2014/08/22/how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.html
 disqus-id: "/2014/08/22/how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.html"
 ---

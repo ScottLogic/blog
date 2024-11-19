@@ -8,7 +8,9 @@ tags:
 - JavaScript
 - Security
 author: cburbidge
-summary: In August 2017 a typosquatting attack was discovered in the npm repository with the intention of stealing developers' credentials. This post explains the attack and my efforts to search for similar active attacks.
+summary: In August 2017 a typosquatting attack was discovered in the npm repository
+  with the intention of stealing developers' credentials. This post explains the attack
+  and my efforts to search for similar active attacks.
 layout: default_post
 ---
 

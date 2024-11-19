@@ -11,7 +11,9 @@ tags:
 author: mstobbs
 layout: default_post
 image: mstobbs/assets/reducing-bugs-with-finite-state-machines/BugPacman.png
-summary: Everyone hates bugs. Unfortunately, as codebases grow, it's easy for bugs to spread out of control. Fortunately, they can be brought back under control using psychology and a mathematical model from the 1950s.
+summary: Everyone hates bugs. Unfortunately, as codebases grow, it's easy for bugs
+  to spread out of control. Fortunately, they can be brought back under control using
+  psychology and a mathematical model from the 1950s.
 ---
 
 Bugs suck.

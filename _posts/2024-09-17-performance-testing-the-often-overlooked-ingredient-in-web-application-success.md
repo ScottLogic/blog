@@ -3,7 +3,9 @@ title: Performance testing - the often overlooked ingredient in web application 
 date: 2024-09-17 09:00:00 Z
 categories:
 - Testing
-summary: Testing the performance of an application can often give more insights than expected. From improving security, to cutting costs, performance testing ultimately contributes to user satisfaction and business success.
+summary: Testing the performance of an application can often give more insights than
+  expected. From improving security, to cutting costs, performance testing ultimately
+  contributes to user satisfaction and business success.
 author: awhitmell
 image: "/uploads/Performance%20testing%20thumbnail.png"
 ---

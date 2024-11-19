@@ -1,11 +1,15 @@
 ---
-title: 'And Now For Something Completely Different: Creating A Social Environment Under Lockdown'
+title: 'And Now For Something Completely Different: Creating A Social Environment
+  Under Lockdown'
 date: 2020-04-07 00:00:00 Z
 categories:
 - Tech
 author: sgrant
 layout: default_post
-summary: The date is March 31st of the year 2020, and things have gone wrong. What follows is the account of a software developer confined to his home in Bristol as the people of the world come together apart, in defiance of this simultaneously macro-and-micro-scopic attack on our very species.
+summary: The date is March 31st of the year 2020, and things have gone wrong. What
+  follows is the account of a software developer confined to his home in Bristol as
+  the people of the world come together apart, in defiance of this simultaneously
+  macro-and-micro-scopic attack on our very species.
 ---
 
 ## _Foreword_

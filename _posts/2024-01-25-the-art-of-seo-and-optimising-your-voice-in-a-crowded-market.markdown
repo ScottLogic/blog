@@ -7,7 +7,8 @@ tags:
 - marketing
 - seo
 - search engine
-summary: Creating high-performing organic content in crowded markets is no mean feat. I explore SEO practices and value props to put you on the right track.
+summary: Creating high-performing organic content in crowded markets is no mean feat.
+  I explore SEO practices and value props to put you on the right track.
 author: slinsley
 image: "/uploads/Art%20of%20seo%20tn.png"
 ---

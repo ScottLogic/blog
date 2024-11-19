@@ -7,7 +7,13 @@ tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: The recent Log4j vulnerability has once again sparked a lot of debate around our reliance on open source projects and their sustainability challenges. I argue that money cannot fix this issue, nor can hiding behind security scans, audits and other defenses. The solution is to genuinely understand the open source community, acknowledge the shared responsibility we have in our commons and through the well-understood tool of Corporate Social Responsibility, look to fill the ethical and philanthropic gaps.
+summary: The recent Log4j vulnerability has once again sparked a lot of debate around
+  our reliance on open source projects and their sustainability challenges. I argue
+  that money cannot fix this issue, nor can hiding behind security scans, audits and
+  other defenses. The solution is to genuinely understand the open source community,
+  acknowledge the shared responsibility we have in our commons and through the well-understood
+  tool of Corporate Social Responsibility, look to fill the ethical and philanthropic
+  gaps.
 image: ceberhardt/assets/csr/pyramid-oss.png
 ---
 

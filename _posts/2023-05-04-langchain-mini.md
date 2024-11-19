@@ -7,7 +7,10 @@ tags:
 - generative AI
 - Machine Learning
 - Artificial Intelligence
-summary: LangChain has become a tremendously popular toolkit for building a wide range of LLM-powered applications, including chat, Q&A and document search. In this blogpost I re-implement some of the novel LangChain functionality as a learning exercise, looking at the low-level prompts it uses to create these higher level capabilities.
+summary: LangChain has become a tremendously popular toolkit for building a wide range
+  of LLM-powered applications, including chat, Q&A and document search. In this blogpost
+  I re-implement some of the novel LangChain functionality as a learning exercise,
+  looking at the low-level prompts it uses to create these higher level capabilities.
 author: ceberhardt
 image: ceberhardt/assets/ai.png
 ---

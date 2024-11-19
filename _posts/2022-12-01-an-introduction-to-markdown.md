@@ -5,7 +5,8 @@ categories:
 - Tech
 tags:
 - featured
-summary: A brief overview of the creation, workings and application of the markup language Markdown
+summary: A brief overview of the creation, workings and application of the markup
+  language Markdown
 author: colive
 ---
 

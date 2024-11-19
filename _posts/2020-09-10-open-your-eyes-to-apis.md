@@ -6,7 +6,8 @@ categories:
 author: godds
 image: godds/assets/featured/apis.png
 layout: default_post
-summary: APIs "done properly" can be a significant strategic enabler, or even a whole new business proposition. This piece highlights some examples of this in action.
+summary: APIs "done properly" can be a significant strategic enabler, or even a whole
+  new business proposition. This piece highlights some examples of this in action.
 ---
 
 Imagine using your smartphone solely to make telephone calls. Just <b>imagine</b>.

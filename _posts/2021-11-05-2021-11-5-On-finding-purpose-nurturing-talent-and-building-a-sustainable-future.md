@@ -8,7 +8,9 @@ tags:
 author: tmakarem
 layout: default_post
 image: "/tmakarem/assets/WIT1.png"
-summary: 'In this post, I share the top things that resonated with me from the Women of Silicon Roundabout 2021 conference: the importance of finding purpose, nurturing talent, and building a sustainable future.'
+summary: 'In this post, I share the top things that resonated with me from the Women
+  of Silicon Roundabout 2021 conference: the importance of finding purpose, nurturing
+  talent, and building a sustainable future.'
 ---
 
 In this post I share the top things that resonated with me from the *[Women of Silicon Roundabout 2021](https://www.women-in-technology.com/)* conference.

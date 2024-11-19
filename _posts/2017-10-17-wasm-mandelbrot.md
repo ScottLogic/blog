@@ -5,7 +5,9 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: In this blog post I'll explore the various different ways you can create WebAssembly modules, using Emscripten, LLVM and AssemblyScript, comparing the tooling and performance.
+summary: In this blog post I'll explore the various different ways you can create
+  WebAssembly modules, using Emscripten, LLVM and AssemblyScript, comparing the tooling
+  and performance.
 image: ceberhardt/assets/featured/mandelbrot.jpg
 colour: orange
 header-shape: shape3

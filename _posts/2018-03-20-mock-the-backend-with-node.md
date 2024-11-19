@@ -6,7 +6,8 @@ categories:
 tags:
 - JavaScript
 author: alee
-summary: Mock the back-end of your web application, using Node.js, to make developing and testing the front-end easier.
+summary: Mock the back-end of your web application, using Node.js, to make developing
+  and testing the front-end easier.
 layout: default_post
 ---
 

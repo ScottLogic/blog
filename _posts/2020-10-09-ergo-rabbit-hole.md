@@ -9,7 +9,9 @@ tags:
 - ergonomics
 author: swaterman
 layout: default_post
-summary: Over the past few months I've had an ergonomic keyboard obsession. It started out simple, just wanting to improve my typing experience. It ended with me writing a driver. This is my story - now available as an audiobook!
+summary: Over the past few months I've had an ergonomic keyboard obsession. It started
+  out simple, just wanting to improve my typing experience. It ended with me writing
+  a driver. This is my story - now available as an audiobook!
 summary-short: My keyboard is strange, and I love it
 image: swaterman/assets/ergo-rabbit-hole/toolate.png
 ---

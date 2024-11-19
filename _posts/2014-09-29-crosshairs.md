@@ -6,9 +6,12 @@ categories:
 tags:
 - d3
 author: aaiken
-summary: In my last article I put together an interactive chart that could be panned and zoomed, but there was one obvious omission - crosshairs. In this article I'm going to create a D3 crosshairs component, and show you how to add it to a chart.
+summary: In my last article I put together an interactive chart that could be panned
+  and zoomed, but there was one obvious omission - crosshairs. In this article I'm
+  going to create a D3 crosshairs component, and show you how to add it to a chart.
 image: aaiken/assets/featured/crosshairFeatured.jpg
-image-attribution: image courtesy of <a href="https://www.flickr.com/photos/natureindyablogspotcom/">Vivek Raj</a>
+image-attribution: image courtesy of <a href="https://www.flickr.com/photos/natureindyablogspotcom/">Vivek
+  Raj</a>
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/09/29/crosshairs.html
 disqus-id: "/2014/09/29/crosshairs.html"

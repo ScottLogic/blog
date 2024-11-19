@@ -9,7 +9,9 @@ tags:
 - Curator
 author: janakerman
 layout: default_post
-summary: Apache Curator is a client side library providing convenience and out of the box algorithms when working with Apache Zookeeper. In this blog we take a quick look at how to implement a leadership election.
+summary: Apache Curator is a client side library providing convenience and out of
+  the box algorithms when working with Apache Zookeeper. In this blog we take a quick
+  look at how to implement a leadership election.
 summary-short: A quick look at implementing a leadership election with Apache Curator.
 ---
 

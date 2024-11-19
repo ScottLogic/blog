@@ -9,7 +9,9 @@ tags:
 author: bquinn
 layout: default_post
 image: bquinn/assets/ESLint.png
-summary: Always wanted to write a custom linting rule for your JavaScript project, but never been sure where to start? This guide will introduce the key concepts you need to give it a go!
+summary: Always wanted to write a custom linting rule for your JavaScript project,
+  but never been sure where to start? This guide will introduce the key concepts you
+  need to give it a go!
 ---
 
 ![ESLint.png]({{site.baseurl}}/bquinn/assets/ESLint.png)

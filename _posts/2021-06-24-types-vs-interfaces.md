@@ -7,7 +7,9 @@ tags:
 - TypeScript
 author: pburgess
 layout: default_post
-summary: When first using TypeScript you get presented with a choice, do I represent that with an interface or a type alias? In this article I explain the differences and why and when you should choose one over the other.
+summary: When first using TypeScript you get presented with a choice, do I represent
+  that with an interface or a type alias? In this article I explain the differences
+  and why and when you should choose one over the other.
 ---
 
 When I first started using TypeScript I was presented with a conundrum. I could declare a type like this:

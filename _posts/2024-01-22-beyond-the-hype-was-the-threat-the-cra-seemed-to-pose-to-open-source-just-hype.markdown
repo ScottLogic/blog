@@ -1,5 +1,6 @@
 ---
-title: 'Beyond the Hype: Was the threat the CRA seemed to pose to open source just hype?'
+title: 'Beyond the Hype: Was the threat the CRA seemed to pose to open source just
+  hype?'
 date: 2024-01-22 17:40:00 Z
 categories:
 - Podcast
@@ -9,7 +10,14 @@ tags:
 - cybersecurity
 - open source maintainers
 - EU legislation
-summary: In this episode, I'm joined by Rebecca Rumbul, CEO of Rust Foundation, and Mirko Boehm from Linux Foundation Europe. We discuss the Cyber Resilience Act (CRA), a piece of EU legislation that is actively under development, designed to make end-user products more secure. Early drafts of this act detailed significant obligations on open source maintainers, despite the fact that they often work without financial reward. We discuss how the latest update of the CRA has thankfully addressed these concerns and ponder whether it will actually solve the problems it has set out to tackle.
+summary: In this episode, I'm joined by Rebecca Rumbul, CEO of Rust Foundation, and
+  Mirko Boehm from Linux Foundation Europe. We discuss the Cyber Resilience Act (CRA),
+  a piece of EU legislation that is actively under development, designed to make end-user
+  products more secure. Early drafts of this act detailed significant obligations
+  on open source maintainers, despite the fact that they often work without financial
+  reward. We discuss how the latest update of the CRA has thankfully addressed these
+  concerns and ponder whether it will actually solve the problems it has set out to
+  tackle.
 author: ceberhardt
 image: "/uploads/BeyondTheHype---orange-and-yellow---E15---social.png"
 ---

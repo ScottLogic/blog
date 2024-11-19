@@ -5,7 +5,8 @@ categories:
 - Tech
 author: hsteele
 layout: default_post
-summary: Persisting data can be easy with an ORM like EF Core. Let's take a look at how we can save our data without compromising our domain models.
+summary: Persisting data can be easy with an ORM like EF Core. Let's take a look at
+  how we can save our data without compromising our domain models.
 ---
 
 ## Domain modelling and persistence with EF Core - Part 2

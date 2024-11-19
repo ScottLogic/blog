@@ -4,7 +4,9 @@ date: 2016-11-22 00:00:00 Z
 categories:
 - Data Engineering
 author: bjedrzejewski
-summary: The popularity of Spring Boot in the Java world is undeniable. In this post I will show you yet another reason for this. Using Spring Boot makes working with MongoDB an absolute pleasure.
+summary: The popularity of Spring Boot in the Java world is undeniable. In this post
+  I will show you yet another reason for this. Using Spring Boot makes working with
+  MongoDB an absolute pleasure.
 layout: default_post
 ---
 

@@ -4,7 +4,8 @@ date: 2018-03-23 00:00:00 Z
 categories:
 - Tech
 author: nowen
-summary: A short tour of different museums and exhibitions that have used technology to support their displays.
+summary: A short tour of different museums and exhibitions that have used technology
+  to support their displays.
 layout: default_post
 ---
 

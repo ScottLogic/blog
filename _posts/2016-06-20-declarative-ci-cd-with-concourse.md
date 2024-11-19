@@ -4,7 +4,8 @@ date: 2016-06-20 00:00:00 Z
 categories:
 - Cloud
 author: csmith
-summary: This post describes the Concourse build system and explains why declarative CI / CD is so compelling. No more pet build servers!
+summary: This post describes the Concourse build system and explains why declarative
+  CI / CD is so compelling. No more pet build servers!
 layout: default_post
 ---
 

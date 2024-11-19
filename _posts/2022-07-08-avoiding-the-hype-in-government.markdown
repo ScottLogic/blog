@@ -1,9 +1,12 @@
 ---
-title: Beyond the Hype - Investing in Innovation and avoiding the Hype in Digital Government
+title: Beyond the Hype - Investing in Innovation and avoiding the Hype in Digital
+  Government
 date: 2022-07-08 13:49:00 Z
 categories:
 - Podcast
-summary: In this month’s episode, we tackle a wide range of topics relating to the role of technology innovation, and the perils of hyped technology, within Digital Government.
+summary: In this month’s episode, we tackle a wide range of topics relating to the
+  role of technology innovation, and the perils of hyped technology, within Digital
+  Government.
 author: ceberhardt
 contributors:
 - jmcevoy

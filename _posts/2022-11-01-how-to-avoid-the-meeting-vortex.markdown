@@ -3,7 +3,9 @@ title: How to avoid the meeting vortex
 date: 2022-11-01 14:35:00 Z
 categories:
 - Delivery
-summary: A 2021 study revealed that the average professional spends an average of 21.5 hours in meetings every week. So meetings must be worth having right? In this blog post I share a number of tips on how to ensure meetings provide maximum value.
+summary: A 2021 study revealed that the average professional spends an average of
+  21.5 hours in meetings every week. So meetings must be worth having right? In this
+  blog post I share a number of tips on how to ensure meetings provide maximum value.
 author: lwilson
 ---
 

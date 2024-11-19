@@ -3,7 +3,9 @@ title: Knowledge Graphs - What Are They?
 date: 2024-05-01 10:00:00 Z
 categories:
 - Tech
-summary: I'll admit that for me knowledge graphs and graph databases were always something of a mystery, so I spent some time investigating to see how they compare to more traditional relational databases. Are they more than just circles and lines?
+summary: I'll admit that for me knowledge graphs and graph databases were always something
+  of a mystery, so I spent some time investigating to see how they compare to more
+  traditional relational databases. Are they more than just circles and lines?
 author: rstrange
 image: "/uploads/Knowledge%20graphs%20-%20What%20are%20they_.png"
 ---

@@ -5,7 +5,10 @@ categories:
 - Resources
 tags:
 - featured
-summary: The Financial Services industry is having to change and adapt in the face of regulations, competition, changes in buying habits and client expectations. This white paper encourages the industry to look at public cloud not as a tool for driving down costs, but as a vehicle for technical and business agility.
+summary: The Financial Services industry is having to change and adapt in the face
+  of regulations, competition, changes in buying habits and client expectations. This
+  white paper encourages the industry to look at public cloud not as a tool for driving
+  down costs, but as a vehicle for technical and business agility.
 author: ceberhardt
 image: ceberhardt/assets/featured/cloud-value-driver.png
 cta:

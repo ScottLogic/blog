@@ -5,7 +5,8 @@ categories:
 - Tech
 author: tclarke-scottlogic
 layout: default_post
-summary: Why Java Developers can gain from C++, what C++ can gain from Java Developers, and how the language has made itself more comfortable for you to make the transition.
+summary: Why Java Developers can gain from C++, what C++ can gain from Java Developers,
+  and how the language has made itself more comfortable for you to make the transition.
 ---
 
 ~~~C++

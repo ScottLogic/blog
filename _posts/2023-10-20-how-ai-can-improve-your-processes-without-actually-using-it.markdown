@@ -5,7 +5,8 @@ categories:
 - Artificial Intelligence
 tags:
 - AI
-summary: How talks on AI at the CMO Inspired Summit made me re-evaluate a Marketing team's processes and objectives.
+summary: How talks on AI at the CMO Inspired Summit made me re-evaluate a Marketing
+  team's processes and objectives.
 author: mhowie
 image: "/uploads/How%20AI%20can%20improve%20processes.png"
 ---

@@ -6,7 +6,8 @@ categories:
 tags:
 - RxJS
 - Unit Testing
-summary: 'An RxJS unbeliever explores the testing tools built into the library and is pleasantly surprised. '
+summary: 'An RxJS unbeliever explores the testing tools built into the library and
+  is pleasantly surprised. '
 author: jbickleywallace
 image: "/uploads/RxJS-Unit-Testing.png"
 ---

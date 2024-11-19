@@ -7,8 +7,13 @@ tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: Angular 2.0 introduces a component-based approach to building applications, where the rendering can be optimised by selecting a suitable change detection strategy for each component. This post looks at how the OnPush change detection strategy works quite elegantly with the concept of immutable objects as enforced by Immutable.js.
-summary-short: This post looks at how the Angular 2 component-based approach to building applications works quite elegantly with the concept of immutable objects as enforced by Immutable.js
+summary: Angular 2.0 introduces a component-based approach to building applications,
+  where the rendering can be optimised by selecting a suitable change detection strategy
+  for each component. This post looks at how the OnPush change detection strategy
+  works quite elegantly with the concept of immutable objects as enforced by Immutable.js.
+summary-short: This post looks at how the Angular 2 component-based approach to building
+  applications works quite elegantly with the concept of immutable objects as enforced
+  by Immutable.js
 image: ceberhardt/assets/featured/angular2-tile.png
 ---
 

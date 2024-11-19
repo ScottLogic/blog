@@ -5,7 +5,9 @@ categories:
 - Open Source
 author: slaing
 layout: default_post
-summary: Data for development and test systems is essential for testing, feature design and development. This post explores the options and presents the Data Helix tool, that provides an effective means of producing data.
+summary: Data for development and test systems is essential for testing, feature design
+  and development. This post explores the options and presents the Data Helix tool,
+  that provides an effective means of producing data.
 ---
 
 Nearly every piece of software needs data to run. Nearly all systems need some form of personal data, even if it is your email address (to login) and a name to make it all a bit more personal.

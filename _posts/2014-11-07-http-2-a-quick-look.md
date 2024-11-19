@@ -8,7 +8,9 @@ tags:
 author: wreilly
 layout: default_post
 source: site
-summary: With the HTTP/2 specification just going to Working Group Last Call and due for publication in early 2015, I thought now would be a good time to have a quick look at what's changing.
+summary: With the HTTP/2 specification just going to Working Group Last Call and due
+  for publication in early 2015, I thought now would be a good time to have a quick
+  look at what's changing.
 oldlink: http://www.scottlogic.com/blog/2014/11/07/http-2-a-quick-look.html
 disqus-id: "/2014/11/07/http-2-a-quick-look.html"
 ---

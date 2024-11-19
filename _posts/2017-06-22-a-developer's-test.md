@@ -9,7 +9,8 @@ tags:
 - OAuth
 author: zwali
 layout: default_post
-summary: A successful attempt of load testing Alteryx API with Gatling and a not-so-successful attempt with Apache JMeter
+summary: A successful attempt of load testing Alteryx API with Gatling and a not-so-successful
+  attempt with Apache JMeter
 ---
 
 Recently I had to integrate Alteryx API into a web page. If you are familiar with Alteryx, you would probably know that Alteryx is amazing for data modelling and has an array of capabilities for connecting to other data related tools. My prototype was based on the Alteryx – Tableau combination which is pretty standard. However, we were then embedding Tableau visualisations in a webpage and one of the requirements was to invoke Alteryx workflows on demand from the web page which will take parameters, re-run the workflow and publish fresh data into the Tableau workbook. This whole chain of events is required to happen in seconds’ delay at most, otherwise the user experience will be poor. There is not much web content available on the API performance of Alteryx, in fact there is nothing other than [this one page](https://gallery.alteryx.com/api-docs/) on their official website. Data Analysis has traditionally been desktop based so it kind of explains the scarcity of resources in this area.

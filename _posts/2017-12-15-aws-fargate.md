@@ -5,9 +5,11 @@ categories:
 - Cloud
 author: nwolverson
 layout: default_post
-summary: 'AWS recently announced a couple of new container services, EKS and Fargate, and I''ll give a brief overview, a "first experience" walkthrough of Fargate, and discuss when you might want to choose it.
+summary: 'AWS recently announced a couple of new container services, EKS and Fargate,
+  and I''ll give a brief overview, a "first experience" walkthrough of Fargate, and
+  discuss when you might want to choose it.
 
-  '
+'
 image: ''
 ---
 

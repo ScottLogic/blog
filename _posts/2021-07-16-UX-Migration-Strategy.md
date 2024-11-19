@@ -8,7 +8,8 @@ tags:
 author: tmakarem
 layout: default_post
 image: "/tmakarem/assets/3.png"
-summary: In this article, I focus on the migration strategy for legacy applications from a UX perspective and highlight the elements that businesses should think about.
+summary: In this article, I focus on the migration strategy for legacy applications
+  from a UX perspective and highlight the elements that businesses should think about.
 ---
 
 ### 1. ASSESS IMPACT ON USERS

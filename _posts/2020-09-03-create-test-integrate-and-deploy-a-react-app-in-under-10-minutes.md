@@ -5,7 +5,8 @@ categories:
 - Tech
 author: dogle
 layout: default_post
-summary: 'In this blog post I''ll be demonstrating how quickly it''s possible to setup, integrate and deploy a React application using the right tools. '
+summary: 'In this blog post I''ll be demonstrating how quickly it''s possible to setup,
+  integrate and deploy a React application using the right tools. '
 ---
 
 ## Introduction

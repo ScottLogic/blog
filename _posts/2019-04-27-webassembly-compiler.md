@@ -6,7 +6,9 @@ categories:
 tags:
 - featured
 author: ceberhardt
-summary: This talk, from London Node User Group, looked at some of the internals of WebAssembly, exploring how it works ‘under the hood’ with a demonstration of how you can create your own (simple) compiler that targets this runtime.
+summary: This talk, from London Node User Group, looked at some of the internals of
+  WebAssembly, exploring how it works ‘under the hood’ with a demonstration of how
+  you can create your own (simple) compiler that targets this runtime.
 layout: video_post
 video_url: https://www.youtube.com/embed/laM5bM_cMjA
 image: ceberhardt/assets/featured/wasm.png

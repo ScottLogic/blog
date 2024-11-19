@@ -12,7 +12,10 @@ tags:
 - Automation
 author: dtheasby
 layout: default_post
-summary: WebdriverIO is a great addition to your automation toolkit. This 2-part post first walks through configuring WebdriverIO and automating the test process using Gulp, before taking a look at the tests themselves and abstracting using the page-object model in part 2.
+summary: WebdriverIO is a great addition to your automation toolkit. This 2-part post
+  first walks through configuring WebdriverIO and automating the test process using
+  Gulp, before taking a look at the tests themselves and abstracting using the page-object
+  model in part 2.
 ---
 
 When it comes to automated UI checking, there are a complex variety of tools at the disposal of the Tester; including Technologies, Test Runners, Test Frameworks, Cloud Services, Reporters, and CI Systems. While the project itself may dictate a small selection of the combination above, choosing the remainder and getting them to play nicely can be a time consuming task. 

@@ -1,5 +1,6 @@
 ---
-title: Cloud sustainability - Could using the cloud help your organisation reach net zero?
+title: Cloud sustainability - Could using the cloud help your organisation reach net
+  zero?
 date: 2022-04-07 00:00:00 Z
 categories:
 - Sustainability
@@ -7,7 +8,10 @@ tags:
 - Cloud
 author: dsmith
 layout: default_post
-summary: As a software engineer with an interest in cloud computing I wanted to look at how organisations can use the cloud to help reach net zero. I’ll share what I found out, including resources which organisations can apply to reduce the carbon footprint of their workloads.
+summary: As a software engineer with an interest in cloud computing I wanted to look
+  at how organisations can use the cloud to help reach net zero. I’ll share what I
+  found out, including resources which organisations can apply to reduce the carbon
+  footprint of their workloads.
 ---
 
 ## Introduction

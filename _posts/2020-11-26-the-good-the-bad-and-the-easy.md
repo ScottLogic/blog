@@ -5,7 +5,9 @@ categories:
 - Tech
 author: dogle
 layout: default_post
-summary: 'In this post I''ll try to lay out some requirements for ''good'' code, talk about how we might define ''easy'' code and how this correlates with a definition of ''good'' code.  '
+summary: 'In this post I''ll try to lay out some requirements for ''good'' code, talk
+  about how we might define ''easy'' code and how this correlates with a definition
+  of ''good'' code.  '
 ---
 
 Everyone wants an easy life. As a software developer I often come across code bases that are challenging to work with, that I have a knee-jerk aversion to when I first begin working with the code. Often this is just the learning curve of dealing with something new which quickly subsides. Sometimes however it's more than that, and I'm left feeling the journey didn't have to be that hard to reach the desired goal. This presents some questions: what factors make code easy to work with? How much of the learning curve for a given code base is a necessary part of the solving the problem, how much is unhelpful obfuscation and where does all this fit in when we talk about 'good' code?

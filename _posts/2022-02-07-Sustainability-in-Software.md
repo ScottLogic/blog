@@ -5,7 +5,9 @@ categories:
 - Tech
 author: hgoode
 layout: default_post
-summary: A very simple introduction on how to begin pondering about the environmental impact that software can have on the planet. Nothing too technical more just an introduction.
+summary: A very simple introduction on how to begin pondering about the environmental
+  impact that software can have on the planet. Nothing too technical more just an
+  introduction.
 ---
 
 Humans are causing climate change; a statement that more people agree with today than ever before in human history. The knowledge that Green House Gas (GHG) emissions are the cause of this change is also growing. So this blog is going to focus on understanding where software, the people who develop said software and GHG emissions intersect.

@@ -5,7 +5,10 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: This blog looks at how CSS flexbox layout can be applied to SVG in order to simplify the task of constructing charts with D3. This approach has been made possible by the JavaScript flexbox implementation that Facebook recently open sourced to support ReactJS Native.
+summary: This blog looks at how CSS flexbox layout can be applied to SVG in order
+  to simplify the task of constructing charts with D3. This approach has been made
+  possible by the JavaScript flexbox implementation that Facebook recently open sourced
+  to support ReactJS Native.
 oldlink: http://www.scottlogic.com/blog/2015/02/02/svg-layout-flexbox.html
 disqus-id: "/2015/02/02/svg-layout-flexbox.html"
 ---

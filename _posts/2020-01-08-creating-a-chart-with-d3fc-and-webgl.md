@@ -5,7 +5,9 @@ categories:
 - Tech
 author: oforeman
 layout: default_post
-summary: In this post we will be looking at creating a chart using D3FC and the new WebGL functionality. With the performance boost that WebGL provides we will see how we can render a large data set of around 54,000 points in a single pass.
+summary: In this post we will be looking at creating a chart using D3FC and the new
+  WebGL functionality. With the performance boost that WebGL provides we will see
+  how we can render a large data set of around 54,000 points in a single pass.
 ---
 
 I've recently had the opportunity to use some of the new [WebGL](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API) features of the [D3FC](https://d3fc.io/) library. D3FC extends the [D3](https://d3js.org/) charting library by providing commonly used components to simplify the process of creating interactive charts.

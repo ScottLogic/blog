@@ -5,7 +5,10 @@ categories:
 - Delivery
 author: robsmith
 layout: default_post
-summary: Following the recent relaxation of Lockdown, and with reports circulating of further loosening, we can all start to look forward to something approaching normality.  But what will constitute “normal” in the future, and what will this mean for the technology we use?
+summary: Following the recent relaxation of Lockdown, and with reports circulating
+  of further loosening, we can all start to look forward to something approaching
+  normality.  But what will constitute “normal” in the future, and what will this
+  mean for the technology we use?
 image: robsmith/assets/thumbnail_beyond_covid.jpg
 ---
 

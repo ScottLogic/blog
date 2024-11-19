@@ -1,11 +1,15 @@
 ---
-title: 'Delta requests for frequently-updated application bundles: from 2002 to service workers'
+title: 'Delta requests for frequently-updated application bundles: from 2002 to service
+  workers'
 date: 2019-08-15 00:00:00 Z
 categories:
 - Tech
 author: rwilliams
 layout: default_post
-summary: Caching frontend application bundles isn't as effective when they're updated frequently. In this post, I'll explore the idea of using deltas to update already-cached bundles, and cover some approaches - including one that's feasible today using service workers.
+summary: Caching frontend application bundles isn't as effective when they're updated
+  frequently. In this post, I'll explore the idea of using deltas to update already-cached
+  bundles, and cover some approaches - including one that's feasible today using service
+  workers.
 ---
 
 One of the powers given to developers by service workers is the ability to slot in between the main window application and the browser's network layer. This has made offline applications possible, as well as performance improvements driven by smart caching strategies. This level of the stack was previously beyond our reach, reserved for browser developers. Now, in addition to application-specific use cases, it can act as a breeding  ground for general ideas that could one day make their way into web standards. One such idea is HTTP delta requests, which I'll explore in this post.

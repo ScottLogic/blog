@@ -8,7 +8,10 @@ tags:
 author: tmakarem
 layout: default_post
 image: "/tmakarem/assets/2018-06-27-How-UX-Designers-Can-Help-Users-Protect-Their-Data/00-gmail-error-message.png"
-summary: 'Protecting users’ privacy and security is often seen as a task for developers. However, UX designers can work alongside developers and play a role in that. In this post, I present a few ways in which designers can help users protect their data. '
+summary: 'Protecting users’ privacy and security is often seen as a task for developers.
+  However, UX designers can work alongside developers and play a role in that. In
+  this post, I present a few ways in which designers can help users protect their
+  data. '
 ---
 
 In 2016, *Yahoo* disclosed that it had two data breaches, one in  *[August 2013](https://uk.help.yahoo.com/kb/SLN28451.html?impressions=true)* and another in *[late 2014](https://help.yahoo.com/kb/september-sln28092.html)*. It faced several lawsuits for failing to disclose them earlier and spent $80 million in settlement. The General Data Protection Regulation (*[GDPR](http://www.eugdpr.org/)*), which came into force in 2018, imposes fines on breaches resulting from inadequate security, and penalties on companies that fail to report data breaches within 72 hours. Companies are now more than ever urged to identify cyber risk and enhance their security.

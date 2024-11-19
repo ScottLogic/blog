@@ -9,7 +9,10 @@ author: ceberhardt
 contributors:
 - cprice
 layout: default_post
-summary: WebAssembly is a new runtime for the web; a fast and efficient compilation target for a wide range of languages that could have a far-reaching impact on the web as we know it. This paper looks at at the performance limits of JavaScript and how WebAssembly was designed to tackle them.
+summary: WebAssembly is a new runtime for the web; a fast and efficient compilation
+  target for a wide range of languages that could have a far-reaching impact on the
+  web as we know it. This paper looks at at the performance limits of JavaScript and
+  how WebAssembly was designed to tackle them.
 image: ceberhardt/assets/featured/webassembly.png
 cta:
   link: http://blog.scottlogic.com/ceberhardt/assets/white-papers/the-web-assembles.pdf

@@ -9,7 +9,8 @@ tags:
 - ux design
 - ux
 - ui
-summary: UX and UI often get used interchangably, but there are key differences. Which one do you need?
+summary: UX and UI often get used interchangably, but there are key differences. Which
+  one do you need?
 author: delliott
 ---
 

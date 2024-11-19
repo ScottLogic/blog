@@ -5,7 +5,11 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: Recently I updated the Scott Logic blog to implement infinite scrolling using a combination of Jekyll pagination and jScroll. Both of these components are quite fussy about their respective configuration, meaning that integrating them took longer than expected. I thought I'd share my solution in this blog post, hopefully saving others from the hours I spent digging into jScroll code or cursing Jekyll!
+summary: Recently I updated the Scott Logic blog to implement infinite scrolling using
+  a combination of Jekyll pagination and jScroll. Both of these components are quite
+  fussy about their respective configuration, meaning that integrating them took longer
+  than expected. I thought I'd share my solution in this blog post, hopefully saving
+  others from the hours I spent digging into jScroll code or cursing Jekyll!
 oldlink: http://www.scottlogic.com/blog/2014/10/14/jekyll-pagination-and-infinite-scrolling.html
 disqus-id: "/2014/10/14/jekyll-pagination-and-infinite-scrolling.html"
 ---

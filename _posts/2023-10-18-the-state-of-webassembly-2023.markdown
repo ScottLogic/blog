@@ -3,7 +3,11 @@ title: The State of WebAssembly 2023
 date: 2023-10-18 16:01:00 Z
 categories:
 - Tech
-summary: This blog posts shares the results of the third annual State of WebAssembly survey, where we found that Rust and JavaScript usage continues to increase, but there is a growing desire for Zig and Kotlin. The use of wasm as a plugin environment continues to climb,  with developers hoping it will deliver of the “write once and run anywhere” promise.
+summary: This blog posts shares the results of the third annual State of WebAssembly
+  survey, where we found that Rust and JavaScript usage continues to increase, but
+  there is a growing desire for Zig and Kotlin. The use of wasm as a plugin environment
+  continues to climb,  with developers hoping it will deliver of the “write once and
+  run anywhere” promise.
 author: ceberhardt
 image: "/uploads/state%20of%20web%20assembly%202023.png"
 ---

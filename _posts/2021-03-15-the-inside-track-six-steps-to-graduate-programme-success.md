@@ -23,7 +23,8 @@ tags:
 - training
 author: jspruce
 layout: default_post
-summary: My experiences of what you can expect before, during and after going through the Scott Logic Graduate Programme, and how onboarding worked during Lockdown.
+summary: My experiences of what you can expect before, during and after going through
+  the Scott Logic Graduate Programme, and how onboarding worked during Lockdown.
 ---
 
 _As a recent participant, here are my experiences of what you can expect before, during and after going through the Scott Logic graduate programme._

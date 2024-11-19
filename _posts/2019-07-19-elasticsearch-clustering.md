@@ -5,7 +5,8 @@ categories:
 - Data Engineering
 author: zwali
 layout: default_post
-summary: Create your own Elasticsearch cluster in cloud in next to no time. Leverage ElasticHQ and CloudWatch logging to gain transparency. Excerpts from a client project.
+summary: Create your own Elasticsearch cluster in cloud in next to no time. Leverage
+  ElasticHQ and CloudWatch logging to gain transparency. Excerpts from a client project.
 ---
 
 Recently I worked with Elasticsearch in a client project. It was a multi-pipeline serverless system that ingests and transforms data before pooling them in Elasticsearch. A search heavy front-end application points all its queries at the cluster.

@@ -8,7 +8,9 @@ tags:
 - Reactive
 author: jporter
 layout: default_post
-summary: Reactive programming is a powerful technique for handling data that changes over time, time-bound events, API requests and updating the UI. This post is a summary of how the reactive paradigm works in Android.
+summary: Reactive programming is a powerful technique for handling data that changes
+  over time, time-bound events, API requests and updating the UI. This post is a summary
+  of how the reactive paradigm works in Android.
 ---
 
 <style>

@@ -11,7 +11,10 @@ tags:
 - Testing
 author: croberts
 layout: default_post
-summary: Women often possess traits, skills and experiences that lend themselves to critical and sometimes overlooked aspects to being a great tester.  This article will explore why and how these predispositions are necessary attributes to excelling in the field of testing.
+summary: Women often possess traits, skills and experiences that lend themselves to
+  critical and sometimes overlooked aspects to being a great tester.  This article
+  will explore why and how these predispositions are necessary attributes to excelling
+  in the field of testing.
 ---
 
 Patience, Resourcefulness, Listening, Questioning, Love of communication, Empathy, Engaging, Building Rapport and Nurturing.  Women often have a strong tendency to possess traits, skills and experiences that lend themselves to critical and sometimes overlooked aspects to being a great tester.  This article will serve to explore why and how these predispositions are necessary attributes to excelling in the field of testing.  Whilst discussing these attributes we should acknowledge the benefits brought by having mixed teams as both genders tend to bring different but complementary characteristics that would be the basis of a highly effective team.

@@ -11,7 +11,10 @@ tags:
 - random number generation
 - Security
 - data security
-summary: In this episode – the second of a two-parter – we talk to Denis Mandich, CTO of Qrypt, about the growing threat that Quantum Computers will ultimately render our current cryptographic techniques useless – an event dubbed ‘Y2Q’, in a nod to the Y2K issue we faced over twenty years ago.
+summary: In this episode – the second of a two-parter – we talk to Denis Mandich,
+  CTO of Qrypt, about the growing threat that Quantum Computers will ultimately render
+  our current cryptographic techniques useless – an event dubbed ‘Y2Q’, in a nod to
+  the Y2K issue we faced over twenty years ago.
 author: ceberhardt
 image: "/uploads/BeyondTheHype%20-%20blue%20and%20orange%20-%20episode%2011%20-%20social.png"
 ---

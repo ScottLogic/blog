@@ -5,7 +5,9 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: Swift does not have a built in eventing mechanism. This post explores a few different ways events can be implemented in Swift and how to avoid problems of retain cycles and closure reference equality.
+summary: Swift does not have a built in eventing mechanism. This post explores a few
+  different ways events can be implemented in Swift and how to avoid problems of retain
+  cycles and closure reference equality.
 oldlink: http://www.scottlogic.com/blog/2015/02/05/swift-events.html
 disqus-id: "/2015/02/05/swift-events.html"
 ---

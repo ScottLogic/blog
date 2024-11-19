@@ -5,7 +5,11 @@ categories:
 - Delivery
 layout: default_post
 author: jayphi11ips
-summary: Working for a Digital agile consultancy was my first real exposure to Government / Public Service projects. GDS provide an exceptional amount of process and control for any OGD (Originating Government Department) so trying to follow their rules, the client's wishes and employing a succesful agile delivery methodology can mean serving multiple masters. It did (sometimes) work out.
+summary: Working for a Digital agile consultancy was my first real exposure to Government
+  / Public Service projects. GDS provide an exceptional amount of process and control
+  for any OGD (Originating Government Department) so trying to follow their rules,
+  the client's wishes and employing a succesful agile delivery methodology can mean
+  serving multiple masters. It did (sometimes) work out.
 ---
 
 For the past 5 years, I have worked extensively in government projects using agile. All of them went through a Government Digital Service (GDS) assessment of some kind at some point in their evolution. All knew of the existence of the Digital Service Standard’s (DSS) 18 criteria points, and were aware of both the importance and consequences of these quality gates, but some projects ended up failing.

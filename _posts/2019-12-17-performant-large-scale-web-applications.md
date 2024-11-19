@@ -5,7 +5,10 @@ categories:
 - Tech
 author: rwilliams
 layout: default_post
-summary: This is a post about doing performance right when building large and complex web applications. Much advice is available about optimising for every last ounce of performance on the web, but that won't help much if we don't already have 'good' to begin with.
+summary: This is a post about doing performance right when building large and complex
+  web applications. Much advice is available about optimising for every last ounce
+  of performance on the web, but that won't help much if we don't already have 'good'
+  to begin with.
 ---
 
 This post is about doing performance right when building large and complex web applications. Much advice is available about optimising for every last ounce of performance on the web, but that won't help much if we don't already have 'good' to begin with.

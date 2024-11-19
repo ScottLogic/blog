@@ -4,7 +4,9 @@ date: 2018-11-27 00:00:00 Z
 categories:
 - Cloud
 author: bjedrzejewski
-summary: This month I have sat and passed the AWS Solution Architect Associate exam. Like with many things, the journey is more exciting than the destination. In this article, I share lessons and observations I made along the way.
+summary: This month I have sat and passed the AWS Solution Architect Associate exam.
+  Like with many things, the journey is more exciting than the destination. In this
+  article, I share lessons and observations I made along the way.
 layout: default_post
 ---
 

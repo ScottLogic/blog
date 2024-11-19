@@ -5,7 +5,10 @@ categories:
 - Testing
 author: skondru
 layout: default_post
-summary: Demystifying test automation - This article aims to provide an understanding of the concepts and the implementation of test automation. I will use every-day language and avoid overly complicated terminology to build confidence in those making a start in test automation.
+summary: Demystifying test automation - This article aims to provide an understanding
+  of the concepts and the implementation of test automation. I will use every-day
+  language and avoid overly complicated terminology to build confidence in those making
+  a start in test automation.
 ---
 
 This article aims to provide an understanding of the concepts and the implementation of test automation. I will use every-day language and avoid overly complicated terminology to build confidence in those making a start in test automation.

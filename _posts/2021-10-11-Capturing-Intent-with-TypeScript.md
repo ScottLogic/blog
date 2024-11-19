@@ -8,7 +8,11 @@ tags:
 - featured
 author: pburgess
 layout: default_post
-summary: When coming to TypeScript from OOP languages it can be very easy to fall into the trap of using types the same way you are used to. But this is missing a lot of power of TypeScript. This article looks at how you can extend your TypeScript use to not only represent types, but also express the intent and document your code better.
+summary: When coming to TypeScript from OOP languages it can be very easy to fall
+  into the trap of using types the same way you are used to. But this is missing a
+  lot of power of TypeScript. This article looks at how you can extend your TypeScript
+  use to not only represent types, but also express the intent and document your code
+  better.
 ---
 
 TypeScript is an excellent language to improve the experience of writing JavaScript. It gives us a lot of protection from mistakes in our code at compile time, and if the IDE supports it, when writing the code as well. However TypeScript is more than this.

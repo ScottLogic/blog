@@ -6,7 +6,10 @@ categories:
 tags:
 - featured
 author: lpisani
-summary: Everyone’s mental wellbeing has been put under unprecedented strain in the last 12 months, affecting all aspects of our work life and home life. In this talk, I explore the various stressors that affect our mental health and shares some strategies that will help you to improve your resilience.
+summary: Everyone’s mental wellbeing has been put under unprecedented strain in the
+  last 12 months, affecting all aspects of our work life and home life. In this talk,
+  I explore the various stressors that affect our mental health and shares some strategies
+  that will help you to improve your resilience.
 layout: video_post
 video_url: https://www.youtube.com/embed/CzC_jN4W4Xc
 short-author-aside: true

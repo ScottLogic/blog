@@ -13,7 +13,10 @@ tags:
 - Large Language Models
 - LLM
 - Knowledge Graph
-summary: I was part of a Scott Logic team that developed and delivered a Proof of Concept (PoC) for a major retail bank which demonstrated high potential business value and showed how GenAI could be reined in as part of a range of options to mitigate risk. In this post, I provide an overview of how it worked.
+summary: I was part of a Scott Logic team that developed and delivered a Proof of
+  Concept (PoC) for a major retail bank which demonstrated high potential business
+  value and showed how GenAI could be reined in as part of a range of options to mitigate
+  risk. In this post, I provide an overview of how it worked.
 author: shamiltonritchie
 image: "/uploads/How%20we%20de-risked%20genai.png"
 ---

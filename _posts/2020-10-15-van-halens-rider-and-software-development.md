@@ -9,8 +9,11 @@ tags:
 - detail
 - vanhalen
 author: pgraham
-summary: Van Halen famously requested M&M's with no brown sweets as part of their 1982 world tour rider. What, if anything, is there to learn from this ridiculous demand, and can it help improve our software development processes?
-summary-short: What software development lessons can be learned from Van Halen's famous 'no brown M&M's' rider?
+summary: Van Halen famously requested M&M's with no brown sweets as part of their
+  1982 world tour rider. What, if anything, is there to learn from this ridiculous
+  demand, and can it help improve our software development processes?
+summary-short: What software development lessons can be learned from Van Halen's famous
+  'no brown M&M's' rider?
 layout: default_post
 ---
 

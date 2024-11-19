@@ -5,7 +5,11 @@ categories:
 - Tech
 author: cprice
 layout: default_post
-summary: Rendering charts can be a very intensive operation for the browser, especially multiple charting widgets in the context of a wider application. OffscreenCanvas is growing in browser support and allows canvas rendering to be delegated to a WebWorker. This post looks at what performance improvements we can realistically expect and some gotchas that can crop up along the way.
+summary: Rendering charts can be a very intensive operation for the browser, especially
+  multiple charting widgets in the context of a wider application. OffscreenCanvas
+  is growing in browser support and allows canvas rendering to be delegated to a WebWorker.
+  This post looks at what performance improvements we can realistically expect and
+  some gotchas that can crop up along the way.
 ---
 
 Rendering charts can be a very intensive operation for the browser, especially multiple charting widgets in the context of a wider application. OffscreenCanvas is growing in browser support and allows canvas rendering to be delegated to a WebWorker. This post looks at what performance improvements we can realistically expect and some gotchas that can crop up along the way.

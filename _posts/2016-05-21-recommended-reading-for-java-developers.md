@@ -4,7 +4,9 @@ date: 2016-05-21 00:00:00 Z
 categories:
 - Tech
 author: bjedrzejewski
-summary: Being a software developer requires constantly improving ones knowledge. This is a short list of books that made the largest impact on me as Java developer. I hope that you too will find here something that will take you to the next level!
+summary: Being a software developer requires constantly improving ones knowledge.
+  This is a short list of books that made the largest impact on me as Java developer.
+  I hope that you too will find here something that will take you to the next level!
 layout: default_post
 ---
 

@@ -12,7 +12,10 @@ tags:
 - Graduate
 author: ashing
 layout: default_post
-summary: We - Alex and James - are graduate developers and our first project introduced us to Infrastructure as Code (IaC) and serverless architecture.  This post is a collation of useful resources and thoughts gathered on our journey to help you learn about AWS, Terraform and Serverless - it's the guide we wish we had.
+summary: We - Alex and James - are graduate developers and our first project introduced
+  us to Infrastructure as Code (IaC) and serverless architecture.  This post is a
+  collation of useful resources and thoughts gathered on our journey to help you learn
+  about AWS, Terraform and Serverless - it's the guide we wish we had.
 image: ashing/assets/terraformxserverless.png
 contributors:
 - jstrachan

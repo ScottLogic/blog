@@ -7,7 +7,10 @@ tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: Over the past couple of months I’ve been exploring the potential of WebAssembly. I wanted to try my hand at creating a more complex WebAssembly application, which is why I’ve been spending my evenings working on a CHIP-8 emulator ... and learning Rust!
+summary: Over the past couple of months I’ve been exploring the potential of WebAssembly.
+  I wanted to try my hand at creating a more complex WebAssembly application, which
+  is why I’ve been spending my evenings working on a CHIP-8 emulator ... and learning
+  Rust!
 image: ceberhardt/assets/featured/chip8.png
 ---
 

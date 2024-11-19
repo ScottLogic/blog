@@ -8,7 +8,9 @@ tags:
 - ray tracing
 author: swaterman
 layout: default_post
-summary: Ray tracing is the process of simulating light rays to render a 3D scene. It seems really complicated at first, but it's actually quite simple. After reading this post, you could easily implement one yourself!
+summary: Ray tracing is the process of simulating light rays to render a 3D scene.
+  It seems really complicated at first, but it's actually quite simple. After reading
+  this post, you could easily implement one yourself!
 summary-short: Ray tracers seem complex, but they're fundamentally simple
 image: swaterman/assets/how-to-raytracer/14.jpg
 ---

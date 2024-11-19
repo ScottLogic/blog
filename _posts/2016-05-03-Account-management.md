@@ -4,7 +4,9 @@ date: 2016-05-03 00:00:00 Z
 categories:
 - Tech
 author: rsillem
-summary: In this post, we discuss design and implementation choices for account and session management features, and how these trade off against usability and other goals.
+summary: In this post, we discuss design and implementation choices for account and
+  session management features, and how these trade off against usability and other
+  goals.
 layout: default_post
 ---
 

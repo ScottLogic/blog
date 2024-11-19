@@ -9,8 +9,11 @@ tags:
 - interface-segregation
 author: swaterman
 layout: default_post
-summary: Interface Segregation is an important part of writing clean and maintainable code. In most languages, it requires constant maintenance and naturally degrades over time. In TypeScript, we can just Pick the good bits.
-summary-short: It's easy to satisfy the Interface Segregation Principle in TypeScript - just Pick the good bits.
+summary: Interface Segregation is an important part of writing clean and maintainable
+  code. In most languages, it requires constant maintenance and naturally degrades
+  over time. In TypeScript, we can just Pick the good bits.
+summary-short: It's easy to satisfy the Interface Segregation Principle in TypeScript
+  - just Pick the good bits.
 image: swaterman/assets/typescript-pick-n-mix/pick.png
 ---
 

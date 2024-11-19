@@ -4,7 +4,10 @@ date: 2019-11-19 00:00:00 Z
 categories:
 - Tech
 author: jhenderson
-summary: The second part of a practical series on building Microservices with Spring Boot and Spring Cloud. In this post we expand on our previous online store project, scaling out while introducing the concept of client-side load-balancing using Netflix Ribbon and Feign. We also implement fault and latency tolerance with Netflix Hystrix.
+summary: The second part of a practical series on building Microservices with Spring
+  Boot and Spring Cloud. In this post we expand on our previous online store project,
+  scaling out while introducing the concept of client-side load-balancing using Netflix
+  Ribbon and Feign. We also implement fault and latency tolerance with Netflix Hystrix.
 layout: default_post
 ---
 

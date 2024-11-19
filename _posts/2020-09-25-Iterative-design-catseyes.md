@@ -11,7 +11,10 @@ tags:
 - Iterative,
 author: aburgess
 layout: default_post
-summary: When we work on projects, we are often pressured by timelines and stakeholders to move on with our designs as quickly as possible. We need to be able to advocate the value of iterative design, to ensure that we are building the right thing, in the right way.
+summary: When we work on projects, we are often pressured by timelines and stakeholders
+  to move on with our designs as quickly as possible. We need to be able to advocate
+  the value of iterative design, to ensure that we are building the right thing, in
+  the right way.
 image: aburgess/assets/Catseye-in-road.jpeg
 ---
 

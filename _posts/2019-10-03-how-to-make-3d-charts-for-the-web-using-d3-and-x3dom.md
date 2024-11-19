@@ -5,7 +5,8 @@ categories:
 - Tech
 author: asureshkumar
 layout: default_post
-summary: In this blog post we consider a practical example of how the D3 and X3DOM libraries can be used together to build dynamic 3D charts for the web.
+summary: In this blog post we consider a practical example of how the D3 and X3DOM
+  libraries can be used together to build dynamic 3D charts for the web.
 ---
 
 ## Introduction

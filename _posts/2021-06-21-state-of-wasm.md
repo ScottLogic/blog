@@ -5,7 +5,10 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: This blog post shares the results of the first State of WebAssembly Survey, with results from 250 respondents surveyed in June 2021. We find that Rust is the most frequently used and most desired WebAssembly language and many other interesting results
+summary: This blog post shares the results of the first State of WebAssembly Survey,
+  with results from 250 respondents surveyed in June 2021. We find that Rust is the
+  most frequently used and most desired WebAssembly language and many other interesting
+  results
 image: ceberhardt/assets/state-of-wasm/current-language.png
 ---
 

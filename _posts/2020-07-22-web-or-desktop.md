@@ -14,7 +14,11 @@ tags:
 - design
 author: csanderson
 layout: default_post
-summary: The choice of whether to build a web app, a PWA, a desktop container app or a native desktop application is one that is usually dominated by technical discussions. Of course, a deep understanding of the technical tradeoffs is essential. But what can often be underrepresented is a consideration of the real end-users, and what approach might be best for them.
+summary: The choice of whether to build a web app, a PWA, a desktop container app
+  or a native desktop application is one that is usually dominated by technical discussions.
+  Of course, a deep understanding of the technical tradeoffs is essential. But what
+  can often be underrepresented is a consideration of the real end-users, and what
+  approach might be best for them.
 image: csanderson/assets/comparison.png
 ---
 

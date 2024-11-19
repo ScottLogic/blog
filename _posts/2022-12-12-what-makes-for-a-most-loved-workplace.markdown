@@ -6,7 +6,10 @@ categories:
 tags:
 - Careers
 - women in tech
-summary: When people came to meet us at the Scott Logic stand at Women of Silicon Roundabout, we took the opportunity to ask them “What would make somewhere a most loved workplace for you?” We received over 200 responses and I reflect on the results in this post.
+summary: When people came to meet us at the Scott Logic stand at Women of Silicon
+  Roundabout, we took the opportunity to ask them “What would make somewhere a most
+  loved workplace for you?” We received over 200 responses and I reflect on the results
+  in this post.
 author: bwallis
 ---
 

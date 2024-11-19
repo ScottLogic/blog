@@ -9,7 +9,8 @@ tags:
 - SSH
 author: mmoxon
 layout: default_post
-summary: For the past few months I've been using Visual Studio Code Remotes, a powerful new feature that is available in Visual Studio code.
+summary: For the past few months I've been using Visual Studio Code Remotes, a powerful
+  new feature that is available in Visual Studio code.
 ---
 
 ## Introduction

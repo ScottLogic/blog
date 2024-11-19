@@ -5,7 +5,11 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: When WebAssembly was released a couple of years ago it was an MVP (Minimal Viable Product), one significant feature that was missing from the MVP was threads. The WebAssembly threads proposal is now quite mature and available in both the tooling and Chrome. This blog post explores the internals of this feature, the new instruction set, and how it supports multi-threaded applications.
+summary: When WebAssembly was released a couple of years ago it was an MVP (Minimal
+  Viable Product), one significant feature that was missing from the MVP was threads.
+  The WebAssembly threads proposal is now quite mature and available in both the tooling
+  and Chrome. This blog post explores the internals of this feature, the new instruction
+  set, and how it supports multi-threaded applications.
 image: ceberhardt/assets/wasm-mandelbrot-streaks.png
 ---
 

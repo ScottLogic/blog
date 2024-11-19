@@ -3,7 +3,8 @@ title: Introducing Agile development to client projects
 date: 2014-08-04 00:00:00 Z
 categories:
 - Delivery
-summary: As Agile methodologies gain more acceptance in the software development world, should Scott Logic look at introducing Agile to our client projects? And if so how?
+summary: As Agile methodologies gain more acceptance in the software development world,
+  should Scott Logic look at introducing Agile to our client projects? And if so how?
 author: dthomas
 oldlink: http://www.scottlogic.com/blog/2014/08/04/introducing-agile-development-to-client-projects.html
 disqus-id: "/2014/08/04/introducing-agile-development-to-client-projects.html"

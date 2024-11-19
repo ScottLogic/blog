@@ -8,7 +8,9 @@ tags:
 author: tmakarem
 layout: default_post
 image: "/tmakarem/assets/OSSF_Panel1.png"
-summary: Earlier this month, I was a speaker at the Linux Foundation Open Source Strategy Forum (OSSF) in London. I moderated a panel on women’s career progression within Fintech. In this post I detail my thoughts on the key takeaways from the panel
+summary: Earlier this month, I was a speaker at the Linux Foundation Open Source Strategy
+  Forum (OSSF) in London. I moderated a panel on women’s career progression within
+  Fintech. In this post I detail my thoughts on the key takeaways from the panel
 ---
 
 Earlier this month, I was a speaker at the Linux Foundation *[Open Source Strategy Forum](https://events.linuxfoundation.org/open-source-strategy-forum-london/program/schedule/)* (OSSF) in London. I moderated a panel on women’s career progression within Fintech with **Clair Grayston**, Executive Director and the Technology CAO, Morgan Stanley, **Jane Gavronsky**, Chief Technology Officer, FINOS, the Linux Foundation, and **Rita Chaturvedi** - Executive Director, WMT Release and Change Management, Morgan Stanley.

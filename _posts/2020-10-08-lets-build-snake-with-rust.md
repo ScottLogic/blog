@@ -4,7 +4,8 @@ date: 2020-10-08 00:00:00 Z
 categories:
 - Tech
 author: jhenderson
-summary: Learn Rust, the tech industry's most loved programming language by building Snake, the simple but addictive game found preloaded on old Nokia mobile phones.
+summary: Learn Rust, the tech industry's most loved programming language by building
+  Snake, the simple but addictive game found preloaded on old Nokia mobile phones.
 layout: default_post
 ---
 

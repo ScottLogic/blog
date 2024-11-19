@@ -7,7 +7,8 @@ tags:
 - Testing
 author: mridene
 layout: default_post
-summary: 'In this post, through experimentation, I will be comparing the two most popular browser automation frameworks: Selenium and Puppeteer'
+summary: 'In this post, through experimentation, I will be comparing the two most
+  popular browser automation frameworks: Selenium and Puppeteer'
 image: mridene/assets/2020-01-13-selenium-vs-puppeteer/deer-fight.jpg
 ---
 

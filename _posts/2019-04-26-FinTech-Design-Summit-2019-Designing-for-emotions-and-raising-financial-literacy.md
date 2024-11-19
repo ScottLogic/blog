@@ -8,7 +8,11 @@ tags:
 author: tmakarem
 layout: default_post
 image: "/tmakarem/assets/featured/FinTech-Design-Summit-2019.jpg"
-summary: We know that emotions can move markets through optimism and pessimism but what about apathy, stress and the embarrassment that we feel when discussing our finances? Designing for emotion is not a new concept but perhaps it has been overlooked in FinTech. In this post, I share my take on the FinTech Design Summit 2019 focusing on an angle that puts people’s emotions at the center of FinTech Design.
+summary: We know that emotions can move markets through optimism and pessimism but
+  what about apathy, stress and the embarrassment that we feel when discussing our
+  finances? Designing for emotion is not a new concept but perhaps it has been overlooked
+  in FinTech. In this post, I share my take on the FinTech Design Summit 2019 focusing
+  on an angle that puts people’s emotions at the center of FinTech Design.
 ---
 
 I had the pleasure of attending the *[FinTech Design Summit 2019](https://fintechdesignsummit.com/london)* which pulls together some of the world’s most innovative FinTech companies including Monzo and Google Pay. The Summit exclusively targets senior design professionals and FinTech leaders, and focuses on Product Design, UX and Strategy.

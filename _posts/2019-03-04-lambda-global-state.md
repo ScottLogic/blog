@@ -5,7 +5,10 @@ categories:
 - Cloud
 author: ceberhardt
 layout: default_post
-summary: This post looks at how the experimental Async Hooks API can be used to support global state within AWS Lambda functions. Considering that this is an experimental API it's worth treating with caution, but it does provide an interesting potential solution to a common problem.
+summary: This post looks at how the experimental Async Hooks API can be used to support
+  global state within AWS Lambda functions. Considering that this is an experimental
+  API it's worth treating with caution, but it does provide an interesting potential
+  solution to a common problem.
 image: ceberhardt/assets/featured/locks.png
 ---
 

@@ -4,7 +4,10 @@ date: 2020-09-08 00:00:00 Z
 categories:
 - Tech
 author: jhenderson
-summary: Published in 2007, Amazon's Dynamo paper changed the distributed database world. As well as powering AWS S3, it also inspired many well known open-source NoSQL technologies such as Apache Cassandra, LinkedIn's Voldemort and Basho's Riak. This post intends to present the paper and its concepts in a digestable way.
+summary: Published in 2007, Amazon's Dynamo paper changed the distributed database
+  world. As well as powering AWS S3, it also inspired many well known open-source
+  NoSQL technologies such as Apache Cassandra, LinkedIn's Voldemort and Basho's Riak.
+  This post intends to present the paper and its concepts in a digestable way.
 layout: default_post
 ---
 

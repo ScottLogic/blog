@@ -7,8 +7,11 @@ tags:
 - featured
 author: ceberhardt
 layout: default_post
-summary: I've been building a React Native app for the past few months, which was published as a tutorial yesterday. A number of people have asked about my thoughts and opinions about React Native - which I am sharing in this blog post.
-summary-short: Some thoughts on developing a React Native app, and how it compares to other cross-platform technologies.
+summary: I've been building a React Native app for the past few months, which was
+  published as a tutorial yesterday. A number of people have asked about my thoughts
+  and opinions about React Native - which I am sharing in this blog post.
+summary-short: Some thoughts on developing a React Native app, and how it compares
+  to other cross-platform technologies.
 title-short: React Native Thoughts
 image: ceberhardt/assets/featured/react-native-retrospective.jpg
 ---

@@ -7,7 +7,8 @@ tags:
 - featured
 author: wloveland
 layout: default_post
-summary: On the 1st of March myself and Graham Odds travelled to Helsinki, Finland to attend the 8th annual Interaction week.
+summary: On the 1st of March myself and Graham Odds travelled to Helsinki, Finland
+  to attend the 8th annual Interaction week.
 image: wloveland/assets/featured/interaction.jpg
 ---
 

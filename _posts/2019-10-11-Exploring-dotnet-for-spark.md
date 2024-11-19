@@ -4,7 +4,8 @@ date: 2019-10-11 00:00:00 Z
 categories:
 - Tech
 author: jharris
-summary: Taking a look at Microsoft's new product .NET for Apache Spark by writing a C# app that writes Spark dataframes to a SQL database.
+summary: Taking a look at Microsoft's new product .NET for Apache Spark by writing
+  a C# app that writes Spark dataframes to a SQL database.
 layout: default_post
 ---
 

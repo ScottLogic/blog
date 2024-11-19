@@ -4,7 +4,8 @@ date: 2014-08-18 00:00:00 Z
 categories:
 - Tech
 author: alee
-summary: How to use Asp.Net's built-in bundling and optimisation feature to optimise AngularJS templates
+summary: How to use Asp.Net's built-in bundling and optimisation feature to optimise
+  AngularJS templates
 layout: default_post
 oldlink: http://www.scottlogic.com/blog/2014/08/18/asp-angular-optimisation.html
 disqus-id: "/2014/08/18/asp-angular-optimisation.html"

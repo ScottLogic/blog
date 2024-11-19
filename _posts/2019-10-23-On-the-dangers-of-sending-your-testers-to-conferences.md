@@ -16,7 +16,9 @@ contributors:
 - cakehurstryan
 - hwilliams
 layout: default_post
-summary: All companies need to be warned about the consequences of sending their testers to conferences.... (especially ones that are inclusive and considerate of their attendees)
+summary: All companies need to be warned about the consequences of sending their testers
+  to conferences.... (especially ones that are inclusive and considerate of their
+  attendees)
 image: efiennes/assets/Salford.jpg
 ---
 

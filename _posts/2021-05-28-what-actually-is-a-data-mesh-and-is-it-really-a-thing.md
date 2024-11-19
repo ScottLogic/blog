@@ -20,7 +20,10 @@ tags:
 - Warehouses
 author: acarr
 layout: default_post
-summary: 'Organisations across the globe have been on a journey to find the optimal approach for managing and leveraging analytics data. In this post, I’ll set out each of the key milestones on the journey, to arrive at the latest milestone – the Data Mesh paradigm – and ask whether it is really a thing. '
+summary: 'Organisations across the globe have been on a journey to find the optimal
+  approach for managing and leveraging analytics data. In this post, I’ll set out
+  each of the key milestones on the journey, to arrive at the latest milestone – the
+  Data Mesh paradigm – and ask whether it is really a thing. '
 ---
 
 A lot of people are talking about the Data Mesh concept first referenced by Zhamak Dehghani in her blog [How to Move Beyond a Monolithic Data Lake to a Distributed Data Mesh](https://martinfowler.com/articles/data-monolith-to-mesh.html). It’s not hard to understand why. 

@@ -9,7 +9,9 @@ tags:
 - Development
 author: phands
 layout: default_post
-summary: Managing state in an application can be tricky, even more so with many moving parts like in typical forms. In this article I consider when it is appropriate to use Redux and Redux Form to manage the state of a form in a webapplication
+summary: Managing state in an application can be tricky, even more so with many moving
+  parts like in typical forms. In this article I consider when it is appropriate to
+  use Redux and Redux Form to manage the state of a form in a webapplication
 image: phands/assets/Redux Form 1.png
 ---
 

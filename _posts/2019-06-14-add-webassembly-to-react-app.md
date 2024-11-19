@@ -7,7 +7,9 @@ tags:
 - featured
 author: alee
 layout: default_post
-summary: As a front-end developer working on real-world applications, WebAssembly isn't something I can actually use, is it? Let's find out how easy it can be using AssemblyScript.
+summary: As a front-end developer working on real-world applications, WebAssembly
+  isn't something I can actually use, is it? Let's find out how easy it can be using
+  AssemblyScript.
 image: ceberhardt/assets/featured/wasm.png
 ---
 

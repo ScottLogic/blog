@@ -10,7 +10,11 @@ tags:
 - distributed software architectures
 - Microservices
 - event-driven architectures
-summary: In this episode, I'm joined for a discussion on observability by Scott Rowan, Senior Developer at Scott Logic, and Daniel Gomez Blanco, Principal Engineer at Skyscanner. Our conversation explores what observability means in modern distributed software architectures, how it differs from traditional monitoring, and the challenges of implementing observability at scale.
+summary: In this episode, I'm joined for a discussion on observability by Scott Rowan,
+  Senior Developer at Scott Logic, and Daniel Gomez Blanco, Principal Engineer at
+  Skyscanner. Our conversation explores what observability means in modern distributed
+  software architectures, how it differs from traditional monitoring, and the challenges
+  of implementing observability at scale.
 author: ocronk
 image: "/uploads/BeyondTheHype---green-and-orange---episode-21---social_Artboard-1.png"
 ---

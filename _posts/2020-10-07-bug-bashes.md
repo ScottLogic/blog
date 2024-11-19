@@ -5,7 +5,9 @@ categories:
 - Testing
 author: ckurzeja
 layout: default_post
-summary: When working without testing resource on a project, I was looking for a tool to 'shake out' issues in the product. Colleagues suggested using a bug bash and this blog post explains what a bug bash is and how we went about running one.
+summary: When working without testing resource on a project, I was looking for a tool
+  to 'shake out' issues in the product. Colleagues suggested using a bug bash and
+  this blog post explains what a bug bash is and how we went about running one.
 image: ckurzeja/assets/2020-10-07-bug-bash.jpg
 ---
 

@@ -9,7 +9,10 @@ tags:
 - Performance
 author: hashbyha
 layout: default_post
-summary: Developing with Redux makes managing your React state easier, but if not integrated correctly it can remove key advantages of using React, wrecking your application's performance. This blog will outline how I managed to create a painfully slow React app and the steps took to correct it.
+summary: Developing with Redux makes managing your React state easier, but if not
+  integrated correctly it can remove key advantages of using React, wrecking your
+  application's performance. This blog will outline how I managed to create a painfully
+  slow React app and the steps took to correct it.
 ---
 
 Developing with Redux makes managing your React state easier, but if not integrated correctly it can remove key advantages of using React, wrecking your application's performance. This blog will outline how I managed to create a painfully slow React app and the steps took to correct it.

@@ -8,11 +8,14 @@ tags:
 - featured
 author: wreilly
 title-short: Ionic Master Detail
-summary-short: Ionic lacks a standard master-detail control, this post looks at how to assemble one.
+summary-short: Ionic lacks a standard master-detail control, this post looks at how
+  to assemble one.
 image: wreilly/assets/featured/master-detail.png
 layout: default_post
 source: site
-summary: Ionic is a framework built on angular-js, targeted at creating mobile applications. However, one useful component that isn't part of the standard controls is the master detail layout, and this post describes the solution I used when creating this control.
+summary: Ionic is a framework built on angular-js, targeted at creating mobile applications.
+  However, one useful component that isn't part of the standard controls is the master
+  detail layout, and this post describes the solution I used when creating this control.
 ---
 
 Ionic is a framework built on angular-js, targeted at creating mobile applications. However, one component that isn't part of the standard controls is the master detail layout.

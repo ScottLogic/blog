@@ -11,7 +11,9 @@ tags:
 - BCSWomen
 author: abagdonaite
 layout: default_post
-summary: This is the summary of BCSWomen Lovelace Colloquium 2019 that I attended. I had a chance to attend interesting talks and to talk with women students who attended the event and were interested in ScottLogic.
+summary: This is the summary of BCSWomen Lovelace Colloquium 2019 that I attended.
+  I had a chance to attend interesting talks and to talk with women students who attended
+  the event and were interested in ScottLogic.
 ---
 
 ## Ada Lovelace

@@ -5,7 +5,9 @@ categories:
 - Tech
 author: ceberhardt
 layout: default_post
-summary: Market profile charts are relatively complicated and specialised charts used by financial traders. This blog post looks at how to render a market profile chart using D3.
+summary: Market profile charts are relatively complicated and specialised charts used
+  by financial traders. This blog post looks at how to render a market profile chart
+  using D3.
 image: ceberhardt/assets/market-profile/market-profile.png
 ---
 

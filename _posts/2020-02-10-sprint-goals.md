@@ -7,7 +7,8 @@ tags:
 - Agile
 author: shogarth
 layout: default_post
-summary: Setting a Sprint Goal is a powerful means of achieving focus, motivating and inspiring your team. So why is it always forgotten about?
+summary: Setting a Sprint Goal is a powerful means of achieving focus, motivating
+  and inspiring your team. So why is it always forgotten about?
 ---
 
 The youth of today are always talking about squad goals - aspirational attainments for a group. It's a nice concept and actually built into the Scrum framework, as Sprint Goals.

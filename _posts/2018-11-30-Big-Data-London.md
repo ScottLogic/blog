@@ -8,7 +8,8 @@ tags:
 author: tmakarem
 layout: default_post
 image: "/tmakarem/assets/2018-11-26-Big-Data-lnd-2018/04-Cover.jpg"
-summary: In this article, I share my take on the recent Big Data LDN 2018 conference and delve into some particular highlights from Dr Hannah Fry's keynote.
+summary: In this article, I share my take on the recent Big Data LDN 2018 conference
+  and delve into some particular highlights from Dr Hannah Fry's keynote.
 ---
 
 In this post, I share my take on the *[Big Data LDN 2018 conference](https://bigdataldn.com/)* that I attended recently.

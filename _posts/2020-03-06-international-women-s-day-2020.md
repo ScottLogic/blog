@@ -15,7 +15,9 @@ tags:
 - and
 - Inclusion
 - Careers
-summary: International Women's Day (March 8) is a global day celebrating the social, economic, cultural and political achievements of women. Here's a roundup of some of the things we’ve been doing across the company to celebrate.
+summary: International Women's Day (March 8) is a global day celebrating the social,
+  economic, cultural and political achievements of women. Here's a roundup of some
+  of the things we’ve been doing across the company to celebrate.
 author: ssibanda
 image: "/ssibanda/assets/IWD-2020-Timeline.png"
 layout: default_post

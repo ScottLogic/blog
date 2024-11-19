@@ -4,7 +4,8 @@ date: 2016-01-24 00:00:00 Z
 categories:
 - Data Engineering
 author: acarr
-summary: Apache Spark has quickly become the largest open source project in big data, but why has it suddenly got so much momentum behind it?
+summary: Apache Spark has quickly become the largest open source project in big data,
+  but why has it suddenly got so much momentum behind it?
 layout: default_post
 ---
 

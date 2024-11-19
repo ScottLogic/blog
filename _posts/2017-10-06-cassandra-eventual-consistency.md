@@ -5,7 +5,9 @@ categories:
 - Data Engineering
 author: zwali
 layout: default_post
-summary: A discussion about Cassandra consistency levels and replication factor, which are frequently misunderstood. This post explains the Cassandra infrastructure and how its configuration can be tuned.
+summary: A discussion about Cassandra consistency levels and replication factor, which
+  are frequently misunderstood. This post explains the Cassandra infrastructure and
+  how its configuration can be tuned.
 ---
 
 Last year we happened to work with a client who replaced all their traditional databases with Apache Cassandra. They wanted to have a streamlined database infrastructure across their whole system while stepping into the world of horizontal scaling and super-fast read-write. But after taking on all the development tasks, as they embarked on the integration testing phase, things started to fall apart. They were writing some transactions and attempting to read immediately following the write. The read request was coming back with stale data instead of the entry that has just been written. When I heard of this, at first it was hard to comprehend why this was happening. But then I attended [this event](https://www.eventbrite.com/e/dse-workshop-data-n-drinks-tickets-34656447367) and the DataStax guys focused a lot on explaining  how to manage consistency and replication factors. Apparently, most companies that are struggling with Cassandra set-ups are struggling because they didn’t understand configuration and what the impacts are. Although bizarre, the issue that our client ran into is a very common one!

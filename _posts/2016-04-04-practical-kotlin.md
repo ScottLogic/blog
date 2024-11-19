@@ -5,7 +5,9 @@ categories:
 - Tech
 author: awallis
 layout: default_post
-summary: Kotlin is the latest JVM-targeted language to see a 1.0.0 release. Having experimented with it for a short while I thought I would capture my experience and point out a few gotchas.
+summary: Kotlin is the latest JVM-targeted language to see a 1.0.0 release. Having
+  experimented with it for a short while I thought I would capture my experience and
+  point out a few gotchas.
 ---
 
 Kotlin 1.0.0 was officially released in February this year. Kotlin is a new language from JetBrains (of IntelliJ IDEA and ReSharper fame). It was originally announced in 2011 when a development version was made available to the public. While it can be compiled to JavaScript, the primary target is the JVM, and one of its core goals is 100% Java interoperability.

@@ -5,7 +5,8 @@ categories:
 - Tech
 author: cprice
 layout: default_post
-summary: A quick run through of the steps involved in integrating a Node.js client with Active Directory Federation Services for authentication using OAUTH2.
+summary: A quick run through of the steps involved in integrating a Node.js client
+  with Active Directory Federation Services for authentication using OAUTH2.
 ---
 
 A quick run through of the steps involved in integrating a Node.js client with Active Directory Federation Services for authentication using OAUTH2.

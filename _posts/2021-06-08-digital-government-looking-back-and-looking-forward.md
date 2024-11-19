@@ -5,7 +5,10 @@ categories:
 - Tech
 author: sforeshew-cain
 layout: default_post
-summary: In advance of the event on Profit with Purpose that I'm participating in during Digital Leaders Week, I reflect (briefly) here on my experiences in Government, my thoughts on some of the challenges that still lie ahead, and why I’m excited to be the new ‘gaffer’ at Scott Logic.
+summary: In advance of the event on Profit with Purpose that I'm participating in
+  during Digital Leaders Week, I reflect (briefly) here on my experiences in Government,
+  my thoughts on some of the challenges that still lie ahead, and why I’m excited
+  to be the new ‘gaffer’ at Scott Logic.
 ---
 
 <em>As part of Digital Leaders Week in June, I’ll be joining Karen Lynch, Vice Chair of Social Enterprise UK, in a fireside chat discussing Profit with Purpose. The event will be my first involvement with Digital Leaders in some time and I’m looking forward to it. Here, I reflect (briefly) on my experiences in Government, my thoughts on some of the challenges that still lie ahead, and why I’m excited to be the new ‘gaffer’ at Scott Logic.</em>

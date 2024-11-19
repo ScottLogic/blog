@@ -5,7 +5,11 @@ categories:
 - Delivery
 author: tmakarem
 layout: default_post
-summary: An MVP is a product that has just enough features to add business value. Typically you quickly learn from it to improve on subsequent releases or inform business decisions. MVP is also a buzzword and many have tried to constrain its definition. However, when people talk about MVPs, they mean different things. In this post, I describe the 3 types of MVPs that I encountered.
+summary: An MVP is a product that has just enough features to add business value.
+  Typically you quickly learn from it to improve on subsequent releases or inform
+  business decisions. MVP is also a buzzword and many have tried to constrain its
+  definition. However, when people talk about MVPs, they mean different things. In
+  this post, I describe the 3 types of MVPs that I encountered.
 ---
 
 An MVP is a product that has just enough features to add business value. Typically you quickly learn from it to improve on subsequent releases or inform business decisions. MVP is also a buzzword and many have tried to constrain its definition. However, when people talk about MVPs, they mean different things. In this post, I describe the 3 types of MVPs that I encountered.

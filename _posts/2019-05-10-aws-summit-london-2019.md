@@ -5,7 +5,9 @@ categories:
 - Cloud
 author: zwali
 layout: default_post
-summary: A summary of my experiences attending AWS Summit London, 2019. Highlights from talks that I found interesting and/or informative. Topics are mainly focused on high-performance computing, security and distributed architecture.
+summary: A summary of my experiences attending AWS Summit London, 2019. Highlights
+  from talks that I found interesting and/or informative. Topics are mainly focused
+  on high-performance computing, security and distributed architecture.
 ---
 
 Braving the wet weather and swarming crowd in the DLR stations, this week a few of us went to attend the AWS summit at Excel, London. It is a terrific opportunity to immerse yourself in all things AWS. There are spoilers about new features, as well as battle hardened knowledge from other early adopters and not to mention mingling and collecting goodies. This year’s extra attraction was [Deep Racer League](https://aws.amazon.com/deepracer/league/) where you train your DeepRacer car using re-enforcement learning and top leader board to win a ticket to the AWS re:invent, 2019 in Las Vegas with all expenses included! Whether you are a racer a not, it is great to see all the various products that have built around AWS and talk to people who are working with interesting problems. 

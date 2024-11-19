@@ -5,7 +5,12 @@ categories:
 - Open Source
 author: ceberhardt
 layout: default_post
-summary: We recently worked on a research project, exploring open source issues and challenges within financial services organisations. We found that consumption is “acceptable” rather than “encouraged”, with security concerns representing the biggest obstacle. On the flip-side, open source maintainers don’t wish to invest further in security. Financial services organisations, whose contribution policies lag behind, need to bridge this gap in order to fully capitalise on the value open source presents.
+summary: We recently worked on a research project, exploring open source issues and
+  challenges within financial services organisations. We found that consumption is
+  “acceptable” rather than “encouraged”, with security concerns representing the biggest
+  obstacle. On the flip-side, open source maintainers don’t wish to invest further
+  in security. Financial services organisations, whose contribution policies lag behind,
+  need to bridge this gap in order to fully capitalise on the value open source presents.
 image: ceberhardt/assets/finos-survey/thumbnail.png
 ---
 

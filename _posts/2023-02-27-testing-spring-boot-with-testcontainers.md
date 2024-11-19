@@ -8,8 +8,12 @@ tags:
 - spring
 - spring-boot
 author: smendis-scottlogic
-summary: What is the best way to test the repository layer of a spring boot application? Or should you test it at all? What are Testcontainers and how to use them? This article addresses them all with examples, so you can make a better decision when you are faced with a similar challenge in future.
-summary-short: Discuss how repository layer of a spring boot application can be tested using Testcontainers.
+summary: What is the best way to test the repository layer of a spring boot application?
+  Or should you test it at all? What are Testcontainers and how to use them? This
+  article addresses them all with examples, so you can make a better decision when
+  you are faced with a similar challenge in future.
+summary-short: Discuss how repository layer of a spring boot application can be tested
+  using Testcontainers.
 layout: default_post
 ---
 

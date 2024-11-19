@@ -7,7 +7,11 @@ tags:
 - featured
 author: sforeshew-cain
 canonical_url: https://www.computing.co.uk/sponsored/4041024/partner-insight-create-normal-leadership
-summary: I believe strongly that it's vital to showcase the women leaders in our industry; to me, it's the key to addressing the gender imbalance that holds our industry back. We all know representation matters - what you can see, you can be. But more than this, it’s the normalisation of women being in leadership positions that’s essential in closing the authority gap.
+summary: I believe strongly that it's vital to showcase the women leaders in our industry;
+  to me, it's the key to addressing the gender imbalance that holds our industry back.
+  We all know representation matters - what you can see, you can be. But more than
+  this, it’s the normalisation of women being in leadership positions that’s essential
+  in closing the authority gap.
 image: sforeshew-cain/assets/new-normal-leadership.png
 layout: default_post
 short-author-aside: true

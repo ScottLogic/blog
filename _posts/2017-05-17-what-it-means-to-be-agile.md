@@ -5,7 +5,8 @@ categories:
 - Delivery
 author: shunton
 layout: default_post
-summary: While there is much written about Agile, it’s important to understand not only the principles of the frameworks but also what it means to *be* Agile.
+summary: While there is much written about Agile, it’s important to understand not
+  only the principles of the frameworks but also what it means to *be* Agile.
 ---
 
 While there is much written about Agile, it’s important to understand not only the principles of the frameworks but also what it means to *be* Agile.

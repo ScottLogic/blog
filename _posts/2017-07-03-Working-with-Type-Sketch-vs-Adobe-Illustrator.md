@@ -7,7 +7,8 @@ tags:
 - featured
 author: tmakarem
 layout: default_post
-summary: In this post, I go over the similarities and differences between Sketch and Illustrator when working with type.
+summary: In this post, I go over the similarities and differences between Sketch and
+  Illustrator when working with type.
 ---
 
 People moving from *[Illustrator](http://www.adobe.com/uk/products/illustrator.html?mv=search&s_kwcid=AL!3085!3!75270349970!b!!g!!illustrator%20adobe&ef_id=VuFCbQAABM2qoHFs:20170309093627:s)* to *[Sketch](https://www.sketchapp.com/)* might find that working with type in Sketch is a bit limiting compared to Illustrator. In this post, I go over the similarities and differences between the two tools when working with type.

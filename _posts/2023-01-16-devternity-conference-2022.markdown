@@ -3,7 +3,9 @@ title: DevTernity conference 2022
 date: 2023-01-16 16:00:00 Z
 categories:
 - Tech
-summary: Late last year I attended DevTernity, an all-remote generalist software development conference. In this post I'll cover off some points of interest from some of the talks I chose to attend, and reflect on the remote conference experience.
+summary: Late last year I attended DevTernity, an all-remote generalist software development
+  conference. In this post I'll cover off some points of interest from some of the
+  talks I chose to attend, and reflect on the remote conference experience.
 author: rwilliams
 ---
 

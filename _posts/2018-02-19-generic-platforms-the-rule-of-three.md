@@ -5,7 +5,9 @@ categories:
 - Tech
 author: tclarke-scottlogic
 layout: default_post
-summary: When is it time to make something a generic re-usable class? And how do you manage the additional complexity of a generic solution? A potential solution lies in an incremental approach.
+summary: When is it time to make something a generic re-usable class? And how do you
+  manage the additional complexity of a generic solution? A potential solution lies
+  in an incremental approach.
 ---
 
 In this post, I'm going to consider how you end up with unnecessarily complex systems, and how to avoid them. Let's consider the two most common examples of this issue.

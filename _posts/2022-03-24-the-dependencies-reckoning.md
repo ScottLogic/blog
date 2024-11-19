@@ -7,7 +7,8 @@ tags:
 - featured
 author: osharon
 layout: default_post
-summary: In lights of various incidents where third-party software caused numerous failures, we'll review the considerations we take when selecting third-party software.
+summary: In lights of various incidents where third-party software caused numerous
+  failures, we'll review the considerations we take when selecting third-party software.
 image: osharon/assets/featured/jenga.png
 ---
 

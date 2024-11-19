@@ -11,7 +11,10 @@ tags:
 - Monitor
 author: mmcalroy
 layout: default_post
-summary: Effective API testing has become increasingly more important with the rise of microservices. In this post we'll discuss how we can efficiently manage our API tests and automate them into a CI/CD pipeline with some of the tools provided by Postman
+summary: Effective API testing has become increasingly more important with the rise
+  of microservices. In this post we'll discuss how we can efficiently manage our API
+  tests and automate them into a CI/CD pipeline with some of the tools provided by
+  Postman
 image: mmcalroy/assets/postmanLogo.png
 ---
 

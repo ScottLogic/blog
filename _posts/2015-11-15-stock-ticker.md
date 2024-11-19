@@ -5,7 +5,8 @@ categories:
 - Data Engineering
 author: isullivan
 layout: default_post
-summary: This post demonstrates how to create an efficient stock ticker app using HTML5 WebSockets and a Haskell server.
+summary: This post demonstrates how to create an efficient stock ticker app using
+  HTML5 WebSockets and a Haskell server.
 disqus-id: "/2015/11/15/stock-ticker.html"
 ---
 

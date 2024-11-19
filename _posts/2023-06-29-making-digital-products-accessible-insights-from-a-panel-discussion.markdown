@@ -11,7 +11,11 @@ tags:
 - Diversity
 - Global Disability Awareness Day
 - featured
-summary: In this blog post, two of our consultants share their insights from a panel discussion focused on enhancing the accessibility of digital products and services. They delve into the challenges encountered by disabled users, emphasize the significance of integrating accessibility considerations from the outset, and highlight the universal advantages that accessibility can offer.
+summary: In this blog post, two of our consultants share their insights from a panel
+  discussion focused on enhancing the accessibility of digital products and services.
+  They delve into the challenges encountered by disabled users, emphasize the significance
+  of integrating accessibility considerations from the outset, and highlight the universal
+  advantages that accessibility can offer.
 author: dhinrichs
 contributors: osharon
 image: "/uploads/MicrosoftTeams-image%20(7)-8341bc.png"

@@ -5,7 +5,9 @@ categories:
 - Tech
 author: isullivan
 layout: default_post
-summary: This post introduces 'Bramble MVC', a prototype static site generator which aims to be a little different from existing static site generators by having an API resembling a dynamic web server.
+summary: This post introduces 'Bramble MVC', a prototype static site generator which
+  aims to be a little different from existing static site generators by having an
+  API resembling a dynamic web server.
 oldlink: http://www.scottlogic.com/blog/2014/11/28/bramble-mvc.html
 disqus-id: "/2014/11/28/bramble-mvc.html"
 ---

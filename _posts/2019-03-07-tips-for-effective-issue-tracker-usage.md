@@ -5,7 +5,9 @@ categories:
 - Delivery
 author: rwilliams
 layout: default_post
-summary: The flexibility and power of issue tracking tools can make it difficult to figure out how to use them effectively. In this post, I present a few simple tips on what I find works and what doesn't.
+summary: The flexibility and power of issue tracking tools can make it difficult to
+  figure out how to use them effectively. In this post, I present a few simple tips
+  on what I find works and what doesn't.
 ---
 
 Most projects use an issue tracking system to capture and track items of work through the delivery pipeline. The task at hand combined with the great configurability of these tools can make it difficult to know how to use them effectively, and leaves open a few traps for teams to fall into.

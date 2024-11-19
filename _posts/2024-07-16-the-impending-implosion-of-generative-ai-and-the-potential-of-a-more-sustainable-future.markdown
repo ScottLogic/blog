@@ -7,11 +7,15 @@ categories:
 tags:
 - Sustainability
 - Artificial Intelligence
-- ocronk
-summary: Generative AI has a Sustainability problem – across environment, cost and continuing to meet expectations. Many companies are racing to implement GenAI in their projects, lured by its hyped potential to revolutionise industries. However, in applying GenAI to enterprise implementations, I am seeing first-hand the sustainability challenges threatening to implode the first generation of this technology. This blog talks about what I hope will rise from the ashes of such an implosion.
+summary: Generative AI has a Sustainability problem – across environment, cost and
+  continuing to meet expectations. Many companies are racing to implement GenAI in
+  their projects, lured by its hyped potential to revolutionise industries. However,
+  in applying GenAI to enterprise implementations, I am seeing first-hand the sustainability
+  challenges threatening to implode the first generation of this technology. This
+  blog talks about what I hope will rise from the ashes of such an implosion.
 author: ocronk
 image: "/uploads/Will%20Generative%20AI%20Implode%20and%20Can%20it%20Become%20More%20Sustainable.png"
-Field name:
+Field name: 
 ---
 
 ## Generative AI has a Sustainability problem

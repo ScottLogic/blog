@@ -5,7 +5,9 @@ categories:
 - Cloud
 author: jgrant
 layout: default_post
-summary: In this hands-on tutorial, I'll introduce Google Cloud Platform and use it to develop a simple computer vision application. We'll make the most of its user-friendly interface, great developer tools and generous free tier.
+summary: In this hands-on tutorial, I'll introduce Google Cloud Platform and use it
+  to develop a simple computer vision application. We'll make the most of its user-friendly
+  interface, great developer tools and generous free tier.
 ---
 
 The move to cloud computing has been a huge paradigm shift in the technology industry. We don't need to buy servers anymore - it's just a matter of a few clicks or API calls to send code to a cloud provider to build and run for us. A provider hosts the workloads of a huge number of organisations on mostly commodity hardware. And one company that knows how to run a lot of computers, is Google.

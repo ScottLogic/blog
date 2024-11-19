@@ -12,7 +12,10 @@ tags:
 - Tableau
 author: clee
 layout: default_post
-summary: Riders of public transportation rely on real-time traffic information (RTI) systems to make informed decisions. But really how accurately are those systems? By systematically collecting and analysing the Open Data exposed, we can gain some insight into the question.
+summary: Riders of public transportation rely on real-time traffic information (RTI)
+  systems to make informed decisions. But really how accurately are those systems?
+  By systematically collecting and analysing the Open Data exposed, we can gain some
+  insight into the question.
 ---
 
 Riders of public transportation rely on real-time traffic information (RTI) systems to make informed decisions.  But really how accurately are those systems? With the advent of the Open Data movement, answering this question has become so much easier.  It may take just a little bit of curiosity and know-how.

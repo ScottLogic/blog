@@ -5,7 +5,8 @@ categories:
 - Tech
 author: lpage
 layout: default_post
-summary: Localising a web application to a high standard is difficult. Why is that? Consider the following differently formatted numbers...
+summary: Localising a web application to a high standard is difficult. Why is that?
+  Consider the following differently formatted numbers...
 ---
 
 Localising a web application to a high standard is difficult. Why is that? Consider the following differently formatted numbers...

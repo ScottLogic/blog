@@ -7,7 +7,8 @@ categories:
 tags:
 - testing
 - statistics
-summary: In this blog, I will walk the reader through some simple statistical concepts to aid in testing AI. I hope it is accessible regardless of prior statistical knowledge.
+summary: In this blog, I will walk the reader through some simple statistical concepts
+  to aid in testing AI. I hope it is accessible regardless of prior statistical knowledge.
 author: osouthwell
 image: "/uploads/using%20the%20ttest.png"
 ---

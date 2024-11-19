@@ -8,7 +8,8 @@ tags:
 - data
 - mocking
 author: rhamilton
-summary: Some of the biggest challenges when testing software can be getting the software into some very specific states...
+summary: Some of the biggest challenges when testing software can be getting the software
+  into some very specific states...
 layout: default_post
 ---
 

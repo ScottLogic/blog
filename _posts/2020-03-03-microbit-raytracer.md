@@ -10,8 +10,11 @@ tags:
 - hacks
 author: swaterman
 layout: default_post
-summary: I recently got the chance to play around with a BBC Micro:Bit - an educational toy aimed at helping kids learn to program. It's designed to do a lot of things, but 3D rendering isn't one of them.
-summary-short: The BBC Micro:Bit is designed to do a lot of things - but 3D rendering isn't one of them.
+summary: I recently got the chance to play around with a BBC Micro:Bit - an educational
+  toy aimed at helping kids learn to program. It's designed to do a lot of things,
+  but 3D rendering isn't one of them.
+summary-short: The BBC Micro:Bit is designed to do a lot of things - but 3D rendering
+  isn't one of them.
 image: swaterman/assets/microbit-raytracer/raytrace-6.jpg
 ---
 

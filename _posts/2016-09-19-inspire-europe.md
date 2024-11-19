@@ -6,7 +6,8 @@ categories:
 tags:
 - featured
 author: jdunkerley
-summary: My highlights from attending the Alteryx Inspire Europe conference, hosted in London.
+summary: My highlights from attending the Alteryx Inspire Europe conference, hosted
+  in London.
 layout: default_post
 image: jdunkerley/assets/featured/inspire.png
 ---

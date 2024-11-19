@@ -5,7 +5,9 @@ categories:
 - Tech
 author: rwilliams
 layout: default_post
-summary: Where does one start when looking to write better code? And how do we maintain code quality and consistency when working in a team? These two questions drove me to create a language-agnostic guide to writing decent code.
+summary: Where does one start when looking to write better code? And how do we maintain
+  code quality and consistency when working in a team? These two questions drove me
+  to create a language-agnostic guide to writing decent code.
 ---
 
 Where does one start when looking to write better code? And how do we maintain code quality and consistency when working in a team?

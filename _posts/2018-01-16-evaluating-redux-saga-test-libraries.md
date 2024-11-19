@@ -7,7 +7,10 @@ tags:
 - HTML5
 author: shogarth
 layout: default_post
-summary: If you're a fan of Redux Saga then you will have noticed the abundance of libraries to assist testing your sagas. This post takes an in-depth look into the different approaches to testing sagas, describing where five popular testing libraries fit into these approaches.
+summary: If you're a fan of Redux Saga then you will have noticed the abundance of
+  libraries to assist testing your sagas. This post takes an in-depth look into the
+  different approaches to testing sagas, describing where five popular testing libraries
+  fit into these approaches.
 ---
 
 If you're a fan of [Redux Saga](https://github.com/redux-saga/redux-saga) then you will have noticed the abundance of libraries to assist testing your sagas. This post takes an in-depth look into the different approaches to testing sagas, describing where five popular testing libraries fit into these approaches:

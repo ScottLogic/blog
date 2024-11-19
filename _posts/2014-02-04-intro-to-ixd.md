@@ -10,8 +10,10 @@ tags:
 - ux design
 author: sduncan
 image: sduncan/assets/featured/2014-02-04-intro-to-ixd.jpg
-summary: Well designed objects and interfaces do not require lists of instructions. Why not?
-summary-short: Well designed objects and interfaces do not require lists of instructions. Why not?
+summary: Well designed objects and interfaces do not require lists of instructions.
+  Why not?
+summary-short: Well designed objects and interfaces do not require lists of instructions.
+  Why not?
 layout: default_post
 source: site
 oldlink: http://www.scottlogic.com/blog/2014/02/04/intro-to-ixd.html

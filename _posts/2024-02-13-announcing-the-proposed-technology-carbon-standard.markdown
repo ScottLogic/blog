@@ -9,7 +9,10 @@ tags:
 - Architecture
 - Strategy
 - ux design
-summary: We're excited to announce a proposed standard for assessing technology-related carbon emissions – an approach to classifying an organisation's technology footprint in a way that enables consistent analysis and benchmarking of the carbon impact, aligned with the GHG protocol.
+summary: We're excited to announce a proposed standard for assessing technology-related
+  carbon emissions – an approach to classifying an organisation's technology footprint
+  in a way that enables consistent analysis and benchmarking of the carbon impact,
+  aligned with the GHG protocol.
 author: ocronk
 image: "/uploads/Technology%20Carbon%20Standard%20TN.png"
 ---

@@ -9,7 +9,8 @@ tags:
 - Engineering
 author: dogle
 layout: default_post
-summary: In this quick look at the R language and tools I'll look briefly at the syntax of the language and have a go at creating a few charts with a data set.
+summary: In this quick look at the R language and tools I'll look briefly at the syntax
+  of the language and have a go at creating a few charts with a data set.
 image: ''
 ---
 

@@ -10,7 +10,8 @@ tags:
 author: mwalker
 layout: default_post
 image: mwalker/assets/Adam-McDevitt.jpg
-summary: Find out how Adam McDevitt found his time during the summer internship in our Edinburgh office, working on the 'Looking at you' project.
+summary: Find out how Adam McDevitt found his time during the summer internship in
+  our Edinburgh office, working on the 'Looking at you' project.
 ---
 
 ### How Adam McDevitt found his summer internship in our Edinburgh office.
