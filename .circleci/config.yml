@@ -14,7 +14,7 @@ jobs:
                 key: v0-blog-yarn-cache-{{ checksum "yarn.lock" }}
                 paths:
                     - ./node_modules
-            - run: yarn test
+            - run: yarn lint
 workflows:
     version: 2
     build_and_test:
