@@ -2,7 +2,6 @@
 title: The Catch 22 of Conversational UIs
 date: 2016-06-16 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
 image: godds/assets/featured/catch22-conversational.png

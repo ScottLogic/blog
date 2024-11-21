@@ -2,7 +2,6 @@
 title: Covid-19 and the Internet
 date: 2021-09-22 00:00:00 Z
 categories:
-- kangel
 - People
 author: kangel
 layout: default_post

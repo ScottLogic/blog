@@ -2,7 +2,6 @@
 title: "(Didn't) Nail Polish"
 date: 2019-11-04 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testing,

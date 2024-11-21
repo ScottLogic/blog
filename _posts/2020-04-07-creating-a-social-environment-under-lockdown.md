@@ -3,7 +3,6 @@ title: 'And Now For Something Completely Different: Creating A Social Environmen
   Under Lockdown'
 date: 2020-04-07 00:00:00 Z
 categories:
-- sgrant
 - Tech
 author: sgrant
 layout: default_post

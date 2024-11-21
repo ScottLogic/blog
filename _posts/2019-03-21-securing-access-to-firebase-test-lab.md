@@ -2,7 +2,6 @@
 title: Securing access to Firebase Test Lab
 date: 2019-03-21 00:00:00 Z
 categories:
-- zrubin
 - Tech
 author: zrubin
 layout: default_post

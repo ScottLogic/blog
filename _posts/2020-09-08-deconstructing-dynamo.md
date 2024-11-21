@@ -2,7 +2,6 @@
 title: Deconstructing Dynamo
 date: 2020-09-08 00:00:00 Z
 categories:
-- jhenderson
 - Tech
 author: jhenderson
 summary: Published in 2007, Amazon's Dynamo paper changed the distributed database

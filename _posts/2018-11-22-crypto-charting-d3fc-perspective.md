@@ -2,7 +2,6 @@
 title: Realtime crypto charting with JPM Perspective and d3fc
 date: 2018-11-22 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

@@ -2,7 +2,6 @@
 title: 'Automating Terraform: Infrastructure as Code as a Service'
 date: 2018-10-23 00:00:00 Z
 categories:
-- masmith
 - Cloud
 tags:
 - Terraform

@@ -2,7 +2,6 @@
 title: Building Microservices with Spring Boot - Part 1
 date: 2019-10-31 00:00:00 Z
 categories:
-- jhenderson
 - Tech
 author: jhenderson
 summary: A practical series on building Microservices with Spring Boot and Spring

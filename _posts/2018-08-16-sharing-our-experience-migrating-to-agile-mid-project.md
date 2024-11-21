@@ -2,7 +2,6 @@
 title: Sharing our Experience - Migrating to Agile mid-Project
 date: 2018-08-16 00:00:00 Z
 categories:
-- shunton
 - Delivery
 tags:
 - agile,

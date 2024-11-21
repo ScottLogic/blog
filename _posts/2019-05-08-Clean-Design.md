@@ -2,7 +2,6 @@
 title: We’ve heard of clean code, it’s time for Clean Design
 date: 2019-05-08 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design

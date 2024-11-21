@@ -2,7 +2,6 @@
 title: Seeing the road ahead — Catseyes and iterative design
 date: 2020-09-25 00:00:00 Z
 categories:
-- aburgess
 - UX Design
 tags:
 - UX,

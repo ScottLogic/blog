@@ -2,7 +2,6 @@
 title: Big Data and the Testing Challenge
 date: 2020-07-02 00:00:00 Z
 categories:
-- ahickman
 - Data Engineering
 author: ahickman
 layout: default_post

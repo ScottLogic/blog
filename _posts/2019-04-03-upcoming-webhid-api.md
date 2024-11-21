@@ -2,7 +2,6 @@
 title: Upcoming WebHID API - access Bluetooth/USB HID devices in web applications
 date: 2019-04-03 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

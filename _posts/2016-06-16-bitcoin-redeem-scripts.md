@@ -2,7 +2,6 @@
 title: Bitcoin payments and the Lightning Network
 date: 2016-06-16 00:00:00 Z
 categories:
-- jhill
 - Data Engineering
 tags:
 - Bitcoin

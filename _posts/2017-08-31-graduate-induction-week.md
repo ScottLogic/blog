@@ -3,7 +3,6 @@ title: Team Building, Development, and Go-karting &#58; My Induction Week at Sco
   Logic
 date: 2017-08-31 00:00:00 Z
 categories:
-- rrhodes
 - People
 tags:
 - featured

@@ -2,7 +2,6 @@
 title: What Brexit Can Teach Us About Software Development
 date: 2019-06-17 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Delivery
 author: tclarke-scottlogic
 layout: default_post

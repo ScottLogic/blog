@@ -2,7 +2,6 @@
 title: Geeking out about React Native
 date: 2015-10-15 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: ReactJS, Virtual DOM, JSX, a hackable editor, ES6 modules, classes, arrow

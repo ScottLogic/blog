@@ -2,7 +2,6 @@
 title: Real-time data analysis using Spark
 date: 2013-07-29 00:00:00 Z
 categories:
-- jphillpotts
 - Data Engineering
 tags:
 - Scala

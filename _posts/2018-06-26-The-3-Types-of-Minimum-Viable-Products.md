@@ -2,7 +2,6 @@
 title: The 3 types of minimum viable products
 date: 2018-06-26 00:00:00 Z
 categories:
-- tmakarem
 - Delivery
 author: tmakarem
 layout: default_post

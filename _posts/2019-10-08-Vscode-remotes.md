@@ -2,7 +2,6 @@
 title: 'Visual Studio Remotes: Simplifying developer environments'
 date: 2019-10-08 00:00:00 Z
 categories:
-- mmoxon
 - Tech
 tags:
 - VSCode

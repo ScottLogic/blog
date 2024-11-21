@@ -2,7 +2,6 @@
 title: Interactive and Responsive Small Multiples with D3
 date: 2017-04-05 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

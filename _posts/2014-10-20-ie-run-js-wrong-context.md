@@ -2,7 +2,6 @@
 title: How IE confuses JavaScript context when running in multiple windows
 date: 2014-10-20 00:00:00 Z
 categories:
-- lpage
 - Tech
 tags:
 - IE

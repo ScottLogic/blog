@@ -2,7 +2,6 @@
 title: Spring Autowiring - It's a kind of magic - Part 1
 date: 2020-02-25 00:00:00 Z
 categories:
-- pgraham
 - Tech
 tags:
 - java

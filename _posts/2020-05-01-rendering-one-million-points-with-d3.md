@@ -2,7 +2,6 @@
 title: Rendering One Million Datapoints with D3 and WebGL
 date: 2020-05-01 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

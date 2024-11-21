@@ -2,7 +2,6 @@
 title: Asp.Net bundling of Angular templates
 date: 2014-08-18 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 summary: How to use Asp.Net's built-in bundling and optimisation feature to optimise

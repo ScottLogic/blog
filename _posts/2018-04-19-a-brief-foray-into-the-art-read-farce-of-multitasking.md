@@ -2,7 +2,6 @@
 title: 'A brief foray into the art (read: farce) of multitasking'
 date: 2018-04-19 00:00:00 Z
 categories:
-- cmcormack
 - Delivery
 tags:
 - Agile

@@ -2,7 +2,6 @@
 title: Beyond the Hype - Do you actually need a microfrontend?
 date: 2022-04-05 00:00:00 Z
 categories:
-- ceberhardt
 - Podcast
 tags:
 - featured

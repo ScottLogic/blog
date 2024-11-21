@@ -2,7 +2,6 @@
 title: Thinking out loud
 date: 2019-07-10 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - PublicSpeaking

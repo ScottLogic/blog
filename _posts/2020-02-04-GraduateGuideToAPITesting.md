@@ -2,7 +2,6 @@
 title: A Beginner's Guide to Automated API Testing (Postman/Newman)
 date: 2020-02-04 00:00:00 Z
 categories:
-- smangan
 - Testing
 tags:
 - API

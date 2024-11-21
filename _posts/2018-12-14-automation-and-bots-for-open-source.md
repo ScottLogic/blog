@@ -2,7 +2,6 @@
 title: Tools, Bots and Automation for better Open Source Projects
 date: 2018-12-14 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: With open source projects, we often work with strangers, people we may never

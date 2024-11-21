@@ -2,7 +2,6 @@
 title: Adding Playwright to create-react-app generated projects
 date: 2020-01-31 00:00:00 Z
 categories:
-- kday
 - Tech
 tags:
 - Playwright,

@@ -2,7 +2,6 @@
 title: Drawing 2D charts with WebGL
 date: 2019-05-28 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 layout: default_post

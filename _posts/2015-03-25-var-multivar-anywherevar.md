@@ -2,7 +2,6 @@
 title: var, multi-var or anywhere var?
 date: 2015-03-25 00:00:00 Z
 categories:
-- lpage
 - Tech
 author: lpage
 layout: default_post

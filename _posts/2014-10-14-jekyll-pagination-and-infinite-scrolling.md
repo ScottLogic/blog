@@ -2,7 +2,6 @@
 title: Jekyll Pagination and Infinite Scroll
 date: 2014-10-14 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

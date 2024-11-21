@@ -2,7 +2,6 @@
 title: MVVM with ReactiveCocoa
 date: 2014-07-07 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 image: ceberhardt/assets/featured/reactive-mvvm.jpg

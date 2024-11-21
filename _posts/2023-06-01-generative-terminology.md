@@ -3,7 +3,6 @@ title: A guide to Generative AI terminology
 date: 2023-06-01 00:00:00 Z
 categories:
 - Artificial Intelligence
-- ceberhardt
 summary: Generative AI is moving at an incredible pace, bringing with it a whole new
   raft of terminology. With articles packed full of terms like prompt injection, embeddings
   and funky acronyms like LoRA, it can be a little hard to keep pace. For a while

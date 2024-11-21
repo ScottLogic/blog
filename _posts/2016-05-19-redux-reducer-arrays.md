@@ -2,7 +2,6 @@
 title: Applying redux reducers to arrays
 date: 2016-05-19 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

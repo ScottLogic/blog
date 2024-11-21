@@ -2,7 +2,6 @@
 title: Rules and Values
 date: 2018-01-31 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Delivery
 author: tclarke-scottlogic
 layout: default_post

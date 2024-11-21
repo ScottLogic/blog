@@ -2,7 +2,6 @@
 title: A quick and dirty introduction to ZeroMQ
 date: 2015-03-20 00:00:00 Z
 categories:
-- hpowell
 - Tech
 author: hpowell
 title-short: Introduction to ZeroMQ

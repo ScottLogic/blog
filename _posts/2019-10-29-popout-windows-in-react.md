@@ -2,7 +2,6 @@
 title: Popout Windows in React
 date: 2019-10-29 00:00:00 Z
 categories:
-- aaiken
 - Tech
 tags:
 - react

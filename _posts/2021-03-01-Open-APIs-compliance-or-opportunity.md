@@ -2,7 +2,6 @@
 title: Open APIs – compliance or opportunity
 date: 2021-03-01 00:00:00 Z
 categories:
-- nbetts
 - Open Source
 author: nbetts
 summary: I talk in this session about the real use cases for Open APIs, and how organisations

@@ -2,7 +2,6 @@
 title: A week with prototyping tools
 date: 2018-03-09 00:00:00 Z
 categories:
-- rmarcalo
 - UX Design
 tags:
 - featured

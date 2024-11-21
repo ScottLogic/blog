@@ -2,7 +2,6 @@
 title: How Big is a Story Point?
 date: 2017-09-19 00:00:00 Z
 categories:
-- gthompson
 - Delivery
 tags:
 - featured

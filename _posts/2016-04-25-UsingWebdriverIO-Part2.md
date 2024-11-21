@@ -2,7 +2,6 @@
 title: Using WebdriverIO Part 2
 date: 2016-04-25 00:00:00 Z
 categories:
-- dtheasby
 - Testing
 tags:
 - testing

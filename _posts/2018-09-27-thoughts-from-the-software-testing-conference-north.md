@@ -2,7 +2,6 @@
 title: Thoughts from the Software Testing Conference North
 date: 2018-09-27 00:00:00 Z
 categories:
-- lpisani
 - Testing
 tags:
 - test

@@ -2,7 +2,6 @@
 title: Foyer Screen, continued.
 date: 2014-12-05 00:00:00 Z
 categories:
-- rfarmer
 - Tech
 author: rfarmer
 layout: default_post

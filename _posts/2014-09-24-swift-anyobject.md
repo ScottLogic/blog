@@ -2,7 +2,6 @@
 title: Swift and the curious case of AnyObject
 date: 2014-09-24 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

@@ -2,7 +2,6 @@
 title: 'Beyond the Hype: Most-loved language – does Rust justify the hype?'
 date: 2022-08-01 10:30:00 Z
 categories:
-- ceberhardt
 - Podcast
 tags:
 - Beyond the Hype

@@ -2,7 +2,6 @@
 title: Building desktop applications with OpenFin
 date: 2020-07-08 00:00:00 Z
 categories:
-- mjose
 - Tech
 author: mjose
 summary: This technical webinar sets out the steps involved in migrating a legacy

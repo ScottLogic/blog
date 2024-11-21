@@ -2,7 +2,6 @@
 title: Understanding Agility and Process Optimisation
 date: 2019-03-21 00:00:00 Z
 categories:
-- robsmith
 - Delivery
 author: robsmith
 layout: default_post

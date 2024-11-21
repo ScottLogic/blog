@@ -2,7 +2,6 @@
 title: Another reason to use noopener - A deep dive into renderer process allocation
 date: 2018-02-07 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

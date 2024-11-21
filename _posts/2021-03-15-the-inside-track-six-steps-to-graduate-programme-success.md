@@ -2,7 +2,6 @@
 title: 'The Inside Track: Six steps to Graduate Programme success'
 date: 2021-03-15 00:00:00 Z
 categories:
-- jspruce
 - People
 tags:
 - jobs,

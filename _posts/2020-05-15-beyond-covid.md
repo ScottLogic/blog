@@ -2,7 +2,6 @@
 title: Beyond COVID
 date: 2020-05-15 00:00:00 Z
 categories:
-- robsmith
 - Delivery
 author: robsmith
 layout: default_post

@@ -2,7 +2,6 @@
 title: Looking At You - 2019 Edinburgh Intern Project
 date: 2019-08-19 00:00:00 Z
 categories:
-- amcdevitt
 - People
 author: amcdevitt
 layout: default_post

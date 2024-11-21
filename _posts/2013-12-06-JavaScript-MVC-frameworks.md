@@ -2,7 +2,6 @@
 title: An introduction to MVC frameworks
 date: 2013-12-06 00:00:00 Z
 categories:
-- dkerr
 - Tech
 author: dkerr
 layout: default_post

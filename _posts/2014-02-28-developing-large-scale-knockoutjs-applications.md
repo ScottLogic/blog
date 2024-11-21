@@ -2,7 +2,6 @@
 title: Developing large scale KnockoutJS applications
 date: 2014-02-28 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 image: rwilliams/assets/featured/building.jpg

@@ -2,7 +2,6 @@
 title: Testing with Cognitive Intelligence
 date: 2018-02-19 00:00:00 Z
 categories:
-- lramchandani
 - Testing
 tags:
 - Testing,

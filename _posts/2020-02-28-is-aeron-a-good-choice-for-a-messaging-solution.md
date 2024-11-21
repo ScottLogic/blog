@@ -2,7 +2,6 @@
 title: Is Aeron a Good Choice for a Messaging Solution
 date: 2020-02-28 00:00:00 Z
 categories:
-- imaxwell
 - Tech
 author: imaxwell
 layout: default_post

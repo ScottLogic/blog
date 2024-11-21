@@ -2,7 +2,6 @@
 title: 'Panel: APIs as a value generator'
 date: 2021-01-22 00:00:00 Z
 categories:
-- godds
 - Tech
 author: godds
 summary: Our panel of experts — Jacqui Leggetter (Head of Integration (Deputy Director)

@@ -2,7 +2,6 @@
 title: Jekyll - A Developer's Wordpress?
 date: 2012-12-17 00:00:00 Z
 categories:
-- cprice
 - Tech
 tags:
 - blog

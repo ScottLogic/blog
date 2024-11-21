@@ -2,7 +2,6 @@
 title: Observations on finding good first issues
 date: 2022-08-16 10:46:00 Z
 categories:
-- rwillis
 - Open Source
 summary: As someone with virtually no previous experience in open source contribution,
   I had a go at finding contribution opportunities using "good first issues" websites.

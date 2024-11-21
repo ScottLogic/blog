@@ -2,7 +2,6 @@
 title: 'White Paper: Unstoppable HTML5'
 date: 2016-10-10 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 author: ceberhardt
 summary: A white paper which takes a looks at the continued growth of HTML5 and how

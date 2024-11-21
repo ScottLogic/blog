@@ -2,7 +2,6 @@
 title: The A word. The BAD A word.
 date: 2018-05-14 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testing,

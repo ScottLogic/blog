@@ -2,7 +2,6 @@
 title: Creating Simple Web Services in Go
 date: 2017-04-19 00:00:00 Z
 categories:
-- wferguson
 - Tech
 author: wferguson
 layout: default_post

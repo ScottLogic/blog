@@ -2,7 +2,6 @@
 title: 'Automated design handover - Why Zeplin can''t solve all your problems '
 date: 2020-06-25 00:00:00 Z
 categories:
-- csanderson
 - UX Design
 tags:
 - UX

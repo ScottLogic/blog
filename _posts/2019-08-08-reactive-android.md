@@ -2,7 +2,6 @@
 title: Reactive Android
 date: 2019-08-08 00:00:00 Z
 categories:
-- jporter
 - Tech
 tags:
 - Android

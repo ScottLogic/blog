@@ -2,7 +2,6 @@
 title: Why does no one agree on a definition of MVC?
 date: 2016-09-08 00:00:00 Z
 categories:
-- jharris
 - Tech
 author: jharris
 summary: If you look up the MVC pattern on the web you can easily find definitions

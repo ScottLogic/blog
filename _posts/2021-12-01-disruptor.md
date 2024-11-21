@@ -2,7 +2,6 @@
 title: Low Latency Java with the Disruptor
 date: 2021-12-01 00:00:00 Z
 categories:
-- mjrichards
 - Tech
 tags:
 - java,

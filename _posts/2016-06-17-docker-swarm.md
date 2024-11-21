@@ -2,7 +2,6 @@
 title: Service discovery with Docker Swarm
 date: 2016-06-17 00:00:00 Z
 categories:
-- dwybourn
 - Data Engineering
 author: dwybourn
 layout: default_post

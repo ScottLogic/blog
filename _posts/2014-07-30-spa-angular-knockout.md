@@ -2,7 +2,6 @@
 title: Single Page Applications - Angular vs Knockout
 date: 2014-07-30 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 image: alee/assets/featured/chess.jpg

@@ -2,7 +2,6 @@
 title: Be inspired by Scott Logic
 date: 2019-07-04 00:00:00 Z
 categories:
-- pdykes
 - Tech
 tags:
 - News,

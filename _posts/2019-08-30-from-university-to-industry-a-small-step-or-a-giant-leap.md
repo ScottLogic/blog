@@ -2,7 +2,6 @@
 title: From university to industry – a small step or a giant leap?
 date: 2019-08-30 00:00:00 Z
 categories:
-- mwalker
 - People
 tags:
 - Intern,

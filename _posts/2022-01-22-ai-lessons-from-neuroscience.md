@@ -2,7 +2,6 @@
 title: 'AI: Lessons from neuroscience'
 date: 2022-01-22 00:00:00 Z
 categories:
-- mpace
 - Artificial Intelligence
 author: mpace
 summary: In this talk, I share the key things AI can learn from Neuroscience, and

@@ -2,7 +2,6 @@
 title: 'Building Scottbot: an AI Chatbot for Scott Logic'
 date: 2023-10-23 14:00:00 Z
 categories:
-- dscarborough
 - Artificial Intelligence
 tags:
 - Testing

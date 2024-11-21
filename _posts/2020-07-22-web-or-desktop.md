@@ -2,7 +2,6 @@
 title: Web app or desktop app? Considering user needs in technical discussions
 date: 2020-07-22 00:00:00 Z
 categories:
-- csanderson
 - UX Design
 tags:
 - Web

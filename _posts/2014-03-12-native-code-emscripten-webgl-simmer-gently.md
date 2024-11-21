@@ -2,7 +2,6 @@
 title: Native code + Emscripten + WebGL. Simmer gently.
 date: 2014-03-12 00:00:00 Z
 categories:
-- ilopatkin
 - Tech
 tags:
 - blog

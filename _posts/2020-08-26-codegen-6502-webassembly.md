@@ -2,7 +2,6 @@
 title: Code generating a WebAssembly 6502 emulator from specifications
 date: 2020-08-26 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

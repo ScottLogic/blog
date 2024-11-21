@@ -2,7 +2,6 @@
 title: Using Akka and Scala to Render a Mandelbrot Set
 date: 2014-08-15 00:00:00 Z
 categories:
-- rdoyle
 - Tech
 author: rdoyle
 title-short: Akka, Scala and the Mandelbrot Set

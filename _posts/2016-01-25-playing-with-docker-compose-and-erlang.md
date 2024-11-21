@@ -2,7 +2,6 @@
 title: Playing with Docker Compose and Erlang
 date: 2016-01-25 00:00:00 Z
 categories:
-- csmith
 - Data Engineering
 author: csmith
 summary: This post uses Docker Compose to spin up a three container HTTP server. One

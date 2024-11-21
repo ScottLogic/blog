@@ -2,7 +2,6 @@
 title: OAUTH2 Authentication with ADFS 3.0
 date: 2015-03-09 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

@@ -2,7 +2,6 @@
 title: Getting started with Amazon Web Services (AWS)
 date: 2019-07-03 00:00:00 Z
 categories:
-- dsmith
 - Tech
 tags:
 - cloud

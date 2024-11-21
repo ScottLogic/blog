@@ -2,7 +2,6 @@
 title: Creating a Pebble Watchface with JavaScript
 date: 2016-09-17 00:00:00 Z
 categories:
-- wferguson
 - Tech
 author: wferguson
 layout: default_post

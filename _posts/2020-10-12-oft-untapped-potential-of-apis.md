@@ -2,7 +2,6 @@
 title: The oft-untapped business potential of APIs
 date: 2020-10-12 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
 summary: Genuine digital transformation is not possible unless Application Programming

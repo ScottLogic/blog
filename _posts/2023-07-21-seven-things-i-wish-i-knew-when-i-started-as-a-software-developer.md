@@ -2,7 +2,6 @@
 title: Seven Things I Wish I Knew When I Started as a Software Developer
 date: 2023-07-21 00:00:00 Z
 categories:
-- bpritchard
 - People
 tags:
 - programming

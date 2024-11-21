@@ -2,7 +2,6 @@
 title: Learn ES6 from Airbnb's coding standards
 date: 2015-06-10 00:00:00 Z
 categories:
-- lpage
 - Tech
 author: lpage
 layout: default_post

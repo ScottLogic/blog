@@ -2,7 +2,6 @@
 title: Java Enums - how to use them smarter
 date: 2016-07-28 00:00:00 Z
 categories:
-- bjedrzejewski
 - Tech
 author: bjedrzejewski
 summary: 'A short introduction to Java enum capabilities followed by concrete examples

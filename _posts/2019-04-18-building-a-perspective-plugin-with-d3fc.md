@@ -2,7 +2,6 @@
 title: Building a Perspective plugin with d3fc
 date: 2019-04-18 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 layout: default_post

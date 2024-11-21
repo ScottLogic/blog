@@ -2,7 +2,6 @@
 title: Spring Boot and MongoDB - a perfect match!
 date: 2016-11-22 00:00:00 Z
 categories:
-- bjedrzejewski
 - Data Engineering
 author: bjedrzejewski
 summary: The popularity of Spring Boot in the Java world is undeniable. In this post

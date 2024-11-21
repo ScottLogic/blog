@@ -2,7 +2,6 @@
 title: 'Selenium vs Puppeteer: testing the testing tools'
 date: 2020-01-13 00:00:00 Z
 categories:
-- mridene
 - Testing
 tags:
 - Testing

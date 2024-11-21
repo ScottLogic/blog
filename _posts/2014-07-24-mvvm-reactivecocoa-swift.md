@@ -2,7 +2,6 @@
 title: MVVM, Swift and ReactiveCocoa - It's all good!
 date: 2014-07-24 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: This blog post looks out how Swift makes the combination of ReactiveCocoa

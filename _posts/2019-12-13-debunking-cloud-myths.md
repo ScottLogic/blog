@@ -2,7 +2,6 @@
 title: Debunking Cloud Myths
 date: 2019-12-13 00:00:00 Z
 categories:
-- jdunkerley
 - Cloud
 author: jdunkerley
 summary: In this webinar, James provides a balanced and clear-eyed view of the pros

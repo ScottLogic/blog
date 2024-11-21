@@ -2,7 +2,6 @@
 title: 'Prepping the Bar: Insights from cleaning and labelling a cocktail dataset'
 date: 2021-11-05 00:00:00 Z
 categories:
-- jbeckles
 - Tech
 author: jbeckles
 summary: In this talk, I summarise the first steps in creating a Seasonal Cocktail

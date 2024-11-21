@@ -2,7 +2,6 @@
 title: So, you heard about testing…
 date: 2018-12-21 00:00:00 Z
 categories:
-- fbromley
 - People
 author: fbromley
 layout: default_post

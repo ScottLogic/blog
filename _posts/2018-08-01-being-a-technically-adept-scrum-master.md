@@ -2,7 +2,6 @@
 title: Being a Technically Adept Scrum Master
 date: 2018-08-01 00:00:00 Z
 categories:
-- phands
 - Delivery
 tags:
 - Agile,

@@ -2,7 +2,6 @@
 title: Rethinking the Java DTO
 date: 2020-01-03 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - java

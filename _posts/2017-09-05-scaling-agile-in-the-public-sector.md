@@ -2,7 +2,6 @@
 title: Scaling Agile in the Public Sector
 date: 2017-09-05 00:00:00 Z
 categories:
-- shunton
 - Delivery
 author: shunton
 layout: default_post

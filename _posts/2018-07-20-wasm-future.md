@@ -2,7 +2,6 @@
 title: The future of WebAssembly - A look at upcoming features and proposals
 date: 2018-07-20 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

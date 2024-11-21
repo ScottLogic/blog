@@ -2,7 +2,6 @@
 title: WebAssembly on the Blockchain and JavaScript Smart Contracts
 date: 2019-11-26 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

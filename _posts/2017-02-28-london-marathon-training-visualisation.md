@@ -2,7 +2,6 @@
 title: Visualising London Marathon Training Data From Strava
 date: 2017-02-28 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

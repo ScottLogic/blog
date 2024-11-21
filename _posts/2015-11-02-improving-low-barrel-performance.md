@@ -2,7 +2,6 @@
 title: Improving D3 Performance by Embracing the Flux
 date: 2015-11-02 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

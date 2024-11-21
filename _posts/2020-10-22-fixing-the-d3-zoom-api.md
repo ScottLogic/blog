@@ -2,7 +2,6 @@
 title: Fixing the d3-zoom API... for my use-case
 date: 2020-10-22 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

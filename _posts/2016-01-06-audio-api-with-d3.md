@@ -2,7 +2,6 @@
 title: Exploring the Web Audio API with D3
 date: 2016-01-06 00:00:00 Z
 categories:
-- wferguson
 - Tech
 tags:
 - featured

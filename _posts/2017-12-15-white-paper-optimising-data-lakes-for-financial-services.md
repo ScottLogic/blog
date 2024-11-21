@@ -2,7 +2,6 @@
 title: 'White Paper: Optimising Data Lakes for Financial Services'
 date: 2017-12-15 00:00:00 Z
 categories:
-- acarr
 - Resources
 author: acarr
 layout: default_post

@@ -2,7 +2,6 @@
 title: Jumping from Javascript to Java. How hard can it be?
 date: 2019-04-05 00:00:00 Z
 categories:
-- phands
 - Tech
 tags:
 - Java,

@@ -2,7 +2,6 @@
 title: Creating less2css using Aurelia
 date: 2015-06-19 00:00:00 Z
 categories:
-- lpage
 - Tech
 author: lpage
 layout: default_post

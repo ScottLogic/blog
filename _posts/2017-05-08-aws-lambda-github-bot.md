@@ -2,7 +2,6 @@
 title: Developing a GitHub Bot with AWS Lambda
 date: 2017-05-08 00:00:00 Z
 categories:
-- ceberhardt
 - Cloud
 author: ceberhardt
 layout: default_post

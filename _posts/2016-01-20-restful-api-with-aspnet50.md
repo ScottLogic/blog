@@ -2,7 +2,6 @@
 title: Building a RESTful API with ASP.NET 5
 date: 2016-01-20 00:00:00 Z
 categories:
-- nsoper
 - Tech
 author: nsoper
 layout: default_post

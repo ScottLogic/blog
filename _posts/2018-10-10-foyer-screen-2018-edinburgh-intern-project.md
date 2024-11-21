@@ -2,7 +2,6 @@
 title: Foyer Screen - 2018 Edinburgh Intern Project
 date: 2018-10-10 00:00:00 Z
 categories:
-- callan
 - People
 tags:
 - '2018'

@@ -2,7 +2,6 @@
 title: Alteryxing The Advent of Code 2020 - Week 1
 date: 2020-12-07 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
 summary: It's the end of week one in the Advent of Code and, as has become a little

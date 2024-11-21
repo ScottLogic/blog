@@ -2,7 +2,6 @@
 title: The History of Encryption
 date: 2022-04-06 00:00:00 Z
 categories:
-- mking
 - Tech
 author: mking
 summary: As far back as 600BC there is evidence of people encrypting messages to send

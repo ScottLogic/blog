@@ -2,7 +2,6 @@
 title: Delivering Digital Transformation with the Scottish Government
 date: 2021-12-21 00:00:00 Z
 categories:
-- shunton
 - Delivery
 tags:
 - digital

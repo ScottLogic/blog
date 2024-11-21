@@ -2,7 +2,6 @@
 title: Getting Started With Pulumi
 date: 2020-04-21 00:00:00 Z
 categories:
-- awelsh
 - Cloud
 tags:
 - Pulumi

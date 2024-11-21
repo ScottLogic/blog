@@ -2,7 +2,6 @@
 title: What actually is a Data Mesh? And is it really a thing?
 date: 2021-05-28 00:00:00 Z
 categories:
-- acarr
 - Data Engineering
 tags:
 - Data

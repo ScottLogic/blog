@@ -2,7 +2,6 @@
 title: Introduction to Hadoop and MapReduce
 date: 2016-01-13 00:00:00 Z
 categories:
-- dwybourn
 - Data Engineering
 author: dwybourn
 layout: default_post

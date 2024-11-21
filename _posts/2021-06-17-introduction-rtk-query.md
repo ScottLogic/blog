@@ -2,7 +2,6 @@
 title: Data Fetching in Redux Made Easy With RTK Query
 date: 2021-06-17 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - redux

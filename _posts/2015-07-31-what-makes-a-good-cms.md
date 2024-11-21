@@ -2,7 +2,6 @@
 title: What Makes a Good CMS?
 date: 2015-07-31 00:00:00 Z
 categories:
-- isullivan
 - Tech
 author: isullivan
 layout: default_post

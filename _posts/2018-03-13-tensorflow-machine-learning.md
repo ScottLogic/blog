@@ -2,7 +2,6 @@
 title: Machine Learning with TensorFlow
 date: 2018-03-13 00:00:00 Z
 categories:
-- rrhodes
 - Tech
 tags:
 - featured

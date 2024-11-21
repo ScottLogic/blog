@@ -2,7 +2,6 @@
 title: gifbot - Building a GitHub App
 date: 2017-05-22 00:00:00 Z
 categories:
-- ceberhardt
 - Cloud
 author: ceberhardt
 layout: default_post

@@ -2,7 +2,6 @@
 title: About DOM render utilities
 date: 2018-12-09 00:00:00 Z
 categories:
-- msuperina
 - Tech
 tags:
 - JavaScript

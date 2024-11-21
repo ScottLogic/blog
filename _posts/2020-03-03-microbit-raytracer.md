@@ -2,7 +2,6 @@
 title: 3D Rendering on a Children's Toy
 date: 2020-03-03 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - optimisation

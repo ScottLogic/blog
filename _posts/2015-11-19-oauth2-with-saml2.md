@@ -2,7 +2,6 @@
 title: OAuth2 with SAML2.0 Authentication
 date: 2015-11-19 00:00:00 Z
 categories:
-- bdimitrov-SL
 - Tech
 tags:
 - Security

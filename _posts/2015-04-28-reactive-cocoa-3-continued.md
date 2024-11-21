@@ -2,7 +2,6 @@
 title: ReactiveCocoa 3.0 - Signal Producers and API clarity
 date: 2015-04-28 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

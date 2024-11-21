@@ -2,7 +2,6 @@
 title: Does NPM 5 deprecate yarn?
 date: 2017-06-06 00:00:00 Z
 categories:
-- nowen
 - Tech
 tags:
 - featured

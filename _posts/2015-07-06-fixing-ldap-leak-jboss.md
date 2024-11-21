@@ -2,7 +2,6 @@
 title: Fixing an LDAP PermGen leak in JBoss
 date: 2015-07-06 00:00:00 Z
 categories:
-- awallis
 - Tech
 author: awallis
 layout: default_post

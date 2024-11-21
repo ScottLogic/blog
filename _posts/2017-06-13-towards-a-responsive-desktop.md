@@ -2,7 +2,6 @@
 title: Towards a responsive desktop
 date: 2017-06-13 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
 summary: Why don't we adopt responsive design on the desktop? In this talk I demonstrate

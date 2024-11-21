@@ -2,7 +2,6 @@
 title: ASP.NET 5 to ASP.NET Core 1.0
 date: 2016-01-21 00:00:00 Z
 categories:
-- nsoper
 - Tech
 author: nsoper
 layout: default_post

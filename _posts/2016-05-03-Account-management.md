@@ -2,7 +2,6 @@
 title: Securing Web Applications, Part 4. Account and Session Management Features
 date: 2016-05-03 00:00:00 Z
 categories:
-- rsillem
 - Tech
 author: rsillem
 summary: In this post, we discuss design and implementation choices for account and

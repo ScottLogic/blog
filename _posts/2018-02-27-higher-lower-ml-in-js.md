@@ -2,7 +2,6 @@
 title: Higher or Lower – ML in JS
 date: 2018-02-27 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 summary: This talk will introduce the recently launched TensorFlow.js library, demonstrate

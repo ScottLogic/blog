@@ -2,7 +2,6 @@
 title: 'White Paper: Making Technology Disappear'
 date: 2015-05-08 00:00:00 Z
 categories:
-- godds
 - Resources
 tags:
 - featured

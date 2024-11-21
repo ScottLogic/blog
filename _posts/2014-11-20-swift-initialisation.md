@@ -2,7 +2,6 @@
 title: Swift Initialization and the Pain of Optionals
 date: 2014-11-20 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

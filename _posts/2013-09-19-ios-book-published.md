@@ -2,7 +2,6 @@
 title: iOS 7 by Tutorials - the first iOS 7 book - is published
 date: 2013-09-19 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 title-short: iOS 7 by Tutorials

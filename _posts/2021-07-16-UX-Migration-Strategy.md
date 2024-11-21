@@ -2,7 +2,6 @@
 title: UX Migration Strategy for Legacy Applications
 date: 2021-07-16 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design, Migration strategy

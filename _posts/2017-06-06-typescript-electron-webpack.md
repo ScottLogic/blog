@@ -2,7 +2,6 @@
 title: Setting up a TypeScript Electron app in WebPack
 date: 2017-06-06 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 tags:
 - featured

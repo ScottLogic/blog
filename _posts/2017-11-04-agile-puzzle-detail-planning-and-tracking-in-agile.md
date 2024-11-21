@@ -2,7 +2,6 @@
 title: Agile Puzzle - Detailed planning and tracking in Agile
 date: 2017-11-04 00:00:00 Z
 categories:
-- jmelon
 - Tech
 author: jmelon
 layout: default_post

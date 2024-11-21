@@ -2,7 +2,6 @@
 title: The Rise of Big Data Streaming
 date: 2017-02-07 00:00:00 Z
 categories:
-- dcook
 - Data Engineering
 tags:
 - Scala

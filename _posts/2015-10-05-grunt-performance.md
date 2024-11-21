@@ -2,7 +2,6 @@
 title: Improving Grunt Performance
 date: 2015-10-05 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 title-short: Improving Grunt Performance

@@ -2,7 +2,6 @@
 title: The Agile Mindset
 date: 2014-09-18 00:00:00 Z
 categories:
-- dthomas
 - Delivery
 author: dthomas
 layout: default_post

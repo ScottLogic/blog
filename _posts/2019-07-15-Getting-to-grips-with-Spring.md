@@ -2,7 +2,6 @@
 title: Getting To Grips With Spring Boot
 date: 2019-07-15 00:00:00 Z
 categories:
-- sbreingan
 - Tech
 tags:
 - Java

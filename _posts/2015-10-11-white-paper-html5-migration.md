@@ -2,7 +2,6 @@
 title: 'White Paper: HTML5 Migration – Get started with a Little Bang'
 date: 2015-10-11 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 author: ceberhardt
 layout: default_post

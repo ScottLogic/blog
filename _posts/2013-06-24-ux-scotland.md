@@ -2,7 +2,6 @@
 title: UX Scotland 2013
 date: 2013-06-24 00:00:00 Z
 categories:
-- godds
 - UX Design
 tags:
 - UX design

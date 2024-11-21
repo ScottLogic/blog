@@ -2,7 +2,6 @@
 title: The Energy Transition
 date: 2020-08-24 00:00:00 Z
 categories:
-- phughes
 - Delivery
 author: phughes
 layout: default_post

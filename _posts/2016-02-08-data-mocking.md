@@ -2,7 +2,6 @@
 title: Data Mocking - A way to test the untestable
 date: 2016-02-08 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - testing

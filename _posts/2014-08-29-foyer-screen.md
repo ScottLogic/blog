@@ -2,7 +2,6 @@
 title: Foyer Screen Slideshow - 2014 Intern Project
 date: 2014-08-29 00:00:00 Z
 categories:
-- mkirova
 - Tech
 tags:
 - Impress

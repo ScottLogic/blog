@@ -2,7 +2,6 @@
 title: A Master Detail layout for Ionic
 date: 2015-10-02 00:00:00 Z
 categories:
-- wreilly
 - Tech
 tags:
 - blog

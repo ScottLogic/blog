@@ -2,7 +2,6 @@
 title: Open your eyes to APIs
 date: 2020-09-10 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
 image: godds/assets/featured/apis.png

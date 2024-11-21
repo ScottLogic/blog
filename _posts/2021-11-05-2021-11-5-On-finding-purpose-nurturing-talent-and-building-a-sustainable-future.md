@@ -2,7 +2,6 @@
 title: On finding purpose, nurturing talent and building a sustainable future
 date: 2021-11-05 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design, Sustainability, Growth, Culture, Corporate responsibility

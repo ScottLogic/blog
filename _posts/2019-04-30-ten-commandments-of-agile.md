@@ -2,7 +2,6 @@
 title: Ten Commandments of Agile
 date: 2019-04-30 00:00:00 Z
 categories:
-- pgraham
 - Delivery
 tags:
 - Agile,

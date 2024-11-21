@@ -2,7 +2,6 @@
 title: Comparing Apache Kafka, Amazon Kinesis, Microsoft Event Hubs and Google Pub/Sub
 date: 2018-04-17 00:00:00 Z
 categories:
-- dnicholas
 - Data Engineering
 tags:
 - featured

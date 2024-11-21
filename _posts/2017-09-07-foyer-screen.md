@@ -2,7 +2,6 @@
 title: Foyer Screen - 2017 Edinburgh Intern Project
 date: 2017-09-07 00:00:00 Z
 categories:
-- agard
 - People
 tags:
 - featured

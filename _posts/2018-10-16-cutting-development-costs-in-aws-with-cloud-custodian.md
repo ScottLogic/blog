@@ -2,7 +2,6 @@
 title: Cutting development costs in AWS with Cloud Custodian
 date: 2018-10-16 00:00:00 Z
 categories:
-- dsmith
 - Cloud
 tags:
 - cloud,

@@ -2,7 +2,6 @@
 title: Migrating D3 Force Layout to WebAssembly
 date: 2017-10-30 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

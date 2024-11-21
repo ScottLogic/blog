@@ -2,7 +2,6 @@
 title: An Introduction to Continuous Delivery
 date: 2015-12-16 00:00:00 Z
 categories:
-- mtinning
 - Delivery
 tags:
 - DevOps

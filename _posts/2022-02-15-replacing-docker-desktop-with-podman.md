@@ -2,7 +2,6 @@
 title: Disguising Podman as Docker Desktop on Windows
 date: 2022-02-15 00:00:00 Z
 categories:
-- mjrichards
 - Cloud
 tags:
 - java,

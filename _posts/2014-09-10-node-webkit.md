@@ -2,7 +2,6 @@
 title: Writing Desktop and Web-Based JavaScript Applications
 date: 2014-09-10 00:00:00 Z
 categories:
-- isullivan
 - Tech
 author: isullivan
 layout: default_post

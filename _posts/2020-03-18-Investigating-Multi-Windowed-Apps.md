@@ -2,7 +2,6 @@
 title: Investigating Multi-Window Browser Applications
 date: 2020-03-18 00:00:00 Z
 categories:
-- sburnstone
 - Tech
 author: sburnstone
 layout: default_post

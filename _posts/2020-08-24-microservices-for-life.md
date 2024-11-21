@@ -2,7 +2,6 @@
 title: Microservices for Life
 date: 2020-08-24 00:00:00 Z
 categories:
-- isugar
 - Tech
 author: isugar
 layout: default_post

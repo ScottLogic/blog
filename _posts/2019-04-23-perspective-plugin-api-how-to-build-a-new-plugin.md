@@ -2,7 +2,6 @@
 title: Perspective Plugin API - How to build a new plugin
 date: 2019-04-23 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 layout: default_post

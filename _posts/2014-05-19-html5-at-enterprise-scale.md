@@ -2,7 +2,6 @@
 title: White Paper - HTML5 At Enterprise Scale
 date: 2014-05-19 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 author: ceberhardt
 summary: Moving from desktop or plugin technologies (Flex, Silverlight, Java Applets)

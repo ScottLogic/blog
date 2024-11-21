@@ -2,7 +2,6 @@
 title: Creating an Angular 2 build with Gulp, TSLint and DefinitelyTyped
 date: 2015-12-24 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 title-short: An Angular 2.0 Build

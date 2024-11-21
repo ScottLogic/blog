@@ -2,7 +2,6 @@
 title: Introducing the MEAN stack
 date: 2014-11-21 00:00:00 Z
 categories:
-- soneill
 - Tech
 tags:
 - mongo

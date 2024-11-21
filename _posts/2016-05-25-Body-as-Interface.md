@@ -2,7 +2,6 @@
 title: Body as Interface
 date: 2016-05-25 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design

@@ -2,7 +2,6 @@
 title: Agile Is Not a Solved Problem
 date: 2019-09-23 00:00:00 Z
 categories:
-- shogarth
 - Delivery
 tags:
 - Agile

@@ -2,7 +2,6 @@
 title: Open Source Sustainability through Corporate Social Responsibility
 date: 2021-12-20 00:00:00 Z
 categories:
-- ceberhardt
 - Open Source
 tags:
 - featured

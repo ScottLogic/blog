@@ -2,7 +2,6 @@
 title: NoJS - Creating a calculator with only pure HTML and CSS. No Javascript!
 date: 2022-01-20 00:00:00 Z
 categories:
-- garora
 - Tech
 tags:
 - featured

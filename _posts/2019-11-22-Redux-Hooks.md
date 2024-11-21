@@ -2,7 +2,6 @@
 title: 'Now we''re hooking: Redux catches on'
 date: 2019-11-22 00:00:00 Z
 categories:
-- thands
 - Tech
 tags:
 - react

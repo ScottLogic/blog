@@ -2,7 +2,6 @@
 title: Reflections from Build IT Right
 date: 2019-04-05 00:00:00 Z
 categories:
-- shogarth
 - Tech
 tags:
 - Conferences

@@ -2,7 +2,6 @@
 title: Four tips for achieving successful UX workshops
 date: 2017-01-11 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design

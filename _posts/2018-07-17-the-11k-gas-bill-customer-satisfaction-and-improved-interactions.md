@@ -2,7 +2,6 @@
 title: The £11k gas bill, customer satisfaction and improved interactions
 date: 2018-07-17 00:00:00 Z
 categories:
-- acarr
 - Data Engineering
 author: acarr
 layout: default_post

@@ -2,7 +2,6 @@
 title: A Case for Hot-Reloading
 date: 2016-01-27 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

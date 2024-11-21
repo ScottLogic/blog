@@ -2,7 +2,6 @@
 title: 'Guide: Don''t Let Testing be a Bottleneck'
 date: 2018-03-05 00:00:00 Z
 categories:
-- lpisani
 - Resources
 tags:
 - test

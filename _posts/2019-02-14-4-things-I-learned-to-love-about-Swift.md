@@ -2,7 +2,6 @@
 title: 4 things I learned to love about Swift
 date: 2019-02-14 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - Swift

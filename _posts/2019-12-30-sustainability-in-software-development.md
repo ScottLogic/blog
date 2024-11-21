@@ -2,7 +2,6 @@
 title: Sustainability in Software Development
 date: 2019-12-30 00:00:00 Z
 categories:
-- bjedrzejewski
 - Tech
 author: bjedrzejewski
 layout: default_post

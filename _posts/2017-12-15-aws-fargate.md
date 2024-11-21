@@ -2,7 +2,6 @@
 title: Introducing AWS Fargate
 date: 2017-12-15 00:00:00 Z
 categories:
-- nwolverson
 - Cloud
 author: nwolverson
 layout: default_post

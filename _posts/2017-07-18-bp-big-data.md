@@ -2,7 +2,6 @@
 title: The Big Data technologies that saved BP $7bn
 date: 2017-07-18 00:00:00 Z
 categories:
-- acarr
 - Data Engineering
 tags:
 - featured

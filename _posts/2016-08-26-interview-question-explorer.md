@@ -2,7 +2,6 @@
 title: Interview Questions Explorer - Edinburgh Interns 2016
 date: 2016-08-26 00:00:00 Z
 categories:
-- jfriel
 - Tech
 author: jfriel
 title-short: Interview Question Explorer

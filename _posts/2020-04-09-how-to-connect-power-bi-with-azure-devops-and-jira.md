@@ -2,7 +2,6 @@
 title: How to Connect Power BI with Azure DevOps and JIRA
 date: 2020-04-09 00:00:00 Z
 categories:
-- jmelon
 - Delivery
 tags:
 - featured,Power

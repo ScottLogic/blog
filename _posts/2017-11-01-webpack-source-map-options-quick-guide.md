@@ -2,7 +2,6 @@
 title: Quick guide to webpack source map options
 date: 2017-11-01 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

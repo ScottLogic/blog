@@ -2,7 +2,6 @@
 title: The Lonely Tester's Survival Guide
 date: 2016-03-09 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - featured

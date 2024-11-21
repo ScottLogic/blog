@@ -2,7 +2,6 @@
 title: What did I learn studying for AWS Solution Architect Associate Certification
 date: 2018-11-27 00:00:00 Z
 categories:
-- bjedrzejewski
 - Cloud
 author: bjedrzejewski
 summary: This month I have sat and passed the AWS Solution Architect Associate exam.

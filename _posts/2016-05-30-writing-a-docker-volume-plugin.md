@@ -2,7 +2,6 @@
 title: Writing a Docker Volume Plugin for S3
 date: 2016-05-30 00:00:00 Z
 categories:
-- rhendry
 - Data Engineering
 tags:
 - docker

@@ -2,7 +2,6 @@
 title: ES6 Iterators, RxJS, IxJS and the Async Iterators proposal
 date: 2016-06-29 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

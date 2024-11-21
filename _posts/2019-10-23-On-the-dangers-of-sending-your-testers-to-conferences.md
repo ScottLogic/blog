@@ -2,7 +2,6 @@
 title: On the dangers of sending your testers to conferences
 date: 2019-10-23 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testbash,

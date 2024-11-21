@@ -2,7 +2,6 @@
 title: Sharing styling specs with developers
 date: 2017-02-24 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design

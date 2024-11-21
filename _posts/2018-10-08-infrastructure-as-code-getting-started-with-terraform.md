@@ -2,7 +2,6 @@
 title: Infrastructure as Code - Getting Started with Terraform
 date: 2018-10-08 00:00:00 Z
 categories:
-- cmeehan
 - Cloud
 tags:
 - featured

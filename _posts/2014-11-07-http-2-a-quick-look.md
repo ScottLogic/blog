@@ -2,7 +2,6 @@
 title: 'HTTP/2: A quick look'
 date: 2014-11-07 00:00:00 Z
 categories:
-- wreilly
 - Tech
 tags:
 - blog

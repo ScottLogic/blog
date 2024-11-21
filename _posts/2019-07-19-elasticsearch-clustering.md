@@ -2,7 +2,6 @@
 title: Elasticsearch - clustering on AWS with optional auto-scaling
 date: 2019-07-19 00:00:00 Z
 categories:
-- zwali
 - Data Engineering
 author: zwali
 layout: default_post

@@ -2,7 +2,6 @@
 title: ".NET for Apache Spark"
 date: 2019-10-11 00:00:00 Z
 categories:
-- jharris
 - Tech
 author: jharris
 summary: Taking a look at Microsoft's new product .NET for Apache Spark by writing

@@ -2,7 +2,6 @@
 title: Web UI development in Rust
 date: 2022-04-06 00:00:00 Z
 categories:
-- smartin
 - Tech
 author: smartin
 summary: 'Recently, WebAssembly has been a hot topic in tech and developer forums.

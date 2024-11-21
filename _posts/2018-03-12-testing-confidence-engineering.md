@@ -2,7 +2,6 @@
 title: 'Testing: Confidence Engineering'
 date: 2018-03-12 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Testing
 author: tclarke-scottlogic
 layout: default_post

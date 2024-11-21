@@ -2,7 +2,6 @@
 title: Introducing (Another) New Static Site Generator
 date: 2014-11-28 00:00:00 Z
 categories:
-- isullivan
 - Tech
 author: isullivan
 layout: default_post

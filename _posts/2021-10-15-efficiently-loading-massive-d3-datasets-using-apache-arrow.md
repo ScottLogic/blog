@@ -2,7 +2,6 @@
 title: Efficiently loading massive D3 datasets using Apache Arrow
 date: 2021-10-15 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

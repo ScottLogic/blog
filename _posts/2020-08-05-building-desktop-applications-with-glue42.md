@@ -2,7 +2,6 @@
 title: Building desktop applications with Glue42
 date: 2020-08-05 00:00:00 Z
 categories:
-- mjose
 - Tech
 author: mjose
 summary: This technical webinar sets out the steps involved in migrating a legacy

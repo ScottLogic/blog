@@ -2,7 +2,6 @@
 title: Aurelia, less2css and bundling
 date: 2015-06-29 00:00:00 Z
 categories:
-- lpage
 - Tech
 author: lpage
 layout: default_post

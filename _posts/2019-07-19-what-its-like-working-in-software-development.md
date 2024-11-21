@@ -2,7 +2,6 @@
 title: What it’s like working in software development
 date: 2019-07-19 00:00:00 Z
 categories:
-- cmcknight
 - People
 tags:
 - featured

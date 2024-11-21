@@ -2,7 +2,6 @@
 title: Soft Skills for Software Developer
 date: 2018-01-13 00:00:00 Z
 categories:
-- bjedrzejewski
 - Delivery
 tags:
 - featured

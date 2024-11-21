@@ -2,7 +2,6 @@
 title: Recommended Reading For Java Developers
 date: 2016-05-21 00:00:00 Z
 categories:
-- bjedrzejewski
 - Tech
 author: bjedrzejewski
 summary: Being a software developer requires constantly improving ones knowledge.

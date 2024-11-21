@@ -2,7 +2,6 @@
 title: D3 SVG chart performance
 date: 2014-09-19 00:00:00 Z
 categories:
-- tsimmons
 - Tech
 author: tsimmons
 summary: In this post, we'll take a look at some of the performance issues you might

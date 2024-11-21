@@ -2,7 +2,6 @@
 title: Cassandra vs. MariaDB, Scaling
 date: 2017-03-20 00:00:00 Z
 categories:
-- jwhite
 - Data Engineering
 author: jwhite
 contributors:

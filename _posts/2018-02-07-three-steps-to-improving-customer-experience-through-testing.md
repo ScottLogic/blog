@@ -2,7 +2,6 @@
 title: Three Steps to Improving Customer Experience Through Testing
 date: 2018-02-07 00:00:00 Z
 categories:
-- lpisani
 - Testing
 author: lpisani
 layout: default_post

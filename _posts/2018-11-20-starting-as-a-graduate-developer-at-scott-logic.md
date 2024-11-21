@@ -2,7 +2,6 @@
 title: Starting as a Graduate Developer at Scott Logic
 date: 2018-11-20 00:00:00 Z
 categories:
-- hbedford
 - People
 author: hbedford
 layout: default_post

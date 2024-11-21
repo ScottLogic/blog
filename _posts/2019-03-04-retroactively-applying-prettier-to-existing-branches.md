@@ -2,7 +2,6 @@
 title: Retroactively applying Prettier formatting changes to existing branches
 date: 2019-03-04 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

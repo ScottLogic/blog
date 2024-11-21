@@ -2,7 +2,6 @@
 title: When is the right time to commit or use a branch?
 date: 2019-12-19 00:00:00 Z
 categories:
-- slaing
 - Tech
 author: slaing
 layout: default_post

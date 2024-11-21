@@ -2,7 +2,6 @@
 title: The Game of Life with Functional Swift
 date: 2014-09-10 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

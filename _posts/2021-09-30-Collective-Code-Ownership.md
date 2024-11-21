@@ -2,7 +2,6 @@
 title: Capitalism, Socialism, and Code Ownership
 date: 2021-09-30 00:00:00 Z
 categories:
-- bquinn
 - Open Source
 tags:
 - Code,

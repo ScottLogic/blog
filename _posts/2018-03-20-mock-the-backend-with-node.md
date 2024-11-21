@@ -2,7 +2,6 @@
 title: Mock the Back-End with Node
 date: 2018-03-20 00:00:00 Z
 categories:
-- alee
 - Tech
 tags:
 - JavaScript

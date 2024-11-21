@@ -2,7 +2,6 @@
 title: Think workflow, not app
 date: 2020-08-20 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
 summary: This webinar explored the potential of desktop container technologies to

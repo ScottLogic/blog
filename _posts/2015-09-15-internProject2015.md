@@ -2,7 +2,6 @@
 title: Charting Bitcoin Prices with D3FC - 2015 Intern Project
 date: 2015-09-15 00:00:00 Z
 categories:
-- rcaulcott-cooper
 - Tech
 author: rcaulcott-cooper
 layout: default_post

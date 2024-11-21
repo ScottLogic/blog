@@ -2,7 +2,6 @@
 title: An experiment with Animation and UI
 date: 2016-05-20 00:00:00 Z
 categories:
-- rmarcalo
 - UX Design
 author: rmarcalo
 layout: default_post

@@ -2,7 +2,6 @@
 title: A Developer's intro to WebGL
 date: 2014-03-11 00:00:00 Z
 categories:
-- amorgan
 - Tech
 author: amorgan
 layout: default_post

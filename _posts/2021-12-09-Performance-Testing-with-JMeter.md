@@ -2,7 +2,6 @@
 title: Performance Testing with JMeter
 date: 2021-12-09 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Testing,

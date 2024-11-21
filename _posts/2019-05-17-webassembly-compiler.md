@@ -2,7 +2,6 @@
 title: Build your own WebAssembly Compiler
 date: 2019-05-17 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

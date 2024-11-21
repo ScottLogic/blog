@@ -2,7 +2,6 @@
 title: 'Intro to IxD: Affordance'
 date: 2014-02-04 00:00:00 Z
 categories:
-- sduncan
 - UX Design
 tags:
 - interaction design

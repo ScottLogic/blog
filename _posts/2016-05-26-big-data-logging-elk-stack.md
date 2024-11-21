@@ -2,7 +2,6 @@
 title: 'Log-driven big data: The ELK stack'
 date: 2016-05-26 00:00:00 Z
 categories:
-- acheshire
 - Data Engineering
 author: acheshire
 title-short: The ELK stack

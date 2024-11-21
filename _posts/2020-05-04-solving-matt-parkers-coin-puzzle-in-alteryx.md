@@ -2,7 +2,6 @@
 title: Solving Matt Parker's Coin Puzzle in Alteryx
 date: 2020-05-04 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
 summary: In this post, we look at creating a brute-force search approach to solve

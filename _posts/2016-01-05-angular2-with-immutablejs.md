@@ -2,7 +2,6 @@
 title: Angular 2 with Immutable.JS
 date: 2016-01-05 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

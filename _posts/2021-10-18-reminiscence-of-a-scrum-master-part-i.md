@@ -2,7 +2,6 @@
 title: Reminiscence of a Scrum Master (Part 1)
 date: 2021-10-18 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 tags:
 - agile

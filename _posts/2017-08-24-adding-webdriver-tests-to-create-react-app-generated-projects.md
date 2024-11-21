@@ -2,7 +2,6 @@
 title: Adding WebDriver tests to create-react-app generated projects
 date: 2017-08-24 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

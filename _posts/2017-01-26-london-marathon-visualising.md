@@ -2,7 +2,6 @@
 title: Visualising London Marathon Strava Data
 date: 2017-01-26 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

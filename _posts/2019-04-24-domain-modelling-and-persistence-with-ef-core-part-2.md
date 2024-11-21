@@ -2,7 +2,6 @@
 title: Domain modelling and persistence with EF Core - Part 2
 date: 2019-04-24 00:00:00 Z
 categories:
-- hsteele
 - Tech
 author: hsteele
 layout: default_post

@@ -2,7 +2,6 @@
 title: Bug Bashes
 date: 2020-10-07 00:00:00 Z
 categories:
-- ckurzeja
 - Testing
 author: ckurzeja
 layout: default_post

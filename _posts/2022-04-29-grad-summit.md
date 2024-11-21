@@ -2,7 +2,6 @@
 title: Insights for Test Engineers from Scott Logic’s Grad Summit 2022
 date: 2022-04-29 00:00:00 Z
 categories:
-- kcoombes
 - People
 author: kcoombes
 layout: default_post

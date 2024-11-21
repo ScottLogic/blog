@@ -2,7 +2,6 @@
 title: COVID - An emerging normal
 date: 2020-09-10 00:00:00 Z
 categories:
-- robsmith
 - Delivery
 author: robsmith
 layout: default_post

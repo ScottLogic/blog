@@ -2,7 +2,6 @@
 title: 'White Paper: Open your eyes to APIs'
 date: 2020-10-01 00:00:00 Z
 categories:
-- godds
 - Resources
 tags:
 - featured

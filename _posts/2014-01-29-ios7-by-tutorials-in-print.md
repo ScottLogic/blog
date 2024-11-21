@@ -2,7 +2,6 @@
 title: iOS 7 By Tutorials In Print
 date: 2014-01-29 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: The book, iOS 7 By Tutorials, which I contributed four chapters to, is now

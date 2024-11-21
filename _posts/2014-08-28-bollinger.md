@@ -2,7 +2,6 @@
 title: A Bollinger Bands Component for D3 Charts
 date: 2014-08-28 00:00:00 Z
 categories:
-- aaiken
 - Tech
 tags:
 - d3

@@ -2,7 +2,6 @@
 title: 'Beyond the Hype: Is the Metaverse built on foundations of hype?'
 date: 2022-11-07 00:00:00 Z
 categories:
-- ceberhardt
 - Podcast
 - ocronk
 summary: In this episode Colin, Ollie, Johanna and Lily hold a lively conversation

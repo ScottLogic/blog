@@ -2,7 +2,6 @@
 title: Achieving Cross Browser testing greatness
 date: 2018-07-17 00:00:00 Z
 categories:
-- cbrown
 - Testing
 tags:
 - Cross-browser

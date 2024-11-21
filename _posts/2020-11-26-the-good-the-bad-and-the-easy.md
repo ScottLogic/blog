@@ -2,7 +2,6 @@
 title: The Good, The Bad and the Easy?
 date: 2020-11-26 00:00:00 Z
 categories:
-- dogle
 - Tech
 author: dogle
 layout: default_post

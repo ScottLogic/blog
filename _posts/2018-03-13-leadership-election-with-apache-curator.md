@@ -2,7 +2,6 @@
 title: Leadership Election with Apache Curator
 date: 2018-03-13 00:00:00 Z
 categories:
-- janakerman
 - Tech
 tags:
 - Java

@@ -2,7 +2,6 @@
 title: Arrow functions in Knockout.js
 date: 2014-02-28 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 image: cprice/assets/featured/arrows.jpg

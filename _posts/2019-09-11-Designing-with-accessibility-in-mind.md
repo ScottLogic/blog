@@ -2,7 +2,6 @@
 title: Designing with accessibility in mind
 date: 2019-09-11 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design, accessibility, WCAG

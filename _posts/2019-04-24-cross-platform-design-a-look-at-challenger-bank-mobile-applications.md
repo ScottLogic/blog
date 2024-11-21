@@ -2,7 +2,6 @@
 title: 'Cross-Platform Design: A look at Challenger Bank Mobile Applications'
 date: 2019-04-24 00:00:00 Z
 categories:
-- cyule
 - UX Design
 tags:
 - UX,

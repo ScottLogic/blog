@@ -2,7 +2,6 @@
 title: What it means to be Agile
 date: 2017-05-17 00:00:00 Z
 categories:
-- shunton
 - Delivery
 author: shunton
 layout: default_post

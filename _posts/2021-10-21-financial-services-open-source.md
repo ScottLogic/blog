@@ -2,7 +2,6 @@
 title: Open source in financial services, bridging the contribution gap
 date: 2021-10-21 00:00:00 Z
 categories:
-- ceberhardt
 - Open Source
 author: ceberhardt
 layout: default_post

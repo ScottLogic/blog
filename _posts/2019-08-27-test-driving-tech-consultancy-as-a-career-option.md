@@ -2,7 +2,6 @@
 title: Test-driving tech consultancy as a career option
 date: 2019-08-27 00:00:00 Z
 categories:
-- mnicholson
 - People
 tags:
 - Interns

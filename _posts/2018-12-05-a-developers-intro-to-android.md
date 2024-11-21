@@ -2,7 +2,6 @@
 title: A Developer's Intro to Android
 date: 2018-12-05 00:00:00 Z
 categories:
-- jporter
 - Tech
 tags:
 - Android

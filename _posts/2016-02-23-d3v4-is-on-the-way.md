@@ -2,7 +2,6 @@
 title: D3v4 is on the way!
 date: 2016-02-23 00:00:00 Z
 categories:
-- asheehan
 - Tech
 author: asheehan
 layout: default_post

@@ -2,7 +2,6 @@
 title: Better React Components with TypeScript Union Types
 date: 2021-07-27 00:00:00 Z
 categories:
-- pburgess
 - Tech
 tags:
 - TypeScript

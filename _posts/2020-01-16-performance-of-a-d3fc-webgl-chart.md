@@ -2,7 +2,6 @@
 title: Analysing and improving the performance of a D3FC-WebGL chart
 date: 2020-01-16 00:00:00 Z
 categories:
-- oforeman
 - Tech
 author: oforeman
 layout: default_post

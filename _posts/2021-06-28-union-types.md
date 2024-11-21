@@ -2,7 +2,6 @@
 title: Getting the most out of TypeScript - Union Types
 date: 2021-06-28 00:00:00 Z
 categories:
-- pburgess
 - Tech
 tags:
 - TypeScript

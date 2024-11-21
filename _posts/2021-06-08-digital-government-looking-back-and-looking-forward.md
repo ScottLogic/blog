@@ -2,7 +2,6 @@
 title: 'Digital Government: Looking back, and looking forward'
 date: 2021-06-08 00:00:00 Z
 categories:
-- sforeshew-cain
 - Tech
 author: sforeshew-cain
 layout: default_post

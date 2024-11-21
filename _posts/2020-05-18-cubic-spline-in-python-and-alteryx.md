@@ -2,7 +2,6 @@
 title: Creating a Cubic Spline in Python and Alteryx
 date: 2020-05-18 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
 summary: In this post, we work through building up a cubic spline from first principles

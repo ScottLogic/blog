@@ -2,7 +2,6 @@
 title: Exploring different approaches to building WebAssembly modules
 date: 2017-10-17 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

@@ -2,7 +2,6 @@
 title: Better Redux Reducers with TypeScript Builders
 date: 2020-10-01 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - types

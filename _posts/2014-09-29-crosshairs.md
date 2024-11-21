@@ -2,7 +2,6 @@
 title: An interactive crosshairs component for D3
 date: 2014-09-29 00:00:00 Z
 categories:
-- aaiken
 - Tech
 tags:
 - d3

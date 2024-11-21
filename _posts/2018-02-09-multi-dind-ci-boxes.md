@@ -2,7 +2,6 @@
 title: "(Multi-stage docker) in docker as CI Sledgehammer"
 date: 2018-02-09 00:00:00 Z
 categories:
-- nwolverson
 - Cloud
 author: nwolverson
 layout: default_post

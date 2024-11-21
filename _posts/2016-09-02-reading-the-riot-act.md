@@ -2,7 +2,6 @@
 title: 'Reading the Riot Act: Exploring a Lightweight React Alternative'
 date: 2016-09-02 00:00:00 Z
 categories:
-- dmiley
 - Tech
 author: dmiley
 title-short: 'Riot: A React Alternative'

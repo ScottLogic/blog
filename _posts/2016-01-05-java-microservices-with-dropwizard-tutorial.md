@@ -2,7 +2,6 @@
 title: Java Microservices - How to get started in minutes using Dropwizard
 date: 2016-01-05 00:00:00 Z
 categories:
-- bjedrzejewski
 - Tech
 author: bjedrzejewski
 layout: default_post

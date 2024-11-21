@@ -2,7 +2,6 @@
 title: 'Agile in the City: London - My top take-aways'
 date: 2019-04-15 00:00:00 Z
 categories:
-- jmelon
 - Delivery
 tags:
 - agile

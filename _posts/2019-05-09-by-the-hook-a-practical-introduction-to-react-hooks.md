@@ -2,7 +2,6 @@
 title: 'By the Hook: A Practical Introduction to React Hooks'
 date: 2019-05-09 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - JavaScript

@@ -2,7 +2,6 @@
 title: ReactiveCocoa - The Definitive Guide
 date: 2014-03-13 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: It feels like everyone in the iOS community is talking about ReactiveCocoa

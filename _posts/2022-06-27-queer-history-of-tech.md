@@ -2,7 +2,6 @@
 title: The Queer History of Technology
 date: 2022-06-27 00:00:00 Z
 categories:
-- bpritchard
 - Tech
 author: bpritchard
 layout: default_post

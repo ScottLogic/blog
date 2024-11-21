@@ -2,7 +2,6 @@
 title: Load testing Alteryx API with Gatling
 date: 2017-06-22 00:00:00 Z
 categories:
-- zwali
 - Data Engineering
 tags:
 - Load Testing

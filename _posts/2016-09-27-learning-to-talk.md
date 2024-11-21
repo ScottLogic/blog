@@ -2,7 +2,6 @@
 title: Learning to talk - Finding your voice and telling a story
 date: 2016-09-27 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - software testing

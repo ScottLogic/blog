@@ -2,7 +2,6 @@
 title: Hero transitions in AngularJS
 date: 2014-12-19 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 summary: How to create hero transitions with AngularJS, similar to those implemented

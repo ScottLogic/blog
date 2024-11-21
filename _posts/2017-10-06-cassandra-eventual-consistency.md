@@ -2,7 +2,6 @@
 title: Cassandra - Achieving high availability while maintaining consistency
 date: 2017-10-06 00:00:00 Z
 categories:
-- zwali
 - Data Engineering
 author: zwali
 layout: default_post

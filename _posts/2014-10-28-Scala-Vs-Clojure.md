@@ -2,7 +2,6 @@
 title: A first foray into functional programming with Scala and Clojure
 date: 2014-10-28 00:00:00 Z
 categories:
-- hpowell
 - Tech
 author: hpowell
 title-short: Scala vs. Clojure

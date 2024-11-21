@@ -2,7 +2,6 @@
 title: Interactive.NET (2 - C#)
 date: 2013-08-15 00:00:00 Z
 categories:
-- nwolverson
 - Tech
 tags:
 - blog

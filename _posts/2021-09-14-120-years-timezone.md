@@ -2,7 +2,6 @@
 title: Exploring 120 years of timezones
 date: 2021-09-14 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

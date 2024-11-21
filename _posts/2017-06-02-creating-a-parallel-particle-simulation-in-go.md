@@ -2,7 +2,6 @@
 title: Creating a Parallel Particle Simulation in Go
 date: 2017-06-02 00:00:00 Z
 categories:
-- wferguson
 - Tech
 author: wferguson
 layout: default_post

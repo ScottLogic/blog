@@ -2,7 +2,6 @@
 title: 'X3D: Declarative 3D for the Modern Web'
 date: 2019-08-27 00:00:00 Z
 categories:
-- asureshkumar
 - Tech
 author: asureshkumar
 layout: default_post

@@ -2,7 +2,6 @@
 title: Change, Presented Two Ways
 date: 2017-06-29 00:00:00 Z
 categories:
-- godds
 - UX Design
 tags:
 - featured

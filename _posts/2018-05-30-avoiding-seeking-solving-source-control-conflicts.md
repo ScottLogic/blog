@@ -2,7 +2,6 @@
 title: Avoiding, seeking, and solving source control conflicts
 date: 2018-05-30 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

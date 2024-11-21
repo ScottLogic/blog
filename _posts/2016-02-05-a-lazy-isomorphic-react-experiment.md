@@ -2,7 +2,6 @@
 title: A Lazy Isomorphic React Experiment
 date: 2016-02-05 00:00:00 Z
 categories:
-- asheehan
 - Tech
 tags:
 - main_featured

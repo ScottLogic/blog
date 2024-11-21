@@ -2,7 +2,6 @@
 title: An Interactive Tab Bar Controller Transition
 date: 2013-09-26 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: This blog post looks at creating an interactive tab bar controller transition,

@@ -2,7 +2,6 @@
 title: Edinburgh Open Source in Fintech Event Series – Dec 2019
 date: 2019-12-13 00:00:00 Z
 categories:
-- pdykes
 - Open Source
 tags:
 - Open

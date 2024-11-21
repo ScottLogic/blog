@@ -2,7 +2,6 @@
 title: 'IR35 hits now: Don’t wait until April to act'
 date: 2019-10-30 00:00:00 Z
 categories:
-- robsmith
 - Delivery
 tags:
 - IR35

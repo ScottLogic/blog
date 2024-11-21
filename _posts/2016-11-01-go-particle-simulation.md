@@ -2,7 +2,6 @@
 title: Creating a Simple Particle Simulation with Go
 date: 2016-11-01 00:00:00 Z
 categories:
-- wferguson
 - Tech
 tags:
 - featured

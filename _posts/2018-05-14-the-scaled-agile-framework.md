@@ -3,7 +3,6 @@ title: The Scaled Agile Framework – When it works, it works well. When it does
   work, it’s waterfall.
 date: 2018-05-14 00:00:00 Z
 categories:
-- phands
 - Delivery
 tags:
 - Agile,

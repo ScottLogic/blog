@@ -2,7 +2,6 @@
 title: An introduction to resiliency in the cloud
 date: 2021-09-28 00:00:00 Z
 categories:
-- jleftley
 - Cloud
 author: jleftley
 summary: In this talk, I explore some of the foundations and common approaches for

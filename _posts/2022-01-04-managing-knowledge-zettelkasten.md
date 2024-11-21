@@ -2,7 +2,6 @@
 title: Managing Knowledge with the Zettelkasten Method
 date: 2022-01-04 00:00:00 Z
 categories:
-- ebrown
 - Tech
 author: ebrown
 layout: default_post

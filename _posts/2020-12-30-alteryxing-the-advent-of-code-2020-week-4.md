@@ -2,7 +2,6 @@
 title: Alteryxing The Advent of Code 2020 - Week 4
 date: 2020-12-30 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
 summary: 'It''s the end of the #AdventofCode for 2020. I take a look back over the

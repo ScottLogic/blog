@@ -2,7 +2,6 @@
 title: SVG layout with Flexbox for simpler D3 charts
 date: 2015-02-02 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

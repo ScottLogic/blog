@@ -2,7 +2,6 @@
 title: Deconstructing a tweet-sized D3 creation
 date: 2016-03-08 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

@@ -2,7 +2,6 @@
 title: 7 Reasons I ❤️ Open Source
 date: 2018-11-09 00:00:00 Z
 categories:
-- ceberhardt
 - Open Source
 author: ceberhardt
 layout: default_post

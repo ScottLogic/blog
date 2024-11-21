@@ -2,7 +2,6 @@
 title: 'Agile Projects: A Case Study'
 date: 2014-12-02 00:00:00 Z
 categories:
-- tkelly
 - Delivery
 tags:
 - agile

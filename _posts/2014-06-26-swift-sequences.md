@@ -2,7 +2,6 @@
 title: Swift Sequences and Lazy Evaluation
 date: 2014-06-26 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 image: ceberhardt/assets/featured/sequence.jpg

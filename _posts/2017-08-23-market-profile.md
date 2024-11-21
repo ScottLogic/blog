@@ -2,7 +2,6 @@
 title: Creating a Market Profile Chart with D3
 date: 2017-08-23 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

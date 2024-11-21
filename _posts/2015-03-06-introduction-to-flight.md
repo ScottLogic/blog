@@ -2,7 +2,6 @@
 title: Introduction to Flight
 date: 2015-03-06 00:00:00 Z
 categories:
-- bmumford
 - Tech
 tags:
 - featured

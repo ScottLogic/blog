@@ -2,7 +2,6 @@
 title: Declarative CI / CD with Concourse
 date: 2016-06-20 00:00:00 Z
 categories:
-- csmith
 - Cloud
 author: csmith
 summary: This post describes the Concourse build system and explains why declarative

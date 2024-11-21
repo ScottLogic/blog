@@ -2,7 +2,6 @@
 title: How data has improved the amateur runner
 date: 2022-09-12 12:29:00 Z
 categories:
-- mpace
 - Data Engineering
 tags:
 - Data

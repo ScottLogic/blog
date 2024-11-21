@@ -2,7 +2,6 @@
 title: Is Officeless to business agility what Serverless is to compute agility?
 date: 2021-05-24 00:00:00 Z
 categories:
-- nwilson
 - People
 author: nwilson
 summary: The shift in thinking from discrete change projects to continuous product

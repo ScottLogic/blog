@@ -2,7 +2,6 @@
 title: 'Data visualisation and scale: leveraging the macro and the micro'
 date: 2016-05-16 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design

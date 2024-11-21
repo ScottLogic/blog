@@ -2,7 +2,6 @@
 title: How the New Normal is taking shape
 date: 2021-04-28 00:00:00 Z
 categories:
-- nwilson
 - People
 author: nwilson
 summary: In this talk, Manila McLean, Newcastle Building Society CIO, and I reflect

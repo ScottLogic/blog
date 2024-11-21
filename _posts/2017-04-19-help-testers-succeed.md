@@ -2,7 +2,6 @@
 title: Help Your Testers Succeed in 8 Minutes
 date: 2017-04-19 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - software testing

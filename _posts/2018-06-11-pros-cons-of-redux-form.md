@@ -2,7 +2,6 @@
 title: The pros and cons of Redux Form in managing a form state immutably
 date: 2018-06-11 00:00:00 Z
 categories:
-- phands
 - Tech
 tags:
 - Redux,

@@ -2,7 +2,6 @@
 title: Fiddler's Autoresponder to mock API Responses
 date: 2017-01-09 00:00:00 Z
 categories:
-- dtheasby
 - Testing
 tags:
 - testing

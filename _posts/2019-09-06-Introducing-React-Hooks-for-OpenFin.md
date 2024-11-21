@@ -2,7 +2,6 @@
 title: 'Introducing: React Hooks for OpenFin'
 date: 2019-09-06 00:00:00 Z
 categories:
-- dkerr
 - Tech
 tags:
 - featured

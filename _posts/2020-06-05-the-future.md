@@ -2,7 +2,6 @@
 title: The future is not what it used to be.
 date: 2020-06-05 00:00:00 Z
 categories:
-- phughes
 - Delivery
 tags:
 - Consulting,

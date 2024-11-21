@@ -2,7 +2,6 @@
 title: React vs Vue
 date: 2019-05-31 00:00:00 Z
 categories:
-- jwren
 - Tech
 author: jwren
 summary: React and Vue are two popular web application frameworks aimed to make developing

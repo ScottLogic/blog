@@ -2,7 +2,6 @@
 title: 'Inclusive Design: How diversity is the key to building better technology'
 date: 2021-09-28 00:00:00 Z
 categories:
-- aternar
 - UX Design
 author: aternar
 summary: This talk offers a taster of the vast world of Inclusive Design by exploring

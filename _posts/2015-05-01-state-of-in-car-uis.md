@@ -2,7 +2,6 @@
 title: The State Of In-Car UIs
 date: 2015-05-01 00:00:00 Z
 categories:
-- wloveland
 - UX Design
 tags:
 - featured

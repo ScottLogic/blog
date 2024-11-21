@@ -2,7 +2,6 @@
 title: Static Shock - Using Modern Static Site Generators
 date: 2016-02-23 00:00:00 Z
 categories:
-- tbarclay
 - Tech
 author: tbarclay
 title-short: Static Site with Jekyll

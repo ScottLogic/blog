@@ -2,7 +2,6 @@
 title: Mobiumata
 date: 2024-07-31 00:00:00 Z
 categories:
-- cprice
 - Tech
 summary: Mobiumata (a concatenation of Möbius strip and cellular automata) is a small
   interactive art piece that allows folk to play god to 1,500 LED cells wrapped into

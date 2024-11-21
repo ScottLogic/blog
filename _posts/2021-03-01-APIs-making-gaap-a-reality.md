@@ -2,7 +2,6 @@
 title: 'APIs: Making GaaP a reality'
 date: 2021-03-01 00:00:00 Z
 categories:
-- godds
 - Tech
 tags:
 - featured

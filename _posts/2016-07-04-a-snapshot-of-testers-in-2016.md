@@ -2,7 +2,6 @@
 title: A snapshot of software testers in 2016
 date: 2016-07-04 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - software testing survey

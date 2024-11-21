@@ -2,7 +2,6 @@
 title: My three-year journey from grad to Senior Developer
 date: 2019-08-19 00:00:00 Z
 categories:
-- jmorris
 - People
 author: jmorris
 layout: default_post

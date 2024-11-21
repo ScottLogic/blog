@@ -2,7 +2,6 @@
 title: Bridging UI libraries for decoupled, long-lived, widely-reusable components
 date: 2018-12-12 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

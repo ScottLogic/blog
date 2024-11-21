@@ -2,7 +2,6 @@
 title: Angular 2 Time Travel with Redux
 date: 2016-01-25 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

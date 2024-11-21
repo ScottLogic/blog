@@ -2,7 +2,6 @@
 title: 'FinTech Design Summit 2019: Designing for emotions and raising financial literacy'
 date: 2019-04-26 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design, FinTech, Financial literacy, FinTech Design Summit

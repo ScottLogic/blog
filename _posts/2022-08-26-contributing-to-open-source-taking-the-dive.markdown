@@ -2,7 +2,6 @@
 title: Contributing to open source - taking the dive
 date: 2022-08-26 14:57:00 Z
 categories:
-- jdunleavy
 - Open Source
 tags:
 - Open Source

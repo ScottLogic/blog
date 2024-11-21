@@ -2,7 +2,6 @@
 title: D3FC ❤ Canvas
 date: 2016-03-18 00:00:00 Z
 categories:
-- asheehan
 - Tech
 author: asheehan
 layout: default_post

@@ -2,7 +2,6 @@
 title: How the OpenAI Codex JavaScript Sandbox works
 date: 2021-09-24 00:00:00 Z
 categories:
-- cprice
 - Artificial Intelligence
 tags:
 - featured

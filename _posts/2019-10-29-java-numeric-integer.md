@@ -2,7 +2,6 @@
 title: JVM numeric types - Integer types
 date: 2019-10-29 00:00:00 Z
 categories:
-- mamos
 - Tech
 tags:
 - Java,

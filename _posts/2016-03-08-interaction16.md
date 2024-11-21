@@ -2,7 +2,6 @@
 title: Interaction 16
 date: 2016-03-08 00:00:00 Z
 categories:
-- wloveland
 - UX Design
 tags:
 - featured

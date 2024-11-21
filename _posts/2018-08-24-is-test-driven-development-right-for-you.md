@@ -2,7 +2,6 @@
 title: Is Test Driven Development Right for You?
 date: 2018-08-24 00:00:00 Z
 categories:
-- imaxwell
 - Tech
 tags:
 - TDD

@@ -2,7 +2,6 @@
 title: Mapping the cloud atlas
 date: 2020-01-16 00:00:00 Z
 categories:
-- jdunkerley
 - Cloud
 author: jdunkerley
 summary: In this webinar, James maps out a set of well-defined and understood steps

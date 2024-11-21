@@ -2,7 +2,6 @@
 title: Introducing Agile upfront
 date: 2014-08-18 00:00:00 Z
 categories:
-- dthomas
 - Delivery
 summary: An alternative to introducing Agile incrementally is to make a 'big bang'
   transition, converting over to Agile all at once. In this post I take a look at

@@ -2,7 +2,6 @@
 title: There's console.more where that came from! Make greater use of console in JS
 date: 2020-07-03 00:00:00 Z
 categories:
-- garora
 - Tech
 author: garora
 layout: default_post

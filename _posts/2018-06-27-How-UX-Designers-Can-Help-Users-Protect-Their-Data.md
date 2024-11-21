@@ -2,7 +2,6 @@
 title: How UX designers can help users protect their data
 date: 2018-06-27 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design, Security, Data, GDPR

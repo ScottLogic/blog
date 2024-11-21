@@ -2,7 +2,6 @@
 title: JavaScript ES6 generators
 date: 2015-02-02 00:00:00 Z
 categories:
-- jbandenburg
 - Tech
 author: jbandenburg
 summary: The upcoming JavaScript standard ES6 introduces generators, which provides

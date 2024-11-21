@@ -2,7 +2,6 @@
 title: Pros, Cons, Tips and Tricks when using Prettier in a large codebase
 date: 2019-12-05 00:00:00 Z
 categories:
-- rpilling
 - Tech
 tags:
 - prettier,

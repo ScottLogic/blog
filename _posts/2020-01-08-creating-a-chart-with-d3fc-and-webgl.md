@@ -2,7 +2,6 @@
 title: Creating a chart with D3FC and WebGL
 date: 2020-01-08 00:00:00 Z
 categories:
-- oforeman
 - Tech
 author: oforeman
 layout: default_post

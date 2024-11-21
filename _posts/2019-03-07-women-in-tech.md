@@ -2,7 +2,6 @@
 title: Encouraging women in the tech industry
 date: 2019-03-07 00:00:00 Z
 categories:
-- afiddes
 - People
 author: afiddes
 layout: default_post

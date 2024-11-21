@@ -2,7 +2,6 @@
 title: Getting Functional at DDDNorth
 date: 2013-10-18 00:00:00 Z
 categories:
-- shogarth
 - Tech
 tags:
 - Conferences

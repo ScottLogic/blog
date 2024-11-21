@@ -2,7 +2,6 @@
 title: Overlooked Aspects of Being a Tester
 date: 2018-04-20 00:00:00 Z
 categories:
-- croberts
 - People
 tags:
 - Tester,

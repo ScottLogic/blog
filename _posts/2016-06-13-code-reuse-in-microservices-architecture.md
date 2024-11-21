@@ -2,7 +2,6 @@
 title: Code reuse in microservices architecture - with Spring Boot
 date: 2016-06-13 00:00:00 Z
 categories:
-- bjedrzejewski
 - Data Engineering
 author: bjedrzejewski
 summary: In most microservice architectures, there are many opportunities and temptations

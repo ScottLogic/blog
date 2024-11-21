@@ -2,7 +2,6 @@
 title: d3-path - what is it good for?
 date: 2016-03-10 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

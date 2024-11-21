@@ -2,7 +2,6 @@
 title: Testing HTTP requests with Betamax in Scala
 date: 2013-07-18 00:00:00 Z
 categories:
-- jphillpotts
 - Tech
 tags:
 - Scala

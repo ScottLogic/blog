@@ -2,7 +2,6 @@
 title: Serverless JavaScript
 date: 2017-10-28 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: JavaScript is the dominant force on the web and increasingly the desktop

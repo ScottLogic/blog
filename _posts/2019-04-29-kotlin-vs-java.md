@@ -2,7 +2,6 @@
 title: 'Toppling the Giant: Kotlin vs. Java'
 date: 2019-04-29 00:00:00 Z
 categories:
-- jporter
 - Tech
 tags:
 - Kotlin,

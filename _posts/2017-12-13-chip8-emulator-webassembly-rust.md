@@ -2,7 +2,6 @@
 title: Writing a CHIP-8 emulator with Rust and WebAssembly
 date: 2017-12-13 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

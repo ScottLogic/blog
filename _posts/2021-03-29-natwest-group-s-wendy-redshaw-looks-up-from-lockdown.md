@@ -2,7 +2,6 @@
 title: NatWest Group's Wendy Redshaw Looks Up From Lockdown
 date: 2021-03-29 00:00:00 Z
 categories:
-- gkendall
 - People
 tags:
 - Look

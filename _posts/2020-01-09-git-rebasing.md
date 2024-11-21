@@ -2,7 +2,6 @@
 title: 'Git rebasing: What is it and how can you use it?'
 date: 2020-01-09 00:00:00 Z
 categories:
-- slaing
 - Tech
 author: slaing
 layout: default_post

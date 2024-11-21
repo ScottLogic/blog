@@ -2,7 +2,6 @@
 title: Exploring Kubernetes on Google Cloud Platform
 date: 2018-10-23 00:00:00 Z
 categories:
-- magnussmith
 - Tech
 tags:
 - Kubernetes

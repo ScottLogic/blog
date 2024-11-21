@@ -2,7 +2,6 @@
 title: Apache Storm Taster
 date: 2018-01-29 00:00:00 Z
 categories:
-- dogle
 - Tech
 tags:
 - Storm,

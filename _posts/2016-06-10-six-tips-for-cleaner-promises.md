@@ -2,7 +2,6 @@
 title: Six tips for cleaner javascript promises
 date: 2016-06-10 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

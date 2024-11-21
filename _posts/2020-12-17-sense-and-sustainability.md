@@ -2,7 +2,6 @@
 title: Sense and Sustainability
 date: 2020-12-17 00:00:00 Z
 categories:
-- ckurzeja
 - Delivery
 tags:
 - remote

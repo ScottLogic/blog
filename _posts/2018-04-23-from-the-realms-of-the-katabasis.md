@@ -2,7 +2,6 @@
 title: From the realms of the Katabasis
 date: 2018-04-23 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testing,

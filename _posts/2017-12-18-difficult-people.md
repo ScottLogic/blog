@@ -2,7 +2,6 @@
 title: Difficult People
 date: 2017-12-18 00:00:00 Z
 categories:
-- jmelon
 - Delivery
 summary: In our professional work life we regularly come across difficult people we’d
   love to avoid, ignore or get away from - this is especially true if you are a consultant

@@ -2,7 +2,6 @@
 title: Is there a need for speed in the Cloud?
 date: 2021-08-18 00:00:00 Z
 categories:
-- jbeckles
 - Cloud
 author: jbeckles
 layout: default_post

@@ -2,7 +2,6 @@
 title: Seven Surprising JavaScript 'Features'
 date: 2015-07-02 00:00:00 Z
 categories:
-- lpage
 - Tech
 tags:
 - featured

@@ -2,7 +2,6 @@
 title: Could the Public Sector Solve the OSS Sustainability Challenges?
 date: 2023-02-07 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 summary: The rapid rise in the consumption or usage of open source hasn’t been met
   with an equal rise in contribution – to put it simply, there are far more takers

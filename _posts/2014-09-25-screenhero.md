@@ -2,7 +2,6 @@
 title: Using Screenhero To Turbo-Charge Pair Programming!
 date: 2014-09-25 00:00:00 Z
 categories:
-- jbandenburg
 - Tech
 author: jbandenburg
 summary: In this blog post, I talk about my team’s journey from traditional “pass

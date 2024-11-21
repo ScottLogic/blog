@@ -2,7 +2,6 @@
 title: The State of Open Source in Finance - Keynote Panel
 date: 2022-11-01 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: FINOS, in partnership with Linux Foundation Research, GitHub, Red Hat, Scott

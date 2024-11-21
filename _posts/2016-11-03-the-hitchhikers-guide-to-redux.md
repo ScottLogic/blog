@@ -2,7 +2,6 @@
 title: The Hitchhiker's Guide to Redux
 date: 2016-11-03 00:00:00 Z
 categories:
-- shogarth
 - Tech
 author: shogarth
 layout: video_post

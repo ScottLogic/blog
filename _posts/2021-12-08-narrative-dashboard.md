@@ -2,7 +2,6 @@
 title: Creating personalised data stories with GPT-3
 date: 2021-12-08 00:00:00 Z
 categories:
-- ceberhardt
 - Artificial Intelligence
 tags:
 - featured

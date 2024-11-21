@@ -2,7 +2,6 @@
 title: Good code practices with React and Redux
 date: 2018-08-28 00:00:00 Z
 categories:
-- garora
 - Tech
 author: garora
 layout: default_post

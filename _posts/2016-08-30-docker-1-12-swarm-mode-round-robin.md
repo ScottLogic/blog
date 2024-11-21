@@ -2,7 +2,6 @@
 title: Docker 1.12 swarm mode - round robin inside and out
 date: 2016-08-30 00:00:00 Z
 categories:
-- csmith
 - Data Engineering
 author: csmith
 summary: This post demonstrates how Docker 1.12 swarm mode round robins the containers

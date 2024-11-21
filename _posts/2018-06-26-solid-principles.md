@@ -2,7 +2,6 @@
 title: Examples and definitions of the SOLID principles in Software Design
 date: 2018-06-26 00:00:00 Z
 categories:
-- hmumford
 - Tech
 summary: Code examples and definitions of the SOLID principles to show how easy it
   is to voilate them and how you can refactor code to adhere to them.

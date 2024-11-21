@@ -2,7 +2,6 @@
 title: A Fibonacci fan component for D3
 date: 2014-10-31 00:00:00 Z
 categories:
-- aaiken
 - Tech
 tags:
 - d3

@@ -2,7 +2,6 @@
 title: Generating Type-Safe Email Templates Using Single File Generators
 date: 2015-04-03 00:00:00 Z
 categories:
-- isullivan
 - Tech
 author: isullivan
 layout: default_post

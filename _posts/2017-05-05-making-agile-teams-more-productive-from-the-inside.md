@@ -2,7 +2,6 @@
 title: Making agile teams more productive from the inside
 date: 2017-05-05 00:00:00 Z
 categories:
-- bjedrzejewski
 - Delivery
 author: bjedrzejewski
 summary: It is a great joy to be a member of a productive team that delivers exceptional

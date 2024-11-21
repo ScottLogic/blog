@@ -2,7 +2,6 @@
 title: The Computer Skills of Average Joe
 date: 2021-09-28 00:00:00 Z
 categories:
-- pgraham
 - UX Design
 author: pgraham
 summary: This session summarises the results of a survey showing that much of the

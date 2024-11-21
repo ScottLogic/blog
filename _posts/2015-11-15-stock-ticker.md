@@ -2,7 +2,6 @@
 title: Creating a High Performance Stock Ticker Using Haskell
 date: 2015-11-15 00:00:00 Z
 categories:
-- isullivan
 - Data Engineering
 author: isullivan
 layout: default_post

@@ -2,7 +2,6 @@
 title: Using Snapshot With Simulator Status Magic To Generate Perfect Ios Screenshots
 date: 2015-02-25 00:00:00 Z
 categories:
-- cgrant
 - Tech
 tags:
 - featured

@@ -2,7 +2,6 @@
 title: ELK - 3 things I wish I'd known
 date: 2014-12-19 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

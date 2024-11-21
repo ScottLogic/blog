@@ -2,7 +2,6 @@
 title: Why Java Developers Should Learn C++
 date: 2019-07-19 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Tech
 author: tclarke-scottlogic
 layout: default_post

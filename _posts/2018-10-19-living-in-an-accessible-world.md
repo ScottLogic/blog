@@ -2,7 +2,6 @@
 title: Living in an accessible world
 date: 2018-10-19 00:00:00 Z
 categories:
-- cbrown
 - People
 tags:
 - accessibility

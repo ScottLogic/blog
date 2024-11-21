@@ -2,7 +2,6 @@
 title: An animated chart with HTML5 Canvas
 date: 2016-05-23 00:00:00 Z
 categories:
-- sking
 - Tech
 author: sking
 layout: default_post

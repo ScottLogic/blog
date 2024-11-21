@@ -2,7 +2,6 @@
 title: Reminiscence of a Scrum Master (Part 3)
 date: 2021-12-17 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 tags:
 - delivery

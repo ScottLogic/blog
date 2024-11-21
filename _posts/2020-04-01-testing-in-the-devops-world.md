@@ -2,7 +2,6 @@
 title: 'Testing in the DevOps World: Creating Continuous Testing'
 date: 2020-04-01 00:00:00 Z
 categories:
-- cakehurstryan
 - Testing
 author: cakehurstryan
 summary: This webinar shares practical advice on the types of testing that should

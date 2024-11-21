@@ -2,7 +2,6 @@
 title: Why Women Make Great Testers
 date: 2018-02-19 00:00:00 Z
 categories:
-- croberts
 - Testing
 tags:
 - Tester,

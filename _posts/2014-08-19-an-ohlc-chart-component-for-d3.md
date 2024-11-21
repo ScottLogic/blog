@@ -2,7 +2,6 @@
 title: An OHLC Chart Component for D3
 date: 2014-08-19 00:00:00 Z
 categories:
-- tsimmons
 - Tech
 author: tsimmons
 title-short: An OHLC Chart with D3

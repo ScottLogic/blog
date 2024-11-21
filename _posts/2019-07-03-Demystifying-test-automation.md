@@ -2,7 +2,6 @@
 title: Demystifying test automation
 date: 2019-07-03 00:00:00 Z
 categories:
-- skondru
 - Testing
 author: skondru
 layout: default_post

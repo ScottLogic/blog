@@ -2,7 +2,6 @@
 title: GitHub Copilot Experiences - a glimpse of an AI-assisted future
 date: 2021-07-03 00:00:00 Z
 categories:
-- ceberhardt
 - Artificial Intelligence
 author: ceberhardt
 layout: default_post

@@ -2,7 +2,6 @@
 title: The 6 Most Common Accessibility Problems (and How to Fix Them)
 date: 2020-07-02 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - a11y

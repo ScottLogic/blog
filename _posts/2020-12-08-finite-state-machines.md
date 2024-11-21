@@ -2,7 +2,6 @@
 title: 'Finite State Machines: The Developer''s Bug Spray'
 date: 2020-12-08 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - finite

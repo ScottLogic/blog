@@ -2,7 +2,6 @@
 title: 'Source control: The fundamental concepts'
 date: 2020-01-07 00:00:00 Z
 categories:
-- slaing
 - Tech
 author: slaing
 layout: default_post

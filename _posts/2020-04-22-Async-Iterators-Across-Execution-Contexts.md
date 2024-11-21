@@ -2,7 +2,6 @@
 title: Cross-window async iterators using Comlink
 date: 2020-04-22 00:00:00 Z
 categories:
-- sburnstone
 - Tech
 author: sburnstone
 layout: default_post

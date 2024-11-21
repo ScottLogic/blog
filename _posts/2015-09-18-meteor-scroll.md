@@ -2,7 +2,6 @@
 title: Building a Jump Scroll Marketing Page with Meteor and OrionJS
 date: 2015-09-18 00:00:00 Z
 categories:
-- tbarclay
 - Tech
 tags:
 - featured

@@ -2,7 +2,6 @@
 title: Learning Resources for Rust
 date: 2021-11-05 00:00:00 Z
 categories:
-- jstrachan
 - Tech
 tags:
 - Rust,

@@ -2,7 +2,6 @@
 title: Reimplementing Scala assignments in Clojure
 date: 2015-01-07 00:00:00 Z
 categories:
-- hpowell
 - Tech
 author: hpowell
 title-short: Scala vs. Clojure part 2

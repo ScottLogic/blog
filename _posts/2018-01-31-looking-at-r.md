@@ -2,7 +2,6 @@
 title: Looking At R
 date: 2018-01-31 00:00:00 Z
 categories:
-- dogle
 - Data Engineering
 tags:
 - R,

@@ -2,7 +2,6 @@
 title: A Tester's story of adapting to the new world of pipelines - CI/CD
 date: 2019-03-22 00:00:00 Z
 categories:
-- pkhan
 - Testing
 tags:
 - Testing

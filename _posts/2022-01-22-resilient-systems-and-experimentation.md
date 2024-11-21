@@ -2,7 +2,6 @@
 title: Resilient systems and experimentation
 date: 2022-01-22 00:00:00 Z
 categories:
-- jleftley
 - Cloud
 author: jleftley
 summary: Failures are inevitable. Although trying to prevent possible failures to

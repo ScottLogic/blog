@@ -2,7 +2,6 @@
 title: Building a better D3 axis
 date: 2019-05-09 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 contributors:

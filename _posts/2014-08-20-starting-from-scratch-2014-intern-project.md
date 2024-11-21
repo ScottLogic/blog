@@ -2,7 +2,6 @@
 title: Porting Scratch To HTML5 From Flash - 2014 Intern Project
 date: 2014-08-20 00:00:00 Z
 categories:
-- jhill
 - Tech
 tags:
 - Scratch

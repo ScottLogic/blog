@@ -2,7 +2,6 @@
 title: OK Google, what do you see? - Labelling images in Google Cloud
 date: 2020-01-27 00:00:00 Z
 categories:
-- jgrant
 - Cloud
 author: jgrant
 layout: default_post

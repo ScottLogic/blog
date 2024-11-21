@@ -2,7 +2,6 @@
 title: Efficient SVG layout with d3
 date: 2017-01-10 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

@@ -2,7 +2,6 @@
 title: The UX of Consent Models in Open Banking
 date: 2018-08-24 00:00:00 Z
 categories:
-- cyule
 - UX Design
 tags:
 - OpenBanking,

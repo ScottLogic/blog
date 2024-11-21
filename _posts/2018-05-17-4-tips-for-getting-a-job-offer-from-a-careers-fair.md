@@ -2,7 +2,6 @@
 title: Four Tips For Getting a Job Offer From a Careers Fair
 date: 2018-05-17 00:00:00 Z
 categories:
-- lhamilton
 - People
 author: lhamilton
 layout: default_post

@@ -2,7 +2,6 @@
 title: 'The Inside Track: How established talent is recruited by Scott Logic'
 date: 2021-03-15 00:00:00 Z
 categories:
-- ckoris
 - People
 tags:
 - jobs,

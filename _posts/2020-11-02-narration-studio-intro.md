@@ -2,7 +2,6 @@
 title: I spent 2 weeks making Narration.studio to save an hour writing this post
 date: 2020-11-02 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - javascript

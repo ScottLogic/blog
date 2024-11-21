@@ -3,7 +3,6 @@ title: Cloud sustainability - Could using the cloud help your organisation reach
   zero?
 date: 2022-04-07 00:00:00 Z
 categories:
-- dsmith
 - Sustainability
 tags:
 - Cloud

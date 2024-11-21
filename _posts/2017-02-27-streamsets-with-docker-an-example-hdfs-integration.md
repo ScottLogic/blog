@@ -2,7 +2,6 @@
 title: StreamSets with Docker - an example HDFS integration
 date: 2017-02-27 00:00:00 Z
 categories:
-- dketley
 - Data Engineering
 tags:
 - Docker

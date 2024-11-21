@@ -2,7 +2,6 @@
 title: As It Stands - Electron Security
 date: 2016-03-09 00:00:00 Z
 categories:
-- dkerr
 - Tech
 tags:
 - featured

@@ -2,7 +2,6 @@
 title: Iterating while counting
 date: 2013-12-05 00:00:00 Z
 categories:
-- aaylett
 - Tech
 tags:
 - blog

@@ -2,7 +2,6 @@
 title: An Adventure in SVG Filter Land
 date: 2015-08-06 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

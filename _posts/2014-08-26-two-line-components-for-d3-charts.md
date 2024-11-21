@@ -2,7 +2,6 @@
 title: Two Reusable Line Components for D3 Charts
 date: 2014-08-26 00:00:00 Z
 categories:
-- aaiken
 - Tech
 tags:
 - d3

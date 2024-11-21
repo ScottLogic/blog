@@ -2,7 +2,6 @@
 title: Sustainability in Software
 date: 2022-02-07 00:00:00 Z
 categories:
-- hgoode
 - Tech
 author: hgoode
 layout: default_post

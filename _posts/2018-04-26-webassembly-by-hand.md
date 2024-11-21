@@ -2,7 +2,6 @@
 title: Writing WebAssembly By Hand
 date: 2018-04-26 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

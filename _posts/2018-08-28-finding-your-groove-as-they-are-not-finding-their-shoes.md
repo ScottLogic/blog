@@ -2,7 +2,6 @@
 title: Finding your groove as they are (NOT) finding their shoes
 date: 2018-08-28 00:00:00 Z
 categories:
-- efiennes
 - People
 tags:
 - Testing,

@@ -2,7 +2,6 @@
 title: 'White Paper: Think Small to Deliver Big'
 date: 2020-03-10 00:00:00 Z
 categories:
-- robsmith
 - Resources
 author: robsmith
 layout: default_post

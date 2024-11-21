@@ -2,7 +2,6 @@
 title: 'SwiftUI: A new player in UI frameworks'
 date: 2019-09-02 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Swift,

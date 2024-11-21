@@ -2,7 +2,6 @@
 title: The Science behind Data Visualisation
 date: 2013-08-09 00:00:00 Z
 categories:
-- godds
 - UX Design
 tags:
 - UX design

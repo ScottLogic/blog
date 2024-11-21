@@ -2,7 +2,6 @@
 title: How to Write a Ray Tracer Intuitively
 date: 2020-03-10 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - 3D Rendering

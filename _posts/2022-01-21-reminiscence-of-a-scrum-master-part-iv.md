@@ -2,7 +2,6 @@
 title: Reminiscence of a Scrum Master (Part 4)
 date: 2022-01-21 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 tags:
 - agile

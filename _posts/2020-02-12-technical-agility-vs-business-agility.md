@@ -2,7 +2,6 @@
 title: Technical agility vs. business agility
 date: 2020-02-12 00:00:00 Z
 categories:
-- jmelon
 - Delivery
 tags:
 - Agile

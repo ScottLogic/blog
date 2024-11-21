@@ -2,7 +2,6 @@
 title: Asynchronous Recursion with Callbacks, Promises and Async.
 date: 2017-09-14 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

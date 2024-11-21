@@ -2,7 +2,6 @@
 title: Bugathon at Heriot-Watt University
 date: 2017-10-26 00:00:00 Z
 categories:
-- rrhodes
 - People
 tags:
 - Scott

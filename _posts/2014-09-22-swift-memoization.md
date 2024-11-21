@@ -2,7 +2,6 @@
 title: Functional Swift and Memoization
 date: 2014-09-22 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

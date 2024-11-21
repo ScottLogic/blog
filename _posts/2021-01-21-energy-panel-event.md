@@ -2,7 +2,6 @@
 title: Banking on power for NetZero emissions
 date: 2021-01-21 00:00:00 Z
 categories:
-- phughes
 - Delivery
 author: phughes
 layout: default_post

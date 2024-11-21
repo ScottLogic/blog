@@ -2,7 +2,6 @@
 title: Using Rally to benchmark Elasticsearch queries
 date: 2016-11-22 00:00:00 Z
 categories:
-- dsmith
 - Data Engineering
 author: dsmith
 layout: default_post

@@ -3,7 +3,6 @@ title: 'Delta requests for frequently-updated application bundles: from 2002 to 
   workers'
 date: 2019-08-15 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

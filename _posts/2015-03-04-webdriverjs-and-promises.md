@@ -2,7 +2,6 @@
 title: WebdriverJS and Promises
 date: 2015-03-04 00:00:00 Z
 categories:
-- rhendry
 - Tech
 tags:
 - featured

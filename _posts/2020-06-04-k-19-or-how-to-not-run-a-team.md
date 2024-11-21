@@ -2,7 +2,6 @@
 title: K-19 or How to not run a team
 date: 2020-06-04 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 tags:
 - delivery

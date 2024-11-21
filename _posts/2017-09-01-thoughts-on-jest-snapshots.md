@@ -2,7 +2,6 @@
 title: Thoughts on Jest Snapshots
 date: 2017-09-01 00:00:00 Z
 categories:
-- janakerman
 - Tech
 tags:
 - JavaScript

@@ -2,7 +2,6 @@
 title: Starting out... remotely
 date: 2021-04-09 00:00:00 Z
 categories:
-- ckurzeja
 - People
 tags:
 - remote

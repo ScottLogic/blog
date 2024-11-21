@@ -2,7 +2,6 @@
 title: TypeScript Pick 'n Mix
 date: 2020-01-29 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - typescript

@@ -2,7 +2,6 @@
 title: Adding Puppeteer to create-react-app generated projects
 date: 2020-01-22 00:00:00 Z
 categories:
-- kday
 - Tech
 tags:
 - Puppeteer,

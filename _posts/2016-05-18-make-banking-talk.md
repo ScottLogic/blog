@@ -2,7 +2,6 @@
 title: Make Banking Talk
 date: 2016-05-18 00:00:00 Z
 categories:
-- godds
 - UX Design
 tags:
 - featured

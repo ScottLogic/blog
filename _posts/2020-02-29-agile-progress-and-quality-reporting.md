@@ -2,7 +2,6 @@
 title: Agile Progress and Quality Reporting
 date: 2020-02-29 00:00:00 Z
 categories:
-- jmelon
 - Delivery
 tags:
 - Agile

@@ -2,7 +2,6 @@
 title: Mapping UK place name endings (With command line cartography tools)
 date: 2017-06-25 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

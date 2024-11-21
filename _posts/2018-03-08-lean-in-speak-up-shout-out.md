@@ -2,7 +2,6 @@
 title: Lean In, Speak Up, Shout Out
 date: 2018-03-08 00:00:00 Z
 categories:
-- pshek
 - People
 tags:
 - women

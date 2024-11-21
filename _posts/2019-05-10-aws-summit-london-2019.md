@@ -2,7 +2,6 @@
 title: AWS Summit London
 date: 2019-05-10 00:00:00 Z
 categories:
-- zwali
 - Cloud
 author: zwali
 layout: default_post

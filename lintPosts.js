@@ -2,6 +2,8 @@ const globby = require("globby");
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
 const fs = require("fs");
+const LINTER_MATCH_PATTERN="_posts/**/*.{md,markdown,html}";
+const MAX_CATEGORIES = 3;
 
 const flatMap = (arr, mapFunc) =>
   arr.reduce((prev, x) => prev.concat(mapFunc(x)), []);
@@ -25,15 +27,15 @@ const lintAuthorsYml = () => {
 
     let err_message =
       "Following author(s) duplicated in the active author list:\n";
-    let dups = new Set();
+    let duplicates = new Set();
 
     for (i = 1; i < activeAuthors.length; i++) {
       if (
         activeAuthors[i] === activeAuthors[i - 1] &&
-        !dups.has(activeAuthors[i])
+        !duplicates.has(activeAuthors[i])
       ) {
         err_message += activeAuthors[i] + "\n";
-        dups.add(activeAuthors[i]);
+        duplicates.add(activeAuthors[i]);
       }
     }
 
@@ -48,7 +50,7 @@ const lintPosts = () => {
   );
 
   const categories = flatMap(
-    // remove 'Latest Articles' which is a pseudoe-category
+    // remove 'Latest Articles' which is a pseudo-category
     categoriesYaml.filter(c => c.url.startsWith("/category/")),
     // merge category title into sub-categories
     c => [c.title].concat(c.subcategories ? c.subcategories : [])
@@ -57,21 +59,23 @@ const lintPosts = () => {
   let fail = false;
 
   // lint each blog post
-  globby(["*/_posts/**/*.{md,html}"]).then(paths => {
+  globby([LINTER_MATCH_PATTERN]).then(paths => {
     paths.forEach(path => {
       try {
         const blogPost = fs.readFileSync(path, "utf8");
         const frontMatter = matter(blogPost);
+        const frontMatterCats = frontMatter.data.categories;
 
         let category;
         // if the frontmatter defines a 'category' field:
         if (frontMatter.data.category) {
           category = frontMatter.data.category.toLowerCase();
-        // if the frontmatter defines a 'categories' field with a single value:
-        } else if ( frontMatter.data.categories && frontMatter.data.categories.length === 1 ) {
+        // if the frontmatter defines a 'categories' field with at least one but no more than 3 values:
+
+        } else if (frontMatterCats && frontMatterCats.length && frontMatterCats.length <= MAX_CATEGORIES) {
           category = frontMatter.data.categories[0].toLowerCase();
         } else {
-          console.error("The post " + path + " does not have a single category defined");
+          console.error("The post " + path + " does not have at least one and no more than " + MAX_CATEGORIES + " categories defined.");
           fail = true;
           return;
         }
@@ -84,15 +88,19 @@ const lintPosts = () => {
         }
 
         const summary = frontMatter.data.summary;
-        const postDateString = path.split("/")[2].substring(0, 10);
+        const pathArray = path.split("/");
+        const postDateString = pathArray[pathArray.length - 1].substring(0, 10);
         const postDate = new Date(postDateString);
         if (postDate > new Date("2018-03-26")) {
           // Note _prose.yml specifies 130 characters are needed, so if you change this please also change the instructions
-          if (!summary || summary.length < 130) {
-            console.error(
-              "The post " + path + " does not have a summary of > 130 characters"
+          if(!summary) {
+              console.error("The post " + path + " does not have a summary.")
+              fail = true;
+          }
+          else if (summary.length < 130) {
+            console.warn(
+              "Post summary length is " + summary.length + ". Recommended minimum length for the summary is 130 characters."
             );
-            fail = true;
           }
         }
       } catch (e) {

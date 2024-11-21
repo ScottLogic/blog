@@ -2,7 +2,6 @@
 title: A piecemeal approach to introducing Agile
 date: 2014-08-11 00:00:00 Z
 categories:
-- dthomas
 - Delivery
 author: dthomas
 layout: default_post

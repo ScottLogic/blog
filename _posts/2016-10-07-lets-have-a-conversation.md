@@ -2,7 +2,6 @@
 title: Let's have a conversation
 date: 2016-10-07 00:00:00 Z
 categories:
-- godds
 - UX Design
 tags:
 - featured

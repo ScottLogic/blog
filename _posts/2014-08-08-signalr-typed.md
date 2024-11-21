@@ -2,7 +2,6 @@
 title: Strong typing for SignalR
 date: 2014-08-08 00:00:00 Z
 categories:
-- nwolverson
 - Tech
 tags:
 - blog

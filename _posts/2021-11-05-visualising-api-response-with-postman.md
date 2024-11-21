@@ -2,7 +2,6 @@
 title: Visualising API response with Postman
 date: 2021-11-05 00:00:00 Z
 categories:
-- jvolmut
 - Tech
 author: jvolmut
 summary: Sometimes it’s important to show progress to people who don’t care about

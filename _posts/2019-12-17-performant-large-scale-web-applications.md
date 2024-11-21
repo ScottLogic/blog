@@ -2,7 +2,6 @@
 title: Building performant large scale web applications
 date: 2019-12-17 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

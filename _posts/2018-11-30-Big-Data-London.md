@@ -2,7 +2,6 @@
 title: Big Data London 2018
 date: 2018-11-30 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - UX Design, Big Data

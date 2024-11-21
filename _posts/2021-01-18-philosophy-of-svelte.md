@@ -2,7 +2,6 @@
 title: The Philosophy of Svelte
 date: 2021-01-18 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - svelte

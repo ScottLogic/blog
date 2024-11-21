@@ -2,7 +2,6 @@
 title: Modularizing Client Side Dependencies With jspm
 date: 2016-03-03 00:00:00 Z
 categories:
-- tferguson
 - Tech
 tags:
 - featured

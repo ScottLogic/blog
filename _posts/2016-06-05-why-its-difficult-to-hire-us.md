@@ -2,7 +2,6 @@
 title: A study of software testers
 date: 2016-06-05 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - software testing survey

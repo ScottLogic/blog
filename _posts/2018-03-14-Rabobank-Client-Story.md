@@ -2,7 +2,6 @@
 title: Helping shape an effective DevOps Culture
 date: 2018-03-14 00:00:00 Z
 categories:
-- khurley
 - Tech
 author: khurley
 layout: default_post

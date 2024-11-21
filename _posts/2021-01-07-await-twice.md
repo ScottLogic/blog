@@ -2,7 +2,6 @@
 title: What happens if you await a Promise twice?
 date: 2021-01-07 00:00:00 Z
 categories:
-- abirch
 - Tech
 author: abirch
 layout: default_post

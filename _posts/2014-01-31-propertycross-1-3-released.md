@@ -2,7 +2,6 @@
 title: PropertyCross 1.3 Released
 date: 2014-01-31 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: PropertyCross has just announced a v1.3 release, which includes two new frameworks,

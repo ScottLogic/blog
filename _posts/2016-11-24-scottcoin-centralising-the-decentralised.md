@@ -2,7 +2,6 @@
 title: Scottcoin, centralising the decentralised
 date: 2016-11-24 00:00:00 Z
 categories:
-- amjones
 - Tech
 author: amjones
 layout: default_post

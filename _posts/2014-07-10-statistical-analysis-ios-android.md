@@ -2,7 +2,6 @@
 title: A Statistical Comparison of the iOS and Android Stores
 date: 2014-07-10 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

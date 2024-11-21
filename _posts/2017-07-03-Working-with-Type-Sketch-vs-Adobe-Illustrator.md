@@ -2,7 +2,6 @@
 title: 'Working with type: Sketch vs. Adobe Illustrator'
 date: 2017-07-03 00:00:00 Z
 categories:
-- tmakarem
 - UX Design
 tags:
 - featured

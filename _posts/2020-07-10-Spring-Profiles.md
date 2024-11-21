@@ -2,7 +2,6 @@
 title: Configuring Java applications at runtime with Spring Profiles
 date: 2020-07-10 00:00:00 Z
 categories:
-- jharris
 - Tech
 author: jharris
 summary: We explore how to use Spring Profiles as a handy way to select the configuration

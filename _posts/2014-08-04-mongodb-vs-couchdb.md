@@ -2,7 +2,6 @@
 title: MongoDB vs CouchDB
 date: 2014-08-04 00:00:00 Z
 categories:
-- dgorst
 - Tech
 author: dgorst
 summary: As part of a project I'm working on, I have a requirement for a NoSQL database.

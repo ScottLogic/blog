@@ -2,7 +2,6 @@
 title: Sampling Large Datasets in d3fc
 date: 2015-11-16 00:00:00 Z
 categories:
-- wferguson
 - Tech
 author: wferguson
 summary: Libraries like d3 and d3fc do a fantastic job at making interactive charts.

@@ -2,7 +2,6 @@
 title: Open Source Sustainability through Corporate Social Responsibility
 date: 2021-10-13 00:00:00 Z
 categories:
-- ceberhardt
 - Open Source
 author: ceberhardt
 summary: Modern software is increasingly complex, made up of hundreds or thousands

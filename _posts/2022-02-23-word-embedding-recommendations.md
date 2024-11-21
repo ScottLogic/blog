@@ -2,7 +2,6 @@
 title: Article recommendations and increasing engagement with OpenAI GPT-3 Embeddings
 date: 2022-02-23 00:00:00 Z
 categories:
-- ceberhardt
 - Artificial Intelligence
 author: ceberhardt
 layout: default_post

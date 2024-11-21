@@ -2,7 +2,6 @@
 title: 'International Women’s Day: Being a tester at Scott Logic'
 date: 2018-03-08 00:00:00 Z
 categories:
-- lramchandani
 - People
 tags:
 - Testing,

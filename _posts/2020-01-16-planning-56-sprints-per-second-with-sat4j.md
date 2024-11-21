@@ -2,7 +2,6 @@
 title: Planning 56 sprints per second with SAT4J
 date: 2020-01-16 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - java

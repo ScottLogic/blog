@@ -2,7 +2,6 @@
 title: Rendering charts with OffscreenCanvas
 date: 2020-03-19 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

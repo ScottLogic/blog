@@ -2,7 +2,6 @@
 title: From Open Banking to Open Finance
 date: 2021-01-11 00:00:00 Z
 categories:
-- nbetts
 - Delivery
 tags:
 - Open

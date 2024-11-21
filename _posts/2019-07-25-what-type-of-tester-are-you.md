@@ -2,7 +2,6 @@
 title: What Type of Tester are You?
 date: 2019-07-25 00:00:00 Z
 categories:
-- hwilliams
 - Testing
 tags:
 - Testing

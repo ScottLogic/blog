@@ -2,7 +2,6 @@
 title: Assessing Android Fragmentation
 date: 2013-10-14 00:00:00 Z
 categories:
-- shogarth
 - Tech
 author: shogarth
 image: shogarth/assets/featured/fragmentation.png

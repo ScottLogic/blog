@@ -2,7 +2,6 @@
 title: Know your bugs
 date: 2016-01-18 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - functional testing

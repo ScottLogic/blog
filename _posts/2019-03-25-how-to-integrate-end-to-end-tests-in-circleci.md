@@ -2,7 +2,6 @@
 title: How to integrate end-to-end tests in CircleCI?
 date: 2019-03-25 00:00:00 Z
 categories:
-- sladen
 - Testing
 tags:
 - CircleCI,

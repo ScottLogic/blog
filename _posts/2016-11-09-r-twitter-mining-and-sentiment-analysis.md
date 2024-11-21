@@ -2,7 +2,6 @@
 title: Deconstructing Test Bash with R - Twitter Mining and Sentiment Analysis
 date: 2016-11-09 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - data analysis

@@ -2,7 +2,6 @@
 title: A WebAssembly Powered Augmented Reality Sudoku Solver
 date: 2020-01-03 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

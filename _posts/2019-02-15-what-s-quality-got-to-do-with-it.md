@@ -2,7 +2,6 @@
 title: What's quality got to do with IT?
 date: 2019-02-15 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - testing,

@@ -2,7 +2,6 @@
 title: The new normal for your desktop
 date: 2020-06-24 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: This webinar explores the potential and realities of an emerging vision for

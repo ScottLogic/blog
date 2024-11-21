@@ -2,7 +2,6 @@
 title: Apache Spark - question everything
 date: 2018-03-14 00:00:00 Z
 categories:
-- msinton
 - Data Engineering
 tags:
 - Scala,

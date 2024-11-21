@@ -2,7 +2,6 @@
 title: Why should a project have automated tests?
 date: 2015-01-08 00:00:00 Z
 categories:
-- lpage
 - Testing
 author: lpage
 layout: default_post

@@ -2,7 +2,6 @@
 title: TypeScript compiler APIs revisited
 date: 2017-05-02 00:00:00 Z
 categories:
-- nwolverson
 - Tech
 tags:
 - blog

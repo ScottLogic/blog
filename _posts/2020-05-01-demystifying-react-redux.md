@@ -2,7 +2,6 @@
 title: Demystifying React Redux
 date: 2020-05-01 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - react

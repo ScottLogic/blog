@@ -2,7 +2,6 @@
 title: 'How to assess a developers technical ability: A guide for interviewers'
 date: 2020-07-01 00:00:00 Z
 categories:
-- jharris
 - People
 author: jharris
 summary: If you're hiring developers you're always going to need a technical interview

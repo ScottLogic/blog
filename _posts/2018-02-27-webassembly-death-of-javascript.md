@@ -2,7 +2,6 @@
 title: WebAssembly - and the Death of JavaScript?
 date: 2018-02-27 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

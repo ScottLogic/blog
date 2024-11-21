@@ -2,7 +2,6 @@
 title: Interaction18
 date: 2018-02-14 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
 image: godds/assets/featured/interaction18.jpg

@@ -2,7 +2,6 @@
 title: 'Getting out of academia: Joining Scott Logic with a PhD'
 date: 2018-12-21 00:00:00 Z
 categories:
-- phands
 - People
 tags:
 - Career,

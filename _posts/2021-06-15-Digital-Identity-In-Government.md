@@ -2,7 +2,6 @@
 title: 'Panel: Digital Identity in Government'
 date: 2021-06-15 00:00:00 Z
 categories:
-- nbetts
 - Tech
 author: nbetts
 summary: In this panel discussion, Ash Smith (GDS), Cheryl Stevens (DWP) and Mike

@@ -2,7 +2,6 @@
 title: The Power of the Higher Order
 date: 2016-09-20 00:00:00 Z
 categories:
-- asheehan
 - Tech
 author: asheehan
 layout: default_post

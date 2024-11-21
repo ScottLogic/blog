@@ -2,7 +2,6 @@
 title: Analysing multi-window Electron application performance using Chromium tracing
 date: 2019-05-21 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

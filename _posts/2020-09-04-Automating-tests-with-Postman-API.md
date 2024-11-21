@@ -2,7 +2,6 @@
 title: Automating API tests with the power of Postman API
 date: 2020-09-04 00:00:00 Z
 categories:
-- mmcalroy
 - Testing
 tags:
 - Testing,

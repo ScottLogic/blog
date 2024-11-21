@@ -2,7 +2,6 @@
 title: 'White Paper: The Journey to DevOps'
 date: 2019-03-25 00:00:00 Z
 categories:
-- bjedrzejewski
 - Resources
 author: bjedrzejewski
 layout: default_post

@@ -2,7 +2,6 @@
 title: Email Digests with Elasticsearch via a Serverless Architecture
 date: 2019-11-28 00:00:00 Z
 categories:
-- oforeman
 - Tech
 author: oforeman
 layout: default_post

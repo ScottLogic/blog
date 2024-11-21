@@ -2,7 +2,6 @@
 title: Let machines talk to machines
 date: 2020-10-06 00:00:00 Z
 categories:
-- godds
 - UX Design
 author: godds
 image: godds/assets/featured/apis.png

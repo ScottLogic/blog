@@ -2,7 +2,6 @@
 title: Applying styles to parent elements before children in AngularJS
 date: 2015-07-10 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

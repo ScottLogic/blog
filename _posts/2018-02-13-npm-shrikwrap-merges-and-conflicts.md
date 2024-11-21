@@ -2,7 +2,6 @@
 title: Dealing with NPM shrinkwrap merges and conflicts
 date: 2018-02-13 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

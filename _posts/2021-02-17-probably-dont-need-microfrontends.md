@@ -2,7 +2,6 @@
 title: You probably don’t need a micro-frontend
 date: 2021-02-17 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

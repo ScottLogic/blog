@@ -2,7 +2,6 @@
 title: 8 Out of 10 QATs Said They Prefer Cypress.
 date: 2020-02-11 00:00:00 Z
 categories:
-- hwilliams
 - Testing
 tags:
 - Cypress,

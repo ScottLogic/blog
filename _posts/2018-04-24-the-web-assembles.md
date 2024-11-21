@@ -2,7 +2,6 @@
 title: 'White Paper: The Web Assembles'
 date: 2018-04-24 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 tags:
 - featured

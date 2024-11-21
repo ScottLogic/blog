@@ -2,7 +2,6 @@
 title: Building a Complex Financial Chart with D3 and d3fc
 date: 2018-09-21 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

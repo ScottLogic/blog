@@ -2,7 +2,6 @@
 title: 'Introducing decent-code: A concise guide to writing better code'
 date: 2018-12-21 00:00:00 Z
 categories:
-- rwilliams
 - Tech
 author: rwilliams
 layout: default_post

@@ -2,7 +2,6 @@
 title: Building Components with D3 Data Join
 date: 2016-08-17 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

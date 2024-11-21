@@ -2,7 +2,6 @@
 title: Creating a custom flip view controller transition
 date: 2013-09-20 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 image: ceberhardt/assets/featured/custom-flip.jpg

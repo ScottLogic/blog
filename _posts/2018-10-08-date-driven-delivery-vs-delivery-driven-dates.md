@@ -2,7 +2,6 @@
 title: Date-Driven Delivery vs. Delivery-Driven Dates
 date: 2018-10-08 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 author: fhubin
 layout: default_post

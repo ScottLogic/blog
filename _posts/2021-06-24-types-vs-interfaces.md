@@ -2,7 +2,6 @@
 title: 'TypeScript: Interfaces or Types. What’s the Difference?'
 date: 2021-06-24 00:00:00 Z
 categories:
-- pburgess
 - Tech
 tags:
 - TypeScript

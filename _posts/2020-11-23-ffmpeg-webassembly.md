@@ -2,7 +2,6 @@
 title: In-browser transcoding of video files with FFmpeg and WebAssembly
 date: 2020-11-23 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

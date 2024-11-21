@@ -2,7 +2,6 @@
 title: Swift JSON Shoot-Out
 date: 2015-03-09 00:00:00 Z
 categories:
-- sdavies
 - Tech
 tags:
 - featured

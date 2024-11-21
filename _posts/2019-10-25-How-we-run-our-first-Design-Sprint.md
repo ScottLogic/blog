@@ -2,7 +2,6 @@
 title: How we ran our first Design Sprint
 date: 2019-10-25 00:00:00 Z
 categories:
-- awojtczuk
 - UX Design
 author: awojtczuk
 layout: default_post

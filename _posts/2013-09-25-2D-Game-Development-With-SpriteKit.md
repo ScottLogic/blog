@@ -2,7 +2,6 @@
 title: 2D Game Development with SpriteKit
 date: 2013-09-25 00:00:00 Z
 categories:
-- cgrant
 - Tech
 author: cgrant
 image: cgrant/assets/featured/FirstSquadron.png

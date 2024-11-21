@@ -2,7 +2,6 @@
 title: Deep Dive into RabbitMQ with Spring Boot - Part 1
 date: 2023-05-31 00:00:00 Z
 categories:
-- smendis-scottlogic
 - Tech
 tags:
 - java

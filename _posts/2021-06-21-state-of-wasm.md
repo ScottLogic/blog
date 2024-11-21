@@ -2,7 +2,6 @@
 title: The State of WebAssembly 2021
 date: 2021-06-21 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

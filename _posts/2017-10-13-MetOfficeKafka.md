@@ -2,7 +2,6 @@
 title: Using Kafka and Grafana to monitor meteorological conditions
 date: 2017-10-13 00:00:00 Z
 categories:
-- okenyon
 - Data Engineering
 tags:
 - featured

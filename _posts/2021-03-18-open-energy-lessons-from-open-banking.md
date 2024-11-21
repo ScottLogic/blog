@@ -2,7 +2,6 @@
 title: 'Panel: Open Energy - Lessons from Open banking'
 date: 2021-03-18 00:00:00 Z
 categories:
-- phughes
 - Open Source
 tags:
 - featured

@@ -2,7 +2,6 @@
 title: 'Insurance: A Customer''s Perspective'
 date: 2017-05-15 00:00:00 Z
 categories:
-- jrice
 - UX Design
 tags:
 - featured

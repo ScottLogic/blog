@@ -2,7 +2,6 @@
 title: Jenny from the blockchain
 date: 2016-04-04 00:00:00 Z
 categories:
-- jhill
 - Tech
 tags:
 - Bitcoin

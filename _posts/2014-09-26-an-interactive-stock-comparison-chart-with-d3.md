@@ -2,7 +2,6 @@
 title: An interactive Stock Comparison Chart with D3
 date: 2014-09-26 00:00:00 Z
 categories:
-- tsimmons
 - Tech
 author: tsimmons
 title-short: A Comparison Chart with D3

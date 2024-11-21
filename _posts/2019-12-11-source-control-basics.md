@@ -2,7 +2,6 @@
 title: 'Source control: The basics'
 date: 2019-12-11 00:00:00 Z
 categories:
-- slaing
 - Tech
 author: slaing
 layout: default_post

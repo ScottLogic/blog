@@ -2,7 +2,6 @@
 title: JVM Roundabout - Microservices
 date: 2018-02-21 00:00:00 Z
 categories:
-- bjedrzejewski
 - Tech
 author: bjedrzejewski
 summary: JVM Roundabout is a meetup in London where all things related to JVM are

@@ -2,7 +2,6 @@
 title: Introduction to contract testing
 date: 2019-01-07 00:00:00 Z
 categories:
-- efiennes
 - Testing
 author: efiennes
 layout: default_post

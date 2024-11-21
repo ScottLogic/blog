@@ -2,7 +2,6 @@
 title: Attending Tech(K)now London 2019
 date: 2019-03-27 00:00:00 Z
 categories:
-- efiennes
 - Tech
 tags:
 - "#featured"

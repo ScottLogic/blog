@@ -2,7 +2,6 @@
 title: Adventures with Scala Macros - Part 3
 date: 2013-06-07 00:00:00 Z
 categories:
-- jphillpotts
 - Tech
 tags:
 - Scala

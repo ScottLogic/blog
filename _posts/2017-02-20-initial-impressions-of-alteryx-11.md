@@ -2,7 +2,6 @@
 title: Initial impressions of Alteryx 11
 date: 2017-02-20 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
 summary: My first thoughts and impressions of version 11 of Alteryx.

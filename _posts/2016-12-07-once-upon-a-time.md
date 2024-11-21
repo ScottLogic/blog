@@ -2,7 +2,6 @@
 title: Once Upon A Time, There Was An App Store
 date: 2016-12-07 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 summary: Pull up a comfy seat and listen to Chris Price tell a story about the Tortoise

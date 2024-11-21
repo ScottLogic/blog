@@ -2,7 +2,6 @@
 title: Sketching tips to make you a better designer
 date: 2018-07-05 00:00:00 Z
 categories:
-- sobrien
 - UX Design
 tags:
 - featured

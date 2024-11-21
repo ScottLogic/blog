@@ -2,7 +2,6 @@
 title: Building a more flexible D3 chart
 date: 2019-05-14 00:00:00 Z
 categories:
-- alee
 - Tech
 author: alee
 layout: default_post

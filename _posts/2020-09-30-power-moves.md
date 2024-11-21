@@ -2,7 +2,6 @@
 title: Power Moves
 date: 2020-09-30 00:00:00 Z
 categories:
-- phughes
 - Delivery
 author: phughes
 layout: default_post

@@ -2,7 +2,6 @@
 title: Becoming a trusted adviser as a tester
 date: 2018-09-16 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testing,

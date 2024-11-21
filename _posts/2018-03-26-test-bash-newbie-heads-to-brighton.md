@@ -2,7 +2,6 @@
 title: Test Bash Newbie Heads To Brighton
 date: 2018-03-26 00:00:00 Z
 categories:
-- cmcormack
 - Testing
 tags:
 - TestBash,

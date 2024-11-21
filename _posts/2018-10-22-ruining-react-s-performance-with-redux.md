@@ -2,7 +2,6 @@
 title: Ruining React's Performance with Redux
 date: 2018-10-22 00:00:00 Z
 categories:
-- hashbyha
 - Tech
 tags:
 - React

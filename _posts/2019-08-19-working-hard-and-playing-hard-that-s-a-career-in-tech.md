@@ -2,7 +2,6 @@
 title: 'Working hard and playing hard: that’s a career in tech'
 date: 2019-08-19 00:00:00 Z
 categories:
-- mwalker
 - People
 tags:
 - Interns,

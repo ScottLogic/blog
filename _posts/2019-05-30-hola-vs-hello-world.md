@@ -2,7 +2,6 @@
 title: Hola vs Hello World
 date: 2019-05-30 00:00:00 Z
 categories:
-- lramchandani
 - Testing
 tags:
 - Testing

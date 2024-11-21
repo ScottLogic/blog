@@ -2,7 +2,6 @@
 title: Foreign Currency Trading Heuristic Testing Cheat Sheet
 date: 2017-01-15 00:00:00 Z
 categories:
-- rhamilton
 - Testing
 tags:
 - software testing

@@ -2,7 +2,6 @@
 title: Chess data mining with Apache Spark and Lichess
 date: 2017-09-01 00:00:00 Z
 categories:
-- bjedrzejewski
 - Data Engineering
 tags:
 - featured

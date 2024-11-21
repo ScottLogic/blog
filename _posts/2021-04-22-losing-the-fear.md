@@ -2,7 +2,6 @@
 title: C++ for Java Programmers - Losing the Fear
 date: 2021-04-22 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Tech
 author: tclarke-scottlogic
 layout: default_post

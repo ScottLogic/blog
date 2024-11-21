@@ -2,7 +2,6 @@
 title: Swift Adoption Statistics
 date: 2014-08-01 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: It was just two months ago that Apple took us by surprise in releasing the

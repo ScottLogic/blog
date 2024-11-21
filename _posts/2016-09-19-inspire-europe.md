@@ -2,7 +2,6 @@
 title: Highlights from the Inspire Europe Conference
 date: 2016-09-19 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 tags:
 - featured

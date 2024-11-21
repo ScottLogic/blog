@@ -2,7 +2,6 @@
 title: Mondo Bank webhook to Pebble Watch Timeline using AWS Lambda functions
 date: 2016-04-19 00:00:00 Z
 categories:
-- cprice
 - Cloud
 tags:
 - featured

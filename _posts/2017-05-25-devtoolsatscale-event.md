@@ -2,7 +2,6 @@
 title: devtools@scale event
 date: 2017-05-25 00:00:00 Z
 categories:
-- sbaker
 - Testing
 author: sbaker
 layout: default_post

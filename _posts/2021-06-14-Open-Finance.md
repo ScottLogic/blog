@@ -2,7 +2,6 @@
 title: 'Open Finance: Built it and they will come?'
 date: 2021-06-14 00:00:00 Z
 categories:
-- nbetts
 - Tech
 author: nbetts
 summary: In this talk, I delve further into the proposed transition from Open Banking

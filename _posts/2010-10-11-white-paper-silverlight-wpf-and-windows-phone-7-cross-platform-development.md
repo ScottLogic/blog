@@ -2,7 +2,6 @@
 title: 'White Paper: Silverlight, WPF and Windows Phone 7 cross platform development'
 date: 2010-10-11 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 id: 829
 author: ceberhardt

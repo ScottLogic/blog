@@ -2,7 +2,6 @@
 title: Understanding JavaScript Object Creation Patterns
 date: 2013-11-27 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 image: ceberhardt/assets/featured/JavaScriptObjectCreation.png

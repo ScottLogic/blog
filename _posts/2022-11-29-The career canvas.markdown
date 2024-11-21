@@ -2,7 +2,6 @@
 title: The Career Canvas
 date: 2022-11-29 19:47:00 Z
 categories:
-- acaulfield
 - People
 tags:
 - women in tech

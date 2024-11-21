@@ -2,7 +2,6 @@
 title: 'TypeScript Builders: Improving your types one step at a time'
 date: 2020-09-16 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - typescript

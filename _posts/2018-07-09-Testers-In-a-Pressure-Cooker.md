@@ -2,7 +2,6 @@
 title: Testers In A Pressure Cooker
 date: 2018-07-09 00:00:00 Z
 categories:
-- lramchandani
 - Testing
 tags:
 - Testing

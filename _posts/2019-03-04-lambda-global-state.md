@@ -2,7 +2,6 @@
 title: Maintaining global state in AWS Lambda functions with Async Hooks
 date: 2019-03-04 00:00:00 Z
 categories:
-- ceberhardt
 - Cloud
 author: ceberhardt
 layout: default_post

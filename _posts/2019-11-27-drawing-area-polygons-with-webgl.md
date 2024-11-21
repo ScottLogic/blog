@@ -2,7 +2,6 @@
 title: Drawing Area Polygons with WebGL
 date: 2019-11-27 00:00:00 Z
 categories:
-- oforeman
 - Tech
 author: oforeman
 layout: default_post

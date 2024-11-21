@@ -2,7 +2,6 @@
 title: Variable scopes in Postman
 date: 2020-09-04 00:00:00 Z
 categories:
-- sbulut
 - Testing
 author: sbulut
 layout: default_post

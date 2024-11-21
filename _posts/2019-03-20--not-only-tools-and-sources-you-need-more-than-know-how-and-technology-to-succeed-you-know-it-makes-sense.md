@@ -3,7 +3,6 @@ title: "(Not) Only Tools And Sources. You need more than know-how and technology
   succeed. “You know it makes sense!”"
 date: 2019-03-20 00:00:00 Z
 categories:
-- lramchandani
 - Testing
 tags:
 - Personality

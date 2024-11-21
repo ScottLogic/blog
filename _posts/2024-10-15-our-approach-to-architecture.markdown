@@ -2,7 +2,7 @@
 title: Our Approach to Architecture
 date: 2024-10-15 11:09:00 Z
 categories:
-- Architecture
+- Tech
 tags:
 - architecture
 - principles

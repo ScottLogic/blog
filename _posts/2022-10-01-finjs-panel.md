@@ -2,7 +2,6 @@
 title: Evaluating Workflow Technology
 date: 2022-10-01 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: A panel discussion from FinJS London 2022, exploring the latest developments

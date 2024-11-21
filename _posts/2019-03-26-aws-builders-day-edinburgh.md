@@ -2,7 +2,6 @@
 title: AWS Builders Day 2019
 date: 2019-03-26 00:00:00 Z
 categories:
-- dcastellano
 - Tech
 author: dcastellano
 layout: default_post

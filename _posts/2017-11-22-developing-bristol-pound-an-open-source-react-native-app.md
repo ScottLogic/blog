@@ -2,7 +2,6 @@
 title: Developing Bristol Pound - An Open Source React Native App
 date: 2017-11-22 00:00:00 Z
 categories:
-- ceberhardt
 - Open Source
 author: ceberhardt
 contributors:

@@ -2,7 +2,6 @@
 title: 'Snooping WPF: Tips and PowerShell tricks'
 date: 2013-12-18 00:00:00 Z
 categories:
-- nwolverson
 - Tech
 tags:
 - blog

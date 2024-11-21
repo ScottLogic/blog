@@ -2,7 +2,6 @@
 title: OSSF London 2021
 date: 2021-10-18 00:00:00 Z
 categories:
-- tmakarem
 - Open Source
 tags:
 - UX Design, OSSF, Open Source, Career

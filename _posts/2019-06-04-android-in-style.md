@@ -2,7 +2,6 @@
 title: Android in Style
 date: 2019-06-04 00:00:00 Z
 categories:
-- jporter
 - Tech
 tags:
 - Android

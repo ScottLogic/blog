@@ -2,7 +2,6 @@
 title: OpenFin Layouts added to StockFlux
 date: 2018-12-03 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

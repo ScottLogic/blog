@@ -3,7 +3,6 @@ title: What to do when some of the team you’re working with aren’t as techni
   adept as you
 date: 2018-11-09 00:00:00 Z
 categories:
-- phands
 - Delivery
 tags:
 - Agile,

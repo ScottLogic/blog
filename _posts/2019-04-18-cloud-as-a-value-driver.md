@@ -2,7 +2,6 @@
 title: 'White Paper: Thinking differently - the cloud as a value driver'
 date: 2019-04-18 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 tags:
 - featured

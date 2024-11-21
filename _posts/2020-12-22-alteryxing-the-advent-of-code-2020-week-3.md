@@ -2,7 +2,6 @@
 title: Alteryxing The Advent of Code 2020 - Week 3
 date: 2020-12-22 00:00:00 Z
 categories:
-- jdunkerley
 - Tech
 author: jdunkerley
 summary: '19 days in, the end of the third week of the #AdventofCode. The challenges

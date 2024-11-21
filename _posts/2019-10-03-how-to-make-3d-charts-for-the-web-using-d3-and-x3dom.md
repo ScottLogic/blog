@@ -2,7 +2,6 @@
 title: How to Make 3D Charts for the Web Using D3 and X3DOM
 date: 2019-10-03 00:00:00 Z
 categories:
-- asureshkumar
 - Tech
 author: asureshkumar
 layout: default_post

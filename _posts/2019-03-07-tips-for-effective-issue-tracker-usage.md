@@ -2,7 +2,6 @@
 title: Tips for effective issue tracker usage
 date: 2019-03-07 00:00:00 Z
 categories:
-- rwilliams
 - Delivery
 author: rwilliams
 layout: default_post

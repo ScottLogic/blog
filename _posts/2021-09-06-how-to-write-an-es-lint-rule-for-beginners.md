@@ -2,7 +2,6 @@
 title: How to write a custom ESLint rule
 date: 2021-09-06 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - JavaScript,

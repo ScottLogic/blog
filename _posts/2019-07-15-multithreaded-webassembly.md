@@ -2,7 +2,6 @@
 title: Faster Fractals with Multi-Threaded WebAssembly
 date: 2019-07-15 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

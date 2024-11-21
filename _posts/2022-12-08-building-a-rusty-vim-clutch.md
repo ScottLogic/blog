@@ -2,7 +2,6 @@
 title: Building a Rust-y Vim clutch with the Raspberry Pi 2040
 date: 2022-12-08 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

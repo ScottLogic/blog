@@ -2,7 +2,6 @@
 title: 'White Paper: Building an integrated desktop application ecosystem'
 date: 2020-08-13 00:00:00 Z
 categories:
-- ceberhardt
 - Resources
 author: ceberhardt
 layout: default_post

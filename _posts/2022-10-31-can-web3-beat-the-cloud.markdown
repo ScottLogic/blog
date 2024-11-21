@@ -2,7 +2,6 @@
 title: Can Web3 beat public cloud?
 date: 2022-10-31 08:39:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

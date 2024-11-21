@@ -2,7 +2,6 @@
 title: Produce data for test and development systems quickly and reliably
 date: 2020-08-06 00:00:00 Z
 categories:
-- slaing
 - Open Source
 author: slaing
 layout: default_post

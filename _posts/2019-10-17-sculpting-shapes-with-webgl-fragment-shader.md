@@ -2,7 +2,6 @@
 title: Sculpting Shapes with a WebGL Fragment Shader
 date: 2019-10-17 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - WebGL

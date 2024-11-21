@@ -2,7 +2,6 @@
 title: 'Newcastle Interns 2017: Desk Directory'
 date: 2017-12-07 00:00:00 Z
 categories:
-- jbrunton
 - Tech
 tags:
 - Desk

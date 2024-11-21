@@ -2,7 +2,7 @@
 title: How AI can improve your processes – without actually using it
 date: 2023-10-20 07:43:00 Z
 categories:
-- AI
+- Artificial Intelligence
 tags:
 - AI
 summary: How talks on AI at the CMO Inspired Summit made me re-evaluate a Marketing

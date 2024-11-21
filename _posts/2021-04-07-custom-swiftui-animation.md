@@ -2,7 +2,6 @@
 title: Blob, the Builder - A Step by Step Guide to SwiftUI Animation
 date: 2021-04-07 00:00:00 Z
 categories:
-- dgrew
 - Tech
 tags:
 - SwiftUI

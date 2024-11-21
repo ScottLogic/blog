@@ -2,7 +2,6 @@
 title: Build Your Own WebAssembly Compiler - London Node User Group - April 2019
 date: 2019-04-27 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

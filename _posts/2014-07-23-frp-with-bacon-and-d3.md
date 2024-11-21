@@ -2,7 +2,6 @@
 title: Functional Reactive Programming with Bacon.js and D3
 date: 2014-07-23 00:00:00 Z
 categories:
-- dgorst
 - Tech
 author: dgorst
 image: dgorst/assets/featured/domino.jpg

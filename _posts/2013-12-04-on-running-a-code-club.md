@@ -2,7 +2,6 @@
 title: On Running a Code Club
 date: 2013-12-04 00:00:00 Z
 categories:
-- shogarth
 - People
 author: shogarth
 layout: default_post

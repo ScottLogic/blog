@@ -2,7 +2,6 @@
 title: A fresh look at taking control of legacy
 date: 2021-03-01 00:00:00 Z
 categories:
-- redwin
 - Tech
 author: redwin
 summary: In this session, I consider how legacy dictates our view of APIs and explores

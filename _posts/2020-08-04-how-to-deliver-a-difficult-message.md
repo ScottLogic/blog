@@ -2,7 +2,6 @@
 title: How to deliver a difficult message
 date: 2020-08-04 00:00:00 Z
 categories:
-- fhubin
 - Delivery
 author: fhubin
 layout: default_post

@@ -2,7 +2,6 @@
 title: Remote possibilities
 date: 2020-12-02 00:00:00 Z
 categories:
-- pdykes
 - Delivery
 tags:
 - remote

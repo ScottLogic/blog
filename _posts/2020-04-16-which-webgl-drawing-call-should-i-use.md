@@ -2,7 +2,6 @@
 title: Which WebGL drawing call should I use?
 date: 2020-04-16 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

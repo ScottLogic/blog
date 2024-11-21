@@ -2,7 +2,6 @@
 title: Setting up a multi-platform SwiftUI project
 date: 2021-03-04 00:00:00 Z
 categories:
-- rgrey
 - Tech
 tags:
 - Swift

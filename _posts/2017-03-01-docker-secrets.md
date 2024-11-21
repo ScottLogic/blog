@@ -2,7 +2,6 @@
 title: Keeping Secrets in Docker
 date: 2017-03-01 00:00:00 Z
 categories:
-- rhendry
 - Data Engineering
 tags:
 - docker

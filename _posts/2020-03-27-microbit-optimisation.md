@@ -2,7 +2,6 @@
 title: Optimise your Micro:Bit code with Chrome DevTools
 date: 2020-03-27 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - optimisation

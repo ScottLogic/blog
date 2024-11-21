@@ -2,7 +2,6 @@
 title: Simulating Accelerometer and Location data for iOS
 date: 2014-03-19 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: This blog post looks at how to simulate accelerometer and location data so

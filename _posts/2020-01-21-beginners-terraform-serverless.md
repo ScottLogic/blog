@@ -2,7 +2,6 @@
 title: A Beginner's Guide to Terraform and Serverless
 date: 2020-01-21 00:00:00 Z
 categories:
-- ashing
 - Tech
 tags:
 - Cloud

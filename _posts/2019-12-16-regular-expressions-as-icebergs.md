@@ -2,7 +2,6 @@
 title: Regular Expressions As Icebergs
 date: 2019-12-16 00:00:00 Z
 categories:
-- csalt
 - Tech
 tags:
 - regex

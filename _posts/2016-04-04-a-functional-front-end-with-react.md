@@ -2,7 +2,6 @@
 title: A Functional Front-End with React
 date: 2016-04-04 00:00:00 Z
 categories:
-- mtinning
 - Tech
 tags:
 - Functional

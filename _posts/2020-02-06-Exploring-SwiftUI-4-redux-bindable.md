@@ -2,7 +2,6 @@
 title: 'Exploring SwiftUI 4: Creating a Redux Library Supporting Data binding'
 date: 2020-02-06 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Swift,

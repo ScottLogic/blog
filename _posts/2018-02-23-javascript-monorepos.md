@@ -2,7 +2,6 @@
 title: JavaScript Monorepos
 date: 2018-02-23 00:00:00 Z
 categories:
-- mamos
 - Tech
 tags:
 - JavaScript,

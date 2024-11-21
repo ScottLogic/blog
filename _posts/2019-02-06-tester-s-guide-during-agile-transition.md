@@ -2,7 +2,6 @@
 title: A tester's guide to agile transition
 date: 2019-02-06 00:00:00 Z
 categories:
-- pkhan
 - Testing
 author: pkhan
 layout: default_post

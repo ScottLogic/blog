@@ -2,7 +2,6 @@
 title: The Dependencies' Reckoning - Considerations when selecting third-party software
 date: 2022-03-24 00:00:00 Z
 categories:
-- osharon
 - Open Source
 tags:
 - featured

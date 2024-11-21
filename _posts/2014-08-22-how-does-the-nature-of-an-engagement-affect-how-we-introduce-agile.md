@@ -2,7 +2,6 @@
 title: How does the nature of an engagement affect how we introduce Agile?
 date: 2014-08-22 00:00:00 Z
 categories:
-- dthomas
 - Delivery
 author: dthomas
 layout: default_post

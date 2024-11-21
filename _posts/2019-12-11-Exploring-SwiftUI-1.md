@@ -3,7 +3,6 @@ title: Exploring SwiftUI Part 1 - A brief history of Apple UI development and In
   impressions
 date: 2019-12-11 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Swift,

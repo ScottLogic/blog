@@ -2,7 +2,6 @@
 title: Generic Platforms - The Rule of Three
 date: 2018-02-19 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Tech
 author: tclarke-scottlogic
 layout: default_post

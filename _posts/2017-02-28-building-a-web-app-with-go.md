@@ -2,7 +2,6 @@
 title: Creating My First Web Application with Go
 date: 2017-02-28 00:00:00 Z
 categories:
-- rhamilton
 - Tech
 tags:
 - Go

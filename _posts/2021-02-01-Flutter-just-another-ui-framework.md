@@ -2,7 +2,6 @@
 title: 'Flutter: Just another mobile UI framework?'
 date: 2021-02-01 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Flutter,

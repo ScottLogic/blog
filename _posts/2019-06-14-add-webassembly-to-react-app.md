@@ -2,7 +2,6 @@
 title: Adding a WebAssembly component to a React App
 date: 2019-06-14 00:00:00 Z
 categories:
-- alee
 - Tech
 tags:
 - featured

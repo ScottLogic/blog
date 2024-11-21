@@ -2,7 +2,6 @@
 title: Introduction to ASP.NET 5
 date: 2015-05-14 00:00:00 Z
 categories:
-- ekouri
 - Tech
 author: ekouri
 layout: default_post

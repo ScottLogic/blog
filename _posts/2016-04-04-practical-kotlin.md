@@ -2,7 +2,6 @@
 title: 'Kotlin: Practical Experience'
 date: 2016-04-04 00:00:00 Z
 categories:
-- awallis
 - Tech
 author: awallis
 layout: default_post

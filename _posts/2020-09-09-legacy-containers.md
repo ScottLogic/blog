@@ -2,7 +2,6 @@
 title: Realising the most value from legacy applications using desktop containers
 date: 2020-09-09 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 summary: 'There''s a standard approach to migrating legacy applications into desktop

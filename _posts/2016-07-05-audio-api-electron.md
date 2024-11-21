@@ -2,7 +2,6 @@
 title: 'Web Audio API Part 2: Moving to Electron'
 date: 2016-07-05 00:00:00 Z
 categories:
-- wferguson
 - Tech
 author: wferguson
 layout: default_post

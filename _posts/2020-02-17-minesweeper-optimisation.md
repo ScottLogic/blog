@@ -2,7 +2,6 @@
 title: Slow Code HATES him! Optimising a web app from 1 to 60fps
 date: 2020-02-17 00:00:00 Z
 categories:
-- swaterman
 - Tech
 tags:
 - optimisation

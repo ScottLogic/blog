@@ -2,7 +2,6 @@
 title: Consumer Driven Contracts using Pact
 date: 2017-01-10 00:00:00 Z
 categories:
-- dsmith
 - Tech
 tags:
 - featured

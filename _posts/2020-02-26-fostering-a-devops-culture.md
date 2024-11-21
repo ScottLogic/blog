@@ -2,7 +2,6 @@
 title: Fostering a DevOps culture
 date: 2020-02-26 00:00:00 Z
 categories:
-- bjedrzejewski
 - Delivery
 author: bjedrzejewski
 summary: In this webinar, Bartosz shares his experience and practical advice on how

@@ -2,7 +2,6 @@
 title: Eclipse Kepler and @Nullable
 date: 2013-09-09 00:00:00 Z
 categories:
-- aaylett
 - Tech
 tags:
 - Eclipse

@@ -2,7 +2,6 @@
 title: Evolving the Agile Revolution
 date: 2017-08-07 00:00:00 Z
 categories:
-- shunton
 - Delivery
 tags:
 - featured

@@ -2,7 +2,6 @@
 title: We need to talk....
 date: 2018-06-06 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testing,

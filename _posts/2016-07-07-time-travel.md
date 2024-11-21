@@ -2,7 +2,6 @@
 title: Time Travel and The Future of HTML5 Productivity
 date: 2016-07-07 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 summary: In this talk I'll review how the functional programming style of frameworks

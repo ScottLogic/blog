@@ -2,7 +2,6 @@
 title: Why I'm talking to developers about Exploratory Testing
 date: 2019-11-18 00:00:00 Z
 categories:
-- cakehurstryan
 - Testing
 tags:
 - Testing,

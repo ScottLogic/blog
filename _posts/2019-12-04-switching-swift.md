@@ -2,7 +2,6 @@
 title: Switching in Swift
 date: 2019-12-04 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Swift

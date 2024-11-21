@@ -2,7 +2,6 @@
 title: Using d3-force to control a massive tiny display
 date: 2016-09-01 00:00:00 Z
 categories:
-- cprice
 - Tech
 author: cprice
 layout: default_post

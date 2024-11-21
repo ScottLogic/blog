@@ -2,7 +2,6 @@
 title: Putting your machine data to use with Splunk
 date: 2022-07-15 00:00:00 Z
 categories:
-- ddiep
 - Tech
 tags:
 - Splunk

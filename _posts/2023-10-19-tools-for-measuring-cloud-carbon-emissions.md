@@ -2,7 +2,6 @@
 title: Tools for measuring Cloud Carbon Emissions
 date: 2023-10-19 00:00:00 Z
 categories:
-- dsmith
 - Sustainability
 - Cloud
 tags:

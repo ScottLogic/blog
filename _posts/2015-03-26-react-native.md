@@ -2,7 +2,6 @@
 title: Introducing React Native
 date: 2015-03-26 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

@@ -2,7 +2,6 @@
 title: Drawing Lines with WebGL
 date: 2019-11-18 00:00:00 Z
 categories:
-- mstobbs
 - Tech
 tags:
 - WebGL

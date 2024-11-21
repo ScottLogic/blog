@@ -2,7 +2,6 @@
 title: Weird Flex, but OK; Interactive Charts with Flexbox
 date: 2020-10-09 00:00:00 Z
 categories:
-- jmorris
 - Tech
 author: jmorris
 layout: default_post

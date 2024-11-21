@@ -2,7 +2,6 @@
 title: 'Exploring SwiftUI Part 2: State management inspired by React'
 date: 2020-01-06 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - SwiftUI,

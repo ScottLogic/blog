@@ -2,7 +2,6 @@
 title: An update on Electron Security
 date: 2016-06-01 00:00:00 Z
 categories:
-- dkerr
 - Tech
 tags:
 - featured

@@ -2,7 +2,6 @@
 title: Sleeping Lambdas and AWS Step Functions
 date: 2018-06-19 00:00:00 Z
 categories:
-- ceberhardt
 - Cloud
 author: ceberhardt
 layout: default_post

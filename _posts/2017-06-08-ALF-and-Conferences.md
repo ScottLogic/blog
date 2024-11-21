@@ -2,7 +2,6 @@
 title: The ALF – Annual Summit 2017 and do Conferences really add value?
 date: 2017-06-08 00:00:00 Z
 categories:
-- mmathew
 - Testing
 author: mmathew
 layout: default_post

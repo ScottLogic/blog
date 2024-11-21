@@ -2,7 +2,6 @@
 title: 'Typescript 0.9: Any improvement'
 date: 2013-09-10 00:00:00 Z
 categories:
-- nwolverson
 - Tech
 tags:
 - blog

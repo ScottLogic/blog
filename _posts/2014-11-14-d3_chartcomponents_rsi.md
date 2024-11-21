@@ -2,7 +2,6 @@
 title: An RSI component for D3 charts
 date: 2014-11-14 00:00:00 Z
 categories:
-- mjose
 - Tech
 tags:
 - d3

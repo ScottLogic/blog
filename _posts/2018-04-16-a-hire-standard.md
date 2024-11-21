@@ -2,7 +2,6 @@
 title: A hire standard
 date: 2018-04-16 00:00:00 Z
 categories:
-- efiennes
 - Testing
 tags:
 - Testing,

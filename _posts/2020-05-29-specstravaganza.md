@@ -2,7 +2,6 @@
 title: Specs-travaganza!
 date: 2020-05-29 00:00:00 Z
 categories:
-- csanderson
 - UX Design
 tags:
 - UX,

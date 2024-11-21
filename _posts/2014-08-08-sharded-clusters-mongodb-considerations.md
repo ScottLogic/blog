@@ -2,7 +2,6 @@
 title: Sharded Clusters in MongoDB - The Key Considerations
 date: 2014-08-08 00:00:00 Z
 categories:
-- mdunsdon
 - Data Engineering
 author: mdunsdon
 title-short: Sharded Clusters in MongoDB

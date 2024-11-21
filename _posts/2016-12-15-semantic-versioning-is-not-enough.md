@@ -2,7 +2,6 @@
 title: Semantic Versioning is not enough
 date: 2016-12-15 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

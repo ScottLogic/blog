@@ -2,7 +2,6 @@
 title: What the art of Improv can teach us about the craft of software
 date: 2020-01-08 00:00:00 Z
 categories:
-- garora
 - Tech
 author: garora
 layout: default_post

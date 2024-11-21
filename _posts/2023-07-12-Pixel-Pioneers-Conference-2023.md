@@ -2,7 +2,6 @@
 title: Pixel Pioneers UI/UX Conference 2023
 date: 2023-07-12 00:00:00 Z
 categories:
-- hbedford
 - UX Design
 tags:
 - UI

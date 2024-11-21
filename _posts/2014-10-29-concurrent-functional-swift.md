@@ -2,7 +2,6 @@
 title: Mandelbrot Generation With Concurrent Functional Swift
 date: 2014-10-29 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 tags:
 - featured

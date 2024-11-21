@@ -2,7 +2,6 @@
 title: Building a Serverless Comments System
 date: 2019-05-01 00:00:00 Z
 categories:
-- jwren
 - Cloud
 author: jwren
 summary: Comments systems appear across the web, I'll explain the process of using

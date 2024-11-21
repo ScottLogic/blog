@@ -2,7 +2,6 @@
 title: Hosting .NET Core on Linux with Docker - A Noob's guide
 date: 2016-09-05 00:00:00 Z
 categories:
-- nsoper
 - Tech
 author: nsoper
 layout: default_post

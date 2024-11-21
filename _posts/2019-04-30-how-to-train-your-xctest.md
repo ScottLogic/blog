@@ -2,7 +2,6 @@
 title: How to train your XCTest
 date: 2019-04-30 00:00:00 Z
 categories:
-- cbrown
 - Testing
 tags:
 - xctest

@@ -2,7 +2,6 @@
 title: Van Halen's rider and how it can help improve software development
 date: 2020-10-15 00:00:00 Z
 categories:
-- pgraham
 - Tech
 tags:
 - development

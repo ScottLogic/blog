@@ -2,7 +2,6 @@
 title: An agile life in GDS projects
 date: 2017-10-09 00:00:00 Z
 categories:
-- jayphi11ips
 - Delivery
 layout: default_post
 author: jayphi11ips

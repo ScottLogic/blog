@@ -2,7 +2,6 @@
 title: Domain-Driven Design
 date: 2018-03-28 00:00:00 Z
 categories:
-- tclarke-scottlogic
 - Tech
 author: tclarke-scottlogic
 layout: default_post

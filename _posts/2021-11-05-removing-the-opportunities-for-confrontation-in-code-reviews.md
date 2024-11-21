@@ -2,7 +2,6 @@
 title: Removing the opportunity for confrontations in Code Reviews
 date: 2021-11-05 00:00:00 Z
 categories:
-- spavitt
 - Tech
 author: spavitt
 summary: While we are all working remotely, code reviews should be an opportunity

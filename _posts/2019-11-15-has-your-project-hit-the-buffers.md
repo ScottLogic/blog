@@ -2,7 +2,6 @@
 title: Has your project hit the buffers?
 date: 2019-11-15 00:00:00 Z
 categories:
-- mphillips
 - Delivery
 tags:
 - project

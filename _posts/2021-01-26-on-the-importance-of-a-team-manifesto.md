@@ -2,7 +2,6 @@
 title: On the importance of a Team Manifesto
 date: 2021-01-26 00:00:00 Z
 categories:
-- ckurzeja
 - Delivery
 tags:
 - remote

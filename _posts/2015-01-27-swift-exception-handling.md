@@ -2,7 +2,6 @@
 title: Exception Handling in Swift
 date: 2015-01-27 00:00:00 Z
 categories:
-- ceberhardt
 - Tech
 author: ceberhardt
 layout: default_post

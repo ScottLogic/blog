@@ -2,7 +2,6 @@
 title: How to use Java Optional correctly
 date: 2018-02-01 00:00:00 Z
 categories:
-- bjedrzejewski
 - Tech
 tags:
 - featured

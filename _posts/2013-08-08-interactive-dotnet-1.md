@@ -2,7 +2,6 @@
 title: Interactive.NET (1)
 date: 2013-08-08 00:00:00 Z
 categories:
-- nwolverson
 - Tech
 tags:
 - blog

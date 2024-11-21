@@ -2,7 +2,6 @@
 title: Recommended Reading For Designers
 date: 2015-12-17 00:00:00 Z
 categories:
-- godds
 - UX Design
 tags:
 - featured

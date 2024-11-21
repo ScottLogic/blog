@@ -2,7 +2,6 @@
 title: 'To Rival React: an OverVue'
 date: 2020-09-18 00:00:00 Z
 categories:
-- jporter
 - Tech
 tags:
 - vue,

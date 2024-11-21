@@ -2,7 +2,6 @@
 title: Evolving beyond the need for a sprint retrospective
 date: 2018-03-12 00:00:00 Z
 categories:
-- bmacdonald
 - Delivery
 tags:
 - Agile,

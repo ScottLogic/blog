@@ -2,7 +2,6 @@
 title: 'Exploring SwiftUI 3: View Hierarchies and State Updates'
 date: 2020-01-28 00:00:00 Z
 categories:
-- bquinn
 - Tech
 tags:
 - Swift,

@@ -2,7 +2,6 @@
 title: Building modern Web APIs
 date: 2021-03-01 00:00:00 Z
 categories:
-- mjose
 - Tech
 author: mjose
 summary: In this talk, I explore a little of the history of the term API and covers

@@ -2,7 +2,6 @@
 title: Magical domain modelling with F#
 date: 2018-06-01 00:00:00 Z
 categories:
-- cburbidge
 - Tech
 tags:
 - F#
