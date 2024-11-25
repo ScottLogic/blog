@@ -1,5 +1,11 @@
 {% if author.picture %}
-  {% if post.author %}
+  {% if author-id %}
+  <img
+    src="{{ site.baseurl }}/{{ author-id }}/{{ author.picture }}"
+    role="presentation"
+    alt="{{ author.name }}"
+  />
+  {% elsif post.author %}
   <img
     src="{{ site.baseurl }}/{{ post.author }}/{{ author.picture }}"
     role="presentation"
