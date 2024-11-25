@@ -34,6 +34,9 @@ repository: ScottLogic/new-blog
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="{{ site.name }}"/>
     <meta property="og:url" content="{{ site.canonical.url }}{{ page.url }}" />
+    {% unless page.tags == empty %}
+    <meta name="keywords" content="{{page.tags | join: ', '}}" />
+    {% endunless %}
     {% comment %} Twitter {% endcomment %}
     <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}"/>
     <meta name="twitter:site" content="@{{ site.twitter_handle }}"/>
