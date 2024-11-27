@@ -1,9 +1,6 @@
 name: Lint Posts
 
 on:
-  push:
-    branches:
-      - '**'  # Runs on pushes to all branches
   pull_request:
     branches:
       - 'gh-pages'  # Runs when a PR targets the gh-pages branch
@@ -19,11 +16,5 @@ jobs:
               with:
                 node-version: 20.x
                 cache: npm
-            - name: Run install
-              uses: borales/actions-yarn@v5.0.0
-              with:
-                cmd: install
-            - name: Run lint
-              uses: borales/actions-yarn@v5.0.0
-              with:
-                cmd: lint
+            - run: npm ci 
+            - run: npm run lint
