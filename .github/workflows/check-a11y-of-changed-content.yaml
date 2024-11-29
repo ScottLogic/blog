@@ -1,7 +1,6 @@
 name: Check accessibility of changed content
 
 on:
-  workflow_dispatch:
   pull_request:
 
 permissions:

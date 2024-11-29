@@ -30,7 +30,7 @@
     "url": "https://github.com/ScottLogic/blog/issues"
   },
   "scripts": {
-    "test": "node lintPosts.js",
+    "lint": "node lintPosts.js",
     "compute-embeddings": "node scripts/generate-related/compute-embeddings.js",
     "generate-related": "node scripts/generate-related/blog-metadata.js",
     "remove-unused-images": "node scripts/images/remove-images.js",
