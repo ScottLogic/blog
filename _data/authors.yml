@@ -120,6 +120,7 @@ active-authors:
   - rgarside
   - rgriffiths
   - rlewis
+  - rnewsome
   - rpilling
   - rrogers
   - rstrange
@@ -771,8 +772,9 @@ authors:
     author-summary: "<p>Lead Developer at Scott Logic in Edinburgh.</p><p>I've been programming computers since before the web and doing it professionally since last century. Building the right thing is the hard part. Making it efficient is the fun part.</p>"
     picture: robert-lewis.jpg
   rnewsome:
-    author-summary: "Scott Logic's Head of Development, Newcastle upon Tyne"
+    author-summary: "I'm a Principal here at Scott Logic, and our Capability Lead for Development. I'm based in Newcastle upon Tyne."
     name: "Rob Newsome"
+    picture: picture.jpg
   rmarcalo:
     name: "Rui Marcalo"
     picture: picture.jpg
