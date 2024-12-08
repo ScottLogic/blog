@@ -1,6 +1,5 @@
 ---
 title: Our Approach to Software Development
-date: 2024-12-09 14:30:00 Z
 categories:
 - Tech
 tags:
@@ -79,4 +78,4 @@ There is, of course, more to developing good software (and being a genuine long-
 
 ## How can we help you? 
 
-If this approach resonates with you, find out more about What we do and how we can help your organisation. 
+If this approach resonates with you, find out more about [What we do](https://www.scottlogic.com/what-we-do) and how we can help your organisation. 
