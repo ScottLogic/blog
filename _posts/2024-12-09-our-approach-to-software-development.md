@@ -12,13 +12,13 @@ summary: Continuing our series of posts about our approach to consultancy, we co
 author: rnewsome
 ---
 
-_This is the fourth in a series of blogs setting out how we work with our clients, with earlier posts covering our approach to [Architecture](/2024/10/15/our-approach-to-architecture.html), [Delivery](/2024/10/23/our-approach-to-delivery.html) and [Testing](/2024/10/30/our-differentiated-approach-to-testing.html)._
+_This is the fourth in a series of blogs setting out how we work with our clients, with earlier posts covering our approach to [Architecture]({{ site.github.url }}/2024/10/15/our-approach-to-architecture.html), [Delivery]({{ site.github.url }}/2024/10/23/our-approach-to-delivery.html) and [Testing]({{ site.github.url }}/2024/10/30/our-differentiated-approach-to-testing.html)._
 
-For twenty years, Scott Logic has been building business-critical systems for some of the world’s largest organisations, from capital markets to public services. Our consultants have solved a wide range of complex problems for many clients over that time – across a diverse set of technologies.  
+For twenty years, Scott Logic has been building business-critical systems for some of the world’s largest organisations, from capital markets to public services. Our consultants have tackled a wide array of complex problems for many clients over that time – across a diverse set of technologies.  
 
 We tailor our engagement model to fit our clients and the context of the work. Sometimes this means we provide self-directed, multidisciplinary teams to deliver an outcome. At other times, our engineers are working collaboratively alongside our clients' own people. Sometimes the work is more advisory, where we’re helping a client determine a way forward or overcome a particular challenge.  
 
-There’s a lot that changes based on the sector we’re working in, the technology stack we’re using, the nature of the engagement or the specifics of each piece of work. But across it all, we apply a consistent underlying approach which serves us and our clients very well. 
+There’s a lot that changes based on the sector we’re working in, the technology stack we’re using, the nature of the engagement or the specifics of each piece of work. But across it all, we’ve found there’s a consistent underlying approach. 
 
 Based on our experience, we've distilled the following principles for software development to communicate how we work and help guide our teams. 
 
@@ -74,7 +74,7 @@ Recognising that our success involves more than simply writing good code, we cha
 
 ## These principles in context 
 
-There is, of course, more to developing good software (and being a genuine long-term partner for our clients) than what’s covered here – including how our multidisciplinary teams are formed and work together to deliver value. You can read more about our approach to [Architecture](/2024/10/15/our-approach-to-architecture.html), [Delivery](/2024/10/23/our-approach-to-delivery.html) and [Testing](/2024/10/30/our-differentiated-approach-to-testing.html), and there’s more to follow around our broader approach to software consultancy. 
+There is, of course, more to developing good software (and being a genuine long-term partner for our clients) than what’s covered here – including how our multidisciplinary teams are formed and work together to deliver value. You can read more about our approach to [Architecture]({{ site.github.url }}/2024/10/15/our-approach-to-architecture.html), [Delivery]({{ site.github.url }}/2024/10/23/our-approach-to-delivery.html) and [Testing]({{ site.github.url }}/2024/10/30/our-differentiated-approach-to-testing.html), and there’s more to follow around our broader approach to software consultancy. 
 
 ## How can we help you? 
 
