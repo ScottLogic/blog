@@ -7,7 +7,7 @@ tags:
 - teams
 - values
 - principles
-summary: Continuing our series about how we work, here we cover our underlying approach to software development. We share the set of guiding principles we've distilled from our collective experience of successful projects.
+summary: In the fourth of our series setting out how we work with our clients, we explore software development. We describe our underlying approach based on a set of guiding principles we've distilled from our collective experience.
 author: rnewsome
 ---
 
