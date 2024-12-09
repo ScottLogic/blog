@@ -7,8 +7,7 @@ tags:
 - teams
 - values
 - principles
-summary: Continuing our series of posts about our approach to consultancy, we cover
-  the principles that underpin how we approach software development for our clients.
+summary: Continuing our series about how we work, here we cover our underlying approach to software development. We share the set of guiding principles we've distilled from our collective experience of successful projects.
 author: rnewsome
 ---
 
