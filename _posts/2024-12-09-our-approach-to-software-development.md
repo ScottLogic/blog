@@ -18,9 +18,9 @@ For twenty years, Scott Logic has been building complex, business-critical syste
 
 We operate across a range of engagement models. Sometimes this means we provide self-directed, multi-disciplinary teams to deliver an outcome. At other times, our engineers are working collaboratively alongside our clients' own people. Some work is more advisory, where we’re helping a client determine a way forward or overcome a particular challenge.  
 
-There’s a lot that changes based on the sector we’re working in, the technology stack we’re using, the nature of the engagement or the specific context of each piece of work. But across it all, our consistent underlying approach serves us and our clients very well. 
+There’s a lot that changes based on the sector we’re working in, the technology stack we’re using, the nature of the engagement or the specific context of each piece of work. But across it all, we apply a consistent underlying approach which serves us and our clients very well. 
 
-We follow these principles for software development. 
+Based on our experience, we've distilled the following principles for software development to communicate how we work and help guide our teams. 
 
 ## 1) Build quality in 
 
@@ -28,13 +28,13 @@ Doing good work is our default - it motivates our teams, delivers great results,
 
 We understand that some criteria for ‘high quality’ vary with context, and we need to account for the big picture. We take a holistic view of software design, delivering outstanding experiences for users underpinned by robust, reliable technology - and with future maintenance and extensibility in mind. 
 
-We write clean, clear code, prioritising readability, consistency and following established idioms. We make sure our work is both testable and well tested. We build software that we - or our clients - can maintain long term. 
+We write clean, clear code, prioritising readability, consistency and following established idioms. We build software that we - or our clients - can maintain long term. 
 
 ## 2) Make pragmatic technology choices 
 
 In a fast-evolving tech landscape, we look beyond the hype of current trends to focus on technologies and practices that deliver real value.  
 
-Our practical approach means we build up a deep understanding of our clients’ unique circumstances before recommending tools, technologies and approaches, keeping their requirements top of mind. We use our experience to ensure that our technology choices support innovation but will also be practical, reliable and integrate well into what’s already in place.  
+Our practical approach means we build up a strong understanding of our clients’ unique circumstances before recommending tools, technologies and approaches, keeping their requirements top of mind. We use our experience to ensure that our technology choices support innovation but will also be practical, reliable and integrate well into what’s already in place.  
 
 Scott Logic is technology-agnostic and vendor-independent. We pride ourselves on giving unbiased advice to best serve our clients’ long-term needs. 
 
@@ -54,9 +54,9 @@ We maximise team productivity with the right tools and automation - and know how
 
 ## 5) Embed security from the outset 
 
-We design and implement appropriate controls, grounded in a strong understanding of potential threats and the risks associated with technologies we’re using.  
+We design and implement appropriate controls, grounded in a good understanding of potential threats and the risks associated with technologies we’re using.  
 
-Automated pipelines safeguard software integrity, shifting security checks left and supporting a proactive approach to vulnerability management, in line with DevSecOps practices.  
+Automated pipelines safeguard software integrity, typically shifting security checks left and supporting a proactive approach to vulnerability management, in line with DevSecOps practices.  
 
 ## 6) Demonstrate incremental progress 
 
