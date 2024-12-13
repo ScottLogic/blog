@@ -1,5 +1,6 @@
 ---
 title: Our Approach to Software Development
+date: 2024-12-09 00:00:00 Z
 categories:
 - Tech
 tags:
@@ -7,7 +8,9 @@ tags:
 - teams
 - values
 - principles
-summary: In the fourth of our series setting out how we work with our clients, we explore software development. We describe our underlying approach based on a set of guiding principles we've distilled from our collective experience.
+summary: In the fourth of our series setting out how we work with our clients, we
+  explore software development. We describe our underlying approach based on a set
+  of guiding principles we've distilled from our collective experience.
 author: rnewsome
 ---
 
