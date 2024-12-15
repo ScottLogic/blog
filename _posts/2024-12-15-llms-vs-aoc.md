@@ -2,7 +2,7 @@
 title: LLMs vs Advent of Code, AI is winning
 categories:
 - Tech
-summary: 
+summary: This blog post explores the capabilities of OpenAIs o1-mini through the Advent of Code challenge, finding that it is astonishingly capable. In a significant step-up from previous models, it answers most of the questions with ease.
 author: ceberhardt
 image: ceberhardt/assets/aoc/aoc-2019.png
 ---
@@ -77,4 +77,4 @@ And instead it provided a recursive solution, with caching, that solved the prob
 
 ## Closing thoughts
 
-
+Given the performance of o1-mini, I feel it is inevitable that it (and whatever advances come next) is going to have a significant impact on the world of software engineering. Yes, AoC is somewhat contrived version of what software professionals do for a living. But its ability to take lengthy prose and convert it into tens of lines of code that accurately reflects the requirements is astonishing. Just a few years back, would any of us have imagined that this would be possible?
