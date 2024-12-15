@@ -1,8 +1,11 @@
 ---
 title: LLMs vs Advent of Code, AI is winning
+date: 2024-12-15 00:00:00 Z
 categories:
 - Tech
-summary: This blog post explores the capabilities of OpenAIs o1-mini through the Advent of Code challenge, finding that it is astonishingly capable. In a significant step-up from previous models, it answers most of the questions with ease.
+summary: This blog post explores the capabilities of OpenAIs o1-mini through the Advent
+  of Code challenge, finding that it is astonishingly capable. In a significant step-up
+  from previous models, it answers most of the questions with ease.
 author: ceberhardt
 image: ceberhardt/assets/aoc/aoc-2019.png
 ---
