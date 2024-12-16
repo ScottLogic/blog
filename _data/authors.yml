@@ -1003,9 +1003,7 @@ authors:
     picture: picture.jpg
   magnussmith:
     name: "Magnus Smith"
-    author-summary: "<p>I'm a senior developer at Scott Logic, based in Newcastle.  I've been involved with Java development for the last fifteen years and I'm keenly interested in modern JVM technologies."
-    twitter-handle: magnus2025
-    twitter-url: "http://www.twitter.com/magnus2025"
+    author-summary: "<p>Lead Developer at Scott Logic, based in Newcastle. I've 25 years working with Java and passionate about modern JVM technologies.</p>"
     picture: picture.jpg
   hashbyha:
     name: "Hugh Ashby-Hayter"
