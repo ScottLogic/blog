@@ -10,7 +10,7 @@ author: ceberhardt
 image: ceberhardt/assets/aoc/aoc-2019.png
 ---
 
-[Advent of Code](https://adventofcode.com/) (AoC) is an annual, christmas-themed, coding competition that has been running for the past years and is something that I participate in at times. This year, while ~~subjecting myself to~~ learning Rust, I decided to see how OpenAI's latest model faired at the challenge. I quickly knocked together a script, and to my astonishment, found that o1-mini gave correct answers to all but one part of the first six days. It was writing code to complete puzzles that took me half an hour or more, in just seconds!
+[Advent of Code](https://adventofcode.com/) (AoC) is an annual, christmas-themed, coding competition that has been running for the past years and is something that I participate in at times. This year, while ~~subjecting myself to~~ learning Rust, I decided to see how OpenAI's latest model fared at the challenge. I quickly knocked together a script, and to my astonishment, found that o1-mini gave correct answers to all but one part of the first six days. It was writing code to complete puzzles that took me half an hour or more, in just seconds!
 
 In this blog post I'm going to dig into the results in a bit more detail.
 
