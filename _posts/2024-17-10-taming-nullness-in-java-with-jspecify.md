@@ -8,7 +8,7 @@ tags:
 - Intellij
 author: magnussmith
 summary: This post is designed for Java developers who want to adopt JSpecify for consistent nullability handling in their projects. By following the steps and examples, you should be able to set up and utilize the core JSpecify annotations effectively in your codebase.
-image: magnussmith/assets/containers.jpg
+image: magnussmith/assets/java.svg
 ---
 
 ## Introduction
