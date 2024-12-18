@@ -107,6 +107,7 @@ active-authors:
   - mphillips
   - mridene
   - mwallace
+  - mwalkerrose
   - nbetts
   - ocronk
   - oforeman
@@ -1545,4 +1546,8 @@ authors:
     name: "Callum Robb"
     email: crobb@scottlogic.com
     author-summary: "I am a Senior Test Engineer based in Edinburgh."
+    picture: picture.jpg
+  mwalkerrose:
+    name: "Mike Walker-Rose"
+    author-summary: "A Test Engineer in the Bristol office, passionate about all things test!"
     picture: picture.jpg
