@@ -12,7 +12,7 @@ summary: In the fourth of our series setting out how we work with our clients, w
   explore software development. We describe our underlying approach based on a set
   of guiding principles we've distilled from our collective experience.
 author: rnewsome
-image: "/uploads/Our%20approach%20to%20software%20development%20thumbnail.png"
+image: "/uploads/Our%20approach%20to%20development.png"
 ---
 
 _This is the fourth in a series of blogs setting out how we work with our clients, with earlier posts covering our approach to [Architecture]({{ site.github.url }}/2024/10/15/our-approach-to-architecture.html), [Delivery]({{ site.github.url }}/2024/10/23/our-approach-to-delivery.html) and [Testing]({{ site.github.url }}/2024/10/30/our-differentiated-approach-to-testing.html)._
