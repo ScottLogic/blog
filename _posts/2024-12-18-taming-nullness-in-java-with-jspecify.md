@@ -1,6 +1,6 @@
 ---
 title: Using JSpecify 1.0 to Tame Nulls in Java
-date: 2024-12-17 00:00:00 Z
+date: 2024-12-18 00:00:00 Z
 categories:
 - Tech
 tags:
