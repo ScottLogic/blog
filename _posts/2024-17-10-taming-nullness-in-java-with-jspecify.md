@@ -11,8 +11,6 @@ summary: This post is designed for Java developers who want to adopt JSpecify fo
 image: magnussmith/assets/containers.jpg
 ---
 
-# Using JSpecify to Tame Nulls in Java
-
 ## Introduction
 
 
@@ -28,7 +26,7 @@ JSpecify introduces four key annotations to express nullness:
 
  - `@Nullable`: Indicates that a variable, parameter, or return value can be null.
 - `@NonNull`: Indicates that a variable, parameter, or return value cannot be null.
-- `@NullMarked`: Marks a package or class that you're annotating to indicate that the remaining unannotated type usages are not nullable.. This reduces the noise from annotation verbosity.
+- `@NullMarked`: Marks a package or class that you're annotating to indicate that the remaining unannotated type usages are not nullable. This reduces the noise from annotation verbosity.
 - `@NullUnmarked`: Explicitly marks a package or class as not using JSpecify's nullness annotations as the default. This is used for exceptions to `@NullMarked` packages.
 
 The goal is to allow for more predictable null handling, minimizing the need for runtime null checks and making nullness explicitly part of the contract of methods and fields.
@@ -154,6 +152,7 @@ You can place `@NullMarked` or `@NullUnmarked` in a package-info.java file to af
 ~~~
 
 All classes in the `com.example.myapp` package will now assume non nullable types by default unless explicitly overridden.
+
 ### At the Module Level
 
 If your project is modularized, you can also use these annotations at the module level by adding `@NullMarked` or `@NullUnmarked` to the `module-info.java` file.
@@ -168,9 +167,9 @@ If your project is modularized, you can also use these annotations at the module
     }
 ~~~
 
-This will make all types within the module are non nullable by default.
+This will make sure all types within the module are non nullable by default.
 
-Starting at the class level annotations and then moving to package or module annotations provides a way to apply nullness analysis in stages to what many be a large existing project.
+Starting at the class level annotations and then moving to package or module annotations provides a way to apply nullness analysis in stages to what may be a large existing project.
 
 
 ## IntelliJ Null Analysis
@@ -415,7 +414,7 @@ A couple of recent Java Enhancement Proposals (JEP) in this area
 - [JEP Draft: Null-Restricted Value Class Types (Preview)](https://openjdk.org/jeps/8316779)
 
 #### The Key Idea:
-A `null-restricted type` is a reference type expressed with the name of a value class followed by the `!` symbol. For example, if you have a value class Point, then Point! would be a null-restricted type, meaning that a variable of this type cannot hold a null value.
+A `null-restricted type` is a reference type expressed with the name of a value class followed by the `!` symbol. For example, if you have a value class Range, then Range! would be a null-restricted type, meaning that a variable of this type cannot hold a null value.
 
 ~~~ java
 void printAll(Range! r) {
