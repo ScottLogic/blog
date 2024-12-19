@@ -46,6 +46,9 @@ private String name;
 private String address;
 
     public User(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("Name cannot be null");
+        }
         this.name = name;
     }
 
@@ -67,7 +70,7 @@ private String address;
 }
 ~~~
 
-This User class has a glaring potential NPE in `getFormattedAddress()`. Let's use JSpecify to address this.
+This User class has a glaringly obvious NullPointerException in `getFormattedAddress()`. Let's use JSpecify to address this.
 
 ## Step 1: Add JSpecify Dependency
 
@@ -94,7 +97,12 @@ import org.jspecify.nullness.Nullable;
 import org.jspecify.nullness.NonNull;
 
 public class User {
-// ... other code
+    public User(String name) {
+        if (name == null) {
+            throw new IllegalArgumentException("Name cannot be null");
+        }
+        this.name = name;
+    }
 
     public @Nullable String getAddress() {
         return address;
@@ -105,7 +113,7 @@ public class User {
     }
 
     public @NonNull String getName() { return name; }
-
+    
     public String getFormattedAddress() {
         String address = getAddress();
         if (address != null) {
@@ -141,8 +149,6 @@ public class User {
 Now, all unannotated types within the User class are treated as `@NonNull`, unless explicitly marked with `@Nullable`. 
 
 We can also apply `@NullMarked` and `@NullUnmarked` at the Package and Module Levels.  If you needed to exempt a class from the null marked package you would use `@NullUnmarked` on the class you need to exempt.
-
-You would place `@NullMarked` or `@NullUnmarked` in a `package-info.java` file to affect the entire package.
 
 ### At the Package Level
 
@@ -204,7 +210,7 @@ If you want to use jspecify notifications in generated code then you can set tha
 - `Integrates with the compiler`: Works seamlessly with the Java compiler, so you don't need a separate tool or process.
 - `Extensible`: Allows you to write custom checks to enforce project-specific coding standards.
 
-Error Prone can be used in many useful ways, even fixing some issues automatically. I shall cover that in more depth in a future post.
+Error Prone can be used in many useful ways, even fixing some issues automatically. This will be covered in more depth in a future post.
 
 ### NullAway
 [NullAway](https://github.com/uber/NullAway) is a static analysis tool built on top of Error Prone specifically designed to detect null pointer dereferences. It leverages annotations (such as JSpecify's `@Nullable` and @NonNull) to understand the nullness constraints of your code and identify potential NPEs.
