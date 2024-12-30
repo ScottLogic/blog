@@ -11,16 +11,21 @@ categories:
 
 ## Introduction
 
+ Building modern applications means managing complexity.   For years, Java developers have grappled with modelling representations of complex data and relationships in a clean, maintainable way.  More traditional Object-Oriented programming techniques provide many tools, but sometimes, it can feel that we are forcing data into structures that don't quite fit.
+ Algebraic Data Types (ADTs), a powerful concept from functional programming that's making waves in the Java world, offering an elegant solution in the programmers arsenal.
+
 ## What are Algebraic Data Types (ADT)?
 
-ADTs provide a way to define composite data types by combining other types in a structured and type-safe manner. They allow developers to model complex data structures using simpler building blocks, much like building with LEGOs.  Think of them as custom, compound data types you design for your specific needs.
+Algebraic data types (ADTs) are a way to structure data in functional programming languages. They define a mechanism to create composite data types by combining other simpler types. They allow developers to model complex data structures using simpler building blocks, much like building with LEGOs.  Think of them as custom, compound data types you design for your specific needs.
+ADTs are prevalent in functional programming due to their ability to enhance code safety, readability, and maintainability in a structured and type-safe manner.
 
 ## Why do we need them and what kind of problems to they help solve?
 
+### Readable
 ADTs make code more readable by explicitly defining the structure and possible values of complex data. This makes it easier to understand and reason about the code, leading to improved maintainability.
-
+### Enforce Constraints
 ADTs use the type system to enforce constraints on the data. The compiler can detect errors at compile time, preventing runtime issues that might arise from invalid data structures or operations.
-
+### Remove boilerplate
 Compared to using classes or structs alone, ADTs can often reduce the amount of boilerplate code needed to define and manipulate complex data. For example, pattern matching with ADTs often eliminates the need for lengthy if-else chains or switch statements.
 
 ADTs can accurately model data that has a limited set of possible states or variations. This is particularly useful for representing things like:
@@ -45,9 +50,12 @@ In ADTs the algebra consists of just two operators '+' and 'x'
 
 ## Product
 
-- Represents combination. Types that are  built with the 'x' operator and combine types with AND.  A Product type bundles two or more arbitrary types together such that T=A and B and C.
+
+- These represent a combination of data, where a type holds values of several other types simultaneously. Think of it as an "AND" relationship. A Point might be a product type consisting of an x coordinate and a y coordinate.
+
 - Defines values
 - Logical AND operator
+- Product types bundle two or more arbitrary types together such that T=A and B and C.
 - The product is the cartesian product of all their components
 
 In code, we may see this as Tuples, POJOs or Records.
@@ -59,8 +67,9 @@ In Set theory this is the cartesian product
 
 
 ## Sum
+These represent a choice between different types, where a value can be one of several possible types, but only one at a time. It's an "or" relationship. A Shape might be a sum type, as it could be a Circle or a Square or a Triangle.
 
-- Represents alternation. Types are built with the '+' operator and combine types with OR as in T = A or B or C.
+- Sum types are built with the '+' operator and combine types with OR as in T = A or B or C.
 - Defines variants
 - Logical OR operator
 - The sum is the (union) of the value sets of the alternatives
@@ -80,12 +89,10 @@ Below Status is a disjunction, the relation of three distinct alternatives
 
 
 
-
 We can further combine Product and Sum as they follow the same distributive law of numerical algebra
 ```
 (a * b + a * c) <=> a * (b +c)
 ```
-
 
 
 ```
@@ -119,27 +126,58 @@ similar with associativity
 ```
 
 
+## A Historical Perspective
+The concept of ADTs traces back to the early days of functional programming languages like ML and Hope in the 1970s. They were then popularized by languages like Haskell, which uses them as a fundamental building block.
 
-## A brief detour into the history of algebraic data types
 
-Before we get into how we can exploit ADTs in Java lets take a little detour into the history od ADTs
+Let's take a quick tour of how ADTs (or their approximations) have been handled in different languages:
 
-ADTs are not a new idea.  As we have seen Java has been able to simulate them to some extent since enums were introduced in 1.1 (date?), but the ideas actually go back much further.
+  - `C`: C lacks built-in support for ADTs but can simulate by using structs for product types and unions (combined with an enum for type tracking) for a rudimentary form of sum types.
+    The tagged union (also called a disjoint union) is a data structure used to hold a value that can take on several different, but fixed types. Only one of the types can be in use at any one time, and a tag field explicitly indicates which one is in use. Here the tag is a value that indicates the variant of the enum stored in the union.  However, unions are notoriously unsafe, as they don't enforce type checking at compile time.
+      ~~~ c
+        union vals {
+          char ch;
+          int nt;
+        };
+    
+        struct tagUnion {
+          char tag;
+          vals val;
+        };
+      ~~~
+  - `Haskell`: Haskell a functional language elegantly expresses ADTs with its data keyword. Haskell's type system is specifically designed to support the creation and manipulation of ADTs.
 
-In the 1960's a kind of ADT known as a tagged union which later became part of the C language.  The tagged union (also called a disjoint union) is a data structure used to hold a value that could take on several different, but fixed types. Only one of the types can be in use at any one time, and a tag field explicitly indicates which one is in use. Here the tag is a value that indicates the variant of the enum stored in the union.
-This allows a structure that is the Sum of different types.
+     ~~~ haskell
+    data Shape = Circle Float | Rectangle Float Float
+     ~~~
+    This defines Shape as a sum type that can be either a Circle with a radius (Float) or a Rectangle with width and height (Float).
 
-By the mid 1970s,  In Standard ML, ADTs are defined using the datatype keyword. They allow you to create new types as a combination of constructors, each potentially holding values of other types.  
+  - `Scala`: Scala uses case classes for product types and sealed traits with case classes/objects for sum types. This provides a robust and type-safe way to define ADTs.
+    ~~~ scala
+    sealed trait Shape
+      case class Circle(radius: Double) extends Shape
+      case class Rectangle(width: Double, height: Double) extends Shape
+    ~~~
 
-Essentially, datatype lets you build custom, compound types with named constructors and pattern matching lets you effectively use them. 
+  - `Java` (Pre-Java 17): Historically, Java relied on class hierarchies and the Visitor pattern to mimic sum types. This approach was verbose, requiring a lot of boilerplate code and was prone to errors if not carefully implemented. Product types were typically represented by classes with member variables.
+
+
 
 
 ## ADTs in Java
 
-Java's records and sealed interfaces provide an elegant mechanism for implementing ADTs. Records, introduced in Java 14, offer a concise syntax for defining immutable data classes. Providing `nominal` types and components with `human readable` names.  
+Java's records and sealed interfaces provide an elegant mechanism for implementing ADTs. 
 
-Sealed interfaces, a feature introduced in Java 17, allows classes and interfaces to have more control over their permitted subtypes. We achieve precise data modelling as `sealed` hierarchies of immutable records.  Restricting the possible implementations of a type, enables exhaustive pattern matching and makes invalid states unrepresentable.
 
+- Records, introduced in Java 14, offer a concise syntax for defining immutable data carriers. Providing `nominal` types and components with `human readable` names.  
+
+- Sealed interfaces, a feature introduced in Java 17, allows classes and interfaces to have more control over their permitted subtypes. We achieve precise data modelling as `sealed` hierarchies of immutable records.  This enables the compiler to know all possible subtypes at compile time, a crucial requirement for safe sum types.
+
+
+- Pattern matching is a powerful feature that enhances Java's instanceof operator and switch expressions/statements. It allows developers to concisely and safely extract data from objects based on their structure. This capability streamlines type checking and casting, leading to more readable and less error-prone code.
+  The evolution of pattern matching in Java is noteworthy. Initially introduced in Java 16 to enhance the instanceof operator (JEP 394), it was later extended to switch expressions and statements in Java 17 (JEP 406)9. This expansion broadened the applicability of pattern matching, enabling more expressive and safer code constructs.
+
+Restricting the possible implementations of a type, enables exhaustive pattern matching and making invalid states unrepresentable.  
 This is particularly useful for general domain modeling with type safety.
 
 
@@ -185,19 +223,69 @@ sealed interface Celestial {
 Unlike enums records allow us to attach arbitrary attributes to each of the enumerated states.  We are no longer restricted to fixed constants  
 
 In the Celestial example we see a Sum of Products. This is a useful technique for modelling complex domains in a flexible but type-safe manner.
-For thw Sums of Products to work we have to commit to the subtypes, which is a form of tight coupling.  This works if we are sure the subtypes are unlikely to change. 
+For the Sums of Products to work we have to commit to the subtypes, which is a form of tight coupling.  This works if we are sure the subtypes are unlikely to change. 
 We trade some future flexibility for an exhaustive list of subtypes that allows better reasoning about shapes especially when it comes to pattern matching   
 
 
-### Pattern Matching
-
-Pattern matching is a powerful feature that enhances Java's instanceof operator and switch expressions/statements. It allows developers to concisely and safely extract data from objects based on their structure. This capability streamlines type checking and casting, leading to more readable and less error-prone code.
-The evolution of pattern matching in Java is noteworthy. Initially introduced in Java 16 to enhance the instanceof operator (JEP 394), it was later extended to switch expressions and statements in Java 17 (JEP 406)9. This expansion broadened the applicability of pattern matching, enabling more expressive and safer code constructs.
 
 
+### Advantages over the Visitor Pattern
+Traditionally, Java developers used the Visitor pattern to handle different types within a hierarchy. However, this approach has several drawbacks:
+- Verbosity: The Visitor pattern requires a lot of boilerplate code, with separate visitor interfaces and classes for each operation.
+- Openness to Extension: Adding a new type to the hierarchy requires modifying the visitor interface and all its implementations, violating the Open/Closed Principle.
+- Lack of Exhaustiveness Checking: The compiler cannot guarantee that all possible types are handled, leading to potential runtime errors.
 
-A key advantage of pattern matching in switch statements is the increased safety it provides. By requiring that pattern switch statements cover all possible input values, it helps prevent common errors arising from incomplete case handling10.
-The combination of ADTs and pattern matching is particularly powerful, as it allows for exhaustive and type-safe handling of different data variants within a sealed hierarchy. This synergy simplifies code and reduces the risk of runtime errors.
+
+
+~~~ java 
+
+public sealed interface Shape permits Circle, Rectangle {
+    double area();
+    double perimeter();
+}
+
+public record Circle(double radius) implements Shape {
+    @Override
+    public double area() {
+        return Math.PI * radius * radius;
+    }
+    @Override
+    public double perimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+public record Rectangle(double width, double height) implements Shape {
+    @Override
+    public double area() {
+        return width * height;
+    }
+    @Override
+    public double perimeter() {
+        return 2 * (width + height);
+    }
+}
+
+public class Shapes {
+    public static void printShapeInfo(Shape shape) {
+        switch (shape) {
+            case Circle c -> System.out.println("Circle with radius: " + c.radius() + ", area: " + c.area() + ", perimeter: " + c.perimeter());
+            case Rectangle r -> System.out.println("Rectangle with width: " + r.width() + ", height: " + r.height() + ", area: " + r.area() + ", perimeter: " + r.perimeter());
+        }
+    }
+    public static Shape scaleShape(Shape shape, double scaleFactor) {
+        return switch (shape) {
+            case Circle c -> new Circle(c.radius() * scaleFactor);
+            case Rectangle r -> new Rectangle(r.width() * scaleFactor, r.height() * scaleFactor);
+        };
+    }
+}
+~~~
+Explanation:
+1. Shape is a sealed interface, allowing only Circle and Rectangle to implement it.
+2. Circle and Rectangle are records, concisely defining the data they hold.
+3. Shapes demonstrates how to use pattern matching with switch to handle different Shape types and perform operations like calculating area, perimeter or scaling. The compiler ensures that all possible Shape types are covered in the switch.
+
 
 
 
