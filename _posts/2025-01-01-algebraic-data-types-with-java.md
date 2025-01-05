@@ -51,12 +51,13 @@ In ADTs the algebra consists of just two operators '+' and 'x'
 ## Product
 
 
-- These represent a combination of data, where a type holds values of several other types simultaneously. Think of it as an "AND" relationship. A Point might be a product type consisting of an x coordinate and a y coordinate.
-
-- Defines values
-- Logical AND operator
-- Product types bundle two or more arbitrary types together such that T=A and B and C.
-- The product is the cartesian product of all their components
+These represent a combination of data, where a type holds values of several other types simultaneously. 
+  + Think of it as an "AND" relationship.
+  + A Point might be a product type consisting of an x coordinate and a y coordinate.
+  + It defines values
+  + Logical AND operator
+  + Product types bundle two or more arbitrary types together such that T=A and B and C.
+  + The product is the cartesian product of all their components
 
 In code, we may see this as Tuples, POJOs or Records.
 In Set theory this is the cartesian product
@@ -67,19 +68,20 @@ In Set theory this is the cartesian product
 
 
 ## Sum
-These represent a choice between different types, where a value can be one of several possible types, but only one at a time. It's an "or" relationship. A Shape might be a sum type, as it could be a Circle or a Square or a Triangle.
-
-- Sum types are built with the '+' operator and combine types with OR as in T = A or B or C.
-- Defines variants
-- Logical OR operator
-- The sum is the (union) of the value sets of the alternatives
+These represent a choice between different types, where a value can be one of several possible types, but only one at a time. 
+ + Think of it as  an "or" relationship. 
+ + A Shape might be a sum type, as it could be a Circle or a Square or a Triangle.
+ + Defines variants
+ + Logical OR operator
+ + Sum types are built with the '+' operator and combine types with OR as in T = A or B or C.
+ + The Sum is the (union) of the value sets of the alternatives
 
 Traditionally more common in functional languages like Haskel as a data type or in Scala as a sealed trait of case classes and Java as a sealed interface of records.
 A very simple version in Java is an Enum type. Enums cannot have additional data associated with them once instantiated. 
 
 An important property of ADTs is that they can be sealed or closed. That means that their definition contains all possible cases and no further cases can exist. This allows the compiler is able to exhaustively verify all the alternatives.
 
-Below Status is a disjunction, the relation of three distinct alternatives 
+We can define a Status as a disjunction, the relation of three distinct alternatives 
 
 ``` Under Review | Accepted | Rejected ``` 
 
@@ -94,17 +96,17 @@ We can further combine Product and Sum as they follow the same distributive law 
 (a * b + a * c) <=> a * (b +c)
 ```
 
-
-```
-
+We could define a DNS Record as a Sum Type
+``` 
 DnsRecord(
      AValue(ttl, name, ipv4)
    | AaaaValue(ttl, name, ipv6)
    | CnameValue(ttl, name, alias)
    | TxtValue(ttl, name, name)
 )
-
-
+```
+But we could also refactor to a Product of Produce and Sums
+```
 DnsRecord(ttl, name,
      AValue(ipv4)
    | AaaaValue(ipv6)
@@ -124,6 +126,7 @@ similar with associativity
 (a + b) + c <=> a + (b + c)
 (a * b) * c <=> a * (b * c)
 ```
+
 
 
 ## A Historical Perspective
@@ -230,66 +233,76 @@ We trade some future flexibility for an exhaustive list of subtypes that allows 
 
 
 ### Advantages over the Visitor Pattern
-Traditionally, Java developers used the Visitor pattern to handle different types within a hierarchy. However, this approach has several drawbacks:
-- Verbosity: The Visitor pattern requires a lot of boilerplate code, with separate visitor interfaces and classes for each operation.
-- Openness to Extension: Adding a new type to the hierarchy requires modifying the visitor interface and all its implementations, violating the Open/Closed Principle.
-- Lack of Exhaustiveness Checking: The compiler cannot guarantee that all possible types are handled, leading to potential runtime errors.
+Traditionally, Java developers used the Visitor pattern to handle different types within a hierarchy. However, this approach has several drawbacks that we will see when we compare using a Sum type with pattern matching to the same effect using the Visitor pattern:
+
+### Using Visitor Pattern
+
+<script src="https://gist.github.com/MagnusSmith/1299a2540158de978e7b66a2c1029f87.js"></script>
 
 
+```jshelllanguage
+Shapes:
+Circle with radius: 5.00, area: 78.54, perimeter: 31.42
+Triangle with sides: 3.00, 3.00, 3.00, area: 3.90, perimeter: 9.00
+Rectangle with width: 3.00 , height: 5.00, area: 15.00, perimeter: 16.00
+Pentagon with side: 5.60, area: 53.95, perimeter: 28.00
 
-~~~ java 
+Shapes scaled by 2:
+Circle with radius: 10.00, area: 314.16, perimeter: 62.83
+Triangle with sides: 6.00, 6.00, 6.00, area: 15.59, perimeter: 18.00
+Rectangle with width: 6.00 , height: 10.00, area: 60.00, perimeter: 32.00
+Pentagon with side: 11.20, area: 215.82, perimeter: 56.00
+```
 
-public sealed interface Shape permits Circle, Rectangle {
-    double area();
-    double perimeter();
-}
-
-public record Circle(double radius) implements Shape {
-    @Override
-    public double area() {
-        return Math.PI * radius * radius;
-    }
-    @Override
-    public double perimeter() {
-        return 2 * Math.PI * radius;
-    }
-}
-
-public record Rectangle(double width, double height) implements Shape {
-    @Override
-    public double area() {
-        return width * height;
-    }
-    @Override
-    public double perimeter() {
-        return 2 * (width + height);
-    }
-}
-
-public class Shapes {
-    public static void printShapeInfo(Shape shape) {
-        switch (shape) {
-            case Circle c -> System.out.println("Circle with radius: " + c.radius() + ", area: " + c.area() + ", perimeter: " + c.perimeter());
-            case Rectangle r -> System.out.println("Rectangle with width: " + r.width() + ", height: " + r.height() + ", area: " + r.area() + ", perimeter: " + r.perimeter());
-        }
-    }
-    public static Shape scaleShape(Shape shape, double scaleFactor) {
-        return switch (shape) {
-            case Circle c -> new Circle(c.radius() * scaleFactor);
-            case Rectangle r -> new Rectangle(r.width() * scaleFactor, r.height() * scaleFactor);
-        };
-    }
-}
-~~~
 Explanation:
-1. Shape is a sealed interface, allowing only Circle and Rectangle to implement it.
-2. Circle and Rectangle are records, concisely defining the data they hold.
-3. Shapes demonstrates how to use pattern matching with switch to handle different Shape types and perform operations like calculating area, perimeter or scaling. The compiler ensures that all possible Shape types are covered in the switch.
+
+- ShapeVisitor<T> Interface:
+    + Defines the visit methods for each shape type.
+    + The generic type T allows visitors to return different types of results.
+
+- accept Method in Shape:
+    + Each shape class implements the accept method, which takes a ShapeVisitor and calls the appropriate visit method on the visitor.
+
+- Concrete Visitors:
+    + AreaCalculator: Calculates the area of a shape.
+    + PerimeterCalculator: Calculates the perimeter of a shape.
+    + InfoVisitor: Generates a string with information about the shape (including area and perimeter).
+    + ScaleVisitor: Scales a shape by a given factor.
+
+
+### Using Sum Type with pattern matching
+
+<script src="https://gist.github.com/MagnusSmith/5ea4b7c85a862cfcfbb8dc4b67fc421d.js"></script>
+
+
+Output:
+
+```jshelllanguage
+Shapes: [Circle[radius=5.0], Triangle[side1=3.0, side2=3.0, side3=3.0], Rectangle[width=3.0, height=5.0], Pentagon[side=5.6]]
+Circle with radius: 5.00, area: 78.54, perimeter: 31.42
+Triangle with sides: 3.00, 3.00, 3.00, area: 3.90, perimeter: 9.00
+Rectangle with width: 3.00 , height: 5.00, area: 15.00, perimeter: 16.00
+Pentagon with side: 5.60, area: 53.95, perimeter: 28.00
+
+Shapes scaled by 2: [Circle[radius=5.0], Triangle[side1=3.0, side2=3.0, side3=3.0], Rectangle[width=3.0, height=5.0], Pentagon[side=5.6]]
+Circle with radius: 10.00, area: 314.16, perimeter: 62.83
+Triangle with sides: 6.00, 6.00, 6.00, area: 15.59, perimeter: 18.00
+Rectangle with width: 6.00 , height: 10.00, area: 60.00, perimeter: 32.00
+Pentagon with side: 11.20, area: 215.82, perimeter: 56.00
+```
+
+Explanation:
+1. Shape is a sealed interface, allowing only permitting Circle, Rectangle, Triangle and Pentagon to implement it.
+2. Circle and Rectangle Triangle and Pentagon are records, concisely defining the data they hold.
+3. Shapes demonstrates using pattern matching with switch to handle different Shape types and perform operations like calculating area, perimeter or scaling. The compiler ensures that all possible Shape types are covered in the switch.
 
 
 
+### Compare with the Visitor Pattern approach 
 
-
+- `Verbosity`: The Visitor pattern requires a lot of boilerplate code, with separate visitor interfaces and classes for each operation.
+- `Openness to Extension`: Adding a new type to the hierarchy requires modifying the visitor interface and all its implementations, violating the Open/Closed Principle.
+- `Lack of Exhaustiveness Checking`: The compiler cannot guarantee that all possible types are handled, leading to potential runtime errors.
 
 References:
 
