@@ -1,6 +1,6 @@
 ---
 title: Exploring Algebraic Data Types with Java
-date: 2025-01-09 00:00:00 Z
+date: 2025-01-08 00:00:00 Z
 categories:
 - Tech
 tags:
