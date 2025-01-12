@@ -1,5 +1,5 @@
 ---
-title: Exploring Algebraic Data Types with Java
+title: Algebraic Data Types and Pattern Matching with Java
 date: 2025-01-08 00:00:00 Z
 categories:
 - Tech
@@ -17,7 +17,7 @@ image: magnussmith/assets/java.jpg
 
 
 
-![Algebraic Data Types and Pattern Matchinch with Java](../magnussmith/assets/adt_pattern_matching_java.webp)
+![Algebraic Data Types and Pattern Matchinch with Java]({{site.baseurl}}/magnussmith/assets/adt_pattern_matching_java.webp)
 
 # Introduction
 
