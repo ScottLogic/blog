@@ -6,38 +6,42 @@ categories:
 tags:
 - Java
 author: magnussmith
-summary: In this post we explore the power of Algebraic Data Types(ADT) with Pattern Matching in Java. We look at how they help us model complex business domains and how using them with pattern matching gives improvements on the traditional Visitor Pattern 
+summary: In this post we explore the power of Algebraic Data Types(ADT) with Pattern Matching in Java. We look at how they help us model complex business domains and how using them together gives improvements on the traditional Visitor Pattern 
 image: magnussmith/assets/java.jpg
 ---
-<style type="text/css">
+ <style type="text/css">
   .gist {width:500px !important;}
   .gist-file
   .gist-data {max-height: 500px;max-width: 500px;}
-</style>
+</style> 
+
+
+
+![Algebraic Data Types and Pattern Matchinch with Java](../magnussmith/assets/adt_pattern_matching_java.webp)
 
 # Introduction
 
-## Domain Modeling
-
 When we develop an application, we frequently need to model some aspect of business to describe and solve a business problem. We do this by creating a conceptual representation of the real-world problem that we are trying to solve. This allows us to understand the "domain" where our software operates.
+
+## Domain Modelling
 
 Think of it like creating a blueprint before constructing a building. You identify the key elements, their relationships, and how they interact. The blueprint guides the software design and ensures it accurately reflects the business  problem.
 
-Essentially, Domain Modeling works in four stages:
+Essentially, Domain Modelling works in four stages:
 
 1. **Identify Key Concepts:** Start by identifying the important concepts, entities, and relationships within the domain.
 2. **Create a Model:** Represent these concepts and their relationships using a model such as a class diagram.
-3. **Define Attributes and Behavior:** For each concept, you define its attributes (properties) and behavior (actions).
+3. **Define Attributes and Behaviour:** For each concept, you define its attributes (properties) and behaviour (actions).
 4. **Refine the Model:** Now iteratively refine the model based on feedback, further analysis, and discussions with domain experts.
 
 ### Relationship to Types and Objects in software:
 
-Domain modeling is closely tied to the concepts of types and objects in object-oriented programming:
+Domain modelling is closely tied to the concepts of types and objects in object-oriented programming:
 
 * **Types:** The concepts in the domain model often translate directly into types (classes) in our code. For example, the "Book" concept might become a `Book` class.
 * **Objects:** Instances of these types represent specific objects in the domain. Each `Book` object would represent a particular book in the library.
 * **Attributes:** Attributes in the domain model become properties (fields) of the class.
-* **Behavior:** The behavior defined in the domain model is implemented as methods in the class.
+* **Behaviour:** The behaviour defined in the domain model is implemented as methods in the class.
 
 ### Example:
 
