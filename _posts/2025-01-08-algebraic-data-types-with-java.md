@@ -17,7 +17,7 @@ image: magnussmith/assets/java.jpg
 
 
 
-![Algebraic Data Types and Pattern Matchinch with Java](../magnussmith/assets/adt_pattern_matching_java.webp)
+![Algebraic Data Types and Pattern Matchinch with Java]({{site.baseurl}}/magnussmith/assets/adt_pattern_matching_java.webp)
 
 # Introduction
 
