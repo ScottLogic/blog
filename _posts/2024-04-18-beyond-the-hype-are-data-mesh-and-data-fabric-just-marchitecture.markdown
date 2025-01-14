@@ -10,6 +10,7 @@ tags:
 - data fabric
 - data architecture
 - data engineering
+- featured
 summary: In this episode, Oliver Cronk, Andrew Carr and David Hope talk about the
   ever-changing world of data, with conversations moving from data warehouse to data
   lake, and data mesh to data fabric. They discuss the importance of data ownership
