@@ -4,15 +4,15 @@ date: 2020-02-10 00:00:00 Z
 categories:
 - Testing
 tags:
-- Testing,
-- featured
-author: cakehurstryan
-layout: default_post
+- Testing
+- ''
 summary: |2-
 
   To achieve continuous deployment, we need to achieve continuous confidence of our software.
   We need to think about Continuous Testing.
+author: cakehurstryan
 image: cakehurstryan/assets/continuous_delivery_image.jfif
+layout: default_post
 ---
 
 Continuous Integration / Continuous Deployment is a way of working in which software changes can be easily and frequently deployed through environments into production via an automated pipeline. Every code commit can be deployed, tested and released in a predictable way allowing for a much quicker release to market for new features.
