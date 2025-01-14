@@ -3,13 +3,11 @@ title: The Dependencies' Reckoning - Considerations when selecting third-party s
 date: 2022-03-24 00:00:00 Z
 categories:
 - Open Source
-tags:
-- featured
-author: osharon
-layout: default_post
 summary: In lights of various incidents where third-party software caused numerous
   failures, we'll review the considerations we take when selecting third-party software.
+author: osharon
 image: osharon/assets/featured/jenga.png
+layout: default_post
 ---
 
 Back in December 2021 the software development community buzzed over the “[Log4Shell](https://nakedsecurity.sophos.com/2021/12/13/log4shell-explained-how-it-works-why-you-need-to-know-and-how-to-fix-it/)” vulnerability that enabled hackers to gain access using injected code being executed when logged. For many organisations this posed a crucial-millions-of-dollars-worth risk. In retrospect, the decision to depend on a popular library felt like the right choice until the point it wasn’t. It was unavoidable, unless one would decide not to use any third party software and even then it’s presumptuous to think you won’t have security vulnerabilities in your own code. I would like to offer an overview of criteria one should consider before deciding between do-it-yourself and adopting third-party, often free and open source, software.
