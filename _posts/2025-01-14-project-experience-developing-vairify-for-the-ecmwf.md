@@ -6,9 +6,9 @@ categories:
 tags:
 - vAirify
 - Open Source
+summary: A short blog about my experience developing on the vAirify project.
 author: bell-jones
 title-short: Developing vAirify for the ECMWF
-summary: A short blog about my experience developing on the vAirify project.
 image: bell-jones/assets/vAirifyLogo.png
 layout: default_post
 ---
@@ -22,25 +22,25 @@ The vAirify project was part of the Code for Earth challenge, an initiative orga
 ## My Contributions and Experience
 My role in this project was multifaceted, encompassing a diverse array of technologies and challenges. It allowed me to wear multiple hats, from technologist to problem-solver, and even gave me the opportunity to tap into my creative side. If you would like to check out the code for yourself here is a link: [The Code](https://github.com/ECMWFCode4Earth/vAirify)
 
-# Agile
+## Agile
 We adopted Kanban as our agile methodology. If you would like to learn more about Kanban, you can find out more [here](https://blog.scottlogic.com/2024/03/07/kanban-not-the-lazy-option.html). We used a GitHub project board, which was an interesting change from the Jira platform I had previously used on the grad project. During our daily stand-ups, we would often 'walk the board,' reviewing our progress and giving each member of the team the opportunity to talk about what they have been working on. I even had the opportunity to lead a stand-up ceremony for the first time, which was a new and enjoyable experience for me. 
 
-# Pipeline
+## Pipeline
 I developed a GitHub Actions workflow to implement conditional testing for our project. This workflow was designed to run frontend and/or backend tests only when changes were made to their respective parts of the system, improving our CI/CD pipeline efficiency. The development process required me to push code changes and create new commits each time I needed to test the action, which was quite tedious, and explains the many commits on my branch. Each commit is a step in refining and verifying the functionality of the conditional testing workflow.  
 
 Before this update to the pipeline, the pipeline ran quite slow having to run all tests at once. The implementation of this feature significantly boosted performance by only running tests when code that corresponds to said tests change. 
 
-# Backend Development
+## Backend Development
 The backend development in this project was particularly fascinating, especially the ETL (Extract, Transform, and Load) process. Our system regularly collects data from sources like OpenAQ, processes it, and updates our database. We use powerful Python libraries such as Pandas and Xarray for this task. As is seemingly typical for Python and its libraries, I found these were all very well written and easy to use. 
 
 For our API, we chose FastAPI, a library I hadn't used before but found exceptionally well-crafted and enjoyable to work with. It significantly streamlined the process of setting up an API to serve data to our frontend. This became clear during my work on implementing an endpoint to query forecast data from our database, highlighting FastAPI's efficiency and ease of use, needing very few lines of code to create the endpoint. 
 
-# Frontend Development 
+## Frontend Development 
 The frontend development also presented some exciting challenges. I had the opportunity to work with charting and graphing libraries, such as ECharts, to display the air quality data to the users. On a city detailed view page, such as London's, users could view multiple graphs showing pollutant data. A key requirement was to plot pollutant values at hourly intervals. However, the database had data points that didn't align precisely with these hourly marks. To address this, I implemented a data pre-processing step that averaged all measurements within a ±30 minute window around each hour and then plotted the data on the graph. 
 
 Others on the project did some interesting work too, such as creating a map that displayed the location of measuring stations, which allowed users to select and deselect the stations to be used on the graphs. This was very cool to see. 
 
-# Collaborating with External Experts 
+## Collaborating with External Experts 
 
 In addition to working with ECMWF mentors, I had the chance to collaborate with a data scientist from the University of Bristol. This cross-organizational collaboration allowed me to learn from different perspectives and gain insights into the challenges faced by the various stakeholders involved in the project. 
 
@@ -50,7 +50,7 @@ Every week we would have a review, where we would go over what we had done that 
 
 This observation led to a constructive discussion where I advocated for keeping the drop-down alongside the new map feature. I learnt quite a lot from this experience, such as having multiple ways of doing something could cater to different user preferences and use cases.
 
-# A Work of Art 
+## A Work of Art 
 
 And to finish off the blog, on a more unorthodox ticket, I had fun creating a logo for the project in [Procreate](https://procreate.com/). The colours were chosen to match the colours of the AQI levels we used during the project. Unfortunately, however, I was not able to fit all 6 colours on the logo... Due to not leaving enough space between letters. 5 out of the 6 is pretty good if you ask me, a happy accident you might say as I think adding an extra layer may have been too much. It proved somewhat controversial, but beauty is in the eye of the beholder, and I thought it looked good! You can make up your own mind... 
 
@@ -58,7 +58,7 @@ And to finish off the blog, on a more unorthodox ticket, I had fun creating a lo
 
 Perhaps it's a good thing I chose software development over software design! 
 
-# Key things I'll take away from the project:
+## Key things I'll take away from the project:
 
   1. I received more Agile experience:
       - Effectively used Kanban with a GitHub project board, leading a stand-up ceremony for the first time.
@@ -80,6 +80,6 @@ Perhaps it's a good thing I chose software development over software design!
 
   6. Art is hard
 
-# Conclusion 
+## Conclusion 
 
 The vAirify project proved to be a transformative experience, significantly contributing to my growth as a developer. It provided me with invaluable exposure to a diverse range of technologies as I worked across various aspects of the system, from frontend development to pipeline management. Navigating the complexities of a client-facing (mentor) project enhanced my professional skills and understanding of real-world development challenges. I'm grateful for the opportunity to have taken part in this project and am confident that the knowledge and experience gained will be instrumental in my future endeavours at Scott Logic. 
