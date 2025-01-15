@@ -10,7 +10,7 @@ tags:
 summary: A short blog about my experience developing on the vAirify project.
 author: bell-jones
 title-short: Developing vAirify for the ECMWF
-image: bell-jones/assets/vAirifyLogo.png
+image: "/uploads/Developing%20vAirify%20for%20ECMWF.png"
 layout: default_post
 ---
 
