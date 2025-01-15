@@ -1,5 +1,5 @@
 ---
-title: Developing vAirify for the ECMWF 
+title: Developing vAirify for the ECMWF
 date: 2025-01-14 00:00:00 Z
 categories:
 - Open Source
