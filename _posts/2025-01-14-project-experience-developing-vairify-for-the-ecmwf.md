@@ -6,6 +6,7 @@ categories:
 tags:
 - vAirify
 - Open Source
+- featured
 summary: A short blog about my experience developing on the vAirify project.
 author: bell-jones
 title-short: Developing vAirify for the ECMWF
