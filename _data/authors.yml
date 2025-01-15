@@ -16,6 +16,7 @@ active-authors:
   - asegrove
   - ashing
   - awhitmell
+  - bell-jones
   - bheyman
   - bpritchard
   - bwallis
@@ -253,6 +254,10 @@ authors:
     name: "Andrew Whitmell"
     author-summary: "Developer based in Newcastle."
     picture: awhitmell.jpg
+  bell-jones:
+    name: "Benjamin Ell-Jones"
+    author-summary: "Developer based in Bristol"
+    picture: picture.jpg
   bdimitrov-SL:
     name: "Bogdan Dimitrov"
     author-summary: "<p>I am a Software Developer at Scott Logic working with .NET and HTML5 web technologies.</p>"
