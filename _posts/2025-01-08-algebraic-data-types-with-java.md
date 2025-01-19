@@ -17,7 +17,7 @@ image: magnussmith/assets/java.jpg
 
 
 
-![Algebraic Data Types and Pattern Matchinch with Java]({{site.baseurl}}/magnussmith/assets/adt_pattern_matching_java.webp)
+![Algebraic Data Types and Pattern Matching with Java]({{site.baseurl}}/magnussmith/assets/adt_pattern_matching_java.webp)
 
 # Introduction
 
@@ -31,8 +31,8 @@ Essentially, Domain Modelling works in four stages:
 
 1. **Identify Key Concepts:** Start by identifying the important concepts, entities, and relationships within the domain.
 2. **Create a Model:** Represent these concepts and their relationships using a model such as a class diagram.
-3. **Define Attributes and Behaviour:** For each concept, you define its attributes (properties) and behaviour (actions).
-4. **Refine the Model:** Now iteratively refine the model based on feedback, further analysis, and discussions with domain experts.
+3. **Define Attributes and Behaviour:** For each concept, we define its attributes (properties) and behaviour (actions).
+4. **Refine the Model:** Iteratively refine the model based on feedback, further analysis, and discussions with domain experts.
 
 ### Relationship to Types and Objects in software:
 
@@ -54,22 +54,22 @@ The relationship between a domain model and an algebra might seem abstract at fi
 #### Domain Model as a Foundation:
 
 * **Types as Sets:** In the domain model, each concept (e.g., "Customer," "Product," "Order") can be thought of as a set of possible values. For instance, "Customer" represents the set of all possible customers.
-* **Relationships as Functions:** Relationships between concepts can be modeled as functions. For example, an "Order" might have a function `getCustomer()` that maps an order to its corresponding customer.
+* **Relationships as Functions:** Relationships between concepts can be modelled as functions. For example, an "Order" might have a function `getCustomer()` that maps an order to its corresponding customer.
 
 #### Algebraic Structures:
 
 * **Operations:** An algebra defines operations on these sets. In an e-commerce example, we might have operations like "add product to order," "calculate total price," or "apply discount."
-* **Laws and Properties:** These operations adhere to certain laws and properties (like associativity, commutativity, etc.). These laws reflect the business rules and constraints of your domain.
+* **Laws and Properties:** These operations adhere to certain laws and properties (associativity, commutativity, etc.). These laws reflect the business rules and constraints of your domain.
 
 #### Connecting the Pieces:
 
 * **Domain Model Informs the Algebra:** The domain model provides the basis for defining the sets and operations in the algebra. It ensures that the algebra accurately reflects our real-world problem.
-* **Algebra Provides Structure:** The algebraic structure helps us reason about the behavior of your system and ensures consistency. For example, the "add product to order" operation might need to be associative (the order in which you add products shouldn't matter).
+* **Algebra Provides Structure:** The algebraic structure helps us reason about the behaviour of your system and ensures consistency. For example, the "add product to order" operation might need to be associative (the order in which you add products shouldn't matter).
 * **Implementation:** In code, we implement the algebra using classes, methods, and data structures. The algebraic laws guide the implementation and help you avoid inconsistencies.
 
 ### Benefits of this Approach:
 
-* **Rigour and Precision:** Using an algebraic approach brings rigour and precision to the domain model. It helps us clearly define the behavior of a system.
+* **Rigour and Precision:** Using an algebraic approach brings rigour and precision to the domain model. It helps us clearly define the behaviour of a system.
 * **Testability:** Algebraic laws can be used to create comprehensive test cases, ensuring that your implementation adheres to the domain rules.
 * **Maintainability:** A well-defined algebra makes code more modular and easier to maintain. Changes in the domain can be reflected by modifying the algebra and its implementation.
 
@@ -87,7 +87,7 @@ By implementing these algebraic laws in our code, we ensure that the banking sys
 
 ## Algebraic Data Types (ADTs)
 
-Algebraic Data Types (ADTs) are a way to structure data in functional programming languages. They provide a mechanism to create composite data types by combining other simpler types. ADTs help us to model complex data structures using simpler building blocks, much like building with LEGOs. Think of them as custom, compound data types that you design for your specific needs.
+Algebraic Data Types (ADTs) are a way to structure data in functional programming languages. They provide a mechanism to create composite data types by combining other simpler types. ADTs help us to model complex data structures using simpler building blocks, much like building with LEGO. Think of them as custom, compound data types that you design for your specific needs.
 
 ADTs are prevalent in functional programming due to their ability to enhance code safety, readability, and maintainability in a structured and type-safe manner.
 
@@ -148,7 +148,7 @@ In abstract syntax:
 
 `TextStyle = Weight ⨯ Font`
 
-`6 = 3 x 3`
+`9 = 3 x 3`
 
 ## Sum Types
 
@@ -185,7 +185,7 @@ This is a **Sum** because the number of items in the resulting type is the sum o
 
 Product and sum types can be combined, and they follow the distributive law of numerical algebra:
 
-`(a * b + a * c) <=> a * (b +c)`
+`(a * b + a * c) <=> a * (b + c)`
 
 For example, we could define a DNS Record as a sum type:
 
@@ -230,7 +230,7 @@ Let's take a quick tour of how ADTs (or their approximations) have been handled 
 
 ### C
 C lacks built-in support for ADTs but can simulate them by using `structs` for product types and `unions` (combined with an `enum` for type tracking) for a rudimentary form of sum types.
-    The tagged union (also called a disjoint union) is a data structure used to hold a value that can take on several different, but fixed, types. Only one of the types can be in use at any one time, and a tag field explicitly indicates which one is in use. Here, the tag is a value that indicates the variant of the enum stored in the union. However, unions are notoriously unsafe, as they don't enforce type checking at compile time.
+    The tagged union (also called a disjoint union) is a data structure used to hold a value that can take on several different, but fixed, types. Only one of the types can be in use at any one time; a tag field explicitly indicates which one is in use. Here, the tag is a value that indicates the variant of the enum stored in the union. However, unions are notoriously unsafe, as they don't enforce type checking at compile time.
 
 ~~~ c
     union vals {
@@ -271,10 +271,10 @@ Scala uses case classes for product types and `sealed traits` with `case classes
 Java's records and sealed interfaces provide an elegant mechanism for implementing ADTs.
 
 -   **Records:** Introduced in Java 14, records offer a concise syntax for defining immutable data carriers, providing *nominal* types and components with *human-readable* names.
--   **Sealed Interfaces:** Introduced in Java 17, sealed interfaces allow classes and interfaces to have more control over their permitted subtypes. This enables precise data modeling as *sealed* hierarchies of immutable records. The compiler knows all possible subtypes at compile time, a crucial requirement for safe sum types.
+-   **Sealed Interfaces:** Introduced in Java 17, sealed interfaces allow classes and interfaces to have more control over their permitted subtypes. This enables precise data modelling as *sealed* hierarchies of immutable records. The compiler knows all possible subtypes at compile time, a crucial requirement for safe sum types.
 -   **Pattern Matching:** Pattern matching is a powerful feature that enhances Java's `instanceof` operator and `switch` expressions/statements. It allows developers to concisely and safely extract data from objects based on their structure. This capability streamlines type checking and casting, leading to more readable and less error-prone code. The evolution of pattern matching in Java is noteworthy. Initially introduced in Java 16 to enhance the `instanceof` operator [JEP 394](https://openjdk.org/jeps/394), it was later extended to `switch` expressions and statements in Java 17 [JEP 406](https://openjdk.org/jeps/496). This expansion broadened the applicability of pattern matching, enabling more expressive and safer code constructs.
 
-Restricting the possible implementations of a type enables exhaustive pattern matching and makes invalid states unrepresentable. This is particularly useful for general domain modeling with type safety.
+Restricting the possible implementations of a type enables exhaustive pattern matching and makes invalid states unrepresentable. This is particularly useful for general domain modelling with type safety.
 
 
 
@@ -307,7 +307,7 @@ enum Planet {
 ...
 }
 ~~~
-sealed records work at a higher level.  Where enums enumerate a fixed list of `instances` sealed records enumerate a fixed list of `kinds of instances`
+sealed records work at a higher level.  Where enums enumerate a fixed list of `instances`, sealed records enumerate a fixed list of `kinds of instances`
 
 ~~~ java 
 
@@ -321,7 +321,7 @@ sealed interface Celestial {
 
 Unlike enums, records allow us to attach arbitrary attributes to each of the enumerated states. We are no longer restricted to fixed constants.
 
-In the Celestial example, we see a `sum of products`. This is a useful technique for modeling complex domains in a flexible but type-safe manner.  For sums of products to work, we have to commit to the subtypes, which is a form of tight coupling. This works well if we are sure the subtypes are unlikely to change. We trade some future flexibility for an exhaustive list of subtypes that allows better reasoning about shapes, especially when it comes to pattern matching.
+In the Celestial example, we see a `sum of products`. This is a useful technique for modelling complex domains in a flexible but type-safe manner.  For sums of products to work, we have to commit to the subtypes, which is a form of tight coupling. This works well if we are sure the subtypes are unlikely to change. We trade some future flexibility for an exhaustive list of subtypes that allows better reasoning about shapes, especially when it comes to pattern matching.
 
 
 
@@ -350,7 +350,7 @@ Pentagon with side: 11.20, area: 215.82, perimeter: 56.00
 
 #### Explanation:
 
-1. `Shape` is a sealed interface, allowing only permitting `Circle`,` Rectangle`,` Triangle` and `Pentagon` to implement it.
+1. `Shape` is a sealed interface, only permitting `Circle`,` Rectangle`,` Triangle` and `Pentagon` to implement it.
 
 2. `ShapeVisitor<T>` Interface:
     + Defines the visit methods for each shape type.
@@ -422,7 +422,7 @@ The visitor pattern is a solution that favours extending operations over extendi
 - **Verbosity**: ADTs with pattern matching are more concise.
 - **Exhaustiveness Checking**: With sealed types and pattern matching, the compiler can perform exhaustiveness checking, ensuring that all cases are handled.
 
-In summary, ADTs, particularly in modern Java with records, sealed interfaces, and pattern matching, offer a more elegant, type-safe, and maintainable approach to modeling complex data and their behavior, compared to traditional techniques like the Visitor pattern.
+In summary, ADTs, particularly in modern Java with records, sealed interfaces, and pattern matching, offer a more elegant, type-safe, and maintainable approach to modelling complex data and their behaviour, compared to traditional techniques like the Visitor pattern.
 
 
 
