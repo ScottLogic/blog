@@ -148,7 +148,7 @@ In abstract syntax:
 
 `TextStyle = Weight ⨯ Font`
 
-`6 = 3 x 3`
+`9 = 3 x 3`
 
 ## Sum Types
 
