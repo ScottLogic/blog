@@ -1,6 +1,6 @@
 ---
 title: Algebraic Data Types and Pattern Matching with Java
-date: 2025-01-08 00:00:00 Z
+date: 2025-01-20 00:00:00 Z
 categories:
 - Tech
 tags:
