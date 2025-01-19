@@ -228,7 +228,8 @@ The concept of ADTs traces back to the early days of functional programming lang
 
 Let's take a quick tour of how ADTs (or their approximations) have been handled in different languages:
 
--   **C:** C lacks built-in support for ADTs but can simulate them by using `structs` for product types and `unions` (combined with an `enum` for type tracking) for a rudimentary form of sum types.
+### C
+C lacks built-in support for ADTs but can simulate them by using `structs` for product types and `unions` (combined with an `enum` for type tracking) for a rudimentary form of sum types.
     The tagged union (also called a disjoint union) is a data structure used to hold a value that can take on several different, but fixed, types. Only one of the types can be in use at any one time, and a tag field explicitly indicates which one is in use. Here, the tag is a value that indicates the variant of the enum stored in the union. However, unions are notoriously unsafe, as they don't enforce type checking at compile time.
 
 ~~~ c
@@ -243,7 +244,8 @@ Let's take a quick tour of how ADTs (or their approximations) have been handled 
     };
 ~~~
 
-- **Haskell**: Haskell a functional language elegantly expresses ADTs with its data keyword. Haskell's type system is specifically designed to support the creation and manipulation of ADTs.
+### Haskell
+Haskell a functional language elegantly expresses ADTs with its data keyword. Haskell's type system is specifically designed to support the creation and manipulation of ADTs.
 
 ~~~ haskell
   data Shape = Circle Float | Rectangle Float Float
@@ -251,7 +253,8 @@ Let's take a quick tour of how ADTs (or their approximations) have been handled 
 
   This defines Shape as a sum type that can be either a Circle with a radius (Float) or a Rectangle with width and height (Float).
 
-- **Scala**: Scala uses case classes for product types and `sealed traits` with `case classes/objects` for sum types. This provides a robust and type-safe way to define ADTs.
+### Scala
+Scala uses case classes for product types and `sealed traits` with `case classes/objects` for sum types. This provides a robust and type-safe way to define ADTs.
 
 ~~~ scala
   sealed trait Shape
@@ -259,7 +262,8 @@ Let's take a quick tour of how ADTs (or their approximations) have been handled 
     case class Rectangle(width: Double, height: Double) extends Shape
 ~~~
 
-- **Java** (Pre-Java 17): Historically, Java relied on class hierarchies and the Visitor pattern to mimic sum types. This approach was verbose, requiring a lot of boilerplate code and was prone to errors if not carefully implemented. Product types were typically represented by classes with member variables.
+### Java
+(Pre-Java 17): Historically, Java relied on class hierarchies and the Visitor pattern to mimic sum types. This approach was verbose, requiring a lot of boilerplate code and was prone to errors if not carefully implemented. Product types were typically represented by classes with member variables.
 
 
 ## ADTs in Java
@@ -411,7 +415,7 @@ The visitor pattern is a solution that favours extending operations over extendi
 - **Verbosity**: The Visitor pattern requires a lot of boilerplate code, with separate visitor interfaces and classes for each operation
 - **Exhaustiveness Checking**: The compiler cannot guarantee that all possible types are handled in the Visitor pattern, leading to potential runtime errors.
 
-##### Patten Matching
+##### Pattern Matching
 
 - **Add new operations (Easy)**:  Add a new pattern matching function
 - **Add new data type (Easier)**:  Only update the pattern matching code that needs to deal with the new data type 
