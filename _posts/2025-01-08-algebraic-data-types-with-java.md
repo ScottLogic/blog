@@ -17,7 +17,7 @@ image: magnussmith/assets/java.jpg
 
 
 
-![Algebraic Data Types and Pattern Matchinch with Java]({{site.baseurl}}/magnussmith/assets/adt_pattern_matching_java.webp)
+![Algebraic Data Types and Pattern Matching with Java]({{site.baseurl}}/magnussmith/assets/adt_pattern_matching_java.webp)
 
 # Introduction
 
@@ -185,7 +185,7 @@ This is a **Sum** because the number of items in the resulting type is the sum o
 
 Product and sum types can be combined, and they follow the distributive law of numerical algebra:
 
-`(a * b + a * c) <=> a * (b +c)`
+`(a * b + a * c) <=> a * (b + c)`
 
 For example, we could define a DNS Record as a sum type:
 
