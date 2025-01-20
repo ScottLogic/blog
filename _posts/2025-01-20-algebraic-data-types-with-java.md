@@ -6,7 +6,7 @@ categories:
 tags:
 - Java
 author: magnussmith
-summary: In this post we explore the power of Algebraic Data Types(ADT) with Pattern Matching in Java. We look at how they help us model complex business domains and how using them together gives improvements on the traditional Visitor Pattern 
+summary: In this post we explore the power of Algebraic Data Types(ADT) with Pattern Matching in Java. We look at how they help us model complex business domains and how using them together gives improvements on the traditional Visitor Pattern. 
 image: magnussmith/assets/java.jpg
 ---
  <style type="text/css">
