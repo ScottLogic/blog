@@ -9,6 +9,7 @@ summary: Last week the UK government launched their 50-point AI Opportunities Ac
   I am more concerned with is what is missing. The plan has optimistic, upbeat and
   pro-innovation, but is rather silent on the risks.
 author: ceberhardt
+image: "/uploads/ai_action_plan.jpeg"
 ---
 
 Last week the UK government launched their 50-point [AI Opportunities Action Plan](https://www.gov.uk/government/publications/ai-opportunities-action-plan/ai-opportunities-action-plan). I’m going to ignore the marketing hyperbole (they’re going to [“mainline AI into the veins of this enterprising nation”](https://www.gov.uk/government/news/prime-minister-sets-out-blueprint-to-turbocharge-ai) - seriously?!) and concentrate more on the substance ... and there is a lot of it. The plan is ambitious, but it is something of a mixed bag. Some sizeable and worthwhile investments, alongside others which are quite questionable. But what I am more concerned with is what is missing. The plan has optimistic, upbeat and pro-innovation, but is rather silent on the risks.
