@@ -519,7 +519,7 @@ authors:
     name: "Jonathan Cardy"
   jcarstairs:
     name: "Joe Carstairs"
-    author-summary: "<p>Developer at Scott Logic. Find me on <a href="https://joeac.net">joeac.net</a>.</p>"
+    author-summary: "<p>Developer at Scott Logic. Find me on <a href=\"https://joeac.net\">joeac.net</a>.</p>"
     picture: picture.webp
   jcwright:
     name: "Jay Wright"
