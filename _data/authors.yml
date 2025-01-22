@@ -519,7 +519,7 @@ authors:
     name: "Jonathan Cardy"
   jcarstairs:
     name: "Joe Carstairs"
-    author-summary: "<p>Developer at Scott Logic. Find me on <a href=\"https://joeac.net\">joeac.net</a>.</p>"
+    author-summary: '<p>Developer at Scott Logic. Find me on <a href="https://joeac.net">joeac.net</a>.</p>'
     picture: picture.webp
   jcwright:
     name: "Jay Wright"
@@ -684,7 +684,7 @@ authors:
     picture: picture.jpg
   mnyamunda:
     name: "Maxwell Nyamunda"
-    author-summary: "<p>I am an Associate Test Engineer that enjoys UI automation. I also enjoy the challenge of figuring out how to test new types of software</p>"
+    author-summary: "<p>I am an Associate Test Engineer in Bristol that enjoys UI automation. I very much enjoy the challenge of figuring out how to automate unfamiliar scenarios</p>"
     picture: picture.jpg
   mperrin:
     name: "Mike Perrin"
