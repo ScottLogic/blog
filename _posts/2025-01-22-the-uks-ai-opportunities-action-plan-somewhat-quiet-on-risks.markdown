@@ -76,7 +76,7 @@ Plans for the NDL were first aired a few months ago, and the Department for Scie
 
 As we go about our daily lives we generate vast quantities of data, spanning medical, education, travel, the environment and much more. Making this data available via public datasets is a fantastic way to fuel both product and academic innovation. Our data should be open by default.
 
-Increase the number of AI graduates
+## Increase the number of AI graduates
 
 Creating value with Generative AI requires skills that most people lack – in fact, the skills themselves are only just being formalised. It has already given rise to a new discipline, prompt engineering, and there will be more to come.
 
