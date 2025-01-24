@@ -20,7 +20,7 @@ Playwright is a powerful automation library that is extensively used for regress
 
 ## The Problem
 
-The main challenge was to create a dashboard that shows discrepancies between forecasted air quality and the real time measurements. The main page was simple enough as it was using ag grid, hence we could mock and assert values within each cell. However, it would not be as simple with chart-like elements. We needed to test that the data in these charts was visualised correctly. Firstly, with default mocked data and then secondly, we needed to test that the various UI interactions transform the charts correctly.
+The main challenge was to create a dashboard that shows discrepancies between forecasted air quality and the real time measurements. The main page was simple enough as it was using ag grid, hence we could mock and assert values within each cell. However, it would not be as simple with chart-like elements. We needed to test that the data in these charts was visualised correctly. With default mocked data and then secondly, we needed to test that the various UI interactions transform the charts correctly.
 
 Please find full context in this [case study](https://www.scottlogic.com/our-work/code-for-earth-evaluating-air-quality).
 
@@ -32,7 +32,7 @@ Shown above is the UI consisting of 6 different charts that show forecasted and 
 
 Playwright will startup each browser and complete various actions and take a screenshot of the DOM element(s) state. It will then sequentially look at each pixel and check if it’s RGBA values match up to the comparison image created in the codebase.
 With Playwright snapshots we can easily assert how a page element should look. Provided that we don’t have a comparison image in the codebase our first run of `npx playwright test` will create a comparison image for us. Now we must tweak our test steps until we are satisfied with the snapshot created by playwright. Once satisfied we now run the same command with the flag `--update-snapshots` which then saves the snapshot as our golden standard referral image. Now each time we run the test we will compare against that image.
-Note that a comparison image will be created for each of the browsers we have enabled. So if I run `toMatchSnapshot('Image.png')` then it will create separate images for Chrome, Firefox and Webkit.
+Note that a comparison image will be created for each of the browsers we have enabled. So, if I run `toMatchSnapshot('Image.png')` then it will create separate images for Chrome, Firefox and Webkit.
 
 ## Example Snippets
 
@@ -61,7 +61,7 @@ If 27/240000 pixels are different then the test will pass. 28/240000 different p
 
 `in-situ-AQI-is-4-at-00:00-due-to-PM2.5.png,{ maxDiffPixelRatio: 27 }`
 
-This is instead a percentage check. If up to 27% pf the pixels do not match, then the test will still pass. Upon running the test through playwright CLI commands, a report is generated at the end of the test. This will show us what is different in the image.
+This is instead a percentage check. If up to 27% of the pixels do not match, then the test will still pass. Upon running the test through playwright CLI commands, a report is generated at the end of the test. This will show us what is different in the image.
 
 ## What does failure look like?
 
@@ -114,7 +114,7 @@ Test flow: We want to test that the blue line is plotted accurately based on whi
 ## What does this solve?
 
 It solves the issue of trying to assert on many different elements that may be quite tedious to locate and assert on elements one by one.
-This page is using the [echarts](https://echarts.apache.org/examples/en/index.html) to render the graphs.
+This page is using the [echarts](https://echarts.apache.org/examples/en/index.html) library to render the graphs.
 
 - It’s almost like a second pair of eyes. If we have a good understanding of how the data should look, then it makes UI regression testing much more efficient.
 - Apart from failure due to incorrect data visualisation, we can also catch onto many other unintentional changes such as changes to padding or margins.
@@ -163,7 +163,7 @@ In our project we also implemented a network polling method which would ensure t
 
 Mocking data is another important piece of the puzzle.
 Originally, we started out by simply extracting a JSON object and then exporting it from a helper file. This ended up being quite hefty in terms of actual code (sometimes reaching four thousand lines of mocked data for a test item).
-We then cut down on unnecessary code by using overridden interfaces. Using Playwright Mocks we were able to
+We then cut down on unnecessary code by using overridden interfaces.
 
 ```
 interface forecastAPIResponse {
