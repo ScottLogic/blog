@@ -27,10 +27,10 @@ There’s a lot of hype to navigate around, but we bring our range of experience
 
 * [How to build an effective technical strategy – LeadDev](https://leaddev.com/technical-direction/how-build-effective-technical-strategy)
 
-* [Better than a secret weapon: 5 steps to a winning technology skills strategy](https://www.techuk.org/resource/better-than-a-secret-weapon-5-steps-to-a-winning-technology-skills-strategy.html)\
-  [ – TechUK](https://www.techuk.org/resource/better-than-a-secret-weapon-5-steps-to-a-winning-technology-skills-strategy.html)
+* [Better than a secret weapon: 5 steps to a winning technology skills strategy
+  – TechUK](https://www.techuk.org/resource/better-than-a-secret-weapon-5-steps-to-a-winning-technology-skills-strategy.html)
 
-* [The Tech:](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-tech-forward-recipe-for-a-successful-technology-transformation)*[Forward](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-tech-forward-recipe-for-a-successful-technology-transformation)*[ recipe for a successful technology transformation – McKinsey](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-tech-forward-recipe-for-a-successful-technology-transformation)
+* [The Tech:Forward recipe for a successful technology transformation – McKinsey](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-tech-forward-recipe-for-a-successful-technology-transformation)
 
 **Subscribe to the podcast**
 
