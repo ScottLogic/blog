@@ -13,6 +13,7 @@ tags:
 summary: In this episode, I’m joined by Technology Lead Andrew Carr and CTO Colin
   Eberhardt to delve into the evolving nature of technology strategies within organisations.
 author: ocronk
+image: "/uploads/BeyondTheHype---blue-and-yellow---episode-22---social.jpg"
 ---
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/35030535/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes/font-color/252525" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
