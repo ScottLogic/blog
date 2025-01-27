@@ -54,11 +54,13 @@ jobs:
         run: npm ci
 
       - name: Setup Chrome
-        uses: browser-actions/setup-chrome@v1
         id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: 'stable'
 
       - name: Wait for blog to be running
         run: npx wait-on http://localhost:4000 --timeout 60000
 
       - name: Run pa11y-ci
-        run: CHROMIUM_BIN=$(which chrome) npx pa11y-ci
+        run: CHROMIUM_BIN=${{ steps.setup-chrome.outputs.chrome-path }} npx pa11y-ci
