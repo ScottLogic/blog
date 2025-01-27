@@ -10,14 +10,16 @@ tags:
 - Business Strategy
 - Technical Debt
 - innovation
+summary: In this episode, I’m joined by Technology Lead Andrew Carr and CTO Colin
+  Eberhardt to delve into the evolving nature of technology strategies within organisations.
 author: ocronk
 ---
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/35030535/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes/font-color/252525" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
 
-In this episode, I’m joined by Technology Lead Andrew Carr and CTO Colin Eberhardt to delve into the evolving nature of technology strategy within organisations.
+In this episode, I’m joined by Technology Lead Andrew Carr and CTO Colin Eberhardt to delve into the evolving nature of technology strategies within organisations.
 
-As technological advancements accelerate, we question the relevance of a traditional long-term technology strategy and whether it has become an industry buzzword in itself. We also explore the annual ritual of tech predictions and strategic planning, and the extent to which it is practical or performative. We debate the balance between addressing technical debt and fostering innovation, the influence of analyst-driven hype, and the critical decision of buy versus build.
+As technological advancements accelerate, we question the relevance of a traditional long-term technology strategy and whether it has become an industry buzzword in itself. We explore the annual ritual of tech predictions and strategic planning, and whether it is practical or performative. We also debate the balance between addressing technical debt and fostering innovation, the influence of analyst-driven hype, and the critical decision of buy versus build.
 
 There’s a lot of hype to navigate around, but we bring our range of experiences to bear in providing a nuanced perspective on how to create effective technology strategies that genuinely add value – by aligning technology strategies with business goals.
 
