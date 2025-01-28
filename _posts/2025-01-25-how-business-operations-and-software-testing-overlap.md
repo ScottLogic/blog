@@ -119,7 +119,7 @@ Acceptance of ideas and concepts can be more challenging as it leads to a subjec
 
 ### Making mistakes
 
-Making mistakes is critical to our growth and development. We cannot just learn from other peoples' experiences; we must learn from our own experiences as well.
+Making mistakes is critical to our growth and development as professionals. We cannot just learn from other peoples' experiences; we must learn from our own experiences as well.
 
 I want to be the first to tell you: "it is okay to make a mistake". Let the mistake happen, reflect on it and work out how you will do it differently next time. If you make the same mistake again in the future, that is also okay, as maybe you needed a little bit more time to understand. Be compassionate with yourself during this time.
 
