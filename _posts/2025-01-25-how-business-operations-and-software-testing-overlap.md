@@ -13,7 +13,7 @@ author: lperrett
 
 I have recently completed a secondment to the Business Operations (Bus Ops) department within Scott Logic. Before I joined the team, I did not have any understanding of what the team did. However, that understanding soon changed within a month of joining and continued to uncover new paths for the duration of my secondment.
 
-When I joined the team, I was astounded as to how much reporting is required within the Bus Ops team. I quickly decided to buy a course on data analysis with the view of understanding how data analysts properly analyse data. There was an added determination that I would like to take this to the next stage and start studying data science, which I believe is the next big thing as it slides directly into Artificial Intelligence (AI) and Machine Learning (ML). I really believe we should now start to focus our efforts on AI and ML, as they are the next big players within the industry.
+When I joined the team, I was astounded as to how much reporting is required within the Bus Ops team. I quickly decided to buy a course on data analysis with the intention of understanding how data analysts properly analyse data. There was an added determination that I would like to take this to the next stage and start studying data science, which I believe is the next big thing as it slides directly into Artificial Intelligence (AI) and Machine Learning (ML). I really believe we should now start to focus our efforts on AI and ML, as they are the next big players within the industry.
 
 ## Discussion: Business Operations
 
