@@ -5,10 +5,12 @@ categories:
 - Testing
 tags:
 - Testing
+- featured
 summary: This blog explores the overlap between life in Business Operations and Software
   Testing.  It examines the distinct skillsets required for each discipline and how
   they are applied in the world of business.
 author: lperrett
+image: "/uploads/How%20business%20operations%20and%20software%20testing%20overlap.png"
 ---
 
 ## Overview
