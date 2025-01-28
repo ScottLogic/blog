@@ -19,7 +19,7 @@ When I joined the team, I was astounded as to how much reporting is required wit
 
 I found out that the Bus Ops department is classed as "silent running". This means that they always help to protect the business, make sure reports are sent out on time, legalities are taken care of, staff have work to do and that they are contactable and approachable at any point in time. The team needs to be silent running because the business (our own company) is their client, and they need to ensure the business runs smoothly. Bus Ops want their consultants and clients to have a good experience at all times. Therefore, when Bus Ops activities run smoothly in the background it helps the business to run smoothly in the foreground. This shows they play a vital role in the organisation and perhaps go unnoticed.
 
-On my chosen course I learned definitions such as: "Big Data, Data Cleansing, Data Marts, Data Lakes, Data Pipelines" as well as learning what it is like to be a data analyst. It really helped me to understand what I could expect in the department. These are all terms I had heard before, but I never had to dive deeper until now.
+On my chosen course I learned definitions such as "Big Data", "Data Cleansing", "Data Marts", "Data Lakes", and "Data Pipelines", as well as learning what it is like to be a data analyst. It really helped me to understand what I could expect in the department. These are all terms I had heard before, but I never had to dive deeper until now.
 
 After having initial chats with the team, and upskilling via online learning, I felt prepared to embrace my new role. It felt like it was going to be something a bit different from testing. But was it different...? Not entirely!
 
