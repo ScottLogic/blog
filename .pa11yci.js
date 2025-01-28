@@ -21,6 +21,7 @@ module.exports = {
   defaults: {
     chromeLaunchConfig: {
       executablePath: chromiumBin,
+      "args": ["--disable-setuid-sandbox"],
     },
     ignore: [
       ...colourContrastRuleIds,
