@@ -1,6 +1,6 @@
 ---
 title: How Business Operations and Software Testing Overlap
-date: 2025-01-16 00:00:00 Z
+date: 2025-01-28 00:00:00 Z
 categories:
   - Testing
 tags:
