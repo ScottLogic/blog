@@ -57,6 +57,7 @@ active-authors:
   - hlogan
   - hsauve
   - hubinf
+  - imladjenovic
   - jarnstein
   - jbeckles
   - jbickleywallace
@@ -494,6 +495,10 @@ authors:
     picture: picture.png
   ilopatkin:
     name: "Ilya Lopatkin"
+    picture: picture.jpg
+  imladjenovic:
+    name: "Ivan Mladjenovic"
+    author-summary: "<p>I am a Senior Developer at Scott Logic, based in Edinburgh.</p>"
     picture: picture.jpg
   isullivan:
     name: "Ian Sullivan"
