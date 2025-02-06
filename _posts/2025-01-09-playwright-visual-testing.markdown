@@ -9,7 +9,7 @@ tags:
   - Playwright
 summary: This blog aims to explore the effectiveness of Playwright snapshot testing for regression against visual UI elements.
 author: mnyamunda
-image: mnyamunda\mnyamunda.jpg
+image: mnyamunda/assets/mnyamunda.jpg
 ---
 
 ## Introduction
