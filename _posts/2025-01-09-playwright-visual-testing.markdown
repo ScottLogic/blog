@@ -25,7 +25,7 @@ Please find full context in this [case study](https://www.scottlogic.com/our-wor
 
 ![Forecasted and in-situ air quality graphs for the city Seoul]({{ site.baseurl }}/mnyamunda/assets/aqi-charts.png)
 
-Shown above is the UI consisting of 6 different charts that show forecasted and in-situ pollutant measurements. The first big problem is that the data is non-static. We solve this by mocking data via Playwright. This way, our regression focuses on the functionality and various transformations that the data undergoes. The second problem is how do we know that the actual data is being visualised correctly? This is where Playwright snapshots come in.
+Shown above is the UI consisting of six different charts that show forecasted and in-situ pollutant measurements. The first big problem is that the data is non-static. We solve this by mocking data via Playwright. This way, our regression focuses on the functionality and various transformations that the data undergoes. The second problem is how do we know that the actual data is being visualised correctly? This is where Playwright snapshots come in.
 
 ## Playwright Snapshotting Explained
 
