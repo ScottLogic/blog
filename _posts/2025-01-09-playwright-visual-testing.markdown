@@ -23,7 +23,7 @@ The main challenge was to create a dashboard that shows discrepancies between fo
 
 Please find full context in this [case study](https://www.scottlogic.com/our-work/code-for-earth-evaluating-air-quality).
 
-![Forecasted and in-situ air quality graphs for the city Seoul]({{ site.baseurl }}/mnyamunda-scottlogic/assets/aqi-charts.png)
+![Forecasted and in-situ air quality graphs for the city Seoul]({{ site.baseurl }}/mnyamunda/assets/aqi-charts.png)
 
 Shown above is the UI consisting of 6 different charts that show forecasted and in-situ pollutant measurements. The first big problem is that the data is non-static. We solve this by mocking data via Playwright. This way, our regression focuses on the functionality and various transformations that the data undergoes. The second problem is how do we know that the actual data is being visualised correctly? This is where Playwright snapshots come in.
 
@@ -66,21 +66,21 @@ This is instead a percentage check. If up to 27% of the pixels do not match, the
 
 From running the tests from CLI a report is generated on localhost:9323 by default.
 
-![playwright test report showing various passing and failing tests]({{ site.baseurl }}/mnyamunda-scottlogic/assets/pw-report.png)
+![playwright test report showing various passing and failing tests]({{ site.baseurl }}/mnyamunda/assets/pw-report.png)
 
 The user can then select a failing snapshot test and be able to see various comparison options. As shown below there are multiple options to select from to further investigate failure. We can view the expected image, the actual image but most importantly the difference. This is the most useful view as it will highlight all pixels that failed to match up to our comparison image.
 
 Expected:
 
-![sulphur dioxide polution level chart expectation]({{ site.baseurl }}/mnyamunda-scottlogic/assets/sulphur-dioxide-chart-expected.png)
+![sulphur dioxide polution level chart expectation]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-chart-expected.png)
 
 Actual:
 
-![sulphur dioxide polution level chart actual]({{ site.baseurl }}/mnyamunda-scottlogic/assets/sulphur-dioxide-chart-actual.png)
+![sulphur dioxide polution level chart actual]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-chart-actual.png)
 
 Diff:
 
-![sulphur dioxide polution level chart actual]({{ site.baseurl }}/mnyamunda-scottlogic/assets/sulphur-dioxide-chart-diff.png)
+![sulphur dioxide polution level chart actual]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-chart-diff.png)
 
 ## Usage examples
 
@@ -88,9 +88,9 @@ Through a mixture of mocked data and snapshot visual tests, it becomes easy to s
 
 Here is a sensor selection feature on the city page:
 
-![Section showing some different sites within Rio de Janeiro]({{ site.baseurl }}/mnyamunda-scottlogic/assets/rio-stations.png)
+![Section showing some different sites within Rio de Janeiro]({{ site.baseurl }}/mnyamunda/assets/rio-stations.png)
 
-![PM10 pollution levels in Rio de Janeiro ]({{ site.baseurl }}/mnyamunda-scottlogic/assets/rio-pm10.png)
+![PM10 pollution levels in Rio de Janeiro ]({{ site.baseurl }}/mnyamunda/assets/rio-pm10.png)
 
 Each different coloured line on the graph is a different sensor which can be toggled. We can disable sensors through the selection tab or by double clicking a line on the actual chart. Then the chart will reform itself to better present the data.
 
@@ -106,7 +106,7 @@ Now we can have some tests that remove different sites and assert the new expect
 
 Shown below is the main AQI chart. The blue in situ line changes dynamically based on which sensors are enabled. This is done through frontend averaging of each point at a certain time. Then the highest average is plotted in blue.
 
-![An air quality index chart with two lines, one for forecasted value and one for the actual measured value at that particular time]({{ site.baseurl }}/mnyamunda-scottlogic/assets/barcelona-aqi.png)
+![An air quality index chart with two lines, one for forecasted value and one for the actual measured value at that particular time]({{ site.baseurl }}/mnyamunda/assets/barcelona-aqi.png)
 
 Test flow: We want to test that the blue line is plotted accurately based on which sites are enabled. So we remove our site(s) and then manualy check that the new plot is correct. Once happy we can then repeat steps to create a new snapshot of our altered chart. Finally, our test will simply navigate to the page, remove a site and assert that the chart matches the snapshot we just captured.
 
@@ -120,7 +120,7 @@ This page is using the [echarts](https://echarts.apache.org/examples/en/index.ht
 - Saves on some lengthy manual work. As shown above we could have to manually check and click around on 6 different charts which would be very time consuming if regression is carried out on a per-ticket basis.
 - Sometimes you can expect the element to be visible but the actual contents of it may be misrepresented or broken.
 
-  ![Broken image icon]({{ site.baseurl }}/mnyamunda-scottlogic/assets/broken-image-icon.png)
+  ![Broken image icon]({{ site.baseurl }}/mnyamunda/assets/broken-image-icon.png)
 
 - We can rapidly test that the element’s data is represented correctly across multiple browsers/viewports. This will reduce workload even more on multi-platform applications.
 
@@ -131,13 +131,13 @@ Updating snapshots is quite painless with the `–update-snapshots` flag.
 
 ### Example Snapshot Update
 
-![One chart on the left which has a background colour maximum value 800, on the right the chart is then updated to uncap the colour grading boundary]({{ site.baseurl }}/mnyamunda-scottlogic/assets/rio-colour-grading.png)
+![One chart on the left which has a background colour maximum value 800, on the right the chart is then updated to uncap the colour grading boundary]({{ site.baseurl }}/mnyamunda/assets/rio-colour-grading.png)
 
 _An updated snapshot of new implementation. Previously the background colour grading stopped at a maximum eight hundred. Now updated to have no upper boundary._
 
 ### Naming
 
-![Three .png files each linked to a different browser, chrome , webkit and firefox]({{ site.baseurl }}/mnyamunda-scottlogic/assets/image-naming.png)
+![Three .png files each linked to a different browser, chrome , webkit and firefox]({{ site.baseurl }}/mnyamunda/assets/image-naming.png)
 
 It is also important to name your snapshots something significant. This makes it much easier for anyone on the team to understand their purpose. This also makes it easier to debug.
 
