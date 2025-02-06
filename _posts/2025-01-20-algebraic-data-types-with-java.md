@@ -434,4 +434,4 @@ References:
 
 - [Where does the name "algebraic data type" come from?](https://blog.poisson.chat/posts/2024-07-26-adt-history.html)
 
-###   ## Find out about software engineering vacancies at Scott Logic [here](https://www.scottlogic.com/careers/job-family-development)
+Find out about software engineering vacancies at Scott Logic [here](https://www.scottlogic.com/careers/job-family-development)
