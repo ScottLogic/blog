@@ -37,7 +37,7 @@ Note that a comparison image will be created for each of the browsers we have en
 
 Without any additional parameters, the comparison will fail if a single pixel is different. This option allows for maximum accuracy.
 
-```
+~~~
 test('Verify so2 graph updates correctly when sites are removed', async ({
     cityPage,
   }) => {
@@ -45,7 +45,7 @@ test('Verify so2 graph updates correctly when sites are removed', async ({
     const chartShot = await cityPage.captureChartScreenshot(cityPage.so2Chart)
     expect(chartShot).toMatchSnapshot('rio-so2-graph-without-centro.png')
   })
-```
+~~~
 
 Here we have created a method within a page object model that takes in the chart/graph that we would like to screenshot at the end of the test for comparison.
 The element in the test for chrome browser is 600x400 pixels so this means that if a 1/240000 pixels do not match then the test will result in failure. However, we can give some leeway by providing extra parameters such as:
