@@ -72,15 +72,15 @@ The user can then select a failing snapshot test and be able to see various comp
 
 Expected:
 
-![sulphur dioxide polution level chart expectation]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-chart-expected.png)
+![sulphur dioxide polution level chart expectation]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-expected.png)
 
 Actual:
 
-![sulphur dioxide polution level chart actual]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-chart-actual.png)
+![sulphur dioxide polution level chart actual]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-actual.png)
 
 Diff:
 
-![sulphur dioxide polution level chart actual]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-chart-diff.png)
+![sulphur dioxide polution level chart actual]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-diff.png)
 
 ## Usage examples
 
@@ -145,14 +145,14 @@ It is also important to name your snapshots something significant. This makes it
 
 ### Useful functions
 
-```
+~~~
   async siteRemover(location: string) {
     await this.siteForm.waitFor({ state: 'visible' })
     await this.siteForm.scrollIntoViewIfNeeded()
     const siteDeselect = this.page.getByLabel(`Remove ${location}`)
     await siteDeselect.click()
   }
-```
+~~~
 
 There are many different issues can cause your screenshot tests to become flaky. Like any other playwright test, make sure to use functions such as `waitFor({ state: visible })` and `scrollIntoViewIfNeeded()`. This will ensure that you capture your screenshots accurately each time.
 
@@ -165,7 +165,7 @@ Mocking data is another important piece of the puzzle.
 Originally, we started out by simply extracting a JSON object and then exporting it from a helper file. This ended up being quite hefty in terms of actual code (sometimes reaching four thousand lines of mocked data for a test item).
 We then cut down on unnecessary code by using overridden interfaces.
 
-```
+~~~
 interface forecastAPIResponse {
   base_time: string
   valid_time: string
@@ -179,11 +179,11 @@ interface forecastAPIResponse {
   pm10: { aqi_level: number; value: number }
   so2: { aqi_level: number; value: number }
 }
-```
+~~~
 
 This meant that we could now have a default mock values and only change what we needed within the actual test scenario.
 
-```
+~~~
 export function createForecastAPIResponseData(
   overrides: Partial<forecastAPIResponse> = {},
 ): forecastAPIResponse {
@@ -202,11 +202,11 @@ export function createForecastAPIResponseData(
   }
   return { ...defaultForecastResponse, ...overrides }
 }
-```
+~~~
 
 Now here is a usage example for test setup. We want to keep everything else the same and only change four values.
 
-```
+~~~
 test.describe('City graph snapshots', () => {
   test.beforeEach(async ({ cityPage, page, banner }) => {
     const mockedForecastResponse = [
@@ -222,7 +222,7 @@ test.describe('City graph snapshots', () => {
 
   })
 })
-```
+~~~
 
 This saved us from having to mock many objects for tests using different endpoints. Therefore, cutting down on a lot of code and making the test easier to follow and maintain.
 
