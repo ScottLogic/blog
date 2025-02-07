@@ -29,7 +29,7 @@ Shown above is the UI consisting of six different charts that show forecasted an
 
 ## Playwright snapshotting explained
 
-Playwright will startup each browser and complete various actions and take a screenshot of the DOM element(s) state. It will then sequentially look at each pixel and check if it’s RGBA values match up to the comparison image created in the codebase.
+Playwright will startup each browser and complete various actions such as button clicks,scrolls, data entry. Once actions have been executed, a screenshot of the DOM element(s) state will be captured. It will then sequentially look at each pixel and check if it’s RGBA values match up to the comparison image created in the codebase.
 With Playwright snapshots we can easily assert how a page element should look. Provided that we don’t have a comparison image in the codebase our first run of `npx playwright test` will create a comparison image for us. Now we must tweak our test steps until we are satisfied with the snapshot created by playwright. Once satisfied we now run the same command with the flag `--update-snapshots` which then saves the snapshot as our golden standard referral image. Now each time we run the test we will compare against that image.
 Note that a comparison image will be created for each of the browsers we have enabled. So, if I run `toMatchSnapshot('Image.png')` then it will create separate images for Chrome, Firefox and Webkit.
 
