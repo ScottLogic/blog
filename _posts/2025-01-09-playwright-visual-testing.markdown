@@ -17,7 +17,7 @@ image: mnyamunda/assets/mnyamunda.jpg
 Using Playwright snapshots with mocked data can significantly improve the speed at which UI regression is carried out. It facilitates rapid automated inspection of UI elements across the three main browsers (Chromium, Firefox, Webkit). You can tie multiple assertions to one snapshot, which greatly increases efficiency for UI testing. This type of efficiency is pivotal in a rapidly scaling GUI application.
 Playwright is a powerful automation library that is extensively used for regression testing. It excels at web-driven tests, i.e., navigating to links and executing various user flows that should always exhibit the same behaviour. While it's common to automate user flow tests to verify how things should function, what about how things should look?
 
-## The Problem
+## The problem
 
 The main challenge was to create a dashboard that shows discrepancies between forecasted air quality and the real time measurements. The main page was simple enough as it was using ag grid, hence we could mock and assert values within each cell. However, it would not be as simple with chart-like elements. We needed to test that the data in these charts was visualised correctly. With default mocked data and then secondly, we needed to test that the various UI interactions transform the charts correctly.
 
@@ -27,13 +27,13 @@ Please find full context in this [case study](https://www.scottlogic.com/our-wor
 
 Shown above is the UI consisting of six different charts that show forecasted and in-situ pollutant measurements. The first big problem is that the data is non-static. We solve this by mocking data via Playwright. This way, our regression focuses on the functionality and various transformations that the data undergoes. The second problem is how do we know that the actual data is being visualised correctly? This is where Playwright snapshots come in.
 
-## Playwright Snapshotting Explained
+## Playwright snapshotting explained
 
 Playwright will startup each browser and complete various actions and take a screenshot of the DOM element(s) state. It will then sequentially look at each pixel and check if it’s RGBA values match up to the comparison image created in the codebase.
 With Playwright snapshots we can easily assert how a page element should look. Provided that we don’t have a comparison image in the codebase our first run of `npx playwright test` will create a comparison image for us. Now we must tweak our test steps until we are satisfied with the snapshot created by playwright. Once satisfied we now run the same command with the flag `--update-snapshots` which then saves the snapshot as our golden standard referral image. Now each time we run the test we will compare against that image.
 Note that a comparison image will be created for each of the browsers we have enabled. So, if I run `toMatchSnapshot('Image.png')` then it will create separate images for Chrome, Firefox and Webkit.
 
-## Example Snippets
+## Example snippets
 
 Without any additional parameters, the comparison will fail if a single pixel is different. This option allows for maximum accuracy.
 
@@ -52,13 +52,13 @@ The element in the test for chrome browser is 600x400 pixels so this means that 
 
 “maxDiffPixels”
 
-`in-situ-AQI-is-4-at-00:00-due-to-PM2.5.png,{ maxDiffPixels:27 }`
+`.toMatchSnapshot("in-situ-AQI-is-4-at-00:00-due-to-PM2.5.png",{ maxDiffPixels: 27 })`
 
 If 27/240000 pixels are different then the test will pass. 28/240000 different pixels will fail the test.
 
 “maxDiffPixelRatio”
 
-`in-situ-AQI-is-4-at-00:00-due-to-PM2.5.png,{ maxDiffPixelRatio: 27 }`
+`.toMatchSnapshot("in-situ-AQI-is-4-at-00:00-due-to-PM2.5.png",{ maxDiffPixelRatio: 27 })`
 
 This is instead a percentage check. If up to 27% of the pixels do not match, then the test will still pass. Upon running the test through playwright CLI commands, a report is generated at the end of the test. This will show us what is different in the image.
 
@@ -72,15 +72,15 @@ The user can then select a failing snapshot test and be able to see various comp
 
 Expected:
 
-![sulphur dioxide polution level chart expectation]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-expected.png)
+![sulphur dioxide pollution level chart expectation]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-expected.png)
 
 Actual:
 
-![sulphur dioxide polution level chart actual]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-actual.png)
+![sulphur dioxide pollution level chart actual]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-actual.png)
 
 Diff:
 
-![sulphur dioxide polution level chart actual]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-diff.png)
+![sulphur dioxide pollution level chart actual]({{ site.baseurl }}/mnyamunda/assets/sulphur-dioxide-diff.png)
 
 ## Usage examples
 
@@ -127,7 +127,7 @@ This page is using the [echarts](https://echarts.apache.org/examples/en/index.ht
 Snapshot testing requires very close coordination within your team. When new changes are being made, it is important as a tester to know or investigate which snapshots need to be updated. Then this will simply require working with a dev to make sure that the new snapshots are in line with any new implementations . To be more efficient, we eventually agreed as a team to update these snapshots as part of the ticket either on the dev branch or on a separate one. This means that new implementations are merged into main with updated snapshots to reduce many failures on regression runs.
 Updating snapshots is quite painless with the `–update-snapshots` flag.
 
-### Example Snapshot Update
+### Example snapshot update
 
 ![One chart on the left which has a background colour maximum value 800, on the right the chart is then updated to uncap the colour grading boundary]({{ site.baseurl }}/mnyamunda/assets/rio-colour-grading.png)
 
@@ -157,7 +157,7 @@ There are many different issues can cause your screenshot tests to become flaky.
 We can also use `waitFor({ state: hidden })` on elements that indicate loading states.
 In our project we also implemented a network polling method which would ensure that all network activity had ceased before taking a screenshot for some elements. This proved to be very usefull in some scenarios where the screenshot may not be accurate due to it being in a loading state.
 
-### Efficient Mocking Using Playwright
+### Efficient mocking using Playwright
 
 Mocking data is another important piece of the puzzle.
 Originally, we started out by simply extracting a JSON object and then exporting it from a helper file. This ended up being quite hefty in terms of actual code (sometimes reaching four thousand lines of mocked data for a test item).
