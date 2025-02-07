@@ -120,8 +120,6 @@ This page is using the [echarts](https://echarts.apache.org/examples/en/index.ht
 - Saves on some lengthy manual work. As shown above we could have to manually check and click around on 6 different charts which would be very time consuming if regression is carried out on a per-ticket basis.
 - Sometimes you can expect the element to be visible but the actual contents of it may be misrepresented or broken.
 
-  ![Broken image icon]({{ site.baseurl }}/mnyamunda/assets/broken-image-icon.png)
-
 - We can rapidly test that the element’s data is represented correctly across multiple browsers/viewports. This will reduce workload even more on multi-platform applications.
 
 ## Maintenance and change
@@ -145,7 +143,7 @@ It is also important to name your snapshots something significant. This makes it
 
 ### Useful functions
 
-~~~
+~~~ts
   async siteRemover(location: string) {
     await this.siteForm.waitFor({ state: 'visible' })
     await this.siteForm.scrollIntoViewIfNeeded()
@@ -165,7 +163,7 @@ Mocking data is another important piece of the puzzle.
 Originally, we started out by simply extracting a JSON object and then exporting it from a helper file. This ended up being quite hefty in terms of actual code (sometimes reaching four thousand lines of mocked data for a test item).
 We then cut down on unnecessary code by using overridden interfaces.
 
-~~~
+~~~ts
 interface forecastAPIResponse {
   base_time: string
   valid_time: string
@@ -183,7 +181,7 @@ interface forecastAPIResponse {
 
 This meant that we could now have a default mock values and only change what we needed within the actual test scenario.
 
-~~~
+~~~ts
 export function createForecastAPIResponseData(
   overrides: Partial<forecastAPIResponse> = {},
 ): forecastAPIResponse {
@@ -206,7 +204,7 @@ export function createForecastAPIResponseData(
 
 Now here is a usage example for test setup. We want to keep everything else the same and only change four values.
 
-~~~
+~~~ts
 test.describe('City graph snapshots', () => {
   test.beforeEach(async ({ cityPage, page, banner }) => {
     const mockedForecastResponse = [
