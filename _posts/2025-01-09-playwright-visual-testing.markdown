@@ -128,7 +128,7 @@ This page is using the [echarts](https://echarts.apache.org/examples/en/index.ht
 ## Maintenance and change
 
 Snapshot testing requires very close coordination within your team. When new changes are being made, it is important as a tester to know or investigate which snapshots need to be updated. Then this will simply require working with a dev to make sure that the new snapshots are in line with any new implementations . To be more efficient, we eventually agreed as a team to update these snapshots as part of the ticket either on the dev branch or on a separate one. This means that new implementations are merged into main with updated snapshots to reduce many failures on regression runs.
-Updating snapshots is quite painless with the `–update-snapshots` flag.
+Updating snapshots is quite painless with the `-–update-snapshots` flag.
 
 ### Example snapshot update
 
