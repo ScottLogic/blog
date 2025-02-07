@@ -37,7 +37,7 @@ Note that a comparison image will be created for each of the browsers we have en
 
 Without any additional parameters, the comparison will fail if a single pixel is different. This option allows for maximum accuracy.
 
-~~~
+~~~ts
 test('Verify so2 graph updates correctly when sites are removed', async ({
     cityPage,
   }) => {
