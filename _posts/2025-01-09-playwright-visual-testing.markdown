@@ -25,7 +25,7 @@ Please find full context in this [case study](https://www.scottlogic.com/our-wor
 
 ![Forecasted and in-situ air quality graphs for the city Seoul]({{ site.baseurl }}/mnyamunda/assets/aqi-charts.png)
 
-Shown above is the UI consisting of six different charts that show forecasted and in-situ pollutant measurements. The first big problem is that the data is non-static. We solve this by mocking data via Playwright. This way, our regression focuses on the functionality and various transformations that the data undergoes. The second problem is how do we know that the actual data is being visualised correctly? This is where Playwright snapshots come in.
+Shown above is the UI consisting of six different charts that show forecasted and in-situ pollutant measurements. The first big problem is that the data is non-static. We solve this by mocking data via [Playwright Mock API](https://playwright.dev/docs/mock). This way, our regression focuses on the functionality and various transformations that the data undergoes. The second problem is how do we know that the actual data is being visualised correctly? This is where Playwright snapshots come in.
 
 ## Playwright snapshotting explained
 
@@ -41,8 +41,11 @@ Without any additional parameters, the comparison will fail if a single pixel is
 test('Verify so2 graph updates correctly when sites are removed', async ({
     cityPage,
   }) => {
+    //action to remove an air quality sensor site
     await cityPage.siteRemover('Centro')
+    //Capture a snapshot of the sulphur dioxide chart
     const chartShot = await cityPage.captureChartScreenshot(cityPage.so2Chart)
+    //Compare it with the reference we have saved in our codebase
     expect(chartShot).toMatchSnapshot('rio-so2-graph-without-centro.png')
   })
 ~~~
