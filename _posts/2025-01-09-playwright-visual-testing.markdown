@@ -19,7 +19,7 @@ Playwright is a powerful automation library that is extensively used for regress
 
 ## The problem
 
-The main challenge was to create a dashboard that shows discrepancies between forecasted air quality and the real time measurements. The main page was simple enough as it was using ag grid, hence we could mock and assert values within each cell. However, it would not be as simple with chart-like elements. We needed to test that the data in these charts was visualised correctly. With default mocked data and then secondly, we needed to test that the various UI interactions transform the charts correctly.
+The main challenge was to create a dashboard that shows discrepancies between forecasted air quality and the real time measurements. The main page was simple enough as it was using ag grid, hence we could mock and assert values within each cell. However, it would not be as simple with chart-like elements. We needed to test that the data in these charts was visualised correctly with default mocked data and then, we needed to test that the various UI interactions transform the charts as expected.
 
 Please find full context in this [case study](https://www.scottlogic.com/our-work/code-for-earth-evaluating-air-quality).
 
