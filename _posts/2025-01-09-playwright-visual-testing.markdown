@@ -136,7 +136,7 @@ Updating snapshots is quite painless with the `-–update-snapshots` flag.
 
 _An updated snapshot of new implementation. Previously the background colour grading stopped at a maximum eight hundred. Now updated to have no upper boundary._
 
-### Naming
+### Naming conventions
 
 ![Three .png files each linked to a different browser, chrome , webkit and firefox]({{ site.baseurl }}/mnyamunda/assets/image-naming.png)
 
