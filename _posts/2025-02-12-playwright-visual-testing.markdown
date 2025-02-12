@@ -1,6 +1,6 @@
 ---
 title: Playwright Visual testing; How should things look?
-date: 2025-01-22 00:00:00 Z
+date: 2025-02-12 11:25:00 Z
 categories:
   - Testing
 tags:
