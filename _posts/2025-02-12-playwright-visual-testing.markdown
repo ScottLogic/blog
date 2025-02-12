@@ -1,5 +1,5 @@
 ---
-title: Playwright Visual testing; How should things look?
+title: Playwright Visual Testing; How Should Things Look?
 date: 2025-02-12 11:25:00 Z
 categories:
   - Testing
