@@ -2,12 +2,13 @@
 title: Playwright Visual Testing; How Should Things Look?
 date: 2025-02-12 11:25:00 Z
 categories:
-  - Testing
+- Testing
 tags:
-  - Automation
-  - UI
-  - Playwright
-summary: This blog aims to explore the effectiveness of Playwright snapshot testing for regression against visual UI elements.
+- Automation
+- UI
+- Playwright
+summary: This blog aims to explore the effectiveness of Playwright snapshot testing
+  for regression against visual UI elements.
 author: mnyamunda
 image: mnyamunda/assets/mnyamunda.jpg
 ---
