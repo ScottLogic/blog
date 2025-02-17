@@ -125,7 +125,7 @@ public static <T> void copy(List<? super T> destination, List<? extends T> sourc
 
 ### Java Arrays
 
-In Java an `Array` behaves differently to a `List` in regard to subtyping. Array subtyping in _covariant_, meaning that type `S[]` is considered a subtype of `T[]` whenever `S` is a subtype of `T`.
+In Java an `Array` behaves differently to a `List` in regard to subtyping. Array subtyping is _covariant_, meaning that type `S[]` is considered a subtype of `T[]` whenever `S` is a subtype of `T`.
 
 ~~~ java 
   // Covariant Array
@@ -161,7 +161,7 @@ When using _declaration-site variance_ the variance is specified at the location
 #### What this implies: 
 The variance becomes an inherent property of the generic type itself. Every instance of that generic type will have the same variance.
 
-### Scala Covariance Example `[+T]`
+### Scala: Covariance Example `[+T]`
 
 Covariance is expressed with a `+` annotation in the type parameter. This makes the generic type subtype-preserving.
 
@@ -180,7 +180,7 @@ def processElements(container: CovariantContainer[Any]): Unit = {
 }
 ~~~~
 
-### Scala Contravariance Example `[-T]`
+### Scala: Contravariance Example `[-T]`
 
 Contravariance is expressed with a `-` annotation, reversing the subtype relationship.
 
