@@ -1,6 +1,6 @@
 ---
 title: Variance in Generics, Phantom and Existential types with Java and Scala
-date: 2025-02-11 00:00:00 Z
+date: 2025-02-17 00:00:00 Z
 categories:
  - Tech
 tags:
@@ -16,11 +16,11 @@ image: magnussmith/assets/java.jpg
 
 Generics are a fundamental pillar of modern type-safe programming languages. They allow us to write reusable code that can work with different types without sacrificing type safety. But when you dive deeper into the world of generics, you encounter the intriguing concepts of *covariance* and *contravariance*. These concepts, often perceived as complex, are crucial for understanding how type hierarchies and subtyping interact with generic types.
 
-Both Java and Scala support these concepts but implement them differently. In this blog post, we'll investigate what covariance and contravariance mean, how they are used in generics, and how Java and Scala, handle them differently.
+Both Java and Scala support these concepts but implement them differently. In this blog post, we'll investigate what covariance and contravariance mean, how they are used in generics, and how Java and Scala handle them differently.
 
 ## What are Covariance and Contravariance? 
 
-Suppose we have a type hierarchy that has a `Dog` as a subtype of `Animal`
+Suppose we have a type hierarchy that has a `Dog` as a subtype of `Animal`.
 
 If we have a generic container then should a `Container<Dog>` be considered a subtype of `Container<Animal>` ?
 
@@ -32,15 +32,15 @@ At their core, covariance and contravariance describe how subtyping relationship
 Now, let's define the key terms:
 
 - **Covariance:** If `A` is a subtype of `B`, then `Container<A>` is a subtype of `Container<B>`. The subtyping relationship "flows" in the same direction. Think of a `List<Integer>` being usable where a `List<Number>` is expected.
-- **Contravariance:** If `A` is a subtype of `B`, then `Container<B>` is a subtype of `Container<A>`. The subtyping relationship is *reversed*. `A` common example is a function: a function that accepts a `Number` can be used where a function accepting an `Integer` is expected.
+- **Contravariance:** If `A` is a subtype of `B`, then `Container<B>` is a subtype of `Container<A>`. The subtyping relationship is *reversed*. A common example is a function: a function that accepts a `Number` can be used where a function accepting an `Integer` is expected.
 - **Invariance:** If `A` is a subtype of `B`, there's *no* subtyping relationship between `Container<A>` and `Container<B>`. They are considered completely unrelated types.
 
 **Visualizing Variance**
 
 Think of it this way (where `->` denotes a subtyping relationship):
 
-- **Covariance:** `Integer -> Number` implies `List<Integer> -> List<Number>`
-- **Contravariance:** `Integer -> Number` implies `Processor<Number> -> Processor<Integer>`
+- **Covariance:** `Integer -> Number` implies `Container<Integer> -> Container<Number>`
+- **Contravariance:** `Integer -> Number` implies `Container<Number> -> Container<Integer>`
 - **Invariance:** `Integer -> Number` implies *no relationship* between `Container<Integer> and Container<Number>`
 
 **Generics and Variance: Why Should We Care?**
@@ -74,7 +74,7 @@ The generic type declaration itself doesn't have inherent variance. The same gen
 Can read from the more generic type but cannot modify
 
 ~~~~ java
-// An upper bound restricts the collection to essentially read-only
+// An upper bounded type restricts the collection to essentially read-only
 
  static void getNotPut(){
    List<? extends Number> numbers = List.of(1,2,3);  
@@ -89,7 +89,6 @@ Can read from the more generic type but cannot modify
     }
     return sum;
   }
-
 ~~~~
 
 ### Java: Contravariance Example `? super T`
@@ -97,7 +96,7 @@ Can read from the more generic type but cannot modify
 Can write to the generic type but reading is limited to Object
 
 ~~~~ java
-// A lower bounded restricts the collection to essentially write-only
+// A lower bounded type restricts the collection to essentially write-only
 
 static putNotGet(){
   List<Object> objs = Arrays.asList(1, "two");
@@ -126,28 +125,28 @@ public static <T> void copy(List<? super T> destination, List<? extends T> sourc
 
 ### Java Arrays
 
-In Java an `Array` behaves differently to a `List` in regard to subtyping. Array subtyping in _covariant_, meaning that type `S[]` is considered a subtype of `T[]` whenever `S` is a subtype of `T`
+In Java an `Array` behaves differently to a `List` in regard to subtyping. Array subtyping in _covariant_, meaning that type `S[]` is considered a subtype of `T[]` whenever `S` is a subtype of `T`.
 
 ~~~ java 
   // Covariant Array
   Integer[] integers = new Integer[] {1,2,3};
   Number[] numbers = integers;
-  // nums[1] = 2.718   runtime ArrayStoreException
+  // numbers[1] = 2.718   runtime ArrayStoreException
   
   // Covariant List
   List<Integer> intList = Arrays.asList(1,2,3);
   List<? extends Number> numList = intList;
-  // nums.set(2, 2.718);  compile-time error
+  // numList.set(2, 2.718);  compile-time error
 ~~~
 
-In contrast to Arrays with Lists the problem is detected at compile time not runtime.  The assignment violates the _Get and Put principle_. 
+In contrast to Arrays, with Lists the problem is detected at compile time not runtime.  The assignment violates the _Get and Put principle_. 
 
 ## Covariance and Contravariance in Scala
 
 **Scala: Declaration-Site Variance with Annotations**
 
 Scala takes a different approach.
-It supports use-site variance (syntax is similar to Java, just replace `<? extends T>` with `[_ <: T])` and declaration-site variance.
+It supports use-site variance (syntax is similar to Java, just replace `<? extends T>` with `[_ <: T]`) and declaration-site variance.
 When using _declaration-site variance_ the variance is specified at the location **where the generic type is _declared_**, i.e., in the definition of the generic class or trait. In Scala, we use annotations `+T`  and `-T` in the generic type parameter list of the class or trait definition.
 
 #### +T (Covariance):
@@ -162,7 +161,7 @@ When using _declaration-site variance_ the variance is specified at the location
 #### What this implies: 
 The variance becomes an inherent property of the generic type itself. Every instance of that generic type will have the same variance.
 
-### Scala Covariance `[+T]`
+### Scala Covariance Example `[+T]`
 
 Covariance is expressed with a `+` annotation in the type parameter. This makes the generic type subtype-preserving.
 
@@ -181,7 +180,7 @@ def processElements(container: CovariantContainer[Any]): Unit = {
 }
 ~~~~
 
-### Scala Contravariance `[-T]`
+### Scala Contravariance Example `[-T]`
 
 Contravariance is expressed with a `-` annotation, reversing the subtype relationship.
 
@@ -201,10 +200,10 @@ val anyComparator: Comparator[Any] = new Comparator[Any]
 val stringComparator: Comparator[String] = anyComparator // Allowed due to contravariance
 
 ~~~~
-Here, Comparator is contravariant because it consumes values of type `T`. A comparator that can compare any type `Any` can also compare strings `String`.
+Here, Comparator is contravariant because it consumes values of type `T`. A comparator that can compare a type `Any` can also compare `String`.
 
 
-### Scala: Invariance
+### Scala: Invariance Example
 
 ~~~scala
 class InvariantContainer[T](val value: T)
@@ -218,7 +217,7 @@ By default, Scala’s generic types are invariant, meaning `Container[Animal]` a
 
 ## Erasure
 
-Java has been around a long time, it wasn't util Java 5 in 2004 that generics were added. Java has strong guarantees of backwards compatibility requiring the new generic code needed to work with older non-generic code. For this to work during compilation the Java compiler removes (_erases_) the type information associated with generics.
+Java has been around a long time - it wasn't until Java 5 in 2004 that generics were added. Java has strong guarantees of backwards compatibility, requiring that the new generic code needed to work with older non-generic code. For this to work during compilation, the Java compiler removes (_erases_) the type information associated with generics.
 Generic type parameters are replaced with their bounds (usually _Object_ if no bound is specified). So, a `List<String>` becomes just `List` at runtime. As a consequence you can't check the specific type of a generic object at runtime  (e.g. `instanceof List<String>`)
 
 Scala on the other hand was designed with generics in mind from the start, so it didn't have the same backward compatibility constraints. This allowed the language designers to take a different approach to erasure. Scala does use erasure, but it's more nuanced. Some type information is retained at runtime, especially for things like method signatures and when dealing with traits. 
@@ -362,7 +361,7 @@ The label doesn't change the contents of the folder, but it tells you (and the c
 
 # Existential Types
 
-Existential types are a powerful but sometimes confusing concept in type systems. They allow you to work with types that have partially hidden or abstracted type parameters. It's like having a "black box" – you know something about the type inside, but not everything.
+Existential types let you work with values whose exact type is partially hidden. They let you define a type in terms of a property or behaviour, without revealing the concrete implementation.  This is like defining an interface: you know what operations are supported, but the underlying class that implements those operations remains opaque.  This abstraction helps in writing more modular and maintainable code.
 
 ### Scala's Existential Types
 
@@ -429,9 +428,6 @@ Java does not have direct support for existential types like Scala's `forSome`. 
 - **Upper-Bounded Wildcards (`? extends T`):** These can be used to express a limited form of existential quantification. You're essentially saying, "I don't know the exact type, but it's some type that extends `T`."
 
 ~~~~ java
-import java.util.ArrayList;
-import java.util.List;
-
 interface Animal {
     String name();
 }
@@ -522,7 +518,7 @@ While Java has made significant strides in recent years, especially with the int
 
 ### Next time
 
-Next time we will look at some of the Scala features that enable powerful programming techniques that are difficult or impossible to achieve in Java.
+Next time we will look at some powerful features of a type system that enable programming techniques that are more difficult or impossible to achieve in Java.
 
 #### Union and Intersection Types:
 
@@ -531,14 +527,6 @@ Next time we will look at some of the Scala features that enable powerful progra
 #### Higher-Kinded Types:
 
 - **Scala:** Natively supports higher-kinded types, allowing you to abstract over type constructors (e.g., `List`, `Option`, `Future`). This enables powerful generic programming patterns and the creation of highly reusable abstractions (like `Functor`, `Monad`, etc.).
-
-#### Path-Dependent Types:
-
-- **Scala:** Supports path-dependent types, where the type of a member can depend on the path taken to access it (e.g., the type of a nested class can depend on the instance of the outer class).
-
-#### Implicits:
-
-- **Scala:** Has a powerful `implicit` mechanism that can be used for various purposes, including type-level programming, automatic conversion between types, and providing default values.
 
 
 
