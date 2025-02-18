@@ -2,14 +2,11 @@
 title: Variance in Generics, Phantom and Existential types with Java and Scala
 date: 2025-02-17 00:00:00 Z
 categories:
-- Tech
+ - Tech
 tags:
-- Java, Scala
+ - Java, Scala
 author: magnussmith
-summary: In this post we look at Variance in Generics and how it is handled in Java
-  and Scala.   We consider use-site and declaration-site approaches and the trade
-  offs of erasure. Finally we take a look at Phantom and Existential types and how
-  they can enhance the capabilities of the type system when it comes to modelling.
+summary: In this post we look at Variance in Generics and how it is handled in Java and Scala.   We consider use-site and declaration-site approaches and the trade offs of erasure. Finally we take a look at Phantom and Existential types and how they can enhance the capabilities of the type system when it comes to modelling. 
 image: magnussmith/assets/java.jpg
 ---
 
@@ -149,7 +146,7 @@ In contrast to Arrays, with Lists the problem is detected at compile time not ru
 **Scala: Declaration-Site Variance with Annotations**
 
 Scala takes a different approach.
-It supports use-site variance (syntax is similar to Java, just replace `<? extends T>` with `[_ <: T]`) and declaration-site variance.
+It supports use-site variance (syntax is similar to Java, just replace `<? extends T>` with `[? <: T]`) and declaration-site variance.
 When using _declaration-site variance_ the variance is specified at the location **where the generic type is _declared_**, i.e., in the definition of the generic class or trait. In Scala, we use annotations `+T`  and `-T` in the generic type parameter list of the class or trait definition.
 
 #### +T (Covariance):
@@ -368,14 +365,14 @@ Existential types allow us to work with values without knowing their exact type 
 
 ### Existential Types in Scala
 
-**Concept**
-
 - **Abstraction over Type Parameters:** Existential types let you express that a type parameter exists without specifying its concrete type.
 - **"There Exists Some Type":** The phrase "for some type" captures the essence of existential types. You're saying that a type parameter has *some* specific type, but you don't need to know or expose what that type is at the use site.
 
-Scala 2 has direct support for existential types using the `forSome` keyword or the wildcard `_` syntax.  The `forSome` keyword has been dropped in Scala 3.  There are two main ways to express existential types in Scala 3.  We can use wildcards (?) and path-dependent types to achieve the same effect.
+**Scala 2** has direct support for existential types using the `forSome` keyword or the wildcard `_` syntax.  The `forSome` keyword has been dropped in Scala 3.  
 
-#### Wildcard `?`
+**Scala 3** provides two main ways to express existential types.  We can use wildcards (?) or path-dependent types to achieve the same effect.
+
+#### Wildcards `?`
 
 Wildcards (`?`) allow you to express an unknown type while still enforcing type constraints.
 
@@ -386,7 +383,7 @@ case class Cat(name: String) extends Animal
 
 class Container[T](val value: T)
 
-def printUnknown(container: Container[_ <: Animal]): Unit = 
+def printUnknown(container: Container[? <: Animal]): Unit = 
   println(container.value.name)
 
 val dogContainer = new Container(Dog("Buddy"))
@@ -426,7 +423,7 @@ printBox(stringBox)  // Prints: Hello
 
 ~~~~
 - Here, `Box` has an **abstract type member** (`T`) instead of a generic type parameter.
-- Each `Box` instance **=chooses its own concrete type for `T`.
+- Each `Box` instance chooses its own concrete type for `T`.
 
 ### Limitations of Existential Types
 
@@ -438,7 +435,7 @@ Java does not have direct support for existential types. However, you can **part
 
 #### Simulated with Wildcards
 
-**Upper-Bounded Wildcards (`? extends T`):** behave similarly to Scala’s wildcards (`? <: T`). They can be used to express a limited form of existential quantification. You're essentially saying, "I don't know the exact type, but it's some type that extends `T`."
+Upper-Bounded Wildcards (`? extends T`): behave similarly to Scala’s wildcards (`? <: T`). They can be used to express a limited form of existential quantification. You're essentially saying, "I don't know the exact type, but it's some type that extends `T`."
 
 ~~~~ java
 interface Animal {
