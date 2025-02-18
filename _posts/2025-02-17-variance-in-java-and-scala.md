@@ -538,14 +538,14 @@ A phantom type is a compile-time construct used to enhance type safety.  It does
 
 #### Key Differences Between Java and Scala
 
-| Feature          | Java                                                | Scala                                            |
-| ---------------- | --------------------------------------------------- | ------------------------------------------------ |
-| Variance         | Use-site (wildcards: ? extends, ? super)            | Declaration-site (annotations: +, -)             |
-| Arrays           | Covariant (can lead to runtime ArrayStoreException) | Invariant (more type-safe)                       |
-| Method Positions | Less strict enforcement at compile time             | Stricter compiler enforcement of valid positions |
-| Verbosity        | More verbose, variance specified at each use        | More concise, variance defined once              |
-| Phantom types | Supported |Supported|
-| Existential Types | Partially simulate with wildcards  | Directly supported with `forSome`|
+| Feature          | Java                                                | Scala                                                                                            |
+| ---------------- | --------------------------------------------------- |--------------------------------------------------------------------------------------------------|
+| Variance         | Use-site (wildcards: ? extends, ? super)            | Declaration-site (annotations: +, -)                                                             |
+| Arrays           | Covariant (can lead to runtime ArrayStoreException) | Invariant (more type-safe)                                                                       |
+| Method Positions | Less strict enforcement at compile time             | Stricter compiler enforcement of valid positions                                                 |
+| Verbosity        | More verbose, variance specified at each use        | More concise, variance defined once                                                              |
+| Phantom types | Supported | Supported                                                                                        |
+| Existential Types | Partially simulate with wildcards  | Directly supported with `forSome` in Scala 2.  In Scala 3 use wildcards and path-dependent types |
 
 While Java has made significant strides in recent years, especially with the introduction of features like records, sealed interfaces, and improved type inference, Scala's type system still offers significant advantages in terms of expressiveness, type safety, and the ability to create advanced abstractions. 
 
