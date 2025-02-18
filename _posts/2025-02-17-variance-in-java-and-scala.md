@@ -529,7 +529,8 @@ A phantom type is a compile-time construct used to enhance type safety.  It does
 
 #### Existential Types
 
-- Scala has direct support for existential types using `forSome` or the wildcard `_` syntax, making them more powerful and flexible.
+- Scala 2 has direct support for existential types using `forSome` or the wildcard `_` syntax, making them more powerful and flexible.
+- Scala 3 dropped the `forSome` keyword and now uses `?` wildcard and path-dependent types.
 
 - Java can partially simulate existential types using upper-bounded wildcards (`? extends T`), but this approach is more limited and primarily useful for expressing covariance.
 
