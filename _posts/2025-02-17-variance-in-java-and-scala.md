@@ -319,7 +319,7 @@ object Resource {
   def openForWriting(path: String): Resource[Writable] = new Resource[Writable](path)
 }
 
-object Main extends App {
+def main(args: Array[String]): Unit = {
   val readableResource: Resource[Readable] = Resource.openForReading("my_file.txt")
   val writableResource: Resource[Writable] = Resource.openForWriting("output.txt")
 
@@ -361,111 +361,145 @@ The label doesn't change the contents of the folder, but it tells you (and the c
 
 # Existential Types
 
-Existential types let you work with values whose exact type is partially hidden. They let you define a type in terms of a property or behaviour, without revealing the concrete implementation.  This is like defining an interface: you know what operations are supported, but the underlying class that implements those operations remains opaque.  This abstraction helps in writing more modular and maintainable code.
+Existential types allow us to work with values without knowing their exact type at compile time. They let you define a type in terms of a property or behaviour, without revealing the concrete implementation. This is like defining an interface: you know what operations are supported, but the underlying class that implements those operations remains opaque.  This abstraction helps in writing more modular and maintainable code.
 
-### Scala's Existential Types
-
-Scala has direct support for existential types using the `forSome` keyword or the wildcard `_` syntax.
+### Existential Types in Scala
 
 **Concept**
 
 - **Abstraction over Type Parameters:** Existential types let you express that a type parameter exists without specifying its concrete type.
 - **"There Exists Some Type":** The phrase "for some type" captures the essence of existential types. You're saying that a type parameter has *some* specific type, but you don't need to know or expose what that type is at the use site.
 
-There are two main ways to express existential types in Scala:
+Scala 2 has direct support for existential types using the `forSome` keyword or the wildcard `_` syntax.  The `forSome` keyword has been dropped in Scala 3.  There are two main ways to express existential types in Scala 3.  We can use wildcards (?) and path-dependent types to achieve the same effect.
 
-#### `forSome` Keyword:
+#### Wildcard `?`
+
+Wildcards (`?`) allow you to express an unknown type while still enforcing type constraints.
 
 ~~~~ scala
-trait Animal
+trait Animal { def name: String }
 case class Dog(name: String) extends Animal
 case class Cat(name: String) extends Animal
 
-val animals: List[Animal forSome { type T }] = List(Dog("Buddy"), Cat("Whiskers")) 
-// or equivalently:
-val animals: List[T forSome { type T <: Animal }] = List(Dog("Buddy"), Cat("Whiskers"))
+class Container[T](val value: T)
+
+def printUnknown(container: Container[_ <: Animal]): Unit = 
+  println(container.value.name)
+
+val dogContainer = new Container(Dog("Buddy"))
+val catContainer = new Container(Cat("Whiskers"))
+
+printUnknown(dogContainer) // Prints: Buddy
+printUnknown(catContainer)  // Prints: Whiskers
 ~~~~
 
-Here, `Animal forSome { type T }` means "a type `Animal` for which there exists some type `T` that likely is a subtype of `Animal`".  We don't say what the type of each element of the list is, we just say it is a subtype of `Animal`. In this case, the first element of the list is of type `Dog` and the second is of type `Cat`.
+- Here, `Container[? <: Animal]` means _a container of some unknown subtype of `Animal`_.  
+- We lose specific type information, but we still know it must be an `Animal`.
 
-#### Wildcard `_`:
+#### Using Path-Dependent Types as an Alternative
 
-~~~~ scala
-val animals: List[Animal] = List(Dog("Buddy"), Cat("Whiskers"))
-// or equivalently:
-val animals: List[_ <: Animal] = List(Dog("Buddy"), Cat("Whiskers"))
-~~~~
-
-Here, `List[_ <: Animal]` is shorthand for `List[T forSome { type T <: Animal }]`. It means a `List` of some unknown type that is a subtype of `Animal`.
-
-
-
-**Heterogeneous Collections:**  In the example above, you can store objects of different types in a collection as long as they share a common trait or supertype. You lose specific type information but retain some general knowledge.
+Instead of existential types, Scala 3 encourages **path-dependent types**, which let instances define their own concrete type.
 
 ~~~~ scala
-trait Animal {
-  def name: String
+trait Box {
+  type T // Abstract type member
+  val value: T
 }
-case class Dog(name: String) extends Animal
-case class Cat(name: String) extends Animal
 
-val animals: List[Animal forSome { type T }] = List(Dog("Buddy"), Cat("Whiskers"))
+val intBox = new Box {
+  type T = Int
+  val value = 42
+}
 
-animals.foreach(a => println(a.name)) // We can still access the 'name'
+val stringBox = new Box {
+  type T = String
+  val value = "Hello"
+}
+
+def printBox(box: Box): Unit = println(box.value)
+
+printBox(intBox)  // Prints: 42
+printBox(stringBox)  // Prints: Hello
+
 ~~~~
-
+- Here, `Box` has an **abstract type member** (`T`) instead of a generic type parameter.
+- Each `Box` instance **=chooses its own concrete type for `T`.
 
 ### Limitations of Existential Types
 
 - **Loss of Type Information:** When you use an existential type, you lose specific type information. You can only access members and methods that are known to exist for the general type, not for the specific hidden type.
 
-### Existential Types in Java (Simulated with Wildcards)
+### Existential Types in Java
 
-Java does not have direct support for existential types like Scala's `forSome`. However, you can **partially simulate** existential types using **wildcards** (`?`).
+Java does not have direct support for existential types. However, you can **partially simulate** existential types.
 
-**Concept**
+#### Simulated with Wildcards
 
-- **Upper-Bounded Wildcards (`? extends T`):** These can be used to express a limited form of existential quantification. You're essentially saying, "I don't know the exact type, but it's some type that extends `T`."
+**Upper-Bounded Wildcards (`? extends T`):** behave similarly to Scala’s wildcards (`? <: T`). They can be used to express a limited form of existential quantification. You're essentially saying, "I don't know the exact type, but it's some type that extends `T`."
 
 ~~~~ java
 interface Animal {
-    String name();
+  String name();
 }
 
 record Dog(String name) implements Animal {}
-
 record Cat(String name) implements Animal {}
 
-public class Main {
-    public static void main(String[] args) {
-        List<Dog> dogs = new ArrayList<>();
-        dogs.add(new Dog("Buddy"));
+class ExistentialWildCardExample {
+  public static void main(String[] args) {
+    List<Dog> dogs = List.of(new Dog("Buddy"));
+    List<Cat> cats = List.of(new Cat("Whiskers"));
 
-        List<Cat> cats = new ArrayList<>();
-        cats.add(new Cat("Whiskers"));
+    List<? extends Animal> animals = dogs; // Equivalent to List[? <: Animal] in Scala
+    // animals.addAll(cats); // Compile-time error - addAll is not allowed
 
-        List<? extends Animal> animals = dogs; // Similar to List[T forSome { type T <: Animal }] in Scala
-        // animals.addAll(cats); // Compile-time error - addAll is not allowed
+    printNames(animals);
+    animals = cats; // Allowed because of the wildcard
+    
+    printNames(animals);
+  }
 
-        printNames(animals);
-
-        animals = cats; // Allowed because of the wildcard
-        printNames(animals);
+  static void printNames(List<? extends Animal> animals) {
+    for (Animal animal : animals) {
+      System.out.println(animal.name());
     }
-
-    static void printNames(List<? extends Animal> animals) {
-        for (Animal animal : animals) {
-            System.out.println(animal.name());
-        }
-    }
+  }
 }
 ~~~~
 
-**Explanation**
+#### Using Generics with Bounded Types
 
-- `List<? extends Animal>` is similar to Scala's `List[T forSome { type T <: Animal }]` or `List[_ <: Animal]`. It means a list of *some unknown type* that extends `Animal`.
-- You can assign lists of `Dog` or `Cat` to `animals`, but you lose specific type information.
-- You can only call methods that are defined in `Animal` on elements of `animals` (like `getName()`).
+For more flexibility, Java uses bounded type parameters (`<T extends Animal>`) instead of existential types.
+
+~~~~java
+interface Animal {
+  String name();
+}
+
+record Dog(String name) implements Animal {}
+record Cat(String name) implements Animal {}
+
+class Container<T extends Animal> {
+  private final T value;
+
+  public Container(T value) { this.value = value; }
+  public T getValue() { return value; }
+}
+
+class ExistentialBoundedExample {
+  public static void printUnknown(Container<? extends Animal> container) {
+    System.out.println(container.getValue().name());
+  }
+
+  public static void main(String[] args) {
+    Container<Dog> dogContainer = new Container<>(new Dog("Buddy"));
+    Container<Cat> catContainer = new Container<>(new Cat("Whiskers"));
+
+    printUnknown(dogContainer);  // Prints: Buddy
+    printUnknown(catContainer);  // Prints: Whiskers
+  }
+}
+~~~~
 
 #### Limitations of Java's Approach
 
