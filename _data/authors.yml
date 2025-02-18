@@ -102,6 +102,7 @@ active-authors:
   - mmcalroy
   - mmorgan
   - mmoxon
+  - mnyamunda
   - mpace
   - mphillips
   - mridene
@@ -686,6 +687,10 @@ authors:
     twitter-url: "https://twitter.com/Testflaneuse"
     twitter-handle: Testflaneuse
     picture: picture.jpg
+  mnyamunda:
+    name: "Maxwell Nyamunda"
+    author-summary: "<p>I am a Test Engineer in Bristol that enjoys UI automation. I very much enjoy the challenge of figuring out how to automate unfamiliar scenarios</p>"
+    picture: mnyamunda.jpg
   mperrin:
     name: "Mike Perrin"
   mrhodes:

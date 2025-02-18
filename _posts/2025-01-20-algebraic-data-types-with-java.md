@@ -5,10 +5,11 @@ categories:
 - Tech
 tags:
 - Java
-author: magnussmith
+- featured
 summary: In this post we explore the power of Algebraic Data Types(ADT) with Pattern
   Matching in Java. We look at how they help us model complex business domains and
   how using them together gives improvements on the traditional Visitor Pattern.
+author: magnussmith
 image: magnussmith/assets/java.jpg
 ---
 
@@ -433,4 +434,4 @@ References:
 
 - [Where does the name "algebraic data type" come from?](https://blog.poisson.chat/posts/2024-07-26-adt-history.html)
 
-  
+Find out about software engineering vacancies at Scott Logic [here](https://www.scottlogic.com/careers/job-family-development)
