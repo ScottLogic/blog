@@ -12,13 +12,13 @@ image: magnussmith/assets/java.jpg
 
 ![variance_phantom_existential.webp]({{site.baseurl}}/magnussmith/assets/variance_phantom_existential.webp)
 
-# Variance in Generics
+## Variance in Generics
 
 Generics are a fundamental pillar of modern type-safe programming languages. They allow us to write reusable code that can work with different types without sacrificing type safety. But when you dive deeper into the world of generics, you encounter the intriguing concepts of *covariance* and *contravariance*. These concepts, often perceived as complex, are crucial for understanding how type hierarchies and subtyping interact with generic types.
 
 Both Java and Scala support these concepts but implement them differently. In this blog post, we'll investigate what covariance and contravariance mean, how they are used in generics, and how Java and Scala handle them differently.
 
-## What are Covariance and Contravariance? 
+### What are Covariance and Contravariance? 
 
 Suppose we have a type hierarchy that has a `Dog` as a subtype of `Animal`.
 
@@ -51,7 +51,7 @@ Variance isn't just an academic exercise. It has practical implications for how 
 - **Flexibility:** Variance, especially covariance, allows for more flexible and reusable code. You can write methods that operate on collections of a more general type while still accepting collections of more specific types.
 - **API Design:** When designing generic APIs, properly specifying variance is crucial for ensuring that your API is both type-safe and usable in a variety of contexts.
 
-## Covariance and Contravariance in Java
+### Covariance and Contravariance in Java
 
 **Java: Use-Site Variance with Wildcards**
 
@@ -69,7 +69,7 @@ Java employs **use-site variance**, meaning that variance is specified at the lo
 #### What this implies: 
 The generic type declaration itself doesn't have inherent variance. The same generic class can be used in a covariant, contravariant, or invariant manner depending on the specific context.
 
-### Java: Covariance Example `? extends T`
+#### Java: Covariance Example `? extends T`
 
 Can read from the more generic type but cannot modify
 
@@ -91,7 +91,7 @@ Can read from the more generic type but cannot modify
   }
 ~~~~
 
-### Java: Contravariance Example `? super T`
+#### Java: Contravariance Example `? super T`
 
 Can write to the generic type but reading is limited to Object
 
@@ -114,7 +114,7 @@ static putNotGet(){
 
 If neither wildcard is used, Java treats generic types as invariant. For instance, `List<Number>` and `List<Integer>` are entirely unrelated types, even if `Integer` is a subtype of `Number`.
 
-### The Get and Put Principle
+#### The Get and Put Principle
 Use an `extends` wildcard when you only _get_ values out of a structure, use a `super` wildcard when you only _put_ values in into a structure, and don't use a wildcard when you both _get_ and _put_ 
 
 We can see these used together in the signature of a copy method
@@ -123,7 +123,7 @@ We can see these used together in the signature of a copy method
 public static <T> void copy(List<? super T> destination, List<? extends T> source);
 ~~~~
 
-### Java Arrays
+#### Java Arrays
 
 In Java an `Array` behaves differently to a `List` in regard to subtyping. Array subtyping is _covariant_, meaning that type `S[]` is considered a subtype of `T[]` whenever `S` is a subtype of `T`.
 
@@ -141,7 +141,7 @@ In Java an `Array` behaves differently to a `List` in regard to subtyping. Array
 
 In contrast to Arrays, with Lists the problem is detected at compile time not runtime.  The assignment violates the _Get and Put principle_. 
 
-## Covariance and Contravariance in Scala
+### Covariance and Contravariance in Scala
 
 **Scala: Declaration-Site Variance with Annotations**
 
@@ -161,7 +161,7 @@ When using _declaration-site variance_ the variance is specified at the location
 #### What this implies: 
 The variance becomes an inherent property of the generic type itself. Every instance of that generic type will have the same variance.
 
-### Scala: Covariance Example `[+T]`
+#### Scala: Covariance Example `[+T]`
 
 Covariance is expressed with a `+` annotation in the type parameter. This makes the generic type subtype-preserving.
 
@@ -180,7 +180,7 @@ def processElements(container: CovariantContainer[Any]): Unit = {
 }
 ~~~~
 
-### Scala: Contravariance Example `[-T]`
+#### Scala: Contravariance Example `[-T]`
 
 Contravariance is expressed with a `-` annotation, reversing the subtype relationship.
 
@@ -203,7 +203,7 @@ val stringComparator: Comparator[String] = anyComparator // Allowed due to contr
 Here, Comparator is contravariant because it consumes values of type `T`. A comparator that can compare a type `Any` can also compare `String`.
 
 
-### Scala: Invariance Example
+#### Scala: Invariance Example
 
 ~~~scala
 class InvariantContainer[T](val value: T)
@@ -215,7 +215,7 @@ val container1: InvariantContainer[String] = new InvariantContainer("hello")
 
 By default, Scala’s generic types are invariant, meaning `Container[Animal]` and `Container[Cat]` are unrelated unless explicitly annotated.
 
-## Erasure
+### Erasure
 
 Java has been around a long time - it wasn't until Java 5 in 2004 that generics were added. Java has strong guarantees of backwards compatibility, requiring that the new generic code needed to work with older non-generic code. For this to work during compilation, the Java compiler removes (_erases_) the type information associated with generics.
 Generic type parameters are replaced with their bounds (usually _Object_ if no bound is specified). So, a `List<String>` becomes just `List` at runtime. As a consequence you can't check the specific type of a generic object at runtime  (e.g. `instanceof List<String>`)
@@ -224,7 +224,7 @@ Scala on the other hand was designed with generics in mind from the start, so it
 Scala also has a concept of `Type Tags` that can be used to explicitly carry type information to the runtime when needed. This allows you to work around some of the limitations of erasure.
 
 
-# Phantom Types
+## Phantom Types
 
 A phantom type parameter is a type parameter that is declared in a class or interface definition but **not actually used in the implementation's fields or method signatures.**
 
@@ -294,7 +294,7 @@ public class Main {
 3. **Factory Methods:** `openForReading` and `openForWriting` are static factory methods. They create `Resource` objects but "tag" them with the appropriate phantom type (`Readable` or `Writable`).
 4. **`readData` and `writeData`:** These methods accept only `Resource<Readable>` and `Resource<Writable>`, respectively. This is where the phantom type enforces constraints at compile time.
 
-### How it Enforces Constraints
+#### How it Enforces Constraints
 
 - The compiler uses the phantom type `T` to track the intended use of a `Resource` object.
 - `readData` will only accept a `Resource` that has been "tagged" as `Readable` through the `openForReading` factory method.
@@ -339,8 +339,6 @@ def main(args: Array[String]): Unit = {
 }
 ~~~~
 
-
-
 **Analogy**
 
 Imagine you have a physical folder (the `Resource` object). The folder itself only contains a file path (the `path` field). The phantom type `T` is like a label you stick on the folder:
@@ -359,7 +357,7 @@ The label doesn't change the contents of the folder, but it tells you (and the c
 
 
 
-# Existential Types
+## Existential Types
 
 Existential types allow us to work with values without knowing their exact type at compile time. They let you define a type in terms of a property or behaviour, without revealing the concrete implementation. This is like defining an interface: you know what operations are supported, but the underlying class that implements those operations remains opaque.  This abstraction helps in writing more modular and maintainable code.
 
@@ -425,7 +423,7 @@ printBox(stringBox)  // Prints: Hello
 - Here, `Box` has an **abstract type member** (`T`) instead of a generic type parameter.
 - Each `Box` instance chooses its own concrete type for `T`.
 
-### Limitations of Existential Types
+#### Limitations of Existential Types
 
 - **Loss of Type Information:** When you use an existential type, you lose specific type information. You can only access members and methods that are known to exist for the general type, not for the specific hidden type.
 
