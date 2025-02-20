@@ -1,6 +1,18 @@
 ---
 title: There is more than one way to do GenAI
 date: 2025-02-20 14:57:00 Z
+categories:
+- Artificial Intelligence
+- Architecture
+- Sustainability
+- Tech
+- Cloud
+tags:
+- ocronk
+- Artificial Intelligence
+- architecture
+- Cloud
+- Sustainability
 summary: |-
   AI doesn't have to be brute forced requiring massive data centres. Europe isn't necessarily behind in AI arms race. In fact, the UK and Europe's constraints and focus on more than just economic return and speculation might well lead to more sustainable approaches.
 
@@ -16,7 +28,7 @@ This article is a follow on to **[Will Generative AI Implode and Become More Sus
 
 The prevailing narrative suggests that AI requires enormous centralised computing facilities, but let's examine this assumption more closely:
 
-* Local models are now easier than ever to implement - tools like LM Studio enable deployment with just a couple of clicks, democratising access to AI capabilities
+* Local models are now easier than ever to implement - tools like [LM Studio](https://lmstudio.ai/) enable personal deployment with just a couple of clicks, democratising access to AI capabilities (but also increase bring your own AI risks?)
 
   * Reduced dependency on cloud providers
 
@@ -218,8 +230,8 @@ The future of AI doesn't necessarily lie in brute force approaches or massive ce
 
 The current AI arms race, with its emphasis on model size and computing power, might be missing the forest for the trees. Sometimes, constraints breed creativity, and Europe's more measured approach to AI development could lead to innovations that better serve both business and societal needs.
 
-What's clear is that there's more than one way to advance AI technology. As we continue this journey, perhaps it's time to question whether bigger always means better, and whether the path to truly transformative AI might lie in smarter, more efficient approaches that consider the broader impact on our society and planet.
+What's clear is that there's more than one way to advance applied AI in our organisations, in a way that mitigates the concentration risks of current approaches. As we continue this journey, perhaps it's time to question whether bigger always means better, and whether the path to truly transformative AI might lie in smarter, more efficient approaches that consider the [broader impact on our society](https://www.linkedin.com/pulse/we-sleepwalking-tomorrows-ai-challenges-oliver-cronk-4rcge/) and [planet](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html).
 
 ---
 
-*Want to discuss alternative approaches to AI implementation? Reach out at [sustainability@scottlogic.com](mailto:sustainability@scottlogic.com) or connect with [Oliver on LinkedIn](https://linkedin.com/in/cronky/).*
+*Want to discuss alternative approaches to AI implementation? Get in touch at [sustainability@scottlogic.com](mailto:sustainability@scottlogic.com) or connect with [Oliver on LinkedIn](https://linkedin.com/in/cronky/).*
