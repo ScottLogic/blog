@@ -1,11 +1,16 @@
 ---
 title: There is more than one way to do GenAI
 date: 2025-02-20 14:57:00 Z
+summary: |-
+  AI doesn't have to be brute forced requiring massive data centres. Europe isn't necessarily behind in AI arms race. In fact, the UK and Europe's constraints and focus on more than just economic return and speculation might well lead to more sustainable approaches.
+
+  This article is a follow on to Will Generative AI Implode and Become More Sustainable? from July 2024. It's purpose is to challenge some of the narratives that the big tech players are pushing out
+author: ocronk
 ---
 
 AI doesn't have to be brute forced requiring massive data centres. Europe isn't necessarily behind in AI arms race. In fact, the UK and Europe's constraints and focus on more than just economic return and speculation might well lead to more sustainable approaches.
 
-In this article (which is a follow on to **Will Generative AI Implode and Become More Sustainable?** from July 2024) we will challenge some of the narratives that the big tech players (who by the way might just be a little biased due to their strategy, operating models and investments) are pushing out.
+This article is a follow on to **[Will Generative AI Implode and Become More Sustainable?](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html)** from July 2024. It's purpose is to challenge some of the narratives that the big tech players are pushing out (who might just be a little biased due to their strategy, operating models and investments).
 
 ## AI needs big massive data centres. Really?
 
@@ -209,7 +214,7 @@ The lessons learned from cloud adoption can inform AI strategy:
 
 ## Looking Forward
 
-The future of AI doesn't necessarily lie in brute force approaches or massive centralised computing facilities. By challenging these assumptions and exploring alternative architectures, we can develop AI systems that are not only more sustainable but potentially more effective at solving real-world problems.
+The future of AI doesn't necessarily lie in brute force approaches or massive centralised computing facilities. By challenging these assumptions and exploring alternative federated, distributed and hybrid architectures, we can develop AI systems that are not only more sustainable but potentially more effective at solving real-world problems.
 
 The current AI arms race, with its emphasis on model size and computing power, might be missing the forest for the trees. Sometimes, constraints breed creativity, and Europe's more measured approach to AI development could lead to innovations that better serve both business and societal needs.
 
@@ -217,4 +222,4 @@ What's clear is that there's more than one way to advance AI technology. As we c
 
 ---
 
-*Want to discuss alternative approaches to AI implementation? Reach out at [sustainability@scottlogic.com](mailto:sustainability@scottlogic.com) or connect with us on LinkedIn.*
+*Want to discuss alternative approaches to AI implementation? Reach out at [sustainability@scottlogic.com](mailto:sustainability@scottlogic.com) or connect with [Oliver on LinkedIn](https://linkedin.com/in/cronky/).*
