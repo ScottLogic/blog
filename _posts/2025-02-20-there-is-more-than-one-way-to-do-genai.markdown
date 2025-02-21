@@ -18,6 +18,7 @@ summary: |-
 
   This article is a follow on to Will Generative AI Implode and Become More Sustainable? from July 2024. It's purpose is to challenge some of the narratives that the big tech players are pushing out
 author: ocronk
+image: "/uploads/There%20is%20more%20than%20one%20way%20to%20do%20GenAI.png"
 ---
 
 AI doesn't have to be brute forced requiring massive data centres. Europe isn't necessarily behind in AI arms race. In fact, the UK and Europe's constraints and focus on more than just economic return and speculation might well lead to more sustainable approaches.
