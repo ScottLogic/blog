@@ -1,11 +1,14 @@
 ---
 title: AI’s Biggest Flaw? The Blinking Cursor Problem
-date: 2025-02-21 17:53:00 Z
+date: 2025-02-21 08:00:00 Z
+categories:
+- Artificial Intelligence
 summary: AI's potential is immense, yet clunky user interfaces and a lack of discoverability
   are holding it back from seamless adoption. To unlock AI’s true power, we need interfaces
   that guide, adapt, and engage—moving beyond the blinking cursor to something more
   intuitive, proactive, and, ultimately, more human.
 author: ceberhardt
+image: "/uploads/blinking-cursor.jpeg"
 ---
 
 _AI's potential is immense, yet clunky user interfaces and a lack of discoverability are holding it back from seamless adoption. To unlock AI’s true power, we need interfaces that guide, adapt, and engage—moving beyond the blinking cursor to something more intuitive, proactive, and, ultimately, more human._
