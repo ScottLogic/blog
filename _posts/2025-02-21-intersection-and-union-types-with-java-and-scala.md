@@ -315,9 +315,9 @@ Because sealed hierarchies have a fixed, known set of subtypes, the Java compile
 
 In contrast, while Scala 3.6's pattern matching on native union types is very flexible and powerful, it does not, by default, enforce exhaustiveness in the same way.  If you pattern match on a union type and miss a case, the Scala compiler might issue a _warning_ depending on settings, but it's not the same level of enforced exhaustiveness as Java provides with sealed types.
 
-##### A couple of practical steps to help mitigate this  are:
+###### A couple of practical steps to help mitigate this  are:
 
-- Wildcard case _: Adding a case _ => // Fallback logic clause in your match expression can silence warnings, but it essentially means you're handling the "missing" cases with a general fallback, not with specific type-safe branches.
+- Wildcard case _: Adding a `case _ =>` // Fallback logic clause in your match expression can silence warnings, but it essentially means you're handling the "missing" cases with a general fallback, not with specific type-safe branches.
 - Compiler Settings (`-Wnon-exhaustive-match`): You can configure the Scala compiler to treat exhaustiveness warnings as errors, increasing the strictness of checking.
 
 
