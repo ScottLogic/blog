@@ -73,11 +73,12 @@ def setup(component: Resettable & Configurable): Unit = {
 }
 
 ~~~~
-```
+
+~~~~text
 Configuring with Map(initial -> true) (Scala)
 Resetting component (Scala)
 Component set up and reset (Scala)
-```
+~~~~
 
 Here, `Resettable & Configurable` is a distinct type. Any value of this type must implement *both* Resettable and Configurable. This provides strong compile-time guarantees.
 
@@ -111,12 +112,12 @@ class IntersectionExample {
   }
 }
 ~~~~
-```
+
+~~~~text
 Configuring with {initial=true} (Java)
 Resetting component (Java)
 Component set up and reset (Java)
-```
-
+~~~~
 
 **Practical Application: Mix-in Behaviours and Capabilities**
 
@@ -312,11 +313,12 @@ Because sealed hierarchies have a fixed, known set of subtypes, the Java compile
 
 **Scala 3.6's Union Types and Non-Exhaustive Matching (by Default)**
 
-In contrast, while Scala 3.6's pattern matching on native union types is very flexible and powerful, it does not, by default, enforce exhaustiveness in the same way.  If you pattern match on a union type and miss a case, The Scala compiler might issue a _warning_ depending on settings, but it's not the same level of enforced exhaustiveness as Java provides with sealed types.
+In contrast, while Scala 3.6's pattern matching on native union types is very flexible and powerful, it does not, by default, enforce exhaustiveness in the same way.  If you pattern match on a union type and miss a case, the Scala compiler might issue a _warning_ depending on settings, but it's not the same level of enforced exhaustiveness as Java provides with sealed types.
 
-A couple of practical steps to help mitigate this  are:
+##### A couple of practical steps to help mitigate this  are:
+
 - Wildcard case _: Adding a case _ => // Fallback logic clause in your match expression can silence warnings, but it essentially means you're handling the "missing" cases with a general fallback, not with specific type-safe branches.
-- Compiler Settings (-Wconf:origin=...:error): You can configure the Scala compiler to treat exhaustiveness warnings as errors, increasing the strictness of checking.
+- Compiler Settings (`-Wnon-exhaustive-match`): You can configure the Scala compiler to treat exhaustiveness warnings as errors, increasing the strictness of checking.
 
 
 
@@ -392,7 +394,7 @@ This explicit approach enhances type safety and makes the presence of potentiall
 
 **Conclusion: Embracing Type Flexibility with Intersection and Union types**
 
-Intersection and union types are powerful tools that enhance type system expressiveness and code safety. Scala 3's direct syntax, structural flexibility, and explicit null handling provide a very advanced and adaptable approach to union and intersection types. Java 23, utilising interface intersection and sealed hierarchies (now with improved pattern matching and **compile-time exhaustiveness checking**), offers a robust and structured way to simulate these concepts, particularly beneficial for designing well-defined APIs within its more inheritance-centric type system. However, developers should be mindful of  increased flexibility, nuances of null handling, the explicit nature of union type inference in Scala, and the different levels of exhaustiveness checking in pattern matching. Understanding these language-specific characteristics will enable you to effectively utilise intersection and union types in both Java and Scala, choosing the approach best suited to your needs and constraints.
+Intersection and union types are powerful tools that enhance type system expressiveness and code safety. Scala 3's direct syntax, structural flexibility, and explicit null handling provide a very advanced and adaptable approach to union and intersection types. Java 23, utilising interface intersection and sealed hierarchies (now with improved pattern matching and **compile-time exhaustiveness checking**), offers a robust and structured way to simulate these concepts. This is particularly beneficial for designing well-defined APIs within its more inheritance-centric type system. However, we should be mindful of  increased flexibility, nuances of null handling, the explicit nature of union type inference in Scala, and the different levels of exhaustiveness checking in pattern matching. Understanding these language-specific characteristics will enable you to effectively utilise intersection and union types in both Java and Scala, choosing the approach best suited to your needs and constraints.
 
 ### Next time
 
