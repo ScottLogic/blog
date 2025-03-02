@@ -11,8 +11,8 @@ summary: Following Advent of Code 2024, I migrated some of my solutions to run o
 author: smartin
 ---
 *TODO Fix day9 - Stack Overflow in Windows, part 2 never migrated*
+
 *TODO Sort out headers: content, levels, etc. c.f. Chris' Mobiumata blog post*
-*TODO Images*
 
 ### **Introduction**  
 
@@ -35,13 +35,16 @@ The Raspberry Pi Pico is a microcontroller based on the **RP2040** chip. It has 
 While the Pico is powerful for a microcontroller, it lacks the conveniences of a full-fledged operating system—no dynamic memory allocation (`malloc`/`free`), no standard I/O, and no built-in file system. This makes running Advent of Code solutions particularly tricky, as they often involve handling large data sets, recursion-heavy algorithms, and complex computations.  
 
 #### **Goals of the Migration**  
+I decided that migrating the first 10 days of my Advent of Code solution would be a sufficiently challenging objective. It would include challenges solved by 75% of those participants who completed at least day 1 (based on [completion statistics summary](https://adventofcode.com/2024/stats)):
+<img src='{{ site.baseurl }}/smartin/assets/advent_of_code_2024_stats.PNG' alt='Advent of Code Completion Statistics'/>
+
 Migrating my Advent of Code solutions to `no_std` Rust on the Pi Pico meant setting some clear objectives:  
 
 - **Successfully run Rust solutions on bare-metal hardware** without relying on an operating system.  
 - **Rewrite problem solutions to work without heap allocation**, adapting algorithms to work efficiently with limited stack space.  
 - **Document challenges and solutions** encountered during the migration, to help others who might attempt something similar.  
 
-This blog will detail that journey—the technical hurdles, lessons learned, and ultimately whether this experiment was worth the effort.
+This post will detail that journey: the technical hurdles, lessons learned, and ultimately whether this experiment was worth the effort.
 
 #### **Why Rust Was Chosen**  
 
@@ -103,36 +106,40 @@ To compile Rust for the Raspberry Pi Pico, we need a toolchain that supports **`
 
 1. **Installing Rust and the ARM target**  
    Since the RP2040 is an ARM-based microcontroller, we need the appropriate Rust target:  
-   ```sh
+
+   ~~~sh
    rustup target add thumbv6m-none-eabi
-   ```  
+   ~~~  
    This tells Rust to compile for the **`thumbv6m-none-eabi`** target, which is suitable for the Cortex-M0+ CPU.  
 
 2. **Installing the `probe-rs` tooling**  
    `probe-rs` is a modern tool for flashing and debugging Rust programs on embedded devices:  
-   ```sh
+
+   ~~~sh
    cargo install probe-rs cargo-embed
-   ```  
+   ~~~  
 
 3. **Setting Up the Rust Standard Library and Allocator**  
    - For `no_std`, we don’t use the standard Rust runtime (`std`), so our `Cargo.toml` must include:  
-     ```toml
+
+     ~~~toml
      [dependencies]
      cortex-m = "0.7"
      cortex-m-rt = "0.7"
      embassy-embedded-hal = "0.1.0"
      embedded-hal = "0.2"
      panic-probe = "0.3"
-     ```
+     ~~~
    - `cortex-m-rt` provides the **startup runtime**, ensuring correct entry points.  
    - `panic-halt` exits a `probe-run` with an error code.  
 
 4. **Using `cargo` for Embedded Builds**  
    We need to configure Cargo to build for the this target by default, by adding a `.cargo/config.toml` file:  
-   ```toml
-   [build]
-   target = "thumbv6m-none-eabi"
-   ```  
+
+~~~toml
+[build]
+target = "thumbv6m-none-eabi"
+~~~ 
    Now, running `cargo build` will automatically compile for the RP2040.  
 
 #### **Setup for Experiments (Windows vs Pico Runner)**  
@@ -144,18 +151,20 @@ As the process for migrating existing Advent of Code solutions from a **`std`** 
    - Solutions adapted to run without dynamic memory
    - Ran test cases and verified correctness before porting to embedded.  
    - Cargo command line to run:
-```sh
+
+~~~sh
 cargo run --target=x86_64-pc-windows-msvc --bin winmain --features log
-```
+~~~
 
 2. **Raspberry Pi Pico**  
    - Used for final testing of the migration process and performance analysis.  
    - Used **serial output (UART)** instead of `println!` for debugging.  
    - Measured execution speed to compare embedded performance vs. PC.  
    - Cargo command line to flash, and run (with debug probe connected):
-```sh
+
+~~~sh
 cargo run --bin embassy_runner --features defmt
-```
+~~~
 
 This dual setup allowed me to test the `no_std` migration on Windows before evaluating performance on the target microcontroller.  
 
@@ -164,9 +173,10 @@ Before the solution migration can be evaluated, the problem input data must be r
 
 1. **Hardcoding the Data as a Rust String (&str)**
 ## Store the problem input directly in the Rust source code as a string constant:
-```rust
+
+~~~rust
 const INPUT: &str = "123\n456\n789\n...";
-```
+~~~
 - Pros:  
   - Simple, easy to use.
 - Cons:  
@@ -175,9 +185,10 @@ const INPUT: &str = "123\n456\n789\n...";
 
 2. **Embedding the Data as a Byte Array (include_bytes!)**
 Use Rust’s compile-time macro to embed the file as a byte array:
-```rust
+
+~~~rust
 const INPUT: &[u8] = include_bytes!("input.txt");
-```
+~~~
 - Pros:  
   - Efficiently stores data in Flash without modification.
   - No need to manually escape special characters (unlike hardcoded &str).
@@ -188,9 +199,10 @@ const INPUT: &[u8] = include_bytes!("input.txt");
 
 3. **Storing Data in an Allocated Buffer in RAM**
 Data could be manually copied into a statically allocated buffer at runtime (from either of the above flash-based initial options):
-```rust
+
+~~~rust
 static mut INPUT_BUFFER: [u8; 1024] = [0; 1024];
-```
+~~~
 - Pros:  
   - Allows runtime modification of data.
 - Cons:  
@@ -212,7 +224,8 @@ Given that the input was stored as a **byte array (`&[u8]`) in Flash**, I consid
 
 * **Using `arrayvec::ArrayVec` for Dynamic Parsing**  
    - As discussed earlier, we can use **fixed-capacity collections**, like `arrayvec::ArrayVec`, which act like `Vec` but without heap allocation:  
-     ```rust
+
+     ~~~rust
      use arrayvec::ArrayVec;
      let mut numbers: ArrayVec<u32, 100> = ArrayVec::new();
      for line in input_str.split(|&c| c == b'\n') {
@@ -220,7 +233,7 @@ Given that the input was stored as a **byte array (`&[u8]`) in Flash**, I consid
              numbers.push(num).ok(); // .ok() ignores push errors when full
          }
      }
-     ```  
+     ~~~  
    - **Pros**:  
      - Allows **flexibility** in input size while remaining `no_std`.  
    - **Cons**:  
@@ -230,7 +243,8 @@ Given that the input was stored as a **byte array (`&[u8]`) in Flash**, I consid
 * **Using `nom` for Robust Parsing** *(Final Selection)*  
    - [`nom`](https://docs.rs/nom/latest/nom/) is a **parser combinator library** that works in `no_std`, allowing parsing to be expressed in a declarative, reusable manner.  
    - Example for extracting numbers from input:  
-     ```rust
+
+     ~~~rust
      use nom::{
          bytes::complete::take_until,
          character::complete::u32,
@@ -243,13 +257,14 @@ Given that the input was stored as a **byte array (`&[u8]`) in Flash**, I consid
          let (input, numbers) = separated_list1(take_until("\n"), u32)(input)?;
          Ok((input, arrayvec::ArrayVec::from(&numbers).unwrap()))
      }
-     ```  
+     ~~~  
    - **Pros**:  
      - **Declarative and reusable** – makes parsing logic more readable.  
      - **Optimized and memory-safe** – doesn’t require unnecessary allocations.  
      - **Works well with `arrayvec::ArrayVec`** – efficiently manages parsed data in RAM.  
    - **Cons**:  
      - Slightly **larger code size** than manual parsing.  
+     - Still need to define an **upper limit** on collections (`100` in this case).  
      - Large **Learning curve** if unfamiliar with parser combinators.  
 
 #### **Why I Selected `nom`**  
@@ -274,18 +289,20 @@ The primary issues I found in running on the microcontroller, after code was pro
    - Solution: Convert recursive functions to **iterative** versions using a stack data structure.  
 
    Example: Changing a recursive DFS to an **explicit stack-based loop**:  
-   ```rust
+
+   ~~~rust
    let mut stack = heapless::Vec::<u32, 100>::new();
    stack.push(start).unwrap();
 
    while let Some(node) = stack.pop() {
        // Process node
    }
-   ```
+   ~~~
 2. **Allocating Large Buffers on the Stack**  
    - Declaring a **large local array** inside a function caused stack overflows.  
    - Solution: Use `static` memory instead of stack allocation:  
-   ```rust
+
+   ~~~rust
    static BUFFER: StaticCell<[u8; 1024]> = StaticCel::new(); // Stored in global memory
    .
    .
@@ -295,7 +312,7 @@ The primary issues I found in running on the microcontroller, after code was pro
       // Usage of buffer
    }
 
-   ```
+   ~~~
 
 ---
 
@@ -303,18 +320,19 @@ The primary issues I found in running on the microcontroller, after code was pro
 ### **6. Results: Comparative performance**  
 *TODO: REWRITE THIS*
    - Table of results for each day (windows vs pico)  
+
 | Problem | Windows Runtime | Pico Runtime |
 |:--------|:----------------|:-------------|
-|       1 |               0 |              |
-|       2 |               0 |              |
-|       3 |              14 |              |
-|       4 |               1 |              |
-|       5 |              17 |              |
-|       6 |              79 |              |
-|       7 |             821 |              |
-|       8 |              17 |              |
+|       1 |               0 |         2646 |
+|       2 |               0 |          125 |
+|       3 |              14 |           54 |
+|       4 |               1 |           84 |
+|       5 |              17 |         4648 |
+|       6 |              79 |        37231 |
+|       7 |             821 |       186184 |
+|       8 |              17 |         3459 |
 |       9 |                 |              |
-|      10 |               2 |              |
+|      10 |               2 |         1187 |
 
    - Justifications / Rationale  
 
@@ -327,6 +345,5 @@ If I were to migrate equivalent code to run on a microcontroller in future, I wo
 
 In future, I would like to expand my embedded experience with projects where microcontrollers more naturally have a role to play, for example control of peripherals (lights, motors, ...)
 
-*TODO: Useful links*
-   - Resources for others interested in `no_std` development  
+If you are interested in viewing the code associated with this blog, my original solutions to Advent of Code (all days) are available [here](https://github.com/SMartinScottLogic/advent_2024). The migrated solutions are [here](https://github.com/SMartinScottLogic/advent_2024_embassy).
 
