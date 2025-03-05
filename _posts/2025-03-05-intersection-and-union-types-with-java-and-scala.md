@@ -1,6 +1,6 @@
 ---
 title: Intersection and Union types with Java and Scala
-date: 2025-02-21 00:00:00 Z
+date: 2025-03-05 00:00:00 Z
 categories:
 - Tech
 tags:
@@ -23,18 +23,18 @@ This is the third post in a series exploring types and type systems.   Previous 
 
 One of the difficult things for modern programming languages to get right is around providing flexibility when it comes to expressing complex relationships. As languages evolve, they need to give us tools to model the nuances of real world problems more accurately in our code.
 Modern software systems are much more complex than in years gone by, and developers need type systems that can accurately express intricate relationships. **Intersection types** and **union types** provide this expressiveness by allowing programmers to specify more precise type constraints.
-We will see how these powerful features of the type system, while have been present in some form, are now becoming increasingly refined in languages like Java and Scala, providing benefits that help us write more expressive, safer, and ultimately more maintainable code.
-In this post, we'll dive deep into these concepts, exploring how they're implemented in the latest versions of **Java 23** and **Scala 3.6**. We'll see practical examples, compare and contrast the approaches, identify where they shine and where they fall short we will discuss how to bridge the gaps. 
+We will see how these powerful features of the type system, while having been present in some form, are now becoming increasingly refined in languages like Java and Scala, providing benefits that help us write more expressive, safer, and ultimately more maintainable code.
+In this post, we'll dive deep into these concepts, exploring how they're implemented in the latest versions of **Java 23** and **Scala 3.6**. We'll see practical examples, compare and contrast the approaches, identify where they shine, and where they fall short we will discuss how to bridge the gaps. 
 
 ### A brief historical timeline.
 
-Before we go into detail of their application lets take a brief look at their historical context.
+Before we go into detail about their application, let's take a brief look at their historical context.
 
-- **1930s-1960s**: The theoretical foundations for intersection and union types can be traced back to type theory and mathematical logic, specifically in areas dealing with type polymorphism and subtyping. Thinkers like Haskell Curry, Alonzo Church, and later researchers in the field of type systems laid the groundwork for understanding types not just as mathematical sets, but as structured entities with relationships.
-- **1970s-1980s**: Early type systems (ML, Lisp) lacked explicit intersection/union types. C and Pascal introduced unions.
+- **1930s-1960s**: The theoretical foundations for intersection and union types can be traced back to type theory and mathematical logic, specifically in areas dealing with type polymorphism and subtyping. Thinkers like Haskell Curry, Alonzo Church, and later researchers in the field of type systems have laid the groundwork for understanding types not just as mathematical sets, but as structured entities with relationships.
+- **1970s-1980s**: Early type systems (ML, Lisp) lacked explicit intersection/union types. C and Pascal introduced unions although in the case of C unions are not considered type safe because they allow accessing memory as different types without verifying the original type of the data stored, leading to potential data corruption and undefined behavior.
 - **1990s**: Functional languages (ML, OCaml) formalised **[Abstract Data Types (ADTs)]({{site.baseurl}}/2025/01/20/algebraic-data-types-with-java.html)**, enabling safer unions.
 - **2000s**: **Scala** (2004) introduced explicit intersection type with `with` syntax.
-- **2010**s: [**TypeScript**](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html) (2012) embraced and popularized union (`A | B`) and intersection (`A & B`) types in mainstream development as essential features for adding static typing on top of dynamic foundations. 
+- **2010**s: [**TypeScript**](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html) (2012) embraced and popularised union (`A | B`) and intersection (`A & B`) types in mainstream development as essential features for adding static typing on top of dynamic foundations. 
 - **2020s**: TypeScript refinements,[Scala 3](https://dotty.epfl.ch/docs/reference/new-types/union-types.html) fully embraces native union type with `|` and intersections using `&`.
 
 
@@ -224,7 +224,7 @@ class SimulatedUnionExample {
 ~~~~
 
 
-While the underlying structure with sealed interfaces remains, the handleInputJava method is now cleaner thanks to pattern matching checks. This makes working with simulated union types in Java significantly less verbose compared to older versions.
+While the underlying structure with sealed interfaces remains, the handleInputJava method has now become cleaner thanks to pattern matching checks. This has made working with simulated union types in Java significantly less verbose compared to older versions.
 
 **Practical Application: Representing Success or Failure, Variant Data Structures**
 
@@ -307,15 +307,15 @@ As we’ve discussed, Java simulates union types through sealed hierarchies, whi
 **Exhaustiveness Checking in Pattern Matching: Java vs. Scala**
 
 
-When dealing with unions, both simulated and real it is very likely that we are going to undertake pattern matching.
+When dealing with unions, both simulated and real, it is very likely that we are going to undertake pattern matching.
 A key advantage of Java's simulation of union types using sealed interfaces is compile-time exhaustiveness checking when used with pattern matching.
-Because sealed hierarchies have a fixed, known set of subtypes, the Java compiler can verify that your pattern matching logic handles all possible cases. If you miss a case in a switch expression over a sealed type the Java compiler will issue a compile-time error.  This dramatically increases safety and helps prevent bugs where you forget to handle a possible variant of your union type.
+Because sealed hierarchies have a fixed, known set of subtypes, the Java compiler can verify that your pattern matching logic handles all possible cases. If you miss a case in a switch expression over a sealed type, the Java compiler will issue a compile-time error.  This dramatically increases safety and helps prevent bugs where you forget to handle a possible variant of your union type.
 
 **Scala 3.6's Union Types and Non-Exhaustive Matching (by Default)**
 
 In contrast, while Scala 3.6's pattern matching on native union types is very flexible and powerful, it does not, by default, enforce exhaustiveness in the same way.  If you pattern match on a union type and miss a case, the Scala compiler might issue a _warning_ depending on settings, but it's not the same level of enforced exhaustiveness as Java provides with sealed types.
 
-###### A couple of practical steps to help mitigate this  are:
+###### A couple of practical steps to help mitigate this issue are:
 
 - Wildcard case _: Adding a `case _ =>` // Fallback logic clause in your match expression can silence warnings, but it essentially means you're handling the "missing" cases with a general fallback, not with specific type-safe branches.
 - Compiler Settings (`-Wnon-exhaustive-match`): You can configure the Scala compiler to treat exhaustiveness warnings as errors, increasing the strictness of checking.

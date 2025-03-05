@@ -19,7 +19,7 @@ This is the second post in a series exploring types and type systems.   Other po
 
 - [Algebraic Data Types with Java]({{site.baseurl}}/2025/01/20/algebraic-data-types-with-java.html)
 
-- [Intersection and Union Types with Java and Scala]({{site.baseurl}}/2025/02/21/intersection-and-union-types-with-java-and-scala.html)
+- [Intersection and Union Types with Java and Scala]({{site.baseurl}}/2025/03/05/intersection-and-union-types-with-java-and-scala.html)
 
 ## Variance in Generics
 
@@ -560,7 +560,7 @@ While Java has made significant strides in recent years, especially with the int
 
 ### Next time
 
-Next time we will look at how [Union and Intersection Types]({{site.baseurl}}/2025/02/21/intersection-and-union-types-with-java-and-scala.html) bring flexibility to the type system and enhance our programming techniques.
+Next time we will look at how [Union and Intersection Types]({{site.baseurl}}/2025/03/05/intersection-and-union-types-with-java-and-scala.html) bring flexibility to the type system and enhance our programming techniques.
 
  - 
 

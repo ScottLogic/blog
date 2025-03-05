@@ -28,7 +28,7 @@ This is the first post in a series exploring types and type systems.   Other pos
 
 - [Variance, Phantom and Existential types in Java and Scala]({{site.baseurl}}/2025/02/17/variance-in-java-and-scala.html)
 
-- [Intersection and Union Types with Java and Scala]({{site.baseurl}}/2025/02/21/intersection-and-union-types-with-java-and-scala.html)
+- [Intersection and Union Types with Java and Scala]({{site.baseurl}}/2025/03/05/intersection-and-union-types-with-java-and-scala.html)
 
 
 When we develop an application, we frequently need to model some aspect of business to describe and solve a business problem. We do this by creating a conceptual representation of the real-world problem that we are trying to solve. This allows us to understand the "domain" where our software operates.
