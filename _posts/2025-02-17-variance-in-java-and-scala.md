@@ -15,6 +15,12 @@ image: magnussmith/assets/java.jpg
 
 ![variance_phantom_existential.webp]({{site.baseurl}}/magnussmith/assets/variance_phantom_existential.webp)
 
+This is the second post in a series exploring types and type systems.   Other posts have looked at
+
+- [Algebraic Data Types with Java]({{site.baseurl}}/2025/01/20/algebraic-data-types-with-java.html)
+
+- [Intersection and Union Types with Java and Scala]({{site.baseurl}}/2025/03/05/intersection-and-union-types-with-java-and-scala.html)
+
 ## Variance in Generics
 
 Generics are a fundamental pillar of modern type-safe programming languages. They allow us to write reusable code that can work with different types without sacrificing type safety. But when you dive deeper into the world of generics, you encounter the intriguing concepts of *covariance* and *contravariance*. These concepts, often perceived as complex, are crucial for understanding how type hierarchies and subtyping interact with generic types.
@@ -554,15 +560,13 @@ While Java has made significant strides in recent years, especially with the int
 
 ### Next time
 
-Next time we will look at some powerful features of a type system that enable programming techniques that are more difficult or impossible to achieve in Java.
+Next time we will look at how [Union and Intersection Types]({{site.baseurl}}/2025/03/05/intersection-and-union-types-with-java-and-scala.html) bring flexibility to the type system and enhance our programming techniques.
 
-#### Union and Intersection Types:
+ - 
 
-- **Scala:** Supports union types (e.g. `Int | String`) and intersection types (e.g. `T with U`) allowing for more flexible type expressions directly in the type system.
 
-#### Higher-Kinded Types:
 
-- **Scala:** Natively supports higher-kinded types, allowing you to abstract over type constructors (e.g., `List`, `Option`, `Future`). This enables powerful generic programming patterns and the creation of highly reusable abstractions (like `Functor`, `Monad`, etc.).
+
 
 
 
