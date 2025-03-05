@@ -6,7 +6,9 @@ categories:
 tags:
 - Java, Scala
 author: magnussmith
-summary: In this post we will see  how Intersection types help us better model type constraints promoting reuse and how Union types increase code flexibility.  We will compare and contrast approaches and how to use in the latest Java and Scala.    
+summary: In this post we will see  how Intersection types help us better model type
+  constraints promoting reuse and how Union types increase code flexibility.  We will
+  compare and contrast approaches and how to use in the latest Java and Scala.
 image: magnussmith/assets/java.jpg
 ---
 
