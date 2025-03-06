@@ -34,7 +34,7 @@ No, far from it. LLMs have a subtle, yet more dangerous weakness – their lack 
 
 ## Vague requirements 
 
-Let’s use bolt (which incidentally I think is an amazing tool) for an illustration. If I simply ask it to “build a word guessing game for me”, it very rapidly builds “something”. It creates a UI, and a half-working implementation of some sort of game: 
+Let’s use [bolt](https://bolt.new/) (which incidentally I think is an amazing tool) for an illustration. If I simply ask it to “build a word guessing game for me”, it very rapidly builds “something”. It creates a UI, and a half-working implementation of some sort of game: 
 
 ![bolt-word-game.png](/uploads/bolt-word-game.png)
 
@@ -54,7 +54,9 @@ Again, using Bolt as an example, I have asked it to build something quite compli
 
 It has made a valiant attempt, rendering some tiles and a chart (which incidentally doesn’t work). However, it is little more than a mock-up, it certainly isn’t a trading application. 
 
-This isn’t just a Bolt problem. Here’s a conversation I had with ChatGPT last night, where I took a photo of some lego and asked for some build ideas: 
+When vibe coding, the LLM ignores ambiguity and tried its best. As a result, you can very rapidly build completely the wrong thing. As others have stated, when using AI to accelerate development, you simply must invest more time in testing.
+
+But back to understanding limitations, this isn’t just a Bolt problem. Here’s a conversation I had with ChatGPT last night, where I took a photo of some lego and asked for some build ideas: 
 
 ![chatgpt-lego-ideas.png](/uploads/chatgpt-lego-ideas.png) 
 
@@ -99,7 +101,7 @@ But once again, the LLM is unaware of the complexity of this task, and its own l
 
 ## Conclusions 
 
-The more I used LLMs for a wide range of tasks, the more I hit against this fundamental issue. Hallucinations are of course an issue too, but they seem quite minor in comparison. I can live with occasional factual errors, and the need to review the output. I find it harder to work with a system that will happily undertake any task, whether it is simple, yet ambiguous, or complex far beyond its own capabilities.  
+The more I use LLMs for a wide range of tasks, the more I hit against this fundamental issue. Hallucinations are of course an issue too, but they seem quite minor in comparison. I can live with occasional factual errors, and the need to review the output. I find it harder to work with a system that will happily undertake any task, whether it is simple, yet ambiguous, or complex and far beyond its own capabilities.  
 
 For now, the path to success involves trial and error, to build up our own mental model of the capabilities of an LLM (or LLM-based tool). This is time-consuming and is never going to be terribly precise, as of course their capabilities lack clear boundaries. 
 
