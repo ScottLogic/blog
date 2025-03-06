@@ -9,7 +9,7 @@ summary: LLMs are not just limited by hallucinations—they fundamentally lack a
   true progress lies in models that can acknowledge ambiguity, seek clarification,
   and recognise when they are out of their depth.
 author: ceberhardt
-image: "/uploads/ai-doesnt-know.jpg"
+image: "/uploads/library.jpg"
 ---
 
 _LLMs are not just limited by hallucinations—they fundamentally lack awareness of their own capabilities, making them overconfident in executing tasks they don’t fully understand. While “vibe coding” embraces AI’s ability to generate quick solutions, true progress lies in models that can acknowledge ambiguity, seek clarification, and recognise when they are out of their depth._
