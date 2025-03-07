@@ -1,6 +1,7 @@
 ---
 title: 'Imposter Syndrome: A Workplace Responsibility, Not an Individual Burden'
 date: 2025-03-07 15:43:00 Z
+published: false
 categories:
 - People
 summary: Imposter Syndrome is a sector-wide problem and employers should be taking
