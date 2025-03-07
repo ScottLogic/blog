@@ -11,6 +11,7 @@ summary: Imposter Syndrome is a sector-wide problem and employers should be taki
   on the under-represented groups that feel it to solve. In this blog post I suggest
   some actions for the workplace to take in tackling imposter syndrome.
 author: mpace
+image: "/uploads/Imposter%20Syndrome.png"
 ---
 
 Wednesday. 9.30am. You’re sitting in a meeting room with your team discussing strategy/plans/challenges (delete as appropriate), and someone asks you directly, ‘Do you have any thoughts or feedback?’. Your head is filled with ideas, but instead of voicing them, doubt takes over and the words ‘Nope, all sounds good’ come out. Imposter syndrome has struck again.
