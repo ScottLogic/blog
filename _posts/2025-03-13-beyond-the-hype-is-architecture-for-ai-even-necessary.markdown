@@ -43,7 +43,7 @@ We also delve into the geopolitical implications of AI, the importance of data s
 
 * [Fully Autonomous AI Agents Should Not Be Developed](https://arxiv.org/pdf/2502.02649 "https://arxiv.org/pdf/2502.02649") (PDF) – Hugging Face
 
-* [Will the US cloud soon be illegal in the EU](https://www.cio.com/article/3810960/will-the-us-cloud-soon-be-illegal-in-the-eu.html "https://www.cio.com/article/3810960/will-the-us-cloud-soon-be-illegal-in-the-eu.html") – CIO
+* [Will the US cloud soon be illegal in the EU?](https://www.cio.com/article/3810960/will-the-us-cloud-soon-be-illegal-in-the-eu.html "https://www.cio.com/article/3810960/will-the-us-cloud-soon-be-illegal-in-the-eu.html") – CIO
 
 **Subscribe to the podcast**
 
