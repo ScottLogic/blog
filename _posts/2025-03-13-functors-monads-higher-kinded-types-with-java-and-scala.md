@@ -11,6 +11,16 @@ image: magnussmith/assets/java.jpg
 ---
 
 ![functors_monads_hkt.webp]({{site.baseurl}}/magnussmith/assets/functors_monads_hkt.webp)
+
+This is the fourth post in a series exploring types and type systems.   Previous posts have looked at
+
+- [Algebraic Data Types with Java]({{site.baseurl}}/2025/01/20/algebraic-data-types-with-java.html)
+
+- [Variance, Phantom and Existential types in Java and Scala]({{site.baseurl}}/2025/02/17/variance-in-java-and-scala.html)
+
+- [Intersection and Union Types with Java and Scala]({{site.baseurl}}/2025/03/05/intersection-and-union-types-with-java-and-scala.html)
+
+
 In this post we will look at how we can combine some important ideas from functional programming with strong typing to produce robust expressive code that is more reusable. 
 
 As developers, we're accustomed to working with collections and streams, transforming data using `map`, `filter`, and other operations. But have you ever stopped to think about the underlying principles that make these operations possible? This post will explore the concept of a "functor," a fundamental idea from category theory that sheds light on how we manipulate data within containers.
