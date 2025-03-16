@@ -10,7 +10,7 @@ summary: In this post we will see what a Functor and Monad are and how Higher Ki
 image: magnussmith/assets/java.jpg
 ---
 
-![functors_monads_hkt.webp]({{site.baseurl}}/magnussmith/assets/functors_manads_hkt.webp)
+![functors_monads_hkt.webp]({{site.baseurl}}/magnussmith/assets/functors_monads_hkt.webp)
 In this post we will look at how we can combine some important ideas from functional programming with strong typing to produce robust expressive code that is more reusable. 
 
 As developers, we're accustomed to working with collections and streams, transforming data using `map`, `filter`, and other operations. But have you ever stopped to think about the underlying principles that make these operations possible? This post will explore the concept of a "functor," a fundamental idea from category theory that sheds light on how we manipulate data within containers.
