@@ -10,9 +10,8 @@ summary: In this post we will see what a Functor and Monad are and how Higher Ki
 image: magnussmith/assets/java.jpg
 ---
 
-![functors_monads_hkt.webp]({{site.baseurl}}/magnussmith/assets/functors_maonads_hkt.webp)
-
-In this post we will look at how we can combine some ideas from functional programming with strong typing to produce robust expressive code that is more reusable. 
+![functors_monads_hkt.webp]({{site.baseurl}}/magnussmith/assets/functors_manads_hkt.webp)
+In this post we will look at how we can combine some important ideas from functional programming with strong typing to produce robust expressive code that is more reusable. 
 
 As developers, we're accustomed to working with collections and streams, transforming data using `map`, `filter`, and other operations. But have you ever stopped to think about the underlying principles that make these operations possible? This post will explore the concept of a "functor," a fundamental idea from category theory that sheds light on how we manipulate data within containers.
 
@@ -88,6 +87,7 @@ Stream<Integer> composedOnce = originalStream.map(s -> g.apply(f.apply(s)));
 
 assertTrue(composed.collect(Collectors.toList()).equals(composedOnce.collect(Collectors.toList())));
 ~~~~
+
 
 _java.util.Optional_
 
@@ -248,7 +248,7 @@ workflows without callback hell.
 Scala has built-in support for monadic operations through it's `for` comprehensions, which are syntactic sugar for 
 `flatMap` and `map`.  Additionally, libraries like Cats provide a formal `Monad` typeclass.
 
-~~~~ scala 3
+~~~~ scala
 // Using Scala's for comprehensions (syntactic sugar)
 
 def findUser(userId: Int): Option[User] = ??? // Assume this is defined
@@ -327,7 +327,7 @@ This allows us to work with Container<String>, Container<Integer>, etc. However,
 **Scala example**:
 Scala supports HKTs natively
 
-~~~~ scala 3
+~~~~ scala
 trait Functor[F[_]] {
   def map[A, B](fa: F[A])(f: A => B): F[B]
 }
@@ -373,7 +373,7 @@ A Higher-Kinded Type is a type that takes a type *constructor* as a parameter. W
 
 As we have seen Scala *does* have HKTs and although you can create a hand-rolled `Functor`. In practice we tend to use a library like Cats, which provides a rich set of typeclasses and instances.
 
-~~~~ scala 3
+~~~~ scala
 import cats.Functor
 import cats.instances.list._   // Import Functor instance for List
 import cats.instances.option._ // Import Functor instance for Option
@@ -403,11 +403,11 @@ object FunctorExample {
 }
 ~~~~
 
-**Note**
+**Notes**
 
-(1) The import *import cats.syntax.functor._:* brings in *extension methods* This "magic" allows Scala to add methods to existing types. It's what allows us to call `.map` directly on a `List` or `Option` as if it were defined on those types, even though map is actually defined in the `Functor` typeclass.
+*(1)* The import *import cats.syntax.functor._:* brings in *extension methods* This "magic" allows Scala to add methods to existing types. It's what allows us to call `.map` directly on a `List` or `Option` as if it were defined on those types, even though map is actually defined in the `Functor` typeclass.
 
-(2)`[F[_]: Functor]`: This defines a *context bound* It instructs the compiler to search for an implicit `Functor[F]` and pass it to the function. This is how Scala handles typeclass instances.
+*(2)* `[F[_]: Functor]`: This defines a *context bound* It instructs the compiler to search for an implicit `Functor[F]` and pass it to the function. This is how Scala handles typeclass instances.
 
 
 ### Java Doesn't *Directly* Support HKTs
