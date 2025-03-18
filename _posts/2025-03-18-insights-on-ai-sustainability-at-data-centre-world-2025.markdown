@@ -52,9 +52,7 @@ During a session on sustainable AI in the cloud the projected growth of cloud co
 
 These revised projections might be early indicators of a more realistic growth trajectory, or perhaps the beginning of a correction in the AI hype cycle / bubble. Still, even this growth projection is significant and will still challenge our energy infrastructure unless we architect our systems differently.
 
-Matt Foley from AMD presented their approaches to sustainability. AMD's focus on hardware efficiency has yielded impressive results: 6x more cores, 11x better performance, and 4x greater efficiency over five years. Gregory explained that OVHcloud has concentrated on holistic sustainability, including supply chain improvements and advanced cooling technologies.
-
-These approaches epitomise a lot of the Architect Tomorrow mission – not just accepting current approaches, but reconsidering fundamental architectural choices to create more sustainable systems.
+Matt Foley from AMD presented their approaches to sustainability. AMD's focus on hardware efficiency has apparently yielded the following results: 6x more cores, 11x better performance, and 4x greater efficiency over five years. Gregory explained that OVHcloud has concentrated on holistic sustainability, including supply chain improvements and advanced cooling technologies.
 
 ## Challenging the "Bigger is Better" Mindset
 
