@@ -27,7 +27,7 @@ The challenge becomes even more complex when companies operate across multiple c
 
 ## Enter InferESG
 
-In response to these challenges as part of a RegTech innovation competition by FinTech Scotland, we developed InferESG (an evolution of our InferGPT research work), an innovative solution that transforms how analysts interact with ESG data. Rather than attempting to automate the entire analysis process, InferESG serves as an intelligent assistant that augments human expertise through three key capabilities:
+In response to these challenges as part of a [RegTech innovation competition by FinTech Scotland](https://www.fintechscotland.com/fintech-scotland-celebrates-esg-innovation-success-paving-the-way-for-job-creation-and-industry-change/), we developed InferESG (an evolution of our InferGPT research work), an innovative solution that transforms how analysts interact with ESG data. Rather than attempting to automate the entire analysis process, InferESG serves as an intelligent assistant that augments human expertise through three key capabilities:
 
 ### 1. Comprehensive Report Analysis
 
