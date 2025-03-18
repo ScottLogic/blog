@@ -2,7 +2,6 @@
 title: 'InferESG: Augmenting ESG Analysis with Generative AI'
 date: 2025-03-18 10:27:00 Z
 categories:
-- Sustainability
 - Artificial Intelligence
 tags:
 - Sustainability
