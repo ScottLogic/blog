@@ -1,6 +1,6 @@
 ---
 title: 'InferESG: Finding the Right Architecture for AI-Powered ESG Analysis'
-date: 2025-03-24 10:27:00 Z
+date: 2025-03-18 10:27:00 Z
 categories:
 - Artificial Intelligence
 tags:
