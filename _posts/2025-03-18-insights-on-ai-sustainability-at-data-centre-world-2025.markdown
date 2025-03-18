@@ -20,7 +20,7 @@ On the surface much of the messaging at the conference aligned with sustainabili
 
 ## The Double-Edged Sword of AI and Data Centres
 
-Data centres are a double-edged sword when it comes to sustainability. On one hand, they \*can \*enable technologies that can help solve climate change and optimise resource usage (but they can also be used for frivolous purposes or [optimise the extraction of fossil fuels](https://www.datacenterdynamics.com/en/news/microsoft-accused-of-greenwashing-due-to-fossil-fuel-partnerships/)). On the other hand, they are significant consumers of energy and resources. Compounded by a lack of transparency and [accurate data](https://www.adalovelaceinstitute.org/blog/data-ai-climate-impact/) to really understand their real impact.
+Data centres are a double-edged sword when it comes to sustainability. On one hand, they *can* enable technologies that can help solve climate change and optimise resource usage (but they can also be used for frivolous purposes or [optimise the extraction of fossil fuels](https://www.datacenterdynamics.com/en/news/microsoft-accused-of-greenwashing-due-to-fossil-fuel-partnerships/)). On the other hand, they are significant consumers of energy and resources. Compounded by a lack of transparency and [accurate data](https://www.adalovelaceinstitute.org/blog/data-ai-climate-impact/) to really understand their real impact.
 
 ![Double-edge-PXL_20250313_113414572.jpg](/uploads/Double-edge-PXL_20250313_113414572.jpg)
 
