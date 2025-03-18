@@ -75,7 +75,7 @@ Whilst at the conference I managed to catch Mark Bjornsgaard from Deep Green (on
 
 As a reminder of how much infrastructure (beyond compute that sits in the stereotypical racks you seen when there is a picture of a data centre) that supports DCs at was eye opening. I found it rather ironic that near lots of signs about Green IT and sustainability was a massive internal combustion engine generator the size of a small house.
 
-This raises the fact that resilience of power supply sometimes fights with sustainability objectives. If you are a hardware geek it was a haven - lots of tools, 19" rack enclosures, power distribution units, batteries, chillers and other kit! But it was a start reminder of the supply chain and supporting ecosystem with its associated embodied carbon and life cycle impacts.
+This raises the fact that resilience of power supply sometimes fights with sustainability objectives. If you are a hardware geek it was a haven - lots of tools, 19" rack enclosures, power distribution units, batteries, chillers and other kit! But it was a stark reminder of the supply chain and supporting ecosystem with its associated embodied carbon and life cycle impacts.
 
 ![pcb-capacitors.JPG](/uploads/pcb-capacitors.JPG)
 
