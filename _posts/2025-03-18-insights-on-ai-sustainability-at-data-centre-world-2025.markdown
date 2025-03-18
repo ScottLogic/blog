@@ -18,7 +18,7 @@ Last week, I had the opportunity to speak at and attend [Data Centre World](http
 
 On the surface much of the messaging at the conference aligned with sustainability themes. Not far off what we've been exploring through [previous blog posts](https://blog.scottlogic.com/ocronk/) and my personal podcast, [Architect Tomorrow](https://www.youtube.com/@ArchitectTomorrow), where sustainable technology solutions is a common topic. However as always the devil was in the detail and the reality was mixture of best intentions, outright [greenwashing](https://blog.scottlogic.com/2024/04/15/how-cxos-can-spot-technology-greenwashing.html) through to genuine looking pragmatic progress on making data centres more sustainable.
 
-# The Double-Edged Sword of AI and Data Centres
+## The Double-Edged Sword of AI and Data Centres
 
 Data centres are a double-edged sword when it comes to sustainability. On one hand, they \*can \*enable technologies that can help solve climate change and optimise resource usage (but they can also be used for frivolous purposes or [optimise the extraction of fossil fuels](https://www.datacenterdynamics.com/en/news/microsoft-accused-of-greenwashing-due-to-fossil-fuel-partnerships/)). On the other hand, they are significant consumers of energy and resources. Compounded by a lack of transparency and [accurate data](https://www.adalovelaceinstitute.org/blog/data-ai-climate-impact/) to really understand their real impact.
 
@@ -26,7 +26,7 @@ Data centres are a double-edged sword when it comes to sustainability. On one ha
 
 \(Kennedy Miller of Leviton during his presentation)
 
-# Power: The Challenge of the Decade?
+## Power: The Challenge of the Decade?
 
 Perhaps the most consistent message throughout the conference was that power availability will be the primary challenge for data centres over the next 10-15 years. Without addressing this fundamental constraint, our ability to scale AI and other compute-intensive technologies will be severely limited.
 
@@ -34,7 +34,7 @@ Given the constraints of many national grid systems and a general association by
 
 The panel on "All in on AI but What About Sustainability" explored innovative approaches including direct renewable connections, [microgrids](https://en.wikipedia.org/wiki/Microgrid), and potential convergence of data centres with [power generation facilities](https://www.theregister.com/2024/05/16/datacenter_power_demands/). The topic of heat reuse was also touched on. These ideas challenge us to think beyond traditional boundaries when architecting tomorrow's infrastructure.
 
-# Economic Sustainability and the Potential AI Bubble
+## Economics and the Potential AI Bubble
 
 An undercurrent at the conference, though not always explicitly stated, was the question of economic sustainability in the AI boom. Investment funds backing data centres are now looking beyond traditional infrastructure and considering power investments - a significant shift that signals deeper structural changes in how technology is financed and built.
 
@@ -46,7 +46,7 @@ When we consider the enormous capital expenditure on AI infrastructure [against 
 
 * Making AI more cost effective and efficient could / should also reduce its material and energy footprint. As less demanding AI models and hardware providing more tokens per watt mean less requirements for servers, GPUs and the electricity to run them. (Yes I know rebound effect etc but perhaps controversially I think there is an upper bound on the amount of demand for AI)
 
-# Revised AI Energy Use Projections
+## Revised AI Energy Use Projections
 
 During a session on sustainable AI in the cloud the projected growth of cloud computing energy consumption was discussed. Gregory Lebourg from OVHcloud shared that cloud computing currently consumes approximately 460TWh of electricity globally. While originally forecasts estimated this would double by 2026 (to levels comparable with France's entire electricity consumption!), more recent forecasts now suggest a 60-70% increase by 2030.
 
@@ -56,21 +56,22 @@ Matt Foley from AMD presented their approaches to sustainability. AMD's focus on
 
 These approaches epitomise a lot of the Architect Tomorrow mission – not just accepting current approaches, but reconsidering fundamental architectural choices to create more sustainable systems.
 
-# Challenging the "Bigger is Better" Mindset
+## Challenging the "Bigger is Better" Mindset
 
 One of the most thought-provoking sessions came from DEFRA's team discussing AI in government. They challenged the prevailing "bigger is better" approach to AI models, noting that we are potentially reaching the limits of scaling by simply throwing more compute at problems. This is something I massively agree with - and you can check out my other [recent blog - there is more than one way to do GenAI](https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html) for the detail.
 
 There was also a suggestion of a "nutritional style label" for AI models resonated which with me - its not far off what [Hugging Face are doing with their AI Energy Score project](https://huggingface.co/blog/sasha/announcing-ai-energy-score). To me transparency about environmental impact should be a core design principle. Another comparison made during the session was stark: old style incandescent light bulbs with 5% efficiency were banned, yet we embrace AI systems with potentially worse efficiency!
 
-> "up to 10% of European heating needs could potentially be met through data centre heat recovery"
 
-# Holistic Architectural Thinking
+
+## Holistic Architectural Thinking
+> "up to 10% of European heating needs could potentially be met through data centre heat recovery"
 
 Several sessions highlighted the need for holistic thinking about data centre design. Francesco Di Giovanni from Daikin outlined how up to 10% of European heating needs could potentially be met through data centre heat recovery. Kennedy Miller from Leviton challenged us to look beyond metrics like PUE to address supply chain sustainability. The Siemens Energy team demonstrated how data centres have evolved from steady-state grid loads to more unpredictable "tyrants" on the grid.
 
-Whilst at the conference I managed to catch Mark Bjornsgaard from Deep Green (one of the pioneers of reusing heat from computing for heating) - look out for him appearing on Beyond the Hype very soon.
+Whilst at the conference I managed to catch Mark Bjornsgaard from Deep Green (one of the pioneers of reusing heat from computing for heating) - look out for him appearing on Architect Tomorrow very soon.
 
-# The Elephant sorry I mean Engine in the Room!
+## The Elephant sorry I mean Engine in the Room!
 
 ![BFengine.JPG](/uploads/BFengine.JPG)
 
@@ -82,7 +83,7 @@ This raises the fact that resilience of power supply sometimes fights with susta
 
 Massive thanks to Patrick from Daikin for taking a good 20 minutes or so to explain a lot of this infrastructure to me on their stand! It's been quite a long time since I built and racked a server at a co-location data centre facility and hyperscalers have moved things on significantly due to increased density and of course scale.
 
-# Beyond Energy: The Broader Environmental Impact
+## Beyond Energy: The Broader Environmental Impact
 
 On the second day, I participated in a panel discussion on "How Can We Manage the Nature Impact of AI?" alongside experts including Deborah Andrews, Laila Takeh, and Sarah Krisht chaired by Astrid Wynne Rogers.
 
@@ -90,7 +91,7 @@ Our discussion expanded beyond the energy consumption narrative to consider impa
 
 Whilst this session was at the end of the second day - so we got a small but committed crowd - it was worth doing for the dialogue on the panel and with the audience. Many seem keen to learn more about how to strike a pragmatic balance when it comes to data centre developments. One of the most interesting questions was from someone in local government. They asked - what can we do in the planning process to try and manage the nature impacts and sustainability of DC projects.
 
-# Architecting a More Sustainable Tomorrow
+## Architecting a More Sustainable Tomorrow
 
 As I reflect on what I learnt at Data Centre World, I'm both concerned and optimistic. The scale of the challenge is immense, but the conference demonstrated that innovative thinking is out there but it needs more support. As customers we need to get louder on these issues to ensure they aren't side stepped or put in the too hard box.
 
