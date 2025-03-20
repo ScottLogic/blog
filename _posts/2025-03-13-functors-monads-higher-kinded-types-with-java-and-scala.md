@@ -409,6 +409,21 @@ dependencies {
 }
 ```
 
+
+### Scala Cat's HKT Approach
+
+Cats uses a similar approach, but with some differences in naming and structure:
+
+- **Type Constructor Representation**: In Cats, you directly refer to type constructors using a type parameter in square brackets, but with a "hole" using underscore. For example `F[_]` is a type constructor that takes a type parameter.
+- **`Kind[F[_], A]`**: Cats defines `Kind` similarly to PureFun, to represent a type constructor applied to a type argument. But is usually used with its alias, `F[A]`.
+
+```java
+// build.sbt
+libraryDependencies += "org.typelevel" %% "cats-core" % "2.10.0" // Use the latest Cats version
+```
+
+
+
 Example: Functor with HKT (PureFun)
 
 Let's demonstrate this with a common functional concept: the Functor. A Functor provides a map operation that applies a function to the contained value(s) *without changing the structure* of the container.
@@ -453,6 +468,29 @@ public class HKTFunctorExample {
 }
 ~~~~
 
+Example: Functor (Cats)
+~~~~ scala
+import cats.Functor
+import cats.implicits._ // Import syntax and instances
+
+object FunctorExample {
+
+  def map[F[_]: Functor, A, B](fa: F[A], f: A => B): F[B] = {
+    Functor[F].map(fa)(f)
+  }
+
+  def main(args: Array[String]): Unit = {
+    val option = Option(5)
+    val mappedOption = map(option, (x: Int) => s"Number: $x")
+    println(mappedOption) // Output: Some(Number: 5)
+
+    val list = List(1, 2, 3)
+    val mappedList = map(list, (x: Int) => s"Item: $x")
+    println(mappedList) // Output: List(Item: 1, Item: 2, Item: 3)
+  }
+}
+~~~~
+
 
 Example: using built in Monad Typeclass (PureFun)
 
@@ -481,6 +519,18 @@ public class HKTTypeclassExample {
 }
 ~~~~
 
+*Comparison*:
+
+- Typeclass Instance:
+   - PureFun: You explicitly get the Functor instance (e.g., `Option.functor()`) and pass it to your generic map function
+   - Cats: You use a context bound (`F[_]: Functor`) on the type parameter `F`. This tells the compiler to implicitly find a Functor instance for `F` in the current scope. The `cats.implicits._` import provides these instances for common types. `Functor[F]` retrieves the implicit instance.
+- HKT Representation:
+   - PureFun: `Kind<Option.µ, Integer>`
+   - Cats: `Option[Int]` (Cats uses the standard Scala type system for HKTs). We are using `F[A]` in the method signature to denote a higher kinded type.
+- narrowK vs. Implicit Conversion:
+  - PureFun: You need `Option.narrowK` to safely cast back to the concrete type.
+  - Cats: Scala's type system handles this automatically.
+- Syntax: Scala's for comprehensions and implicit conversions result in more concise and readable code.
 
 Example: Homemade Monad with HKT (PureFun)
 
@@ -529,6 +579,44 @@ public class HKTMonadExample {
 }
 ~~~~
 
+
+Example: Monad (Cats)
+
+~~~~ scala
+import cats.Monad
+import cats.implicits._
+
+object MonadExample {
+
+  def main(args: Array[String]): Unit = {
+    val optionMonad = Monad[Option]
+
+    val option1 = Option(5)
+    val option2 = Option(10)
+
+    val result = optionMonad.flatMap(option1) { x =>
+      optionMonad.map(option2) { y =>
+        x + y
+      }
+    }
+    println(result) // Output: Some(15)
+
+    // Using for-comprehension (syntactic sugar for flatMap and map)
+    val resultFor = for {
+      x <- option1
+      y <- option2
+    } yield x + y
+    println(resultFor) // Output: Some(15)
+  }
+}
+~~~~
+
+*Comparison*:
+- *for* Comprehension (Scala): Scala's *for* comprehension provides syntactic sugar for *flatMap* and *map*, making monadic code much more readable. Java lacks this feature.
+- *Typeclass Instance*: Cats' *Monad[Option]* gets the implicit instance; Purefun uses *Option.monad()*.
+
+
+
 Example: Applicative and `mapN` (PureFun)
 
 ~~~~java 
@@ -552,6 +640,40 @@ public class ApplicativeExample {
    }
 }
 ~~~~
+
+Example: Applicative `mapN` (Cats)
+~~~~ scala
+import cats.Applicative
+import cats.implicits._
+
+object ApplicativeExample {
+
+  def main(args: Array[String]): Unit = {
+    val optionApplicative = Applicative[Option]
+
+    val option1 = Option(5)
+    val option2 = Option(10)
+    val option3 = Option("Result: ")
+
+    val result = (option1, option2, option3).mapN { (a, b, c) =>
+      c + (a + b)
+    }
+    println(result) // Output: Some(Result: 15)
+
+     //Alternative syntax:
+     import cats.syntax.apply._
+     val result2 = (option1, option2, option3).mapN(_ + _ + _)
+     println(result2)
+
+  }
+}
+~~~~
+
+*Comparison*:
+- `mapN` (Cats): Cats provides a very concise syntax for mapN using tuples and the mapN extension method (from *cats.implicits._* or *cats.syntax.apply._*). PureFun's `mapN` is more verbose.
+- Typeclass Instance: Both get the applicative in similar way.
+
+
 
 Example: Monad Transformers (PureFun)
 
@@ -592,102 +714,8 @@ public class MonadTransformerExample {
 }
 ~~~~
 
-
-
-### Scala Cat's HKT Approach
-
-Cats uses a similar approach, but with some differences in naming and structure:
-
-- **Type Constructor Representation**: In Cats, you directly refer to type constructors using a type parameter in square brackets, but with a "hole" using underscore. For example `F[_]` is a type constructor that takes a type parameter.
-- **`Kind[F[_], A]`**: Cats defines `Kind` similarly to PureFun, to represent a type constructor applied to a type argument. But is usually used with its alias, `F[A]`.
-
-```java
-// build.sbt
-libraryDependencies += "org.typelevel" %% "cats-core" % "2.10.0" // Use the latest Cats version
-```
-
-
-Example: Functor (Cats) 
-~~~~ scala
-import cats.Functor
-import cats.implicits._ // Import syntax and instances
-
-object FunctorExample {
-
-  def map[F[_]: Functor, A, B](fa: F[A], f: A => B): F[B] = {
-    Functor[F].map(fa)(f)
-  }
-
-  def main(args: Array[String]): Unit = {
-    val option = Option(5)
-    val mappedOption = map(option, (x: Int) => s"Number: $x")
-    println(mappedOption) // Output: Some(Number: 5)
-
-    val list = List(1, 2, 3)
-    val mappedList = map(list, (x: Int) => s"Item: $x")
-    println(mappedList) // Output: List(Item: 1, Item: 2, Item: 3)
-  }
-}
-~~~~
-
-Example: Monad (Cats) 
-
-~~~~ scala
-import cats.Monad
-import cats.implicits._
-
-object MonadExample {
-
-  def main(args: Array[String]): Unit = {
-    val optionMonad = Monad[Option]
-
-    val option1 = Option(5)
-    val option2 = Option(10)
-
-    val result = optionMonad.flatMap(option1) { x =>
-      optionMonad.map(option2) { y =>
-        x + y
-      }
-    }
-    println(result) // Output: Some(15)
-
-    // Using for-comprehension (syntactic sugar for flatMap and map)
-    val resultFor = for {
-      x <- option1
-      y <- option2
-    } yield x + y
-    println(resultFor) // Output: Some(15)
-  }
-}
-~~~~
-Example: Applicative `mapN` (Cats)
-~~~~ scala
-import cats.Applicative
-import cats.implicits._
-
-object ApplicativeExample {
-
-  def main(args: Array[String]): Unit = {
-    val optionApplicative = Applicative[Option]
-
-    val option1 = Option(5)
-    val option2 = Option(10)
-    val option3 = Option("Result: ")
-
-    val result = (option1, option2, option3).mapN { (a, b, c) =>
-      c + (a + b)
-    }
-    println(result) // Output: Some(Result: 15)
-
-     //Alternative syntax:
-     import cats.syntax.apply._
-     val result2 = (option1, option2, option3).mapN(_ + _ + _)
-     println(result2)
-
-  }
-}
-~~~~
 Example: MonadTransformer (Cats)
+
 ~~~~ scala
 import cats.Applicative
 import cats.implicits._
@@ -714,6 +742,13 @@ object ApplicativeExample {
   }
 }
 ~~~~
+
+*Comparison*:
+- PureFun: Kind<OptionT.µ<Try.µ>, Integer> - nested Kinds. You need to explicitly get the Monad instance for the outermost type (OptionT).
+- The Cats code is considerably less verbose due to Scala's features (for-comprehensions, implicits, type inference).
+
+
+### Summary
 
 | Feature                  | PureFun (Java)                                    | Cats (Scala)                                                                  |
 | :------------------------ | :------------------------------------------------- | :----------------------------------------------------------------------------- |
@@ -727,9 +762,9 @@ object ApplicativeExample {
 | Boilerplate           | More boilerplate code.                            | Significantly less boilerplate.                                                  |
 
 
-### Summary
 
-PureFun provides a valuable way to bring some of the benefits of higher-kinded types and functional programming to Java. While it requires more boilerplate and a different way of thinking compared to plain Java, it enables more abstract and reusable code.  Cats, being built into a language designed with functional programming in mind (Scala), offers a more concise and integrated experience with HKTs. If you're working primarily in Java, PureFun is a good option. If you have the flexibility to use Scala, Cats (or Scalaz) provides a more powerful and idiomatic functional programming environment.
+
+*PureFun* provides a valuable way to bring some of the benefits of higher-kinded types and functional programming to Java. While it requires more boilerplate and a different way of thinking compared to plain Java, it enables more abstract and reusable code.  *Cats*, being built into a language designed with functional programming in mind (Scala), offers a more concise and integrated experience with HKTs. If you're working primarily in Java, PureFun is a good option. If you have the flexibility to use Scala, Cats (or Scalaz) provides a more powerful and idiomatic functional programming environment.
 
 
 ### Next time
