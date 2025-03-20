@@ -75,14 +75,14 @@ const lintPosts = () => {
         } else if (frontMatterCats && frontMatterCats.length && frontMatterCats.length <= MAX_CATEGORIES) {
           category = frontMatter.data.categories[0].toLowerCase();
         } else {
-          console.error("The post " + path + " does not have at least one and no more than " + MAX_CATEGORIES + " categories defined.");
+          console.error("Error: The post " + path + " does not have at least one and no more than " + MAX_CATEGORIES + " categories defined.");
           fail = true;
           return;
         }
 
         if (!categories.includes(category)) {
           console.error(
-            "The post " + path + " does not have a recognised category"
+            "Error: The post " + path + " does not have a recognised category"
           );
           fail = true;
         }
@@ -94,12 +94,12 @@ const lintPosts = () => {
         if (postDate > new Date("2018-03-26")) {
           // Note _prose.yml specifies 130 characters are needed, so if you change this please also change the instructions
           if(!summary) {
-              console.error("The post " + path + " does not have a summary.")
+              console.error("Error: The post " + path + " does not have a summary.")
               fail = true;
           }
           else if (summary.length < 130) {
             console.warn(
-              "The post " + path + " summary length is " + summary.length + ". Recommended minimum length for the summary is 130 characters."
+              "Warning: The post " + path + " summary length is " + summary.length + ". Recommended minimum length for the summary is 130 characters."
             );
           }
         }
