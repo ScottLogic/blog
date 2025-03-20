@@ -99,7 +99,7 @@ const lintPosts = () => {
           }
           else if (summary.length < 130) {
             console.warn(
-              "Post summary length is " + summary.length + ". Recommended minimum length for the summary is 130 characters."
+              "The post " + path + " summary length is " + summary.length + ". Recommended minimum length for the summary is 130 characters."
             );
           }
         }
