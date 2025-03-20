@@ -59,7 +59,7 @@ It would be remiss not to address the environmental impact of AI-powered solutio
 
 The development of InferESG represents a significant step forward in ESG analysis, but it's just the beginning. As ESG reporting requirements continue to evolve and new analytical techniques emerge, the open-source nature of InferESG ensures it can adapt alongside the rapidly changing landscape of sustainable investment.
 
-As Alexandre Popa from aberdeen noted during testing: "This solution would help someone who doesn't have detailed knowledge of the company understand the key sustainability and material issues, and for someone who does know a company investigate them in more detail."
+As Alexandre Popa from [Aberdeen](https://www.aberdeeninvestments.com/en-gb) noted during testing: "This solution would help someone who doesn't have detailed knowledge of the company understand the key sustainability and material issues, and for someone who does know a company investigate them in more detail."
 
 By combining human expertise with advanced AI capabilities, we're demonstrating how technology can enhance rather than replace human judgement in complex analytical tasks. The future of ESG analysis isn't about replacing analysts with AI - it's about giving them better tools to tackle an increasingly complex challenge.
 
