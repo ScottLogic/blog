@@ -1,6 +1,6 @@
 ---
 title: 'InferESG: Augmenting ESG Analysis with Generative AI'
-date: 2025-03-18 10:27:00 Z
+date: 2025-03-20 00:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
@@ -14,9 +14,8 @@ summary: 'In response to the FinTech Scotland innovation challenge we developed 
 author: drees
 ---
 
-# InferESG: Augmenting ESG Analysis with Generative AI
 
-Investors are relying more on ESG reporting and metrics to conduct research to gain investment-critical insights. They rely on this insight to satisfy their investors and stakeholders by ensuring that they provide good investment opportunities, with low risk. [A study by Nordea Equity Research reports that between 2012 and 2015, organisations with high ESG ratings outperform the lowest rated organisations by as much as 40%](https://hbr.org/2019/05/the-investor-revolution). But, how do we effectively monitor and validate Environmental, Social, and Governance (ESG) data? [How do we detect greenwashing](https://blog.scottlogic.com/2024/04/15/how-cxos-can-spot-technology-greenwashing.html), malicious, misleading or simply vague or unsubstantiated? This question becomes especially pertinent when dealing with sparse data, unreliable sources, or frequent methodological changes in reporting. Traditional approaches, while valuable, often struggle to adapt to the dynamic nature of ESG reporting and the subtle ways companies might engage in greenwashing.
+Investors are relying more on ESG reporting and metrics to conduct research to gain investment-critical insights. They rely on this insight to satisfy their investors and stakeholders by ensuring that they provide good investment opportunities, with low risk. [A study by Nordea Equity Research reports that between 2012 and 2015, organisations with high ESG ratings outperform the lowest rated organisations by as much as 40%](https://hbr.org/2019/05/the-investor-revolution). But, how do we effectively monitor and validate Environmental, Social, and Governance (ESG) data? [How do we detect greenwashing](https://blog.scottlogic.com/2024/04/15/how-cxos-can-spot-technology-greenwashing.html) - malicious, misleading, or simply vague or unsubstantiated? This question becomes especially pertinent when dealing with sparse data, unreliable sources, or frequent methodological changes in reporting. Traditional approaches, while valuable, often struggle to adapt to the dynamic nature of ESG reporting and the subtle ways companies might engage in greenwashing.
 
 ## The Challenge of ESG Analysis
 
