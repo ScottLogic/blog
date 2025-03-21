@@ -3,16 +3,15 @@ title: There is more than one way to do GenAI
 date: 2025-02-20 14:57:00 Z
 categories:
 - Artificial Intelligence
-- Architecture
-- Sustainability
-- Tech
 - Cloud
+- Sustainability
 tags:
 - ocronk
 - Artificial Intelligence
-- architecture
+- Architecture
 - Cloud
 - Sustainability
+- Tech
 summary: |-
   AI doesn't have to be brute forced requiring massive data centres. Europe isn't necessarily behind in AI arms race. In fact, the UK and Europe's constraints and focus on more than just economic return and speculation might well lead to more sustainable approaches.
 
