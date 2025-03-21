@@ -2,8 +2,18 @@ const globby = require("globby");
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
 const fs = require("fs");
+const clc = require("cli-color");
 const LINTER_MATCH_PATTERN="_posts/**/*.{md,markdown,html}";
 const MAX_CATEGORIES = 3;
+
+const errorColour = clc.red.bold;
+const warningColour = clc.yellow;
+
+const logError = (...params) =>
+  console.error(errorColour(...params));
+
+const logWarning = (...params) =>
+  console.warn(warningColour(...params));
 
 const flatMap = (arr, mapFunc) =>
   arr.reduce((prev, x) => prev.concat(mapFunc(x)), []);
@@ -15,7 +25,7 @@ const lintAuthorsYml = () => {
   try {
     authorsYaml = yaml.safeLoad(fs.readFileSync(authorsPath, "utf8"));
   } catch (e) {
-    console.error(authorsPath, e["message"]);
+    logError(authorsPath, e["message"]);
     process.exit(1);
   }
 
@@ -39,7 +49,7 @@ const lintAuthorsYml = () => {
       }
     }
 
-    console.error(err_message);
+    logError(err_message);
     process.exit(1);
   }
 };
@@ -75,14 +85,14 @@ const lintPosts = () => {
         } else if (frontMatterCats && frontMatterCats.length && frontMatterCats.length <= MAX_CATEGORIES) {
           category = frontMatter.data.categories[0].toLowerCase();
         } else {
-          console.error("Error: The post " + path + " does not have at least one and no more than " + MAX_CATEGORIES + " categories defined.");
+          logError("The post " + path + " does not have at least one and no more than " + MAX_CATEGORIES + " categories defined.");
           fail = true;
           return;
         }
 
         if (!categories.includes(category)) {
-          console.error(
-            "Error: The post " + path + " does not have a recognised category"
+          logError(
+            "The post " + path + " does not have a recognised category"
           );
           fail = true;
         }
@@ -94,17 +104,17 @@ const lintPosts = () => {
         if (postDate > new Date("2018-03-26")) {
           // Note _prose.yml specifies 130 characters are needed, so if you change this please also change the instructions
           if(!summary) {
-              console.error("Error: The post " + path + " does not have a summary.")
+              logError("The post " + path + " does not have a summary.")
               fail = true;
           }
           else if (summary.length < 130) {
-            console.warn(
-              "Warning: The post " + path + " summary length is " + summary.length + ". Recommended minimum length for the summary is 130 characters."
+            logWarning(
+              "The post " + path + " summary length is " + summary.length + ". Recommended minimum length for the summary is 130 characters."
             );
           }
         }
       } catch (e) {
-        console.error(path, e);
+        logError(path, e);
         fail = true;
       }
     });
