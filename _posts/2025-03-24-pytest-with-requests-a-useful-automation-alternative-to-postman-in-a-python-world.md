@@ -112,7 +112,7 @@ def test__required_parameters_provided__verify_response_status_200(payload: dict
 
 We decided the best approach would be to leverage the benefits of both tools. The automation of the API testing would be written in Python using pytest and Requests, however we would use Postman alongside in a supporting role.  
 
-As the endpoints were being developed, it was much easier to launch Postman to get a request working than writing the code necessary to do the same job. The visual nature of the tool allows you to quickly make changes and troubleshoot any obvious problems up front. From this point, we migrated to the Python IDE [PyCharm]{https://www.jetbrains.com/pycharm/} and wrote test files for each endpoint. Helpfully, if needed you can also export Postman requests into different languages to provide a jumping off point into tests at a code level.
+As the endpoints were being developed, it was much easier to launch Postman to get a request working than writing the code necessary to do the same job. The visual nature of the tool allows you to quickly make changes and troubleshoot any obvious problems up front. From this point, we migrated to the Python IDE [PyCharm](https://www.jetbrains.com/pycharm/) and wrote test files for each endpoint. Helpfully, if needed you can also export Postman requests into different languages to provide a jumping off point into tests at a code level.
 
 ![Postman UI generating python code for request]({{ site.baseurl }}/mwalkerrose/assets/postman-code-snippet.png)
 
