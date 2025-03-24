@@ -19,11 +19,11 @@ Our product [vAirify](http://64.225.143.231/city/summary)  will be used by [The 
 
 This is all represented in a summary table comparing different cities over a given time period, and graphically in a series of pollutant-level and Air Quality Index (AQI) graphs for specific cities. Read [the full story here](https://www.scottlogic.com/our-work/code-for-earth-evaluating-air-quality).
 
-![Summary table showing highest AQI levels and pollutant values by city]({{ site.baseurl }}/mwalkerr0se/assets/summary-table.png)
+![Summary table showing highest AQI levels and pollutant values by city]({{ site.baseurl }}/mwalkerrose/assets/summary-table.png)
 
 \(A section of the summary table, showing Riyadh with the highest divergence between forecast and measured AQI data in the specified time range, and data for one of the pollutants)
 
-![Graph for pollutant PM2.5 comparing forecasted and actual measurements]({{ site.baseurl }}/mwalkerr0se/assets/pollutant-graph.png)
+![Graph for pollutant PM2.5 comparing forecasted and actual measurements]({{ site.baseurl }}/mwalkerrose/assets/pollutant-graph.png)
 
 \(One of the pollutant (PM2.5) graphs for Riyadh showing the forecast reading with a black line, and the measured data from a specific measurement station in a red line)
 
@@ -37,7 +37,7 @@ One of the key elements in the architecture is a Python-based API connecting the
 
 Postman allows you to create collections of multiple requests targeting specific endpoints, which can be run either manually or scheduled. Getting up and running is a painless process and so jumping onto testing something is no trouble beyond installing the desktop application. Setting up requests is very straightforward; parameters, authorisation credentials, headers and request bodies are set in UI tabs.
 
-![Postman UI showing the building of request and partial response data]({{ site.baseurl }}/mwalkerr0se/assets/postman-request.png)
+![Postman UI showing the building of request and partial response data]({{ site.baseurl }}/mwalkerrose/assets/postman-request.png)
 
 \(A request to the measurements endpoint using the Postman UI and some resultant data, with the request URL built from the constituent query parameters provided in the table)
 
@@ -96,7 +96,7 @@ We decided the best approach would be to leverage the benefits of both tools. Th
 
 As the endpoints were being developed, it was much easier to launch Postman to get a request working than writing the code necessary to do the same job. The visual nature of the tool allows you to quickly make changes and troubleshoot any obvious problems up front. From this point, we migrated to the Python IDE [PyCharm]{https://www.jetbrains.com/pycharm/} and wrote test files for each endpoint. Helpfully, if needed you can also export Postman requests into different languages to provide a jumping off point into tests at a code level.
 
-![Postman UI generating python code for request]({{ site.baseurl }}/mwalkerr0se/assets/postman-code-snippet.png)
+![Postman UI generating python code for request]({{ site.baseurl }}/mwalkerrose/assets/postman-code-snippet.png)
 
 As well as doing basic parameter validation (as discussed above), there are tests that seed data to our MongoDB test database collections and assert on the expected data returned by specific API calls.
 
