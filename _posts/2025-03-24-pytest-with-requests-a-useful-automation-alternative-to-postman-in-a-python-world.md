@@ -33,7 +33,7 @@ This is all represented in a summary table comparing different cities over a giv
 *One of the pollutant (PM2.5) graphs for Riyadh showing the forecast reading with a black line, and the measured data from a specific measurement station in a red line*
 
 
-The rest of this article will contain information about testing the backend of the application, however you can read [this blog](https://blog.scottlogic.com/2025/02/12/playwright-visual-testing.html) to find out more information on UI testing the visual outputs.
+The rest of this article will contain information about testing the backend of the application, however you can read [this blog](https://blog.scottlogic.com/2025/02/12/playwright-visual-testing.html) to find out more information on UI-testing the visual outputs.
 
 
 ## The API
@@ -66,15 +66,15 @@ Also, there are some limitations with Postman depending on the pricing plan that
 
 We identified that it would be useful to have our backend integration tests written in the same language as the application, with a key benefit being to facilitate collaboration between developers and testers. If a problem were to arise, having the test code written in Python removes the need for significant context-switching when working together to diagnose and resolve the issue. Similarly for approving pull requests. It also allows the test code to live within the same repository as the source code which would be a benefit as all of the project and documentation could be simply managed through the same repository.
 
-While researching if there was a Python library similar to REST Assured (the framework for testing Java APIs) that we could use for our API tests, we started looking at pytest with the Requests library. The pytest framework was already in the project, being used by the developers to write their unit tests for the backend Python code. However, its use case is not limited to unit testing. Requests is a library that allows HTTP requests to be made from within a pytest test thus extending the pytest functionality and facilitating API testing.
+While researching if there was a Python library similar to REST Assured (the framework for testing Java APIs) that we could use for our API tests, we started looking at pytest with the Requests library. The pytest framework was already in the project, being used by the developers to write their unit tests for the backend Python code. However, its use case is not limited to unit testing. Requests is a library that allows HTTP requests to be made from within a pytest test, thus extending the pytest functionality and facilitating API testing.
 
-An important part of API testing is verifying different parameters work as expected when passed in specific combinations or undertaking boundary value analysis. Both activities can produce a lot of test cases if each test case is quite atomic in its definition and approach. Alternatively with parameterization you can create tests that are more flexible by passing in different arguments in the test setup. These arguments could be, for example, test data and expected response from the API given the data provided. pytest is well suited for this kind of data driven testing due to the inbuilt parameterisation decorator.
-
-
-## Let’s see how this works.
+An important part of API testing is verifying different parameters work as expected when passed in specific combinations or undertaking boundary value analysis. Both activities can produce a lot of test cases if each test case is quite atomic in its definition and approach. Alternatively with parametrisation you can create tests that are more flexible by passing in different arguments in the test setup. These arguments could be, for example, test data and the expected response from the API given the data provided. pytest is well suited for this kind of data driven testing due to the inbuilt parametrisation decorator.
 
 
-In the below simple use case is an example parameterized pytest test using the Python module Requests to make a GET request to the forecast endpoint. The request parameters are passed in as a dictionary ‘payload’. The `location_name parameter` is optional for this endpoint, however `base_time`, `valid_time_from`, `valid_time_to` and `location_type` are required. The test asserts the response has a status code ‘200’ when all required parameters are present, with or without the optional parameter, indicating the request was a success.
+## Let’s see how this works
+
+
+In the below simple use case is an example parametrised pytest test using the Python module Requests to make a GET request to the forecast endpoint. The request parameters are passed in as a dictionary ‘payload’. The `location_name` parameter is optional for this endpoint, however `base_time`, `valid_time_from`, `valid_time_to` and `location_type` are required. The test asserts the response has a status code 200 when all required parameters are present, with or without the optional parameter, indicating the request was a success.
 
 
 ~~~python
