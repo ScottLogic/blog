@@ -74,7 +74,7 @@ An important part of API testing is verifying different parameters work as expec
 ## Let’s see how this works.
 
 
-In the below simple use case is an example parameterized pytest test using the Python module Requests to make a GET request to the forecast endpoint. The request parameters are passed in as a dictionary ‘payload’. The location_name parameter is optional for this endpoint, however base_time, valid_time_from, valid_time_to and location_type are required. The test asserts the response has a status code ‘200’ when all required parameters are present, with or without the optional parameter, indicating the request was a success.
+In the below simple use case is an example parameterized pytest test using the Python module Requests to make a GET request to the forecast endpoint. The request parameters are passed in as a dictionary ‘payload’. The `location_name parameter` is optional for this endpoint, however `base_time`, `valid_time_from`, `valid_time_to` and `location_type` are required. The test asserts the response has a status code ‘200’ when all required parameters are present, with or without the optional parameter, indicating the request was a success.
 
 
 ~~~python
