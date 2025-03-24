@@ -3,10 +3,6 @@ title: Open Source Sustainability through Corporate Social Responsibility
 date: 2021-12-20 00:00:00 Z
 categories:
 - Open Source
-tags:
-- featured
-author: ceberhardt
-layout: default_post
 summary: The recent Log4j vulnerability has once again sparked a lot of debate around
   our reliance on open source projects and their sustainability challenges. I argue
   that money cannot fix this issue, nor can hiding behind security scans, audits and
@@ -14,7 +10,9 @@ summary: The recent Log4j vulnerability has once again sparked a lot of debate a
   acknowledge the shared responsibility we have in our commons and through the well-understood
   tool of Corporate Social Responsibility, look to fill the ethical and philanthropic
   gaps.
+author: ceberhardt
 image: ceberhardt/assets/csr/pyramid-oss.png
+layout: default_post
 ---
 
 The recent Log4j vulnerability has once again sparked a lot of debate around our reliance on open source projects and their sustainability challenges. In this blog post I argue that money cannot fix this issue, nor can hiding behind security scans, audits and other defenses. The solution is to genuinely understand the open source community, acknowledge the shared responsibility we have in our commons and through the well-understood tool of Corporate Social Responsibility, look to fill the ethical and philanthropic gaps.

@@ -3,8 +3,6 @@ title: 'Beyond the Hype: Blockchain is dead, long live blockchain'
 date: 2022-12-15 09:12:00 Z
 categories:
 - Podcast
-tags:
-- featured
 summary: In this episode, I’m joined by colleagues Oliver Cronk, Peter Chamberlin
   and Chris Price for a lively discussion about blockchain, including the mechanics
   of bitcoin, the proof of work consensus, and technologies which are blockchain-like,
