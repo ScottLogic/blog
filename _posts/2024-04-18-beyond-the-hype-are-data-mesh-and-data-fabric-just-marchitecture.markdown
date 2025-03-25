@@ -19,6 +19,7 @@ summary: In this episode, Oliver Cronk, Andrew Carr and David Hope talk about th
 author: ceberhardt
 image: "/uploads/BeyondTheHype---green-and-orange---social---E17.jpg"
 contributors:
+- ocronk
 - acarr
 - dhope
 ---
