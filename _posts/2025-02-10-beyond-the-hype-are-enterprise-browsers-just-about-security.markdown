@@ -17,6 +17,9 @@ summary: In this episode of Beyond the Hype, I'm joined by Bradon Rogers from Is
   of enterprise browsers to simplify security and enhance user productivity.
 author: ocronk
 image: "/uploads/BeyondTheHype---pink-and-yellow---episode-23---social.png"
+contributors:
+- dkerr
+- rwilliams
 ---
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/35100795/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes/font-color/252525" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
