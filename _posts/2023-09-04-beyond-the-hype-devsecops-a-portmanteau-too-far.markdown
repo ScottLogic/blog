@@ -13,7 +13,9 @@ summary: 'In this episode, Oliver and Peter from Scott Logic are joined by Laura
   to DevOps, which is trying to solve a similar problem. '
 author: ceberhardt
 image: "/uploads/BeyondTheHype%20-%20orange%20and%20blue%20-%20episode%2014%20-%20social.png"
-contributors: ocronk
+contributors:
+- ocronk
+- pchamberlin
 ---
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/27892746/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
