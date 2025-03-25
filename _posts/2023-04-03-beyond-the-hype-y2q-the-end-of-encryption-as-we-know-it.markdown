@@ -17,6 +17,8 @@ summary: In this episode – the second of a two-parter – we talk to Denis Man
   the Y2K issue we faced over twenty years ago.
 author: ceberhardt
 image: "/uploads/BeyondTheHype%20-%20blue%20and%20orange%20-%20episode%2011%20-%20social.png"
+contributors:
+- ocronk
 ---
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/26350203/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
