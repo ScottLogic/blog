@@ -1,6 +1,6 @@
 ---
 title: "pytest with Requests: A useful automation alternative to Postman in a Python world"
-date: 2025-03-24 00:00:00 Z
+date: 2025-03-25 00:00:00 Z
 categories:
 - Testing
 summary: Developing a greenfield project inherently requires decisions to be made both up front and along the way that have the potential to dramatically steer the course of the journey. This is not just true for the development of the product itself, but also testing methodology and tooling.
