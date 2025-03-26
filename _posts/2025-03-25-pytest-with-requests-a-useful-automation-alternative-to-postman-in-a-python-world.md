@@ -9,6 +9,7 @@ summary: Developing a greenfield project inherently requires decisions to be mad
   course of the journey. This is not just true for the development of the product
   itself, but also testing methodology and tooling.
 author: mwalkerrose
+image: "/uploads/pytest%20thumbnail.png"
 ---
 
 ## Introduction
