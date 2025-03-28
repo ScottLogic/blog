@@ -522,4 +522,4 @@ While Java provides the necessary building blocks (`flatMap` on `Optional`, `Str
 
 ### Next time
 
-Next time we build on the concepts of __Functor__  and __Monads__  taking the abstraction to the next level with __Higher-Kinded Types__ to write more reusable code and reducing code duplication.
+Next time we build on the concepts of __Functor__  and __Monads__ taking the abstraction to the next level with __Higher-Kinded Types__ to write more reusable code and reducing code duplication.
