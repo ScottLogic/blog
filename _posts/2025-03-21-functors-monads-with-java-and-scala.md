@@ -6,7 +6,7 @@ categories:
 tags:
 - Java, Scala
 author: magnussmith
-summary: In this post we will we will explain what Functors and Monads are and how they help us produce more robust code.
+summary: Learn about how Functors and Monads provide patterns to write cleaner, more composable, and robust code that helps us deal with operations like handling nulls, managing errors and sequencing asynchronous actions.
 
 image: magnussmith/assets/java.jpg
 ---
@@ -46,7 +46,7 @@ Essentially, a functor provides a `map` operation that "lifts" a function to wor
       .toList(); // [1, 4, 9, 16, 25]
 ~~~~
 Here,  Stream.map applies the squaring function to each element in the stream, producing a new stream of squared numbers which we then collect to a List.
-The m,ap acts on a stream and returns a stream – just with the contents transformed. This "structure-preserving transformation" is key to the Functor concept.
+The map acts on a stream and returns a stream – just with the contents transformed. This "structure-preserving transformation" is key to the Functor concept.
 
 
 ### Functor an informal definition
@@ -515,9 +515,11 @@ implicit val myContextMonad: Monad[MyContext] = new Monad[MyContext] {
 - **Immutability**: Collections in Scala are immutable by default which fits better with the monadic principle of returning new instances over modifications.
 - **Typeclasses**: Libraries like Cats provide a `Monad` typeclass, allowing us to define monadic behaviour for our own custom types.   
 
+### Summary
+
 Monads are a powerful tool for managing sequential computations, especially those that involve optionality, collections, or asynchronous operations. 
 While Java provides the necessary building blocks (`flatMap` on `Optional`, `Stream`, and`CompletableFuture`), Scala's for comprehensions and typeclasses (like those in Cats) make working with monads more explicit and convenient.
 
 ### Next time
 
-Next time we build on the concepts of __Functor__  and __Monads__  taking the abstraction to the next level with __Higher-Kinded Types__ and how they can help with....
+Next time we build on the concepts of __Functor__  and __Monads__  taking the abstraction to the next level with __Higher-Kinded Types__ to write more reusable code and reducing code duplication.
