@@ -237,6 +237,220 @@ and managing asynchronous computations (with `CompletableFuture`).
 - **Composing Asynchronous Tasks**: `CompletableFuture`'s monadic nature makes it possible to build complex asynchronous workflows without callback hell.
 -  **Abstraction and Code Reusability:**: Like functors, monads provide a common interface. If you write code that works with a generic Monad, it can work with `Optional`, `Stream`, `CompletableFuture`, or any other type that implements the monadic interface (in languages that support this).
 
+
+### Use Case 1: Handling potentially missing values with Optional<T>
+
+- Safely navigating potentially null object graphs or method return values. Imagine fetching a user's address first line, where the user, their address, orany of the fields could be missing.
+
+- **Monadic Operations**:
+
+  - `Optional.ofNullable()`: Wraps a potentially null value.
+  - `map()`: Transforms the value inside the Optional if it's present.
+  - `flatMap()`: Transforms the value using a function that returns another Optional. Essential for chaining operations that might each yield an absent result.
+
+~~~~ java
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+
+class OptionalMonadExample {
+
+  record Address(Optional<String> houseNumber,
+                 Optional<String> houseName,
+                 String street) {}
+
+  record User(String name, Optional<Address> address) {}
+  
+  // Method that might return a null User
+  static User findUserById(String id) {
+    return switch (id) {
+      case "1" -> new User("Eric", Optional.of(new Address(Optional.of("29"), Optional.empty(), "Acacia Road")));
+      case "2" -> new User("Bob", Optional.empty()); // no address
+      default -> null; // not found
+    };
+  }
+
+  // --- Traditional Null-Checking Approach (Verbose and Error-Prone) ---
+  static String getAddressFirstLineTraditional(String userId) {
+    User user = findUserById(userId);
+    if (user != null) {
+      Optional<Address> addressOpt = user.address();
+      if (addressOpt.isPresent()) {
+        Address address = addressOpt.get();
+        // house number OR name
+        String houseIdentifier = "";
+        Optional<String> houseNumOpt = address.houseNumber();
+        if (houseNumOpt.isPresent()) {
+          houseIdentifier = houseNumOpt.get();
+        } else {
+          Optional<String> houseNameOpt = address.houseName();
+          if (houseNameOpt.isPresent()) {
+            houseIdentifier = houseNameOpt.get();
+          }
+          // If neither is present, houseIdentifier remains ""
+        }
+
+        String street = address.street();
+
+        if (!houseIdentifier.isEmpty()) {
+          return houseIdentifier + " " + street;
+        } else if (street != null && !street.isEmpty()) {
+          // Handle case where only street exists
+          return street;
+        }
+      }
+    }
+    return "Address information unavailable";
+  }
+
+  // --- Monadic Approach using Optional ---
+  static String getAddressFirstLineMonadic(String userId) {
+    return Optional.ofNullable(findUserById(userId)) // Optional<User>
+        .flatMap(User::address)                 // Optional<Address> (flatMap needed as address() returns Optional)
+        .map(address ->                       // Transform Address to String (map is good here)
+            Stream.of(address.houseNumber().or(address::houseName),
+                Optional.ofNullable(address.street()))
+                .flatMap(Optional::stream) // flatten to remove any Optional.empty()
+                .collect(Collectors.joining(" "))
+        )
+        .orElse("Address information unavailable"); // Final default if user/address was missing
+  }
+
+  public static void main(String[] args) {
+    System.out.println("Traditional:");
+    System.out.println("User 1: " + getAddressFirstLineTraditional("1")); // 29 Acacia Road
+    System.out.println("User 2: " + getAddressFirstLineTraditional("2")); // Address information unavailable
+    System.out.println("User 2: " + getAddressFirstLineTraditional("3")); // Address information unavailable
+
+    System.out.println("\nMonadic:");
+    System.out.println("User 1: " + getAddressFirstLineMonadic("1"));   // 29 Acacia Road
+    System.out.println("User 2: " + getAddressFirstLineMonadic("2"));   // Address information unavailable
+    System.out.println("User 3: " + getAddressFirstLineMonadic("3"));   // Address information unavailable
+  }
+
+~~~~
+
+#### Use Case 2: Composing Asynchronous Operations with `CompletableFuture<T>`
+
+`CompletableFuture` allows chaining asynchronous computations without blocking threads excessively, avoiding "callback hell".
+
+- Fetching data from a remote service, then using that data to make another service call, then processing the final result.
+
+- **Monadic Operations**:
+
+  - `supplyAsync()`: Starts an async computation.
+  - `thenApply()` (map equivalent): Applies a simple function to the result when available.
+  - `thenCompose()` (flatMap equivalent): Applies a function that returns another CompletableFuture when the previous stage completes. Essential for chaining dependent async calls.
+
+~~~~ java 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
+import static java.lang.System.err;
+import static java.lang.System.out;
+
+class CompletableFutureMonadExample {
+
+  static ExecutorService executor = Executors.newFixedThreadPool(2);
+
+  // Simulate fetching user data asynchronously
+  static CompletableFuture<String> fetchUserData(int userId) {
+    return CompletableFuture.supplyAsync(() -> {
+      out.printf("%s: Fetching data for user %s ...%n", Thread.currentThread().getName(), userId);
+      try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+      return "User_Data_" + userId;
+    }, executor);
+  }
+
+  // Simulate fetching order details based on user data asynchronously
+  static CompletableFuture<String> fetchOrderDetails(String userData) {
+    return CompletableFuture.supplyAsync(() -> {
+      out.printf("%s: Fetching orders for %s ...%n", Thread.currentThread().getName(), userData);
+      try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }
+      return "Order_Details_for_" + userData;
+    }, executor);
+  }
+
+  // Simple processing function
+  static String processOrders(String orderDetails) {
+    out.printf("%s: Processing %s ...%n", Thread.currentThread().getName(), orderDetails);
+    return "Processed: [%s]".formatted(orderDetails);
+  }
+
+  public static void main(String[] args) {
+    out.println("Starting async chain...");
+
+    CompletableFuture<String> finalResult = fetchUserData(1) // Returns CompletableFuture<String>
+        .thenCompose(CompletableFutureMonadExample::fetchOrderDetails) // Uses thenCompose (flatMap) because fetchOrderDetails returns a CF
+        .thenApply(CompletableFutureMonadExample::processOrders); // Uses thenApply (map) because processOrders returns a simple String
+
+    try {
+      String result = finalResult.join(); // Blocks until completion for this demo
+     out.println("\nFinal Result: " + result);
+    } catch (Exception e) {
+      err.println("An error occurred: " + e.getMessage());
+    } finally {
+      executor.shutdown();
+    }
+  }
+}
+~~~~
+
+#### Use Case 3: Data processing with  `Stream<T>`
+
+Streams provide a fluent, declarative way to process sequences of data, often using monadic-style `map` and `flatMap`.
+
+-  Filtering a list of orders, extracting all items from the selected orders, and calculating their total price.
+
+- **Monadic Operations**:
+  
+  - `stream()`: Creates a stream from a collection.
+  - `map()`: Transforms each element.
+  - `mapToDouble()`: Specialised version of map.
+  - `flatMap()`: Transforms each element into another stream and concatenates those streams.
+
+~~~~ java
+import java.util.List;
+import java.util.stream.Stream;
+
+
+class StreamMonadExample {
+  record Item(String name, double price) {}
+ sealed interface Order permits Order.Priority, Order.Regular {
+    record Priority(int orderId, List<Item> items) implements Order {};
+    record Regular(int orderId, List<Item> items) implements Order {};
+}
+
+  public static double calculatePriorityOrders(Stream<Order> orders) {
+    return orders                     // Stream<Order>
+        .flatMap(order -> switch (order) {
+          case Order.Priority priorityOrder -> priorityOrder.items().stream(); // Stream items if Priority
+          case Order.Regular regularOrder -> Stream.empty(); // Empty stream if Regular
+        })                            // Stream<Item> (Contains only items from Priority orders)
+        .mapToDouble(Item::price)     // DoubleStream
+        .sum();                       // Calculate sum
+  }
+
+  public static void main(String[] args) {
+    List<Order> orders = List.of(
+        new Order.Priority(1, List.of(new Item("PC", 1340.0), new Item("Mouse", 25.0))),
+        new Order.Regular(2, List.of(new Item("Keyboard", 55.0))),
+        new Order.Priority(3, List.of(new Item("Monitor", 450.0), new Item("Webcam", 50.0))),
+        new Order.Priority(4, List.of()) // Priority order with no items
+    );
+
+    // Calculate the total price of all items from *priority* orders
+    System.out.printf("Total price of items in priority orders: %.2f", calculatePriorityOrders(orders.stream()));
+    // Output: 1865.0 (1340 + 25 + 450 + 50)
+  }
+  
+}
+~~~~
+
+
 ### Monads in Scala
 
 Scala has built-in support for monadic operations through it's `for` comprehensions, which are syntactic sugar for 
