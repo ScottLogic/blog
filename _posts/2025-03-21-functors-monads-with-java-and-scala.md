@@ -124,14 +124,20 @@ val noneLength: Option[Int] = noneValue.map(_.length)   //None
 ~~~~
 
 #### Using Cats
+
+I'm using scala `3.6.4`, so to add cats to my sbt file 
+``` 
+libraryDependencies += "org.typelevel" %% "cats-effect" % "3.6.0"
+```
+
+
 ~~~~scala
 import cats.Functor
-import cats.implicits._ // Or specific imports, e.g., import cats.instances.list._
+import cats.implicits._
 
 val list = List(1, 2, 3)
 val doubledList = Functor[List].map(list)(_ * 2) // List(2, 4, 6)
 
-// Custom type example (as before)
 case class Box[A](value: A)
 
 implicit val boxFunctor: Functor[Box] = new Functor[Box] {
@@ -261,9 +267,9 @@ val doubledAndIncremented = for {
 //is equivalent to:
 //numbers.flatMap(n => List(n * 2 + 1))
 
-// Using Cats (requires Cats library dependency)
+// Using Cats 
 import cats.Monad
-import cats.implicits._
+import scala.annotation.tailrec
 
 case class MyContext[A](value: A)
 
@@ -272,17 +278,21 @@ implicit val myContextMonad: Monad[MyContext] = new Monad[MyContext] {
 
   override def flatMap[A, B](fa: MyContext[A])(f: A => MyContext[B]): MyContext[B] = f(fa.value)
 
-   //Required for Monad, but can be derived automatically with cats.
+  //Required for Monad, but can be derived automatically with cats.
+  @tailrec
   override def tailRecM[A, B](a: A)(f: A => MyContext[Either[A, B]]): MyContext[B] = {
     f(a) match {
       case MyContext(Left(nextA)) => tailRecM(nextA)(f)
-      case MyContext(Right(b))    => MyContext(b)
+      case MyContext(Right(b)) => MyContext(b)
     }
   }
 }
-val myContext = MyContext(5)
-val result = Monad[MyContext].flatMap(myContext)(x => MyContext(x + 1)) //MyContext(6)
-val result2 = myContext.flatMap(x => MyContext(x + 1)) //MyContext(6), using extension methods
+
+@main def main(): Unit = {
+  val myContext = MyContext(5)
+  val result = Monad[MyContext].flatMap(myContext)(x => MyContext(x + 1)) // MyContext(6)
+  val result2 = myContext.flatMap(x => MyContext(x + 1)) // MyContext(6), using extension methods
+}
 ~~~~
 
 **Some advantages offered by Scala**
