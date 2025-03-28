@@ -331,7 +331,7 @@ class OptionalMonadExample {
 
 ~~~~
 
-#### Use Case 2: Composing Asynchronous Operations with `CompletableFuture<T>`
+### Use Case 2: Composing Asynchronous Operations with `CompletableFuture<T>`
 
 `CompletableFuture` allows chaining asynchronous computations without blocking threads excessively, avoiding "callback hell".
 
@@ -399,7 +399,7 @@ class CompletableFutureMonadExample {
 }
 ~~~~
 
-#### Use Case 3: Data processing with  `Stream<T>`
+### Use Case 3: Data processing with  `Stream<T>`
 
 Streams provide a fluent, declarative way to process sequences of data, often using monadic-style `map` and `flatMap`.
 
