@@ -66,6 +66,8 @@ const lintPosts = () => {
     c => [c.title].concat(c.subcategories ? c.subcategories : [])
   ).map(c => c.toLowerCase());
 
+  console.log("Valid categories are: " + categories.join(', '));
+
   let fail = false;
 
   // lint each blog post
@@ -77,13 +79,16 @@ const lintPosts = () => {
         const frontMatterCats = frontMatter.data.categories;
 
         let category;
+        let postCategories;
         // if the frontmatter defines a 'category' field:
         if (frontMatter.data.category) {
           category = frontMatter.data.category.toLowerCase();
+          postCategories = [category];
         // if the frontmatter defines a 'categories' field with at least one but no more than 3 values:
 
         } else if (frontMatterCats && frontMatterCats.length && frontMatterCats.length <= MAX_CATEGORIES) {
-          category = frontMatter.data.categories[0].toLowerCase();
+          postCategories = frontMatter.data.categories.map(c => c.toLowerCase());
+          category = postCategories[0];
         } else {
           logError("The post " + path + " does not have at least one and no more than " + MAX_CATEGORIES + " categories defined.");
           fail = true;
@@ -95,7 +100,14 @@ const lintPosts = () => {
             "The post " + path + " does not have a recognised category"
           );
           fail = true;
+        } else {
+          postCategories
+            .filter(c => !categories.includes(c))
+            .forEach(c => logWarning(
+              "The post " + path + " has an unrecognised category: '" + c + "'. Check spelling or remove/move to tags."
+            ));
         }
+
 
         const summary = frontMatter.data.summary;
         const pathArray = path.split("/");
