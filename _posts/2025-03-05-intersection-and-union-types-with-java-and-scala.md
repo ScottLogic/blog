@@ -400,4 +400,4 @@ Intersection and union types are powerful tools that enhance type system express
 
 ### Next time
 
-Next time we will look at what  __Higher Kinded Types__ bring to the type system and our toolbox of programming techniques.
+Next time we will look start to look at the more functional side of the type system and examining how __Functors__ and __Monads__ can make software more robust.

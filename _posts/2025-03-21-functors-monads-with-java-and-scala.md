@@ -11,7 +11,7 @@ summary: In this post we will we will explain what Functors and Monads are and h
 image: magnussmith/assets/java.jpg
 ---
 
-![functors_monads_hkt.webp]({{site.baseurl}}/magnussmith/assets/functors_monads_hkt.webp)
+![functors_monads.webp]({{site.baseurl}}/magnussmith/assets/functors_monads.webp)
 
 This is the fourth post in a series exploring types and type systems.   Previous posts have looked at
 

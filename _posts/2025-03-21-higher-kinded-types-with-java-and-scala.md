@@ -10,7 +10,7 @@ summary: In this post we will see how Higher Kinded Types types can help increas
 image: magnussmith/assets/java.jpg
 ---
 
-![functors_monads_hkt.webp]({{site.baseurl}}/magnussmith/assets/functors_monads_hkt.webp)
+![higher_kinded_types.webp]({{site.baseurl}}/magnussmith/assets/higher_kinded_types.webp)
 
 This is the fifth post in a series exploring types and type systems.   Previous posts have looked at
 
