@@ -101,12 +101,11 @@ const lintPosts = () => {
           );
           fail = true;
         } else {
-          let unrecognisedCategories = postCategories.filter(c => !categories.includes(c));
-          if (unrecognisedCategories.length > 0) {
-            logWarning(
-              "The post " + path + " has at least one unrecognised category: " + unrecognisedCategories.join(', ')
-            );
-          }
+          postCategories
+            .filter(c => !categories.includes(c))
+            .forEach(c => logWarning(
+              "The post " + path + " has an unrecognised category: '" + c + "'. Check spelling or remove/move to tags."
+            ));
         }
 
 
