@@ -1,6 +1,6 @@
 ---
 title: Functors and Monads with Java and Scala
-date: 2025-03-21 00:00:00 Z
+date: 2025-03-31 00:00:00 Z
 categories:
 - Tech
 tags:
@@ -49,7 +49,7 @@ Here,  Stream.map applies the squaring function to each element in the stream, p
 The map acts on a stream and returns a stream – just with the contents transformed. This "**structure-preserving transformation**" is the key to the Functor concept.
 
 
-### Functor an informal definition
+### Functor: an informal definition
 
 A Functor is a type (often a container or "context") that provides a `map` operation (sometimes called `fmap`) with the following characteristics:
 
@@ -178,7 +178,7 @@ Optional<Optional<Address>> nestedOptional = findUser(userId).map(this::findAddr
 Obviously this is not what we want.  The `flatMap` operation (which we'll see is a core part of the Monad) _flattens_ the nested structure, giving you a single `Optional<Address>`.  
 This is the essence of the problem Monads solve: managing and combining computations that return "contextualised" values (values wrapped in things like `Optional`, `List`, `Future`).
 
-### Monad an informal definition
+### Monad: an informal definition
 
 A Monad is a type that provides two fundamental operations:
 
