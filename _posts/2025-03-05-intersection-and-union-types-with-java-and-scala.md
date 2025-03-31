@@ -21,6 +21,8 @@ This is the third post in a series exploring types and type systems.   Previous 
 
 - [Variance, Phantom and Existential types in Java and Scala]({{site.baseurl}}/2025/02/17/variance-in-java-and-scala.html)
 
+- [Functors and Monads with Java and Scala]({{site.baseurl}}/2025/03/31/functors-monads-with-java-and-scala.html)
+
 ## Intersection and Union Types with Java and Scala
 
 One of the difficult things for modern programming languages to get right is around providing flexibility when it comes to expressing complex relationships. As languages evolve, they need to give us tools to model the nuances of real world problems more accurately in our code.
@@ -400,4 +402,4 @@ Intersection and union types are powerful tools that enhance type system express
 
 ### Next time
 
-Next time we will look at what  __Higher Kinded Types__ bring to the type system and our toolbox of programming techniques.
+Next time we will look start to look at the more functional side of the type system and examining how [__Functors__ and __Monads__ can make software more robust]({{site.baseurl}}/2025/03/31/functors-monads-with-java-and-scala.html).
