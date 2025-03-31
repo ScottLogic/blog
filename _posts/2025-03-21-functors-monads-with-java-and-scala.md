@@ -22,9 +22,9 @@ This is the fourth post in a series exploring types and type systems.   Previous
 - [Intersection and Union Types with Java and Scala]({{site.baseurl}}/2025/03/05/intersection-and-union-types-with-java-and-scala.html)
 
 
-In this post we will investigate combining some ideas from functional programming with strong typing to produce robust expressive code that is more reusable. 
+In this post we will combine some ideas from functional programming with strong typing to produce robust expressive code that is more reusable. 
 
-In Java, we're accustomed to working with collections and streams, transforming data using `map`, `filter`, and other operations. But have you ever stopped to think about the underlying principles that make these operations possible? To those ends we will explore the concept of a "functor," a fundamental idea from category theory that sheds light on how we manipulate data within containers.
+In Java, we're accustomed to working with collections and streams, transforming data using `map`, `filter`, and other operations. But have you ever stopped to think about the underlying principles that make these operations possible? To those ends we will explore the concept of a "functor", a fundamental idea from category theory that sheds light on how we manipulate data within containers.
 
 ## What's a Functor?
 
@@ -38,7 +38,7 @@ In Java terms:
 
 Essentially, a functor provides a `map` operation that "lifts" a function to work within the context of the container.
 
-### Stream as a Functor in Java
+#### Stream as a Functor in Java
 
 ~~~~ java
   Stream.of(1, 2, 3, 4, 5)
@@ -46,7 +46,7 @@ Essentially, a functor provides a `map` operation that "lifts" a function to wor
       .toList(); // [1, 4, 9, 16, 25]
 ~~~~
 Here,  Stream.map applies the squaring function to each element in the stream, producing a new stream of squared numbers which we then collect to a List.
-The map acts on a stream and returns a stream – just with the contents transformed. This "structure-preserving transformation" is key to the Functor concept.
+The map acts on a stream and returns a stream – just with the contents transformed. This "**structure-preserving transformation**" is the key to the Functor concept.
 
 
 ### Functor an informal definition
@@ -58,9 +58,11 @@ A Functor is a type (often a container or "context") that provides a `map` opera
 3. **Identity Law**:  Mapping with the identity function (a function that returns its input unchanged) should result in an equivalent functor.  In pseudo-code: `functor.map(x -> x)` is equivalent to `functor`.
 4. **Composition Law**:  Mapping with two functions sequentially is the same as mapping with the composition of those functions.  In pseudo-code: `functor.map(f).map(g)` is equivalent to `functor.map(x -> g(f(x)))`.
 
-Java doesn't have a built-in `Functor` interface or keyword, but many common classes behave like functors.  They follow the rules above, even if it's not explicitly stated.
+### Functors in Java
 
-_java.util.stream.Stream_
+Java doesn't have a built-in `Functor` interface or keyword, but many common classes behave like functors.  They follow the rules above, even if it's not explicitly stated:
+
+**_java.util.stream.Stream_**
 
 - **Takes a Function**: `Stream.map(Function<? super T, ? extends R> mapper)`
 - **Preserves Structure**: `map` returns a new `Stream`. The original `Stream` is left unchanged.
@@ -86,7 +88,7 @@ assertTrue(composed.collect(Collectors.toList()).equals(composedOnce.collect(Col
 ~~~~
 
 
-_java.util.Optional_
+**_java.util.Optional_**
 
 - **Takes a Function**: `Optional.map(Function<? super T, ? extends U> mapper)`
 - **Preserves Structure**: `map` returns a new `Optional`. 
@@ -107,7 +109,7 @@ assertEquals(original, identityMapped);
 ~~~~
 
 ### Functors in Scala
-Scala, being a functional programming language, embraces functors more directly. In Scala, a functor is typically represented as a type class with a `map` method.
+Scala, being a functional programming language, embraces functors more directly. In Scala, a functor is typically represented as a typeclass with a `map` method.  A typeclass allows you to add new functionality to existing types _without modifying the original source code_. This is used to enable ad-hoc polymorphism.
 There is a `Functor` typeclass in libraries like [Cats](https://typelevel.org/cats/) and [Scalaz](https://github.com/scalaz/scalaz) or you could define a `Functor` trait yourself. However, even without external libraries, Scala's standard collections have a `map` method that aligns with the functor laws.
 
 ~~~~scala
@@ -125,9 +127,11 @@ val noneLength: Option[Int] = noneValue.map(_.length)   //None
 
 #### Using Cats
 
-I'm using scala `3.6.4`, so to add cats to my sbt file 
+Using the [Functor](https://typelevel.org/cats/typeclasses/functor.html) from `Cats` library
+
+If you are using scala `3.6.4`, then add cats core library to your sbt file 
 ``` 
-libraryDependencies += "org.typelevel" %% "cats-effect" % "3.6.0"
+libraryDependencies += "org.typelevel" %% "cats-core_3" % "2.13.0"
 ```
 
 
@@ -147,12 +151,12 @@ implicit val boxFunctor: Functor[Box] = new Functor[Box] {
 val box = Box(5)
 val doubledBox = Functor[Box].map(box)(_ * 2) // Box(10)
 ~~~~
-Here we make a custom Box class a Functor using Cats. This demonstrates the power of typeclasses: you define the behavior (the map implementation) for your type within the context of the Functor typeclass.
+Here we make a custom `Box` class a `Functor` using Cats. This demonstrates the power of typeclasses: you define the behavior (the map implementation) for your type within the context of the `Functor` typeclass.
 
 ## Monads
-We've talked about Functors, which are all about applying a function to a value *inside* a container (like a `Stream` or `Optional`) while preserving the container's structure. Monads build upon this concept, adding the ability to *chain* operations that also return containers, without getting nested containers. This "flattening" capability is the key to understanding Monads, and it's incredibly useful for handling sequential computations, especially those involving optionality, collections, or asynchronous operations.
+We've discussed Functors, which are all about applying a function to a value *inside* a container (like a `Stream` or `Optional`) while preserving the container's structure. Monads, a special type of Functor build upon this concept, adding the ability to *chain* operations that also return containers, without getting nested containers. This "**_flattening_**" capability is the key to understanding Monads, and it's incredibly useful for handling sequential computations, especially those involving optionality, collections, or asynchronous operations.
 
-### The Problem Monads solve: Nested Contexts
+### The problem that Monads solve: Nested Contexts
 
 Imagine you have a method that might return an `Optional<User>` and another method that, given a `User`, might return an `Optional<Address>`
 
@@ -165,25 +169,25 @@ Optional<Address> findAddress(User user) {
     // ... logic to fetch address, or return Optional.empty() if none ...
 }
 ~~~~
-Now, you want to find the address of a user given their ID. Using just `Optional.map`, you'd end up with a nested `Optional`:
+Now, you want to find the address of a user given their ID. Using just `Optional.map`functor, you'd end up with a nested `Optional`:
 
 ~~~~ java
 int userId = 123;
 Optional<Optional<Address>> nestedOptional = findUser(userId).map(this::findAddress);
 ~~~~
-Obviously this is not what we want.  The `flatMap` operation (which we'll see is a core part of the Monad) flattens the nested structure, giving you a single `Optional<Address>`.  
-This is the essence of the problem Monads solve: managing and combining computations that return "contextualized" values (values wrapped in things like `Optional`, `List`, `Future`).
+Obviously this is not what we want.  The `flatMap` operation (which we'll see is a core part of the Monad) _flattens_ the nested structure, giving you a single `Optional<Address>`.  
+This is the essence of the problem Monads solve: managing and combining computations that return "contextualised" values (values wrapped in things like `Optional`, `List`, `Future`).
 
 ### Monad an informal definition
 
 A Monad is a type that provides two fundamental operations:
 
-1. `unit` (or `return` or `of`): This takes a plain value and puts it *into* the monadic context.  In Java's `Optional`, this is `Optional.of()` and `Optional.ofNullable()`.  For `Stream`, it's `Stream.of()`. This "lifts" a value into the container.
+1. `unit` (or `return` or `of`): This takes a plain value and puts it *into* the monadic context.  In Java's `Optional`, this is `Optional.of()` and `Optional.ofNullable()`.  For `Stream`, it's `Stream.of()`. This "_lifts_" a value into the container.
 2. `flatMap` (or `bind`):  This is the key. It does two things:
 
     - **Mapping**: Like a functor's `map`, it applies a function to the value(s) *inside* the Monad.
     - **Flattening**: Crucially, this function _itself_ returns a monadic value (e.g., another `Optional`, `Stream`, etc.).
-flatMap then "flattens" the result, avoiding the nested structure we saw above.
+flatMap then "_flattens_" the result, avoiding the nested structure we saw above.
 
 In addition to these operations, monads adhere to three laws:
 
@@ -195,7 +199,7 @@ In addition to these operations, monads adhere to three laws:
 ### Monads in Java
 Like Functors, Java doesn't have a dedicated `Monad` interface, but several classes behave monadically:
 
-_java.util.Optional_
+**_java.util.Optional_**
 
 - `unit`: `Optional.of(value)` or `Optional.ofNullable(value)`
 - `flatMap`: `Optional.flatMap(Function<? super T, Optional<U>> mapper)`
@@ -204,7 +208,7 @@ _java.util.Optional_
 Optional<Address> address = findUser(userId).flatMap(this::findAddress); // Much cleaner!
 ~~~~
 
-_java.util.stream.Stream_
+**_java.util.stream.Stream_**
 
 - `unit`: `Stream.of(values...)`
 - `flatMap`: `Stream.flatMap(Function<? super T, ? extends Stream<? extends R>> mapper)`
@@ -219,7 +223,7 @@ List<String> words = lines.stream()
 Notice how `flatMap` flattens streams of streams
 
 
-_java.util.concurrent.CompletableFuture_
+**_java.util.concurrent.CompletableFuture_**
 
 - `unit`: `CompletableFuture.completedFuture(value)`
 - `flatMap`: `CompletableFuture.thenCompose(Function<? super T, ? extends CompletionStage<U>> fn)`
@@ -231,7 +235,7 @@ CompletableFuture<Address> addressFuture = userFuture.thenCompose(this::findAddr
 
 ### Monads have many uses
 
-- **Chaining Operations**: Monads allow you to chain operations that return contextualized values in a clean, readable, and safe way. This is especially important for handling errors (with `Optional`), working with collections (with `Stream`), 
+- **Chaining Operations**: Monads allow you to chain operations that return contextualised values in a clean, readable, and safe way. This is especially important for handling errors (with `Optional`), working with collections (with `Stream`), 
 and managing asynchronous computations (with `CompletableFuture`). 
 - **Error Handling**: `Optional` used in a monadic way helps prevent `NullPointerExceptions` by forcing you to explicitly handle the case where a value might be absent.
 - **Composing Asynchronous Tasks**: `CompletableFuture`'s monadic nature makes it possible to build complex asynchronous workflows without callback hell.
@@ -240,9 +244,11 @@ and managing asynchronous computations (with `CompletableFuture`).
 
 ### Use Case 1: Handling potentially missing values with Optional<T>
 
-- Safely navigating potentially null object graphs or method return values. Imagine fetching a user's address first line, where the user, their address, orany of the fields could be missing.
+__Safely navigating potentially null object graphs or method return values__: 
 
-- **Monadic Operations**:
+Imagine fetching a user's address first line, where the user, their address, or any of the fields could be missing.
+
+**Monadic Operations**:
 
   - `Optional.ofNullable()`: Wraps a potentially null value.
   - `map()`: Transforms the value inside the Optional if it's present.
@@ -333,11 +339,11 @@ class OptionalMonadExample {
 
 ### Use Case 2: Composing Asynchronous Operations with `CompletableFuture<T>`
 
-`CompletableFuture` allows chaining asynchronous computations without blocking threads excessively, avoiding "callback hell".
+__`CompletableFuture` allows chaining asynchronous computations without blocking threads excessively, avoiding "callback hell":__
 
-- Fetching data from a remote service, then using that data to make another service call, then processing the final result.
+Here we are fetching data from a remote service, then using that data to make another service call, then processing the final result.
 
-- **Monadic Operations**:
+**Monadic Operations**:
 
   - `supplyAsync()`: Starts an async computation.
   - `thenApply()` (map equivalent): Applies a simple function to the result when available.
@@ -401,11 +407,11 @@ class CompletableFutureMonadExample {
 
 ### Use Case 3: Data processing with  `Stream<T>`
 
-Streams provide a fluent, declarative way to process sequences of data, often using monadic-style `map` and `flatMap`.
+__Streams provide a fluent, declarative way to process sequences of data, often using monadic-style `map` and `flatMap`:__
 
--  Filtering a list of orders, extracting all items from the selected orders, and calculating their total price.
+Here we are filtering a list of orders, extracting all items from the selected orders, and calculating their total price.
 
-- **Monadic Operations**:
+**Monadic Operations**:
   
   - `stream()`: Creates a stream from a collection.
   - `map()`: Transforms each element.
@@ -454,7 +460,7 @@ class StreamMonadExample {
 ### Monads in Scala
 
 Scala has built-in support for monadic operations through it's `for` comprehensions, which are syntactic sugar for 
-`flatMap` and `map`.  Additionally, libraries like Cats provide a formal `Monad` typeclass.
+`flatMap` and `map`.  Additionally, libraries like Cats provide a formal [Monad](https://typelevel.org/cats/typeclasses/monad.html) typeclass.
 
 ~~~~ scala
 // Using Scala's for comprehensions (syntactic sugar)
@@ -478,8 +484,7 @@ val doubledAndIncremented = for {
     doubled = n * 2
     incremented = doubled + 1
 } yield incremented  // List(3, 5, 7)
-//is equivalent to:
-//numbers.flatMap(n => List(n * 2 + 1))
+//is equivalent to: numbers.flatMap(n => List(n * 2 + 1))
 
 // Using Cats 
 import cats.Monad
@@ -511,14 +516,15 @@ implicit val myContextMonad: Monad[MyContext] = new Monad[MyContext] {
 
 **Some advantages offered by Scala**
 
-- **_for_** Comprehensions:  In Scala the `for` comprehension provides a more readable way to chain monadic operations.
+- **_for comprehensions_**:  In Scala the [for comprehension](https://docs.scala-lang.org/tour/for-comprehensions.html) provides a more readable way to chain monadic operations.
 - **Immutability**: Collections in Scala are immutable by default which fits better with the monadic principle of returning new instances over modifications.
 - **Typeclasses**: Libraries like Cats provide a `Monad` typeclass, allowing us to define monadic behaviour for our own custom types.   
 
 ### Summary
 
 Monads are a powerful tool for managing sequential computations, especially those that involve optionality, collections, or asynchronous operations. 
-While Java provides the necessary building blocks (`flatMap` on `Optional`, `Stream`, and`CompletableFuture`), Scala's for comprehensions and typeclasses (like those in Cats) make working with monads more explicit and convenient.
+While Java provides the necessary building blocks (`flatMap` on `Optional`, `Stream`, and`CompletableFuture`), 
+Scala's for comprehensions and typeclasses (like those in Cats) make working with monads much more explicit and convenient.
 
 ### Next time
 
