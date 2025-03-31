@@ -462,9 +462,9 @@ class StreamMonadExample {
 Scala has built-in support for monadic operations through it's `for` comprehensions, which are syntactic sugar for 
 `flatMap` and `map`.  Additionally, libraries like Cats provide a formal [Monad](https://typelevel.org/cats/typeclasses/monad.html) typeclass.
 
-~~~~ scala
-// Using Scala's for comprehensions (syntactic sugar)
+####  Using Scala's for comprehensions (syntactic sugar)
 
+~~~~ scala
 def findUser(userId: Int): Option[User] = ??? // Assume this is defined
 def findAddress(user: User): Option[Address] = ???
 
@@ -485,8 +485,12 @@ val doubledAndIncremented = for {
     incremented = doubled + 1
 } yield incremented  // List(3, 5, 7)
 //is equivalent to: numbers.flatMap(n => List(n * 2 + 1))
+~~~~
 
-// Using Cats 
+####  Using Cats to define a new custom type Monad
+
+~~~~ scala
+
 import cats.Monad
 import scala.annotation.tailrec
 
