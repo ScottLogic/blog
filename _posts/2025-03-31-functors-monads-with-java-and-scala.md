@@ -102,10 +102,13 @@ assertEquals(original, identityMapped);
 
 - **Composition**:
 
-~~~~java
+~~~~ java
 Optional<String> original = Optional.of("hello");
-Optional<String> identityMapped = original.map(s -> s); // Equivalent to original
-assertEquals(original, identityMapped);
+Function<String, String> f = String::toUpperCase;
+Function<String, Integer> g = String::length;
+Optional<Integer> composed = original.map(f).map(g);
+Optional<Integer> composedOnce = original.map(s -> g.apply(f.apply(s)));
+assertEquals(composed, composedOnce); // Optional[5]
 ~~~~
 
 ### Functors in Scala
