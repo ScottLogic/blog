@@ -108,3 +108,5 @@ For now, the path to success involves trial and error, to build up our own menta
 I am still incredibly optimistic about LLMs and their utility, but we don’t need models that perform even better on some abstract benchmarks, we need models and tools that respond “no, I’m afraid I cannot do that”, or “can we break this task down”, or “can we discuss this a bit further”. 
 
 That would be real progress. 
+
+This post generated a [lively debate over on Hacker News](https://news.ycombinator.com/item?id=43284270).
