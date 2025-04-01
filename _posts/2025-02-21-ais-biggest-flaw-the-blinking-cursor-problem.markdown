@@ -150,4 +150,6 @@ In many ways, AI interfaces mirror human interactions—imperfect, contextual, a
 
 The blinking cursor isn’t the future. The future is AI that guides, adapts, and engages. The future is AI that feels more human. 
 
+This post generated a [lively debate over on Hacker News](https://news.ycombinator.com/item?id=43157185).
+
  
