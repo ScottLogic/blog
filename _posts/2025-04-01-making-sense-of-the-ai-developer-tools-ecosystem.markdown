@@ -141,3 +141,5 @@ While the various types of tools look quite different on the surface, they have 
 It can be confusing to understand which tools to adopt (none of them? All of them?) But given the above, I think the first step is to determine where you want to position AI within your workflow.  
 
 Personally, I prefer the integrated AI approach, I want to be able to rapidly interact with AI but ultimately want to be in control ... for now. 
+
+Finally, if you're interested in a more detailed review of the features and functions of these tools, I've created an [Awesome List on GitHub](https://github.com/ColinEberhardt/awesome-ai-developer-tools).
