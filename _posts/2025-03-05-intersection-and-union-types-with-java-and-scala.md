@@ -15,13 +15,15 @@ image: magnussmith/assets/java.jpg
 ![intersection_union.webp]({{site.baseurl}}/magnussmith/assets/intersection_union.webp)
 
 
-This is the third post in a series exploring types and type systems.   Previous posts have looked at
+This is the third post in a series exploring types and type systems.   Other posts have looked at
 
 - [Algebraic Data Types with Java]({{site.baseurl}}/2025/01/20/algebraic-data-types-with-java.html)
 
 - [Variance, Phantom and Existential types in Java and Scala]({{site.baseurl}}/2025/02/17/variance-in-java-and-scala.html)
 
 - [Functors and Monads with Java and Scala]({{site.baseurl}}/2025/03/31/functors-monads-with-java-and-scala.html)
+
+- [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/01/higher-kinded-types-with-java-and-scala.html)
 
 ## Intersection and Union Types with Java and Scala
 

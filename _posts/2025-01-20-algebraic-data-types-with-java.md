@@ -32,6 +32,8 @@ This is the first post in a series exploring types and type systems.   Other pos
 
 - [Functors and Monads with Java and Scala]({{site.baseurl}}/2025/03/31/functors-monads-with-java-and-scala.html)
 
+- [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/01/higher-kinded-types-with-java-and-scala.html)
+
 When we develop an application, we frequently need to model some aspect of business to describe and solve a business problem. We do this by creating a conceptual representation of the real-world problem that we are trying to solve. This allows us to understand the "domain" where our software operates.
 
 ## Domain Modelling
