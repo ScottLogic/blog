@@ -68,7 +68,7 @@ The various other AI chatbots have similar features, e.g. Claude Artifacts.
 
 Cursor is a fork of VSCode that was released just over a year ago. Whereas GitHub Copilot presents itself as an extension, an add-on to your IDE, Cursor places the AI capabilities front-and centre. You are very much encouraged to embrace AI for all your tasks, including generation of commit messages, driving your terminal, codebase analysis, autocomplete and the creation of entire applications. 
 
-[cursor.webp](/uploads/cursor.webp)
+![cursor.webp](/uploads/cursor.webp)
 
 There are a growing number of Cursor competitors, including Cline (which is open source), and Windsurf. Notably Replit, which has an online IDE that supports an impressive range of languages and frameworks, have launched Replit Agent, which again puts AI front-and-centre. 
 
