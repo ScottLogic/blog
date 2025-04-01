@@ -51,7 +51,7 @@ While the workflow approach works well for the report analysis, the conversation
 
 The conversational, agentic architecture relies on the Intent Agent and Supervisor to determine and control its processes, where a users' question can provide an open-ended task for the system to solve. 
 
-![Agentic Conversation]({{site.github.url}}drees/assets/inferesg/conversational-agents.png)
+![Agentic Conversation]({{site.github.url}}/drees/assets/inferesg/conversational-agents.png)
 
 The conversational architecture comes into its own when analysts want to explore specific aspects of the report or cross-reference information from multiple sources. For instance, after reviewing the initial report analysis, an analyst might ask: "How does this company's emissions reduction claims compare to their industry peers?" This is where the Intent Agent shines, breaking down this complex query into specific tasks: 
 - Extract the company's emission claims from the report 
