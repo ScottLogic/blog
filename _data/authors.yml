@@ -4,7 +4,6 @@ active-authors:
   - abarron
   - aberrill
   - abirch
-  - acanham
   - acarr
   - acaulfield
   - ahickman
@@ -89,7 +88,6 @@ active-authors:
   - lpisani
   - lperrett
   - lvincent
-  - lwilson
   - magnussmith
   - masmith
   - mbuhagiar
@@ -106,6 +104,7 @@ active-authors:
   - mphillips
   - mridene
   - mwallace
+  - mwalkerrose
   - nbetts
   - ocronk
   - oforeman
@@ -392,7 +391,7 @@ authors:
   drees:
     name: "David Rees"
     picture: picture.jpg
-    author-summary: "<p>Hello, I'm a Senior UX designer at Scott Logic, based in Bristol.</p>"
+    author-summary: "<p>Hello, I'm a Solutions Architect and Sustainable Technology lead, based in Scott Logic, Bristol.</p>"
   dsmith:
     author-summary: "<p>I'm a Senior Developer at Scott Logic, based in Newcastle.</p>"
     name: "Darren Smith"
@@ -1553,4 +1552,8 @@ authors:
     name: "Callum Robb"
     email: crobb@scottlogic.com
     author-summary: "I am a Senior Test Engineer based in Edinburgh."
+    picture: picture.jpg
+  mwalkerrose:
+    name: "Mike Walker-Rose"
+    author-summary: "A Test Engineer in the Bristol office, passionate about all things test!"
     picture: picture.jpg

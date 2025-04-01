@@ -12,6 +12,8 @@ summary: In this episode, we talk about Quantum Computing with Denis Mandich, CT
   is likely to have.
 author: ceberhardt
 image: "/uploads/BeyondTheHype%20-%20pink%20and%20yellow%20-%20episode%2010%20-%20social.png"
+contributors:
+- ocronk
 ---
 
 <base target="_blank"><iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/26208876/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>

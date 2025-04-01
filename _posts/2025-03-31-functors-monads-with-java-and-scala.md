@@ -6,8 +6,9 @@ categories:
 tags:
 - Java, Scala
 author: magnussmith
-summary: Learn about how Functors and Monads provide patterns to write cleaner, more composable, and robust code that helps us deal with operations like handling nulls, managing errors and sequencing asynchronous actions.
-
+summary: Learn about how Functors and Monads provide patterns to write cleaner, more
+  composable, and robust code that helps us deal with operations like handling nulls,
+  managing errors and sequencing asynchronous actions.
 image: magnussmith/assets/java.jpg
 ---
 
