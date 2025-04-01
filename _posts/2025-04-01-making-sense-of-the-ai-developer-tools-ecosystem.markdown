@@ -105,7 +105,7 @@ What looks like an incredibly clunky demo by today’s standards caused a lot of
 
 Here’s a functional clone of the [New York Times Connections](/uploads/connections.png) game I created in less than an hour: 
 
-(https://www.nytimes.com/games/connections)![connections.png]
+!(https://www.nytimes.com/games/connections)[connections.png]
 
 While I have described these as rapid prototyping tools, it is important to note that they are not just visual prototypes, in the example above, they are more than capable of implementing the simple game logic. In this case, I am confident you could create a production-quality version of the game entirely within these tools, they include a fully-featured editor – giving you the ability to interact directly with code. 
 
