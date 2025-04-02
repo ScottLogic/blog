@@ -10,7 +10,8 @@ tags:
 - Research
 - ESG
 - Environmental
-summary: 'During the InferESG project, we made a pivotal decision to use an orchestrated workflow to conduct a deterministic process, parallel to the agentic system.'
+summary: During the InferESG project, we made a pivotal decision to use an orchestrated
+  workflow to conduct a deterministic process, parallel to the agentic system.
 author: drees
 ---
 
