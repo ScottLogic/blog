@@ -103,9 +103,9 @@ One of the first examples I saw of UI prototyping with LLMs was [shared on Twitt
 
 What looks like an incredibly clunky demo by today’s standards caused a lot of interest and [scepticism](https://news.ycombinator.com/item?id=23821411). Today’s tools (v0, Bolt, and more recently Lovable), are much more powerful, allowing you to create applications of modest complexity in the space of an hour or two.  
 
-Here’s a functional clone of the [New York Times Connections](/uploads/connections.png) game I created in less than an hour: 
+Here’s a functional clone of the [New York Times Connections](https://www.nytimes.com/games/connections) game I created in less than an hour: 
 
-!(https://www.nytimes.com/games/connections)[connections.png]
+![connections.png](/uploads/connections.png)
 
 While I have described these as rapid prototyping tools, it is important to note that they are not just visual prototypes, in the example above, they are more than capable of implementing the simple game logic. In this case, I am confident you could create a production-quality version of the game entirely within these tools, they include a fully-featured editor – giving you the ability to interact directly with code. 
 
