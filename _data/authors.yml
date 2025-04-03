@@ -144,6 +144,7 @@ active-authors:
   - tgilbert
   - thands
   - tjohnson
+  - tyates
   - vcisse
   - wboothclibborn
   - wduncan
@@ -1557,3 +1558,8 @@ authors:
     name: "Mike Walker-Rose"
     author-summary: "A Test Engineer in the Bristol office, passionate about all things test!"
     picture: picture.jpg
+  tyates:
+    name: "Tim Yates"
+    email: tyates@scottlogic.com
+    author-summary: "Reformed folk musician turned Senior Developer based at the Leed office, prefers backend and data but will frontend if you make him."
+    picture: picture.png
