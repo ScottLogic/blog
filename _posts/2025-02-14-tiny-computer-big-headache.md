@@ -81,7 +81,7 @@ Switching from `std` to `no_std` changes how you think about programming. Gone a
 
 In a normal Rust development environment, I tend to rely heavily on collections like `Vec`, `HashSet`, and `HashMap` to store and process data. These structures provide flexibility, dynamic resizing, and convenient API methods for common operations. However, in a `no_std` environment, these **standard collections are unavailable** because they rely on heap allocation.  
 
-When transitioning from `std` to `no_std`, several commonly used features disappear. These include the following
+When transitioning from `std` to `no_std`, several commonly used features disappear. These include the following:
 
 ##### Panics and Error Handling
 The default panic behavior in `std` (in modules `std::panic` and `std::error`) assumes access to `println!` or `stderr`, which don’t exist in `no_std`. Instead, panics must be handled with **custom handlers**, which usually rely on hardware support or peripherals. For example, they can halt or reset the device, or set a connected LED to blinking.
