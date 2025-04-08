@@ -93,8 +93,8 @@ Without a console or terminal, `println!` doesn’t work, so debugging requires 
 
 ##### Standard Containers
 As the standard containers are dependent on `alloc`, I replace them with stack-allocated size-bounded alternatives:
-- Instead of `Vec`, I use [`arrayvec::ArrayVec`](https://docs.rs/arrayvec/latest/arrayvec/struct.ArrayVec.html),
-- Instead of `HashSet`, I use [`scapegoat::SgSet`](https://docs.rs/scapegoat/latest/scapegoat/struct.SgSet.html), 
+- Instead of `Vec`, I use [`arrayvec::ArrayVec`](https://docs.rs/arrayvec/latest/arrayvec/struct.ArrayVec.html).
+- Instead of `HashSet`, I use [`scapegoat::SgSet`](https://docs.rs/scapegoat/latest/scapegoat/struct.SgSet.html).
 
 ## Setting Up the Development Environment
 Now that I've clarified the constraints and challenges we'll be operating within, I'll detail the practicalities of how I addressed them, starting with the basics - setting up the development environment.
