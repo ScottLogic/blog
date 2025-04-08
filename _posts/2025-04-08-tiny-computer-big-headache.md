@@ -1,13 +1,14 @@
 ---
 title: Tiny Computer, Big Headache - Porting Advent of Code to the Pi Pico
 date: 2025-04-08 00:00:00 Z
+categories:
+- Tech
 tags:
 - Rust
 - system programming
 - embedded systems
-categories:
-- Tech
-summary: Following Advent of Code 2024, I migrated some of my solutions to run on a Raspberry PI Pico microcontroller
+summary: Following Advent of Code 2024, I migrated some of my solutions to run on
+  a Raspberry PI Pico microcontroller
 author: smartin
 ---
 
