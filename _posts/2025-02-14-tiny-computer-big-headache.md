@@ -1,6 +1,6 @@
 ---
 title: Tiny Computer, Big Headache - Porting Advent of Code to the Pi Pico
-date: 2025-02-14 00:00:00 Z
+date: 2025-04-08 00:00:00 Z
 tags:
 - Rust
 - system programming
