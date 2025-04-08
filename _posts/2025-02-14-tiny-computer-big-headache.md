@@ -84,7 +84,7 @@ In a normal Rust development environment, I tend to rely heavily on collections 
 When transitioning from `std` to `no_std`, several commonly used features disappear. These include the following
 
 ##### Panics and Error Handling
-The default panic behavior in `std` (in modules `std::panic` and `std::error`) assumes access to `println!` or `stderr`, which don’t exist in `no_std`. Instead, panics must be handled with **custom handlers**, which usually rely on hardware support or peripherals. For example they can halt or reset the device, or set a connected LED to blinking.
+The default panic behavior in `std` (in modules `std::panic` and `std::error`) assumes access to `println!` or `stderr`, which don’t exist in `no_std`. Instead, panics must be handled with **custom handlers**, which usually rely on hardware support or peripherals. For example, they can halt or reset the device, or set a connected LED to blinking.
 
 ##### Standard Debugging Tools
 Without a console or terminal, `println!` doesn’t work, so debugging requires alternatives. In my case I use a Raspberry PI Debug Probe (connected to the pico via SWD Debug connection, and to the host over USB), which permits use of **lightweight logging (`defmt`)**, with logging materialised on a host with log display capacity.
