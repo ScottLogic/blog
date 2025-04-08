@@ -343,7 +343,7 @@ Table of results for each day (windows vs pico)
 The performance differences between the Raspberry Pi Pico and a Windows PC can be attributed to several factors. The Cortex-M processor on the Pico runs at 133 MHz, while the Windows PC operates at 3 GHz, resulting in a speed ratio of approximately 1:23. However, the residual variance, roughly 1:10, suggests additional contributing factors. These may include differences in memory speed, the use of Flash versus RAM, and the word length of the processors (32-bit for the Pico versus 64-bit for the Windows PC).
 
 ## Conclusion and Next Steps
-I found rust a natural fit for embedded projects. While the support crates are still in active development, they are mature enough to perform meaningful development. Compilation to native code and flashing to on-board flash is a painless process once the one-time setup is in-place.
+I found Rust a natural fit for embedded projects. While the support crates are still in active development, they are mature enough to perform meaningful development. Compilation to native code and flashing to on-board flash is a painless process once the one-time setup is in-place.
 
 Despite a microcontroller being a hugely more constrained environment than we typically address, the lessons learned are applicable as:  
 
