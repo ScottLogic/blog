@@ -157,7 +157,7 @@ As the process for migrating existing Advent of Code solutions from a **`std`** 
 
 #### Raspberry Pi Pico
 - Used for final testing of the migration process and performance analysis.  
-- Used logging over the debug probe (as described above) instead of `println!` for debugging.  
+- Used logging over the debug probe (as described above), instead of `println!` for debugging.  
 - Measured execution speed to compare embedded performance vs. PC.  
 - Cargo command line to flash, and run (with debug probe connected):  
 
