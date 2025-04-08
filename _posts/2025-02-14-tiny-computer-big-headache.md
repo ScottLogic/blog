@@ -313,7 +313,7 @@ while let Some(node) = stack.pop() {
 - Solution: Use `static` memory instead of stack allocation:  
 
 ~~~rust
-static BUFFER: StaticCell<[u8; 1024]> = StaticCel::new(); // Stored in global memory
+static BUFFER: StaticCell<[u8; 1024]> = StaticCell::new(); // Stored in global memory
 .
 .
 .
