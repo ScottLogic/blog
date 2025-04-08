@@ -102,7 +102,7 @@ Now that I've clarified the constraints and challenges we'll be operating within
 ### Toolchain Setup for `no_std` on the Pi Pico
 To compile Rust for the Raspberry Pi Pico, we need a toolchain that supports **`no_std`** and targets the RP2040’s **ARM Cortex-M0+** architecture.
 
-The first step is to setup rust to build for the hardware. Since the RP2040 is an ARM-based microcontroller, we need the appropriate Rust target:  
+The first step is to set up Rust to build for the hardware. Since the RP2040 is an ARM-based microcontroller, we need the appropriate Rust target:  
 
 ~~~sh
      rustup target add thumbv6m-none-eabi
