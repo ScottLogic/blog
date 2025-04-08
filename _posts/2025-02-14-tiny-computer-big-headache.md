@@ -12,7 +12,7 @@ author: smartin
 ---
 
 ## Why Would I Do This?
-Initially, my Advent of Code solutions were written in Rust using the standard library, running on a typical desktop or laptop with ample processing power and memory. In January, after Advent of Code had officially completed for the year, I was discussing with my collegue Chris the challenges encountered and whether they were solvable on more constrained hardware. Thus was born the challenge to implement solutions on bare-metal hardware, specifically on a Raspberry Pi Pico.
+Initially, my Advent of Code solutions were written in Rust using the standard library, running on a typical desktop or laptop with ample processing power and memory. In January, after Advent of Code had officially completed for the year, I was discussing with my colleague Chris the challenges encountered and whether they were solvable on more constrained hardware. Thus was born the challenge to implement solutions on bare-metal hardware, specifically on a Raspberry Pi Pico.
 
 Questions I was interested in:  
 
