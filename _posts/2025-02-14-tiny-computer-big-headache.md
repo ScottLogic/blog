@@ -131,7 +131,7 @@ For `no_std`, we don’t use the standard Rust runtime (`std`), so our `Cargo.to
 - `cortex-m-rt` provides the **startup runtime**, ensuring correct entry points.
 - `embedded-hal` supplies a Hardware Abstraction Layer for embedded systems.
 - `embassy-embedded-hal` provides utilities to use `embedded-hal` with Embassy.
-- `panic-prove` implements a panic handler that exits a `probe-run` with an error code.  
+- `panic-probe` implements a panic handler that exits a `probe-run` with an error code.  
 
 Lastly, we need to configure Cargo to build for the ARM/Cortex-M target by default, by adding a `.cargo/config.toml` file:  
 
