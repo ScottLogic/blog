@@ -76,7 +76,7 @@ public class DuplicationExample {
 
 The core logic (`.map(Object::toString).map(String::toUpperCase)`) is identical, but we need separate methods because `Optional` and `List` have different APIs and don't share a useful common interface for this kind of operation at the container level.
 
-In *Java* we can think of `List` or `Optional` as *type constructors* that take a *type* such as `String` or `Integer` as an argument and produce a concrete type `List<String>` ir `Optional<Integer>`.
+In *Java* we can think of `List` or `Optional` as *type constructors* that take a *type* such as `String` or `Integer` as an argument and produce a concrete type `List<String>` or `Optional<Integer>`.
 
 A *higher-kinded type* is a type constructor that takes *another* type constructor as an argument.  Think of it as a "generic over generics."  In languages with HKT, you can write type-safe abstractions over generic containers. For example, a function that works for all `F[_]` types (e.g., `List`, `Option`, `Future`) could be written generically.
 
