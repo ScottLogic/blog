@@ -393,15 +393,18 @@ import cats.implicits._ // Import syntax and instances
 
 Notes:
 
-- **Native Syntax:** We use F[_] directly. No need for marker interfaces like Kind<F, A>.
+- **Native Syntax:** We use `F[_]` directly. No need for marker interfaces like `Kind<F, A>`.
 
-**Implicit Resolution:** The import *import cats.syntax.functor._:* brings in *extension methods* This "magic" allows Scala to add methods to existing types.  The [_]: Functor context bound tells Scala to automatically find and provide the correct Functor instance (Functor[List], Functor[Option]) where the function is called. No manual passing of "witness" objects. Cats provides these instances out-of-the-box for standard library types.
+- **Implicit Resolution:** The import *`import cats.syntax.functor._:`* brings in *extension methods* This "magic" allows Scala to add methods to existing types.  
+
+- The **`[_]`**: Functor context bound tells Scala to automatically find and provide the correct Functor instance (`Functor[List]`, `Functor[Option]`) where the function is called. No manual passing of "witness" objects. Cats provides these instances out-of-the-box for standard library types.
 
 - **Conciseness:** The code is much less verbose. Type signatures are cleaner.
 
 - **No Manual Wrapping/Unwrapping:** We work directly with `Option[Int]`. No need for explicit `KindHelper.wrap(...)` calls.
 
-### `Applicative` Example
+
+### Applicative Example
 
 `Applicative` extends `Functor` and allows combining values within independent contexts (among other things). A common method is `mapN` which lets you apply a function to values inside multiple containers.
 
@@ -480,10 +483,10 @@ def main(): Unit = {
 
 Notes:
 
-- **`mapN`:** Cats provides a very concise syntax for mapN using tuples and the mapN extension method (from *cats.implicits._* or *cats.syntax.apply._*).
+- **`mapN`:** Cats provides a very concise syntax for mapN using tuples and the mapN extension method (from *`cats.implicits._`* or *`cats.syntax.apply._`*).
 
 
-### `Monad` Example
+### Monad Example
 
 ~~~~ scala
 import cats.Monad
@@ -516,7 +519,7 @@ Notes:
 
 - **_for_ Comprehension:** Scala's *for* comprehension provides syntactic sugar for *flatMap* and *map*, making monadic code much more readable. Java lacks this feature.
 
-- **Typeclass Instance:** Cats' *Monad[Option]* gets the implicit instance. 
+- **Typeclass Instance:** Cats' *`Monad[Option]`* gets the implicit instance. 
 
 - **The Cats code:**  It is considerably less verbose due to Scala's features (for-comprehensions, implicits, type inference).
 
