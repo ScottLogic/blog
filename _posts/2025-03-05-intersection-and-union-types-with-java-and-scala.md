@@ -25,6 +25,8 @@ This is the third post in a series exploring types and type systems.   Other pos
 
 - [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/11/higher-kinded-types-with-java-and-scala.html)
 
+- [Recursion, Thunks and Trampolines with Java and Scala]({{site.baseurl}}/2025/04/11/recursion-thunks-trampolines-with-java-and-scala.html)
+
 ## Intersection and Union Types with Java and Scala
 
 One of the difficult things for modern programming languages to get right is around providing flexibility when it comes to expressing complex relationships. As languages evolve, they need to give us tools to model the nuances of real world problems more accurately in our code.
