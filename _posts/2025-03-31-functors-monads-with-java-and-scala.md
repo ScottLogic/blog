@@ -22,7 +22,7 @@ This is the fourth post in a series exploring types and type systems.  Other pos
 
 - [Intersection and Union Types with Java and Scala]({{site.baseurl}}/2025/03/05/intersection-and-union-types-with-java-and-scala.html)
 
-- [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/01/higher-kinded-types-with-java-and-scala.html)
+- [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/11/higher-kinded-types-with-java-and-scala.html)
 
 
 In this post we will combine some ideas from functional programming with strong typing to produce robust expressive code that is more reusable. 
@@ -538,4 +538,4 @@ Scala's for comprehensions and typeclasses (like those in Cats) make working wit
 
 ### Next time
 
-Next time we build on the concepts of __Functor__  and __Monads__ taking the abstraction to the next level with [Higher-Kinded Types]({{site.baseurl}}/2025/04/01/higher-kinded-types-with-java-and-scala.html) to write more reusable code and reducing code duplication.
+Next time we build on the concepts of __Functor__  and __Monads__ taking the abstraction to the next level with [Higher-Kinded Types]({{site.baseurl}}/2025/04/11/higher-kinded-types-with-java-and-scala.html) to write more reusable code and reducing code duplication.

@@ -1,6 +1,6 @@
 ---
 title: Higher Kinded Types with Java and Scala
-date: 2025-04-01 00:00:00 Z
+date: 2025-04-11 00:00:00 Z
 categories:
 - Tech
 tags:
@@ -104,7 +104,7 @@ Using HKTs allow us to write extremely generic and reusable code.  We can define
 **This gives some key benefits:**
 
 - **Write More Generic and Reusable Code**: Instead of writing similar logic for different generic types (like `List`, `Optional`, etc.), we define a common interface like `Functor` or `Monad`.
-- **Abstraction**: We can create code that works with concepts (like "mappable") instead of concrete types
+- **Abstraction**: We can create code that works with concepts (like "mappable") instead of concrete types.
 - **Improve Type Safety**: They eliminate boilerplate and prevent code duplication while ensuring compile-time correctness.
 
 
@@ -112,7 +112,7 @@ Using HKTs allow us to write extremely generic and reusable code.  We can define
 **Lightweight Higher-Kinded Polymorphism**
 
 
-As explained you can't get true HKTs in Java. but by we can applying a technique called "**Lightweight Higher-Kinded Polymorphism**" also known as "*defuctionalisation*" you can simulate them to a useful degree.  
+As explained you can't get true HKTs in Java. but by we can apply a technique called "**Lightweight Higher-Kinded Polymorphism**" also known as "*defunctionalisation*" you can simulate them to a useful degree.  
 
 Using interfaces, type tags, and type classes the core idea involves 3 steps:
 
@@ -272,11 +272,11 @@ public class ListMonad extends ListFunctor implements Monad<ListKind<?>> {
 
 ### Further Simulations
 
-We have seen how we can "_simulate_" HKT in Java defining a simple `Functor` and `Monad` capabilities for any `ListKind`.  We can extend this basic simulation to other _kinds_ such as an `OptionalKind`, a `MaybeKind` and an `EitherKind`.  
+We have seen how we can "_simulate_" HKT in Java defining a simple `Functor` and `Monad` capabilities for any `ListKind`.  We can extend this basic simulation to other _kinds_ such as an `OptionalKind`, a `MaybeKind`, and an `EitherKind`.  
 
-You can find all the [example simulation code](https://github.com/MagnusSmith/simulation-hkt) on Github. 
+You can find all the [example simulation code](https://github.com/MagnusSmith/simulation-hkt) on GitHub. 
 
-So although defunctionalisation is a clever technique ot overcome Java's lack of native HKT support, it comes with several significant drawbacks.
+So although defunctionalisation is a clever technique to overcome Java's lack of native HKT support, it comes with several significant drawbacks.
 
 - **Increased Complexity and Boilerplate:**
   - **Witness Types:** You need to define "witness" interfaces or classes for each type class (like `Functor`, `Monad`) and concrete implementations for each type constructor you want to abstract over (`ListMonad`, `OptionalFunctor`, etc.). This adds a substantial amount of code that exists purely to encode the HKT pattern.
@@ -338,7 +338,7 @@ libraryDependencies ++= Seq("org.typelevel" %% "cats-core" % "2.13.0")
 
 
 
-Cats defines type classes that capture common functional patterns. These type classes are parameterised by HKTs. Let's look at a couple of examples:
+Cats defines type classes that capture common functional patterns. These type classes are parametrised by HKTs. Let's look at a couple of examples:
 
 ### Functor Example
 
@@ -403,7 +403,7 @@ Notes:
 
 ### `Applicative` Example
 
-`Applicative` extends `Functor` and allows combining values within independent contexts (among other things). A common method is mapN which lets you apply a function to values inside multiple containers.
+`Applicative` extends `Functor` and allows combining values within independent contexts (among other things). A common method is `mapN` which lets you apply a function to values inside multiple containers.
 
 
 ~~~~ scala
@@ -446,11 +446,11 @@ def main(): Unit = {
 
 Notes:
 
-- **Seamless:** Methods like `mapN` work uniformly across any `F` that has an `Applicative `instance. The underlying mechanics (how Option handles None, how List creates a product) are abstracted away by the type class.
+- **Seamless:** Methods like `mapN` work uniformly across any `F` that has an `Applicative `instance. The underlying mechanics (how `Option` handles `None`, how `List` creates a product) are abstracted away by the type class.
 
 - **Readability:** The intent of combining `fa` and `fb` is clear, without the noise of simulation boilerplate.
 
-- **Type safety:** The compiler ensures, via the implicit Applicative[F] constraint, that mapN can only be used with types F that logically support such an operation.
+- **Type safety:** The compiler ensures, via the implicit `Applicative[F]` constraint, that `mapN` can only be used with types `F` that logically support such an operation.
 
 
 ~~~~ scala

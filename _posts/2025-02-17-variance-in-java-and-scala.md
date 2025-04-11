@@ -23,7 +23,7 @@ This is the second post in a series exploring types and type systems.   Other po
 
 - [Functors and Monads with Java and Scala]({{site.baseurl}}/2025/03/31/functors-monads-with-java-and-scala.html)
 
-- [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/01/higher-kinded-types-with-java-and-scala.html)
+- [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/11/higher-kinded-types-with-java-and-scala.html)
 
 ## Variance in Generics
 
