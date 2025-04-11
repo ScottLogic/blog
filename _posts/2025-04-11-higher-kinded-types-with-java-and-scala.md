@@ -6,7 +6,8 @@ categories:
 tags:
 - Java, Scala
 author: magnussmith
-summary: In this post we will see how Higher Kinded Types types can help increase the flexibility of our code and reduce duplication.
+summary: In this post we will see how Higher Kinded Types types can help increase
+  the flexibility of our code and reduce duplication.
 image: magnussmith/assets/java.jpg
 ---
 
