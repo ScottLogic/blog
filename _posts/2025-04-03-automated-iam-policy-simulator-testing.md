@@ -401,6 +401,6 @@ Resources such as S3 objects and SNS (AWS Simple Notification Service) topics ty
 
 ## Final note
 
-We've found this approach effective as a way to keep tabs on evolving permission sets and to provide ongoing verification that our bucket policies do what they need to do. It's particularly handy for roles we don't own and therefore don't feature in our day-to-day testing, as it gives us confidence that the other teams will be able to successfully read the data they need in production, while being denied access to other areas. You do need to know and understand the actions required by your roles for defining the tests, but even the initial configuration process can indicate areas where unnecessary permissions are granted.
+We've found this approach effective as a way to keep tabs on evolving permission sets and to provide ongoing verification that our bucket policies do what they need to do. It's particularly handy for roles we don't own and therefore don't feature in our day-to-day testing, as it gives us confidence that other teams will be able to successfully read the data they need in production (subject to correct permissions on their end), while being denied access to other areas. You do need to know and understand the actions required by your roles for defining the tests, but even the initial configuration process can indicate areas where unnecessary permissions are granted.
 
 I hope you might also find it a useful little workaround.
