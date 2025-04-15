@@ -3,6 +3,8 @@ title: Making Sense of the AI Developer Tools Ecosystem
 date: 2025-04-01 14:56:00 Z
 categories:
 - Artificial Intelligence
+tags:
+- featured
 summary: 'The AI developer tooling landscape has rapidly expanded from simple autocomplete
   to a complex ecosystem of assistants, agents, and AI-first environments. In this
   post, I propose a practical classification based on how AI is positioned within

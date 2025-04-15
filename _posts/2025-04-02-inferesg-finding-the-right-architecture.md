@@ -13,6 +13,7 @@ tags:
 summary: During the InferESG project, we made a pivotal decision to use an orchestrated
   workflow to conduct a deterministic process, parallel to the agentic system.
 author: drees
+image: "/uploads/InferESG%20Architecture%20tn.png"
 ---
 
 During the InferESG project we made a pivotal decision to create an alternative architecture, one that sits parallel to the agentic framework used for the conversational part of the system. This decision came about from discussions with the client, and their needs to analyse and process company sustainability reports, evaluate them and compare them to relevant materiality topics. You can read more about the [InferESG project and the challenge it presented here](https://blog.scottlogic.com/2025/03/20/inferesg-overview.html). 
