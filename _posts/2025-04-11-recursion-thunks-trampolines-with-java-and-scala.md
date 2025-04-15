@@ -83,7 +83,7 @@ Let's look at the call stack for factorial(5)
 | main calls factorial(5)          |             | Frame for factorial(5) pushed        |
 | factorial(5) calls factorial(4)  |             | Frame for factorial(4) pushed on top |
 | factorial(4) calls factorial(3)  |             | Frame for factorial(3) pushed on top |
-| factorial(3) calls factorial(2)  |             | Frame for factorial(4) pushed on top |
+| factorial(3) calls factorial(2)  |             | Frame for factorial(2) pushed on top |
 | factorial(2) calls factorial(1)  |             | Frame for factorial(1) pushed on top |
 | factorial(1)  hits the base case | returns 1   | Frame is popped                      |
 | factorial(2) calculates 2 * 1    | returns 2   | Frame is popped                      |
