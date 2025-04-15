@@ -11,35 +11,35 @@ summary: A quick guide to implementing a test framework for IAM permissions usin
 image: tyates/assets/awsiam.png
 ---
 
-On Scott Logic's DWP Analytics DataOps team, we're sharing a monorepo with another Scott Logic team, and exposing data in S3 for various other teams throughout DWP Analytics in both our and other AWS accounts. There are a lot of moving parts, so we wanted a way to detect and highlight changes in our role and bucket policies (either deliberate or inadvertent) to ensure data access is allowed or denied correctly, and all permission sets are as least-privilege as possible.
+On Scott Logic's DWP Analytics DataOps team, we're sharing a monorepo with another Scott Logic team, and exposing data in S3 for various other teams throughout DWP Analytics in both our and other AWS accounts. There are a lot of moving parts and shared Terraform modules, so we wanted a way to detect and highlight changes in our role and bucket policies (either deliberate or inadvertent) to ensure data access is allowed or denied correctly, and all permission sets are as least-privilege as possible.
 
 The AWS IAM policy simulator allows theoretical evaluation of policies to determine if an action will be allowed or denied. It can be useful for ad-hoc testing of a user or role's access to resources such as S3 buckets and objects, but the console UI is clunky (if not downright infuriating) and the API imposes limitations when testing more complex, real-world situations involving both principal and resource policies. With only a small amount of shenanigans, it's possible to leverage the simulator API for more useful testing.
 
-### Why
+## Why
 
-In the majority of cases where I've used the policy simulator console UI, I've been troubleshooting a role's access (or denial of access) to S3 objects at specific paths, which requires evaluating the result using both the role's policies and the S3 bucket policy. Adding a set of context values, test actions and S3 object ARNs (Amazon Resource Names, specify a resource unambiguously across all of AWS) is fine for a one off, but it's not something you want to repeat often and isn't feasible for ongoing verification.
+In the majority of cases where I've used the policy simulator console UI, I've been troubleshooting a role's access (or denial of access) to S3 objects at specific paths, which requires evaluating the result using both the role's policies and the S3 bucket policy. Adding a set of context values, test actions and S3 object ARNs (Amazon Resource Names, which specify a resource unambiguously across all of AWS) is fine for a one off, but it's not something you want to repeat often and isn't feasible for ongoing verification.
 
 Policy simulator API methods are available via the AWS CLI and implementations such as the `boto3` Python package, but there are some limitations. The `simulate principal policy` method seems like it should do what we need by finding the policies of a user or role for us, but it doesn't work with resource policies unless you're testing a user entity as the principal, which I am not.
 
 There are other solutions around providing a friendly implementation for the policy simulator API, but I don't believe any provide the ability to test a role with a resource policy.
 
-### So...
+## So...
 
 The other API simulation method is `simulate custom policy`, where we provide both principal and resource policies in the request. This, too, won't work with resource policies if using a role entity, but as it doesn't cause the simulator to go off and find the policies attached to a role, we can trick it by simply providing any old user ARN as the `CallerArn` in the request.
 
-As a little up-front disclaimer: this solution requires resource policies to identify applicable principals using conditions in statements (e.g. checking the role matches the `aws:PrincipalArn` context key) rather than declaring explicit roles in the `Principals` block itself. The reason for this is that our dummy user ARN needs to match the principal(s) that the permissions apply to, so if you're using something like `AWS: *` or `AWS: <your-account-id>` then that will match the dummy user, and the nitty-gritty bits in conditions will evaluate against our test role specified in `aws:PrincipalArn`. It might well be possible to adapt policies to specify the dummy user as a principal before including in the API request, but I haven't tried.
+As a little up-front disclaimer: this solution requires resource policies to identify applicable principals using conditions in statements (e.g. checking the role matches the `aws:PrincipalArn` context key), rather than declaring explicit roles in the `Principals` element itself. The reason for this is that our dummy user ARN needs to match the principal(s) that the permissions apply to, so if you're using something like `AWS: *` or `AWS: <your-account-id>` then that will match the dummy user, and the nitty-gritty bits in conditions will evaluate against our test role specified in `aws:PrincipalArn`. It might well be possible to adapt policies to specify the dummy user as a principal before including in the API request, but I haven't tried.
 
 I'll be using Python for this, but it should be applicable to the AWS CLI and other AWS API implementations such as the Java SDK. I'll keep the code as obvious as possible so it can (hopefully) be followed by readers with any programming background, rather than aiming for A-grade, production ready Python.
 
 To that end, we need to:
 
-- pull all inline (a policy directly tied to this role only) and managed (a policy entity that can be attached to multiple users or roles) policies for the role - these are the principal policies
-- pull the bucket policy - this is the resource policy
-- fudge the `CallerArn` in the request to a user entity to keep the simulator happy when using a role
-- set the `aws:PrincipalArn` context key to the ARN of the role under test
-- set any other context values to satisfy conditions for the action to be allowed, or to test denies trigger correctly when conditions are not met
+* Pull all Inline (a policy directly tied to this role only) and Managed (a policy entity that can be attached to multiple users or roles) policies for the role - these are the principal policies.
+* Pull the bucket policy - this is the resource policy.
+* Fudge the `CallerArn` in the request to a user entity to keep the simulator happy when using a role.
+* Set the `aws:PrincipalArn` context key to the ARN of the role under test.
+* Set any other context values to satisfy conditions for the action to be allowed, or to test denies trigger correctly when conditions are not met.
 
-### Setup
+## Setup
 
 To start off, I've created a bucket and role with the following basic policies.
 
@@ -110,7 +110,7 @@ From the above we can see that:
 * all other S3 actions would be implicitly denied, as no allows are granted
 * the bucket policy will explicitly deny any actions where the `aws:SecureTransport` context value is `false`. A single deny overrules any number of allows, so in actual usage if we're not using https we won't be able to do anything
 
-### Running a test with the API
+## Running a test with the API
 
 Coding up a basic class to call the simulator with `boto3` could look something like this:
 
@@ -275,7 +275,7 @@ If we change the `aws:SecureTransport` context value to `false`, then the `DenyI
 }
 ~~~
 
-### Gettin' configgy wit' it
+## Gettin' configgy wit' it
 
 We can build on this basic hard-coded functionality to create a suite of config-driven tests for a whole set of roles and resources.
 
@@ -384,7 +384,7 @@ s3:DeleteObject - explicitDeny ✅
 ~~~
 
 
-### Taking it further
+## Taking it further
 
 We can extend this basic setup as much as necessary depending on the nature of the role and resource policies being tested. Likely upgrades include testing resource types other than S3, per-test context keys, argument parsing and extended templating to allow e.g. environment specific role names. These can then run be run locally or in pipelines as infrastructure smoke tests to alert when permissions change, or flag up potential access issues before and without executing anything tangible on AWS.
 
@@ -397,3 +397,10 @@ In addition to testing with the actual policies of deployed entities to verify r
 Similarly, testing with a role policy granting no permissions lets us verify cross-account access, where any allows will come from the bucket policy.
 
 Resources such as S3 objects and SNS (AWS Simple Notification Service) topics typically require access to encryption keys in order to read or write data; this obviously forms a crucial aspect of the ability to successfully perform an action in practice, but isn't taken into consideration by the simulator. To cover more bases, you could add additional tests to verify your roles can also perform any necessary key related actions.
+
+
+## Final note
+
+We've found this approach effective as a way to keep tabs on evolving permission sets and to provide ongoing verification that our bucket policies do what they need to do. It's particularly handy for roles we don't own and therefore don't feature in our day-to-day testing, as it gives us confidence that the other teams will be able to successfully read the data they need in production, while being denied access to other areas. You do need to know and understand the actions required by your roles for defining the tests, but even the initial configuration process can indicate areas where unnecessary permissions are granted.
+
+I hope you might also find it a useful little workaround.
