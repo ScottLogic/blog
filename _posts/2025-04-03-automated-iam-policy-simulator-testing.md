@@ -11,7 +11,7 @@ summary: A quick guide to implementing a test framework for IAM permissions usin
 image: tyates/assets/awsiam.png
 ---
 
-On Scott Logic's DWP Analytics DataOps team, we're sharing a monorepo with another Scott Logic team, and exposing data in S3 for various other teams throughout DWP Analytics in both our and other AWS accounts. There are a lot of moving parts and shared Terraform modules, so we wanted a way to detect and highlight changes in our role and bucket policies (either deliberate or inadvertent) to ensure data access is allowed or denied correctly, and all permission sets are as least-privilege as possible.
+On Scott Logic's DWP Analytics DataOps team, we're sharing a monorepo with another Scott Logic team, and exposing data in S3 for various other teams throughout DWP Analytics in both our and other AWS accounts. There are a lot of moving parts and permissions derived from shared Terraform modules, so we wanted a way to detect and highlight changes in our role and bucket policies (either deliberate or inadvertent) to ensure data access is allowed or denied correctly, and all permission sets are as least-privilege as possible.
 
 The AWS IAM policy simulator allows theoretical evaluation of policies to determine if an action will be allowed or denied. It can be useful for ad-hoc testing of a user or role's access to resources such as S3 buckets and objects, but the console UI is clunky (if not downright infuriating) and the API imposes limitations when testing more complex, real-world situations involving both principal and resource policies. With only a small amount of shenanigans, it's possible to leverage the simulator API for more useful testing.
 
@@ -20,6 +20,10 @@ The AWS IAM policy simulator allows theoretical evaluation of policies to determ
 In the majority of cases where I've used the policy simulator console UI, I've been troubleshooting a role's access (or denial of access) to S3 objects at specific paths, which requires evaluating the result using both the role's policies and the S3 bucket policy. Adding a set of context values, test actions and S3 object ARNs (Amazon Resource Names, which specify a resource unambiguously across all of AWS) is fine for a one off, but it's not something you want to repeat often and isn't feasible for ongoing verification.
 
 Policy simulator API methods are available via the AWS CLI and implementations such as the `boto3` Python package, but there are some limitations. The `simulate principal policy` method seems like it should do what we need by finding the policies of a user or role for us, but it doesn't work with resource policies unless you're testing a user entity as the principal, which I am not.
+
+~~~
+An error occurred (InvalidInput) when calling the SimulatePrincipalPolicy operation: Invalid caller - Caller must be an IAM user in this context.
+~~~
 
 There are other solutions around providing a friendly implementation for the policy simulator API, but I don't believe any provide the ability to test a role with a resource policy.
 
@@ -74,7 +78,7 @@ To start off, I've created a bucket and role with the following basic policies.
             ],
             "Condition": {
                 "ArnLike": {
-                    "aws:PrincipalArn": "arn:aws:iam:::role/tims-test-role"
+                    "aws:PrincipalArn": "arn:aws:iam::<ACCOUNT ID>:role/tims-test-role"
                 }
 	    }
         }
@@ -165,7 +169,7 @@ class S3PolicyTest:
 
             policies.append(policy["PolicyVersion"]["Document"])
         
-        return [json.dumps(policy) for policy in policies]
+        return policies
 
     def _get_bucket_policy(self) -> list[str]:
         """Get JSON format S3 bucket policy"""
@@ -244,7 +248,7 @@ Slightly truncating the output for clarity, we get:
                 "SourcePolicyId": "ResourcePolicy",
                 "SourcePolicyType": "Resource Policy",
                 "StartPosition": { "Line": 1, "Column": 248 },
-                "EndPosition": { "Line": 1, "Column": 448 }
+                "EndPosition": { "Line": 1, "Column": 470 }
             },
             {
                 "SourcePolicyId": "PolicyInputList.1",
@@ -257,9 +261,9 @@ Slightly truncating the output for clarity, we get:
 ]
 ~~~
 
-We can see that `GetObject` is allowed, and the start and end characters of the statement in the role policy json string that awards the allow are indicated; as we've fetched the policy we can use this information to show the relevant sections to aid in debugging (as you get in the simulator console). `PutObject` is an implicit deny, so there are no matching statements to show here as neither allow or deny policy statements are in effect. `DeleteObject` is explicitly denied, and the matched statements indicate both the deny in the resource policy and the allow in the role policy.
+We can see that `GetObject` is allowed, and the start and end characters of the statement in the role policy json string that awards the allow are indicated; as we've fetched the policy we can use this information to show the relevant sections to aid in debugging (as you get in the simulator console). `PutObject` is an implicit deny as neither the role nor bucket policy grant it, so there are no `MatchedStatements` to show as no statements are in effect. `DeleteObject` is explicitly denied, and the matched statements indicate both the `DenyTimDelete` statement in the resource policy, and the allow in the role policy.
 
-If we change the `aws:SecureTransport` context value to `false`, then the `DenyInsecureTransport` section of the bucket policy kicks in and `GetObject` is also now explicitly denied.
+If we change the `aws:SecureTransport` context value to `false`, then the `DenyInsecureTransport` statement of the bucket policy kicks in and `GetObject` is now explicitly denied, with the character indexes of this statement indicated.
 
 ~~~json
 {
@@ -269,7 +273,9 @@ If we change the `aws:SecureTransport` context value to `false`, then the `DenyI
     "MatchedStatements": [
         {
             "SourcePolicyId": "ResourcePolicy",
-            "SourcePolicyType": "Resource Policy"
+            "SourcePolicyType": "Resource Policy",
+            "StartPosition": {"Line": 1, "Column": 38},
+            "EndPosition": {"Line": 1, "Column": 248}
         }
     ]
 }
