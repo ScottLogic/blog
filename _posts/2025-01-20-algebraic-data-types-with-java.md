@@ -5,10 +5,11 @@ categories:
 - Tech
 tags:
 - Java
-author: magnussmith
+- featured
 summary: In this post we explore the power of Algebraic Data Types(ADT) with Pattern
   Matching in Java. We look at how they help us model complex business domains and
   how using them together gives improvements on the traditional Visitor Pattern.
+author: magnussmith
 image: magnussmith/assets/java.jpg
 ---
 
@@ -22,7 +23,16 @@ image: magnussmith/assets/java.jpg
 
 ![Algebraic Data Types and Pattern Matching with Java]({{site.baseurl}}/magnussmith/assets/adt_pattern_matching_java.webp)
 
-# Introduction
+
+This is the first post in a series exploring types and type systems.   Other posts in this series.
+
+- [Variance, Phantom and Existential types in Java and Scala]({{site.baseurl}}/2025/02/17/variance-in-java-and-scala.html)
+
+- [Intersection and Union Types with Java and Scala]({{site.baseurl}}/2025/03/05/intersection-and-union-types-with-java-and-scala.html)
+
+- [Functors and Monads with Java and Scala]({{site.baseurl}}/2025/03/31/functors-monads-with-java-and-scala.html)
+
+- [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/11/higher-kinded-types-with-java-and-scala.html)
 
 When we develop an application, we frequently need to model some aspect of business to describe and solve a business problem. We do this by creating a conceptual representation of the real-world problem that we are trying to solve. This allows us to understand the "domain" where our software operates.
 
@@ -427,10 +437,13 @@ The visitor pattern is a solution that favours extending operations over extendi
 
 In summary, ADTs, particularly in modern Java with records, sealed interfaces, and pattern matching, offer a more elegant, type-safe, and maintainable approach to modelling complex data and their behaviour, compared to traditional techniques like the Visitor pattern.
 
+### Next time
 
+Next time we look at [Variance, Phantom and Existential types in Java and Scala]({{site.baseurl}}/2025/02/17/variance-in-java-and-scala.html) and how they help provide powerful features to the type system with generics that aid more accurate modelling and programming techniques.
 
-References:
+further reading:
 
 - [Where does the name "algebraic data type" come from?](https://blog.poisson.chat/posts/2024-07-26-adt-history.html)
+- [Presentation on Algebraic Data Types](https://magnussmith.github.io/adt-java-presentation/)
 
-  
+Find out about software engineering vacancies at Scott Logic [here](https://www.scottlogic.com/careers/job-family-development)

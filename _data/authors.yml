@@ -4,7 +4,6 @@ active-authors:
   - abarron
   - aberrill
   - abirch
-  - acanham
   - acarr
   - acaulfield
   - ahickman
@@ -77,7 +76,6 @@ active-authors:
   - jstrachan
   - jstrong
   - jwalledge
-  - jwarren
   - jwhite
   - jwren
   - kangel
@@ -91,7 +89,6 @@ active-authors:
   - lpisani
   - lperrett
   - lvincent
-  - lwilson
   - magnussmith
   - masmith
   - mbuhagiar
@@ -103,10 +100,12 @@ active-authors:
   - mmcalroy
   - mmorgan
   - mmoxon
+  - mnyamunda
   - mpace
   - mphillips
   - mridene
   - mwallace
+  - mwalkerrose
   - nbetts
   - ocronk
   - oforeman
@@ -393,7 +392,7 @@ authors:
   drees:
     name: "David Rees"
     picture: picture.jpg
-    author-summary: "<p>Hello, I'm a Senior UX designer at Scott Logic, based in Bristol.</p>"
+    author-summary: "<p>Hello, I'm a Solutions Architect and Sustainable Technology lead, based in Scott Logic, Bristol.</p>"
   dsmith:
     author-summary: "<p>I'm a Senior Developer at Scott Logic, based in Newcastle.</p>"
     name: "Darren Smith"
@@ -691,6 +690,10 @@ authors:
     twitter-url: "https://twitter.com/Testflaneuse"
     twitter-handle: Testflaneuse
     picture: picture.jpg
+  mnyamunda:
+    name: "Maxwell Nyamunda"
+    author-summary: "<p>I am a Test Engineer in Bristol that enjoys UI automation. I very much enjoy the challenge of figuring out how to automate unfamiliar scenarios</p>"
+    picture: mnyamunda.jpg
   mperrin:
     name: "Mike Perrin"
   mrhodes:
@@ -1014,6 +1017,7 @@ authors:
   magnussmith:
     name: "Magnus Smith"
     author-summary: "<p>Lead Developer at Scott Logic, based in Newcastle. I've 25 years working with Java and passionate about modern JVM technologies.</p>"
+    twitter-url: "https://bsky.app/profile/ultramagn3tic.bsky.social"
     picture: picture.jpg
   hashbyha:
     name: "Hugh Ashby-Hayter"
@@ -1553,4 +1557,8 @@ authors:
     name: "Callum Robb"
     email: crobb@scottlogic.com
     author-summary: "I am a Senior Test Engineer based in Edinburgh."
+    picture: picture.jpg
+  mwalkerrose:
+    name: "Mike Walker-Rose"
+    author-summary: "A Test Engineer in the Bristol office, passionate about all things test!"
     picture: picture.jpg
