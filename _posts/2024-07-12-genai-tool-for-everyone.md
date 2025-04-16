@@ -2,7 +2,7 @@
 title: OSFF London - Making GenAI a Tool for Everyone
 categories:
 - Tech
-summary: There is little doubt that GenAI will have an impact on almost every aspect of our business and personal lives. However, we are at an interesting juncture: models are becoming ever more powerful, with prototypes showing ever greater promise, but there remain significant challenges when it comes to the reality of putting this technology into practice.
+summary: "There is little doubt that GenAI will have an impact on almost every aspect of our business and personal lives. However, we are at an interesting juncture: models are becoming ever more powerful, with prototypes showing ever greater promise, but there remain significant challenges when it comes to the reality of putting this technology into practice."
 author: ceberhardt
 video_url: https://www.youtube.com/embed/hCi4D5C9Nak
 short-author-aside: true
