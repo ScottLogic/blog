@@ -100,7 +100,7 @@ In short: the `<img>` tag might be basic, but its implications are anything but.
 
 ##The Takeaways
 
-- Don't skip writing descriptive `alt`. It should describe what is the content of the image;
+- Don't skip writing a descriptive `alt`. It should describe what the content of the image is;
 - Don't start your `alt` with "An image of". It's redundant;
 - Don't simply quote a line from the main text. That's unhelpful;
 - Don't skip specifying the image height to improve page-load smoothness;
