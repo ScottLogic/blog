@@ -291,7 +291,7 @@ authors:
     twitter-handle: chestercodes
     picture: picture.jpg
   ceberhardt:
-    author-summary: "<p>I am CTO at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies.</p>\n<p>My blog includes posts on a wide range of topics, including WebAssembly, HTML5 / JavaScript and data visualisation with D3 and <a href=\"https://d3fc.io/\">d3fc</a>. You'll also find a whole host of posts about previous technology interests including iOS, Swift, WPF and Silverlight.</p>\n<p>I'm board member of <a href=\"https://www.finos.org/\">FINOS</a>, which is encouraging open source collaboration in the financial sector. I'm also <a href=\"https://github.com/ColinEberhardt\">very active on GitHub</a>, contributing to a number of different projects.</p>\n"
+    author-summary: "<p>I am CTO at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies.</p>\n<p>My blog includes posts on a wide range of topics, including Generative AI, WebAssembly, HTML5 / JavaScript and data visualisation. You'll also find a whole host of posts about previous technology interests including iOS, Swift, WPF and Silverlight.</p>\n<p>I lead various open source initiatives within <a href=\"https://www.finos.org/\">FINOS</a>, which is encouraging open source collaboration in the financial sector. I'm also <a href=\"https://github.com/ColinEberhardt\">very active on GitHub</a>, contributing to a number of different projects.</p>\n"
     feed-description: "Colin Eberhardt's Technology Adventures"
     name: "Colin Eberhardt"
     twitter-url: "https://twitter.com/ColinEberhardt"
