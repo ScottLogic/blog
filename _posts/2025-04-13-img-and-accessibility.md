@@ -107,7 +107,7 @@ In short: the `<img>` tag might be basic, but its implications are anything but.
 - Don't use images for spacers;
 - Don't use images as buttons (or at least set the [aria-role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles))
 - Don't use images for decorative common symbols;
-- Don't use a single image for social media icons
+- Don't use a single image for social media icons;
 - Don't use images with text instead of actual text;
 - Don't use `<div>` instead of `<img>` when the image is a part of the context;
 - Don't use images to track user's data;
