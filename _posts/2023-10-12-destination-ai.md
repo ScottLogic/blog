@@ -1,8 +1,15 @@
 ---
-title: "OSFF NYC - Destination AI: Navigating the Narrow Path Between Opportunity and Risk"
+title: 'OSFF NYC - Destination AI: Navigating the Narrow Path Between Opportunity
+  and Risk'
+date: 2023-10-12 00:00:00 Z
 categories:
 - Tech
-summary: "The buzz and excitement around generative AI is continuing to grow as their capabilities rapidly expand. However, their ability to generate large quantities of textual content is just the starting point. In the past few months we’ve seen an emergent reasoning capability, which coupled with their intelligent use of tools, is what will make this technology truly transformational, and could mark the start of a new technology epoch."
+summary: The buzz and excitement around generative AI is continuing to grow as their
+  capabilities rapidly expand. However, their ability to generate large quantities
+  of textual content is just the starting point. In the past few months we’ve seen
+  an emergent reasoning capability, which coupled with their intelligent use of tools,
+  is what will make this technology truly transformational, and could mark the start
+  of a new technology epoch.
 author: ceberhardt
 video_url: https://www.youtube.com/embed/rtw3hrPgM1E
 short-author-aside: true
