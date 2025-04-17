@@ -81,7 +81,7 @@ As a web developer, the `<img>` was probably one of the first HTML tags you lear
 </footer>
 ~~~~
 
-Wrote down your notes? let's go over the answers!
+Wrote down your notes? Let's go over the answers!
 
 1. `<img src="/assets/images/logo.png">` - Image without ALT description. Search engines won't be able to search by the content of this image; Screen readers won't be able to describe the image. That's 7 years of bad luck right there.
 2. `<img src="/assets/images/logo.png">` - Image without size definition means the rest of the page's content will move once the image is loaded. That's equal to a big black fly stuck in your room the entire day.
