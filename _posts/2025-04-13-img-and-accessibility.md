@@ -103,7 +103,7 @@ In short: the `<img>` tag might be basic, but its implications are anything but.
 - Don't skip writing descriptive `alt`. It should describe what is the content of the image;
 - Don't start your `alt` with "An image of". It's redundant;
 - Don't simply quote a line from the main text. That's unhelpful;
-- Don't skip specifying the Image height to improve page-load smoothness;
+- Don't skip specifying the image height to improve page-load smoothness;
 - Don't use images for spacers;
 - Don't use images as buttons (or at least set the [aria-role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles))
 - Don't use images for decorative common symbols;
