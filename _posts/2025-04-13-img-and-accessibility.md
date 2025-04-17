@@ -5,7 +5,7 @@ categories:
 - Tech
 author: osharon
 layout: default_post
-summary: While the HTML <img> tag is simple, misusing it—such as omitting alt text, using images as spacers or buttons, or embedding text in images—can harm screen reader accessibility, SEO, and user experience. The post reviews 11 specific issues from a sample HTML snippet, stressing that images should be meaningful, accessible, and appropriately implemented. Thoughtful image usage not only improves inclusivity and performance but also reflects professionalism and attention to user needs.
+summary: While the HTML <img> tag is simple, misusing it - such as omitting alt text, using images as spacers or buttons, or embedding text in images - can harm screen reader accessibility, SEO, and user experience. This post reviews 11 specific issues from a sample HTML snippet, stressing that images should be meaningful, accessible, and appropriately implemented. Thoughtful image usage not only improves inclusivity and performance but also reflects professionalism and attention to user needs.
 ---
 Assuming one is not a "[vibe developer](https://medium.com/@niall.mcnulty/vibe-coding-b79a6d3f0caa)", they cannot truely call themselves a “web developer” without knowing how to code HTML. “Meh, It’s not even a real language”, some (backend) developers might chuckle. But even if we ignore the question of what defines a language, a good web developer should know what is consider good code and what is considered a sacrilege.
 
