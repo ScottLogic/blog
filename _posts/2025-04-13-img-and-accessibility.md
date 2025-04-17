@@ -112,4 +112,4 @@ In short: the `<img>` tag might be basic, but its implications are anything but.
 - Don't use `<div>` instead of `<img>` when the image is a part of the context;
 - Don't use images to track user's data;
 - Don't use `<img>` as dividers;
-- Don't forget to replace all the image placeholders with actual conten;
+- Don't forget to replace all the image placeholders with actual content;
