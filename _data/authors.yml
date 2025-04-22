@@ -43,6 +43,7 @@ active-authors:
   - dtitterton
   - ebrown
   - emason
+  - epearce
   - fhubin
   - fvlachos
   - garora
@@ -423,6 +424,10 @@ authors:
   emason:
     name: "Elliot Mason"
     author-summary: "<p>Test Engineer at Newcastle, studied Computer Science at Newcastle University</p>"
+    picture: picture.jpg
+  epearce:
+    name: "Emma Pearce"
+    author-summary: "<p>Senior Developer at Scott Logic</p>"
     picture: picture.jpg
   ffarhadi:
     name: "Farzaneh Farhadi"
