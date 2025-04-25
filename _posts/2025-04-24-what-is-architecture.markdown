@@ -5,12 +5,13 @@ categories:
 - Architecture
 tags:
 - architecture
+- guides
 summary: A brief introduction to Architecture with a straight forward definition if
   what it is, and different flavours of Architecture that you may encounter
 author: jheward
 ---
 
-When people hear the term "Architecture," they might think about buildings and physical structures. However, within the enterprise  IT world the term is used to describe a variety of activities. But what do we mean when we talk about Architecture in this context? There are lots of definitions available, all subtly different. In this blog post, I'll outline how we think about Architecture, some of the different flavours of Architecture that you may come across and how they work together to deliver business value.
+When people hear the term "Architecture," they might think about buildings and physical structures. However, within the enterprise IT world the term is used to describe a variety of activities. But what do we mean when we talk about Architecture in this context? There are lots of definitions available, all subtly different. In this blog post, I'll outline how we think about Architecture, some of the different flavours of Architecture that you may come across and how they work together to deliver business value.
 
 **What is Architecture?**
 
