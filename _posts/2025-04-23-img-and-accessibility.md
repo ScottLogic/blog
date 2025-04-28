@@ -3,10 +3,19 @@ title: The problem(s) with image accessibility
 date: 2025-04-23 00:00:00 Z
 categories:
 - Tech
+tags:
+- featured
+summary: While the HTML <img> tag is simple, misusing it - such as omitting alt text,
+  using images as spacers or buttons, or embedding text in images - can harm screen
+  reader accessibility, SEO, and user experience. This post reviews 11 specific issues
+  from a sample HTML snippet, stressing that images should be meaningful, accessible,
+  and appropriately implemented. Thoughtful image usage not only improves inclusivity
+  and performance but also reflects professionalism and attention to user needs.
 author: osharon
+image: "/uploads/The%20problem%20with%20image%20accessibility.png"
 layout: default_post
-summary: While the HTML <img> tag is simple, misusing it - such as omitting alt text, using images as spacers or buttons, or embedding text in images - can harm screen reader accessibility, SEO, and user experience. This post reviews 11 specific issues from a sample HTML snippet, stressing that images should be meaningful, accessible, and appropriately implemented. Thoughtful image usage not only improves inclusivity and performance but also reflects professionalism and attention to user needs.
 ---
+
 Assuming one is not a "[vibe developer](https://medium.com/@niall.mcnulty/vibe-coding-b79a6d3f0caa)", one cannot truly call oneself a “web developer” without knowing how to code HTML. “Meh, it’s not even a real language”, some (backend) developers might chuckle. But even if we ignore the question of what defines a language, a good web developer should know what is considered good code and what is considered sacrilege.
 
 As a web developer, the `<img>` was probably one of the first HTML tags you learned, and sure, why not? It's simple, straightforward, and its effects are immediate. This is probably the reason why it's very often being misused. Consider the following code that should work, but contains flaws that harm the page’s accessibility. Can you find them all? If you can spot all 11 flaws (and are UK-based), we might have a [job opening](https://www.scottlogic.com/careers/vacancies) for you!
