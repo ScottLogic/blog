@@ -15,7 +15,7 @@ image: "/uploads/What%20is%20architecture.png"
 
 When people hear the term "Architecture," they might think about buildings and physical structures. However, within the enterprise IT world the term is used to describe a variety of activities. But what do we mean when we talk about Architecture in this context? There are lots of definitions available, all subtly different. In this blog post, I'll outline how we think about Architecture, some of the different flavours of Architecture that you may come across and how they work together to deliver business value.
 
-**What is Architecture?**
+## What is Architecture?
 
 If you look up a definition of software Architecture, you might find various attempts to define it using terminology that can be [dry and jargon-heavy](https://www.gartner.com/en/information-technology/glossary/architecture). More practically, we can view Architecture as having two main aspects: design and governance.
 
@@ -28,7 +28,7 @@ If you look up a definition of software Architecture, you might find various att
 
 So, Architecture can be broadly defined as the practice of making the right choices at the right time and ensuring those choices are implemented correctly and remain fit for purpose.
 
-**The Value of Architecture**
+## The Value of Architecture
 
 Why would an organisation care about Architecture? And are there times when it isn't valuable?
 
@@ -44,33 +44,33 @@ We believe that Architecture can bring a lot of value to organisations of all si
 
 ![strategy_flow.png](/uploads/strategy_flow.png)
 
-**When is Architecture not needed?**
+## When is Architecture not needed?
 
-Often there are situations where the rigour of an architectural approach is required, however sometimes there are occasions where it's cheaper or lower risk to just try a change out without doing analysis upfront. To decide when to apply architectural thinking it's important to understand what ‘architecturally significant’ means in a specific context – that is when a change warrants the additional up-front cost of analysis and architecture, and when the risk or cost is sufficiently low this would slow you down. The role of Architecture is to increase alignment and efficiency – not to get in the way where it isn't adding value!
+Often there are situations where the rigour of an architectural approach is required; however, sometimes there are occasions where it's cheaper or lower risk to just try a change out without doing analysis upfront. To decide when to apply architectural thinking it's important to understand what ‘architecturally significant’ means in a specific context – that is, when a change warrants the additional up-front cost of analysis and architecture, and when the risk or cost is sufficiently low this would slow you down. The role of Architecture is to increase alignment and efficiency – not to get in the way where it isn't adding value!
 
-**Types of Architecture**
+## Types of Architecture
 
 ![architecture_types.png](/uploads/architecture_types.png)
 
-To support the mapping of business strategy through to implemented technology, people and processes there are many different skills and levels of abstraction required. These typically manifest as several types of Architecture, each with its own focus and scope.
+To support the mapping of business strategy through to implemented technology, people and processes, there are many different skills and levels of abstraction required. These typically manifest as several types of Architecture, each with its own focus and scope.
 
-These range from highly strategic and broad across an organisation to highly technical and specific. 
+These range from highly strategic and broad across an organisation to highly technical and specific.
 
-**Enterprise Architecture**
+### Enterprise Architecture
 
-Enterprise Architects are concerned with the whole organisation, setting policies, guidelines, and procedures to align IT with business goals. They translate business strategy into programs of change, ensuring that the IT strategy aligns with the business goals and supports the organisation's strategic objectives.
+Enterprise Architects are concerned with the whole organisation, setting policies, guidelines, and procedures to align IT with business goals. They translate business strategy into programmes of change, ensuring that the IT strategy aligns with the business goals and supports the organisation's strategic objectives.
 
-**Business Architecture**
+### Business Architecture
 
 Business Architecture focuses on domain knowledge and defines the business strategy. It involves identifying the capabilities needed to deliver on that strategy, often including process design and organisational structure. They work on defining the business strategy and ensuring the organisation's operations align with its strategic vision.
 
-**Solution Architecture**
+### Solution Architecture
 
 Solution Architecture deals with broader classes of technology and involves designing solutions that meet business needs.
 
-Solution architects translate business capabilities into technical solutions, understanding business requirements and designing solutions that align with these needs. They break down business capabilities into logical components and decide whether to buy or build solutions, ensuring technical solutions support business goals and are implemented effectively. 
+Solution architects translate business capabilities into technical solutions, understanding business requirements and designing solutions that align with these needs. They break down business capabilities into logical components and decide whether to buy or build solutions, ensuring technical solutions support business goals and are implemented effectively.
 
-**Technical Architecture**
+### Technical Architecture
 
 Technical Architecture focuses on specific technologies and implementations. It involves selecting the right technologies, designing systems, and ensuring they meet required standards.
 
@@ -90,8 +90,8 @@ Technical Architecture covers a broad range of technologies, each with their own
 * **Cloud Architecture:** Focuses on the use, management, and configuration of cloud resources and services. Cloud Architects design cloud-based solutions, manage cloud infrastructure, and ensure scalability, performance, and security.
 
 
-* **Security Architecture:** Concerned with understanding threats and ensuring systems are designed with appropriate security controls. Security Architects identify risks, design security measures, and ensure compliance with security standards. 
+* **Security Architecture:** Concerned with understanding threats and ensuring systems are designed with appropriate security controls. Security Architects identify risks, design security measures, and ensure compliance with security standards.
 
 In summary, Architecture in the IT world is a vital discipline that combines design and governance to ensure that organisations make informed decisions and implement them effectively. Architecture helps businesses to better align their IT strategies with their overall goals, manage risks, and improve efficiency.
 
-There are different types of Architecture required to achieve this goal, from Enterprise Architecture, through to Solution Architecture, and different specialisms of Technical Architecture that must work effectively together to ensure that the value of Architecture is delivered
+There are different types of Architecture required to achieve this goal, from Enterprise Architecture, through to Solution Architecture, and different specialisms of Technical Architecture that must work effectively together to ensure that the value of Architecture is delivered.
