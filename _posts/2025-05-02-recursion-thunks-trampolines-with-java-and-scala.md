@@ -2,11 +2,13 @@
 title: Recursion, Thunks and Trampolines with Java and Scala
 date: 2025-05-02 00:00:00 Z
 categories:
-  - Tech
+- Tech
 tags:
-  - Java, Scala
+- Java, Scala
 author: magnussmith
-summary: In this post we will see how Thunks and Trampolines can help solve problems by converting deep stack-based recursion into heap-based iteration helping to prevent StackOverflowErrors
+summary: In this post we will see how Thunks and Trampolines can help solve problems
+  by converting deep stack-based recursion into heap-based iteration helping to prevent
+  StackOverflowErrors
 image: magnussmith/assets/java.jpg
 ---
 
