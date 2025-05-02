@@ -34,7 +34,7 @@ This is the first post in a series exploring types and type systems.   Other pos
 
 - [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/11/higher-kinded-types-with-java-and-scala.html)
 
-- [Recursion, Thunks and Trampolines with Java and Scala]({{site.baseurl}}/2025/04/11/recursion-thunks-trampolines-with-java-and-scala.html)
+- [Recursion, Thunks and Trampolines with Java and Scala]({{site.baseurl}}/2025/05/02/recursion-thunks-trampolines-with-java-and-scala.html)
 
 When we develop an application, we frequently need to model some aspect of business to describe and solve a business problem. We do this by creating a conceptual representation of the real-world problem that we are trying to solve. This allows us to understand the "domain" where our software operates.
 

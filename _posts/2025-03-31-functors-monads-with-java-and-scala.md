@@ -24,7 +24,7 @@ This is the fourth post in a series exploring types and type systems.  Other pos
 
 - [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/11/higher-kinded-types-with-java-and-scala.html)
 
-- [Recursion, Thunks and Trampolines with Java and Scala]({{site.baseurl}}/2025/04/11/recursion-thunks-trampolines-with-java-and-scala.html)
+- [Recursion, Thunks and Trampolines with Java and Scala]({{site.baseurl}}/2025/05/02/recursion-thunks-trampolines-with-java-and-scala.html)
 
 
 In this post we will combine some ideas from functional programming with strong typing to produce robust expressive code that is more reusable. 

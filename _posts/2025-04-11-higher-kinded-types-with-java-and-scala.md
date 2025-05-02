@@ -23,7 +23,7 @@ This is the fifth post in a series exploring types and type systems.  Other post
 
 - [Functors and Monads with Java and Scala]({{site.baseurl}}/2025/03/31/functors-monads-with-java-and-scala.html)
 
-- [Recursion, Thunks and Trampolines with Java and Scala]({{site.baseurl}}/2025/04/11/recursion-thunks-trampolines-with-java-and-scala.html)
+- [Recursion, Thunks and Trampolines with Java and Scala]({{site.baseurl}}/2025/05/02/recursion-thunks-trampolines-with-java-and-scala.html)
 
 In this post we will build upon our knowledge of  `Functors` and `Monads` from the previous post to open up the next level of abstraction. 
 
@@ -541,4 +541,4 @@ This native approach makes functional patterns based on HKTs feel like a natural
 
 ## Next time
 
-Next time we conclude this series on type systems by looking at [__Thunks__ and __Trampolines__]({{site.baseurl}}/2025/04/11/recursion-thunks-trampolines-with-java-and-scala.html) and how they can help solve problems when working with recursion where it can pay to be lazy.
+Next time we conclude this series on type systems by looking at [__Thunks__ and __Trampolines__]({{site.baseurl}}/2025/05/02/recursion-thunks-trampolines-with-java-and-scala.html) and how they can help solve problems when working with recursion where it can pay to be lazy.

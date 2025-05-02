@@ -1,6 +1,6 @@
 ---
 title: Recursion, Thunks and Trampolines with Java and Scala
-date: 2025-04-11 00:00:00 Z
+date: 2025-05-02 00:00:00 Z
 categories:
   - Tech
 tags:
