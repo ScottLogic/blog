@@ -3,7 +3,7 @@ title: How Can CxOs Spot Technology Greenwashing?
 date: 2024-04-15 14:40:00 Z
 categories:
 - Sustainability
-- Technology
+- Tech
 tags:
 - Sustainability
 - CxO

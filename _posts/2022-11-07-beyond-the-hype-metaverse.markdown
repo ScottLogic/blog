@@ -3,7 +3,6 @@ title: 'Beyond the Hype: Is the Metaverse built on foundations of hype?'
 date: 2022-11-07 00:00:00 Z
 categories:
 - Podcast
-- ocronk
 summary: In this episode Colin, Ollie, Johanna and Lily hold a lively conversation
   that dives into Web3 and the Metaverse. We ask the question “what is Web3.0”, and
   explore what it means to be a decentralised technology. We discuss the Metaverse,
