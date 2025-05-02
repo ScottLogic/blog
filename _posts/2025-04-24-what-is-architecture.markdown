@@ -2,12 +2,12 @@
 title: What is Architecture?
 date: 2025-04-24 09:23:00 Z
 categories:
-- Architecture
+- Tech
 tags:
 - architecture
 - guides
 - featured
-summary: A brief introduction to Architecture with a straight forward definition if
+summary: A brief introduction to Architecture with a straightforward definition of
   what it is, and different flavours of Architecture that you may encounter
 author: jheward
 image: "/uploads/What%20is%20architecture.png"
