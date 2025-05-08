@@ -9,7 +9,7 @@ summary: Adopting AI-powered developer tools like GitHub Copilot and ChatGPT is 
   hard to learn, how they disrupt traditional flow states, and offers practical advice
   for integrating them effectively into day-to-day coding.
 author: ceberhardt
-Field name: "/uploads/robot-shrug.jpg"
+image: "/uploads/robot-shrug.jpg"
 ---
 
 *Adopting AI-powered developer tools like GitHub Copilot and ChatGPT is a challenging yet rewarding journey that requires time, experimentation, and a shift in how developers approach their workflows. This post explores why these tools are hard to learn, how they disrupt traditional flow states, and offers practical advice for integrating them effectively into day-to-day coding.*
