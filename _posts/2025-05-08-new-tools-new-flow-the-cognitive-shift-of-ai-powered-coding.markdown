@@ -9,6 +9,7 @@ summary: Adopting AI-powered developer tools like GitHub Copilot and ChatGPT is 
   hard to learn, how they disrupt traditional flow states, and offers practical advice
   for integrating them effectively into day-to-day coding.
 author: ceberhardt
+Field name: "/uploads/robot-shrug.jpg"
 ---
 
 *Adopting AI-powered developer tools like GitHub Copilot and ChatGPT is a challenging yet rewarding journey that requires time, experimentation, and a shift in how developers approach their workflows. This post explores why these tools are hard to learn, how they disrupt traditional flow states, and offers practical advice for integrating them effectively into day-to-day coding.*
@@ -16,6 +17,8 @@ author: ceberhardt
 I’m continuing to explore the ever-evolving world of AI-developer tools and how the craft of software development is changing in response. If you’ve not taken the plunge - picked up Copilot or tried coding with ChatGPT - I would encourage you to give it a go. These tools are here to stay and there is no better time to get started.
 
 For now, ignore the [vibe coders](https://en.wikipedia.org/wiki/Vibe_coding), and the toolmaker claims of improved productivity. Put expectations to one side and simply treat it as a learning experience. I can guarantee that your initial experiences will be frustrating and confusing. The goal of this blog post is to give you some insight into why this journey is going to be challenging but also give you the reassurance that it is a journey worth taking.
+
+![robot-tool.png](/uploads/robot-tool.jpg)
 
 ## Why AI Dev Tools Are Hard to Learn
 
@@ -51,6 +54,8 @@ Gen-AI chat applications (e.g. ChatGPT), all share a couple of common problems w
 
 The above are equally true for all the AI dev tools I have experienced.
 
+![robot-shrug.jpg](/uploads/robot-shrug.jpg)
+
 The leading tool in this field is GitHub Copilot (used by 41% of devs in a [2024 StackOverflow survey](https://survey.stackoverflow.co/2024/technology#most-popular-technologies-ai-search-dev)). Its very first release was simple and familiar, a more powerful autocomplete. Soon after, they added chat capability allowing you to prompt Copilot to make changes that are not so easy for it to pre-empt via autocomplete (e.g. refactoring tasks).
 
 However, the current release of GitHub Copilot is much more complicated. From a features perspective, it has multiple modes (Ask, Edit, Agent) a model selector, chat participants, commands, variables and much more. And from a capabilities perspective, it can write code, fix bugs, explain code, write tests, drive the terminal and generate documentation.
@@ -82,6 +87,8 @@ While this probably sounds rather negative, I can guarantee that the effort you 
 ## Rediscovering your flow
 
 Learning how to use these tools takes time and a lot of experimentation. However, over time, you will start to find a new flow state, where you are comfortable with the tool and have incorporated it into your own workflow, adjusting your use of the other tools at your disposal.
+
+![confident-robot.jpg](/uploads/confident-robot.jpg)
 
 I’ll briefly describe the way I am currently using AI dev tools, and what feels comfortable for me. However, I wholeheartedly expect others to find a different flow that works for them (just like some people love using git from the command line, while others prefer a GUI).
 
