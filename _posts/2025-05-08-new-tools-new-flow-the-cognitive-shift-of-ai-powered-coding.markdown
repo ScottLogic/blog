@@ -1,5 +1,5 @@
 ---
-title: 'New Tools, New Flow: The Cognitive Shift of AI-Powered Coding'
+title: 'Learning to Code Again: Adopting AI Developer Tools'
 date: 2025-05-08 21:43:00 Z
 categories:
 - Artificial Intelligence
