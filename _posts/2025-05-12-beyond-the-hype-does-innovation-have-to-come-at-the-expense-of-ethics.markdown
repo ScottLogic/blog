@@ -28,7 +28,7 @@ image: "/uploads/BeyondTheHype---blue-and-blue---episode-26---social.jpg"
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/36467125/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes/font-color/252525" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
 
-In this episode, I'm joined by Scott Logic’s Sophia Ashley and Alix Dunn from the ‘Computer Says Maybe’ podcast for a wide-ranging discussion which poses ethical questions that are frequently ignored in the race for technological innovation.
+In this episode, I'm joined by Scott Logic’s Sophia Ashley and Alix Dunn from the ‘Computer Says Maybe’ podcast for a wide-ranging discussion that poses ethical questions frequently ignored in the race for technological innovation.
 
 Together, we explore the intersection of technology and power, and examine whether society is unwittingly allowing technology to reshape our world without adequate scrutiny or safeguards. As technological innovations continue to promote the atomisation and polarisation of society and the erosion of human agency, we consider what’s required to achieve the right balance of People, Planet and Profit.
 
