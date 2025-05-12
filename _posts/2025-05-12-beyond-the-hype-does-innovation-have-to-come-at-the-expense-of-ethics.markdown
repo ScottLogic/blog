@@ -24,8 +24,6 @@ summary: In this episode, I'm joined by Scott Logic’s Sophia Ashley and Alix D
   ethical questions that are frequently ignored in the race for technological innovation.
 author: ocronk
 image: "/uploads/BeyondTheHype---blue-and-blue---episode-26---social.jpg"
-contributors:
-- 
 ---
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/36467125/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes/font-color/252525" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
@@ -36,7 +34,7 @@ Together, we explore the intersection of technology and power, and examine wheth
 
 From the global to the local, we round off the discussion by providing practical advice on how you can promote a more human-centric approach to technology in your life and your work.
 
-**Useful links for this episode**
+## Useful links for this episode
 
 * [Computer Says Maybe podcast](https://www.saysmaybe.com/podcast)
 
@@ -55,3 +53,9 @@ From the global to the local, we round off the discussion by providing practical
 * [The Green PO](https://green-po.org/)
 
 * [Doing the Doughnut Tech](https://doingthedoughnut.tech/)
+
+## Subscribe to the podcast
+
+* [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
+
+* [Spotify](https://open.spotify.com/show/2BlwBJ7JoxYpxU4GBmuR4x)
