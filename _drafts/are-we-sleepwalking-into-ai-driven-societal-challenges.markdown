@@ -13,6 +13,7 @@ summary: As the capabilities and accessibility of AI continue to advance—inclu
   more sophisticated reasoning capabilities and agentic deployment—several questions
   and risk areas emerge that really deserve our attention.
 author: ocronk
+image: "/uploads/1739191700049.png"
 ---
 
 *Note: A version of this article was originally shared on [LinkedIn in February 2025.](https://www.linkedin.com/pulse/we-sleepwalking-tomorrows-ai-challenges-oliver-cronk-4rcge/)*
