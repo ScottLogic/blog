@@ -1,5 +1,5 @@
 ---
-title: Are We Sleepwalking into AI-driven Societal Challenges?
+title: Are we sleepwalking into AI-driven societal challenges?
 date: 2025-05-14 13:17:00 Z
 categories:
 - Artificial Intelligence
@@ -48,7 +48,7 @@ But for other processes, will it matter if something was done by the actual pers
 
 It's worth noting that these categories might evolve as capabilities or acceptance of AI changes.
 
-While writing this, I came across a recently published paper by HuggingFace which suggests that ["Fully Autonomous AI Agents Should Not be Developed"](https://huggingface.co/blog/fully-autonomous-ai-agents)—adding another perspective to this complex issue.
+While writing this, I came across a recently published paper by HuggingFace which suggests that ["Fully Autonomous AI Agents Should Not be Developed"](https://huggingface.co/papers/2502.02649)—adding another perspective to this complex issue.
 
 ### Confirmation Fatigue and Review Weariness
 
