@@ -112,7 +112,7 @@ These questions—and surely many more—suggest there's too much at stake for a
 
 I'd encourage you and your organisations not to bury your heads in the sand on this issue. Even if you're not actively implementing AI, make that a conscious, risk-assessed strategy that receives proper sign-off (as it might have cost implications from an increase in human-based activities dealing with inbound AI-generated demand).
 
-This arms race drives further tech consumption with implications for materials and energy use. However, this article has deliberately focused more on the Social and Governance angles than the Environmental aspects of sustainability.
+This arms race drives further tech consumption with implications for materials and energy use. However, this article has deliberately focused more on the Social and Governance angles [than the Environmental aspects of AI](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html).
 
 ## What's Your Take?
 
