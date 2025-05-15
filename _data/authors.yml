@@ -30,6 +30,7 @@ active-authors:
   - csalt
   - cstephen
   - cwilton
+  - dalucas
   - dgrew
   - dhinrichs
   - dhope
@@ -345,6 +346,10 @@ authors:
     name: "Chris Wilton-Magras"
     author-summary: "<p>Opinionated lead developer, munro bagger, beer brewer, cat lover, occasional fool.</p>"
     picture: me.jpg
+  dalucas:
+    name: "Daniel Lucas"
+    author-summary: "I am a Senior Fullstack Developer based in our Bristol office. I am passionate about empowering people, fostering continuous learning and shaping working practices that drive real value for organizations."
+    picture: picture.jpg
   dcook:
     feed-description: "Dan Cook's thoughts on all things Big Data."
     google-plus-url: "https://plus.google.com/102307699647083644941"
