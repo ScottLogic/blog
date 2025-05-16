@@ -16,6 +16,7 @@ summary: We’ve been generating Software Bills of Materials (SBOMs) on client p
   to bear in mind when working with SBOMs for the first time.
 author: jheward
 contributors: sbreingan
+image: "/uploads/SBOM%20thumbnail.png"
 ---
 
 Software Bills of Materials (SBOMs) are playing an increasingly important role in software security and operational resilience. Indeed, they are becoming an essential tool in Financial Services with the advent of the Digital Operational Resilience Act (DORA) and UK Operational Resilience regulations, both of which oblige organisations to track and manage their software supply chains.
