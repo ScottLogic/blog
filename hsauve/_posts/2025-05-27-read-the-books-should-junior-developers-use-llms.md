@@ -15,7 +15,6 @@ But LLMs didn’t come out with an instruction manual and like everyone else, I 
 In this blog, I explore the role of AI through the lens of someone just beginning their journey in tech - and consider how we can embrace it moving forward.  
 
 ## The appeal of AI  
-
 The world of software engineering is becoming increasingly competitive and with the tech sector experiencing slowdown in hiring, candidates must show even more acumen, flexibility and the ability to adapt and learn at a fast pace.   
 
 The breakthrough of LLMs brought the prospect of an increase in efficiency and productivity in programming, questioning the very notion of what it means to be productive as a developer, and bringing with it fears of job replacements.  
@@ -23,7 +22,6 @@ The breakthrough of LLMs brought the prospect of an increase in efficiency and p
 In that context, why would anyone shy away from a personal coding assistant available 24/7?  
 
 ## Learning to code takes time (and energy)  
-
 Whether it’s learning a new language with its complex grammar and syntax or going through the complicated rules of a board game, learning comes with discomfort.  
 
 In that respect, the first few weeks of coding are challenging or at least they were for me. With the first programming language, you also need to get your head around programming, its logic and concepts as well as the myriads of libraries, tools and plugins that everyone on the internet and their dog seems to have an opinion on.   
@@ -43,7 +41,6 @@ One day, Henry picks up a half-eaten book and starts reading it, which opens up 
 Skipping the books isn’t an option when it comes to coding. The learning curve can be tough when the brain adjusts to new ways of thinking, but this process is essential for integrating knowledge, and consistent practice helps reinforce it.  
 
 ## AI can turn into a crutch  
-
 AI tools are incredibly impressive, and in my experience, they can also be addictive, the same way social media is. They offer instant results and gratification and are like a one-stop shop for all kinds of information.   
 
 But over reliance on chatbots to produce code can prevent the development of a deep understanding of a problem and its possible solutions. The same way chatbots rely on context to provide accurate responses, delegating problem-solving entirely limits the formation of an internal context or mental model. And next time a similar issue arises, that déjà-vu feeling may not be there.  
@@ -63,29 +60,24 @@ By using an LLM for a concept I didn’t fully grasp only delayed the process of
 There are many reasons why taking the time to get familiar with programming fundamentals is essential.  
 
 ### Searching for information  
-
 An important skill to hone as a developer is the ability to look for the information needed. At times, it may feel like searching for a needle in a haystack on Stackoverflow, sifting through people’s comments, the conversations they generate, why one solution was upvoted and not another.  
 
 You’ll get to know the websites you can trust, the YouTube channels to follow, you go through tutorials and documentation galore.  
 
 ### Debugging and troubleshooting  
-
 Where ChatGPT tailors its answer to a specific question, online forums will rarely give the exact answer to a problem, instead they help build critical thinking, getting to know whether an answer can be adapted to a specific case, to then be tested and tweaked until a solution works.  
 
 Although chatbots are getting better at asking for feedback and which option was the most helpful, it is still one straight line from point A to point B, which doesn’t reflect the reality of the job.  
 
 ### Reviewing code  
-
 Reviewing other people’s code is another important part of a developer’s job so it is important to learn to read and understand code, and ask questions as your learning expands. Developers will be expecting their colleagues to review the code, not AI.  
 
 ### Sharing knowledge  
-
 Getting confident with the fundamentals of coding also enables you to pass on that knowledge to future generations of developers. What appealed to me in a career in software was the collaborative nature of the work, and how it is the collectiveness of brains that make software better and safer.  
 
 By replacing the passing of knowledge with AI, we run the risk of limiting ourselves and missing sharing opportunities.  
 
 ## How can we embrace AI in our jobs?  
-
 With more experience in software now but still at a junior level, and with a better understanding of how to effectively prompt an LLM in a way that serves me, I’ve developed new usages for AI in my day-to-day job namely:   
 
 - A fast Google search for which I could easily find the answer to, given more time such as: 
@@ -101,7 +93,6 @@ Detailing my thought process, the potential solutions I envisage, the pitfalls I
 Once I have a solution that works, LLMs can be useful in suggesting refactoring ideas, when prompted correctly with the purpose of the refactoring i.e. verbosity, performance etc. 
 
 ### Conclusion  
-
 AI is undoubtedly reshaping the world of software and whilst AI tools can enhance experienced developers' capabilities by automating repetitive tasks so they can focus on higher levels of complexity, they can also hinder the foundational programming skills in junior developers. At the start of a career in tech, mastering the basics should take precedence over short-term productivity gains.  
 
 Learning to use these tools is important to keep abreast of changes in the industry and so as developers, it is essential we learn to use AI in a way that does not hinder our human potential but instead enhances it; using AI as a support rather than a substitute.  
