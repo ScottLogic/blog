@@ -30,7 +30,7 @@ Think about the things you encountered and learned on your previous project. Kee
 
 ### 5. What do I want to do next?
 
-Think about your path ahead, this is a good time to take control of your future and drive your career in the direction you want it to go. What are your desired areas of personal development? What skills do you want to explore? What focus areas would you like to have on your next project? Are there any courses want to take?
+Think about your path ahead, this is a good time to take control of your future and drive your career in the direction you want it to go. What are your desired areas of personal development? What skills do you want to explore? What focus areas would you like to have on your next project? Are there any courses you want to take?
 
 ### 6. What is my personal Unique Selling Point?
 
