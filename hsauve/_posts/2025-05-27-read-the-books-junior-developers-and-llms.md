@@ -1,5 +1,5 @@
 ---
-title: Read the books! Should junior developers rely on LLMs?
+title: Read the books! Should junior developers use LLMs?
 date: 2024-07-12 00:00:00 Z
 categories:
   - Artificial Intelligence
