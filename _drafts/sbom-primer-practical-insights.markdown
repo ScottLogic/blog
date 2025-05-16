@@ -14,8 +14,7 @@ summary: We’ve been generating Software Bills of Materials (SBOMs) on client p
   for several years now, and we’d like to share insights into the positive impact
   they’ve had on security, resilience and engineering quality, along with some considerations
   to bear in mind when working with SBOMs for the first time.
-author:
-- jheward
+author: jheward
 contributors: sbreingan
 ---
 
