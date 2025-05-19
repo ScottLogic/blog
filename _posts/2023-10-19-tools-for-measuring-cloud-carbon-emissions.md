@@ -82,7 +82,7 @@ The AWS Customer Carbon Footprint tool is available for all accounts and to any 
 
 You can see emissions over time with the tool, broken down by geography and service. The service breakdown only shows usage by EC2, Amazon Simple Storage Service (S3). Emissions for any other services are grouped together and presented as one number. It’s hard to see how these breakdowns could be used to drive meaningful optimisations but hopefully this is just the starting point and will be expanded as the tool evolves.
 
-The geographical breakdown is by AWS Region, however, previous iterations of the tool used coarse-grained showing geographical groupings such as AMER and EMEA. This will still be the case for data from December 2024 and earlier which will be missing the region information.
+The geographical breakdown is by AWS Region, however, previous iterations of the tool used coarse-grained geographical groupings such as AMER and EMEA. This will still be the case for data from December 2024 and earlier which will be missing the region information.
 
 The data for the tool is delayed by three months which is a significant limitation compared to the other tools discussed. Additionally the figures are rounded to the nearest point-one tons of CO2 equivalent GHG emissions. For context, according to the [US EPA](https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator) this rounding amount is equivalent to 233 miles driven by the average gasoline-powered passenger vehicle.
 
