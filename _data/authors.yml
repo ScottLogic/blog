@@ -395,11 +395,9 @@ authors:
     picture: picture.jpg
     author-summary: "<p>Hello, I'm a Solutions Architect and Sustainable Technology lead, based in Scott Logic, Bristol.</p>"
   dsmith:
-    author-summary: "<p>I'm a Senior Developer at Scott Logic, based in Newcastle.</p>"
+    author-summary: "<p>I'm a Lead Developer at Scott Logic, based in Newcastle.</p>"
     name: "Darren Smith"
-    twitter-url: "https://twitter.com/darrenpsmithweb"
-    twitter-handle: darrenpsmithweb
-    picture: picture.jpg
+    picture: dsmith.jpg
   dscarborough:
     name: "Dan Scarborough"
     author-summary: "<p>I am a Developer at Scott Logic.</p>"
