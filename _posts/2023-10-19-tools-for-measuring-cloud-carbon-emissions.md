@@ -15,7 +15,7 @@ image: "/uploads/Tools%20for%20measuring%20cloud.png"
 layout: default_post
 ---
 
-> Note: this blog post is a bit out-of-date so I've published a [new version with some updates for 2025](https://blog.scottlogic.com/2025/05/21/tools-for-measuring-cloud-carbon-emissions.html).
+> Note: this blog post is a bit out-of-date so I've published a [new version with some updates for 2025](../../../2025/05/20/tools-for-measuring-cloud-carbon-emissions-updated-for-2025.html).
 
 # Introduction
 
