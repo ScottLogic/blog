@@ -15,7 +15,11 @@ image: "/uploads/Tools%20for%20measuring%20cloud.png"
 layout: default_post
 ---
 
+> Note: this blog post is a bit out-of-date so I've published a [new version with some updates for 2025](https://blog.scottlogic.com/2025/05/21/tools-for-measuring-cloud-carbon-emissions.html).
+
 # Introduction
+
+In my [previous blog post](https://blog.scottlogic.com/2022/04/07/cloud-sustainability-reach-net-zero.html) I discussed how migrating to the Cloud could help your organisation reach its Net Zero goals. I discussed how shifting your workloads away from on-premises data centres can reduce emissions by allowing you to leverage the expertise of cloud providers and their greater efficiency of scale. It should be noted this isn’t always clear cut - do consider how energy efficient your current hosting is and the [embodied carbon](https://blog.scottlogic.com/2023/09/28/embodied-carbon-from-software-development.html) of any hardware you’d be decommissioning.
 
 If you're using the Cloud there are many ways to optimise your infrastructure and applications to reduce emissions. A key part of optimisation is to first measure what you are trying to optimise. This allows you to identify where the biggest wins can be achieved and understand whether you are succeeding in your efforts over time.
 
@@ -34,67 +38,40 @@ The final scope (scope three) is for “other indirect GHG emissions” which is
 
 It’s also worth noting that for your company, all the emissions of your cloud provider related to your activities would count as part of your scope three emissions. Ideally, we’d like our tooling to report on all three scopes to get the most complete picture.
 
+
 # Cloud Service Provider Tools
 
 ## GCP: Carbon Footprint
 
 The GCP Carbon Footprint tool is available for all accounts and to any user that is granted the relevant [IAM permissions](https://cloud.google.com/carbon-footprint/docs/iam). There is a dedicated role to access the tool which is great because it allows you to give anyone access to emissions data without also having to also give them access to billing data.
 
-The Carbon Footprint tool shows a breakdown of emissions by GCP Project, Region and Product. It includes all three scopes of emissions and provides both location-based and market-based scope two emissions figures. Data can be exported into BigQuery for further analysis and custom reporting.
+The Carbon Footprint tool shows a breakdown of emissions by GCP Project, Region and Product. It includes all three scopes of emissions and clearly states that a location-based approach is used to calculate scope two emissions. At time of writing GCP is [currently working](https://cloud.google.com/carbon-footprint/docs/methodology) on also making available market-based emissions data.
 
 The [methodology used to calculate emissions](https://cloud.google.com/carbon-footprint/docs/methodology) is made available and is an interesting read. Perhaps the most interesting part of their approach is that emissions are calculated on an hourly basis. This allows them to take into account the varying mix of energy sources in use in the local grid and match it with their hourly electricity load data. This should make the calculations more accurate. Although the data is matched on an hourly basis the dashboard updates monthly.
 
+
 ## Azure: Impact Emissions Dashboard
 
-Azure has three supported tools for understanding your emissions data:
+The Azure Impact Emissions Dashboard is based on Microsoft’s Power BI Pro. Unfortunately, it is only available to customers on a EA, Microsoft Customer Agreement or CSP. Since I don’t have access to an account with any of these agreements in place my evaluation has been limited to reviewing documentation and [demonstrations](https://www.microsoft.com/videoplayer/embed/RE5609f?WT.mc_id=industry_inproduct_solncenterSustainability) provided by Microsoft.
 
- - Azure Impact Emissions Dashboard
- - Azure Emissions Insights
- - Azure Carbon Optimization (preview)
+The dashboard has a similar breakdown to the GCP tool and shows a breakdown of emissions by Azure Subscription, Region and Service. It also optionally includes scope three emissions and the methodology for calculating these is documented in a [white paper supplied by Microsoft](https://go.microsoft.com/fwlink/p/?linkid=2161861\&clcid=0x409\&culture=en-us\&country=us). While not explicitly stated, it appears that scope two emissions are calculated using a market-based approach. The dashboard updates on a monthly basis.
 
-The same emissions methodology appears to be in use for all these tools. Scope one, two and three emissions are provided, with a market-based approach being used for scope two emissions.
-
-### Azure Impact Emissions Dashboard
-
-The Azure Impact Emissions Dashboard is based on Microsoft’s Power BI Pro. Microsoft describes the use-case here as "organization-wide Azure emissions tracking and reporting".
-
-Unfortunately, it is only available to customers with a Power BI Pro license who have an EA Direct or MCA/MPA agreement with Microsoft or are Cloud Service Providers. Since I don’t have access to an account with any of these agreements in place my evaluation has been limited to reviewing documentation and [demonstrations](https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed-one-stream.html?id=5f68866b-2e9b-4b84-bcc1-c862676cd456) provided by Microsoft.
-
-The dashboard has similar functionality to the GCP tool and shows a breakdown of emissions by [Azure Subscription, Region and Service](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts#azure-terminology). It also optionally includes scope three emissions and the methodology for calculating these is documented in a [white paper supplied by Microsoft](https://go.microsoft.com/fwlink/p/?linkid=2161861&clcid=0x409&culture=en-us&country=us). Data updates on a monthly basis and is available going back up to five years. Export to Microsoft Excel for further analysis is supported.
-
-There are [mixed reviews in Marketplace](https://appsource.microsoft.com/en-us/product/power-bi/coi-sustainability.emissions_impact_dashboard?exp=ubp8&tab=Reviews#) with some customers reporting issues accessing the data.
-
-### Azure Emissions Insights
-
-Azure Emissions Insights is a feature of Microsoft Fabric which allows custom reporting on emissions data. The intended use-case for this tool is "advanced cloud emissions analytics" since you can run [analytical queries to create custom reports](https://learn.microsoft.com/en-us/industry/sustainability/sustainability-data-solutions-fabric/azure-emissions-insights-analyze#access-emissions-data-through-sql). Data can be [exported to external databases and applications](https://learn.microsoft.com/en-us/industry/sustainability/sustainability-data-solutions-fabric/azure-emissions-insights-faq) as well as [accessed via API](https://learn.microsoft.com/en-us/industry/sustainability/sustainability-data-solutions-fabric/azure-emissions-insights-analyze#access-emissions-data-through-apis). There is also a dashboard available with [pre-configured breakdowns](https://learn.microsoft.com/en-us/industry/sustainability/sustainability-data-solutions-fabric/azure-emissions-insights-analytics) which are similar to those provided by the Azure Impact Emissions Dashboard. Unfortunately, the access requirements are the same as Azure Impact Emissions Dashboard so many organisations will be unable to use this tooling.
-
-### Azure Carbon Optimization (preview)
-
-Azure Carbon Optimization is [aimed at IT professionals and developers](https://learn.microsoft.com/en-us/azure/carbon-optimization/overview#microsofts-sustainability-offerings-comparison). It doesn't require specific agreements with Microsoft which is great for transparency since any Azure customer can access this data. The dashboard [can be accessed](https://learn.microsoft.com/en-us/azure/carbon-optimization/permissions) by anyone with the Owner, Contributor or Reader roles on a subscription. There is also a special Carbon Optimization Reader role for users which only need access to the emissions data.
-
-The use-case for this tool is optimising your estate for carbon efficiency, rather than historical analysis. As such, only [the last twelve months of data are available](https://learn.microsoft.com/en-us/azure/carbon-optimization/overview#data-availability) and the UI is very focused on month-to-month trends with only the last two months displayed in table view. There are lots of built-in breakdowns available, including by Subscription, Resource Group, Resource, Region and Service. From these breakdowns you can see the top emissions sources as well as their month-on-month percentage change. This is helpful both in understanding the success of your emissions reduction efforts and also in diagnosing unexpected spikes.
-
-[Recommendations are also provided](https://learn.microsoft.com/en-us/azure/carbon-optimization/reduce-emissions) for right-sizing of resources to reduce their carbon impact.
 
 ## AWS: Customer Carbon Footprint Tool
 
-The AWS Customer Carbon Footprint tool is available for all accounts and to any user with the [relevant permissions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/what-is-ccft.html#ccft-gettingstarted-IAM). There isn’t a dedicated role like the one supplied by GCP but setting one up yourself would be trivial.
+The AWS Customer Carbon Footprint tool is available for all accounts and to any user with the [relevant permissions](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/what-is-ccft.html#ccft-gettingstarted-IAM). There isn’t a dedicated role like the one supplied by GCP but setting one up yourself would be fairly trivial. You can then make this role available to the required users to view the dashboard.
 
-You can see emissions over time with the tool, broken down by geography and service. The service breakdown only shows usage by EC2, Amazon Simple Storage Service (S3). Emissions for any other services are grouped together and presented as one number. It’s hard to see how these breakdowns could be used to drive meaningful optimisations but hopefully this is just the starting point and will be expanded as the tool evolves.
-
-The geographical breakdown is by AWS Region, however, previous iterations of the tool used coarse-grained geographical groupings such as AMER and EMEA. This will still be the case for data from December 2024 and earlier which will be missing the region information.
+You can see emissions over time with the tool, broken down by geography and service. The geographical breakdown is fairly coarse-grained and only shows geographical groupings such as AMER and EMEA rather than AWS Regions. The service breakdown only shows usage by EC2, Amazon Simple Storage Service (S3). Emissions for any other services are grouped together and presented as one number. It’s hard to see how these breakdowns could be used to drive meaningful optimisations but hopefully this is just the starting point and will be expanded as the tool evolves.
 
 The data for the tool is delayed by three months which is a significant limitation compared to the other tools discussed. Additionally the figures are rounded to the nearest point-one tons of CO2 equivalent GHG emissions. For context, according to the [US EPA](https://www.epa.gov/energy/greenhouse-gas-equivalencies-calculator) this rounding amount is equivalent to 233 miles driven by the average gasoline-powered passenger vehicle.
 
 For scope two emissions, only a market-based approach is available. The result of this is that in the console you won’t be able to see any usage which has been offset by the purchase of renewable energy. This could be fine for reporting purposes but is less useful if you’d like to optimise your infrastructure to reduce emissions. This is worth doing since even when investments in renewable energy have been made by the CSP their servers are still pulling power from a grid with non-zero carbon intensity.
 
-Scope 3 emissions were originally planned for AWS Cloud Carbon Footprint tool in early 2024 but are not yet present as-of writing. This is lagging behind the other companies who have had this data available since 2021.
+In terms of Scope three emissions, these are planned to be added to the dashboard for early 2024, this is a little behind the other companies who have had this data available since 2021.
 
 # Third-party tools
 
 ## Cloud Carbon Footprint (CCF)
-
-> Update for May 2025: It's unclear whether Cloud Carbon Footprint is [currently a supported project](https://groups.google.com/g/cloud-carbon-footprint/c/Y_lnhAerBJg). The last release was a year ago and there has been no recent activity from the team.
 
 Cloud Carbon Footprint is an open source tool which was originally developed by Thoughtworks. It uses Etsy’s [Cloud Jewels](https://www.etsy.com/codeascraft/cloud-jewels-estimating-kwh-in-the-cloud) approach to estimate the emissions associated with cloud workloads. This is done using the information provided by CSPs for the purposes of itemised billing. It supports AWS, GCP and Azure which means if you’re using more than one of these providers you can use a consistent approach for measuring emissions.
 
@@ -123,19 +100,19 @@ One further thing to consider if you use more than one Cloud provider - is how c
 
 For reference, I’ve prepared a comparison of the features of the different tooling which may be useful in choosing your preferred approach:
 
-| **GCP**                                                                                                     | **Azure**                                                             | **AWS**                                                                                                         | **CCF**                     |                      |
-| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------- |
-| 1, 2 and 3                                                                                                  | 1, 2 and 3                                                            | 1 and 2\*                                                                                                       | 2 and 3                     | **Scopes covered**   |
-| Location-based and Market-based\*\*                                                                         | Market-based                                                          | Market-based                                                                                                    | Location-based              | **Scope 2 approach** |
-| Data centre operations, employee commutes and embodied emissions from data centre hardware and construction | Hardware lifecycle embodied emissions                                 | N/A\*                                                                                                           | Server embodied carbon      | **Scope 3 approach** |
-| Monthly                                                                                                     | Monthly                                                               | Monthly ([with 3 month delay](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ccft-overview.html)) | Daily                       | **Update frequency** |
-| Month                                                                                                       | Month                                                                 | Month                                                                                                           | Day                         | **Granularity**      |
-| Service, project and region                                                                                 | Resource group, resource, resource type, subscription and region      | Service\*\*\*, account and region\*\*\*\*                                                                       | Service, account and region | **Breakdowns**       |
+| **GCP**                                                                                                     | **Azure**                             | **AWS**                                                                                                         | **CCF**                     |                      |
+| ----------------------------------------------------------------------------------------------------------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------- |
+| 1, 2 and 3                                                                                                  | 1, 2 and 3                            | 1 and 2\*                                                                                                       | 2 and 3                  | **Scopes covered**   |
+| Location-based \*\*                                                                                         | Market-based                          | Market-based                                                                                                    | Location-based              | **Scope 2 approach** |
+| Data centre operations, employee commutes and embodied emissions from data centre hardware and construction | Hardware lifecycle embodied emissions | N/A\*                                                                                                           | Server embodied carbon      | **Scope 3 approach** |
+| Monthly                                                                                                     | Monthly                               | Monthly ([with 3 month delay](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/ccft-overview.html)) | Daily                       | **Update frequency** |
+| Month                                                                                                       | Month                                 | Month                                                                                                           | Day                         | **Granularity**      |
+| Service, project and region                                                                                 | Service, subscription and region      | Service\*\*\*, account and geography\*\*\*\*                                                                    | Service, account and region | **Breakdowns**       |
 
-\* Scope 3 emissions were originally planned for AWS Cloud Carbon Footprint tool in early 2024 but are not yet present as-of writing.
+\* Scope 3 emissions planned for AWS Cloud Carbon Footprint tool in early 2024.
 
-\*\* Market-based data is supplied from January 2023 onwards.
+\*\* Market-based metrics planned for GCP Carbon Footprint although timelines are TBC.
 
 \*\*\* All services other than compute and storage are grouped into “other”.
 
-\*\*\*\* Historical data for prior to December 2024 uses coarse-grained geographical regions such as AMER, APAC and EMEA.
+\*\*\*\* Geography refers to wider geographical areas such as AMER, APAC and EMEA.
