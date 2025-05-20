@@ -1,5 +1,6 @@
 ---
 title: Tools for measuring Cloud Carbon Emissions (updated for 2025)
+date: 2025-05-20 00:00:00 Z
 categories:
 - Sustainability
 - Cloud
