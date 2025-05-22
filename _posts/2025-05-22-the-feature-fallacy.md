@@ -75,6 +75,7 @@ The common thread among these companies is the understanding that a solid techni
 This approach requires discipline and a willingness to invest time in non-feature work, but the long-term payoff in terms of speed, quality, and resilience can be immense.
 
 ![Features vs Foundation]({{ site.github.url }}/[dmcnamee]/assets/featuresvsfoundation.jpeg "Features vs Foundation")
+
 ### Finding the Equilibrium: Maintaining Balance Between Features and Foundations
 
 The challenge isn't about choosing features _or_ infrastructure, but about finding a sustainable balance. Here’s how to navigate this:
