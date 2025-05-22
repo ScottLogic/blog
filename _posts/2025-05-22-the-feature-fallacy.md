@@ -13,6 +13,7 @@ author: dmcnamee
 image: "/assets/featurevsfoundation_header.jpeg"
 layout: default_post
 ---
+![Features vs Foundation]({{ site.github.url }}/[dmcnamee]/assets/featurevsfoundation_header.jpeg "Features vs Foundation")
 
 ## The "Features First" Gamble: When to Build and When to Fortify Your Software's Foundations
 
