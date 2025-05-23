@@ -90,7 +90,7 @@ The common thread among these companies is the understanding that a solid techni
 
 This approach requires discipline and a willingness to invest time in non-feature work, but the long-term payoff in terms of speed, quality, and resilience can be immense.
 
-<img src="{{ site.baseurl }}/dmcnamee/assets/featuresvsfoundation.jpeg" alt="Features vs Foundation Comparison" title="Features vs Foundation Comparison">
+<img src="{{ site.baseurl }}/dmcnamee/assets/featurevsfoundation.jpeg" alt="Features vs Foundation Comparison" title="Features vs Foundation Comparison">
 
 ### Finding the Equilibrium: Maintaining Balance Between Features and Foundations
 
