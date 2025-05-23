@@ -13,7 +13,7 @@ image: "/images/featurevsfoundation_header.jpeg"
 layout: default_post
 ---
 
-<img src="{{ site.baseurl }}/dmcnamee/assets/featurevsfoundation_header.jpeg" alt="Feature vs Foundation header" title="Feature vs Foundation">
+<img src="{{ site.baseurl }}/dmcnamee/assets/featurevsfoundation_header.jpeg" width="100%" alt="Feature vs Foundation header" title="Feature vs Foundation">
 
 ## The "Features First" Gamble: When to Build and When to Fortify Your Software's Foundations
 
