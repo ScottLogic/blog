@@ -2,12 +2,11 @@
 title: The Feature Fallacy
 date: 2025-05-22 00:00:00 Z
 categories:
-- Agile
-- CI
+- Testing
+- Delivery
 tags:
 - Agile
 - CI
-- featured
 summary: Features or Foundations. Where do you start. What are the pros and cons of building fast or building the blocks to build on. 
 author: dmcnamee
 image: "/images/featurevsfoundation_header.jpeg"
