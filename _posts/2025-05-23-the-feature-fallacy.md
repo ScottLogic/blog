@@ -7,7 +7,8 @@ categories:
 tags:
 - Agile
 - CI
-summary: Features or Foundations. Where do you start. What are the pros and cons of building fast or building the blocks to build on. 
+summary: Features or Foundations. Where do you start. What are the pros and cons of
+  building fast or building the blocks to build on.
 author: dmcnamee
 image: "/images/featurevsfoundation_header.jpeg"
 layout: default_post
