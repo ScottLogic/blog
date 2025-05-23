@@ -1,7 +1,6 @@
 ---
 title: The Feature Fallacy
 date: 2025-05-23 00:00:00 Z
-published: true
 categories:
 - Testing
 - Delivery
