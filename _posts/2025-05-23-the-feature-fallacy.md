@@ -13,7 +13,7 @@ image: "/images/featurevsfoundation_header.jpeg"
 layout: default_post
 ---
 
-![featurevsfoundation_header.jpeg]({{ site.github.url }}/[dmcnamee]/assets/featurevsfoundation.jpeg "Features vs Foundation Header")
+![featurevsfoundation_header.jpeg]({{ site.github.url }}/[demcnamee]/assets/featurevsfoundation.jpeg "Features vs Foundation Header")
 
 ## The "Features First" Gamble: When to Build and When to Fortify Your Software's Foundations
 
@@ -90,7 +90,7 @@ The common thread among these companies is the understanding that a solid techni
 
 This approach requires discipline and a willingness to invest time in non-feature work, but the long-term payoff in terms of speed, quality, and resilience can be immense.
 
-![featuresvsfoundation.jpeg]({{ site.github.url }}/[dmcnamee]/assets/featuresvsfoundation.jpeg "Features vs Foundation Comparison")
+![featuresvsfoundation.jpeg]({{ site.github.url }}/[demcnamee]/assets/featuresvsfoundation.jpeg "Features vs Foundation Comparison")
 
 ### Finding the Equilibrium: Maintaining Balance Between Features and Foundations
 
