@@ -12,13 +12,13 @@ Here are some things every consultant should reflect on between engagements.
 
 ### 1. What did I deliver and what impact did I have?
 
-Think about the deliverables you have submitted in your recent engagements and how successful they were. Could they have been improved? Were they successful and have had a sustainable impact on client? How did you manage the handover and is the client able to build on top of the things you have delivered?
+Think about the deliverables you have submitted in your recent engagements and how successful they were. Could they have been improved? Were they successful and have they had a sustainable impact on the client? How did you manage the handover and is the client able to build on top of the things you have delivered?
 
 Think about the impact you had on the team. Did you help the team grow and made them more self-sufficient? Did you help improve processes? What were reasons for why you couldn’t impact the client more?
 
 ### 2. How did I fit into the team – how could I have adjusted differently?
 
-Think about how your team was shaped and how you fit in. Should you have adjusted differently? Should you have filled a different role in the team? Should you have led, supported or challenged more? Were able to build bridges across siloed teams? Did you contribute to a positive work environment?
+Think about how your team was shaped and how you fit in. Should you have adjusted differently? Should you have filled a different role in the team? Should you have led, supported or challenged more? Were you able to build bridges across siloed teams? Did you contribute to a positive work environment?
 
 ### 3. Did I encounter any conflicts and how can I reduce them in the future?
 
@@ -38,8 +38,8 @@ Think about you and what distinguishes your profile from other consultants. What
 
 ### 7. What does my professional network look like? 
 
-Think about your professional network. The bench is a great point in time to reach out and interact with them. Are you happy with the size of your network? What can you do to increase your number of connections? When was the last time you have reached out your network ? What networking events could you attend that might help you? What has your network been up to and what are things you can learn from them?
+Think about your professional network. The bench is a great point in time to reach out and interact with them. Are you happy with the size of your network? What can you do to increase your number of connections? When was the last time you have reached out to your network ? What networking events could you attend that might help you? What has your network been up to and what are things you can learn from them?
 
 ### Final thoughts
 
-Taking the time to reflect on these points can help consultants grow as professionals and sets them up to bring even more value to clients on their next projects. Identifiying skills, strengths and weaknesses by reflection enables paths forward toward continious learning and growth.
+Taking the time to reflect on these points can help consultants grow as professionals and sets them up to bring even more value to clients on their next projects. Identifiying skills, strengths and weaknesses by reflection enables paths forward toward continuous learning and growth.
