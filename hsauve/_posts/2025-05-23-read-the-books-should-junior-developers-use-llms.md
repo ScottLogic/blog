@@ -11,7 +11,7 @@ author: hsauve
 
 I started my career in software development as a graduate just a few months after the first demo of ChatGPT had been released. With limited experience and exposure to code, and with a non-coding related background, I felt I needed all the help I could get so at the time Large Language Models (LLMs) seemed like an appealing solution to help me get to grips with programming.   
 
-But LLMs didn’t come out with an instruction manual and like everyone else, I experimented with them. Because of how easy and instinctive they were to use, they quickly became a go-to place for help and I started noticing a pattern in my learning that didn’t feel quite right. So I decided to take a step back and get back to the basics.  
+But LLMs didn’t come out with an instruction manual and like everyone else, I experimented with them. Because of how easy and instinctive they were to use, they quickly became a go-to place for help and I started noticing a pattern in my learning that didn’t feel quite right. So I decided to take a step back and revisit the basics.  
 
 In this blog, I explore the role of AI through the lens of someone just beginning their journey in tech - and consider how we can embrace it moving forward.  
 
@@ -30,16 +30,16 @@ Whether it’s learning a new language with its complex grammar and syntax or go
 In that respect, the first few weeks of coding are challenging or at least they were for me. With the first programming language, you also need to get your head around programming, its logic and concepts as well as the myriads of libraries, tools and plugins that everyone on the internet and their dog seems to have an opinion on.   
 The first few months of learning to code are mentally exhausting, punctuated by eureka moments when something ‘clicks’, as the brain forges a new neural pathway.  
 
-![My Image]({{ site.github.url }}/hsauve/assets/junior-devs-llms/neural-network-representation.jpg "Representation of neural networks")
+![My Image]({{ site.github.url }}/hsauve/assets/junior-devs-llms/neural-network-representation.jpg "Representation of a network")
 
-*Photo by [Growtika](https://unsplash.com/@growtika/) on [Unsplash](https://unsplash.com/photos/an-abstract-image-of-a-sphere-with-dots-and-lines-nGoCBxiaRO0/)*
+*Photo by [Conny Schneider](https://unsplash.com/@choys_) on [Unsplash](https://unsplash.com/photos/a-blue-abstract-background-with-lines-and-dots-pREq0ns_p_E)*
 
 When using AI, the journey leading to a solution is often obscured and these neural pathways aren’t developed in the same way.  
-This reminds me of the children’s book *The incredible book eating boy* by Oliver Jeffers, where the main character Henry, rather than reading books, actually eats them and in huge quantities to become the smartest person on earth. His knowledge expands so much that everything gets mixed up in his head, because it is said: ‘he didn’t have time to digest it properly’.   
+This reminds me of the children’s book *The Incredible Book Eating Boy* by Oliver Jeffers, where the main character Henry, rather than reading books, actually eats them and in huge quantities to become the smartest person on earth. His knowledge expands so much that everything gets mixed up in his head, because it is said: ‘he didn’t have time to digest it properly’.   
 One day, Henry picks up a half-eaten book and starts reading it, which opens up a whole new world he hadn’t been able to see, and he realises that reading the books can still make him the smartest person on earth, just with a bit more time.  
 
 ![My Image]({{ site.github.url }}/hsauve/assets/junior-devs-llms/book-eating-boy.jpg "Henry eating books")
-*Picture taken of the book 'The incredible book eating boy' by Oliver Jeffers*
+*Picture taken from the book 'The Incredible Book Eating Boy' by Oliver Jeffers*
 
 Skipping the books isn’t an option when it comes to coding. The learning curve can be tough when the brain adjusts to new ways of thinking, but this process is essential for integrating knowledge, and consistent practice helps reinforce it.  
 
@@ -47,11 +47,11 @@ Skipping the books isn’t an option when it comes to coding. The learning curve
 
 AI tools are incredibly impressive, and in my experience, they can also be addictive, the same way social media is. They offer instant results and gratification and are like a one-stop shop for all kinds of information.   
 
-But over reliance on chatbots to produce code can prevent the development of a deep understanding of a problem and its possible solutions. The same way chatbots rely on context to provide accurate responses, delegating problem-solving entirely limits the formation of an internal context or [mental model](https://blog.scottlogic.com/2023/08/11/mental-models-and-the-user-experience.html). And next time a similar issue arises, that déjà-vu feeling may not be there.  
+But over reliance on chatbots to produce code can prevent the development of a deep understanding of a problem and its possible solutions. The same way chatbots rely on context to provide accurate responses, delegating problem-solving entirely limits the formation of an internal context or [mental model](https://blog.scottlogic.com/2023/08/11/mental-models-and-the-user-experience.html). And next time a similar issue arises, that *déjà-vu* feeling may not be there.  
 
-Using AI to write code that you don’t really understand feels a bit like cheating, which can equate in some situations to a lack of ownership and accountability.   
+Using AI to write code that you don’t really understand feels a bit like cheating, which in some situations can equate to a lack of ownership and accountability.   
 
-It’s a bit like paying a private tutor at uni to write your essay. Yes you’ve had an amazing grade, but if you were asked about it, would you be able to answer?   
+It’s a bit like paying a private tutor at uni to write your essay. Yes you’ve had an amazing grade, but if you were asked about it, would you be able to explain the ideas?   
 
 It also means that without these tools, independent problem-solving can be difficult. And when the moment comes for a coding challenge or a technical interview, your artificial colleague is not here to help.  
 
@@ -87,11 +87,11 @@ By replacing the passing of knowledge with AI, we run the risk of limiting ourse
 
 ## How can we embrace AI in our jobs?  
 
-With more experience in software now but still at a junior level, and with a better understanding of how to effectively prompt an LLM in a way that serves me, I’ve developed new usages for AI in my day-to-day job namely:   
+With more experience in software now but still at a junior level, and with a better understanding of how to effectively prompt an LLM in a way that serves me, I’ve developed new usages for AI in my day-to-day job, namely:   
 
 - A fast Google search for which I could easily find the answer to, given more time such as: 
 
-`What is the syntax in Tailwind for triggering a scroll bar only when the height of the text is bigger than that of the div it’s in? `  
+`What is the syntax in Tailwind for triggering a scroll bar only when the text content exceeds the height of its container?`  
 
 - Rubber Duck debugging 
 
@@ -103,6 +103,6 @@ Once I have a solution that works, LLMs can be useful in suggesting refactoring 
 
 ### Conclusion  
 
-AI is undoubtedly reshaping the world of software and whilst [AI tools can enhance experienced developers' capabilities](https://blog.scottlogic.com/2025/04/01/making-sense-of-the-ai-developer-tools-ecosystem.html) by automating repetitive tasks so they can focus on higher levels of complexity, they can also hinder the foundational programming skills in junior developers. At the start of a career in tech, mastering the basics should take precedence over short-term productivity gains.  
+AI is undoubtedly reshaping the world of software and whilst [AI tools can enhance experienced developers' capabilities](https://blog.scottlogic.com/2025/04/01/making-sense-of-the-ai-developer-tools-ecosystem.html) by automating repetitive tasks so they can focus on higher levels of complexity, they can also disrupt the foundational programming skills in junior developers. At the start of a career in tech, mastering the basics should take precedence over short-term productivity gains.  
 
 Learning to use these tools is important to keep abreast of changes in the industry and so as developers, it is essential we learn to use AI in a way that does not hinder our human potential but instead enhances it; using AI as a support rather than a substitute.  
