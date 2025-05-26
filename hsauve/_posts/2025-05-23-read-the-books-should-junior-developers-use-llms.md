@@ -1,6 +1,6 @@
 ---
 title: Read the books! Should junior developers use LLMs?
-date: 2025-05-25 00:00:00 Z
+date: 2025-05-23 00:00:00 Z
 categories:
   - Artificial Intelligence
 tags: 
@@ -19,7 +19,7 @@ In this blog, I explore the role of AI through the lens of someone just beginnin
 
 The world of software engineering is becoming increasingly competitive and with the tech sector experiencing slowdown in hiring, candidates must show even more acumen, flexibility and the ability to adapt and learn at a fast pace.   
 
-The breakthrough of LLMs brought the prospect of an increase in efficiency and productivity in programming, questioning the very notion of what it means to be productive as a developer, and bringing with it fears of job replacements.  
+The breakthrough of LLMs brought the prospect of an increase in efficiency and productivity in programming, questioning the very notion of [what it means to be productive as a developer](https://blog.scottlogic.com/2023/12/18/software-development-ai-wins-the-race.html), and bringing with it fears of job replacements.  
 
 In that context, why would anyone shy away from a personal coding assistant available 24/7?  
 
@@ -47,7 +47,7 @@ Skipping the books isn’t an option when it comes to coding. The learning curve
 
 AI tools are incredibly impressive, and in my experience, they can also be addictive, the same way social media is. They offer instant results and gratification and are like a one-stop shop for all kinds of information.   
 
-But over reliance on chatbots to produce code can prevent the development of a deep understanding of a problem and its possible solutions. The same way chatbots rely on context to provide accurate responses, delegating problem-solving entirely limits the formation of an internal context or mental model. And next time a similar issue arises, that déjà-vu feeling may not be there.  
+But over reliance on chatbots to produce code can prevent the development of a deep understanding of a problem and its possible solutions. The same way chatbots rely on context to provide accurate responses, delegating problem-solving entirely limits the formation of an internal context or [mental model](https://blog.scottlogic.com/2023/08/11/mental-models-and-the-user-experience.html). And next time a similar issue arises, that déjà-vu feeling may not be there.  
 
 Using AI to write code that you don’t really understand feels a bit like cheating, which can equate in some situations to a lack of ownership and accountability.   
 
@@ -55,9 +55,9 @@ It’s a bit like paying a private tutor at uni to write your essay. Yes you’v
 
 It also means that without these tools, independent problem-solving can be difficult. And when the moment comes for a coding challenge or a technical interview, your artificial colleague is not here to help.  
 
-I was recently working on a client project that uses Angular. Having no prior experience with the framework, I was faced with an issue that involved listening to changes made in one component that were affecting a functionality in the component I was working on.  
+I was recently working on a client project that uses [Angular](https://angular.dev/). Having no prior experience with the framework, I was faced with an issue that involved listening to changes made in one component that were affecting a functionality in the component I was working on.  
 
-ChatGPT recommended I use a computed signal, it even wrote it for me and all I had to do was pop it into my code. Just like that I had a fix and my code was working. However, at the time I only vaguely understood the concept of signals, I knew of them and roughly how they worked but I hadn’t properly experimented with them and they didn’t feel familiar. Like when you have a flat tyre and know all the steps to fix it, where your kit and spare wheel are in the boot, but until you do it yourself, your understanding of it is conceptual.  
+ChatGPT recommended I use a [computed signal](https://angular.dev/guide/signals), it even wrote it for me and all I had to do was pop it into my code. Just like that I had a fix and my code was working. However, at the time I only vaguely understood the concept of signals, I knew of them and roughly how they worked but I hadn’t properly experimented with them and they didn’t feel familiar. Like when you have a flat tyre and know all the steps to fix it, where your kit and spare wheel are in the boot, but until you do it yourself, your understanding of it is conceptual.  
 
 By using an LLM for a concept I didn’t fully grasp only delayed the process of integrating the knowledge. When a similar problem came up a few days later, I read the documentation, looked up examples in the code base and came up with a solution of my own.   
 
@@ -103,6 +103,6 @@ Once I have a solution that works, LLMs can be useful in suggesting refactoring 
 
 ### Conclusion  
 
-AI is undoubtedly reshaping the world of software and whilst AI tools can enhance experienced developers' capabilities by automating repetitive tasks so they can focus on higher levels of complexity, they can also hinder the foundational programming skills in junior developers. At the start of a career in tech, mastering the basics should take precedence over short-term productivity gains.  
+AI is undoubtedly reshaping the world of software and whilst [AI tools can enhance experienced developers' capabilities](https://blog.scottlogic.com/2025/04/01/making-sense-of-the-ai-developer-tools-ecosystem.html) by automating repetitive tasks so they can focus on higher levels of complexity, they can also hinder the foundational programming skills in junior developers. At the start of a career in tech, mastering the basics should take precedence over short-term productivity gains.  
 
 Learning to use these tools is important to keep abreast of changes in the industry and so as developers, it is essential we learn to use AI in a way that does not hinder our human potential but instead enhances it; using AI as a support rather than a substitute.  
