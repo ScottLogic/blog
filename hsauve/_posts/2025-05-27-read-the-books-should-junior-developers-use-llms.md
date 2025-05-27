@@ -43,11 +43,11 @@ One day, Henry picks up a half-eaten book and starts reading it, which opens up 
 
 Skipping the books isn’t an option when it comes to coding. The learning curve can be tough when the brain adjusts to new ways of thinking, but this process is essential for integrating knowledge, and consistent practice helps reinforce it.  
 
-## AI can turn into a crutch  
+## LLMs can turn into a crutch  
 
 AI tools are incredibly impressive, and in my experience, they can also be addictive, the same way social media is. They offer instant results and gratification and are like a one-stop shop for all kinds of information.   
 
-But over reliance on chatbots to produce code can prevent the development of a deep understanding of a problem and its possible solutions. The same way chatbots rely on context to provide accurate responses, delegating problem-solving entirely limits the formation of an internal context or [mental model](https://blog.scottlogic.com/2023/08/11/mental-models-and-the-user-experience.html). And next time a similar issue arises, that *déjà-vu* feeling may not be there.  
+But over reliance on LLMs to produce code can prevent the development of a deep understanding of a problem and its possible solutions. The same way chatbots rely on context to provide accurate responses, delegating problem-solving entirely limits the formation of an internal context or [mental model](https://blog.scottlogic.com/2023/08/11/mental-models-and-the-user-experience.html). And next time a similar issue arises, that *déjà-vu* feeling may not be there.  
 
 Using AI to write code that you don’t really understand feels a bit like cheating, which in some situations can equate to a lack of ownership and accountability.   
 
@@ -104,5 +104,6 @@ Once I have a solution that works, LLMs can be useful in suggesting refactoring 
 ### Conclusion  
 
 AI is undoubtedly reshaping the world of software and whilst [AI tools can enhance experienced developers' capabilities](https://blog.scottlogic.com/2025/04/01/making-sense-of-the-ai-developer-tools-ecosystem.html) by automating repetitive tasks so they can focus on higher levels of complexity, they can also disrupt the foundational programming skills in junior developers. At the start of a career in tech, mastering the basics should take precedence over short-term productivity gains.  
+So should junior developers use LLMs? I think the answer is yes, for specific use cases and in certain ways, but not at the expense of learning the fundamentals.
+Learning to use these tools is important to keep abreast of changes in the industry and so as developers, it is essential we learn to use AI in a way that does not hinder our human potential but instead enhances it; using AI as a support rather than a substitute. 
 
-Learning to use these tools is important to keep abreast of changes in the industry and so as developers, it is essential we learn to use AI in a way that does not hinder our human potential but instead enhances it; using AI as a support rather than a substitute.  
