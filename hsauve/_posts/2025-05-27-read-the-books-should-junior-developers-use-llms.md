@@ -38,7 +38,7 @@ When using AI, the journey leading to a solution is often obscured and these neu
 This reminds me of the children’s book *The Incredible Book Eating Boy* by Oliver Jeffers, where the main character Henry, rather than reading books, actually eats them and in huge quantities to become the smartest person on earth. His knowledge expands so much that everything gets mixed up in his head, because it is said: ‘he didn’t have time to digest it properly’.   
 One day, Henry picks up a half-eaten book and starts reading it, which opens up a whole new world he hadn’t been able to see, and he realises that reading the books can still make him the smartest person on earth, just with a bit more time.  
 
-![My Image]({{ site.github.url }}/hsauve/assets/junior-devs-llms/book-eating-boy.jpg "Henry eating books")
+![My Image]({{ site.github.url }}/hsauve/assets/junior-devs-llms/book-eating-boy.png "Henry eating books")
 *Picture taken from the book 'The Incredible Book Eating Boy' by Oliver Jeffers*
 
 Skipping the books isn’t an option when it comes to coding. The learning curve can be tough when the brain adjusts to new ways of thinking, but this process is essential for integrating knowledge, and consistent practice helps reinforce it.  
