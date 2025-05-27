@@ -3,6 +3,7 @@ title: Read the books! Should junior developers use LLMs?
 date: 2025-05-27 00:00:00 Z
 categories:
   - Artificial Intelligence
+  - People
 tags: 
 - Artificial Intelligence
 summary: Large Language Models are powerful tools that can greatly enhance software developers' productivity, but for junior developers starting a career in tech, they may hinder long-term growth by abstracting away essential programming fundamentals.
@@ -17,7 +18,7 @@ In this blog, I explore the role of AI through the lens of someone just beginnin
 
 ## The appeal of AI 
 
-The world of software engineering is becoming increasingly competitive and with the tech sector experiencing slowdown in hiring, candidates must show even more acumen, flexibility and the ability to adapt and learn at a fast pace.   
+The world of software engineering is becoming increasingly competitive and with the tech sector experiencing a slowdown in hiring, candidates must show even more acumen, flexibility and the ability to adapt and learn at a fast pace.   
 
 The breakthrough of LLMs brought the prospect of an increase in efficiency and productivity in programming, questioning the very notion of [what it means to be productive as a developer](https://blog.scottlogic.com/2023/12/18/software-development-ai-wins-the-race.html), and bringing with it fears of job replacements.  
 
@@ -35,7 +36,9 @@ The first few months of learning to code are mentally exhausting, punctuated by 
 *Photo by [Conny Schneider](https://unsplash.com/@choys_) on [Unsplash](https://unsplash.com/photos/a-blue-abstract-background-with-lines-and-dots-pREq0ns_p_E)*
 
 When using AI, the journey leading to a solution is often obscured and these neural pathways aren’t developed in the same way.  
-This reminds me of the children’s book *The Incredible Book Eating Boy* by Oliver Jeffers, where the main character Henry, rather than reading books, actually eats them and in huge quantities to become the smartest person on earth. His knowledge expands so much that everything gets mixed up in his head, because it is said: ‘he didn’t have time to digest it properly’.   
+
+This reminds me of the children’s book *The Incredible Book Eating Boy* by Oliver Jeffers, where the main character Henry, rather than reading books, actually eats them and in huge quantities to become the smartest person on earth. His knowledge expands so much that everything gets mixed up in his head, because it is said: "he didn’t have time to digest it properly".  
+
 One day, Henry picks up a half-eaten book and starts reading it, which opens up a whole new world he hadn’t been able to see, and he realises that reading the books can still make him the smartest person on earth, just with a bit more time.  
 
 ![My Image]({{ site.github.url }}/hsauve/assets/junior-devs-llms/book-eating-boy.png "Henry eating books")
@@ -47,11 +50,11 @@ Skipping the books isn’t an option when it comes to coding. The learning curve
 
 AI tools are incredibly impressive, and in my experience, they can also be addictive, the same way social media is. They offer instant results and gratification and are like a one-stop shop for all kinds of information.   
 
-But over reliance on LLMs to produce code can prevent the development of a deep understanding of a problem and its possible solutions. The same way chatbots rely on context to provide accurate responses, delegating problem-solving entirely limits the formation of an internal context or [mental model](https://blog.scottlogic.com/2023/08/11/mental-models-and-the-user-experience.html). And next time a similar issue arises, that *déjà-vu* feeling may not be there.  
+But overreliance on LLMs to produce code can prevent the development of a deep understanding of a problem and its possible solutions. The same way chatbots rely on context to provide accurate responses, delegating problem-solving entirely limits the formation of an internal context or [mental model](https://blog.scottlogic.com/2023/08/11/mental-models-and-the-user-experience.html). And next time a similar issue arises, that *déjà-vu* feeling may not be there.  
 
 Using AI to write code that you don’t really understand feels a bit like cheating, which in some situations can equate to a lack of ownership and accountability.   
 
-It’s a bit like paying a private tutor at uni to write your essay. Yes you’ve had an amazing grade, but if you were asked about it, would you be able to explain the ideas?   
+It’s a bit like paying a private tutor at university to write your essay. Yes you’ve had an amazing grade, but if you were asked about it, would you be able to explain the ideas?   
 
 It also means that without these tools, independent problem-solving can be difficult. And when the moment comes for a coding challenge or a technical interview, your artificial colleague is not here to help.  
 
@@ -59,13 +62,13 @@ I was recently working on a client project that uses [Angular](https://angular.d
 
 ChatGPT recommended I use a [computed signal](https://angular.dev/guide/signals), it even wrote it for me and all I had to do was pop it into my code. Just like that I had a fix and my code was working. However, at the time I only vaguely understood the concept of signals, I knew of them and roughly how they worked but I hadn’t properly experimented with them and they didn’t feel familiar. Like when you have a flat tyre and know all the steps to fix it, where your kit and spare wheel are in the boot, but until you do it yourself, your understanding of it is conceptual.  
 
-By using an LLM for a concept I didn’t fully grasp only delayed the process of integrating the knowledge. When a similar problem came up a few days later, I read the documentation, looked up examples in the code base and came up with a solution of my own.   
+By using an LLM for a concept I didn’t fully grasp, I only delayed the process of integrating the knowledge. When a similar problem came up a few days later, I read the documentation, looked up examples in the code base and came up with a solution of my own.   
 
 There are many reasons why taking the time to get familiar with programming fundamentals is essential.  
 
 ### Searching for information 
 
-An important skill to hone as a developer is the ability to look for the information needed. At times, it may feel like searching for a needle in a haystack on Stackoverflow, sifting through people’s comments, the conversations they generate, why one solution was upvoted and not another.  
+An important skill to hone as a developer is the ability to look for the information needed. At times, it may feel like searching for a needle in a haystack on Stack Overflow, sifting through people’s comments, the conversations they generate, why one solution was upvoted and not another.  
 
 You’ll get to know the websites you can trust, the YouTube channels to follow, you go through tutorials and documentation galore.  
 
@@ -89,7 +92,7 @@ By replacing the passing of knowledge with AI, we run the risk of limiting ourse
 
 With more experience in software now but still at a junior level, and with a better understanding of how to effectively prompt an LLM in a way that serves me, I’ve developed new usages for AI in my day-to-day job, namely:   
 
-- A fast Google search for which I could easily find the answer to, given more time such as: 
+- A fast Google search for something I could easily find the answer to, given more time such as: 
 
 `What is the syntax in Tailwind for triggering a scroll bar only when the text content exceeds the height of its container?`  
 
@@ -99,7 +102,7 @@ Detailing my thought process, the potential solutions I envisage, the pitfalls I
 
 - A refactoring assistant  
 
-Once I have a solution that works, LLMs can be useful in suggesting refactoring ideas, when prompted correctly with the purpose of the refactoring i.e. verbosity, performance etc. 
+Once I have a solution that works, LLMs can be useful in suggesting refactoring ideas, when prompted correctly with the purpose of the refactoring i.e. verbosity, performance, etc. 
 
 ### Conclusion  
 
