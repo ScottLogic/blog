@@ -2,13 +2,16 @@
 title: Read the books! Should junior developers use LLMs?
 date: 2025-05-27 00:00:00 Z
 categories:
-  - Artificial Intelligence
-  - People
-tags: 
+- hsauve
 - Artificial Intelligence
-summary: Large Language Models are powerful tools that can greatly enhance software developers' productivity, but for junior developers starting a career in tech, they may hinder long-term growth by abstracting away essential programming fundamentals.
+- People
+tags:
+- Artificial Intelligence
+summary: Large Language Models are powerful tools that can greatly enhance software
+  developers' productivity, but for junior developers starting a career in tech, they
+  may hinder long-term growth by abstracting away essential programming fundamentals.
 author: hsauve
----  
+---
 
 I started my career in software development as a graduate just a few months after the first demo of ChatGPT had been released. With limited experience and exposure to code, and with a non-coding related background, I felt I needed all the help I could get so at the time Large Language Models (LLMs) seemed like an appealing solution to help me get to grips with programming.   
 
