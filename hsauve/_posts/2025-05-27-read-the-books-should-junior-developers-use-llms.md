@@ -106,7 +106,9 @@ Once I have a solution that works, LLMs can be useful in suggesting refactoring 
 
 ### Conclusion  
 
-AI is undoubtedly reshaping the world of software and whilst [AI tools can enhance experienced developers' capabilities](https://blog.scottlogic.com/2025/04/01/making-sense-of-the-ai-developer-tools-ecosystem.html) by automating repetitive tasks so they can focus on higher levels of complexity, they can also disrupt the foundational programming skills in junior developers. At the start of a career in tech, mastering the basics should take precedence over short-term productivity gains.  
+AI is undoubtedly reshaping the world of software and whilst [AI tools can enhance experienced developers' capabilities](https://blog.scottlogic.com/2025/04/01/making-sense-of-the-ai-developer-tools-ecosystem.html) by automating repetitive tasks so they can focus on higher levels of complexity, they can also disrupt the foundational programming skills in junior developers. At the start of a career in tech, mastering the basics should take precedence over short-term productivity gains. 
+ 
 So should junior developers use LLMs? I think the answer is yes, for specific use cases and in certain ways, but not at the expense of learning the fundamentals.
+
 Learning to use these tools is important to keep abreast of changes in the industry and so as developers, it is essential we learn to use AI in a way that does not hinder our human potential but instead enhances it; using AI as a support rather than a substitute. 
 
