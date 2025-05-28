@@ -1,6 +1,6 @@
 ---
 title: Advice on transitioning from a legacy API
-date: 2025-05-28 11:11:00 Z
+date: 2025-05-28 09:11:00 Z
 categories:
 - Tech
 tags:
