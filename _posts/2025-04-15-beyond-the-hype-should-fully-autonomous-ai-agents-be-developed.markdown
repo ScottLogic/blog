@@ -37,7 +37,7 @@ With real-world examples and expert perspectives, the panel provides a nuanced v
 
 Have a listen to gain a deeper understanding of the evolving landscape of agentic AI and its potential impact on various sectors.
 
-**Useful links for this episode**
+## Useful links for this episode
 
 * [InferLLM on GitHub](https://github.com/ScottLogic/InferLLM) – Open-sourced by Scott Logic
 
@@ -55,7 +55,7 @@ Have a listen to gain a deeper understanding of the evolving landscape of agenti
 
 * [Draft classification for different types of Enterprise AI deployment](https://www.linkedin.com/posts/cronky_enterprisearchitecture-aiarchitecture-activity-7303373761288830976-4Jdg?utm_source=share&utm_medium=member_desktop&rcm=ACoAAATHaVAB2Pgbrq52agNisX3ATDPHhuxH230) – Oliver Cronk, Scott Logic
 
-**Subscribe to the podcast**
+## Subscribe to the podcast
 
 * [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
 

@@ -25,6 +25,8 @@ This is the second post in a series exploring types and type systems.   Other po
 
 - [Higher-Kinded Types with Java and Scala]({{site.baseurl}}/2025/04/11/higher-kinded-types-with-java-and-scala.html)
 
+- [Recursion, Thunks and Trampolines with Java and Scala]({{site.baseurl}}/2025/04/11/recursion-thunks-trampolines-with-java-and-scala.html)
+
 ## Variance in Generics
 
 Generics are a fundamental pillar of modern type-safe programming languages. They allow us to write reusable code that can work with different types without sacrificing type safety. But when you dive deeper into the world of generics, you encounter the intriguing concepts of *covariance* and *contravariance*. These concepts, often perceived as complex, are crucial for understanding how type hierarchies and subtyping interact with generic types.

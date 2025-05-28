@@ -3,7 +3,7 @@ title: Announcing the (proposed) Technology Carbon Standard
 date: 2024-02-13 10:06:00 Z
 categories:
 - Sustainability
-- Architecture
+- Tech
 tags:
 - Sustainability
 - Architecture

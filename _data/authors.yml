@@ -30,6 +30,7 @@ active-authors:
   - csalt
   - cstephen
   - cwilton
+  - dalucas
   - dgrew
   - dhinrichs
   - dhope
@@ -48,6 +49,7 @@ active-authors:
   - fvlachos
   - garora
   - gkendall
+  - glewis-scottlogic
   - godds
   - gsingh
   - gsmith
@@ -345,6 +347,10 @@ authors:
     name: "Chris Wilton-Magras"
     author-summary: "<p>Opinionated lead developer, munro bagger, beer brewer, cat lover, occasional fool.</p>"
     picture: me.jpg
+  dalucas:
+    name: "Daniel Lucas"
+    author-summary: "I am a Senior Fullstack Developer based in our Bristol office. I am passionate about empowering people, fostering continuous learning and shaping working practices that drive real value for organizations."
+    picture: picture.jpg
   dcook:
     feed-description: "Dan Cook's thoughts on all things Big Data."
     google-plus-url: "https://plus.google.com/102307699647083644941"
@@ -373,12 +379,9 @@ authors:
     name: "Dominic Ketley"
     picture: picture.jpg
   dmcnamee:
-    author-summary: "Tester. Photographer."
-    feed-description: "Daniel is a senior test engineer and exponent of rapid software testing."
-    google-plus-url: "https://www.google.com/+DanielMcNamee"
+    author-summary: "Technologist, optimist, generalist. Occasional authorist."
+    feed-description: "Daniel is a Principal Consultant and exponent of rapid software testing."
     name: "Daniel McNamee"
-    twitter-url: "https://twitter.com/demcnamee"
-    twitter-handle: demcnamee
     picture: picture.jpg
   dmiley:
     name: "Drew Miley"
@@ -395,11 +398,9 @@ authors:
     picture: picture.jpg
     author-summary: "<p>Hello, I'm a Solutions Architect and Sustainable Technology lead, based in Scott Logic, Bristol.</p>"
   dsmith:
-    author-summary: "<p>I'm a Senior Developer at Scott Logic, based in Newcastle.</p>"
+    author-summary: "<p>I'm a Lead Developer at Scott Logic, based in Newcastle.</p>"
     name: "Darren Smith"
-    twitter-url: "https://twitter.com/darrenpsmithweb"
-    twitter-handle: darrenpsmithweb
-    picture: picture.jpg
+    picture: dsmith.jpg
   dscarborough:
     name: "Dan Scarborough"
     author-summary: "<p>I am a Developer at Scott Logic.</p>"
@@ -443,6 +444,10 @@ authors:
   gkendall:
     name: "Guillaume Kendall"
     author-summary: "<p>Key Account Advisor here at Scott Logic. I have a passion for all things related to innovation and disruption. I’m an early adopter of tech and in my spare time, I enjoy cycling, gardening and watching rugby!</p>"
+    picture: picture.jpg
+  glewis-scottlogic:
+    name: "Greg Lewis"
+    author-summary: "<p>I'm a developer at Scott Logic, Bristol. I'm interested in everything backend-related, and have a background in Data Engineering."
     picture: picture.jpg
   godds:
     author-summary: "<p>I'm a technologist who delights in pushing at the boundaries of what is possible. As Chief Strategy Officer at Scott Logic, I worry about where we and the world we operate in are heading longer term. I'm often heard talking about social value and environmental impact, or getting nerdy about data visualisation.</p>"
@@ -489,7 +494,7 @@ authors:
     twitter-handle: HannahPretswell
     picture: picture.jpg
   hsauve:
-    author-summary: "I'm an Associate Developer at Scott Logic based in the Bristol office. My background is in Languages and Marketing."
+    author-summary: "I'm a Software Developer at Scott Logic based in the Bristol office. My background is in Languages and Marketing."
     feed-description:
     name: "Hélène Sauvé"
     picture: helene-sauve-picture.jpg
