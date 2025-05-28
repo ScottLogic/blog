@@ -1,6 +1,6 @@
 ---
 title: Advice on transitioning from a legacy API
-date: 2025-05-23 11:11:00 Z
+date: 2025-05-28 11:11:00 Z
 categories:
 - Tech
 tags:
@@ -17,7 +17,7 @@ summary: We have been helping a client migrate their trading platform to a new v
   of a third-party API, and the migration is more interesting than usual for a few
   reasons. Given those aspects of the project, we thought that it might be useful
   if we shared some insights from our experience.
-author: glewis
+author: glewis-scottlogic
 ---
 
 We have been helping a client migrate their trading platform to a new version of a third-party API, and the migration is more interesting than usual for a few reasons. We’re working in a context where the specification is not fixed, but the deadline is – there will be a ‘big bang’ switchover, but significant changes are still being made to the external API close to the go-live date. In addition, the new version of the external API combines important functional changes with modernisation and a shift to a new protocol. Given those aspects of the project, we thought that it might be useful if we shared some insights from our experience.
