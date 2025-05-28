@@ -1,5 +1,5 @@
 ---
-title: 'Bridging the AI Valley of Doubt'
+title: Bridging the AI Valley of Doubt
 date: 2025-05-23 00:00:00 Z
 categories:
 - Artificial Intelligence
@@ -9,7 +9,11 @@ tags:
 - Innovation
 - Environmental
 - Responsible Tech
-summary: Despite the UK being the world's third-largest AI industry, only 1 in 6 UK firms are actively using AI due to financial, skills, and risk concerns, but businesses can bridge this "valley of doubt" by adopting measured "AI in the loop" approaches with human oversight, right-sized models, and government frameworks like Bridge AI to minimise business, societal, and environmental risks.
+summary: Despite the UK being the world's third-largest AI industry, only 1 in 6 UK
+  firms are actively using AI due to financial, skills, and risk concerns, but businesses
+  can bridge this "valley of doubt" by adopting measured "AI in the loop" approaches
+  with human oversight, right-sized models, and government frameworks like Bridge
+  AI to minimise business, societal, and environmental risks.
 author: drees
 ---
 
