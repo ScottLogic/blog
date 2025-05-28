@@ -3,10 +3,11 @@ title: What Every Consultant Should Reflect on Between Engagements
 date: 2025-05-23 00:00:00 Z
 categories:
 - People
-author: dalucas
 summary: The bench is a key part of the project-based nature of consulting and managing
   time on bench effectively is a key skill for consultants. Here are some things every
   consultant should reflect on between engagements.
+author: dalucas
+image: "/uploads/What%20every%20consultant%20should%20reflect%20on.png"
 ---
 
 In between engagements consultants may find themselves on the bench. Time on the bench offers time to support the business internally and to polish skills for increased value on future client engagements. It’s a time to improve, refocus and reflect. Using bench time effectively is one of the core skills for consultants.

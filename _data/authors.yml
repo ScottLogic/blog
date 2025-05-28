@@ -49,6 +49,7 @@ active-authors:
   - fvlachos
   - garora
   - gkendall
+  - glewis-scottlogic
   - godds
   - gsingh
   - gsmith
@@ -378,12 +379,9 @@ authors:
     name: "Dominic Ketley"
     picture: picture.jpg
   dmcnamee:
-    author-summary: "Tester. Photographer."
-    feed-description: "Daniel is a senior test engineer and exponent of rapid software testing."
-    google-plus-url: "https://www.google.com/+DanielMcNamee"
+    author-summary: "Technologist, optimist, generalist. Occasional authorist."
+    feed-description: "Daniel is a Principal Consultant and exponent of rapid software testing."
     name: "Daniel McNamee"
-    twitter-url: "https://twitter.com/demcnamee"
-    twitter-handle: demcnamee
     picture: picture.jpg
   dmiley:
     name: "Drew Miley"
@@ -447,6 +445,10 @@ authors:
     name: "Guillaume Kendall"
     author-summary: "<p>Key Account Advisor here at Scott Logic. I have a passion for all things related to innovation and disruption. I’m an early adopter of tech and in my spare time, I enjoy cycling, gardening and watching rugby!</p>"
     picture: picture.jpg
+  glewis-scottlogic:
+    name: "Greg Lewis"
+    author-summary: "<p>I'm a developer at Scott Logic, Bristol. I'm interested in everything backend-related, and have a background in Data Engineering."
+    picture: picture.jpg
   godds:
     author-summary: "<p>I'm a technologist who delights in pushing at the boundaries of what is possible. As Chief Strategy Officer at Scott Logic, I worry about where we and the world we operate in are heading longer term. I'm often heard talking about social value and environmental impact, or getting nerdy about data visualisation.</p>"
     feed-description: "Graham Odds' thoughts about design, technology and data visualisation."
@@ -492,7 +494,7 @@ authors:
     twitter-handle: HannahPretswell
     picture: picture.jpg
   hsauve:
-    author-summary: "I'm an Associate Developer at Scott Logic based in the Bristol office. My background is in Languages and Marketing."
+    author-summary: "I'm a Software Developer at Scott Logic based in the Bristol office. My background is in Languages and Marketing."
     feed-description:
     name: "Hélène Sauvé"
     picture: helene-sauve-picture.jpg
