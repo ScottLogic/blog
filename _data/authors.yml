@@ -49,6 +49,7 @@ active-authors:
   - fvlachos
   - garora
   - gkendall
+  - glewis-scottlogic
   - godds
   - gsingh
   - gsmith
@@ -443,6 +444,10 @@ authors:
   gkendall:
     name: "Guillaume Kendall"
     author-summary: "<p>Key Account Advisor here at Scott Logic. I have a passion for all things related to innovation and disruption. I’m an early adopter of tech and in my spare time, I enjoy cycling, gardening and watching rugby!</p>"
+    picture: picture.jpg
+  glewis-scottlogic:
+    name: "Greg Lewis"
+    author-summary: "<p>I'm a developer at Scott Logic, Bristol. I'm interested in everything backend-related, and have a background in Data Engineering."
     picture: picture.jpg
   godds:
     author-summary: "<p>I'm a technologist who delights in pushing at the boundaries of what is possible. As Chief Strategy Officer at Scott Logic, I worry about where we and the world we operate in are heading longer term. I'm often heard talking about social value and environmental impact, or getting nerdy about data visualisation.</p>"
