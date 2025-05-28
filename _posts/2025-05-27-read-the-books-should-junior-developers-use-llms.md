@@ -2,7 +2,6 @@
 title: Read the books! Should junior developers use LLMs?
 date: 2025-05-27 00:00:00 Z
 categories:
-- hsauve
 - Artificial Intelligence
 - People
 tags:
