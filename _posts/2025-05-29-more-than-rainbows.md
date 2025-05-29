@@ -1,6 +1,6 @@
 ---
 title: More than drawing rainbows
-date: 2025-05-28 00:00:00 Z
+date: 2025-05-29 00:00:00 Z
 categories:
 - Delivery
 tags:
@@ -27,4 +27,4 @@ Successful public-private collaboration depends on clear governance, effective k
 
 When done well, collaboration between public organisations and technology partners can accelerate progress and unlock new capabilities. External support can help public teams stay focused on core service delivery, while drawing in fresh thinking and technical depth where needed. The goal is not replacement, but reinforcement: enabling public services to better serve citizens by combining their contextual understanding with targeted external expertise.
 
-Ultimately, we all share a common goal: creating thriving, sustainable communities where people can live, work, and flourish. The public sector is here to serve us and supporting it by merely sticking drawing of rainows on the windows isn't enough. By combining the public sector’s deep understanding of community needs with the experience, skills, and strategic insights of technology partners, we can achieve far more together than either could alone. The challenges are real, but so are the opportunities — and collaboration is key to unlocking them.
+Ultimately, we all share a common goal: creating thriving, sustainable communities where people can live, work, and flourish. The public sector is here to serve us and supporting it by merely sticking drawing of rainbows on the windows isn't enough. By combining the public sector’s deep understanding of community needs with the experience, skills, and strategic insights of technology partners, we can achieve far more together than either could alone. The challenges are real, but so are the opportunities — and collaboration is key to unlocking them.
