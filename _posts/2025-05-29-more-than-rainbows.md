@@ -7,8 +7,14 @@ tags:
 - public sector
 author: osharon
 layout: default_post
-summary: The public sector faces growing challenges — tight budgets, rapid tech change, rising expectations, and staff shortages — often leading to decision paralysis or rushed mistakes. Many agencies found a solution by partnering with private consultancies to provide agile and robust solutions. True success relies on combining public sector knowledge with private sector expertise, showing that collaboration is key to stronger, more resilient communities.
+summary: The public sector faces growing challenges — tight budgets, rapid tech change,
+  rising expectations, and staff shortages — often leading to decision paralysis or
+  rushed mistakes. Many agencies found a solution by partnering with private consultancies
+  to provide agile and robust solutions. True success relies on combining public sector
+  knowledge with private sector expertise, showing that collaboration is key to stronger,
+  more resilient communities.
 ---
+
 As ever, the public sector faces many challenges: tightening budgets, rapidly changing technologies, growing public expectations, and the urgent need to deliver services faster and more efficiently. Balancing these demands often leads to projects being blocked either by “decision paralysis”, often due to insufficient information — or, conversely, failing miserably due to rushed, uninformed decisions.
 
 ## A No-Win Situation
