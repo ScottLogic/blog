@@ -102,7 +102,7 @@ This approach seems to be gaining popularity as organisations explore ways to le
 
 ## **"Mainstream" – API-Based Architectural Integration**
 
-This has typically been what most organisations have been doing for enterprise AI applications. Using a perceived safe brand (like OpenAI or Microsoft) for API access to a LLM that can be embedded within an enterprise use case (which itself is probably also hosted on a public cloud provider. So it’s structured approaches to integrating AI via APIs:
+This has typically been what most organisations have been doing for enterprise AI applications. Using a perceived safe brand (like OpenAI or Microsoft) for API access to a LLM that can be embedded within an enterprise use case (which itself is probably also hosted on a public cloud provider). So it’s structured approaches to integrating AI via APIs:
 
 * Also referred to as the "Embed" approach identified by Gartner – integrating GenAI APIs into custom application frameworks
 
