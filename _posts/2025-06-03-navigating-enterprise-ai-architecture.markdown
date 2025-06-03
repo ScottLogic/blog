@@ -17,7 +17,7 @@ summary: An observed Enterprise AI Architecture Spectrum. Analysis of enterprise
 author: ocronk
 ---
 
-TL;DR:
+**TL;DR:**
 From our experiences and chats with clients on deploying AI we see some distinct patterns emerging. One of those conversations was on [Beyond the Hype: Is architecture for AI even necessary?](https://blog.scottlogic.com/2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html) With Russell who Heads up AI at Atom Bank – he even coined the term “Artisan AI” on that podcast which has been carried forward into our framework:
 
 ![AI-Types-v2.JPG](/uploads/AI-Types-v2.JPG)
@@ -26,7 +26,7 @@ From our experiences and chats with clients on deploying AI we see some distinct
 
 **Finding an appropriate approach to AI**
 
-Naturally before going into this we need to acknowledge that AI is not appropriate for every situation. Much like any new emerging technology there are many risks and considerations ([as I touched on in my piece from 2023](https://blog.scottlogic.com/2023/05/04/generative-ai-solution-architecture.html)). I think this is partly why many organisations are seeing challenges with success and ROI from GenAI projects at the moment. It’s being used in a blanket fashion as many are chasing hype rather than genuine value. Anyway assuming you have concluded that Generative AI is appropriate and there is sufficient tangible value a crucial question emerges for enterprise architects: how might we responsibly implement AI while balancing innovation with governance?
+Naturally before going into this we need to acknowledge that (Generative) AI is not appropriate for every situation. Much like any new emerging technology there are many risks and considerations ([as I touched on in my piece from 2023](https://blog.scottlogic.com/2023/05/04/generative-ai-solution-architecture.html)). I think this is partly why many organisations are seeing challenges with success and ROI from GenAI projects at the moment. It’s being used in a blanket fashion as many are chasing hype rather than genuine value. Anyway assuming you have concluded that Generative AI is appropriate and there is sufficient tangible value a crucial question emerges for enterprise architects: how might we responsibly implement AI while balancing innovation with governance?
 
 So as I said at the start we can perhaps identify what looks like a spectrum of architectural approaches for enterprise AI deployment. This ranges from informal augmentation or "vibing" through to highly regulated, mission-critical deployments. Each approach appears to offer distinct trade-offs in terms of speed, control, risk and value.
 
