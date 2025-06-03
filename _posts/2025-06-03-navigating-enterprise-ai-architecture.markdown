@@ -11,9 +11,9 @@ tags:
 - architecture
 - Artificial Intelligence
 - ocronk
-summary: |-
-  Enterprise AI Architecture Spectrum: A Practical Framework
-  Analysis of enterprise AI deployment patterns reveals distinct architectural approaches, each with specific trade-offs in terms of control, speed, and risk management.
+summary: An observed Enterprise AI Architecture Spectrum. Analysis of enterprise AI
+  deployment patterns reveals distinct architectural approaches, each with specific
+  trade-offs in terms of control, speed, and risk management.
 author: ocronk
 ---
 
