@@ -17,13 +17,12 @@ summary: An observed Enterprise AI Architecture Spectrum. Analysis of enterprise
 author: ocronk
 ---
 
-**TL;DR:**
-
+TL;DR:
 From our experiences and chats with clients on deploying AI we see some distinct patterns emerging. One of those conversations was on [Beyond the Hype: Is architecture for AI even necessary?](https://blog.scottlogic.com/2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html) With Russell who Heads up AI at Atom Bank – he even coined the term “Artisan AI” on that podcast which has been carried forward into our framework:
 
 ![AI-Types-v2.JPG](/uploads/AI-Types-v2.JPG)
 
-*Please note this is **not** a maturity matrix! Multiple approaches can apply simultaneously – as different patterns work better for different workloads / challenges. Keep reading for more details.*
+*Please [note this](/uploads/AI-Types-v2.JPG) is **not** a maturity matrix! Multiple approaches can apply simultaneously – as different patterns work better for different workloads / challenges. Keep reading for more details.*
 
 **Finding an appropriate approach to AI**
 
@@ -57,7 +56,7 @@ This approach could enable exploration and innovation, but might present thorny 
 
 These are often proof of concepts and pilots in highly regulated business or limited production testing in less regulated consumer use. The objective is to understand the art of the possible and feasibility check new approaches and technologies.
 
-Experimentation generally goes beyond augmentation – typically with more bleeding edge models or frameworks including (at the time of writing!) **agentic & reasoning models **or novel architectures such as [KnowPath](https://arxiv.org/abs/2502.12029).
+Experimentation generally goes beyond augmentation – typically with more bleeding edge models or frameworks including (at the time of writing!) \*\*agentic & reasoning models \*\*or novel architectures such as [KnowPath](https://arxiv.org/abs/2502.12029).
 
 With the right approach to architecture (think more thought through than throwaway vibe coding!) they can move towards artisanal or mainstream approaches that are discussed later on.
 
@@ -83,7 +82,7 @@ Whilst others might be “vibe coding” you can think of Artisan as the opposit
 
 * Can involve extended and customised AI solutions through integration with domain-specific data almost certainly combined with RAG and/or GraphRAG / KnowPath type approaches
 
-This approach offers the structured governance of mainstream implementations while maintaining full ownership of the majority of the technology stack, with the ability to eliminate dependency on external API providers and, for very sensitive workloads, run offline and air-gapped. The higher level of control makes this approach particularly suitable for regulated industries or sensitive applications. See the previous [paper on de-risking AI for more details on architecture for highly regulated applications](https://www.scottlogic.com/insights/white-paper-derisk-gen-ai). 
+This approach offers the structured governance of mainstream implementations while maintaining full ownership of the majority of the technology stack, with the ability to eliminate dependency on external API providers and, for very sensitive workloads, run offline and air-gapped. The higher level of control makes this approach particularly suitable for regulated industries or sensitive applications. See the previous [paper on de-risking AI for more details on architecture for highly regulated applications](https://www.scottlogic.com/insights/white-paper-derisk-gen-ai).
 
 It mitigates data privacy concerns by ensuring sensitive data never leaves organisational boundaries, while providing the flexibility to deploy and manage multiple models based on specific use case requirements. In fact, anyone that cares enough about their intellectual property being incorporated into future AI products would be wise to consider this approach. Remember this isn’t just about training data, people are underestimating the value of prompts as the next layer of future training data or prompt engineering for creating higher value vertical-specific AI products. After all if you own the architecture housing the AI, you own all of that valuable data. Not enough thought is being given to the value of the data given away at inference – it potentially reveals valuable thought patterns, brand value or processes. Whilst assurances are being made that prompts aren’t being used it is somewhat hard to fully trust the AI providers. Many of them have had a somewhat grey zone approach to IP for the training phase and they are increasingly under pressure to monetize their expensive operations. They could probably find a loophole like using meta data or higher level patterns of usage rather than individual prompts (after all we are already seeing analysis of what people are using LLMs for i.e. [https://www.anthropic.com/news/the-anthropic-economic-index](https://www.anthropic.com/news/the-anthropic-economic-index)). What will the AI model companies do in the pursuit of profit and/or future product dominance?
 
