@@ -1,5 +1,5 @@
 ---
-title: Enterprise AI Architecture Deployment Styles
+title: Enterprise AI Architecture Deployment Patterns
 date: 2025-06-03 10:48:00 Z
 categories:
 - Artificial Intelligence
