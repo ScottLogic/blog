@@ -18,6 +18,7 @@ summary: In this episode, I dive into the world of Event-Driven Architecture (ED
   explores whether EDA has matured beyond the hype into a practical strategy for modern
   systems integration, or if it’s just another architectural buzzword.
 author: ocronk
+image: "/uploads/BeyondTheHype---pink-and-pink---episode-27---social.jpg"
 ---
 
 <iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/36467125/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes/font-color/252525" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border: none;"></iframe>
