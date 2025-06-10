@@ -20,11 +20,11 @@ image: "/uploads/Enterprise%20AI%20Architecture.png"
 ---
 
 **TL;DR:**
-From our experiences and chats with clients on deploying AI we see some distinct patterns emerging. One of those conversations was on [Beyond the Hype: Is architecture for AI even necessary?](https://blog.scottlogic.com/2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html) With Russell who Heads up AI at Atom Bank – he even coined the term “Artisan AI” on that podcast which has been carried forward into our framework:
+From our experiences and chats with clients on deploying AI, we see some distinct patterns emerging. One of those conversations was on [Beyond the Hype: Is architecture for AI even necessary?](https://blog.scottlogic.com/2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html) with Russell who heads up AI at Atom Bank – he even coined the term “Artisan AI” on that podcast which has been carried forward into our framework:
 
 ![AI-Types-v2.JPG](/uploads/AI-Types-v2.JPG)
 
-*Please [note this](/uploads/AI-Types-v2.JPG) is **not** a maturity matrix! Multiple approaches can apply simultaneously – as different patterns work better for different workloads / challenges. Keep reading for more details.*
+[View larger image](/uploads/AI-Types-v2.JPG) || *Please note, this is **not** a maturity matrix! Multiple approaches can apply simultaneously, as different patterns work better for different workloads/challenges. Keep reading for more details.*
 
 ## **Finding an appropriate approach to AI**
 
