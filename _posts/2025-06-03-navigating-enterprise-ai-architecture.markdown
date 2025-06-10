@@ -42,13 +42,13 @@ At what might be the most informal end of our spectrum lies what is termed "Augm
 
 Picture an analyst crafting prompts in ChatGPT or Claude.ai to help analyse survey data, or a developer using GitHub Copilot to accelerate coding tasks. These scenarios are characterised by some or all of:
 
-* Individual users leveraging AI independently, much like how Excel spreadsheets have been used
+* Individual users leveraging AI independently, much like how Excel spreadsheets have been used.
 
 * "Bring your own AI" situations where employees use personally selected or company-sanctioned AI tools. Individuals are taking it upon themselves to outsource or speed up their workflow through use of their own personal AI platforms – the risks that entails have been touched on in [our piece about de-risking generative AI](https://www.scottlogic.com/insights/white-paper-derisk-gen-ai).
 
-* Heavy reliance on individual expertise for effective prompting and output evaluation, with consequent inconsistency across team members (unless some cross-team management of prompts is happening)
+* Heavy reliance on individual expertise for effective prompting and output evaluation, with consequent inconsistency across team members (unless some cross-team management of prompts is happening).
 
-* Low barrier to entry but limited control over data privacy, IP leakage (unless open source AI is being used locally – via the likes of LM Studio or GPT4ALL), and output quality
+* Low barrier to entry but limited control over data privacy, IP leakage (unless open source AI is being used locally – via the likes of LM Studio or GPT4ALL), and output quality.
 
 * Risk of being charmed by overconfident assistants – something like Replit might build you what it claims is a fully working application, only to discover it has serious flaws or missing features it claims it built.
 
@@ -66,23 +66,23 @@ With the right approach to architecture (think more thought through than throwaw
 
 Whilst others might be “vibe coding”, you can think of Artisan as the opposite approach. Artisan is a far more human-engineered/controlled and enterprise-owned intentional strategy:
 
-* Similar in many respects to the "Mainstream" approach described later on but with models hosted within infrastructure the organisation controls
+* Similar in many respects to the "Mainstream" approach described later on but with models hosted within infrastructure the organisation controls.
 
-* Leverages open source models (like Llama, Mistral, or other models on model hubs like Hugging Face) deployed on enterprise-controlled infrastructure
+* Leverages open source models (like Llama, Mistral, or other models on model hubs like Hugging Face) deployed on enterprise-controlled infrastructure.
 
-* Often feature a "deterministic spine" (traditional programming logic) to control the AI-powered workflow to manage risk and ensure consistency of experience and outcome
+* Often feature a "deterministic spine" (traditional programming logic) to control the AI-powered workflow to manage risk and ensure consistency of experience and outcome.
 
-* Provides greater intellectual property protection and security control through self-hosting (or public cloud, although this arguably removes some of the benefits – so more likely managed co-location or private cloud)
+* Provides greater intellectual property protection and security control through self-hosting (or public cloud, although this arguably removes some of the benefits – so more likely managed co-location or private cloud).
 
-* So, looking at a range of on-device, on-premise, edge or private cloud hosted models for maximum control and flexibility. This distributed architecture can have environment, cost and go to market speed advantages too (if you are maxing use of existing assets in your ecosystem).
+* So, looking at a range of on-device, on-premise, edge or private cloud hosted models for maximum control and flexibility. This distributed architecture can have environment, cost and go-to-market speed advantages too (if you are maxing use of existing assets in your ecosystem).
 
-* Suitable for sensitive or highly regulated use cases where data sovereignty is paramount
+* Suitable for sensitive or highly regulated use cases where data sovereignty is paramount.
 
-* Enables fine-grained control over model selection, versioning and deployment within a managed enterprise "Model Zoo". This takes external models from [Model Gardens](https://cloud.google.com/model-garden) / [Hubs](https://huggingface.co/models) and where required \[in house\] data science teams building enterprise specific models
+* Enables fine-grained control over model selection, versioning and deployment within a managed enterprise "Model Zoo". This takes external models from [Model Gardens](https://cloud.google.com/model-garden)/[Hubs](https://huggingface.co/models) and where required (in-house) data science teams building enterprise-specific models.
 
-* May include custom foundation open source models fine-tuned to organisational data and business domains
+* May include custom foundation open source models fine-tuned to organisational data and business domains.
 
-* Can involve extended and customised AI solutions through integration with domain-specific data almost certainly combined with RAG and/or GraphRAG / KnowPath type approaches
+* Can involve extended and customised AI solutions through integration with domain-specific data almost certainly combined with RAG and/or GraphRAG/KnowPath-type approaches.
 
 This approach offers the structured governance of mainstream implementations while maintaining full ownership of the majority of the technology stack, with the ability to eliminate dependency on external API providers and, for very sensitive workloads, run offline and air-gapped. The higher level of control makes this approach particularly suitable for regulated industries or sensitive applications. See the previous [paper on de-risking AI for more details on architecture for highly regulated applications](https://www.scottlogic.com/insights/white-paper-derisk-gen-ai).
 
