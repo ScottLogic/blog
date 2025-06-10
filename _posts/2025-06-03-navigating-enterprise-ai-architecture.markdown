@@ -28,17 +28,17 @@ From our experiences and chats with clients on deploying AI, we see some distinc
 
 ## **Finding an appropriate approach to AI**
 
-Naturally before going into this we need to acknowledge that AI is not appropriate for every situation. Much like any new emerging technology there are many risks and considerations ([as I touched on in my piece from 2023](https://blog.scottlogic.com/2023/05/04/generative-ai-solution-architecture.html)). I think this is partly why many organisations are seeing challenges with success and ROI from GenAI projects at the moment. It’s being used in a blanket fashion as many are chasing hype rather than genuine value. Anyway assuming you have concluded that Generative AI is appropriate and there is sufficient tangible value a crucial question emerges for enterprise architects: how might we responsibly implement AI while balancing innovation with governance?
+Naturally, before going into this, we need to acknowledge that AI is not appropriate for every situation. Much like any new, emerging technology there are many risks and considerations ([as I touched on in my piece from 2023](https://blog.scottlogic.com/2023/05/04/generative-ai-solution-architecture.html)). I think this is partly why many organisations are facing challenges with success and ROI from GenAI projects at the moment. It’s being used in a blanket fashion, with many organisations chasing hype rather than genuine value. Anyway, assuming you have concluded that Generative AI is appropriate and there is sufficient tangible value, a crucial question emerges for enterprise architects: how might we responsibly implement AI while balancing innovation with governance?
 
-So as I said at the start we can perhaps identify what looks like a spectrum of architectural approaches for enterprise AI deployment. This ranges from informal augmentation or "vibing" through to highly regulated, mission-critical deployments. Each approach appears to offer distinct trade-offs in terms of speed, control, risk and value.
+So, as I said at the start, we can perhaps identify what looks like a spectrum of architectural approaches for enterprise AI deployment. This ranges from informal augmentation or "vibing" through to highly regulated, mission-critical deployments. Each approach appears to offer distinct trade-offs in terms of speed, control, risk and value.
 
-In this article I am going to be exploring this spectrum with the goal of helping you consider where your organisation is today and where it might best position itself. Depending on the scale of your organisation, it may be that multiple approaches are being taken simultaneously across different programmes and initiatives – different patterns work better for different workloads/challenges.
+In this article, I am going to be exploring this spectrum with the goal of helping you consider where your organisation is today and where it might best position itself. Depending on the scale of your organisation, it may be that multiple approaches are being taken simultaneously across different programmes and initiatives – different patterns work better for different workloads/challenges.
 
 ## The Spectrum of AI Architectural Approaches
 
 ### **"Augmentation" – Individual Ad-hoc Approaches aka “Vibing”**
 
-At what might be the most informal end of our spectrum lies what is termed "Augmentation" – the individual, ad-hoc use of off-the-shelf AI co-pilot type tools. In many cases, this is without much in the way of formal organisational oversight – in fact, this can often fall into the shadow AI or “bring your own AI” category.
+At what might be the most informal end of our spectrum lies what is termed "Augmentation" – the individual, ad-hoc use of off-the-shelf AI co-pilot type tools. In many cases, this is without much in the way of formal organisational oversight – in fact, this can often fall into the category of shadow AI or “bring your own AI”.
 
 Picture an analyst crafting prompts in ChatGPT or Claude.ai to help analyse survey data, or a developer using GitHub Copilot to accelerate coding tasks. These scenarios are characterised by some or all of:
 
@@ -46,7 +46,7 @@ Picture an analyst crafting prompts in ChatGPT or Claude.ai to help analyse surv
 
 * "Bring your own AI" situations where employees use personally selected or company-sanctioned AI tools. Individuals are taking it upon themselves to outsource or speed up their workflow through use of their own personal AI platforms – the risks that entails have been touched on in [our piece about de-risking generative AI](https://www.scottlogic.com/insights/white-paper-derisk-gen-ai).
 
-* Heavy reliance on individual expertise for effective prompting and output evaluation, with consequent inconsistency across team members (unless some cross team management of prompts is happening)
+* Heavy reliance on individual expertise for effective prompting and output evaluation, with consequent inconsistency across team members (unless some cross-team management of prompts is happening)
 
 * Low barrier to entry but limited control over data privacy, IP leakage (unless open source AI is being locally – via the likes of LM Studio or GPT4ALL) and output quality
 
