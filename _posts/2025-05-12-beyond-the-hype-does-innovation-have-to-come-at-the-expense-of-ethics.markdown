@@ -3,6 +3,8 @@ title: 'Beyond the Hype: Does innovation have to come at the expense of ethics?'
 date: 2025-05-12 08:13:00 Z
 categories:
 - Podcast
+- Tech
+- Delivery
 tags:
 - ethics
 - Sustainability
