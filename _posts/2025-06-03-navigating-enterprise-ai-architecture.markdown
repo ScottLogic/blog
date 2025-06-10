@@ -183,7 +183,7 @@ The key to success will partly lie in matching your architectural approach to bo
 
 Rather than a one-size-fits-all or overly burdensome governance approach, consider an AI architectural decision framework that guides teams toward the appropriate implementation pattern based on data sensitivity, regulatory requirements, performance needs, and business criticality.
 
-## Conclusion: Architecture and considered trade-off are vital
+## Conclusion: Architecture and considered trade-offs are vital
 
 AI is making architecture more critical. In recent years, most applications have been following increasingly standardised cloud deployment patterns, but AI is certainly shaking things up. It is a time to differentiate and innovate with architecture to manage the risks to your organisation, whilst allowing for a whole new wave of innovation.
 
