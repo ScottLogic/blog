@@ -4,6 +4,7 @@ title: 'Beyond the Hype: Event-Driven Architecture – The only data integration
 date: 2025-06-10 07:01:00 Z
 categories:
 - Podcast
+- Data Engineering
 tags:
 - data engineering
 - data architecture
