@@ -3,6 +3,8 @@ title: 'Beyond the Hype: Is architecture for AI even necessary?'
 date: 2025-03-13 09:53:00 Z
 categories:
 - Podcast
+- Artificial Intelligence
+- Tech
 tags:
 - AI
 - architecture
