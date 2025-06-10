@@ -92,33 +92,35 @@ Remember this isn’t just about training data; people are underestimating the v
 
 ### **Augmented SaaS – AI Add-ons and Enhancements**
 
-The next stage in our spectrum (the axis has been going individual use towards mass use – and arguably this category could be more widely used than mainstream depending on your organisation) involves the integration of AI capabilities into existing enterprise software:
+The next stage in our spectrum (the axis has been going from individual use towards mass use – and arguably this category could be more widely used than mainstream, depending on your organisation) involves the integration of AI capabilities into existing enterprise software:
 
-* Existing enterprise SaaS platforms (Productivity, CRM, ERP, low-code tools) incorporating AI features
+* Existing enterprise SaaS platforms (Productivity, CRM, ERP, low-code tools) incorporating AI features.
 
-* Team-level and enterprise-wide usage rather than purely individual adoption
+* Team-level and enterprise-wide usage rather than purely individual adoption.
 
-* What Gartner might call the "Consume" approach – using GenAI embedded in applications
+* What Gartner might call the "Consume" approach – using GenAI embedded in applications.
 
-* Potential privacy concerns about enterprise data usage with somewhat opaque AI functionality
+* Potential privacy concerns about enterprise data usage with somewhat opaque AI functionality.
 
-This approach seems to be gaining popularity as organisations explore ways to leverage AI capabilities without significant architectural changes to existing systems. The governance challenge here might involve managing the consistent and appropriate use of these embedded capabilities across the enterprise. There are also challenges as vendors decide to implement AI behind the scenes on existing SaaS applications without considering what that does to customer risk profiles or appetite to adopt platform AI. This was something that Russell raised on the Beyond the Hype episode I mentioned earlier - [Beyond the Hype: Is architecture for AI even necessary?](https://blog.scottlogic.com/2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html)
+This approach seems to be gaining popularity as organisations explore ways to leverage AI capabilities without significant architectural changes to existing systems. The governance challenge here might involve managing the consistent and appropriate use of these embedded capabilities across the enterprise. 
+
+There are also challenges as vendors decide to implement AI behind the scenes on existing SaaS applications without considering what that does to customer risk profiles or appetite to adopt platform AI. This was something that Russell raised on the Beyond the Hype episode I mentioned earlier – [Beyond the Hype: Is architecture for AI even necessary?](https://blog.scottlogic.com/2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html)
 
 ### **"Mainstream" – API-Based Architectural Integration**
 
-This has typically been what most organisations have been doing for enterprise AI applications. Using a perceived safe brand (like OpenAI or Microsoft) for API access to a LLM that can be embedded within an enterprise use case (which itself is probably also hosted on a public cloud provider). So it’s structured approaches to integrating AI via APIs:
+This has typically been what most organisations have been doing for enterprise AI applications. Using a perceived safe brand (like OpenAI or Microsoft) for API access to an LLM that can be embedded within an enterprise use case (which itself is probably also hosted on a public cloud provider). So, this pattern is about structured approaches to integrating AI via APIs:
 
-* Also referred to as the "Embed" approach identified by Gartner – integrating GenAI APIs into custom application frameworks
+* Also referred to as the "Embed" approach identified by Gartner – integrating GenAI APIs into custom application frameworks.
 
-* Enterprise-grade internal- and external-facing processes powered by a mix of LLM controlled and deterministic workflows (lower risk traditionally programming logic) with specific AI usage
+* Enterprise-grade internal- and external-facing processes powered by a mix of LLM-controlled and deterministic workflows (traditionally lower risk programming logic) with specific AI usage.
 
-* Use of cloud-hosted, off-the-shelf models accessed through APIs
+* Use of cloud-hosted, off-the-shelf models accessed through APIs.
 
-* Potential concentration, dependency, intellectual property, sustainability, cost (many of these services are currently priced below a sustainable break even point by vendors to try and achieve usage and market share) and geopolitical risks
+* Potential concentration, dependency, intellectual property, sustainability, cost (many of these services are currently priced below a sustainable break-even point by vendors to try and achieve usage and market share) and geopolitical risks.
 
-* Often extended with techniques like Retrieval Augmented Generation (RAG) to incorporate enterprise data
+* Often extended with techniques like Retrieval Augmented Generation (RAG) to incorporate enterprise data.
 
-* May involve custom data pipelines to incorporate organisational context while using external AI capabilities
+* May involve custom data pipelines to incorporate organisational context while using external AI capabilities.
 
 This approach could offer greater control than pure SaaS consumption while avoiding the complexity of custom development. It seems to be becoming a common pattern for organisations wanting to move beyond experimentation while managing risk.
 
