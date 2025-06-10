@@ -3,6 +3,7 @@ title: 'Beyond the Hype: Y2Q – The end of encryption as we know it?'
 date: 2023-04-03 09:00:00 Z
 categories:
 - Podcast
+- Tech
 tags:
 - Quantum Computing
 - Y2Q
