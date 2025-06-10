@@ -1,7 +1,7 @@
 ---
 title: 'Beyond the Hype: Event-Driven Architecture – The only data integration approach
   you need?'
-date: 2025-06-10 09:01:00 Z
+date: 2025-06-10 07:01:00 Z
 categories:
 - Podcast
 tags:
