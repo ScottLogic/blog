@@ -48,7 +48,7 @@ Picture an analyst crafting prompts in ChatGPT or Claude.ai to help analyse surv
 
 * Heavy reliance on individual expertise for effective prompting and output evaluation, with consequent inconsistency across team members (unless some cross-team management of prompts is happening)
 
-* Low barrier to entry but limited control over data privacy, IP leakage (unless open source AI is being locally – via the likes of LM Studio or GPT4ALL) and output quality
+* Low barrier to entry but limited control over data privacy, IP leakage (unless open source AI is being used locally – via the likes of LM Studio or GPT4ALL), and output quality
 
 * Risk of being charmed by overconfident assistants – something like Replit might build you what it claims is a fully working application, only to discover it has serious flaws or missing features it claims it built.
 
@@ -58,21 +58,21 @@ This approach could enable exploration and innovation, but might present thorny 
 
 These are often proof of concepts and pilots in highly regulated business or limited production testing in less regulated consumer use. The objective is to understand the art of the possible and feasibility check new approaches and technologies.
 
-Experimentation generally goes beyond augmentation – typically with more bleeding edge models or frameworks including (at the time of writing!) \*\*agentic & reasoning models \*\*or novel architectures such as [KnowPath](https://arxiv.org/abs/2502.12029).
+Experimentation generally goes beyond augmentation – typically with more bleeding edge models or frameworks including (at the time of writing!) \*\*agentic & reasoning models \*\* or novel architectures such as [KnowPath](https://arxiv.org/abs/2502.12029).
 
-With the right approach to architecture (think more thought through than throwaway vibe coding!) they can move towards artisanal or mainstream approaches that are discussed later on.
+With the right approach to architecture (think more thought through than throwaway vibe coding!), they can move towards artisanal or mainstream approaches that are discussed later on.
 
 ### **"Artisan AI" – Enterprise-Controlled AI Architecture**
 
-Whilst others might be “vibe coding” you can think of Artisan as the opposite approach. Artisan is a far more human engineered / controlled, and enterprise owned deliberate strategy:
+Whilst others might be “vibe coding”, you can think of Artisan as the opposite approach. Artisan is a far more human-engineered/controlled and enterprise-owned intentional strategy:
 
 * Similar in many respects to the "Mainstream" approach described later on but with models hosted within infrastructure the organisation controls
 
 * Leverages open source models (like Llama, Mistral, or other models on model hubs like Hugging Face) deployed on enterprise-controlled infrastructure
 
-* Often feature a "deterministic spine" (traditional programming logic) to control the AI powered workflow to manage risk and ensure consistency or experience and outcome
+* Often feature a "deterministic spine" (traditional programming logic) to control the AI-powered workflow to manage risk and ensure consistency of experience and outcome
 
-* Provides greater intellectual property protection and security control through self-hosting (or public cloud although this arguably removes some of the benefits – so more likely managed co-location or private cloud)
+* Provides greater intellectual property protection and security control through self-hosting (or public cloud, although this arguably removes some of the benefits – so more likely managed co-location or private cloud)
 
 * So, looking at a range of on-device, on-premise, edge or private cloud hosted models for maximum control and flexibility. This distributed architecture can have environment, cost and go to market speed advantages too (if you are maxing use of existing assets in your ecosystem).
 
