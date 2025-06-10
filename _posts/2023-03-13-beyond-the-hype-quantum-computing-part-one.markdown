@@ -3,6 +3,7 @@ title: 'Beyond the Hype: Quantum Computing – hype and not hype simultaneously?
 date: 2023-03-13 10:25:00 Z
 categories:
 - Podcast
+- Tech
 tags:
 - Quantum Computing
 summary: In this episode, we talk about Quantum Computing with Denis Mandich, CTO
