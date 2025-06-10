@@ -167,7 +167,7 @@ As you navigate your organisation's AI journey, consider these critical question
 
 3. **Data Readiness**: Is your data architecture mature enough to support your AI ambitions? What investments are needed to establish the necessary foundation?
 
-4. **Skills Gap Analysis**: Do you have the technical capabilities to implement and maintain your chosen architectural approach? If not, what's your plan to address this? Does the average person involved
+4. **Skills Gap Analysis**: Do you have the technical capabilities to implement and maintain your chosen architectural approach? If not, what's your plan to address this? Does the average person involved understand what is needed?
 
 5. **Concentration Risk**: How dependent will your architecture make you on specific vendors or technologies? What's your mitigation strategy?
 
@@ -185,7 +185,7 @@ Rather than a one-size-fits-all or overly burdensome governance approach, consid
 
 ## Conclusion: Architecture and considered trade-off are vital
 
-AI is making architecture more critical; most new applications have been following increasingly standardised cloud platforms, and this certainly shakes things up. It is a time to differentiate and innovate with architecture to manage the risks to your organisation, whilst allowing for a whole new wave of innovation.
+AI is making architecture more critical. In recent years, most applications have been following increasingly standardised cloud deployment patterns, but AI is certainly shaking things up. It is a time to differentiate and innovate with architecture to manage the risks to your organisation, whilst allowing for a whole new wave of innovation.
 
 The bottom line is that you need to work with your risk, security, regulatory and/or legal stakeholders as early as possible. Collaborate with them so they understand the unique characteristics of the AI models you want to work with. Treat the associated non-functional requirements and quality attributes as first-class citizens. This is an area for innovation that generally gets overlooked but is vital for safe and successful enterprise adoption of groundbreaking models.
 
