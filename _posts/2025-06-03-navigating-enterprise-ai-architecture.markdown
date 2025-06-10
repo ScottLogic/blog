@@ -26,7 +26,7 @@ From our experiences and chats with clients on deploying AI, we see some distinc
 
 [View larger image](/uploads/AI-Types-v2.JPG) || *Please note, this is **not** a maturity matrix! Multiple approaches can apply simultaneously, as different patterns work better for different workloads/challenges. Keep reading for more details.*
 
-## **Finding an appropriate approach to AI**
+## Finding an appropriate approach to AI
 
 Naturally, before going into this, we need to acknowledge that AI is not appropriate for every situation. Much like any new, emerging technology there are many risks and considerations ([as I touched on in my piece from 2023](https://blog.scottlogic.com/2023/05/04/generative-ai-solution-architecture.html)). I think this is partly why many organisations are facing challenges with success and ROI from GenAI projects at the moment. It’s being used in a blanket fashion, with many organisations chasing hype rather than genuine value. Anyway, assuming you have concluded that Generative AI is appropriate and there is sufficient tangible value, a crucial question emerges for enterprise architects: how might we responsibly implement AI while balancing innovation with governance?
 
@@ -36,7 +36,7 @@ In this article, I am going to be exploring this spectrum with the goal of helpi
 
 ## The Spectrum of AI Architectural Approaches
 
-### **"Augmentation" – Individual Ad-hoc Approaches aka “Vibing”**
+### "Augmentation" – Individual Ad-hoc Approaches aka “Vibing”
 
 At what might be the most informal end of our spectrum lies what is termed "Augmentation" – the individual, ad-hoc use of off-the-shelf AI co-pilot type tools. In many cases, this is without much in the way of formal organisational oversight – in fact, this can often fall into the category of shadow AI or “bring your own AI”.
 
@@ -54,7 +54,7 @@ Picture an analyst crafting prompts in ChatGPT or Claude.ai to help analyse surv
 
 This approach could enable exploration and innovation, but might present thorny challenges around consistency, security, and intellectual property protection. It's where many organisations perhaps begin their AI journey before evolving toward more structured approaches.
 
-### **Experimentation**
+### Experimentation
 
 These are often proof of concepts and pilots in highly regulated business or limited production testing in less regulated consumer use. The objective is to understand the art of the possible and feasibility check new approaches and technologies.
 
@@ -62,7 +62,7 @@ Experimentation generally goes beyond augmentation – typically with more bleed
 
 With the right approach to architecture (think more thought through than throwaway vibe coding!), they can move towards artisanal or mainstream approaches that are discussed later on.
 
-### **"Artisan AI" – Enterprise-Controlled AI Architecture**
+### "Artisan AI" – Enterprise-Controlled AI Architecture
 
 Whilst others might be “vibe coding”, you can think of Artisan as the opposite approach. Artisan is a far more human-engineered/controlled and enterprise-owned intentional strategy:
 
@@ -88,9 +88,11 @@ This approach offers the structured governance of mainstream implementations whi
 
 It mitigates data privacy concerns by ensuring sensitive data never leaves organisational boundaries, while providing the flexibility to deploy and manage multiple models based on specific use case requirements. In fact, anyone that cares enough about their intellectual property being incorporated into future AI products would be wise to consider this approach.
 
-Remember this isn’t just about training data; people are underestimating the value of prompts as the next layer of future training data or prompt engineering for creating higher value vertical-specific AI products. After all, if you own the architecture housing the AI, you own all of that valuable data. Not enough thought is being given to the value of the data given away at inference – it potentially reveals valuable thought patterns, brand value or processes. Whilst assurances are being made that prompts aren’t being used, it is somewhat hard to fully trust the AI providers. Many of them have had a somewhat grey zone approach to IP for the training phase and they are increasingly under pressure to monetise their expensive operations. They could probably find a loophole like using meta data or higher-level patterns of usage rather than individual prompts (after all we are already seeing analysis of what people are using LLMs for, e.g. the [Anthropic Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)). What will the AI model companies do in the pursuit of profit and/or future product dominance?
+Remember this isn’t just about training data; people are underestimating the value of prompts as the next layer of future training data or prompt engineering for creating higher value vertical-specific AI products. After all, if you own the architecture housing the AI, you own all of that valuable data. Not enough thought is being given to the value of the data given away at inference – it potentially reveals valuable thought patterns, brand value or processes. 
 
-### **Augmented SaaS – AI Add-ons and Enhancements**
+Whilst assurances are being made that prompts aren’t being used, it is somewhat hard to fully trust the AI providers. Many of them have had a somewhat grey zone approach to IP for the training phase and they are increasingly under pressure to monetise their expensive operations. They could probably find a loophole like using meta data or higher-level patterns of usage rather than individual prompts (after all we are already seeing analysis of what people are using LLMs for, e.g. the [Anthropic Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)). What will the AI model companies do in the pursuit of profit and/or future product dominance?
+
+### Augmented SaaS – AI Add-ons and Enhancements
 
 The next stage in our spectrum (the axis has been going from individual use towards mass use – and arguably this category could be more widely used than mainstream, depending on your organisation) involves the integration of AI capabilities into existing enterprise software:
 
@@ -102,11 +104,11 @@ The next stage in our spectrum (the axis has been going from individual use towa
 
 * Potential privacy concerns about enterprise data usage with somewhat opaque AI functionality.
 
-This approach seems to be gaining popularity as organisations explore ways to leverage AI capabilities without significant architectural changes to existing systems. The governance challenge here might involve managing the consistent and appropriate use of these embedded capabilities across the enterprise. 
+This approach seems to be gaining popularity as organisations explore ways to leverage AI capabilities without significant architectural changes to existing systems. The governance challenge here might involve managing the consistent and appropriate use of these embedded capabilities across the enterprise.
 
 There are also challenges as vendors decide to implement AI behind the scenes on existing SaaS applications without considering what that does to customer risk profiles or appetite to adopt platform AI. This was something that Russell raised on the Beyond the Hype episode I mentioned earlier – [Beyond the Hype: Is architecture for AI even necessary?](https://blog.scottlogic.com/2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html)
 
-### **"Mainstream" – API-Based Architectural Integration**
+### "Mainstream" – API-Based Architectural Integration
 
 This has typically been what most organisations have been doing for enterprise AI applications. Using a perceived safe brand (like OpenAI or Microsoft) for API access to an LLM that can be embedded within an enterprise use case (which itself is probably also hosted on a public cloud provider). So, this pattern is about structured approaches to integrating AI via APIs:
 
@@ -126,35 +128,35 @@ This approach could offer greater control than pure SaaS consumption while avoid
 
 But have you considered the potential concentration risks? What might happen if your chosen API provider doubles their prices or goes out of business? Have you built in the architectural flexibility to switch providers if needed?
 
-## **Data: The Foundation That Cannot Be Overlooked**
+## Data: The Foundation That Cannot Be Overlooked
 
 Beyond the architectural deployment style underpinning all AI deployment is data. If there's one consistent story that we can see from enterprise AI implementations, it's that data is the crucial foundation for success:
 
-* 75% of organisations are increasing investments in data management specifically for AI implementation, according to Deloitte's AI Institute "State of Generative AI in the Enterprise" report
+* 75% of organisations are increasing investments in data management specifically for AI implementation, according to Deloitte's AI Institute 'State of Generative AI in the Enterprise' report.
 
-* The same report indicates that data-related issues have caused 55% of surveyed organisations to avoid certain AI use cases entirely
+* The same report indicates that data-related issues have caused 55% of surveyed organisations to avoid certain AI use cases entirely.
 
 * Our experience on client and R&D projects mirrors this. The effectiveness of [InferESG](https://www.scottlogic.com/our-work/inferesg-agentic-ai-due-diligence) (a tool we developed using agentic AI) massively increased with the addition of ESG data sets and documents that establish materiality and provide expert grounding.
 
-* Quality, accessibility, and governance of data could directly impact the effectiveness of AI systems regardless of architectural approach
+* Quality, accessibility, and governance of data could directly impact the effectiveness of AI systems regardless of architectural approach.
 
-## **Sustainable AI Architecture: A Call to Action**
+## Sustainable AI Architecture: A Call to Action
 
-Many organisations sadly seem to be pursuing AI with little regard for long-term sustainability. Sometimes this is due to lack of awareness, other times it’s just plain short sightedness. This could create significant risks:
+Many organisations sadly seem to be pursuing AI with little regard for long-term sustainability. Sometimes this is due to lack of awareness, other times it’s just plain shortsightedness. This could create significant risks:
 
-### **Financial Sustainability**
+### Financial Sustainability
 
 The true cost of AI goes beyond initial implementation. Have you modelled the total cost of ownership, including ongoing inference costs, model updates, and potential vendor lock-in? What happens if (and we have already started to see this with the cost of Microsoft Co-pilot) the tech platforms increase their prices to cover costs? Or look to monetise your data or AI product experience in different ways? You should bake likely cost increases into your Total Cost of Ownership (TCO) models – unless we start to see drastic improvements to model efficiency or deployment architectures from the main AI vendors.
 
-### **Environmental Sustainability**
+### Environmental Sustainability
 
 The environment footprint (carbon, materials, water & nature impacts) of large AI models is substantial – they require massive amounts of hardware and energy for training and inference (running) the underlying platforms. Are we considering the environmental impact of our architectural choices? These could at scale start to threaten corporate net zero or sustainability commitments. Edge computing and smaller, more efficient models could dramatically reduce inference energy consumption and the embodied carbon from the training phase.
 
-### **Operational Sustainability**
+### Operational Sustainability
 
 Do you have the skills and processes to maintain increasingly complex AI systems? How will you manage the inevitable technical debt that comes with rapidly evolving technology? The speed of change, rate of adoption and sheer volume of content being generated by AI is going to create a lot of noise and future technical debt to deal with. In a lot of cases AI is just being slapped on top of already messy and complex architectures. So instead of lowering cost and making thing simpler it may well come back to bite.
 
-## **Questions to Consider**
+## Questions to Consider
 
 As you navigate your organisation's AI journey, consider these critical questions:
 
@@ -172,7 +174,7 @@ As you navigate your organisation's AI journey, consider these critical question
 
 7. **Ethical Considerations**: What safeguards have you put in place to ensure your AI implementations align with ethical principles and avoid bias?
 
-## **Striving for a Pragmatic Path**
+## Striving for a Pragmatic Path
 
 The path to effective enterprise AI architecture is rarely linear. Most organisations will likely maintain multiple approaches simultaneously for different use cases, gradually progressing towards more mature implementations as their AI capability develops.
 
@@ -180,7 +182,7 @@ The key to success will partly lie in matching your architectural approach to bo
 
 Rather than a one-size-fits-all or overly burdensome governance approach, consider an AI architectural decision framework that guides teams toward the appropriate implementation pattern based on data sensitivity, regulatory requirements, performance needs, and business criticality.
 
-## **Conclusion: Architecture and considered trade-off are vital**
+## Conclusion: Architecture and considered trade-off are vital
 
 AI is making architecture more critical; most new applications have been following increasingly standardised cloud platforms, and this certainly shakes things up. It is a time to differentiate and innovate with architecture to manage the risks to your organisation whilst allowing for a whole new wave of innovation.
 
