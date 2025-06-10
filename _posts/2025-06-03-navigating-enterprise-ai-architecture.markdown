@@ -20,7 +20,7 @@ image: "/uploads/Enterprise%20AI%20Architecture.png"
 ---
 
 **TL;DR:**
-From our experiences and chats with clients on deploying AI, we see some distinct patterns emerging. One of those conversations was on [Beyond the Hype: Is architecture for AI even necessary?](https://blog.scottlogic.com/2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html) with Russell who heads up AI at Atom Bank – he even coined the term “Artisan AI” on that podcast which has been carried forward into our framework:
+From our experiences and chats with clients on deploying AI, we see some distinct patterns emerging. One of those conversations was on [Beyond the Hype: Is architecture for AI even necessary?](https://blog.scottlogic.com/2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html) with Russell, who heads up AI at Atom Bank – he even coined the term “Artisan AI” on that podcast, which has been carried forward into our framework:
 
 ![AI-Types-v2.JPG](/uploads/AI-Types-v2.JPG)
 
@@ -28,7 +28,7 @@ From our experiences and chats with clients on deploying AI, we see some distinc
 
 ## Finding an appropriate approach to AI
 
-Naturally, before going into this, we need to acknowledge that AI is not appropriate for every situation. Much like any new, emerging technology there are many risks and considerations ([as I touched on in my piece from 2023](https://blog.scottlogic.com/2023/05/04/generative-ai-solution-architecture.html)). I think this is partly why many organisations are facing challenges with success and ROI from GenAI projects at the moment. It’s being used in a blanket fashion, with many organisations chasing hype rather than genuine value. Anyway, assuming you have concluded that Generative AI is appropriate and there is sufficient tangible value, a crucial question emerges for enterprise architects: how might we responsibly implement AI while balancing innovation with governance?
+Naturally, before going into this, we need to acknowledge that AI is not appropriate for every situation. Much like any new, emerging technology, there are many risks and considerations ([as I touched on in my piece from 2023](https://blog.scottlogic.com/2023/05/04/generative-ai-solution-architecture.html)). I think this is partly why many organisations are facing challenges with success and ROI from GenAI projects at the moment. It’s being used in a blanket fashion, with many organisations chasing hype rather than genuine value. Anyway, assuming you have concluded that Generative AI is appropriate and there is sufficient tangible value, a crucial question emerges for enterprise architects: how might we responsibly implement AI while balancing innovation with governance?
 
 So, as I said at the start, we can perhaps identify what looks like a spectrum of architectural approaches for enterprise AI deployment. This ranges from informal augmentation or "vibing" through to highly regulated, mission-critical deployments. Each approach appears to offer distinct trade-offs in terms of speed, control, risk and value.
 
@@ -44,7 +44,7 @@ Picture an analyst crafting prompts in ChatGPT or Claude.ai to help analyse surv
 
 * Individual users leveraging AI independently, much like how Excel spreadsheets have been used.
 
-* "Bring your own AI" situations where employees use personally selected or company-sanctioned AI tools. Individuals are taking it upon themselves to outsource or speed up their workflow through use of their own personal AI platforms – the risks that entails have been touched on in [our piece about de-risking generative AI](https://www.scottlogic.com/insights/white-paper-derisk-gen-ai).
+* "Bring your own AI" situations, where employees use personally selected or company-sanctioned AI tools. Individuals are taking it upon themselves to outsource or speed up their workflow through the use of their own personal AI platforms – the risks that entails have been touched on in [our piece about de-risking generative AI](https://www.scottlogic.com/insights/white-paper-derisk-gen-ai).
 
 * Heavy reliance on individual expertise for effective prompting and output evaluation, with consequent inconsistency across team members (unless some cross-team management of prompts is happening).
 
@@ -56,9 +56,9 @@ This approach could enable exploration and innovation, but might present thorny 
 
 ### Experimentation
 
-These are often proof of concepts and pilots in highly regulated business or limited production testing in less regulated consumer use. The objective is to understand the art of the possible and feasibility check new approaches and technologies.
+These are often proof of concepts and pilots in highly regulated businesses or limited production testing in less regulated consumer use. The objective is to understand the art of the possible and feasibility check new approaches and technologies.
 
-Experimentation generally goes beyond augmentation – typically with more bleeding edge models or frameworks including (at the time of writing!) \*\*agentic & reasoning models \*\* or novel architectures such as [KnowPath](https://arxiv.org/abs/2502.12029).
+Experimentation generally goes beyond augmentation – typically with more bleeding edge models or frameworks, including (at the time of writing!) \*\*agentic & reasoning models \*\* or novel architectures such as [KnowPath](https://arxiv.org/abs/2502.12029).
 
 With the right approach to architecture (think more thought through than throwaway vibe coding!), they can move towards artisanal or mainstream approaches that are discussed later on.
 
@@ -66,7 +66,7 @@ With the right approach to architecture (think more thought through than throwaw
 
 Whilst others might be “vibe coding”, you can think of Artisan as the opposite approach. Artisan is a far more human-engineered/controlled and enterprise-owned intentional strategy:
 
-* Similar in many respects to the "Mainstream" approach described later on but with models hosted within infrastructure the organisation controls.
+* Similar in many respects to the "Mainstream" approach described later on, but with models hosted within infrastructure that the organisation controls.
 
 * Leverages open source models (like Llama, Mistral, or other models on model hubs like Hugging Face) deployed on enterprise-controlled infrastructure.
 
@@ -74,23 +74,23 @@ Whilst others might be “vibe coding”, you can think of Artisan as the opposi
 
 * Provides greater intellectual property protection and security control through self-hosting (or public cloud, although this arguably removes some of the benefits – so more likely managed co-location or private cloud).
 
-* So, looking at a range of on-device, on-premise, edge or private cloud hosted models for maximum control and flexibility. This distributed architecture can have environment, cost and go-to-market speed advantages too (if you are maxing use of existing assets in your ecosystem).
+* So, looking at a range of on-device, on-premise, edge or private cloud-hosted models for maximum control and flexibility. This distributed architecture can have environment, cost and go-to-market speed advantages too (if you are maxing use of existing assets in your ecosystem).
 
 * Suitable for sensitive or highly regulated use cases where data sovereignty is paramount.
 
-* Enables fine-grained control over model selection, versioning and deployment within a managed enterprise "Model Zoo". This takes external models from [Model Gardens](https://cloud.google.com/model-garden)/[Hubs](https://huggingface.co/models) and where required (in-house) data science teams building enterprise-specific models.
+* Enables fine-grained control over model selection, versioning and deployment within a managed enterprise "Model Zoo". This takes external models from [Model Gardens](https://cloud.google.com/model-garden)/[Hubs](https://huggingface.co/models) and, where required, (in-house) data science teams building enterprise-specific models.
 
 * May include custom foundation open source models fine-tuned to organisational data and business domains.
 
-* Can involve extended and customised AI solutions through integration with domain-specific data almost certainly combined with RAG and/or GraphRAG/KnowPath-type approaches.
+* Can involve extended and customised AI solutions through integration with domain-specific data, almost certainly combined with RAG and/or GraphRAG/KnowPath-type approaches.
 
 This approach offers the structured governance of mainstream implementations while maintaining full ownership of the majority of the technology stack, with the ability to eliminate dependency on external API providers and, for very sensitive workloads, run offline and air-gapped. The higher level of control makes this approach particularly suitable for regulated industries or sensitive applications. For more details on architecture for highly regulated applications, see the previous [white paper on de-risking AI](https://www.scottlogic.com/insights/white-paper-derisk-gen-ai).
 
-It mitigates data privacy concerns by ensuring sensitive data never leaves organisational boundaries, while providing the flexibility to deploy and manage multiple models based on specific use case requirements. In fact, anyone that cares enough about their intellectual property being incorporated into future AI products would be wise to consider this approach.
+It mitigates data privacy concerns by ensuring sensitive data never leaves organisational boundaries, while providing the flexibility to deploy and manage multiple models based on specific use case requirements. In fact, anyone who cares enough about their intellectual property being incorporated into future AI products would be wise to consider this approach.
 
-Remember this isn’t just about training data; people are underestimating the value of prompts as the next layer of future training data or prompt engineering for creating higher value vertical-specific AI products. After all, if you own the architecture housing the AI, you own all of that valuable data. Not enough thought is being given to the value of the data given away at inference – it potentially reveals valuable thought patterns, brand value or processes. 
+Remember, this isn’t just about training data; people are underestimating the value of prompts as the next layer of future training data or prompt engineering for creating higher value vertical-specific AI products. After all, if you own the architecture housing the AI, you own all of that valuable data. Not enough thought is being given to the value of the data given away at inference – it potentially reveals valuable thought patterns, brand value or processes.
 
-Whilst assurances are being made that prompts aren’t being used, it is somewhat hard to fully trust the AI providers. Many of them have had a somewhat grey zone approach to IP for the training phase and they are increasingly under pressure to monetise their expensive operations. They could probably find a loophole like using meta data or higher-level patterns of usage rather than individual prompts (after all we are already seeing analysis of what people are using LLMs for, e.g. the [Anthropic Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)). What will the AI model companies do in the pursuit of profit and/or future product dominance?
+Whilst assurances are being made that prompts aren’t being used, it is somewhat hard to fully trust the AI providers. Many of them have had a somewhat grey zone approach to IP for the training phase, and they are increasingly under pressure to monetise their expensive operations. They could probably find a loophole like using metadata or higher-level patterns of usage rather than individual prompts (after all, we are already seeing analysis of what people are using LLMs for, e.g. the [Anthropic Economic Index](https://www.anthropic.com/news/the-anthropic-economic-index)). What will the AI model companies do in the pursuit of profit and/or future product dominance?
 
 ### Augmented SaaS – AI Add-ons and Enhancements
 
@@ -142,7 +142,7 @@ Beyond the architectural deployment style underpinning all AI deployment is data
 
 ## Sustainable AI Architecture: A Call to Action
 
-Many organisations sadly seem to be pursuing AI with little regard for long-term sustainability. Sometimes this is due to lack of awareness, other times it’s just plain shortsightedness. This could create significant risks:
+Many organisations sadly seem to be pursuing AI with little regard for long-term sustainability. Sometimes this is due to a lack of awareness, other times it’s just plain shortsightedness. This could create significant risks:
 
 ### Financial Sustainability
 
@@ -150,19 +150,19 @@ The true cost of AI goes beyond initial implementation. Have you modelled the to
 
 ### Environmental Sustainability
 
-The environment footprint (carbon, materials, water & nature impacts) of large AI models is substantial – they require massive amounts of hardware and energy for training and inference (running) the underlying platforms. Are we considering the environmental impact of our architectural choices? These could at scale start to threaten corporate net zero or sustainability commitments. Edge computing and smaller, more efficient models could dramatically reduce inference energy consumption and the embodied carbon from the training phase.
+The environmental footprint (carbon, materials, water and nature impacts) of large AI models is substantial. They require massive amounts of hardware and energy for training and inference (running) the underlying platforms. Are we considering the environmental impact of our architectural choices? These could, at scale, start to threaten corporate net zero or sustainability commitments. Edge computing and smaller, more efficient models could dramatically reduce inference energy consumption and the embodied carbon from the training phase.
 
 ### Operational Sustainability
 
-Do you have the skills and processes to maintain increasingly complex AI systems? How will you manage the inevitable technical debt that comes with rapidly evolving technology? The speed of change, rate of adoption and sheer volume of content being generated by AI is going to create a lot of noise and future technical debt to deal with. In a lot of cases AI is just being slapped on top of already messy and complex architectures. So instead of lowering cost and making thing simpler it may well come back to bite.
+Do you have the skills and processes to maintain increasingly complex AI systems? How will you manage the inevitable technical debt that comes with rapidly evolving technology? The speed of change, rate of adoption and sheer volume of content being generated by AI is going to create a lot of noise and future technical debt to deal with. In a lot of cases, AI is just being slapped on top of already messy and complex architectures. So, instead of lowering cost and making thing simpler, it may well come back to bite.
 
 ## Questions to Consider
 
 As you navigate your organisation's AI journey, consider these critical questions:
 
-1. **Risk Assessment**: Where on the spectrum should different AI use cases in your organisation sit, based on risk profile and value potential? Is there a danger you are force fitting an AI solution that isn’t quite good enough that might create reputation or regulatory risks from a degraded experience?
+1. **Risk Assessment**: Where on the spectrum should different AI use cases in your organisation sit, based on risk profile and value potential? Is there a danger you are force-fitting an AI solution that isn’t quite good enough and which might create reputation or regulatory risks from a degraded experience?
 
-2. **Governance Framework**: Have you established clear policies for AI development, usage, and monitoring that align with your organisational values and regulatory requirements? Just because AI is new, shiny and exciting doesn’t mean it should get to ride roughshod over sensible controls. As Russell said on the podcast – engage early with security and risk stakeholders.
+2. **Governance Framework**: Have you established clear policies for AI development, usage, and monitoring that align with your organisational values and regulatory requirements? Just because AI is new, shiny and exciting doesn’t mean it should get to ride roughshod over sensible controls. As Russell said on the podcast, engage early with security and risk stakeholders.
 
 3. **Data Readiness**: Is your data architecture mature enough to support your AI ambitions? What investments are needed to establish the necessary foundation?
 
@@ -170,9 +170,9 @@ As you navigate your organisation's AI journey, consider these critical question
 
 5. **Concentration Risk**: How dependent will your architecture make you on specific vendors or technologies? What's your mitigation strategy?
 
-6. **Change Management**: How will you manage the organisational change required to effectively integrate AI into business processes? How are capabilities and end to end processes being re-imagined and optimised (with an external ecosystem view not just an internal view – after all what will clients and stakeholders want / expect?)
+6. **Change Management**: How will you manage the organisational change required to effectively integrate AI into business processes? How are capabilities and end-to-end processes being reimagined and optimised (with an external ecosystem view, not just an internal view – after all, what will clients and stakeholders want/expect?)
 
-7. **Ethical Considerations**: What safeguards have you put in place to ensure your AI implementations align with ethical principles and avoid bias?
+7. **Ethical Considerations**: What safeguards have you put in place to ensure your AI implementations avoid bias and align with ethical principles?
 
 ## Striving for a Pragmatic Path
 
@@ -184,8 +184,8 @@ Rather than a one-size-fits-all or overly burdensome governance approach, consid
 
 ## Conclusion: Architecture and considered trade-off are vital
 
-AI is making architecture more critical; most new applications have been following increasingly standardised cloud platforms, and this certainly shakes things up. It is a time to differentiate and innovate with architecture to manage the risks to your organisation whilst allowing for a whole new wave of innovation.
+AI is making architecture more critical; most new applications have been following increasingly standardised cloud platforms, and this certainly shakes things up. It is a time to differentiate and innovate with architecture to manage the risks to your organisation, whilst allowing for a whole new wave of innovation.
 
 The bottom line is that you need to work with your risk, security, regulatory and/or legal stakeholders as early as possible. Collaborate with them so they understand the unique characteristics of the AI models you want to work with. Treat the associated non-functional requirements and quality attributes as first-class citizens. This is an area for innovation that generally gets overlooked but is vital for safe and successful enterprise adoption of groundbreaking models.
 
-As we navigate this latest phase of tech, the organisations that thrive will be those that balance innovation with governance, move beyond the hype to practical implementation, and build sustainable architectural approaches that create lasting value. If you’d like a chat more about this feel free to [find me on LinkedIn](https://linkedin.com/in/cronky/) or email me at [oliver@scottlogic.com](mailto:oliver@scottlogic.com)
+As we navigate this latest phase of tech, the organisations that thrive will be those that balance innovation with governance, move beyond the hype to practical implementation, and build sustainable architectural approaches that create lasting value. If you’d like a chat more about this, feel free to [find me on LinkedIn](https://linkedin.com/in/cronky/) or email me at [oliver@scottlogic.com](mailto:oliver@scottlogic.com)
