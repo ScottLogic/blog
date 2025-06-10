@@ -3,6 +3,7 @@ title: 'Beyond the Hype: Technology Strategies – Essential roadmaps or just h
 date: 2025-01-27 17:49:00 Z
 categories:
 - Podcast
+- Tech
 tags:
 - Technology
 - ''
