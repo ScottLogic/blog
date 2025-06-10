@@ -12,9 +12,10 @@ tags:
 - Artificial Intelligence
 - ocronk
 - featured
-summary: An observed Enterprise AI Architecture Spectrum. Analysis of enterprise AI
-  deployment patterns reveals distinct architectural approaches, each with specific
-  trade-offs in terms of control, speed, and risk management.
+summary: From our experiences and chats with clients on deploying AI, we can perhaps
+  identify what looks like a spectrum of architectural approaches for enterprise AI
+  deployment. In this post, I explore this spectrum with the goal of helping you consider
+  where your organisation is today and where it might best position itself.
 author: ocronk
 image: "/uploads/Enterprise%20AI%20Architecture.png"
 ---
