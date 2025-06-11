@@ -1,14 +1,14 @@
 ---
 author: cfreestone
+title: Some Best Practices for Accessible Automation Testing
 summary: While on my most recent project I had the unique experience of working closely with many testers and test minded individuals. This allowed me to learn some much-needed lessons about how to best implement automation testing with accessibility in mind, a sometimes-overlooked area of test automation.
 categories:
 - Testing
 ---
-# Some Best Practices for Accessible Automation Testing
 While on my most recent project I had the unique experience of working closely with many testers and test minded individuals. This allowed me to learn some much-needed lessons about how to best implement automation testing with accessibility in mind, a sometimes-overlooked area of test automation.
 
 ## Introduction
-What I hope to share with you is how simple it can be to both think about and implement the approach to make sure your tests are accessible. This can be because you have strict reasons on the project to ensure compliance with certain metrics, because this can lead to improved readability of your code and its longevity, or because you want to read some wonderful thoughts "from certain testers perspective".
+What I hope to share with you is how simple it can be to both think about and implement the approach to make sure your tests are accessible. This can be because you have strict reasons on the project to ensure compliance with certain metrics, because this can lead to improved readability of your code and its longevity, or because you want to read some wonderful thoughts from certain testers perspective.
 
 ## What to expect()
 Now it’s good to make note that the lessons learnt here are all from the work I have carried out while implementing Playwright tests. This will mean you will need some basic understanding of TypeScript and Playwright when I discuss some examples. So    without further ado let's discuss the `expect()` function.
@@ -26,7 +26,7 @@ Things like filters and drop-downs can be difficult to locate but they can be fo
 
 By the same accessible reasoning it is good practice to not use `.getbyTestID`.This is due to the fact that names of those same ID’s will not be useful to someone with an accessibility issue, as it will sound like Jargon when navigated to.
 
-Sometimes though this may not of been implemented on the project. This requires roles to be assigned correctly on the project you are on, things like test ID's or divs could of been used instead which makes this impossible to implement. When this is the case its always best to have that conversation with the team so that you can explain how useful and helpful having roles can be.
+Sometimes though this may not have been implemented on the project. This requires roles to be assigned correctly on the project you are on, things like test ID's or divs could have been used instead which makes this impossible to implement. When this is the case it is always best to have that conversation with the team so that you can explain how useful and helpful HTML roles are.
 
 ## Some notable names worth tagging
 And after all of these suggestions, we find ourselves back at the top of a finished test, ready to move on and forget about all that good work we have done. If only there was a way to easily locate your previous work when you have some busy moments on the project and need to hand over what you’ve created. Well, to name a few reasons, let’s start with the Name of your test and follow with some tagging advice. 
@@ -43,13 +43,13 @@ So, when creating Test Names its best practice to instead use the back tick ``` 
 
 For those who don’t know where it is, the back tick can be located underneath the ESC key on the majority of keyboards.  
 
-Going forward with the creation of our tests we want to ensure that they can be associated with the correct story or ticket from which they were created. When paired with the previous section for “Test Names”,. The tag function can be used in the test name and can be done like this:
+Going forward with the creation of our tests we want to ensure that they can be associated with the correct story or ticket from which they were created. When paired with the previous section for “Test Names”, The tag function can be used in the test name and can be done like this:
 
 ```test(`a test example to show a test name for a test under ticket THW-000`, {tag: 'THW-000'}, async()```
 
 Here you can see that the tag simply needs to be placed at the end of the test name and is separated with a comma. For good practice this should be the ticket number that the work is being generated from.
 
-If you want to go the extra mile its even better to use annotations for ticket numbers. That way tags can be used excusivly to filter what tests are ran, filtering test results. This is what is documented in the Playwright documenteation. 
+If you want to go the extra mile it's even better to use annotations for ticket numbers. That way tags can be used exclusively to filter what tests are run, filtering test results. This is what is documented in the Playwright documentatio. 
 
 ## Conclusion
 Well, there have been some odd analogies and puns along the way but hopefully this peek into a tester’s mind has helped you understand the importance of, and some ways to implement some good accessible skills in your automation tests while also keeping it simple to implement. Maybe there are even more simple techniques out there so go out and find them, or better yet bring them up with others and let's get everything even more accessible!   
