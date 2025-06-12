@@ -19,14 +19,16 @@ author: mrichards
 ## Markitecture or Reality? Separating Substance from Hype
 
 In an industry notorious for rebranding existing technologies with shiny new names, the "Data Lakehouse" faces immediate skepticism. Is this another case of markitecture—marketing masquerading as architecture—or does it represent genuine technical progress?  
-The answer, like most things in data engineering, is nuanced. While "Lakehouse" is undeniably a Databricks-coined marketing term, it describes real technological capabilities that address longstanding problems neither warehouses nor lakes solved adequately. The question isn't whether the term is marketing (it is), but whether the underlying architecture delivers on its promises.
 
 ![lakehouse.png]({{site.baseurl}}/mrichards/assets/lakehouse.png)
+
+The answer, like most things in data engineering, is nuanced. While "Lakehouse" is undeniably a Databricks-coined marketing term, it describes real technological capabilities that address longstanding problems neither warehouses nor lakes solved adequately. The question isn't whether the term is marketing (it is), but whether the underlying architecture delivers on its promises.
 
 ## From Warehouses to Lakes: An Unbalanced Compromise
 
 Data warehouses dominated enterprise analytics for good reason. They offered high-performance, structured environments optimized for SQL queries and reporting, with the reliability guarantees that enterprises demanded—ACID transactions, robust governance, and predictable query performance. In a world of relational data, they provided the specialized capabilities that enabled complex OLAP queries over large volumes of historical data.  
 But as "big data" exploded and non-relational data became ubiquitous, traditional warehouses revealed their brittleness. High costs from specialized software and hardware, complex integration requirements, and inflexible schema-on-write approaches made them increasingly unsuitable for diverse, rapidly evolving datasets.  
+
 When James Dixon coined "data lake" in 2010, he was responding to Hadoop's promise of cheap, scalable storage. The aquatic metaphor was apt—but like real lakes, data lakes proved susceptible to pollution. What Dixon didn't anticipate was how quickly his pristine lake would become the notorious "data swamp."  
 Data lakes brought unprecedented flexibility and cost savings through commodity hardware and open-source software. Their schema-on-read approach allowed raw data ingestion with transformation deferred until needed—a godsend for data scientists working with varied datasets and CTOs preferring lower capex and faster delivery.  
 Yet this flexibility came at a steep price: lack of ACID properties, weak governance, persistent data quality issues, and poor query performance. The promise of turning raw data into insights often foundered on the reality of unreliable, poorly organized storage systems.
@@ -34,7 +36,7 @@ Yet this flexibility came at a steep price: lack of ACID properties, weak govern
 ## The Lakehouse: Marketing Term or Architectural Evolution?
 
 Popularized by Databricks, "Lakehouse" is admittedly a marketing term that rebrands a collection of existing technologies under a compelling metaphor. But sometimes marketing terms capture real architectural shifts, and the Lakehouse addresses genuine pain points that neither warehouses nor lakes solved adequately.  
-Databricks defines the Lakehouse as an architecture supporting high-volume structured, semi-structured, and unstructured data in a single platform—with transactional integrity, schema evolution, and performance optimization built in. More precisely, Schneider et al. describe it as "an integrated data platform that leverages the same storage type and data format for reporting and OLAP, data mining and machine learning as well as streaming workloads."  
+[Databricks defines the Lakehouse](https://www.databricks.com/product/data-lakehouse) as an architecture supporting high-volume structured, semi-structured, and unstructured data in a single platform—with transactional integrity, schema evolution, and performance optimization built in. More precisely, Schneider et al. describe it as "_an integrated data platform that leverages the same storage type and data format for reporting and OLAP, data mining and machine learning as well as streaming workloads._"  
 The key insight here is unification: instead of maintaining separate systems for different workloads, the Lakehouse provides a single platform spanning the full analytics spectrum. While a data lake is simply distributed storage, the Lakehouse adds critical layers for metadata management, transaction control, and query optimization.
 
 ## Key Features: The Technical Reality
@@ -66,6 +68,7 @@ Fine-grained access control, comprehensive audit logging, and automated data lin
 ## Open Table Formats: The Real Innovation
 
 Open table formats represent the most significant technical innovation enabling Lakehouse architectures. They standardize on Parquet for excellent read performance while layering sophisticated schema management and transaction control on top.
+There are multiple different Open Table formats currently in use:
 
 | Feature       | Delta Lake               | Apache Iceberg           | Apache Hudi                   |
 |--------------|--------------------------|---------------------------|-------------------------------|
@@ -74,9 +77,9 @@ Open table formats represent the most significant technical innovation enabling 
 | ACID Support  | Full ACID                  | Snapshot isolation         | Optimistic concurrency         |
 | Ecosystem     | Databricks-centric         | Vendor-neutral             | Real-time analytics focused    |
 
-Delta Lake excels in Spark environments with robust schema enforcement, time travel capabilities, and scalable metadata handling. It's the default in Databricks but increasingly is supported in other engines.  
-Apache Iceberg offers the most sophisticated approach to partitioning with hidden partitioning and full schema evolution. Its git-like branching and tagging capabilities are genuinely innovative. AWS's recent S3 Tables launch signals strong enterprise backing.  
-Apache Hudi focuses on incremental processing with efficient upserts, deletes, and change data capture integration—crucial for real-time analytics workloads.  
+[Delta Lake](https://delta.io/) excels in Spark environments with robust schema enforcement, time travel capabilities, and scalable metadata handling. It's the default in Databricks but increasingly is supported in other engines.  
+[Apache Iceberg](https://iceberg.apache.org/) offers the most sophisticated approach to partitioning with hidden partitioning and full schema evolution. Its git-like branching and tagging capabilities are genuinely innovative. AWS's recent S3 Tables launch signals strong enterprise backing.  
+[Apache Hudi](https://hudi.apache.org/) focuses on incremental processing with efficient upserts, deletes, and change data capture integration—crucial for real-time analytics workloads.  
 The 2024 acquisition of Tabular (founded by Iceberg's original authors) by Databricks signals an interesting shift toward format convergence, though vendor preferences will likely persist.
 
 ## Real-World Implementation: The Medallion Pattern
@@ -85,9 +88,7 @@ Low-cost storage enabled organizations to maintain multiple dataset versions, su
 
 ![medallion.png]({{site.baseurl}}/mrichards/assets/medallion.png)
 
-
 While purists correctly note that Medallion isn't truly an "architecture," this layered approach provides a practical pattern for managing data lifecycle and quality across complex pipelines. It accommodates both exploratory data science work (primarily Silver tier) and production BI reporting (Gold tier), while maintaining full data lineage from source to insight.
-
 
 ## Platform Reality Check
 
