@@ -20,7 +20,7 @@ When you’re working with a complex legacy IT estate, it can often feel like th
 
 The approach in question is the adoption of desktop interoperability technologies. In this blog post, I’ll provide an overview of how they work, outline the main benefits they deliver, and flag some trade-offs to bear in mind. I’ll describe the approach without getting into too much technical detail. If you’re involved in legacy modernisation at your organisation, I hope this post will be of interest, regardless of whether you’re on the business side of things or the technical side.
 
-We’ve been working with a market-leading energy trading firm that’s taking first-mover advantage in the energy sector by adopting this approach. In doing so, it will benefit from streamlined processes, enhanced business agility and improved productivity, while the legacy modernisation programme progresses in parallel.
+We’ve been working with a market-leading energy trading firm that’s taking first-mover advantage in the energy sector by adopting this approach. In doing so, it will benefit from streamlined processes, enhanced business agility and improved productivity, while the company's legacy modernisation programme progresses in parallel.
 
 ## How desktop interoperability platforms work
 
