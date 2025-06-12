@@ -2,9 +2,9 @@
 title: What is a Data Lakehouse?
 date: 2025-06-12
 categories:
+- Data Engineering
 - Architecture
 - Tech
-- Data Engineering
 tags:
 - blog
 - architecture
@@ -35,39 +35,32 @@ Yet this flexibility came at a steep price: lack of ACID properties, weak govern
 
 ## The Lakehouse: Marketing Term or Architectural Evolution?
 
-Popularized by Databricks, "Lakehouse" is admittedly a marketing term that rebrands a collection of existing technologies under a compelling metaphor. But sometimes marketing terms capture real architectural shifts, and the Lakehouse addresses genuine pain points that neither warehouses nor lakes solved adequately.  
+Popularized by Databricks, "Lakehouse" is admittedly a marketing term that rebrands a collection of existing technologies under a compelling metaphor. But sometimes marketing terms capture real architectural shifts, and the Lakehouse addresses genuine pain points that neither warehouses nor lakes solved adequately. 
+
 [Databricks defines the Lakehouse](https://www.databricks.com/product/data-lakehouse) as an architecture supporting high-volume structured, semi-structured, and unstructured data in a single platform—with transactional integrity, schema evolution, and performance optimization built in. More precisely, Schneider et al. describe it as "_an integrated data platform that leverages the same storage type and data format for reporting and OLAP, data mining and machine learning as well as streaming workloads._"  
+
 The key insight here is unification: instead of maintaining separate systems for different workloads, the Lakehouse provides a single platform spanning the full analytics spectrum. While a data lake is simply distributed storage, the Lakehouse adds critical layers for metadata management, transaction control, and query optimization.
 
 ## Key Features: The Technical Reality
 
-### Unified Storage Format
+There are several key features that enable the Lakehouse to achieve this:
 
-Lakehouses standardise on columnar formats like Apache Parquet, enabling efficient storage and query performance across diverse workloads. This isn't just about convenience—it eliminates the operational overhead and data movement costs of maintaining separate systems for different use cases.
+| Feature | Description |
+|--------|-------------|
+| **Unified Storage Format** | Lakehouses standardise on columnar formats like Apache Parquet, enabling efficient storage and query performance across diverse workloads. This isn't just about convenience—it eliminates the operational overhead and data movement costs of maintaining separate systems for different use cases. |
+| **Relational Structure & SQL Support** | Columnar storage allows collections to be defined with relational structure and queried using SQL, including for semi-structured formats like JSON. This democratizes data access by leveraging existing SQL skills rather than requiring specialized programming knowledge. |
+| **ACID & Consistency Guarantees** | This is where Lakehouses fundamentally differentiate from traditional data lakes. Frameworks like Delta Lake and Apache Iceberg bring ACID semantics to distributed storage, ensuring reliable and consistent reads and writes even in concurrent environments—solving the "eventual consistency" problems that plagued early lake implementations. |
+| **Schema Management and Evolution** | Unlike raw data lakes, Lakehouses support both schema enforcement (preventing bad data from corrupting datasets) and schema evolution (allowing structures to change without breaking downstream systems). This balance between flexibility and reliability is crucial for production environments. |
+| **Performance Optimisation** | Through columnar storage, data skipping, Z-ordering, and sophisticated indexing, Lakehouses deliver query performance that approaches warehouse levels while maintaining lake-scale economics. These optimizations require deep integration with the storage engine—you can't just bolt them onto existing systems. |
+| **Built-In Governance and Security** | Fine-grained access control, comprehensive audit logging, and automated data lineage tracking are increasingly standard in Lakehouse implementations—critical capabilities for meeting regulatory requirements and enterprise governance standards. |
 
-### Relational Structure & SQL Support
-
-Columnar storage allows collections to be defined with relational structure and queried using SQL, including for semi-structured formats like JSON. This democratizes data access by leveraging existing SQL skills rather than requiring specialized programming knowledge.
-
-### ACID & Consistency Guarantees
-
-This is where Lakehouses fundamentally differentiate from traditional data lakes. Frameworks like Delta Lake and Apache Iceberg bring ACID semantics to distributed storage, ensuring reliable and consistent reads and writes even in concurrent environments—solving the "eventual consistency" problems that plagued early lake implementations.
-
-### Schema Management and Evolution
-
-Unlike raw data lakes, Lakehouses support both schema enforcement (preventing bad data from corrupting datasets) and schema evolution (allowing structures to change without breaking downstream systems). This balance between flexibility and reliability is crucial for production environments.
-
-### Performance Optimisation
-
-Through columnar storage, data skipping, Z-ordering, and sophisticated indexing, Lakehouses deliver query performance that approaches warehouse levels while maintaining lake-scale economics. These optimizations require deep integration with the storage engine—you can't just bolt them onto existing systems.
-
-### Built-In Governance and Security
-
-Fine-grained access control, comprehensive audit logging, and automated data lineage tracking are increasingly standard in Lakehouse implementations—critical capabilities for meeting regulatory requirements and enterprise governance standards.
 
 ## Open Table Formats: The Real Innovation
 
-Open table formats represent the most significant technical innovation enabling Lakehouse architectures. They standardize on Parquet for excellent read performance while layering sophisticated schema management and transaction control on top.
+_Open table formats_ represent the most significant technical innovation enabling Lakehouse architectures.
+These formats define **how data files, metadata, schemas, and transactions are structured and managed** — standardizing access patterns and supporting key features like ACID guarantees, schema evolution, and time travel.
+Open formats sit on top of columnar file types like Apache Parquet, providing excellent read performance while layering sophisticated schema management and transaction control on top.
+
 There are multiple different Open Table formats currently in use:
 
 | Feature       | Delta Lake               | Apache Iceberg           | Apache Hudi                   |
@@ -84,8 +77,9 @@ The 2024 acquisition of Tabular (founded by Iceberg's original authors) by Datab
 
 ## Real-World Implementation: The Medallion Pattern
 
-Low-cost storage enabled organizations to maintain multiple dataset versions, supporting different consumer needs and incremental transformations. The Medallion Architecture—organizing data into Bronze (raw), Silver (cleansed), and Gold (analytics-ready) tiers—has become nearly ubiquitous in Lakehouse implementations.  
+Low-cost storage enabled organizations to maintain multiple dataset versions, supporting different consumer needs and incremental transformations. 
 
+This has led to the Medallion Architecture becoming nearly ubiquitous in Lakehouse implementations. Here data is organised into Bronze (raw), Silver (cleansed), and Gold (analytics-ready) tiers. 
 ![medallion.png]({{site.baseurl}}/mrichards/assets/medallion.png)
 
 While purists correctly note that Medallion isn't truly an "architecture," this layered approach provides a practical pattern for managing data lifecycle and quality across complex pipelines. It accommodates both exploratory data science work (primarily Silver tier) and production BI reporting (Gold tier), while maintaining full data lineage from source to insight.
@@ -93,10 +87,15 @@ While purists correctly note that Medallion isn't truly an "architecture," this 
 ## Platform Reality Check
 
 Major platforms have embraced the Lakehouse model, but their implementations reveal the gap between marketing and technical reality:  
-Databricks naturally provides the most cohesive Lakehouse experience, with Delta Lake deeply integrated into the Databricks Runtime. However, this tight coupling can create vendor lock-in concerns for organizations wanting format flexibility.  
-Microsoft Fabric positions itself as a unified platform with "One Lake" storage and Delta Lake as the default format. Yet Fabric's implementation still requires format conversion for specialized workloads—KQL time series data uses a custom format that's subsequently mirrored into Delta, undermining the "one format" promise.  
-Snowflake supports external Iceberg tables while maintaining its proprietary format for core operations. Their Unistore capability adds low-latency transactional support on top of the original warehouse storage format—a practical compromise that acknowledges format limitations.  
-AWS and Google Cloud provide Lakehouse capabilities through services like Athena, BigQuery, and S3 Tables, but these implementations often feel like retrofitted solutions rather than ground-up architectures.  
+
+**Databricks** naturally provides the most cohesive Lakehouse experience, with Delta Lake deeply integrated into the Databricks Runtime. However, this tight coupling can create vendor lock-in concerns for organizations wanting format flexibility.  
+
+**Microsoft Fabric** positions itself as a unified platform with "One Lake" storage and Delta Lake as the default format. Yet Fabric's implementation still requires format conversion for specialized workloads—KQL time series data uses a custom format that's subsequently mirrored into Delta, undermining the "one format" promise.  
+
+**Snowflake** supports external Iceberg tables while maintaining its proprietary format for core operations. Their Unistore capability adds low-latency transactional support on top of the original warehouse storage format—a practical compromise that acknowledges format limitations.  
+
+**AWS and Google Cloud** provide Lakehouse capabilities through services like Athena, BigQuery, and S3 Tables, but these implementations often feel like retrofitted solutions rather than ground-up architectures.  
+
 The reality is that most organizations still operate multiple storage systems despite Lakehouse promises of unification. The formats excel in their sweet spots but haven't eliminated the need for specialized systems entirely.
 
 ## What Problems Actually Get Solved
