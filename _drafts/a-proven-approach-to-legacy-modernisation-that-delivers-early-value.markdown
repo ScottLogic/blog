@@ -14,6 +14,7 @@ summary: We’ve been working with a market-leading energy trading firm that’s
   platform.  In this blog post, I’ll provide an overview of how they work, outline
   the main benefits they deliver, and flag some trade-offs to bear in mind.
 author: daustin
+image: "/uploads/New-logo-blog-thumbnail_headshot-Duncan-Austin-01.jpg"
 ---
 
 When you’re working with a complex legacy IT estate, it can often feel like the value to be delivered from legacy modernisation strategies is on an ever-receding horizon. However, an approach pioneered by the financial services industry in recent years can unlock early value, and in a way that places no dependencies on the wider modernisation programme.
