@@ -31,6 +31,7 @@ active-authors:
   - cstephen
   - cwilton
   - dalucas
+  - daustin
   - dgrew
   - dhinrichs
   - dhope
@@ -351,6 +352,10 @@ authors:
   dalucas:
     name: "Daniel Lucas"
     author-summary: "I am a Senior Fullstack Developer based in our Bristol office. I am passionate about empowering people, fostering continuous learning and shaping working practices that drive real value for organizations."
+    picture: picture.jpg
+  daustin:
+    name: "Duncan Austin"
+    author-summary: "<p>Hi! I'm a generalist senior developer based in Edinburgh. Outside of work I enjoy hiking and climbing, but I'll settle for some board games when the Scottish weather isn't cooperating. </p>"
     picture: picture.jpg
   dcook:
     feed-description: "Dan Cook's thoughts on all things Big Data."
