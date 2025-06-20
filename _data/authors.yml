@@ -108,6 +108,7 @@ active-authors:
   - mnyamunda
   - mpace
   - mphillips
+  - mrichards
   - mridene
   - mwallace
   - mwalkerrose
@@ -1134,7 +1135,7 @@ authors:
     picture: "Profile pic for blog-1-2.jpg"
   sbreingan:
     name: "Stuart Breingan"
-    author-summary: "I'm a Senior Developer at Scott Logic, based in Edinburgh.\nMy background is in Java and .NET but interested in technologies across the stack."
+    author-summary: "I'm a Principal Architect at Scott Logic, based in Edinburgh.\nI specialise in designing and building solutions in the cloud, particularly in the public sector."
     twitter-handle: null
     picture: picture-square.jpg
   hwilliams:
@@ -1581,4 +1582,8 @@ authors:
   mwalkerrose:
     name: "Mike Walker-Rose"
     author-summary: "A Test Engineer in the Bristol office, passionate about all things test!"
+    picture: picture.jpg
+  mrichards:
+    name: "Matt Richards"
+    author-summary: "I am a Principal Architect with 20 years experience building complex distributed systems, now specialising in data and analytics solutions."
     picture: picture.jpg
