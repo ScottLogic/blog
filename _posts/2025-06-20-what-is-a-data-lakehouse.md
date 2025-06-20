@@ -1,6 +1,6 @@
 ---
 title: What is a Data Lakehouse?
-date: 2025-06-12
+date: 2025-06-20
 categories:
 - Data Engineering
 - Architecture
@@ -12,9 +12,6 @@ tags:
 summary: In this post, I explore what a Data Lakehouse is, how it works, and whether it delivers on its promises—covering core features, formats, real-world patterns, and platform realities.
 author: mrichards
 ---
-
-
-# What is a Data Lakehouse?
 
 ## Markitecture or Reality? Separating Substance from Hype
 
