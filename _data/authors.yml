@@ -30,6 +30,7 @@ active-authors:
   - csalt
   - cstephen
   - cwilton
+  - dallsop
   - dalucas
   - daustin
   - dgrew
@@ -349,6 +350,10 @@ authors:
     name: "Chris Wilton-Magras"
     author-summary: "<p>Opinionated lead developer, munro bagger, beer brewer, cat lover, occasional fool.</p>"
     picture: me.jpg
+  dallsop:
+    name: "Dan Allsop"
+    author-summary: "I am a software consultant with over a decade of experience across several of the world’s leading financial institutions. Outside of software development my interests include game theory, behaviouristic psychology, and gardening."
+    picture: picture.jpg 
   dalucas:
     name: "Daniel Lucas"
     author-summary: "I am a Senior Fullstack Developer based in our Bristol office. I am passionate about empowering people, fostering continuous learning and shaping working practices that drive real value for organizations."
