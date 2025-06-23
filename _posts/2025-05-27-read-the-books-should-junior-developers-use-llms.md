@@ -10,6 +10,7 @@ summary: Large Language Models are powerful tools that can greatly enhance softw
   developers' productivity, but for junior developers starting a career in tech, they
   may hinder long-term growth by abstracting away essential programming fundamentals.
 author: hsauve
+image: "/uploads/New-logo-blog-thumbnail_headshot-Helene-Sauve-Threads.jpg"
 ---
 
 I started my career in software development as a graduate just a few months after the first demo of ChatGPT had been released. With limited experience and exposure to code, and with a non-coding related background, I felt I needed all the help I could get so at the time Large Language Models (LLMs) seemed like an appealing solution to help me get to grips with programming.   
