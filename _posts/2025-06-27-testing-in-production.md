@@ -14,7 +14,7 @@ image: "/assets/testing-in-prod.png"
 layout: default_post
 ---
 
-<img src="{{ site.baseurl }}/dmcnamee/assets/featurevsfoundation_header.png" width="100%" alt="Feature vs Foundation header" title="Feature vs Foundation">
+<img src="{{ site.baseurl }}/dmcnamee/assets/testing-in-prod.png" width="100%" alt="Testing in Production abstract image" title="Testing in Production">
 
 # Testing in Production: Are We Seriously Doing This?!
 
