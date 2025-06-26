@@ -3,11 +3,10 @@ title: Testing in Production
 date: 2025-06-26 00:00:00 Z
 categories:
 - Testing
-- Delivery
 tags:
 - Agile
 - CI
-- featured
+- Testing
 summary: What? You want to test in production? You must be joking! 
 author: dmcnamee
 image: "/assets/testing-in-prod.png"
