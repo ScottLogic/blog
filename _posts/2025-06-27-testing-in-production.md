@@ -1,6 +1,6 @@
 ---
 title: Testing in Production
-date: 2025-06-27 00:00:00 Z
+date: 2025-06-26 00:00:00 Z
 categories:
 - Testing
 - Delivery
