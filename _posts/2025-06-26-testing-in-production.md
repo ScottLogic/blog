@@ -14,7 +14,7 @@ image: "/assets/testing-in-prod.png"
 layout: default_post
 ---
 
-<img src="{{ site.baseurl }}/dmcnamee/assets/testing-in-prod.png" width="100%" alt="Testing in Production abstract image" title="Testing in Production">
+<img src="{{ site.baseurl }}/dmcnamee/assets/testing-in-production.png" width="100%" alt="Testing in Production abstract image" title="Testing in Production">
 
 # Testing in Production: Are We Seriously Doing This?!
 
@@ -28,7 +28,7 @@ Yes, you heard that right. We're talking about **Testing in Production (TiP)**. 
 
 It sounds like a recipe for disaster, doesn't it? Deploying untested code to actual users? But hold onto your hats, because it turns out there are some genuinely surprising benefits:
 
-* **It's the Real Deal, Mate!** Forget your perfectly sanitised test data and your staged environments that almost, but not quite, replicate production. With TiP, you're testing with **real users, real data, and real-world chaos**. It's like trying to learn to swim in a paddling pool versus jumping into the proper ocean. Turns out, the ocean gives you a much better idea of what you're up against.
+* **It's the Real Deal, Mate!** Forget your perfectly sanitised test data and your staged environments that almost, but not quite, replicate production. With TiP, you're testing with **real users, real data, and real-world chaos**. It's like trying to scuba dive in a paddling pool, versus jumping into the proper ocean. Turns out, the ocean gives you the big picture, a much better idea of what you're up against.
 
 * **"Oops, My Bad!" (But Only for a Few):** The beauty of TiP is that you don't just unleash your new feature on absolutely everyone. Oh no, that would be truly bonkers. Instead, you roll it out to a **tiny percentage of users**. If something goes pear-shaped (and let's be honest, it sometimes does), only a handful of people are affected. It's like a controlled explosion – small, contained, and you learn a tremendous amount from it.
 
@@ -52,7 +52,7 @@ Okay, so it's not just a complete free-for-all. There are some obvious ways thes
 
 * **Automate All the Things!:** Manual testing in production? That's a definite no-go. **Automation** is key for consistent, efficient validation. Automated tests running against live traffic help ensure everything is humming along nicely.
 
-* **The "Oh Crikey, Rollback!" Button:** Even with all the precautions, things can still go wrong. A solid, well-practised **rollback plan** is essential. With feature flags, this can be as simple as flipping a switch. The ability to quickly revert a dodgy change is your ultimate safety net.
+* **The "Oh Crikey, Rollback!" Button:** Even with all the precautions, things can still go wrong. A solid, well-practised **rollback plan** is essential. With feature flags, this can be as simple as flipping a switch, but you may need more than just feature flags. Depending on your application, you may need back ups to restore to, particularly where data is involved, or parallel environments to switch to. The ability to quickly revert a dodgy change is your ultimate safety net.
 
 * **A/B Testing (The "Which One Do You Fancy?" Game):** Want to know if users prefer a blue button or a red one? Or if a new workflow is more intuitive? **A/B testing** in production lets you show different versions to different user segments and collect real data on which performs best. It's like a popularity contest, but for features.
 
@@ -64,7 +64,7 @@ Okay, so it's not just a complete free-for-all. There are some obvious ways thes
 
 Now, before you get too excited and start deploying your half-baked code directly to your customers, let's be absolutely clear: **Testing in Production does NOT replace robust testing earlier in your development cycle.**
 
-Think of it this way: You wouldn't build a house by just throwing bricks at the wall and seeing what sticks, would you? You'd design it, pour a solid foundation, frame the structure, and then inspect it every step of the way.
+Think of it this way: You wouldn't build a house by just throwing bricks around and seeing how they land, would you? You'd design it, pour a solid foundation, frame the structure, and then inspect it every step of the way.
 
 **Unit tests, integration tests, end-to-end tests, static code analysis, peer reviews** – these are your essential building blocks. They catch the vast majority of bugs, logic errors, and security vulnerabilities before your code even gets a whiff of a live server.
 
