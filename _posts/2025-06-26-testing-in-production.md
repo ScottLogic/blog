@@ -9,7 +9,7 @@ tags:
 - Testing
 summary: What? You want to test in production? You must be joking! 
 author: dmcnamee
-image: "/assets/testing-in-prod.png"
+image: "/assets/testing-in-production.png"
 layout: default_post
 ---
 
