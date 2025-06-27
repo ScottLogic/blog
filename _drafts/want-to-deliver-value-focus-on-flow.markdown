@@ -3,6 +3,12 @@ title: Want to deliver value? Focus on flow
 date: 2025-06-27 13:38:00 Z
 categories:
 - Delivery
+summary: On the route to delivering and realising value, the aim is to reduce the
+  number of twists and turns in the software development pipework and improve flow.
+  In this blog post, I’ll share some insights into practices and processes that reduce
+  flow and what you can do to improve flow. It’s important to point out this is purposefully
+  methodology-agnostic; I want to get beyond the rituals and practices of the different
+  approaches and focus instead on the underlying best practices.
 author: nhume
 ---
 
