@@ -3,6 +3,10 @@ title: Want to deliver value? Focus on flow
 date: 2025-06-27 13:38:00 Z
 categories:
 - Delivery
+tags:
+- software development
+- flow
+- software development process
 summary: On the route to delivering and realising value, the aim is to reduce the
   number of twists and turns in the software development pipework and improve flow.
   In this blog post, I’ll share some insights into practices and processes that reduce
@@ -70,12 +74,12 @@ It’s tempting to try to change everything at once – don’t. Make deliberate
 
 The overarching principle is to increase flow, getting items from the beginning of the pipework to the end as efficiently and effectively as possible. I said there were no silver bullets, but I’ll end by leaving you with some bullets of another kind:
 
-* Value is only realised once software is in use, so aim to release business value as quickly as possible.
+* **Value is only realised once software is in use**, so aim to release business value as quickly as possible.
 
-* Speed comes from effectiveness, not from cutting corners – keep in mind that ‘smooth is fast, fast is smooth’.
+* **Speed comes from effectiveness, not from cutting corners** – keep in mind that ‘smooth is fast, fast is smooth’.
 
-* Maximise people’s potential by reducing handoffs and context switching.
+* **Maximise people’s potential** by reducing handoffs and context switching.
 
-* Set the team up for success from the start – avoid adding unnecessary twists and turns in the pipework and do not tip sludge into the pipework.
+* **Set the team up for success from the start** – avoid adding unnecessary twists and turns in the pipework and do not tip sludge into the pipework.
 
-* The beginning of the software development process is just as important as the rest, if not more so.
+* **The beginning of the software development process is just as important as the rest**, if not more so.
