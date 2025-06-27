@@ -14,6 +14,7 @@ summary: On the route to delivering and realising value, the aim is to reduce th
   methodology-agnostic; I want to get beyond the rituals and practices of the different
   approaches and focus instead on the underlying best practices.
 author: nhume
+image: "/uploads/20th-anniversary-logo-blog-thumbnail-w-quote-Nick-Hume-01.jpg"
 ---
 
 In simple terms, a process that’s becoming more efficient might be defined as one that generates more value without the need for greater effort. However, simplicity is not a defining characteristic of most software development projects, and the more they grow in size and complexity, the more opportunities there are for inefficiencies to creep in.
@@ -23,6 +24,8 @@ The software development process is relatively easy to conceptualise, and is all
 A helpful metaphor is to visualise the software development process as pipework. Just like the plumbing in your house, it doesn’t run from point-to-point but instead it must navigate a number of obstacles in order to reach its destination.
 
 Just as actual pipes have twists and turns and become furred up over time, so too does the software development pipework have the potential to be bent out of shape and slowed down by inefficient practices. On the route to delivering and realising value, the aim is to reduce the number of twists and turns in the pipework and avoid adding sludge into the pipework in the first place.
+
+![Pipework.png](/uploads/Pipework.png)
 
 Additionally, the software development process isn’t a static team artefact agreed at the start of a project – it is dynamic and requires attention and effort to improve its efficiency. In my experience of software projects spanning more than two decades, suboptimal flow has diverse causes, but some common factors manifest throughout the software development process.
 

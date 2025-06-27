@@ -113,7 +113,6 @@ active-authors:
   - mwallace
   - mwalkerrose
   - nbetts
-  - nhume
   - ocronk
   - oforeman
   - osharon
@@ -736,10 +735,6 @@ authors:
     picture: profile.jpeg
   nhemley:
     name: "Nicholas Hemley"
-  nhume:
-    name: "Nick Hume"
-    author-summary: "I'm a delivery-focused leader with 20+ years of experience ensuring successful outcomes across the public and private sectors. Proven track record of driving complex initiatives from concept to completion, aligning teams, stakeholders, and technology to deliver valuable outcomes. Currently a Delivery Principal based at Scott Logic's London office."
-    picture: Nick Hume.jpeg
   nowen:
     author-summary: "<p>I'm a Senior Developer at Scott Logic, with many years of C# experience. Recently I've immersed myself in JavaScript, including Angular and React."
     name: "Nick Owen"
