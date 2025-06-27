@@ -14,6 +14,7 @@ summary: 'Pride Month is both a joyful celebration and a powerful protest — a 
   larger, the same question resurfaces: Do we still need Pride? The answer is a resounding
   yes. In this post, I explain why.'
 author: sforeshew-cain
+image: "/uploads/New-logo-blog-thumbnail_headshot---SFC-Pride.jpg"
 ---
 
 Every June, cities around the world burst into colour. Rainbow flags wave from lampposts, glitter rains down from floats, and streets pulse with the rhythm of dance music and chants for equality. Pride Month is both a joyful celebration and a powerful protest — a moment to honour how far we’ve come, and to spotlight how far we still have to go. But every year, as the corporate logos change their colours and the parades grow ever larger, the same question resurfaces: **Do we still need Pride?**
