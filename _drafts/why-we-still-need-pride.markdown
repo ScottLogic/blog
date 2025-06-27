@@ -3,6 +3,16 @@ title: 'Why We Still Need Pride: A Celebration and a Protest'
 date: 2025-06-27 11:19:00 Z
 categories:
 - People
+tags:
+- Pride
+- LGBTQIA
+- LGBT
+- Pride Month
+summary: 'Pride Month is both a joyful celebration and a powerful protest — a moment
+  to honour how far we’ve come, and to spotlight how far we still have to go. But
+  every year, as the corporate logos change their colours and the parades grow ever
+  larger, the same question resurfaces: Do we still need Pride? The answer is a resounding
+  yes. In this post, I explain why.'
 author: sforeshew-cain
 ---
 
@@ -12,7 +22,7 @@ The answer is a resounding yes.
 
 ## TL|DR
 
-We still need Pride because someone, somewhere, right now still believes they’re better off being dead than being LGBTQ\+.
+We still need Pride because someone, somewhere, right now, still believes they’re better off being dead than being LGBTQ\+.
 
 ## The Roots of Pride: A Protest First
 
@@ -24,7 +34,8 @@ That legacy of protest is embedded in the DNA of Pride. It reminds us that visib
 
 Over the decades, Pride has evolved into something both fiercer and more joyful. It's a space where LGBTQ\+ people can be visible, exuberant, and unapologetic in their identities. It’s a celebration of survival, of community, of self-acceptance. It’s also, for many, the first time they feel seen.
 
-In a world that still often marginalises queer people, celebration itself becomes a form of resistance. When you grow up hearing your identity is something to be hidden, or worse, something to be ashamed of, a parade that says you are loved exactly as you are can be life-changing. The joy of Pride is not trivial; it is transformative.
+In a world that still often marginalises queer people, celebration itself becomes a form of resistance. When you grow up hearing your identity is something to be hidden, or worse, something to be ashamed of, a parade that says *you are loved exactly as you are* can be life-changing. The joy of Pride is not trivial; it is transformative.
+
 But celebration cannot exist without acknowledging the struggle that continues alongside it.
 
 ## The Ongoing Need for Protest
@@ -38,7 +49,8 @@ This climate makes the protest aspect of Pride more essential than ever. It remi
 ## Pride is political
 
 Pride is inherently political. When queer people gather to demand rights, recognition, and respect, they are challenging power structures. They are asserting their right to exist on their own terms — in families, workplaces, classrooms, healthcare systems, and public life.
-Critics often claim that Pride has become “too political.” But LGBTQ\+ existence is political because the world still makes it so. Hate the game, not the player.  From healthcare policies that deny gender-affirming care, to school curriculums that erase queer history, to employment discrimination and housing insecurity — being LGBTQ\+ affects how one navigates every aspect of life.
+
+Critics often claim that Pride has become “too political”. But LGBTQ\+ existence is political because the world still makes it so. Hate the game, not the player.  From healthcare policies that deny gender-affirming care, to school curriculums that erase queer history, to employment discrimination and housing insecurity — being LGBTQ\+ affects how one navigates every aspect of life.
 
 Pride is a space to make these issues visible. To centre the voices of the most marginalised within the community — especially Black and brown queer people, trans people, disabled LGBTQ\+ people, and queer youth. When we say, “Pride is for everyone,” it must also mean we fight for everyone.
 
