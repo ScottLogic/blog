@@ -1,6 +1,7 @@
 ---
 title: My Experience with the Scott Logic Graduate Training
-categories: People
+categories:
+  - People
 tags:
   - Training
   - Graduates
