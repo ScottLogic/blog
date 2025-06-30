@@ -9,11 +9,11 @@ summary: Having just completed the Graduate Training at Scott Logic I wanted to 
 ---
 
 Hi!
-I’m Ben, I joined Scott Logic as a graduate software developer in March of 2025. This was a bit of a jump for me as it constituted a move from the windy rainy coast of southeast Scotland to the windy rainy almost coast of northeast England. Over the last three months I’ve taken part in the training program run by Scott Logic for new graduates. I’ve gained a lot over the course of the training and want to highlight some of the lessons I’ve learned while walking through my diary of the last few months.
+I’m Ben, I joined Scott Logic as a graduate software developer in March of 2025. This was a bit of a jump for me as it constituted a move from the windy rainy coast of Southeast Scotland to the windy rainy almost coast of Northeast England. Over the last three months I’ve taken part in the training program run by Scott Logic for new graduates. I’ve gained a lot over the course of the training and want to highlight some of the lessons I’ve learned while walking through my diary of the last few months.
 
 This is mostly aimed at new graduates who are coming after us and undertaking future graduate training at Scott Logic. Hopefully this will outline a roadmap of what you can expect from your training while also giving you several key pieces of advice that might have given me a leg up when I started.
 
-My post-hired experiences at Scott Logic started the Friday before the graduate introduction week, there was a small meet and greet with some of the new grads and the staff who we would get to know more over the next few months. This was a good way to meet a few people and make the start of the programme a bit smoother. It was also when I met our Graduate Coordinator and our Graduate Training Officer, two faces I would get to know and appreciate very well over the following months.
+My post-hired experiences at Scott Logic started the Friday before the graduate introduction week, there was a small meet and greet with some of the new graduates and the staff who we would get to know more over the next few months. This was a good way to meet a few people and make the start of the programme a bit smoother. It was also when I met our Graduate Coordinator and our Graduate Training Officer, two faces I would get to know and appreciate very well over the following months.
 
 ## Introduction Week
 
@@ -33,7 +33,7 @@ One piece of advice I would give here, relevant even at the start of the trainin
 
 ## Object Oriented Programming
 
-After spending a week on the web technologies, we started our Java training. I had worked with Java before at university but there was a noticable change to working on it in a professional environment. Unit testing, in particular, was something I was familiar with but had been quite lazy about. Now I have more focus not just on writing unit tests but writing them in a way that detects categories of error.
+After spending a week on the web technologies, we started our Java training. I had worked with Java before at university but there was a noticeable change to working on it in a professional environment. Unit testing, in particular, was something I was familiar with but had been quite lazy about. Now I have more focus not just on writing unit tests but writing them in a way that detects categories of error.
 
 This was the part of the training where it felt to me like everyone in the cohort stepped up a gear and was working with a bit more drive. I was often impressed by how others had approached the same problems I was working on with a very different approach.
 
@@ -51,11 +51,11 @@ One thing that I’ve brought from these presentations and workshops into my wor
 
 After two weeks of working on Java we moved on again to the full stack part of the training. Our frontend is built with Angular, our backend with Spring Boot. By working on both the frontend and backend pieces of the application we get a comprehensive view of the development of this kind of architecture. Because this is a larger project it took a bit more time to come together into a working application. Each feature takes longer to add and become complete. It was also my first introduction to dependency injection and inversion of control, which took me a bit of time to get my head around. Don’t worry about struggling with concepts like these, talk to people and ask for explanations. Plenty of people at Scott Logic have been happy to help me correct and refine my understanding of broader concepts.
 
-It was during the full stack training when we started regularly demoing our work in our standups. When working with a client they will be curious and want to know what it is you have been working on. To ease us into this we had practice sessions where we showed our mentors our work and explain what we had been working on over the last week.
+It was during the full stack training when we started regularly demoing our work in our stand-ups. When working with a client they will be curious and want to know what it is you have been working on. To ease us into this we had practice sessions where we showed our mentors our work and explain what we had been working on over the last week.
 
 Two pieces of advice I was given were to have a plan for my demo and to show the logical story of a feature. What I found was that the demo often turned into a bit of a Q&A about my website as a whole rather than just about the feature I was describing. This ended up giving me more feedback and more things to work on, so on the whole I thought it was quite good.
 
-From this point on the main work of our training was polishing our full stack web applications under the guidance of our mentors and according to our own thoughts and desires. Improvements became less earthshattering and more incremental. Adding one feature at a time to make a more whole application. This is a great time to expand beyond the baseline and explore the aspects of the project you find most interesting.
+From this point on the main work of our training was polishing our full stack web applications under the guidance of our mentors and according to our own thoughts and desires. Improvements became less earth-shattering and more incremental. Adding one feature at a time to make a more whole application. This is a great time to expand beyond the baseline and explore the aspects of the project you find most interesting.
 
 ## Presentations and Workshops
 
