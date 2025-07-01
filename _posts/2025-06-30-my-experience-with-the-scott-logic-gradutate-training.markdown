@@ -28,7 +28,7 @@ After the introduction week our training started in full. This was a quick intro
 
 This first week of training was when I met my mentor and my line manager. Your mentor is a daily contact who will help you find your feet with the training, make sure you’re working to best practices while completing the exercises, and give you extra directions to explore while you are learning. I feel very lucky to have had a mentor with a broad view of the technology landscape who was willing to donate her time to help me though issues and difficulties I faced while learning.
 
-You will have less frequent contact with your line manager, but they will still give you weekly check-ins. These are to make sure you’re progressing through the training well and that you understand the feedback you’re being given. Your line manager will help you take care of your broader professional development while you’re with Scott Logic.
+You will have less frequent contact with your line manager, but they will still have check-ins with you regularly. These are to make sure you’re progressing through the training well and that you understand the feedback you’re being given. Your line manager will help you take care of your broader professional development while you’re with Scott Logic.
 
 One piece of advice I would give here, relevant even at the start of the training, is to get the best understanding of Git you can and to start working to best practices regarding commits and pull requests as early as possible. This will help make sure you are building good habits throughout your training. Showing your work to your mentor early and often is a great way to help them identify where you need to focus to improve and where you are already strong.
 
