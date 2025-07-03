@@ -1,6 +1,6 @@
 ---
 title: 'GenAI sustainability: a review of the 2025 numbers'
-date: 2025-07-02 11:40:00 Z
+date: 2025-07-08 11:40:00 Z
 ---
 
 # GenAI sustainability: a review of the 2025 numbers
