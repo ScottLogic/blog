@@ -23,7 +23,8 @@ summary: If you’re working on an entirely new product with no dependencies on 
   that should inform the test strategy for a modernisation project. I also explain
   why it’s important to go beyond the hype and use the right tool for the right job
   at the right time.
-author: mcmahon
+author: mmcmahon
+image: "/uploads/Mari%20McMahon%20photo.jpg"
 ---
 
 Any of you who have done a home renovation will remember those unexpected hurdles that slow you down from realising your vision – the shoddy plumbing, outdated wiring, or structural challenges your predecessors kindly bestowed upon you. In contrast, when you build a house on a greenfield site (while not without its challenges!), you’re starting from scratch, with fewer dependencies and constraints.
