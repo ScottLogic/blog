@@ -16,6 +16,13 @@ tags:
 - test automation
 - regression testing
 - integration testing
+summary: If you’re working on an entirely new product with no dependencies on any
+  existing system, you’re free to decide how best to build, test and deploy the product.
+  However, if you’re modernising a legacy system, the approach to development and
+  testing is less straightforward. In this blog post, I look at some of the key considerations
+  that should inform the test strategy for a modernisation project. I also explain
+  why it’s important to go beyond the hype and use the right tool for the right job
+  at the right time.
 ---
 
 Any of you who have done a home renovation will remember those unexpected hurdles that slow you down from realising your vision – the shoddy plumbing, outdated wiring, or structural challenges your predecessors kindly bestowed upon you. In contrast, when you build a house on a greenfield site (while not without its challenges!), you’re starting from scratch, with fewer dependencies and constraints.
