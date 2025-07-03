@@ -103,6 +103,7 @@ active-authors:
   - mgriffin
   - mhowie
   - mmcalroy
+  - mmcmahon
   - mmorgan
   - mmoxon
   - mnyamunda
@@ -711,6 +712,10 @@ authors:
     twitter-url: "https://twitter.com/Testflaneuse"
     twitter-handle: Testflaneuse
     picture: picture.jpg
+  mmcmahon:
+    name: "Mari McMahon"
+    author-summary: "<p>I’m a Lead Test Engineer based at Scott Logic’s Leeds office.</p>"
+    picture: mmcmahon-photo.jpg
   mnyamunda:
     name: "Maxwell Nyamunda"
     author-summary: "<p>I am a Test Engineer in Bristol that enjoys UI automation. I very much enjoy the challenge of figuring out how to automate unfamiliar scenarios</p>"
