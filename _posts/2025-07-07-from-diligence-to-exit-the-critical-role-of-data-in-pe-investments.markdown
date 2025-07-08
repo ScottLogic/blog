@@ -14,6 +14,10 @@ While AI continues to attract attention across industries, private equity (PE) f
 
 The advantages are practical and measurable. Data enables faster and more accurate due diligence, informs operational transformation post-acquisition, and supports more effective positioning when it comes time to exit. This post outlines the role of data across each of these key stages.
 
+![metal-structure.jpg](/uploads/metal-structure.jpg)
+
+<small>Image courtesy of [Alina Grubnyak](https://unsplash.com/photos/low-angle-photography-of-metal-structure-ZiQkhI7417A)</small>
+
 **Data-Driven Due Diligence and Deal Origination**
 
 In the early stages of the investment lifecycle, data serves to augment and accelerate the deal sourcing and due diligence processes. Many PE firms are combining structured internal data, such as past deal performance, market segmentation models, and CRM records, with external data sources including market databases, third-party financial platforms, and publicly available online signals.
