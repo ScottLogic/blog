@@ -1,6 +1,6 @@
 ---
 title: 'Embracing my Neurodivergent Journey'
-date: 2025-07-09 11:14:00 Z
+date: 2025-07-09 08:00:00 Z
 categories:
 - People
 tags:
