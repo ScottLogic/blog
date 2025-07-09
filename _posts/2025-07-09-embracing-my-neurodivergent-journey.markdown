@@ -13,8 +13,7 @@ tags:
 summary: Last year, I received a combined autism and ADHD (AuDHD) diagnosis. It was a pivotal moment that helped me reframe my life, and I decided early on to be open about my diagnosis, both to advocate for myself and to let others know they’re not alone. 
 author: kcoombes
 ---
-
-({{site.github.url}}/uploads/ndprideofficial.png)
+<img src="{{ site.baseurl }}/kcoombes/assets/ndprideofficial.png" alt="Neurodiversity Pride Logo" title="Neurodiversity Pride Logo">
 
 I originally wrote this for my company's newsletter, but I feel that the message is important to share with a wider audience, who may also find my experiences relatable.
 
