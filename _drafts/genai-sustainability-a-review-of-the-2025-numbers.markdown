@@ -3,8 +3,6 @@ title: 'GenAI sustainability: a review of the 2025 numbers'
 date: 2025-07-08 11:40:00 Z
 ---
 
-# GenAI sustainability: a review of the 2025 numbers
-
 Almost exactly a year ago, in July 2024, I published ["Will Generative AI Implode and Become More Sustainable?"](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html) warning that the brute-force approach to AI development was fundamentally unsustainable. I predicted that the massive energy consumption, escalating costs, and hardware demands would eventually cause first-generation GenAI platforms to "implode under their own weight."
 
 Twelve months later, we've got some financial data / analyst reports to work with. And frankly, the numbers are telling a story that's consistent with the concerns I raised. [**OpenAI has reached $10 billion annualised revenue**](https://www.reuters.com/business/media-telecom/openais-annualized-revenue-hits-10-billion-up-55-billion-december-2024-2025-06-09/), up from $3.7 billion in 2024, whilst [**Microsoft reports $13 billion in AI-related revenue**](https://www.constellationr.com/blog-news/insights/microsoft-q2-azure-revenue-growth-31-ai-revenue-run-rate-13-billion). Impressive numbers, right? But here's the catch: they're still burning $2-5 for every dollar earned. The data I've found (ironically partly through using 2 AI deep research tools) suggests that current approaches still face significant sustainability challenges, though some monetisation approaches and more efficient models show promise.
