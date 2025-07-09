@@ -14,7 +14,7 @@ summary: Last year, I received a combined autism and ADHD (AuDHD) diagnosis. It 
 author: kcoombes
 ---
 
-({{site.github.url}}//uploads/ndprideofficial.png)
+({{site.github.url}}/uploads/ndprideofficial.png)
 
 I originally wrote this for my company's newsletter, but I feel that the message is important to share with a wider audience, who may also find my experiences relatable.
 
