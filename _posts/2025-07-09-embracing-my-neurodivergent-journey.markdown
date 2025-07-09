@@ -1,5 +1,5 @@
 ---
-title: 'Embracing my Neurodivergent Journey'
+title: Embracing my Neurodivergent Journey
 date: 2025-07-09 08:00:00 Z
 categories:
 - People
@@ -10,9 +10,13 @@ tags:
 - ADHD
 - Inclusivity
 - Diversity
-summary: Last year, I received a combined autism and ADHD (AuDHD) diagnosis. It was a pivotal moment that helped me reframe my life, and I decided early on to be open about my diagnosis, both to advocate for myself and to let others know they’re not alone. 
+summary: Last year, I received a combined autism and ADHD (AuDHD) diagnosis. It was
+  a pivotal moment that helped me reframe my life, and I decided early on to be open
+  about my diagnosis, both to advocate for myself and to let others know they’re not
+  alone.
 author: kcoombes
 ---
+
 <img src="{{ site.baseurl }}/kcoombes/assets/ndprideofficial.png" alt="Neurodiversity Pride Logo" title="Neurodiversity Pride Logo">
 
 I originally wrote this for Scott Logic's internal newsletter, but I felt that the message was important to share with a wider audience, who may also find my experiences relatable.
