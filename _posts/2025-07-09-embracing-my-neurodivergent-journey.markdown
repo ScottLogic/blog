@@ -43,7 +43,7 @@ I began to reframe everything:
 
 • Masking (trying to appear neurotypical) was exhausting. So, I made a conscious decision that going forward, I would allow myself to embrace my passions, and behave and communicate in ways that felt natural.
 
-## Realising my strengths
+## Realising My Strengths
 
 Once I stopped fighting my brain, I saw how my neurodivergence could be an asset.
 
