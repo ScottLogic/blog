@@ -15,7 +15,7 @@ author: kcoombes
 ---
 <img src="{{ site.baseurl }}/kcoombes/assets/ndprideofficial.png" alt="Neurodiversity Pride Logo" title="Neurodiversity Pride Logo">
 
-I originally wrote this for the internal Scott Logic newsletter, but I feel that the message is important to share with a wider audience, who may also find my experiences relatable.
+I originally wrote this for Scott Logic's internal newsletter, but I felt that the message was important to share with a wider audience, who may also find my experiences relatable.
 
 As you may or may not know, 16 June 2025 was World Neurodiversity Pride Day – a day to celebrate the diverse ways our brains work.
 
@@ -37,33 +37,33 @@ Acceptance didn’t happen overnight. Society often still has some strange ideas
 
 I began to reframe everything:
 
-• My challenges weren’t personal failures – they were mismatches between my brain and an inflexible environment.
+- My challenges weren’t personal failures – they were mismatches between my brain and an inflexible environment.
 
-• My differences came with strengths, like deep focus, creativity, the ability to see beyond expectations, and unique problem-solving.
+- My differences came with strengths, like deep focus, creativity, the ability to see beyond expectations, and unique problem-solving.
 
-• Masking (trying to appear neurotypical) was exhausting. So, I made a conscious decision that going forward, I would allow myself to embrace my passions, and behave and communicate in ways that felt natural.
+- Masking (trying to appear neurotypical) was exhausting. So, I made a conscious decision that going forward, I would allow myself to embrace my passions, and behave and communicate in ways that felt natural.
 
 ## Realising My Strengths
 
 Once I stopped fighting my brain, I saw how my neurodivergence could be an asset.
 
-• Hyperfocus lets me dive deeply into subjects I love, allowing me to thoroughly understand the concepts and come up with new ideas.
+- Hyperfocus lets me dive deeply into subjects I love, allowing me to thoroughly understand the concepts and come up with new ideas.
 
-• Pattern recognition helps me spot connections others miss – as a tester, this is a real asset.
+- Pattern recognition helps me spot connections others miss – as a tester, this is a real asset.
 
-• Seeing things differently means that I question why things are the way they are, and challenge them constructively if they don’t make sense – another great asset for a tester.
+- Seeing things differently means that I question why things are the way they are, and challenge them constructively if they don’t make sense – another great asset for a tester.
 
-• My own experiences, feeling like the odd person out, gave me empathy for others who feel misunderstood, fuelling my desire to advocate and amplify under-represented voices.
+- My own experiences, feeling like the odd person out, gave me empathy for others who feel misunderstood, fuelling my desire to advocate and amplify under-represented voices.
 
 ## Using My Voice for Others
 
 My diagnosis didn’t just help me – it inspired me to support others like me. I decided from the start that I was going to be completely, defiantly open about my diagnosis and…
 
-• Speak openly about my experiences to challenge stereotypes.
+- Speak openly about my experiences to challenge stereotypes.
 
-• Educate others on neurodiversity, whether explaining sensory needs or advocating for workplace accommodations.
+- Educate others on neurodiversity, whether explaining sensory needs or advocating for workplace accommodations.
 
-• Be a supportive friend for other late-diagnosed adults who’ve spent years feeling isolated, and help others navigate the process to assessment and diagnosis.
+- Be a supportive friend for other late-diagnosed adults who’ve spent years feeling isolated, and help others navigate the process to assessment and diagnosis.
 
 ## A Lifelong Journey
 
