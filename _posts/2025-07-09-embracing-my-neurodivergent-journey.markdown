@@ -12,6 +12,7 @@ tags:
 - Diversity
 summary: Last year, I received a combined autism and ADHD (AuDHD) diagnosis. It was a pivotal moment that helped me reframe my life, and I decided early on to be open about my diagnosis, both to advocate for myself and to let others know they’re not alone. 
 author: kcoombes
+image: "/uploads/ndprideofficial.png"
 ---
 
 
