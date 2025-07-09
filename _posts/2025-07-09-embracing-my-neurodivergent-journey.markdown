@@ -41,7 +41,7 @@ I began to reframe everything:
 
 • My differences came with strengths, like deep focus, creativity, the ability to see beyond expectations, and unique problem-solving.
 
-• Masking (trying to appear neurotypical) was exhausting. So, I made a conscious decision that going forward, I would allow myself to embrace my passions and behave and communicate in ways that felt natural.
+• Masking (trying to appear neurotypical) was exhausting. So, I made a conscious decision that going forward, I would allow myself to embrace my passions, and behave and communicate in ways that felt natural.
 
 ## Realising my strengths
 
