@@ -76,4 +76,5 @@ To anyone discovering their neurodivergence later in life – you aren’t broke
 
 Read more about Neurodiversity Pride Day here:
 
-[https://neurodiversityprideday.com/](https://neurodiversityprideday.com/)
+[Neurodiversity Pride Day](https://neurodiversityprideday.com/)
+
