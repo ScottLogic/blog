@@ -1,6 +1,6 @@
 ---
 title: 'GenAI sustainability: a review of the 2025 numbers'
-date: 2025-07-09 09:40:00 Z
+date: 2025-07-08 17:00:00 Z
 categories:
 - Artificial Intelligence
 - Sustainability
@@ -86,7 +86,7 @@ The path to profitability faces structural challenges that validate the concerns
 
 The financial data supports my analysis from last year that current GenAI approaches face fundamental sustainability challenges. **OpenAI's $10 billion revenue alongside $5 billion losses** illustrates the sector's core problem – revenue growth struggling to outpace infrastructure costs using brute-force scaling approaches.
 
-However, the successful models emerging align with some of the patterns I anticipated. Microsoft's integrated approach generates sustainable revenue by embedding AI into existing profitable products. Chinese companies achieve dramatic cost reductions through more efficient architectures. I've not really seen as much movement on the hardware efficiency side as I'd hoped - there are small players like [Fractal](https://fractalweb.app/) pushing for a distributed computing model and use of more TPUs over GPUs continues to be discussed. Although as I was about to hit publish I came across this story: [OpenAI says it won't ramp up Google's TPUs despite early tests. The Microsoft-backed AI outfit confirmed it's trialing some of Alphabet's tensor processing units but has no plans to deploy the chips at scale.](https://ca.finance.yahoo.com/news/openai-passes-googles-tpus-now-142700813.html). Regardless I see massive potential for hardware optimisation and more pragmatic, medium and smaller models.
+However, the successful models emerging align with some of the patterns I mentioned last year. Microsoft's integrated approach generates sustainable revenue by embedding AI into existing profitable products. Chinese companies achieve dramatic cost reductions through more efficient architectures. I've not really seen as much movement on the hardware efficiency side as I'd hoped - there are small players like [Fractal](https://fractalweb.app/) pushing for a distributed computing model and the use of more TPUs over GPUs continues to be discussed. Although as I was about to hit publish I came across this story: [OpenAI says it won't ramp up Google's TPUs despite early tests. The Microsoft-backed AI outfit confirmed it's trialing some of Alphabet's tensor processing units but has no plans to deploy the chips at scale.](https://ca.finance.yahoo.com/news/openai-passes-googles-tpus-now-142700813.html). Regardless I see massive potential for hardware optimisation and more pragmatic, medium and smaller models.
 
 My research suggests **2026-2027 as the critical period** when unsustainable approaches face market correction whilst efficient models achieve profitability. Companies that transition from general-purpose scaling to specialised, integrated solutions will likely survive the consolidation that seems increasingly probable.
 
