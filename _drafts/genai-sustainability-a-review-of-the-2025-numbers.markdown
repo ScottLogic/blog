@@ -1,6 +1,6 @@
 ---
 title: 'GenAI sustainability: a review of the 2025 numbers'
-date: 2025-07-09 11:40:00 Z
+date: 2025-07-10 11:40:00 Z
 categories:
 - Artificial Intelligence
 - Sustainability
@@ -10,19 +10,29 @@ tags:
 - Sustainability
 - ocronk
 - ESG
+summary: A year after predicting GenAI's sustainability crisis, the 2024/25 financial
+  data tells a concerning story. OpenAI's $10 billion revenue comes with $5 billion
+  losses, whilst Anthropic burns $3-4 billion annually. With the sector consuming
+  over $100 billion in venture funding and Big Tech spending $250 billion on AI infrastructure,
+  we're witnessing what some critics are now calling a "subprime AI crisis" – an entire
+  industry built on services sold at massive losses. The transparency initiatives
+  from Hugging Face's AI Energy Score and the shift towards open source models (now
+  46% of enterprise preference) offer hope for a more sustainable GenAI 2.0 focused
+  on efficiency over scale.
+author: ocronk
 ---
 
 Almost exactly a year ago, in July 2024, I published ["Will Generative AI Implode and Become More Sustainable?"](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html) warning that brute-force approaches to AI development are fundamentally unsustainable. I predicted that massive energy consumption, escalating costs, and hardware demands would eventually cause first-generation GenAI platforms to "implode under their own weight." Whilst that's not happened yet the fundamentals haven't changed much and still think (and hope) that in the medium term there will shifts towards more sustainable approaches.
 
-So twelve months later, we've got some updated financial data and analyst reports to work with. And frankly, the numbers are telling a story that's consistent with the concerns I raised. [**OpenAI has reached $10 billion annualised revenue**](https://www.reuters.com/business/media-telecom/openais-annualized-revenue-hits-10-billion-up-55-billion-december-2024-2025-06-09/), up from $3.7 billion in 2024, whilst [**Microsoft reports $13 billion in AI-related revenue**](https://www.constellationr.com/blog-news/insights/microsoft-q2-azure-revenue-growth-31-ai-revenue-run-rate-13-billion). Impressive numbers, but here's the catch: they're still burning $2-5 for every dollar earned. The data I've found (ironically partly through using 2 AI deep research tools - we've found more use cases in the last year) suggests that current approaches still face significant sustainability challenges, though some monetisation approaches and more efficient models show promise.
+So twelve months later, we've got some updated financial data and analyst reports to work with. And frankly, the numbers are telling a story that's consistent with the concerns I raised. [**OpenAI has reached $10 billion annualised revenue**](https://www.reuters.com/business/media-telecom/openais-annualized-revenue-hits-10-billion-up-55-billion-december-2024-2025-06-09/), up from $3.7 billion in 2024, whilst [**Microsoft reports $13 billion in AI-related revenue**](https://www.constellationr.com/blog-news/insights/microsoft-q2-azure-revenue-growth-31-ai-revenue-run-rate-13-billion). Impressive numbers, but here's the catch: many are projected to be burning $2-5 for every dollar earned. The data I've found (ironically partly through using 2 AI deep research tools - we've all found more use cases in the last year) suggests that current approaches still face significant sustainability challenges, though some monetisation approaches and more efficient models show promise.
+
+In an uncanny bit of timing, as I was doing final edits on this piece, [tech critic Ed Zitron published a piece calling this the "subprime AI crisis"](https://www.wheresyoured.at/anthropic-and-openai-have-begun-the-subprime-ai-crisis/) – drawing parallels to the 2007 subprime mortgage crisis where financial institutions lent far more than they could hope to recover. The analogy is apt: we have an entire industry built on services sold at massive losses, with the assumption that scale will eventually solve the economics. As Zitron puts it, these companies are providing services at such discounted rates that when reality catches up, the entire ecosystem built on top will face serious challenges.
 
 ## The uncomfortable truth about unit economics
 
 Let's be brutally honest about what these revenue figures actually mean. OpenAI's journey from $3.7 billion to $10 billion revenue looks spectacular but [the company loses approximately $5 billion annually](https://www.cnbc.com/2024/09/27/openai-sees-5-billion-loss-this-year-on-3point7-billion-in-revenue.html) against this revenue – that's a 50% loss ratio that would send most traditional software company CFOs into a panic.
 
-It's not just an OpenAI thing, [**Anthropic achieved $3 billion annualised revenue**](https://www.reuters.com/business/anthropic-hits-3-billion-annualized-revenue-business-demand-ai-2025-05-30/) whilst burning through similar proportions of capital. 
-
-Both are in the camp of "let's try and build AGI and work out profitability later".
+It's not just an OpenAI thing, [**Anthropic achieved $3 billion annualised revenue**](https://www.reuters.com/business/anthropic-hits-3-billion-annualized-revenue-business-demand-ai-2025-05-30/) whilst burning through similar proportions of capital. Recent reports suggest [Anthropic hit $4 billion in annualised revenue but expects to lose $3 billion in 2025](https://www.wheresyoured.at/anthropic-and-openai-have-begun-the-subprime-ai-crisis/) – an improvement from a $5.6 billion loss in 2024, though that included "a one-off payment to access data centres." Both companies remain firmly in the camp of "let's try and build AGI and work out profitability later".
 
 [AI consumed **over $100 billion in venture funding during 2024**](https://news.crunchbase.com/venture/global-funding-data-analysis-ai-eoy-2024/), representing 80% year-on-year growth. This capital intensity creates exactly the unsustainable dynamic I predicted – companies must achieve massive scale or face inevitable consolidation.
 
@@ -34,7 +44,7 @@ Microsoft is showing signs of success in "how do we actually make money from thi
 
 [**Meta represents pure speculation**](https://techcrunch.com/2025/04/30/meta-forecasted-it-would-make-1-4t-in-revenue-from-generative-ai-by-2035/), investing over $60 billion annually in AI infrastructure whilst generating minimal direct AI revenue. Meta AI's 700 million users look impressive until you realise Zuckerberg himself has said AI won't meaningfully contribute to revenue until beyond 2025. That's a very expensive bet on the future.
 
-[Combined capital expenditure from Microsoft, Google, and Meta approaches **$250 billion for 2025**](https://www.reuters.com/technology/artificial-intelligence/big-tech-faces-heat-chinas-deepseek-sows-doubts-billion-dollar-spending-2025-01-27/), primarily for AI infrastructure.  Analysts are starting to ask the awkward questions about whether this investment level can generate adequate returns – exactly the kind of financial sustainability concerns I was highlighting last year.
+[Combined capital expenditure from Microsoft, Google, and Meta approaches **$250 billion for 2025**](https://www.reuters.com/technology/artificial-intelligence/big-tech-faces-heat-chinas-deepseek-sows-doubts-billion-dollar-spending-2025-01-27/), primarily for AI infrastructure. Analysts are starting to ask the awkward questions about whether this investment level can generate adequate returns – exactly the kind of financial sustainability concerns I was highlighting last year. The "subprime AI crisis" framing captures this perfectly: we have an entire tech ecosystem built on the assumption that AI services will somehow become profitable at scale, despite all evidence pointing to the opposite.
 
 ## The Chinese efficiency model 
 
@@ -84,4 +94,8 @@ The transparency initiatives from organisations like Hugging Face give me hope t
 
 The $1 trillion in projected AI investment might generate returns, but likely for companies that move away from the current brute-force approach in favour of more efficient, integrated architectures.
 
-And frankly, this shift from the hype bubble back to the pragmatic real world can't come soon enough. The current burn rates, energy consumption, infrastructure demands and over promising represent exactly the kind of unsustainable trajectory that needs correcting. The future of AI lies not in bigger language models requiring more power, but in diverse, smarter, more efficient approaches that deliver real value without breaking the bank – or the planet. Based on our experiences of using the tech I would wager that pragmatic use of deterministic logic and neurosymbolic approaches will come back into fashion. Going some way to caging this beast that's been created, saving reputations and balance sheets along the way...
+And frankly, this shift from the hype bubble back to the pragmatic real world can't come soon enough. The current burn rates, energy consumption, infrastructure demands and over promising represent exactly the kind of unsustainable trajectory that needs correcting.
+
+As the financial sustainability of major AI providers becomes increasingly questionable, open source models offer a compelling alternative – providing organisations with certainty and control when commercial providers start looking shaky. The 46% enterprise preference shift towards open source I mentioned earlier isn't just about cost; it's about reducing dependence on companies burning billions annually with no clear path to profitability. When your AI strategy relies on a centralised provider that might not exist in their current form (or level of service) in two years, open source will probably start looking more compelling?
+
+My hope for the future of AI is that is lies not in bigger language models requiring more power, but in diverse, smarter, more efficient approaches that deliver real value without breaking the bank – or the planet. Based on our experiences of using the tech I would wager that pragmatic use of deterministic logic and neurosymbolic approaches will come back into fashion. Going some way to caging this beast that's been created, saving reputations and balance sheets along the way...
