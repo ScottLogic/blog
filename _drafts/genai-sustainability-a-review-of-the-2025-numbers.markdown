@@ -1,6 +1,15 @@
 ---
 title: 'GenAI sustainability: a review of the 2025 numbers'
-date: 2025-07-08 11:40:00 Z
+date: 2025-07-09 11:40:00 Z
+categories:
+- Artificial Intelligence
+- Sustainability
+tags:
+- Artificial Intelligence
+- AI
+- Sustainability
+- ocronk
+- ESG
 ---
 
 Almost exactly a year ago, in July 2024, I published ["Will Generative AI Implode and Become More Sustainable?"](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html) warning that brute-force approaches to AI development are fundamentally unsustainable. I predicted that massive energy consumption, escalating costs, and hardware demands would eventually cause first-generation GenAI platforms to "implode under their own weight." Whilst that's not happened yet the fundamentals haven't changed much and still think (and hope) that in the medium term there will shifts towards more sustainable approaches.
@@ -73,6 +82,6 @@ My research suggests **2026-2027 as the critical period** when unsustainable app
 
 The transparency initiatives from organisations like Hugging Face give me hope that we can measure and manage the sustainability challenges. Their call for enterprises to "apply pressure through their customers" and integrate environmental transparency into procurement processes represents exactly the kind of market-driven sustainability pressure I believe will drive the transition to a more sustainable GenAI 2.0.
 
-The $1 trillion in projected AI investment will generate returns, but likely for companies that move away from the current brute-force approach in favour of more efficient, integrated architectures. The market correction I suggested might be necessary appears to be underway.
+The $1 trillion in projected AI investment might generate returns, but likely for companies that move away from the current brute-force approach in favour of more efficient, integrated architectures.
 
-And frankly, it can't come soon enough. The current burn rates, energy consumption, and infrastructure demands represent exactly the kind of unsustainable trajectory that needs correcting. The future of AI lies not in bigger models requiring more power, but in smarter, more efficient approaches that deliver real value without breaking the bank – or the planet.
+And frankly, this shift from the hype bubble back to the pragmatic real world can't come soon enough. The current burn rates, energy consumption, infrastructure demands and over promising represent exactly the kind of unsustainable trajectory that needs correcting. The future of AI lies not in bigger language models requiring more power, but in diverse, smarter, more efficient approaches that deliver real value without breaking the bank – or the planet. Based on our experiences of using the tech I would wager that pragmatic use of deterministic logic and neurosymbolic approaches will come back into fashion. Going some way to caging this beast that's been created, saving reputations and balance sheets along the way...
