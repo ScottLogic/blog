@@ -15,7 +15,7 @@ author: kcoombes
 ---
 <img src="{{ site.baseurl }}/kcoombes/assets/ndprideofficial.png" alt="Neurodiversity Pride Logo" title="Neurodiversity Pride Logo">
 
-I originally wrote this for my company's newsletter, but I feel that the message is important to share with a wider audience, who may also find my experiences relatable.
+I originally wrote this for the internal Scott Logic newsletter, but I feel that the message is important to share with a wider audience, who may also find my experiences relatable.
 
 As you may or may not know, 16 June 2025 was World Neurodiversity Pride Day – a day to celebrate the diverse ways our brains work.
 
