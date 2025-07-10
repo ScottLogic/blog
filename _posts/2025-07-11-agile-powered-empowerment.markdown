@@ -1,13 +1,13 @@
 ---
 title: Agile-powered empowerment
-date: 2025-07-10 00:00:00 Z
+date: 2025-07-11 00:00:00 Z
 categories:
 - People
 tags:
 - Agile
 - Creativity
-- Decision Making
-summary: Practical insights of adapting agile methodologies to empower people. Spanning the topics of Mixed Martial Arts, decision-making and creativity.
+- Decision-making
+summary: Practical insights of adapting agile methodologies to empower people. Spanning the topics of Mixed Marital Arts, decision-making and creativity.
 author: dallsop
 ---
 
@@ -25,7 +25,7 @@ In a world full of different approaches, each with passionate advocates, how can
 
 I invite you to take a quick journey with me back to the 1990’s in search of answers, during a time when Mixed Martial Arts (MMA) was being shaped into the sport many of us recognise today. At its inception the Ultimate Fighting Championship (UFC) marketed tournaments as real-life tests to determine which martial art was the most effective in fights with minimal rules.
 
-UFC 1, an 8-fighter tournament held in Denver Colorado on 12th November 1993, featured experts representing numerous fighting styles including savate, sumo, kickboxing, kenpo, boxing, wrestling and taekwondo. Ultimately Royce Gracie, a Brazilian Jiu-jitsu practitioner from Brazil, triumphed. Royce proved dominant at several of these early UFC events, winning the 16-fighter tournament at UFC 2, and the 8-fighter tournament at UFC 4. He withdrew due to exhaustion and dehydration after winning a bout against a taekwondo expert at UFC 3. And fought to a draw, after 36 minutes, in a singles match against Ken Shamrock, a wrestling expert at UFC 5.
+UFC 1, an 8-fighter tournament held in Denver Colorado on 12th November 1993, featured experts representing numerous fighting styles including savate, sumo, kickboxing, kenpo, boxing, wrestling and taekwondo. Ultimately Royce Gracie, a practitioner of Brazilian Jiu-jitsu, triumphed. Royce dominated these early UFC events, winning the 16-fighter tournament at UFC 2, and the 8-fighter tournament at UFC 4. He withdrew due to exhaustion and dehydration after winning a bout against a taekwondo expert at UFC 3. And fought to a draw, after 36 minutes, in a singles match against Ken Shamrock, a wrestling expert at UFC 5.
 
 MMA has progressed a long way over the last several decades, and Royce has since retired from active competition and has been inducted into the UFC hall of fame in 2008. His success in these early UFC events cemented Brazilian Jiu-jitsu as an effective way to win against bigger and stronger opponents. Nowadays professional MMA fighters have their own specialities but, importantly, also a solid grounding in multiple disciplines including Brazilian Jiu-jitsu, boxing, wrestling and kickboxing. No professional cage fighter in the modern era restricts their thoughts and movements to a singular prescribed fighting style. 
 
@@ -38,7 +38,7 @@ Instead, we should internalise and appreciate the core practises of the various 
 + Fixed time-boxed project phases in Dynamic Systems Development Method (DSDM). 
 + Early architecture design in Agile Rational Unified Process (Agile RUP). 
 
-While simultaneously internalising their respective pros and cons. With a deep understanding we can be creative in actioning incremental changes towards a bespoke agile approach, focusing on realising better outcomes for individual, teams, and ultimately organisations. To use a music related analogy, the goal is to create a playlist of the best songs rather than remaining committed to any individual album.
+While simultaneously internalising their respective pros and cons. With a deep understanding we can be creative in making incremental changes towards a bespoke agile approach, focusing on realising better outcomes for individual, teams, and ultimately organisations. To use a music related analogy, the goal is to create a playlist of the best songs rather than remaining committed to any individual album.
 
 A gentler first step for teams new to bespoke agile is to identify issues, and then trial the relevant core practises as possible solutions e.g. 
 
@@ -75,11 +75,11 @@ Sticking with the theme of teams iterating and adapting. We can consider how to 
 
 Self-organising agile teams are regularly given limited freedoms to trial two-way door ideas at their behest such as allocation of work, code base changes, meeting scheduling, etc. However, I think more can be done to redistribute decision-making to the teams who are directly doing the work. In my experience empowering teams to more autonomously employ low-risk, low-cost, creative solutions to two-way door decisions can result in spectacular wins.
 
-**Low risk**, not to be confused with risk free. “Controlled experimentation” might be a less succinct but more accurate description. Betting small, learning quickly and iterating. Failure is inevitable, but big losses are not. If an idea works, keep it, if it doesn’t, it’s a small loss resulting in valuable learning. For example, sampling using only select few customers, or a small quirky marketing campaign. 
+Low risk - not to be confused with risk free. “Controlled experimentation” might be a less succinct but more accurate description. Betting small, learning quickly and iterating. Failure is inevitable, but big losses are not. If an idea works, keep it, if it doesn’t, it’s a small loss resulting in valuable learning. For example, sampling using only select few customers, or a small quirky marketing campaign. 
 
-**Low cost**, exactly as described. Often, the cost of speculation around an idea in meetings can far exceed the cost of simply testing it. Real innovation often comes from acting quickly and learning from actual data, rather than from discussing what might work.
+Low cost - exactly as described. Often, the cost of speculation around an idea in meetings can far exceed the cost of simply testing it. Real innovation often comes from acting quickly and learning from actual data, rather than from discussing what might work.
 
-**Creative**, not to be confused with simply coming up with more ideas. It starts with fostering an environment where open collaboration and the free exchange of ideas are actively encouraged and supported. Then focusing on the art of reframing problems in interesting ways, often with a focus on psychological insight, envisioning perception-driven solutions that tap into how people experience or interpret situations. Thinking differently, harnessing chaos with purpose. Solving with imagination, not just engineering. It’s driving a bulldozer through assumptions and building a castle from the rubble. Acknowledging the simplest ideas can have the biggest impact e.g.  
+Creative - not to be confused with simply coming up with more ideas. It starts with fostering an environment where open collaboration and the free exchange of ideas are actively encouraged and supported. Then focusing on the art of reframing problems in interesting ways, often with a focus on psychological insight, envisioning perception-driven solutions that tap into how people experience or interpret situations. Thinking differently, harnessing chaos with purpose. Solving with imagination, not just engineering. It’s driving a bulldozer through assumptions and building a castle from the rubble. Acknowledging the simplest ideas can have the biggest impact e.g.  
 
   + Having passengers walk further to baggage claim, so bags arrive just as they do.
   + Making time to simplify user flows through software, or removing valueless features, rather than defaulting to always adding new functionality. 
@@ -90,13 +90,13 @@ Self-organising agile teams are regularly given limited freedoms to trial two-wa
   + Using more comprehensible warm user-friendly language to increase engagement.
   + Viewing long waits as an opportunity to offer a little something extra e.g. free tea/coffee, blankets, Wi-Fi, etc, for patients undergoing chemotherapy/dialysis.
 
-There are an additional two caveats worth a special mention. Firstly, broadening decision-making autonomy within an organization is most effective when approached at a measured pace, aligned with the organization's readiness and openness to change. Secondly, being ready and able to provide additional support to employees should confusion arise regarding classifying decisions.  
+There are two caveats worth a special mention. Firstly, broadening decision-making autonomy within an organization is most effective when approached at a measured pace, aligned with the organization's readiness and openness to change. Secondly, being ready and able to provide additional support to employees should confusion arise regarding classifying decisions.  
 
 I have already mentioned one of the major benefits being the discovery of big successes that far outweigh the low commitment. Additionally, employees feel a stronger sense of ownership in their roles, that naturally brings more enthusiasm, energy, and usually discretionary effort. This approach fosters a culture of trust and accountability, and increases ownership, engagement, and adaptability within an organization. It also removes lightweight decisions from bottlenecking the slow, one-size-fits-all decision-making processes meant for larger, more consequential decisions.
 
-Finally, just to touch on single door decisions. It is important they are elevated to senior executives to employ caution, analysis, and ultimately decide the best course of action. Having clear and widely understood pathways for escalating conversations about single door decisions enables the creativity, unique skills, and fresh perspectives of employees at all levels to extend beyond their daily roles. For example, discovering several actively developed internal software tools with similar functionality that could be unified into a single software tool, or employing lightweight usage scripts to track app activity to identify software licenses that could be downgraded or cancelled.
+Finally, just to touch on one-way door decisions. It is important they are elevated to senior executives to employ caution, analysis, and ultimately decide the best course of action. Having clear and widely understood pathways for escalating conversations about single door decisions enables the creativity, unique skills, and fresh perspectives of employees at all levels to extend beyond their daily roles. For example, discovering several actively developed internal software tools with similar functionality that could be unified into a single software tool, or employing lightweight usage scripts to track app activity to identify software licenses that could be downgraded or cancelled.
 
 ### Conclusion
-In summary, I am advocating for teams collaboratively actioning incremental advances to realise and continuously refining a bespoke agile approach. A bespoke agile approach that is responsive to feedback, and keeps a focus on continually improving outcomes for the individuals, teams, and ultimately the organisation as a whole.
+In summary, I am advocating for teams collaboratively making incremental advances to realise and continuously refining a bespoke agile approach. A bespoke agile approach that is responsive to feedback, and keeps a focus on continually improving outcomes for the individuals, teams, and ultimately the organisation as a whole.
 
 In addition, I am encouraging empowering individuals and teams with increased decision-making autonomy. Trialling creative and easily reversible ideas, that have the potential to drive significant successes, that can far outweigh the minimal cost or disruption incurred by experimenting with them.
