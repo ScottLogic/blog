@@ -1,6 +1,6 @@
 ---
 title: Automated permissions testing with AWS IAM Policy Simulator
-date: 2025-04-03 00:00:00 Z
+date: 2025-07-10 00:00:00 Z
 categories:
   - Cloud
 tags:
@@ -21,9 +21,9 @@ In the majority of cases where I've used the policy simulator console UI, I've b
 
 Policy simulator API methods are available via the AWS CLI and implementations such as the `boto3` Python package, but there are some limitations. The `simulate principal policy` method seems like it should do what we need by finding the policies of a user or role for us, but it doesn't work with resource policies unless you're testing a user entity as the principal, which I am not.
 
-~~~
+```
 An error occurred (InvalidInput) when calling the SimulatePrincipalPolicy operation: Invalid caller - Caller must be an IAM user in this context.
-~~~
+```
 
 There are other solutions around providing a friendly implementation for the policy simulator API, but I don't believe any provide the ability to test a role with a resource policy.
 
@@ -31,17 +31,19 @@ There are other solutions around providing a friendly implementation for the pol
 
 The other API simulation method is `simulate custom policy`, where we provide both principal and resource policies in the request. This, too, won't work with resource policies if using a role entity, but as it doesn't cause the simulator to go off and find the policies attached to a role, we can trick it by simply providing any old user ARN as the `CallerArn` in the request.
 
-As a little up-front disclaimer: this solution requires resource policies to identify applicable principals using conditions in statements (e.g. checking the role matches the `aws:PrincipalArn` context key), rather than declaring explicit roles in the `Principals` element itself. The reason for this is that our dummy user ARN needs to match the principal(s) that the permissions apply to, so if you're using something like `AWS: *` or `AWS: <your-account-id>` then that will match the dummy user, and the nitty-gritty bits in conditions will evaluate against our test role specified in `aws:PrincipalArn`. It might well be possible to adapt policies to specify the dummy user as a principal before including in the API request, but I haven't tried.
+As a little up-front disclaimer: this solution requires resource policies to identify applicable principals using conditions in statements (e.g. checking the role matches the `aws:PrincipalArn` context key), rather than declaring explicit roles in the `Principals` element itself. The reason for this is that our dummy user ARN needs to match against the principal(s) that the statement will apply to, so if you're using `AWS: *` or your account root (`AWS: <your-account-id>` or `AWS: arn:aws:iam::<your-account-id>:root`) then that will match the dummy user, and the nitty-gritty bits in conditions will evaluate against our test role specified in the request's `aws:PrincipalArn`. Note that using the account root principal in a resource policy statement enables IAM users and roles within that account to grant themselves the listed permissions via their attached policies, rather than actually providing the access.
+
+It might well be possible to adapt policies to specify the dummy user as a principal before including in the API request, but I haven't tried.
 
 I'll be using Python for this, but it should be applicable to the AWS CLI and other AWS API implementations such as the Java SDK. I'll keep the code as obvious as possible so it can (hopefully) be followed by readers with any programming background, rather than aiming for A-grade, production ready Python.
 
 To that end, we need to:
 
-* Pull all Inline (a policy directly tied to this role only) and Managed (a policy entity that can be attached to multiple users or roles) policies for the role - these are the principal policies.
-* Pull the bucket policy - this is the resource policy.
-* Fudge the `CallerArn` in the request to a user entity to keep the simulator happy when using a role.
-* Set the `aws:PrincipalArn` context key to the ARN of the role under test.
-* Set any other context values to satisfy conditions for the action to be allowed, or to test denies trigger correctly when conditions are not met.
+- Pull all Inline (a policy directly tied to this role only) and Managed (a policy entity that can be attached to multiple users or roles) policies for the role - these are the principal policies.
+- Pull the bucket policy - this is the resource policy.
+- Fudge the `CallerArn` in the request to a user entity to keep the simulator happy when using a role.
+- Set the `aws:PrincipalArn` context key to the ARN of the role under test.
+- Set any other context values to satisfy conditions for the action to be allowed, or to test denies trigger correctly when conditions are not met.
 
 ## Setup
 
@@ -49,76 +51,69 @@ To start off, I've created a bucket and role with the following basic policies.
 
 `tims-fancy-bucket`
 
-~~~json
+```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "DenyInsecureTransport",
-            "Effect": "Deny",
-            "Principal": "*",
-            "Action": "*",
-            "Resource": [
-                "arn:aws:s3:::tims-fancy-bucket/*",
-                "arn:aws:s3:::tims-fancy-bucket"
-            ],
-            "Condition": {
-                "Bool": {
-                    "aws:SecureTransport": "false"
-                }
-            }
-        },
-        {
-            "Sid": "DenyTimDelete",
-            "Effect": "Deny",
-            "Principal": "*",
-            "Action": "s3:DeleteObject",
-            "Resource": [
-                "arn:aws:s3:::tims-fancy-bucket/*"
-            ],
-            "Condition": {
-                "ArnLike": {
-                    "aws:PrincipalArn": "arn:aws:iam::<ACCOUNT ID>:role/tims-test-role"
-                }
-	    }
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyInsecureTransport",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "*",
+      "Resource": [
+        "arn:aws:s3:::tims-fancy-bucket/*",
+        "arn:aws:s3:::tims-fancy-bucket"
+      ],
+      "Condition": {
+        "Bool": {
+          "aws:SecureTransport": "false"
         }
-    ]
+      }
+    },
+    {
+      "Sid": "DenyTimDelete",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:DeleteObject",
+      "Resource": ["arn:aws:s3:::tims-fancy-bucket/*"],
+      "Condition": {
+        "ArnLike": {
+          "aws:PrincipalArn": "arn:aws:iam::<ACCOUNT ID>:role/tims-test-role"
+        }
+      }
+    }
+  ]
 }
-~~~
+```
 
 `tims-test-role` - the policy can be either inline or managed:
 
-~~~json
+```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "s3",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:DeleteObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::tims-fancy-bucket/only-here/*"
-            ]
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "s3",
+      "Effect": "Allow",
+      "Action": ["s3:GetObject", "s3:DeleteObject"],
+      "Resource": ["arn:aws:s3:::tims-fancy-bucket/only-here/*"]
+    }
+  ]
 }
-~~~
+```
 
 From the above we can see that:
 
-* `tims-test-role` can only perform `GetObject` and `DeleteObject` for objects in `tims-fancy-bucket` in the pseudo-folder `only-here`
-* but it will be denied `DeleteObject` by the bucket policy
-* all other S3 actions would be implicitly denied, as no allows are granted
-* the bucket policy will explicitly deny any actions where the `aws:SecureTransport` context value is `false`. A single deny overrules any number of allows, so in actual usage if we're not using https we won't be able to do anything
+- `tims-test-role` can only perform `GetObject` and `DeleteObject` for objects in `tims-fancy-bucket` in the pseudo-folder `only-here`
+- but it will be denied `DeleteObject` by the bucket policy
+- all other S3 actions would be implicitly denied, as no allows are granted
+- the bucket policy will explicitly deny any actions where the `aws:SecureTransport` context value is `false`. A single deny overrules any number of allows, so in actual usage if we're not using https we won't be able to do anything
 
 ## Running a test with the API
 
 Coding up a basic class to call the simulator with `boto3` could look something like this:
 
-~~~python
+```python
 import boto3
 import json
 
@@ -131,7 +126,7 @@ s3_client = boto3.client("s3", region_name=REGION)
 
 class S3PolicyTest:
     """Simulates action authorisation for the configured role and bucket"""
-    
+
     def __init__(self, role_arn: str, bucket_name: str):
         self.role_arn = role_arn
         self.role_name = role_arn.split("/")[-1]
@@ -141,7 +136,7 @@ class S3PolicyTest:
         """Get all policies for a role in JSON format"""
         policies = self._get_inline_role_policies() + self._get_managed_role_policies()
         return [json.dumps(policy) for policy in policies]
-    
+
     def _get_inline_role_policies(self) -> list[str]:
         """Get all inline policies for a role in JSON format"""
         policies = []
@@ -149,7 +144,7 @@ class S3PolicyTest:
         for inline in iam_client.list_role_policies(RoleName=self.role_name)["PolicyNames"]:
             policy = iam_client.get_role_policy(RoleName=self.role_name, PolicyName=inline)
             policies.append(policy["PolicyDocument"])
-        
+
         return policies
 
     def _get_managed_role_policies(self) -> list[str]:
@@ -168,15 +163,15 @@ class S3PolicyTest:
             )
 
             policies.append(policy["PolicyVersion"]["Document"])
-        
+
         return policies
 
     def _get_bucket_policy(self) -> list[str]:
         """Get JSON format S3 bucket policy"""
         return s3_client.get_bucket_policy(Bucket=self.bucket_name)["Policy"]
-    
+
     def simulate(self, actions: list[str], resource_arn: str):
-        """Calls the simulator API"""    
+        """Calls the simulator API"""
         response = iam_client.simulate_custom_policy(
             PolicyInputList=self._get_role_policies(),
             CallerArn=DUMMY_USER,
@@ -199,11 +194,11 @@ class S3PolicyTest:
 
         # just return the results for now
         return response["EvaluationResults"]
-~~~
+```
 
 We can run the test as follows:
 
-~~~python
+```python
 role = f"arn:aws:iam::{ACCOUNT_ID}:role/tims-test-role"
 bucket="tims-fancy-bucket"
 
@@ -213,73 +208,72 @@ results = S3PolicyTest(role, bucket).simulate(
 )
 
 print(results)
-~~~
-
+```
 
 Slightly truncating the output for clarity, we get:
 
-~~~json
+```json
 [
-    {
-        "EvalActionName": "s3:GetObject",
-        "EvalResourceName": "arn:aws:s3:::tims-fancy-bucket/only-here/some-obj",
-        "EvalDecision": "allowed",
-        "MatchedStatements": [
-            {
-                "SourcePolicyId": "PolicyInputList.1",
-                "SourcePolicyType": "IAM Policy",
-                "StartPosition": { "Line": 1, "Column": 41 },
-                "EndPosition": { "Line": 1, "Column": 180 }
-            }
-        ]
-    },
-    {
-        "EvalActionName": "s3:PutObject",
-        "EvalResourceName": "arn:aws:s3:::tims-fancy-bucket/only-here/some-obj",
-        "EvalDecision": "implicitDeny",
-        "MatchedStatements": []
-    },
-    {
-        "EvalActionName": "s3:DeleteObject",
-        "EvalResourceName": "arn:aws:s3:::tims-fancy-bucket/only-here/some-obj",
-        "EvalDecision": "explicitDeny",
-        "MatchedStatements": [
-            {
-                "SourcePolicyId": "ResourcePolicy",
-                "SourcePolicyType": "Resource Policy",
-                "StartPosition": { "Line": 1, "Column": 248 },
-                "EndPosition": { "Line": 1, "Column": 470 }
-            },
-            {
-                "SourcePolicyId": "PolicyInputList.1",
-                "SourcePolicyType": "IAM Policy",
-                "StartPosition": { "Line": 1, "Column": 41 },
-                "EndPosition": { "Line": 1, "Column": 180 }
-            }
-        ]
-    }
+  {
+    "EvalActionName": "s3:GetObject",
+    "EvalResourceName": "arn:aws:s3:::tims-fancy-bucket/only-here/some-obj",
+    "EvalDecision": "allowed",
+    "MatchedStatements": [
+      {
+        "SourcePolicyId": "PolicyInputList.1",
+        "SourcePolicyType": "IAM Policy",
+        "StartPosition": { "Line": 1, "Column": 41 },
+        "EndPosition": { "Line": 1, "Column": 180 }
+      }
+    ]
+  },
+  {
+    "EvalActionName": "s3:PutObject",
+    "EvalResourceName": "arn:aws:s3:::tims-fancy-bucket/only-here/some-obj",
+    "EvalDecision": "implicitDeny",
+    "MatchedStatements": []
+  },
+  {
+    "EvalActionName": "s3:DeleteObject",
+    "EvalResourceName": "arn:aws:s3:::tims-fancy-bucket/only-here/some-obj",
+    "EvalDecision": "explicitDeny",
+    "MatchedStatements": [
+      {
+        "SourcePolicyId": "ResourcePolicy",
+        "SourcePolicyType": "Resource Policy",
+        "StartPosition": { "Line": 1, "Column": 248 },
+        "EndPosition": { "Line": 1, "Column": 470 }
+      },
+      {
+        "SourcePolicyId": "PolicyInputList.1",
+        "SourcePolicyType": "IAM Policy",
+        "StartPosition": { "Line": 1, "Column": 41 },
+        "EndPosition": { "Line": 1, "Column": 180 }
+      }
+    ]
+  }
 ]
-~~~
+```
 
 We can see that `GetObject` is allowed, and the start and end characters of the statement in the role policy json string that awards the allow are indicated; as we've fetched the policy we can use this information to show the relevant sections to aid in debugging (as you get in the simulator console). `PutObject` is an implicit deny as neither the role nor bucket policy grant it, so there are no `MatchedStatements` to show as no statements are in effect. `DeleteObject` is explicitly denied, and the matched statements indicate both the `DenyTimDelete` statement in the resource policy, and the allow in the role policy.
 
 If we change the `aws:SecureTransport` context value to `false`, then the `DenyInsecureTransport` statement of the bucket policy kicks in and `GetObject` is now explicitly denied, with the character indexes of this statement indicated.
 
-~~~json
+```json
 {
-    "EvalActionName": "s3:GetObject",
-    "EvalResourceName": "arn:aws:s3:::tims-fancy-bucket/only-here/some-obj",
-    "EvalDecision": "explicitDeny",
-    "MatchedStatements": [
-        {
-            "SourcePolicyId": "ResourcePolicy",
-            "SourcePolicyType": "Resource Policy",
-            "StartPosition": {"Line": 1, "Column": 38},
-            "EndPosition": {"Line": 1, "Column": 248}
-        }
-    ]
+  "EvalActionName": "s3:GetObject",
+  "EvalResourceName": "arn:aws:s3:::tims-fancy-bucket/only-here/some-obj",
+  "EvalDecision": "explicitDeny",
+  "MatchedStatements": [
+    {
+      "SourcePolicyId": "ResourcePolicy",
+      "SourcePolicyType": "Resource Policy",
+      "StartPosition": { "Line": 1, "Column": 38 },
+      "EndPosition": { "Line": 1, "Column": 248 }
+    }
+  ]
 }
-~~~
+```
 
 ## Gettin' configgy wit' it
 
@@ -287,7 +281,7 @@ We can build on this basic hard-coded functionality to create a suite of config-
 
 We'll add a yaml config file defining the role, resource and key/value pairs of actions and expected results for two tests, including a template placeholder for the AWS account id
 
-~~~yaml
+```yaml
 testValidPath:
   role: arn:aws:iam::{ACCOUNT_ID}:role/tims-test-role # we'll replace {ACCOUNT_ID} with our actual value
   resource: tims-fancy-bucket/only-here/some-obj
@@ -302,17 +296,17 @@ testInvalidPath:
     s3:GetObject: deny
     s3:PutObject: allow # this will be implicitly denied, but we want to see the test fail
     s3:DeleteObject: deny
-~~~
+```
 
 and extend our class to check the simulator responses against our expected results, rather than just returning the API response as before
 
-~~~python
+```python
 class S3PolicyTest:
     # ...
     # other methods unchanged
 
     def simulate(self, actions: dict[str, str], resource_arn: str): # actions is now a dictionary
-        """Calls the simulator API"""    
+        """Calls the simulator API"""
         response = iam_client.simulate_custom_policy(
             PolicyInputList=self._get_role_policies(),
             CallerArn=DUMMY_USER,
@@ -332,7 +326,7 @@ class S3PolicyTest:
                 }
             ]
         )
-        
+
         # check the simulated authorisation decisions against our expected config
         self._evaluate_response(actions, response["EvaluationResults"])
 
@@ -341,7 +335,7 @@ class S3PolicyTest:
         for result in results:
             action = result["EvalActionName"]
             decision = result["EvalDecision"]
-            
+
             expected_allowed = expected_results[action] == "allow"
             actual_allowed = decision == "allowed"
 
@@ -351,12 +345,12 @@ class S3PolicyTest:
                 print(f"{action} - expected {expected_results[action]} but was {decision} ❌")
 
                 # we can use the `MatchedStatements` response elements here to indicate
-                # sections of the policies that have caused the unexpected result 
-~~~
+                # sections of the policies that have caused the unexpected result
+```
 
 We can then load the yaml file which will give us a Python dictionary containing our test definitions, and feed each set of parameters into the runner class
 
-~~~python
+```python
 import yaml
 
 with open("config.yml") as file:
@@ -374,11 +368,11 @@ for name, params in tests.items():
         resource_arn=f'arn:aws:s3:::{params["resource"]}'
     )
 
-~~~
+```
 
 Running the above we get the following console output, which is as expected given our contrived failing `PutObject` test
 
-~~~
+```
 Running testValidPath
 s3:GetObject - allowed ✅
 s3:PutObject - implicitDeny ✅
@@ -387,8 +381,7 @@ Running testInvalidPath
 s3:GetObject - implicitDeny ✅
 s3:PutObject - expected allow but was implicitDeny ❌
 s3:DeleteObject - explicitDeny ✅
-~~~
-
+```
 
 ## Taking it further
 
@@ -403,7 +396,6 @@ In addition to testing with the actual policies of deployed entities to verify r
 Similarly, testing with a role policy granting no permissions lets us verify cross-account access, where any allows will come from the bucket policy.
 
 Resources such as S3 objects and SNS (AWS Simple Notification Service) topics typically require access to encryption keys in order to read or write data; this obviously forms a crucial aspect of the ability to successfully perform an action in practice, but isn't taken into consideration by the simulator. To cover more bases, you could add additional tests to verify your roles can also perform any necessary key related actions.
-
 
 ## Final note
 
