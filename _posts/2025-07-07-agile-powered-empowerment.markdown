@@ -35,7 +35,7 @@ Instead, we should internalise and appreciate the core practises of the various 
  
 + Pair programming in Extreme Programming (XP). 
 + Feature teams owning feature development in Feature Driven Development (FDD).
-+ Fixed timeboxed project phases in Dynamic Systems Development Method (DSDM). 
++ Fixed time-boxed project phases in Dynamic Systems Development Method (DSDM). 
 + Early architecture design in Agile Rational Unified Process (Agile RUP). 
 
 While simultaneously internalising their respective pros and cons. With a deep understanding we can be creative in actioning incremental changes towards a bespoke agile approach, focusing on realising better outcomes for individual, teams, and ultimately organisations. To use a music related analogy, the goal is to create a playlist of the best songs rather than remaining committed to any individual album.
