@@ -51,7 +51,7 @@ To start off, I've created a bucket and role with the following basic policies.
 
 `tims-fancy-bucket`
 
-```json
+~~~json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -84,11 +84,11 @@ To start off, I've created a bucket and role with the following basic policies.
     }
   ]
 }
-```
+~~~
 
 `tims-test-role` - the policy can be either inline or managed:
 
-```json
+~~~json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -100,7 +100,7 @@ To start off, I've created a bucket and role with the following basic policies.
     }
   ]
 }
-```
+~~~
 
 From the above we can see that:
 
@@ -113,7 +113,7 @@ From the above we can see that:
 
 Coding up a basic class to call the simulator with `boto3` could look something like this:
 
-```python
+~~~python
 import boto3
 import json
 
@@ -194,11 +194,11 @@ class S3PolicyTest:
 
         # just return the results for now
         return response["EvaluationResults"]
-```
+~~~
 
 We can run the test as follows:
 
-```python
+~~~python
 role = f"arn:aws:iam::{ACCOUNT_ID}:role/tims-test-role"
 bucket="tims-fancy-bucket"
 
@@ -208,11 +208,11 @@ results = S3PolicyTest(role, bucket).simulate(
 )
 
 print(results)
-```
+~~~
 
 Slightly truncating the output for clarity, we get:
 
-```json
+~~~json
 [
   {
     "EvalActionName": "s3:GetObject",
@@ -253,13 +253,13 @@ Slightly truncating the output for clarity, we get:
     ]
   }
 ]
-```
+~~~
 
 We can see that `GetObject` is allowed, and the start and end characters of the statement in the role policy json string that awards the allow are indicated; as we've fetched the policy we can use this information to show the relevant sections to aid in debugging (as you get in the simulator console). `PutObject` is an implicit deny as neither the role nor bucket policy grant it, so there are no `MatchedStatements` to show as no statements are in effect. `DeleteObject` is explicitly denied, and the matched statements indicate both the `DenyTimDelete` statement in the resource policy, and the allow in the role policy.
 
 If we change the `aws:SecureTransport` context value to `false`, then the `DenyInsecureTransport` statement of the bucket policy kicks in and `GetObject` is now explicitly denied, with the character indexes of this statement indicated.
 
-```json
+~~~json
 {
   "EvalActionName": "s3:GetObject",
   "EvalResourceName": "arn:aws:s3:::tims-fancy-bucket/only-here/some-obj",
@@ -273,7 +273,7 @@ If we change the `aws:SecureTransport` context value to `false`, then the `DenyI
     }
   ]
 }
-```
+~~~
 
 ## Gettin' configgy wit' it
 
@@ -281,7 +281,7 @@ We can build on this basic hard-coded functionality to create a suite of config-
 
 We'll add a yaml config file defining the role, resource and key/value pairs of actions and expected results for two tests, including a template placeholder for the AWS account id
 
-```yaml
+~~~yaml
 testValidPath:
   role: arn:aws:iam::{ACCOUNT_ID}:role/tims-test-role # we'll replace {ACCOUNT_ID} with our actual value
   resource: tims-fancy-bucket/only-here/some-obj
@@ -296,11 +296,11 @@ testInvalidPath:
     s3:GetObject: deny
     s3:PutObject: allow # this will be implicitly denied, but we want to see the test fail
     s3:DeleteObject: deny
-```
+~~~
 
 and extend our class to check the simulator responses against our expected results, rather than just returning the API response as before
 
-```python
+~~~python
 class S3PolicyTest:
     # ...
     # other methods unchanged
@@ -346,11 +346,11 @@ class S3PolicyTest:
 
                 # we can use the `MatchedStatements` response elements here to indicate
                 # sections of the policies that have caused the unexpected result
-```
+~~~
 
 We can then load the yaml file which will give us a Python dictionary containing our test definitions, and feed each set of parameters into the runner class
 
-```python
+~~~python
 import yaml
 
 with open("config.yml") as file:
@@ -368,7 +368,7 @@ for name, params in tests.items():
         resource_arn=f'arn:aws:s3:::{params["resource"]}'
     )
 
-```
+~~~
 
 Running the above we get the following console output, which is as expected given our contrived failing `PutObject` test
 
