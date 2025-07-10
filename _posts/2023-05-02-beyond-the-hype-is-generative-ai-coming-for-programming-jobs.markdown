@@ -3,6 +3,7 @@ title: 'Beyond the Hype: Is generative AI coming for programming jobs?'
 date: 2023-05-02 09:00:00 Z
 categories:
 - Podcast
+- Artificial Intelligence
 tags:
 - Artificial Intelligence
 - AI

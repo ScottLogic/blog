@@ -30,6 +30,9 @@ active-authors:
   - csalt
   - cstephen
   - cwilton
+  - dallsop
+  - dalucas
+  - daustin
   - dgrew
   - dhinrichs
   - dhope
@@ -43,10 +46,12 @@ active-authors:
   - dtitterton
   - ebrown
   - emason
+  - epearce
   - fhubin
   - fvlachos
   - garora
   - gkendall
+  - glewis-scottlogic
   - godds
   - gsingh
   - gsmith
@@ -56,6 +61,7 @@ active-authors:
   - hlogan
   - hsauve
   - hubinf
+  - imladjenovic
   - jarnstein
   - jbeckles
   - jbickleywallace
@@ -97,11 +103,13 @@ active-authors:
   - mgriffin
   - mhowie
   - mmcalroy
+  - mmcmahon
   - mmorgan
   - mmoxon
   - mnyamunda
   - mpace
   - mphillips
+  - mrichards
   - mridene
   - mwallace
   - mwalkerrose
@@ -291,7 +299,7 @@ authors:
     twitter-handle: chestercodes
     picture: picture.jpg
   ceberhardt:
-    author-summary: "<p>I am CTO at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies.</p>\n<p>My blog includes posts on a wide range of topics, including WebAssembly, HTML5 / JavaScript and data visualisation with D3 and <a href=\"https://d3fc.io/\">d3fc</a>. You'll also find a whole host of posts about previous technology interests including iOS, Swift, WPF and Silverlight.</p>\n<p>I'm board member of <a href=\"https://www.finos.org/\">FINOS</a>, which is encouraging open source collaboration in the financial sector. I'm also <a href=\"https://github.com/ColinEberhardt\">very active on GitHub</a>, contributing to a number of different projects.</p>\n"
+    author-summary: "<p>I am CTO at Scott Logic and am a prolific technical author, blogger and speaker on a range of technologies.</p>\n<p>My blog includes posts on a wide range of topics, including Generative AI, WebAssembly, HTML5 / JavaScript and data visualisation. You'll also find a whole host of posts about previous technology interests including iOS, Swift, WPF and Silverlight.</p>\n<p>I lead various open source initiatives within <a href=\"https://www.finos.org/\">FINOS</a>, which is encouraging open source collaboration in the financial sector. I'm also <a href=\"https://github.com/ColinEberhardt\">very active on GitHub</a>, contributing to a number of different projects.</p>\n"
     feed-description: "Colin Eberhardt's Technology Adventures"
     name: "Colin Eberhardt"
     twitter-url: "https://twitter.com/ColinEberhardt"
@@ -344,6 +352,18 @@ authors:
     name: "Chris Wilton-Magras"
     author-summary: "<p>Opinionated lead developer, munro bagger, beer brewer, cat lover, occasional fool.</p>"
     picture: me.jpg
+  dallsop:
+    name: "Dan Allsop"
+    author-summary: "I am a software consultant with over a decade of experience across several of the world’s leading financial institutions. Outside of software development my interests include game theory, behaviouristic psychology, and gardening."
+    picture: picture.jpg
+  dalucas:
+    name: "Daniel Lucas"
+    author-summary: "I am a Senior Fullstack Developer based in our Bristol office. I am passionate about empowering people, fostering continuous learning and shaping working practices that drive real value for organizations."
+    picture: picture.jpg
+  daustin:
+    name: "Duncan Austin"
+    author-summary: "<p>Hi! I'm a generalist senior developer based in Edinburgh. Outside of work I enjoy hiking and climbing, but I'll settle for some board games when the Scottish weather isn't cooperating. </p>"
+    picture: picture.jpg
   dcook:
     feed-description: "Dan Cook's thoughts on all things Big Data."
     google-plus-url: "https://plus.google.com/102307699647083644941"
@@ -372,12 +392,9 @@ authors:
     name: "Dominic Ketley"
     picture: picture.jpg
   dmcnamee:
-    author-summary: "Tester. Photographer."
-    feed-description: "Daniel is a senior test engineer and exponent of rapid software testing."
-    google-plus-url: "https://www.google.com/+DanielMcNamee"
+    author-summary: "Technologist, optimist, generalist. Occasional authorist."
+    feed-description: "Daniel is a Principal Consultant and exponent of rapid software testing."
     name: "Daniel McNamee"
-    twitter-url: "https://twitter.com/demcnamee"
-    twitter-handle: demcnamee
     picture: picture.jpg
   dmiley:
     name: "Drew Miley"
@@ -394,11 +411,9 @@ authors:
     picture: picture.jpg
     author-summary: "<p>Hello, I'm a Solutions Architect and Sustainable Technology lead, based in Scott Logic, Bristol.</p>"
   dsmith:
-    author-summary: "<p>I'm a Senior Developer at Scott Logic, based in Newcastle.</p>"
+    author-summary: "<p>I'm a Lead Developer at Scott Logic, based in Newcastle.</p>"
     name: "Darren Smith"
-    twitter-url: "https://twitter.com/darrenpsmithweb"
-    twitter-handle: darrenpsmithweb
-    picture: picture.jpg
+    picture: dsmith.jpg
   dscarborough:
     name: "Dan Scarborough"
     author-summary: "<p>I am a Developer at Scott Logic.</p>"
@@ -424,6 +439,10 @@ authors:
     name: "Elliot Mason"
     author-summary: "<p>Test Engineer at Newcastle, studied Computer Science at Newcastle University</p>"
     picture: picture.jpg
+  epearce:
+    name: "Emma Pearce"
+    author-summary: "<p>Senior Developer at Scott Logic</p>"
+    picture: picture.jpg
   ffarhadi:
     name: "Farzaneh Farhadi"
     author-summary: "<p>I have been working as a Test Engineer since 2012.</p>\n<p>In my spare time I enjoy playing piano and painting.</p>"
@@ -438,6 +457,10 @@ authors:
   gkendall:
     name: "Guillaume Kendall"
     author-summary: "<p>Key Account Advisor here at Scott Logic. I have a passion for all things related to innovation and disruption. I’m an early adopter of tech and in my spare time, I enjoy cycling, gardening and watching rugby!</p>"
+    picture: picture.jpg
+  glewis-scottlogic:
+    name: "Greg Lewis"
+    author-summary: "<p>I'm a developer at Scott Logic, Bristol. I'm interested in everything backend-related, and have a background in Data Engineering."
     picture: picture.jpg
   godds:
     author-summary: "<p>I'm a technologist who delights in pushing at the boundaries of what is possible. As Chief Strategy Officer at Scott Logic, I worry about where we and the world we operate in are heading longer term. I'm often heard talking about social value and environmental impact, or getting nerdy about data visualisation.</p>"
@@ -484,7 +507,7 @@ authors:
     twitter-handle: HannahPretswell
     picture: picture.jpg
   hsauve:
-    author-summary: "I'm an Associate Developer at Scott Logic based in the Bristol office. My background is in Languages and Marketing."
+    author-summary: "I'm a Software Developer at Scott Logic based in the Bristol office. My background is in Languages and Marketing."
     feed-description:
     name: "Hélène Sauvé"
     picture: helene-sauve-picture.jpg
@@ -494,6 +517,10 @@ authors:
     picture: picture.png
   ilopatkin:
     name: "Ilya Lopatkin"
+    picture: picture.jpg
+  imladjenovic:
+    name: "Ivan Mladjenovic"
+    author-summary: "<p>I am a Senior Developer at Scott Logic, based in Edinburgh.</p>"
     picture: picture.jpg
   isullivan:
     name: "Ian Sullivan"
@@ -523,7 +550,7 @@ authors:
     name: "Jonathan Cardy"
   jcarstairs:
     name: "Joe Carstairs"
-    author-summary: "<p>Developer at Scott Logic. Find me on <a href=\"https://joeac.net\">joeac.net</a>.</p>"
+    author-summary: '<p>Developer at Scott Logic. Find me on <a href="https://joeac.net">joeac.net</a>.</p>'
     picture: picture.webp
   jcwright:
     name: "Jay Wright"
@@ -610,7 +637,7 @@ authors:
     name: "Kira Clark"
     picture: picture.png
   kcoombes:
-    author-summary: "Kay is a Senior Test Engineer who is passionate about raising awareness of accessibility, diversity and inclusion in technology testing. Outside of work, Kay enjoys learning Mandarin Chinese and Japanese languages."
+    author-summary: "Kay is a Senior Test Engineer who is passionate about raising awareness of accessibility, diversity and inclusion in technology testing. Outside of work, Kay enjoys gardening and DIY."
     name: "Kay Coombes"
     picture: kay.jpg
     feed-description: "Kay Coombes - Scott Logic Blogs."
@@ -686,6 +713,10 @@ authors:
     twitter-url: "https://twitter.com/Testflaneuse"
     twitter-handle: Testflaneuse
     picture: picture.jpg
+  mmcmahon:
+    name: "Mari McMahon"
+    author-summary: "<p>I’m a Lead Test Engineer based at Scott Logic’s Leeds office.</p>"
+    picture: mmcmahon-photo.jpg
   mnyamunda:
     name: "Maxwell Nyamunda"
     author-summary: "<p>I am a Test Engineer in Bristol that enjoys UI automation. I very much enjoy the challenge of figuring out how to automate unfamiliar scenarios</p>"
@@ -710,6 +741,10 @@ authors:
     picture: profile.jpeg
   nhemley:
     name: "Nicholas Hemley"
+  nhume:
+    author-summary: "I'm a delivery-focused leader with 20+ years of experience ensuring successful outcomes across public and private sectors. Proven track record of driving complex initiatives from concept to completion, aligning teams, stakeholders, and technology to deliver valuable outcomes. Currently a Delivery Principal based at Scott Logic's London office."
+    name: "Nick Hume"
+    picture: nhume.jpeg
   nowen:
     author-summary: "<p>I'm a Senior Developer at Scott Logic, with many years of C# experience. Recently I've immersed myself in JavaScript, including Angular and React."
     name: "Nick Owen"
@@ -1110,7 +1145,7 @@ authors:
     picture: "Profile pic for blog-1-2.jpg"
   sbreingan:
     name: "Stuart Breingan"
-    author-summary: "I'm a Senior Developer at Scott Logic, based in Edinburgh.\nMy background is in Java and .NET but interested in technologies across the stack."
+    author-summary: "I'm a Principal Architect at Scott Logic, based in Edinburgh.\nI specialise in designing and building solutions in the cloud, particularly in the public sector."
     twitter-handle: null
     picture: picture-square.jpg
   hwilliams:
@@ -1557,6 +1592,10 @@ authors:
   mwalkerrose:
     name: "Mike Walker-Rose"
     author-summary: "A Test Engineer in the Bristol office, passionate about all things test!"
+    picture: picture.jpg
+  mrichards:
+    name: "Matt Richards"
+    author-summary: "I am a Principal Architect with 20 years experience building complex distributed systems, now specialising in data and analytics solutions."
     picture: picture.jpg
   tyates:
     name: "Tim Yates"

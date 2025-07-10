@@ -3,6 +3,7 @@ title: 'Beyond the Hype: Are enterprise browsers just about security?'
 date: 2025-02-10 11:28:00 Z
 categories:
 - Podcast
+- Tech
 tags:
 - enterprise browsers
 - browsers

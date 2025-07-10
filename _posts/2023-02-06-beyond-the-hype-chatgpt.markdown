@@ -3,6 +3,7 @@ title: 'Beyond the Hype: ChatGPT and why it has set the internet alight'
 date: 2023-02-06 14:30:00 Z
 categories:
 - Podcast
+- Artificial Intelligence
 tags:
 - ChatGPT
 - Artificial Intelligence

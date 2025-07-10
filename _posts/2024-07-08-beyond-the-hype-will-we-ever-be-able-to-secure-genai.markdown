@@ -3,6 +3,8 @@ title: 'Beyond the Hype: Will we ever be able to secure GenAI?'
 date: 2024-07-08 10:34:00 Z
 categories:
 - Podcast
+- Artificial Intelligence
+- Testing
 tags:
 - Artificial Intelligence
 - AI

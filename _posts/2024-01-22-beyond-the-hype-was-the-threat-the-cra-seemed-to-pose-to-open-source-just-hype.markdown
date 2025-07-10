@@ -4,6 +4,7 @@ title: 'Beyond the Hype: Was the threat the CRA seemed to pose to open source ju
 date: 2024-01-22 17:40:00 Z
 categories:
 - Podcast
+- Open Source
 tags:
 - Open Source
 - Cyber Resilience Act

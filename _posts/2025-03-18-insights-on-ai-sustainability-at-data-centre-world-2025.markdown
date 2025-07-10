@@ -3,7 +3,7 @@ title: Insights on AI Sustainability at Data Centre World 2025
 date: 2025-03-18 20:07:00 Z
 categories:
 - Sustainability
-- Technology
+- Tech
 tags:
 - Sustainability
 - datacentres

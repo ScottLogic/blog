@@ -10,6 +10,7 @@ tags:
 summary: Following Advent of Code 2024, I migrated some of my solutions to run on
   a Raspberry PI Pico microcontroller
 author: smartin
+image: "/uploads/Porting%20AOC.png"
 ---
 
 ## Why Would I Do This?

@@ -4,7 +4,6 @@ date: 2024-03-27 14:43:00 Z
 categories:
 - UX Design
 - Tech
-- Architecture
 tags:
 - ecosystem
 - partnerships
