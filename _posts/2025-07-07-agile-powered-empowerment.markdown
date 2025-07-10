@@ -1,6 +1,6 @@
 ---
 title: Agile-powered empowerment
-date: 2025-07-07 00:00:00 Z
+date: 2025-07-10 00:00:00 Z
 categories:
 - People
 tags:
