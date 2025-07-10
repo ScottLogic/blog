@@ -7,7 +7,7 @@ tags:
 - Agile
 - Creativity
 - Decision Making
-summary: Practical insights of adapting agile methodologies to empower people. Spanning the topics of Mixed Marital Arts, decision making and creativity.
+summary: Practical insights of adapting agile methodologies to empower people. Spanning the topics of Mixed Martial Arts, decision-making and creativity.
 author: dallsop
 ---
 
