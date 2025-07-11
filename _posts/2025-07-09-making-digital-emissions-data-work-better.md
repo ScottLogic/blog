@@ -22,9 +22,9 @@ When trying to find a company's carbon emissions data today, you probably have t
 This creates real problems. Companies can't easily compare their emissions with others in their industry. They can't automatically calculate emissions from their suppliers, or track their carbon reduction progress. Tools that could help track these commitments across the industry sectors simply can't work because the data isn't accessible.
 
 
-## Working with the Green Web Foundation
+## Working with Green Web Foundation
 
-We found the solution with [the Green Web Foundation](https://www.thegreenwebfoundation.org/) and their [carbon.txt](https://carbontxt.org/) project. They had already figured out an important piece of the puzzle - where companies should put their sustainability data so others can find it easily.
+We found the solution with [Green Web Foundation](https://www.thegreenwebfoundation.org/) and their [carbon.txt](https://carbontxt.org/) project. They had already figured out an important piece of the puzzle - where companies should put their sustainability data so others can find it easily.
 
 The carbon.txt approach is simple. Companies publish their sustainability information in a structured file at a predictable web address, like yourcompany.com/carbon.txt. This means anyone looking for that data knows exactly where to find it.
 
@@ -41,7 +41,7 @@ The [Reporting Organisation Schema](https://www.techcarbonstandard.org/schemas/r
 
 The [Emissions Report Schema](https://www.techcarbonstandard.org/schemas/emissions-report/v0-0-1) defines what goes into each individual report,  such as the time period, the business unit (i.e. a sub-group, region or country), whether the data was verified by an outside auditor, and links to detailed methodology documents.
 
-The [Tech Carbon Standard Schema](https://www.techcarbonstandard.org/schemas/tech-carbon-standard/v0-0-1) contains the actual emissions values, organised into four clear categories, Upstream, Direct Operational, Indirect Operational and Downstream emissions.
+All of this structure ultimately leads to the core emissions data contained in the [Tech Carbon Standard Schema](https://www.techcarbonstandard.org/schemas/tech-carbon-standard/v0-0-1). This is where all the actual emissions values or stored, organised into four clear categories, Upstream, Direct Operational, Indirect Operational and Downstream emissions.
 
 This building block approach is a key feature of the schema design as it means companies can break-down their emissions reporting by logical business units, support year over year reports,  each using different versions of the standard, without requiring them to update previous reports.
 
