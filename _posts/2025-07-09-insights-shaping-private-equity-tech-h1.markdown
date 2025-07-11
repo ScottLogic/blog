@@ -1,6 +1,6 @@
 ---
 title: Insights shaping the technology landscape in Private Equity in H1
-date: 2025-07-04 11:02:00 Z
+date: 2025-07-09 11:02:00 Z
 categories:
 - Resources
 summary: A roundup of themes we're seeing in Private Equity technology, and some recommended
