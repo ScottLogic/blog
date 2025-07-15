@@ -10,7 +10,7 @@ summary: Having just completed the Graduate Training at Scott Logic, I wanted to
 ---
 
 Hi!
-I’m Ben, I joined Scott Logic as a graduate software developer in March of 2025. This was a bit of a jump for me as it constituted a move from the windy rainy coast of South East Scotland to the windy rainy almost coast of North East England. Over the last three months I’ve taken part in the Scott Logic graduate training. This is the first twelve weeks of the graduate programme at Scott Logic, after which comes the graduate project. I’ve gained a lot from the training and want to highlight some of the lessons I’ve learnt whilst walking through my diary of the last few months.
+I’m Ben, I joined Scott Logic as a graduate software developer in March of 2025. This was a bit of a jump for me as it constituted a move from the windy, rainy coast of South East Scotland to the windy, rainy almost coast of North East England. Over the last three months I’ve taken part in the Scott Logic graduate training. This is the first twelve weeks of the graduate programme at Scott Logic, after which comes the graduate project. I’ve gained a lot from the training and want to highlight some of the lessons I’ve learnt whilst walking through my diary of the last few months.
 
 This blog post is aimed at new graduates who are undertaking the training at Scott Logic in the future. I hope this will outline a roadmap of what you can expect from your training, whilst also giving you several key pieces of advice that might have given me a leg up when I started.
 
@@ -34,7 +34,7 @@ One piece of advice I would give here, relevant even at the start of the trainin
 
 ## Object Oriented Programming
 
-After spending a week on the web technologies, we started our Java training. I had worked with Java before whilst at university but there was a noticeable change to working on it in a professional environment. Unit testing, in particular, was something I understood conceptually but was negligent of in practice. Now I have more focus not just on writing unit tests but writing them in a way that detects categories of error in the code I write.
+After spending a week on web technologies, we started our Java training. I had worked with Java before whilst at university but there was a noticeable change to working on it in a professional environment. Unit testing, in particular, was something I understood conceptually but was negligent of in practice. Now I have more focus not just on writing unit tests but writing them in a way that detects categories of error in the code I write.
 
 This is when the various styles of thought and problem solving amongst our cohort became visible, especially as the training began to kick up a gear. I was impressed by the number of different approaches to every problem encountered. Here my advice is to use obstacles as learning opportunities. Every bug you squash deepens your understanding of the problem, the language, and the paradigm.
 
@@ -58,7 +58,7 @@ From this point on, the primary goal of our training was polishing our applicati
 
 ## Presentations and Workshops
 
-Throughout our training we had presentations and workshops with the developers and senior developers on a range of topics like Git, Agile, Java language features, and software testing. We also started the grad code series – a fun opportunity for each of us to give our own presentations. Each week has a topic and four or five of us presented on a subtopic. Some of the topics were very broad, each subtopic covering a different programming paradigm, others were narrower, and we were struggling not to cover the same things in each of the week’s talks. I know it’s common to have nerves about giving talks or presentations, but these are very informal and really just an opportunity to create a discussion. As long as you and your group are learning, then everyone is doing great!
+Throughout our training we had presentations and workshops with developers and senior developers on a range of topics like Git, Agile, Java language features, and software testing. We also started the grad code series – a fun opportunity for each of us to give our own presentations. Each week has a topic and four or five of us presented on a subtopic. Some of the topics were very broad, each subtopic covering a different programming paradigm, others were narrower, and we were struggling not to cover the same things in each of the week’s talks. I know it’s common to have nerves about giving talks or presentations, but these are very informal and really just an opportunity to create a discussion. As long as you and your group are learning, then everyone is doing great!
 
 To cap off the training programme we did some work in the cloud. For us this was a run through with the AWS cloud offering, getting used to what’s available and how to use it. We set up an example web app and did some Infrastructure as Code with Terraform. It was a nice conclusion to the training that we had been doing over the previous ten weeks. We still have our open source training and design patterns to look forward to but these will happen concurrently with the graduate project we have just begun.
 
