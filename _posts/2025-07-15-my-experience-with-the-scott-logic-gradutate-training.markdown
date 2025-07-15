@@ -2,12 +2,14 @@
 title: My Experience with the Scott Logic Graduate Training
 date: 2025-07-15 00:00:00 Z
 categories:
-  - People
+- People
 tags:
-  - Training
-  - Graduates
+- Training
+- Graduates
 author: bcoke
-summary: Having just completed the Graduate Training at Scott Logic, I wanted to reflect on the last three months and offer some advice to those who may be taking part in the future.
+summary: Having just completed the Graduate Training at Scott Logic, I wanted to reflect
+  on the last three months and offer some advice to those who may be taking part in
+  the future.
 ---
 
 Hi!
