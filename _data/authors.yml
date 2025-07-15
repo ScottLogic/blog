@@ -14,6 +14,7 @@ active-authors:
   - asaha
   - asegrove
   - ashing
+  - bcoke
   - awhitmell
   - bell-jones
   - bheyman
@@ -261,6 +262,10 @@ authors:
     name: "Andrew Whitmell"
     author-summary: "Developer based in Newcastle."
     picture: awhitmell.jpg
+  bcoke:
+    name: "Benjamin Coke"
+    author-summary: "Graduate Developer based in Newcastle."
+    picture: bcokepic.jpg
   bell-jones:
     name: "Benjamin Ell-Jones"
     author-summary: "Developer based in Bristol"
