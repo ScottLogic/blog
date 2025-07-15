@@ -1,6 +1,6 @@
 ---
 title: My Experience with the Scott Logic Graduate Training
-date: 2025-07-15 14:11:00 Z
+date: 2025-07-15 00:00:00 Z
 categories:
   - People
 tags:
