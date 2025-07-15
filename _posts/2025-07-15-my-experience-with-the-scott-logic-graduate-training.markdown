@@ -6,10 +6,10 @@ categories:
 tags:
 - Training
 - Graduates
-author: bcoke
 summary: Having just completed the Graduate Training at Scott Logic, I wanted to reflect
   on the last three months and offer some advice to those who may be taking part in
   the future.
+author: bcoke
 ---
 
 Hi!
