@@ -50,7 +50,7 @@ This building block approach is a key feature of the schema design as it means c
 
 We organise digital emissions into four categories that cover all aspects of technology use in organisations.
 
-**Upstream Emissions** include the carbon that went into producing the technology before a company acquires it. This covers manufacturing laptops and servers, building software, and shipping equipment. These emissions already happened, but they're become part of a company's total footprint.
+**Upstream Emissions** include the carbon that went into producing the technology before a company acquires it. This covers manufacturing laptops and servers, building software, and shipping equipment. These emissions already happened, but they've become part of a company's total footprint.
 
 **Direct Emissions** cover the electricity a company uses to run their technology. This includes powering office computers, running servers in their own data centres, and keeping network equipment running. Companies have direct control over these emissions.
 
