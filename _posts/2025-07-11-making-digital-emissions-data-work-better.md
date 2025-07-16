@@ -91,7 +91,7 @@ The whole system is open source and designed to work with carbon.txt. Companies 
 
 The technology sector has the tools and expertise to lead on climate transparency. The question for each organisation is whether they want to be among the first to embrace this transparency or wait for others to go first.
 
-- Get started with the Technology Carbon Standard schema here: [Technology Carbon Standard Schema Implentation Guide.](https://www.techcarbonstandard.org/schemas/implementation-guide)
+- Get started with the Technology Carbon Standard schema here: [Technology Carbon Standard Schema Implementation Guide.](https://www.techcarbonstandard.org/schemas/implementation-guide)
 
 - [Visit the Github project if you would like to contribute to the technology carbon standard](https://github.com/ScottLogic/Technology-Carbon-Standard)
 
