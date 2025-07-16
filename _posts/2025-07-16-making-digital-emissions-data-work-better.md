@@ -1,5 +1,6 @@
 ---
-title: "Making Digital Emissions Data Work Better: How We Built the Technology Carbon Standard Schema"
+title: 'Making Digital Emissions Data Work Better: How We Built the Technology Carbon
+  Standard Schema'
 date: 2025-07-16 00:00:00 Z
 categories:
 - Sustainability
@@ -7,7 +8,11 @@ tags:
 - Sustainability
 - Responsible Tech
 - Tech Carbon Standard
-summary: "Scott Logic created the Technology Carbon Standard Schema, an open-source tool that helps companies measure and share their digital carbon emissions data. With the ICT sector consuming 4% of global electricity, most organisations lack standardised ways to track their technology-related carbon footprint. The schema provides a structured format for measuring and exchanging this data between companies."
+summary: Scott Logic created the Technology Carbon Standard Schema, an open-source
+  tool that helps companies measure and share their digital carbon emissions data.
+  With the ICT sector consuming 4% of global electricity, most organisations lack
+  standardised ways to track their technology-related carbon footprint. The schema
+  provides a structured format for measuring and exchanging this data between companies.
 author: drees
 ---
 
