@@ -1,6 +1,6 @@
 ---
 title: "Making Digital Emissions Data Work Better: How We Built the Technology Carbon Standard Schema"
-date: 2025-07-11 00:00:00 Z
+date: 2025-07-16 00:00:00 Z
 categories:
 - Sustainability
 tags:
