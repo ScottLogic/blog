@@ -17,7 +17,7 @@ At Scott Logic, we created the [Technology Carbon Standard Schema](https://www.t
 
 ## Why Digital Emissions Data Is Hard to Find and Use
 
-When trying to find a company's carbon emissions data today, you probably have to download a large PDF sustainability report, search through dozens of pages, and hope to find the information is there. Even if you find it, the data might be formatted differently from every other company you look at.
+When trying to find a company's carbon emissions data today, you probably have to download a large PDF sustainability report, search through dozens of pages, and hope that the information is listed there. Even if you find it, the data might be formatted differently from every other company you look at.
 
 This creates real problems. Companies can't easily compare their emissions with others in their industry. They can't automatically calculate emissions from their suppliers, or track their carbon reduction progress. Tools that could help track these commitments across the industry sectors simply can't work because the data isn't accessible.
 
