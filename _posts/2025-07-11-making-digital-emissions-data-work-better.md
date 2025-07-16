@@ -43,7 +43,7 @@ The [Emissions Report Schema](https://www.techcarbonstandard.org/schemas/emissio
 
 All of this structure ultimately leads to the core emissions data contained in the [Tech Carbon Standard Schema](https://www.techcarbonstandard.org/schemas/tech-carbon-standard/v0-0-1). This is where all the actual emissions values or stored, organised into four clear categories, Upstream, Direct Operational, Indirect Operational and Downstream emissions.
 
-This building block approach is a key feature of the schema design as it means companies can break-down their emissions reporting by logical business units, support year over year reports,  each using different versions of the standard, without requiring them to update previous reports.
+This building block approach is a key feature of the schema design as it means companies can break down their emissions reporting by logical business units, support year over year reports,  each using different versions of the standard, without requiring them to update previous reports.
 
 
 ## The Four Types of Digital Emissions
