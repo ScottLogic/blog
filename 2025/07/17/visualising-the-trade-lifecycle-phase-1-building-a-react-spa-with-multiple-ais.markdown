@@ -2,7 +2,13 @@
 title: Visualising the Trade Lifecycle - Phase 1 - Building a React SPA with Multiple
   AIs
 date: 2025-07-17 13:13:00 Z
-summary: This will be the summary
+summary: A non-React developer built a trade lifecycle simulation using three AI assistants
+  as his coding team, discovering that managing AI agents is rather like conducting
+  an orchestra where each musician excels at different parts of the piece but occasionally
+  abandons the score for a spot of impromptu improvisation. The project demonstrated
+  that whilst AI collaboration can be very useful, someone still needs to wave the
+  baton when your string section decides to have a go at bebop when they should be
+  playing Beethoven.
 author: rgriffiths
 ---
 
