@@ -84,6 +84,8 @@ As we've explored extensively in our ["Open Your Eyes to APIs" white paper](http
 
 **Practical example**: AI fraud detection on legacy payment systems by implementing Change Data Capture (CDC) to stream transaction events in real-time. The legacy payment processing logic remains unchanged and proven, whilst AI systems analyse patterns and trigger interventions based on event streams.
 
+![Gemini_Generated_Image_tjkr4qtjkr4qtjkr.png](/uploads/Gemini_Generated_Image_tjkr4qtjkr4qtjkr.png)
+
 ### **Event-Driven Architecture as a Legacy Bridge**
 
 One of our strongest recommendations for legacy modernisation is implementing event-driven data streaming as a bridge between legacy systems and modern capabilities. This approach offers several advantages that the traditional frameworks underplay:
