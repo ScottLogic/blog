@@ -30,7 +30,7 @@ To provide total clarity and candour, I have never written a line of React in my
 
 However, rather than rely on just one assistant, I ended up working with an ensemble: ChatGPT, Claude, and Microsoft Copilot *aka* The Three Cs. Each brought distinct strengths, quirks, and occasional frustrations. My role shifted from being the developer to becoming the conductor of this AI orchestra.
 
-This is the story of Phase 1 of that journey.
+This is the story of Phase 1 of that journey. Alas, I didn't keep screenshots of the evolving application but I can promise you a picture or two in Phase 2...
 
 ---
 
