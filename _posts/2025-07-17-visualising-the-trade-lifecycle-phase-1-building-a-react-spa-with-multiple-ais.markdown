@@ -28,7 +28,7 @@ In mid-2025, I set myself what seemed like a straightforward challenge: to build
 
 To provide total clarity and candour, I have never written a line of React in my life. Consequently, this wasn't a chance for me to learn React to build an application. Rather, it was a chance for me to rely completely on an AI assistant to write all the code for me: I provided the business domain knowledge, the vision, the product ownership, and the roadmap: I expected "the AI" to do the rest.
 
-However, rather than rely on just one assistant, I ended up working with an ensemble: ChatGPT, Claude, and Microsoft Copilot *aka* The Three Cs. Each brought distinct strengths, quirks, and occasional frustrations. My role shifted from being the developer to becoming the conductor of this AI orchestra.
+However, rather than rely on just one assistant, I ended up working with an ensemble: ChatGPT, Claude, and Microsoft Copilot Chat *aka* The Three Cs. Each brought distinct strengths, quirks, and occasional frustrations. My role shifted from being the developer to becoming the conductor of this AI orchestra.
 
 This is the story of Phase 1 of that journey. Alas, I didn't keep screenshots of the evolving application but I can promise you a picture or two in Phase 2...
 
@@ -57,7 +57,7 @@ The choice to use multiple assistants wasn't strategic at first. It was a mix of
 
 **Claude** brought depth and visual awareness, especially in hybrid layout design and iterative interface development. It was my go-to for architectural refinement and interface logic. This was web interface only.
 
-**Copilot** proved strong in implementation and refactoring. It was dependable when it came to converting prompts into modular, production-ready code. Microsoft Copilot could work with larger files and had a more generous daily limit. Note that this wasn't GitHub Copilot - this was just the M365 version via the web portal.
+**Copilot Chat** proved strong in implementation and refactoring. It was dependable when it came to converting prompts into modular, production-ready code. Microsoft Copilot Chat could work with larger files and had a more generous daily limit. Note that this wasn't GitHub Copilot - this was just the M365 version via the web portal.
 
 This division of labour quickly became a strength. Orchestration, i.e., managing the interplay of these assistants, became the core skill.
 
@@ -123,15 +123,15 @@ Originally, I had separate layouts for on-premises, cloud-only, and hybrid. I re
 
 This significantly reduced complexity without sacrificing clarity and made for a much more streamlined UI.
 
-### Day 3 Afternoon: Button Logic (Copilot)
+### Day 3 Afternoon: Button Logic (Copilot Chat)
 
 On playing around with the React GUI, I realised that the chaos engineering element was rather lacking: it put some red highlighting around the boxes that were affected but there wasn't much more to it than that as all of the errors auto-resolved after a short period. What I really wanted was for on-prem errors to stay in error state until the error had been resolved manually. However, for the cloud-based systems, I wanted to demonstrate the fault-tolerance of a well-built, cloud-native system so these errors were allowed to auto-resolve after a short amount of time.
 
-Here's where necessity drove innovation. Claude's free usage window had closed, but I wanted to maintain momentum. Copilot stepped in to refine the interface:
+Here's where necessity drove innovation. Claude's free usage window had closed, but I wanted to maintain momentum. Copilot Chat stepped in to refine the interface:
 
 "Replace click-to-migrate with Migrate and Error/Resolve buttons per stage."
 
-Copilot provided:
+Copilot Chat provided:
 
 - Migrate and Error/Resolve buttons for each stage
 - Logic ensuring on-premises errors block entire flow
@@ -199,11 +199,11 @@ And it all turns about...
 
 It seemed like the AI had somehow lost track of the global context and that the monolith built by AI could no longer be broken down sensibly without unexpected side effects. What started well in the early days now felt like it could never be complete nor stable: every round of regeneration was more like turning in a circle rather than moving forward. This was a rather disappointing end to the morning's work but things would improve after lunch - not that I knew that at the time, of course.
 
-### Day 5 Afternoon: Refactor Execution (Copilot)
+### Day 5 Afternoon: Refactor Execution (Copilot Chat)
 
 Claude had provided the strategy but I didn't feel comfortable doing the implementation myself so I needed some more AI help with the implementation phase. However, the file was now so large that parsing it used up the entire free tier on Claude. That was a rather sticky impasse.
 
-Without knowing the actual limits allowed by my various free-tier accounts (and having already run out of Claude credits for the day), I turned to Copilot as I suspected that Copilot had the biggest allowance for file ingestion and analysis due to our M365 licence tier. So, with Claude's plan in hand along with the monolithic monster of a TSX file, I turned to Copilot for the hard graft of executing the refactor plan:
+Without knowing the actual limits allowed by my various free-tier accounts (and having already run out of Claude credits for the day), I turned to Copilot Chat as I suspected that Copilot Chat had the biggest allowance for file ingestion and analysis due to our M365 licence tier. So, with Claude's plan in hand along with the monolithic monster of a TSX file, I turned to Copilot Chat for the hard graft of executing the refactor plan:
 
 Claude's plan had suggested the following restructure:
 
@@ -215,7 +215,7 @@ Claude's plan had suggested the following restructure:
 - `Legend.tsx` (interface legend)
 - `utils.ts` (shared utilities)
 
-Copilot gave me a fully refactored version. The codebase had transformed from prototype to maintainable architecture although, sadly, it too was missing several components. Copilot, like Claude, had decided to give me just skeletons or shells for certain functions. Seemingly, this was a trickier ask than I had imagined but I knew it was possible because "Refactoring" is something that human software developers do frequently - it just takes us humans a fair amount of thinking and doing time!
+Copilot Chat gave me a fully refactored version. The codebase had transformed from prototype to maintainable architecture although, sadly, it too was missing several components. Copilot Chat, like Claude, had decided to give me just skeletons or shells for certain functions. Seemingly, this was a trickier ask than I had imagined but I knew it was possible because "Refactoring" is something that human software developers do frequently - it just takes us humans a fair amount of thinking and doing time!
 
 Having had some glimmer of hope in the early afternoon, the whole day was rather a disappointment as I had made no demonstrable progress and now had a set of files that could become the basis of a well-designed software project (although it contained very little substance) and I also had a behemoth of a file that contained all of the functionality I had created with The Three Cs but was no longer manageable nor maintainable.
 
@@ -239,9 +239,9 @@ After multiple failed attempts, I reverted to my "last known good": the 600+ lin
 
 What made this development process unique wasn't just the use of multiple AI tools: it was the deliberate orchestration of their capabilities. Several patterns emerged:
 
-**Tool Switching by Availability**: When Claude's free tier reached its daily limit, I switched to Copilot. When I needed architectural synthesis, I returned to ChatGPT. Momentum was everything and managing this handover was a deliberate strategy to enable this.
+**Tool Switching by Availability**: When Claude's free tier reached its daily limit, I switched to Copilot Chat. When I needed architectural synthesis, I returned to ChatGPT. Momentum was everything and managing this handover was a deliberate strategy to enable this.
 
-**Strength-Based Assignment**: Each AI excelled in different areas. Claude for architectural thinking, ChatGPT for synthesis and planning, Copilot for code generation and (some lightweight) refactoring.
+**Strength-Based Assignment**: Each AI excelled in different areas. Claude for architectural thinking, ChatGPT for synthesis and planning, Copilot Chat for code generation and (some lightweight) refactoring.
 
 **Human-in-the-Loop Quality Control**: The AIs occasionally took shortcuts or misunderstood requirements. All three assistants made assumptions. I had to nudge, refactor, and reiterate. Over and over and over again. My role became one of quality control, i.e., challenging responses that didn't meet (my) standards and providing the context needed (multiple times!) to maintain consistency across tool switches.
 
