@@ -2,7 +2,8 @@
 title: Visualising the Trade Lifecycle - Phase 1 - Building a React SPA with Multiple
   AIs
 date: 2025-07-17 13:13:00 Z
-published: false
+summary: This will be the summary
+author: rgriffiths
 ---
 
 # Trade Lifecycle Visualiser - Part 1 - Building a React SPA with Multiple AIs
