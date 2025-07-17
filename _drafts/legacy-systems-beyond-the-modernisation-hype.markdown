@@ -1,6 +1,14 @@
 ---
 title: 'Legacy Systems: Beyond the Modernisation Hype'
 date: 2025-07-22 11:23:00 Z
+categories:
+- Tech
+- Architecture
+tags:
+- legacy modernisation
+- architecture
+- sustainable software
+- software engineering
 summary: After two decades of working with highly regulated organisations, we've developed
   some strong opinions about legacy systems some of which run counter to prevailing
   industry narratives. Whilst other consultancies and vendors push their "proven frameworks"
@@ -9,6 +17,7 @@ summary: After two decades of working with highly regulated organisations, we've
   are and why they persist. This blog covers what we've learned about the uncomfortable
   realities that these frameworks rarely address.
 author: ocronk
+image: "/uploads/Gemini_Generated_Image_tjkr4qtjkr4qtjkr.png"
 ---
 
 After two decades of working with highly regulated organisations, we've developed some strong opinions about legacy systems some of which run counter to prevailing industry narratives. Whilst other consultancies and vendors push their "proven frameworks" and "transformational roadmaps," we've watched well-intentioned modernisation initiatives stumble over the same fundamental misunderstandings about what legacy systems actually are and why they persist.
