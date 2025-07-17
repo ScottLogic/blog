@@ -1,0 +1,16 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - msuperina/_posts/2017-02-28-relogic.md
+ relogic
+ reflow
+ _context
+ stateful
+ - msuperina/_posts/2017-03-09-relogic-2.md
+RouterContext
+searchState
+mapStateToProps
+ownProps
+thunks

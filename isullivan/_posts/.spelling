@@ -1,0 +1,37 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - isullivan/_posts/2014-09-10-node-webkit.md
+node-webkit
+node.js.
+gulp.js
+gui
+ - isullivan/_posts/2014-11-28-bramble-mvc.md
+landjaeger
+isullivan
+filet
+mignon
+biltong
+precompiled
+yaml
+Ipsum
+Nunjucks
+weclome-to-the-blog
+hasNextPage
+ - isullivan/_posts/2015-04-03-generating-type-safe-emails.md
+SFGs
+OrderConfirmation.txt
+EmailGenerator
+OrderConfirmation.cs
+visx
+cs
+vb
+ - isullivan/_posts/2015-07-31-what-makes-a-good-cms.md
+CMSs
+150ms
+100ms
+BlogHome
+BlogPost
+BlogHome.cshtml

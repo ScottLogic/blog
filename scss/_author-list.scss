@@ -1,0 +1,24 @@
+@use 'colours';
+
+.author-list {
+    a {
+        font-weight: $font-regular;
+    }
+
+    li {
+    	margin: .4rem 0;
+
+    	a {
+    		font-weight: $font-light;
+    	}
+    }
+
+  a:hover {
+    color: colours.$black;
+    border-bottom: 3px solid colours.$teal;
+  }
+
+  a:visited {
+    color: colours.$black;
+  }
+}

@@ -1,0 +1,125 @@
+---
+---
+
+<html>
+<head>
+    <meta name="viewport" content="width=300px, height=400px, user-scalable=no"/>
+    <script type="text/javascript" src="{{ site.github.url }}/archive/2011/07/iscroll.js"></script>
+    <script type="text/javascript" src="{{ site.github.url }}/archive/2011/07/jquery-1.6.1.min_.js"></script>
+    <script type="text/javascript" src="{{ site.github.url }}/archive/2011/07/jquery-ui-1.8.13.custom.min_.js"></script>
+    <script type="text/javascript" src="{{ site.github.url }}/archive/2011/07/jquery.tmpl_.min_.js"></script>
+    <script type="text/javascript" src="{{ site.github.url }}/archive/2011/07/jumpList.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="{{ site.github.url }}/archive/2011/07/jumpList.css" />
+    
+    <style>
+        *
+        {
+            font-size: 17px;
+            font-family: "Calibri";
+            color: white;
+        }
+        
+        body
+        {
+            margin: 0;
+        }     
+    </style>
+</head>
+<body>
+	<div style="width:286px; height:551px; background-image: url('{{ site.github.url }}/archive/2011/07/windowsphone7.png')">
+		<div class="jumpList" style="top: 41px; left:22px; position:relative; padding:0; width:237px; height:405px; background:black">
+		</div>    
+	</div>
+    <script type="text/javascript">
+
+	// create a list of people
+        var people = [];
+        for (var i = 0; i < 50; i++) {
+            people.push({
+                surname: getName(4, 10, '', ''),
+                forename: getName(4, 6, '', '')
+            });
+        }
+
+
+        // sort the data
+        var sortFunc = function (a, b) {
+            return a.surname.localeCompare(b.surname);
+        }
+        people.sort(sortFunc);
+
+	// create the category list
+        var alphabet = [];
+        for (var chr = 65; chr <= 90; chr++) {
+            alphabet.push(String.fromCharCode(chr));
+        };
+
+	// create an instance of the jump list control
+        $(".jumpList").jumpList({
+            items: people,
+            itemTemplate: "${surname}, ${forename}",
+            categoryList: alphabet,
+            categoryFunction: function (person) {
+                return person.surname.substring(0,1).toUpperCase();
+            },
+            selectionChanged: function (event, selectedItem) {
+                console.log(selectedItem);
+            },
+            useIScroll: true
+          });
+          
+
+
+	
+       
+	// random name generator from here: http://www.frihost.com/forums/vt-69269.html
+        function getName(minlength, maxlength, prefix, suffix) {
+            prefix = prefix || '';
+            suffix = suffix || '';
+            //these weird character sets are intended to cope with the nature of English (e.g. char 'x' pops up less frequently than char 's')
+            //note: 'h' appears as consonants and vocals
+            var vocals = 'aeiouyh' + 'aeiou' + 'aeiou';
+            var cons = 'bcdfghjklmnpqrstvwxz' + 'bcdfgjklmnprstvw' + 'bcdfgjklmnprst';
+            var allchars = vocals + cons;
+            var length = rnd(minlength, maxlength) - prefix.length - suffix.length;
+            if (length < 1) length = 1;
+            var consnum = 0;
+            if (prefix.length > 0) {
+                for (var i = 0; i < prefix.length; i++) {
+                    if (consnum == 2) consnum = 0;
+                    if (cons.indexOf(prefix[i]) != -1) {
+                        consnum++;
+                    }
+                }
+            }
+            else {
+                consnum = 1;
+            }
+
+            var name = prefix;
+
+            for (var i = 0; i < length; i++) {
+                //if we have used 2 consonants, the next char must be vocal.
+                if (consnum == 2) {
+                    touse = vocals;
+                    consnum = 0;
+                }
+                else touse = allchars;
+                //pick a random character from the set we are goin to use.
+                c = touse.charAt(rnd(0, touse.length - 1));
+                name = name + c;
+                if (cons.indexOf(c) != -1) consnum++;
+            }
+            name = name.charAt(0).toUpperCase() + name.substring(1, name.length) + suffix;
+            return name;
+        }
+	
+	function rnd(minv, maxv) {
+            if (maxv < minv) return 0;
+            return Math.floor(Math.random() * (maxv - minv + 1)) + minv;
+        }
+        
+    </script>
+</body>
+</html>

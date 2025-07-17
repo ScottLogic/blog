@@ -1,0 +1,464 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dom Changing Test</title>
+<style type="text/css">
+.tb { border-collapse: collapse; table-layout: fixed; width: 600px; height: 570px; padding: 0px; border: 0px; margin: 0px;}
+.tb td { padding: 0px; border: 0px; margin: 0px; overflow: hidden;}
+/*#testcontainer { overflow: scroll; width: 750px; height: 100px; }*/
+.percbar { width: 400px; height: 1.1em; border: black solid 1px;}
+#percentage { width: 0px; height: 1.1em; color: white; background-color: green;}
+</style>
+<script type="text/javascript"><!--
+var StartTest = function () {
+	usedClasses = [];
+	tests = [
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: reverseRows,
+		  description: [ "1a", "appendChild", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div table .{0} span", count:625}]); create100RowsUIH(); },
+		  test: reverseRows,
+		  description: [ "1b", "appendChild", "625", "div table .ab span {"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: reverseRowsDc,
+		  description: [ "2a", "appendChild d/c @tbody", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div table .{0} span", count:625}]); create100RowsUIH(); },
+		  test: reverseRowsDc,
+		  description: [ "2b", "appendChild d/c @tbody", "625", "div table .ab span {"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: reverseRowsDc2,
+		  description: [ "3a", "appendChild d/c @table", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div table .{0} span", count:625}]); create100RowsUIH(); },
+		  test: reverseRowsDc2,
+		  description: [ "3b", "appendChild d/c @table", "625", "div table .ab span {"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: reverseRowsRemoveAppend,
+		  description: [ "4a", "removeChild appendChild", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div table .{0} span", count:625}]); create100RowsUIH(); },
+		  test: reverseRowsRemoveAppend,
+		  description: [ "4b", "removeChild appendChild", "625", "div table .ab span {"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: reverseRowsFrag,
+		  description: [ "5a", "add documentFragment", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div table .{0} span", count:625}]); create100RowsUIH(); },
+		  test: reverseRowsFrag,
+		  description: [ "5b", "add documentFragment", "625", "div table .ab span {"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: reverseRowsIHTML,
+		  description: [ "6a", "all innerHTML", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div table .{0} span", count:625}]); create100RowsUIH(); },
+		  test: reverseRowsIHTML,
+		  description: [ "6b", "all innerHTML", "625", "div table .ab span {"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: reverseRowsInsertBefore,
+		  description: [ "7a", "insertBefore", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div table .{0} span", count:625}]); create100RowsUIH(); },
+		  test: reverseRowsInsertBefore,
+		  description: [ "7b", "insertBefore", "625", "div table .ab span {"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: reverseRowsInsertBeforeHalf,
+		  description: [ "8a", "insertBefore half", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div table .{0} span", count:625}]); create100RowsUIH(); },
+		  test: reverseRowsInsertBeforeHalf,
+		  description: [ "8b", "insertBefore half", "625", "div table .ab span {"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: reverseRowsInsertBeforeDc,
+		  description: [ "9a", "insertBefore d/c @tbody", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div table .{0} span", count:625}]); create100RowsUIH(); },
+		  test: reverseRowsInsertBeforeDc,
+		  description: [ "9b", "insertBefore d/c @tbody", "625", "div table .ab span {"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: reverseRowsInsertBeforeHalfDc,
+		  description: [ "10a", "insertBefore half d/c @tbody", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div table .{0} span", count:625}]); create100RowsUIH(); },
+		  test: reverseRowsInsertBeforeHalfDc,
+		  description: [ "10b", "insertBefore half d/c @tbody", "625", "div table .ab span {"]
+		}		
+	];
+	
+	runTestArray(tests);
+};
+
+var runTestArray = function(testsToRun, totalCount) {
+	if  (!totalCount) {
+		totalCount = testsToRun.length;
+	}
+	
+	var percentage = (totalCount - testsToRun.length) / totalCount;
+	document.getElementById("percentage").style.width = parseInt(percentage*400)+"px";
+	
+	if  (testsToRun.length === 0) {
+		document.getElementById("percentage").innerHTML = "Finished!";
+		return;
+	}
+	
+	runTest(testsToRun[0].setup, 
+			testsToRun[0].test, 
+			testsToRun[0].description, 
+			function() { 
+				runTestArray(testsToRun.slice(1), totalCount); 
+			});
+};
+
+String.prototype.addOne = function() {
+    return String.fromCharCode(this.charCodeAt(0)+1);
+};
+
+var createStyles = function (selectorArray) {
+	var i, j, cssText="", char1='a', char2='a', colours = ["red", "green", "Blue", "violet"],
+		currentClassName="",
+		selector = "",
+		incrementClass=function() {};
+
+	for(i = 0; i < selectorArray.length; i++) {
+		for(j = 0; j < selectorArray[i].count; j++) {
+			currentClassName=char1+char2; 
+			if  (char2==='z') {
+				char1 = char1.addOne(); 
+				char2='a';
+			} else {
+				char2 = char2.addOne();
+			}
+			if  (!selectorArray[i].unused) {
+				usedClasses.push(currentClassName);
+			}
+			selector = selectorArray[i].selector.replace("{0}", currentClassName);
+			cssText += selector + " {\n background: "+colours[Math.floor(Math.random()*4)]+"; }\n\n";
+		}
+	}
+
+	addStyleTag(cssText);
+};
+
+var addStyleTag = function(cssText) {
+
+    var ss = document.createElement('style');
+	ss.setAttribute("type", "text/css");
+
+	if (ss.styleSheet) {   // IE
+    	ss.styleSheet.cssText = cssText;
+	} else {
+    	ss.appendChild(document.createTextNode(cssText));
+	}
+	var head = document.getElementsByTagName('head')[0];
+	head.appendChild(ss);
+};
+
+var cleanUp = function () {
+	usedClasses.length = 0;
+	var styles = document.getElementsByTagName('style');
+	for(var i = 1; i < styles.length; i++) {
+		styles[i].parentNode.removeChild(styles[i]);
+	}
+	document.getElementById("testcontainer").innerHTML = "";
+};
+
+var runTest = function(setupFunc, testFunc, testDescription, returnFunc) {
+
+	setTimeout(function() {
+		var setupStart = new Date().getTime();
+		setupFunc();
+		setTimeout(function() {
+
+			var testStart = new Date().getTime();
+			testFunc();
+			var testEnd = new Date().getTime();
+			var afterRender = function() {
+				var renderEnd = new Date().getTime();
+
+				cleanUp();
+
+				var tr = document.createElement("tr"), td;
+				
+				for(var i = 0; i < testDescription.length; i++) {
+					td = document.createElement("td");
+					td.innerHTML = testDescription[i];
+					tr.appendChild(td);
+				}
+
+				td = document.createElement("td");
+				td.innerHTML = ""+(testStart-setupStart);
+				tr.appendChild(td);
+				
+				td = document.createElement("td");
+				td.innerHTML = ""+(testEnd-testStart);
+				tr.appendChild(td);
+
+				td = document.createElement("td");
+				td.innerHTML = ""+(renderEnd-testEnd);
+				tr.appendChild(td);
+				
+				td = document.createElement("td");
+				td.innerHTML = ""+(renderEnd-testStart);
+				tr.appendChild(td);
+				
+				document.getElementById("testresults").appendChild(tr);
+				
+				setTimeout(returnFunc, 500);
+			};
+			setTimeout(afterRender, 0);
+		}, 0);
+	}, 0);
+};
+
+/* thanks to http://ejohn.org/projects/flexible-javascript-events/ */
+var addEvent = function ( obj, type, fn ) {
+  if ( obj.attachEvent ) {
+    obj['e'+type+fn] = fn;
+    obj[type+fn] = function(){obj['e'+type+fn]( window.event );}
+    obj.attachEvent( 'on'+type, obj[type+fn] );
+  } else
+    obj.addEventListener( type, fn, false );
+}
+
+var removeEvent = function ( obj, type, fn ) {
+  if ( obj.detachEvent ) {
+    obj.detachEvent( 'on'+type, obj[type+fn] );
+    obj[type+fn] = null;
+  } else
+    obj.removeEventListener( type, fn, false );
+}
+
+var create100RowsUIH = function () {
+    var tbl = document.createElement("table"),
+        tbody = document.createElement("tbody"),
+		i, j, tr, td, testcontainer = document.getElementById("testcontainer"),
+		dcTb = document.createElement("div"), tb,
+	onClick = function() {alert("a");};
+
+    tbl.className = "tb";
+    tbl.id = "mytb";
+    testcontainer.appendChild(tbl);
+    tbl.appendChild(tbody);
+
+    for(i = 0; i < 100; i++) {
+	    tr = "<table><tbody><tr>";
+	    for(j = 0; j < 100; j++) {
+			td = "<td class=\""+usedClasses[Math.floor(Math.random()*usedClasses.length)]+"\"><span class=\"unm\">_</span></td>";
+			tr = tr+td;
+	    }
+		tr = tr+"</tr></tbody></table>";
+		dcTb.innerHTML = tr;
+		tr = dcTb.childNodes[0].childNodes[0].childNodes[0];
+
+		for(j = 0; j < 100; j++) {
+			td = tr.childNodes[j];
+			if  (j === 3 || j === 8 || j === 10) {
+				addEvent(td, "Click", onClick);
+			}
+		}
+	    tbody.appendChild(tr);
+    }	 
+};
+
+var reverseRows = function () {
+    var tbl = document.getElementById("mytb").childNodes[0],
+		tbody = tbl.childNodes[0], rows = [], i;
+
+    for(var i = tbody.childNodes.length-1; i >= 0; i--) {
+        rows[rows.length] = tbody.childNodes[i];
+    }
+
+    for(i = 0; i < rows.length; i++) {
+        tbody.appendChild(rows[i]);
+    }
+};
+
+var reverseRowsDc = function () {
+    var tbl = document.getElementById("mytb").childNodes[0],
+	tbody = tbl.childNodes[0], rows = [], i;
+
+    tbl.removeChild(tbody);
+
+    for(var i = tbody.childNodes.length-1; i >= 0; i--) {
+        rows[rows.length] = tbody.childNodes[i];
+    }
+
+    for(i = 0; i < rows.length; i++) {
+        tbody.appendChild(rows[i]);
+    }
+
+    tbl.appendChild(tbody);
+};
+
+var reverseRowsDc2 = function () {
+    var tbl = document.getElementById("mytb").childNodes[0],
+		tbody = tbl.childNodes[0], rows = [], i, parent = tbl.parentNode;
+
+    parent.removeChild(tbl);
+
+    for(var i = tbody.childNodes.length-1; i >= 0; i--) {
+        rows[rows.length] = tbody.childNodes[i];
+    }
+
+    for(i = 0; i < rows.length; i++) {
+        tbody.appendChild(rows[i]);
+    }
+	
+	parent.appendChild(tbl);
+};
+
+
+var reverseRowsInsertBefore = function () {
+    var tbl = document.getElementById("mytb").childNodes[0],
+		tbody = tbl.childNodes[0], 
+		rows = [], i, lastDomElement;
+
+    for(var i = tbody.childNodes.length-1; i >= 0; i--) {
+        rows[rows.length] = tbody.childNodes[i];
+    }
+
+	lastDomElement = tbody.childNodes[0];
+    for(i = 0; i < rows.length; i++) {
+        tbody.insertBefore(rows[i], lastDomElement);
+		lastDomElement = rows[i];
+    }
+};
+
+var reverseRowsInsertBeforeDc = function () {
+    var tbl = document.getElementById("mytb").childNodes[0],
+		tbody = tbl.childNodes[0], 
+		rows = [], i, lastDomElement;
+
+	tbl.removeChild(tbody);
+		
+    for(var i = tbody.childNodes.length-1; i >= 0; i--) {
+        rows[rows.length] = tbody.childNodes[i];
+    }
+
+	lastDomElement = tbody.childNodes[0];
+    for(i = 0; i < rows.length; i++) {
+        tbody.insertBefore(rows[i], lastDomElement);
+		lastDomElement = rows[i];
+    }
+	
+	tbl.appendChild(tbody);
+};
+
+
+var reverseRowsInsertBeforeHalf = function () {
+    var tbl = document.getElementById("mytb").childNodes[0],
+		tbody = tbl.childNodes[0], 
+		rows = [], i, len, lastDomElement;
+
+    for(var i = tbody.childNodes.length-1; i >= 0; i--) {
+        rows[rows.length] = tbody.childNodes[i];
+    }
+
+	lastDomElement = tbody.childNodes[0];
+	len = rows.length/2;
+    for(i = 0; i < len; i++) {
+        tbody.insertBefore(rows[i], lastDomElement);
+		lastDomElement = rows[i];
+    }
+};
+
+var reverseRowsInsertBeforeHalfDc = function () {
+    var tbl = document.getElementById("mytb").childNodes[0],
+		tbody = tbl.childNodes[0], 
+		rows = [], i, len, lastDomElement;
+
+	tbl.removeChild(tbody);
+		
+    for(var i = tbody.childNodes.length-1; i >= 0; i--) {
+        rows[rows.length] = tbody.childNodes[i];
+    }
+
+	lastDomElement = tbody.childNodes[0];
+	len = rows.length/2;
+    for(i = 0; i < len; i++) {
+        tbody.insertBefore(rows[i], lastDomElement);
+		lastDomElement = rows[i];
+    }
+	
+	tbl.appendChild(tbody);
+};
+
+
+var reverseRowsRemoveAppend = function () {
+    var tbl = document.getElementById("mytb").childNodes[0],
+		tbody = tbl.childNodes[0], rows = [], i, row;
+
+    for(var i = tbody.childNodes.length-1; i >= 0; i--) {
+		row = tbody.childNodes[i];
+        rows[rows.length] = row;
+		tbody.removeChild(row);
+    }
+
+    for(i = 0; i < rows.length; i++) {
+        tbody.appendChild(rows[i]);
+    }
+};
+
+var reverseRowsFrag = function() {
+    var tbl = document.getElementById("testcontainer").childNodes[0],
+		tbody = tbl.childNodes[0], i, rows=[],
+		frag = document.createDocumentFragment();
+
+    for(i = tbody.childNodes.length-1; i >= 0; i--) {
+		rows.push(tbody.childNodes[i]);     
+    }
+	
+	for(i = 0; i < rows.length; i++) {
+		frag.appendChild(rows[i]);
+	}
+
+    tbody.appendChild(frag);
+};
+
+var reverseRowsIHTML = function() {
+    var tbl = document.getElementById("testcontainer").childNodes[0],
+		tbody = tbl.childNodes[0], rows = [], i,
+		newContent = "", parent;
+
+    for(var i = tbody.childNodes.length-1; i >= 0; i--) {
+        newContent += tbody.childNodes[i].outerHTML;
+    }
+
+	// This really is best case scenario, otherwise we might need to create on
+	// a div and move it and then we are stuck with the previous situation
+	tbl.parentNode.innerHTML = '<table><tbody>'+newContent+'</tbody></table>';
+};
+</script>
+</head>
+<body>
+	<a onClick="document.getElementById('starttest').style.display = 'none';StartTest();return false;" id="starttest" href="#">Start Tests</a>
+	<div class="percbar">
+		<div id="percentage"></div>
+	</div>
+
+	<table>
+		<thead>
+			<tr><th>No.</th><th>Description</th><th>Selector Count</th><th>Selector</th>
+			<th>Setup Time</th><th>Test Time</th><th>Render Time</th><th>Render+Test Time</th></tr>
+		</thead>
+		<tbody id="testresults">
+		</tbody>
+	</table>
+
+	<div id="testcontainer">&nbsp;
+	</div>
+</body>
+</html>

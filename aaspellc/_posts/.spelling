@@ -1,0 +1,38 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+
+_posts
+aaspellc
+wordcount
+wordcounts
+artifact
+xml
+java
+uk
+md
+MLlib
+2018-07-09-comparing-streaming-frameworks-pt1
+2018-07-16-comparing-streaming-frameworks-pt2
+MLLib
+RDDs
+artifactId
+groupId
+checkpointing
+backpressure
+keyby
+ReadFile.java
+SplitLineTask.java
+WordCountTask.java
+sl-splittask
+sl-wordcount
+www.itjobswatch.co.uk
+tar.gz
+20spark.do
+flink.do
+apache
+jpeg
+default_post
+acarr

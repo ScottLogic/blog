@@ -1,0 +1,150 @@
+---
+title: Knockout.js + Node.js = What.js?
+date: 2013-03-08 00:00:00 Z
+categories:
+- Tech
+tags:
+- blog
+- latest news widget
+id: 182071
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2013/03/knockout-js-node-js-what-js/
+layout: default_post
+source: scottweb
+disqus-id: "/2013/03/knockout-js-node-js-what-js/"
+summary: Recently I contributed a change to Knockout which allows it to run without
+  hacks in a non-browser JavaScript environment.
+---
+
+<p><a style="float: right; margin-left: 16px;" href="{{ site.baseurl }}/cprice/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" alt="" src="{{ site.baseurl }}/archive/2012/03/me1.png" /></a><em>Recently I contributed a change to Knockout which allows it to run without hacks in a non-browser JavaScript environment. My original intention was to allow Knockout.js to be used with Titanium for the <a href="http://www.propertycross.com">PropertyCross</a> project however, a convenient side-effect is that it now also runs in Node. In this post I'll run through what is and isn't supported, and some ways you might want to use it..</em></p>
+<h3>Getting Started</h3>
+<p>The changes are targeted for the 2.3.0 release which means the only way of working with them currently (official npm package <a href="https://github.com/SteveSanderson/knockout/pull/866">due soon</a>) is to checkout the project from GitHub and build it yourself, luckily this is a relatively painless experience if you have git setup -</p>
+{% highlight javascript %}git clone git://github.com/SteveSanderson/knockout.git
+cd knockout
+./build/build.sh{% endhighlight %}
+<p>The output files are located in the build/output folder, knockout-latest-debug.js is the one you'll want for Node, unless you have a strange compulsion for minified code! Let's quickly put together a hello world example based on the example from the <a href="http://knockoutjs.com/examples/helloWorld.html">Knockout website</a> -</p>
+{% highlight javascript %}var ko = require('build/output/knockout-latest.debug.js');
+
+// Here's my data model
+var ViewModel = function(first, last) {
+  this.firstName = ko.observable(first);
+  this.lastName = ko.observable(last);
+
+  this.fullName = ko.computed(function() {
+    // Knockout tracks dependencies automatically. It knows that fullName depends on firstName and lastName, because these get called when evaluating fullName.
+    return this.firstName() + " " + this.lastName();
+  }, this);
+};
+
+// create an instance of the ViewModel
+var vm = new ViewModel('Planet', 'Earth');
+// subscribe to fullName changes
+var subscription = vm.fullName.subscribe(function(value) {
+  console.log(value);
+});
+// log the current value
+console.log(vm.fullName());
+// trigger a change
+vm.lastName('Mars');
+// dispose of the subscription
+subscription.dispose();{% endhighlight %}
+<p>Sticking the above in a file (hello-world.js) in the root of the knockout project and then running it through Node (node hello-world.js) gives us -</p>
+{% highlight javascript %}Planet Earth
+Planet Mars{% endhighlight %}
+<p>So far so good but that's a lot of boilerplate code, what's happened to ko.applyBindings and the corresponding template? Well at this point it's worth going back and reviewing the spec runner for Node to get a better idea of exactly which bits of Knockout are expected to work.</p>
+<h3>What works? What doesn't?</h3>
+<p>The following table lists the test specs for Node, taken from spec/runner.node.js, against the Knockout methods they exercise -</p>
+<table>
+<tbody>
+<tr>
+<td>arrayEditDetectionBehaviors</td>
+<td>ko.utils.compareArrays(a, b)</td>
+</tr>
+<tr>
+<td>asyncBehaviors</td>
+<td>ko.observable().extend({ throttle: a })</td>
+</tr>
+<tr>
+<td>dependentObservableBehaviors</td>
+<td>ko.dependentObservable/computed()</td>
+</tr>
+<tr>
+<td>expressionRewritingBehaviors</td>
+<td>ko.expressionRewriting.*</td>
+</tr>
+<tr>
+<td>extenderBehaviors</td>
+<td>ko.extenders.*</td>
+</tr>
+<tr>
+<td>mappingHelperBehaviors</td>
+<td>ko.toJS, ko.toJSON</td>
+</tr>
+<tr>
+<td>observableArrayBehaviors</td>
+<td>ko.observableArray()</td>
+</tr>
+<tr>
+<td>observableBehaviors</td>
+<td>ko.observable()</td>
+</tr>
+<tr>
+<td>subscribableBehaviors</td>
+<td>ko.subscribable()</td>
+</tr>
+</tbody>
+</table>
+<p>There's a lot of observable related goodness there but glaring omissions around the DOM and templating functionality, which means no ko.applyBindings. However, taking a step back, you'll probably have noticed that there isn't much of a UI layer to Node, so even if those methods were there, what would they do?</p>
+<p>Philosophy aside, where does this leave us? What can we do now that we couldn't do previously?</p>
+<h3>Faster view model testing</h3>
+<p>As long as your view models aren't making any direct use of the DOM or templating functionality, then you can now run your test specs through Node instead of something like Phantom.js. Your milage will vary but in the case of the Knockout test cases, the Node test specs run in a quarter of the time (0.5s) of the Phantom test specs (2s).</p>
+<p>This isn't a perfect example as the only a subset of the Phantom test specs are run by Node but in this case it does make enough of a difference to mean that the tests could now comfortably be run by a file-system watcher.</p>
+<h3>Potential to integrate with non-browser, JavaScript powered UIs</h3>
+<p>This was my original aim when making these changes, in my case it was to re-use the view models from an HTML5 app in a Titanium app. I ended up hacking a fake DOM in to keep the old code happy but if I were to try it again now, I could just include vanilla Knockout.</p>
+<p>As well as simply being able to use Knockout, I hope that these changes will encourage people to create their own templating system for the non-browser UI elements, which in turn will make it even easier to use Knockout.</p>
+<h3>Crazy, pointless, Node-based view model fun!</h3>
+<p>Let's say we create a view model like this -</p>
+{% highlight javascript %}var viewModel = {
+  ticks: ko.observable(0),
+  tick: function() {
+    this.ticks(this.ticks() + 1);
+  },
+  bars: []
+};
+
+function createBar(index, count) {
+  return ko.computed(function() {
+    var a = viewModel.ticks() % ((count - 1) * 2);
+    var b = Math.abs(a - count + 1);
+    var c = Math.abs(index - b);
+    var d = c / count;
+    var e = 1 - d;
+    return (e * e * e).toFixed(3);
+  });
+}
+
+for (var index = 0, count = 6; index &lt; count; index++) {
+  viewModel.bars[index] = createBar(index, count);
+}{% endhighlight %}
+<p>Then combine it with an npm module called <a href="https://github.com/rwldrn/johnny-five">johnny-five</a> and a bit of view binding code -</p>
+{% highlight javascript %}var five = require("johnny-five");
+
+new five.Board().on('ready', function() {
+  [3, 5, 6, 9, 10, 11].forEach(function(pin, index) {
+    var led = new five.Led(pin);
+    viewModel.bars[index].subscribe(function(value) {
+      led.brightness(Math.round(value * 255));
+    });
+  });
+
+  setInterval(function() {
+    viewModel.tick();
+   }, 100);
+
+});{% endhighlight %}
+<p>Finally, attach an arduino and what do you get?</p>
+<p><iframe src="http://www.youtube.com/embed/OHQp_1wcFDU" height="400" width="690" allowfullscreen="" frameborder="0"></iframe></p>
+<p>The worlds first KnightRider LED effect powered by a Knockout view model (I think)! If anyone fancies making their own, the code is all available on <a href="https://github.com/chrisprice/knightrider">GitHub</a></p>
+<p><a class="twitter-share-button" href="https://twitter.com/share" data-via="100pxls">Tweet</a><script type="text/javascript">// <![CDATA[!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");// ]]></script></p>
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+<p><script type="text/javascript">// <![CDATA[(function() {     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;     po.src = 'https://apis.google.com/js/plusone.js';     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);   })();// ]]></script></p>

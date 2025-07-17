@@ -1,0 +1,20 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - ilopatkin/_posts/2014-03-12-native-code-emscripten-webgl-simmer-gently.md
+simplegl
+webapp
+LLVM-to-Javascript
+bytecode-level
+ffmpeg
+emcc
+MinGW
+1Mb
+2m
+40s
+VBOs
+chrowser
+loc
+cmd

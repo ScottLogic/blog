@@ -1,0 +1,79 @@
+@startuml shell-super-trad
+skinparam defaultTextAlignment center
+
+rectangle "shell + tools" {
+    rectangle build
+    artifact package
+    build --> package
+}
+@enduml
+
+
+@startuml shell-trad
+skinparam defaultTextAlignment center
+
+rectangle "shell + tools" {
+    rectangle build
+    node package
+    build --> package
+}
+@enduml
+
+@startuml dind-with-tools
+skinparam defaultTextAlignment center
+
+node "dind + tools" {
+    rectangle build
+    node package
+    build --> package
+}
+@enduml
+
+@startuml dind-installing-tools
+skinparam defaultTextAlignment center
+
+node dind {
+    rectangle tools [
+        install tools
+    ]
+    rectangle build
+    node package
+    tools --> build
+    build --> package
+}
+@enduml
+
+@startuml dind-multi
+skinparam defaultTextAlignment center
+
+node dind {
+    node bp [
+        build
+        --
+        package
+    ]
+}
+@enduml
+
+@startuml dind-build-container
+skinparam defaultTextAlignment center
+
+node dind {
+    node build
+    node package
+    build --> package
+}
+@enduml
+
+@startuml multi-pipeline-dind
+skinparam defaultTextAlignment center
+
+node build
+
+node dind {
+    node package
+}
+
+build --> package
+
+@enduml

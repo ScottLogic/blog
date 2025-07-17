@@ -1,0 +1,79 @@
+#stocks {
+	background-color: white;
+	padding: 15px 0px;
+	width: 700px;
+	margin:auto;
+}
+#stocks a {
+	color: #080808;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 11px;
+	font-family: Arial;
+}
+#stocks a:hover, #stocks a:active {
+	text-decoration: underline;
+}
+#stocks .triggerUpdates {
+	padding-bottom: 5px;
+	color: red;
+	font-weight: none;
+}
+#stocks table {
+	border-collapse:collapse;
+	margin: 0px;
+	padding: 0px;
+	background-color: white;
+	color: #080808;
+	font-size: 11px;
+	font-family: Verdana, Arial;
+	border-left: 1px solid #EBEBEB;
+	border-right: 1px solid #EBEBEB;
+}
+#stocks thead tr {
+	background-color: #EBEBEB
+}
+#stocks tr {
+	border-bottom: 1px solid #EBEBEB;
+}
+#stocks td, #stocks th{
+	margin: 0px;
+	padding: 5px;
+}
+#stocks th.position {
+	width: 50px; 
+}
+#stocks th.company {
+	width: 150px;
+	text-align: left;
+}
+#stocks th.ticker {
+	width: 80px;
+	text-align: left;
+}
+#stocks th.size {
+	width: 80px;
+	text-align: right;
+}
+#stocks th.inPrice {
+	width: 110px;
+	text-align: right;
+}
+#stocks th.livePrice {
+	width: 110px;
+	text-align: right;
+}
+#stocks th.profitLoss {
+	width: 110px;
+	text-align: right;
+}
+#stocks img {
+	border: 0px;
+	margin: 0px;
+}
+#stocks .status {
+	color: gray;
+	font-size: 10px;
+	font-family: Arial;
+	padding-left: 5px;
+}

@@ -1,0 +1,47 @@
+---
+title: JSLint in Visual Studio Part 2
+date: 2010-10-25 00:00:00 Z
+categories:
+- Tech
+tags:
+- Javascript
+- JSLint
+- Visual Studio 2010
+- blog
+id: 73534
+author: lpage
+oldlink: http://www.scottlogic.co.uk/2010/10/jslint-in-visual-studio-part-2/
+layout: default_post
+source: site
+disqus-id: "/2010/10/jslint-in-visual-studio-part-2/"
+summary: A while ago I <a href="http://blog.scottlogic.com/2010/09/20/js-lint-in-visual-studio-part-1.html">blogged
+  about creating an extension in visual studio 2010 that ran JSLint on files</a>.
+---
+
+<p>A while ago I <a href="http://blog.scottlogic.com/2010/09/20/js-lint-in-visual-studio-part-1.html">blogged about creating an extension in visual studio 2010 that ran JSLint on files</a>. I started by getting a JavaScript interpreter based on the V8 engine to run JSLint and then just before publishing I discovered someone else had already started an extension. Luckily, that person proved friendly and over the last month I've been collaborating with him on the extension.</p>
+<p>You can view the <a href="http://jslint4vs2010.codeplex.com/">codeplex project here</a> and also access it <a href="https://marketplace.visualstudio.com/items?itemName=LukePage.JSLintVS2010">via the visual studio marketplace</a>.</p>
+<p>I am pleased with how it's come on - It has most of the features I can think of - run on build, exclusion of files and segments, making unused variables an error and exporting/importing settings. If you use Visual Studio 2010 and do JavaScript development, I hope you find this useful.</p>
+<p>My experience of using the Visual Studio 2010 extension framework however was far from easy. Visual Studio is a complicated program admittedly, but everything I wanted to do seemed difficult - If a user right clicks on selection in the editor then get that selection - get the current file being edited - add errors on to the error list - All these things seem either more difficult than they should be or only achievable in quite ugly ways. For instance, here is the code that when a user right clicks on an editor retrieves the filename in order to check whether it is a JavaScript file..</p>
+{% highlight csharp %}
+IVsMultiItemSelect mis;
+IVsMonitorSelection monitorSelection = (IVsMonitorSelection)Package.GetGlobalService(typeof(SVsShellMonitorSelection));
+
+monitorSelection.GetCurrentSelection(out hierarchyPtr, out projectItemId, out mis, out selectionContainerPtr);
+
+IVsHierarchy hierarchy = Marshal.GetTypedObjectForIUnknown(hierarchyPtr, typeof(IVsHierarchy)) as IVsHierarchy;
+
+if (hierarchy != null)
+{
+	object value;
+
+	hierarchy.GetProperty(projectItemId, (int)__VSHPROPID.VSHPROPID_Name, out value);
+
+	if (value != null && value.ToString().EndsWith(".js"))
+{% endhighlight %}
+<p>If you are in the unfortunate position of writing a visual studio extension, here are some of the blog posts that helped me. Without them, I would have been truly stuck.</p>
+<p><a href="http://blogs.rev-net.com/ddewinter/2008/04/05/dynamic-menu-commands-in-visual-studio-packages-part-3/">David DeWinter - Dynamic Menu Commands in Visual Studio Packages - Part 3</a> - Explains how to dynamically turn on and off menu commands. We needed this because the XML used to attach commands was sometimes not specific enough - for instance all web site files are web item nodes, where as a JavaScript file embedded in a project is a JavaScript item node..</p>
+<p><a href="http://dotneteers.net/blogs/divedeeper/archive/2008/03/23/LVNSideBar1.aspx">DiveDeeper's blog » LVN! Sidebar #1 - Automatically loading packages</a> - How to make your extension load on startup instead of when a user accesses a menu that you've stuck a command on (required if you need to show/hide menu items dynamically)</p>
+<p><a href="http://social.msdn.microsoft.com/forums/en-US/vsx/thread/a1d37fdf-09e0-41f9-a045-52a8109b8943/">Visual Studio Extensions Forum - How to add parsing errors to ErrorList window?</a> - It took a while to realise that to add errors to the error list, you needed an error list provider with a link to a registered and running service (where as the task list just requires a function call).</p>
+<p><a href="http://blogs.msdn.com/b/dr._ex/archive/2007/04/17/using-enablevsiplogging-to-identify-menus-and-commands-with-vs-2005-sp1.aspx">Using EnableVSIPLogging to identify menus and commands with VS 2005 + SP1</a> - A lot of difficulty comes from having an XML file specify where your menu items should go and that it uses constants that don't seem to be defined anywhere in order to add menu's to places. This registry hack makes visual studio show you the guid that relates to particular context menus in order to help you write the XML file and get your new menu item to appear in the correct place.</p>
+<p><a href="http://www.koders.com/csharp/fid1AA72EBE61761EA3119DF0743156D7A6C0F09BEC.aspx?s=file#L14">This is the C file that defines the guids available in the XML file</a>.</p>
+<p>Many thanks to Adrian Conlin for the awesome icon.</p>

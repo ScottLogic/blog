@@ -1,0 +1,13 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - dmiley/_posts/2016-09-02-reading-the-riot-act.md
+ Bono
+ cuesports
+ index.html
+ leagueFixtures.jsx
+ src
+ Vive
+

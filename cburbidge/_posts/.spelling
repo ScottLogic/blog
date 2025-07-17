@@ -1,0 +1,49 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+Levenshtein
+typosquatting
+exfiltrated
+ - cburbidge/_posts/2018-02-27-hunting-typosquatters-on-npm.md
+Trie
+o
+_cee
+o_cee
+levenshtein
+Neculau
+andreineculau
+crossenv
+cross-env
+mongose
+kentcdodds
+env
+pic.twitter.com
+REsRG8Exsx
+Bolmsten
+npmjs
+npmjs.com
+1.7E11
+i've
+Edge.js
+Runkit
+ - cburbidge/_posts/2018-06-01-magical-domain-modelling-with-fsharp.md
+Dogshorts
+Gryffin
+_or_
+knuts
+wizarding
+knut
+F#'s
+Lamenters
+unrepresentable
+ - cburbidge/_posts/2018-08-14-run-vstest-with-cake.md
+NUnit
+xUnit
+MsTest
+VsTest
+nuget
+Microsoft.TestPlatform
+VSTestSettings
+nondeterministic

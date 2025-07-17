@@ -1,0 +1,64 @@
+# .github/workflows/call-algolia-deployment-script.yml
+name: Call algolia deployment script on merge
+
+on:
+  push:
+    branches:
+      - gh-pages # Trigger only on push to the production branch
+
+jobs:
+  log-post-titles:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2 # Fetch the last two commits to ensure HEAD^ exists
+
+      # Step 2: Get the list of new, modified, and deleted files
+      - name: Get changed files
+        id: changes
+        run: |
+          # Check if there is a previous commit
+          if git rev-parse --verify HEAD^ > /dev/null 2>&1; then
+            # Get added, modified, and deleted files in the _posts folder
+            echo "There is a previous commit"
+            new_files=$(git diff --name-only --diff-filter=A HEAD^ HEAD -- _posts/)
+            modified_files=$(git diff --name-only --diff-filter=M HEAD^ HEAD -- _posts/)
+            deleted_files=$(git diff --name-only --diff-filter=D HEAD^ HEAD -- _posts/)
+          else
+            # If no previous commit, compare against the index (for the first commit)
+            echo "There is no previous commit"
+            new_files=$(git diff --name-only --diff-filter=A HEAD -- _posts/)
+            modified_files=$(git diff --name-only --diff-filter=M HEAD -- _posts/)
+            deleted_files=$(git diff --name-only --diff-filter=D HEAD -- _posts/)
+          fi
+
+          # Replace newlines with commas to ensure output is valid
+          new_files_escaped=$(echo "$new_files" | tr '\n' '|')
+          modified_files_escaped=$(echo "$modified_files" | tr '\n' '|')
+          deleted_files_escaped=$(echo "$deleted_files" | tr '\n' '|')
+
+          # Debugging: output the results to check what's captured
+          echo "New files: $new_files_escaped"
+          echo "Modified files: $modified_files_escaped"
+          echo "Deleted files: $deleted_files_escaped"
+
+          # Set the outputs
+          echo "new_files=$new_files_escaped" >> $GITHUB_OUTPUT
+          echo "modified_files=$modified_files_escaped" >> $GITHUB_OUTPUT
+          echo "deleted_files=$deleted_files_escaped" >> $GITHUB_OUTPUT
+
+      # Step 3: Run custom script with file lists as arguments
+      - name: Collect post data and run script
+        env:
+          BLOG_POSTS_DEPLOY_TO_ALGOLIA_ENDPOINT_PRODUCTION: ${{ secrets.BLOG_POSTS_DEPLOY_TO_ALGOLIA_ENDPOINT_PRODUCTION }} # Production endpoint
+          BLOG_POSTS_DEPLOY_TO_ALGOLIA_ENDPOINT_DEVELOP: ${{ secrets.BLOG_POSTS_DEPLOY_TO_ALGOLIA_ENDPOINT_DEVELOP }} # Develop endpoint
+        run: |
+          # Ensure 'gray-matter', 'axios' and 'dotenv' are installed for front-matter parsing
+          npm install gray-matter axios dotenv
+
+          # Run the custom script, passing the list of files and extracting their metadata
+          node ./send-blogs-to-deploy-endpoint.js "${{ steps.changes.outputs.new_files }}" "${{ steps.changes.outputs.modified_files }}" "${{ steps.changes.outputs.deleted_files }}"

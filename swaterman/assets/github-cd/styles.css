@@ -1,0 +1,50 @@
+.slideContainer {
+  padding:10px;
+  margin-bottom: 12px;
+  background-color: white;
+  border:1px solid #ccc;
+  border-radius:5px;
+}
+
+@media screen and (min-width: 64em) {
+ .slideContainer {
+  margin-left:calc((16.66667% + 0.9375rem) * -1);
+  margin-right:calc((16.66667% + 0.9375rem) * -1);
+ }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.codeHighlight {
+  font-weight: 1000;
+  background-color: #fcc;
+}
+
+.slideTitle {
+  flex-grow: 1;
+  font-weight: 700;
+}
+
+.slideHeader {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 0 12px 12px 12px;
+}
+
+.svgContainer {
+	max-width: 100%;
+	min-width: 50%;
+	width: 400px;
+	float: left;
+	padding: 8px 24px 12px 8px;
+}
+
+.codeBlock {
+	height: 160px;
+	margin: 0;
+	overflow: auto;
+}
+

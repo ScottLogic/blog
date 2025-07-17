@@ -1,0 +1,31 @@
+@use 'colours';
+
+/* Colours --- Mixin
+    Add classes with the mixin to assign colours to certain elements. Have added one here to use as aexample
+*/
+@mixin colour-scheme($light-color, $dark-colour, $third-colour, $fourth-colour ) {
+    a.link {
+        color: $fourth-colour;
+        border-color: $dark-colour;
+        &:hover {
+            background-color: $dark-colour;
+        }
+    }
+}
+/* Add one of these classes to the BODY tag to assign a pallete for the page */
+// TEAL COLOUR SCHEME
+.teal-colour-scheme {
+    @include colour-scheme(colours.$light-teal, colours.$teal, colours.$white, colours.$black);
+}
+// ORANGE COLOUR SCHEME
+.orange-colour-scheme {
+    @include colour-scheme(colours.$light-orange, colours.$orange, colours.$white, colours.$black);
+}
+// PINK COLOUR SCHEME
+.pink-colour-scheme {
+    @include colour-scheme(colours.$light-pink, colours.$pink, colours.$white, colours.$white);
+}
+// YELLOW COLOUR SCHEME
+.yellow-colour-scheme {
+    @include colour-scheme(colours.$light-yellow, colours.$yellow, colours.$white, colours.$black);
+}

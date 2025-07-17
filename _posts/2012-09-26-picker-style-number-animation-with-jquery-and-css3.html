@@ -1,0 +1,141 @@
+---
+title: Picker Style Number Animation with jQuery and CSS3
+date: 2012-09-26 00:00:00 Z
+categories:
+- Tech
+tags:
+- CSS
+- JQuery
+- blog
+id: 158963
+author: mrhodes
+title-short: Number Animation with jQuery and CSS3
+oldlink: http://www.scottlogic.co.uk/2012/09/picker-style-number-animation-with-jquery-and-css3/
+image: mrhodes/assets/featured/picker.jpg
+layout: default_post
+source: site
+disqus-id: "/2012/09/picker-style-number-animation-with-jquery-and-css3/"
+summary: This post describes a jQuery plugin which performs "picker style" animations
+  between numbers using CSS3 transitions and transforms.
+---
+
+<p><em>This post describes a jQuery plugin which performs "picker style" animations between numbers using CSS3 transitions and transforms.  The plugin was originally designed with iOS Safari in mind but works on the latest versions of Opera, Chrome and Firefox too (it should work on IE10 too but I've been unable to test it).  For IE9 and older browsers, it fails gracefully; although it doesn't animate the transition, you can still use it in the same manner as if it did.  The plugin code is hosted on <a href="https://github.com/MarkRhodes/number-animation/blob/gh-pages/numberAnimate.js">github</a> and available here: <a href="https://raw.github.com/MarkRhodes/number-animation/master/numberAnimate.js">numberAnimate.js</a></em>.</p>
+<p><strong>Simple Example</strong><iframe style="border: 0px; width: 100%; height: 90px;" src="http://markrhodes.github.com/number-animation/simpleExample.html"></iframe></p>
+<p><strong>Stop-Clock</strong><iframe style="border: 0px; width: 250px; height: 100px;" src="http://markrhodes.github.com/number-animation/timeExample.html"></iframe></p>
+<p><strong>How to use it </strong>The plugin adds a single function to jQuery array objects which internally forwards to a number of different methods, it's 'signature' looks like this -</p>
+<p><code>.numberAnimate([methodName / configObject], [ method arg1], [method arg2], ...).</code></p>
+<p>This function is designed to be called on spans wrapping numbers only.  The first call to this function for a element should be to the <code>init</code> method which can be done in a number of ways:</p>
+{% highlight javascript %}
+$('my selector').numberAnimate();
+$('my selector').numberAnimate('init');
+$('my selector').numberAnimate({
+    animationTimes: [500, 500, 500]
+});
+$('my selector').numberAnimate('init', {
+    animationTimes: [500, 500, 500]
+});
+{% endhighlight %}
+<p>These calls are all equivalent.  Here the <code>animationTimes</code> array controls how long it takes to perform parts of the animation in milliseconds; the first element is the time to animate adding space for new characters, the seconds the time to shift the numbers to their new values and the third is the time to remove the space that unused characters occupied.</p>
+<p>To animate the selected elements to a new value, you need the <code>set</code> method, which takes the new value to animate to (which can be either a number of a string value) and optionally an array of animation times to use; overridding the values specified on initialisation.  For example, two equivalent calls to it are:</p>
+{% highlight javascript %}
+$('my selector').numberAnimate('set', '150.2');
+$('my selector').numberAnimate('set', 150.2, [500, 500, 500]);
+{% endhighlight %}
+<p>The plugin also has two additional methods: <code>val</code> and <code>destoy</code>.</p>
+<p>The <code>val</code>method returns the current value of the first selected element as a string, this is either the initial <code>innerHTML</code> of the element, or the last value which was passed to the <code>set</code> method (not necessarily the number which it's currently showing, as animation could be in progress).  It is used like so:</p>
+{% highlight javascript %}
+var stringValue = $('my selector').numberAnimate('val');
+{% endhighlight %}
+<p>The <code>destroy</code> method reverses the DOM changes made by the plugin, with the exception that the <code>innerHTML</code> of the each selected element will be set to the value returned by calling <code>val</code> on it, it is called like so:</p>
+{% highlight javascript %}
+$('my selector').numberAnimate('destory');
+{% endhighlight %}
+<p><strong>Limitations</strong>Firstly don't expect it to work on IE9 or older browsers - if someone want's to try getting it to work using jQuery animations and moving the pieces by animating the "top" property and making the holding divs relative - be my guest!  Since the plugin allocates each character the same width, which doesn't change, it currently requires that element being animated uses a <a href="http://en.wikipedia.org/wiki/Monospaced_font">monospaced font</a> such as <span style="font-family: Courier">Courier</span>.  The plugin make uses of features that were introduced in jQuery 1.7+ so if you're using an older version then you're likely to experience issues.</p>
+<p>When the plugin initializes it sets various styles on the elements it generates; therefore it's important to be careful when making style changes after this point, or else you could get some odd side-effects.  If you need to make such styling changes, your best bet is to run the <code>destroy</code> method, change the style, then re-initialize the plugin again afterwards.</p>
+<p><strong>How It Works</strong>The plugin works by altering the mark up of the selected elements so that each character in them is replaced with two divs elements - a "holding div" which has a single child div containing all the possible characters that can be shown by the animation.</p>
+<p>For example if you start with the element:</p>
+{% highlight html %}
+<span id="someId">12</span>
+{% endhighlight %}
+<p>Then run <code>$('#someId').numberAnimate();</code> then the resulting mark up looks a bit like this:</p>
+{% highlight html %}
+<span id="someId">
+  <div style="width=..; height=..; overflow: hidden; ...">
+    <div style="transformY=..">, . - + 0 1 2 3 4 5 6 7 8 9</div>
+   </div>
+   <div style="width=..; height=..; overflow: hidden; ...">
+    <div style="transformY=..">, . - + 0 1 2 3 4 5 6 7 8 9</div>
+   </div>
+</span>
+{% endhighlight %}
+<p>The idea is that the width and height of the holding divs is set to be the same as a single character (which is why the font must be monospaced), and acts as a window for it's inner child, which is transformed on it's Y axis to move it up and down, so that the expected character is visible.  The image below shows visually what's going on.  The blue boxes represent the holding divs and the black boxes the child divs containing the text.  CSS3 transforms are applied to the child divs to ensure that the correct numbers appear inline with the holding divs.  As these holding divs have the style <code>overflow: hidden;</code> applied to them, you don't see the additional numbers, only what is in the blue box.</p>
+<p><img src="{{ site.baseurl }}/archive/2012/09/numberAnimatePluginExplanation.png" alt="" title="numberAnimatePluginExplanation" width="139" height="227" class="aligncenter size-full wp-image-159589" style="margin: 0 auto; display: block;" /></p>
+<p>When the <code>set</code> method is called, the plugin has to do three things, each of which represents a phase of the animation; figure out which characters of the new value aren't currently present and add them in, alter the transform property of the child divs so that the new values are displayed, and lastly remove characters that are no longer required in the new value.  If figures out which characters are currently there are which aren't by labelling each holding div with its position relative the 'point' of the value (i.e. the first instance of the '.' character in the value, or the length of the string if that character is not present).  </p>
+<p>Making the values relative to the point, rather than say the start or the end of the string, feels natural with numbers and means that animating between say: "5.62" to "15.6" doesn't involve altering the positions for the characters representing "5", ".", or "6".  In this case, the plugin would firstly add an additional holder div to hold the newly required "1", then animate the characters to their new positions, in this case the div showing "2" gets moved so that no character visible, finally this holding div is removed since it is no longer required.  </p>
+<p><strong>Chaining transitions together</strong>The plugin performs a few transitions one after the other - this involves chaining them together.  There are several ways in which this could be achieved - using the <code>transition-delay</code> property, using CSS3 animation key-frames or by using JavaScript to listen for the end of one transition, then triggering the next.  This plugin uses the latter approach as it gives the best flexibility, since you can also trigger additional actions to occur at the end of a transition - for example, remove an element from the DOM when it's no longer visible.</p>
+<p>Each browser that supports CSS3 transitions also supports the use of a "transition end event", however, the name of the event is not consistent across browsers.  At the time of writing, these events are:</p>
+<table style="width: 50%; margin: 0 auto; border-collapse: separate; border-spacing: 5px;">
+<tr>
+<td><strong>Browser/Layout Engine</strong></td>
+<td><strong>Transition End Event</strong></td>
+</tr>
+<tr><td>Opera</td>
+<td>otransitionend</td>
+</tr>
+<tr><td>Webkit</td>
+<td>webkitTransitionEnd</td>
+</tr>
+<tr><td>IE10</td>
+<td>msTransitionEnd</td>
+</tr>
+<tr><td>FireFox / W3C</td>
+<td>transitionEnd</td>
+</tr>
+</table>
+<p>However, there is a pretty major drawback of using these events - they don't always fire (which seem to be the case across all current implementations)!  This problem is most noticable if you execute code to run transitions repeatedly, switch to another tab for a while, then switch back - in all likelihood your "transition end event code" will not have been run the expected number of times.  To get around this, I use good old dependable JavaScript timeouts which check whether the end event has been run, and if not, trigger it.</p>
+<p>To save adding this failback for each transition, I use the following function to wrap up the calling of a function when a transition has finished.</p>
+{% highlight javascript %}
+var bindToTransitionEndForSingleRun = function ($el, funcToExec, maxMSTillTransitionEnd) {
+    var firedFunc = false;
+    var wrappedFunc = function () {
+        funcToExec();
+        firedFunc = true;
+        $el.unbind(transitionEndEvent, wrappedFunc);
+    };
+    $el.bind(transitionEndEvent, wrappedFunc);
+    setTimeout(function () {
+        if (!firedFunc) wrappedFunc();
+    }, maxMSTillTransitionEnd + 100);
+};
+{% endhighlight %}
+<p>Here the timeout is set to run after the time expected to run the transition plus a grace period of 100ms.  The given function is wrapped by another function which handles the setting of the "fired" boolean and the unbinding of the event.</p>
+<p>There were a few other minor gotchas that cropped up when developing this plugin, these included:</p>
+<ol>
+<li>You need to attach an element to the DOM before adding a transition to it, otherwise the animation won't run.</li>
+<li>If you're transitioning the <code>width</code> of an element, setting it to <code>0px</code> can affect it's styling; to get around this when I want to remove an element from the DOM by shrinking it, I make the transition run until its width is 1px, then remove it.</li>
+<li>For some reason I'm yet to discover, when the characters for the inner divs had the non-digit characters at the end (i.e. it was '0 1 ... 9 , . - + ' rather than ', . - + 0 1 ... 9') it broke on Opera.</li>
+<li>To prevent CSS3 transforms from flickering on some Webkit browser (all versions of iOS Safari I've tested included) when transitioning, you need to add the style: <code>-webkit-backface-visibility = hidden;</code> to the element.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

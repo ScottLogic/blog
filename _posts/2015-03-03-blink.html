@@ -1,0 +1,87 @@
+---
+title: Blink
+date: 2015-03-03 00:00:00 Z
+categories:
+- Testing
+tags:
+- testing
+- blink
+- heuristics
+- blog
+- featured
+author: dmcnamee
+summary: When Malcolm Gladwell wrote a book called Blink about the power of the subconscious
+  in 2005, a heuristic was named for it. Read on for how blink testing works, and
+  some further thoughts on how other ideas the book contained can influence your testing.
+summary-shot: When Malcolm Gladwell wrote a book called Blink about the power of the
+  subconscious in 2005, a heuristic was named for it ...
+image: dmcnamee/assets/featured/blink.jpg
+layout: default_post
+---
+
+<p><img src="https://lh5.googleusercontent.com/-680xBZrcNNM/VO3qFd2qRBI/AAAAAAABWlU/8vOzR7ORkX4/s0/blink.JPG" alt="blink" title="blink.JPG"></p>
+
+<p><a href="http://www.satisfice.com/blog/archives/33">James Bach wrote about “Blink testing” back in 2005</a> on the back of <a href="http://gladwell.com/blink/">Malcolm Gladwell’s book Blink</a>, recognising this as a powerful heuristic for testing. I’ve just gotten around to reading the book, rather than skimming, and have some further thoughts on some of the premises.</p>
+
+<h2 id="what-is-blink-testing">What is blink testing?</h2>
+
+<blockquote>
+  <p>A blink test is any test that alters someway of viewing the application—size, time, position, focus, or sensory mode—to take advantage of people’s ability to spot patterns (or pattern exceptions) quickly. Like snap judgment, rapid pattern recognition is something that testers use all the time. It’s not always reliable, it’s often improved by removing information, and it can be improved by changing the observer’s context. <br>
+  – Bolton &amp; Bach</p>
+</blockquote>
+
+<p>Your brain is very good at pattern recognition. It can spot anomalies in the ‘blink of an eye’. </p>
+
+<p>In psychology, this is given the name ‘Thin-Slicing’. The ability to find patterns in events based only on ‘thin slices’ or narrow windows of experience.</p>
+
+<p>It can be applied to any software to spot patterns, and conveniently, as I was writing this, <a href="https://twitter.com/FriendlyTester">Richard Bradshaw</a> posted some excellent examples for mobile testing here: <a href="http://www.thefriendlytester.co.uk/2015/02/blink-testing-in-mobile-context.html">http://www.thefriendlytester.co.uk/2015/02/blink-testing-in-mobile-context.html</a> <br>
+So, searching for more I also came across <a href="https://twitter.com/jstrazzere">Joe Strazzere’s</a> examples here: <br>
+<a href="http://www.allthingsquality.com/2010/06/blink-tests-in-blink.html">http://www.allthingsquality.com/2010/06/blink-tests-in-blink.html</a></p>
+
+<p>These examples show effective ways blink testing, or thin slicing can be used to identify problems. </p>
+
+<h2 id="thin-slicing">Thin Slicing</h2>
+
+<p><img src="https://lh4.googleusercontent.com/-Ph-u6sYGpDI/VO3sjlak6TI/AAAAAAABWl0/ogvgKV9K8tM/s0/thinslice.JPG" alt="thin slice" title="thinslice.JPG"></p>
+
+<p>Using thin slicing in this way isn’t the only way it can be used though.</p>
+
+<p>Experienced testers can thin slice to effectively analyse the quality of an application in seconds using their knowledge and expertise. That is, being able to make a swiftly informed opinion based on your knowledge of a particular application by using your subconscious as the comparator.</p>
+
+<p>So for example: You have been testing some software for weeks or months. Your subconscious recognises any changes very quickly. You are able, in a split second to tell that something isn’t correct, without having any comparison. </p>
+
+<p>In the book Blink, Gladwell relates a story of an ancient Greek statue that the Getty Museum was considering for purchase. All the scientific tests indicated that it was authentic, yet an art expert, within seconds of setting eyes on it, felt something was wrong with the statue. That the statue was a fake. And was indeed correct. This is an example of the power of in-depth expertise that is stored in long-term memory.</p>
+
+<p>Even for software that you don’t have much experience of, this initial contact, what you see in the first few seconds or minutes, gives you an excellent idea of whether it works or not. </p>
+
+<p>When exploratory testing, this kind of intuition is used constantly. Our unconscious makes good decisions, particularly in regard to things we don’t know how to verbalise. Which is another reason that being able to write effect test cases is the domain of very few experts. </p>
+
+<p>Testing is problem solving and if you have to write down your thoughts to solve the problem you solve 30% fewer problems.<a href="#1"><sup>1</sup></a><a></a> i.e. writing test cases</p>
+
+<h2 id="heuristics-and-first-impressions">Heuristics and First Impressions</h2>
+
+<p><img src="https://lh4.googleusercontent.com/-p4zZm8OsHb0/VO82OjF-laI/AAAAAAABWm0/DG1Od4ziTDA/s0/firstimpression.jpg" alt="firstimpression" title="firstimpression.jpg"></p>
+
+<p>Testing, uses both logic and insight and these first impressions need interpretation. </p>
+
+<p>How each of us look at something will be different. How each person uses something will have different levels of responses. It is one facet of testing to identify these different interpretations and recognise the possible issues these interactions may cause.</p>
+
+<p><em>Heuristics create conditions for successful spontaneity.</em></p>
+
+<p>Knowing, for example: </p>
+
+<blockquote>
+  <p>Eyetracking visualizations show that users often read Web pages in an F-shaped pattern: two horizontal stripes followed by a vertical stripe. <br>
+  <small><a href="http://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/">http://www.nngroup.com/articles/f-shaped-pattern-reading-web-content/</a></small></p>
+</blockquote>
+
+<p>…and armed with this knowledge, in your conscious, how does the web application that you’re testing perform when you view or use it this way; you may use it in combination with the blink test…noting what stands out whilst clicking through links and exploring further. Is there anything out of place? Does the design stand up to scrutiny? Is the most used path easy to use? Are common functions placed in a coherent way? Are important functions easy to spot? Does the amount of memory muscle required to use this application feel right for someone that uses the application rarely? </p>
+
+<p>Testing is questioning and asking the right questions is important. Identifying something isn’t correct is a start, but being able to say why is an important skill for a tester. Particularly in cases where there may be disagreement.</p>
+
+<h2 id="finally">Finally.</h2>
+
+<p>If you’re testing, sometimes de-focus, don’t think about the problem in front of you and use your unconscious to uncover problems too. It can be effective.</p>
+
+<p> <br>
+<a id="1" href="http://psycnet.apa.org/psycinfo/1993-36184-001"><small>1. Journal of Experimental Psychology 122, no. 2 (1993): 166-183</small></a></p>

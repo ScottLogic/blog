@@ -1,0 +1,173 @@
+/// <reference path='typings/typescriptServices.d.ts' />
+/// <reference path='typings/lib.d.ts' />
+/// <reference path='typings/jquery.d.ts' />
+
+class MyLanguageServiceHost implements ts.LanguageServiceHost {
+    files: { [fileName: string]: { file: ts.IScriptSnapshot; ver: number } } = {}
+
+    log = _ => { };
+    trace = _ => { };
+    error = _ => { };
+    getCompilationSettings = ts.getDefaultCompilerOptions;
+    getScriptIsOpen = _ => true;
+    getCurrentDirectory = () => "";
+    getDefaultLibFilename = _ => "lib";
+
+    getScriptVersion = fileName => this.files[fileName].ver.toString();
+    getScriptSnapshot = fileName => this.files[fileName].file;
+    
+    getScriptFileNames(): string[] {
+        var names: string[] = [];
+        for (var name in this.files) {
+            if (this.files.hasOwnProperty(name)) {
+                names.push(name);
+            }
+        }
+        return names;
+    }
+
+    addFile(fileName: string, body: string) {
+        var snap = ts.ScriptSnapshot.fromString(body);
+        snap.getChangeRange = _ => undefined;
+        var existing = this.files[fileName];
+        if (existing) {
+            this.files[fileName].ver++;
+            this.files[fileName].file = snap
+          } else {
+            this.files[fileName] = { ver: 1, file: snap };
+        }
+    }
+}
+
+class MyCompilerHost extends MyLanguageServiceHost implements ts.CompilerHost {
+    getSourceFile(filename: string, languageVersion: ts.ScriptTarget, onError?: (message: string) => void): ts.SourceFile {
+        var f = this.files[filename];
+        if (!f) return null;
+        return ts.createSourceFile(filename, f.file.getText(0, f.file.getLength()), ts.ScriptTarget.ES5, f.ver.toString(), true);
+    }
+    writeFile(filename: string, data: string, writeByteOrderMark: boolean, onError?: (message: string) => void): void {
+    }
+    getCanonicalFileName = (fileName: string) => fileName;
+    useCaseSensitiveFileNames = () => true;
+    getNewLine = () => "\n";
+}
+
+var host = new MyCompilerHost();
+var languageService = ts.createLanguageService(host, ts.createDocumentRegistry());
+var dummyScriptName = "script.ts";
+
+function init() {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = ev => {
+        host.addFile("lib.d.ts", xhr.responseText);
+        // Should only allow interaction after this point. But surely nobody would try to break it...
+    };
+    xhr.open("GET", "/blog/nwolverson/assets/tsc/lib.d.ts.evil.txt");
+    xhr.send();
+}
+
+// ex1
+function getCompilerOutput(text: string) : string {
+    host.addFile(dummyScriptName, text);
+    var output = languageService.getEmitOutput(dummyScriptName).outputFiles;
+    return output && output.length > 0 ? output[0].text : "";
+}
+
+//ex2
+function getMatchingBracePosition(text: string, pos: number) {
+    host.addFile(dummyScriptName, text);
+
+    var braces = languageService.getBraceMatchingAtPosition(dummyScriptName, pos);
+    return braces.map(b => b.start());
+}
+
+//ex3
+function getQuickInfo(text: string, pos: number) {
+    host.addFile(dummyScriptName, text);
+
+    var info = languageService.getQuickInfoAtPosition(dummyScriptName, pos);
+    var text = info.displayParts.map(x => x.text).join("");
+    return text;
+}
+
+//ex4
+function typeDecls(text: string) {
+    host.addFile(dummyScriptName, text);
+
+    var program = ts.createProgram([dummyScriptName], host.getCompilationSettings(), host);
+    var typeChecker = program.getTypeChecker(true);
+    var sf = program.getSourceFile(dummyScriptName);
+    var decls = sf.getNamedDeclarations().map(nd => nd.symbol.name + ": " +
+        typeChecker.typeToString(typeChecker.getTypeAtLocation(nd)));
+    return decls.join("\n");
+}
+
+function getNodes(sf: ts.SourceFile): ts.Node[] {
+    var nodes: ts.Node[] = [];
+    function allNodes(n: ts.Node) {
+        ts.forEachChild(n, n => { nodes.push(n); allNodes(n); return false; })
+        };
+    allNodes(sf);
+    return nodes;
+}
+
+//ex5
+function typeIdentifiers(text: string) {
+    host.addFile(dummyScriptName, text);
+    var program = ts.createProgram([dummyScriptName], host.getCompilationSettings(), host);
+    var typeChecker = program.getTypeChecker(true);
+    var sf = program.getSourceFile(dummyScriptName);
+
+
+    var idNodes = getNodes(sf).filter(n => n.kind === ts.SyntaxKind.Identifier);
+    var typed = idNodes.map(n => (<ts.Identifier>n).text + ": " +
+        typeChecker.typeToString(typeChecker.getTypeAtLocation(n))); 
+    return typed.join("\n");
+}
+
+$(() => {
+    init();
+
+    $("#ex1 button").click(function () {
+        var input: string = $("#ex1 textarea").val();
+        $("#ex1 pre").text(getCompilerOutput(input));
+    });
+    function highlightTextArea() {
+        var input: string = $("#ex2 textarea").text();
+
+        var cursorPos = this.selectionStart;
+        var pos = getMatchingBracePosition(input, cursorPos);
+        if (pos && pos.length == 2) {
+            var sections = [input.substring(0, pos[0]),
+                input.substring(pos[0], pos[0] + 1),
+                input.substring(pos[0] + 1, pos[1]),
+                input.substring(pos[1], pos[1] + 1),
+                input.substring(pos[1] + 1)].map(t => $("<span>").text(t));
+            sections[1].addClass("bracket");
+            sections[3].addClass("bracket");
+
+            $("#highlightDiv").html("").append(sections);
+        }
+        else {
+            $("#highlightDiv").html(input);
+        }
+        $("#highlightDiv").width($("#ex2 textarea").width());
+        $("#highlightDiv").height($("#ex2 textarea").height());
+    }
+    $("#ex2 textarea").keyup(highlightTextArea);
+    $("#ex2 textarea").click(highlightTextArea);
+    highlightTextArea();
+    $("#ex3 button").click(function () {
+        var input: string = $("#ex3 textarea").val();
+        var varName = $("#ex3 input").val();
+        $("#ex3 pre").text(getQuickInfo(input, input.indexOf(varName)));
+    });
+    $("#ex4 button").click(function () {
+        var input: string = $("#ex4 textarea").val();
+        $("#ex4 pre").text(typeDecls(input));
+    });
+    $("#ex5 button").click(function () {
+        var input: string  = $("#ex5 textarea").val();
+        $("#ex5 pre").text(typeIdentifiers(input));
+    });
+});

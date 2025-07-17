@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- include polyfills for custom event, Symbol and Custom Elements -->
+  <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.js"></script>
+  <script src="https://unpkg.com/custom-event-polyfill@0.3.0/custom-event-polyfill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/1.8.0/document-register-element.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+
+  <script src="https://unpkg.com/d3@5.5.0"></script>
+  <script src="https://unpkg.com/d3fc@14.0.39"></script>
+
+  <style>
+    .series-0 {
+      fill: rgba(100, 0, 0, 0.4);
+    }
+    .series-0.hover {
+      fill: rgba(100, 80, 80, 0.8);
+    }
+    .series-1 {
+      fill: rgba(0, 0, 100, 0.4);
+    }
+    .series-1.hover {
+      fill: rgba(80, 80, 100, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <script type="text/babel" src="demo.js"></script>
+  <link href="demo.css" rel="stylesheet">
+
+  <script id="data.js" type='text/babel'>
+  const data = [
+    { food: 'Carrots', in: 80, out: 85 },
+    { food: 'Bananas', in: 40, out: 32 },
+    { food: 'Sausages', in: 65, out: 41 },
+    { food: 'Pickles', in: 55, out: 73 },
+    { food: 'Raspberries', in: 72, out: 68 }
+  ];
+  const grouped = fc.group().key("food")(data);
+  </script>
+
+  <script id="chart.js" type='text/babel'>
+  const hoverFn = hovering =>
+    (d, i, n) => {
+      d3.select(n[i]).classed("hover", hovering);
+    };
+
+  const series = fc.autoBandwidth(
+      fc.seriesSvgGrouped(fc.seriesSvgBar())
+    )
+    .crossValue(d => d[0])
+    .mainValue(d => d[1])
+    .align("left")
+    .decorate((s, d, index) => {
+      s.enter().select('path')
+        .attr('class', `series-${index}`)
+        .on("mouseover", hoverFn(true))
+        .on("mouseout", hoverFn(false))
+    });
+
+  // create a chart using Ordinal x-axis
+  const chart = fc.chartCartesian({
+    xScale: d3.scaleBand(),
+    yScale: d3.scaleLinear(),
+    xAxis: {
+      bottom: fc.axisOrdinalBottom
+    },
+    yAxis: {
+      right: fc.axisRight
+    }
+  })
+    .xPaddingInner(0.5)
+    .xPaddingOuter(0.25)
+    .yDomain([30, 90])
+    .xDomain(data.map(d => d.food))
+    .svgPlotArea(series);
+
+  d3.select('.demo').datum(grouped).call(chart);
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <script type="text/javascript">
+	var state = "Loading...",
+		infoMessage = "";
+	setTimeout(function() {
+		var myApp = window.opener.myApp;
+		myApp.asyncCall(function asyncCallbackOnPopup() {
+			log("the stack is:\n" + getStack());
+			log("Async call made in state:" + state);
+		});
+		function makeSyncCallToMainWindow() {
+			changeState("waiting...");
+			waitFor(1);
+			changeState("making sync call");
+			myApp.syncCall();
+			changeState("finished");
+		}
+		makeSyncCallToMainWindow();
+
+		// Print the sequence from the main window once everything has finished.
+		setTimeout(function() {
+			log("Main window sequence was:");
+			log(myApp.sequence.join("\n"));
+		}, 1);
+	}, 100);
+	
+	function changeState(newState) {
+		state = newState;
+		log("state is now:" + state);
+	}
+	function log(msg) {
+		infoMessage += "\n" + msg;
+		document.getElementById('info').innerHTML = infoMessage;
+	}
+	function waitFor(secs) {
+		var timeAtStart = Number(new Date()),
+			ms = secs * 1000;
+		while(Number(new Date()) - timeAtStart < ms) {
+			document.getElementById('info').innerHTML = infoMessage;
+		}
+	}
+	function getStack() {
+		var stack;
+		try { throw new Error("Test"); }
+		catch (e) {
+			stack = e.stack;
+		}
+		if (!stack) {
+			return "no stack - not supported by browser";
+		}
+		return stack.split("\n").slice(2).join("\n");
+	}
+  </script>
+ </head>
+ <body>
+   <pre id="info">
+	Performing test...
+   </pre>
+ </body>
+</html>

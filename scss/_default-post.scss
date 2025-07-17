@@ -1,0 +1,144 @@
+@use 'colours';
+
+.default-post {
+
+  &.teal {
+    @include hero-colour-scheme(colours.$light-teal, colours.$teal, colours.$white);
+    @include article-colour-scheme(colours.$teal, colours.$black);
+  }
+
+  &.orange {
+    @include hero-colour-scheme(colours.$light-orange, colours.$orange, colours.$white);
+    @include article-colour-scheme(colours.$orange, colours.$black);
+  }
+
+  &.pink {
+    @include hero-colour-scheme(colours.$light-pink, colours.$pink, colours.$white);
+    @include article-colour-scheme(colours.$pink, colours.$white);
+  }
+
+  &.yellow {
+    @include hero-colour-scheme(colours.$light-yellow, colours.$yellow, colours.$white);
+    @include article-colour-scheme(colours.$yellow, colours.$black);
+  }
+
+  padding-top: 80px;
+  @include breakpoint(large) {
+    padding-top: 150px;
+  }
+
+  .hero {
+
+    margin-bottom: 1rem;
+    @include breakpoint(large) {
+      margin-bottom: 2rem;
+    }
+
+    > .content {
+      padding: 2rem 0;
+      @include breakpoint(large) {
+        padding: 3rem 0;
+      }
+    }
+
+    > .shape {
+      position: relative;
+      font-size: 0;
+      height: inherit;
+
+      svg.bg {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+      svg.fg {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+      }
+    }
+  }
+
+  .title {
+    text-align: left;
+  }
+
+  .side-lists {
+
+    a:hover {
+      color: colours.$black;
+    }
+
+    .back, .author-social-media-link {
+      a:hover {
+        color: colours.$white;
+      }
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+    }
+  }
+
+  .post-content {
+
+    a {
+      color: colours.$black;
+      font-weight: $font-regular;
+    }
+
+    h1 {
+      text-align: left;
+    }
+
+    pre {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    ol, ul {
+      list-style-position: outside;
+      margin-block: 0 1rem;
+      margin-inline: 1.25rem 0;
+      padding: 0;
+      font-weight: $font-light;
+      font-size: $baseFontSize;
+      line-height: 1.6;
+    }
+
+    :is(ol, ul) :is(ol, ul) {
+      margin-block-end: 0;
+    }
+
+    ul {
+      list-style-type: disc;
+    }
+
+    img {
+      display: block;
+      margin-inline: auto;
+    }
+  }
+
+  .author-information {
+    div, img {
+      display: inline-block;
+    }
+
+    img {
+      border-radius: 50%;
+      max-height: 3rem;
+      max-width: 3rem;
+      margin-right: .25rem;
+      filter: grayscale(100%);
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+}

@@ -1,0 +1,34 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - wferguson/_posts/2015-11-16-sampling-large-data-in-d3fc.md
+Sveinn
+Steinarsson
+30-minute
+ - wferguson/_posts/2016-07-05-audio-api-electron.md
+id3js
+ - wferguson/_posts/2016-09-17-javascript-pebble-watchface.md
+JerryScript
+CloudPebble
+Rocky.js
+watchface
+12-hour
+hexcode
+
+ - wferguson/_posts/2017-04-19-go-services.md
+unmarshal
+unmarshalled
+Monzo
+ - wferguson/_posts/2017-06-02-creating-a-parallel-particle-simulation-in-go.md
+parallelised
+parallelisation
+subcube
+subcubes
+goroutine
+goroutines
+ParaView
+ - wferguson/_posts/2016-01-06-audio-api-with-d3.md
+png
+webaudio.png

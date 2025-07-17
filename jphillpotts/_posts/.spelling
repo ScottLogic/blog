@@ -1,0 +1,31 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - jphillpotts/_posts/2013-06-06-scala-macros-part-2.md
+def
+Burmako
+ - jphillpotts/_posts/2013-06-07-scala-macros-part-3.md
+supertrait
+ReadAll
+ReplaceAll
+DeleteAll
+parse.json
+Json.toJson
+classpath
+ - jphillpotts/_posts/2013-06-17-scala-macros-part-4.md
+Salat
+Play-Salat's
+DAOs
+dao
+ - jphillpotts/_posts/2013-07-18-betamax-in-scala.md
+Slifka
+Sharethrough
+JUnit
+specs2
+ - jphillpotts/_posts/2013-07-29-spark-stream-analysis.md
+Hadoop
+scalawebsocket
+sbt
+un-reduce

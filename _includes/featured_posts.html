@@ -1,7 +1,7 @@
 {% if include.categoryName == "Latest Articles" %}
   {% assign featuredPosts = site.tags.featured %}
 {% else %}
-  {% assign featuredPosts = site.emptyArray %}
+  {% assign featuredPosts = '' | split: '' %}
   {% for post in include.postsToFilter %}
     {% if post.tags contains 'featured' %}
       {% assign featuredPosts = featuredPosts | push: post %}
@@ -40,7 +40,7 @@
         </svg>
         {% when "shape3" %}
         <svg class="bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 410" preserveAspectRatio="none">
-          <polygon points="0 0 352 0 460 87 650 87 650 410 0 410"/>
+          <polygon points="0,0 400,0 850,500 0,950"/>
         </svg>
         {% when "shape4" %}
         <svg class="bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 410" preserveAspectRatio="none">
@@ -51,8 +51,9 @@
           <polygon points="0 0 650 0 650 109.736 353 410 0 410"/>
         </svg>
       {% endcase %}
-      {% if post.image %}
-        <img class="cell show-for-large" src="{{ site.baseurl }}/{{post.image}}"/>
+      {% if post.image and post.featuredImage %}
+        {% capture image-path %}{{ site.baseurl }}/{{post.image}}{% endcapture %}
+        <img class="cell show-for-large" alt="thumbnail of post: '{{post.title}}'" src="{{ image-path | replace: "//", "/" }}"/>
       {% endif %}
     </div>
   </div>

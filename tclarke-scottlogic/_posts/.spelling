@@ -1,0 +1,57 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+9pm
+12pm
+1pm
+5pm
+Ah-hah
+tis
+Postmature
+kittys
+ad-hoc
+userbase
+ints
+undiscussed
+
+# 2018-02-13-refactoring-the-rule-of-three.md
+Tiddles
+CatReport
+DogReport
+PetReport
+CatReports
+DogReports
+PetReports
+DogCatMonkeyCowFishChickenHorseOtherReport
+DiscussionDocumentationSynthesiserManager
+ConfiguPlexes
+genericisation
+genericify
+doghealthreport
+animalfactories
+petcomponents
+catinjectors
+monkeyreport
+Cluckington
+Lebrero
+heisenbug
+Ranorex
+Xtreme
+Kinslow
+Randell
+ - tclarke-scottlogic/_posts/2018-03-12-testing-confidence-engineering.md
+goin
+ - tclarke-scottlogic/_posts/2018-03-20-agile-monster-hunting.md
+ghosties
+long-leggedy
+goaties
+
+ - tclarke-scottlogic/_posts/2018-03-28-domain-driven-design.md
+H.A.
+
+ - tclarke-scottlogic/_posts/2019-06-17-what-brexit-can-teach-us-about-software-development.md
+Nandy
+Creasy
+Crace

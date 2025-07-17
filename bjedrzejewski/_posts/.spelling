@@ -1,0 +1,74 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+NullPointerException
+Cesar
+Tron-Lozai
+ - bjedrzejewski/_posts/2016-01-05-java-microservices-with-dropwizard-tutorial.md
+maxLength
+tasklist-service
+TaskList
+ - bjedrzejewski/_posts/2016-05-21-recommended-reading-for-java-developers.md
+JUnit
+Mockito
+Tomek
+Kaczanowski
+Raoul-Gabriel
+Urma
+Fusco
+Mycroft
+Gayle
+Laakmann
+ - bjedrzejewski/_posts/2016-06-13-code-reuse-in-microservices-architecture.md
+reusability
+Nginx
+ - bjedrzejewski/_posts/2016-07-28-java-enums-how-to-use-them-smarter.md
+java.lang.Enum
+transactionComplete
+ - bjedrzejewski/_posts/2016-11-22-spring-boot-and-mongodb.md
+Initializr
+standalone
+ - bjedrzejewski/_posts/2017-05-04-how-to-make-your-team-more-productive-as-a-developer.md
+qa
+ - bjedrzejewski/_posts/2017-05-05-how-to-make-your-team-more-productive-as-a-developer.md
+qa
+ - bjedrzejewski/_posts/2017-05-05-making-agile-teams-more-productive-from-the-inside.md
+qa
+ - bjedrzejewski/_posts/2017-09-01-apache-spark-meets-chess.md
+Homebrew
+processPGNFile
+consolidateOpeningFiles
+Defense
+e4
+e5
+Alekhine
+Caro
+Kann
+ - bjedrzejewski/_posts/2018-02-21-jvm-roundabout-microservices.md
+RightMove
+CDCs
+Cuevas
+e4developer
+Bechtle
+ - bjedrzejewski/_posts/2018-03-13-organizations-journey-to-devops-culture.md
+SMEs
+hoc
+InfoSec
+Kanban
+standup
+Hubin
+ - bjedrzejewski/_posts/2018-04-30-devops-as-a-key-to-success-with-microservices-approach.md
+100-fold
+ - bjedrzejewski/_posts/2018-11-26-what-did-i-learn-studying-for-aws-certification.md
+AZs
+VPCs
+architected
+10x
+Dunkerley
+ - bjedrzejewski/_posts/2018-11-27-what-did-i-learn-studying-for-aws-certification.md
+AZs
+VPCs
+architected
+Dunkerley

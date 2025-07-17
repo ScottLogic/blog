@@ -1,0 +1,101 @@
+---
+title: JSConf EU 2012
+date: 2012-10-12 00:00:00 Z
+categories:
+- Tech
+tags:
+- Javascript
+- Conferences
+- jsconfeu
+- blog
+id: 161035
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2012/10/jsconf-eu-2012/
+layout: default_post
+source: site
+disqus-id: "/2012/10/jsconf-eu-2012/"
+summary: Hot on the heels of Reject.js was JSConf EU, a weekend conference about,
+  well, JavaScript!
+---
+
+<p><a style="float: right; margin-left: 16px;" href="{{ site.baseurl }}/cprice/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.baseurl }}/archive/2012/03/me1.png" alt="" /></a><em>Hot on the heels of Reject.js was JSConf EU, a weekend conference about, well, JavaScript! It was my first time there so I was a little unsure what to expect, I was absolutely blown away by the venue, the organisation, the food, the drinks, the talks and most importantly the people. Thanks this time goes to Holger Blank, Malte Ubl, Jan Lehnardt and Tiffany Conroy.</em></p>
+<h3 style="clear:both">Keynote</h3>
+<p>Brendan Eich (the creator of JavaScript) opened the conference with this Apple-inspired satirical advert for ES6.</p>
+<p style="text-align:center"><iframe width="600" height="315" src="http://www.youtube.com/embed/NJxB0Pp69IQ" frameborder="0" allowfullscreen></iframe></p>
+<p>He was closely followed by <a href="http://vimeo.com/50897876">Jed Schmidt (I knew I hadn't seen the last of him!) and Mandy Lauderdale performing an incredible assortment of topical songs about JavaScript</a>. Unfortunately the quality of this video isn't great, but you'll get the idea!</p>
+<h3>Mary Rose Cook - A Programming Language for Children</h3>
+<p>Mary introduced a programming language that she's aiming at children called Isla. During her talk she said something that has really stuck with me. Programming is about magic. The magic that happens once you've typed in your program and then you first see it run. Much the same as stacking dominoes and then knocking the first one over. Mary was right, I had forgotten that's why I love programming.</p>
+<p>Sticking to the theme, she suggested that every programmer should at some point try writing a language (if you're using JavaScript <a href="http://pegjs.majda.cz/">PEG.js</a> and <a href="https://github.com/KrisJordan/multimethod-js">multimethod.js</a> might come in handy).</p>
+<h3>Michael Bebenita - Low Level JavaScript</h3>
+<p>This talk was turtles all the way down! The <del datetime="2012-10-29T09:14:41+00:00">Google</del> Mozilla guys have implemented <a href="https://github.com/mbebenita/LLJS">a tool</a> that allows a C-like language along with structs, pointers, malloc and free, to be built on top JavaScript TypedArrays. They suggested that it can be useful for performance critical sections of code e.g. for physics calculations etc..</p>
+<h3>Sam Dutton - WebRTC: Real-Time Communication Without Plugins</h3>
+<p>A frustratingly high-level look at <a href="http://www.html5rocks.com/en/tutorials/webrtc/basics/">WebRTC</a>, which you can think of as a P2P version of WebSockets. I was hoping for a real deep-dive into some of the details but we were only shown the shiny demos. Don't get me wrong the technology itself is very cool, I think we'll be seeing a lot more of it as the browser support improves.</p>
+<h3>Lennart C. L. Kats - Effectively Building Language Tools</h3>
+<p>This talk was a bit of a sales pitch, encouraging developers to start writing plugins for the Cloud9 IDE platform.</p>
+<p><a href="https://plus.google.com/u/0/103747379090421872359"><img style="float:right; margin: 0 0 10px 10px" src="{{ site.baseurl }}/archive/2012/10/production.jpg" alt="That's me! Thanks to Martin Kleppe for the photo." title="That's me! Thanks to Martin Kleppe for the photo." width="307" height="307" class="aligncenter size-full wp-image-161040" /></a></p>
+<h3>Florian Loitsch - JavaScript as a Compilation Target - Making it Fast</h3>
+<p>A look at how the DART team has approached optimising their JavaScript output. DART itself doesn't interest me too much but it was interesting to see how similar the DART optimisations are to the optimisations applied by the JavaScript JIT compiler. The take home from this talk, DART's not quite as bad as it used to be.</p>
+<h3>John Bender - Faster JavaScript with Category Theory</h3>
+<p>John gave us a crash course on category theory and how it could be applied to the jQuery internals to speed things up. I'd recommend checking out the <a href="https://github.com/johnbender/wield">Wield project page</a>.</p>
+<h3>Garann Means - Improvisational JavaScript</h3>
+<p>Garann noticed that bloggers were applying Tina Fey's rules of improv to everything from the <a href="http://www.mycareertopia.com/tina-feys-rules-for-improv-and-the-workplace/">workplace</a> to <a href="http://sostark.net/post/4965998605/tina-feys-rules-of-improvisation-that-will-change-your">dieting</a> and thought that JavaScript was missing out. Her talk was a very interesting take on how to design robust, easy-to-use library code and interfaces.  I think the most relevant of the improv rules was "Say yes and...", i.e. expect that users will give you partial or broken input sometimes, so try your best to work with it instead of throwing it back in their faces. E.g. don't interrupt a sign-up flow with an error if someone chooses an existing username, use their user ID instead and allow them to change it at a later date.</p>
+<h3>Axel Rauschmayer - JavaScript Inheritance: Beyond the Basics</h3>
+<p>Axel did a deep dive into inheritance as it was in JavaScript in ES3, how some <a href="https://www.webplatform.org/docs/tutorials/working_with_objects_in_JavaScript/#Inheritance">new features in ES5</a> can help tidy up your code and how the proposed <a href="https://github.com/dherman/tc39-codex-wiki/blob/master/data/es6/classes/index.md">class feature of ES6</a> could help even further. My pro-tip -</p>
+<pre style="font-size:16px; text-align: center;">Functions have a prototype property
+Objects have an internal prototype reference</pre>
+<p><br/></p>
+<h3>Angus Croll - Break All the Rules</h3>
+<p>A great talk systematically arguing the case for each of JavaScript's "Bad Parts". It was another spot-on reminder not to take advice at face value, but to look deeper into the problem and try to fully understand it.</p>
+<h3>Margaret Leibovic - Firefox for Android</h3>
+<p>Margaret flew the flag for the recently revamped Firefox for Android. Most of the browser chrome has been thrown out and replaced with a native UI to speed things up. The talk inspired me to try it out again as my experiences with the old version were very disappointing. Something I was pleasantly surprised to see mentioned was that Mozilla are looking to copy the iOS add to homescreen functionality over to Android. <em>UPDATE - It is actually implemented but very well hidden in the menus compared to the iOS approach.</em></p>
+<h3>Stuart Memo - JavaScript is the New Punk Rock</h3>
+<p>A fascinating well-delivered talk on how the new <a href="http://www.html5rocks.com/en/tutorials/webaudio/intro/">web audio API</a> could shake up music production again. Interspersed with live musical demos, Stuart delivered one of my favourite talks.</p>
+<h3>James Halliday - Code Collage</h3>
+<p>A nice reminder of the unix do one thing and do it well approach as applied to Node modules from one of the biggest package contributors on NPM, <a href="https://npmjs.org/~substack">substack</a>. This was extreme live coding, executed brilliantly. I didn't meet one person who wasn't in awe of this talk.</p>
+<h3>Anders Heijlsberg/Luke Hoban - Introducing TypeScript</h3>
+<p>This was a talk I was surprised to see on the schedule but I'm very glad it was. I'd already given a <a href="{{ site.baseurl }}/2012/10/02/typescript-versus-closure">quick summary of my thoughts</a> before the conference so I was looking forward to the talk. However, the feeling of people I talked to prior to the presentation was unanimously negative. Microsoft certainly don't have the best history on the web and I think people were concerned that this was VBScript2.</p>
+<p>The talk was great, it was really interesting to hear that Microsoft have been working on this project for 2 years, and to me it shows. If you haven't tried it out then I encourage you to checkout it's playground on the official site (start with the Walkthrough: JavaScript then Walkthrough: Types) and read through <a href="http://www.nczonline.net/blog/2012/10/04/thoughts-on-typescript/">Nicholas C. Zakas's very balanced discussion of it's pros and cons</a>.</p>
+<p><i>On a side note, wildly extrapolating from some shreds of evidence, I think we might soon see a browser-based Visual Studio from Microsoft. The editor used in the playground is a custom component that Microsoft has authored, which seems a strange choice for such a simple demo, as there's plenty of very good open-source options. Digging a bit deeper into the code behind the editor, all of it is namespaced under "vs". Even if they did choose to write one just for the playground the internal architecture is vastly over engineered for something so trivial, e.g. using multiple web-workers in the background. Even just comparing the size of the codebase to CodeMirror, it comes out suspiciously large.</i></p>
+<h3>Francisco Jordano - OpenWebDevice: First Mobile Running Firefox OS</h3>
+<p>Francisco introduced <a href="http://www.mozilla.org/en-US/firefoxos/">Firefox OS</a>, Mozilla's late (and as yet unfinished) entry into the smartphone operation system race. In essence they've made PhoneGap, but at the operating system level instead of the app level. It's an interesting concept, but it's one that's already been tried unsuccessfully by Palm, so I'm hedging my bets on this one.</p>
+<h3>Matthew Delaney/Jing Jin - The Web's Black Magic: As Viewed from Within WebKit</h3>
+<p>Matthew and Jing picked a bit of a strange storyline for their talk but the content was really interesting. In essence they picked three optimisation techniques that are often touted on the internet as being the solutions to various performance problems, then set about explaining the WebKit source code behind the problem and the solution.</p>
+<p>The first was why you need to <a href="http://www.mikechambers.com/blog/2011/07/20/timing-issues-when-animating-with-css3-transitions/">use setTimeout to trigger CSS transitions</a>. This was a fairly basic explanation of the JavaScript event loop, but it was interesting to learn that a single execution cycle is called a runloop. </p>
+<p>The second problem was <a href="http://www.nczonline.net/blog/2009/02/03/speed-up-your-javascript-part-4/">mixing DOM writes and reads in a loop</a>. The solution is obviously to bundle all your reads together and your writes together but I was surprised at how hard it can be to spot that you've fallen into this trap.</p>
+<p>The final problem was the widely misunderstood <a href="http://stackoverflow.com/questions/10814178/css-performance-relative-to-translatez0">just slap transformZ(0) on it</a>. The talk covered the benefits of hardware compositing and how it can be abused. In summary <A href="http://trac.webkit.org/wiki/Accelerated%20rendering%20and%20compositing">use it wisely</a>!</p>
+<h3>Angelina Fabbro - Inspector Web and the Mystery of the Shadow DOM</h3>
+<p>Angelina's talk on the <a href="http://glazkov.com/2011/01/14/what-the-heck-is-shadow-dom/">shadow DOM</a> was great, it's a very exciting topic which she devlivered with some steady-handed live coding. The shadow DOM is definitely the biggest thing yet to happen to the web and I'll be following it's progress closely.</p>
+<h3>Divya Manian - Web Components with &lt;insert favourite bleeding edge CSS spec&gt;</h3>
+<p>Divya took a deep dive into some of the topics Angelina introduced, showing how they can work together with other new CSS technologies e.g. regions, shaders(!) and more.</p>
+<h3>Emily Rose - Node.js & Black Box Prototyping</h3>
+<h3>Thomas Kroeber - JavaScript on the Raspberry Pi</h3>
+<h3>Sebastian Golasch - Prof. JavaScript and his Incredible Machines</h3>
+<p>There were then a number of hardware related talks, hardware I hear you ask, at a JavaScript conference?! Well yes, four talks in fact, mostly based around the Johnny-Five Node module. </p>
+<p><a href="https://github.com/rwldrn/johnny-five">Johnny-Five</a> is a framework for controlling an Arduino board from your computer using the Firmata protocol. To be clear this isn't JavaScript running on the Arduino itself, but rather JavaScript running in Node controlling the Arduino via the serial port.</p>
+<p>Emily Rose, Thomas Kroeber and Sebastian Golasch all showed off hardware projects to varying degrees of success. If you thought the software demo gods were bad, they've got nothing on the hardware demo gods! It was really interesting to see these projects, but as so few of the demos came off I think it would have been nice to see them condensed into a single talk.</p>
+<h3>Jason Huggins - Everyone Loves Robots</h3>
+<p>Those paying attention will have noticed that I said there were four hardware talks mentioned three. That's because Jason's hardware talk deserves special mention for a number of reasons.</p>
+<p>Firstly his demo came off without a hitch, secondly he used a robot to play angry birds and thirdly, HE USED A ROBOT TO PLAY ANGRY BIRDS! Even better he had a legitimate reason for doing so. He's one of the co-creators of Selinium and was looking for a fun way to automate UI testing on an iPad, I think he found it!</p>
+<p><i>I'd previously come across Jason's project on <a href="http://hackaday.com/2012/07/24/shakey-robot-plays-angry-birds/">Hack-a-Day</a> after he gave a talk earlier in the year at Pycon. The robot uses his miniaturisation of Grid-Beam called Bit-Beam for it's structural components, as soon as I saw Grid-Beam I was fascinated and had to try building some. I lost a four day bank-holiday weekend to that endeavor, so it was great to meet him and pass on the opinion of my significant other!</i></p>
+<h3>Andrew Miadowicz - What Does Chakra do with your JavaScript?</h3>
+<p>An interesting talk on how the IE10 (and therefore Windows 8 ) JavaScript engine works. JITs are like black magic to me so it was nice to get a crash course in how to write an efficient one. I can't begin to summarise the talk technically but I was impressed by the lengths they're going to when trying to achieve the best possible performance and security. With my limited knowledge, I think his top tip for writing a fast JIT was to optimistically assume the best and re-JIT if that proves not to be the case.</p>
+<h3>Markus Leutwyler - How to get rich (quick) with JS</h3>
+<p>Markus delivered quite a slow talk extolling the virtues of open-sourcing your product and making money from hosted services. I'm not sure I agree with him that you can't make money from developer tooling, Microsoft and JetBrains seem to be doing alright from it!</p>
+<h3>Mr.doob/AlteredQualia - What's Next for Three.js?</h3>
+<p>If you've not heard of Mr.doob I can only assume you're some kind of archivist looking over centuries old blog posts looking for the meaning of life (it's 42 by the way). <a href="http://mrdoob.com/lab/youtube/superHD/">Mr.doob</a> <a href="http://mrdoob.com/projects/chromeexperiments/ball_pool/">is</a> <a href="http://mrdoob.com/projects/chromeexperiments/google_gravity/">responsible</a> <a href="http://mrdoob.com/projects/chromeexperiments/google_sphere/">for</a> <a href="http://mrdoob.com/projects/chromeexperiments/depth_of_field/">a</a> <a href="http://60fps.com/">good</a> <a href="http://mrdoob.com/lab/javascript/checkboxes/">share</a> <a href="http://mrdoob.com/lab/javascript/checkbox_painter/">of</a> <a href="http://mrdoob.com/lab/javascript/strangeattractor/">the</a> <a href="http://mrdoob.com/lab/javascript/webgl/waveform/">crazy</a> <a href="http://mrdoob.com/lab/javascript/effects/branching/00/">HTML5</a> <a href="http://mrdoob.com/lab/javascript/effects/branching/01/">experiments</a> <a href="http://mrdoob.com/lab/javascript/effects/branching/01_spite_mrdoob/">you'll</a> <a href="http://mrdoob.com/lab/javascript/effects/branching/02/">have</a> <a href="http://mrdoob.com/lab/javascript/effects/water/00/">seen</a> <a href="http://mrdoob.com/lab/javascript/effects/water/01/">(this</a> <a href="http://mrdoob.com/lab/javascript/effects/fire/01/">list</a> <a href="http://mrdoob.com/lab/javascript/effects/rotozoomer/00/">is</a> <a href="http://mrdoob.com/lab/javascript/effects/zoomblur/03/">less</a> <a href="http://mrdoob.com/projects/harmony/">than</a> <a href="http://mrdoob.github.com/three.js/">half)</a>. Together with AlteredQualia he is also responsible for the THREE.js JavaScript 3D graphics library which I've <a href="http://chrisprice.github.com/dolly-zoom/">scratched the surface of previously</a>.</p>
+<p>They took turns talking us through the history of <a href="http://mrdoob.github.com/three.js/">THREE.js</a>. I hadn't previously realised that the leaps in functionality e.g. WebGL support, had come from working with various Google sponsored projects. It was really interesting stuff and as these screenshots show, the progress the web has made in the past two years really is astounding -</p>
+<p style="text-align:center"><a href="http://mrdoob.github.com/three.js/examples/webgl_materials_bumpmap_skin.html"><img src="{{ site.baseurl }}/archive/2012/10/faces.jpg" width="600" height="150" alt="Click to view the latest version (requires WebGL support)" title="Click to view the latest version (requires WebGL support)"/></a></p>
+<h3>Paul Campbell/Eamon Leonard - Seacht</h3>
+<p>Paul and Eamon are the organisers of Funconf, if you've never heard of it before (I fell into this category) -</p>
+<ol>
+<li> Know that you've missed out on something very special.</li>
+<li> <a href="http://2011.funconf.com/info">Read this write-up of Funconf II</a>.</li>
+<li> Imagine that Funconf III introduced more DeLoreans, a private train, helicopters and horse and carts to the mix. </li>
+</ol>
+<p>The gents treated us to a very honest informal chat introducing the conferences, telling us about what it meant to them and now that it's run it's course how it's encouraged them to go on and organise more community events. It was a very inspirational talk that has pushed me to make more of an effort engaging with local user groups and tech meetups.</p>
+<h3>Chris Williams - Disconnect</h3>
+<p><a href="https://plus.google.com/u/0/103300350874263468636/posts/1jFdQDSUpof">_</a></p>
+<p>(space intentionally left blank)</p>
+<p><a class="twitter-share-button" href="https://twitter.com/share" data-via="100pxls">Tweet</a><script type="text/javascript">// <![CDATA[ !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");// ]]></script></p>
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+<p><script type="text/javascript">// <![CDATA[   (function() {     var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;     po.src = 'https://apis.google.com/js/plusone.js';     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);   })();// ]]></script></p>

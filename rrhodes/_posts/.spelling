@@ -1,0 +1,37 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - rrhodes/_posts/2017-08-31-graduate-induction-week.md
+tannoy
+Rui
+Grassmarket
+ - rrhodes/_posts/2017-10-26-heriot-watt-bugathon.md
+bugathon
+bugathons
+bugtracker
+leaderboard
+PostgreSQL
+wullie
+ - rrhodes/_posts/2018-01-30-exploring-dynamic-programming.md
+cryan
+th
+codility
+codewars
+megabus
+citylink
+ - rrhodes/_posts/2018-02-15-scikit-machine-learning.md
+scikit
+airbnb
+evernote
+numpy
+scipy
+linearsvc
+v3.6.4
+resampled
+walkthrough
+ - rrhodes/_posts/2018-03-13-tensorflow-machine-learning.md
+dnns
+tensorflow
+v3.6.4

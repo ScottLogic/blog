@@ -1,0 +1,127 @@
+---
+title: JSLint vs JSHint
+date: 2011-03-28 00:00:00 Z
+categories:
+- Tech
+tags:
+- Javascript
+- JSLint
+- eqeqeq
+- JSHint
+- blog
+id: 112183
+author: lpage
+oldlink: http://www.scottlogic.co.uk/2011/03/jslint-vs-jshint/
+layout: default_post
+source: site
+disqus-id: "/2011/03/jslint-vs-jshint/"
+summary: In January of this year Douglas Crockford decided that some of the options
+  in JSLint were generally accepted and should always be on.
+---
+
+<p>In January of this year Douglas Crockford decided that some of the options in JSLint were generally accepted and should always be on. One of those options was eqeqeq, the option to show an error if just two equals was used. For some time JSLint has complained about double equal comparisons against null, 0, undefined and empty string, but this change meant that two variables had to be compared without type coercion.</p>
+<p>His point of view is that having a global style enforced through JSLint is a good thing and that the best way to do this would be to force anyone wanting to use JSLint to conform strictly to rules of his own devising. In his own words, here is a quote from the readme.</p>
+
+
+<blockquote>The place to express yourself in programming is in the quality of your ideas,and the efficiency of execution. The role of style is the same as in literature. A great writer doesn't express himself by putting the spaces before his commas instead of after, or by putting extra spaces inside hi sparentheses. A great writer will slavishly conform to some rules of style, and that in no way constrains his power to express himself creatively.See for example William Strunk's <a href="http://www.crockford.com/wrrrld/style.html">The Elements of Style</a>.<br/><br/>
+This applies to programming as well. Conforming to a consistent style improves readability, and frees you to express yourself in ways that matter.JSLint here plays the part of a stern but benevolent editor, helping you to get the style right so that you can focus your creative energy where it is most needed.</blockquote>
+
+<p>In the most part, I agree and perhaps the removal of the eqeqeq option isn't the best example of things in JSLint I disagree with (see <a href="http://webreflection.blogspot.com/2010/10/javascript-coercion-demystified.html">this article on coercion</a>), but once a single author (even one as renowned as Douglas Crockford) starts enforcing specific style rules without any option to disable them, the tool becomes less useful and the audience becomes fragmented. It is a fine line between promoting consistency and being usable.</p>
+<p>Because of these changes a couple of developers set up a competing linter, based on JSLint, called <a href="http://jshint.com/">JSHint</a>. In my opinion this project has gone too much the other way, allowing people to create an option to turn off any part of the validator that they can reasonably justify not wanting. For instance it supports not warning about automatic semi-colon insertion - an option I could never imagine wanting to turn on.</p>
+<p>As the co-author of a JSLint plugin, I've had to consider whether to support JSHint and have decided to add support (it is a work in progress). The justification for supporting it are the following arguments which have been discussed on the JSLint mailing list over the last couple of months.</p>
+<h3>Linting Legacy Code</h3>
+<p>Taking over a project from developers who didn't understand JavaScript and never applied a linter to it has meant that previous to December, there were a lot of errors raised per file. Not only are the errors now heavily multiplied, but JSLint also stops processing on several error messages. This means that the task to lint a file involves fixing one or two issues, linting, fixing one or more two issues etc.</p>
+<p>It is no longer possible to lint a file to gradual levels of code quality. eqeqeq is perhaps the worst culprit here, because of the errors it is easy to introduce into code in the processing of linting - it is sometimes not possible to go through every possible place a field is modified or touched to make sure it stays a consistent type. Alternatively using casting to convert it to a type can clutter the code if you have to do it each time you do an equality comparison.</p>
+<p>Even in the past, when converting from == null you had to remember that counter intuitively the ! is reversed...</p>
+{% highlight javascript %}
+if (a == null) {
+}
+if  (!a) {
+}
+
+if  (b!=null) {
+}
+if (b) {
+}
+{% endhighlight %}
+<p>So when running against legacy code, I would like to start with the big problems - syntactically incorrect code, missing semi-colons, unsafe line breaks and undefined variables and only fully lint a file with all the good parts when I understand the code and I know it will be thoroughly tested.</p>
+<h3>Loop Functions</h3>
+<p>the following piece of code now generates a breaking error that stops linting continuing.</p>
+{% highlight javascript %}
+var func = function (a, b) {
+	for (var i = 0; i < a.length; i++) {
+		if  (a[i] === b) {
+			return i;
+		}
+	}
+	return -1;
+};
+{% endhighlight %}
+<div style="background-color: pink;">Error:Problem at line 2 character 10: Move 'var' declarations to the top of the function.</p>
+<p>for (var i = 0; i < a.length; i++) {</p>
+<p>Problem at line 2 character 10: Stopping. (25% scanned).</p></div>
+<p>The "onevar" option is off. This means that the code has to be re-written as.</p>
+{% highlight javascript %}
+var func = function (a, b) {
+	var i;
+	for (i = 0; i < a.length; i++) {
+		if  (a[i] === b) {
+			return i;
+		}
+	}
+	return -1;
+};
+{% endhighlight %}
+<p>Now, I understand JavaScript variable scoping is not at the block level but at the function level, but a) what language allows defining in the for and then scoping it just for the contents of the for and b) why am I restricted from this, but allowed the following...</p>
+{% highlight javascript %}
+var func = function (a, b) {
+	var i;
+	for (i = 0; i < a.length; i++) {
+		var v = a[i];
+		if  (v === b) {
+			return i;
+		}
+	}
+	return -1;
+};
+{% endhighlight %}
+<h3>Switch Indentation</h3>
+<p>I like JSLint to check my indentation but I disagree that the labels in switch statements should be at the same level as the switch.</p>
+{% highlight javascript %}
+var func = function (a, b) {
+	switch(a) {
+	case 1:
+		return false;
+	case 2:
+		return true;
+	default:
+		return b;
+	}
+};
+{% endhighlight %}
+<p>I see the argument that the code is indented by one level for each block,  but I don't think this is enough of an argument to be inconsistent with the typical styling of other languages. This is perhaps my weakest argument and certainly one I would be welcome to accept defeat on if the other issues weren't so severe.</p>
+<p>My Visual Studio 2010 plugin will support JSHint in the next couple of weeks.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

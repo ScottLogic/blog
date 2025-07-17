@@ -1,0 +1,18 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - shunton/_posts/2017-05-17-what-it-means-to-be-agile.md
+ecommerce
+ - shunton/_posts/2017-06-27-continuous-change-culture.md
+siloed
+ - shunton/_posts/2017-09-05-scaling-agile-in-the-public-sector.md
+10bn
+480bn
+210bn
+Gov.UK
+2-year
+SMEs
+836m
+Brexit

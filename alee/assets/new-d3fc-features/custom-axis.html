@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- include polyfills for custom event, Symbol and Custom Elements -->
+  <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.js"></script>
+  <script src="https://unpkg.com/custom-event-polyfill@0.3.0/custom-event-polyfill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/1.8.0/document-register-element.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+
+  <script src="https://unpkg.com/d3@5.5.0"></script>
+  <script src="https://unpkg.com/d3fc@14.0.39"></script>
+
+  <style>
+    .demo {
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <script type="text/babel" src="demo.js"></script>
+  <link href="demo.css" rel="stylesheet">
+
+  <script id="axis.js" type='text/babel'>
+  // Custom axis that draws filled circles with labels
+  const customAxis = (baseAxis, isVertical = false) => {
+    const translate = (x, y, o = 0) => isVertical
+      ? `translate(${y}, ${x + o})`
+      : `translate(${x}, ${y + o})`;
+
+    const axis = selection => {
+      // draw the axis
+      selection.each((data, index, group) => {
+        const container = d3.select(group[index]);
+        const scale = baseAxis.scale();
+        // get the ticks to draw
+        const ticks = scale.ticks(baseAxis.tickArguments());
+
+        container.attr('font-size', 10);
+
+        // add a 'g' for each tick
+        const labels = container.selectAll('text')
+          .data(ticks)
+          .enter().append('g').attr('class', 'tick');
+
+        // render a filled circle
+        labels.append('circle')
+          .attr('r', 10)
+          .attr('fill', 'rgba(100, 0, 0, 0.2)')
+          .attr('transform',
+            d => translate(scale(d), 20));
+
+        // render the label text
+        labels.append('text')
+          .text(d => d)
+          .attr('text-anchor', 'middle')
+          .attr('transform',
+            d => translate(scale(d), 20, 3));
+      });
+    };
+
+    fc.rebindAll(axis, baseAxis);
+    return axis;
+  };
+  </script>
+
+  <script id="chart.js" type='text/babel'>
+  var data = {
+    series: d3.range(50).map((d) => ({
+      x: d / 4,
+      y: Math.sin(d / 4)
+    })),
+    crosshair: []
+  };
+
+  const xScale = d3.scaleLinear();
+  const yScale = d3.scaleLinear();
+
+  // show a crosshair cursor on hover
+  const crossHair = fc.annotationSvgCrosshair()
+    .xLabel(d => yScale.invert(d.y).toLocaleString())
+    .decorate(s => {
+      s.select(".point")
+        .style("stroke", "rgba(100, 0, 0, 0.5)")
+        .style("fill", "rgba(100, 0, 0, 0.5)");
+    });
+
+  const multi = fc.seriesSvgMulti().series([
+    fc.seriesSvgLine(),
+    crossHair
+  ])
+  .mapping((data, index, series) =>
+      (index === 0) ? data.series : data.crosshair);
+
+  // Render a chart using a custom axis component
+  const chart = fc.chartCartesian({
+    xScale: xScale,
+    yScale: yScale,
+    xAxis: {
+      bottom: scale => customAxis(fc.axisBottom(scale), false)
+    },
+    yAxis: {
+      right: scale => customAxis(fc.axisRight(scale), true)
+    }
+  })
+    .xLabel('Value')
+    .yLabel('Sine')
+    .yTicks([5])
+    .yDomain([-1.1, 1.1])
+    .xDomain([0, 12])
+    .svgPlotArea(multi);
+
+  // mouse-over events to control the annotation
+  const pointer = fc.pointer().on('point', (event) => {
+    if (event.length > 0) {
+      const xVal = xScale.invert(event[0].x);
+      data.crosshair = [{
+        x: event[0].x,
+        y: yScale(Math.sin(xVal))
+      }];
+    }
+    render();
+  });
+
+  function render(){
+    d3.select('.demo').datum(data).call(chart);
+    d3.select('.demo .plot-area').call(pointer);  
+  }
+  render();
+  </script>
+</body>
+</html>

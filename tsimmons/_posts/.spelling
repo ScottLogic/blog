@@ -1,0 +1,21 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - tsimmons/_posts/2014-08-19-an-ohlc-chart-component-for-d3.md
+xScale
+yScale
+plotArea
+ohlc-series
+ - tsimmons/_posts/2014-09-19-d3-svg-chart-performance.md
+plotArea
+moveTo
+closePath
+moveto
+makeBar
+zoomend
+osmdev
+ - tsimmons/_posts/2014-09-26-an-interactive-stock-comparison-chart-with-d3.md
+osmdev
+yScale

@@ -1,0 +1,72 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - jhill/_posts/2014-08-20-starting-from-scratch-2014-intern-project.md
+22050Hz
+44100Hz
+48000Hz
+25ms
+33.3ms
+globalCompositeOperation
+drawImage
+getImageData
+lolwel21
+TheSaint
+WPFerg
+app-ish
+ - jhill/_posts/2016-04-04-jenny-from-the-blockchain.md
+17pA4nZbtivWZVkkaEUEGjLT5DVnH5Gbr1
+256-bit
+4.3x10
+7.5x10
+ASICs
+Pay-to-PubKeyHash
+THs-1
+_1
+_Page
+_addresses
+_background
+_bitcoin
+_of
+_version
+base58
+base58check
+bitcoind
+blockchain
+ecdsa
+endian
+ethereum
+ian
+litecoin
+litecoins
+lowercase
+merkel
+merkle
+multisig
+prevHash
+pubKey
+pubKeyScript
+satoshi
+scriptPubKey
+scriptSig
+scrypt
+secp256k1
+sha256
+sig
+www.coindesk.com
+new-bitcoin-asic-to-be-most-power-efficient-on-public-market
+www.cryptocompare.com
+ - jhill/_posts/2016-06-16-bitcoin-redeem-scripts.md
+ffffffff
+nVersion
+inputCount
+outputCount
+blockLockTime
+nLockTime
+Pay-To-PubKey-Hash
+HTLCs
+Poon
+Dryja
+3Mbit

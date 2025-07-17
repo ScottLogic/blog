@@ -1,0 +1,23 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - okenyon/_posts/2017-10-13-MetOfficeKafka.md
+KafkaSender
+KafkaProducer
+ProducerRecord
+dataPoint.locationIdentifer
+Gorm
+KafkaObservationData
+jython
+graphiteSender
+GraphiteConsumers
+_CONFIG
+KafkaConsumer
+Config.fetchHistoricalData
+logResult
+logSend
+grafana
+GROUP_ID_CONFIG
+kafka

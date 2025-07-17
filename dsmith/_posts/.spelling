@@ -1,0 +1,48 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+CloudTrail
+CSPs
+GHGs
+Thoughtworks
+Etsy
+overprovisioned
+SaaS
+Climatiq
+Greenpixie
+ - dsmith/_posts/2016-11-22-using-rally-to-benchmark-elasticsearch.md
+Mitterdorfer
+ - dsmith/_posts/2017-01-10-consumer-driven-contracts-using-pact.md
+CDCs
+Axios
+ReactDOM
+Gitter
+Forex
+ - dsmith/_posts/2018-10-16-cutting-development-costs-in-aws-with-cloud-custodian.md
+python2
+virtualenv
+offhours
+yaml
+ec2
+rds
+s3
+offhour
+onhours
+_if_
+dryrun
+onhour
+ - dsmith/_posts/2022-04-07-cloud-sustainability-reach-net-zero.md
+SaaS
+renewables
+Architected
+Thoughtworks
+TechZero
+architected
+ - dsmith/_posts/2024-01-09-software-developers-and-climate-crisis.md
+practicing
+eco-anxiety
+Cronk
+ClimateTriage
+Ayana

@@ -1,0 +1,78 @@
+---
+title: Static Initialisation in Flex
+date: 2011-07-29 00:00:00 Z
+categories:
+- Tech
+tags:
+- Flex
+- Flash
+- flex
+id: 537
+author: godds
+oldlink: http://www.scottlogic.co.uk/blog/graham/2011/07/static-initialisation-in-flex/
+layout: default_post
+source: wordpress
+disqus-id: "/blog/graham/2011/07/static-initialisation-in-flex/"
+summary: For reasons best ignored I recently investigated the different ways in which
+  static initialisation code can be run in Flex.
+---
+
+<p>For reasons best ignored I recently investigated the different ways in which static initialisation code can be run in Flex.  As well as a direct equivalent to the static initialiser blocks available in <a href="http://java.sun.com/docs/books/jls/third_edition/html/classes.html#39245" target="_blank">Java</a> and <a href="http://msdn.microsoft.com/en-us/library/aa645612(v=vs.71).aspx" target="_blank">C#</a>, Flex has a couple of subtle variants that can prove useful in different circumstances.</p>
+<p>First up, the "standard" static initialisation technique, the direct equivalent to that found in <a href="http://java.sun.com/docs/books/jls/third_edition/html/classes.html#39245" target="_blank">Java</a> and <a href="http://msdn.microsoft.com/en-us/library/aa645612(v=vs.71).aspx" target="_blank">C#</a>.  The block of code shown below will execute once, the first time an instance of <code>MyClass</code> is created before that first constructor call is executed.</p>
+{% highlight actionscript %}
+public class MyClass
+{
+    private static var initialised:Boolean = initialise();
+    private static function initialise():Boolean
+    {
+        trace("static initialisation block that will execute" +
+              " the first time 'new MyClass()' is called anywhere");
+    }
+}
+{% endhighlight %}
+<p>If the intention of your code block is to create and initialise a static variable then this approach is clear and obvious.  However, if you want to run some general initialisation code you still require a dummy variable and a return type on the static function.  This is because the variable initialisation is the hook required to execute the function.  This technique was used throughout the Flex 3 Framework code for style initialisation on components (an approach no longer in Flex 4 because of the <a href="{{ site.baseurl }}/2011/04/19/updating-flex-sparkline-to-flex-4" target=_"blank">improvements to style initialisation</a>).</p>
+<p>The second technique is that used by the <a href="http://help.adobe.com/en_US/flex/using/WS2db454920e96a9e51e63e3d11c0bf69084-7ec5.html" target="_blank">Automation framework</a> that is included with the SDK.  This approach allows code to be executed when an application or module is loaded.  The code would look as follows:</p>
+{% highlight actionscript %}
+[Mixin]
+public class MyClass
+{
+    public static function init(root:DisplayObject):void
+    {
+        trace("static initialisation block that will execute" +
+              " when the application or module first loads");
+    }
+}
+{% endhighlight %}
+<p>The <code>root</code> argument will be an <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/managers/ISystemManager.html" target="_blank">ISystemManager</a> or <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/core/IFlexModuleFactory.html" target="_blank">IFlexModuleFactory</a> instance depending on whether the class was loaded as part of an application or module.  Note that for the <code>[Mixin]</code> to be picked up the class must be included in the application or module, i.e. it must be referenced elsewhere in code or explicitly added using appropriate compiler arguments</p>
+<p>The final technique comes from <a href="http://en.wikipedia.org/wiki/ActionScript" target="_blank">ActionScript's</a> <a href="http://en.wikipedia.org/wiki/ECMAScript" target="_blank">ECMAScript</a> heritage, in particular its <a href="http://en.wikipedia.org/wiki/Prototype-based_programming" target="_blank">prototype-based</a> object model.  In this case, code is written directly into the <code>class</code> scope, i.e. not inside a <code>function</code> block.  This code will be executed the first time the class is executed in any way.  That is, if the class uses the <code>[Mixin]</code> technique then it will execute along with the mix-ins <code>static init</code> function, otherwise it will be the equivalent to the "standard" approach and execute the first time the class is instantiated.</p>
+{% highlight actionscript %}
+public class MyClass
+{
+    trace("static initialisation taking advantage of prototype-based object model");
+}
+{% endhighlight %}
+<p><em>I know it looks odd, but it genuinely is valid!</em></p>
+<p>So putting it all together in the most artificial of examples, the following class would produce the trace output 1, 2, 3, 4 (with 3 and 4 only appearing when an instance of the class is instantiated):</p>
+{% highlight actionscript %}
+[Mixin]
+public function MyClass
+{
+    trace("1");
+
+    public static function init(root:DisplayObject):void
+    {
+        trace("2");
+    }
+
+    private var initialised:Boolean = initialise();
+    private function initialise():Boolean
+    {
+        trace("3");
+    }
+
+    public function MyClass()
+    {
+        trace("4");
+    }
+}
+{% endhighlight %}

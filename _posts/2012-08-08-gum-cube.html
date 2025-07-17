@@ -1,0 +1,32 @@
+---
+title: gum-cube
+date: 2012-08-08 00:00:00 Z
+categories:
+- Tech
+tags:
+- blog
+id: 156724
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2012/08/gum-cube/
+layout: default_post
+source: site
+disqus-id: "/2012/08/gum-cube/"
+summary: Captured webcam frames arranged in a 3D rotate-able cube for your viewing
+  pleasure. A simple tech demo trying out the new getUserMedia API in Chrome 21, with
+  some 3D transforms and canvas based pixel manipulation thrown in for good measure.
+---
+
+<p><a style="float: right; margin-left: 16px;" href="{{ site.baseurl }}/cprice/"><img class="aligncenter size-full wp-image-145833" style="border: 1px solid black;" title="Chris Price" src="{{ site.baseurl }}/archive/2012/03/me1.png" alt="" /></a><em>Captured webcam frames arranged in a 3D rotate-able cube for your viewing pleasure. A simple tech demo trying out the new getUserMedia API in Chrome 21, with some 3D transforms and canvas based pixel manipulation thrown in for good measure.</em></p>
+<p><a href="http://chrisprice.github.com/gum-cube/">Try it out</a><small>Make sure you're using Chrome &gt;= 21 and have a webcam attached.</small></p>
+<p><iframe width="420" height="315" src="http://www.youtube.com/embed/6sMAjzGyF7A" frameborder="0" allowfullscreen></iframe></p>
+<h2 style="clear: both;">Pseudo-3.5D</h2>
+<p>This is the default setting, the idea is to make quite a slow repetitive movement and then pause the webcam (Webcam:paused=true). Hopefully the background will be ignored and your movement will be the only thing visible in each frame (if not try fiddling the Webcam:renderThreshold). Now rotate the cube by dragging it around for some 3.5D action!</p>
+<h2 style="clear: both;">Time-warp</h2>
+<p>A strange and unexpected effect that I noticed when building the demo. Rotate the cube so all that you can see is the oldest frame (Rotation:rotX=0, Rotation:rotY=180) and make sure you're rendering full frames (Webcam:renderMovement=true and Webcam:renderStatic=true). Point the webcam at yourself and let the cube fill up with frames. You're now looking 10 seconds into the past (frameCount=100 and Webcam:fps=10), spooky! For me it seems that 10 seconds is just about long enough for me to forget what I was doing, so it has the odd effect of looking like me but not feeling like me.</p>
+<h2 style="clear: both;">Technical notes</h2>
+<p><a href="http://www.html5rocks.com/">HTML5 Rocks</a> has a great run-down of the <a href="http://www.html5rocks.com/en/tutorials/getusermedia/intro/">getUserMedia API</a> that I'm using for video-capture, as well as a more general look at it's parent specification <a href="http://www.html5rocks.com/en/tutorials/webrtc/basics/">WebRTC</a>. The thresholding code used for movement tracking is also heavily inspired by the filter code from another article on <a href="http://www.html5rocks.com/en/tutorials/canvas/imagefilters">canvas image filters</a>. If you haven't yet had your fill of CSS 3D transform tutorials then again I recommend starting from the <a href="http://www.html5rocks.com/en/features/graphics">graphics feature overview</a>.</p>
+<p>Also worthy of a quick mention is <a href="http://requirejs.org/">RequireJS</a>, a simple module loader for JavaScript. I've previously used Closure which comes with it's own custom mechanism and the CommonJS pattern used by Node, but this is the first time I've tried RequireJS. If you're not familiar with the concept, it allows you to easily create modular code and manage the references between modules, think package/import from Java or namespace/using from C#. So far I'm pretty impressed, but I'm yet to look into its support for compile-time optimisation and run-time async module loading, look out for another blog post.</p>
+<h2 style="clear: both;"></h2>
+<p><a class="twitter-share-button" href="https://twitter.com/share" data-via="100pxls">Tweet</a><script type="text/javascript">// <![CDATA[!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");// ]]></script></p>
+<div class="g-plusone" data-annotation="inline" data-width="300"></div>
+<p><script type="text/javascript">// <![CDATA[  (function() {    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;    po.src = 'https://apis.google.com/js/plusone.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);  })();// ]]></script></p>

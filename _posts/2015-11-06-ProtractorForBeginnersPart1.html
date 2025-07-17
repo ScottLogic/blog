@@ -1,0 +1,195 @@
+---
+title: Protractor For Beginners Part 1
+date: 2015-11-06 00:00:00 Z
+categories:
+- Testing
+tags:
+- testing
+- automation
+- protractor
+author: hpretswell
+summary: This is the first post in a series of simple and short tutorials for automating
+  tests using Protractor. In this post we will look at how to find page elements using
+  the Chrome developer tools, and writing a simple test using the Jasmine matcher
+  isDisplayed.
+layout: default_post
+---
+
+<style>
+    li {
+        margin-bottom: 10px
+    }
+    pre {
+        font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; 
+        color: #000000; 
+        background-color: #eee;
+        font-size: 12px; 
+        border: 1px dashed #999999;
+        line-height: 14px; 
+        padding: 5px; 
+        overflow: auto; 
+        width: 100%
+    }
+    code {
+        color:#000000;
+        word-wrap:normal;
+    }
+</style>
+
+<p>When I started writing automated tests in Protractor, I had never programmed anything before (unless you count learning enough html/css on codecademy to create an incredibly basic, 90’s style webpage). Some of the problems I encountered whilst learning Protractor were very hard to find on Google, which did make my learning a lot slower than I would have liked. Luckily I work with amazing people who are more than happy to share their knowledge which has saved me countless times, but unfortunately there are many people out there who do not have access to such resources. So, I have decided to create a tutorial which documents as many issues as possible that I encountered whilst learning.</p>
+
+<p>
+This tutorial will be broken down into bite sized chunks, with each new blog post as a new task, and it is aimed at people with little to no experience of programming. You will be writing the tests for the <a href= "https://angularjs.org/">AngularJs site</a> itself, since this is a good site for practising writing Protractor tests for as it is written in AngularJs; the JavaScript framework that Protractor runs tests against.</p>
+
+<p>
+Note: if you get stuck at any point, the entire code can be found in <a href="https://github.com/hannimator/angularjs.org_protractor">https://github.com/hannimator/angularjs.org_protractor</a>  for use as reference. Snippets of the code will be shown as examples throughout.</p>
+
+<h2>Introduction:</h2>
+
+<p>
+To begin with, follow this tutorial <a href="https://github.com/angular/protractor/blob/master/docs/tutorial.md">https://github.com/angular/protractor/blob/master/docs/tutorial.md</a>. It will run through how to setup Protractor and Jasmine, and the basics of running some simple tests. Another good read, but not necessary for this tutorial is <a href="https://github.com/angular/protractor/blob/master/docs/toc.md">https://github.com/angular/protractor/blob/master/docs/toc.md</a>, which has some more in depth information about Protractor and Jasmine.
+Once you have completed the above tutorials, follow the steps below. </p>
+ 
+<h3>Page Objects, Developer Tools and the DOM</h3>
+ 
+<p>    
+Page objects model the UI objects that your test interacts with inside your tests code. Using page objects keeps the tests easier to maintain (since if anything changes, you only have to change the page objects rather than change every single test). To find these UI objects, open up the browser developer tools by pressing f12 and select the 'elements' tab, or find the element (e.g. a button), right click and select 'Inspect element' from the dropdown list. For this example, use the <a href= "https://angularjs.org/">AngularJs site</a>. Right click on the 'View on Github' button and select 'Inspect element'. Observe the line
+    
+ <pre><code><xmp>   <a class="btn btn-large" href="https://github.com/angular/angular.js">
+      <i class="icon-github-sign"></i>
+         "View on GitHub"
+   </a></xmp></code></pre> 
+
+Is highlighted. For this element (or page object) you can see the classname is <code>“btn btn-large”</code>, so when you write the page object, write it like this:
+ 
+ <pre>
+       <code>
+    var pageObjectName = element(by.css(“.btn.btn-large”));
+       </code></pre>
+
+The reason it is written as <code>".btn.btn-large"</code> rather than <code>"btn btn-large"</code> is down to locators, which are what tell Protractor where to find certain elements. A CSS selector would look like this: <code>".someCSS"</code>, whereas an ID selector would look like this: <code>"#someID"</code>. Some more information on this can be found in the <a href="https://github.com/angular/protractor/blob/master/docs/locators.md">Protractor documentation</a>
+ </p>
+
+<p>
+If you want to learn a little bit more about the DOM which is mentioned throughout this tutorial, I have found <a href="https://css-tricks.com/dom/">https://css-tricks.com/dom/</a> to be a very useful and concise explanation.
+</p>
+
+<h3>Disabling Suites and Specs</h3>
+
+<p>
+To disable and enable suites and specs, simply place an x in front of the describe or the it (depending which level you want to disable the tests at, placing an x in front of the describe will disable all tests within that describe) so that it looks like this: <code>xdescribe</code> or <code>xit</code>.</p>
+ 
+<h2>Getting Started: Home Page</h2>
+
+<p>
+Open up <a href= "https://angularjs.org/">https://angularjs.org/</a>.
+Create a new folder where you want to keep your project. Open up your preferred text editor (I personally use <a href="http://brackets.io/">Brackets</a>), and open up the folder that you have just created. Create a new .js file called 'HomePageSpec.js' and create a config file called 'protractorConf.js'. Paste in this code in to the 'protractorConf.js' file:
+
+ <pre>
+       <code>
+   exports.config = {
+      seleniumAddress: 'http://localhost:4444/wd/hub',
+      specs: ['HomePageObjectSpec.js'],
+      onPrepare: function () {	
+         browser.driver.manage().window().setSize(1680, 1050);
+      },
+   }
+       </code></pre>
+</p>
+
+<h3>Task 1.1: Describe “angularjs.org should have three Center Stage buttons”</h3>
+
+<p>
+    
+<p>What will you learn from this task?</p>
+<ul>
+<li>How to set up a describe suite and it spec.</li>
+<li>How to create page objects.</li>
+<li>How to check that something is displayed on the screen or present in the DOM using <code>isDisplayed</code></li></ul></p>
+
+<p>
+In this task you will test that elements are present and visible on the page using the three center stage buttons on the home page of AngularJs.org and the Jasmine matcher <code>.isDisplayed</code> (read more about Jasmine matchers <a href="http://jasmine.github.io/2.0/introduction.html">here</a>. <code>isDisplayed</code> checks to see if the element is actually present on the page: if the element is not in the DOM whilst using <code>isDisplayed</code>, it will throw an exception error. See how to use <code>isDisplayed</code> below.
+
+<ol>
+    <li>      Open up angularjs.org</li>
+    
+    <li>      Right click on the “View on GitHub” button, and select ‘Inspect element’ to bring up the html in the developer console.</li>
+    
+    <li>      Find the code that relates to the “View on GitHub” button (if you hover over  
+        <pre><code><xmp>   
+            <a class="btn btn-large" href="https://github.com/angular/angular.js">
+        </xmp></code></pre> 
+you will be able to see the button highlight).</li>
+        
+    <li>      If you navigate up through the divs, you will be able to find the html code that contains all three elements. The class for this is <code>center stage-buttons</code>.</li>
+    
+    <li>      In your text editor, open up your “HomePageSpec.js” file, and create a variable called HomePage like this:
+        
+ <pre>
+       <code>
+   var HomePage = function() {
+ 
+   };
+       </code></pre>
+
+    This HomePage variable contains page objects, which are the elements on the page. Different page objects will be used for different sections that are tested on.</li>
+    
+    <li>     Create page objects for the center stage buttons with the <code>HomePage</code> variable, like so:
+        
+ <pre>
+       <code>
+   var HomePage = function() { 
+      this.centerStageButtons = element(by.css(".center.stage-buttons"));
+
+      this.viewOnGitHubButton = this.centerStageButtons.all(by.css(".btn.btn-large")).get(0);
+      this.downloadButton = this.centerStageButtons.element(by.css(".btn-primary"));
+      this.designDocsButton = this.centerStageButtons.element(by.css(".btn-warning"));
+   };
+       </code></pre>
+        
+You can see that there has been a page object created for <code>centerStageButtons</code>. It is good practice to write the elements as they match the code in DOM as quite often there will be multiple elements with the same name. Chaining the page objects (as above) creates more readable code as it (most of the time) eliminates the need for using <code>.get(index)</code>. I say most of the time, since sometimes having to use <code>.get(index)</code> is inevitable: so if you enter in to the browser console <code>$(".btn.btn-large")</code> you will be able to see multiple results are returned, which is why we use <code>.get(0)</code> for the <code>viewOnGitHubButton</code> example above. </li>
+    
+    <li>      Underneath the <code>HomePage</code> variable, create the test suite and spec like this:
+        
+ <pre><code>
+   describe('angularjs.org', function() {
+
+      beforeEach(function() {
+         browser.get('https://angularjs.org/');
+      });
+  
+      it('should have a three buttons', function() {
+  
+      });
+   });
+       </code></pre></li>
+    
+    <li>  In the describe, create a new <code>HomePage</code> object and in the it spec write the expected result of the test as below:
+ <pre><code>
+   describe('angularjs.org', function() {
+      var homePage = new HomePage();
+
+      beforeEach(function() {
+         browser.get('https://angularjs.org/');
+      });
+  
+      it('should have a three buttons', function() {
+         expect(homePage.viewOnGitHubButton.isDisplayed()).toBe(true);
+      });
+   });
+       </code></pre></li>
+    
+    <li>  Run the test by opening up the command line, navigating to the folder where the config file is located. Type in <code>protractor protractorConf.js</code> and press Enter for the code to start running (make sure you have started the selenium webdriver by typing in <code>webdriver-manager start</code> and pressing enter in the command line).</li>
+    
+    <li>  Did it pass? Yes? Great! No? Double check you have the code written correctly by looking at the code inside the Spec folder here: <a href="https://github.com/hannimator/angularjs.org_protractor">https://github.com/hannimator/angularjs.org_protractor</a> .</li>
+    
+    <li>  Now that this test has passed, it is always best to check that it fails if set to false, so underneath the first <code>expect</code>, create another one set to <code>false</code> like this:
+ <pre>
+       <code>
+   expect(homePage.viewOnGitHubButton.isDisplayed()).toBe(false);
+       </code></pre></li>
+    
+    <li>  Run the test. Observe the <code>expect</code> set to false fails. This ensures that it isn’t a false positive, and is always a good practice to ensure that you haven't missed anything in your code. </li>
+</ol>
+
+In the next tutorial we will use what we learnt in this tutorial and start to learn how to interact with elements on the webpage, as well as the difference between using the matchers <code>isPresent</code> and <code>isDisplayed</code>. 

@@ -1,0 +1,69 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - lpage/_posts/2014-10-20-ie-run-js-wrong-context.md
+window.opens
+async
+dom
+getStack
+testpopup.htm
+asyncCallbackOnPopup
+timeoutOnMainPage
+testmain.htm
+makeSyncCallToMainWindow
+setTimeout
+syncCall
+reEntrant
+myResource
+ko.computed
+ko
+setTimeouts
+ - lpage/_posts/2015-02-13-rtl.md
+dir
+isRTL
+divs
+ - lpage/_posts/2015-02-19-rtl-plugin.md
+visitRule
+visitURL
+contentsIgnoredChars
+ - lpage/_posts/2015-03-06-localisation.md
+Lao
+Tamazight
+latin
+es-US
+v2
+winforms
+ASP.net.
+momentjs
+numeraljs
+en-gb
+Formatjs
+globalize
+ - lpage/_posts/2015-03-25-var-multivar-anywherevar.md
+jshint
+onevar
+vars
+ - lpage/_posts/2015-06-10-learn-es6-from-airbnb.md
+kangax
+ - lpage/_posts/2015-06-19-aurelia-part-one.md
+Eisenberg
+src
+nav
+_packages
+dom
+lessSrc
+jspm_packages
+ - lpage/_posts/2015-06-29-aurelia-part-two.md
+Eisenberg
+dist
+index.html
+es6-module-loader
+Aureliafile
+GZip'd
+es-x
+es6
+ - lpage/_posts/2015-07-02-surprising-things-about-js.md
+typeof
+const

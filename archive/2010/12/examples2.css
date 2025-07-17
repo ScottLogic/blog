@@ -1,0 +1,70 @@
+#running {
+	background-color: gray;
+	margin: auto;
+	width: 300px;
+	padding-left: 50px;
+}
+#running table {
+	border-collapse:collapse;
+	width: 250px;
+	margin: 0px;
+	padding: 0px;
+	color: white;
+	font-size: 11px;
+	font-family: Arial;
+}
+#running p { /* prevent word press's annoying excess p tags causing issues! */
+	height: 0px;
+	overflow: hidden;
+}
+#running tr {
+	background-color: #101010;
+	border: 0px;
+}
+#running tr.odd td {
+	background-color: #303030;
+}
+#running .header {
+	height: 25px;
+}
+#running td, th {
+	margin: 0px;
+	padding: 3px;
+
+}
+#running table thead tr th {
+	color: white;
+}
+#running th.position {
+	width: 50px; 
+}
+#running th.driverName {
+	width: 150px;
+}
+#running th.pointsTotal {
+	width: 50px;
+}
+#running a {
+	outline: none;
+	text-decoration: none;
+	color: white;
+	font-family: Arial;
+	font-size: 12px;
+	padding:5px;
+}
+#running a:hover {
+	text-decoration: underline;
+}
+#running h2 {
+	color: white;
+	font-family: Arial;
+	font-size: 12px;
+}
+#running .footer {
+	font-family: Arial;
+	font-size: 9px;
+	padding-top: 5px;
+	width:250px;
+	text-align: right;
+}
+

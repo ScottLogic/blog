@@ -1,0 +1,140 @@
+---
+title: JavaScript Array.push Performance
+date: 2010-10-15 00:00:00 Z
+categories:
+- Tech
+tags:
+- Javascript
+- array
+- closure-compiler
+- performance
+- push
+- blog
+id: 71618
+author: shall
+oldlink: http://www.scottlogic.co.uk/2010/10/javascript-array-performance/
+layout: default_post
+source: site
+disqus-id: "/2010/10/javascript-array-performance/"
+summary: I was recently reading Google's JavaScript Style Guide when I came across
+  the following claim...
+---
+
+<p>I was recently reading Google's JavaScript Style Guide when I came across the following claim:</p>
+<blockquote><p>"Note that since assigning values to an array is faster than using <code>push()</code> you should use assignment where possible."</p></blockquote>
+<p>I had always used push to assign a value to the end of an array, so thought I'd investigate this a little bit further to determine the performance of each of the methods. There are 3 distinct ways to do this:</p>
+<ol>
+<li><p>Array.push(element) - Defined on the native Array object, this is the method challenged by Google.</p>
+</li>
+<li><p>array[i] = element - Assigning an element to a specific index of the array. The requirement of this method is that you must have a pointer to the last location. Other than that it's a simple assignment.</p>
+</li>
+<li><p>array[array.length] = element - Similar to the previous, but this involves a lookup for situations where you don't have access to a pointer.</p>
+</li>
+<li><p>I also defined a fourth function to test. I put a function on the Array prototype called mypush, which carried out step 3 above. It was defined as such:
+{% highlight javascript %}  Array.prototype.mypush = function(element) {
+    this[this.length] = element;
+  };{% endhighlight %}
+</p>
+</li>
+</ol>
+<p>This short article will document my testing of these different methods on several browsers.</p>
+<h2>The Tests</h2>
+<p>I put together a small HTML page to execute the different methods of adding an element to the end of an array alongside some method of timing how long each took.</p>
+<p>The tests consisted of adding 400,000 elements to an empty Array using the different methods described above. I performed the test 10 times for each method, and took the average. For example, here's a look at the test for Array.push:</p>
+{% highlight javascript %}  function testPush() {
+    var result = 0;
+    var a = [];
+
+    for (var i = 0; i<10; i++) { // run the test 10 times
+      a = []; // we start with an empty array each time
+      var start = new Date().getTime(); // get the start time of the test
+
+      for (var j = 0; j<400000; j++) {
+        a.push(i);
+      }
+
+      var end = new Date().getTime();
+      result += end - start;  // and the result is the end time minus the start time
+    }
+
+    alert('Result for Array.push is ' + (result / 10)); // take the average
+  }{% endhighlight %}
+<p>I then repeated the same logic for the other methods.</p>
+<h2>The Results</h2>
+<p>The tests yielded the following results in the following browsers:</p>
+<table class="blogTable">
+<thead>
+<tr>
+<th></th>
+<th>Google Chrome 6.0.472.63</th>
+<th>Mozilla Firefox 3.6.10</th>
+<th>Apple Safari 5.0 (7533.16)</th>
+<th>Internet Explorer 8</th>
+<th>Internet Explorer 7</th>
+<th>Opera 10.62</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Array.push</td>
+<td style="background: #B6FFB5">0.4 ms</td>
+<td style="background: #D6C2C4">5 ms</td>
+<td style="background: #D6C2C4">2 ms</td>
+<td style="background: #D6C2C4">21.7 ms</td>
+<td>66.7 ms</td>
+<td style="background: #D6C2C4">2.7 ms</td>
+</tr>
+<tr>
+<td>array[i]</td>
+<td>1 ms</td>
+<td style="background: #B6FFB5">0.8 ms</td>
+<td style="background: #B6FFB5">0.9 ms</td>
+<td style="background: #B6FFB5">4.6 ms</td>
+<td style="background: #B6FFB5">29.4 ms</td>
+<td style="background: #B6FFB5">0.7 ms</td>
+</tr>
+<tr>
+<td>array[array.length]</td>
+<td style="background: #D6C2C4">1.2 ms</td>
+<td>0.9 ms</td>
+<td style="background: #B6FFB5">0.9 ms</td>
+<td>10.9 ms</td>
+<td>32.6 ms</td>
+<td>1 ms</td>
+</tr>
+<tr>
+<td>Array.mypush</td>
+<td style="background: #D6C2C4">1.2 ms</td>
+<td>7.1 ms</td>
+<td>1.2 ms</td>
+<td>31 ms</td>
+<td style="background: #D6C2C4">86.8 ms</td>
+<td>1.2 ms</td>
+</tr>
+</tbody>
+</table>
+<h2>Conclusion</h2>
+<p>The results speak for themselves: using an index outperforms using Push in every browser with the exception of Google's own. If cross-compatibility is a big concern for you, the <em>utilitarian </em>approach would be to use an index wherever possible.</p>
+<p>To look at the situation a little deeper, we could consider steps the Closure Compiler takes to handle these situations. If we run the following code in the Compiler:</p>
+{% highlight javascript %}var a = [];
+
+function push(i) {
+  a.push(i);
+}
+
+for(var i = 0; i<10; i++) {
+  a.push(i);
+}{% endhighlight %}
+<p>We observe the following output:</p>
+{% highlight javascript %}  for(var a=[],b=0;b<10;b++)a.push(b);{% endhighlight %}
+<p>Showing that the Compiler doesn't do anything about push statements in pre-compiled code. However, with an improved performance in most browsers, you might expect it to.</p>
+<p>However, it wouldn't be as simple as converting all pushes to index assignments as there is a subtle difference between the two; Array.push returns the length of the array after the element has been added (something you don't get with array[array.length]). Converting all Array.push statements would cause semantic problems if the user has assigned that statement to a variable. For example:</p>
+{% highlight javascript %}var a = [];
+var b = [];
+
+var i = a.push('test'); // i is 1
+
+var j = b[b.length] = 'test'; // j is 'test'{% endhighlight %}
+<p>However, we could examine the case where the result of Array.push is not assigned to anything. In this scenario, the Compiler should be able to replace the push with an array.length index without side effects.</p>
+<p>The problem then lies in the fact that the performance varies between browser. Although, on the whole, indexing performs better than push, that is not the case in Google Chrome. Unlike GWT, where you can deploy a certain condition for a certain browser, Closure Compiler just generates one JavaScript file for every browser.</p>
+<p>Given the differences between Chrome's results, and the extremely poor performance in some other browsers, it may be worth sacrificing some performance in Chrome for much better performance in other browsers.</p>

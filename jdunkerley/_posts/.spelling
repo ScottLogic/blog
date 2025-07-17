@@ -1,0 +1,40 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - jdunkerley/_posts/2016-09-19-inspire-europe.md
+Alteryx
+Carto
+Frish
+Stoecker
+Boorstin's
+Mathew's
+PowerBI
+Harford
+WebEx
+Remco
+Diepenbroek
+Infotopics
+Rinas
+Banoub
+Brun
+TeamDunks
+ - jdunkerley/_posts/2016-12-19-spark-unaffordable-britain.md
+data.gov.uk
+Jupyter
+DataFrame
+RDDs
+3.x
+2.x
+winutils.exe
+PySpark
+ - jdunkerley/_posts/2017-02-20-initial-impressions-of-alteryx-11.md
+DateTimeInput
+DateTime
+DateTimeParse
+jdunkerley.co.uk
+ - jdunkerley/_posts/2017-06-06-typescript-electron-webpack.md
+standardjs
+ts-lint
+linter

@@ -1,0 +1,44 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - wloveland/_posts/2015-05-01-state-of-in-car-uis.md
+Slippy
+Matthaeus
+Krenn’s
+slippy
+Krenn’s
+star-trek-esk
+Krenn’s
+ - wloveland/_posts/2015-05-01-state-of-in-car-uis.md
+Matthaeus
+Krenn
+slippy
+esk
+ - wloveland/_posts/2016-03-08-interaction16.md
+Finlandia
+Alvar
+Aalto
+Marko
+Ahtisaari's
+Hillis
+Dopplr
+Waterworth
+GOV.UK
+siloed
+Moffett's
+Waterworth's
+timelined
+Rydberg's
+Passengerhood
+Seiden
+Handbasket
+Plewes
+Spanton
+Aguilar
+Mesz
+IXDA.org
+Ferne
+passengerhood
+

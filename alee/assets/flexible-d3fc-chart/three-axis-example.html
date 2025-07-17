@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- include polyfills for custom event, Symbol and Custom Elements -->
+  <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.js"></script>
+  <script src="https://unpkg.com/custom-event-polyfill@0.3.0/custom-event-polyfill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/1.8.0/document-register-element.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+
+  <script src="https://unpkg.com/d3@5.5.0"></script>
+  <script src="https://unpkg.com/d3fc@14.0.39"></script>
+  <script src="https://unpkg.com/d3fc-flexi-chart@0.0.2"></script>
+
+  <style>
+
+  </style>
+</head>
+<body>
+  <script type="text/babel" src="../demo.js"></script>
+  <link href="../demo.css" rel="stylesheet">
+
+<script id="data.js" type='text/babel'>
+  const sinCos = d3.range(50).map((d) => ({
+    x: d / 4,
+    y: Math.sin(d / 4),
+    z: Math.cos(d / 4) * 0.7
+  }));
+  const bars1 = [
+    {x: 1.5, y: 22},
+    {x: 2, y: 30},
+    {x: 4, y: 15},
+    {x: 7, y: 5},
+    {x: 10, y: 41},
+    {x: 11, y: 27},
+  ];
+  const bars2 = [
+    {x: 1, y: 35},
+    {x: 3, y: 10},
+    {x: 4.5, y: 42},
+    {x: 6, y: 51},
+    {x: 8.5, y: 13},
+    {x: 9, y: 86},
+  ];
+  const data = {
+    sinCos,
+    bars1,
+    bars2
+  };
+</script>
+
+<script id="series.js" type='text/babel'>
+  // gridlines (from d3fc-annotation)
+  const gridlinesSvg = fc.annotationSvgGridline();
+  const lineSvg = fc.seriesSvgLine();
+  const areaSvg = fc.seriesSvgArea().mainValue(d => d.z);
+
+  const multiSvg = fc.seriesSvgMulti()
+    .series([gridlinesSvg, areaSvg, lineSvg]);
+
+  const bar1Color = 'rgba(255, 0, 0, 0.3)';
+  const bar1Canvas = fc.seriesCanvasBar().bandwidth(10)
+    .decorate(context => context.fillStyle = bar1Color);
+  const bar2Color = 'rgba(0, 0, 255, 0.3)';
+  const bar2Canvas = fc.seriesCanvasBar().bandwidth(10)
+    .decorate(context => context.fillStyle = bar2Color);
+</script>
+
+<script id="chart.js" type='text/babel'>
+  const sinCosLayer = fcFlexi.svgLayer(
+        d3.scaleLinear(),
+        d3.scaleLinear()
+    )
+    .yOrient('left')
+    .yDomain([-1.1, 1.1])
+    .xDomain([0, 12])
+    .plotArea(multiSvg);
+
+  const bar1Layer = fcFlexi.canvasLayer(
+        d3.scaleLinear(),
+        d3.scaleLinear()
+    )
+    .xOrient('none')
+    .yDomain([0, 100])
+    .xDomain([0, 12])
+    .plotArea(bar1Canvas)
+    .yDecorate(s => {
+      d3.select(s.node().parentNode).selectAll('path')
+          .style('stroke-width', '2px')
+          .style('stroke', bar1Color);
+      s.selectAll('text')
+          .style('stroke', bar1Color);
+    });
+
+  const bar2Layer = fcFlexi.canvasLayer(
+        d3.scaleLinear(),
+        d3.scaleLinear()
+    )
+    .xOrient('none')
+    .yDomain([0, 200])
+    .xDomain([0, 12])
+    .plotArea(bar2Canvas)
+    .yDecorate(s => {
+      d3.select(s.node().parentNode).selectAll('path')
+          .style('stroke-width', '2px')
+          .style('stroke', bar2Color);
+      s.selectAll('text')
+          .style('stroke', bar2Color);
+    });
+
+  const chart = fcFlexi.chart()
+    .bottomLabel('Value')
+    .leftLabel('Sine / Cosine')
+    .layers([sinCosLayer, bar1Layer, bar2Layer])
+    .mapping((data, index, layers) => {
+      switch(layers[index]) {
+        case sinCosLayer:
+          return data.sinCos;
+        case bar1Layer:
+          return data.bars1;
+        case bar2Layer:
+          return data.bars2;
+      }
+    });
+    
+  // render
+  d3.select('.demo')
+    .datum(data)
+    .call(chart);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Torus - Multiple Segments (D3 with Transitions)</title>
+    <script src="d3.min.js"></script>
+    <script src="x3dom-full.js"></script>
+    <link rel="stylesheet" href="x3dom.css">
+    <style>
+        html { height: 100%; width: 100%; }
+        body { height: 100%; width: 100%; margin: 0px; }
+        x3d { height: 100%; width: 100%; }
+        x3d > canvas { display: block; }
+    </style>
+    <script>
+      const chart = function() {
+        let data = [];
+
+        const renderFn = function(selection) {
+          const sum = data.reduce((sum, datum) => sum + datum.value, 0);
+
+          const slices = [];
+          data.forEach((datum, index) => {
+            const prev = index > 0 ? slices[index - 1] : null;
+            slices.push({
+              color: datum.color,
+              start: prev ? prev.start + prev.length : 0,
+              length: 2 * Math.PI * datum.value / sum
+            })
+          });
+
+          selection
+            .selectAll("x3d")
+            .data([slices])
+            .join("x3d")
+            .selectAll("scene")
+            .data(d => [d])
+            .join("scene")
+            .selectAll("transform.chart")
+            .data(d => [d])
+            .join("transform")
+              .attr("class", "chart")
+              .attr("rotation", `0 0 1 ${Math.PI / 2}`)
+            .selectAll("transform.chart-slice")
+            .data(d => d)
+            .join("transform")
+              .attr("class", "chart-slice")
+              .call(s => s
+                .transition()
+                  .attr("rotation", d => `0 0 1 ${-d.start}`)
+              )
+            .selectAll("shape")
+            .data(d => [d])
+            .join("shape")
+            .call(s => s
+              .selectAll("torus")
+              .data(d => [d])
+              .join("torus")
+                .attr("useGeoCache", false)
+                .call(s => s
+                  .transition()
+                    .attr("angle", d => d.length)
+                )
+            )
+            .call(s => s
+              .selectAll("appearance")
+              .data(d => [d])
+              .join("appearance")
+              .selectAll("material")
+              .data(d => [d])
+              .join("material")
+                .attr("diffuseColor", d => `${d.color.r / 255} ${d.color.g / 255} ${d.color.b / 255}`)
+            )
+        };
+
+        renderFn.data = function(value) {
+          if (arguments.length === 0) {
+            return data;
+          }
+          data = value;
+          return renderFn;
+        };
+
+        return renderFn;
+      }
+    </script>
+  </head>
+  <body>
+    <script>
+      const renderChart = chart();
+
+      function update() {
+        renderChart.data([
+            { color: d3.rgb(255, 0, 0), value: Math.random() },
+            { color: d3.rgb(0, 255, 0), value: Math.random() },
+            { color: d3.rgb(0, 0, 255), value: Math.random() }
+          ]);
+
+          d3.select("body")
+            .call(renderChart);
+      }
+
+      update();
+      d3.interval(update, 5000);
+    </script>
+  </body>
+</html>

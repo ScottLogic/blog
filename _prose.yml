@@ -301,8 +301,8 @@ prose:
             login: dsmithsl
             user: dsmith
         -
-            login: willsalt-sl
-            user: wsalt
+            login: csalt-scottlogic
+            user: csalt
         -
             login: MagnusSmith
             user: magnussmith
@@ -468,6 +468,9 @@ prose:
         -
             login: grewdw
             user: dgrew
+        -   
+            login: dhinrichs 
+            user: dhinrichs
         -
             login: codepb
             user: pburgess
@@ -486,3 +489,6 @@ prose:
         -
             login: cfisher-scottlogic
             user: cfisher
+        -
+            login: Ch0live
+            user: colive

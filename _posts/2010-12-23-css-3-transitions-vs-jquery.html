@@ -1,0 +1,134 @@
+---
+title: CSS 3 Transitions vs jQuery
+date: 2010-12-23 00:00:00 Z
+categories:
+- Tech
+tags:
+- CSS
+- Javascript
+- JQuery
+- blog
+id: 100918
+author: lpage
+oldlink: http://www.scottlogic.co.uk/2010/12/css-3-transitions-vs-jquery/
+layout: default_post
+source: site
+disqus-id: "/2010/12/css-3-transitions-vs-jquery/"
+summary: I was reading <a href="http://www.alistapart.com/articles/understanding-css3-transitions/">an
+  article on CSS 3 transitions</a> that was very interesting, but as I was reading,
+  it seemed like the feature was designed for CSS designers - the primary example
+  was animating an effect on hover.
+---
+
+<h3>Introduction</h3>
+<p>This post is me taking a break from the CSS Performance series. I have the next post almost written though...</p>
+<p>I was reading <a href="http://www.alistapart.com/articles/understanding-css3-transitions/">an article on CSS 3 transitions</a> that was very interesting, but as I was reading, it seemed like the feature was designed for CSS designers - the primary example was animating an effect on hover. </p>
+<p>I wasn't particularly interested in this application - I'm more interested in using the effect to have the browser perform animations rather than having a setInterval that changes a property - we get to push calculating intermediate steps and easing on to the browser and allow the style of the animation to be controlled in the CSS. </p>
+<p>Ideally (and I'll look at this later on) the animation will run in a separate thread so a JavaScript calculation does not make the visual effect jerky.</p>
+<p>I'm going to assume you've read the above post (which was a good introduction) or had a look at <a href="http://www.w3.org/TR/css3-transitions/">the specification</a>. In all the examples I've added -moz and -webkit so that you can see them working in Chrome, Safari or Firefox 4.</p>
+<h3>The Problem</h3>
+<p>The transition effect is specified on the element and then when the specified property changes, then for as long as the transition style is still being applied to the element, the property animates. This way of specifying the transition has the advantage that if you change the color on hover and activation, you only need one selector to give the property to. </p>
+<p>I have demonstrated this in <a href='{{ site.baseurl }}/archive/2010/12/transitions1.htm'>example 1</a>.</p>
+<p>However this makes it difficult to specify a fade in amount and fade out amount. So, next in <a href='{{ site.baseurl }}/archive/2010/12/transitions2.htm'>example 2</a> I'll demonstrate this simple case by providing transition properties on hover as well as on the element itself.</p>
+{% highlight css %}
+td {
+  transition-property: background;
+  transition-duration: 10s;
+  background-color: white;
+}
+
+td:hover {
+  transition-duration: 1s;
+  background-color: red;
+}
+{% endhighlight %}
+<p>You will notice that we can make the red color fade in in 1 second, but fade out in 10 seconds. Lets look at the sequence of events..</p>
+<ol>
+<li>Page loaded - no hover, no change in color, background is white</li>
+<li>user hovers - styles are applied so transition duration is overridden and is 1 second. the background color has changed to red, so we fade from white to red in 1 second</li>
+<li>user removes hover - styles are re-applied and the duration is no longer overridden so it is 10 seconds. The color has changed from red to white so we fade back to that in 10 seconds</li>
+</ol>
+<p>This works well if we wish for the background property to always be animated on this element, but in <a href='{{ site.baseurl }}/archive/2010/12/transitions3.htm'>example 3</a>, I've added an alternating row color. Note how when you click insert row, it animates the alternating rows since the rows get pushed down and whether a row is colored or not gets changed. </p>
+<p>Switching off transitions for odd rows does not help us either, since this will only be active whilst the row is odd - so we still get a transition when the row moves from being odd to even. It also prevents a transition between our hover color and an odd row.</p>
+<p>If we only want to transition in to a state, the solution of putting the transition only on the hover will work. See <a href='{{ site.baseurl }}/archive/2010/12/transitions4.htm'>example 4</a>.</p>
+<p>However, I cannot see a way to animate a style being removed, without using some JavaScript, so use JavaScript is exactly what I will do.</p>
+{% highlight css %}
+td {
+  background-color: white;
+}
+
+td.animate {
+  -webkit-transition-property: background;
+  -webkit-transition-duration: 10s;
+}
+
+td.over {
+  background-color: red;
+}
+{% endhighlight %}
+{% highlight javascript %}
+$("td").hover(function(e) {
+  var jqEl = $(e.target), timeoutId = jqEl.data("timeoutId");
+  jqEl.removeClass("animate").addClass("over");
+  if  (timeoutId) {
+    clearTimeout(timeoutId);
+    jqEl.data("timeoutId", null);
+  }
+},
+function(e) {
+  var jqEl = $(e.target);
+  jqEl.addClass("animate");
+  setTimeout(function() {
+    jqEl.removeClass("over");
+    jqEl.data("timeoutId", setTimeout(function() {
+      jqEl.removeClass("animate");
+    }, 10000));
+  }, 0);
+});
+{% endhighlight %}
+<p>What I am doing here is adding the over class, which doesn't have a transition, then when the hover is removed I am adding an animate and then removing the over class.</p>
+<p>This causes the animation to be active whilst the color is removed and until we figure the animation is over. This is demonstrated in <a href='{{ site.baseurl }}/archive/2010/12/transitions5.htm'>example 5</a>.</p>
+<p>Since CSS Transitions provides a animation over event, it would be nicer still to remove the animate class on that firing, so we could have the animation timings also in the CSS.</p>
+<h3>Is it any better?</h3>
+<p>So, having 2 setTimeout functions in order to start and end the animation is tidier than having a setTimeout to perform every step (though you can do the last one using jQuery), but a question remains as to whether the effect is likely to occur in a second thread or whether it will start stuttering when we have a lot of JavaScript running?</p>
+<p>First off is to answer if it is faster than using jQuery. So I wrote two versions of whiteboard type page - wave the mouse over the grid and red dots appear and fade out. This is available in <a href='{{ site.baseurl }}/archive/2010/12/transitions6.htm'>example 6</a> and <a href='{{ site.baseurl }}/archive/2010/12/transitions7.htm'>example 7</a>.</p>
+<p>But there wasn't much difference between them. So I've written an automated test that gives a FPS as it draws cells red and lets them fade out.<a href='{{ site.baseurl }}/archive/2010/12/transitions8.htm'>example 8</a> (CSS Transitions) and <a href='{{ site.baseurl }}/archive/2010/12/transitions9.htm'>example 9</a> (jQuery).</p>
+<p>On my machine with Chrome, CSS Transitions won - but not by much. CSS Transitions leveled at 24fps while jQuery leveled at 21fps. In Firefox transitions also won but by a bit more fps. Possibly the jQuery color plugin isn't the most performant, so when allowing for a possible small improvement in the jQuery results, there is not much difference between them.</p>
+<p>Next I've added a hog function that loops round doing nothing for a second to see if the animation continue flawlessly or is effected by the JavaScript. This is in <a href='{{ site.baseurl }}/archive/2010/12/transitions10.htm'>example 10</a>.</p>
+<p>Unfortunately, at the moment it is effected, making it no better than jQuery performance wise.</p>
+<h3>Conclusion</h3>
+<p>Performance wise there is little gain from using CSS Transitions over JavaScript.</p>
+<p>Pro CSS Transitions</p>
+<ul>
+<li>Style is kept in the CSS &amp; no inline styling is needed</li>
+<li>CSS Transitions are slightly quicker</li>
+<li>Better coping if the destination style is changed mid animation</li>
+</ul>
+<p>Pro jQuery</p>
+<ul>
+<li>JavaScript using jQuery and the color plugin is simpler (but CSS could be encapsulated into plugin too)</li>
+<li>All browsers support</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Dom Changing Test</title>
+<style type="text/css">
+/*almost perfect*/
+.tbl { border-collapse: collapse; table-layout: fixed; width: 800px; height: 2100px; padding: 0px; border: 0px; margin: 0px;}
+.tbl td { padding: 0px; border: 0px; margin: 0px; overflow: hidden; white-space: nowrap;}
+
+/*
+   height:0px; slow
+   height: 500px, 100px - fast
+   height: auto; slow
+   not specified - slow
+*/
+
+.percbar { width: 400px; height: 1.1em; border: black solid 1px;}
+#percentage { width: 0px; height: 1.1em; color: white; background-color: green;}
+</style>
+<script type="text/javascript"><!--
+var StartTest = function () {
+	usedClasses = [];
+	tests = [
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: alterBothUIHFactory(1),
+		  description: [ "1a", "one span, alter cell class and text - innerHTML x25", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div.testcontainer table span.{0}", count:625}]); create100RowsUIH(); },
+		  test: alterBothUIHFactory(1),
+		  description: [ "1b", "one span, alter cell class and text - innerHTML x25", "625", "div.testcontainer table span.{0}"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: alterBothMIHFactory(1),
+		  description: [ "2a", "one span, alter cell class and text - innerHTML and className x25", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div.testcontainer table span.{0}", count:625}]); create100RowsUIH(); },
+		  test: alterBothMIHFactory(1),
+		  description: [ "2b", "one span, alter cell class and text - innerHTML and className x25", "625", "div.testcontainer table span.{0}"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(); },
+		  test: alterBothTNFactory(1),
+		  description: [ "3a", "one span, alter cell class and text - TextNode and className x25", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div.testcontainer table span.{0}", count:625}]); create100RowsUIH(); },
+		  test: alterBothTNFactory(1),
+		  description: [ "3b", "one span, alter cell class and text - TextNode and className x25", "625", "div.testcontainer table span.{0}"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(2); },
+		  test: alterBothUIHFactory(2),
+		  description: [ "4a", "two spans, alter cell class and text - innerHTML x25", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div.testcontainer table span.{0}", count:625}]); create100RowsUIH(2); },
+		  test: alterBothUIHFactory(2),
+		  description: [ "4b", "two spans, alter cell class and text - innerHTML x25", "625", "div.testcontainer table span.{0}"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(2); },
+		  test: alterBothMIHFactory(2),
+		  description: [ "5a", "two spans, alter cell class and text - innerHTML and className x25", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div.testcontainer table span.{0}", count:625}]); create100RowsUIH(2); },
+		  test: alterBothMIHFactory(2),
+		  description: [ "5b", "two spans, alter cell class and text - innerHTML and className x25", "625", "div.testcontainer table span.{0}"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(2); },
+		  test: alterBothTNFactory(2),
+		  description: [ "6a", "two spans, alter cell class and text - TextNode and className x25", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div.testcontainer table span.{0}", count:625}]); create100RowsUIH(2); },
+		  test: alterBothTNFactory(2),
+		  description: [ "6b", "two spans, alter cell class and text - TextNode and className x25", "625", "div.testcontainer table span.{0}"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(3); },
+		  test: alterBothUIHFactory(3),
+		  description: [ "7a", "3 spans, alter cell class and text - innerHTML x25", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div.testcontainer table span.{0}", count:625}]); create100RowsUIH(3); },
+		  test: alterBothUIHFactory(3),
+		  description: [ "7b", "3 spans, alter cell class and text - innerHTML x25", "625", "div.testcontainer table span.{0}"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(3); },
+		  test: alterBothMIHFactory(3),
+		  description: [ "8a", "3 spans, alter cell class and text - innerHTML and className x25", "25", ".ab {"]
+		},
+		{ setup: function() {createStyles([{selector:"div.testcontainer table span.{0}", count:625}]); create100RowsUIH(3); },
+		  test: alterBothMIHFactory(3),
+		  description: [ "8b", "3 spans, alter cell class and text - innerHTML and className x25", "625", "div.testcontainer table span.{0}"]
+		},
+		{ setup: function() {createStyles([{selector:".{0}", count:25}]); create100RowsUIH(3); },
+		  test: alterBothTNFactory(3),
+		  description: [ "9a", "3 spans, alter cell class and text - TextNode and className x25", "25", ".ab {"]
+		},
+		{ setup: function()
+		{createStyles([{selector:"div.testcontainer table span.{0}", count:625}]); create100RowsUIH(3); },
+		  test: alterBothTNFactory(3),
+		  description: [ "9b", "3 spans, alter cell class and text - TextNode and className x25", "625", "div.testcontainer table span.{0}"]
+		}
+		];
+	runTestArray(tests);
+};
+
+var runTestArray = function(testsToRun, totalCount) {
+	if  (!totalCount) {
+		totalCount = testsToRun.length;
+	}
+	
+	var percentage = (totalCount - testsToRun.length) / totalCount;
+	document.getElementById("percentage").style.width = parseInt(percentage*400)+"px";
+	
+	if  (testsToRun.length === 0) {
+		document.getElementById("percentage").innerHTML = "Finished!";
+		return;
+	}
+	
+	runTest(testsToRun[0].setup, 
+			testsToRun[0].test, 
+			testsToRun[0].description, 
+			function() { 
+				runTestArray(testsToRun.slice(1), totalCount); 
+			});
+};
+
+String.prototype.addOne = function() {
+    return String.fromCharCode(this.charCodeAt(0)+1);
+};
+
+var createStyles = function (selectorArray) {
+	var i, j, cssText="", char1='a', char2='a', colours = ["red", "green", "Blue", "violet"],
+		currentClassName="",
+		selector = "",
+		incrementClass=function() {};
+
+	for(i = 0; i < selectorArray.length; i++) {
+		for(j = 0; j < selectorArray[i].count; j++) {
+			currentClassName=char1+char2; 
+			if  (char2==='z') {
+				char1 = char1.addOne(); 
+				char2='a';
+			} else {
+				char2 = char2.addOne();
+			}
+			if  (!selectorArray[i].unused) {
+				usedClasses.push(currentClassName);
+			}
+			selector = selectorArray[i].selector.replace("{0}", currentClassName);
+			cssText += selector + " {\n background: "+colours[Math.floor(Math.random()*4)]+"; }\n\n";
+		}
+	}
+
+	addStyleTag(cssText);
+};
+
+var addStyleTag = function(cssText) {
+
+    var ss = document.createElement('style');
+	ss.setAttribute("type", "text/css");
+
+	if (ss.styleSheet) {   // IE
+    	ss.styleSheet.cssText = cssText;
+	} else {
+    	ss.appendChild(document.createTextNode(cssText));
+	}
+	var head = document.getElementsByTagName('head')[0];
+	head.appendChild(ss);
+};
+
+var cleanUp = function () {
+	usedClasses.length = 0;
+	var styles = document.getElementsByTagName('style');
+	for(var i = 1; i < styles.length; i++) {
+		styles[i].parentNode.removeChild(styles[i]);
+	}
+	document.getElementById("testcontainer").innerHTML = "";
+};
+
+var runTest = function(setupFunc, testFunc, testDescription, returnFunc) {
+
+	setTimeout(function() {
+		var setupStart = new Date().getTime();
+		setupFunc();
+		setTimeout(function() {
+
+			var testStart = new Date().getTime();
+			testFunc();
+			var testEnd = new Date().getTime();
+			var afterRender = function() {
+				var renderEnd = new Date().getTime();
+
+				cleanUp();
+
+				var tr = document.createElement("tr"), td;
+				
+				for(var i = 0; i < testDescription.length; i++) {
+					td = document.createElement("td");
+					td.innerHTML = testDescription[i];
+					tr.appendChild(td);
+				}
+
+				td = document.createElement("td");
+				td.innerHTML = ""+(testStart-setupStart);
+				tr.appendChild(td);
+				
+				td = document.createElement("td");
+				td.innerHTML = ""+(testEnd-testStart);
+				tr.appendChild(td);
+
+				td = document.createElement("td");
+				td.innerHTML = ""+(renderEnd-testEnd);
+				tr.appendChild(td);
+				
+				td = document.createElement("td");
+				td.innerHTML = ""+(renderEnd-testStart);
+				tr.appendChild(td);
+				
+				document.getElementById("testresults").appendChild(tr);
+				
+				setTimeout(function() {
+					returnFunc();
+				}, 5000);
+			};
+			setTimeout(afterRender, 0);
+		}, 0);
+	}, 0);
+};
+
+/* thanks to http://ejohn.org/projects/flexible-javascript-events/ */
+var addEvent = function ( obj, type, fn ) {
+  if ( obj.attachEvent ) {
+    obj['e'+type+fn] = fn;
+    obj[type+fn] = function(){obj['e'+type+fn]( window.event );}
+    obj.attachEvent( 'on'+type, obj[type+fn] );
+  } else
+    obj.addEventListener( type, fn, false );
+};
+
+var removeEvent = function ( obj, type, fn ) {
+  if ( obj.detachEvent ) {
+    obj.detachEvent( 'on'+type, obj[type+fn] );
+    obj[type+fn] = null;
+  } else
+    obj.removeEventListener( type, fn, false );
+};
+
+var create100RowsUIH = function (noOfSpans) {
+    var tbl = document.createElement("table"),
+        tbody = document.createElement("tbody"),
+		i, j, k, tr, td, testcontainer = document.getElementById("testcontainer"),
+		dcTb = document.createElement("div"), tb,
+		onClick = function() {alert("a");};
+	noOfSpans = noOfSpans || 1;
+
+    tbl.className = "tbl";
+    tbl.id = "mytb";
+    testcontainer.appendChild(tbl);
+
+    /*var cg= document.createElement("colgroup");
+    for(j = 0; j < 100; j++) {
+	var col = document.createElement("col");
+	col.width = "8";
+	cg.appendChild(col);
+    }
+    tbl.appendChild(cg);*/
+
+    tbl.appendChild(tbody);
+
+    for(i = 0; i < 100; i++) {
+	    tr = "<table><tbody><tr>";
+	    for(j = 0; j < 100; j++) {
+			td = "<td>";
+			for(k = 0; k < noOfSpans; k++) {
+				td += "<span class=\""+usedClasses[Math.floor(Math.random()*usedClasses.length)]+"\">_</span>";
+			}
+			td += "</td>";
+			tr = tr+td;
+	    }
+		tr = tr+"</tr></tbody></table>";
+		dcTb.innerHTML = tr;
+		tr = dcTb.childNodes[0].childNodes[0].childNodes[0];
+
+		for(j = 0; j < 100; j++) {
+			td = tr.childNodes[j];
+			if  (j === 3 || j === 8 || j === 10) {
+				addEvent(td, "Click", onClick);
+			}
+		}
+	    tbody.appendChild(tr);
+    }	 
+};
+
+var alterBothUIHFactory = function (noOfSpans) {
+	return function () {
+		var tbl = document.getElementById("mytb").childNodes[0],
+			htm = "", i;
+		for(i = 0; i < noOfSpans; i++) {
+			htm += "<span class=\"ax\">New Text</span>";
+		}
+		for(i = 0; i < 25; i++) {
+			tbl.childNodes[i].childNodes[i].innerHTML = htm;
+		}
+	};
+};
+
+var alterBothMIHFactory = function (noOfSpans) {
+	return function () {
+		var tbl = document.getElementById("mytb").childNodes[0],
+			i, j;
+		for(i = 0; i < 25; i++) {
+			for(j = 0; j < noOfSpans; j++) {
+				tbl.childNodes[i].childNodes[i].childNodes[j].innerHTML = "New Text";
+				tbl.childNodes[i].childNodes[i].childNodes[j].className = "ax";
+			}
+		}
+	};
+}
+
+var alterBothTNFactory = function (noOfSpans) {
+	return function () {
+		var tbl = document.getElementById("mytb").childNodes[0], 
+			i, j;
+		for(i = 0; i < 25; i++) {
+			for(j = 0; j < noOfSpans; j++) {
+				tbl.childNodes[i].childNodes[i].childNodes[j].childNodes[0].nodeValue = "New Text";
+				tbl.childNodes[i].childNodes[i].childNodes[j].className = "ax";
+			}
+		}
+	};
+};
+
+//-->
+</script>
+</head>
+<body>
+	<a onClick="document.getElementById('starttest').style.display = 'none';StartTest();return false;" id="starttest" href="#">Start Tests</a>
+	<div class="percbar">
+		<div id="percentage"></div>
+	</div>
+
+	<table>
+		<thead>
+			<tr><th>No.</th><th>Description</th><th>Selector Count</th><th>Selector</th>
+			<th>Setup Time</th><th>Test Time</th><th>Render Time</th><th>Render+Test Time</th></tr>
+		</thead>
+		<tbody id="testresults">
+		</tbody>
+	</table>
+
+	<div id="testcontainer" class="testcontainer">&nbsp;
+	</div>
+</body>
+</html>

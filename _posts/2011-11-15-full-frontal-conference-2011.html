@@ -1,0 +1,53 @@
+---
+title: Full Frontal Conference 2011
+date: 2011-11-15 00:00:00 Z
+categories:
+- Tech
+tags:
+- Javascript
+- HTML5
+- Conferences
+- Full Frontal
+- blog
+id: 135433
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2011/11/full-frontal-conference-2011/
+layout: default_post
+source: site
+disqus-id: "/2011/11/full-frontal-conference-2011/"
+summary: Last Friday I headed down to Brighton for the annual Full Frontal conference.
+---
+
+<div><em>Last Friday I headed down to Brighton for the annual Full Frontal conference. It was my first time there and I'm very glad I made the trip. The quality and breadth of the talks given far exceeded my expectations. Thanks to Remy Sharp for his organisational and timekeeping skills, and everyone else who made the day (and evening...) thoroughly enjoyable!</em></p>
+<p><strong>Jeremy Ashkenas - </strong>CoffeeScript</p>
+<p>This talk was a bit of a wake up call for me, firstly because it was first thing in the morning, but mainly because I'd always been quite snobby about CoffeeScript. I'd first come across it on a <a href="http://hackaday.com/2009/12/31/coffeescript-like-aspirin-for-javascript/">hardware hacking site</a> I follow and the article was very JavaScript-hating. Since then I'd always assumed that was the philosophy behind CoffeeScript, I was wrong...</p>
+<p>The true philosophy that Jeremy introduced was that CoffeeScript allows you to write very tersely the JavaScript you yourself would have written. A key design decision is that it doesn't rely on a base library in order for the translated code to function. So instead of adding lots of language features, it seeks to rationalise what's there. Or quoting from the slides "Syntax + Semantics + Goodies".</p>
+<p>Whilst I still can't see me using CoffeeScript for big projects, my take-home message from the talk was that, I don't think it was ever really meant for that. I think its niche for me will be in side projects, experiments or prototypes. Much like Perl or Bash scripts, sometimes they're the right tool for the job, and I can see CoffeeScript being an ideal way to express an idea quickly and concisely.</p>
+<p><strong>Phil Hawksworth - </strong>Excessive Enhancement</p>
+<p>Phil, a.k.a Captain Killjoy, had a very philosophical point to make in his talk, best explained by this grab from his slides -</p>
+<p><a href="http://speakerdeck.com/u/philhawksworth/p/excessive-enhancement"><img title="Capture" src="{{ site.baseurl }}/archive/2011/11/Capture.png" alt="" width="706" height="398" /></a></p>
+<p>The serious point was that web developers have long sneered at Flash (RIP) / Silverlight (RIP) developers for creating web application lumps that break the nature of the web e.g. bookmark-able, history-navigable and accessible. However, in his opinion, that is exactly the way HTML5 is headed and as web developers we have an obligation either to stop sneering, or to do it right™.</p>
+<p>Most of the HTML5 stuff I build / look at currently is a demo in one way or another, so I'm used to forgiving myself / the developer for not doing it right™; after all that's not the intention of the site. The stand-out point for me though, was that these sites will be taken as examples by developers new to the technology, whether that was the original intention of the demo or not. Therefore all developers making websites from demos up to full commercial sites should take this responsibility seriously, if for no other reason than to continue sneering at Flash!</p>
+<p>Other interesting tit-bits from his talk which I hadn't seen before were the über doodle of the web, <a href="http://code.google.com/web/ajaxcrawling/">ajaxcrawling</a> / <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shbang</a> and the fact that <a href="https://developer.mozilla.org/en/DOM/Manipulating_the_browser_history#Adding_and_modifying_history_entries">HTML5 history API</a> allows for full-URL updating not just hash changes.</p>
+<p><strong>Marijn Haverbeke - </strong>CodeMirror</p>
+<p>Marijn is the primary developer behind <a href="http://codemirror.net/">CodeMirror</a>, the browser-based code editor that powers <a href="http://jsfiddle.net/">jsFiddle</a> amongst others. His talk was quite a technical peek behind the scenes of the editor and how it manages to keep performance in check. A sizable chunk of the talk was dedicated to the kinds of compromises he has to make between supporting expected interactions e.g. right-click-&gt;select all and overall performance. His big plea was for the browsers to allow web-apps to implement keyboard shortcuts that, with permission, could override the defaults and events which better indicate text selection / manipulation interactions especially on mobile devices.</p>
+<p><strong>Rik Arends - </strong>Cloud9 IDE</p>
+<p>Rik gave a very confident talk about the <a href="https://c9.io/">Cloud9 IDE</a> that his company has built / is building. It was something that I'd only scratched the surface of myself so it was really interesting to hear a lot more about it.</p>
+<p>I think the concept of a web-based IDE is a very powerful one and I'd be surprised if Cloud9 were the only ones in the market in a year or two. With that said, they seem to have a very powerful Facebook-esque business model in mind, that of building and giving away a platform for free but then cashing in on 3rd party developers producing plug-ins for the platform.</p>
+<p><strong>Nicholas Zakas - </strong>Scalable JavaScript Application Architecture</p>
+<p>Nicholas had the unenviable task of first slot after lunch, but nursing a food baby, I was still able to learn a lot about Yahoo's approach to architecting a large application without sacrificing testability and usability. He's given the talk a few times and it's available on <a href="http://www.youtube.com/watch?v=vXjVFPosQHw">YouTube</a>.</p>
+<p>One of the points made during the talk is that your DOM abstraction library (e.g. jQuery / YUI / DoJo) shouldn't propagate throughout your application code and should instead be restricted to your application controller. I really struggled to understand how this could be possible but one the questions at the end of his session (not in the video) helped explain. Basically it's unavoidable that library references will leak throughout your code because the trade-off is a lot of abstraction through the various layers of the application. However, if you find yourself doing lots of repetitive tasks in your modules then see if you can abstract those tasks back into the application controller. E.g. the application controller could automatically add a click handler to the root of the module when it starts a module, removing the need for most event handling references from the module code.</p>
+<p>I also liked his quip - "What's the difference between <a href="http://www.slideshare.net/nzakas/enterprise-javascript-error-handling-presentation">Enterprise JavaScript Error Handling</a> and JavaScript Error Handling? One gets accepted at conferences".</p>
+<p><strong>Glenn Jones</strong> - Drag / Drop and Web Intents</p>
+<p>Glenn gave us an interesting insight into the current state of drag/drop in the browser. I was surprised at how far things had come but still disappointed in how clunky it all seemed. I have to wonder what the future holds for drag/drop with more devices sporting touch screens and more websites encouraging a full screen app feel.</p>
+<p>The more interesting part of the talk for me was <a href="http://webintents.org/">web intents</a>. It's the Android OS intents concept but applied to the web, specifically it permits a user manageable service discovery mechanism. E.g. when a user clicks to shorten a URL the host website asks for a URL shortening service, the host site fires off the request and the user is prompted to select a service from one that could be running in a background tab or plug-in.</p>
+<p><strong>Brendan Dawes</strong> - Pencil / Paperclip Fanaticism</p>
+<p>Brendan gave a very entertaining talk on novel interactions, or how to engage a potentially uninterested visitor by breaking the rules. At least I think that's what his talk was on, it could equally well have been on Altoids tins, his 3d printed contraptions or a brief history of pencils.</p>
+<p>Either way this was my favourite and most inspiring talk of the day. Check out <a href="http://mnatwork.com/">his company's homepage</a> for an example of the kind of interface I'm talking about, and for a better idea of how random and varied the talk was check out <a href="http://www.brendandawes.com/">his homepage</a>.</p>
+<p><strong>Marcin Wichary</strong> - Google Doodles</p>
+<p>Marcin is the man responsible for many of the interactive doodles that turn up on the Google homepage. Most notably the <a href="http://www.google.com/pacman/">PAC-MAN Doodle</a> from April 2010 which I remember stirring the competitive spirit in the office! It was a fascinating talk detailing the lengths he has to go to in order to add interactivity without sacrificing any of the speed or browser compatibility expected from the number 1 piece of web real estate.</p>
+<p style="text-align: center;"><a href="http://www.google.com/pacman/"><img class="aligncenter" title="Capture2" src="{{ site.baseurl }}/archive/2011/11/Capture2.png" alt="" width="589" height="211" /></a></p>
+<p>He drew big parallels between his work juggling browser quirks and the kinds of creative solutions that were required in the days of the Atari. His big quote (or mis-quote I can't remember exactly how he phrased it!) was along the lines of "if your code doesn't feel a bit nasty, you're a bit behind" and he seemed to have a genuine appreciation for the balance of good code to code that gets the job done. His recommendation of the book <a href="http://www.amazon.co.uk/Racing-Beam-Computer-Platform-Studies/dp/026201257X/ref=sr_1_1?ie=UTF8&amp;qid=1321291313&amp;sr=8-1">Racing the Beam</a> definitely makes it onto my Christmas list.</p>
+<p><strong>In Summary</strong></p>
+<p>Whilst no individual talk was on Node.js, the frequency it popped up in the talks and in conversation with fellow nerds, makes me think I've been missing a trick. Marcin's insane accelerometer &gt; Chrome &gt; web sockets &gt; Node.js &gt; web sockets &gt; Safari "workaround" was the final straw, my next side-project will definitely make use of <a href="https://nodejs.org/">Node.js</a>!</p>
+</div>

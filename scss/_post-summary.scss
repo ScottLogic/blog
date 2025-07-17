@@ -1,0 +1,61 @@
+@use 'colours';
+
+@mixin article-colour($colour) {
+  .category {
+    a:hover {
+      color: $colour;
+    }
+  }
+  .title {
+    color: $colour;
+    a:hover {
+      color: colours.$white;
+      background-color: $colour;
+    }
+  }
+  .post-summary-social {
+    color: $colour;
+    svg {
+      fill: $colour;
+    }
+  }
+  .avatar-metadata {
+    a:hover {
+      color: $colour;
+    }
+  }
+}
+
+.post-summary {
+
+  .category {
+    color: colours.$grey;
+  }
+
+  .title {
+    font-size: $baseFontSize * 1.5;
+    line-height: 1.4;
+    > a {
+      margin-right: 1.5rem;
+    }
+  }
+
+  .post-summary-social {
+    font-size: 1rem;
+    display: inline-block;
+    > .dq-comment-count {
+      margin-left: 0.5rem;
+    }
+  }
+
+  @include article-colour(colours.$teal);
+  &.pink {
+    @include article-colour(colours.$pink);
+  }
+  &.orange {
+    @include article-colour(colours.$orange);
+  }
+  &.yellow {
+    @include article-colour(colours.$yellow);
+  }
+}

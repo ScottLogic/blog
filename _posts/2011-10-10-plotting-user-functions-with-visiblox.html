@@ -1,0 +1,210 @@
+---
+title: Plotting user functions with Visiblox
+date: 2011-10-10 00:00:00 Z
+categories:
+- Tech
+tags:
+- blog
+id: 130838
+author: nwolverson
+oldlink: http://www.scottlogic.co.uk/2011/10/plotting-user-functions-with-visiblox/
+layout: default_post
+source: site
+disqus-id: "/2011/10/plotting-user-functions-with-visiblox/"
+summary: <a href="http://blog.scottlogic.com/2011/06/13/mathematical-style-plots-retemplating-visiblox-charts.html">Some
+  time ago</a> I wrote about plotting mathematical functions with Visiblox Charts,
+  and Jesse <a href="http://www.visiblox.com/blog/2011/06/plotting-mathematical-functions-on-visiblox">responded</a>
+  by showing how to wrap a function in a data series to feed into a chart.
+---
+
+<p><a href="http://blog.scottlogic.com/2011/06/13/mathematical-style-plots-retemplating-visiblox-charts.html">Some time ago</a> I wrote about plotting mathematical functions with Visiblox Charts, and Jesse <a href="http://www.visiblox.com/blog/2011/06/plotting-mathematical-functions-on-visiblox">responded</a> by showing how to wrap a function in a data series to feed into a chart. I'm going to show how to take this idea a bit further, generating additional data on interaction, and allowing the user to specify a function to chart.</p>
+<p><!--more--></p>
+<p>One limitation of the approach Jesse outlined is that the function range (and to a lesser extent its step) are explicitly specified. You can see that if you pan the chart, as this predefined limit is reached we go into uncharted territory (if you'll pardon the pun). What we'd really like to do is view any part of the function output - without generating more function outputs than required. There are two ways that spring to mind: firstly, bind the chart range to the function data range (which requires either making the data series a dependency object, or setting up the binding in reverse/via an intermediary); and secondly, via some magic which I will show below! My goal is to have a dataseries which will wrap a function (<code>double -> double</code> for now) and chart the visible portion as appropriate, requiring no setup other than dropping it into the chart.</p>
+<h4>Basic Function Data Series</h4>
+<p>Let's start with a basic implementation of a DataSeries wrapping a function. I've simplified Jesse's version, but this is the same basic approach (also omitting niceties like argument validation).</p>
+{% highlight csharp %}
+public class FunctionDataSeries : IDataSeries
+{
+    private Func<double, double> _function;
+    private double _min, _max;
+
+    public string Title { get; set; }
+
+    public FunctionDataSeries(Func<double, double> function, double min, double max)
+    {
+        _function = function;
+        _min = min;
+        _max = max;
+    }
+
+    /// <summary>
+    /// Simplest IDataSeries implementation - directly enumerate the data when asked for it.
+    /// </summary>
+    public System.Collections.IEnumerator GetEnumerator()
+    {
+        double step = Math.Max(0.0001, (_max - _min) / 100);
+        for (double x = _min; x <= _max; x += step)
+        {
+            yield return new DataPoint<double, double>(x, _function(x));
+        }
+    }
+
+    /// <summary>
+    /// Trivial INotifyCollectionChanged implementation - do nothing as we don't change.
+    /// </summary>
+    public event NotifyCollectionChangedEventHandler CollectionChanged;
+}
+{% endhighlight %}
+<p>This is nice and simple - perhaps too simple. Before going any further let's refine it a bit. While the minimum we have to do to construct a DataSeries is enumerate the points on demand, charting the series requires more than just looking at the data once, so it turns out this implementation is rather inefficient. Lets generate the data once, and instead present the data series as a list, allowing Visiblox to optimise.</p>
+{% highlight csharp %}
+public class FunctionDataSeries : List<IDataPoint>, IDataSeries
+{
+    private Func<double, double> _function;
+    private double _min, _max;
+
+    public string Title { get; set; }
+
+    public FunctionDataSeries(Func<double, double> function, double min, double max)
+    {
+        _function = function;
+        _min = min;
+        _max = max;
+        GenerateData();
+    }
+
+    private void GenerateData()
+    {
+        double step = Math.Max(0.0001, (_max - _min) / 100);
+        for (double x = _min; x <= _max; x += step)
+        {
+            this.Add(new DataPoint<double, double>(x, _function(x)));
+        }
+    }
+
+    public event NotifyCollectionChangedEventHandler CollectionChanged;
+}
+{% endhighlight %}
+<h4>Updating with the chart</h4>
+<p>This still doesn't use INotifyCollectionChanged, simply generating data on construction and adding it to the list. But data is only calculated once, points are only constructed once, and the data is available for random access as required. Now we're in a good place, so how do we generate more data dynamically when the chart range changes? By giving the data series a reference to the chart, or its axes, we can do this. In fact a reference to the IChartSeries used to display the IDataSeries gives exactly what we need: a reference to the axes used to display that series. From that, we can generate data according to the axis range - and when the range of those axes change, or the axes themselves are replaced, we can regenerate the data accordingly.</p>
+<p>We update the data generation to notify changes:</p>
+{% highlight csharp %}
+private void GenerateData()
+{
+    this.Clear();
+    double step = Math.Max(0.0001, (_max - _min) / 100);
+    for (double x = _min; x <= _max; x += step)
+    {
+        this.Add(new DataPoint<double, double>(x, _function(x)));
+    }
+    OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
+}
+
+protected void OnCollectionChanged(NotifyCollectionChangedEventArgs args)
+{
+    if (CollectionChanged != null)
+    {
+        CollectionChanged(this, args);
+    }
+}
+{% endhighlight %}
+<p>(Note that I could have used ObservableCollection, but instead I implement INotifyCollectionChanged directly - we only ever replace all the data at once, so it's better to just fire a single Reset notification rather than updating each point in turn.)</p>
+<p>I'll omit most of the event subscription/unsubscription boilerplate, but here's the meat of it:</p>
+{% highlight csharp %}
+// Property with some event subscribe/unsubscribe logic using SubscribeAxis
+public IChartSeries ChartSeries
+{
+	get { return _chartSeries; }
+	set
+        {
+            // ...
+            _chartSeries = value;
+            // ...
+            SubscribeAxis(_chartSeries.XAxis);
+            // ...
+        }
+}
+// ...
+// Main event subscription logic using AxisEventRelay
+private void SubscribeAxis(IAxis axis)
+{
+    // AxisEventRelay is a great way to be notified of maximum/minimum effective or actual range limit changes
+    // without listening to properties directly.
+    // Try changing this to AxisEventEnumeration.ActualRangeEffectiveLimitsChanged
+    AxisEventRelay relay = new AxisEventRelay(axis, AxisEventEnumeration.ActualRangeLimitsChanged);
+    relay.AxisEvent += Relay_AxisEvent;
+    GenerateData();
+}
+
+private void Relay_AxisEvent(object sender, AxisEventRelayEventArgs e)
+{
+    var xAxis = _xAxisRelay.Axis;
+    _min = (double)xAxis.ActualRange.Minimum;
+    _max = (double)xAxis.ActualRange.Maximum;
+
+    GenerateData();
+}
+{% endhighlight %}
+<p>I've regenerated the data only on actual range limits changing - this means that when zooming/panning when only the "effective" range changes, the data series does not regenerate. This might be a good idea for performance, but I mostly did this so that you can "see it working" - if you wanted to do this in reality, I'd recommend generating extra data off-screen to allow for a smoother panning experience. </p>
+<p>Great! now we can tell our dataseries the IChartSeries used to render it, and it will update the generated data range accordingly. So:</p>
+{% highlight csharp %}
+var dataSeries = new FunctionDataSeries(x => 2*x);
+var chartSeries = new LineSeries { DataSeries = dataSeries };
+dataSeries.ChartSeries = chartSeries;
+myChart.Series.Add(chartSeries);
+{% endhighlight %}
+<p>And now for the sprinkle of magic. Visiblox defines an interface  IChartSeriesAwareDataSeries. If a data series implements this interface - which consists of a single property </p>
+{% highlight csharp %}
+IChartSeries ChartSeries { get; set; }
+{% endhighlight %}
+<p>the data series is informed of the IChartSeries  used to render it, when that is added to the chart. (Normally a data series is "just data", and may be displayed by multiple chart series - but in this case it only makes sense to consider this a 1:1 relationship). Then our example above becomes:</p>
+{% highlight csharp %}
+myChart.Series.Add(new LineSeries { DataSeries = new FunctionDataSeries(x => 2*x) } );
+{% endhighlight %}
+<h4>Plotting user functions</h4>
+<p>OK, so we have code to wrap a function in a data series. I'm going to demo that by charting a function typed in by the user. We'll chart functions of the form "y = f(x)", so lets just parse some simple arithmetic expressions of x.</p>
+<p>For the parser, I've thrown together a parser in <a href="http://research.microsoft.com/en-us/um/cambridge/projects/fsharp/">F#</a> with <a href="http://www.quanttec.com/fparsec/">FParsec</a>, a parser combinator library. Now I wouldn't necessarily recommend introducing a dependency on the core F# DLLs and the FParsec library itself to parse a trivial language like this in an otherwise C# project. That said, it was fun to write and it's rather concise.</p>
+<p>I won't ask you to understand the code in detail, but I'm reproducing it below to give a flavour of it. The constructed parser takes in a string, which is an expression of x, and (if successful) returns a function from x to the expression value (so <code>double->double</code>). So there's no need to construct an <a href="http://en.wikipedia.org/wiki/Abstract_syntax_tree" title="Abstract Syntax Tree">Abstract Syntax Tree</a>; instead the result of parsing a sub-expression is a function from x to the result of that expression, and these functions are combined to interpret larger expressions. (The funny symbols like <code>&gt;&gt;%</code> and <code>|&gt;&gt;</code> are the FParsec's combinators, which allow parsers for subexpressions to be combined, with the different varieties for tasks like parsing 2 alternatives, or matching some text then passing it through a function)</p>
+<p><!-- F# is sort of like OCaml... --></p>
+{% highlight ocaml %}
+let sym = pstring
+(* environment is just a single double (the x value) *)
+type env = double
+
+(* variable becomes function returning the 'environment' x *)
+let var = sym "x" >>% id
+
+(* float literal becomes function returning that literal, ignoring the environment *)
+let num = (pfloat |>> (fun z _ -> z))
+
+(* helper function converting a numeric operator to a function of the environment *)
+(* fop : (double -> double -> double) -> (env -> double) -> (env -> double) -> env -> double *)
+let fop op fa fb env = fa env |> op <| fb env
+
+(* Parse single operators - return function taking two operands and giving the result *)
+let (addop : Parser<_,unit>) =
+    sym "+" >>% fop (+)
+    <|> ( sym "-" >>% fop (-) )
+let (mulop : Parser<_,unit>) =
+    sym "*" >>% fop (*)                  // Keep syntax highlighter happy! *)
+    <|> ( sym "/" >>% fop (/) )
+
+let (atom: Parser<float->float,unit>), atomImpl = createParserForwardedToRef() // break circular reference
+
+(*  Parse math function name - return the function itself *)
+let (mathOp: Parser<_,unit>) =
+       sym "sin" >>% sin
+       <|> ( sym "cos" >>% cos )
+       <|> ( sym "tan" >>% tan )
+
+(* f(x) or f(2+3) *)
+(* compose result of parsing the expression with the given function *)
+let mathExpr = mathOp .>>. atom |>> fun (f,g) -> g >> f
+
+(* term, expr - chain of operators of a given precedence *)
+let term = chainl1 atom mulop
+let expr = chainl1 term addop
+atomImpl := num <|> var  <|> mathExpr <|> between (sym "(") (sym ")") expr
+{% endhighlight %}
+<p>Putting it all together:       <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="400" height="400"><param name="source" value="{{ site.baseurl }}/archive/2011/10/UserFunctionPlotter.xap"/><param name="background" value="white" /><param name="minRuntimeVersion" value="4.0.50826.0" /><param name="autoUpgrade" value="true" /><a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50826.0" style="text-decoration:none"> 			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>		  </a>	    </object></p>
+<p>(Try writing arithmetic expressions in x using *,/,+,-, sin(), cos() - note spaces are not permitted with this simple parser.)</p>
+<p>The source code to this <a href='{{ site.baseurl }}/archive/2011/10/UserFunctionPlotter.zip'>is available here</a>, this requires the free version of Visiblox Charts which can be <a href="http://www.visiblox.com/download">downloaded here</a>.</p>

@@ -1,0 +1,93 @@
+---
+title: JavaScript Anonymous Functions
+date: 2011-06-10 00:00:00 Z
+categories:
+- Tech
+tags:
+- blog
+id: 119977
+author: jcardy
+oldlink: http://www.scottlogic.co.uk/2011/06/javascript-anonymous-functions/
+layout: default_post
+source: site
+disqus-id: "/2011/06/javascript-anonymous-functions/"
+summary: Up until now I have found the term "anonymous" pretty confusing in the context
+  of JavaScript.   In this post I'll explain how to define anonymous functions, what
+  "anonymous" means, and what uses these functions have.
+---
+
+<p>Up until now I have found the term "anonymous" pretty confusing in the context of JavaScript.   In this post I'll explain how to define anonymous functions, what "anonymous" means, and what uses these functions have.</p>
+<p>The ECMAScript specification does not have any mention of the term anonymous, so in a sense it is open to interpretation.   However, there is a clear consensus from the JavaScript community on the following definition (<a>Crockford</a>, <a href="https://developer.mozilla.org/en/JavaScript/A_re-introduction_to_JavaScript#Functions">Mozilla</a>, Chrome debugger, Firebug):</p>
+<blockquote><p>"An anonymous function is a function without a name."</p></blockquote>
+<p>This may seem obvious but it could be confused with the more general definition of anonymous functions which would say that a function is anonymous when it has no identifier, which could be a variable.  For example, consider the following ways of declaring a function:</p>
+{% highlight javascript %}	//Example 1
+	function bob() {
+		...
+	}
+	bob();
+
+	//Example 2
+	var bob = function(){
+		...
+	};
+	bob();{% endhighlight %}
+<p><em>Example 1</em> creates a function with name "bob".  Additionally, a variable named "bob" is created in the current scope and is assigned to the function.</p>
+<p><em>Example 2</em> declares an unnamed function and assigns it to a new variable named "bob".</p>
+<p>We can see that these two ways of defining a function are essentially the same - both result in a function being created, and a new variable named "bob" assigned to the current scope.  However, the second function is anonymous.</p>
+<p>In this next example, a function is given both a name "anna" and is explicitly assigned to a variable "bob":</p>
+{% highlight javascript %}	var bob = function anna(){
+		...
+	};
+	bob();
+	anna(); //Exception: 'anna' is not defined{% endhighlight %}
+<p>When we use this format, the function name is not used to create a variable since the variable "bob" is created instead.  However, the function has its <code>name</code> property set to "anna".</p>
+<p>Now, what is the significance of this "name" property?  And why are named functions better than anonymous functions?  Why use anonymous functions at all?  Here is all of the pro's and con's I can think of:</p>
+<table>
+<tbody>
+<tr>
+<th>
+<h3 style="text-align: center;">Named</h3>
+</th>
+<th>
+<h3 style="text-align: center;">Anonymous</h3>
+</th>
+</tr>
+<tr>
+<td><strong>Debugging</strong>: we see the name of functions in the stack trace.  If all we're seeing is "anonymous" up and down the stack, that's not too useful.</td>
+<td><strong>Scope</strong>: when creating a fake "block" scope using an <a href="http://www.codeproject.com/KB/scripting/javascript-gotchas.aspx#noblock">immediately executing function</a>, we don't really need a name.</td>
+</tr>
+<tr>
+<td><strong>Recursion</strong>: a function can call itself when it has a name.  If it's only assigned to a variable, then that variable is outside the function's scope.</td>
+<td><strong>Brevity</strong>: if it's a very short function or callback, or an immediately-executing function, it's nice to keep the function declaration short by omitting a name.</td>
+</tr>
+</tbody>
+</table>
+<p>As an aside, the above link to the Mozilla Developer Network mentions the term "named anonymous functions".  I think this is a bit of an unfortunate, paradoxical term and shouldn't be used, since if a function is named then it clearly isn't anonymous:</p>
+{% highlight javascript %}	var result = (function bob(){
+		...
+	}());{% endhighlight %}
+<p>Instead of labelling this piece of code with the term "named anonymous function" it would probably be more useful to understand that the function isn't kept in scope after it is executed.<a style="display: none;" rel="tag" href="http://www.codeproject.com/script/Articles/BlogFeedList.aspx?amid=1042231">CodeProject</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

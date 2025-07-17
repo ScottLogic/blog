@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<data seriesName="Barclays" colour="1">
+	<value label="04" price="586.25" percentage="14.65" cap="33.42"/>
+	<value label="05" price="611.25" percentage="14.23" cap="34.84"/>
+	<value label="06" price="749.00" percentage="16.28" cap="44.94"/>
+	<value label="07" price="506.50" percentage="14.22" cap="30.39"/>
+	<value label="08" price="231.75" percentage="13.65" cap="19.47"/>
+</data>

@@ -1,0 +1,23 @@
+---
+title: ".spelling"
+author: dcastellano
+layout: default_post
+category: Tech
+---
+
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - dcastellano/_posts/2019-03-26-aws-builders-day-edinburgh.md
+Backends
+Sébastien
+Stormacq
+CodeBuild
+CodePipeLine
+CodeDeploy
+AppSync
+Cognito
+frontends
+GraphQL

@@ -1,0 +1,171 @@
+---
+---
+
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="{{ site.github.url }}/archive/2010/12/jquery.js"></script>
+<script type="text/javascript" src="{{ site.github.url }}/archive/2010/12/jquery-color.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#startTest").click(function() {
+    var div = document.getElementById('grid'); 
+    var txt = "<table><tbody>", i, j;
+  
+    for(i = 0; i < 100; i++) {
+      txt += "<tr>";
+      for(j = 0; j < 100; j++) {
+        txt += "<td></td>";
+      }
+      txt += "</tr>";
+    }
+  
+    txt += "</tbody></table>";
+    div.innerHTML = txt;
+    setTimeout(function() { ColourNextCell($("#FPS"), new Date().getTime(), 0, div.childNodes[0], 0, 0);  }, 0);
+  });
+});
+
+var ColourNextCell = function(fpsDiv, time, frames, tbl, x, y) {
+  var tbody = tbl.childNodes[0];
+  if  (x >= tbody.childNodes[y].childNodes.length) {
+    x = 0;
+    y++;
+  }
+  if  (y > tbody.childNodes.length) {
+    y = 0;
+  }
+  
+  var currentTime = new Date().getTime();
+  if  (currentTime - time > 1000) {
+    fpsDiv.html(frames+"");
+    time = Math.floor(currentTime/1000)*1000;
+    frames = 0;
+  }
+  
+    var jqEl = $(tbody.childNodes[y].childNodes[x]);
+  var timeoutId = jqEl.data("timeoutId");
+  if  (timeoutId) {
+    clearTimeout(timeoutId);
+  }
+    jqEl.addClass("over");
+  setTimeout(function() {
+    jqEl.animate({"backgroundColor": jqEl.parent().get(0).rowIndex % 2 === 0 ? "lightgrey" : "white"},
+          15000, 'linear');
+    jqEl.removeClass("over");
+  }, 0); 
+  setTimeout(function() { ColourNextCell(fpsDiv, time, frames + 1, tbl, x+1, y); }, 0);
+};
+</script>
+</head>
+<body>
+<style type="text/css">
+table {
+  border-collapse: collapse;
+}
+
+td {
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+  width: 3px;
+  height: 3px;
+}
+
+tr:nth-child(odd) td {
+  background-color: lightgrey;
+}
+
+tr td {
+  background-color: white;
+}
+
+tr td.over {  
+  background-color: red;
+}
+
+#FPS {
+  background-color: black;
+  font-size: 5em;
+  color: green;
+  float: left;
+  clear: right;
+}
+
+#grid {
+  float: left;
+}
+
+#data {
+  clear: both;
+}
+</style>
+<div id="grid">
+</div>
+<div id="FPS">
+</div>
+<div id="data">
+<a href="#" id="startTest">Start Test</a><br />
+HTML...
+<pre>
+&lt;table id="tbl"&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;row 1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;row 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
+CSS...
+<pre>
+tr:nth-child(odd) td {
+  background-color: lightgrey;
+}
+
+tr td {
+  background-color: white;
+}
+
+tr td.over {  
+  background-color: red;
+}
+</pre>
+JavaScript
+<pre>
+var ColourNextCell = function(fpsDiv, time, frames, tbl, x, y) {
+  var tbody = tbl.childNodes[0];
+  if  (x >= tbody.childNodes[y].childNodes.length) {
+    x = 0;
+    y++;
+  }
+  if  (y > tbody.childNodes.length) {
+    y = 0;
+  }
+  
+  var currentTime = new Date().getTime();
+  if  (currentTime - time > 1000) {
+    fpsDiv.html(frames+"");
+    time = Math.floor(currentTime/1000)*1000;
+    frames = 0;
+  }
+  
+    var jqEl = $(tbody.childNodes[y].childNodes[x]);
+  var timeoutId = jqEl.data("timeoutId");
+  if  (timeoutId) {
+    clearTimeout(timeoutId);
+  }
+    jqEl.addClass("over");
+  setTimeout(function() {
+    jqEl.animate({"backgroundColor": jqEl.parent().get(0).rowIndex % 2 === 0 ? "lightgrey" : "white"},
+          15000, 'linear');
+    jqEl.removeClass("over");
+  }, 0); 
+  setTimeout(function() { ColourNextCell(fpsDiv, time, frames + 1, tbl, x+1, y); }, 0);
+};
+</pre>
+</div>
+</body>
+</html>

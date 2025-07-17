@@ -1,0 +1,139 @@
+---
+title: Less vs Sass vs Stylus
+date: 2013-03-08 00:00:00 Z
+categories:
+- Tech
+tags:
+- blog
+id: 166370
+author: lpage
+oldlink: http://www.scottlogic.co.uk/2013/03/less-vs-sass-vs-stylus/
+layout: default_post
+source: scottweb
+disqus-id: "/2013/03/less-vs-sass-vs-stylus/"
+summary: First off, this is a biased blog post as I am <a href="https://github.com/cloudhead/less.js/contributors">heavily
+  involved</a> in less.js at the moment.
+---
+
+<p>First off, this is a biased blog post as I am <a href="https://github.com/cloudhead/less.js/contributors">heavily involved</a> in less.js at the moment. I have been inspired to write this because of the popular <a href="http://css-tricks.com/sass-vs-less/">sass vs less post</a> and because although it is very accurate (at the time it was written) it doesn't really cover the design philosophy.</p>
+<p>So I would like to show why, when choosing a language to write CSS in, you shouldn't just look at the number of features it has, but you should look at what kind of code you are going to get and how maintainable it is.</p>
+<h2>Why you shouldn't use any CSS pre-processor at all</h2>
+<p>I think people look at badly written css, see repetition, realise that using a pre-processor can reduce that repetition and proceed to convert their badly written css into code that looks (on the surface) much nicer.</p>
+<p>For instance, here is some css.</p>
+{% highlight css %}
+.container {
+  background: green;
+}
+.container .button {
+  color: black;
+}
+.container .button span {
+  text-align: center;
+}
+{% endhighlight %}
+<p>and we could re-write this using less...</p>
+{% highlight css %}
+.container {
+  background: green;
+  .button {
+    color: black;
+    span {
+      text-align: center;
+    }
+  }
+}
+{% endhighlight %}
+<p>and immediately - it looks better, because .container isn't repeated 3 times. However, text-align is inherited in the browser DOM, so actually the span selector need not be there. Next think about .button - do we need a style for a button that is unique to container? If we don't, button should be a class on its own - this simplifies the selector. If we do need it to be specific for the moment, say a developer is adding a new container in a couple of months time and they do need the same button style. They are scared about affecting other containers, so they want a safe change, but because they are a ok developer, they don't want to repeat anything. Here is what they might do.</p>
+{% highlight css %}
+.container {
+  background: green;
+  .button {
+    color: black;
+    text-align: center;
+  }
+}
+.container2 {
+  .btn {
+    .container.button; // bring in the style properties from .container.button
+  }
+}
+{% endhighlight %}
+<p>and instead the css really should look like this</p>
+{% highlight css %}
+.container {
+  background: green;
+}
+.button {
+    color: black;
+    text-align: center;
+}
+{% endhighlight %}
+<p>Now what is simpler? Perhaps also in this example, you should have thought about what makes the buttons different and renamed the class button-big instead of relying on context.</p>
+<p>A common mis-conception is that more classes in the HTML DOM is not performant - however a browser works out a style by evaluating every single DOM node and then seeing if it matches each style, so if your selectors are not specific on the right-hand-side then the browser has to do a lot of checking to work out whether a style applies or not.</p>
+<p>There are of course reasons why the above features are good, but in this case they aren't. Sometimes it isn't even the structure of the selectors, but plain laziness.</p>
+{% highlight css %}
+@windowwidth: `window.innerWidth + 'px'`;
+.container {
+  width: @windowwidth;
+}
+{% endhighlight %}
+<p>as a work-around for not writing css that will fill the window width. To clarify - this is not the best idea!</p>
+<p>However.. plain CSS is not enough to avoid duplication of property information (e.g. through variables), duplication of selectors (when it cannot be refactored) and duplication of media queries, tabular generated layouts etc. But I would strongly encourage everyone to think if they can do what they need to do using plain CSS before they consider trying to do it in a CSS pre-processor.</p>
+<h2>Sass design philosophy</h2>
+<p><a href="http://chriseppstein.github.com/blog/2010/08/16/sass-language-design/">Here is a post on the sass design philosophy</a>. This post talks about how the team decide to include features.. At its heart it sounds very similar to less - but I would like to draw my own conclusions from the language.</p>
+<p>1. It follows an <a href="http://en.wikipedia.org/wiki/Imperative_programming">imperative approach</a>. This <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#control_directives">is evident</a> from the traditional language constructs of "if", "for", "while"</p>
+<p>2. It has a large number of features - just look at what isn't in less in the comparison below, but also There are features I haven't included in that list, because they have an equivalent, e.g. $vara + $varb where these are strings cannot be added together in less, but instead you could use interpolation - @varb: "@{vara}@{varb}";. The same can be said for control directives - loops can be done with mixin recursion in less, if's can be done with mixin guards. </p>
+<p>I personally think this leads to code that looks like a traditional basic computer program, with loops and if statements. The developer often treats the file as if it is a program rather than a CSS file and this makes it more difficult for designers, without a programming background.</p>
+<p>As an example of a feature I think we don't need to implement, the sass @content feature allows you to abstract selectors or media queries into mixins, so they appear only in one place. In our debate on whether to include @content in less, <a href="https://github.com/cloudhead/less.js/issues/965#issuecomment-14447528">I make the point</a> that for most use-cases the functionality is already possible with existing less features.</p>
+<p>My feeling is that less has extended a coherent set of features whereas sass is a little more scatter gunned.</p>
+<h2>Stylus design philosophy</h2>
+<p>Stylus is very similar to less, except that it has a much more concise syntax. I think of it as coffee script for less/css. I particularly dislike the syntax of CoffeeScript and therefore Stylus too, but I was brought up on C and like my curly brackets.</p>
+<p>Stylus has almost as many features of Sass (and some which aren't in Sass). It is also imperative as it has if and for loop declarations.</p>
+<h2>Less design philosophy</h2>
+<p>Less is the under-dog in terms of features at the moment (I will compare features later on in this post), but it is for good reason. Less aims to be a superset of CSS - e.g. it adds to CSS syntax in a way that fits into CSS syntax. This is similar to Sass scss (in fact sass originally has a terse syntax like Stylus but moved to scss after the success of less). Less has a few fundamental design ideas.</p>
+<p>1. It is <a href="http://en.wikipedia.org/wiki/Declarative_programming">Declarative</a> - this means you specify what you want to see, not how you want it done. This generally associated with functional languages and indeed less has some features of a functional language - loops are achieved with recursion and if's are implemented as guard conditions on mixins.</p>
+<p>This approach makes less predictable at each individual point in the CSS. My view of functional languages is that they often result in easier to understand, more terse programs, the problem is that difficult algorithms can take more thinking to write functionally than iteratively. Because writing CSS doesn't require difficult algorithms, I think this declarative approach results in better less and better css.</p>
+<p>2. Less is very conservative in adding syntax - we want to be forwards compatible with CSS and we want to stay easy to learn. Each feature we add is likely to have a diminishing return and we would rather code stays understandable and close to CSS than we have every feature we could.</p>
+<p>3. Less aims to implement features in a CSS way - by trying to think how the W3C might implement a feature. For instance we decided that extends would be best specified inside the selector in something that looks like a pseudo selector, rather than as a directive in the properties area, because it effectively acts on selectors, using selectors. We often compare any new syntax with existing CSS syntax and quite often this results in something that looks a bit strange to a JavaScript developer, but makes more sense to a designer or CSS expert.</p>
+<h2>Things in Sass & Stylus that cannot be done in less</h2>
+<p>There are different styles (e.g. recursion in less, iteration in stylus and sass) but these are the features that aren't yet available in less in any form. Stylus and sass seem pretty equivalent, the most important difference being in their implementation of extends.</p>
+<p>1. @extends (coming soon to less 1.4.0 - future blog post on its way)</p>
+<p>2. <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholder_selectors_">placeholders</a> - <a href="https://github.com/cloudhead/less.js/issues/1177">planned for less as extends on mixins</a></p>
+<p>3. <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variable_defaults_">variable defaults</a> - <a href="https://github.com/cloudhead/less.js/pull/1104">we decided they weren't needed</a></p>
+<p>4. data-types and <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#lists">handling of lists</a> (<a href="https://github.com/cloudhead/less.js/pull/1112">limited support coming to less 1.4.0</a>)</p>
+<p>5. <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#id8">@debug and @warn</a></p>
+<p>6. <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#mixin-content">mixin @content blocks</a> - <a href="https://github.com/cloudhead/less.js/issues/965">in discussion for less, probably not needed</a></p>
+<p>7. <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#function_directives">function directives</a> - <a href="https://github.com/cloudhead/less.js/issues/538">in discussion for less (but very low demand)</a></p>
+<p>8. <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#output_style">output styles</a></p>
+<p>9. <a href="http://learnboost.github.com/stylus/docs/interpolation.html">property interpolation</a> - <a href="https://github.com/cloudhead/less.js/pull/698">discussion in less, probably we will implement auto prefix replacement instead</a></p>
+<p>10. Auto prefix replacement - <a href="https://github.com/cloudhead/less.js/issues/1199">planned for less</a></p>
+<h2>Compass</h2>
+<p>A massive help to Sass is Compass - this is a library of mixins and functions that provide alot of basics that you need. It also implements sprite packing (something I started working on for dotless). For enterprise users, this provides a large amount of framework and functionality.</p>
+<p>I was of the opinion that Sprite Packing was a massive positive, but after speaking to a colleague, it seems it is only so important if you need to support older IE browsers. This is because the alternative is inlining the content as a data-uri. <a href="http://learnboost.github.com/stylus/docs/functions.url.html">All</a> <a href="http://compass-style.org/reference/compass/helpers/inline-data/">the</a> libraries include functions that inline images - so ultimately maybe sprites matter less.</p>
+<h2>Conclusion</h2>
+<p>I don't think there is anything missing in any of the languages that should stop you from considering or using it. Quite often the best fit will depend on what CSS libraries you require (e.g. maybe you want to use bootstrap, a particular grid framework or sprites are very important etc.) and your own personal style preferences. In addition, consider whether you will start from CSS and slowly start to use some of the language features or if you would like to start from the ground up in a syntax that doesn't look like traditional CSS. Less has the added advantage of being able to be run in the browser (if you want to write a theme editor for instance) - though we recommend for performance that production sites compile server side. If you don't want to be tied into one particular pre-processor forever it may be best to make sure your preprocessor supports css syntax and that you continue to write in a syntax that is CSSy.</p>
+<p>I guess I want to say - don't just compare how many features a language has and choose the one with the most!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

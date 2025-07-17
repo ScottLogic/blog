@@ -1,0 +1,38 @@
+---
+title: Explodz - A Webkit DOM Visualizer
+date: 2012-03-09 00:00:00 Z
+categories:
+- Tech
+tags:
+- blog
+id: 145918
+author: cprice
+oldlink: http://www.scottlogic.co.uk/2012/03/explodz-a-webkit-dom-visualizer/
+layout: default_post
+source: site
+disqus-id: "/2012/03/explodz-a-webkit-dom-visualizer/"
+summary: A little while ago Colin showed me a tool for inspecting the visual tree
+  of a Silverlight/WPF application.
+---
+
+<p><a style="float:right; margin-left: 16px;" href="{{ site.baseurl }}/cprice/"><img style="border:1px solid black" src="{{ site.baseurl }}/archive/2012/03/me1.png" alt="" title="Chris Price" class="aligncenter size-full wp-image-145833" /></a><em>A little while ago Colin showed me a tool for inspecting the visual tree of a Silverlight/WPF application (<a href="http://snoopwpf.codeplex.com/">Snoop</a> thanks Colin!). The bit I remember was a 3D view of the app, where an element's on-screen depth represented it's depth in the visual tree. I thought it could make a good stress test of -webkit-transfrom performance, so I thought I'd give it a go.</em></p>
+<h2 style="clear:both">Eye Candy</h2>
+<p>Let's skip straight to the good stuff! This is a screenshot I captured using the script on the Dribbble homepage -</p>
+<p style="text-align:center"><a href="http://www.dribbble.com"><img src="{{ site.baseurl }}/archive/2012/03/explodz4-sm.png" alt="" title="explodz4-sm" width="697" height="568" class="aligncenter size-full wp-image-145932" /></a></p>
+<h2>Give it a go!</h2>
+<p>If you have a webkit browser (Chrome, Safari, etc.) you can click here to <a id="tryIt" href="javascript:alert('Sorry wordpress has broken the link once again :( \nyou\'ll have to grab the source from github I\'m afraid!\nDon\'t worry, I\'ll be ditching wordpress asap...');">start visualizing this page</a> or drag that link into your bookmarks bar (make sure it's enabled spanner->Bookmarks->Show bookmarks bar) to try it out on any page you fancy. Be warned, using this on a content heavy page (e.g. the <a href="http://www.bbc.co.uk/news/">BBC News homepage</a>) may well cause your browser to crawl!</p>
+<p>Once the script is loaded the position of the mouse controls the rotation of the body and clicking toggles the faces on and off. The transform is centered about the middle of the screen, when the page is scrolled to the top. Therefore you may find the rotation a bit weird if you're scrolled down the page. Refreshing the page is the only way to get back to the original.</p>
+<h2 style="clear:both">How it works</h2>
+<p><a style="float:right; margin: 0 16px 16px 16px;" href="{{ site.baseurl }}/archive/2012/03/Macgyver.jpg"><img src="{{ site.baseurl }}/archive/2012/03/Macgyver-150x150.jpg" alt="" title="Macgyver already knew how it worked" width="150" height="150" class="alignnone size-thumbnail wp-image-146451" /></a></p>
+<p>The script works by traversing the DOM tree and assigning each element a constant z-translation. The translations stack because preserve-3d is also set on each element. So the deeper an element is nested the more it will appear to stand out of the screen. A mousemove handler then applies a rotation transform to the body element for navigation, and a mousedown handler takes care of toggling the side-faces.</p>
+<p>Webkit 3d transforms don't support depth, they came out of the concept of composite-layers and where depth simply isn't a consideration. In order to get round this, the script creates a div to represent each face and just positions it in the correct 3d location. These divs are generated whilst traversing the DOM which makes it easy to set the correct dimensions on them.</p>
+<h2 style="clear:both">Features</h2>
+<p><a style="float:left; margin: 16px 16px 16px 0;" href="http://www.chromeexperiments.com/detail/water-underground/?f="><img src="{{ site.baseurl }}/archive/2012/03/explodz2-300x166.png" alt="" title="explodz2" width="300" height="166" class="aligncenter size-medium wp-image-145920" /></a>I think one of the nicest details to come out the visualization is the ability to get a feeling of the underlying implementation without actually having to look at the markup. In this screenshot, taken from a page on ChromeExperiments, the red boxes give away how the developer chose to implement an "n rating/ratings" label.</p>
+<p>I also like the effect below on a page from the Surfin' Safari blog which first introduces 3d transforms. The ability to look behind the page is quite novel, especially when you can see the backface of the 3d content already in the page. </p>
+<p>This screenshot also introduces one of the many quirks of this script, that of inline elements (in this case green) having very strange side-faces drawn around them. This is happening because the script uses the offsetX/Y/Width/Height attributes to position the side-faces. The wrapping of the inline element then plays havoc with this simplistic approach to measuring. </p>
+<p><a style="float:right; margin: 16px 0 16px 16px;" href="http://www.webkit.org/blog/386/3d-transforms/"><img src="{{ site.baseurl }}/archive/2012/03/explodz3-300x256.png" alt="" title="explodz3" width="300" height="256" class="aligncenter size-medium wp-image-145921" /></a>Another quirk of the script/3d transforms is how inline elements are positioned along the z-axis. You can see in the below image that the links appear to be at rear of the side-faces, instead of on the front. It seems the the inline content is positioned at the z-position of it's block parent no matter what setting is used (apart from changing it to itself not be inline).</p>
+<p><a href="http://www.chromeexperiments.com/detail/water-underground/?f="><img src="{{ site.baseurl }}/archive/2012/03/explodz-300x127.png" alt="" title="explodz" width="300" height="127" class="aligncenter size-medium wp-image-145919" /></a></p>
+<p style="clear:both">In all the script is a compromise between overriding the site styling to make something pretty looking/usable, and completely breaking the original layout of the website. I think I've struck an alright balance but by all means hack the code on <a href="http://github.com/chrisprice/explodz">GitHub</a> and submit a PR if you come up with something better.</p>
+<p><script src="{{ site.baseurl }}/archive/2012/03/explodz.min_.js"></script></p>
+<h2 style="clear: both;"></h2>
+<p><a href="https://twitter.com/share" class="twitter-share-button" data-via="100pxls">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><g:plusone size="medium"></g:plusone><script type="text/javascript">  (function() {    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;    po.src = 'https://apis.google.com/js/plusone.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);  })();</script></p>

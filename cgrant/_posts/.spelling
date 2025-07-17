@@ -1,0 +1,24 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - cgrant/_posts/2013-09-25-2D-Game-Development-With-SpriteKit.md
+physicsBody's
+SKSpriteNodes
+SKSpriteNode
+sks
+ - cgrant/_posts/2014-11-10-Video-Stitching-With-AVFoundation.md
+Counsell
+mov
+mediaType
+timeRange
+layerInstructions
+frameDuration
+renderSize
+mutableComposition
+videoComposition
+mutableViewComposition
+playerView
+ - cgrant/_posts/2015-02-25-Using-Snapshot-with-Simulator-Status-Magic-to-generate-perfect-iOS-screenshots.md
+AppDelegate.m

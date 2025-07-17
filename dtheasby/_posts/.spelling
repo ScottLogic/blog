@@ -1,0 +1,29 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - dtheasby/_posts/2016-04-25-UsingWebdriverIO-Part1.md
+v3.4.0
+v1.0.3
+_modules
+gulpfile
+wdio
+project.json
+runTest
+Selenium-Standalone
+selenium-standalone's
+Saucelabs
+specs
+xckd
+url
+onFulfilled
+guideButton
+elementIdElements
+WebElement
+WebdriverIO
+
+ - dtheasby/_posts/2017-01-09-FiddlerAutoResponder.md
+ Telerik
+ txt
+ AutoRespond

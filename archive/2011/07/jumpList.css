@@ -1,0 +1,82 @@
+﻿a.categoryButton
+{
+    float: left;
+}
+        
+a.jumpButton, a.categoryButton
+{
+    background: #55FF55;
+    margin: 7px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    display: block;
+    -webkit-transition-property: -webkit-transform , opacity;
+    -webkit-transition-duration: 0.3s;
+}
+        
+a.categoryButton.disabled, a.categoryButton.disabled:active
+{
+    background: #555555;
+}
+        
+a.categoryButton
+{
+    opacity: 0;
+    -webkit-transform: scale(0,0) rotate(-180deg);
+}
+        
+a.categoryButton.show
+{
+    opacity: 1;
+    -webkit-transform: scale(1.0, 1.0) rotate(0deg);
+}
+        
+a.jumpButton:active, a.categoryButton:active
+{
+    background: white;
+}
+        
+.jumpList
+{
+    position: relative;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+        
+.jumpListItem
+{
+    margin: 10px;
+}
+        
+.jumpListItem.selected
+{
+    color: #55FF55;
+}
+        
+.categoryList
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    background-color: transparent;
+}
+   
+.itemList.faded 
+{
+    opacity: 0.3;
+}
+        
+.visible
+{
+    visibility: visible;
+}
+        
+#itemListContainer
+{
+    overflow-y: auto;
+}

@@ -1,0 +1,35 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - mmathew/_posts/2017-07-20-MeetUps-and-SWT-Bristol.md
+rosicadia
+Loughran
+Kevlin
+Hemley
+Henney
+dannydainton
+thetestdoctor
+abductive
+danashby
+ - mmathew/_posts/2017-06-08-ALF-and-Conferences.md
+Ani
+Gopinath
+Sug
+Sahadevan
+Radwan
+O'Riordan
+PBIs
+ - mmathew/_posts/2017-07-20-MeetUps-and-SWT-Bristol.md
+Rosicadia
+Loughran
+Kevlin
+Henney
+dannydainton
+thetestdoctor
+Abductive
+DanAshby
+Directgov
+gantt
+Kanban

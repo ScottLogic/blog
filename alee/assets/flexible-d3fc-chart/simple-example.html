@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- include polyfills for custom event, Symbol and Custom Elements -->
+  <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.js"></script>
+  <script src="https://unpkg.com/custom-event-polyfill@0.3.0/custom-event-polyfill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/1.8.0/document-register-element.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+
+  <script src="https://unpkg.com/d3@5.5.0"></script>
+  <script src="https://unpkg.com/d3fc@14.0.39"></script>
+  <script src="https://unpkg.com/d3fc-flexi-chart@0.0.2"></script>
+
+  <style>
+    path.area {
+        fill: #99ff99;
+        fill-opacity: 0.5;
+    }
+    path.line {
+        stroke: #60c;
+    }
+    .annotation-gridline line {
+        stroke: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <script type="text/babel" src="../demo.js"></script>
+  <link href="../demo.css" rel="stylesheet">
+
+  <script id="data.js" type='text/babel'>
+  const csv = `Date,Open,High,Low,Close,Volume
+9-Jun-14,62.40,63.34,61.79,62.88,37617413
+6-Jun-14,63.37,63.48,62.15,62.50,42442096
+5-Jun-14,63.66,64.36,62.82,63.19,47352368
+4-Jun-14,62.45,63.59,62.07,63.34,36513991
+3-Jun-14,62.62,63.42,62.32,62.87,32216707
+2-Jun-14,63.23,63.59,62.05,63.08,35995537
+30-May-14,63.95,64.17,62.56,63.30,45283577
+29-May-14,63.84,64.30,63.51,63.83,42699670
+28-May-14,63.39,64.14,62.62,63.51,47795088
+27-May-14,61.62,63.51,61.57,63.48,55681663
+23-May-14,60.41,61.45,60.15,61.35,38293993
+22-May-14,60.94,61.48,60.40,60.52,54200116
+21-May-14,58.56,60.50,58.25,60.49,58991505
+20-May-14,59.50,60.19,58.18,58.56,53931469
+19-May-14,57.89,59.56,57.57,59.21,43033925
+16-May-14,58.31,58.45,57.31,58.02,47933075
+15-May-14,59.26,59.38,57.52,57.92,56813940
+14-May-14,59.53,60.45,58.95,59.23,47428583
+13-May-14,59.66,60.89,59.51,59.83,48525476
+12-May-14,57.98,59.90,57.98,59.83,48575487
+9-May-14,56.85,57.65,56.38,57.24,52583858
+8-May-14,57.23,58.82,56.50,56.76,61251053
+7-May-14,58.77,59.30,56.26,57.39,78587247
+6-May-14,60.98,61.15,58.49,58.53,55900809
+5-May-14,59.67,61.35,59.18,61.22,46057411
+2-May-14,61.30,61.89,60.18,60.46,54189197
+1-May-14,60.43,62.28,60.21,61.15,82428606
+30-Apr-14,57.58,59.85,57.16,59.78,76093004
+29-Apr-14,56.09,58.28,55.84,58.15,75557202
+28-Apr-14,58.05,58.31,54.66,56.14,107757756
+25-Apr-14,59.97,60.01,57.57,57.71,92501529
+24-Apr-14,63.60,63.65,59.77,60.87,138769345
+23-Apr-14,63.45,63.48,61.26,61.36,96564750
+22-Apr-14,62.65,63.44,62.22,63.03,60631312
+21-Apr-14,59.46,61.24,59.15,61.24,60363619
+17-Apr-14,59.30,60.58,58.72,58.94,88040346
+16-Apr-14,59.79,60.19,57.74,59.72,78773521
+15-Apr-14,59.29,59.68,55.88,59.09,108622706
+14-Apr-14,60.09,60.45,57.78,58.89,72324603
+11-Apr-14,57.60,60.31,57.31,58.53,91451960
+10-Apr-14,63.08,63.18,58.68,59.16,114987616
+9-Apr-14,59.63,62.46,59.19,62.41,100215307
+8-Apr-14,57.68,58.71,57.17,58.19,78835935
+7-Apr-14,55.90,58.00,55.44,56.95,108487569
+4-Apr-14,59.94,60.20,56.32,56.75,125465774
+3-Apr-14,62.55,63.17,59.13,59.49,83859330
+2-Apr-14,63.21,63.91,62.21,62.72,66276613
+1-Apr-14,60.46,62.66,60.24,62.62,59291210
+31-Mar-14,60.78,61.52,59.87,60.24,53011205
+28-Mar-14,61.34,61.95,59.34,60.01,67051528
+27-Mar-14,60.51,61.90,57.98,60.97,112649694
+26-Mar-14,64.74,64.95,60.37,60.38,97689774
+25-Mar-14,64.89,66.19,63.78,64.89,68785500
+24-Mar-14,67.19,67.36,63.36,64.10,85695872
+21-Mar-14,67.53,67.92,66.18,67.24,60041228
+20-Mar-14,68.01,68.23,66.82,66.97,44438500
+19-Mar-14,69.17,69.29,67.46,68.24,43980558
+18-Mar-14,68.76,69.60,68.30,69.19,40827226
+17-Mar-14,68.18,68.95,66.62,68.74,52196699
+14-Mar-14,68.49,69.43,67.46,67.72,48226824
+13-Mar-14,71.29,71.35,68.15,68.83,57091157
+12-Mar-14,69.86,71.35,69.00,70.88,46400431
+11-Mar-14,72.50,72.59,69.96,70.10,59615238
+10-Mar-14,70.77,72.15,70.51,72.03,59949746
+7-Mar-14,71.08,71.18,69.47,69.80,38985763
+6-Mar-14,71.88,71.89,70.25,70.84,46126260
+5-Mar-14,69.69,71.97,69.62,71.57,74649486
+4-Mar-14,68.66,68.90,67.62,68.80,42164222
+3-Mar-14,66.96,68.05,66.51,67.41,56900444
+28-Feb-14,69.47,69.88,67.38,68.46,66900863
+27-Feb-14,69.34,70.01,68.87,68.94,41695855
+26-Feb-14,70.19,71.22,68.85,69.26,55400399
+25-Feb-14,70.95,71.00,69.45,69.85,52189031
+24-Feb-14,68.74,71.44,68.54,70.78,76951946
+21-Feb-14,69.69,69.96,68.45,68.59,70991892
+20-Feb-14,67.73,70.11,65.73,69.63,131043748
+19-Feb-14,67.05,69.08,67.00,68.06,64258631
+18-Feb-14,66.94,67.54,66.07,67.30,43862297
+14-Feb-14,67.50,67.58,66.72,67.09,36786427
+13-Feb-14,64.18,67.33,64.05,67.33,62013396
+12-Feb-14,64.92,65.06,64.05,64.45,47409857
+11-Feb-14,63.75,65.00,63.35,64.85,45746832
+10-Feb-14,64.30,64.49,63.47,63.55,43736562
+7-Feb-14,62.27,64.57,62.22,64.32,60835746
+6-Feb-14,61.46,62.78,61.46,62.16,42153754
+5-Feb-14,62.74,63.16,61.27,62.19,53032420
+4-Feb-14,62.05,63.14,61.82,62.75,46064897
+3-Feb-14,63.03,63.77,60.70,61.48,75105994
+31-Jan-14,60.47,63.37,60.17,62.57,87930298
+30-Jan-14,62.12,62.50,60.46,61.08,150438699
+29-Jan-14,54.61,54.95,53.19,53.53,98089932
+28-Jan-14,54.02,55.28,54.00,55.14,48364998
+27-Jan-14,54.73,54.94,51.85,53.55,74142331
+24-Jan-14,56.15,56.42,54.40,54.45,55545338
+23-Jan-14,56.37,56.68,55.69,56.63,47996403
+22-Jan-14,58.85,59.31,57.10,57.51,61495880
+21-Jan-14,56.60,58.58,56.50,58.51,48734147
+17-Jan-14,57.30,57.82,56.07,56.30,40883205
+16-Jan-14,57.26,58.02,56.83,57.19,34599775
+15-Jan-14,57.98,58.57,57.27,57.60,33730619
+14-Jan-14,56.46,57.78,56.10,57.74,37590987
+13-Jan-14,57.91,58.25,55.38,55.91,63106519
+10-Jan-14,57.13,58.30,57.06,57.94,42529258
+9-Jan-14,58.65,58.96,56.65,57.22,92349222
+8-Jan-14,57.60,58.41,57.23,58.23,56800776
+7-Jan-14,57.70,58.55,57.22,57.92,77329009
+6-Jan-14,54.42,57.26,54.05,57.20,68974359
+3-Jan-14,55.02,55.65,54.53,54.56,38287706
+2-Jan-14,54.83,55.22,54.19,54.71,43257622
+31-Dec-13,54.12,54.86,53.91,54.65,43152127
+30-Dec-13,54.93,55.18,53.43,53.71,68307317
+27-Dec-13,57.48,57.68,55.25,55.44,60465751
+26-Dec-13,58.32,58.38,57.37,57.73,55101367
+24-Dec-13,58.27,58.58,56.91,57.96,46617754
+23-Dec-13,55.50,58.32,55.45,57.77,98296983
+20-Dec-13,54.91,55.15,54.23,55.12,239823912
+19-Dec-13,54.34,55.19,53.95,55.05,89825393
+18-Dec-13,55.57,55.89,53.75,55.57,76003479
+17-Dec-13,54.75,55.18,54.24,54.86,78751463
+16-Dec-13,53.27,54.50,52.91,53.81,85118518
+13-Dec-13,51.61,53.50,51.34,53.32,82640992
+12-Dec-13,51.03,52.07,50.66,51.83,92723034
+11-Dec-13,50.56,50.77,49.01,49.38,65776366
+10-Dec-13,48.62,50.77,48.54,50.24,68478561
+9-Dec-13,48.06,48.97,47.74,48.84,36055891
+6-Dec-13,48.98,49.39,47.71,47.94,42937659
+5-Dec-13,48.15,48.70,47.87,48.34,43855036
+4-Dec-13,46.46,48.77,46.26,48.62,60890176
+3-Dec-13,46.75,47.20,46.29,46.73,32085905
+2-Dec-13,46.90,47.54,46.26,47.06,50773647
+29-Nov-13,46.75,47.21,46.50,47.01,22953916
+27-Nov-13,45.97,46.67,45.53,46.49,44993195
+26-Nov-13,44.66,46.17,43.55,45.89,82016490
+25-Nov-13,46.36,46.65,44.04,44.82,82565324
+22-Nov-13,47.04,47.27,45.96,46.23,40545375
+`;
+
+  let priceData = d3.csvParse(csv, row => {
+    return ({
+      open: parseInt(row.Open),
+      close: parseInt(row.Close),
+      high: parseInt(row.High),
+      low: parseInt(row.Low),
+      volume: parseInt(row.Volume),
+      date: d3.timeParse("%d-%b-%y")(row.Date)
+    });
+  });
+  priceData = priceData.reverse();
+
+  const bollinger = fc.indicatorBollingerBands()
+    .value(d => d.open);
+
+  // compute the bollinger bands
+  const bollingerData = bollinger(priceData);
+  
+  // merge into a single series
+  const fullData = priceData.map((d, i) =>
+    Object.assign({}, d, {
+      bollinger: bollingerData[i]
+    })
+  );
+</script>
+
+<script id="ticker.js" type='text/babel'>
+  let startDate = new Date('2013-12-10');
+  let endDate = new Date('2014-04-14');
+  let data = [];
+  let xRange = [];
+
+  const setRange = () => {
+    let endDate = new Date(startDate);
+    endDate.setDate(endDate.getDate() + 60);
+
+    xRange = [startDate, endDate]
+    data = fullData.filter(d => 
+        d.date >= startDate && d.date <= endDate);
+  }
+  setRange();
+
+  setInterval(() => {
+    startDate.setDate(startDate.getDate() + 1);
+    if (startDate > endDate) startDate = new Date('2013-12-10');
+
+    setRange();
+    render();
+  }, 1000);
+</script>
+
+<script id="series.js" type='text/babel'>
+  const gridlines = fc.annotationCanvasGridline();
+
+  // bollinger and candlesticks for price
+  const averageSeries = fc.seriesCanvasLine()
+    .mainValue(d => d.bollinger.average)
+    .crossValue(d => d.date)
+    .decorate(ctx => ctx.strokeStyle
+        = 'rgba(255, 100, 100, 0.5)');
+  const bollingerAreaSeries = fc.seriesCanvasArea()
+    .mainValue(d => d.bollinger.upper)
+    .baseValue(d => d.bollinger.lower)
+    .crossValue(d => d.date)
+    .decorate(ctx => ctx.fillStyle
+        = 'rgba(100, 255, 100, 0.2)');
+  const candleSeries = fc.seriesCanvasCandlestick()
+    .crossValue(d => d.date)
+    .highValue(d => d.high)
+    .lowValue(d => d.low)
+    .openValue(d => d.open)
+    .closeValue(d => d.close);
+
+  const priceSeries = fc.seriesCanvasMulti()
+    .series([
+      gridlines,
+      bollingerAreaSeries,
+      averageSeries,
+      candleSeries
+    ]);
+
+  // bar series for volume
+  const volumeColor = 'rgba(0, 0, 255, 0.3)';
+  const volumeSeries = fc.seriesSvgBar()
+    .mainValue(d => d.volume)
+    .crossValue(d => d.date)
+    .bandwidth(5)
+    .decorate(s => s.style('fill', volumeColor));
+</script>
+
+<script id="chart.js" type='text/babel'>
+  // y-extent for price series
+  const priceExtent = fc.extentLinear()
+    .accessors([d => d.high, d => d.low]).pad([0.3, 0.01]);
+
+  // y-extent for volume bars
+  const volumeExtent = fc.extentLinear()
+    .accessors([d => d.volume]).include([0]).pad([0, 0.5]);
+    
+  const render = () => {
+    const volumeLayer = fcFlexi.svgLayer(
+          d3.scaleTime(),
+          d3.scaleLinear()
+      )
+      .xOrient('none')
+      .xDomain(xRange)
+      .yDomain(volumeExtent(data))
+      .yTickArguments([5])
+      .yTickFormat(d3.format(',.3s'))
+      .plotArea(volumeSeries)
+      .yDecorate(s => {
+        d3.select(s.node().parentNode).selectAll('path')
+            .style('stroke-width', '2px')
+            .style('stroke', volumeColor);
+        s.selectAll('text').style('stroke', volumeColor);
+      });
+      
+    const pricesLayer = fcFlexi.canvasLayer(
+          d3.scaleTime(),
+          d3.scaleLinear()
+      )
+      .xDomain(xRange)
+      .yOrient('left')
+      .yDomain(priceExtent(data))
+      .yAxisWidth('25px')
+      .plotArea(priceSeries);
+
+    const chart = fcFlexi.chart()
+      .bottomLabel('Date')
+      .rightLabel('Volume')
+      .leftLabel('Price')
+      .layers([pricesLayer, volumeLayer]);
+
+    // render
+    d3.select('.demo')
+      .datum(data)
+      .call(chart);
+  }
+  render();
+  </script>
+</body>
+</html>

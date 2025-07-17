@@ -1,0 +1,26 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - csmith/_posts/2016-01-25-playing-with-docker-compose-and-erlang.md
+distributed-erlang
+erl
+erlc
+Dockerfile's
+_gateway
+Dockerfile_gateway
+ - csmith/_posts/2016-06-20-declarative-ci-cd-with-concourse.md
+BristechSRM
+comms
+pipeline.yml
+load-vars-from
+credentials.yml
+ - csmith/_posts/2016-08-30-docker-1-12-swarm-mode-round-robin.md
+Wybourn
+Vagrantfile
+SSH'd
+worker1
+worker2
+IPs
+

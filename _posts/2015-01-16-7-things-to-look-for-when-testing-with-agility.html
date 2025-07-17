@@ -1,0 +1,136 @@
+---
+title: 7 things to look for when testing with agility
+date: 2015-01-16 00:00:00 Z
+categories:
+- Testing
+tags:
+- testing
+- rapid
+- software
+- blog
+author: dmcnamee
+summary: There are many ways of testing software within an Agile methodology, here
+  are 7 things I learned.
+layout: default_post
+oldlink: http://www.scottlogic.com/blog/2015/01/16/7-things-to-look-for-when-testing-with-agility.html
+disqus-id: "/2015/01/16/7-things-to-look-for-when-testing-with-agility.html"
+---
+
+<p><img src="{{ site.baseurl }}/dmcnamee/assets/communication.webp" alt="communication" title="communication"></p>
+
+<p>I recently came to the end of a piece of work testing an FX trading application within an Agile development team using an HTML5 framework.</p>
+
+<p>Here are 7 things to take away.</p>
+
+
+
+<h2 id="do-your-research">Do your research</h2>
+
+<p>I joined the project during sprint 5. Each sprint lasted between 3 and 5 weeks so the project was well under way and had plenty of functionality built when I started. </p>
+
+<p>I had to get up to speed, and quickly.</p>
+
+<p>Even if nothing had been built, researching the type of application, technology, terminology and any project information, before even touching the application is a great starting point. </p>
+
+<p>In this case, where there was a product in a test environment available to test, I was prepared. Not just in being able to understand what I was looking at, but it aided me in conversation with developers and product owners and I was able to confidently identify issues and suggest improvements; in addition to finding coding errors, integration problems and many, many other bugs.</p>
+
+<p>Testing can be defined as:</p>
+
+<blockquote>
+  <p>…the process of evaluating a product by learning about it through exploration and experimentation, which includes to some degree: questioning, study, modeling, observation, inference, etc</p>
+</blockquote>
+
+<p>By doing research, I was already testing the software.</p>
+
+<h2 id="communication-is-vital">Communication is vital</h2>
+
+<p><a href="https://twitter.com/stevesi">Steven Sinofsky</a> recently wrote about distributed teams - <a href="https://blog.learningbyshipping.com/2014/12/30/why-remote-engineering-is-so-difficult/">Why remote engineering is so difficult.</a>  <br>
+In it he talks about some of the problems associated and ends with:</p>
+
+<blockquote>
+  <p>If I had to sum up all of these in one challenge, it is that however you find you can divide the work across geography at a point in time, it simply isn’t sustainable. The very model you use to keep work geographically efficient are globally sub-optimal for the evolution of your code. It is a constraint that creates unnecessary tradeoffs.</p>
+</blockquote>
+
+<p>Distributed collaboration can certainly be challenging, but it is sustainable if team sizes are small enough. It can work. Maybe it is suboptimal, there can be difficulties, but they are not insurmountable. </p>
+
+<p>Communication is the key thing. Use whatever you are able. <a href="http://www.google.com/+/learnmore/hangouts/">Hangouts</a> for example, is a simple, cross platform way to ensure easy communication across distributed teams. Or, going further, use <a href="https://slack.com/">Slack</a> to enable agnostic collaboration. </p>
+
+<p>One area thought that does benefit hugely from a shared geography is retrospectives. If you can get together for these. Do.</p>
+
+<p>Overall, the easier it is to communicate, the higher the probability of success.</p>
+
+<h2 id="automation-is-a-useful-tool">Automation is a useful tool</h2>
+
+<p>In Agile teams, testers, as a role are often limited in number. Even if there is dedicated test resource, testing at some level is the responsibility of the whole team; very few development teams have the luxury or need employing hundreds of testers. Ideally in Scrum or Kanban, though not usually, every developer is a tester and vice versa. </p>
+
+<p><a href="https://watirmelon.blog/">Alister Scott</a>, based on his experience, <a href="https://watirmelon.blog/2015/01/14/what-is-a-good-ratio-of-software-developers-to-testers-on-an-agile-team/">works on a 1:8 ratio</a>. 1 tester, 8 developers. With caveats. i.e. it depends. This is fairly reasonable in an agile environment with a good amount of automated checks and experienced testers. The ratio would likely be nearer 1:5 where you have less of each.</p>
+
+<p>Successful testing of a large application, particularly with checking for regression, can be onerous and time consuming. Here is where automation at the user level can help. But it also has its own benefits and costs, <a href="{{ site.baseurl }}/2015/01/08/automated-tests.html">as Luke Page has shown.</a></p>
+
+<p>However, automation doesn’t just mean some unit/integration/smoke/end to end tests. These are all valid checks that, fit within the accepted software testing pyramid.</p>
+
+<p><img src="https://watirmelon.files.wordpress.com/2011/06/automatedtestingpyramid.png" alt="software testing pyramid" title=""></p>
+
+<p>By adding useful automation in the correct place, testing can be focused in more important areas that aren’t simple. It’s all about context.</p>
+
+<p>For example. Take an application that saves user layouts. Adding some code to export and import different user layouts, even though the application doesn’t support it specifically, is automating. It doesn’t require that test user to rebuild the layout and gives developers specific data to work with if bugs are raised.</p>
+
+<p>Logging is another example of automation. Record logs and parse later. It can be surprising the amount of useful information that can be found by investigating and processing these.</p>
+
+<p>The most important part of automation though is that it needs a dedicated resource to implement. As a tester, or developer, having to switch tasks has a detrimental impact on productivity as studies have shown. <a href="#link1"><sup>1. </sup></a><a href="#link2"><sup>2.</sup></a></p>
+
+<h2 id="testability-needs-focus">Testability needs focus</h2>
+
+<p>The easier that software is to test, the lower the risk; the more testing that can be achieved, the greater the chances of delivering a quality product. Pushing for testability is key for testers within Agile.</p>
+
+<p>Testers should be attending sprint planning. Ask questions. For each story or bug, think about how easy or difficult it may be to test. If it’s going to be tricky, how do you make it easier? Can logging be added? Can you import/export data easily? How are you going to test each new story? Is there anything you need in addition to existing tools or processes? </p>
+
+<p>You may need support from developers and it may also mean adding stories which could impact functionality delivered early on, but if the benefits are that over the course of development are reduced costs, increased test coverage and a more stable product, this is worth doing.</p>
+
+<h2 id="every-user-is-different">Every user is different</h2>
+
+<p>This is a fundamental tenet of testing. The problem is identifying user interactions and behaviour that are likely to occur prior to going live. That is, what functionality will used most or how functionality will be used. This is most obvious after your software is in production as the bugs roll in if you don’t know or test from a single mindset.</p>
+
+<p>So how do you define those users prior to going live?</p>
+
+<p>Speak to the product owner. Do they have access to their user base? Can you ask them questions?  <br>
+Use your own experience. How would you use it? How would your Luddite friend manage? What about your mother? What about previous users that you have dealt with? Everyone is different, with their own foibles and idiosyncrasies which serve to cause different kinds of problems.</p>
+
+<p>And once in production, make sure your users are able to easily feed back information or ensure you have anonymised logging that can tell you how your application is being used. This will enable better targeting of exploratory testing areas for future work. </p>
+
+<h2 id="flexible-outlook">Flexible outlook </h2>
+
+<p>Ultimately, testers need to be flexible when working in an agile environment.  <br>
+What do I mean by flexible?  <br>
+Being able to converse with developers, business owners and users in a way that each understands.  <br>
+Have an interest and understanding in a range of subjects and able to converse confidently across them. <br>
+Can pick up new and different technology without too much trouble.  <br>
+Able to switch direction and focus on something completely different easily and swiftly. <br>
+Judge quality at different stages of the application development in different ways.</p>
+
+<p>This isn’t a qualitative list. These are just some useful traits of flexibility.</p>
+
+<h2 id="exploratory-testing-done-correctly">Exploratory testing done correctly</h2>
+
+<p>Finally, exploratory testing should be done correctly. </p>
+
+<p>It can be defined as: </p>
+
+<blockquote>
+  <p>…simultaneous learning, test design, and test execution</p>
+</blockquote>
+
+<p>Exploratory testing isn’t wandering aimlessly around the application where you might stumble upon an issue. It applies heuristics to direct testing in the appropriate way and the appropriate place. It is the ability to think critically and use existing knowledge to design tests that result in new information gained which can then be used to define new and better tests. </p>
+
+<p>When done correctly, quality of the software under test can be judged comprehensively and accurately within very tight timescales.</p>
+
+
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Overall, I’ve learned a lot, had fun testing on a framework I wasn’t wholly familiar with, logged lots, and lots of bugs, and helped ensure the delivery of a quality, cutting edge piece of software.</p>
+
+<hr>
+
+<p><small><a id="link1">1. </a><a href="http://erichorvitz.com/taskdiary.pdf">http://erichorvitz.com/taskdiary.pdf</a> <br>
+<a id="link2">2. </a><a href="http://www.apa.org/research/action/multitask.aspx">http://www.apa.org/research/action/multitask.aspx</a></small></p>

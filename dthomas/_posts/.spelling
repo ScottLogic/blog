@@ -1,0 +1,26 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - dthomas/_posts/2014-08-11-a-piecemeal-approach-to-introducing-agile.md
+un-Agile
+ - dthomas/_posts/2014-09-18-the-agile-mindset.md
+VersionOne’s
+Scrum-lite
+Scrum.org
+Scrumbut
+VersionOne’s
+VersionOne’s
+VersionOne’s
+un-Agile
+VersionOne’s
+VersionOne’s
+VersionOne’s
+ - dthomas/_posts/2014-08-22-how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.md
+un-Agile
+ - dthomas/_posts/2014-09-18-the-agile-mindset.md
+VersionOne
+Scrum-lite
+Scrum.org
+Scrumbut

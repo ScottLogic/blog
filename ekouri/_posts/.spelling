@@ -1,0 +1,44 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - ekouri/_posts/2015-05-14-aspnet50-intro.md
+CoreCLR
+dnvm
+cmd
+dnx
+dnu
+kvm
+kpm
+sln
+global.json
+src
+wwwroot
+csproj
+xproj
+project.json
+prebuild
+postbuild
+postpack
+endif
+project.json.
+bower.json
+_components
+_modules
+gulpfile.js
+ApiController
+Startup.cs
+Global.asax
+ConfigureServices
+IServiceCollection
+IApplicationBuilder
+Microsoft.AspNet.Mvc
+Mvc
+services.AddMvc
+AddMvc
+bower_components
+node_modules
+www.hanselman.com
+IntroducingASPNETVNext.aspx
+ef

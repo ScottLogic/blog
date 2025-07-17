@@ -1,0 +1,41 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - nsoper/_posts/2016-01-21-aspnet5-to-aspnetcore.md
+Hanselman
+Microsoft.AspNetCore.Mvc
+DamianEdwards
+aspnetcore
+ - nsoper/_posts/2016-09-05-hosting-netcore-on-linux-with-docker.md
+Bing
+Illig's
+microsoft
+MvcLibrary
+loopback
+Wybourn
+hostname
+aspnet5-books
+mkdir
+usr
+charset
+utf-8
+AppArmor
+my.conf
+conf.d
+default.conf
+_pass
+proxied
+Ebbin
+_name
+proxy.conf
+my.nginx.conf
+
+core#docker
+proxy_pass
+container_name
+ - nsoper/_posts/2016-01-20-restful-api-with-aspnet50.md
+App_Data
+App_Start
+ASPNET_ENV

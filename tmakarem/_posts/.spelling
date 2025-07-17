@@ -1,0 +1,55 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - tmakarem/_posts/2018-06-26-The-3-Types-of-Minimum-Viable-Products.md
+10-week
+Groupon’s
+Groupon
+MiFID
+NDFs
+ - tmakarem/_posts/2018-06-27-How-UX-Designers-Can-Help-Users-Protect-Their-Data.md
+LinkedIn
+NINo
+Whatsapp
+
+ - tmakarem/_posts/2018-11-30-Big-Data-London.md
+Stonebraker
+Shipman’s
+GPs
+Shipman
+
+- tmakarem/_posts/2019-04-26-FinTech-Design-Summit-2019-Designing-for-emotions-and-raising-financial-literacy.md
+FinTech
+Monzo
+organisation
+Hazelwood
+Seren
+programmes
+Vuoko
+Aro
+behavioural
+liv
+Makoski
+
+- tmakarem/_posts/2019-05-08-Clean-Design.md
+BankTransfer
+SplitBill
+FolderStructure
+artboards
+organising
+realise
+organised
+artboard
+colours
+behaviour
+Monzo
+Payments/BankTransfer
+Payments/SplitBill
+
+- tmakarem/_posts/2019-05-24-Designing-with-accessibility-in-mind.md
+colour
+prioritised
+gov.uk
+

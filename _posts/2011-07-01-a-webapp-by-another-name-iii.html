@@ -1,0 +1,66 @@
+---
+title: A Webapp By Another Name III
+date: 2011-07-01 00:00:00 Z
+categories:
+- Tech
+tags:
+- blog
+id: 122205
+author: shall
+oldlink: http://www.scottlogic.co.uk/2011/07/a-webapp-by-another-name-iii/
+layout: default_post
+source: site
+disqus-id: "/2011/07/a-webapp-by-another-name-iii/"
+summary: My colleague Chris Price covered coming up with a "web-less webapp" in <a
+  title="A Webapp By Another Name - The many pitfalls of using the application cache
+  on mobile platforms" href="{{ site.baseurl }}/2011/06/03/a-webapp-by-another-name-the-many-pitfalls-of-using-the-application-cache-on-mobile-platforms"
+  target="_blank">part one</a> of this series.
+---
+
+<p><em>My colleague Chris Price covered coming up with a "web-less webapp" in <a title="A Webapp By Another Name - The many pitfalls of using the application cache on mobile platforms" href="{{ site.baseurl }}/2011/06/03/a-webapp-by-another-name-the-many-pitfalls-of-using-the-application-cache-on-mobile-platforms" target="_blank">part one</a> of this series, and then went on to talk about wrapping an application for iOS in <a title="A Webapp By Another Name II - The many pitfalls of using the application cache on mobile platforms" href="{{ site.baseurl }}/2011/06/10/a-webapp-by-another-name-ii-the-many-pitfalls-of-using-the-application-cache-on-mobile-platforms" target="_blank">part two</a>. In part three, I'll explain how we wrapped our web-app for the Android platform.</em></p>
+<h2>Introduction</h2>
+<p>As explained in part two, PhoneGap aims to wrap web apps in a native application wrapper to allow deployment to multiple platforms. We had already wrapped and deployed our webapp to iOS, and now it was time to deploy to Android.</p>
+<p>There is little difference between creating a PhoneGap application and a regular Android application, and setting up the project is quite simple. Rather then explain everything again, PhoneGap have written an excellent and easy-to-follow guide to setting up the project <a href="http://www.phonegap.com/start#android">here</a>. It's worth noting you won't need the index.html file that the project creates.</p>
+<h2>Step 1 - Point to the web app</h2>
+<p>If you followed PhoneGap's instructions, you should have the main application source in App.java. The beauty of PhoneGap is that, because all of your application's source code is in web-based languages, the wrappers themselves are very lightweight. For what we're doing, we'll only be changing App.java.</p>
+<p>PhoneGap works by processing your webapp through a WebView component, not too dissimilar to the way the mobile's browser works. The result is the same as you'd see in the browser, but without the chrome and browser-specific features. This gives your webapp the feel of a native app and, if you've designed your webapp in such a way, feels really seamless.</p>
+<p>The first thing we need to do is to tell our app to load our webapp. To point the app to a  URL, simply define the applications location:</p>
+{% highlight java %}  private static final String APP_LOCATION = "http://myapplocation.com";{% endhighlight %}
+<p>and instruct the app to load it in the <code>onCreate</code> method:</p>
+{% highlight java %}  super.loadUrl(APP_LOCATION);{% endhighlight %}
+<p>Simple enough, right? When your user loads your native application, they'll be shown your web application in a chrome-less WebView. Perfect!</p>
+<h2>Step 2 - Enable the application cache</h2>
+<p>The offline application cache is a feature that you have to programmatically enable; it isn't there by default. Luckily, it's pretty easy to do <em>once you know what you're looking for</em>. I'm here to show you!</p>
+<p>To enable the application cache, we manipulate the settings of the WebView like so:</p>
+{% highlight java %}  super.appView.getSettings().setAppCacheEnabled(true);
+  super.appView.getSettings().setAppCacheMaxSize(1024*1024*5);
+  super.appView.getSettings().setAppCachePath(this.getCacheDir().getAbsolutePath());
+  super.appView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);{% endhighlight %}
+<p>We're doing a few things here. First of all, we enable the application cache and give it a maximum size. The next step is quite important; we have to tell the WebView where its application cache directory is. We just set this to be the application's default cache directory. Finally, we tell the cache to behave like a typical application cache.</p>
+<p>If, in future development of your app, you decide to increase the number of resources you cache, you may run out of cache space. This would mean having to go back to the native app wrapper and changing the cache size, which doesn't fit well with our "write once" spirit. Well, we can insert a quick handler for such a case like so:</p>
+{% highlight java %}
+  super.appView.setWebChromeClient(new WebChromeClient() {
+    public void onReachedMaxAppCacheSize(long spaceNeeded, long totalUsedQuota,
+      WebStorage.QuotaUpdater quotaUpdater) {
+        quotaUpdater.updateQuota(spaceNeeded * 2);
+    }
+  });
+{% endhighlight %}
+<h2>Step 3 - Handling errors</h2>
+<p>The next step is the crux of the whole process. When you try to access a page through the app and you're not connected, you get a popup error saying that pages can't be accessed without an active network connection. That's all well and good, but we want to access our cached version. To do this, we have to override the error handler.</p>
+<p>A WebView has a WebViewClient, which handles the network error we're looking at. PhoneGap have implemented their own client, called a GapViewClient. If you look at the source code, you'll see that DroidGap creates a GapViewClient and sets its own WebView. The view client handles our no-network error, which we need to override. Let's reassign the view client, with a better handler:</p>
+{% highlight java %}
+  super.appView.setWebViewClient(new GapViewClient(this) {
+    @Override
+    public void onReceivedError(WebView view, int errorCode,
+      String description, String failingUrl) {
+        loadUrl(APPSPOT_LOCATION);
+        return;
+    }
+  });
+{% endhighlight %}
+<p>When we access the web app without a network connection, our error handler picks it up and forwards us anyways. If we've got a cached version, it's displayed and if not, we still gracefully fall back to the "you require a network connection" page. This could be improved by detecting the <code>errorCode</code> matches the no network error, and only acting accordingly.</p>
+<h2>Conclusion</h2>
+<p>That's it! You've now enabled the application cache on your Android wrapper, and can happily deploy it in the knowledge that users can access your application even if they are offline through the cache.</p>
+<p>Ideally, you'd want to write your application wrapper for each platform once and have it point to another, external location you can deploy to. Google's App Engine platform is perfect for this. With minimal effort, you can deploy multiple versions of your application and simply switch the default version without any need to change your wrapper's URL.</p>
+<p>My overall impression of PhoneGap is that, despite being early in its lifecycle, it is a fantastic tool to deploying to multiple devices. Being able to wrap a web app to make it perform like a native app is such a powerful tool for developers that PhoneGap should be considered as a deployment tool.</p>

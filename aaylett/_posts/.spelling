@@ -1,0 +1,10 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - aaylett/_posts/2013-08-28-towtruck.md
+TowTruck
+Hastebin
+ - aaylett/_posts/2013-09-09-nullable-in-kepler.md
+JSR-305

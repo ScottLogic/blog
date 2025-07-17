@@ -1,0 +1,12 @@
+# markdown-spellcheck spelling configuration file
+# Format - lines beginning # are comments
+# global dictionary is at the start, file overrides afterwards
+# one word per line, to define a file override use ' - filename'
+# where filename is relative to this configuration file
+ - janakerman/_posts/2017-09-01-thoughts-on-jest-snapshots.md
+SpringBoot
+Todomvc
+diffs
+
+ - janakerman/_posts/2018-03-13-leadership-election-with-apache-curator.md
+ZNode

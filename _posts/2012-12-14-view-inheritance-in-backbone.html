@@ -1,0 +1,180 @@
+---
+title: View Inheritance in Backbone
+date: 2012-12-14 00:00:00 Z
+categories:
+- Tech
+tags:
+- blog
+id: 165234
+author: shall
+oldlink: http://www.scottlogic.co.uk/2012/12/view-inheritance-in-backbone/
+layout: default_post
+source: site
+disqus-id: "/2012/12/view-inheritance-in-backbone/"
+summary: <a href="http://backbonejs.org" target="_blank">Backbone.js</a> is interesting
+  because it gives you the basic framework of an MVC application without enforcing
+  patterns on you.
+---
+
+<p><em><a href="http://backbonejs.org" target="_blank">Backbone.js</a> is interesting because it gives you the basic framework of an MVC application without enforcing patterns on you. However, in larger web application it's always important to ensure your structure promotes code reuse and good organization for future development. One such way is through inheritance of views, and in this post I will describe how to create an inheritance chain using Backbone Views.</em></p>
+<h2>Motivation</h2>
+<p>Backbone views provide a basic implementation to represent a view, but there are also areas where further functionality could be required, such as an improved handling of view disposal, or just general application logic you feel a subset of your views should have.</p>
+<p>In our application, we want to be able to create subclasses of <code>Backbone.View</code> for disposable views, drop down views, table views, row views, cell views and so on, whilst maintaining the ability to inherit further in the future. Inheriting from <code>Backbone.View</code> isn't as easy as it seems, especially when you consider that you would like children to inherit events and attributes of the parent, whilst also specifying their own. To this end, I set about creating an extensible inheritance chain between my views that would suit my development needs now and in the future.</p>
+<h2>Subclassing Backbone.View</h2>
+<p>For our first example, let's assume we want to define a <code>BaseView</code> from which our other views will inherit from. This view will contain the logic surrounding inheriting events and attributes. You might expect to inherit from <code>Backbone.View</code> like so:</p>
+{% highlight javascript %}var BaseView = Backbone.View.extend({
+  // baseview
+});{% endhighlight %}
+<p>However, this solution can cause several issues. Let's delve a little deeper into this.</p>
+<h3>Prototype Properties vs. Instance Variables</h3>
+<p>When you use extend on <code>Backbone.View</code> and specify properties, they aren't specific to every instance of <code>BaseView</code> you create. They're properties on the prototype of <code>Backbone.View</code>, not variables on the instance of your <code>BaseView</code>. Consider the following:</p>
+{% highlight javascript %}var BaseView = Backbone.View.extend({
+    events : {
+        'click .clickable': 'handleClick'
+    }
+});
+
+var ChildOne = BaseView.extend({
+    // here, we expect events to have a click handler
+});
+
+var ChildTwo = BaseView.extend({
+    initialize: function() {
+        // add our event
+        this.events['drag .draggable'] = 'handleDrag';
+    }
+});
+
+var c1 = new ChildOne();
+var c2 = new ChildTwo();
+
+c1.events;
+// we expect this to only have a click handler, but it actually has a click
+// and a drag handler
+
+c2.events;{% endhighlight %}
+<p>As shown, the modification of <code>events</code> in <code>ChildTwo</code> has affected <code>ChildOne</code>'s event object, even though they should be completely separate extensions.</p>
+<p>Extend works by extending the <code>Backbone.View.prototype</code> with the object literal you specify. When we edit the events object in <code>ChildTwo</code>, we're actually editing the prototype of <code>BaseView</code>, rather than the instance of <code>ChildTwo</code>. So, <code>ChildOne</code> will also have the same modifications because it uses the prototype of <code>BaseView</code>. Baddie!</p>
+<p>There are actually two underlying problems here. Firstly, we want <em>instance variables</em> rather than <em>prototype properties</em>, so that every instance of our <code>BaseView</code> or <code>ChildView</code>s get their own events object. Secondly, we don't want to have to declare a new events object every time, as the parent may have events we want to keep and we don't want to duplicate code across children. So, let's solve them:</p>
+<h3>Backbone Inheritance with Instance Variables</h3>
+<p>We need to adjust the way we inherit from <code>Backbone.View</code>. Firstly, we define our <code>BaseView</code> as a function, which will serve as our constructor. In this constructor, we can then define the instance variables we want every instance of our <code>BaseView</code> to have.</p>
+<p>We then extend the prototype to copy over all the prototype properties from <code>Backbone.View</code>, and assign the extend to our extend.</p>
+{% highlight javascript %}var BaseView = function(options) {
+    Backbone.View.call(this, options);
+}
+
+_.extend(BaseView.prototype, Backbone.View.prototype, {
+    // base functions will be implemented here
+});
+
+BaseView.extend = Backbone.View.extend;{% endhighlight %}
+<p>This is pretty simple, we're calling <code>Backbone.View</code> in our constructor, and then extending the <code>Backbone.View</code> prototype. This gives us the opportunity to define the instance variables in the constructor of <code>BaseView</code>.</p>
+<h3>Inherit values from a parent's prototype property</h3>
+<p>Backbone's <code>event</code> and <code>attribute</code> properties are on the prototype of <code>Backbone.View</code>. However, we don't want to overwrite the objects in every child class, and would rather have the events concatenated with the events of the parent. This requires some changes to our <code>BaseView</code>:</p>
+{% highlight javascript %}var BaseView = function(options) {
+    this.inheritedEvents = [];
+
+    Backbone.View.call(this, options);
+}
+
+_.extend(BaseView.prototype, Backbone.View.prototype, {
+    baseEvents: {},
+
+    events: function() {
+        var e = _.extend({}, this.baseEvents);
+
+        _.each(this.inheritedEvents, function(events) {
+          e = _.extend(e, events);
+        });
+
+        return e;
+    },
+
+    addEvents: function(eventObj) {
+        this.inheritedEvents.push(eventObj);
+    }
+});
+
+BaseView.extend = Backbone.View.extend;{% endhighlight %}
+<p>Let's look at what we're doing here. Firstly, we define the instance variable <code>inheritedEvents</code>, which is an array of event objects. When a child wants to add an object of arrays to be handled, it calls <code>this.addEvents(eventObj)</code> to have it added to the array. Because this is an instance variable, the events are individual to each instance and we don't need to override the parent's object.</p>
+<p>We've also defined a prototype property called <code>baseEvents</code>, which is where you would put any events common across all <code>BaseView</code> instances.</p>
+<p>Finally, we've changed <code>events</code> to be a function which returns the concatenation of the base events and all inherited events.</p>
+<p>A child could add its own events like so:</p>
+{% highlight javascript %}var Child = BaseView.extend({
+  initialize: function() {
+    this.addEvents({
+      'click .clickable': 'handleClick'
+    });
+  }
+});{% endhighlight %}
+<p>and it would still have the events defined in <code>BaseView</code>.</p>
+<h2>Subclassing Children - the full chain</h2>
+<p>Once we have this step handled, we can apply it throughout a chain of children. As long as each potential parent inherits from its parent in the correct way, introducing new children is seamless provided you do not override the <code>events</code> function with an object literal, and call <code>addEvents</code> to add your events.</p>
+<h2>Future Development</h2>
+<h3>Attributes</h3>
+<p>The attributes object is handled differently. Unlike events, it cannot be a function, but it is used in Backbone's <code>make</code> function to create the element. For this reason, we need to keep the attributes object an object literal and also up-to-date as children add attributes to it. One solution is to make attributes an instance variable, and have it kept up-to-date with <code>addAttributes</code> like so:</p>
+{% highlight javascript %}
+var BaseView = function(options) {
+    this.attributes = {};
+
+    Backbone.View.apply(this, [options]);
+};
+
+_.extend(BaseView.prototype, Backbone.View.prototype, {
+    baseAttributes: {},
+
+    addAttributes: function(attr) {
+        this.attributes = _.extend(this.attributes, attr);
+        this.updateAttributes();
+    },
+
+    updateAttributes: function() {
+        this.$el.attr(this.attributes);
+    }
+}{% endhighlight %}
+<p>I'm concerned at the processing overhead of this (though I can't see there being much of an issue, as typically you'd add attributes when you initialize a view, before the element is in the DOM) of this, however, and would like to do some more investigation and I am open to ideas as to how to improve it.</p>
+<h3>Inheritance of Functions</h3>
+<p>Things like functions which are defined on the prototype are still overriden by children, which may not be desirable. A common pattern would be something like:</p>
+{% highlight javascript %}
+var BaseView = function(options) {
+    Backbone.View.call(this, options);
+}
+
+_.extend(BaseView.prototype, Backbone.View.prototype, {
+    initialize: function() {
+      // perform BaseView initialize
+      this.initializeInternal();
+    }
+});
+
+BaseView.extend = Backbone.View.extend;{% endhighlight %}
+<p>In this case, you'd have your children override <code>initializeInternal</code>. However, as your inheritance chain gets deeper, you may want to perform step-by-step initialization as you get further down the chain, and overriding <code>initializeInternal</code> would cause a lot of duplicate code at each childless view. A solution such as creating an initialize chain may work here, and having the root view have a chain of functions to call on initialize. Something like:</p>
+{% highlight javascript %}this.initializeChain = [];
+this.initialize = _.chain.apply(this, this.initializeChain);{% endhighlight %}
+<p>This code is untested, and I'm not sure where and how you would define your initialization functions without completely changing the pattern of creating views. Currently, we keep our functional logic as low down the inheritance chain as possible to avoid a lot of overriding.</p>
+<h2>Conclusion</h2>
+<p>By inheriting from <code>Backbone.View</code> you improve the readability (i.e. views are less cluttered), promote code reuse and make future developments easy. Although how to inherit from views isn't obvious at first, and Backbone's way of handling events and attributes make things a little tricky, I think being able to perform classical inheritance with Backbone is an incredibly important concept for large-scale web applications.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

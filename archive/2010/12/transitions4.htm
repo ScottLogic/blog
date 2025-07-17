@@ -1,0 +1,87 @@
+---
+---
+
+<html>
+<head>
+<script type="text/javascript" src="{{ site.github.url }}/archive/2010/12/jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#insertRow").click(function() {
+    var tbl = document.getElementById('tbl'),
+      newRow = tbl.rows[0].cloneNode(true);
+    tbl.rows[0].parentNode.insertBefore(newRow, tbl.rows[0]);
+  });
+});
+</script>
+</head>
+<body>
+<style type="text/css">
+td {
+  background-color: white;
+}
+
+tr:nth-child(odd) td{
+  background-color: #999;
+}
+
+tr td:hover {	
+  -webkit-transition-property: background;
+  -webkit-transition-duration: 1s;
+  -moz-transition-property: background;
+  -moz-transition-duration: 1s;
+  transition-property: background;
+  transition-duration: 1s;
+  background-color: red;
+}
+</style>
+<table id="tbl"><tbody><tr><td>row 1</td></tr><tr><td>row 2</td>
+</tr></tbody>
+</table>
+<br/>
+<br />
+<a href="#" id="insertRow">Insert Row</a><br />
+HTML...
+<pre>
+&lt;table id="tbl"&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;row 1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;row 2&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
+CSS...
+<pre>
+td {
+  background-color: white;
+}
+
+tr:nth-child(odd) td{
+  background-color: #999;
+}
+
+tr td:hover {	
+  -webkit-transition-property: background;
+  -webkit-transition-duration: 1s;
+  -moz-transition-property: background;
+  -moz-transition-duration: 1s;
+  transition-property: background;
+  transition-duration: 1s;
+  background-color: red;
+}
+</pre>
+JavaScript
+<pre>
+$(document).ready(function() {
+  $("#insertRow").click(function() {
+    var tbl = document.getElementById('tbl'),
+      newRow = tbl.rows[0].cloneNode(true);
+    tbl.rows[0].parentNode.insertBefore(newRow, tbl.rows[0]);
+  });
+});
+</pre>
+</body>
+</html>

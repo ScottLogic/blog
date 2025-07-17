@@ -1,0 +1,131 @@
+---
+title: VS 2010, vs-doc and Javascript Intellisense
+date: 2010-08-27 00:00:00 Z
+categories:
+- Tech
+tags:
+- Intellisense
+- Javascript
+- Visual Studio 2010
+- vs-doc
+- blog
+id: 68313
+author: lpage
+oldlink: http://www.scottlogic.co.uk/2010/08/vs-2010-vs-doc-and-javascript-intellisense/
+layout: default_post
+source: site
+disqus-id: "/2010/08/vs-2010-vs-doc-and-javascript-intellisense/"
+summary: Recently I read Scott Guthrie's post on <a href="http://weblogs.asp.net/scottgu/archive/2010/04/08/javascript-intellisense-improvements-with-vs-2010.aspx">improved
+  JavaScript Intellisense</a> in Visual Studio 2010.
+---
+
+<p>Recently I read Scott Guthrie's post on <a href="http://weblogs.asp.net/scottgu/archive/2010/04/08/javascript-intellisense-improvements-with-vs-2010.aspx">improved JavaScript Intellisense</a> in Visual Studio 2010. Whilst the post is very impressive, showing off Visual Studio's ability to parse the JavaScript in order to provide intelligent Intellisense, when I came to apply it to more real world examples and use vs-doc to give the Intellisense hints, I encountered missing information and a few issues. This article aims to present what I've found, concentrating on what parts of vs-doc are used and how it is applied.</p>
+<h2>Introduction</h2>
+<p>If you stay within the context of a single function, in a single file, then as shown in Scott's post, the JavaScript Intellisense works incredibly well. If you're writing a class, then you need to add XML comments to give Intellisense extra help. These XML comments, or vs-doc are similar to C# code comments, with a few differences. There are only 6 types of tags for different scenarios.</p>
+<ul>
+<li>summary - used for functions, including constructors</li>
+<li>param - used for function parameters</li>
+<li>field - used for class fields</li>
+<li>value - used for properties on the getter function (the setter remains empty)</li>
+<li>returns - used for specifying the return values</li>
+<li>reference - in order to pull in other JavaScript files</li>
+</ul>
+<p>Heres a code snippet example</p>
+{% highlight javascript %}/// <reference name="MicrosoftAjax.js" />
+MyClass = function MyClass(param1) {
+    /// <summary>Class description</summary>
+    /// <param name="param1" optional="true" type="Number">
+    ///     param description
+    /// </param>
+    /// <field name="myField" type="String" mayBeNull="true">
+    ///     field description
+    /// </field>
+};
+
+MyClass.prototype = {
+    get_myProperty: function MyClass$get_myProperty() {
+        /// <value type="String">property description</value>
+        return this.myField;
+    },
+    set_myProperty: function set_myProperty(value) {
+        this.myField = value;
+    },
+
+    myFunction: function myFunction() {
+        /// <summary>function description</summary>
+        /// <returns type="Boolean">return description</returns>
+        return this.myField === "MyString";
+    }
+};
+{% endhighlight %}
+<p>You can get more information on the format of these XML comments from a <a href="http://stackoverflow.com/questions/282129/intellisense-for-ajax-and-javascript-libraries-in-visual-studio">Stack Overflow Question</a> and <a href="http://weblogs.asp.net/bleroy/archive/2007/04/23/the-format-for-javascript-doc-comments.aspx">Russel Bertrands Blog Article</a>. Once you have added these comments you can update the JavaScript Intellisense using Ctrl+Shift+J.</p>
+<h2>Details, Details, Details</h2>
+<p>I'll now go through how this works in practice and highlight some of the information I had to dig and experiment for.</p>
+<h3>Field Tags</h3>
+<p>You must put field tags <strong>together </strong>at the top of a constructor - if they are not immediately following the summary/params tag of the constructor then Intellisense will skip them. If you have an XML error then only comments preceding the error will be included (and even when JavaScript validating the document, no warnings or messages will be given). If you put text outside of XML comments between the summary and field tags then they will also be excluded.</p>
+<p>In order for Intellisense to pick up the fields I also had to add a registerClass line underneath - otherwise all the field tags were ignored.</p>
+<p>In terms of comparing vs-doc with <a href="http://jsdoc.sourceforge.net/">JSDoc</a>, this is for me the biggest failing of vs-doc. Once an XML comment describing a field is separated from where that field is being used or accessed, then you increase the risk that a developer will change or remove that field without changing the comment. You also no longer have reminders where all the field initialisers are, that XML tags need to be updated.</p>
+<p>When you don't add vs-doc comments, you don't get Intellisense on fields when using them within the class. It does pick up, that if a field has been modified earlier in the function you are editing, that it is available now, but that doesn't stop a earlier mistake being duplicated and accessing a mis-spelt field. When you use the created class, the Intellisense on the instance picks up a mixture of all fields defined in field tags and set in the constructor that do not begin with underscore (Microsoft's convention for private fields - even though they are not enforced to be private).</p>
+<h3>References</h3>
+<p>References worked well, but using name="" didn't work for files in the same project, even if the file was in the same folder, however you can work around it by using path="" instead, which also allowed me to pull in files from other projects. They do chain though, so once I add some base files referenced (like the jQuery vs-doc) in one file, referencing that gave me full jQuery Intellisense.</p>
+<h3>Dom Elements</h3>
+<p>Dom Elements don't have a type. Instead you leave off the type attribute and have a domElement="true" instead. I found it worked for pre-written functions returning dom elements and me then using them, but if a param was a dom element then Intellisense failed to give me any help in my function - though the param tag also didn't always work with types.</p>
+<h3>Enumerations</h3>
+<p>AJAX enumerations (where registerEnumeration is used) cause every field tag and item set in the constructor to be marked as static and be available on the type (despite in fact only objects on the prototype being copied to the type). One tag used by the Microsoft Ajax team but not in mentioned anywhere else (and currently ignored by Intellisense) is static="true|false".  Below is a code example showing how the Microsoft team annotate enumerations.</p>
+{% highlight javascript %}MyEnumeration = function MyEnumeration() {
+    /// <summary>Describes an enumeration</summary>
+    /// <field name="Value1" type="Number" integer="true" static="true">
+    ///    describes a enumeration value
+    /// </field>
+    /// <field name="Value2" type="Number" integer="true" static="true">
+    ///    describes a enumeration value
+    /// </field>
+};
+MyEnumeration.prototype = {
+    Value1: 1,
+    Value2: 2
+};
+MyEnumeration.registerEnum("MyEnumeration", true);
+{% endhighlight %}
+<p>Again, enumerations present a problem for Intellisense. Perhaps because JavaScript has no notion of an enumeration value type, Intellisense certainly has no special support for a value which is enumerated within an enumeration. For example in the next code snippet.</p>
+{% highlight javascript %}MyClass.prototype.myFunction = MyClass$myFunction(value) {
+    /// <summary>
+    ///    Enumeration Example
+    /// </summary>
+    /// <param name="value" type="MyEnumeration">
+    ///    Passed Enumeration Value
+    /// </param>
+    value.*
+};
+{% endhighlight %}
+<p>When you attempt to get the functions/fields on the variable value (at the point indicated by the star), you get Value1 and Value2 - Intellisense thinks that value is an instantiation of the MyEnumeration class rather than a number that will be present on the MyEnumeration prototype.</p>
+<h3>Value Types</h3>
+<p>Here is a list of recognised value types - Number, Array, Function, Object, Boolean. I haven't found a value type for an event (and there is no equivalent domEvent="true"), however there are the two Microsoft Ajax wrapper classes, Sys.Dom.DomEvent and Sys.EventArgs.</p>
+<h2>Conclusion</h2>
+<p>The improved JavaScript Intellisense is great for people adding small scripts to pages and using libraries that Microsoft has added vs-doc versions for, but it falls down once you have a complicated web application. However, it's no step back - Intellisense in JavaScript is a new thing and in some ways the Microsoft one is more advanced than anything else available in the market.</p>
+<p>It seems evident that vs-doc was written to create help files from JavaScript and then as an after thought used to help bolster the Intellisense engine and because of this, you shouldn't think that marking up your code with perfect vs-doc is going to provide magic Intellisense.</p>
+<p>To compare JSDoc to vs-doc, I much prefer the brevity of JSDoc in being able to say something's type is "number|null" instead of having to set an attribute mayBeNull="true" or using question mark to denote a optional parameter instead of optional="true". With all the field XML you end up with a big unreadable chunk at the beginning of your constructor that is unmaintainable and provides little benefit. It is a shame Microsoft didn't make some effort to support JSDoc, even if it required adding some custom tags so that developers aren't stuck between having slightly better Intellisense and Microsoft code documentation (vs-doc) or having a better annotation system that is more widely used (JSDoc).</p>
+<p>However, with some improvements to Intellisense and the ability to annotate a field anywhere in the constructor (or even class) then the advantages could start outweighing the maintainability.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

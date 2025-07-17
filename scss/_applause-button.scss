@@ -1,0 +1,30 @@
+.social applause-button {
+  display: block;
+  position: sticky;
+  top: 6rem;
+  width: 4rem;
+  z-index: 100; /* always on top */
+
+  .clap-count {
+    border-radius: 50%;
+    padding-inline: 0.5rem;
+    background-color: white;
+    font-size: 1.25rem;
+  }
+  &.clap .clap-count {
+    animation-name: hideThenShow !important;
+  }
+
+  .style-root {
+    gap: 0.25rem;
+    flex-direction: column-reverse;
+  }
+
+  button.shockwave {
+    background-color: white;
+
+    svg {
+      overflow: visible;
+    }
+  }
+}

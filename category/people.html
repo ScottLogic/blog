@@ -1,0 +1,15 @@
+---
+title: People
+layout: default
+summary: Scott Logic's thoughts and ideas relating to People
+image: "/assets/blog.png"
+redirect_from:
+- "/category/careers.html"
+- "/category/diversity.html"
+---
+
+{% assign posts = site.categories["People"] %}
+{% if posts %}
+  {% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% endif %}
+{% include post_index.html posts=posts categoryName="People" %}

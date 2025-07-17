@@ -1,0 +1,12 @@
+---
+title: Delivery
+layout: default
+summary: Scott Logic's thoughts and ideas relating to Delivery
+image: "/assets/blog.png"
+---
+
+{% assign posts = site.categories["Delivery"] %}
+{% if posts %}
+  {% assign posts = posts | sort: 'date' | reverse | uniq %}
+{% endif %}
+{% include post_index.html posts=posts categoryName="Delivery" %}

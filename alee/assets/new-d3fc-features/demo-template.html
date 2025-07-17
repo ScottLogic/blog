@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    template for showing a live demo in your blog post, with code sample, via
+    <iframe src="{{site.baseurl}}/[path-to.html]" marginwidth="0" marginheight="0" style="height:350px;width:100%;border:none;" scrolling="no"></iframe>
+    replace [path-to.html] with the relative path to your example html file
+
+    test locally using http-server from the same folder:
+      npm install -g http-server
+      http-server
+  -->
+
+  <!-- include polyfills for custom event, Symbol and Custom Elements -->
+  <script src="https://unpkg.com/babel-polyfill@6.26.0/dist/polyfill.js"></script>
+  <script src="https://unpkg.com/custom-event-polyfill@0.3.0/custom-event-polyfill.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/document-register-element/1.8.0/document-register-element.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- include highlight library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+
+  <!-- any other links and optional styles -->
+  <style>
+    .demo {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!--
+    Optional DOM for this example
+
+    If omitted, then a ".container" div will be created, with a ".demo"
+    div inside it (which will be the "Demo" tab). Your code should use
+    the ".demo" div
+
+    If included, there should be a ".container" div, with a ".demo"
+    div inside it, plus any additional elements inside that
+  -->
+  <div class="container">
+    <div class="demo">
+      <!--Any content required by the demo script-->
+      
+    </div>
+  </div>
+
+  <!--
+    demo.js must be included after the container div (if included),
+    but before the code scripts
+  -->
+  <script type="text/babel" src="demo.js"></script>
+  <link href="demo.css" rel="stylesheet">
+
+  <script type='text/babel'>
+    // This code script will not be shown
+    document.querySelector('.demo')
+      .style.fontWeight = "600";
+  </script>
+
+  <script id="my-demo-1.js" type='text/babel'>
+    // This code script will be shown
+    // as a tab named "my-demo-1.js"
+    document.querySelector('.demo')
+      .innerHTML = "Hello world";
+  </script>
+
+  <script id="my-demo-2.js" type='text/babel'>
+    // This code script will be shown
+    // as a tab named "my-demo-2.js"
+    document.querySelector('.demo')
+      .style.color = "red";
+  </script>
+</body>
+</html>

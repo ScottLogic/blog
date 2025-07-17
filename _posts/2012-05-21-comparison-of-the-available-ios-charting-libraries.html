@@ -1,0 +1,170 @@
+---
+title: Comparison of the Available iOS Charting Libraries
+date: 2012-05-21 00:00:00 Z
+categories:
+- Tech
+tags:
+- Objective-C
+- iOS
+- Charting
+- blog
+id: 150852
+author: cgrant
+oldlink: http://www.scottlogic.co.uk/2012/05/comparison-of-the-available-ios-charting-libraries/
+layout: default_post
+source: site
+disqus-id: "/2012/05/comparison-of-the-available-ios-charting-libraries/"
+summary: In this post, I explore four of the available iOS charting libraries and
+  investigate the features, API, and pros and cons of each.
+---
+
+<p>In this post, I explore four of the available iOS charting libraries and investigate the features, API, and pros and cons of each. In order to conduct a fair investigation, I have developed a comparison framework which loads historic stock market data from the <a href="http://code.google.com/p/yahoo-finance-managed/wiki">Yahoo Finance API</a>. My findings were that <strong>Core Plot</strong> had a strong set of documentation, yet was a little light on features and built in functionality. <strong>Shinobi Charts</strong> had super fast performance, was extremely easy to integrate and had a clean, friendly API. The <strong>iOS:Chart</strong> library from Three D Graphics had a large number of chart types, but had a very confusing API and poor documentation. <strong>KeepEdge</strong> was difficult to install with another poor API, and also threw unhelpful exceptions when adding data. I have documented my setup and usage experiences of the four libraries below.</p>
+<p><!--more--></p>
+<h2>The Framework</h2>
+<p>The framework can be easily extended to display the data fetched in different view controllers that can be set up to use various charting libraries. I start with a discussion around the framework including its architecture, the components it uses and how it operates, then describe the process of integrating each chart type. Finally I come up with conclusions based on my experience. The code used to build the framework and create the comparison project is available for download near the end of this post.</p>
+<h3>Framework Library / API Usage</h3>
+<p>Rather than generating random data or using the same hard-coded data every time the comparison was run, stock market data is fetched from the <a href="http://code.google.com/p/yahoo-finance-managed/wiki">Yahoo Finance API</a> in CSV format . Unfortunately, Yahoo Finance does not provide functionality in its API to find a list of the stocks available. Therefore, a request for a list of the major-cap stocks from the NASDAQ website is created. This again returns results in CSV format. To parse the CSV files returned by each feed, the framework includes the <a href="https://github.com/davedelong/CHCSVParser">CHCSV Parser</a> created by <a href="http://davedelong.com/">Dave Delong</a>.</p>
+<h3>Framework Structure</h3>
+<p><a href="{{ site.baseurl }}/archive/2012/05/image.png"><img src="{{ site.baseurl }}/archive/2012/05/image-200x300.png" alt="Stock Selection View in the application." title="Stock Selection View" width="200" height="300" class="alignleft size-medium wp-image-150898" style="float:left; padding-right:5px;" /></a></p>
+<p>The framework is based around a Data Transfer Object (DTO) named <code>StockPriceDataContainer</code>. This object contains three properties. The first, StockData, is a <code>StockData</code> object containing metadata about a certain stock. The second property is StartDate, which is the date that we want to get prices from. The third property is the PriceDataArray, which is a <code>NSMutableArray</code>. This array contains PriceData objects, which holds price information for each point in time. PriceData has the properties Date, Index, Open, High, Low, Close, Volume, AdjClose.</p>
+<p>The Data Manager has two operations which fetch data to display in the framework. The first, <code>getStockList</code>, uses the <a href="http://www.nasdaq.com/screening/companies-by-name.aspx?letter=A&amp;marketcap=Large-cap">company list</a> from the NASDAQ website mentioned previously. The second, <code>getDataForStock</code>, retrieves data in a similar way, but uses a <a href="http://code.google.com/p/yahoo-finance-managed/wiki">Yahoo Finance</a> query based on a stock symbol and a start date. The result is then converted into an array of PriceData objects, ready to be used by the different charts.</p>
+<p>The initial view presented when the framework launches is a <code>UITableView</code> subclass named <code>StockSymbolSelectionTableViewController</code>. The class loads a list of stocks on a new thread when the using the DataManager. As the stock list returned is a large list, the <code>StockSymbolSelectionTableViewController</code> has a search bar to provide search functionality. Once the user has found the stock they would like to view and selected the row the stock is at, a <code>StartDateSelectorViewController</code> is created, passing the <code>StockPriceDataContainer</code> it has just created into the selector's constructor. The <code>StartDateSelectorViewController</code> is a <code>UIViewController</code> subclass that simply displays a date picker and a "Next" button. Once the button is touched a  new <code>ChartTypeSelectionTableViewController</code> is created. The StockPriceDataContainer is passed into this new class' init method, and it is then pushed to the navigationController's stack.</p>
+<p><a href="{{ site.baseurl }}/archive/2012/05/xzcxzc.png"><img src="{{ site.baseurl }}/archive/2012/05/xzcxzc-200x300.png" alt="Stock Selection View" title="Stock Selection" width="200" height="300" class="aligncenter size-medium wp-image-150903" style="float:right; padding-left:5px;"  /></a></p>
+<p>The <code>ChartTypeSelectionTableViewController</code> class is a <code>UITableViewController</code> subclass that presents a list of the available chart types. The controller again takes a <code>StockPriceDataContainer</code> in its <code>init</code> method. At the end of the <code>init</code> method, the controller will try to load data for this stock using the data manager's <code>getDataForStock: fromStartDate</code> method. It displays a loading indicator in the table's header until the data either loads successfully or fails to load. The chart types are specified manually inside of the <code>cellForRowAtIndexPath:(NSIndexPath*)indexPath</code> method, and in the <code lang="objc">didSelectRowAtIndexPath:(NSIndexPath*)indexPath</code> method, the controller loads a new <code>ChartBaseViewController</code> subclass based on the chart type that was selected.</p>
+<p>When the <code>didSelectRowAtIndexPath</code> method is called, we have all the information we need to display the stock data on a particular chart type. In order to keep the comparison fair, the <code>ChartBaseViewController</code> base class is present to ensure that there is as much common code as possible between the view controllers for each chart type, removing possible bias due to the way that each view controller is created and initialised. This also makes it very simple to add a new library or chart type to the framework, as you just need to create a new subclass and add that to the project. </p>
+<p>The <code>ChartBaseViewController</code> is a simple subclass of <code>UIViewController</code> that accepts a stock price data container and stores that container in a field in its <code>init</code> method:</p>
+{% highlight objective-c %}-(id)initWithPriceContainer:(StockPriceDataContainer*)priceContainer;{% endhighlight %}
+<p>It also contains code to set the title based on the priceContainer object's StockData property when the view loads, as well as releasing the container in its <code>dealloc</code> method.</p>
+<h2>The Libraries</h2>
+<p>Above, I have described how the framework operates and loads data to present in the different charting libraries. I will now describe how to add four different libraries to this framework. The charts have been added following the same patterns as outlined in their respective sample projects. For all of the libraries, a standard line chart has been created with as much of the default behaviour possible to ensure a fair comparison.</p>
+<h3>Core Plot</h3>
+<p><a href="http://code.google.com/p/core-plot/">Core Plot</a> is a free, open source charting library available under the <a href="https://opensource.org/licenses/bsd-license.php">New BSD License</a>. The library is also available for use in Mac OS X applications. At the time of writing, the current version is 1.0. Core Plot has a <a href="http://code.google.com/p/core-plot/w/list">wiki</a>, and the new 1.0 version comes with a comprehensive set of API documentation. I found that the source code itself was the best place to look for documentation, as the majority of classes and methods have clear, meaningful comments.</p>
+<h3>Integrating Core Plot into the framework</h3>
+<p>In the <code>CorePlotViewController</code>, we first must create a <code>CPTGraphHostingView</code>. Within this view, we create a <code>CorePlotLineChart</code> with the price container, then initialise the plot. The majority of the setup for core plot is done in the <code>CorePlotLineChart</code> class, which implements the <code>CPPlotDataSource</code> protocol. This provides the chart with the data points it must display and is done by implementing the following method:</p>
+<p><code>-(NSNumber*)numberForPlot:(CPTPlot*)plot field:(NSUInteger)fieldEnum recordIndex:(NSUInteger)index</code>.</p>
+<p>Core Plot does not have a built in date/time axis type, so the data points in the example have simply been plotted on the x-axis based on their index. The index has to be reversed to make the points appear in the correct order, which is done by setting the x value to the number of data points in the PriceDataArray minus the current index. There are methods to plot date/time points on a Core Plot scatter chart, such as <a href="http://stackoverflow.com/a/6982938/525448">this one</a> documented at Stack Overflow. Core Plot also comes packaged with a DatePlot program in the examples folder, again illustrating that it is possible, but this was beyond the scope of this comparison. The code to do this is not overly excessive, but I would have preferred to have had an inbuilt date time axis that could have computed the correct position of the points based on their date.</p>
+<p>To add points to the core plot data source, it is a case of using <code>CGPointMake</code> to combine the Close value of the data point at the current index with the current index itself. Then, based on the fieldEnum value, we return the x or y value of the point.</p>
+{% highlight objective-c %}
+PriceData *value = [[dataForPlot PriceDataArray] objectAtIndex:index];
+CGPoint point = CGPointMake([[dataForPlot PriceDataArray] count] - [value Index], [value Close]);
+
+if (fieldEnum == CPTScatterPlotFieldX)
+    return [NSNumber numberWithFloat:point.x];
+else
+    return [NSNumber numberWithFloat:point.y];
+{% endhighlight %}
+<p>The <code>-(NSUInteger)numberOfRecordsForPlot:(CPTPlot*)plot</code> method must also be implemented to return the number of data points that will be displayed on the chart. The <code>-(void)initialisePlot</code> method sets up the chart itself, assigns the hostedView's hosted graph, and then creates a CPTScatterPlot with styles and properties which it then adds to the chart. We must also set up the plot space, allow user interaction and then set up the interval lengths and tick properties for each axis. The chart is now ready to be given data which it will display.</p>
+<p><a href="{{ site.baseurl }}/archive/2012/05/11.png"><img src="{{ site.baseurl }}/archive/2012/05/corePlot.png" alt="Core Plot" title="Core Plot" width="320" height="480" class="aligncenter size-full wp-image-151236" style="margin-left:185px"></a></p>
+<h2>Shinobi Charts</h2>
+<p><a href="http://www.shinobicontrols.com/">Shinobi Controls</a> recently released their new charting library, <a href="http://www.shinobicontrols.com/shinobicharts/">Shinobi Charts</a>. This is a paid library but with a free 30 day trial available. It features several chart types, from Pie and Donut to Bar and Column and Area charts, with more coming soon. The framework also offers Number, Date-Time and Category axis types. Shinobi comes packaged with a comprehensive set of apple style documentation. Although the library is new, the packaged example projects are well put together and are more than enough to illustrate how to include the framework in your code.</p>
+<h3>Integrating Shinobi Charts into the framework</h3>
+<p>Adding the Shinobi Chart to the framework is a simple matter of linking the ChartComparison binary with the Shinobi and Security Libraries included in the trial. The setup process is outlined in the <a href="http://www.shinobicontrols.com/shinobicharts/quickstartguide/introduction/">Quick Start Guide</a>, which I found extremely useful. For a Shinobi Chart, we again have two classes. The first, <code>ShinobiViewController</code> is another subclass of <code>ChartBaseViewController</code>, which in the <code>viewDidLoad</code> method, creates a <code>ShinobiChart</code> instance. It then sets some properties on that chart to enable interaction before initialising the second class (a <code>ShinobiDataSource</code>). Finally, we add the finished chart to the UIViewController's view.</p>
+<p>The <code>ShinobiDataSource</code> class implements four simple methods from the <code>SChartDatasource</code> delegate to provide the chart with data. The first method <code>seriesAtIndex:(int)index</code> is responsible for creating a <code>SChartSeries</code>. In our case, we simple create a <code>SChartLineSeries</code> and return it. The <code>numberOfSeriesInSChart:</code> method just returns the number of series required on the chart. We simply return 1. The <code>numberOfDataPointsForSeriesAtIndex:</code> method returns the number of data points in the price container. The last of the four methods in the <code>SChartDatasource</code> we must implement is <code>dataPointAtIndex: forSeriesAtIndex:</code>. This is where we return a data point for a particular series and data index. This is a matter of creating a <code>SChartDataPoint</code> object with the date and close value of the corresponding data point in the price container. The following illustrates the resulting code:</p>
+{% highlight objective-c %}
+-(id)sChart:(ShinobiChart*)chart dataPointAtIndex:(int)dataIndex forSeriesAtIndex:(int)seriesIndex
+{
+    SChartDataPoint *datapoint = [[SChartDataPoint alloc] init];
+    datapoint.xValue = [[Data objectAtIndex:dataIndex] Date];
+    datapoint.yValue = [NSNumber numberWithDouble:[[Data objectAtIndex:dataIndex] Close]];
+    return [datapoint autorelease];
+}
+{% endhighlight %}
+<p>Once we have implemented these methods and set all of the chart properties on the chart in <code>ShinobiViewController</code>, the chart can be loaded and is displayed when the view controller loads.</p>
+<p><a href="{{ site.baseurl }}/archive/2012/05/image1.png"><img src="{{ site.baseurl }}/archive/2012/05/shinobi.png" alt="Shinobi Chart View" title="Shinobi Chart" width="480" height="320" class="aligncenter size-medium wp-image-150906" style="margin-left:105px" /></a></p>
+<h2>iOS:Chart</h2>
+<p><a href="http://www.threedgraphics.com/tdg/products/tools/ioschart/">iOS:Chart</a> is a library from Three D Graphics. This is another paid library with a trial available. The library comes with a lot of different chart types and it can also draw 3D charts. There is API documentation available, but as mentioned below, the trial version seems to have different/missing methods to the API, which is not made clear anywhere as far as I could see.</p>
+<h3>Integrating iOS:Charts into the framework</h3>
+<p>For iOS:Charts there are two classes which control the chart. The <code>IOSChartView</code> class is a <code>UIView</code> subclass which draws the chart that is set in its <code>setChart:</code> method. It also resizes the chart's backgroundFrameSize property when the <code>updateFrame</code> method is called. This is rather low level behaviour which was abstracted from the user by the other libraries. It is unfortunate that this behaviour must be created by users of the library.</p>
+<p>The <code>IOSChartViewController</code> which is a UIViewController creates the chart in its <code>-(void)loadView</code> method and sets various properties. It then sets the data on the chart's data manager, and update's the chart's view and frame. The controller also updates the chart's view and frame when the <code>-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation</code> method is fired.</p>
+<p>One thing I found confusing when integrating the library into the framework was that sample data was added to the chart even though I did not request any such data be added. The naming of the method <code>-(BOOL)setYPoint:(uint)series group:(uint)group data:(float)y</code> of <code>TDGDataProtocol</code> also made things unclear to me. The notion of a group seemed strange, when setting a y-value on a series, and after reading the documentation it was still not clear what this meant. After using a trial and error approach to try to discover what this group field actually did, it turned out that the it is actually the index of the data point. I have since found a <a href="http://threedgraphics.com/tdg/products/tools/ioschart/html_docs/docs/frames/tdgdataprotocol_frame.htm">similar method</a> in the API, but there is no such method in the trial. Whether the API in the trial is different to that of the full version is unclear, but I would have liked this to have been specified somewhere if this is the case. The resulting code uses this method to add data to the chart is as follows:</p>
+{% highlight objective-c %}
+-(void)setData
+{
+id data = chartView.chart.dataManager;
+
+chartView.chart.seriesCount = 1;
+chartView.chart.groupCount = [[_priceContainer PriceDataArray] count];
+[[[chartView chart]seriesAtIndex:0] setFormat:1];
+
+for(PriceData *pd in [_priceContainer PriceDataArray])
+    [data setYPoint:0 group:[[_priceContainer PriceDataArray] count]-[pd Index] data:[pd Close]];
+
+}
+{% endhighlight %}
+<p><a href="{{ site.baseurl }}/archive/2012/05/image2.png"><img src="{{ site.baseurl }}/archive/2012/05/ios.png" alt="iOS Chart View" title="iOS Chart" width="480" height="320" class="aligncenter size-medium wp-image-150909" style="margin-left:105px" /></a></p>
+<h2>KeepEdge</h2>
+<p>The KeepEdge iPhone Charting Library for iPhone Objective-C is a paid library with a free trial available. It features a wide range of chart types, ranging from a standard line chart to Stock High Low charts and 3D Clustered Bar charts. KeepEdge does include a TimeSeries chart, with a date/time axis.</p>
+<h3>Integrating KeepEdge Charts into the framework</h3>
+<p>Importing the KeepEdge and required libraries into the framework is somewhat more complicated than doing so with the other libraries. After following the <a href="http://www.keepedge.com/tutorial/iphone_charting_library_tutorial.html">installation and setup guide</a>, I was still unable to get the charts to run on the simulator and on my iOS devices. It was unclear whether I needed the <em>libKeepedgeChartingIPhone.a</em> from the <em>Release-iphoneos</em> folder or the <em>Release-iphonesimulator</em>. Eventually, I found that the file inside <em>Release-iphonesimulator</em> works on the device too, so that is the file that I chose to use.</p>
+<p>After looking at the <a href="http://www.keepedge.com/iphone_charts/time_series_chart.html">time series chart documentation</a>, I created the <code>KeepEdgeViewController</code> class. This class simply creates a <code>KeepEdgeTimeSeriesView</code> class, and passes it the PriceContainer. The <code>KeepEdgeTimeSeriesView</code> is a UIView subclass that overrides its <code>drawRect</code> method. In this method, it creates a <code>TimeSeriesChart</code> class, passing in the imageArea and again, the price container. The vast majority of the setup and data management for the KeepEdge chart takes place in this <code>TimeSeriesChart</code> class. The static method <code>processDemoWithContext</code> does the initial setup. We create a <code>IPCTimeSeriesChart</code>, which we set properties on using methods such as <code>getTimeDomainAxis</code>, <code>getRangeAxis</code> and <code>getRender</code>. These method names provided in the demo were not 100% clear to me, and this unfortunately meant that I had to take a trial an error approach to modifying the charts. The next stage of the chart initialisation was adding the data.</p>
+<p>The biggest hurdle I found when implementing the KeepEdge chart was when it came to adding the data points. The KeepEdge chart kept throwing an exception whenever I tried to add a certain data point from the data fetched by the framework. I was unable to discover why this was the case, but the exception thrown was unhelpful and there was no information to help describe what was happening. I believe this is a bug with the KeepEdge library, but feel free to contact me if you know otherwise or have any suggestions about what to do to fix this. This bug resulted in the rather messy following code for the <code>TimeSeriesChart</code> class.</p>
+{% highlight objective-c %}
+for (PriceData *pd in [data PriceDataArray])
+{
+	@try
+	{
+		theDate = [pd Date];
+		DTCDay *pDay = [[DTCDay alloc] initWithDate:theDate];
+		[t1 addWithPeriod:pDay doubleValue:[pd Close]];
+	}
+	@catch (NSException *e)
+	{
+		NSLog(@"This date: %@, could not be added. Skipping.", theDate);
+	}
+}
+{% endhighlight %}
+<p>As you can see above, I have had to add a try catch block around the code that adds the data to the chart. This unfortunately means that a lot of data points will not be added to the chart. Finally, we call <code>drawChartWithContext</code> to draw the chart in the view.</p>
+<p><a href="{{ site.baseurl }}/archive/2012/05/22.png"><img src="{{ site.baseurl }}/archive/2012/05/keepEdge.png" alt="KeepEdge Chart Screenshot" title="KeepEdge Chart" width="320" height="480" class="aligncenter size-full wp-image-151245" style="margin-left:185px" /></a></p>
+<h2>Conclusions</h2>
+<p>The documentation available in the four different libraries differs greatly. <strong>Core Plot</strong> has well commented code and there are a lot of different tutorials, guides and forum posts all over the internet. The website also provides a complete API. <strong>Shinobi</strong> has a great set of apple style documentation and a simple, easy to use API. I personally found the method names of the <strong>iOS:Chart</strong> library confusing and the documentation on their website was poor. The <strong>KeepEdge</strong> library is well documented in places - and has specific instructions for each chart type. The strange exception thrown when adding a specific set of data points made it difficult to carry out a comparison for this library however. The lack of detail or information when the exception occurred was not helpful, so unfortunately I have been unable to find a solution to this problem.</p>
+<p>When plotting Time Series data like the data included in the framework set up for this post, having a library with a Date/Time Axis is extremely useful. <strong>Shinboi</strong> includes a Date/Time axis with a great API. Setting the a data point's date time value is a simple matter of assigning its <code>xValue</code> property an <code>NSDate</code> object, i.e. <code>datapoint.xValue = [[Data objectAtIndex:dataIndex] Date]</code>. The <strong>KeepEdge</strong> Date/Time axis API is a more convoluted, with the following code required to add a data point to the series at a given date (theDate):</p>
+{% highlight objective-c %}
+DTCDay *pDay = [[DTCDay alloc] initWithDate:theDate];
+[t1 addWithPeriod:pDay doubleValue:[pd Close]]{% endhighlight %}
+<p><strong>Core Plot</strong> does not come packaged with a date/time axis type, but as mentioned above it is possible to <a href="http://stackoverflow.com/a/6982938/525448">implement your own</a>. Looking through the <strong>iOS:Charts</strong> documentation, I could not find any mention of a Date/Time axis, and found no information online about how to add one.</p>
+<p>Zoom and pan behaviours come by default in <strong>Core Plot</strong> and <strong>Shinobi</strong>, and simply require turning on. The default zoom behaviour in <strong>Shinobi</strong> is somewhat more intuitive and advanced however, as the zoom on each axis is independent. When zooming in <strong>Core Plot</strong>, you can not zoom the x-axis without the y-axis zooming by the same factor at the same time. <strong>Shinobi</strong> also contains inbuilt behaviours for pan and zoom with momentum, double-tap zoom, double-tap to reset, crosshair, and box gesture zoom. Enabling these behaviours is a simple case of setting a flag on the <code>SChartDateTimeAxis</code> or <code>SChartNumberAxis</code>, which in our case is contained in the <code>ShinobiViewController</code> class. You can see the different behaviours in the large data set sample application that is packaged with the trial version of <strong>Shinobi</strong>.</p>
+<p>In terms of the smoothness of the interaction with the charts, <strong>Shinobi</strong> has a clear advantage. Pan and zoom have momentum and smoothly move to the new range requested. The performance of the Shinobi interaction is also markedly better than <strong>Core Plot</strong>, especially when there are a lot of labels visible on the chart. <strong>Shinobi</strong> zoom and pan limits the visible range to where the chart has data, meaning that you can not zoom out and pan to a region without data - making it hard for the user to get lost and confused when interacting with the chart. It certainly would be possible to add zoom and pan behaviours to the other two frameworks using gesture recognisers and possibly even improve the <strong>Core Plot</strong> interaction, but that was beyond the scope of this article.</p>
+<h2>Source</h2>
+<p></a>You can download the full source code of the comparison here: <a href="{{ site.baseurl }}/archive/2012/05/ChartComparisonRelease.zip">ChartComparison.zip</a></p>
+<h3>Framework Installation</h3>
+<p>To build the examples you need to download the charting components from their respective web pages. Due to licensing restrictions I was unable to include them in the download.</p>
+<ul>
+<li><a href="http://code.google.com/p/core-plot/">Core-Plot</a></li>
+<li><a href="https://www.shinobicontrols.com/shinobicharts">Shinobi Charts</a></li>
+<li><a href="http://threedgraphics.com/tdg/products/tools/ioschart/">iOS:Chart</a></li>
+<li><a href="http://www.keepedge.com/">KeepEdge</a></li>
+</ul>
+<p>Once these frameworks have been downloaded, you must add them to the project using the steps below.</p>
+<h4>Core Plot</h4>
+<ul>
+<li>Download the Core Plot 1.0 framework from the <a href="http://code.google.com/p/core-plot/">Core Plot Google Code Website.</a></li>
+<li>Unzip the file.</li>
+<li>Copy the CorePlotHeaders (found in CorePlot_1.0/Binaries/iOS/CorePlotHeaders) to the project's "Frameworks/CorePlot/Headers" group.</li>
+<li>Copy libCorePlotCocoaTouch.a to the project's "Frameworks/CorePlot" group.</li>
+<li>Copy the CorePlotHeaders to your Xcode project</li>
+<li>Make sure that the following text is present in the "Other Linker Flags" in the target build settings: "-ObjC -all_load"</li>
+<li>Add the QuartzCore framework to the project.</li>
+</ul>
+<h4>Shinobi</h4>
+<ul>
+<li>Download the Shinobi Charts framework from the <a href="http://www.shinobicontrols.com/shinobicharts">Shinobi iOS Charts Website</a></li>
+<li>Add references the following frameworks: ShinobiCharts.frameworkSecurity.framework (if you are using the trial version), QuartzCore.framework (should have been added already for Core Plot) and OpenGLES.framework.</li>
+<li>When you download the trial, you will receive a license key. You will need replace the <code>licenseKeyString</code> in <code>ShinobiViewController</code> with your license key.</li>
+</ul>
+<h4>iOS:Chart</h4>
+<ul>
+<li>Download the iOS:Chart framework from the <a href="http://www.threedgraphics.com/tdg/products/tools/ioschart">Three D Graphics Website</a></li>
+<li>Add the iOS:Chart library from the download "lib/libtdgchart.a" to the project.</li>
+<li>In project build settings, find the search path section and set header search paths to the "include" folder of the iOS:Chart download.</li>
+<li>Then set library search paths to the "lib" the folder of the iOS:Chart download.</li>
+<li>Click the project target, and set the header and library search paths to "$(inherited)" so they inhert the settings from the project settings.</li>
+<li>Add the CoreText framework to the project.</li>
+</ul>
+<h4>KeepEdge</h4>
+<ul>
+<li>Download the iPhone Charting Library from the <a href="http://www.keepedge.com/products/iphone_charting/">KeepEdge Website</a></li>
+<li>Find the Release-iphonesimulator folder, and add the libKeepedgeChartingIPhone.a file to the project.</li>
+<li>In the "usr\local\include" subfolder of Release-iphonesimulator folder, you will find all of the header files. Add these header files to the project in the "Frameworks/KeepEdge/Headers" group.</li>
+</ul>
+<p>This comparison has looked at four of the main charting libraries available for iOS developers, comparing the features of each. If you have noticed any errors or possible issues with the source code or any of my assumptions within this article, please feel free to contact me at cgrant@scottlogic.co.uk and I will correct these as soon as possible. In addition, if you are aware of other iOS charting libraries that have not been included in this article, please let me know and I will do my best to update and include them as soon as possible.
+<p>Disclaimer: Scott Logic is the parent company for Shinobi controls, but I have evaluated each of the frameworks based on their API and features alone.</p>
