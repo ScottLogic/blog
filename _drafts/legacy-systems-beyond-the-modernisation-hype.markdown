@@ -17,7 +17,7 @@ summary: After two decades of working with highly regulated organisations, we've
   are and why they persist. This blog covers what we've learned about the uncomfortable
   realities that these frameworks rarely address.
 author: ocronk
-image: "/uploads/Gemini_Generated_Image_tjkr4qtjkr4qtjkr.png"
+image: "/uploads/legacy-bridge-small.png"
 ---
 
 After two decades of working with highly regulated organisations, we've developed some strong opinions about legacy systems some of which run counter to prevailing industry narratives. Whilst other consultancies and vendors push their "proven frameworks" and "transformational roadmaps," we've watched well-intentioned modernisation initiatives stumble over the same fundamental misunderstandings about what legacy systems actually are and why they persist.
@@ -84,7 +84,7 @@ As we've explored extensively in our ["Open Your Eyes to APIs" white paper](http
 
 **Practical example**: AI fraud detection on legacy payment systems by implementing Change Data Capture (CDC) to stream transaction events in real-time. The legacy payment processing logic remains unchanged and proven, whilst AI systems analyse patterns and trigger interventions based on event streams.
 
-![Gemini_Generated_Image_tjkr4qtjkr4qtjkr.png](/uploads/Gemini_Generated_Image_tjkr4qtjkr4qtjkr.png)
+![legacy-bridge-small.png](/uploads/legacy-bridge-small.png)
 
 ### **Event-Driven Architecture as a Legacy Bridge**
 
