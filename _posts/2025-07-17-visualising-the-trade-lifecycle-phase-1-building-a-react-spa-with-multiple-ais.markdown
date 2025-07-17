@@ -1,11 +1,19 @@
 ---
-title: Visualising the Trade Lifecycle - Phase 1 - Building a React SPA with Multiple
-  AIs
+title: 'Visualising the Trade Lifecycle - Phase 1: Building a React SPA with Multiple
+  AIs'
 date: 2025-07-17 14:33:00 Z
 categories:
 - Artificial Intelligence
 - Tech
 - Cloud
+- AI
+- Development
+tags:
+- Artificial Intelligence
+- Technology
+- Cloud
+- Development
+- AI
 summary: A non-React developer built a trade lifecycle simulation using three AI assistants
   as his coding team, discovering that managing AI agents is rather like conducting
   an orchestra where each musician excels at different parts of the piece but occasionally
@@ -16,7 +24,7 @@ summary: A non-React developer built a trade lifecycle simulation using three AI
 author: rgriffiths
 ---
 
-# Trade Lifecycle Visualiser - Part 1 - Building a React SPA with Multiple AIs
+# Trade Lifecycle Visualiser - Part 1: Building a React SPA with Multiple AIs
 
 In mid-2025, I set myself what seemed like a straightforward challenge: to build a React Single Page Application that would simulate a hybrid/on-premises trade processing workflow. The idea drew inspiration from Scott Logic's Trade Lifecycle Modernisation service offering (now live on AWS) and aimed to visualise each stage of a trade's journey through the various stages of a trade processing workflow with components both on-premises and in cloud. What unfolded, however, proved to be far more interesting than the application itself: a revealing glimpse into the art of orchestrating multiple AI tools in a single development project.
 
