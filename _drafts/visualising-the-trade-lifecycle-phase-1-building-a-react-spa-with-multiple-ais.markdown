@@ -190,10 +190,10 @@ Claude's response to a prompt like "Refactor monolithic TSX file into maintainab
 The next step was to agree to its suggestion and ask Claude to implement the changes. However, Claude failed spectacularly in the implementation. It just couldn't do it no matter how often it tried. Every iteration, something new was added or corrected but to the detriment of something else. It felt like a computational hokey cokey!
 
 ```
-You put one feature in,
-You take another feature out,
-You shake up the structure,
-And it all turns about...
+You put one feature in,<br>
+You take another feature out,<br>
+You shake up the structure,<br>
+And it all turns about...<br>
 ```
 
 It seemed like the AI had somehow lost track of the global context and that the monolith built by AI could no longer be broken down sensibly without unexpected side effects. What started well in the early days now felt like it could never be complete nor stable: every round of regeneration was more like turning in a circle rather than moving forward. This was a rather disappointing end to the morning's work but things would improve after lunch - not that I knew that at the time, of course.
