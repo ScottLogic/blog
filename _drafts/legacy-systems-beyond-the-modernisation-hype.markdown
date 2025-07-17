@@ -90,13 +90,13 @@ As we've explored extensively in our ["Open Your Eyes to APIs" white paper](http
 
 One of our strongest recommendations for legacy modernisation is implementing event-driven data streaming as a bridge between legacy systems and modern capabilities. This approach offers several advantages that the traditional frameworks underplay:
 
-· **Loose coupling**: Legacy systems continue operating unchanged whilst modern services consume event streams
+* **Loose coupling**: Legacy systems continue operating unchanged whilst modern services consume event streams
 
-· **Real-time capabilities**: AI and analytics systems can react to business events as they occur
+* **Real-time capabilities**: AI and analytics systems can react to business events as they occur
 
-· **Audit trails**: Event streams provide complete histories for regulatory compliance and AI explainability
+* **Audit trails**: Event streams provide complete histories for regulatory compliance and AI explainability
 
-· **Scalable integration**: Multiple modern services can consume the same event streams without impacting legacy performance
+* **Scalable integration**: Multiple modern services can consume the same event streams without impacting legacy performance
 
 As we discussed in our ["Beyond the Hype" podcast episode on Event-Driven Architecture](https://blog.scottlogic.com/2025/06/10/beyond-the-hype-event-driven-architecture-the-only-data-integration-approach-you-need.html), EDA has matured beyond architectural buzzword into a practical strategy for organisations navigating legacy systems whilst enabling AI and cloud capabilities.
 
@@ -104,23 +104,23 @@ As we discussed in our ["Beyond the Hype" podcast episode on Event-Driven Archit
 
 Whilst Martin Fowler's Strangler Fig pattern is conceptually sound, in our experience it's far more difficult to execute than the literature suggests. The pattern assumes:
 
-· **Architectural boundaries that may not exist**: Legacy monoliths often lack the clean interfaces that gradual replacement requires
+* **Architectural boundaries that may not exist**: Legacy monoliths often lack the clean interfaces that gradual replacement requires
 
-· **Organisational patience**: Business stakeholders rarely tolerate the extended timelines that incremental replacement demands
+* **Organisational patience**: Business stakeholders rarely tolerate the extended timelines that incremental replacement demands
 
-· **Technical sophistication**: Successfully implementing façades, proxies, and dual-write patterns requires skills that many teams lack
+* **Technical sophistication**: Successfully implementing façades, proxies, and dual-write patterns requires skills that many teams lack
 
 Major challenges include:
 
-· **Data Synchronisation:** Avoiding data loss / accidental use of stale data
+* **Data Synchronisation:** Avoiding data loss / accidental use of stale data
 
-· **Routing complexity:** Deciding how and when to route between new and old systems can quickly become complex and brittle
+* **Routing complexity:** Deciding how and when to route between new and old systems can quickly become complex and brittle
 
-· **Integration with legacy code:** Sometimes you’ll need to make some changes to legacy code which can be hard especially if test coverage is non-existent
+* **Integration with legacy code:** Sometimes you’ll need to make some changes to legacy code which can be hard especially if test coverage is non-existent
 
-· **Performance bottlenecks:** Often new and old systems are not optimised to co-exist and then get hit by slowdowns
+* **Performance bottlenecks:** Often new and old systems are not optimised to co-exist and then get hit by slowdowns
 
-· **Testing complexity:** Mixed environments make automated testing harder due to evolving integration points
+* **Testing complexity:** Mixed environments make automated testing harder due to evolving integration points
 
 **Our recommendation**: Use Strangler Fig concepts selectively, focusing on discrete functional areas rather than attempting organisation-wide application. The pattern works best when applied to well-bounded system components with clear interfaces, not as a wholesale approach to legacy transformation.
 
