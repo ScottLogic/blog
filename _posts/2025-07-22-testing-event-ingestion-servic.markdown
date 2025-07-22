@@ -49,7 +49,7 @@ Since the ingestion service was part of a larger event-driven system, we conduct
 
 Our testing leveraged the following tools:
 
-- Azure Event Hubs Client Library for JavaScript: Used to programmatically send and receive messages to/from Azure Event Hubs. The SDK provided a straightforward API for creating and sending events, allowing us to simulate various message types and volumes. [https://learn.microsoft.com/en-us/javascript/api/overview/azure/event-hubs?view=azure-node-latest](https://learn.microsoft.com/en-us/javascript/api/overview/azure/event-hubs?view=azure-node-latest)[](https://learn.microsoft.com/en-us/javascript/api/overview/azure/event-hubs-readme?view=azure-node-latest)
+- Azure Event Hubs Client Library for JavaScript: Used to programmatically send and receive messages to/from Azure Event Hubs. The SDK provided a straightforward API for creating and sending events, allowing us to simulate various message types and volumes. [Azure Event Hubs SDK](https://learn.microsoft.com/en-us/javascript/api/overview/azure/event-hubs?view=azure-node-latest).
 - Azure Event Hubs: A managed service within Azure DevOps for high-throughput event streaming, serving as the central hub for message ingestion.
 - Monitoring Tools: We used Azure DevOps-native monitoring solutions to track metrics like latency, throughput, and error rates during testing.
 
