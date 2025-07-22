@@ -43,6 +43,9 @@ Cursor IDE changed all of that. It brought:
 - Inline suggestions with full project visibility
 - One-click refactors, component extraction, and error fixing
 - Git integration and persistent chat history for traceability
+
+![001-Cursor-IDE-FileList.png](/uploads/001-Cursor-IDE-FileList.png)
+![002-Cursor-GitHistory.png](/uploads/002-Cursor-GitHistory.png)
   
 In short: the scattered, multi-window workflow of [Phase 1](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html) gave way to something streamlined, contextual, and, dare I say it, rather enjoyable. I hadn’t planned a Phase 2, but Cursor made it inevitable.
 
