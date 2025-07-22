@@ -37,19 +37,13 @@ Enter **Cursor IDE**. Note that there are many possible alternatives to Cursor: 
 
 By the end of [Part 1](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html), I was juggling browser tabs, ferrying code between three AI interfaces, and manually assembling the pieces. It worked (just about) but it was clunky, brittle, and error-prone.
 
-Cursor IDE changed all of that. 
-
-![001-Cursor-IDE-FileList.png](/uploads/001-Cursor-IDE-FileList.png)
-
-It brought:
+Cursor IDE changed all of that. It brought:
 
 - Context-aware AI chat embedded directly in the IDE
 - Inline suggestions with full project visibility
 - One-click refactors, component extraction, and error fixing
 - Git integration and persistent chat history for traceability
 
-![002-Cursor-GitHistory.png](/uploads/002-Cursor-GitHistory.png)
-  
 In short: the scattered, multi-window workflow of [Phase 1](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html) gave way to something streamlined, contextual, and, dare I say it, rather enjoyable. I hadn’t planned a Phase 2, but Cursor made it inevitable.
 
 ---
@@ -60,7 +54,14 @@ In short: the scattered, multi-window workflow of [Phase 1](https://blog.scottlo
 
 **Morning: ChatGPT → Cursor (Claude)**
 
-The day started by downloading and installing Cursor which, thankfully, was a simple job. Guided through some of the settings by the IDE itself, I pointed it at the folder containing the current project. Cursor created the necessary IDE wrappers and asked if I wanted to commit everything to a git repo. I agreed and, just like that, my standalone code was now being managed by git repo in GitHub!
+The day started by downloading and installing Cursor which, thankfully, was a simple job. Guided through some of the settings by the IDE itself, I pointed it at the folder containing the current project. 
+
+![001-Cursor-IDE-FileList.png](/uploads/001-Cursor-IDE-FileList.png)
+
+Cursor created the necessary IDE wrappers and asked if I wanted to commit everything to a git repo. I agreed and, just like that, my standalone code was now being managed by git repo in GitHub!
+
+![002-Cursor-GitHistory.png](/uploads/002-Cursor-GitHistory.png)
+  
 
 - Opened the now 847-line TradeLifecycleVisualizer.tsx
 - Began working with Claude inside Cursor
