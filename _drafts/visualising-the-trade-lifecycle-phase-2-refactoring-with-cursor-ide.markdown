@@ -61,7 +61,6 @@ The day started by downloading and installing Cursor which, thankfully, was a si
 Cursor created the necessary IDE wrappers and asked if I wanted to commit everything to a git repo. I agreed and, just like that, my standalone code was now being managed by git repo in GitHub!
 
 ![002-Cursor-GitHistory.png](/uploads/002-Cursor-GitHistory.png)
-  
 
 - Opened the now 847-line TradeLifecycleVisualizer.tsx
 - Began working with Claude inside Cursor
@@ -74,6 +73,10 @@ Cursor created the necessary IDE wrappers and asked if I wanted to commit everyt
 - Extracted StatusBar.tsx (architecture summary)
 - Built TopMetricsBar.tsx (downtime, volume, and time counters)
 - Refactored layout into TradeFlowGrid.tsx, preserving dual-column logic
+
+![003-TopMetrics.png](/uploads/003-TopMetrics.png)
+
+![004-DualColumnLayout.png](/uploads/004-DualColumnLayout.png)
 
 By now, I had a fully-refactored version of my code not only in an IDE but also in GitHub. It had manageable, maintainable, logical chunks of code that was much more aligned with good software engineering principles than the monolith I was left with when I concluded Phase 1. A very productive day!
 
