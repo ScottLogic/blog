@@ -10,7 +10,6 @@ tags:
   - integration testing
 summary: Testing an event ingestion service is critical for ensuring reliable, scalable event-driven architectures. This blog dives into our approach to testing an ingestion service integrated with Azure Event Hubs, covering the testing strategy, tools, and process flow, with a detailed diagram to illustrate the pipeline.
 author: sanastasov
-image: "/uploads/event-ingestion-diagram.jpg"
 ---
 
 # Testing an Event Ingestion Service: A Deep Dive into Our Approach
@@ -57,7 +56,7 @@ Our testing leveraged the following tools:
 
 To illustrate how the ingestion service interacts with Azure Event Hubs, here’s a detailed flow diagram:
 
-![event-ingestion-diagram.jpg](/uploads/event-ingestion-diagram.jpg)
+![Event Ingetion Diagram]({{ site.github.url }}/[sanastasov]/assets/event-ingestion-diagram.jpg "Event Ingetion Diagram)
 
 ### Diagram Explanation
 
