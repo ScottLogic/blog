@@ -30,7 +30,7 @@ To provide total clarity and candour, I have never written a line of React in my
 
 However, rather than rely on just one assistant, I ended up working with an ensemble: ChatGPT, Claude, and Microsoft Copilot Chat *aka* The Three Cs. Each brought distinct strengths, quirks, and occasional frustrations. My role shifted from being the developer to becoming the conductor of this AI orchestra.
 
-This is the story of Phase 1 of that journey. Alas, I didn't keep screenshots of the evolving application but I can promise you a picture or two in Phase 2...
+This is the story of Phase 1 of that journey. Alas, I didn't keep screenshots of the evolving application but I can promise you a picture or two in [Phase 2](https://blog.scottlogic.com/2025/07/22/visualising-the-trade-lifecycle-phase-2-refactoring-with-cursor-ide.html)...
 
 ---
 
@@ -231,7 +231,7 @@ This was not a success and I was now left with just a mess.
 
 It was time to give it a break for now... and come back to it when I was ready to tackle all of this again.
 
-After multiple failed attempts, I reverted to my "last known good": the 600+ line monster. It might have been messy, but it worked. It worked well enough... but it wasn't a well-designed software project; it wasn't designed according to good software engineering principles; it was not easy to modify or maintain. However, I'd run out of free token space to do anything with it so I concluded my investigations... The refactoring could wait for another day which will be discussed in Phase 2 of the blog.
+After multiple failed attempts, I reverted to my "last known good": the 600+ line monster. It might have been messy, but it worked. It worked well enough... but it wasn't a well-designed software project; it wasn't designed according to good software engineering principles; it was not easy to modify or maintain. However, I'd run out of free token space to do anything with it so I concluded my investigations... The refactoring could wait for another day which will be discussed in [Phase 2](https://blog.scottlogic.com/2025/07/22/visualising-the-trade-lifecycle-phase-2-refactoring-with-cursor-ide.html) of the blog.
 
 ---
 
@@ -279,11 +279,11 @@ As Phase 1 concluded, I thought the project was complete. The simulation worked,
 
 But then Cursor IDE arrived like D'Artagnan joining The Three Musketeers, and everything changed.
 
-In Phase 2, I'll explore how Cursor's integrated LLM chat, context-aware suggestions, and IDE-native workflows transformed the development process once again. What had been a capable trio became something greater, proving that sometimes it takes a fourth member to unlock the group's true potential, a bit like when Ringo joined Paul, John, and George.
+In [Phase 2](https://blog.scottlogic.com/2025/07/22/visualising-the-trade-lifecycle-phase-2-refactoring-with-cursor-ide.html), I'll explore how Cursor's integrated LLM chat, context-aware suggestions, and IDE-native workflows transformed the development process once again. What had been a capable trio became something greater, proving that sometimes it takes a fourth member to unlock the group's true potential, a bit like when Ringo joined Paul, John, and George.
 
 The story of multi-AI development was just beginning.
 
 ---
 
-*Next: Phase 2 - Refactoring with Cursor IDE: When Your Editor Becomes Your Navigator*
+*Next: [Phase 2](https://blog.scottlogic.com/2025/07/22/visualising-the-trade-lifecycle-phase-2-refactoring-with-cursor-ide.html) - Refactoring with Cursor IDE: When Your Editor Becomes Your Navigator*
 
