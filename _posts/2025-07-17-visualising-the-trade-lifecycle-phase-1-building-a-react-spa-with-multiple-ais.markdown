@@ -285,5 +285,5 @@ The story of multi-AI development was just beginning.
 
 ---
 
-*Next: Phase 2 — Refactoring with Cursor IDE: When Your Editor Becomes Your Navigator*
+*Next: Phase 2 - Refactoring with Cursor IDE: When Your Editor Becomes Your Navigator*
 
