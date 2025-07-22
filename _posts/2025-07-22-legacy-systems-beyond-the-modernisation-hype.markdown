@@ -1,6 +1,6 @@
 ---
 title: 'Legacy Systems: Beyond the Modernisation Hype'
-date: 2025-07-22 11:23:00 Z
+date: 2025-07-22 10:30:00 Z
 categories:
 - Tech
 - Architecture
@@ -20,7 +20,7 @@ author: ocronk
 image: "/uploads/legacy-bridge-small.png"
 ---
 
-After two decades of working with highly regulated organisations, we've developed some strong opinions about legacy systems some of which run counter to prevailing industry narratives. Whilst other consultancies and vendors push their "proven frameworks" and "transformational roadmaps," we've watched well-intentioned modernisation initiatives stumble over the same fundamental misunderstandings about what legacy systems actually are and why they persist.
+After two decades of working with highly regulated organisations, we've developed some strong opinions about legacy systems some of which run counter to prevailing industry narratives. Whilst other consultancies and vendors may push their "proven frameworks" and "transformational roadmaps," we've watched well-intentioned modernisation initiatives stumble over the same fundamental misunderstandings about what legacy systems actually are and why they persist.
 
 The conversation about legacy systems has become dominated by what we might charitably call "vendor-driven oversimplification." Many will know [Gartner's Five Rs (Encapsulate, Rehost, Refactor, Rearchitect, Rebuild, Replace](https://www.gartner.com/smarterwithgartner/7-options-to-modernize-legacy-systems)). We also have a lot of time for [Martin Fowler's Strangler Fig pattern](https://martinfowler.com/bliki/StranglerFigApplication.html). These are useful approaches that help structure thinking. But in some cases they've become substitutes for thinking rather than tools to support it.
 
