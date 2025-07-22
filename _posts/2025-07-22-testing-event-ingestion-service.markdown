@@ -1,6 +1,6 @@
 ---
 title: 'Testing an Event Ingestion Service: A Deep Dive into Our Approach'
-date: 2025-07-22 16:20:00 Z
+date: 2025-07-22 00:00:00 Z
 categories:
   - Testing
 tags:
