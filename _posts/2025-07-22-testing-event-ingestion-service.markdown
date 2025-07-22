@@ -56,7 +56,7 @@ Our testing leveraged the following tools:
 
 To illustrate how the ingestion service interacts with Azure Event Hubs, here’s a detailed flow diagram:
 
-![Event Ingetion Diagram]({{ site.github.url }}/[sanastasov]/assets/event-ingestion-diagram.png "Event Ingetion Diagram)
+<img src="{{ site.baseurl }}/sanastasov/assets/event-ingestion-diagram.png" alt="Event Ingestion Diagram" title="Event Ingestion Diagram">
 
 ### Diagram Explanation
 
