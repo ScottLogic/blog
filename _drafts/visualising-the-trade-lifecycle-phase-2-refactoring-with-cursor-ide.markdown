@@ -72,9 +72,9 @@ Cursor created the necessary IDE wrappers and asked if I wanted to commit everyt
 - Continued iterative refactoring  
 - Extracted StatusBar.tsx (architecture summary)
 - Built TopMetricsBar.tsx (downtime, volume, and time counters)
-- Refactored layout into TradeFlowGrid.tsx, preserving dual-column logic
-
 ![003-TopMetrics.png](/uploads/003-TopMetrics.png)
+
+- Refactored layout into TradeFlowGrid.tsx, preserving dual-column logic
 
 ![004-DualColumnLayout.png](/uploads/004-DualColumnLayout.png)
 
