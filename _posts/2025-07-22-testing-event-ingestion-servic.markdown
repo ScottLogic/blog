@@ -1,5 +1,5 @@
 ---
-title: Testing an Event Ingestion Service: A Deep Dive into Our Approach
+title: 'Testing an Event Ingestion Service: A Deep Dive into Our Approach'
 date: 2025-07-22 13:20:00 Z
 categories:
   - Testing
