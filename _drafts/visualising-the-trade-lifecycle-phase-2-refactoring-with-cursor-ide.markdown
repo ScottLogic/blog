@@ -1,6 +1,18 @@
 ---
-title: 'Visualising the Trade Lifecycle - Phase 1: Refactoring with Cursor IDE'
+title: 'Visualising the Trade Lifecycle - Phase 2: Refactoring with Cursor IDE'
 date: 2025-07-22 09:04:00 Z
+categories:
+- Artificial Intelligence
+- Technology
+- Cloud
+- Development
+- AI
+tags:
+- Artificial Intelligence
+- Technology
+- Cloud
+- Development
+- AI
 summary: In this instalment, I discovered that Cursor IDE transformed my chaotic multi-AI
   orchestra of wayward soloists into something rather more like a proper piano duet,
   successfully refactoring my 847-line monolith into modular components without the
