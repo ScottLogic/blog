@@ -183,6 +183,8 @@ The monolith was gone. In its place: a composable, logical structure that looks 
 - tradeStages.ts: Metadata and stage definitions
 - simUtils.ts: Simulation timing and constants
 - tradeflowUtils.ts: Flow validation and positioning
+
+![TLC-015-SPA-TopOfPage.png](/uploads/TLC-015-SPA-TopOfPage.png)
   
 ---
 
