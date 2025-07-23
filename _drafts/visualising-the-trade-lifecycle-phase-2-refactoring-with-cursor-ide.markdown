@@ -145,12 +145,19 @@ Today's co-operative work with Cursor yielded the following set of improvements:
 - Cloud errors now spawn replacements; instances auto-remove after 15–60 simulated minutes
 
 ![TLC-010-DowntimeOnPrem.png](/uploads/TLC-010-DowntimeOnPrem.png)
+
 ![TLC-011-DowntimeCloud.png](/uploads/TLC-011-DowntimeCloud.png)
+
 ![TLC-012-SimulationTimeScaler.png](/uploads/TLC-012-SimulationTimeScaler.png)
+
 ![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
+
 ![TLC-013-CloudScalingX1.png](/uploads/TLC-013-CloudScalingX1.png)
+
 ![TLC-013-CloudScalingX2.png](/uploads/TLC-013-CloudScalingX2.png)
+
 ![TLC-013-CloudScalingX3.png](/uploads/TLC-013-CloudScalingX3.png)
+
 ![TLC-013-CloudScalingX4.png](/uploads/TLC-013-CloudScalingX4.png)
 
 There were still a few minor quirks but you really had to look for them. Something to fix in a future version, perhaps?
