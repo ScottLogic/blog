@@ -135,6 +135,7 @@ Today was all about making the UI useful, instructive, intuitive, and something 
 Today's co-operative work with Cursor yielded the following set of improvements:
 
 - Added centralised simulation clock
+![TLC-009-CentralisedSimulationClock.png](/uploads/TLC-009-CentralisedSimulationClock.png)
 - Downtime counters for each infrastructure stack
 - Built stage progression speed slider (1–10 simulated minutes per second)
 - Added stage-specific capacity configs
