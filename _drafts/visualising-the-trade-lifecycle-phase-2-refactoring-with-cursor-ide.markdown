@@ -141,12 +141,14 @@ Today's co-operative work with Cursor yielded the following set of improvements:
 - Built stage progression speed slider (1–10 simulated minutes per second)
 ![TLC-012-SimulationTimeScaler.png](/uploads/TLC-012-SimulationTimeScaler.png)
 - Added stage-specific capacity configs
+![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
 - Horizontal scaling visualisation for cloud instances
 - Stacked rendering with visual hierarchy
+![TLC-013-CloudScalingX1.png](/uploads/TLC-013-CloudScalingX1.png)
+![TLC-013-CloudScalingX2.png](/uploads/TLC-013-CloudScalingX2.png)
+![TLC-013-CloudScalingX3.png](/uploads/TLC-013-CloudScalingX3.png)
+![TLC-013-CloudScalingX4.png](/uploads/TLC-013-CloudScalingX4.png)
 - Cloud errors now spawn replacements; instances auto-remove after 15–60 simulated minutes
-
-
-
 
 There were still a few minor quirks but you really had to look for them. Something to fix in a future version, perhaps?
 
