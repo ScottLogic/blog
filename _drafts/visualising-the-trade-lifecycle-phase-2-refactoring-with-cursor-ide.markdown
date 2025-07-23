@@ -135,13 +135,14 @@ Today was all about making the UI useful, instructive, intuitive, and something 
 Today's co-operative work with Cursor yielded the following set of improvements:
 
 - Added centralised simulation clock
-![TLC-009-CentralisedSimulationClock.png](/uploads/TLC-009-CentralisedSimulationClock.png)
 - Downtime counters for each infrastructure stack
 - Built stage progression speed slider (1–10 simulated minutes per second)
 - Added stage-specific capacity configs
 - Horizontal scaling visualisation for cloud instances
 - Stacked rendering with visual hierarchy
 - Cloud errors now spawn replacements; instances auto-remove after 15–60 simulated minutes
+
+![TLC-009-CentralisedSimulationClock.png](/uploads/TLC-009-CentralisedSimulationClock.png)
 
 
 There were still a few minor quirks but you really had to look for them. Something to fix in a future version, perhaps?
