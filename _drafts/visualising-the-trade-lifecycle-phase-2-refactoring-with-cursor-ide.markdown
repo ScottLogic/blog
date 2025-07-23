@@ -117,6 +117,12 @@ Having got the codebase modernised and modularised, it was time to start using C
 - Built visual offset logic for failed cloud instances
 - Created TradeFlowRateWidget for real-time trade volume control
 
+![TLC-005-AllOnPremCloud-Buttons.png](/uploads/TLC-005-AllOnPremCloud-Buttons.png)
+
+![TLC-006-OffsetCloudIInstances.png](/uploads/TLC-006-OffsetCloudIInstances.png)
+
+![TLC-007-RateWidget-Zero.png](/uploads/TLC-007-RateWidget-Zero.png)
+![TLC-008-RateWidget-MidValue.png](/uploads/TLC-008-RateWidget-MidValue.png)
 
 Then disaster struck...
 
