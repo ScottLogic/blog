@@ -29,7 +29,9 @@ In [Part 1](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecyc
 
 But, as any developer knows, early success often leads to complexity. And complexity demands better tools.
 
-Enter **Cursor IDE**. Note that there are many possible alternatives to Cursor: I just happened to choose Cursor for this experiment.
+Enter **Cursor IDE**. 
+
+_Note that there are many possible alternatives to Cursor: I just happened to choose Cursor for this experiment._
 
 ---
 
