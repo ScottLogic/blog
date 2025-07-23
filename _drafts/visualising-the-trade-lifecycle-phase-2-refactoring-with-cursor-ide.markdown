@@ -25,7 +25,7 @@ summary: In this instalment, I discovered that Cursor IDE transformed my chaotic
 author: rgriffiths
 ---
 
-In [Part 1](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html), I built a hybrid cloud trade lifecycle visualiser using a triumvirate of AI assistants: ChatGPT, Claude, and Microsoft Copilot. What began as a playful experiment in multi-LLM development had resulted in a working React application that mapped the journey of financial trades through on-premises and cloud infrastructure.
+In [Part 1](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html), I built a hybrid cloud trade lifecycle visualiser using a triumvirate of AI assistants: ChatGPT, Claude, and Microsoft Copilot Chat. What began as a playful experiment in multi-LLM development had resulted in a working React application that mapped the journey of financial trades through on-premises and cloud infrastructure.
 
 But, as any developer knows, early success often leads to complexity. And complexity demands better tools.
 
