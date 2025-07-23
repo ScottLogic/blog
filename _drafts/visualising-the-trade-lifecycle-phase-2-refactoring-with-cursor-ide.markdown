@@ -142,6 +142,7 @@ Today's co-operative work with Cursor yielded the following set of improvements:
 ![TLC-012-SimulationTimeScaler.png](/uploads/TLC-012-SimulationTimeScaler.png)
 - Added stage-specific capacity configs
 ![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
+
 - Horizontal scaling visualisation for cloud instances
 - Stacked rendering with visual hierarchy
 ![TLC-013-CloudScalingX1.png](/uploads/TLC-013-CloudScalingX1.png)
