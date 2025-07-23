@@ -1,5 +1,7 @@
 name: Generate Read More related
-
+env:
+  HUSKY: 0
+  
 on:
   workflow_dispatch:
     branches:
