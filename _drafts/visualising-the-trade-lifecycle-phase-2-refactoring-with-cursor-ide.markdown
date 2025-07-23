@@ -233,6 +233,7 @@ This project started as a means of showcasing Scott Logic's Trade Lifecycle Mode
 This prototype simulates the cloud element but, with Terraform integration as a possible next step, it would be possible to actually deploy AWS resources in the cloud. Future versions of this tool could be made to deliver Azure, GCP or even other cloud vendor solutions too. Once that has been achieved, solutions involving more than one cloud should also be achievable.
 
 ---
+
 ## **Final Reflections**
 
 Cursor IDE didn’t just help refactor code. It changed how I approached building software with AI support. From file recovery to modular design, it felt like working with an intelligent coding partner who actually understood what I was trying to build. Genuine pair programming with more than a hint of Star Trek about it!
