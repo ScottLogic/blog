@@ -140,11 +140,11 @@ Today's co-operative work with Cursor yielded the following set of improvements:
 - Added stage-specific capacity configs
 ![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
 - Horizontal scaling visualisation for cloud instances
+- Stacked rendering with visual hierarchy
 ![TLC-013-CloudScalingX1.png](/uploads/TLC-013-CloudScalingX1.png)
 ![TLC-013-CloudScalingX2.png](/uploads/TLC-013-CloudScalingX2.png)
 ![TLC-013-CloudScalingX3.png](/uploads/TLC-013-CloudScalingX3.png)
 ![TLC-013-CloudScalingX4.png](/uploads/TLC-013-CloudScalingX4.png)
-- Stacked rendering with visual hierarchy
 - Cloud errors now spawn replacements; instances auto-remove after 15–60 simulated minutes
 
 There were still a few minor quirks but you really had to look for them. Something to fix in a future version, perhaps?
@@ -156,6 +156,8 @@ Given that this was an open-ended "research" project, knowing when and how to br
 - Flattened refactored/ into a clean components/ directory
 - Created Legend.tsx for UI reference
 - Added StageComponent.tsx for per-stage logic
+
+![TLC-015-SPA-TopOfPage.png](/uploads/TLC-015-SPA-TopOfPage.png)
 
 I was rather impressed with what I had managed to achieve with my AI coding partners over the last two weeks or so. I knew what I wanted to achieve but lacked any skill in modern UI development. Until fairly recently, realising my goals would have meant working with other people who had the skill to build and develop my vision. The other alternative would have been to teach myself how to build applications using React but that would have taken many months to get to the level of fluency required to build such an app. Working with the AI companions has allowed me to build something awesome, on my own (in human terms anyway), in a few short weeks: this is something that would have been unthinkable even a year ago.
 
