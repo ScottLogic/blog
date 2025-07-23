@@ -6,8 +6,6 @@ categories:
 - Artificial Intelligence
 - Tech
 - Cloud
-- AI
-- Development
 tags:
 - Artificial Intelligence
 - Technology
