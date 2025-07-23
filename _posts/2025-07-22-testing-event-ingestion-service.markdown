@@ -44,13 +44,13 @@ Our testing strategy combined automated and manual testing to cover functional, 
 
 Functional tests verified the core capabilities of the ingestion service:
 
-- **Message Reception**: Ensured the service could handle expected message formats.
-- **Validation**: Confirmed proper validation of message schemas, rejecting invalid or malformed data.
-- **Routing**: Validated that messages were correctly forwarded to the downstream service.
+- **Message Reception**: Ensured the service could handle expected message formats, such as JSON payloads with defined schemas.
+- **Validation**: Confirmed proper validation of message schemas, rejecting invalid or malformed data (e.g., incorrect data types or missing required fields).
+- **Routing**: Validated that messages were correctly forwarded to the downstream service without data loss or corruption.
 
-**Automated Testing (DEV and TEST)**: In DEV and TEST environments, we used the cloud provider’s SDK to send programmatically generated messages, including valid payloads, malformed data, and edge cases (e.g., oversized messages or missing fields). Automated scripts validated error handling and routing logic.
+**Automated Testing (DEV and TEST)**: In DEV and TEST environments, we used the cloud provider’s SDK to send programmatically generated messages to their respective event hubs, including valid payloads, malformed data, and edge cases (e.g., oversized messages or missing fields). Automated scripts validated error handling, schema compliance, and routing logic, ensuring the service behaved as expected under controlled conditions.
 
-**Manual Testing (INT)**: In the INT environment, we manually sent messages via the SDK to verify schema compatibility with the upstream system. This revealed schema mismatches, such as missing fields or incorrect data types, which we resolved by updating the service’s validation logic.
+**Manual Testing (INT)**: In the INT environment, we relied on the upstream system’s message generation mechanism to send messages to the event hub, simulating production-like data flows. This approach tested schema compatibility with real-world data from the upstream system, revealing schema mismatches such as missing fields or incorrect data types. These issues were resolved by updating the service’s validation logic to align with the upstream system’s message structure.
 
 ### 2. Performance Testing
 
@@ -81,18 +81,18 @@ Reliability tests validated the service’s resilience under failure conditions.
 Integration testing focused on E2E validation in the INT environment, where the upstream system was connected to the event hub. Key tests included:
 
 - **Schema Validation**: Verified that message schemas from the upstream system matched the ingestion service’s expectations. We identified and fixed issues like mismatched field names and data types.
-- **E2E Flow**: Sent messages from the upstream system via the SDK, through the event hub, to the ingestion service, and finally to downstream consumers, ensuring seamless data flow.
+- **E2E Flow**: Sent messages from the upstream system, through the event hub, to the ingestion service, and finally to downstream consumers, ensuring seamless data flow.
 - **Performance Under Load**: Conducted batch message tests to measure end-to-end latency and throughput in a production-like setting.
 
 ## Tools and Technologies
 
 We used the following tools to support testing:
 
-- **Cloud Provider’s SDK**: Enabled programmatic message sending to the event hub, used in both automated and manual tests.
+- **Cloud Provider’s SDK**: Enabled programmatic message sending to the event hub, used in both automated and manual tests in DEV and TEST environments.
 - **Cloud Event Hub**: A scalable, managed service for event streaming.
 - **Monitoring Tools**: Cloud-native solutions tracked metrics like latency, throughput, and error rates.
 - **Custom Scripts**: Python scripts leveraging the SDK automated message generation and fault injection in DEV and TEST environments.
-- **Manual Testing Tools**: SDK-based scripts and cloud provider consoles were used in the INT environment for manual test execution and monitoring.
+- **Manual Testing Tools**: In the INT environment, the upstream system’s message generation mechanism was used alongside cloud provider consoles for test execution and monitoring.
 
 ## Ingestion Process Flow
 
@@ -102,7 +102,7 @@ The following diagram illustrates the ingestion process:
 
 ### Diagram Explanation
 
-1. **Upstream System/Message Producer**: In the INT environment, the upstream system sends messages via the SDK; in DEV/TEST, test scripts simulate this role.
+1. **Upstream System/Message Producer**: In the INT environment, the upstream system sends messages via its native message generation mechanism; in DEV/TEST, test scripts using the SDK simulate this role.
 2. **Cloud Event Hub**: Queues messages, providing a scalable buffer.
 3. **Ingestion Service**: Listens to the event hub, validates messages, and routes them to downstream systems.
 4. **Downstream Systems**: Consume processed messages for further processing or storage.
