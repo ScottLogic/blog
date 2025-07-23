@@ -138,6 +138,7 @@ Today's co-operative work with Cursor yielded the following set of improvements:
 - Built stage progression speed slider (1–10 simulated minutes per second)
 ![TLC-012-SimulationTimeScaler.png](/uploads/TLC-012-SimulationTimeScaler.png)
 - Added stage-specific capacity configs
+![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
 - Horizontal scaling visualisation for cloud instances
 ![TLC-013-CloudScalingX1.png](/uploads/TLC-013-CloudScalingX1.png)
 ![TLC-013-CloudScalingX2.png](/uploads/TLC-013-CloudScalingX2.png)
