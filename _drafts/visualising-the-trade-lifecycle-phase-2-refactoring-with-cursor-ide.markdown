@@ -74,9 +74,6 @@ Cursor created the necessary IDE wrappers and asked if I wanted to commit everyt
 - Built TopMetricsBar.tsx (downtime, volume, and time counters)
 - Refactored layout into TradeFlowGrid.tsx, preserving dual-column logic
 
-![003-TopMetrics.png](/uploads/003-TopMetrics.png)
-
-![004-DualColumnLayout.png](/uploads/004-DualColumnLayout.png)
 
 By now, I had a fully-refactored version of my code not only in an IDE but also in GitHub. It had manageable, maintainable, logical chunks of code that was much more aligned with good software engineering principles than the monolith I was left with when I concluded Phase 1. A very productive day!
 
@@ -115,13 +112,6 @@ Having got the codebase modernised and modularised, it was time to start using C
 - Built visual offset logic for failed cloud instances
 - Created TradeFlowRateWidget for real-time trade volume control
 
-![TLC-005-AllOnPremCloud-Buttons.png](/uploads/TLC-005-AllOnPremCloud-Buttons.png)
-
-![TLC-006-OffsetCloudIInstances.png](/uploads/TLC-006-OffsetCloudIInstances.png)
-
-![TLC-007-RateWidget-Zero.png](/uploads/TLC-007-RateWidget-Zero.png)
-
-![TLC-008-RateWidget-MidValue.png](/uploads/TLC-008-RateWidget-MidValue.png)
 
 Then disaster struck...
 
@@ -141,24 +131,8 @@ Today's co-operative work with Cursor yielded the following set of improvements:
 - Added stage-specific capacity configs
 - Horizontal scaling visualisation for cloud instances
 - Stacked rendering with visual hierarchy
-![TLC-009-CentralisedSimulationClock.png](/uploads/TLC-009-CentralisedSimulationClock.png)
 - Cloud errors now spawn replacements; instances auto-remove after 15–60 simulated minutes
 
-![TLC-010-DowntimeOnPrem.png](/uploads/TLC-010-DowntimeOnPrem.png)
-
-![TLC-011-DowntimeCloud.png](/uploads/TLC-011-DowntimeCloud.png)
-
-![TLC-012-SimulationTimeScaler.png](/uploads/TLC-012-SimulationTimeScaler.png)
-
-![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
-
-![TLC-013-CloudScalingX1.png](/uploads/TLC-013-CloudScalingX1.png)
-
-![TLC-013-CloudScalingX2.png](/uploads/TLC-013-CloudScalingX2.png)
-
-![TLC-013-CloudScalingX3.png](/uploads/TLC-013-CloudScalingX3.png)
-
-![TLC-013-CloudScalingX4.png](/uploads/TLC-013-CloudScalingX4.png)
 
 There were still a few minor quirks but you really had to look for them. Something to fix in a future version, perhaps?
 
@@ -169,8 +143,6 @@ Given that this was an open-ended "research" project, knowing when and how to br
 - Flattened refactored/ into a clean components/ directory
 - Created Legend.tsx for UI reference
 - Added StageComponent.tsx for per-stage logic
-
-![TLC-015-SPA-TopOfPage.png](/uploads/TLC-015-SPA-TopOfPage.png)
 
 I was rather impressed with what I had managed to achieve with my AI coding partners over the last two weeks or so. I knew what I wanted to achieve but lacked any skill in modern UI development. Until fairly recently, realising my goals would have meant working with other people who had the skill to build and develop my vision. The other alternative would have been to teach myself how to build applications using React but that would have taken many months to get to the level of fluency required to build such an app. Working with the AI companions has allowed me to build something awesome, on my own (in human terms anyway), in a few short weeks: this is something that would have been unthinkable even a year ago.
 
