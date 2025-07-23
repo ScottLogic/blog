@@ -72,9 +72,9 @@ Cursor created the necessary IDE wrappers and asked if I wanted to commit everyt
 - Continued iterative refactoring  
 - Extracted StatusBar.tsx (architecture summary)
 - Built TopMetricsBar.tsx (downtime, volume, and time counters)
-![003-TopMetrics.png](/uploads/003-TopMetrics.png)
-
 - Refactored layout into TradeFlowGrid.tsx, preserving dual-column logic
+
+![003-TopMetrics.png](/uploads/003-TopMetrics.png)
 
 ![004-DualColumnLayout.png](/uploads/004-DualColumnLayout.png)
 
@@ -110,12 +110,17 @@ I ran the app via Cursor and a local web browser and it still worked perfectly. 
 
 Having got the codebase modernised and modularised, it was time to start using Cursor to add some much-needed enhancements and refinements. The morning saw the following enhancements being delivered:
 
+
 - Added “All On-Prem” and “All On-Cloud” migration buttons
-![TLC-005-AllOnPremCloud-Buttons.png](/uploads/TLC-005-AllOnPremCloud-Buttons.png)
 - Built visual offset logic for failed cloud instances
-![TLC-006-OffsetCloudIInstances.png](/uploads/TLC-006-OffsetCloudIInstances.png)
 - Created TradeFlowRateWidget for real-time trade volume control
+
+![TLC-005-AllOnPremCloud-Buttons.png](/uploads/TLC-005-AllOnPremCloud-Buttons.png)
+
+![TLC-006-OffsetCloudIInstances.png](/uploads/TLC-006-OffsetCloudIInstances.png)
+
 ![TLC-007-RateWidget-Zero.png](/uploads/TLC-007-RateWidget-Zero.png)
+
 ![TLC-008-RateWidget-MidValue.png](/uploads/TLC-008-RateWidget-MidValue.png)
 
 Then disaster struck...
@@ -131,27 +136,22 @@ Today was all about making the UI useful, instructive, intuitive, and something 
 Today's co-operative work with Cursor yielded the following set of improvements:
 
 - Added centralised simulation clock
-
-![TLC-009-CentralisedSimulationClock.png](/uploads/TLC-009-CentralisedSimulationClock.png)
-
 - Downtime counters for each infrastructure stack
-![TLC-010-DowntimeOnPrem.png](/uploads/TLC-010-DowntimeOnPrem.png)
-![TLC-011-DowntimeCloud.png](/uploads/TLC-011-DowntimeCloud.png)
-
 - Built stage progression speed slider (1–10 simulated minutes per second)
-![TLC-012-SimulationTimeScaler.png](/uploads/TLC-012-SimulationTimeScaler.png)
-
 - Added stage-specific capacity configs
-![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
-
 - Horizontal scaling visualisation for cloud instances
 - Stacked rendering with visual hierarchy
+![TLC-009-CentralisedSimulationClock.png](/uploads/TLC-009-CentralisedSimulationClock.png)
+- Cloud errors now spawn replacements; instances auto-remove after 15–60 simulated minutes
+
+![TLC-010-DowntimeOnPrem.png](/uploads/TLC-010-DowntimeOnPrem.png)
+![TLC-011-DowntimeCloud.png](/uploads/TLC-011-DowntimeCloud.png)
+![TLC-012-SimulationTimeScaler.png](/uploads/TLC-012-SimulationTimeScaler.png)
+![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
 ![TLC-013-CloudScalingX1.png](/uploads/TLC-013-CloudScalingX1.png)
 ![TLC-013-CloudScalingX2.png](/uploads/TLC-013-CloudScalingX2.png)
 ![TLC-013-CloudScalingX3.png](/uploads/TLC-013-CloudScalingX3.png)
 ![TLC-013-CloudScalingX4.png](/uploads/TLC-013-CloudScalingX4.png)
-
-- Cloud errors now spawn replacements; instances auto-remove after 15–60 simulated minutes
 
 There were still a few minor quirks but you really had to look for them. Something to fix in a future version, perhaps?
 
