@@ -32,7 +32,7 @@ Not wishing to spoil the denouement of the blog post but, had I known in advance
 
 Just as spaghetti westerns transformed the constraints of limited budgets and makeshift locations into distinctive cinematic innovation, extracting meaningful insights from AI pair programming conversations reveals how technical limitations can drive new approaches to understanding collaborative coding. What emerges from analysing these fragmented chat histories falls into three distinct categories:
 
-# The Good, The Bad, and The Ugly.
+## The Good, The Bad, and The Ugly.
 
 Cue the music...
 
@@ -372,7 +372,7 @@ My experience revealed three distinct archetypes of the data portability shootou
 ## Credits Roll
 Perhaps the most entertaining aspect of this whole exercise is realising I've accidentally created a trilogy of my own: a React application, two blog posts about building it, and now a blog post about blogging about building it! It's like The Dollars Trilogy, only with fewer ponchos and significantly more JSON wrangling.
 
-There’s a broader point here. Developers don’t just want to chat with AI—we want access to the narrative, the source material, and maybe the chance to write a sequel. Until that’s part of the platform thinking, we’ll keep building our own distribution networks, one Python script at a time.
+There’s a broader point here. Developers don’t just want to chat with AI: we want access to the narrative, the source material, and maybe the chance to write a sequel. Until that’s part of the platform thinking, we’ll keep building our own distribution networks, one Python script at a time.
 
 In the meantime, I've got a working React application, a blog trilogy, and a toolkit that's turned me into something of an AI conversation archaeologist. Sometimes the real treasure isn't the gold you set out to find, but the unexpected expertise you pick up while learning to prospect in uncharted territory.
 
