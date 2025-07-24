@@ -99,7 +99,9 @@ The TL;DR is that Claude does not provide any way of programmatically extracting
 
 ## The False Dawn
 
-Claude's own initial suggestion was refreshingly straightforward: save the contents of each chat separately in its own file, then use a Python script to parse and analyze the data. Simple enough, right? Wrong.
+Claude's own initial suggestion was refreshingly straightforward: save the contents of each chat separately in its own file, then use a Python script to parse and analyse the data. Simple enough, right?
+
+Wrong.
 
 After some additional digging, Claude offered what seemed like a more sophisticated solution - a Selenium plugin that could automate the download procedure. But that felt unnecessarily complicated for what should be a basic data export function.
 
