@@ -133,6 +133,7 @@ active-authors:
   - rstrange
   - rwilliams
   - rwillis
+  - sanastasov
   - sbaker
   - sbreingan
   - sburnstone
@@ -863,6 +864,11 @@ authors:
     author-summary: "<p>I am a senior developer at Scott Logic, working primarily with Java. I'm currently fascinated by data science and machine learning</p>"
     feed-description: "Sioned is a developer working primarily Java, with a side-interest in data science."
     name: "Sioned Baker"
+    picture: picture.jpg
+  sanastasov:
+    name: "Svetoslav Anastasov"
+    email: "sanastasov@scottlogic.com"
+    author-summary: "Senior Test Engineer based in Bristol with 7+ years of experience. I have a keen interest in automation and technical areas of testing."
     picture: picture.jpg
   sbulut:
     author-summary: "<p>Full-time learner and Test Engineer at Scott Logic</p>"
