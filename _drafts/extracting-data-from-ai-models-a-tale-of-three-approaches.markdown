@@ -336,3 +336,20 @@ This combination meant that I would restrict my usage of Copilot Chat to simple 
 The Copilot experience represents the absolute worst-case scenario: an AI that doesn't understand its own infrastructure, wrapped in corporate governance that treats individual data access as an enterprise security risk, all while obscuring the fundamental product limitations that make the entire exercise futile. It's a masterclass in how not to implement data portability in enterprise environments.
 
 This is why this experiment gets labelled as "The Ugly".
+
+## Conclusion: Retrospective Regrets and Future Fixes
+
+Looking back, the most challenging part of this project was not the build itself, but trying to piece together the story afterwards. For a process so thoroughly infused with artificial intelligence, the task of recovering and reconstructing my own contributions felt oddly manual. If this post has a single takeaway, it is this: capture everything as you go.
+
+Had I realised just how fragmented, inconsistent or outright inaccessible some of these AI conversations would prove to be, I would have logged each session properly from the outset. What I initially assumed would be a straightforward download-and-parse exercise quickly became a lesson in missing metadata, product silos, and speculative scripting.
+
+To be fair, ChatGPT did eventually yield a usable archive, albeit after some collaborative debugging. Claude required a wholly separate toolchain to log future interactions, and Copilot demonstrated how enterprise-scale governance can entirely eclipse individual needs.
+
+If you are planning to work with AI tools as part of a creative or technical workflow, particularly one you may wish to document later, take this as a gentle warning:
+ - **Log your interactions as you go**
+ - **Do not assume the model knows its own file formats**
+ - **Treat “there is an API” as the start of an investigation, not the end of a problem**
+
+Most of all, remember that your future self will be considerably more grateful if your past self left behind some form of trail.
+
+A fourth blog post, covering how to build your own AI-agnostic conversation logger, is starting to look inevitable. But that is a problem for another day.
