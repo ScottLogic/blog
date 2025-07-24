@@ -28,7 +28,7 @@ Having developed a React SPA using the Three Cs and, latterly, The Four Cs (when
 
 Not wishing to spoil the denouement of the blog post but, had I known in advance how much trouble it would be to extract data from the AI engines retrospectively, I would have collected and gathered the information I needed as the project progressed: it would have saved a lot of time, effort, and frustration. Thankfully, no tears were expended in the generation of this post. This structured approach could well be the topic of a future blog post... but I'm getting ahead of myself.
 
-## The Good, The Bad, and The Ugly
+Just as spaghetti westerns transformed the constraints of limited budgets and makeshift locations into distinctive cinematic innovation, extracting meaningful insights from AI pair programming conversations reveals how technical limitations can drive new approaches to understanding collaborative coding. What emerges from analysing these fragmented chat histories falls into three distinct categories: The Good, The Bad, and The Ugly. Cue the music...
 
 ### The Good
 
