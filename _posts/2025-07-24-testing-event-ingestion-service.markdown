@@ -2,13 +2,16 @@
 title: 'Testing an Event Ingestion Service: A Deep Dive into Our Approach'
 date: 2025-07-24 00:00:00 Z
 categories:
-  - Testing
+- Testing
 tags:
-  - event-driven architecture
-  - ingestion service
-  - cloud computing
-  - integration testing
-summary: Testing an event ingestion service is critical for ensuring reliable, scalable event-driven architectures. This blog dives into our approach to testing an ingestion service integrated with Azure Event Hubs, covering the testing strategy, tools, and process flow, with a detailed diagram to illustrate the pipeline.
+- event-driven architecture
+- ingestion service
+- cloud computing
+- integration testing
+summary: Testing an event ingestion service is critical for ensuring reliable, scalable
+  event-driven architectures. This blog dives into our approach to testing an ingestion
+  service integrated with Azure Event Hubs, covering the testing strategy, tools,
+  and process flow, with a detailed diagram to illustrate the pipeline.
 author: sanastasov
 ---
 
