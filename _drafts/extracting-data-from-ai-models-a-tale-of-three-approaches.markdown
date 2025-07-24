@@ -21,7 +21,8 @@ The models in question are ChatGPT, Claude and Copilot (Chat).
 
 The interfaces used for each of them was the native web portal. In addition, and for ChatGPT alone, there was also the option of using a native Mac OS X app which was logged into the same account as used on the portal.
 
-Once Phase 1 (see blog Phase 1 [Visualising the Trade Lifecycle - Phase 1: Building a React SPA with Multiple AIs](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html)) had been completed, the development moved onto Cursor which implements Claude inside an IDE. _The experience with Cursor is not documented in this blog post._
+Once Phase 1 (see blog Phase 1 [Visualising the Trade Lifecycle - Phase 1: Building a React SPA with Multiple AIs](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html)) had been completed, the development moved onto Cursor which implements Claude inside an IDE. _The experience with Cursor is documented in [Visualising the Trade Lifecycle - Phase 2: Refactoring with Cursor IDE
+](https://blog.scottlogic.com/2025/07/22/visualising-the-trade-lifecycle-phase-2-refactoring-with-cursor-ide.html)._
 
 Having developed a React SPA using the Three Cs and, latterly, The Four Cs (when Cursor was involved), the idea of creating a blog about my experience was suggested to me. However, the mere act of creating those blog posts led naturally to the creation of this blog post or, perhaps more accurately, a blog _metapost_ as it contains information about how those two other blog posts were created which, themselves, define the actual work done. Very meta indeed...
 
