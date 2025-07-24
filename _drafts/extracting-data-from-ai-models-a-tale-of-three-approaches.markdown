@@ -216,7 +216,7 @@ This sounded perfect - exactly what I needed for my analysis.
 The ugly truth emerged in the requirements. To use this API, I needed:
 
 - Microsoft 365 Enterprise account with Copilot enabled ✓ (I had this)
-- Admin permissions to register and authorize applications ✗ (I didn't have this)
+- Admin permissions to register and authorise applications ✗ (I didn't have this)
 - Access to Microsoft Graph API and Copilot extensibility features ✗ (Blocked by the above)
 
 ## The Corporate Runaround
@@ -245,7 +245,7 @@ Copilot helpfully drafted an email for me to send to our IT team:
 
 ### Step 2: Wait for Corporate Approval
 
-This is where the "ugly" really kicks in. My request had to go through:
+My request had to go through:
 
 - IT approval processes
 - Security reviews
@@ -264,7 +264,7 @@ If the API request was denied, I'd be back to the same manual extraction methods
 
 ## The Architectural Problem
 
-The ugly reality is that Copilot's solution, while technically superior to Claude's non-solution, puts individual users at the mercy of corporate IT policies. Unlike ChatGPT's straightforward export, Copilot treats your conversation history as corporate data that requires enterprise-level access controls.
+The ugly reality is that Copilot's suggested solution, while technically more attractive than Claude's non-solution, puts individual users at the mercy of corporate IT policies. Unlike ChatGPT's straightforward export, Copilot treats your conversation history as corporate data that requires enterprise-level access controls.
 
 This creates a fundamental mismatch between:
 
@@ -274,10 +274,6 @@ This creates a fundamental mismatch between:
 ## The Irony
 
 The most frustrating part? Copilot could clearly explain exactly how to access the data, provide step-by-step instructions, and even draft the necessary communication. It had all the knowledge to solve my problem - but the solution was locked behind corporate policies that Copilot itself couldn't circumvent. Nor did I ask it to try, just to be clear!
-
-## The Waiting Game
-
-At the time of writing, I'm still waiting for IT approval. The outcome remains uncertain, which is perhaps the most "ugly" aspect of all - the inability to predict whether a seemingly straightforward request will be approved or denied based on corporate risk assessments that have nothing to do with the technical feasibility of the task.
 
 ## The Plot Thickens: When AI Doesn't Know Its Own APIs
 
@@ -291,23 +287,23 @@ I returned to Copilot with this revelation:
 
 > "Copilot.Interaction.Export.All doesn't appear to exist for our admins to grant me that permission."
 
-Copilot's response was characteristically helpful but revealed the deeper problem:
+Copilot's response was rather matter-of-fact:
 
 > "The permission Copilot.Interaction.Export.All does not exist. Instead, the correct permission for the Microsoft 365 Copilot Interaction Export API is: `AiEnterpriseInteraction.Read.All` (Application permission)"
 
-So back to IT I went, cap in hand, requesting this new permission. Their response was swift and definitive: this wouldn't be possible for two critical reasons:
+So back to IT I went, cap in hand, requesting this new permission. Their response was swift and definitive. This wouldn't be possible for two critical reasons:
 
 1. **Wrong product**: I don't have access to "Microsoft 365 Copilot," just "Copilot Chat"
-2. **Security nightmare**: This role would give access to chat history for **ALL USERS** in the organization
+2. **Security nightmare**: This role would give access to chat history for **ALL USERS** in the organisation
 
 ## The Microsoft Naming Maze
 
-This is where the "ugly" really crystallized. I was dealing with the obfuscated naming of Microsoft's AI products:
+This is where the "ugly" really crystallised. I was dealing with the obfuscated naming of Microsoft's AI products:
 
 - **Microsoft 365 Copilot** (requires license) - what the API actually serves
 - **Microsoft 365 Copilot Chat** (no license required) - what I actually had access to
 
-The API documentation doesn't clearly distinguish between these products, leading to confusion about what's actually accessible.
+The API documentation doesn't clearly distinguish between these products, leading to confusion about what's actually accessible. I also hadn't appreciated the difference between the two different offerings.
 
 ## The Final Nail
 
@@ -315,21 +311,19 @@ When I explained this limitation back to Copilot, it confirmed my worst fears:
 
 > "This permission grants access to all users' Copilot interactions across the tenant. It requires admin consent and is not scoped to individual users. It only works for Microsoft 365 Copilot (licensed), not Copilot Chat (unlicensed)."
 
-Even if IT had been willing to grant enterprise-wide access to chat histories (which they absolutely weren't), the API wouldn't return any data for my unlicensed account anyway.
+Even if IT had been willing to grant enterprise-wide access to chat histories (which they absolutely were not going to do!), the API wouldn't return any data for my unlicensed account anyway.
 
 ## The Surrender
 
-At this point, I decided to park the entire Copilot extraction effort. The combination of:
+At this point, I decided to park the entire Copilot extraction effort.
 
 - Non-existent APIs confidently recommended by the AI itself
 - Corporate security policies preventing enterprise-wide access (and justifiably so!)
 - Product licensing restrictions that made the whole exercise pointless
 
-...meant that I would restrict my usage of Copilot Chat to simple tasks like text summaries of Teams chats and meeting notes but nothing deeper that would require historical analysis or data extraction.
+This combination meant that I would restrict my usage of Copilot Chat to simple tasks like text summaries of Teams chats and meeting notes but nothing deeper that would require historical analysis or potential future data extraction.
 
 ## The Verdict
-
-This outcome was "ugly" because:
 
 1. **AI misinformation** - Copilot confidently suggested non-existent API permissions
 2. **False hope** - The solution was alleged to exist but may be inaccessible due to organisational constraints
@@ -341,3 +335,4 @@ This outcome was "ugly" because:
 
 The Copilot experience represents the absolute worst-case scenario: an AI that doesn't understand its own infrastructure, wrapped in corporate governance that treats individual data access as an enterprise security risk, all while obscuring the fundamental product limitations that make the entire exercise futile. It's a masterclass in how not to implement data portability in enterprise environments.
 
+This is why this experiment gets labelled as "The Ugly".
