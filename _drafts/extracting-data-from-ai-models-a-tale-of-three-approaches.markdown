@@ -113,9 +113,11 @@ I dutifully went through the entire setup process:
 
 - Obtained the API key
 - Set up console access to Claude
-- Configured my Python environment with the appropriate anthropic libraries
+- Configured my Python (virtual) environment with the appropriate anthropic libraries
 - Overcame numerous configuration and access errors
 - Dealt with repeated null or empty results from API queries
+
+I was ready!
 
 ## The Crushing Revelation
 
@@ -131,31 +133,18 @@ Left with no official solution, I had to get creative. The process that eventual
 
 Since I couldn't extract historical data easily, I built a Python script that could log future conversations through the API. This meant:
 
-- Setting up a proper Python virtual environment (because managed Macs make everything harder)
-- Installing the anthropic package
+- Setting up a proper Python virtual environment
+- Installing the anthropic package(s)
 - Creating a structured logging system that captured dates, times, prompts, responses, and metadata
 - Implementing automatic export to both JSON (machine-readable) and Markdown (human-readable) formats
 
-### The Virtual Environment Dance
-
-Even this "simple" step had complications on a managed Mac:
-
-bash
-
-```bash
-# The eventual solution
-python3 -m venv claude-env
-source claude-env/bin/activate
-pip install anthropic
-```
-
 ### API Model Confusion
 
-The documentation suggested using `claude-sonnet-4-20250514`, but this threw 400 errors. Through trial and error, I discovered that `claude-3-5-sonnet-20241022` actually worked. This kind of disconnect between documentation and reality is frustrating when you're trying to build reliable tooling.
+The online documentation suggested using `claude-sonnet-4-20250514`, but this threw HTTP 400 errors (Bad Request). Through trial and error, I discovered that `claude-3-5-sonnet-20241022` worked so I switched to that. This kind of disconnect between documentation and reality is frustrating when you're trying to build reliable tooling.
 
 ### The System Prompt Gotcha
 
-Even after getting the right model, I hit another API quirk: the system parameter must be a string if provided, or omitted entirely. Passing `system=None` caused failures. These are the kinds of edge cases that make programmatic access feel fragile.
+Even after getting the right model, I hit another API quirk: the system parameter must be a string (if provided), or omitted entirely. Passing `system=None` caused failures. These are the kinds of edge cases that make programmatic access feel fragile.
 
 ## The Browser Automation Fallback
 
@@ -191,7 +180,7 @@ A processor for web-exported conversations that:
 
 ## The Verdict
 
-This outcome was definitively "bad" because:
+This was a rather tortuous journey with many blind alleys and wrong turns along the way. Ultimately, I failed to get hold of my previous web conversations in a programmatic way and discovered the following nuggets along the way:
 
 1. **No native export functionality** - Basic data portability should be a given
 2. **Misleading API guidance** - Suggesting solutions that don't work wastes developer time
@@ -200,7 +189,7 @@ This outcome was definitively "bad" because:
 
 The irony is that I ended up with a more sophisticated conversation logging system than I originally needed, but only because the straightforward approach simply doesn't exist.
 
-If you're planning to work with Claude programmatically, learn from my experience: build your logging system from day one. Don't assume you can extract historical data later - you probably can't.
+If you're planning to work with Claude programmatically, learn from my experience: build your logging system from day one. Don't assume you can extract historical data later - you probably can't. Consequently, this experiment is flagged as "The Bad".
 
 ### The Ugly
 
