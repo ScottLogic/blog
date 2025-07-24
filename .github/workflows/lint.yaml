@@ -1,4 +1,6 @@
 name: Lint Posts
+env:
+  HUSKY: 0
 
 on:
   pull_request:

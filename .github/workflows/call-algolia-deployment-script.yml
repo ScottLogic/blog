@@ -1,5 +1,7 @@
 # .github/workflows/call-algolia-deployment-script.yml
 name: Call algolia deployment script on merge
+env:
+  HUSKY: 0
 
 on:
   push:
