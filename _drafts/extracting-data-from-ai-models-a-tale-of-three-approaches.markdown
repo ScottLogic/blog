@@ -14,8 +14,10 @@ author: rgriffiths
 
 This blog is about the ease (or not) of obtaining, collecting, or extracting data from past interactions with three different AI models. Perhaps I should have called it _What I wish I had known before starting a pair-programming project with AI?_ 
 
-It is based solely on my experience of trying to retrospectively document my efforts at building a React application by extracting conversation threads I had developed with three different AI models. See my earlier blog posts: [Visualising the Trade Lifecycle - Phase 1: Building a React SPA with Multiple AIs](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html) and [Visualising the Trade Lifecycle - Phase 2: Refactoring with Cursor IDE
-](https://blog.scottlogic.com/2025/07/22/visualising-the-trade-lifecycle-phase-2-refactoring-with-cursor-ide.html) for more details about that project.
+It is based solely on my experience of trying to retrospectively document my efforts at building a React application by extracting conversation threads I had developed with three different AI models. See my earlier blog posts for more details about that project.
+1. [Visualising the Trade Lifecycle - Phase 1: Building a React SPA with Multiple AIs](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html)
+2. [Visualising the Trade Lifecycle - Phase 2: Refactoring with Cursor IDE
+](https://blog.scottlogic.com/2025/07/22/visualising-the-trade-lifecycle-phase-2-refactoring-with-cursor-ide.html) 
 
 The models in question are ChatGPT, Claude and Copilot (Chat).
 
