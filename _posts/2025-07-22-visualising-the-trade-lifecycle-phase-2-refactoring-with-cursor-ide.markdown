@@ -25,11 +25,13 @@ summary: In this instalment, I discovered that Cursor IDE transformed my chaotic
 author: rgriffiths
 ---
 
-In [Part 1](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html), I built a hybrid cloud trade lifecycle visualiser using a triumvirate of AI assistants: ChatGPT, Claude, and Microsoft Copilot. What began as a playful experiment in multi-LLM development had resulted in a working React application that mapped the journey of financial trades through on-premises and cloud infrastructure.
+In [Part 1](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html), I built a hybrid cloud trade lifecycle visualiser using a triumvirate of AI assistants: ChatGPT, Claude, and Microsoft Copilot Chat. What began as a playful experiment in multi-LLM development had resulted in a working React application that mapped the journey of financial trades through on-premises and cloud infrastructure.
 
 But, as any developer knows, early success often leads to complexity. And complexity demands better tools.
 
-Enter **Cursor IDE**. Note that there are many possible alternatives to Cursor: I just happened to choose Cursor for this experiment.
+Enter **Cursor IDE**. 
+
+_Note that there are many possible alternatives to Cursor: I just happened to choose Cursor for this experiment._
 
 ---
 
@@ -76,9 +78,11 @@ Cursor created the necessary IDE wrappers and asked if I wanted to commit everyt
 
 ![003-TopMetrics.png](/uploads/003-TopMetrics.png)
 
+By now, I had a fully-refactored version of my code not only in an IDE but also in GitHub. 
+
 ![004-DualColumnLayout.png](/uploads/004-DualColumnLayout.png)
 
-By now, I had a fully-refactored version of my code not only in an IDE but also in GitHub. It had manageable, maintainable, logical chunks of code that was much more aligned with good software engineering principles than the monolith I was left with when I concluded Phase 1. A very productive day!
+It had manageable, maintainable, logical chunks of code that was much more aligned with good software engineering principles than the monolith I was left with when I concluded Phase 1. A very productive day!
 
 ### **Day 8: TypeScript Reckoning**
 
@@ -116,11 +120,8 @@ Having got the codebase modernised and modularised, it was time to start using C
 - Created TradeFlowRateWidget for real-time trade volume control
 
 ![TLC-005-AllOnPremCloud-Buttons.png](/uploads/TLC-005-AllOnPremCloud-Buttons.png)
-
 ![TLC-006-OffsetCloudIInstances.png](/uploads/TLC-006-OffsetCloudIInstances.png)
-
 ![TLC-007-RateWidget-Zero.png](/uploads/TLC-007-RateWidget-Zero.png)
-
 ![TLC-008-RateWidget-MidValue.png](/uploads/TLC-008-RateWidget-MidValue.png)
 
 Then disaster struck...
@@ -136,22 +137,21 @@ Today was all about making the UI useful, instructive, intuitive, and something 
 Today's co-operative work with Cursor yielded the following set of improvements:
 
 - Added centralised simulation clock
+![TLC-009-CentralisedSimulationClock.png](/uploads/TLC-009-CentralisedSimulationClock.png)
 - Downtime counters for each infrastructure stack
+![TLC-010-DowntimeOnPrem.png](/uploads/TLC-010-DowntimeOnPrem.png)![TLC-011-DowntimeCloud.png](/uploads/TLC-011-DowntimeCloud.png)
 - Built stage progression speed slider (1–10 simulated minutes per second)
+![TLC-012-SimulationTimeScaler.png](/uploads/TLC-012-SimulationTimeScaler.png)
 - Added stage-specific capacity configs
+![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
+
 - Horizontal scaling visualisation for cloud instances
 - Stacked rendering with visual hierarchy
-![TLC-009-CentralisedSimulationClock.png](/uploads/TLC-009-CentralisedSimulationClock.png)
-- Cloud errors now spawn replacements; instances auto-remove after 15–60 simulated minutes
-
-![TLC-010-DowntimeOnPrem.png](/uploads/TLC-010-DowntimeOnPrem.png)
-![TLC-011-DowntimeCloud.png](/uploads/TLC-011-DowntimeCloud.png)
-![TLC-012-SimulationTimeScaler.png](/uploads/TLC-012-SimulationTimeScaler.png)
-![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
 ![TLC-013-CloudScalingX1.png](/uploads/TLC-013-CloudScalingX1.png)
 ![TLC-013-CloudScalingX2.png](/uploads/TLC-013-CloudScalingX2.png)
 ![TLC-013-CloudScalingX3.png](/uploads/TLC-013-CloudScalingX3.png)
 ![TLC-013-CloudScalingX4.png](/uploads/TLC-013-CloudScalingX4.png)
+- Cloud errors now spawn replacements; instances auto-remove after 15–60 simulated minutes
 
 There were still a few minor quirks but you really had to look for them. Something to fix in a future version, perhaps?
 
@@ -162,8 +162,6 @@ Given that this was an open-ended "research" project, knowing when and how to br
 - Flattened refactored/ into a clean components/ directory
 - Created Legend.tsx for UI reference
 - Added StageComponent.tsx for per-stage logic
-
-![TLC-015-SPA-TopOfPage.png](/uploads/TLC-015-SPA-TopOfPage.png)
 
 I was rather impressed with what I had managed to achieve with my AI coding partners over the last two weeks or so. I knew what I wanted to achieve but lacked any skill in modern UI development. Until fairly recently, realising my goals would have meant working with other people who had the skill to build and develop my vision. The other alternative would have been to teach myself how to build applications using React but that would have taken many months to get to the level of fluency required to build such an app. Working with the AI companions has allowed me to build something awesome, on my own (in human terms anyway), in a few short weeks: this is something that would have been unthinkable even a year ago.
 
@@ -187,6 +185,8 @@ The monolith was gone. In its place: a composable, logical structure that looks 
 - tradeStages.ts: Metadata and stage definitions
 - simUtils.ts: Simulation timing and constants
 - tradeflowUtils.ts: Flow validation and positioning
+
+![TLC-015-SPA-TopOfPage.png](/uploads/TLC-015-SPA-TopOfPage.png)
   
 ---
 
@@ -235,6 +235,7 @@ This project started as a means of showcasing Scott Logic's Trade Lifecycle Mode
 This prototype simulates the cloud element but, with Terraform integration as a possible next step, it would be possible to actually deploy AWS resources in the cloud. Future versions of this tool could be made to deliver Azure, GCP or even other cloud vendor solutions too. Once that has been achieved, solutions involving more than one cloud should also be achievable.
 
 ---
+
 ## **Final Reflections**
 
 Cursor IDE didn’t just help refactor code. It changed how I approached building software with AI support. From file recovery to modular design, it felt like working with an intelligent coding partner who actually understood what I was trying to build. Genuine pair programming with more than a hint of Star Trek about it!
