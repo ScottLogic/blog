@@ -20,7 +20,7 @@ Event-driven architectures are the backbone of scalable, responsive distributed 
 
 ## Overview of the Ingestion Service
 
-The ingestion service serves as a gateway for event messages, accepting data from external producers and routing it to downstream systems via a cloud-based event hub. We used a managed cloud event hub service for its scalability and reliability, connecting to it via the cloud provider’s SDK to send messages programmatically. The service was designed to:
+The ingestion service serves as a gateway for event messages, accepting data from external producers via a cloud-based event hub, and routing it to downstream systems. We used a managed cloud event hub service for its scalability and reliability, connecting to it via the cloud provider’s SDK to send messages programmatically. The service was designed to:
 
 - **Receive** event messages in formats like JSON.
 - **Validate** messages for schema compliance and data integrity.
