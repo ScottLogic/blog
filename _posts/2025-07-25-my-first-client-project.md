@@ -22,7 +22,7 @@ Each day, I could see our project taking shape, with new features and functional
 
 ![My Image]({{ site.github.url }}/hsauve/assets/first-project/building-site.jpg "A building site")
 
-*Photo by [Quang Nguyen Vinh](https://www.pexels.com/@quang-nguyen-vinh-222549/) on [Pexels](https://www.pexels.com/photo/building-canes-2138126/)*
+<sub>*Photo by [Quang Nguyen Vinh](https://www.pexels.com/@quang-nguyen-vinh-222549/) on [Pexels](https://www.pexels.com/photo/building-canes-2138126/)*</sub>
 
 ## The technology 
 
@@ -34,9 +34,9 @@ One of the first tickets I tackled was building the initial version of a modal, 
 
 In building terms, it would be a bit like building a structure with rafters and trimmers to install a skylight on the top of the building. I would start by spending time reading the manuals for the tools I was to use and look at how other people were building similar elements elsewhere. I'd then make sure I cut the timber with the required dimensions, apply the right colours and make sure the window coming in later would fit in without sticking out. 
 
-![My Image]({{ site.github.url }}/hsauve/assets/first-project/woman-builder.jpg "Cuttin timber for a skylight")
+![My Image]({{ site.github.url }}/hsauve/assets/first-project/woman-builder.jpg "Cutting timber for a skylight")
 
-*Photo by [Los Mertos Crew](https://www.pexels.com/@cristian-rojas/) on [Pexels](https://www.pexels.com/photo/handywoman-grinding-a-wood-plank-8447849/)*
+<sub>*Photo by [Los Mertos Crew](https://www.pexels.com/@cristian-rojas/) on [Pexels](https://www.pexels.com/photo/handywoman-grinding-a-wood-plank-8447849/)*</sub>
 
 The project had a strong emphasis on testing, so I spent a significant amount of time writing unit tests using the Jasmine testing framework. I also got the opportunity to explore integration and end-to-end tests which made me appreciate the crucial part that testing plays in the success of a project. 
 
@@ -50,11 +50,11 @@ If I was on a building site, my next task would be to turn the skylight into an 
 
 ![My Image]({{ site.github.url }}/hsauve/assets/first-project/electrical-box.jpg "A power supply")
 
-*Photo by [Kindel Media](https://www.pexels.com/@kindelmedia/) on [Pexels](https://www.pexels.com/photo/close-up-photo-of-opened-switchboard-8488029/)*
+<sub>*Photo by [Kindel Media](https://www.pexels.com/@kindelmedia/) on [Pexels](https://www.pexels.com/photo/close-up-photo-of-opened-switchboard-8488029/)*</sub>
 
 ### Cloud 
 
-The choice of Cloud provider was Azure, and I had the opportunity to delve into that space a little, specifically on the Azure event hubs. One of the non-functional requirement was to audit user activity happening on the platform, such as when a user created a feed or viewed a piece of content. When a change appeared in the Cosmos database, a mediator service would publish the event to an event hub.
+The choice of Cloud provider was Azure, and I had the opportunity to delve into that space a little, specifically on the Azure event hubs. One of the non-functional requirements was to audit user activity happening on the platform, such as when a user created a feed or viewed a piece of content. When a change appeared in the Cosmos database, a mediator service would publish the event to an event hub.
 
 Working with Azure event hubs was particularly fascinating because it allowed me to see how different parts of the platform could communicate and interact in real-time. This work also enabled the client to access valuable pieces of insights into platform usage. 
 
@@ -72,7 +72,7 @@ As a junior developer, I particularly enjoyed listening in on discussions, wheth
 
 ![My Image]({{ site.github.url }}/hsauve/assets/first-project/team-of-builders.jpg "A construction team on a building")
 
-*Photo by [Randy Fath](https://unsplash.com/@randyfath) on [Unsplash](https://unsplash.com/photos/people-building-structure-during-daytime-ymf4_9Y9S_A)*
+<sub>*Photo by [Randy Fath](https://unsplash.com/@randyfath) on [Unsplash](https://unsplash.com/photos/people-building-structure-during-daytime-ymf4_9Y9S_A)*</sub>
 
 ## Conclusion 
 
