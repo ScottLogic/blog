@@ -1,4 +1,13 @@
-# Lessons under construction: My first client project 
+---
+title: "Lessons under construction: My first client project"
+date: 2025-07-25 00:00:00 Z
+categories:
+  - Tech
+tags: 
+- Tech
+summary: I have recently come off my first client project, which I was part of for 9 months, and so I wanted to reflect on everything that I learnt during that time.
+author: hsauve
+---  
 
 I have recently come off my first client project, which I was part of for 9 months, and so I wanted to reflect on everything that I learnt during that time. 
 
@@ -25,12 +34,9 @@ One of the first tickets I tackled was building the initial version of a modal, 
 
 In building terms, it would be a bit like building a structure with rafters and trimmers to install a skylight on the top of the building. I would start by spending time reading the manuals for the tools I was to use and look at how other people were building similar elements elsewhere. I'd then make sure I cut the timber with the required dimensions, apply the right colours and make sure the window coming in later would fit in without sticking out. 
 
-
-
 ![My Image]({{ site.github.url }}/hsauve/assets/first-project/woman-builder.jpg "Cuttin timber for a skylight")
 
 *Photo by [Los Mertos Crew](https://www.pexels.com/@cristian-rojas/) on [Pexels](https://www.pexels.com/photo/handywoman-grinding-a-wood-plank-8447849/)*
-
 
 The project had a strong emphasis on testing, so I spent a significant amount of time writing unit tests using the Jasmine testing framework. I also got the opportunity to explore integration and end-to-end tests which made me appreciate the crucial part that testing plays in the success of a project. 
 
@@ -73,5 +79,3 @@ As a junior developer, I particularly enjoyed listening in on discussions, wheth
 As I look back on my time on the project, I realise how much I have grown, working across the stack and getting new technologies and tools under my belt. While there were moments that felt daunting, each step gave me a little bit more confidence, stronger foundation and deeper understanding of software development in a real-world setting.
 
 On a final note, although the project lent itself to a construction metaphor, I hope to never have to handle electricity work, for my sake and that of others. 
-
- 
