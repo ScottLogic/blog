@@ -72,7 +72,7 @@ As a junior developer, I particularly enjoyed listening in on discussions, wheth
 
 ![My Image]({{ site.github.url }}/hsauve/assets/first-project/team-of-builders.jpg "A construction team on a building")
 
-*Photo by [Thomas Kinto](https://unsplash.com/@thomaskinto) on [Unsplash](https://unsplash.com/photos/a-group-of-people-climbing-up-the-side-of-a-tall-building-y0V4XydoQFs)*
+*Photo by [Randy Fath](https://unsplash.com/@randyfath) on [Unsplash](https://unsplash.com/photos/people-building-structure-during-daytime-ymf4_9Y9S_A)*
 
 ## Conclusion 
 
