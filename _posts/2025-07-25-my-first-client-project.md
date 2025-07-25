@@ -11,7 +11,7 @@ author: hsauve
 
 I have recently come off my first client project, which I was part of for 9 months, and so I wanted to reflect on everything that I learnt during that time. 
 
-The client was a FinTech company, specialising in regulatory compliance and the project was greenfield, which meant that our team was building the platform from the ground up. I joined as an Associate Developer and most of the technology was new to me, which made the experience feel like an exciting challenge. 
+The client was a Fintech company, specialising in regulatory compliance and the project was greenfield, which meant that our team was building the platform from the ground up. I joined as an Associate Developer and most of the technology was new to me, which made the experience feel like an exciting challenge. 
 
 ## The building site 
 
