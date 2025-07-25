@@ -14,6 +14,7 @@ active-authors:
   - asaha
   - asegrove
   - ashing
+  - bcoke
   - awhitmell
   - bell-jones
   - bheyman
@@ -132,6 +133,7 @@ active-authors:
   - rstrange
   - rwilliams
   - rwillis
+  - sanastasov
   - sbaker
   - sbreingan
   - sburnstone
@@ -262,6 +264,10 @@ authors:
     name: "Andrew Whitmell"
     author-summary: "Developer based in Newcastle."
     picture: awhitmell.jpg
+  bcoke:
+    name: "Benjamin Coke"
+    author-summary: "Graduate Developer based in Newcastle."
+    picture: bcokepic.jpg
   bell-jones:
     name: "Benjamin Ell-Jones"
     author-summary: "Developer based in Bristol"
@@ -860,6 +866,11 @@ authors:
     feed-description: "Sioned is a developer working primarily Java, with a side-interest in data science."
     name: "Sioned Baker"
     picture: picture.jpg
+  sanastasov:
+    name: "Svetoslav Anastasov"
+    email: "sanastasov@scottlogic.com"
+    author-summary: "Senior Test Engineer based in Bristol with 7+ years of experience. I have a keen interest in automation and technical areas of testing."
+    picture: picture.jpg
   sbulut:
     author-summary: "<p>Full-time learner and Test Engineer at Scott Logic</p>"
     name: "Seda Bulut"
@@ -1095,7 +1106,7 @@ authors:
     picture: picture.png
   rgriffiths:
     name: "Robert Griffiths"
-    author-summary: "<p>I'm a Principal Consultant from our London office.</p>"
+    author-summary: "<p>Technology leader and cloud pioneer with 20+ years enabling enterprise cloud transformation, quantitative innovation, and strategic advisory. Former physicist turned fintech expert with deep expertise in multi-cloud strategy, HPC, and global leadership. Speaker, published author, and advocate for impactful, customer-centric tech change. <a href='https://www.linkedin.com/in/robert-kenny-griffiths'>@RobertGriffiths</a></p>"
     picture: picture.jpeg
   rpilling:
     name: "Rob Pilling"
