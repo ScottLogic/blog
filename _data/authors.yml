@@ -154,6 +154,7 @@ active-authors:
   - tgilbert
   - thands
   - tjohnson
+  - tyates
   - vcisse
   - wboothclibborn
   - wduncan
@@ -360,7 +361,7 @@ authors:
   dallsop:
     name: "Dan Allsop"
     author-summary: "I am a software consultant with over a decade of experience across several of the world’s leading financial institutions. Outside of software development my interests include game theory, behaviouristic psychology, and gardening."
-    picture: picture.jpg 
+    picture: picture.jpg
   dalucas:
     name: "Daniel Lucas"
     author-summary: "I am a Senior Fullstack Developer based in our Bristol office. I am passionate about empowering people, fostering continuous learning and shaping working practices that drive real value for organizations."
@@ -555,7 +556,7 @@ authors:
     name: "Jonathan Cardy"
   jcarstairs:
     name: "Joe Carstairs"
-    author-summary: "<p>Developer at Scott Logic. Find me on <a href=\"https://joeac.net\">joeac.net</a>.</p>"
+    author-summary: '<p>Developer at Scott Logic. Find me on <a href="https://joeac.net">joeac.net</a>.</p>'
     picture: picture.webp
   jcwright:
     name: "Jay Wright"
@@ -749,7 +750,7 @@ authors:
   nhume:
     author-summary: "I'm a delivery-focused leader with 20+ years of experience ensuring successful outcomes across public and private sectors. Proven track record of driving complex initiatives from concept to completion, aligning teams, stakeholders, and technology to deliver valuable outcomes. Currently a Delivery Principal based at Scott Logic's London office."
     name: "Nick Hume"
-    picture: nhume.jpeg  
+    picture: nhume.jpeg
   nowen:
     author-summary: "<p>I'm a Senior Developer at Scott Logic, with many years of C# experience. Recently I've immersed myself in JavaScript, including Angular and React."
     name: "Nick Owen"
@@ -1607,3 +1608,8 @@ authors:
     name: "Matt Richards"
     author-summary: "I am a Principal Architect with 20 years experience building complex distributed systems, now specialising in data and analytics solutions."
     picture: picture.jpg
+  tyates:
+    name: "Tim Yates"
+    email: tyates@scottlogic.com
+    author-summary: "Reformed folk musician turned Senior Developer based at the Leeds office, prefers backend and data but will frontend if you make him."
+    picture: picture.png
