@@ -1,6 +1,10 @@
 ---
 title: 'Extracting Data From AI Models: A Tale of Three Approaches'
 date: 2025-07-23 15:49:00 Z
+categories:
+- Artificial Intelligence
+tags:
+- Artificial Intelligence
 summary: 'After building a React application with three AI assistants, our developer
   discovered that extracting your conversation history afterwards is like trying to
   collect debts in a frontier town: ChatGPT eventually pays up after some serious
