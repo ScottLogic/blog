@@ -245,3 +245,5 @@ Perhaps more tellingly, it made me want to tell the story. Now that's **really**
 ---
 
 _The future of development isn’t just AI-assisted. It’s AI-collaborative._
+
+Discover more about what I learned on this journey by reading [Part 3 of this loose trilogy of posts](blog.scottlogic.com/2025/07/23/extracting-data-from-ai-models-a-tale-of-three-approaches.html)
