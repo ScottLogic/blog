@@ -1,6 +1,6 @@
 ---
 title: "Lessons under construction: My first client project"
-date: 2025-07-25 00:00:00 Z
+date: 2025-07-28 00:00:00 Z
 categories:
   - Tech
 tags: 
