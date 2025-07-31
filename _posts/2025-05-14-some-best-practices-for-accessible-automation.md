@@ -1,17 +1,17 @@
 ---
 author: cfreestone
-title: Some Best Practices for Accessible Automation Testing
+title: Some Best Practices for Writing Readable Automation Tests
 summary: While on my most recent project I had the unique experience of working closely with many testers and test minded individuals. This allowed me to learn some much-needed lessons about how to best implement automation testing with accessibility in mind, a sometimes-overlooked area of test automation.
 categories:
 - Testing
 ---
-While on my most recent project I had the unique experience of working closely with many testers and test minded individuals. This allowed me to learn some much-needed lessons about how to best implement automation testing with accessibility in mind, a sometimes-overlooked area of test automation.
+While on my most recent project I had the unique experience of working closely with many testers and test minded individuals. This allowed me to learn some much-needed lessons about how to best implement automation testing with readability in mind, a sometimes-overlooked area of test automation.
 
 ## Introduction
-What I hope to share with you is how simple it can be to both think about and implement the approach to make sure your tests are accessible. This can be because you have strict reasons on the project to ensure compliance with certain metrics, because this can lead to improved readability of your code and its longevity, or because you want to read some wonderful thoughts from certain testers perspective.
+What I hope to share with you is how simple it can be to both think about and implement the approach to make sure your tests are accessible and readable. This can be because you have strict reasons on the project to ensure compliance with certain metrics, because you want to increases the longevity of your code, or because you want to read some wonderful thoughts from certain testers perspective. So here are some of those self proclaimed wonderful thoughts
 
 ## What to expect()
-Now it’s good to make note that the lessons learnt here are all from the work I have carried out while implementing Playwright tests. This will mean you will need some basic understanding of TypeScript and Playwright when I discuss some examples. So    without further ado let's discuss the `expect()` function.
+Now it’s good to make note that the lessons learnt here are all from the work I have carried out while implementing Playwright tests. This will mean you will need some basic understanding of TypeScript and Playwright when I discuss some examples. So without further ado let's discuss the `expect()` function.
 
 This neat little function is the bread-and-butter basics of automating in playwright, it's what we want to see when we place our test into a certain configuration. This doesn’t mean it has to do handstands or backflips, but just like any gymnastics routine we do wait on it with bated breath, hoping for results we will cheer for. This anticipation makes it easy for us to write something which makes us wait for that big finale in our tests, even if the tests took the literal definition of breaking a leg.
 
@@ -24,7 +24,7 @@ This is because there is an interface that runs behind the scenes of the UI and 
 
 Things like filters and drop-downs can be difficult to locate but they can be found. A good tip for finding this is by entering the webpage and open up DevTools, then clicking near the item you wish to find the selector of, but not on it. After that press tab and open up the console within DevTools. If you then type the command: `document.activeElement` you will find the info you need.
 
-By the same accessible reasoning it is good practice to not use `.getbyTestID`.This is due to the fact that names of those same ID’s will not be useful to someone with an accessibility issue, as it will sound like Jargon when navigated to.
+It's also generally good practice to not use `.getbyTestID`.This is due to the fact that names of those same ID’s will not make sense when either looked at later in a projects life cycle or to others in the team who do not have knowledge in that area. More information can be found about locators here: https://playwright.dev/docs/locators.
 
 Sometimes though this may not have been implemented on the project. This requires roles to be assigned correctly on the project you are on, things like test ID's or divs could have been used instead which makes this impossible to implement. When this is the case it is always best to have that conversation with the team so that you can explain how useful and helpful HTML roles are.
 
