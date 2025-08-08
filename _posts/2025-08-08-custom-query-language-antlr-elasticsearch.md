@@ -34,17 +34,17 @@ config:
 ---
 flowchart LR
 
-B[1] H@==> E[the] K@=== P[dog]
-C[2] I@==> F[the] L@=== Q[cat]
-A[3] G@==> D[the] J@=== N[black] M@=== O[cat]
+id1[1] ==> the1[the] === dog[dog]
+id2[2] ==> the2[the] === cat1[cat]
+id3[3] ==> the3[the] === black[black] === cat2[cat]
 
-class A,B,C id
-class D,E,F,N,O,P,Q document
-class G,H,I,J,K,L,M line
+class id1,id2,id3 id
+class the1,the2,the3,dog,cat1,black,cat2 document
 
 classDef id fill:#f9cae0,stroke:#f495c0,stroke-width:4px
 classDef document fill:#d1f3f5,stroke:#a4e6ea,stroke-width:4px
-classDef line stroke:#c41565
+
+linkStyle default stroke:#c41565
 </pre>
 
 In contrast, an inverted index maps from tokens to document identifiers. This data model is optimised for searching based on tokens. If we want to find documents with the token `dog`, it's as simple as looking in the inverted index. This approach enables efficient searching, especially for free-text queries with many tokens.
@@ -60,18 +60,18 @@ config:
 ---
 flowchart LR
 
-A[the] L@==> E[1] P@=== F[2] Q@=== G[3]
-D[dog] O@==> K[1]
-C[cat] N@==> I[2] R@=== J[3]
-B[black] M@==> H[3]
+the4[the] ==> id1_1[1] === id2_1[2] === id3_1[3]
+dog2[dog] ==> id1_2[1]
+cat3[cat] ==> id2_2[2] === id3_2[3]
+black2[black] ==> id3_3[3]
 
-class A,B,C,D token
-class E,F,G,H,I,J,K id
-class L,M,N,O,P,Q,R line
+class the4,dog2,cat3,black2 token
+class id1_1,id1_2,id2_1,id2_2,id3_1,id3_2,id3_3 id
 
 classDef id fill:#f9cae0,stroke:#f495c0,stroke-width:4px
 classDef token fill:#cce7bf,stroke:#b2db9f,stroke-width:4px
-classDef line stroke:#c41565
+
+linkStyle default stroke:#c41565
 </pre>
 
 Elasticsearch lets you control how it builds inverted indexes using [mappings](https://www.elastic.co/docs/manage-data/data-store/mapping), which tell Elasticsearch how to break up your data into tokens. You can set up different mappings for each field. This means you can search for exact matches or similar words, depending on your needs. For example, one mapping might only match the word `climbing`, while another could also match related words like `climb` or `climber`.
@@ -104,30 +104,32 @@ config:
 ---
 flowchart TD
 
-A[The Bristol office chairs]
+wholeSentence[The Bristol office chairs]
 
-subgraph S1[" "]
+subgraph tier1[" "]
     direction LR
-    B[The] ~~~ C[Bristol] ~~~ D[office] ~~~ E[chairs]
+    the5[The] ~~~ bristol1[Bristol] ~~~ office1[office] ~~~ chairs1[chairs]
 end
 
-subgraph S2[" "]
+subgraph tier2[" "]
     direction LR
-    F[the] ~~~ G[bristol] ~~~ H[office] ~~~ I[chair]
+    the6[the] ~~~ bristol2[bristol] ~~~ office2[office] ~~~ chair1[chair]
 end
 
-subgraph S3[" "]
+subgraph tier3[" "]
     direction LR
-    J[bristol] ~~~ K[office] ~~~ L[chair]
+    bristol3[bristol] ~~~ office3[office] ~~~ chair2[chair]
 end
 
-A-->|Tokenisation| S1
-S1 -->|Normalisation| S2
-S2 -->|Filtering| S3
+wholeSentence ==>|Tokenisation| tier1
+tier1 ==>|Normalisation| tier2
+tier2 ==>|Filtering| tier3
 
-class A,B,C,D,E,F,G,H,I,J,K,L words
+class wholeSentence,the5,the6,bristol1,bristol2,bristol3,office1,office2,office3,chairs1,chair1,chair2 words
 
 classDef words fill:#d1f3f5,stroke:#a4e6ea,stroke-width:4px
+
+linkStyle default stroke:#c41565
 </pre>
 
 ## Step 2: Prepare your user's input for search
@@ -272,25 +274,25 @@ subgraph S5[" "]
   W["query"]
 end
 
-A ---  B & C & D & E & F & G & H & I & J
+A ===  B & C & D & E & F & G & H & I & J
 
-B --- K
-C --- L
-D & E & F --- M
-G --- N
-H & I --- O
-J --- P
+B === K
+C === L
+D & E & F === M
+G === N
+H & I === O
+J === P
 
-K & L & M --- Q
-N --- R
-O --- S
-P --- T
+K & L & M === Q
+N === R
+O === S
+P === T
 
-Q & R & S --- U
-T --- V
+Q & R & S === U
+T === V
 
-U --- W
-V --- W
+U === W
+V === W
 
 class A source
 class B,C,D,E,F,G,H,I,J,L,N,P,R,T,V token
@@ -299,6 +301,8 @@ class K,M,O,Q,S,U,W expression
 classDef source fill:#cce7bf,stroke:#b2db9f,stroke-width:4px
 classDef token fill:#f9cae0,stroke:#f495c0,stroke-width:4px
 classDef expression fill:#d1f3f5,stroke:#a4e6ea,stroke-width:4px
+
+linkStyle default stroke:#c41565
 </pre>
 
 ## Step 3: Perform the search
@@ -389,52 +393,53 @@ config:
 ---
 flowchart LR
 
-subgraph S1["An unbalanced AST"]
+subgraph unbalanced["An unbalanced AST"]
   direction TB
-  A[AND]
 
-  B[AND]
-  C[Z]
+  and1[AND]
 
-  D[AND]
-  E[Y]
+  and2[AND]
+  letterZ1[Z]
 
-  F[AND]
-  G[C]
+  and3[AND]
+  letterY1[Y]
 
-  H[A]
-  I[B]
+  and4[AND]
+  letterC1[C]
 
-  A --> B & C
-  B -->|...| D
-  B --> E
-  D --> F & G
-  F --> H & I
+  letterA1[A]
+  letterB1[B]
+
+  and1 ==> and2 & letterZ1
+  and2 ==>|...| and3
+  and2 ==> letterY1
+  and3 ==> and4 & letterC1
+  and4 ==> letterA1 & letterB1
 end
 
-subgraph S2["A more balanced AST"]
+subgraph balanced["A more balanced AST"]
   direction TB
-  U1[AND]
-  A1[A]
-  B1[B]
-  C1[C]
-  E1@{ shape: text, label: "..." }
-  Y1[Y]
-  Z1[Z]
 
-  U1 --> A1 & B1 & C1 & E1 & Y1 & Z1
+  and5[AND]
+  letterA2[A]
+  letterB2[B]
+  letterC2[C]
+  ellipsis@{ shape: text, label: "..." }
+  letterY2[Y]
+  letterZ2[Z]
+
+  and5 ==> letterA2 & letterB2 & letterC2 & ellipsis & letterY2 & letterZ2
 end
 
-S1 ==> S2
+unbalanced ==> balanced
 
-
-class A,B,C,D,F,U1 operator
-class C,E,G,H,I,A1,B1,C1,Y1,Z1 token
-
-%% linkStyle default stroke:#c41565
+class and1,and2,and3,and4,and5 operator
+class letterA1,letterB1,letterC1,letterY1,letterZ1,letterA2,letterB2,letterC2,letterY2,letterZ2 token
 
 classDef operator fill:#f9cae0,stroke:#f495c0,stroke-width:4px
 classDef token fill:#d1f3f5,stroke:#a4e6ea,stroke-width:4px
+
+linkStyle default stroke:#c41565
 </pre>
 
 Another issue that often crops up is a lack of definition in your search language grammar. It can be difficult to know ahead of time how you want your language to behave, especially for edge cases such as order of precedence between operators, or handling whitespace, symbols, and stop tokens. It's crucial that details like this aren't overlooked, as changing functionality late in the product cycle can be difficult with ANTLR and Elasticsearch and once you've released to your users it becomes much more difficult for anything to change.
