@@ -1,6 +1,6 @@
 ---
 title: Commercial product selection reflections
-date: 2025-07-30 08:23:00 Z
+date: 2025-08-04 10:45:00 Z
 categories:
 - Tech
 summary: In the course of building a new system for a client over the past year, we
