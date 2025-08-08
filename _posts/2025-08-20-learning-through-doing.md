@@ -250,7 +250,7 @@ fn generate_filenames<'a>(orig_names: &'a Vec<PathBuf>, name_base: &str, counter
 
 This change, honestly, also made me realise there was another code smell elsewhere I was overlooking.  In all the unit tests of this function, I was creating a vector of sample data, then immediately cloning it to be the function parameter, so I could also still access it in my assertions at the end of the test.  That, itself, should have been a sign that the function could have a better signature.
 
-This function has also needed to acquire lifetime parameters, which makes sense: the returned vector will contain references to the elements of the first parameter, so they need to have their lifetime linked.  An experienced Rust developer could probably make this more idiomatic still, but I'm happy with where I've got to.
+This function has also needed to acquire lifetime parameters, which makes sense: the returned vector will contain references to the elements of the first parameter, so they need to have their lifetime linked.  An experienced Rust developer could probably make this more idiomatic still, but I'm happy with where I've got to.  You can [see the full code for yourself over on GitHub](https://github.com/csalt-scottlogic/sequential_rename) if you'd like.
 
 ## Other little bits and pieces
 
