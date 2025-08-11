@@ -186,7 +186,7 @@ When it comes to adding search operators to these Elasticsearch queries, we migh
 
 While, for these trivial examples, it may be obvious how we could programmatically convert from plaintext to a structured query, designing a solution for more complex examples, and ensuring that solution is testable and extensible, is more of a challenge.
 
-My very first thought when coming to this problem was *'I can use a regex for that'*. And yes, I probably could have, at least for a simple grammar like this. But most naive approaches such as regex start to fall over for non-trivial grammars. Grammars often need an order-of-precedence of their operators, or they might require nesting of operators using brackets. Imagine trying to parse the following with regex, I wouldn't envy you!
+My very first thought when coming to this problem was *'I can use a regex for that'*. And yes, I probably could have, at least for a simple grammar like this. But most naive approaches such as regex start to fall over for non-trivial grammars. Grammars often need an order of precedence of their operators, or they might require nesting of operators using brackets. Imagine trying to parse the following with regex, I wouldn't envy you!
 
 <pre style="text-align:center">
 <code>(cat OR dog) AND (bird AND "elephant seal")</code>
