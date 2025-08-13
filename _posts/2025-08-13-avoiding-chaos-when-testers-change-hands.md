@@ -35,23 +35,23 @@ From the moment the project’s end date is confirmed – whether it is specifie
 
 **1. Preparation – by the outgoing vendor** 
 
-    - Compile updated test documentation – test plans, test cases, scripts, evidence, and bug reports. 
-    - Provide test data and environment configurations. 
-    - Document the current release cycle status – what’s tested, pending, or blocked. 
-    - List all ongoing defects and their resolution statuses. 
+- Compile updated test documentation – test plans, test cases, scripts, evidence, and bug reports. 
+- Provide test data and environment configurations. 
+- Document the current release cycle status – what’s tested, pending, or blocked. 
+- List all ongoing defects and their resolution statuses. 
 
 **2. Knowledge Transfer – joint sessions** 
 
-    - Walk through test coverage, known product risks, and historical problem areas. 
-    - Demo test automation frameworks and how to execute them. 
-    - Explain communication channels, escalation paths, and reporting formats. 
-    - Provide working tool credentials – Jira, test case management tools, automation repositories, CI/CD pipeline access. 
+- Walk through test coverage, known product risks, and historical problem areas. 
+- Demo test automation frameworks and how to execute them. 
+- Explain communication channels, escalation paths, and reporting formats. 
+- Provide working tool credentials – Jira, test case management tools, automation repositories, CI/CD pipeline access. 
 
 **3. Transition Sign-Off – client-led** 
 
-    - Confirm the incoming vendor can execute tests independently. 
-    - Agree on handover completion criteria (e.g.: “Incoming vendor successfully executed smoke tests”). 
-    - Finalise ownership of pending defects and tasks. 
+- Confirm the incoming vendor can execute tests independently. 
+- Agree on handover completion criteria (e.g.: “Incoming vendor successfully executed smoke tests”). 
+- Finalise ownership of pending defects and tasks. 
 
 ## Best Practices for Vendor Transitions 
 
