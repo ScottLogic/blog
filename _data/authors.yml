@@ -146,6 +146,7 @@ active-authors:
   - sgladstone
   - shamiltonritchie
   - shunton
+  - sjurics
   - slaing
   - slinsley
   - smartin
@@ -937,6 +938,10 @@ authors:
     name: "Steven Hunton"
     author-summary: "<p>I'm a Delivery Manager at Scott Logic. I have a distant memory of being a developer with the past decade or so dedicated to project delivery, scaling and expanding Agile for large organisations and sharing what I learn along the way.</p>"
     picture: picture.png
+  sjurics:
+    name: "Sara Jurics"
+    author-summary: "<p>Test Engineer at Scott Logic. Thrives in collaborative environments, loves clear processes and treats quality like a fine art - because even the tiniest bug deserves a proper send-off.</p>"
+    picture: picture.jpg
   sking:
     name: "Saber King"
     picture: picture.jpg
