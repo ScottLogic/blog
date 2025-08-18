@@ -1,6 +1,6 @@
 ---
 title: Channels for effective software team communication in messaging tools
-date: 2025-08-17 10:00:00 Z
+date: 2025-08-18 10:00:00 Z
 categories:
 - Delivery
 summary: Messaging-based communication tools such as Slack and Microsoft Teams are
