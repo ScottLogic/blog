@@ -5,8 +5,6 @@ categories:
 - Artificial Intelligence
 - Technology
 - Cloud
-- Development
-- AI
 tags:
 - Artificial Intelligence
 - Technology
@@ -25,11 +23,13 @@ summary: In this instalment, I discovered that Cursor IDE transformed my chaotic
 author: rgriffiths
 ---
 
-In [Part 1](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html), I built a hybrid cloud trade lifecycle visualiser using a triumvirate of AI assistants: ChatGPT, Claude, and Microsoft Copilot. What began as a playful experiment in multi-LLM development had resulted in a working React application that mapped the journey of financial trades through on-premises and cloud infrastructure.
+In [Part 1](https://blog.scottlogic.com/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html), I built a hybrid cloud trade lifecycle visualiser using a triumvirate of AI assistants: ChatGPT, Claude, and Microsoft Copilot Chat. What began as a playful experiment in multi-LLM development had resulted in a working React application that mapped the journey of financial trades through on-premises and cloud infrastructure.
 
 But, as any developer knows, early success often leads to complexity. And complexity demands better tools.
 
-Enter **Cursor IDE**. Note that there are many possible alternatives to Cursor: I just happened to choose Cursor for this experiment.
+Enter **Cursor IDE**. 
+
+_Note that there are many possible alternatives to Cursor: I just happened to choose Cursor for this experiment._
 
 ---
 
@@ -72,13 +72,15 @@ Cursor created the necessary IDE wrappers and asked if I wanted to commit everyt
 - Continued iterative refactoring  
 - Extracted StatusBar.tsx (architecture summary)
 - Built TopMetricsBar.tsx (downtime, volume, and time counters)
+- Refactored layout into TradeFlowGrid.tsx, preserving dual-column logic
+
 ![003-TopMetrics.png](/uploads/003-TopMetrics.png)
 
-- Refactored layout into TradeFlowGrid.tsx, preserving dual-column logic
+By now, I had a fully-refactored version of my code not only in an IDE but also in GitHub. 
 
 ![004-DualColumnLayout.png](/uploads/004-DualColumnLayout.png)
 
-By now, I had a fully-refactored version of my code not only in an IDE but also in GitHub. It had manageable, maintainable, logical chunks of code that was much more aligned with good software engineering principles than the monolith I was left with when I concluded Phase 1. A very productive day!
+It had manageable, maintainable, logical chunks of code that was much more aligned with good software engineering principles than the monolith I was left with when I concluded Phase 1. A very productive day!
 
 ### **Day 8: TypeScript Reckoning**
 
@@ -110,9 +112,15 @@ I ran the app via Cursor and a local web browser and it still worked perfectly. 
 
 Having got the codebase modernised and modularised, it was time to start using Cursor to add some much-needed enhancements and refinements. The morning saw the following enhancements being delivered:
 
+
 - Added “All On-Prem” and “All On-Cloud” migration buttons
 - Built visual offset logic for failed cloud instances
 - Created TradeFlowRateWidget for real-time trade volume control
+
+![TLC-005-AllOnPremCloud-Buttons.png](/uploads/TLC-005-AllOnPremCloud-Buttons.png)
+![TLC-006-OffsetCloudIInstances.png](/uploads/TLC-006-OffsetCloudIInstances.png)
+![TLC-007-RateWidget-Zero.png](/uploads/TLC-007-RateWidget-Zero.png)
+![TLC-008-RateWidget-MidValue.png](/uploads/TLC-008-RateWidget-MidValue.png)
 
 Then disaster struck...
 
@@ -126,12 +134,21 @@ Today was all about making the UI useful, instructive, intuitive, and something 
 
 Today's co-operative work with Cursor yielded the following set of improvements:
 
-- Added centralised simulation clock  
+- Added centralised simulation clock
+![TLC-009-CentralisedSimulationClock.png](/uploads/TLC-009-CentralisedSimulationClock.png)
 - Downtime counters for each infrastructure stack
+![TLC-010-DowntimeOnPrem.png](/uploads/TLC-010-DowntimeOnPrem.png)![TLC-011-DowntimeCloud.png](/uploads/TLC-011-DowntimeCloud.png)
 - Built stage progression speed slider (1–10 simulated minutes per second)
+![TLC-012-SimulationTimeScaler.png](/uploads/TLC-012-SimulationTimeScaler.png)
 - Added stage-specific capacity configs
+![TLC-014-VaryingConstraints.png](/uploads/TLC-014-VaryingConstraints.png)
+
 - Horizontal scaling visualisation for cloud instances
 - Stacked rendering with visual hierarchy
+![TLC-013-CloudScalingX1.png](/uploads/TLC-013-CloudScalingX1.png)
+![TLC-013-CloudScalingX2.png](/uploads/TLC-013-CloudScalingX2.png)
+![TLC-013-CloudScalingX3.png](/uploads/TLC-013-CloudScalingX3.png)
+![TLC-013-CloudScalingX4.png](/uploads/TLC-013-CloudScalingX4.png)
 - Cloud errors now spawn replacements; instances auto-remove after 15–60 simulated minutes
 
 There were still a few minor quirks but you really had to look for them. Something to fix in a future version, perhaps?
@@ -166,6 +183,8 @@ The monolith was gone. In its place: a composable, logical structure that looks 
 - tradeStages.ts: Metadata and stage definitions
 - simUtils.ts: Simulation timing and constants
 - tradeflowUtils.ts: Flow validation and positioning
+
+![TLC-015-SPA-TopOfPage.png](/uploads/TLC-015-SPA-TopOfPage.png)
   
 ---
 
@@ -214,6 +233,7 @@ This project started as a means of showcasing Scott Logic's Trade Lifecycle Mode
 This prototype simulates the cloud element but, with Terraform integration as a possible next step, it would be possible to actually deploy AWS resources in the cloud. Future versions of this tool could be made to deliver Azure, GCP or even other cloud vendor solutions too. Once that has been achieved, solutions involving more than one cloud should also be achievable.
 
 ---
+
 ## **Final Reflections**
 
 Cursor IDE didn’t just help refactor code. It changed how I approached building software with AI support. From file recovery to modular design, it felt like working with an intelligent coding partner who actually understood what I was trying to build. Genuine pair programming with more than a hint of Star Trek about it!
@@ -225,3 +245,5 @@ Perhaps more tellingly, it made me want to tell the story. Now that's **really**
 ---
 
 _The future of development isn’t just AI-assisted. It’s AI-collaborative._
+
+Discover more about what I learned on this journey by reading [Part 3 of this loose trilogy of posts](blog.scottlogic.com/2025/07/23/extracting-data-from-ai-models-a-tale-of-three-approaches.html)
