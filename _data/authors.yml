@@ -91,6 +91,7 @@ active-authors:
   - kcoombes
   - kdavis
   - kday
+  - kellis
   - kjones
   - klau
   - lcollingwood
@@ -1643,3 +1644,7 @@ authors:
     name: "JJ Gray"
     author-summary: "I am a senior developer based in our Bristol office."
     picture: jjgray.jpg
+  kellis:
+    name: "Kieran Ellis"
+    author-summary: "I'm a Lead Test Engineer based in the Bristol office"
+    picture: picture.jpg
