@@ -14,7 +14,6 @@ tags:
 - visual comparison
 - screenshot testing
 - testing
-images:
 
 --- 
 
@@ -29,6 +28,8 @@ Playwright’s Visual Comparison feature is perfect for this. After manually val
 ---
 
 ## **Real-World Example: Tech Carbon Standard Estimator**
+
+<img src='{{ site.github.url }}/[kellis]/assets/tce-screenshot.png' title="My Image Title" alt="My Image" />
 
 Let’s take a real-world example. Scott Logic has developed an excellent open-source application that allows users to see the estimated CO₂ output from their technology — the Tech Carbon Standard Estimator. Data is represented in both a tree graph and a table, making it a great candidate for Visual Comparison testing. But there’s a catch...
 
