@@ -73,7 +73,7 @@ Wouldn’t it be great if we could generate new baseline screenshots for both Wi
 
 Let’s start by creating a composite action that runs the Playwright tests with the `--update-snapshots` flag:
 
-```
+~~~~ yaml
 name: 'Update Playwright Screenshots'
 description: 'Installs dependencies and runs Playwright tests with the --update-snapshots parameter'
 runs:
@@ -85,13 +85,14 @@ runs:
     - name: Run Playwright tests
       run: npm run playwright-test -- --update-snapshots
       shell: bash
-```
+~~~~
+
 
 We then incorporate this action into a workflow alongside some pre-existing actions. See the whole workflow file below.
 
 ### **Workflow Breakdown**
 
-```
+~~~~ yaml
 on:
   workflow_dispatch:
     inputs:
@@ -102,11 +103,11 @@ on:
 
 permissions:
   contents: write
-```
+~~~~
 
 This workflow runs on `workflow_dispatch`, which means it only runs when manually triggered by a user. The inputs allow for a custom commit message to be passed to the workflow, with a default set. Permissions are configured to allow the workflow to write to GitHub — in this case, it will commit changes to the branch it was run against.
 
-```
+~~~~ yaml
 jobs:
   playwright_screenshots:
     runs-on: ${{ matrix.os }}
@@ -142,7 +143,7 @@ jobs:
           git add .
           git commit -m "${{ github.event.inputs.commit_message || 'Auto-commit: Update screenshots' }} (by @${{ github.actor }})"
           git push
-```
+~~~~
 
 We use a matrix strategy to run tests on both Windows and Linux environments simultaneously. The steps are as follows:
 
