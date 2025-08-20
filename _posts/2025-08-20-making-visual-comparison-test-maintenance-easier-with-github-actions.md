@@ -2,7 +2,7 @@
 author: kellis
 date: 2025-08-20 00:00:00 Z
 title: Making Visual Comparison Test Maintenance Easier with GitHub Actions
-summary: How to use GitHub Actions to make test screenshot maintenance easier when using Playwright Visual Comparison feature
+summary: Automating Playwright visual test maintenance with GitHub Actions simplifies updating baseline screenshots across platforms. By running tests on both Windows and Linux via a workflow, developers avoid manual setup and ensure consistent UI validation, even when third-party libraries like CO2.js change underlying data.
 categories:
 - Testing
 - Open Source
@@ -29,7 +29,7 @@ Playwright’s Visual Comparison feature is perfect for this. After manually val
 
 ## **Real-World Example: Tech Carbon Standard Estimator**
 
-<img src='{{ site.github.url }}/[kellis]/assets/tce-screenshot.png' title="My Image Title" alt="My Image" />
+<img src='{{ site.github.url }}/[kellis]/assets/tce-screenshot.png' title="TCSE" alt="TCSE" />
 
 Let’s take a real-world example. Scott Logic has developed an excellent open-source application that allows users to see the estimated CO₂ output from their technology — the Tech Carbon Standard Estimator. Data is represented in both a tree graph and a table, making it a great candidate for Visual Comparison testing. But there’s a catch...
 
