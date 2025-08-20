@@ -21,7 +21,7 @@ We'll explore how to design and implement a custom query language using [ANTLR](
 
 To build a query language we need a database capable of storing and searching both structured and unstructured data. Structured data includes fields like the publication date of an article, while unstructured data is missing a clear format, such as the text content of the article. For this, we'll use [Elasticsearch](https://www.elastic.co/elasticsearch). Elasticsearch is an open source, distributed search and analytics engine. It's well-suited for our needs as we'll be taking advantage of its powerful indexing and search capabilities. Elasticsearch isn't designed to be a database and doesn't support ACID operations or transactions. In a real-world production environment, it's common to have a separate database that acts as the primary source of truth and to use Elasticsearch as a secondary store optimised for search and analytics. For the purposes of this post, we'll keep things simple and focus solely on Elasticsearch, omitting the additional complexity of integrating another database.
 
-Elasticsearch organises data using inverted indexes. A traditional forward index maps document identifiers to tokens, which correspond to small, searchable fragments of text, e.g. words. Forward indexes allow for efficient indexing but relatively inefficient searching on anything other than the document ID. In our context, this could be mapping from news article IDs to the tokens contained in the article, a useful tool if we need to quickly find all of the tokens in a given article.
+Elasticsearch organises data using inverted indexes. A traditional forward index (or primary index) maps document identifiers to tokens, which correspond to small, searchable fragments of text, e.g. words. Forward indexes allow for efficient indexing but relatively inefficient searching on anything other than the document ID. In our context, this could be mapping from news article IDs to the tokens contained in the article, a useful tool if we need to quickly find all of the tokens in a given article.
 
 <pre class="mermaid" style="text-align:center">
 ---
@@ -47,7 +47,7 @@ classDef document fill:#d1f3f5,stroke:#a4e6ea,stroke-width:4px
 linkStyle default stroke:#c41565
 </pre>
 
-In contrast, an inverted index maps from tokens to document identifiers. This data model is optimised for searching based on tokens. If we want to find documents with the token `dog`, it's as simple as looking in the inverted index. This approach enables efficient searching, especially for free-text queries with many tokens.
+In contrast, an inverted index (or secondary index) maps from tokens to document identifiers and is optimised for searching based on tokens. Secondary indices are commonly found in other database platforms but the implementation in Elasticsearch (which utilises [the underlying Lucene engine](https://lucene.apache.org/)) is particularly well-suited to text search. If we want to find documents with the token `dog`, it's as simple as looking in the inverted index. This approach enables efficient searching, especially for free-text queries with many tokens.
 
 <pre class="mermaid" style="text-align:center">
 ---
