@@ -165,3 +165,5 @@ Visual Comparison can be a powerful part of the testing toolkit when dealing wit
 Building an automated way to update baseline screenshots — regardless of platform — makes maintenance easy and lets you get your tests back in shape with minimal fuss, giving you the chance to focus on all those other testing priorities!
 
 ---
+
+If you're interested in learning more about the Tech Carbon Standard Estimator, check out the project [here](https://github.com/ScottLogic/sl-tech-carbon-estimator)
