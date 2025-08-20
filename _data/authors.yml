@@ -76,6 +76,7 @@ active-authors:
   - jheward
   - jisted
   - jleftley
+  - jjgray
   - jmcevoy
   - jmoore
   - jporter
@@ -1638,3 +1639,7 @@ authors:
     email: tyates@scottlogic.com
     author-summary: "Reformed folk musician turned Senior Developer based at the Leeds office, prefers backend and data but will frontend if you make him."
     picture: picture.png
+  jjgray:
+    name: "JJ Gray"
+    author-summary: "I am a senior developer based in our Bristol office."
+    picture: jjgray.jpg
