@@ -29,11 +29,9 @@ Playwright’s Visual Comparison feature is perfect for this. After manually val
 
 ## **Real-World Example: Tech Carbon Standard Estimator**
 
-<img src='{{ site.github.url }}/[kellis]/assets/tce-screenshot.png' title="TCSE" alt="TCSE" />
+Let’s take a real-world example. Scott Logic has developed an excellent open-source application that allows users to see the estimated CO₂ output from their technology — the [Tech Carbon Standard Estimator](https://www.techcarbonstandard.org/estimator). Data is represented in both a tree graph and a table, making it a great candidate for Visual Comparison testing. But there’s a catch...
 
-Let’s take a real-world example. Scott Logic has developed an excellent open-source application that allows users to see the estimated CO₂ output from their technology — the Tech Carbon Standard Estimator. Data is represented in both a tree graph and a table, making it a great candidate for Visual Comparison testing. But there’s a catch...
-
-The estimated CO₂ values presented in the application are generated using a third-party JavaScript library — **CO2.js**. Occasionally, the underlying calculations in this library are updated to provide more accurate estimates. A user inputting the same technology usage data into the application may then see a slight change in the estimated CO₂ — the graph will be slightly different, and the table will contain new values.
+The estimated CO₂ values presented in the application are generated using a third-party JavaScript library — [CO2.js](https://www.thegreenwebfoundation.org/co2-js/). Occasionally, the underlying calculations in this library are updated to provide more accurate estimates. A user inputting the same technology usage data into the application may then see a slight change in the estimated CO₂ — the graph will be slightly different, and the table will contain new values.
 
 
 
@@ -156,7 +154,7 @@ We use a matrix strategy to run tests on both Windows and Linux environments sim
 
 Once the workflow has been added to the default branch of the codebase (e.g., `develop`, `main`), you can run it against your branch either through the GitHub UI Actions tab or using GitHub CLI. The Playwright tests will generate new baseline screenshots, and your regression suite should be back in the green.
 
-If you’d like to see an example run of this workflow with new files being committed, you can find that [here]. You’ll notice there are two jobs — one for each OS.
+If you’d like to see an example run of this workflow with new files being committed, you can find that [here](https://github.com/ScottLogic/sl-tech-carbon-estimator/actions/runs/17045665875). You’ll notice there are two jobs — one for each OS.
 
 ---
 
