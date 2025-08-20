@@ -73,7 +73,7 @@ Wouldn’t it be great if we could generate new baseline screenshots for both Wi
 
 Let’s start by creating a composite action that runs the Playwright tests with the `--update-snapshots` flag:
 
-```yaml
+```
 name: 'Update Playwright Screenshots'
 description: 'Installs dependencies and runs Playwright tests with the --update-snapshots parameter'
 runs:
@@ -91,7 +91,7 @@ We then incorporate this action into a workflow alongside some pre-existing acti
 
 ### **Workflow Breakdown**
 
-```yaml
+```
 on:
   workflow_dispatch:
     inputs:
@@ -106,7 +106,7 @@ permissions:
 
 This workflow runs on `workflow_dispatch`, which means it only runs when manually triggered by a user. The inputs allow for a custom commit message to be passed to the workflow, with a default set. Permissions are configured to allow the workflow to write to GitHub — in this case, it will commit changes to the branch it was run against.
 
-```yaml
+```
 jobs:
   playwright_screenshots:
     runs-on: ${{ matrix.os }}
