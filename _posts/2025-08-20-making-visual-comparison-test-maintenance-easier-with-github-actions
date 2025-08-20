@@ -1,6 +1,6 @@
 ---
 author: kellis
-date: 
+date: 2025-08-20 00:00:00 Z
 title: Making Visual Comparison Test Maintenance Easier with GitHub Actions
 summary: How to use GitHub Actions to make test screenshot maintenance easier when using Playwright Visual Comparison feature
 categories:
