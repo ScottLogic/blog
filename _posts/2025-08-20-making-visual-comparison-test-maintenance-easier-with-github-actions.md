@@ -6,7 +6,6 @@ summary: Automating Playwright visual test maintenance with GitHub Actions simpl
 categories:
 - Testing
 - Open Source
-- Sustainability
 - Tech
 tags:
 - playwright
