@@ -1,6 +1,6 @@
 ---
 title: 'Making Sense of CSS Length Units'
-date: 2025-08-19 08:00:00 Z
+date: 2025-08-21 08:00:00 Z
 categories:
 - Tech
 tags:
@@ -16,11 +16,11 @@ Let’s have a quick overview on the various units and when they can be useful.
 
 ## The Absolute Units
 
-`px` - a pixel is the smallest point that screen can present. Although with the introduction of retina displays that have a high pixel density, modern day `px` represents a virtual pixel rather than the monitor’s actual capabilities. This is big news because it means `px` is no longer absolute. Let’s get back to that later.
+`px` - a pixel is the smallest point that the screen can present. Although with the introduction of retina displays that have a high pixel density, modern day `px` represents a virtual pixel rather than the monitor’s actual capabilities. This is big news because it means `px` is no longer absolute. Let’s get back to that later.
 
 <img src="{{ site.baseurl }}/osharon/assets/css-length-units/retina.jpg" />
 
-`cm`, `mm`, `q`, `in`, `pc`, `pt` - centimetres, millimetres, quarter-millimeter , inches, picas (1/6 of an inch), and points are recommended for printing, and not for the screen. `Point` is of course the smallest point that can be printed. Printers normally have 72, 150, 300 or even 600 points per inch so that’s an indication how small that point can be and therefore it’s probably smart to use one of the other measuring using or a relative unit to make sure the page is printed as we expect it, regardless of the printer’s resolution.
+`cm`, `mm`, `q`, `in`, `pc`, `pt` - centimetres, millimetres, quarter-millimeter , inches, picas (1/6 of an inch), and points (1/72 of an inch) are recommended for printing, and not for the screen. The first computer-printer could print dots as small as 1/72 per inch, hence `1pt` equals 1 dot for a low-resolution printer. Nowadays, printers can reach 150, 300, 600 or even 1200 points per inch so that’s an indication how small that point can be. Therefore it’s probably smart to use one of the other measuring using or a relative unit to make sure the page is printed as we expect it, regardless of the printer’s resolution.
 
 <img src="{{ site.baseurl }}/osharon/assets/css-length-units/dpi.gif" />
 
@@ -34,14 +34,14 @@ Let’s have a quick overview on the various units and when they can be useful.
 
 `rem` - like `em` but the proportions are in reference to the root font-size (of the `html` tag) instead of the parent, so our component will stay the same size regardless of their parents. 
 
-By default, the browser default font-size is `16px` but if we set the following rules,  our base font-size will be the equiavalent of `10px` so `1rem=10px`, which make it easy to calculate -
+By default, the browser default font-size is `16px` but if we set the following rules,  our base font-size will be the equivalent of `10px` so `1rem=10px`, which make it easy to calculate -
 
 ```css
 html { font-size: 62.5%; } 
 body { font-size: 1.6rem; }
 ```
 
-Why not simply use `px` instead? because we said that `16px` is the default size and the user might decide to change it in the user-settings for accessibility reasons. If our layout is based on `px` it would ignore the user setting and provide a sub-optimal experience with a broken layout or a layout too small for the user to read.
+Why not simply use `px` instead? Because we said that `16px` is the default size and the user might decide to change it in the user-settings for accessibility reasons. If our layout is based on `px` it would ignore the user setting and provide a sub-optimal experience with a broken layout or a layout too small for the user to read.
 
 `[s,l,d]v[h,w,i,b,min,max]`- 24 different viewport-based measure units refering to visible area of the web page on the user’s device.
 
@@ -49,11 +49,11 @@ Why not simply use `px` instead? because we said that `16px` is the default size
 
 `*vmin` and `*vmax` are the smaller and bigger values of the viewport’s dimensions, respectively
 
-`*vi`(inline) and `*vb` (block) refers to width or height, depending on the direction of the text. In horizontal languages (like English) `vi` equals `vh` and `vb` equals `vw` but it can easily flipped if we change the language to a vertical language such as Japanese.
+`*vi`(inline) and `*vb` (block) refers to width or height, depending on the direction of the text. In horizontal languages (like English) `vi` equals `vh` and `vb` equals `vw` but it can be easily flipped if we change the language to a vertical language such as Japanese.
 
 `sv*`(small) is the viewport size on a device when the browser controls are visible while 
 
-`lv*` (large) is when the controls are hidden. It's important to remember that `sv*` and `lv*` are fixed numbers regardless the controls are visible or not. `dv*`(dynamic) is the current viewport, either small or large. This matter when trying to build a layout that snuggly fit to the viewport full height, but it changes as soon as the control disappears (because the user started scrolling for example). If not specified `s|l|d`, the original `v*` equals to `lv*` (large).
+`lv*` (large) is when the controls are hidden. It's important to remember that `sv*` and `lv*` are fixed numbers regardless whether the controls are visible or not. `dv*`(dynamic) is the current viewport, either small or large. This matters when trying to build a layout that snugly fits to the viewport full height, but it changes as soon as the control disappears (because the user started scrolling for example). If not specified `s|l|d`, the original `v*` equals to `lv*` (large).
 
 <img src="{{ site.baseurl }}/osharon/assets/css-length-units/css-units-lvh-vs-svh.png" />
 
