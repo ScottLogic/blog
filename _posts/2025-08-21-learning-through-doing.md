@@ -1,6 +1,6 @@
 ---
 title: 'Learning Through Doing: From one language to another'
-date: 2025-08-08 00:00:00 Z
+date: 2025-08-21 00:00:00 Z
 categories: 
 - Tech
 tags:
@@ -17,9 +17,9 @@ Although I'm an experienced developer, there is always new technology to learn. 
 
 Despite being possibly the only programming language to be named after a fungal infection, Rust has become widely-used in the ten years since Version 1.0 of the language was released.  Moreover, it's extremely popular among its users, is known for having a very friendly and welcoming user community, and has been measured to be [one of the most power-efficient modern programming languages](https://www.technologyreview.com/2023/02/14/1067869/rust-worlds-fastest-growing-programming-language/), increasing the speed of code and literally using less power than functionally-equivalent code written in other languages.  Why is that, and why does that make it popular?
 
-Rust is a fully compiled language, meaning that its code is compiled down to machine code binary files which a computer's CPU can run directly.  This is the same as the languages C and C++, but very different to, say, C# or Java.  Although those languages are compiled, they compile to "bytecode", binary files to run on an imaginary CPU, and the language runtime then has to interpret that bytecode at runtime.  Although a lot of work has been done over the twenty or thirty years that those languages have been around, to try to optimise the runtime process, it still adds overhead.  Python and JavaScript, similarly, are interpreted at runtime.
+Rust is a fully compiled language, meaning that its code is compiled down to machine code binary files which a computer's CPU can run directly.  This is the same as the languages C and C++, but very different to, say, C# or Java.  Although those languages are compiled, they compile to "bytecode", binary files to run on an imaginary CPU, and the language runtime then has to either interpret that bytecode at runtime, or recompile it there and then to run on the specific machine, a process called "Just In Time" compilation.  A lot of work has been done over the twenty or thirty years that those languages have been around, to try to optimise the runtime process, but it still adds overhead.  Python and JavaScript, similarly, are interpreted and often JIT-compiled at runtime, although this can vary a bit between implementations.
 
-C and C++ both have a reputation for being fast but difficult, because they leave most of the memory management aspects of coding to the developer.  Because of this, it's very easy for a developer to introduce subtle bugs to a program.  Memory leaks, for example, where a running process slowly bloats over time; or crashes when the program tries to access memory that it hasn't asked for.  Situations where the developer frees up memory, but then refers back to it again, are legal in C/C++ and can create nasty bugs that don't behave predictably at runtime, or which occur in production but not in the debugger.  In short: when writing in a low level language like this, there are lots of dragons to beware of.
+C and C++ both have a reputation for being fast but difficult, because they leave most of the memory management aspects of coding to the developer.  Because of this, it's very easy for a developer to introduce subtle bugs to a program.  Memory leaks, for example, where a running process slowly bloats over time; or crashes when the program tries to access memory that it hasn't asked for.  Situations where the developer frees up memory, but then refers back to it again, can be written in C/C++ and, although they're not legal, won't prevent your program compiling.  This can create nasty bugs that don't behave predictably at runtime, or which occur in production but not in the debugger.  In short: when writing in a low level language like this, there are lots of dragons to beware of.
 
 The other languages I mentioned above, on the other hand, are all memory-managed.  They all feature runtime "garbage collectors", which track what memory is in use, and don't free any parts of it up until it definitely can't be accessed any more.  You just can't have some of the classes of bugs I mentioned above in a memory-managed language, because the runtime does that management for you.
 
@@ -41,7 +41,7 @@ The app I chose was a very simple file manipulation app, for renaming all the fi
 
 ## First things first
 
-The first thing our script has to do is to get an ordered list of files in a directory.  In .NET, there's' a static helper method for this.  It doesn't sort the output for us, and naturally we should think about error handling, but it's still fairly simple, taking a path and returning a list of file names as strings:
+The first thing our script has to do is to get an ordered list of files in a directory.  In .NET, there's a static helper method for this.  It doesn't sort the output for us, and naturally we should think about error handling, but it's still fairly simple, taking a path and returning a list of file names as strings:
 
 ~~~ c#
 private static IEnumerable<string> GetInputFiles(string folder)
@@ -86,6 +86,8 @@ There is a bit of extra clutter here compared to C#, but in general it's not tha
 
 One reason for additional code, other than having to insert the filtering step, is that in C# arrays and the `List<T>` type are inherently iterable.  In Rust, arrays and the equivalent `Vec<T>` type are not iterable, because you have to choose whether or not your iterator takes ownership of the contents or merely borrows them.  That's the purpose of the `iter()` call, which creates a borrowing iterator over the vector returned by `fs::read_dir()`.
 
+On the other hand, this function doesn't have the `return` statement which the C# has.  Although Rust does have `return`, it's normally only used to return early from a function.  If your function runs to completion, it will return the value of its final expression, which in this case constructs an `Ok<T>` instance of the `Result<T, E>` enum to show that our function succeeded.
+
 Aside from that, though, this code really isn't very different to what we'd write in C# if we needed to filter the output, using a LINQ chain in a very similar way.  It's worth noting that if we'd used NodeJS to do this in JavaScript, we'd also have to do this filtering, because Node also only implements a non-filtering `readdir()` function.  And, of course, in either Rust or Node, there's probably a library out there to handle this for us already.  My main point, though, is that we haven't really had to add anything into the code to handle memory management, or distinguish between values and references, just as we don't have to in C#.
 
 ## The meat of the code
@@ -95,24 +97,46 @@ The important "business logic" of this small program is the generation of each n
 ~~~ c#
 private static List<string> MangleAndCheckNames(IList<string> inputFiles, string newBaseName, int startingCount)
 {
-    List<string> outputFiles = inputFiles.Select((n, i) => Path.Combine(Path.GetDirectoryName(n) ?? "", Path.ChangeExtension($"{newBaseName}_{i + startingCount,4:D4}", Path.GetExtension(n)))).ToList();
+    List<string> outputFiles = inputFiles
+        .Select(
+            (n, i) => 
+                Path.Combine(
+                    Path.GetDirectoryName(n) ?? "", 
+                    Path.ChangeExtension(
+                        $"{newBaseName}_{i + startingCount,4:D4}", 
+                        Path.GetExtension(n)
+                    )
+                )
+        )
+        .ToList();
     if (outputFiles.Where((f, i) => inputFiles.Skip(i).Contains(f)).Any())
     {
-        Console.Error.WriteLine("ERROR: Naming clash.  Proceeding would overwrite one or more files.  Please rename to a different base name first.");
+        Console.Error.WriteLine(
+            "ERROR: Naming clash.  Proceeding would overwrite one or more files.  Please rename to a different base name first."
+        );
         return new List<string>();
     }
     return outputFiles;
 }
 ~~~
 
-Generating the filenames itself is straightforwards, using a single `Select()` call, specifically the two-parameter lambda overload of `Select()` so we have access to both the list element and its index within the lambda.  I've used `Path.ChangeExtension()` to set both the filename and extension at the same time, which might be confusing if you weren't aware you could do that, but hopefully it's fairly clear what's going on.  After the filenames are generated, we check that renaming the files in order won't result in any overwrites.  The LINQ `Any()` call doesn't have an overload which gives you access to the element index, so we chain it with `Where()`.
+Generating the filenames itself is straightforward, using a single `Select()` call, specifically the two-parameter lambda overload of `Select()` so we have access to both the list element and its index within the lambda.  I've used `Path.ChangeExtension()` to set both the filename and extension at the same time, which might be confusing if you weren't aware you could do that, but hopefully it's fairly clear what's going on.  After the filenames are generated, we check that renaming the files in order won't result in any overwrites.  The LINQ `Any()` call doesn't have an overload which gives you access to the element index, so we chain it with `Where()`.
 
-Converting this to Rust gave me problems, I have to admit, because I struggled to properly handle the ownership of the various `PathBuf`s I was passing around in my code.  My first attempt was this:
+Converting this to Rust gave me problems, I have to admit, because I struggled to properly handle the ownership of the various `PathBuf`s I was passing around in my code.  
+
+Rust's main mechanism for ensuring memory safety is the "borrow checker", which maintains a concept of the "ownership" of any particular allocated piece of memory, at the code level---essentially, what variable it's currently assigned to.  When an object is assigned to a variable, or passed as a parameter that's not a reference, its ownership is transferred and the previous owning variable becomes invalid to use.  Passing a reference, on the other hand, "borrows" ownership of that object.
+
+My first attempt was this:
 
 ~~~ rust
-fn generate_filenames(orig_names: Vec<PathBuf>, name_base: &str, counter: u32) -> Result<Vec<TransformedName>, anyhow::Error> {
+fn generate_filenames(
+    orig_names: Vec<PathBuf>, 
+    name_base: &str, 
+    counter: u32,
+) -> Result<Vec<TransformedName>, anyhow::Error> {
     let mut counter = counter;
-    orig_names.clone()
+    orig_names
+        .clone()
         .into_iter()
         .map(move |n| {
             let dest_name = format!("{}_{:04}", name_base, counter);
@@ -123,7 +147,10 @@ fn generate_filenames(orig_names: Vec<PathBuf>, name_base: &str, counter: u32) -
                 None => new_name.set_extension("")
             };
             if orig_names.contains(&new_name) && orig_names.iter().find(|x| **x == new_name && **x > n).is_some() {
-                return Err(anyhow::Error::msg(format!("File naming clash!  File {} would be overwritten if we continued.", new_name.display())));
+                return Err(anyhow::Error::msg(format!(
+                    "File naming clash!  File {} would be overwritten if we continued.", 
+                    new_name.display()
+                )));
             }
             counter += 1;
             Ok(TransformedName::new(n, new_name))
@@ -134,10 +161,14 @@ fn generate_filenames(orig_names: Vec<PathBuf>, name_base: &str, counter: u32) -
 
 I felt, though, as if I was doing something wrong.  There are two `clone()` calls in the code, and using `clone()` to duplicate things in memory just to get around ownership problems was something that gave me a code smell, even as a beginner.  The second one is there partly because I couldn't find an equivalent of `Path.GetDirectory()` and partly because of my level of Rust API knowledge: I didn't know that the `PathBuf` type also has a `with_file_name()` method that combines the meanings of `clone()` and `set_file_name()`.
 
-The reason I needed to clone the `orig_names` vector is so then `into_iter()` can take ownership of it.  However, why is ownership needed?  Surely if we didn't take ownership then we wouldn't need to copy it; after all, we don't mutate the original names at any point.  That gave me this:
+The reason I needed to clone the `orig_names` vector is because `into_iter()` takes ownership of the vector's data, but I wanted to use the vector again later in the function.  However, why is ownership needed?  Surely if we didn't take ownership then we wouldn't need to copy it; after all, we don't mutate the original names at any point.  That change gave me this:
 
 ~~~ rust
-fn generate_filenames(orig_names: Vec<PathBuf>, name_base: &str, counter: u32) -> Result<Vec<TransformedName>, anyhow::Error> {
+fn generate_filenames(
+    orig_names: Vec<PathBuf>, 
+    name_base: &str, 
+    counter: u32,
+) -> Result<Vec<TransformedName>, anyhow::Error> {
     let mut counter = counter;
     orig_names
         .iter()
@@ -149,7 +180,10 @@ fn generate_filenames(orig_names: Vec<PathBuf>, name_base: &str, counter: u32) -
                 None => new_name.set_extension("")
             };
             if orig_names.iter().any(|x| **x > *n && **x == new_name) {
-                return Err(anyhow::Error::msg(format!("File naming clash!  File {} would be overwritten if we continued.", new_name.display())));
+                return Err(anyhow::Error::msg(format!(
+                    "File naming clash!  File {} would be overwritten if we continued.", 
+                    new_name.display()
+                )));
             }
             counter += 1;
             Ok(TransformedName::new(*n, new_name))
@@ -177,9 +211,9 @@ impl TransformedName {
 }
 ~~~
 
-It owns that `from` field, so needs to be able to take ownership of the first `TransformedName::new()` parameter.  However the line that calls `TransformedName::new()` isn't in a position to give ownership, because it only holds a shared reference to it.
+It owns that `from` field, so needs to be able to take ownership of the first `TransformedName::new()` parameter.  However the line that calls `TransformedName::new()` isn't in a position to give ownership, because in this version of the code it only holds a shared, borrowed reference to it.
 
-We could fix that by cloning the shared reference, but that feels unnecessarily wasteful too.  Why not convert the `from` field to be an immutable reference?  They can have multiple owners at once.
+We could fix that by cloning the value of the borrowed reference, but that feels unnecessarily wasteful too.  Why not convert the `from` field to be an immutable reference?  Then that value can have multiple owners at once.
 
 ~~~ rust
 struct TransformedName {
@@ -191,7 +225,7 @@ struct TransformedName {
 
 This doesn't compile either!  We need, the compiler tells us, an explicit lifetime parameter.
 
-Lifetime parameters are a Rust feature that tell the compiler how long a particular piece of data has to stay valid and accessible for.  In this case, the compiler needs to know that the value that the `from` field references has to stay alive for at least as long as the `TransformedName` itself, so that it never becomes a dangling reference.  The syntax for them can take a bit of getting used to, because in some places they look like type parameters but in other places they don't, but this is what we get if we add them to our `TransformedName` struct:
+Lifetime parameters are a Rust feature that tell the compiler how long a particular piece of data has to stay valid and accessible for.  Normally, an object's lifetime ends when its owner goes out of scope.  In this case, however, the compiler needs to know that the value that the `from` field references has to stay alive for at least as long as the `TransformedName` itself, so that it never becomes a dangling reference.  The syntax for them can take a bit of getting used to, because in some places they look like type parameters but in other places they don't, but this is what we get if we add them to our `TransformedName` struct:
 
 ~~~ rust
 struct TransformedName<'a> {
@@ -206,7 +240,7 @@ impl TransformedName<'_> {
 }
 ~~~
 
-Here, we're declaring that `TransformedName::new()` returns an instance which must be at least as long-lived as its first parameter (and vice-versa), and which has ownership of its second parameter.  Incidentally, lifetime parameters are only relevant on references.  If you take ownership of a value, then either you hand ownership off elsewhere at some point, or it gets dropped when it falls out of scope in the place where it's owned.
+Here, we're declaring that `TransformedName::new()` returns an instance which must be at least as long-lived as its first parameter, and which has ownership of its second parameter.  Incidentally, lifetime parameters are only relevant on references.  If you take ownership of a value, then either you hand ownership off elsewhere at some point, or it gets dropped when it falls out of scope in the place where it's owned.
 
 Now we're just using a reference for that `from` field, everything is going to be hunky-dory.  Isn't it?
 
@@ -219,15 +253,23 @@ As soon as I popped that in, the entire `generate_filenames()` function gained a
 The original declaration of `generate_filenames()` was, I'll remind you:
 
 ~~~ rust
-fn generate_filenames(orig_names: Vec<PathBuf>, name_base: &str, counter: u32) -> Result<Vec<TransformedName>, anyhow::Error>
+fn generate_filenames(
+    orig_names: Vec<PathBuf>, 
+    name_base: &str, 
+    counter: u32,
+) -> Result<Vec<TransformedName>, anyhow::Error>
 ~~~
 
 The function is taking ownership of that first parameter, which contains the paths which will be used later.  However, because of this, it will be dropped at the end of the function, and this would leave all the returned references dangling.
 
-This is slowly bringing us towards a loose design pattern that I'm assuming most experienced Rust developers apply by instinct.  *Borrow your parameters by default* by taking a reference, and only take ownership if your code really needs it.  I changed the definition of `generate_filenames()` to take a reference to a vector, did the necessary changes to reference and dereference where needed, and this is what we have:
+This is slowly bringing us towards a loose design pattern that I'm assuming most experienced Rust developers apply by instinct.  *Borrow your parameters by default* by taking a reference, and only take ownership if your code really needs it.  I changed the definition of `generate_filenames()` to take a reference to a `PathBuf` collection slice, and did the necessary changes to reference and dereference where needed.  I could have used a reference to a `Vec<PathBuf>`, because the current version of the calling code passes a reference to an entire `Vec` as the parameter, but using a slice here makes our code that little bit more generalised.  This is what we now have:
 
 ~~~ rust
-fn generate_filenames<'a>(orig_names: &'a Vec<PathBuf>, name_base: &str, counter: u32) -> Result<Vec<TransformedName<'a>>, anyhow::Error> {
+fn generate_filenames<'a>(
+    orig_names: &'a [PathBuf], 
+    name_base: &str, 
+    counter: u32,
+) -> Result<Vec<TransformedName<'a>>, anyhow::Error> {
     let mut counter = counter;
     orig_names
         .iter()
@@ -239,7 +281,10 @@ fn generate_filenames<'a>(orig_names: &'a Vec<PathBuf>, name_base: &str, counter
                 None => new_name.set_extension("")
             };
             if orig_names.iter().any(|x| *x > *n && *x == new_name) {
-                return Err(anyhow::Error::msg(format!("File naming clash!  File {} would be overwritten if we continued.", new_name.display())))
+                return Err(anyhow::Error::msg(format!(
+                    "File naming clash!  File {} would be overwritten if we continued.", 
+                    new_name.display()
+                )));
             }
             counter += 1;
             Ok(TransformedName::new(n, new_name))
