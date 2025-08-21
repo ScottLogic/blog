@@ -1,6 +1,6 @@
 ---
 author: kellis
-date: 2025-08-20 00:00:00 Z
+date: 2025-08-21 00:00:00 Z
 title: Making Visual Comparison Test Maintenance Easier with GitHub Actions
 summary: Automating Playwright visual test maintenance with GitHub Actions simplifies updating baseline screenshots across platforms. By running tests on both Windows and Linux via a workflow, developers avoid manual setup and ensure consistent UI validation, even when third-party libraries like CO2.js change underlying data.
 categories:
