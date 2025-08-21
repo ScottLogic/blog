@@ -87,7 +87,7 @@ runs:
 ~~~~
 
 
-We then incorporate this action into a workflow alongside some pre-existing actions. See the whole workflow file below.
+We then incorporate this action into a workflow alongside some pre-existing actions. See the whole workflow file [here](https://github.com/ScottLogic/sl-tech-carbon-estimator/blob/develop/.github/workflows/update-playwright-screenshots.yml).
 
 ### **Workflow Breakdown**
 
