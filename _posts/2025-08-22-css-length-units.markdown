@@ -1,6 +1,6 @@
 ---
 title: 'Making Sense of CSS Length Units'
-date: 2025-08-21 08:00:00 Z
+date: 2025-08-22 08:00:00 Z
 categories:
 - Tech
 tags:
@@ -10,7 +10,7 @@ author: osharon
 image: "/osharon/assets/css-length-units/dpi.gif"
 ---
 
-Junior developers who were recently introduced to CSS might be overwhelmed by the sheer number of various length-measuring units available. Someone might tell not to use `px` as absolute units don’t change in responsive design but is that really the case?
+Junior developers who were recently introduced to CSS might be overwhelmed by the sheer number of various length-measuring units available. Someone might say not to use `px` as absolute units don’t change in responsive design but is that really the case?
 
 Let’s have a quick overview on the various units and when they can be useful.
 
@@ -18,17 +18,17 @@ Let’s have a quick overview on the various units and when they can be useful.
 
 `px` - a pixel is the smallest point that the screen can present. Although with the introduction of retina displays that have a high pixel density, modern day `px` represents a virtual pixel rather than the monitor’s actual capabilities. This is big news because it means `px` is no longer absolute. Let’s get back to that later.
 
-<img src="{{ site.baseurl }}/osharon/assets/css-length-units/retina.jpg" />
+<img src="{{ site.baseurl }}/osharon/assets/css-length-units/retina.jpg" alt="Retina display has denser pixels"/>
 
 `cm`, `mm`, `q`, `in`, `pc`, `pt` - centimetres, millimetres, quarter-millimeter , inches, picas (1/6 of an inch), and points (1/72 of an inch) are recommended for printing, and not for the screen. The first computer-printer could print dots as small as 1/72 per inch, hence `1pt` equals 1 dot for a low-resolution printer. Nowadays, printers can reach 150, 300, 600 or even 1200 points per inch so that’s an indication how small that point can be. Therefore it’s probably smart to use one of the other measuring using or a relative unit to make sure the page is printed as we expect it, regardless of the printer’s resolution.
 
-<img src="{{ site.baseurl }}/osharon/assets/css-length-units/dpi.gif" />
+<img src="{{ site.baseurl }}/osharon/assets/css-length-units/dpi.gif" alt="print output can have different resolutions"/>
 
 ## The Relative Units
 
 `%` - percentage is relatively easy to understand – it’s relative to the parent. The only issue is – what is considered the parent? It might be an obvious answer unless the item’s position is `absolute` and then things become slightly trickier.
 
-<img src="{{ site.baseurl }}/osharon/assets/css-length-units/positioning.gif" />
+<img src="{{ site.baseurl }}/osharon/assets/css-length-units/positioning.gif" "absolute-positioning items can be tricky when using percentage"/>
 
 `em` - referring to the proportions of the parent’s font-size (specifically referring to the width of the “m” character). `2em`would be double the current size. It makes sense but if we build css-contained components, their size will be proportionate to their parent-container.
 
@@ -55,7 +55,7 @@ Why not simply use `px` instead? Because we said that `16px` is the default size
 
 `lv*` (large) is when the controls are hidden. It's important to remember that `sv*` and `lv*` are fixed numbers regardless whether the controls are visible or not. `dv*`(dynamic) is the current viewport, either small or large. This matters when trying to build a layout that snugly fits to the viewport full height, but it changes as soon as the control disappears (because the user started scrolling for example). If not specified `s|l|d`, the original `v*` equals to `lv*` (large).
 
-<img src="{{ site.baseurl }}/osharon/assets/css-length-units/css-units-lvh-vs-svh.png" />
+<img src="{{ site.baseurl }}/osharon/assets/css-length-units/css-units-lvh-vs-svh.png" alt="lvh is used when controls are hidden while svh is when they're visible"/>
 
 ## The Weird Units (that aren’t necessarily supported anyhow)
 
