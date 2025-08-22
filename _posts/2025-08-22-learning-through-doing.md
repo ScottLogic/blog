@@ -1,6 +1,6 @@
 ---
 title: 'Learning Through Doing: From one language to another'
-date: 2025-08-21 00:00:00 Z
+date: 2025-08-22 00:00:00 Z
 categories: 
 - Tech
 tags:
