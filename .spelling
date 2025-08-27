@@ -248,6 +248,7 @@ Kibana
 timestamp
 elasticsearch
 datastore
+datastores
 wildcards
 wildcard
 inline
@@ -1058,3 +1059,6 @@ PWC
 GeoGuessr
 Dyno
 undersubscribed
+outbox
+auditability
+queryable
