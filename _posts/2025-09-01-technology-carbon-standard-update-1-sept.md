@@ -22,12 +22,12 @@ Some of the key additions include:
 - Expand the Tech Carbon Standard glossary to include AI related terminology. 
 - Create a resource listing major AI cloud platforms and information released by these platforms where available. 
 
-In the Upstream Emissions category: 
+In the **Upstream Emissions** category: 
 
-- Highlight the computationally intensive training phase of foundation models, including the specialised hardware and energy demands. 
+- Highlight the computationally intensive training phase of foundation models including emissions associated with manufacturing specialised hardware and AI data centre operations. 
 - Account for emissions linked to content and data in various forms, when used as a commodity by organisations. 
 
-In the Operational Emissions category: 
+In the **Operational Emissions** category: 
 
 - Add a sub-category for machine learning, fine-tuning and self-hosting, distinguishing LLMs and smaller language models (SLMs), and their associated hardware requirements. 
 - Recognise the growing adoption of AI-powered applications in the Networking Devices section, and their reliance on specialised hardware for accelerated computing. 
@@ -37,7 +37,7 @@ In the Operational Emissions category:
 - Address emissions from network infrastructure used by organisations treating content and data as a commodity. 
 - The category is also discussed under Onsite Employee Devices, to include emissions associated with streaming, downloading and creating content. 
 
-In the Downstream Emissions category: 
+In the **Downstream Emissions** category: 
 
 - Account for the carbon cost of customer inference activities and the cumulative impact on AI application usage. 
 - Highlight emissions from the amount of network traffic involved in AI applications under Network Data Transfer. 
