@@ -13,6 +13,7 @@ summary: Testing an event ingestion service is critical for ensuring reliable, s
   service integrated with Azure Event Hubs, covering the testing strategy, tools,
   and process flow, with a detailed diagram to illustrate the pipeline.
 author: sanastasov
+image: "/uploads/Svetsolav---Testing-an-Event-Ingestion-Service---A-Deep-Dive-into-Our-Approach.jpg"
 ---
 
 # Testing an Event Ingestion Service: A Comprehensive Approach

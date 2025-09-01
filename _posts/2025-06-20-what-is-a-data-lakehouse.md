@@ -13,6 +13,7 @@ summary: In this post, I explore what a Data Lakehouse is, how it works, and whe
   it delivers on its promises—covering core features, formats, real-world patterns,
   and platform realities.
 author: mrichards
+image: "/uploads/what%20is%20a%20data%20lakehouse.jpeg"
 ---
 
 ## Markitecture or Reality? Separating Substance from Hype

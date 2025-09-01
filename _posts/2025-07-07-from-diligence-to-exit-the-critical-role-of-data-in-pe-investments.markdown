@@ -8,6 +8,7 @@ summary: Data enables faster and more accurate due diligence, informs operationa
   comes time to exit. This post outlines the role of data across each of these key
   stages.
 author: ceberhardt
+image: "/uploads/from%20diligence%20to%20exit%20-%20colin%20eberhardt.jpeg"
 ---
 
 While AI continues to attract attention across industries, private equity (PE) firms are quietly focusing on a more fundamental enabler of investment performance: data. Increasingly, data is being treated not simply as a reporting tool, but as a strategic asset in its own right. Leading firms are now using data and analytics throughout the full investment lifecycle, from deal sourcing and due diligence, through post-deal value creation, and on to exit.

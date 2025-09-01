@@ -10,6 +10,7 @@ summary: Having just completed the Graduate Training at Scott Logic, I wanted to
   on the last three months and offer some advice to those who may be taking part in
   the future.
 author: bcoke
+image: "/uploads/benjamin%20coke%20my%20experience%20with%20scott%20logic%20graduate%20training.jpeg"
 ---
 
 Hi!

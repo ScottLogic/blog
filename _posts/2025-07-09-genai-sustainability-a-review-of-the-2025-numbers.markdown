@@ -20,6 +20,7 @@ summary: A year after predicting GenAI's sustainability crisis, the 2024/25 fina
   46% of enterprise preference) offer hope for a more sustainable GenAI 2.0 focused
   on efficiency over scale.
 author: ocronk
+image: "/uploads/gen%20ai%20sustainability%20olivr%20cronk.jpeg"
 ---
 
 Almost exactly a year ago, in July 2024, I published ["Will Generative AI Implode and Become More Sustainable?"](https://blog.scottlogic.com/2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html) warning that brute-force approaches to AI development are fundamentally unsustainable. I predicted that massive energy consumption, escalating costs, and hardware demands would eventually cause first-generation GenAI platforms to "implode under their own weight." Whilst that's not happened yet, the fundamentals haven't changed much, and I still think (and hope) that in the medium term there will be shifts towards more sustainable approaches.
