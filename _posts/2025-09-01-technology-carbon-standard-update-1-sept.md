@@ -15,7 +15,7 @@ Following the [previous update](https://blog.scottlogic.com/2024/03/15/technolog
 
 In this regard, this update introduces a new category in Upstream Emissions called “Content”. This category encompasses [Foundation Models](https://www.adalovelaceinstitute.org/resource/foundation-models-explainer/), as well as Content and Data treated as commodities by organisations. It examines emissions associated with the generation, distribution, storage and archiving of content, whether AI-generated or traditional. 
 
-***Some of the key additions include***: 
+Some of the key additions include: 
 
 - Remove the word “proposed” from the [Technology Carbon Standard announcement](https://blog.scottlogic.com/2024/02/13/announcing-the-proposed-technology-carbon-standard.html), reflecting its established role in guiding sustainable practices. 
 - Establish the Technology Carbon Standard position with regard to the Life Cycle Assessment (LCA) methodology. 
