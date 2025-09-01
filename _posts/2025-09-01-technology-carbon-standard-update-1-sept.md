@@ -15,19 +15,19 @@ Following the [previous update](https://blog.scottlogic.com/2024/03/15/technolog
 
 In this regard, this update introduces a new category in Upstream Emissions called “Content”. This category encompasses [Foundation Models](https://www.adalovelaceinstitute.org/resource/foundation-models-explainer/), as well as Content and Data treated as commodities by organisations. It examines emissions associated with the generation, distribution, storage and archiving of content, whether AI-generated or traditional. 
 
-Some of the key additions include: 
+***Some of the key additions include***: 
 
 - Remove the word “proposed” from the [Technology Carbon Standard announcement](https://blog.scottlogic.com/2024/02/13/announcing-the-proposed-technology-carbon-standard.html), reflecting its established role in guiding sustainable practices. 
 - Establish the Technology Carbon Standard position with regard to the Life Cycle Assessment (LCA) methodology. 
 - Expand the Tech Carbon Standard glossary to include AI related terminology. 
 - Create a resource listing major AI cloud platforms and information released by these platforms where available. 
 
-In the **Upstream Emissions** category: 
+**In the Upstream Emissions category**: 
 
 - Highlight the computationally intensive training phase of foundation models including emissions associated with manufacturing specialised hardware and AI data centre operations. 
 - Account for emissions linked to content and data in various forms, when used as a commodity by organisations. 
 
-In the **Operational Emissions** category: 
+**In the Operational Emissions category**: 
 
 - Add a sub-category for machine learning, fine-tuning and self-hosting, distinguishing LLMs and smaller language models (SLMs), and their associated hardware requirements. 
 - Recognise the growing adoption of AI-powered applications in the Networking Devices section, and their reliance on specialised hardware for accelerated computing. 
@@ -37,7 +37,7 @@ In the **Operational Emissions** category:
 - Address emissions from network infrastructure used by organisations treating content and data as a commodity. 
 - The category is also discussed under Onsite Employee Devices, to include emissions associated with streaming, downloading and creating content. 
 
-In the **Downstream Emissions** category: 
+**In the Downstream Emissions category**: 
 
 - Account for the carbon cost of customer inference activities and the cumulative impact on AI application usage. 
 - Highlight emissions from the amount of network traffic involved in AI applications under Network Data Transfer. 
