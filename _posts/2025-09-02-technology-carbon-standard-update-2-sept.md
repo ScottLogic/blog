@@ -17,7 +17,7 @@ In this regard, this update introduces a new category in Upstream Emissions call
 
 Some of the key additions include: 
 
-- Remove the word [“proposed”](https://blog.scottlogic.com/2024/02/13/announcing-the-proposed-technology-carbon-standard.html) from the Technology Carbon Standard announcement, reflecting its established role in guiding sustainable practices. 
+- Remove the word [“proposed”](https://blog.scottlogic.com/2024/02/13/announcing-the-proposed-technology-carbon-standard.html) from the Technology Carbon Standard, reflecting its established role in guiding sustainable practices. 
 - Establish the Technology Carbon Standard position with regard to the Life Cycle Assessment (LCA) methodology. 
 - Expand the Tech Carbon Standard glossary to include AI related terminology. 
 - Create a resource listing major AI cloud platforms and information released by these platforms where available. 
