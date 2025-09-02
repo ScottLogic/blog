@@ -1,6 +1,6 @@
 ---
 title: Solving Data Consistency in Distributed Systems with the Transactional Outbox
-date: 2025-09-01 00:00:00 Z
+date: 2025-09-02 00:00:00 Z
 categories:
 - Data Engineering
 summary: Distributed systems often struggle with data consistency. In this post, I explore
@@ -54,15 +54,17 @@ Another drawback is if you have an existing system with event generation, then t
 
 Additionally, if you are looking to introduce auditing, the messaging service will need to know who or why an action was triggered, but looking at a data change typically will not provide this information. 
 
-An alternate solution to the dual-write problem is the Event Sourcing pattern. Event Sourcing offers a fundamentally different approach by treating events as the source of truth. Using this pattern, our components just need to send events into the event datastore. The dual-write problem therefore avoided, as the event datastore become the single service that is written to.
+An alternate solution to the dual-write problem is the Event Sourcing pattern. Event Sourcing offers a fundamentally different approach to modelling state by treating events as the source of truth. By persisting events directly, it avoids the dual-write problem within the system itself, as the event datastore becomes the single source of truth.
 
 ![Diagram illustrating the Event Sourcing pattern. It shows a command input being handled by a command handler, which emits domain events to an event datastore. The datastore is used to rehydrate aggregates, append new events, and build a queryable view. Queries are handled separately via a query handler accessing the read model]({{ site.github.url }}/mdunsdon/assets/event-sourcing-pattern.svg "Diagram showing the Event Sourcing pattern: from Command to Event and Query to Queryable View")
 
 In terms of the benefits for the Event Sourcing pattern, if you have a greenfield project or are using the CQRS pattern, then the difficulties in adopting this pattern are reduced. Unlike the CDC or the Transactional Outbox pattern, the event generation service and messaging service are not needed. 
 
-Regarding infrastructure, the Event Sourcing pattern needs you to use an event datastore. Depending on your organisation, this could be a new infrastructure concern, so in this case there could be resistance in adopting the pattern. An addition you need to implement aggregate and build a read model, which you might choose to deploy separately to the component that provides command and query handlers, so there may be more individual components to deploy and maintain.
+Regarding infrastructure, the Event Sourcing pattern needs you to use an event datastore. Depending on your organisation, this could be a new infrastructure concern, so in this case there could be resistance in adopting the pattern. In addition, you need to implement aggregates and build a read model, which may be deployed separately from the components handling commands and queries.
 
-One drawback is that there are additional considerations needed for querying when using Event Sourcing, often the recommendation is to adopt the CQRS pattern, so if this pattern is unfamiliar to the development team then this can be costly. Given events are the source of truth, you need to make queries for rows of data over a queryable view and this view will need to be build from aggregating over events.
+One drawback is that whilst Event Sourcing handles internal state transitions, the dual-write problem still exists when notifying external systems. If your system needs external systems notified, such as communication via webhooks or messaging queues, the dual-write problem can still arise. This may mean adopting CDC or Transactional Outbox pattern to ensure reliable communication with external services.  
+
+Another drawback is that there are additional considerations needed for querying when using Event Sourcing, often the recommendation is to adopt the CQRS pattern, so if this pattern is unfamiliar to the development team then this can be costly. Given that events are the source of truth, queries must be made against a read model built by aggregating those events.
 
 An additional drawback is that when there are existing functioning components in your system, there is a learning curve and additional effort needed to retrofit the Event Sourcing pattern. If you can overcome this, and you are able to ensure there are good bounded contexts in your domain-driven design, then you gain the flexibility to easily add new components and new kinds of events.
 
@@ -70,15 +72,17 @@ An additional drawback is that when there are existing functioning components in
 
 For the Transactional Outbox pattern, there were several pros and cons when applying this to a real client project.
 
-One of the benefits were that the pattern allowed the team to focus on writing records to the datastore, especially early on. If we wanted to test that auditing events were being generated, we could just call the application code locally and verify that the records and event payloads were being correctly written to the datastore. It meant we could run locally without needing Azure Event Bus emulators.
+What made this pattern especially useful was that it allowed the team to focus on writing records to the datastore, especially early on. If we wanted to test that auditing events were being generated, we could just call the application code locally and verify that the records and event payloads were being correctly written to the datastore. It meant we could run locally without needing Azure Event Bus emulators.
 
 Another benefit was in deferring the creation and deployment of our messaging service. We were intentional with how identifiers were generated and could use unique constraints in the datastore to only act once for a specific event. We focused on unit testing to begin with and we started integration testing once the message service was in place.
 
 A final benefit came from using the Azure Cosmos datastore. It provided a change feed capability as well as a time-to-live (TTL) attribute for each document.  In combination this meant that the messaging service could use the change feed to track which events had been processed and allow Azure Cosmos to be responsible for cleaning up old events.
 
-The major drawback to the Transactional Outbox pattern was the need to implement the messaging service, which would not be needed if we would have chosen the event sourcing pattern. For other teams in the project, Azure Cosmos was not suitable for their needs, so the messaging service for those teams was additionally responsible for polling for changes, locking rows in the datastore and clearing up processed events.
+The major drawback to the Transactional Outbox pattern was the complexity introduced by implementing messaging services. Some teams on the project could not use Azure Cosmos, so their messaging services had to implement polling, row locking, and adding logic to clean up processed events. If we did not need reliable communication with external systems the project could have considered a purely Event Sourcing approach, thus removing the need for messaging services. 
 
-Whilst I think that the Transactional Outbox pattern served the project well, I am curious why Event Sourcing was not chosen. This was a greenfield project, where we had the opportunity to support the client through the implementation of their distributed system. My suspicions are that there was not enough interest by the client for this, as we would need to have event datastores and have a willingness for learning how to develop and maintain an event sourcing system.
+After weighing the benefits and the drawbacks, the Transactional Outbox pattern seemed better suited to the project than Event Sourcing. The project needed data consistency and reliability guarantees for interactions with several external services.  In addition, there were no requirements indicating that the state should be modelled by events.
+
+The clean-slate nature of the project gave us the opportunity to support the client in designing and implementing a distributed system. In this context, an Event Sourcing approach combined with a Transactional Outbox could have been a viable architectural choice. Instead, by applying the Transactional Outbox pattern we were able to get a working solution with a relatively low level of friction when provisioning and configuring infrastructure.
 
 Ultimately, the Transactional Outbox pattern helped us meet our goals for consistency and reliability in a distributed system. While other patterns offer alternatives, this approach proved practical and effective for our client’s needs.
 
