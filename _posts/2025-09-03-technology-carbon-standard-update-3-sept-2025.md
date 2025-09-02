@@ -1,6 +1,6 @@
 ---
-title: "Technology Carbon Standard Update – 2nd September 2025"
-date: 2025-09-02 00:00:00 Z
+title: "Technology Carbon Standard Update – 3rd September 2025"
+date: 2025-09-03 00:00:00 Z
 categories:
   - Tech
 tags: 
@@ -21,6 +21,7 @@ Some of the key additions include:
 - Establish the Technology Carbon Standard position with regard to the Life Cycle Assessment (LCA) methodology. 
 - Expand the Tech Carbon Standard glossary to include AI related terminology. 
 - Create a resource listing major AI cloud platforms and information released by these platforms where available. 
+- Develop a practical guide to reducing AI-related emissions, helping organisations, regardless of their AI use cases, to identify key strategies to help reduce their carbon emissions, from optimising hardware and refining prompts, through to leveraging compression techniques and selecting appropriate models.
 
 **In the Upstream Emissions category**: 
 
