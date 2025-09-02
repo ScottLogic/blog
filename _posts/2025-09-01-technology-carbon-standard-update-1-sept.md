@@ -46,8 +46,6 @@ Some of the key additions include:
 
 The goal of the Technology Carbon Standard is to provide the information technology sector with the knowledge needed to reduce their climate impact. As an open-source project, contributions and improvements are welcomed from the community. 
 
-Topics that we hope to expand soon include upstream and operational emissions, with guidance on quantifying emissions from hardware manufacturing, transport, data centres, and employee devices. 
-
 By increasing awareness and transparency around the carbon emissions of technology, the Technology Carbon Standard aims to accelerate the IT industry’s transition to net zero. 
 
 Check out the website to learn more at [http://www.techcarbonstandard.org](https://www.techcarbonstandard.org/). 
