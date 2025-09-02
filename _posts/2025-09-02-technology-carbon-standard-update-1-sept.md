@@ -1,6 +1,6 @@
 ---
-title: "Technology Carbon Standard Update – 1st September 2025"
-date: 2025-09-01 00:00:00 Z
+title: "Technology Carbon Standard Update – 2nd September 2025"
+date: 2025-09-02 00:00:00 Z
 categories:
   - Tech
 tags: 
