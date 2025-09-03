@@ -49,8 +49,7 @@ Going forward with the creation of our tests we want to ensure that they can be 
 
 Here you can see that the tag simply needs to be placed at the end of the test name and is separated with a comma. For good practice this should be the ticket number that the work is being generated from.
 
-If you want to go the extra mile, it's even better to use annotations for ticket numbers. That way, tags can be used exclusively to filter what tests are run, filtering test results. This is what is documented in the Playwright documentation:
-<a>https://playwright.dev/docs/test-annotations</a> 
+If you want to go the extra mile, it's even better to use annotations for ticket numbers. That way, tags can be used exclusively to filter what tests are run, filtering test results. This is what is documented in the <a href="https://playwright.dev/docs/test-annotations">Playwright documentation</a> 
 
 ## Conclusion
 Well, there have been some odd analogies and puns along the way but hopefully this peek into a tester’s mind has helped you understand the importance of, and some ways to implement some good approaches in your automation tests while also keeping it simple to implement. Maybe there are even more simple techniques out there so go out and find them, or better yet bring them up with others and let's get everything even more readable!   
