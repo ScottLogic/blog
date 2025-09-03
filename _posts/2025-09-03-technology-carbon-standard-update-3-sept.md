@@ -13,7 +13,7 @@ The Scott Logic sustainability team has recently been updating the [open-source 
 
 The latest revisions focus on expanding coverage of the standard to address the carbon footprint of Large Language Models (LLMs), with plans to broaden the scope to include other areas of AI in future updates. 
 
-In this regard, this update introduces a new category in Upstream Emissions called “Content”. This category encompasses [Foundation Models](https://www.adalovelaceinstitute.org/resource/foundation-models-explainer/), as well as Content and Data treated as commodities by organisations. It examines emissions associated with the generation, distribution, storage and archiving of content, whether AI-generated or traditional. 
+In this regard, this update introduces a new category in Upstream Emissions called “Content”. This category encompasses [foundation models](https://www.adalovelaceinstitute.org/resource/foundation-models-explainer/), as well as Content and Data treated as commodities by organisations. It examines emissions associated with the generation, distribution, storage and archiving of content, whether AI-generated or traditional. 
 
 Some of the key additions include: 
 
