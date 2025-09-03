@@ -2,9 +2,12 @@
 title: "Technology Carbon Standard Update – 3rd September 2025"
 date: 2025-09-03 00:00:00 Z
 categories:
+  - Sustainability
   - Tech
 tags: 
-- Tech
+  - Tech
+  - Sustainability
+  - Sustainable AI
 summary: The Scott Logic sustainability team has recently been updating the open-source Technology Carbon Standard website to better reflect evolving challenges of carbon accounting in the tech sector. 
 author: hsauve
 ---  
