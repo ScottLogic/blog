@@ -8,6 +8,7 @@ tags:
 - people
 - teams
 - values
+- featured
 summary: There is no one-size-fits-all approach to delivery. Here we describe the
   grounding principles and behaviours that enable us to deliver excellent results
   for our clients with a reassuringly human touch.

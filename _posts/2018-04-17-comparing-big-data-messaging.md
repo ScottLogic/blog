@@ -3,14 +3,12 @@ title: Comparing Apache Kafka, Amazon Kinesis, Microsoft Event Hubs and Google P
 date: 2018-04-17 00:00:00 Z
 categories:
 - Data Engineering
-tags:
-- featured
-author: acarr
-layout: default_post
 summary: Distributed log technologies have matured in the last few years.  In this
   article, I review the attributes of distributed log technologies, compare four of
   the most popular and suggest how to choose the one that's right for you.
+author: acarr
 image: dnicholas/assets/featured/distributed.jpg
+layout: default_post
 ---
 
 ## The rise of distributed log technologies

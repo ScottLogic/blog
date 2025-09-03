@@ -6,6 +6,7 @@ categories:
 tags:
 - Sustainability
 - Agile
+- featured
 summary: A look at how agile practices can be used to drive sustainable software development
   with a focus on how each role can contribute to lowering their product's carbon
   emissions.

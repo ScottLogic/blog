@@ -15,6 +15,8 @@ image: "/uploads/Tools%20for%20measuring%20cloud.png"
 layout: default_post
 ---
 
+> Note: this blog post is a bit out-of-date so I've published a [new version with some updates for 2025](../../../2025/05/20/tools-for-measuring-cloud-carbon-emissions-updated-for-2025.html).
+
 # Introduction
 
 In my [previous blog post](https://blog.scottlogic.com/2022/04/07/cloud-sustainability-reach-net-zero.html) I discussed how migrating to the Cloud could help your organisation reach its Net Zero goals. I discussed how shifting your workloads away from on-premises data centres can reduce emissions by allowing you to leverage the expertise of cloud providers and their greater efficiency of scale. It should be noted this isn’t always clear cut - do consider how energy efficient your current hosting is and the [embodied carbon](https://blog.scottlogic.com/2023/09/28/embodied-carbon-from-software-development.html) of any hardware you’d be decommissioning.

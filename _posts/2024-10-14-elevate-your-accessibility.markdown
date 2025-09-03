@@ -9,6 +9,7 @@ tags:
 - Inclusivity
 - Diversity
 - Usability
+- featured
 summary: An overview of the essential points to look out for while testing for accessibility,
   resources for further learning, plus a couple of extra ways to look out for not
   just accessibility but also diversity issues in testing.

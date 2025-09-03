@@ -3,6 +3,7 @@ title: 'Beyond the Hype: WebAssembly – from the browser to beyond'
 date: 2023-08-04 00:01:00 Z
 categories:
 - Podcast
+- Tech
 tags:
 - WebAssembly
 - Wasm

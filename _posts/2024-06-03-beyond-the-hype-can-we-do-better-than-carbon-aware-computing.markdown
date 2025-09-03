@@ -12,6 +12,7 @@ tags:
 - sustainable software
 - technology sustainability
 - electricity grid
+- featured
 summary: In this episode, Oliver Cronk and David Rees from Scott Logic are joined
   by Hannah Smith, Director of Operations at Green Web Foundation, to explore the
   potential benefits and limitations of ‘carbon aware’ computing. With global emissions

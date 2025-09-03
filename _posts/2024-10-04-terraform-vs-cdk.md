@@ -8,6 +8,7 @@ tags:
 - AWS
 - Terraform
 - CDK
+- featured
 summary: Comparing the experience of coding with Terraform and AWS CDK.
 author: acanham
 image: "/uploads/Terraform%20vs%20CDK.png"

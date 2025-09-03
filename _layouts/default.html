@@ -26,9 +26,9 @@ repository: ScottLogic/new-blog
     <meta property="og:title" content="{{ page.title | escape }}" />
     <meta property="og:description" content="{{ page.summary | escape }}"/>
     {% if page.image %}
-        {% assign thumbnailImage = page.image | prepend: '/' | replace : '//', '/' | prepend: site.canonical.url %}
+        {% assign thumbnailImage = page.image | prepend: '/' | replace : '//', '/' | prepend: site.github.url %}
     {% else %}
-        {% assign thumbnailImage = site.canonical.url | append: '/assets/blog.png' %}
+        {% assign thumbnailImage = site.github.url | append: '/assets/blog.png' %}
     {% endif %}
     <meta property="og:image" content="{{ thumbnailImage }}" />
     <meta property="og:type" content="article" />

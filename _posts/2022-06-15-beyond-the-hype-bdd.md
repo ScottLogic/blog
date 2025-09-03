@@ -3,6 +3,7 @@ title: Beyond the Hype - Behaviour Driven Development, Hype? Or just misundersto
 date: 2022-06-15 00:00:00 Z
 categories:
 - Podcast
+- Testing
 summary: In this month’s episode we talk about Behaviour Driven Development (BDD),
   a testing practice where system behaviours are captured in a human readable Domain
   Specific Language (DSL), which are automated and executed.

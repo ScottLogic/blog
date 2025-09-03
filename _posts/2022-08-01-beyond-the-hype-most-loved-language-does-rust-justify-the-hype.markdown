@@ -3,6 +3,7 @@ title: 'Beyond the Hype: Most-loved language – does Rust justify the hype?'
 date: 2022-08-01 10:30:00 Z
 categories:
 - Podcast
+- Tech
 tags:
 - Beyond the Hype
 - Rust

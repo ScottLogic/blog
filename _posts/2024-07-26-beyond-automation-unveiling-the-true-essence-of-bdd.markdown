@@ -7,6 +7,7 @@ tags:
 - Testing
 - BDD
 - Blog
+- featured
 summary: Many organisations mistakenly think Behaviour-Driven Development (BDD) is
   simply about writing test cases in Given-When-Then format or using test automation
   frameworks. While automation is a valuable by-product, the true essence of BDD lies

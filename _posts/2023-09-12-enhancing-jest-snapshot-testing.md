@@ -5,7 +5,6 @@ categories:
 - Testing
 - Tech
 tags:
-- featured
 - testing
 - jest
 summary: Jest is a JavaScript unit testing framework that is popular amongst developers

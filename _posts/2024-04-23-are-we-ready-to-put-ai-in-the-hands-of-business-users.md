@@ -19,6 +19,7 @@ tags:
 - quicksight
 - sagemaker
 - sagemaker canvas
+- featured
 summary: Lots of businesses want to use AI, if they can find the right business case
   for it.  We look at some new and enhanced AWS products which take a low-or-no-code
   approach to using AI to enhance Business Intelligence tools.

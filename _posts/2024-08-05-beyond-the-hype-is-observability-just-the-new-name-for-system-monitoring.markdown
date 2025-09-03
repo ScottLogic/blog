@@ -3,6 +3,7 @@ title: 'Beyond the Hype: Is observability just the new name for system monitorin
 date: 2024-08-05 08:05:00 Z
 categories:
 - Podcast
+- Tech
 tags:
 - observability
 - OpenTelemetry
