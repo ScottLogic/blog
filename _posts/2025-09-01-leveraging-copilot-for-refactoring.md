@@ -1,6 +1,6 @@
 ---
-title: Leveraging co-pilot to refactor automation
-date: 2025-02-12 11:25:00 Z
+title: Leveraging co-pilot to refactor tests
+date: 2025-04-09 15:34:00 Z
 categories:
   - Testing
 tags:
