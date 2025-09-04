@@ -112,14 +112,6 @@ So co-pilot can see this match in actions performed which then gives us a final 
 await onPremSection.selectNumberOfServers('20');
 ```
 
-#
+# Conclusion
 
-Conversion to node.js, typescript.
-
-- Efficiency for setting up environments. No longer have to setup python stuff.
-
-# How to solve?
-
-- python conversion (very easy) medium time consumption
-- Helper methods ( fairly easy ) High time consumption
-- POM Easy, (Very time consuming)
+Overall co-pilot is a very useful tool to use when doing time consuming tasks. It is super effient in a scenario where automation is to be updated and there are still work items to be tested. It also works super well if the context is a bit tighter. For example refactoring one e2e test at a time.
