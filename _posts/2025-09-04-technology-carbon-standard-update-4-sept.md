@@ -1,6 +1,6 @@
 ---
-title: "Technology Carbon Standard Update – 3rd September 2025"
-date: 2025-09-03 00:00:00 Z
+title: "Technology Carbon Standard Update – 4th September 2025"
+date: 2025-09-04 00:00:00 Z
 categories:
   - Sustainability
   - Tech
