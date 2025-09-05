@@ -15,41 +15,47 @@ image: mnyamunda/assets/mnyamunda.jpg
 
 # Problem
 
-Sometimes automation is kept relatively light weight as there may be fewer scenarios than expected. In this case we can easily create a few positive and negative path scenarios to cover the little functionality that the application may have at the time. These tests are often just used for confidence to make sure that the application does not regress. At some point the team may now realise that there are more and more scenarios that need to be added to ensure functionlity of the application. This is when the team must adapt their test automation scripts to now cover those new scenarios and also ensure that they are easy and intuitive to update. There is also a certain threshold where the test suite should be updated to use a page object model, as tests will become very difficult to maintain otherwise.
+Sometimes automation is kept relatively lightweight as there may be very few flows to automate. At this point very few positive and negative path scenarios are created to give quick confidence as regression. At some point the team may now realise that there are more and more scenarios that need to be added to ensure functionality of the application. This is when the team must adapt their test automation scripts to now cover those new scenarios and also ensure that they are easy and intuitive to update. There is also a certain threshold where the test suite should be updated to use a page object model, as tests will become very difficult to maintain otherwise.
 
-The earlier this decision is made the better, as it may end up taking a very long time to refactor or update tests. On top of this, there may be work items constantly coming through, further changing existing automation script steps. This can become a potential nightmare.
+The earlier this decision is made the better, as it may end up taking a very long time to refactor or update tests. Another issue is also having to keep up with important features that may urgently need to be tested. This can become a nightmare scenario.
 
-# Solve
+In our case with TCSE estimator there were seventeen e2e scenarios that needed a refactor. Our first pivot would be converting them from python syntax to node.js. This decision made sense as the application itself was using the same environment. Which meant that when we eventually setup our github actions we only need to setup that single environment. Our second pivot was to refactor existing tests into page object model. This decision was made as we could see many existing areas to automate, as well as features that would be added in the future.
 
-This is where github co-pilot comes in very handy. After creating various method and properties in page objects the rest of the work is mundane copy pasting. By utilising co-pilot within an IDE such as VsCode, testers can drastically reduce the time taken to complete heavy refactoring tasks. You may be wondering, what's so special about co-pilot, when I can achieve the same result with an online chatbot such as Claude or ChatGPT? The difference is that co-pilot will now be intergrated with you codebase giving it a higher level of context. Online chatbots often come short as they may not provide you with what you need unless you have also pasted other related files or snippets. This now saves alot of time aloowing you to reach solutions much faster.
+# Solution
+
+This is where github co-pilot comes in very handy. After creating various methods and properties in page objects the rest of the work is often mundane copying and pasting in our seventeen e2e files. By utilising co-pilot within an IDE such as VsCode, testers can drastically reduce the time taken to complete heavy refactory tasks. You may be wondering, what's so special about co-pilot when I can achieve the same result with an online chatbot such as Claude or ChatGPT? The difference is that co-pilot will now be intergrated with your codebase, giving it a very high level of project context. Online chatbots often come short as they may not provide you with what you need unless you have also pasted other related files or snippets. This now saves a lot of time allowing you to reach solutions much faster.
 
 ## File context
 
-If the conversion is quite simple. Then we can even apply this to multiple files at once. We can toggle the chat slide and add files/folders as context. Sometimes we don't the entire context of the project certain tasks. Ideally we want to use fewer resources/tokens. Which is where the "add context" option comes in handy. We can prompt something like "Apply this new page object to relevant e2e files". In this case as we have the page object model file open it is part of current context:
+If the conversion is simple. Then we can even apply this to multiple files at once. We can toggle the chat slide and add files/folders as context. Sometimes we don't the entire context of the project certain tasks. Ideally we want to use fewer resources/tokens. Which is where the "add context" option comes in handy. We can prompt something like "Apply this new page object to relevant e2e files". By default files we have open will be included in context.
 
-<!-- ![alt text](add-file-to-chat.png) -->
+In practice the steps are:
 
-![conver to typescript prompt ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/add-file-to-chat.png)
-
-Now theoretically steps are: 1. Find relevant files, 2. Find relevant lines, 3. Refactor those lines.
+1. Find relevant files to edit.
+2. Find relevant lines to edit.
+3. Refactor lines with applicable methods or properties from our page object class.
 
 If we instead point to the files/folders we can manually reduce the scope. Meaning that chances for mistakes are lower. Let's say now we know the exact files that we want to refactor:
 
-<!-- ![alt text](file-context-chat.png) -->
+![conver to typescript prompt ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/add-file-to-chat.png)
 
 ![conver to typescript prompt ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/file-context-chat.png)
 
-Now we have greatly reduced the scope in which the LLM should work in.
+Now we have greatly reduced the scope of this refactor. Something worth mentioning is that you are essentially training the model on how you want to refactor these tests. At first it may make some small mistakes but by narrowing context or scope appropriately it becomes very good at completing repetitive tasks.
 
-# Usage example
+### Auto completion
 
-This refactor to test suite is mainly due to how there are many new features being added to TCSE tool. starting with about 18 e2e scenarios these were originally quite extensive as locators and actions were all in one test. By converting into page objects it means that tests are super concise and intuitive.
+Co-pilot also comes with an auto complete feature, which can predict your next lines based on previous actions. This is an absolute godsend when it comes to class construction as you can circumvent more copying and pasting!
 
-In this example it has been used for 2 things: Converting from python to Typescript and optimising into page object model.
+![alt text](image-1.png)
+
+# Usage examples
+
+In for this project we have refactored in 2 ways: Converting from Python to Typescript and optimising into page object model.
 
 ### Language conversion
 
-Our first prompt is fairly simple: we can use both inline chatbot and a separate chatbot window. We can simply highlight the file with Ctrl + A, then bring up inline chatbot with Ctrl+I. We can then type a simple prompt:
+Our first prompt is simple: we can use both inline chatbot and a separate chatbot window. We can simply highlight the file with Ctrl + A, then bring up inline chatbot with Ctrl+I. We can then type a simple prompt:
 
 ![conver to typescript prompt ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/conversion-prompt.png)
 
