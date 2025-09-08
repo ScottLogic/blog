@@ -47,7 +47,7 @@ Now we have greatly reduced the scope of this refactor. Something worth mentioni
 
 Co-pilot also comes with an auto complete feature, which can predict your next lines based on previous actions. This is an absolute godsend when it comes to class construction as you can circumvent more copying and pasting!
 
-![alt text](image-1.png)
+![Auto completion example ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/auto-completion-example.png)
 
 # Usage examples
 
