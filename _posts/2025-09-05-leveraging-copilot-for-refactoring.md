@@ -23,7 +23,7 @@ In our case with TCSE estimator there were seventeen e2e scenarios that needed a
 
 # Solution
 
-This is where github co-pilot comes in very handy. After creating various methods and properties in page objects the rest of the work is often mundane copying and pasting in our seventeen e2e files. By utilising co-pilot within an IDE such as VsCode, testers can drastically reduce the time taken to complete heavy refactory tasks. You may be wondering, what's so special about co-pilot when I can achieve the same result with an online chatbot such as Claude or ChatGPT? The difference is that co-pilot will now be intergrated with your codebase, giving it a very high level of project context. Online chatbots often come short as they may not provide you with what you need unless you have also pasted other related files or snippets. This now saves a lot of time allowing you to reach solutions much faster.
+This is where github co-pilot comes in very handy. After creating various methods and properties in page objects the rest of the work is often mundane copying and pasting in our seventeen e2e files. By utilising co-pilot within an IDE such as VsCode, testers can drastically reduce the time taken to complete heavy refactory tasks. You may be wondering, what's so special about co-pilot when I can achieve the same result with an online chatbot such as Claude or ChatGPT? The difference is that co-pilot will now be integrated with your codebase, giving it a very high level of project context. Online chatbots often come short as they may not provide you with what you need unless you have also pasted other related files or snippets. This now saves a lot of time allowing you to reach solutions much faster.
 
 ## File context
 
@@ -59,7 +59,7 @@ Our first prompt is simple: we can use both inline chatbot and a separate chatbo
 
 ![conver to typescript prompt ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/conversion-prompt.png)
 
-You can then sit back and watch the magic. All you have to do is proof read and accept changes if you are happy with them. This is very important as it's not always super accurate and it may at times missspell or ommit some punctuation for example.
+You can then sit back and watch the magic. All you have to do is proof read and accept changes if you are happy with them. This is very important as it's not always super accurate and it may at times misspell or omit some punctuation for example.
 
 ### Page object model conversion
 
@@ -79,7 +79,7 @@ Here is a high level diagram showing how we split the page into section objects:
 ![Page object segmentation diagram ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/pom-diagram.png)
 
 At this point we can do a bit of manual work by matching locators in our tests to these page-objects.
-Once we have all of our properties and methods in our page objects. We can add page-object files and e2e spec files as context. Our prompt can be: "Based on properties and methods within this page-object, refactor the attatched e2e spec files accordingly"
+Once we have all of our properties and methods in our page objects. We can add page-object files and e2e spec files as context. Our prompt can be: "Based on properties and methods within this page-object, refactor the attached e2e spec files accordingly"
 
 Now it should see matches between e2e and page-objects and begin to refactor your tests with newly shortened methods.
 
@@ -112,4 +112,4 @@ await onPremSection.selectNumberOfServers('20');
 
 # Conclusion
 
-Co-pilot is a very useful tool for time consuming tasks. It is super efficient in a scenario where automation needs to be updated and there are still work items to be tested. I have found that it works super well if the context is a bit tighter. For example refactoring one e2e test at a time. I originally attempted to refactor all 17 tests in one, and ntoiced that there were more mistakes. Something to also re-iterate is that it knows the context of your codebase but not neccesarily the task you are carrying out at the time. So I found that being super explicit in what you aim to achieve through prompts makes it perform much better overall. For example "Refactor these files accordingly" vs "I have extracted properties and methods into these page objects, refactor the attatched e2e spec files accordingly"
+Co-pilot is a very useful tool for time consuming tasks. It is super efficient in a scenario where automation needs to be updated and there are still work items to be tested. I have found that it works super well if the context is a bit tighter. For example refactoring one e2e test at a time. I originally attempted to refactor all 17 tests in one, and noticed that there were more mistakes. Something to also re-iterate is that it knows the context of your codebase but not necessarily the task you are carrying out at the time. So I found that being super explicit in what you aim to achieve through prompts makes it perform much better overall. For example "Refactor these files accordingly" vs "I have extracted properties and methods into these page objects, refactor the attached e2e spec files accordingly"
