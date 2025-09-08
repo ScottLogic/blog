@@ -8,12 +8,12 @@ tags:
   - UI
   - Playwright
   - AI
-summary: This blog explores best use practices for co-pilot and automation
+summary: This blog explores how GitHub Copilot can be used to make refactr
 author: mnyamunda
 image: mnyamunda/assets/mnyamunda.jpg
 ---
 
-# Problem
+# The Problem
 
 Sometimes automation is kept relatively lightweight as there may be very few flows to automate. At this point very few positive and negative path scenarios are created to give quick confidence as regression. At some point the team may now realise that there are more and more scenarios that need to be added to ensure functionality of the application. This is when the team must adapt their test automation scripts to now cover those new scenarios and also ensure that they are easy and intuitive to update. There is also a certain threshold where the test suite should be updated to use a page object model, as tests will become very difficult to maintain otherwise.
 
@@ -21,11 +21,11 @@ The earlier this decision is made the better, as it may end up taking a very lon
 
 In our case with TCSE estimator there were seventeen e2e scenarios that needed a refactor. Our first pivot would be converting them from python syntax to node.js. This decision made sense as the application itself was using the same environment. Which meant that when we eventually setup our github actions we only need to setup that single environment. Our second pivot was to refactor existing tests into page object model. This decision was made as we could see many existing areas to automate, as well as features that would be added in the future.
 
-# Solution
+# The Solution
 
 This is where GitHub Copilot comes in very handy. After creating various methods and properties in page objects the rest of the work is often mundane copying and pasting in our seventeen e2e files. By utilising Copilot within an IDE such as VsCode, testers can drastically reduce the time taken to complete heavy refactory tasks. You may be wondering, what's so special about Copilot when I can achieve the same result with an online chatbot such as Claude or ChatGPT? The difference is that Copilot will now be integrated with your codebase, giving it a very high level of project context. Online chatbots often come short as they may not provide you with what you need unless you have also pasted other related files or snippets. This now saves a lot of time allowing you to reach solutions much faster.
 
-## File context
+## Narrowing Context
 
 If the conversion is simple. Then we can even apply this to multiple files at once. We can toggle the chat slide and add files/folders as context. Sometimes we don't the entire context of the project certain tasks. Ideally we want to use fewer resources/tokens. Which is where the "add context" option comes in handy. We can prompt something like "Apply this new page object to relevant e2e files". By default files we have open will be included in context.
 
@@ -43,7 +43,7 @@ If we instead point to the files/folders we can manually reduce the scope. Meani
 
 Now we have greatly reduced the scope of this refactor. Something worth mentioning is that you are essentially training the model on how you want to refactor these tests. At first it may make some small mistakes but by narrowing context or scope appropriately it becomes very good at completing repetitive tasks.
 
-### Auto completion
+### Auto Completion
 
 Copilot also comes with an autocomplete feature, which can predict your next lines based on previous actions. This is an absolute godsend when it comes to class construction as you can circumvent more copying and pasting!
 
@@ -53,7 +53,7 @@ Copilot also comes with an autocomplete feature, which can predict your next lin
 
 In this project we have refactored in 2 ways: Converting from Python to Typescript and optimising into page object model.
 
-### Language conversion
+## Language Conversion
 
 Our first prompt is simple: we can use both inline chatbot and a separate chatbot window. We can simply highlight our target, then bring up inline chatbot with Ctrl+I. We can then type a simple prompt:
 
@@ -61,7 +61,7 @@ Our first prompt is simple: we can use both inline chatbot and a separate chatbo
 
 You can then sit back and watch the magic. All you have to do is proof read and accept changes if you are happy with them. This is very important as it's not always super accurate and it may at times misspell or omit some punctuation for example.
 
-### Page object model conversion
+## Page Object Model Conversion
 
 We can get started with a prompt to setup our page objects and feature templates:
 
