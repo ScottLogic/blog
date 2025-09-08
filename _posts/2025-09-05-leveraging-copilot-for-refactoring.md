@@ -45,44 +45,36 @@ Now we have greatly reduced the scope of this refactor. Something worth mentioni
 
 ### Auto completion
 
-Co-pilot also comes with an auto complete feature, which can predict your next lines based on previous actions. This is an absolute godsend when it comes to class construction as you can circumvent more copying and pasting!
+Co-pilot also comes with an autocomplete feature, which can predict your next lines based on previous actions. This is an absolute godsend when it comes to class construction as you can circumvent more copying and pasting!
 
 ![Auto completion example ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/auto-completion-example.png)
 
 # Usage examples
 
-In for this project we have refactored in 2 ways: Converting from Python to Typescript and optimising into page object model.
+In this project we have refactored in 2 ways: Converting from Python to Typescript and optimising into page object model.
 
 ### Language conversion
 
-Our first prompt is simple: we can use both inline chatbot and a separate chatbot window. We can simply highlight the file with Ctrl + A, then bring up inline chatbot with Ctrl+I. We can then type a simple prompt:
+Our first prompt is simple: we can use both inline chatbot and a separate chatbot window. We can simply highlight our target, then bring up inline chatbot with Ctrl+I. We can then type a simple prompt:
 
 ![conver to typescript prompt ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/conversion-prompt.png)
 
-You can then sit back and watch the conversion. All you have to do it proof read the changes and accept if you are happy with them. This is very important as it's not always super accurate and it may at times missspell or ommit some punctuation in the new scripts.
-
-Now we can see the typescript changes highlighted. It's good practice to go line by line and make sure that the script steps have been adequetley translated.
+You can then sit back and watch the magic. All you have to do is proof read and accept changes if you are happy with them. This is very important as it's not always super accurate and it may at times missspell or ommit some punctuation for example.
 
 ### Page object model conversion
 
-Here we can simply ask to get started with a prompt:
-
-<!-- ![alt text](prompt-po-fixtures.png) -->
+We can get started with a prompt to setup our page objects and feature templates:
 
 ![prompt for page object and fixtures ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/prompt-po-fixtures.png)
 
-Now it will generate some basic page objects and fixtures in the file and folder we have specified. As this is in chat bot we have to manually click to apply these new changes.
-
-<!-- ![alt text](base-page-object.png) -->
+Now it will generate some basic page objects and fixtures in the file and folder we have specified. If we prompt from the chatbot it will generate code there, then it's up to us to allow the creation of these files in the codebase.
 
 ![base page class example]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/base-page-object.png)
 
-This is the same for the fixtures we have added. It will only generate the newly added or changed code. Another issue with existing test suite is that there were alot of reused lines. These were mainly element visibility checks. We solved this by adding our files as context and prompting "Identify repetitive code in these files and suggest a helper method". This instantly reduced the length of our tests.
+Another issue with existing test suite is that there were a lot of reused lines. These were mainly element visibility checks. We solved this by adding our files as context and prompting "Identify repetitive code in these files and suggest a helper method". This instantly reduced the length of our tests. It highlighted which steps are commonly used which will aid in our page object model methods later.
 
 The next step was to split TCSE into different sections as it is not a multipage application.
-Here is a high level diagram showing how we separated it:
-
-<!-- ![alt text](pom-diagram.png) -->
+Here is a high level diagram showing how we split the page into section objects:
 
 ![Page object segmentation diagram ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/pom-diagram.png)
 
@@ -94,30 +86,30 @@ Now it should see matches between e2e and page-objects and begin to refactor you
 Example:
 In our page object we have:
 
-```
+~~~
 this.numberOfServers = page.getByLabel('Number of Servers:');
-```
+~~~
 
-```
+~~~
 async selectNumberOfServers(text: string) {
     await this.numberOfServers.click();
     await this.numberOfServers.fill(text);
   }
-```
+~~~
 
-In our e2e test we have tests that interact with that element:
+In our e2e tests we have tests that interact with that same element:
 
-```
+~~~
 await page.getByLabel('Number of Servers').click();
 await page.getByLabel('Number of Servers').fill('20');
-```
+~~~
 
 So co-pilot can see this match in actions performed which then gives us a final result of:
 
-```
+~~~
 await onPremSection.selectNumberOfServers('20');
-```
+~~~
 
 # Conclusion
 
-Overall co-pilot is a very useful tool to use when doing time consuming tasks. It is super effient in a scenario where automation is to be updated and there are still work items to be tested. It also works super well if the context is a bit tighter. For example refactoring one e2e test at a time.
+Co-pilot is a very useful tool for time consuming tasks. It is super efficient in a scenario where automation needs to be updated and there are still work items to be tested. I have found that it works super well if the context is a bit tighter. For example refactoring one e2e test at a time. I originally attempted to refactor all 17 tests in one, and ntoiced that there were more mistakes. Something to also re-iterate is that it knows the context of your codebase but not neccesarily the task you are carrying out at the time. So I found that being super explicit in what you aim to achieve through prompts makes it perform much better overall. For example "Refactor these files accordingly" vs "I have extracted properties and methods into these page objects, refactor the attatched e2e spec files accordingly"
