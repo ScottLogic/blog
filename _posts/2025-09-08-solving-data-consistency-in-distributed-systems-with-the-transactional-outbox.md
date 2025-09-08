@@ -9,7 +9,7 @@ summary: Distributed systems often struggle with data consistency. In this post,
 author: mdunsdon
 ---
 
-Our software systems are becoming increasingly distributed, and to support the needs of our business we face new challenges in keeping our data consistent. The Transactional Outbox pattern allows your individual components to own the data they are concerned with, whilst providing an atomic operation that persists it own data along with messages that for other part of the system. It is this capability that can give your distributed systems the strong data consistency guarantees you may be looking for.
+Our software systems are becoming increasingly distributed, and to support the needs of our business we face new challenges in keeping our data consistent. The Transactional Outbox pattern allows your individual components to own the data they are concerned with, whilst providing an atomic operation that persists a component's data along with messages that are for other part of the system. It is this capability that can give your distributed systems the strong data consistency guarantees you may be looking for.
 
 In this post, I will walk through how the Transactional Outbox pattern works, why it is useful in distributed systems, and some of the practical considerations encountered when applying it in a client project.
 
@@ -41,7 +41,7 @@ One example of the the dual-write problem is the auditability functionality I wa
 
 Without considering the dual-write problem, there is a risk that these data consistency scenarios could take place. We have to make the call about the costs that inconsistent data can bring to our business and plan accordingly. Our operation teams can take action to discover and rectify any issues, though this assumes that they have been alerted to any data discrepancies in the first place.
 
-The Transactional Outbox pattern is one of the solutions to the dual-write problem. This pattern encourages using the datastore as the single system for writing the data records and the message payloads, as well as proposes a strategy for handling those messages written to the datastore.
+The Transactional Outbox pattern is one of the solutions to the dual-write problem. This pattern encourages using the datastore as the single system for writing the data records and the message payloads, as well as proposes a strategy for handling those messages that were written to the datastore.
 
 
 ## Alternatives: CDC and Event Sourcing
@@ -58,7 +58,7 @@ Another drawback is if you have an existing system with event generation, then t
 
 Additionally, if you are looking to introduce auditing, the messaging service will need to know who or why an action was triggered, but looking at a data change typically will not provide this information.
 
-An alternate solution to the dual-write problem is the Event Sourcing pattern. Event Sourcing offers a fundamentally different approach to modelling state by treating events as the source of truth. By persisting events directly, it avoids the dual-write problem within the system itself, as the event datastore becomes the single source of truth.
+An alternate solution to the dual-write problem is the Event Sourcing pattern. Event Sourcing offers a fundamentally different approach to modelling state, by treating events as the source of truth. By persisting events directly, it avoids the dual-write problem within the system itself, as the event datastore becomes the single source of truth.
 
 ![Diagram illustrating the Event Sourcing pattern. It shows a command input being handled by a command handler, which emits domain events to an event datastore. The datastore is used to rehydrate aggregates, append new events, and build a queryable view. Queries are handled separately via a query handler accessing the read model]({{ site.github.url }}/mdunsdon/assets/event-sourcing-pattern.svg "Diagram showing the Event Sourcing pattern: from Command to Event and Query to Queryable View")
 
@@ -76,11 +76,11 @@ An additional drawback is that when there are existing functioning components in
 
 On the client project, there were at least three different contexts that applied the Transactional Outbox pattern.
 
-In the first context, the data model needed to be relational. Data consistency was required between a component that had REST endpoints and an external system. This involved using PostgreSQL as the datastore and guaranteeing only a single instance would be polling. The REST endpoint code was simple, by only writing data and message payload in a transaction and returning a status code. The complexity in the polling layer was low, at it just removed messages when processed and marked any messages as failed when the external system responded with an error.
+In the first context, the data model needed to be relational. Data consistency was required between a component that had REST endpoints and an external system. This involved using PostgreSQL as the datastore and guaranteeing only a single instance would be polling. The REST endpoint code was simple, by writing data and the message payload in a transaction and returning a status code. The complexity in the polling layer was low, at it just removed messages when they were successfully processed and marked any messages as failed when the external system responded with an error.
 
-The second context, like the first needed a relational data model, however the data consistency was going across an event pipeline. This also used PostgreSQL, but a single instance wasn't viable given forecasted performance requirements. The capabilities of row-level locking by PostgreSQL enabled multiple instances of the messaging service to be running, however this did require additional development and testing effort.
+The second context, like the first needed a relational data model, however the data consistency was going across an event pipeline. This also used PostgreSQL, but a single instance of the component wasn't viable given forecasted performance requirements. The capabilities of row-level locking by PostgreSQL enabled multiple instances of the messaging service to be running, however this did require additional development and testing effort.
 
-The third context, which I worked in, was an event pipeline with a document-oriented data model. We used Azure Cosmos as the datastore and its change feed capability to abstract away the tracking of changes. Additionally, each document was given a time-to-live (TTL) attribute that facilitated automated cleaned up. There was some complexity reading from containers in Azure Cosmos, as data and event payloads had to be written to the same container to be in a transactional.
+The third context, which I worked in, was an event pipeline with a document-oriented data model. We used Azure Cosmos as the datastore and its change feed capability to abstract away the tracking of changes. Additionally, each document was given a time-to-live (TTL) attribute that facilitated document clean up. There was some complexity reading from containers in Azure Cosmos, as data and event payloads had to be written to the same container to be in a transaction.
 
 With the above three contexts in mind, we can consider the benefits and drawbacks that the Transactional Outbox pattern gave us.
 
@@ -88,9 +88,9 @@ What made this pattern especially useful, for the context I worked in, was that 
 
 Another benefit was in deferring the creation and deployment of our messaging service. On my team, we were intentional with how identifiers were generated and could use unique constraints in the datastore, ensuring components only acted once for a specific message. We focused on unit testing to begin with and we started integration testing once the message service was in place.
 
-A final benefit came from the implementation of the Transactional Outbox pattern being cheap in each context. Whilst the second context, where row-level locking was needed, had the greatest cost it did not have a significant impact on project timelines.
+A final benefit came from the implementation of the Transactional Outbox pattern being cheap in each context. Whilst the second context had the greatest development and testing cost, relating to row-level locking and performance requirements, it ultimately did not have a significant impact on project timelines.
 
-A drawback to the Transactional Outbox pattern was the complexity introduced by having several implementations of the messaging service across the project that were not reusable. We were not able to share implementation across contexts especially when different datastore technologies, performance characteristics or kinds of downstream services are needed. The greater the variability of contexts that the pattern needs to be applied in, the less likely is that code reuse will be possible.
+A drawback to the Transactional Outbox pattern was the complexity introduced by having several implementations of the messaging service across the project that were not reusable. We were not able to share implementation across contexts especially when different datastore technologies, performance characteristics or kinds of downstream services were needed. The greater the variability of contexts that the pattern needs to be applied in, the less likely it is that code reuse will be possible.
 
 After weighing the benefits and the drawbacks, the Transactional Outbox pattern seemed better suited to the project than Event Sourcing. The project needed data consistency and reliability guarantees for interactions with several external services as well as internal components. In addition, there were no requirements indicating that the state of the system should be modelled by events.
 
