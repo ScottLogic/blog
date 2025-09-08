@@ -1,6 +1,6 @@
 ---
 title: Solving Data Consistency in Distributed Systems with the Transactional Outbox
-date: 2025-09-02 00:00:00 Z
+date: 2025-09-08 00:00:00 Z
 categories:
 - Data Engineering
 summary: Distributed systems often struggle with data consistency. In this post, I explore
