@@ -86,29 +86,29 @@ Now it should see matches between e2e and page-objects and begin to refactor you
 Example:
 In our page object we have:
 
-```
+~~~
 this.numberOfServers = page.getByLabel('Number of Servers:');
-```
+~~~
 
-```
+~~~
 async selectNumberOfServers(text: string) {
     await this.numberOfServers.click();
     await this.numberOfServers.fill(text);
   }
-```
+~~~
 
 In our e2e tests we have tests that interact with that same element:
 
-```
+~~~
 await page.getByLabel('Number of Servers').click();
 await page.getByLabel('Number of Servers').fill('20');
-```
+~~~
 
 So co-pilot can see this match in actions performed which then gives us a final result of:
 
-```
+~~~
 await onPremSection.selectNumberOfServers('20');
-```
+~~~
 
 # Conclusion
 
