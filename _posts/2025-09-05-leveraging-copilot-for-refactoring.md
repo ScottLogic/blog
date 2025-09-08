@@ -65,18 +65,18 @@ You can then sit back and watch the magic. All you have to do is proof read and 
 
 We can get started with a prompt to setup our page objects and feature templates:
 
-![prompt for page object and fixtures ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/prompt-po-fixtures.png)
+![prompt for page object and fixtures ]({{ site.baseurl }}/mnyamunda/assets/copilot-test/prompt-po-fixtures.png)
 
 Now it will generate some basic page objects and fixtures in the file and folder we have specified. If we prompt from the chatbot it will generate code there, then it's up to us to allow the creation of these files in the codebase.
 
-![base page class example]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/base-page-object.png)
+![base page class example]({{ site.baseurl }}/mnyamunda/assets/copilot-test/base-page-object.png)
 
 Another issue with existing test suite is that there were a lot of reused lines. These were mainly element visibility checks. We solved this by adding our files as context and prompting "Identify repetitive code in these files and suggest a helper method". This instantly reduced the length of our tests. It highlighted which steps are commonly used which will aid in our page object model methods later.
 
 The next step was to split TCSE into different sections as it is not a multipage application.
 Here is a high level diagram showing how we split the page into section objects:
 
-![Page object segmentation diagram ]({{ site.baseurl }}/mnyamunda/assets/co-pilot-test/pom-diagram.png)
+![Page object segmentation diagram ]({{ site.baseurl }}/mnyamunda/assets/copilot-test/pom-diagram.png)
 
 At this point we can do a bit of manual work by matching locators in our tests to these page-objects.
 Once we have all of our properties and methods in our page objects. We can add page-object files and e2e spec files as context. Our prompt can be: "Based on properties and methods within this page-object, refactor the attached e2e spec files accordingly"
