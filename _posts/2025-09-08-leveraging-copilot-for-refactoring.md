@@ -1,6 +1,6 @@
 ---
 title: Leveraging Copilot to refactor tests
-date: 2025-09-05 00:00:00 Z
+date: 2025-09-08 00:00:00 Z
 categories:
   - Testing
 tags:
@@ -8,7 +8,7 @@ tags:
   - UI
   - Playwright
   - AI
-summary: This blog explores how GitHub Copilot can be used to make refactr
+summary: This blog explores how to best use GitHub Copilot for refactoring purposes
 author: mnyamunda
 image: mnyamunda/assets/mnyamunda.jpg
 ---
