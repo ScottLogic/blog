@@ -248,7 +248,6 @@ Kibana
 timestamp
 elasticsearch
 datastore
-datastores
 wildcards
 wildcard
 inline
