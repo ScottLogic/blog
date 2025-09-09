@@ -27,7 +27,7 @@ This is where GitHub Copilot comes in very handy. After creating various methods
 
 ## Narrowing Context
 
-If the conversion is simple, then we can even apply this to multiple files at once. We can toggle the chat slide and add files/folders as context. Sometimes we don't the entire context of the project certain tasks. Ideally we want to use fewer resources/tokens, which is where the "add context" option comes in handy. We can prompt something like "Apply this new page object to relevant e2e files". By default files we have open will be included in context.
+If the conversion is simple, then we can even apply this to multiple files at once. We can toggle the chat slide and add files/folders as context. Sometimes we don't know the entire context of the project certain tasks. Ideally we want to use fewer resources/tokens, which is where the "add context" option comes in handy. We can prompt something like "Apply this new page object to relevant e2e files". By default files we have open will be included in context.
 
 In practice the steps are:
 
@@ -104,7 +104,7 @@ await page.getByLabel('Number of Servers').click();
 await page.getByLabel('Number of Servers').fill('20');
 ~~~
 
-So co-pilot can see this match in actions performed which then gives us a final result of:
+So Copilot can see this match in actions performed which then gives us a final result of:
 
 ~~~
 await onPremSection.selectNumberOfServers('20');
@@ -112,4 +112,4 @@ await onPremSection.selectNumberOfServers('20');
 
 # Conclusion
 
-Copilot is a very useful tool for time consuming tasks. It is super efficient in a scenario where automation needs to be updated and there are still work items to be tested. I have found that it works super well if the context is a bit tighter. For example refactoring one e2e test at a time. I originally attempted to refactor all 17 tests in one, and noticed that there were more mistakes. Something to also re-iterate is that it knows the context of your codebase but not necessarily the task you are carrying out at the time. So I found that being super explicit in what you aim to achieve through prompts makes it perform much better overall. For example "Refactor these files accordingly" vs "I have extracted properties and methods into these page objects, refactor the attached e2e spec files accordingly"
+Copilot is a very useful tool for time consuming tasks. It is super efficient in a scenario where automation needs to be updated and there are still work items to be tested. I have found that it works super well if the context is a bit tighter. For example refactoring one e2e test at a time. I originally attempted to refactor all 17 tests in one, and noticed that there were more mistakes. Something to also reiterate is that it knows the context of your codebase but not necessarily the task you are carrying out at the time. So I found that being super explicit in what you aim to achieve through prompts makes it perform much better overall. For example "Refactor these files accordingly" vs "I have extracted properties and methods into these page objects, refactor the attached e2e spec files accordingly"
