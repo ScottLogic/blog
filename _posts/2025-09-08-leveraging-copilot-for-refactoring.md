@@ -76,7 +76,7 @@ Another issue with existing test suite is that there were a lot of reused lines.
 The next step was to split TCSE into different sections as it is not a multipage application.
 Here is a high level diagram showing how we split the page into section objects:
 
-![Page object segmentation diagram ]({{ site.baseurl }}/mnyamunda/assets/copilot-test/pom-diagram.png)
+![Page object segmentation diagram ]({{ site.baseurl }}/mnyamunda/assets/copilot-test/pom-sections.png)
 
 At this point we can do a bit of manual work by matching locators in our tests to these page objects.
 Once we have all of our properties and methods in our page objects. We can add page object files and e2e spec files as context. Our prompt can be: "Based on properties and methods within this page object, refactor the attached e2e spec files accordingly"
