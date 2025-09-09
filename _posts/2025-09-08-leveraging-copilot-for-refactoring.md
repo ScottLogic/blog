@@ -27,7 +27,7 @@ This is where GitHub Copilot comes in very handy. After creating various methods
 
 ## Narrowing Context
 
-If the conversion is simple. Then we can even apply this to multiple files at once. We can toggle the chat slide and add files/folders as context. Sometimes we don't the entire context of the project certain tasks. Ideally we want to use fewer resources/tokens. Which is where the "add context" option comes in handy. We can prompt something like "Apply this new page object to relevant e2e files". By default files we have open will be included in context.
+If the conversion is simple, then we can even apply this to multiple files at once. We can toggle the chat slide and add files/folders as context. Sometimes we don't the entire context of the project certain tasks. Ideally we want to use fewer resources/tokens, which is where the "add context" option comes in handy. We can prompt something like "Apply this new page object to relevant e2e files". By default files we have open will be included in context.
 
 In practice the steps are:
 
@@ -35,7 +35,7 @@ In practice the steps are:
 2. Find relevant lines to edit.
 3. Refactor lines with applicable methods or properties from our page object class.
 
-If we instead point to the files/folders we can manually reduce the scope. Meaning that chances for mistakes are lower. Let's say now we know the exact files that we want to refactor:
+If we instead point to our relevant test and page object files/folders we can manually reduce the scope. Meaning that chances for mistakes are much lower. Let's say now we know the exact files that we want to refactor:
 
 ![convert to typescript prompt ]({{ site.baseurl }}/mnyamunda/assets/copilot-test/add-file-to-chat.png)
 
@@ -78,10 +78,10 @@ Here is a high level diagram showing how we split the page into section objects:
 
 ![Page object segmentation diagram ]({{ site.baseurl }}/mnyamunda/assets/copilot-test/pom-diagram.png)
 
-At this point we can do a bit of manual work by matching locators in our tests to these page-objects.
-Once we have all of our properties and methods in our page objects. We can add page-object files and e2e spec files as context. Our prompt can be: "Based on properties and methods within this page-object, refactor the attached e2e spec files accordingly"
+At this point we can do a bit of manual work by matching locators in our tests to these page objects.
+Once we have all of our properties and methods in our page objects. We can add page object files and e2e spec files as context. Our prompt can be: "Based on properties and methods within this page object, refactor the attached e2e spec files accordingly"
 
-Now it should see matches between e2e and page-objects and begin to refactor your tests with newly shortened methods.
+Now it should see matches between e2e and page objects and begin to refactor your tests with newly shortened methods.
 
 Example:
 In our page object we have:
