@@ -1,6 +1,6 @@
 ---
 title: Leveraging Copilot to rapidly refactor test automation
-date: 2025-09-08 00:00:00 Z
+date: 2025-09-10 00:00:00 Z
 categories:
   - Testing
 tags:
@@ -15,7 +15,7 @@ image: mnyamunda/assets/mnyamunda.jpg
 
 # The Problem
 
-Sometimes automation is kept relatively lightweight as there may be very few flows to automate. At this point very few positive and negative path scenarios are created to give quick confidence as regression. At some point the team may now realise that there are more and more scenarios that need to be added to ensure functionality of the application. This is when the team must adapt their test automation scripts to now cover those new scenarios and also ensure that they are easy and intuitive to update. There is also a certain threshold where the test suite should be updated to use a page object model, as tests will become very difficult to maintain otherwise.
+Sometimes automation is kept relatively lightweight as there may be very few flows to automate. At this point very few positive and negative path scenarios are created to give quick confidence in regression. At some point the team may now realise that there are more and more scenarios that need to be added to ensure functionality of the application. This is when the team must adapt their test automation scripts to now cover those new scenarios and also ensure that they are easy and intuitive to update. There is also a certain threshold where the test suite should be updated to use a page object model, as tests will become very difficult to maintain otherwise.
 
 The earlier this decision is made the better, as it may end up taking a very long time to refactor or update tests. Another issue is also having to keep up with important features that may urgently need to be tested. This can become a nightmare scenario.
 
