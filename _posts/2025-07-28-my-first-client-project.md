@@ -8,7 +8,6 @@ tags:
 summary: I have recently come off my first client project, which I was part of for
   9 months, and so I wanted to reflect on everything that I learnt during that time.
 author: hsauve
-image: "/uploads/Helene-Sauve---Lessons-under-construction---My-first-client-project.jpg"
 ---
 
 I have recently come off my first client project, which I was part of for 9 months, and so I wanted to reflect on everything that I learnt during that time. 

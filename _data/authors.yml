@@ -23,6 +23,7 @@ active-authors:
   - ceberhardt
   - cferguson
   - cfisher
+  - cfreestone
   - chayes
   - ckoris
   - colive
@@ -1468,6 +1469,11 @@ authors:
     author-summary: "I am a Graduate Software Developer at Scott Logic. "
     twitter-handle: null
     picture: profile-pic-square.jpg
+  cfreestone:
+    name: "Charlie Freestone"
+    author-summary: "I am a Tester at Scott Logic. "
+    twitter-handle: null
+    picture: profile-pic.png
   jleftley:
     name: "James Leftley"
     author-summary: "I am a Lead Developer at Scott Logic."
