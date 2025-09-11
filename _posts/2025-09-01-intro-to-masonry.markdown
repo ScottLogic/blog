@@ -31,10 +31,9 @@ Even if your layout is fixed, for example - the first item is always big, you sh
 This layout is also called "[bento box](https://bentogrids.com/)", and it was inspired from Microsoft Windows-7 [Metro design](https://en.wikipedia.org/wiki/Metro_(design_language)).
 
 <figure>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Bento_box_from_a_grocery_store.jpg" alt="Real life bento box" />
-  <figcaption>A bento box (image source: wikipedia)</figcaption>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Bento_box_from_a_grocery_store.jpg" alt="Real life bento box" style="width:50%"/>
+  <figcaption style="text-align:center">A bento box (image source: wikipedia)</figcaption>
 </figure>
-
 
 The problem begins when items are load dynamically with different sizes and still needs to be nicely laid out. The common case is like Pinterest: same width, different heights.
 Let’s say we have this line of items, and we now wonder where the next item should appear.
@@ -46,7 +45,9 @@ Alternatively, you can use the new CSS feature grid-template-rows: masonry;​. 
 
 ```
 display: grid;
+
 grid-template-columns: repeat(4, 3rem);
+
 grid-template-rows: masonry;
 ```
 
