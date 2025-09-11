@@ -15,7 +15,9 @@ As a web-developer you might have come across the term “Masonry”. If you’r
 
 <img src="{{ site.baseurl }}/osharon/assets/intro-to-masonry/pinterest.jpg" alt="Pinterest signature masonry layout"/>
 
-You might argue that it’s not a big deal but notice that items are ordered horizontally - if there were only 5 items, we would expect them fill a single row (and not be stacked in a single vertical column).
+From a designer's point of view, my colleague Marcin Palmaka argues that layouts should adhere to certain typography rules. i.e., the weight of the container and columns should derive from your font size, and your gutters should relate to your baseline (font size * line height). For additional information on that aspect, he recommends the book - [Grid systems in graphic design - Josef Muller-Brockmann](https://monoskop.org/images/a/a4/Mueller-Brockmann_Josef_Grid_Systems_in_Graphic_Design_Raster_Systeme_fuer_die_Visuele_Gestaltung_English_German_no_OCR.pdf).
+
+The big challenge in masony layout is that the items are ordered horizontally while stacked vertically - if there were only 5 items, we would expect them fill a single row (and not be stacked in a single vertical column).
 There’s no denying that masonry looks good, but do you really need it?
 If all your items are of the same height, you can use a simple grid without any issue.
 
@@ -26,6 +28,14 @@ Even if your layout is fixed, for example - the first item is always big, you sh
 
 <img src="{{ site.baseurl }}/osharon/assets/intro-to-masonry/fixed-layout.png" alt="Fixed layout"/>
 
+This layout is also called "[bento box](https://bentogrids.com/)", and it was inspired from Microsoft Windows-7 [Metro design](https://en.wikipedia.org/wiki/Metro_(design_language)).
+
+<figure>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Bento_box_from_a_grocery_store.jpg" alt="Real life bento box" />
+  <figcaption>A bento box (image source: wikipedia)</figcaption>
+</figure>
+
+
 The problem begins when items are load dynamically with different sizes and still needs to be nicely laid out. The common case is like Pinterest: same width, different heights.
 Let’s say we have this line of items, and we now wonder where the next item should appear.
 
@@ -34,7 +44,7 @@ Let’s say we have this line of items, and we now wonder where the next item sh
 If you’re not into reinventing the wheel, there are JS-based [libraries](https://spope.github.io/MiniMasonry.js/) [such](https://isotope.metafizzy.co/layout-modes/masonry) [as](https://getbootstrap.com/docs/5.1/examples/masonry/) [Masonry.js](https://masonry.desandro.com/).
 Alternatively, you can use the new CSS feature grid-template-rows: masonry;​. The only problem with it is that it’s only available on Firefox and [must be explicitly enabled](https://www.stefanjudis.com/blog/how-to-use-and-feature-detect-css-grid-masonry-layout/). The feature has been available in Firefox since 2020 but it's still not commonly used.
 
-```css
+```
 display: grid;
 grid-template-columns: repeat(4, 3rem);
 grid-template-rows: masonry;
