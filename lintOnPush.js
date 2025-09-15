@@ -41,7 +41,8 @@ const getChangedFiles = async () => {
         }
     }
 
-    return new Set(files);
+    // Ensure unique list
+    return [...new Set(files)];
 }
 
 const lintOnPush = async () => {
@@ -71,10 +72,7 @@ const lintOnPush = async () => {
     }
 }
 
-lintOnPush().then(() => {
-    console.log("Linting completed successfully");
-    process.exit(1);
-}).catch((err) => {
+lintOnPush().catch((err) => {
   console.error("Unexpected error in pre-push hook:", err);
   process.exit(1);
 });
