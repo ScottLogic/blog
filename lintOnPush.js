@@ -46,8 +46,6 @@ const getChangedFiles = async () => {
 }
 
 const lintOnPush = async () => {
-    const categories = getValidCategories();
-    
     const changedFiles = await getChangedFiles();
 
     if (changedFiles.length === 0) {
@@ -55,10 +53,10 @@ const lintOnPush = async () => {
         process.exit(0);
     }
 
-    console.log("Linting posts to be committed:", changedFiles);
+    console.log("Linting posts to be pushed:", changedFiles);
 
     let fail = false;
-
+    const categories = getValidCategories();
     for (const file of changedFiles) {
         if (!lintPost(file, categories))
         {
@@ -67,7 +65,7 @@ const lintOnPush = async () => {
     }
 
     if (fail) {
-        logError("Commit blocked due to linting errors.");
+        logError("Push blocked due to linting errors.");
         process.exit(1);
     }
 }
