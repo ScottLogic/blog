@@ -15,9 +15,9 @@ As a web-developer you might have come across the term “Masonry”. If you’r
 
 <img src="{{ site.baseurl }}/osharon/assets/intro-to-masonry/pinterest.jpg" alt="Pinterest signature masonry layout"/>
 
-From a designer's point of view, my colleague Marcin Palmaka argues that layouts should adhere to certain typography rules. i.e., the weight of the container and columns should derive from your font size, and your gutters should relate to your baseline (font size * line height). For additional information on that aspect, he recommends the book - [Grid systems in graphic design - Josef Muller-Brockmann](https://monoskop.org/images/a/a4/Mueller-Brockmann_Josef_Grid_Systems_in_Graphic_Design_Raster_Systeme_fuer_die_Visuele_Gestaltung_English_German_no_OCR.pdf).
+From a designer's point of view, my colleague [Marcin Palmaka](https://www.linkedin.com/in/marcin-palmaka-5481805b/) argues that layouts should adhere to certain typography rules. i.e., the weight of the container and columns should derive from your font size, and your gutters should relate to your baseline (font size * line height). For additional information on that aspect, he recommends the book - [Grid systems in graphic design - Josef Muller-Brockmann](https://monoskop.org/images/a/a4/Mueller-Brockmann_Josef_Grid_Systems_in_Graphic_Design_Raster_Systeme_fuer_die_Visuele_Gestaltung_English_German_no_OCR.pdf).
 
-The big challenge in masony layout is that the items are ordered horizontally while stacked vertically - if there were only 5 items, we would expect them fill a single row (and not be stacked in a single vertical column).
+The big challenge in masonry layout is that the items are ordered horizontally while stacked vertically - if there were only 5 items, we would expect them fill a single row (and not be stacked in a single vertical column).
 There’s no denying that masonry looks good, but do you really need it?
 If all your items are of the same height, you can use a simple grid without any issue.
 
@@ -28,7 +28,7 @@ Even if your layout is fixed, for example - the first item is always big, you sh
 
 <img src="{{ site.baseurl }}/osharon/assets/intro-to-masonry/fixed-layout.png" alt="Fixed layout"/>
 
-This layout is also called "[bento box](https://bentogrids.com/)", and it was inspired from Microsoft Windows-7 [Metro design](https://en.wikipedia.org/wiki/Metro_(design_language)).
+This layout is also called "[bento box](https://bentogrids.com/)", and it was inspired from Microsoft Windows 7 [Metro design](https://en.wikipedia.org/wiki/Metro_(design_language)).
 
 <figure>
   <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Bento_box_from_a_grocery_store.jpg" alt="Real life bento box" style="width:50%"/>
@@ -43,13 +43,13 @@ Let’s say we have this line of items, and we now wonder where the next item sh
 If you’re not into reinventing the wheel, there are JS-based [libraries](https://spope.github.io/MiniMasonry.js/) [such](https://isotope.metafizzy.co/layout-modes/masonry) [as](https://getbootstrap.com/docs/5.1/examples/masonry/) [Masonry.js](https://masonry.desandro.com/).
 Alternatively, you can use the new CSS feature grid-template-rows: masonry;​. The only problem with it is that it’s only available on Firefox and [must be explicitly enabled](https://www.stefanjudis.com/blog/how-to-use-and-feature-detect-css-grid-masonry-layout/). The feature has been available in Firefox since 2020 but it's still not commonly used.
 
-```
+~~~ css
 display: grid;
 
 grid-template-columns: repeat(4, 3rem);
 
 grid-template-rows: masonry;
-```
+~~~
 
 <table><tr>
 <td><img src="{{ site.baseurl }}/osharon/assets/intro-to-masonry/masonry-not-firefox.png" alt="Fixed-size grid"/>
@@ -57,8 +57,11 @@ disabled</td>
 <td><img src="{{ site.baseurl }}/osharon/assets/intro-to-masonry/masonry-firefox.png" alt="Fixed-size grid"/> enabled</td>
 </tr></table>
 
-From a technical standpoint, we’re adding the next item to the shortest column iteratively.
-Behind the scenes, masonry js-library can do one of the following - Change the actual order of HTML elements; change the visual layout using CSS transition​ feature but keep the HTML elements at their original order. When deciding between the two, you should take keyboard-navigation into consideration: When the user hit “next” on the keyboard, where should the focus go?
+Behind the scenes, the masonry.js library adds the next item to the shortest column iteratively.
+Behind the scenes, masonry js-library can do one of the following - 
+- Change the actual order of HTML elements; 
+- Change the visual layout using CSS transition​ feature but keep the HTML elements at their original order.
+When deciding between the two, you should take keyboard-navigation into consideration: When the user hit “next” on the keyboard, where should the focus go?
 
 The next step beyond standard masonry is both widths and heights are different sizes. The algorithm becomes far more complicated - it’s no longer adding an item to the shortest column as the previous libraries did, rather trying to fit each element wherever possible, but of course there’s no need to re-invent the wheel - the problem is called “[rectangle-packing](https://en.wikipedia.org/wiki/Rectangle_packing)” and there are ready made [libraries](https://github.com/mapbox/potpack) for it such as [rectangle-packer](https://www.npmjs.com/package/rectangle-packer).
 
@@ -66,5 +69,5 @@ The next step beyond standard masonry is both widths and heights are different s
 
 ## So, what are the takeaways?
 For anything static, avoid overcomplicated code. Use a css-grid generator to set the layout.
-For dynamic items of various heights (or width, just as long as one of the dimensions is fixed), use an existing library of masonry-js. Internally you can rely on Firefox feature but avoid it for public use.
+For dynamic items of various heights (or width, just as long as one of the dimensions is fixed), use the existing library [masonry.js](https://masonry.desandro.com/). If you're in a controlled environment where you can ensure everyone is using Firefox you may use the css feature, but avoid it otherwise.
 For anything more complicated, use the rect-packing algorithm.
