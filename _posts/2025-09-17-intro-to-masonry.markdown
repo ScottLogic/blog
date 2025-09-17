@@ -1,6 +1,6 @@
 ---
 title: Intro to Masonry Layout
-date: 2025-09-15 08:00:00 Z
+date: 2025-09-17 08:00:00 Z
 categories:
 - Tech
 tags:
@@ -15,7 +15,7 @@ As a web-developer you might have come across the term “Masonry”. If you’r
 
 <img src="{{ site.baseurl }}/osharon/assets/intro-to-masonry/pinterest.jpg" alt="Pinterest signature masonry layout"/>
 
-From a designer's point of view, my colleague [Marcin Palmaka](https://www.linkedin.com/in/marcin-palmaka-5481805b/) argues that layouts should adhere to certain typography rules. i.e., the weight of the container and columns should derive from your font size, and your gutters should relate to your baseline (font size * line height). For additional information on that aspect, he recommends the book - [Grid systems in graphic design - Josef Muller-Brockmann](https://monoskop.org/images/a/a4/Mueller-Brockmann_Josef_Grid_Systems_in_Graphic_Design_Raster_Systeme_fuer_die_Visuele_Gestaltung_English_German_no_OCR.pdf).
+From a designer's point of view, my colleague [Marcin Palmaka](https://www.linkedin.com/in/marcin-palmaka-5481805b/) argues that layouts should adhere to certain typography rules. i.e., the weight of the container and columns should derive from your font size, and your gutters should relate to your baseline (font size * line height). For additional information on that aspect, he recommends the book - [Grid systems in graphic design - Josef Muller-Brockmann](https://www.counter-print.co.uk/products/grid-systems).
 
 The big challenge in masonry layout is that the items are ordered horizontally while stacked vertically - if there were only 5 items, we would expect them fill a single row (and not be stacked in a single vertical column).
 There’s no denying that masonry looks good, but do you really need it?
