@@ -14,7 +14,7 @@ summary: Let's explore the concept of 'masonry' layout in web development where 
   underlying column-stacking logic, and more advanced rectangle-packing techniques
   for layouts with both variable widths and heights.
 author: osharon
-image: "/osharon/assets/masonry/pinterest.png"
+image: "{{ site.baseurl }}/osharon/assets/masonry/pinterest.png"
 ---
 
 As a web-developer you might have come across the term “Masonry”. If you’re not familiar with it, this article will hopefully shed some light on the topic. The most famous example for masonry layout is [pinterest.com](https://www.pinterest.com/). At first glance it looks like simple grid of items but notice that each item is slightly different height whilst they all stack neatly with varying gaps between them. 
