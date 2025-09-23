@@ -13,7 +13,7 @@ summary: In a previous blog post, Colin focused on rendering massive numbers of 
 
 In a previous blog post, Colin focused on rendering massive numbers of points using D3. In this post I'll consider how you can efficiently load that data using Apache Arrow.
 
-*This is a very long post. I won't judge you if you want to [skip straight to the demo](https://chrisprice.io/d3fc-webgl-hathi-explorer/).*
+*This is a very long post. I won't judge you if you want to [skip straight to the demo](https://chrisprice.dev/d3fc-webgl-hathi-explorer/).*
 
 ## Background
 
@@ -528,7 +528,7 @@ loadData();
 
 And here's a version of the above running (as the data file is so large, click to load the demo) -
 
-<iframe src="https://chrisprice.io/d3fc-webgl-hathi-explorer/#lofictl" width=640 height=480 style="border: 0"></iframe>
+<iframe src="https://chrisprice.dev/d3fc-webgl-hathi-explorer/#lofictl" width=640 height=480 style="border: 0"></iframe>
 
 If we compare this to Colin's original version, whilst it looks a bit sad you can pan/zoom the chart and the data will keep smoothly loading. However, there's no attribute-based shading and there's no annotation showing the closest point when you hover. This is because in the original version, both features required processing per data item -
 
@@ -539,9 +539,9 @@ In this version, we've done everything we can to avoid performing per-item proce
 
 Certainly adding them in in their current form wouldn't work. It is also true that we've done all we can to avoid per-item processing *on the CPU*. However, there's no getting around the fact that we need to render each point. We are definitely performing per-item processing on the GPU. What if there was a way to move these features onto the GPU?
 
-<iframe src="https://chrisprice.io/d3fc-webgl-hathi-explorer/#ctl" width=640 height=480 style="border: 0"></iframe>
+<iframe src="https://chrisprice.dev/d3fc-webgl-hathi-explorer/#ctl" width=640 height=480 style="border: 0"></iframe>
 
-Notice that in this version, you can freely interact with the chart whilst it's loading. It doesn't matter whether you're changing the fill-by selection, panning, zooming or hovering to trigger annotations - the data will keep streaming in in the background and your interactions should be completely unaffected. If you happen to have good internet tubes, you can always reload the frame or open the [standalone version](https://chrisprice.io/d3fc-webgl-hathi-explorer/) and use the [DevTools to slow the network down](https://developer.chrome.com/docs/devtools/network/reference/#throttling).
+Notice that in this version, you can freely interact with the chart whilst it's loading. It doesn't matter whether you're changing the fill-by selection, panning, zooming or hovering to trigger annotations - the data will keep streaming in in the background and your interactions should be completely unaffected. If you happen to have good internet tubes, you can always reload the frame or open the [standalone version](https://chrisprice.dev/d3fc-webgl-hathi-explorer/) and use the [DevTools to slow the network down](https://developer.chrome.com/docs/devtools/network/reference/#throttling).
 
 Sadly I've run out of space to explain in detail how these features work, but the gist of it involves embracing the massively parallel nature of the GPU to perform these calculations on the fly. Along with a fair bit of fitting square-peg Arrow types into round-hole WebGL types. The [full source code is available on GitHub](https://github.com/chrisprice/d3fc-webgl-hathi-explorer).
 
@@ -555,4 +555,4 @@ That being said, I've found it really interesting to dig deep into the data form
 
 > No part is the best part
 
-Finally, here's a link to the [standalone demo](https://chrisprice.io/d3fc-webgl-hathi-explorer/).
+Finally, here's a link to the [standalone demo](https://chrisprice.dev/d3fc-webgl-hathi-explorer/).
