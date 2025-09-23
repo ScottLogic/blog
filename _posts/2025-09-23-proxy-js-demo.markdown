@@ -129,7 +129,7 @@ state.bidi('name', document.getElementById('name'));
 Of course, Angular adds much more functionality. It provides an advanced mechanism to refresh only the relevant part of the page in case of state changes. It’s easy to refresh the entire page but it’ll have performance costs. Instead, I suggest updating the specific elements that need changing.
 
 Here You can see a <a href="{{ site.baseurl }}/osharon/assets/proxy.js/proxy-demo.html" target="demo" target="demo">demo</a> of this proxy-based State here (or its <a href="{{ site.baseurl }}/osharon/assets/proxy.js/proxy-demo.html.txt" target="demo">source code</a>)
-<iframe id="demo" name="demo" src="{{ site.baseurl }}/osharon/assets/proxy.js/proxy-demo.html" style="width:100%;height:31rem;border:0;"></iframe>
+<iframe id="demo" name="demo" src="{{ site.baseurl }}/osharon/assets/proxy.js/proxy-demo.html" style="width:100%;height:31rem;border:0;" title="demo"></iframe>
 
 Deciding which framework is the right one for your project, or which framework you should use is not a lightweight call to make. [Uncle Bob](http://www.cleancoder.com/products) also cautions about the [commitment such decision requires](https://www.youtube.com/watch?v=evmZTh7l6UE)
 . But you should consider decide to use native JS, it still doesn’t mean you need to reinvent the wheel, and I hope this article will inspire you to find a simple solution that works for you.
