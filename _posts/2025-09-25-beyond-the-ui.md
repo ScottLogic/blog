@@ -1,8 +1,6 @@
 ---
-title: "Beyond the UI":How API Testing and WireMock Powered Our Data Migration at Cube
-date: "2025-09-25T00:00:00Z"
-categories:
-- 
+title: Beyond the UI - How API Testing and WireMock Powered Our Data Migration at Cube
+date: 2025-09-25T00:00:00Z
 tags:
 - SoftwareEngineering
 - BackendTesting
