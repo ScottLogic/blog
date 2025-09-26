@@ -110,7 +110,8 @@ And we can use it like this to update the display whenever a value changes -
 
 ~~~javascript
 state.addListener('name', newValue => {
-  document.getElementById('welcomeMessage').textContent = newValue.length > 0 ? `Welcome, ${newValue}!` : 'Enter your name';
+  const text = newValue.length > 0 ? `Welcome, ${newValue}!` : 'Enter your name';
+  document.getElementById('welcomeMessage').textContent = text;
 });
 ~~~
 
