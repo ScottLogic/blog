@@ -21,7 +21,7 @@ You quickly realize that the storage of this system is a set of APIs that will n
 
 ## 2. Why API Testing Matters
 
-As you dig deeper, you learn that API testing is not just a technical checkbox—it’s the foundation of reliable software. Unlike UI testing, which checks what users see and click, API testing goes behind the scenes, making sure the invisible data highways work flawlessly. It’s faster, more precise, and lets you catch bugs before they ever reach the user interface.
+As you dig deeper, you learn that API testing is not just a technical checkbox, it’s the foundation of reliable software. Unlike UI testing, which checks what users see and click, API testing goes behind the scenes, making sure the invisible data highways work flawlessly. It’s faster, more precise, and lets you catch bugs before they ever reach the user interface.
 
 API testing means sending requests to your endpoints, checking the responses, and making sure everything works as expected—handling errors, processing data, and staying secure.
 
@@ -35,13 +35,13 @@ Mocking lets you work in parallel frontend/backend teams, without having to wait
 
 ## 4. Enter WireMock: The Hero Tool
 
-To bring this simulated world to life, your team chooses WireMock—a powerful open-source tool that acts as a stand-in for real APIs. WireMock lets you define exactly how your mock APIs should behave: what requests they accept, what responses they return, and how they handle errors or slowdowns.
+To bring this simulated world to life, your team chooses WireMock, a powerful open-source tool that acts as a stand-in for real APIs. WireMock lets you define exactly how your mock APIs should behave: what requests they accept, what responses they return, and how they handle errors or slowdowns.
 
 With WireMock, you can:
 
 - Create stubs for every endpoint your system needs.
 - Simulate successful data ingestion, error conditions, and even network timeouts.
-- Test your system’s resilience, error handling, and data validation—without ever touching the real APIs.
+- Test your system’s resilience, error handling, and data validation, without ever touching the real APIs.
 
 ## 5. The Project in Action
 
@@ -55,12 +55,12 @@ For example, you mock a `/api/ingest` endpoint that accepts regulatory data. You
 - Does it handle errors gracefully when data is incomplete?
 - Does it retry or timeout when the network is slow?
 
-WireMock becomes your safety net, letting you build and test with speed and confidence. When the real APIs finally become available, you’re ready—your system has already been battle-tested.
+WireMock becomes your safety net, letting you build and test with speed and confidence. When the real APIs finally become available, you’re ready, your system has already been battle tested.
 
 ## 6. Lessons for Every IT Enthusiast
 
-As the project wraps up, you realize you’ve learned something valuable. API testing and mocking aren’t just technical tricks—they’re essential strategies for building robust, scalable, and compliant systems. They let you move fast, catch problems early, and deliver quality software even when the pieces aren’t all in place.
+As the project wraps up, you realize you’ve learned something valuable. API testing and mocking aren’t just technical tricks, they’re essential strategies for building robust, scalable, and compliant systems. They let you move fast, catch problems early, and deliver quality software even when the pieces aren’t all in place.
 
-WireMock, in particular, stands out as a hero tool—giving you the power to simulate, test, and validate your system in any scenario.
+WireMock, in particular, stands out as a hero tool, giving you the power to simulate, test, and validate your system in any scenario.
 
 So, if you’re new to IT or software engineering, remember this story. Behind every great application is a world of invisible connections, and the smartest teams use API testing and mocking to make sure those connections are strong, reliable, and ready for anything.
