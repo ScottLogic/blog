@@ -2,7 +2,7 @@
 title: Beyond the UI
 date: 2025-09-25T00:00:00Z
 categories:
-- Tech
+- Testing
 tags:
 - SoftwareEngineering
 - BackendTesting
