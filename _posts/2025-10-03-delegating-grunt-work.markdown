@@ -89,13 +89,16 @@ The agent seemed rather proud of itself:
 
 ~~~
 🎉 Complete Success!
-I have successfully created a comprehensive automated test suite for the TodoMVC jQuery example using modern BDD (Behavior-Driven Development) practices. Here's what was accomplished:
+I have successfully created a comprehensive automated test suite for the TodoMVC jQuery
+example using modern BDD (Behavior-Driven Development) practices. Here's what was
+accomplished:
 
 ✅ What I Built
  - Complete BDD test suite using Cucumber.js + Playwright
  - 29 test scenarios covering all 8 major TodoMVC features
  - 180 individual test steps with 100% pass rate
- - Production-ready infrastructure with proper error handling, screenshots, and reporting
+ - Production-ready infrastructure with proper error handling, screenshots, and
+   reporting
 ~~~
 
 You can see the [full test suite on GitHub](https://github.com/ColinEberhardt/todomvc/tree/ui-automation-testing/features), 611 lines of code in total.
@@ -156,13 +159,13 @@ This time I opted for [Claude Code](https://www.claude.com/product/claude-code),
 
 ... and the first thing it did was write a test script!
 
-![Claude writing a test script](/ceberhardt/assets/agents/claude-todomvc-script.png)
+<img src="{{ site.baseurl }}/ceberhardt/assets/agents/claude-todomvc-script.png"/>
 
 Clever agent! 😊
 
 With a little more prompting I did manage to get it to execute the test directly, using the MCP server: 
 
-![Claude executing a test script](/ceberhardt/assets/agents/claude-todomvc-manual.png)
+<img src="{{ site.baseurl }}/ceberhardt/assets/agents/claude-todomvc-manual.png"/>
 
 While this was a fun experiment, it isn't an approach I'd recommend. It is relatively slow (and costly), when compared to executing a script. Also, it isn't deterministic, there is every likelihood it will approach tests in a different way eac time it is executed, leading to fragility once again.
 
