@@ -62,8 +62,8 @@
   - /2016/06/17/ux-scotland-2016.html
   - /2015/06/26/ux-scotland-2015.html
 /2013/07/18/betamax-in-scala.html:
-  - /2013/06/05/scala-macros-part-1.html
   - /2013/06/06/scala-macros-part-2.html
+  - /2013/06/05/scala-macros-part-1.html
 /2013/07/29/spark-stream-analysis.html:
   - /2017/02/07/the-rise-of-big-data-streaming.html
   - /2018/07/06/comparing-streaming-frameworks-pt1.html
@@ -155,8 +155,8 @@
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
 /2014/05/08/rapid-software-testing.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/07/07/School-of-Testing.html
+  - /2014/11/18/open-testing-standards.html
 /2014/05/11/reactivecocoa-tableview-binding.html:
   - /2014/11/04/mutable-array-binding-reactivecocoa.html
   - /2014/07/07/mvvm-reactive-cocoa.html
@@ -167,8 +167,8 @@
   - /2015/04/24/first-look-reactive-cocoa-3.html
   - /2019/07/19/swift-the-beautiful-language.html
 /2014/07/07/School-of-Testing.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/11/18/open-testing-standards.html
 /2014/07/07/mvvm-reactive-cocoa.html:
   - /2014/07/24/mvvm-reactivecocoa-swift.html
   - /2015/05/15/mvvm-reactive-cocoa-3.html
@@ -305,8 +305,8 @@
   - /2014/08/28/bollinger.html
   - /2017/08/23/market-profile.html
 /2014/11/18/open-testing-standards.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2014/11/20/swift-initialisation.html:
   - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
   - /2015/02/11/swift-kvo-alternatives.html
@@ -344,8 +344,8 @@
   - /2022/10/10/when-should-we-automate.html
   - /2019/07/03/Demystifying-test-automation.html
 /2015/01/16/7-things-to-look-for-when-testing-with-agility.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2015/01/20/typescript-compiler-api.html:
   - /2017/05/02/typescript-compiler-api-revisited.html
   - /2015/08/10/ts-vs-proj.html
@@ -374,8 +374,8 @@
   - /2025/02/12/playwright-visual-testing.html
   - /2014/03/19/simulator-enhancements.html
 /2015/03/03/blink.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2015/03/04/webdriverjs-and-promises.html:
   - /2020/01/13/selenium-vs-puppeteer.html
   - /2016/04/25/UsingWebdriverIO-Part2.html
@@ -483,7 +483,7 @@
   - /2014/11/25/ionic-sorter.html
 /2015/10/05/grunt-performance.html:
   - /2016/07/07/time-travel.html
-  - /2024/05/21/bunjs-a-fast-rising-star.html
+  - /2015/06/29/aurelia-part-two.html
 /2015/10/11/white-paper-html5-migration.html:
   - /2014/05/19/html5-at-enterprise-scale.html
   - /2016/10/10/unstoppable-html5.html
@@ -542,11 +542,11 @@
   - /2015/12/07/angular-2.html
   - /2014/07/30/spa-angular-knockout.html
 /2016/01/01/about.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2016/01/04/most-popular-tech-blog-posts-of-2015.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2016/01/05/angular2-with-immutablejs.html:
   - /2015/12/07/angular-2.html
   - /2016/01/25/angular2-time-travel-with-redux.html
@@ -647,8 +647,8 @@
   - /2016/04/19/mondo-bank-webhook-to-pebble-watch-timeline-using-aws-labmda-functions.html
   - /2024/03/20/how-open-banking-is-reshaping-the-sector.html
 /2016/04/01/the-2016-bcswomen-lovelace-colloquium-a-retrospective.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2016/04/04/a-functional-front-end-with-react.html:
   - /2014/07/23/frp-with-bacon-and-d3.html
   - /2014/10/28/Scala-Vs-Clojure.html
@@ -675,7 +675,7 @@
   - /2013/01/07/codeproject-mvp-2013.html
 /2016/05/16/Data-visualisation-and-Scale-Leveraging-the-macro-and-the-micro.html:
   - /2017/06/29/change-presented-two-ways.html
-  - /2018/11/30/Big-Data-London.html
+  - /2017/04/05/interactive-responsive-small-multiples.html
 /2016/05/18/make-banking-talk.html:
   - /2016/06/16/catch22-of-conversational-uis.html
   - /2016/09/05/do-you-need-a-conversational-ui.html
@@ -695,8 +695,8 @@
   - /2014/02/04/intro-to-ixd.html
   - /2018/03/23/when-technology-meets-the-arts.html
 /2016/05/26/DefectsInDefectDensity.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2016/05/26/big-data-logging-elk-stack.html:
   - /2014/12/19/elk-3-things-i-wish-id-known.html
   - /2017/02/07/the-rise-of-big-data-streaming.html
@@ -740,8 +740,8 @@
   - /2020/04/22/Async-Iterators-Across-Execution-Contexts.html
   - /2015/08/06/an-adventure-in-svg-filter-land.html
 /2016/06/29/graduate-projects-building-a-game.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2016/07/04/a-snapshot-of-testers-in-2016.html:
   - /2016/06/05/why-its-difficult-to-hire-us.html
   - /2018/12/21/so-you-heard-about-testing.html
@@ -809,8 +809,8 @@
   - /2017/04/19/help-testers-succeed.html
   - /2018/06/06/we-need-to-talk.html
 /2016/10/04/insight-into-our-2016-intern-projects.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2016/10/07/lets-have-a-conversation.html:
   - /2016/09/05/do-you-need-a-conversational-ui.html
   - /2016/06/16/catch22-of-conversational-uis.html
@@ -857,8 +857,8 @@
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
 /2016/12/07/once-upon-a-time.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2016/12/15/semantic-versioning-is-not-enough.html:
   - /2017/06/06/does-npm5-deprecate-yarn.html
   - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
@@ -878,14 +878,14 @@
   - /2015/06/26/ux-scotland-2015.html
   - /2016/06/17/ux-scotland-2016.html
 /2017/01/11/digital-transformation-getting-started-and-avoiding-common-pitfalls.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2017/01/15/testing-trading.html:
   - /2016/03/09/lonely-tester.html
   - /2016/01/18/know-your-bugs.html
 /2017/01/19/our-most-popular-tech-blog-posts-of-2016.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2017/01/26/london-marathon-visualising.html:
   - /2017/02/28/london-marathon-training-visualisation.html
   - /2022/09/12/how-data-has-improved-the-amateur-runner.html
@@ -893,8 +893,8 @@
   - /2013/07/29/spark-stream-analysis.html
   - /2018/07/06/comparing-streaming-frameworks-pt1.html
 /2017/02/08/scott-logic-bugathon-what-to-expect.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2017/02/20/initial-impressions-of-alteryx-11.html:
   - /2016/09/19/inspire-europe.html
   - /2020/12/14/alteryxing-the-advent-of-code-2020-week-2.html
@@ -920,8 +920,8 @@
   - /2016/05/30/writing-a-docker-volume-plugin.html
   - /2016/06/17/docker-swarm.html
 /2017/03/08/beboldforchange-and-beat-the-elephant-in-the-room.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2017/03/09/relogic-2.html:
   - /2017/02/28/relogic.html
   - /2018/06/11/pros-cons-of-redux-form.html
@@ -987,7 +987,7 @@
   - /2016/07/07/time-travel.html
 /2017/06/22/a-developer's-test.html:
   - /2021/12/09/Performance-Testing-with-JMeter.html
-  - /2025/03/25/pytest-with-requests-a-useful-automation-alternative-to-postman-in-a-python-world.html
+  - /2025/05/28/advice-on-transitioning-from-a-legacy-api.html
 /2017/06/25/uk-place-names.html:
   - /2018/01/12/playing-with-postgis.html
   - /2018/01/15/currencies-then-and-now-d3-map.html
@@ -1023,7 +1023,7 @@
   - /2016/04/25/UsingWebdriverIO-Part2.html
 /2017/08/31/graduate-induction-week.html:
   - /2019/08/22/keep-getting-better-because-there-s-no-limit-grad-week-2019.html
-  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2025/07/15/my-experience-with-the-scott-logic-graduate-training.html
 /2017/09/01/apache-spark-meets-chess.html:
   - /2022/07/04/data_ai.html
   - /2018/03/14/apache-spark-question-everything.html
@@ -1151,11 +1151,11 @@
   - /2024/07/05/story-points-are-wasting-time.html
   - /2017/11/04/agile-puzzle-detail-planning-and-tracking-in-agile.html
 /2018/02/19/generic-platforms-the-rule-of-three.html:
+  - /2025/07/22/legacy-systems-beyond-the-modernisation-hype.html
   - /2018/03/20/agile-monster-hunting.html
-  - /2018/03/28/domain-driven-design.html
 /2018/02/19/testing-with-cognitive-intelligence.html:
+  - /2025/08/21/is-ai-taking-over-testing-here-is-why-human-insight-still-matters.html
   - /2018/03/08/international-women-s-day-being-a-tester-at-scott-logic.html
-  - /2024/11/01/Testing-GenerativeAI-Chatbots.html
 /2018/02/19/why-women-make-great-testers.html:
   - /2018/04/20/overlooked-aspects-of-being-a-tester.html
   - /2018/04/16/a-hire-standard.html
@@ -1236,7 +1236,7 @@
   - /2017/07/20/MeetUps-and-SWT-Bristol.html
 /2018/03/28/domain-driven-design.html:
   - /2013/10/18/getting-functional-at-dddnorth.html
-  - /2017/05/17/what-it-means-to-be-agile.html
+  - /2025/06/27/want-to-deliver-value-focus-on-flow.html
 /2018/04/05/npx-the-npm-package-runner.html:
   - /2017/06/06/does-npm5-deprecate-yarn.html
   - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
@@ -1247,8 +1247,8 @@
   - /2024/10/30/our-differentiated-approach-to-testing.html
   - /2018/09/27/thoughts-from-the-software-testing-conference-north.html
 /2018/04/17/BCSWomen-Lovelace-Colloquium.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2014/05/08/rapid-software-testing.html
+  - /2014/07/07/School-of-Testing.html
 /2018/04/17/comparing-big-data-messaging.html:
   - /2023/11/14/data-distribution.html
   - /2017/10/13/MetOfficeKafka.html
@@ -1301,8 +1301,8 @@
   - /2024/04/19/monitoring-codebuild-build-status.html
   - /2019/07/29/from-monolith-to-serverless-on-aws.html
 /2018/06/26/The-3-Types-of-Minimum-Viable-Products.html:
+  - /2025/09/15/rethinking-mvps.html
   - /2017/05/17/what-it-means-to-be-agile.html
-  - /2016/09/08/why-can-no-one-agree-on-a-definition-of-mvc.html
 /2018/06/26/solid-principles.html:
   - /2017/07/17/successful-microservices-with-12factor-app.html
   - /2024/12/09/our-approach-to-software-development.html
@@ -1340,8 +1340,8 @@
   - /2014/08/22/how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.html
   - /2014/08/04/introducing-agile-development-to-client-projects.html
 /2018/08/20/the-pitfalls-of-sit.html:
+  - /2025/07/03/how-is-de-risking-a-legacy-modernisation-project-different.html
   - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
-  - /2015/01/08/automated-tests.html
 /2018/08/24/is-test-driven-development-right-for-you.html:
   - /2018/03/12/testing-confidence-engineering.html
   - /2015/01/08/automated-tests.html
@@ -1409,8 +1409,8 @@
   - /2016/06/17/ux-scotland-2016.html
   - /2016/11/04/design-data-and-redux-at-bristech.html
 /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html:
+  - /2025/07/15/my-experience-with-the-scott-logic-graduate-training.html
   - /2021/03/15/the-inside-track-six-steps-to-graduate-programme-success.html
-  - /2018/08/30/the-scott-logic-internship.html
 /2018/11/22/crypto-charting-d3fc-perspective.html:
   - /2019/04/18/building-a-perspective-plugin-with-d3fc.html
   - /2019/04/23/perspective-plugin-api-how-to-build-a-new-plugin.html
@@ -1494,7 +1494,7 @@
   - /2019/02/06/tester-s-guide-during-agile-transition.html
 /2019/03/22/sdig19.html:
   - /2018/02/14/interaction18.html
-  - /2024/01/23/reflections-from-ukgovcamp-xl.html
+  - /2015/06/26/ux-scotland-2015.html
 /2019/03/25/how-to-integrate-end-to-end-tests-in-circleci.html:
   - /2017/08/24/adding-webdriver-tests-to-create-react-app-generated-projects.html
   - /2019/03/22/a-tester-s-story-of-adapting-to-the-new-world-of-pipelines-ci-cd.html
@@ -1586,8 +1586,8 @@
   - /2020/05/01/rendering-one-million-points-with-d3.html
   - /2019/10/17/sculpting-shapes-with-webgl-fragment-shader.html
 /2019/05/30/hola-vs-hello-world.html:
+  - /2025/08/22/learning-through-doing.html
   - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
-  - /2019/07/19/why-java-developers-should-learn-c++.html
 /2019/05/31/react-vs-vue.html:
   - /2020/09/18/to-rival-react-an-overvue.html
   - /2017/05/24/creating-semantic-components-in-angular-and-react.html
@@ -1599,7 +1599,7 @@
   - /2018/04/26/webassembly-by-hand.html
 /2019/06/17/what-brexit-can-teach-us-about-software-development.html:
   - /2017/08/07/evolving-the-agile-revolution.html
-  - /2024/06/04/we-need-bold-and-better-govtech-not-big-it.html
+  - /2025/08/27/holistic-approach-successful-legacy-modernisation.html
 /2019/07/02/wosr.html:
   - /2019/03/27/attending-Tech(k)now-london-2019.html
   - /2018/06/28/ux-scotland-2018.html
@@ -1632,10 +1632,10 @@
   - /2014/08/01/swift-vs-objectivec.html
 /2019/07/19/what-its-like-working-in-software-development.html:
   - /2023/07/21/seven-things-i-wish-i-knew-when-i-started-as-a-software-developer.html
-  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2025/07/15/my-experience-with-the-scott-logic-graduate-training.html
 /2019/07/19/why-java-developers-should-learn-c++.html:
   - /2021/04/22/losing-the-fear.html
-  - /2019/05/30/hola-vs-hello-world.html
+  - /2025/08/22/learning-through-doing.html
 /2019/07/22/UX-Scotland-2019.html:
   - /2015/06/26/ux-scotland-2015.html
   - /2018/06/28/ux-scotland-2018.html
@@ -1677,7 +1677,7 @@
   - /2019/08/16/an-internship-with-friendly-people-who-want-you-to-do-well.html
 /2019/08/22/keep-getting-better-because-there-s-no-limit-grad-week-2019.html:
   - /2017/08/31/graduate-induction-week.html
-  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2025/07/15/my-experience-with-the-scott-logic-graduate-training.html
 /2019/08/27/declarative-3d-for-the-modern-web.html:
   - /2014/03/11/a-developers-intro-to-webgl.html
   - /2019/10/17/sculpting-shapes-with-webgl-fragment-shader.html
@@ -1728,7 +1728,7 @@
   - /2023/05/31/rabbitmq-deep-dive-part-two.html
 /2019/10/31/building-microservices-with-spring-boot.html:
   - /2020/08/24/microservices-for-life.html
-  - /2019/11/19/building-microservices-with-spring-boot-2.html
+  - /2017/07/17/successful-microservices-with-12factor-app.html
 /2019/11/04/(Didn't)-Nail-Polish.html:
   - /2016/09/01/highlights-from-jsconfis.html
   - /2016/09/27/learning-to-talk.html
@@ -1736,8 +1736,8 @@
   - /2017/05/08/aws-lambda-github-bot.html
   - /2019/07/29/from-monolith-to-serverless-on-aws.html
 /2019/11/15/has-your-project-hit-the-buffers.html:
+  - /2025/08/27/holistic-approach-successful-legacy-modernisation.html
   - /2024/10/23/our-approach-to-delivery.html
-  - /2018/08/16/sharing-our-experience-migrating-to-agile-mid-project.html
 /2019/11/18/drawing-lines-with-webgl.html:
   - /2019/11/27/drawing-area-polygons-with-webgl.html
   - /2019/10/17/sculpting-shapes-with-webgl-fragment-shader.html
@@ -1781,14 +1781,14 @@
   - /2020/01/16/mapping-the-cloud-atlas.html
   - /2015/10/11/white-paper-html5-migration.html
 /2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html:
+  - /2025/07/30/avoid-cultural-rework-legacy-modernisation.html
   - /2023/05/31/rabbitmq-deep-dive-part-one.html
-  - /2023/05/31/rabbitmq-deep-dive-part-two.html
 /2019/12/13/love-open-source.html:
   - /2018/11/09/7-reasons-i-love-open-source.html
   - /2018/12/14/automation-and-bots-for-open-source.html
 /2019/12/16/regular-expressions-as-icebergs.html:
+  - /2025/08/20/custom-query-language-antlr-elasticsearch.html
   - /2013/06/06/scala-macros-part-2.html
-  - /2025/01/20/algebraic-data-types-with-java.html
 /2019/12/17/performant-large-scale-web-applications.html:
   - /2024/09/17/performance-testing-the-often-overlooked-ingredient-in-web-application-success.html
   - /2021/02/17/probably-dont-need-microfrontends.html
@@ -1833,7 +1833,7 @@
   - /2020/05/01/rendering-one-million-points-with-d3.html
 /2020/01/16/planning-56-sprints-per-second-with-sat4j.html:
   - /2020/02/10/embrace-your-obsessions.html
-  - /2024/07/05/story-points-are-wasting-time.html
+  - /2025/07/11/agile-powered-empowerment.html
 /2020/01/21/beginners-terraform-serverless.html:
   - /2018/10/08/infrastructure-as-code-getting-started-with-terraform.html
   - /2020/04/21/starting-with-pulumi.html
@@ -1893,7 +1893,7 @@
   - /2018/04/17/comparing-big-data-messaging.html
 /2020/02/29/agile-progress-and-quality-reporting.html:
   - /2019/03/21/understanding-agility-and-process-optimisation.html
-  - /2017/11/04/agile-puzzle-detail-planning-and-tracking-in-agile.html
+  - /2025/06/27/want-to-deliver-value-focus-on-flow.html
 /2020/03/03/microbit-raytracer.html:
   - /2020/03/10/raytracer-how-to.html
   - /2020/03/27/microbit-optimisation.html
@@ -2018,8 +2018,8 @@
   - /2020/07/08/building-desktop-applications-in-openfin.html
   - /2020/08/05/building-desktop-applications-with-glue42.html
 /2020/08/13/building-an-integrated-desktop-application-ecosystem.html:
+  - /2025/06/12/a-proven-approach-to-legacy-modernisation-that-delivers-early-value.html
   - /2020/08/20/think-workflow-not-app.html
-  - /2020/06/24/the-new-normal-for-your-desktop.html
 /2020/08/20/think-workflow-not-app.html:
   - /2020/08/13/building-an-integrated-desktop-application-ecosystem.html
   - /2020/07/22/web-or-desktop.html
@@ -2084,8 +2084,8 @@
   - /2017/10/26/heriot-watt-bugathon.html
   - /2016/10/25/testbash2016.html
 /2020/10/08/lets-build-snake-with-rust.html:
+  - /2025/08/22/learning-through-doing.html
   - /2022/08/01/beyond-the-hype-most-loved-language-does-rust-justify-the-hype.html
-  - /2021/11/05/Learning-Resources-for-Rust.html
 /2020/10/09/charts-with-flexbox.html:
   - /2017/01/10/efficient-svg-layout-with-d3.html
   - /2015/02/02/svg-layout-flexbox.html
@@ -2097,13 +2097,13 @@
   - /2020/10/01/open-your-eyes-to-apis.html
 /2020/10/15/van-halens-rider-and-software-development.html:
   - /2018/04/23/from-the-realms-of-the-katabasis.html
-  - /2018/03/26/test-bash-newbie-heads-to-brighton.html
+  - /2025/07/11/agile-powered-empowerment.html
 /2020/10/22/fixing-the-d3-zoom-api.html:
   - /2019/05/09/building-a-better-d3-axis.html
   - /2018/09/21/d3-financial-chart.html
 /2020/11/02/narration-studio-intro.html:
   - /2020/10/09/ergo-rabbit-hole.html
-  - /2021/12/08/narrative-dashboard.html
+  - /2025/07/23/extracting-data-from-ai-models-a-tale-of-three-approaches.html
 /2020/11/13/no-excuses-guide-to-innovation-with-apis.html:
   - /2020/09/10/open-your-eyes-to-apis.html
   - /2020/10/01/open-your-eyes-to-apis.html
@@ -2112,7 +2112,7 @@
   - /2022/04/16/wasm-faas.html
 /2020/11/26/the-good-the-bad-and-the-easy.html:
   - /2018/12/21/decent-code-a-concise-guide-to-writing-better-code.html
-  - /2019/07/16/consistency-is-key.html
+  - /2022/03/24/the-dependencies-reckoning.html
 /2020/12/02/remote-possibilities.html:
   - /2021/04/09/starting-out-remotely.html
   - /2021/01/26/on-the-importance-of-a-team-manifesto.html
@@ -2121,7 +2121,7 @@
   - /2020/12/14/alteryxing-the-advent-of-code-2020-week-2.html
 /2020/12/07/on-openfin-and-interoperability.html:
   - /2020/06/24/the-new-normal-for-your-desktop.html
-  - /2020/07/08/building-desktop-applications-in-openfin.html
+  - /2025/06/12/a-proven-approach-to-legacy-modernisation-that-delivers-early-value.html
 /2020/12/08/finite-state-machines.html:
   - /2016/01/18/know-your-bugs.html
   - /2018/05/14/the-a-word-the-bad-a-word.html
@@ -2178,7 +2178,7 @@
   - /2020/10/01/open-your-eyes-to-apis.html
 /2021/03/01/a-fresh-look-at-taking-control-of-legacy.html:
   - /2020/11/13/no-excuses-guide-to-innovation-with-apis.html
-  - /2020/09/10/open-your-eyes-to-apis.html
+  - /2025/07/22/legacy-systems-beyond-the-modernisation-hype.html
 /2021/03/01/building-modern-web-apis.html:
   - /2020/09/10/open-your-eyes-to-apis.html
   - /2020/10/06/let-machines-talk-to-machines.html
@@ -2220,7 +2220,7 @@
   - /2020/12/17/sense-and-sustainability.html
 /2021/04/22/losing-the-fear.html:
   - /2019/07/19/why-java-developers-should-learn-c++.html
-  - /2019/05/30/hola-vs-hello-world.html
+  - /2025/08/22/learning-through-doing.html
 /2021/04/28/how-the-new-normal-is-taking-shape.html:
   - /2020/05/15/beyond-covid.html
   - /2020/06/05/the-future.html
@@ -2232,7 +2232,7 @@
   - /2019/03/21/understanding-agility-and-process-optimisation.html
 /2021/05/28/what-actually-is-a-data-mesh-and-is-it-really-a-thing.html:
   - /2021/03/05/data-mesh-at-dwp.html
-  - /2017/12/15/white-paper-optimising-data-lakes-for-financial-services.html
+  - /2025/06/20/what-is-a-data-lakehouse.html
 /2021/06/03/pride-2021.html:
   - /2019/08/06/why-scott-logic-celebrated-pride-month.html
   - /2022/06/16/pride-2022.html
@@ -2261,8 +2261,8 @@
   - /2021/08/01/copilot-netech.html
   - /2022/01/22/tech-behind-copilot.html
 /2021/07/16/UX-Migration-Strategy.html:
-  - /2019/12/13/debunking-cloud-myths.html
-  - /2021/03/01/a-fresh-look-at-taking-control-of-legacy.html
+  - /2025/08/27/holistic-approach-successful-legacy-modernisation.html
+  - /2025/08/06/rethink-legacy-consider-event-driven-architecture.html
 /2021/07/27/union-types-react-components.html:
   - /2021/06/28/union-types.html
   - /2021/06/24/types-vs-interfaces.html
@@ -2301,7 +2301,7 @@
   - /2020/04/01/testing-in-the-devops-world.html
 /2021/09/28/computer-skills-of-average-joe.html:
   - /2018/11/09/handling-technical-proficiency-differences-in-teams.html
-  - /2018/01/13/soft-skills-for-software-developers.html
+  - /2023/11/03/elevating-software-the-indispensable-role-of-ux.html
 /2021/09/28/inclusive-design.html:
   - /2024/03/22/designing-for-neurodiversity.html
   - /2018/02/14/interaction18.html
@@ -2339,8 +2339,8 @@
   - /2019/07/02/wosr.html
   - /2022/11/29/The career canvas.html
 /2021/11/05/Learning-Resources-for-Rust.html:
+  - /2025/08/22/learning-through-doing.html
   - /2022/08/01/beyond-the-hype-most-loved-language-does-rust-justify-the-hype.html
-  - /2024/01/03/a-journey-into-wasm.html
 /2021/11/05/gpt3.html:
   - /2023/07/05/gpt3-creativity-from-determinism.md.html
   - /2023/05/02/beyond-the-hype-is-generative-ai-coming-for-programming-jobs.html
@@ -2396,8 +2396,8 @@
   - /2021/10/18/reminiscence-of-a-scrum-master-part-i.html
   - /2021/12/17/reminiscence-of-a-scrum-master-part-iii.html
 /2022/01/22/ai-lessons-from-neuroscience.html:
-  - /2024/07/12/genai-tool-for-everyone.html
   - /2024/10/15/genai-tool-for-everyone.html
+  - /2024/07/12/genai-tool-for-everyone.html
 /2022/01/22/resilient-systems-and-experimentation.html:
   - /2021/09/28/an-introduction-to-resiliency-in-the-cloud.html
   - /2023/08/17/celebrating-failure.html
@@ -2451,7 +2451,7 @@
   - /2019/06/14/add-webassembly-to-react-app.html
 /2022/04/29/grad-summit.html:
   - /2018/04/16/a-hire-standard.html
-  - /2017/08/31/graduate-induction-week.html
+  - /2025/07/15/my-experience-with-the-scott-logic-graduate-training.html
 /2022/05/03/beyond-the-hype-multicloud.html:
   - /2024/10/21/multicloud.html
   - /2022/07/08/avoiding-the-hype-in-government.html
@@ -2484,7 +2484,7 @@
   - /2023/11/07/understand-your-data-requirements.html
 /2022/08/01/beyond-the-hype-most-loved-language-does-rust-justify-the-hype.html:
   - /2021/11/05/Learning-Resources-for-Rust.html
-  - /2020/10/08/lets-build-snake-with-rust.html
+  - /2025/08/22/learning-through-doing.html
 /2022/08/11/wearedevelopers-world-congress-the-good-the-bad-and-the-not-so-ugly.html:
   - /2023/01/16/devternity-conference-2022.html
   - /2017/11/17/codemesh.html
@@ -2510,8 +2510,8 @@
   - /2019/11/26/webassembly-on-the-blockchain.html
   - /2016/04/04/jenny-from-the-blockchain.html
 /2022/11/01/how-to-avoid-the-meeting-vortex.html:
+  - /2025/07/11/agile-powered-empowerment.html
   - /2017/07/20/MeetUps-and-SWT-Bristol.html
-  - /2022/02/18/reminiscence-of-a-scrum-master-part-v.html
 /2022/11/01/osff-panel.html:
   - /2021/10/21/financial-services-open-source.html
   - /2021/10/18/OSSF-London.html
@@ -2598,13 +2598,13 @@
   - /2023/03/31/the-new-ai-platform.html
 /2023/05/04/generative-ai-solution-architecture.html:
   - /2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html
-  - /2023/03/31/the-new-ai-platform.html
+  - /2025/06/03/navigating-enterprise-ai-architecture.html
 /2023/05/04/langchain-mini.html:
   - /2024/07/12/when-prompt-engineering-meets-linguistics.html
   - /2024/04/08/how-to-make-chatgpt-do-anything-you-want.html
 /2023/05/30/the-product-owner-role.html:
+  - /2025/07/30/avoid-cultural-rework-legacy-modernisation.html
   - /2023/03/30/im-no-longer-a-tester-im-a-checker-or-am-i.html
-  - /2023/06/26/peer-review-tips.html
 /2023/05/31/rabbitmq-deep-dive-part-one.html:
   - /2023/05/31/rabbitmq-deep-dive-part-two.html
   - /2023/06/20/jsnation-conference-2023.html
@@ -2633,8 +2633,8 @@
   - /2023/03/30/im-no-longer-a-tester-im-a-checker-or-am-i.html
   - /2023/06/20/using-the-very-app-we-created-graduate-project-2023.html
 /2023/06/29/hands-on-example-of-chatgpt-as-a-programming-tool.html:
+  - /2025/07/23/extracting-data-from-ai-models-a-tale-of-three-approaches.html
   - /2024/06/28/building-a-multi-agent-chatbot-without-langchain.html
-  - /2024/05/09/securing-a-public-aws-load-balanced-service-without-your-own-domain.html
 /2023/06/29/making-digital-products-accessible-insights-from-a-panel-discussion.html:
   - /2023/07/13/accessibility-considerations.html
   - /2019/09/11/Designing-with-accessibility-in-mind.html
@@ -2651,11 +2651,11 @@
   - /2018/10/19/living-in-an-accessible-world.html
   - /2019/09/11/Designing-with-accessibility-in-mind.html
 /2023/07/20/Environmental-Impact-The-supplier-problem.html:
-  - /2023/10/19/tools-for-measuring-cloud-carbon-emissions.html
   - /2023/07/07/reset-connect-conference-2023.html
+  - /2023/10/19/tools-for-measuring-cloud-carbon-emissions.html
 /2023/07/21/seven-things-i-wish-i-knew-when-i-started-as-a-software-developer.html:
   - /2019/07/19/what-its-like-working-in-software-development.html
-  - /2018/01/13/soft-skills-for-software-developers.html
+  - /2025/07/15/my-experience-with-the-scott-logic-graduate-training.html
 /2023/07/25/work-experience-getting-into-a-tech-career.html:
   - /2019/07/19/what-its-like-working-in-software-development.html
   - /2023/07/21/seven-things-i-wish-i-knew-when-i-started-as-a-software-developer.html
@@ -2670,7 +2670,7 @@
   - /2022/04/16/wasm-faas.html
 /2023/08/11/how-to-make-your-own-search-engine.html:
   - /2024/01/25/the-art-of-seo-and-optimising-your-voice-in-a-crowded-market.html
-  - /2022/02/23/word-embedding-recommendations.html
+  - /2025/08/20/custom-query-language-antlr-elasticsearch.html
 /2023/08/11/mental-models-and-the-user-experience.html:
   - /2014/02/04/intro-to-ixd.html
   - /2024/03/22/designing-for-neurodiversity.html
@@ -2691,7 +2691,7 @@
   - /2025/02/12/playwright-visual-testing.html
 /2023/09/12/sustainability-terminology.html:
   - /2023/09/28/embodied-carbon-from-software-development.html
-  - /2023/10/19/tools-for-measuring-cloud-carbon-emissions.html
+  - /2022/02/07/Sustainability-in-Software.html
 /2023/09/19/dynamically-skipping-tests-within-jest.html:
   - /2023/09/12/enhancing-jest-snapshot-testing.html
   - /2017/09/01/thoughts-on-jest-snapshots.html
@@ -2735,7 +2735,7 @@
   - /2022/06/20/state-of-wasm-2022.html
   - /2021/06/21/state-of-wasm.html
 /2023/10/19/tools-for-measuring-cloud-carbon-emissions.html:
-  - /2022/04/07/cloud-sustainability-reach-net-zero.html
+  - /2025/05/20/tools-for-measuring-cloud-carbon-emissions-updated-for-2025.html
   - /2024/05/08/measuring-energy-usage-in-the-cloud.html
 /2023/10/20/how-ai-can-improve-your-processes-without-actually-using-it.html:
   - /2023/11/15/bridging-the-gap-the-dance-between-humans-and-technology-in-the-ai-epoch.html
@@ -2766,7 +2766,7 @@
   - /2024/10/14/elevate-your-accessibility.html
 /2023/11/06/testing-with-intent-a-technical-view.html:
   - /2023/11/06/testing-with-intent-a-path-to-embedded-accessibility.html
-  - /2024/04/03/will-it-automate-accessibility-testing.html
+  - /2025/09/04/some-best-practices-for-writing-readable-automation-tests.html
 /2023/11/06/working-in-a-blameless-culture.html:
   - /2023/08/17/celebrating-failure.html
   - /2018/03/20/agile-monster-hunting.html
@@ -2787,7 +2787,7 @@
   - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
 /2023/11/15/bridging-the-gap-the-dance-between-humans-and-technology-in-the-ai-epoch.html:
   - /2023/10/20/how-ai-can-improve-your-processes-without-actually-using-it.html
-  - /2023/03/31/the-new-ai-platform.html
+  - /2025/05/23/bridging-the-AI-valley-of-doubt.html
 /2023/11/16/OpenAI-Outage-November-2023.html:
   - /2024/08/27/ai-in-government-addressing-bias.html
   - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
@@ -2801,8 +2801,8 @@
   - /2021/10/21/financial-services-open-source.html
   - /2018/11/09/7-reasons-i-love-open-source.html
 /2023/11/22/capabilities-to-deploy-ai-in-your-organisation.html:
-  - /2024/08/27/ai-in-government-addressing-bias.html
-  - /2025/02/20/there-is-more-than-one-way-to-do-genai.html
+  - /2025/06/03/navigating-enterprise-ai-architecture.html
+  - /2025/05/14/are-we-sleepwalking-into-ai-driven-societal-challenges.html
 /2023/11/23/conscientious-cloud-pick-your-cloud-region-deliberately.html:
   - /2022/04/07/cloud-sustainability-reach-net-zero.html
   - /2023/10/19/tools-for-measuring-cloud-carbon-emissions.html
@@ -2838,7 +2838,7 @@
   - /2018/10/25/a-developers-intro-tensorflow-and-keras.html
 /2024/01/08/never-a-waste-how-missteps-can-lead-us-to-meaningful-change.html:
   - /2024/06/04/we-need-bold-and-better-govtech-not-big-it.html
-  - /2021/12/21/delivering-digital-transformation-with-the-scottish-government.html
+  - /2025/05/29/more-than-rainbows.html
 /2024/01/09/fast-ai-study-group.html:
   - /2018/10/25/a-developers-intro-tensorflow-and-keras.html
   - /2018/03/13/tensorflow-machine-learning.html
@@ -2850,7 +2850,7 @@
   - /2025/05/08/new-tools-new-flow-the-cognitive-shift-of-ai-powered-coding.html
 /2024/01/22/beyond-the-hype-was-the-threat-the-cra-seemed-to-pose-to-open-source-just-hype.html:
   - /2025/04/15/beyond-the-hype-should-fully-autonomous-ai-agents-be-developed.html
-  - /2024/02/19/beyond-the-hype-can-technology-sustainability-really-make-a-difference.html
+  - /2025/07/09/beyond-the-hype-will-low-code-and-no-code-be-disrupted-or-powered-up-by-ai.html
 /2024/01/23/reflections-from-ukgovcamp-xl.html:
   - /2024/03/22/insights-from-the-government-digital-sustainability-alliance-gdsa-2024-summit.html
   - /2019/03/22/sdig19.html
@@ -2865,7 +2865,7 @@
   - /2024/03/15/technology-carbon-standard-update.html
 /2024/02/19/beyond-the-hype-can-technology-sustainability-really-make-a-difference.html:
   - /2025/02/10/beyond-the-hype-are-enterprise-browsers-just-about-security.html
-  - /2024/01/22/beyond-the-hype-was-the-threat-the-cra-seemed-to-pose-to-open-source-just-hype.html
+  - /2025/06/10/beyond-the-hype-event-driven-architecture-the-only-data-integration-approach-you-need.html
 /2024/02/21/how-the-tables-turned-my-life-with-spylogic.html:
   - /2023/11/03/spy-logic.html
   - /2023/11/14/testing-LLM-based-applications-strategy-and-challenges.html
@@ -2897,8 +2897,8 @@
   - /2024/04/23/are-we-ready-to-put-ai-in-the-hands-of-business-users.html
   - /2020/04/09/how-to-connect-power-bi-with-azure-devops-and-jira.html
 /2024/03/26/generating-d3-code-with-llms.html:
+  - /2025/05/27/read-the-books-should-junior-developers-use-llms.html
   - /2024/04/08/how-to-make-chatgpt-do-anything-you-want.html
-  - /2015/09/15/internProject2015.html
 /2024/03/27/ecosystems-over-user-experience-redefining-priorities-in-financial-services.html:
   - /2020/09/10/open-your-eyes-to-apis.html
   - /2020/09/30/power-moves.html
@@ -2946,7 +2946,7 @@
   - /2024/08/06/carbon-emissions-of-end-user-devices-part-two.html
 /2024/05/08/measuring-energy-usage-in-the-cloud.html:
   - /2023/10/19/tools-for-measuring-cloud-carbon-emissions.html
-  - /2024/06/20/cloud-carbon-footprint-on-premise.html
+  - /2025/05/20/tools-for-measuring-cloud-carbon-emissions-updated-for-2025.html
 /2024/05/09/securing-a-public-aws-load-balanced-service-without-your-own-domain.html:
   - /2019/07/29/from-monolith-to-serverless-on-aws.html
   - /2024/04/19/monitoring-codebuild-build-status.html
@@ -2958,7 +2958,7 @@
   - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
 /2024/05/16/navigating-knowledge-graphs-creating-cypher-queries-with-llms.html:
   - /2024/05/01/knowledge-graphs-what-are-they.html
-  - /2024/05/13/langgraph-cycling-through-llm-applications.html
+  - /2025/05/27/read-the-books-should-junior-developers-use-llms.html
 /2024/05/17/noJS-2-stochastic-boogaloo.html:
   - /2022/01/20/noJS-making-a-calculator-in-pure-css-html.html
   - /2016/09/01/using-d3-force-to-control-a-massive-display.html
@@ -2985,7 +2985,7 @@
   - /2022/06/16/pride-2022.html
 /2024/06/04/we-need-bold-and-better-govtech-not-big-it.html:
   - /2017/09/05/scaling-agile-in-the-public-sector.html
-  - /2017/08/07/evolving-the-agile-revolution.html
+  - /2025/05/29/more-than-rainbows.html
 /2024/06/10/why-we-should-care-about-process.html:
   - /2024/04/17/is-agile-the-answer.html
   - /2019/09/23/agile-is-not-a-solved-problem.html
@@ -3002,7 +3002,7 @@
   - /2018/02/16/how-much-does-a-story-point-cost.html
   - /2017/11/04/agile-puzzle-detail-planning-and-tracking-in-agile.html
 /2024/07/08/beyond-the-hype-will-we-ever-be-able-to-secure-genai.html:
-  - /2024/04/18/beyond-the-hype-are-data-mesh-and-data-fabric-just-marchitecture.html
+  - /2025/06/10/beyond-the-hype-event-driven-architecture-the-only-data-integration-approach-you-need.html
   - /2024/08/05/beyond-the-hype-is-observability-just-the-new-name-for-system-monitoring.html
 /2024/07/09/supply-chain-security-in-npm-we-can-be-optimistic-about-the-future.html:
   - /2021/10/09/oss-sustainability.html
@@ -3011,11 +3011,11 @@
   - /2024/10/15/genai-tool-for-everyone.html
   - /2024/10/07/genai-prototype-to-production.html
 /2024/07/12/when-prompt-engineering-meets-linguistics.html:
+  - /2025/05/27/read-the-books-should-junior-developers-use-llms.html
   - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
-  - /2024/04/08/how-to-make-chatgpt-do-anything-you-want.html
 /2024/07/16/investigating-code-quality-from-pr-data.html:
   - /2023/12/18/software-development-ai-wins-the-race.html
-  - /2022/08/26/contributing-to-open-source-taking-the-dive.html
+  - /2025/05/27/read-the-books-should-junior-developers-use-llms.html
 /2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html:
   - /2023/05/04/generative-ai-solution-architecture.html
   - /2025/02/20/there-is-more-than-one-way-to-do-genai.html
@@ -3050,8 +3050,8 @@
   - /2023/11/16/OpenAI-Outage-November-2023.html
   - /2023/06/01/generative-terminology.html
 /2024/09/04/lessons-on-data-quality.html:
+  - /2025/05/27/read-the-books-should-junior-developers-use-llms.html
   - /2023/11/14/testing-LLM-based-applications-strategy-and-challenges.html
-  - /2024/08/27/ai-in-government-addressing-bias.html
 /2024/09/10/llms-dont-hallucinate.html:
   - /2025/03/06/llms-dont-know-what-they-dont-know-and-thats-a-problem.html
   - /2024/07/12/when-prompt-engineering-meets-linguistics.html
@@ -3128,8 +3128,8 @@
   - /2013/09/09/nullable-in-kepler.html
   - /2019/04/29/kotlin-vs-java.html
 /2025/01/14/project-experience-developing-vairify-for-the-ecmwf.html:
+  - /2025/07/28/my-first-client-project.html
   - /2016/08/26/interview-question-explorer.html
-  - /2019/08/19/LookingAtYou.html
 /2025/01/20/algebraic-data-types-with-java.html:
   - /2025/03/05/intersection-and-union-types-with-java-and-scala.html
   - /2025/03/31/functors-monads-with-java-and-scala.html
@@ -3141,13 +3141,13 @@
   - /2015/05/08/making-technology-disappear.html
 /2025/01/28/how-business-operations-and-software-testing-overlap.html:
   - /2023/11/07/understand-your-data-requirements.html
-  - /2018/09/27/thoughts-from-the-software-testing-conference-north.html
+  - /2025/07/07/from-diligence-to-exit-the-critical-role-of-data-in-pe-investments.html
 /2025/02/10/beyond-the-hype-are-enterprise-browsers-just-about-security.html:
   - /2024/02/19/beyond-the-hype-can-technology-sustainability-really-make-a-difference.html
-  - /2024/01/22/beyond-the-hype-was-the-threat-the-cra-seemed-to-pose-to-open-source-just-hype.html
+  - /2025/06/10/beyond-the-hype-event-driven-architecture-the-only-data-integration-approach-you-need.html
 /2025/02/12/playwright-visual-testing.html:
+  - /2025/08/21/making-visual-comparison-test-maintenance-easier-with-github-actions.html
   - /2017/09/01/thoughts-on-jest-snapshots.html
-  - /2020/01/13/selenium-vs-puppeteer.html
 /2025/02/17/variance-in-java-and-scala.html:
   - /2025/03/05/intersection-and-union-types-with-java-and-scala.html
   - /2025/03/31/functors-monads-with-java-and-scala.html
@@ -3162,7 +3162,7 @@
   - /2025/01/20/algebraic-data-types-with-java.html
 /2025/03/06/llms-dont-know-what-they-dont-know-and-thats-a-problem.html:
   - /2024/09/10/llms-dont-hallucinate.html
-  - /2023/11/16/OpenAI-Outage-November-2023.html
+  - /2025/05/27/read-the-books-should-junior-developers-use-llms.html
 /2025/03/07/Imposter-Syndrome-A-Workplace-Responsibility-Not-an-Individual-Burden.html:
   - /2019/07/02/wosr.html
   - /2019/03/20/-not-only-tools-and-sources-you-need-more-than-know-how-and-technology-to-succeed-you-know-it-makes-sense.html
@@ -3186,7 +3186,7 @@
   - /2021/07/03/github-copilot-first-thoughts.html
 /2025/04/02/inferesg-finding-the-right-architecture.html:
   - /2025/03/20/inferesg-overview.html
-  - /2022/11/15/an-edgy-approach-to-designing-enterprises.html
+  - /2025/06/03/navigating-enterprise-ai-architecture.html
 /2025/04/08/tiny-computer-big-headache.html:
   - /2024/12/15/llms-vs-aoc.html
   - /2017/12/13/chip8-emulator-webassembly-rust.html
@@ -3195,13 +3195,13 @@
   - /2025/03/05/intersection-and-union-types-with-java-and-scala.html
 /2025/04/15/beyond-the-hype-should-fully-autonomous-ai-agents-be-developed.html:
   - /2024/01/22/beyond-the-hype-was-the-threat-the-cra-seemed-to-pose-to-open-source-just-hype.html
-  - /2024/02/19/beyond-the-hype-can-technology-sustainability-really-make-a-difference.html
+  - /2025/07/09/beyond-the-hype-will-low-code-and-no-code-be-disrupted-or-powered-up-by-ai.html
 /2025/04/23/img-and-accessibility.html:
   - /2020/07/02/6-most-common-accessibility-problems.html
   - /2024/01/25/the-art-of-seo-and-optimising-your-voice-in-a-crowded-market.html
 /2025/04/24/what-is-architecture.html:
   - /2024/10/15/our-approach-to-architecture.html
-  - /2024/10/23/our-approach-to-delivery.html
+  - /2025/06/03/navigating-enterprise-ai-architecture.html
 /2025/05/02/recursion-thunks-trampolines-with-java-and-scala.html:
   - /2018/01/30/exploring-dynamic-programming.html
   - /2025/03/31/functors-monads-with-java-and-scala.html
@@ -3211,3 +3211,165 @@
 /2025/05/12/beyond-the-hype-does-innovation-have-to-come-at-the-expense-of-ethics.html:
   - /2024/06/03/beyond-the-hype-can-we-do-better-than-carbon-aware-computing.html
   - /2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html
+/2025/05/14/are-we-sleepwalking-into-ai-driven-societal-challenges.html:
+  - /2023/05/04/generative-ai-solution-architecture.html
+  - /2025/05/23/bridging-the-AI-valley-of-doubt.html
+/2025/05/16/sbom-primer-practical-insights.html:
+  - /2021/10/09/oss-sustainability.html
+  - /2020/12/15/financial-crash-open-source.html
+/2025/05/20/tools-for-measuring-cloud-carbon-emissions-updated-for-2025.html:
+  - /2023/10/19/tools-for-measuring-cloud-carbon-emissions.html
+  - /2024/05/08/measuring-energy-usage-in-the-cloud.html
+/2025/05/23/bridging-the-AI-valley-of-doubt.html:
+  - /2025/05/14/are-we-sleepwalking-into-ai-driven-societal-challenges.html
+  - /2024/08/02/ai-government-prototype-to-production.html
+/2025/05/23/the-feature-fallacy.html:
+  - /2019/12/30/sustainability-in-software-development.html
+  - /2025/07/03/how-is-de-risking-a-legacy-modernisation-project-different.html
+/2025/05/23/what-consultants-should-reflect-on-between-engagements.html:
+  - /2022/02/18/reminiscence-of-a-scrum-master-part-v.html
+  - /2022/11/29/The career canvas.html
+/2025/05/27/read-the-books-should-junior-developers-use-llms.html:
+  - /2023/10/23/building_scottbot_an_ai_chatbot_for_scott_logic.html
+  - /2024/08/27/ai-in-government-addressing-bias.html
+/2025/05/28/advice-on-transitioning-from-a-legacy-api.html:
+  - /2025/07/03/how-is-de-risking-a-legacy-modernisation-project-different.html
+  - /2020/09/10/open-your-eyes-to-apis.html
+/2025/05/29/more-than-rainbows.html:
+  - /2024/06/04/we-need-bold-and-better-govtech-not-big-it.html
+  - /2017/08/07/evolving-the-agile-revolution.html
+/2025/06/03/navigating-enterprise-ai-architecture.html:
+  - /2023/05/04/generative-ai-solution-architecture.html
+  - /2025/02/20/there-is-more-than-one-way-to-do-genai.html
+/2025/06/10/beyond-the-hype-event-driven-architecture-the-only-data-integration-approach-you-need.html:
+  - /2025/02/10/beyond-the-hype-are-enterprise-browsers-just-about-security.html
+  - /2024/02/19/beyond-the-hype-can-technology-sustainability-really-make-a-difference.html
+/2025/06/12/a-proven-approach-to-legacy-modernisation-that-delivers-early-value.html:
+  - /2025/08/06/rethink-legacy-consider-event-driven-architecture.html
+  - /2020/08/13/building-an-integrated-desktop-application-ecosystem.html
+/2025/06/20/what-is-a-data-lakehouse.html:
+  - /2021/05/28/what-actually-is-a-data-mesh-and-is-it-really-a-thing.html
+  - /2017/12/15/white-paper-optimising-data-lakes-for-financial-services.html
+/2025/06/26/testing-in-production.html:
+  - /2018/04/23/from-the-realms-of-the-katabasis.html
+  - /2020/07/21/7-tips-for-transforming-testing.html
+/2025/06/27/want-to-deliver-value-focus-on-flow.html:
+  - /2020/02/29/agile-progress-and-quality-reporting.html
+  - /2019/03/21/understanding-agility-and-process-optimisation.html
+/2025/06/27/why-we-still-need-pride.html:
+  - /2023/06/20/using-the-very-app-we-created-graduate-project-2023.html
+  - /2023/05/30/the-product-owner-role.html
+/2025/07/03/how-is-de-risking-a-legacy-modernisation-project-different.html:
+  - /2025/08/27/holistic-approach-successful-legacy-modernisation.html
+  - /2022/10/10/when-should-we-automate.html
+/2025/07/07/from-diligence-to-exit-the-critical-role-of-data-in-pe-investments.html:
+  - /2023/11/07/understand-your-data-requirements.html
+  - /2024/03/27/ecosystems-over-user-experience-redefining-priorities-in-financial-services.html
+/2025/07/09/beyond-the-hype-will-low-code-and-no-code-be-disrupted-or-powered-up-by-ai.html:
+  - /2025/04/15/beyond-the-hype-should-fully-autonomous-ai-agents-be-developed.html
+  - /2024/01/22/beyond-the-hype-was-the-threat-the-cra-seemed-to-pose-to-open-source-just-hype.html
+/2025/07/09/embracing-my-neurodivergent-journey.html:
+  - /2024/03/22/designing-for-neurodiversity.html
+  - /2023/06/29/making-digital-products-accessible-insights-from-a-panel-discussion.html
+/2025/07/09/genai-sustainability-a-review-of-the-2025-numbers.html:
+  - /2025/09/09/reading-the-gentle-singularity-through-a-sustainability-lens.html
+  - /2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html
+/2025/07/11/agile-powered-empowerment.html:
+  - /2014/09/18/the-agile-mindset.html
+  - /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
+/2025/07/15/my-experience-with-the-scott-logic-graduate-training.html:
+  - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2021/03/15/the-inside-track-six-steps-to-graduate-programme-success.html
+/2025/07/16/making-digital-emissions-data-work-better.html:
+  - /2024/03/06/technology-carbon-standard-update.html
+  - /2024/02/13/announcing-the-proposed-technology-carbon-standard.html
+/2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html:
+  - /2025/07/22/visualising-the-trade-lifecycle-phase-2-refactoring-with-cursor-ide.html
+  - /2025/07/23/extracting-data-from-ai-models-a-tale-of-three-approaches.html
+/2025/07/22/legacy-systems-beyond-the-modernisation-hype.html:
+  - /2025/08/06/rethink-legacy-consider-event-driven-architecture.html
+  - /2025/08/27/holistic-approach-successful-legacy-modernisation.html
+/2025/07/22/visualising-the-trade-lifecycle-phase-2-refactoring-with-cursor-ide.html:
+  - /2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html
+  - /2025/04/01/making-sense-of-the-ai-developer-tools-ecosystem.html
+/2025/07/23/extracting-data-from-ai-models-a-tale-of-three-approaches.html:
+  - /2025/07/22/visualising-the-trade-lifecycle-phase-2-refactoring-with-cursor-ide.html
+  - /2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html
+/2025/07/24/testing-event-ingestion-service.html:
+  - /2018/04/23/from-the-realms-of-the-katabasis.html
+  - /2025/06/26/testing-in-production.html
+/2025/07/28/my-first-client-project.html:
+  - /2014/12/02/agile-projects-a-case-study.html
+  - /2017/12/07/newcastle-interns-2017-desk-directory.html
+/2025/07/30/avoid-cultural-rework-legacy-modernisation.html:
+  - /2023/03/30/im-no-longer-a-tester-im-a-checker-or-am-i.html
+  - /2019/12/13/edinburgh-open-source-in-fintech-event-series-dec-2019.html
+/2025/07/31/motivation and AI.html:
+  - /2025/05/14/are-we-sleepwalking-into-ai-driven-societal-challenges.html
+  - /2025/08/21/is-ai-taking-over-testing-here-is-why-human-insight-still-matters.html
+/2025/08/04/commercial-product-selection-reflections.html:
+  - /2022/03/24/the-dependencies-reckoning.html
+  - /2018/02/07/three-steps-to-improving-customer-experience-through-testing.html
+/2025/08/06/rethink-legacy-consider-event-driven-architecture.html:
+  - /2025/07/22/legacy-systems-beyond-the-modernisation-hype.html
+  - /2025/08/27/holistic-approach-successful-legacy-modernisation.html
+/2025/08/18/avoiding-chaos-when-testers-change-hands.html:
+  - /2025/07/03/how-is-de-risking-a-legacy-modernisation-project-different.html
+  - /2019/02/06/tester-s-guide-during-agile-transition.html
+/2025/08/18/channels-for-effective-software-team-communication-in-messaging-tools.html:
+  - /2016/09/05/do-you-need-a-conversational-ui.html
+  - /2019/03/07/tips-for-effective-issue-tracker-usage.html
+/2025/08/20/custom-query-language-antlr-elasticsearch.html:
+  - /2024/05/16/navigating-knowledge-graphs-creating-cypher-queries-with-llms.html
+  - /2023/08/11/how-to-make-your-own-search-engine.html
+/2025/08/21/is-ai-taking-over-testing-here-is-why-human-insight-still-matters.html:
+  - /2018/02/19/testing-with-cognitive-intelligence.html
+  - /2019/07/03/Demystifying-test-automation.html
+/2025/08/21/making-visual-comparison-test-maintenance-easier-with-github-actions.html:
+  - /2025/02/12/playwright-visual-testing.html
+  - /2020/01/13/selenium-vs-puppeteer.html
+/2025/08/22/css-length-units.html:
+  - /2019/06/04/android-in-style.html
+  - /2022/01/20/noJS-making-a-calculator-in-pure-css-html.html
+/2025/08/22/learning-through-doing.html:
+  - /2021/11/05/Learning-Resources-for-Rust.html
+  - /2019/04/27/webassembly-compiler.html
+/2025/08/26/how-deliver-social-value-think-small.html:
+  - /2024/06/04/we-need-bold-and-better-govtech-not-big-it.html
+  - /2025/05/29/more-than-rainbows.html
+/2025/08/27/holistic-approach-successful-legacy-modernisation.html:
+  - /2025/08/06/rethink-legacy-consider-event-driven-architecture.html
+  - /2025/07/03/how-is-de-risking-a-legacy-modernisation-project-different.html
+/2025/09/04/some-best-practices-for-writing-readable-automation-tests.html:
+  - /2020/01/13/selenium-vs-puppeteer.html
+  - /2016/04/25/UsingWebdriverIO-Part2.html
+/2025/09/04/technology-carbon-standard-update-4-sept.html:
+  - /2024/03/06/technology-carbon-standard-update.html
+  - /2024/03/15/technology-carbon-standard-update.html
+/2025/09/08/building-an-ai-agnostic-conversation-logger-phase-4-mini-me.html:
+  - /2025/07/17/visualising-the-trade-lifecycle-phase-1-building-a-react-spa-with-multiple-ais.html
+  - /2025/07/23/extracting-data-from-ai-models-a-tale-of-three-approaches.html
+/2025/09/08/solving-data-consistency-in-distributed-systems-with-the-transactional-outbox.html:
+  - /2024/04/22/message_types.html
+  - /2023/11/14/data-distribution.html
+/2025/09/09/reading-the-gentle-singularity-through-a-sustainability-lens.html:
+  - /2025/07/09/genai-sustainability-a-review-of-the-2025-numbers.html
+  - /2024/07/16/the-impending-implosion-of-generative-ai-and-the-potential-of-a-more-sustainable-future.html
+/2025/09/10/leveraging-copilot-for-refactoring.html:
+  - /2020/01/13/selenium-vs-puppeteer.html
+  - /2020/02/11/8-out-of-10-qats-said-they-prefer-cypress.html
+/2025/09/15/rethinking-mvps.html:
+  - /2018/06/26/The-3-Types-of-Minimum-Viable-Products.html
+  - /2017/05/17/what-it-means-to-be-agile.html
+/2025/09/16/greener-ai-lit-review.html:
+  - /2024/08/27/ai-in-government-addressing-bias.html
+  - /2025/09/04/technology-carbon-standard-update-4-sept.html
+/2025/09/17/intro-to-masonry.html:
+  - /2020/10/09/charts-with-flexbox.html
+  - /2017/01/10/efficient-svg-layout-with-d3.html
+/2025/09/26/proxy-js-demo.html:
+  - /2016/07/07/time-travel.html
+  - /2014/02/28/arrow-functions-in-knockoutjs.html
+/2025/10/03/delegating-grunt-work.html:
+  - /2025/08/21/is-ai-taking-over-testing-here-is-why-human-insight-still-matters.html
+  - /2025/09/10/leveraging-copilot-for-refactoring.html
