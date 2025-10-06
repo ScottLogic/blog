@@ -1,5 +1,5 @@
 ---
-title: Delegating the Grunt Work: AI Agents for UI Test Development
+title: "Delegating the Grunt Work: AI Agents for UI Test Development"
 categories:
 - Artificial Intelligence
 summary: UI automation testing is valuable but time-consuming, with on-going maintenance resulting from fragile selectors, asynchronous behaviors, and complex test paths. This blog post explores whether we can release ourselves from this burden by delegating it to an AI coding agent.
