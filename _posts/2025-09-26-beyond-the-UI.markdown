@@ -1,66 +1,79 @@
 ---
-title: Beyond the UI
+title: beyond the UI
 date: 2025-09-25T00:00:00Z
 categories:
 - Testing
+- Mocking
 tags:
 - SoftwareEngineering
 - BackendTesting
 - QualityAssurance
-summary: This blog tells the story of building a new system to pull in important data from outside sources—without having access to the real APIs during development. It shows how API testing and mocking, especially using a handy tool called WireMock, helped the team test everything properly, spot issues early, and stay on track. If you're working in tech or just curious, it’s a great example of solving problems smartly when things aren’t quite ready yet.
+summary: 
 author: asaha
 ---
 
-## Beyond the UI: A Story of Data Ingestion, API Testing, and WireMock
+## Beyond the UI: A Story of Smart Mocking with WireMock
 
-## 1. The Challenge Begins
+## 1. The Setup: Building Without All the Pieces
 
-Imagine you’ve just joined a fintech company as part of a team tasked with building a new system to ingest regulatory data from various external sources. The stakes are high: the data must be accurate, complete, and compliant with strict regulations. The project is ambitious, and the timeline is tight.
+You’ve just joined a fintech team working on a new system to ingest regulatory data. The goal is to transform incoming data into a new platform format and store it securely and compliantly. The architecture is API-driven, and your system is designed to send processed data to a set of storage APIs.
 
-You quickly realize that the storage of this system is a set of APIs that will need to be called to carry data from outside organizations into your company’s secure storage. But there’s a problem: the real APIs you need to connect to aren’t ready yet. Some are still being built, others are unstable, and a few are simply inaccessible for testing. How do you test your own system’s ability to send the ingested data when the other side of the bridge doesn’t exist?
+But there’s a hitch: those storage APIs aren’t ready yet. Some are still being developed, others are unstable, and a few are simply inaccessible for testing. You’re building a pipeline, but the final destination doesn’t exist.
 
-## 2. Why API Testing Matters
+So how do you test your system’s ability to process and store data when the storage layer isn’t available?
 
-As you dig deeper, you learn that API testing is not just a technical checkbox, it’s the foundation of reliable software. Unlike UI testing, which checks what users see and click, API testing goes behind the scenes, making sure the invisible data highways work flawlessly. It’s faster, more precise, and lets you catch bugs before they ever reach the user interface.
+## 2. Mocking: Simulating the Final Step
 
-API testing means sending requests to your endpoints, checking the responses, and making sure everything works as expected—handling errors, processing data, and staying secure.
+This is where API mocking comes into play, not to be confused with API testing. While API testing is about verifying your own APIs, mocking is about simulating external ones so you can test your system in isolation.
 
-But with the real APIs missing, how do you even start?
+In our case, we were mocking the storage APIs that would eventually receive the transformed data. By simulating these endpoints, we could validate our ingestion logic, transformation rules, and integration flows without waiting for the real storage services to be ready.
 
-## 3. The Art of Mocking: Creating a Simulated World
+Mocking allowed us to:
 
-This is where the story gets interesting. Your team introduces you to the concept of API mocking. Think of it as building a lifelike movie set: you create fake versions of the APIs, complete with realistic responses, so you can test your system as if the real thing were there.
+- Test the full ingestion to storage flow.
+- Validate data formats and payload structures.
+- Simulate error conditions and network behaviours.
+- Work in parallel with teams building the actual storage APIs.
 
-Mocking lets you work in parallel frontend/backend teams, without having to wait for each other. You can simulate every scenario, from perfect data to the weirdest edge cases, and even inject errors or delays to see how your system reacts. It’s faster, cheaper, and gives you total control.
+## 3. WireMock: Our Mocking Workhorse
 
-## 4. Enter WireMock: The Hero Tool
+To build this simulated environment, we used **WireMock**, an open-source tool that lets you mock HTTP APIs with control.
 
-To bring this simulated world to life, your team chooses WireMock, a powerful open-source tool that acts as a stand-in for real APIs. WireMock lets you define exactly how your mock APIs should behave: what requests they accept, what responses they return, and how they handle errors or slowdowns.
+Here’s how we configured it:
 
-With WireMock, you can:
+- **Stubbed endpoints**: We mocked endpoints like `/api/docs` to behave like the real storage APIs.
+- **Controlled responses**:
+  - `201 Created` for valid payloads.
+  - `400 Bad Request` for missing or malformed fields.
 
-- Create stubs for every endpoint your system needs.
-- Simulate successful data ingestion, error conditions, and even network timeouts.
-- Test your system’s resilience, error handling, and data validation, without ever touching the real APIs.
+This setup allowed us to test how our system handled:
 
-## 5. The Project in Action
+- Correctly transformed data.
+- Payloads with missing fields or incorrect formats.
+- Unexpected server errors.
 
-Armed with WireMock, your team sets up mock endpoints. You configure WireMock to send realistic regulatory data to your mocked ingestion APIs, just like the real sources would. You test how your system handles valid data, invalid formats, missing fields, and unexpected errors.
+## 4. Left-Shifting Quality: Testing Before It’s Too Late
 
-You discover bugs early, before they become expensive problems. You validate that your system can handle anything thrown at it, from perfect data to chaos. You run tests quickly and repeatedly, confident that your results are consistent and reliable.
+By mocking the storage APIs early, we were able to left-shift our quality assurance, moving testing earlier in the development cycle. This helped us:
 
-For example, you mock a `/api/ingest` endpoint that accepts regulatory data. You configure WireMock to return a `201 Created` response for valid data, a `400 Bad Request` for missing fields, and simulate a slow network by adding a delay for certain requests. You then run tests to check:
+- Catch integration bugs before the real APIs were available.
+- Ensure robustness by simulating failures.
 
-- Does your system correctly process valid data?
-- Does it handle errors gracefully when data is incomplete?
-- Does it retry or timeout when the network is slow?
+For instance, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.  
+WireMock allowed us to simulate that scenario repeatedly until we resolved the issue.
 
-WireMock becomes your safety net, letting you build and test with speed and confidence. When the real APIs finally become available, you’re ready, your system has already been battle tested.
+## 5. The Trade-Offs: Mocking vs Reality
 
-## 6. Lessons for Every IT Enthusiast
+Mocking isn’t without its drawbacks:
 
-As the project wraps up, you realize you’ve learned something valuable. API testing and mocking aren’t just technical tricks, they’re essential strategies for building robust, scalable, and compliant systems. They let you move fast, catch problems early, and deliver quality software even when the pieces aren’t all in place.
+- Mocks can drift from the real API behaviour if specs change.
+- False positives: Tests may pass against mocks but fail in production due to subtle differences.
+- Maintenance overhead: Keeping mocks aligned with evolving API contracts requires effort.
 
-WireMock, in particular, stands out as a hero tool, giving you the power to simulate, test, and validate your system in any scenario.
+But the benefits far outweighed the risks. Mocking gave us confidence to build and test early, and when the real APIs would be finally available, our system was already well-prepared.
 
-So, if you’re new to IT or software engineering, remember this story. Behind every great application is a world of invisible connections, and the smartest teams use API testing and mocking to make sure those connections are strong, reliable, and ready for anything.
+## 6. Final Thoughts: Mocking as a Strategic Enabler
+
+This experience showed us that mocking isn’t just a temporary fix, it’s a strategic enabler. It allowed us to move quickly, test thoroughly, and deliver quality software even when key components weren’t yet in place.
+
+WireMock proved invaluable. It gave us control, flexibility, and speed. And while it didn’t replace real integration testing, it helped us get there faster and with fewer surprises.
