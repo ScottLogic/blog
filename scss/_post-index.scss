@@ -8,7 +8,7 @@
 	}
 
 	h1, h2 {
-		text-align: center;
+		text-align: left;
 	}
 
 	h2 {
@@ -17,13 +17,14 @@
 
 	.sub-title {
 		margin-bottom: 2rem;
+        font-size: $baseFontSize * 2;
 		@include breakpoint(large) {
 			margin-bottom: 3rem;
 		}
 	}
 
 	h2.super-title {
-		font-size: $baseFontSize;
+		font-size: $baseFontSize * 3;
 		> a {
 			color: colours.$teal;
 			&:hover {
