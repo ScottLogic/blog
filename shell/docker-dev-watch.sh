@@ -55,7 +55,7 @@ set -x
 # https://jekyllrb.com/docs/configuration/options/
 exec docker run -it --rm --init \
 --name sl-jekyll-run \
--v "$REPOROOT/$BLOG_USERNAME":"$CONTAINER_WORKDIR/"$BLOG_USERNAME":ro" \
+-v "$REPOROOT/$BLOG_USERNAME":"$CONTAINER_WORKDIR/$BLOG_USERNAME:ro" \
 -v "$REPOROOT/container_gem_cache":"$CONTAINER_WORKDIR/.bundle:ro" \
 "${SERVE_MOUNT_ARGS[@]}" \
 -v "$REPOROOT/dist":/dist \

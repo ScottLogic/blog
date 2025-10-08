@@ -1,7 +1,7 @@
 {% assign post = include.post %}
 {% assign hideCategory = include.hideCategory %}
 {% assign author = site.data.authors.authors[post.author] %}
-<div class="post-summary grid-margin-y grid-padding-y {% include post_colour.html post=post %}">
+<div class="post-summary grid-padding-x grid-margin-y grid-padding-y {% include post_colour.html post=post %} cell large-6 small-12">
     <div class="post-summary cell grid-margin-y">
         {% unless hideCategory %}
             {% include category_display.html post = post %}
@@ -12,7 +12,7 @@
         </div>
         <div class="cell">
             {% if post.summary %}
-            {{ post.summary }}
+            {{ post.summary | truncatewords:50 }}
             {% else %}
             {{ post.content | strip_html | truncatewords:50 }}
             {% endif %}

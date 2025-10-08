@@ -6,8 +6,8 @@
       {% assign contributor = site.data.authors.authors[contributorId] %}
       <a href="{{ site.baseurl }}/{{ contributorId }}">{{ contributor.name }}</a>{% unless forloop.last %}, {% endunless %}
     {% endfor %}
-    <span> &middot;</span>
   </span>
+  <br>
   <span class="timestamp" date-published="{{ post.date }}">
     {% include format_date.html date=post.date %}
   </span>

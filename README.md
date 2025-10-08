@@ -127,16 +127,18 @@ gem update
 gem install jekyll bundler nokogiri
 ```
 
-Thirdly, configure Bundler to store project dependencies in `vendor/bundle`, and,
-when in the root directory of your clone of the blog, install the project dependencies.
-
+Optionally, configure Bundler to store project dependencies in `vendor/bundle`
 ```shell
 bundle config path vendor/bundle
+```
+
+When in the root directory of your clone of the blog, install the project dependencies.
+```shell
 cd PATH/TO/BLOG
 bundle install
 ```
 
-Finally, run `jekyll -v` to check whether Jekyll is working. If so, you're good to run the blog!
+Finally, run `bundle exec jekyll -v` to check whether Jekyll is working. If so, you're good to run the blog!
 
 #### Running in the native environment
 
@@ -146,8 +148,9 @@ Navigate to the root directory of your clone of the blog and execute Jekyll usin
 ```shell
 bundle exec jekyll serve
 ```
+See [jekyll's docs](https://jekyllrb.com/docs/configuration/options/) for command line flags.
 
-The blog will then be available on [localhost][localhost].
+The blog will then be available on [localhost:4000](http://localhost:4000).
 
 If you are working on fixes or new features, and need to re-compile the scripts or SCSS, you can use these npm scripts:
 
@@ -156,6 +159,10 @@ npm ci
 npm run scripts
 npm run style
 ```
+
+##### Useful Command Line Flags
+* `--livereload` - trigger a build on file change (excluding SCSS or JS) and refresh the brower once built
+* `--incremental` - use the experimental incremental build mode which after the initial build, only builds changed files
 
 ### Running with Docker
 
