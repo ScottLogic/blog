@@ -1,18 +1,9 @@
 @use 'colours';
-
-$max-width: 1400px;
-
-$baseFontSize: 16px;
-$monospaceFontSize: $baseFontSize * 0.9;
-$smallLayoutUnit: 5px;
-$layoutUnit: 10px;
-
-$footer-height: 216px;
-
-$font-family: "objektiv-mk1", Helvetica, Arial, sans-serif !important;
+@use "sizes";
+@use "fonts";
 
 html, body {
-    max-width: $max-width;
+    max-width: sizes.$max-width;
     margin: 0 auto;
     padding: 0;
     height: 100%;
@@ -25,26 +16,19 @@ html, body {
 
 .post-index, .default-post, .default-author {
   min-height: 100%;
-  padding-bottom: $footer-height;
-  margin-bottom: -$footer-height;
+  padding-bottom: sizes.$footer-height;
+  margin-bottom: -(sizes.$footer-height);
 }
 
 /* Font Settings */
-/* 
-Sizes set to PX here, but if base size is set to 16px, you can
-replace with REM.
-*/
-$font-light: 300;
-$font-regular: 400;
-$font-medium: 500;
-$font-bold: 700;
+
 body {
-    font-family: $font-family;
+    font-family: fonts.$font-family;
 }
 
 a.link {
     /* Links & Buttons   */
-    font-weight: $font-medium;
+    font-weight: fonts.$font-medium;
     border-bottom: 5px solid;
     padding-bottom: 0;
     background-color: transparent;
@@ -60,7 +44,7 @@ a.link {
 a {
     color: inherit;
     text-decoration: inherit;
-    font-weight: $font-bold;
+    font-weight: fonts.$font-bold;
 }
 
 a:hover {
@@ -68,41 +52,41 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-family;
+  font-family: fonts.$font-family;
 }
 
 h1 {
-	font-size: $baseFontSize * 2.5;
-  font-weight: $font-bold;
+	font-size: fonts.$baseFontSize * 2.5;
+  font-weight: fonts.$font-bold;
   text-align: center;
 }
 
 h2 {
-  font-size: $baseFontSize * 1.5;
-  font-weight: $font-bold;
+  font-size: fonts.$baseFontSize * 1.5;
+  font-weight: fonts.$font-bold;
 }
 
 h3 {
-  font-size: $baseFontSize * 1.25;
-  font-weight: $font-bold;
+  font-size: fonts.$baseFontSize * 1.25;
+  font-weight: fonts.$font-bold;
 }
 
 h4 {
-  font-size: $baseFontSize;
-  font-weight: $font-bold;
+  font-size: fonts.$baseFontSize;
+  font-weight: fonts.$font-bold;
 }
 h5 {
-  font-weight: $font-medium;
+  font-weight: fonts.$font-medium;
 }
 h6 {
-  font-weight: $font-regular;
+  font-weight: fonts.$font-regular;
 }
 
 p {
   font-size: 16px;
-  font-weight: $font-light;
+  font-weight: fonts.$font-light;
   span {
-      font-weight: $font-medium
+      font-weight: fonts.$font-medium
   }
 }
 
@@ -172,11 +156,11 @@ header nav {
 }
 
 .category > a {
-  font-weight: $font-light;
+  font-weight: fonts.$font-light;
 }
 
 .cta > a {
-  font-weight: $font-bold;
+  font-weight: fonts.$font-bold;
 }
 
 .header-nav_top {

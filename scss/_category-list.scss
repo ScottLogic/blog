@@ -1,18 +1,23 @@
-@use "colours";
+@use 'colours';
+@use 'fonts';
 
 .category-list {
   a {
-    font-weight: $font-regular;
+    font-weight: fonts.$font-regular;
   }
 
   li {
     margin: 0.4rem 0;
 
     a {
-      font-weight: $font-light;
+      font-weight: fonts.$font-regular;
     }
 
-    display: inline;
+    a:hover {
+      color: colours.$black;
+      border-bottom: 3px solid colours.$teal;
+      display: inline;
+    }
   }
 
   a:visited {

@@ -1,9 +1,11 @@
+@use 'util';
+
 .error-page {
 
-	padding-top: 80px;
-	@include breakpoint(large) {
-		padding-top: 150px;
-	}
+  padding-top: 80px;
+  @include util.breakpoint(large) {
+    padding-top: 150px;
+  }
 
   h1 {
     font-size: 3rem;

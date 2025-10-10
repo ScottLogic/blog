@@ -1,4 +1,5 @@
 @use '../colours';
+@use '../util';
 
 #mobileMenu:not( .mm-menu ) { display: none; }
 
@@ -11,7 +12,7 @@ header {
   padding: 2rem 0 2rem 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  @include breakpoint(large) {
+  @include util.breakpoint(large) {
     padding: 2rem 0 0 0;
   }
   z-index: 2;
@@ -23,11 +24,11 @@ header {
     margin: auto;
     padding: 0;
     width: 165px;
-    @include breakpoint(medium) {
-      margin: 0 0 0 rem-calc(40px, 16px)
+    @include util.breakpoint(medium) {
+      margin: 0 0 0 util.rem-calc(40px, 16px)
     }
-    @include breakpoint(large) {
-      margin: rem-calc(24px, 16px) 0 0 0;
+    @include util.breakpoint(large) {
+      margin: util.rem-calc(24px, 16px) 0 0 0;
     }
     a {
       background: url('./assets/logo.svg') no-repeat 0 0;
@@ -36,8 +37,8 @@ header {
       display: block;
       text-indent: -9999px;
     }
-    @include breakpoint(large) {
-      margin: rem-calc(24px, 16px) 0 0 0;
+    @include util.breakpoint(large) {
+      margin: util.rem-calc(24px, 16px) 0 0 0;
       width: 421px;
       a {
         background: url('./assets/logo.svg') no-repeat 0 0;
@@ -51,7 +52,7 @@ header {
 
   nav {
     display: none;
-    @include breakpoint(large) {
+    @include util.breakpoint(large) {
       display: block;
     }
 
@@ -67,10 +68,10 @@ header {
 
   .header-nav_top {
     ul {
-      margin-bottom: rem-calc(10px, 16px);
+      margin-bottom: util.rem-calc(10px, 16px);
       li {
-        font-size: rem-calc(11px, 16px);
-        padding-left: rem-calc(10px, 16px);
+        font-size: util.rem-calc(11px, 16px);
+        padding-left: util.rem-calc(10px, 16px);
         &.current-menu-item {
           a {
             text-decoration: underline
@@ -84,13 +85,13 @@ header {
     display: block;
     ul {
       li {
-        font-size: rem-calc(14px, 16px);
-        padding-left: rem-calc(10px, 16px);
-        @include breakpoint(large) {
-          padding-left: rem-calc(20px, 16px);
+        font-size: util.rem-calc(14px, 16px);
+        padding-left: util.rem-calc(10px, 16px);
+        @include util.breakpoint(large) {
+          padding-left: util.rem-calc(20px, 16px);
         }
         a {
-          padding-bottom: rem-calc(35px, 16px);
+          padding-bottom: util.rem-calc(35px, 16px);
           display: block;
         }
       }
@@ -99,13 +100,13 @@ header {
 }
 
 .mobile-nav-trigger {
-  width: rem-calc(16px, 16px);
-  height: rem-calc(13px, 16px);
+  width: util.rem-calc(16px, 16px);
+  height: util.rem-calc(13px, 16px);
   display: block;
   position: absolute;
-  top: rem-calc(32px, 16px);
-  left: rem-calc(20px, 16px);
-  @include breakpoint(large) {
+  top: util.rem-calc(32px, 16px);
+  left: util.rem-calc(20px, 16px);
+  @include util.breakpoint(large) {
     display: none;
   }
 
@@ -120,7 +121,7 @@ header.no-hero {
   padding: 2rem 0 2rem 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  @include breakpoint(large) {
+  @include util.breakpoint(large) {
     position: fixed;
     top:0;
     width: 100%;
@@ -135,26 +136,26 @@ header.no-hero {
 
   .mobile-search {
     background: url('./assets/search-icon-black.svg') no-repeat 0 0;
-    width: rem-calc(15px, 16px);
-    height: rem-calc(15px, 16px);
+    width: util.rem-calc(15px, 16px);
+    height: util.rem-calc(15px, 16px);
     display: block;
     position: absolute;
-    top: rem-calc(32px, 16px);
-    right: rem-calc(20px, 16px);
-    @include breakpoint(large) {
+    top: util.rem-calc(32px, 16px);
+    right: util.rem-calc(20px, 16px);
+    @include util.breakpoint(large) {
       display: none;
     }
   }
 
   .mobile-nav-trigger {
     background: url('./assets/hamburger-black.svg') no-repeat 0 0;
-    width: rem-calc(16px, 16px);
-    height: rem-calc(13px, 16px);
+    width: util.rem-calc(16px, 16px);
+    height: util.rem-calc(13px, 16px);
     display: block;
     position: absolute;
-    top: rem-calc(32px, 16px);
-    left: rem-calc(20px, 16px);
-    @include breakpoint(large) {
+    top: util.rem-calc(32px, 16px);
+    left: util.rem-calc(20px, 16px);
+    @include util.breakpoint(large) {
       display: none;
     }
   }
@@ -183,11 +184,11 @@ header.no-hero {
     margin: auto;
     padding: 0;
     width: 165px;
-    @include breakpoint(medium) {
-      margin-left: rem-calc(40px, 16px)
+    @include util.breakpoint(medium) {
+      margin-left: util.rem-calc(40px, 16px)
     }
-    @include breakpoint(large) {
-      margin: rem-calc(38px, 16px) 0 0 0;
+    @include util.breakpoint(large) {
+      margin: util.rem-calc(38px, 16px) 0 0 0;
     }
     a {
       background: url('./assets/logo.svg') no-repeat 0 0;
@@ -196,8 +197,8 @@ header.no-hero {
       display: block;
       text-indent: -9999px;
     }
-    @include breakpoint(large) {
-      margin: rem-calc(38px, 16px) 0 0 0;
+    @include util.breakpoint(large) {
+      margin: util.rem-calc(38px, 16px) 0 0 0;
       width: 421px;
       a {
         background: url('./assets/logo.svg') no-repeat 0 0;
@@ -213,14 +214,14 @@ header.no-hero {
 
 
 header.fixed-header {
-  @include breakpoint(large) {
+  @include util.breakpoint(large) {
     position: fixed;
     top:0;
     width: 100%;
     background: rgba(255,255,255,0.9);
     padding: 0;
     z-index: 99;
-    border-bottom: 0px solid rgba(206, 210, 211, 0.3);
+    border-bottom: 0 solid rgba(206, 210, 211, 0.3);
 
     a, .header-nav_bottom a {
       color: colours.$black;
@@ -245,16 +246,16 @@ header.fixed-header {
       display: block;
       ul {
         li {
-          font-size: rem-calc(14px, 16px);
-          padding-left: rem-calc(10px, 16px);
-          @include breakpoint(large) {
-            padding-left: rem-calc(20px, 16px);
+          font-size: util.rem-calc(14px, 16px);
+          padding-left: util.rem-calc(10px, 16px);
+          @include util.breakpoint(large) {
+            padding-left: util.rem-calc(20px, 16px);
           }
           a {
-            padding-bottom: rem-calc(5px, 16px);
+            padding-bottom: util.rem-calc(5px, 16px);
             display: block;
             &:hover {
-              padding-bottom: rem-calc(5px, 16px);
+              padding-bottom: util.rem-calc(5px, 16px);
             }
           }
         }
@@ -266,8 +267,8 @@ header.fixed-header {
       margin: auto;
       padding: 0;
       width: 165px;
-      @include breakpoint(large) {
-        margin: rem-calc(27px, 16px) 0 0 0;
+      @include util.breakpoint(large) {
+        margin: util.rem-calc(27px, 16px) 0 0 0;
       }
       a {
         background: url('./assets/logo.svg') no-repeat 0 0;
@@ -276,8 +277,8 @@ header.fixed-header {
         display: block;
         text-indent: -9999px;
       }
-      @include breakpoint(large) {
-        margin: rem-calc(27px, 16px) 0 rem-calc(22px, 16px) 0;
+      @include util.breakpoint(large) {
+        margin: util.rem-calc(27px, 16px) 0 util.rem-calc(22px, 16px) 0;
         width: 421px;
         a {
           background: url('./assets/logo.svg') no-repeat 0 0;
@@ -297,7 +298,7 @@ header.fixed-header {
   width: 16px;
   height: 13px;
   position: relative;
-  margin: 0px auto;
+  margin: 0 auto;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -315,7 +316,7 @@ header.fixed-header {
   height: 1px;
   width: 100%;
   background: #000;
-  border-radius: 0px;
+  border-radius: 0;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
@@ -329,7 +330,7 @@ header.fixed-header {
 }
 
 #nav-icon span:nth-child(1) {
-  top: 0px;
+  top: 0;
 }
 
 #nav-icon span:nth-child(2),#nav-icon span:nth-child(3) {
@@ -342,7 +343,7 @@ header.fixed-header {
 
 #nav-icon.open span:nth-child(1) {
   top: 18px;
-  width: 0%;
+  width: 0;
   left: 50%;
 }
 
@@ -362,6 +363,6 @@ header.fixed-header {
 
 #nav-icon.open span:nth-child(4) {
   top: 18px;
-  width: 0%;
+  width: 0;
   left: 50%;
 }
