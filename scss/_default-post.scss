@@ -1,56 +1,43 @@
-@use "colours";
+@use 'colours';
+@use 'fonts';
+@use 'article-colour-scheme' as scheme;
+@use 'util';
 
 .default-post {
   &.teal {
-    @include hero-colour-scheme(
-      colours.$light-teal,
-      colours.$teal,
-      colours.$white
-    );
-    @include article-colour-scheme(colours.$teal, colours.$black);
+    @include scheme.hero-colour-scheme(colours.$light-teal, colours.$teal, colours.$white);
+    @include scheme.article-colour-scheme(colours.$teal, colours.$black);
   }
 
   &.orange {
-    @include hero-colour-scheme(
-      colours.$light-orange,
-      colours.$orange,
-      colours.$white
-    );
-    @include article-colour-scheme(colours.$orange, colours.$black);
+    @include scheme.hero-colour-scheme(colours.$light-orange, colours.$orange, colours.$white);
+    @include scheme.article-colour-scheme(colours.$orange, colours.$black);
   }
 
   &.pink {
-    @include hero-colour-scheme(
-      colours.$light-pink,
-      colours.$pink,
-      colours.$white
-    );
-    @include article-colour-scheme(colours.$pink, colours.$white);
+    @include scheme.hero-colour-scheme(colours.$light-pink, colours.$pink, colours.$white);
+    @include scheme.article-colour-scheme(colours.$pink, colours.$white);
   }
 
   &.yellow {
-    @include hero-colour-scheme(
-      colours.$light-yellow,
-      colours.$yellow,
-      colours.$white
-    );
-    @include article-colour-scheme(colours.$yellow, colours.$black);
+    @include scheme.hero-colour-scheme(colours.$light-yellow, colours.$yellow, colours.$white);
+    @include scheme.article-colour-scheme(colours.$yellow, colours.$black);
   }
 
   padding-top: 80px;
-  @include breakpoint(large) {
+  @include util.breakpoint(large) {
     padding-top: 150px;
   }
 
   .hero {
     margin-bottom: 1rem;
-    @include breakpoint(large) {
+    @include util.breakpoint(large) {
       margin-bottom: 2rem;
     }
 
     > .content {
       padding: 2rem 0;
-      @include breakpoint(large) {
+      @include util.breakpoint(large) {
         padding: 3rem 0;
       }
     }
@@ -101,7 +88,7 @@
   .post-content {
     a {
       color: colours.$black;
-      font-weight: $font-regular;
+      font-weight: fonts.$font-regular;
     }
 
     h1 {
@@ -119,7 +106,8 @@
       margin-block: 0 1rem;
       margin-inline: 1.25rem 0;
       padding: 0;
-      font-weight: $font-light;
+      font-weight: fonts.$font-light;
+      font-size: fonts.$baseFontSize;
       line-height: 1.6;
     }
 
