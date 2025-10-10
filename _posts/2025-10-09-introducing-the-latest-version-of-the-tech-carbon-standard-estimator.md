@@ -23,25 +23,27 @@ A big thankyou to Daniel Moorhouse, Ben Stinchcombe, Max Nyamunda and Matthew Gr
 ---
 
 ## **Schema Updates**
-The TCSE uses the latest version of the [Tech Carbon Standard](https://github.com/ScottLogic/Technology-Carbon-Standard) schema. This is particular important when it comes to exporting the data as we are able to provide the raw emission data in the structure for users to then potentially ingest into their own tools or applications. 
+The TCSE uses the latest version of the [Tech Carbon Standard](https://github.com/ScottLogic/Technology-Carbon-Standard) schema. This is particularly important when it comes to exporting the data as we are able to provide the raw emission data in a pre-defined, consistent structure for users to potentially ingest into their own tools or applications if required.
 
 ---
 
-## **Data available in kg C02e or %**
+## **Emissions data available in kg C02e and percentages**
 Previously, the TCSE only displayed estimated carbon emissions as a percentage breakdown across the 4 sectors of the Tech Carbon Standard. With this latest release, users can view this data as either a kg C02e or percentage breakdown. This will provide users with better context around their estimated emissions and therefore make the tool more valuable.
 
 We also made sure that the tool was updated to use the latest version of the CO2.js library, providing the most accurate estimates possible.
 
 ![graph-kgs.png]({{site.baseurl}}/kellis/assets/graph-kgs.png)
 
-![graph-%.png]({{site.baseurl}}/kellis/assets/graph-%.png)
+![graph-percent.png]({{site.baseurl}}/kellis/assets/graph-percent.png)
 
 ![table.png]({{site.baseurl}}/kellis/assets/table.png)
 
 ---
 
 ## **Exportable Data in JSON or PDF formats**
-With the addition of kg C02e values, it made sense to make this available to users beyond the UI of the application and hence we have implemented several export options into the latest version. Users can export the data in JSON format (which will use the Tech Carbon Standard schema) and also have the additonal option to have their estimation input values represented if required. There is also a PDF option which will provide users with a snapshot of the tree graph and table - this will bee useful for user that want to generate and file reports at regualr intervals to track any changes.
+With the addition of kg C02e values, it made sense to make this data available to users beyond the UI of the application and hence we have implemented several export options. Users can export the data in [JSON]({{site.baseurl}}/kellis/assets/carbon-estimation.json) format (which will use the Tech Carbon Standard schema) and also have the additonal option to have their estimation input values represented if required. There is also a [PDF]({{site.baseurl}}/kellis/assets/report.pdf) option which will provide users with a snapshot of the tree graph and table - this will be useful for user that want to generate and file reports at regualr intervals to track any changes.
+
+![export.png]({{site.baseurl}}/kellis/assets/export.png)
 
 ---
 
@@ -50,8 +52,8 @@ There were various aspects of the application that didn't adhere to WCAG 2.1 AA 
 
 ---
 
-### **Improved Testing**
-The automation framework was migrated from Python to Typescript so that we could leverage all of the best features of Playwright. This included added screenshot comparison testing (very helpful for testing the tree graph) and automated accessability testing.
+## **Improved Testing**
+The automation framework was migrated from Python to Typescript so that we could leverage all of the best features of Playwright. This included adding screenshot comparison testing (very helpful for testing the tree graph) and automated accessability testing.
 
 The new framework also uses a Page Object Model to make future test writing and maintainability quick and easy.
 
