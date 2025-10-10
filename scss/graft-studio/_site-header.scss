@@ -5,6 +5,10 @@
   display: none;
 }
 
+#mobileMenu:not(.mm-menu) {
+  display: none;
+}
+
 header {
   width: 100%;
   display: block;

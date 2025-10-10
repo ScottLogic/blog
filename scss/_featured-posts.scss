@@ -1,5 +1,5 @@
-@use 'colours';
-@use 'util';
+@use "colours";
+@use "util";
 
 @mixin featured-colours($bg-colour, $fg-colour) {
   .summary {
@@ -32,6 +32,9 @@
     object-fit: cover;
     height: 100%;
     width: 100%;
+  }
+  @include util.breakpoint(large) {
+    margin-right: -75%;
   }
 }
 

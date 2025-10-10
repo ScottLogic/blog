@@ -1,5 +1,5 @@
 @use "colours";
-@use 'fonts';
+@use "fonts";
 
 $underline-height: 3px;
 
@@ -18,15 +18,15 @@ $underline-height: 3px;
     padding-bottom: $underline-height;
   }
 
-    li {
-    	margin: .4rem 0;
+  li {
+    margin: 0.4rem 0;
 
-    	a {
-    		font-weight: fonts.$font-bold;
-    	}
-      font-weight: fonts.$font-regular;
-      display: inline;
+    a {
+      font-weight: fonts.$font-bold;
     }
+    font-weight: fonts.$font-regular;
+    display: inline;
+  }
 
   a:hover {
     color: colours.$black;
