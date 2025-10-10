@@ -1,29 +1,31 @@
 @use 'colours';
+@use 'fonts';
+@use 'util';
 
 .post-index {
 
-	padding-top: 125px;
-	@include breakpoint(large) {
-		padding-top: 150px;
-	}
+  padding-top: 125px;
+  @include util.breakpoint(large) {
+    padding-top: 150px;
+  }
 
 	h1, h2 {
 		text-align: center;
 	}
 
-	h2 {
-		font-weight: $font-regular;
-	}
+  h2 {
+    font-weight: fonts.$font-regular;
+  }
 
 	.sub-title {
 		margin-bottom: 2rem;
-		@include breakpoint(large) {
+		@include util.breakpoint(large) {
 			margin-bottom: 3rem;
 		}
 	}
 
 	h2.super-title {
-		font-size: $baseFontSize;
+		font-size: fonts.$baseFontSize;
 		> a {
 			color: colours.$teal;
 			&:hover {
@@ -33,9 +35,9 @@
 		}
 	}
 
-	.main-content > div {
-		display: inline-block;
-	}
+  .main-content > div {
+    display: inline-block;
+  }
 
   .active {
     border-bottom: 3px solid colours.$teal;

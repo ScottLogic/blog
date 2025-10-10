@@ -1,15 +1,16 @@
 @use 'colours';
+@use 'fonts';
 
 .author-list {
     a {
-        font-weight: $font-regular;
+        font-weight: fonts.$font-regular;
     }
 
     li {
     	margin: .4rem 0;
 
     	a {
-    		font-weight: $font-light;
+    		font-weight: fonts.$font-light;
     	}
     }
 

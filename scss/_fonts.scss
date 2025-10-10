@@ -1,0 +1,13 @@
+$font-family: "objektiv-mk1", Helvetica, Arial, sans-serif !important;
+
+/*
+Sizes set to PX here, but if base size is set to 16px, you can
+replace with REM.
+*/
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
+
+$baseFontSize: 16px;
+$monospaceFontSize: $baseFontSize * 0.9;
