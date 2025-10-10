@@ -1,0 +1,65 @@
+---
+title: Introducing the latest version of the Tech Carbon Standard Estimator
+date: 2025-00-00 00:00:00 Z
+categories:
+- Sustainability
+- Open Source
+- Tech
+author: kellis
+summary: Introducing the latest enhancements to the Tech Carbon Standard Estimator - schema updates, kg CO2e values and exportable data
+---
+
+# **Introducing the latest version of the Tech Carbon Standard Estimator**
+
+## **Overview**
+The Technology Carbon Standard Estimator - TCSE for short - is designed to give a high-level overview of the possible areas of carbon impact within your IT estate.
+
+The estimations are framed within our proposed model of tech emissions – the Technology Carbon Standard – designed to help you map out, measure and improve the environmental impacts of your technology.
+
+Since it's inception in February 2024 the TCSE has undergone various updates and we are excited to announce the next batch of feature enhancements. The idea behind these updates are to make sure the tool continues to be valuable across various different use cases, as well as laying the groundwork for other future enhancements.
+
+A big thankyou to Daniel Moorhouse, Ben Stinchcombe, Max Nyamunda and Matthew Griffin for all the hard work on these enhancements.
+
+---
+
+## **Schema Updates**
+The TCSE uses the latest version of the [Tech Carbon Standard](https://github.com/ScottLogic/Technology-Carbon-Standard) schema. This is particular important when it comes to exporting the data as we are able to provide the raw emission data in the structure for users to then potentially ingest into their own tools or applications. 
+
+---
+
+## **Data available in kg C02e or %**
+Previously, the TCSE only displayed estimated carbon emissions as a percentage breakdown across the 4 sectors of the Tech Carbon Standard. With this latest release, users can view this data as either a kg C02e or percentage breakdown. This will provide users with better context around their estimated emissions and therefore make the tool more valuable.
+
+We also made sure that the tool was updated to use the latest version of the CO2.js library, providing the most accurate estimates possible.
+
+![graph-kgs.png]({{site.baseurl}}/kellis/assets/graph-kgs.png)
+
+![graph-%.png]({{site.baseurl}}/kellis/assets/graph-%.png)
+
+![table.png]({{site.baseurl}}/kellis/assets/table.png)
+
+---
+
+## **Exportable Data in JSON or PDF formats**
+With the addition of kg C02e values, it made sense to make this available to users beyond the UI of the application and hence we have implemented several export options into the latest version. Users can export the data in JSON format (which will use the Tech Carbon Standard schema) and also have the additonal option to have their estimation input values represented if required. There is also a PDF option which will provide users with a snapshot of the tree graph and table - this will bee useful for user that want to generate and file reports at regualr intervals to track any changes.
+
+---
+
+## **Accessibility Updates**
+There were various aspects of the application that didn't adhere to WCAG 2.1 AA standards so the team spent time utlising [axe-core](https://github.com/dequelabs/axe-core) to find these issues and resolve them.
+
+---
+
+### **Improved Testing**
+The automation framework was migrated from Python to Typescript so that we could leverage all of the best features of Playwright. This included added screenshot comparison testing (very helpful for testing the tree graph) and automated accessability testing.
+
+The new framework also uses a Page Object Model to make future test writing and maintainability quick and easy.
+
+---
+
+## **What's next?**
+Hot on the heels of this v0.5.0 release, we are looking to have v0.6.0 available soon. This next version will add a feature that estimates carbon emissions for SaaS solutions - primarily Microsoft 365 and also improved documentation including a best practice guide that will provide tips for entering the estimation inputs. Beyond this, we are then looking to implement emissiosn estimates for both AI inference and model training...watch this space!
+
+---
+
+If you're interested in learning more about the Tech Carbon Standard Estimator, check out the project [here](https://github.com/ScottLogic/sl-tech-carbon-estimator)
