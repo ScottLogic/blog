@@ -1,7 +1,29 @@
 {% capture url %}{{ site.canonical.url }}{{ page.url }}{% endcapture %}
-<div class="social">
-  <applause-button color="{% include post_colour_hex.html post=page %}"
-    url="{{ site.canonical.url }}{{ page.url }}"
-    api="{{ site.applause-button-api.url }}"
-    multiclap="true"/>
+<div class="social-wrapper">
+    <div class="social">
+        <applause-button color="{% include post_colour_hex.html post=page %}"
+                         url="{{ site.canonical.url }}{{ page.url }}"
+                         api="{{ site.applause-button-api.url }}"
+                         multiclap="true"></applause-button>
+        <hr/>
+        <div class="social-list">
+            {% if author.linkedin-url != nil %}
+                {% assign linkedin_url = author.linkedin-url %}
+            {% elsif author.linkedin-handle != nil %}
+                {% assign linkedin_url = "https://linkedin.com/in/ | append: author.linkedin-handle %}
+            {% endif %}
+            {% if linkedin_url != nil %}
+                <a href="{{linkedin_url}}">LINK</a>
+            {% endif %}
+
+            {% if author.twitter-url != nil %}
+                {% assign twitter_url = author.twitter-url %}
+            {% elsif author.twitter-handle != nil %}
+                {% assign twitter_url = "https://twitter.com/" | append: author.twitter-handle %}
+            {% endif %}
+            {% if twitter_url != nil %}
+                <a href="{{twitter_url}}">TWIT</a>
+            {% endif %}
+        </div>
+    </div>
 </div>
