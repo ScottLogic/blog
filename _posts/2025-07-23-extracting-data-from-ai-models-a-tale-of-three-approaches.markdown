@@ -1,5 +1,5 @@
 ---
-title: 'Extracting Data From AI Models: A Tale of Three Approaches'
+title: 'Extracting Data From AI Models - Phase 3: A Tale of Three Approaches'
 date: 2025-07-23 15:49:00 Z
 categories:
 - Artificial Intelligence

@@ -7,7 +7,7 @@ tags:
 - Tech
 summary: I have recently come off my first client project, which I was part of for 9 months, and so I wanted to reflect on everything that I learnt during that time.
 author: hsauve
----  
+---
 
 I have recently come off my first client project, which I was part of for 9 months, and so I wanted to reflect on everything that I learnt during that time. 
 
