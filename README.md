@@ -116,7 +116,7 @@ sudo apt-get install ruby2.3 ruby2.3-dev build-essential dh-autoreconf libxslt-d
 ```
 
 On Windows, if you use Chocolatey, simply run `choco install ruby` in a PowerShell instance
-with elevated priveleges. If you don't use Chocolatey, you can use [RubyInstaller][rubyinstaller]
+with elevated privileges. If you don't use Chocolatey, you can use [RubyInstaller][rubyinstaller]
 or see the Ruby website for [alternative ways to install Ruby][ruby-installation-instructions].
 You don't need to install any other dependencies on Windows at this stage.
 
@@ -159,18 +159,18 @@ bundle exec jekyll serve
 ```
 See [jekyll's docs](https://jekyllrb.com/docs/configuration/options/) for command line flags.
 
-The blog will then be available on [localhost:4000](http://localhost:4000).
+The blog will then be available on [localhost][localhost].
 
 If you are working on fixes or new features, and need to re-compile the scripts or SCSS, you can use these npm scripts:
 
 ```shell
-npm ci
-npm run scripts
-npm run style
+npm ci          # Install deps
+npm run scripts # Recompile scripts
+npm run style   # Recompile SCSS
 ```
 
 ##### Useful Command Line Flags for Jekyll
-* `--livereload` - trigger a build on file change (excluding SCSS or JS) and refresh the brower once built
+* `--livereload` - trigger a build on file change (excluding SCSS or JS) and refresh the browser once built
 * `--incremental` - use the experimental incremental build mode which after the initial build, only builds changed files
 
 ### Running with Docker
@@ -180,7 +180,7 @@ Use a bash-compatible shell; Git bash on Windows should work fine.
 #### Install gem dependencies
 
 First, we output gem dependencies to directory `container_gem_cache` on the host machine. This is analogous to running
-"npm install" for an npm package:
+"npm install" for a npm package:
 
 ```shell
 ./shell/docker-gem-install.sh

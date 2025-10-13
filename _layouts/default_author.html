@@ -13,7 +13,7 @@ paginated: false
   {% endif %}
 {% endfor %}
 {% assign allPosts = allPosts | sort: 'date' | reverse | uniq %}
-{% assign allEvents = "" | split: "," %}
+{% assign allEvents = "" | split: ',' %}
 {% for event in site.events %}
   {% if event.speakers contains author.name %}
     {% assign allEvents = allEvents | push: event %}
@@ -22,7 +22,7 @@ paginated: false
 {% assign allEvents = allEvents | sort: 'eventDate' | reverse | uniq %}
 
 <div class="default-author grid-container">
-    <div class="grid-padding-y">
+    <div class="grid-padding-y large-offset-1">
         <div class="cell">
             {% include author.html author=author %}
         </div>
@@ -30,7 +30,7 @@ paginated: false
             {% include featured_posts.html postsToFilter=featuredPosts %}
         </div>
         <div class="cell grid-x grid-margin-x">
-            <div class="cell large-8 large-offset-1">
+            <div class="cell large-8">
                 {% include post_summary_list.html posts=allPosts paginated=paginated %}
             </div>
             <div class="cell large-auto">
