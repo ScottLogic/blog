@@ -67,7 +67,7 @@ The new framework also adopts a Page Object Model, making future test writing an
 
 ## **What’s Next?**
 
-Hot on the heels of this v0.5.0 release, we expect v0.6.0 to be available soon. For this version, we have worked with the team at DEFRA to define features that would make the TCSE a useful tool for UK Government departments to leverage when reporting carbon emissions (part of the Greening Government strategy). This includes a features that estimates carbon emissions for SaaS solutions — primarily Microsoft 365 — along with improved documentation, including a best practice guide that offers tips for entering estimation inputs. Beyond that, we plan to implement emission estimates for both AI inference and model training... watch this space!
+Hot on the heels of this v0.5.0 release, we expect v0.6.0 to be available soon. For this version, we have worked with the team at DEFRA to define features that would make the TCSE a useful tool for UK Government departments to leverage when reporting carbon emissions (part of the Greening Government strategy). This includes a features that estimates carbon emissions for SaaS solutions — primarily Microsoft 365 — along with improved documentation, including a best practice guide that offers tips for entering estimation inputs. Beyond that, we plan to implement emission estimates for both AI inference and model training...watch this space!
 
 ---
 
