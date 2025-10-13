@@ -18,7 +18,7 @@ author:
 - fvlachos
 ---
 
-Walk into any investment bank’s trading floor, and you’ll witness a symphony of controlled chaos. Behind the scenes of every trade, from the initial client enquiry to final settlement, lies a complex web of interconnected processes, each governed by regulations, risk controls, and institutional procedures that have evolved over decades. Yet despite this complexity being universal across financial institutions, the tools to model, standardise, and optimise these processes have remained fragmented, proprietary, and often inadequate.
+Walk into any investment bank’s trading floor, and you step into a theatre of expertly controlled chaos. Behind the scenes of every trade, from the initial client enquiry to final settlement, lies a complex web of interconnected processes, each governed by regulations, risk controls, and institutional procedures that have evolved over decades. Yet despite this complexity being universal across financial institutions, the tools to model, standardise, and optimise these processes have remained fragmented, proprietary, and often inadequate.
 
 This is where FINOS Fluxnova enters the picture. Launched at the Open Source in Finance Forum (OSFF) in New York this October (2025), Fluxnova represents a fundamental shift towards collaborative, open-source process orchestration designed specifically for financial services. However, such tools are only as valuable as the real-world examples that demonstrate their capabilities, which is where Scott Logic’s contribution becomes crucial.
 
@@ -56,15 +56,13 @@ In short, for institutions already invested in Camunda 7, Fluxnova offers contin
 
 When Scott Logic offered to support Fluxnova, we recognised the fundamental challenge every new platform faces: the “empty canvas” problem. Tools, however powerful, only prove their worth when paired with concrete, real-world examples.
 
-Our task was to create what we’ve termed blueprint processes: generic yet realistic examples of financial workflows that capture essential regulatory, risk, and operational logic, whilst being flexible enough to adapt to different institutional contexts.
-
-These blueprints not only accelerate adoption but also help overcome SDLC bottlenecks by providing ready-to-execute templates that reduce reliance on manual testing and *ad hoc* documentation.
-
 ### The Challenge We Tackled
 
 Financial processes exist in some form at every investment bank, but the specifics vary dramatically between institutions. A trade settlement process at a Tier 1 US investment bank could well differ significantly from the equivalent at a Tier 1 European investment bank, not just in implementation details but often in fundamental approach. Yet beneath these variations lie common patterns: regulatory requirements, risk controls, and business logic that transcend individual institutional preferences.
 
 Our task was to create what we've termed "blueprint processes", i.e., examples that are sufficiently generic to capture the essential elements of real-world financial workflows while remaining generally applicable across different institutional contexts. Think of them as architectural blueprints: not the final building, but detailed enough to understand the structure and adaptable enough to accommodate different requirements through modifications that are achievable easily.
+
+These blueprints not only accelerate adoption but also help overcome SDLC bottlenecks by providing ready-to-execute templates that reduce reliance on manual testing and *ad hoc* documentation.
 
 ### Our Approach
 
@@ -82,9 +80,9 @@ Drawing on our deep domain knowledge and subject matter expertise in financial s
 
 * **Pre-Trade**: KYC onboarding and compliance checks
 
-* **Execution**: risk management, real-time assessment, and position limit monitoring
+* **Execution**: "Flash Risk" management including a real-time risk assessment and position limit monitoring
 
-* **Post-Trade**: trade settlement and delivery versus payment coordination
+* **Post-Trade**: A full trade settlement process
 
 The technical implementation of these BPMN flows was led by my colleague [Fanis Vlachos](https://blog.scottlogic.com/fvlachos/), one of Scott Logic’s Senior Developers, whose expertise in orchestration platforms such as Temporal and Cadence proved invaluable.
 
@@ -116,9 +114,7 @@ Fluxnova's flexible deployment model, whether on-premises or cloud-native, allow
 
 Fluxnova is more than a new open-source project. It represents a collective shift towards standardised, transparent, and collaborative process automation in financial services.
 
-By pairing the platform with Scott Logic’s blueprint library, the two biggest barriers to adoption — tool complexity and the blank canvas problem — are addressed directly. Institutions can migrate from existing Camunda 7 environments or begin afresh, using blueprints that capture real regulatory and operational requirements.
-
-This also supports institutions responding to both proactive and reactive data-driven initiatives, particularly in the face of evolving regulatory requirements.
+By pairing the platform with the blueprint library started by Scott Logic, the two biggest barriers to adoption are addressed directly, i.e., tool complexity and the blank canvas problem. Institutions can migrate from existing Camunda 7 environments or begin afresh, using blueprints that capture real regulatory and operational requirements.
 
 The future of financial services lies in collaborative innovation: sharing knowledge, tools, and best practice across the industry. Fluxnova embodies this philosophy, and Scott Logic is proud to have helped shape its launch.
 
@@ -146,7 +142,7 @@ While the full collection will be available on the [FINOS website](https://www.f
 [![Risk management  
 <sub><em>Click to enlarge</em></sub>](/uploads/02.Trade.01.Risk.BusinessProcessDefinition.png){: style="max-width:90%; border-radius:8px; display:block; margin:1.5em auto; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);"}](/uploads/02.Trade.01.Risk.BusinessProcessDefinition.png){: target="_blank" title="Click to view full-size"}
 
-* **Post-Trade Processes**: Trade setlement
+* **Post-Trade Processes**: Trade settlement
 [![Trade settlement  
 <sub><em>Click to enlarge</em></sub>](/uploads/03.Post-Trade.01.Settlement.BusinessProcessDefinition.png){: style="max-width:90%; border-radius:8px; display:block; margin:1.5em auto; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);"}](/uploads/03.Post-Trade.01.Settlement.BusinessProcessDefinition.png){: target="_blank" title="Click to view full-size"}
 
