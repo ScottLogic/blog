@@ -15,7 +15,7 @@
     </div>
 </div>
 <div class="shape cell large-3 medium-2 small-1 grid-y align-center">
-    <!-- Allow shape to be overridden during include -->
+    {% comment %} Allow shape to be overridden during include {% endcomment %}
     {% if shape == nil %}
     {% capture shape %}{% include post_shape.html post=post %}{% endcapture %}
     {% assign shape = shape | strip %}

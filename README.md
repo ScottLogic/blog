@@ -53,8 +53,17 @@ root named after your Scott Logic username. Within this you will need a set of f
 be obvious what needs changing. Then add yourself to `_data/authors.yml`, again using an existing author as a template.
 You will need to add
 
-- an entry under `authors`
+- an entry under `authors` with the following fields where _italic_ fields are required
+  - _name_
+  - _picture_
+  - author-summary
+  - twitter-url
+  - twitter-handle
+  - linkedin-url
+  - linkedin-handle
 - your username under `active-authors`
+
+If both _social_-url and _social_-handle are provided, _social_-url is used.
 
 Finally, if you performed a _sparse checkout_ as recommended, you will need to add directory `_posts` in the root of
 your local copy.
@@ -160,7 +169,7 @@ npm run scripts
 npm run style
 ```
 
-##### Useful Command Line Flags
+##### Useful Command Line Flags for Jekyll
 * `--livereload` - trigger a build on file change (excluding SCSS or JS) and refresh the brower once built
 * `--incremental` - use the experimental incremental build mode which after the initial build, only builds changed files
 
