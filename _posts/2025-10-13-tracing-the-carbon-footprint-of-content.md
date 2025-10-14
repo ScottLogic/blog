@@ -19,14 +19,13 @@ Whilst the standard previously focused on hardware and software, content has eme
 
 > **_DISCLAIMER:_** This blog post generated an estimated xx CO2*
 
-*This is a high level estimate based on a limited amount of factors:
-
-- A portion of the embodied carbon of my Dell laptop
-- A portion of the embodied carbon of VSCode (the text editor I used)
-- Power consumption of the laptop for approximately 10 hours
-- Around 20 web searches (AI overviews on the search engine have not been turned off). [8.2g CO2e 5 minutes web browsing from a laptop](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)
-- Reading the stuff I found: 
-- 7 inferences on AI chatbots
+</sub>*This is a high level estimate based on a limited amount of factors:</sub>
+<sub> - A portion of the embodied carbon of my Dell laptop</sub>
+<sub> - A portion of the embodied carbon of VSCode (the text editor I used)</sub>
+<sub> - Power consumption of the laptop for approximately 10 hours</sub>
+<sub> - Around 20 web searches (AI overviews on the search engine have not been turned off). [8.2g CO2e 5 minutes web browsing from a laptop](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)</sub>
+<sub> - Reading the stuff I found:</sub> 
+<sub> - 7 inferences on AI chatbots</sub>
 
 
 
@@ -36,7 +35,7 @@ Whether content is treated as a commodity or public good, in the case of cultura
 
 We looked at ways to locate these emissions across all kinds of media, from news articles and blog posts through to photos, audio files and videos. This cluster includes everything from video and music streaming, video conferencing, social media, emails and inferences with [foundation models](https://www.adalovelaceinstitute.org/resource/foundation-models-explainer/), which we’ll explore further down in this article.
 
-![My Image]({{ site.baseurl }}/hsauve/assets/content/social-media.jpg "Two people filming with a camera")
+![My Image]({{ site.baseurl }}/hsauve/assets/content/two-people-filming.jpg "Two people filming with a camera")
 
 <sub>*Photo by [Marcos Rocha](https://www.pexels.com/@fotios-photos/) on [Unsplash](https://unsplash.com/photos/man-in-red-long-sleeve-shirt-using-black-video-camera-_XgGN5yo1QE)*</sub>
 
@@ -77,9 +76,9 @@ This generally involves energy consumed by Content Delivery Networks (CDNs) to r
 Consumption represents the final, and for many organisations, the largest component of content's carbon footprint.
 These emissions, associated with device energy consumption, vary grately based on the local electricity grid, device type, content quality and resolution, and consumption duration. 
 
-One [study from the International Energy Agency (IEA)](https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines) illustrates just how complex measuring downstream emissions can be, and how new demands for emerging technologies and artificial intelligence is rapidly changing the sector.
+For example, [a 50-inch LED television consumes much more electricity than a smartphone (100 times) or laptop (5 times)](https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines), .
 
->  One hour of streaming video in 2019 is 36gCO2.
+The IEA study above also illustrates just how complex measuring downstream emissions can be, and how new demands for emerging technologies including artificial intelligence is rapidly changing the sector.
 
 [Social media carbon footprint calculator](https://www.comparethemarket.com.au/energy/features/social-carbon-footprint-calculator/)
  
