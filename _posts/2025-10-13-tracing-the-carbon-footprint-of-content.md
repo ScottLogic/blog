@@ -41,9 +41,6 @@ We looked at ways to locate these emissions across all kinds of media, from news
 <sub>*Photo by [Marcos Rocha](https://www.pexels.com/@fotios-photos/) on [Unsplash](https://unsplash.com/photos/man-in-red-long-sleeve-shirt-using-black-video-camera-_XgGN5yo1QE)*</sub>
 
 
-
-![My Image]({{ site.baseurl }}/hsauve/assets/content/content-lifecycle-chart.png "A funnel chart representing the lifecycle of digital content")
-
 ### Content production ###
 
 Content production encompasses all activities directly involved in creating and editing digital content, and varies greatly based on content type and production scale. 
@@ -61,9 +58,9 @@ This category also encompasses the embodied carbon of <strong>network equipment<
 
 Modern organisations generate data at unprecedented rates, creating a growing demand for efficient storage and processing infrastructure. whether managing petabytes or gigabytes, the storage layer represents a significant emissions source. These emissions originate from data centre operations requiring substantial computation and cooling systems, as well as processing and transcoding needed before distribution.
 
-[As an example, Meta reported that:](https://sustainability.atmeta.com/blog/2024/09/10/estimating-embodied-carbon-in-data-center-hardware-down-to-the-individual-screws/)
+[As an example, Meta reported:](https://sustainability.atmeta.com/blog/2024/09/10/estimating-embodied-carbon-in-data-center-hardware-down-to-the-individual-screws/)
 
-> In 2023, our carbon footprint was 7.5M metric tons of CO2e
+> In 2023, their carbon footprint was 7.5M metric tons of CO2e
 
 Beyond the primary content itself, organisations must store metadata: descriptions, comments, tags, translations, accessibility features and versioning information.
 
@@ -86,6 +83,10 @@ For example, [a 50-inch LED television consumes much more electricity than a sma
 The IEA study above also illustrates just how complex measuring downstream emissions can be, and how new demands for emerging technologies including artificial intelligence is rapidly changing the sector.
 
 [Social media carbon footprint calculator](https://www.comparethemarket.com.au/energy/features/social-carbon-footprint-calculator/)
+
+![My Image]({{ site.baseurl }}/hsauve/assets/content/person-watching-netflix.jpg "A person watching Netflix")
+
+<sub>*Photo by [Mollie Sivaram](https://unsplash.com/@molliesivaram) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-11-yubCnXAA3H8)*</sub>
  
 ## AI-generated content ## 
 
@@ -111,7 +112,7 @@ Understanding the true environmental cost of AI-generated content may enable org
 
 There are many aspects of our content consumption lie beyond individual and organisation control, as the energy manufacturing and powering our devices and data centres heavily relies on fossil fuels. However awareness that everything we do digitally has a carbon footprint serves as a starting point for a wider reflection.
 
-An article by [WIRED] reports:
+An article by [WIRED](https://www.wired.com/story/youtube-digital-waste-interaction-design/) reports:
 
 > YouTube's annual carbon footprint is about 10Mt CO2e (Million Metric tons of carbon dioxide equivalent), according to researchers — about the output of a city the size of Glasgow. But it doesn't have to be that way, with a few easy design changes easily slashing that footprint by applying Sustainable Interaction Design.
 
