@@ -16,11 +16,20 @@ As part of the [latest update](https://blog.scottlogic.com/2025/09/04/technology
 
 Whilst the standard previously focused on hardware and software, content has emerged as a distinct and substantial source of carbon emissions that deserves its own analysis. Despite its growing environmental impact, content traditionally received less attention. As organisations produce and distribute content at exponential scales, the sustainability implications must be addressed.
 
+> **_DISCLAIMER:_** This blog post generated an estimated xx CO2*
+> - A portion of the embodied carbon of my Dell laptop
+> - A portion of the embodied carbon of VSCode (my text editor)
+> - Power consumption of the laptop for approximately 4 hours
+> - Around 15 web searches (AI overviews on the search engine have not been turned off). [8.2g CO2e 5 minutes web browsing from a laptop](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)
+> - Reading the stuff I found: 
+> - 7 inferences on AI chatbots
+>
+> *This high level estimate doesn't take into consideration a number of factors such as electricity sources
+
+
 ## The carbon journey of content ##
 
 Whether content is treated as a commodity or public good, in the case of cultural heritage for example, understanding the environmental impact of handling digital content requires examining its lifecycle. 
-
-Content, whether used for education, entertainment, intelligence or any other kinds of purpose carries a carbon footprint as it is created, traded, edited and archived. 
 
 We looked at ways to locate these emissions across all kinds of media, from news articles and blog posts through to photos, audio files and videos. This cluster includes everything from video and music streaming, video conferencing, social media, emails and inferences with foundation models, which we’ll explore further down in this article.
 
@@ -56,8 +65,8 @@ Energy intensive activites may relate to <strong>equipment operation</strong>, t
 
 The journey of digital content begins long before any content is created. This category encompasses carbon emissions generated during the extraction, manufacturing and transportation of raw materials used throughout the content lifecycle. 
 
-The hardware footprint of content includes cameras, microphones and headphones but also memory cards, hard drives and lighting equipment, while software development requires energy consumed in coding, testing and deploying applications.
-This category also encompasses the embodied carbon of network equipment such as optic cables, satellite systems and routing equipment.
+The <strong>hardware footprint</strong> of content includes cameras, microphones and headphones but also memory cards, hard drives and lighting equipment, while <strong>software development</strong> requires energy consumed in coding, testing and deploying applications.
+This category also encompasses the embodied carbon of <strong>network equipment</strong> such as optic cables, satellite systems and routing equipment.
 
 ### Storage and processing ###  
 
@@ -71,15 +80,20 @@ To ensure reliability and availability, organisations must often store multiple 
 ### Distribution and networking ###
 
 For organisations that treat content as their core product, the distribution phase typically accounts for a substantial share of operational emissions. This phase encompasses the entire journey from data centre to end-user device.
-This generally involves energy consumed by CDNs to reduce latency and improve performance, transmission networks to transfer data from data centres to local networks, as well as cable modems, routers, and cloud infrastructure that scales dynamically based on demand. 
+
+This generally involves energy consumed by Content delivery networks (CDNs) to reduce latency and improve performance, transmission networks to transmit data between data centres, CDNs and end-user devices, as well as cable modems, routers, and cloud infrastructure that scales dynamically based on demand. 
 
 ### End-user consumption ###
 
 Consumption represents the final, and for many organisations, the largest component of content's carbon footprint.
 These emissions, associated with device energy consumption, vary grately based on various factors including the local electricity grid, device type, content quality and resolution, and consumption duration. 
-One [study](https://www.researchgate.net/publication/358794471_Carbon_Footprint_of_The_Most_Popular_Social_Media_Platforms) found for instance that 
+
+Streaming for instance has become a part of everyday life, but not all streaming services have the same environmental impact. One [study](https://www.researchgate.net/publication/358794471_Carbon_Footprint_of_The_Most_Popular_Social_Media_Platforms) found for instance that:
+> By estimating the CO2 emissions of the four applications based on their data, watching one hour of video by Netflix produces 6 times more CO2 than watching YouTube, with an estimate for Netflix of 1681.56 g CO2e per hour. Netflix is the most used application with the highest CO2 emissions among the four applications we compared.
 
 [The BBC's carbon impact of streaming](https://www.bbc.co.uk/rd/blog/2021-06-bbc-carbon-footprint-energy-envrionment-sustainability) is just one example that measuring carbon emissions linked to downstream emissions is a complex task.
+
+[Social media carbon footprint calculator](https://www.comparethemarket.com.au/energy/features/social-carbon-footprint-calculator/)
  
 ## AI-generated content ## 
 
@@ -97,15 +111,19 @@ State-of-the-art models have the ability to produce multiple formats including t
 
 To accurately estimate their carbon footprints, organisations must also account for a portional share of the training phase of the models they use. For instance training GPT-3 is estimated to have consumed [1,287 megawatt-hours (MWh) of electricity and emit over 550 metric tons of CO2e](https://arxiv.org/html/2505.09598v2) and [evaporated 700,000 liters of clean freshwater](https://arxiv.org/pdf/2304.03271), enough to fill an Olympic-sized swimming pool by nearly one-third. 
 
-AI data centres fundamentally differ from traditional data centres in their infrastructure. The specialised hardware necessary for AI workloads involving Graphics Processing Units (GPUs) and Tensor Processing Units (TPUs), consumes substantially more power than standard CPUs.
+AI data centres fundamentally differ from traditional data centres in their infrastructure. The specialised hardware necessary for AI workloads involving Graphics Processing Units (GPUs) and Tensor Processing Units (TPUs) consumes substantially more power than standard CPUs.
 
-Understanding the true environmental cost of AI-generated content may enable organisations to make strategic decisions regarding the models selection, and the way they are used.
+Understanding the true environmental cost of AI-generated content may enable organisations to make strategic decisions regarding the model they use, and how they use it.
 
-## The carbon case of this blog post ##
+### What are solutions to reduce our carbon footprint ###
 
-If we were to look for a high level estimate of the carbon footprint of this blog post, here is a list of elements we would need to research:
+There are many aspects of our content consumption that we as individuals and organisations do not have any control upon, as the energy used to power our devices and data centres up the chain heavily relies on fossil fuels. However being aware that everything we do digitally has a carbon footprint is a starting point for a wider reflection.
 
-- A portion of the embodied carbon of my Dell laptop
-- Power consumption of the laptop for approximately 3 hours, using a blend of renewable and non-renewable electricity sources.
-- Around 15 web searches and 30 clicks on landing pages. AI overviews on the search engine have not been turned off.
-- 5 inferences on Mistral AI
+- Switch to a greener energy provider
+- Choose an [eco-friendly search engine](https://www.choose-greener.com/eco-friendly-search-engines/) 
+- Unsubscribe from emails you do not want to receive as each email has a carbon footprint. According to English researcher and writer on carbon footprinting [Mike Berners-Lee](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf):
+> In 2019, the average email user received about 75 emails per day (of which 41 were spam). If you received this number, with all the non-spam being emails that take the sender just 10 seconds to write and you a mere 5 seconds to read, then the carbon footprint of writing, sending and reading would be around 3kg CO2e per year, or 12 million tonnes CO2e globally.
+- Regularly discard the media you do not need anymore (films, videos, photos) 
+- This about your social media habits
+- Question the need for AI support. When using AI chatbots, take a look at our [guide](https://www.techcarbonstandard.org/guides/reduce-ai-emissions), which contains information on prompt engineering and other useful 
+
