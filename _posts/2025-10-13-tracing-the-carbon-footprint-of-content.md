@@ -17,13 +17,21 @@ As part of the [latest update](https://blog.scottlogic.com/2025/09/04/technology
 Whilst the standard previously focused on hardware and software, content has emerged as a distinct and substantial source of carbon emissions that deserves its own analysis. Despite its growing environmental impact, content traditionally received less attention. As organisations produce and distribute content at exponential scales, the sustainability implications must be addressed.
 
 > **_DISCLAIMER:_** This blog post generated an estimated xx CO2*
+
 > - A portion of the embodied carbon of my Dell laptop
+
 > - A portion of the embodied carbon of VSCode (my text editor)
+
 > - Power consumption of the laptop for approximately 4 hours
+
 > - Around 15 web searches (AI overviews on the search engine have not been turned off). [8.2g CO2e 5 minutes web browsing from a laptop](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)
+
 > - Reading the stuff I found: 
+
 > - 7 inferences on AI chatbots
+
 >
+
 > *This high level estimate doesn't take into consideration a number of factors such as electricity sources
 
 
@@ -36,22 +44,6 @@ We looked at ways to locate these emissions across all kinds of media, from news
 ![My Image]({{ site.baseurl }}/hsauve/assets/content/social-media.jpg "A person on social media")
 
 <sub>*Photo by [Lisa from Pexels](https://www.pexels.com/@fotios-photos/) on [Pexels](https://www.pexels.com/photo/person-holding-midnight-black-samsung-galaxy-s8-turn-on-near-macbook-pro-1092671/)*</sub>
-
-
-Let's consider the National Library of France (BnF), the French national library in charge of the legal deposit in France since the XVIth century. In other words, a vast repository of knowledge. 
-The BnF has undertaken a major digitalisation effort in the past few years and published a [digital roadmap](https://www.bnf.fr/sites/default/files/2021-04/SN%202020_poster_BAT_ANG%2003.pdf) outlining its digital strategy for its platform [Gallica](https://www.bnf.fr/en/gallica-bnf-digital-library). 
-
-Although playful and light touch, the BnF’s roadmap offers a useful framework for understanding some key elements that contribute to the carbon footprint of digital content. These include:
-
-- Entries (new content)
-- Collections processing
-- Content management 
-- Metadata management 
-- Long-term digital preservation 
-- Accessibility 
-- Artificial Intelligence 
-
-These categories can help us explore the carbon emissions associated with each phase of the lifecycle of digital content.
 
 ![My Image]({{ site.baseurl }}/hsauve/assets/content/content-lifecycle-chart.png "A funnel chart representing the lifecycle of digital content")
 
@@ -119,9 +111,9 @@ Understanding the true environmental cost of AI-generated content may enable org
 
 There are many aspects of our content consumption that we as individuals and organisations do not have any control upon, as the energy used to power our devices and data centres up the chain heavily relies on fossil fuels. However being aware that everything we do digitally has a carbon footprint is a starting point for a wider reflection.
 
-- Switch to a greener energy provider
+- Switch to a greener energy provider for you home or office
 - Choose an [eco-friendly search engine](https://www.choose-greener.com/eco-friendly-search-engines/) 
-- Unsubscribe from emails you do not want to receive as each email has a carbon footprint. According to English researcher and writer on carbon footprinting [Mike Berners-Lee](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf):
+- Unsubscribe unwanted emails as each email has a carbon footprint. According to English researcher and writer on carbon footprinting [Mike Berners-Lee](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf):
 > In 2019, the average email user received about 75 emails per day (of which 41 were spam). If you received this number, with all the non-spam being emails that take the sender just 10 seconds to write and you a mere 5 seconds to read, then the carbon footprint of writing, sending and reading would be around 3kg CO2e per year, or 12 million tonnes CO2e globally.
 - Regularly discard the media you do not need anymore (films, videos, photos) 
 - This about your social media habits
