@@ -19,13 +19,14 @@ Whilst the standard previously focused on hardware and software, content has eme
 
 > **_DISCLAIMER:_** This blog post generated an estimated xx CO2*
 
-</sub>*This is a high level estimate based on a limited amount of factors:</sub>
-<sub> - A portion of the embodied carbon of my Dell laptop</sub>
-<sub> - A portion of the embodied carbon of VSCode (the text editor I used)</sub>
-<sub> - Power consumption of the laptop for approximately 10 hours</sub>
-<sub> - Around 20 web searches (AI overviews on the search engine have not been turned off). [8.2g CO2e 5 minutes web browsing from a laptop](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)</sub>
-<sub> - Reading the stuff I found:</sub> 
-<sub> - 7 inferences on AI chatbots</sub>
+<sub>*This is a high level estimate based on a limited amount of factors:</sub>
+
+- <sub>A portion of the embodied carbon of my Dell laptop</sub>
+- <sub>A portion of the embodied carbon of VSCode (the text editor I used)</sub>
+- <sub>Power consumption of the laptop for approximately 10 hours</sub>
+- <sub>Around 20 web searches (AI overviews on the search engine have not been turned off). [8.2g CO2e 5 minutes web browsing from a laptop](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)</sub>
+- <sub>Reading the stuff I found:</sub> 
+- <sub>7 inferences on AI chatbots</sub>
 
 
 
@@ -47,7 +48,7 @@ We looked at ways to locate these emissions across all kinds of media, from news
 
 Content production encompasses all activities directly involved in creating and editing digital content, and varies greatly based on content type and production scale. 
 
-Energy intensive activites include <strong>equipment operation</strong>(lighting, cameras, computers), <strong>physical production</strong> (sets, construction materials, costumes and props), <strong>location production and travel</strong>, and increasingly <strong>artificial Intelligence</strong> tools for editing and visual effects.
+Energy intensive activites include <strong>equipment operation</strong> (lighting, cameras, computers), <strong>physical production</strong> (sets, construction materials, costumes and props), <strong>location production and travel</strong>, and increasingly <strong>artificial Intelligence</strong> tools for editing and visual effects.
 
 ### Production of hardware and software ###
 
@@ -59,6 +60,10 @@ This category also encompasses the embodied carbon of <strong>network equipment<
 ### Storage and processing ###  
 
 Modern organisations generate data at unprecedented rates, creating a growing demand for efficient storage and processing infrastructure. whether managing petabytes or gigabytes, the storage layer represents a significant emissions source. These emissions originate from data centre operations requiring substantial computation and cooling systems, as well as processing and transcoding needed before distribution.
+
+[As an example, Meta reported that:](https://sustainability.atmeta.com/blog/2024/09/10/estimating-embodied-carbon-in-data-center-hardware-down-to-the-individual-screws/)
+
+> In 2023, our carbon footprint was 7.5M metric tons of CO2e
 
 Beyond the primary content itself, organisations must store metadata: descriptions, comments, tags, translations, accessibility features and versioning information.
 
@@ -74,9 +79,9 @@ This generally involves energy consumed by Content Delivery Networks (CDNs) to r
 ### End-user consumption ###
 
 Consumption represents the final, and for many organisations, the largest component of content's carbon footprint.
-These emissions, associated with device energy consumption, vary grately based on the local electricity grid, device type, content quality and resolution, and consumption duration. 
+These emissions, associated with device energy consumption, vary grately based on how the energy used is generated, device type, content quality and resolution, and consumption duration. 
 
-For example, [a 50-inch LED television consumes much more electricity than a smartphone (100 times) or laptop (5 times)](https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines), .
+For example, [a 50-inch LED television consumes much more electricity than a smartphone (100 times) or laptop (5 times)](https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines) and whether you are based in France where electricity originates primarily from nuclear power, or Germany will determine your carbon footprint.
 
 The IEA study above also illustrates just how complex measuring downstream emissions can be, and how new demands for emerging technologies including artificial intelligence is rapidly changing the sector.
 
@@ -106,6 +111,12 @@ Understanding the true environmental cost of AI-generated content may enable org
 
 There are many aspects of our content consumption lie beyond individual and organisation control, as the energy manufacturing and powering our devices and data centres heavily relies on fossil fuels. However awareness that everything we do digitally has a carbon footprint serves as a starting point for a wider reflection.
 
+An article by [WIRED] reports:
+
+> YouTube's annual carbon footprint is about 10Mt CO2e (Million Metric tons of carbon dioxide equivalent), according to researchers — about the output of a city the size of Glasgow. But it doesn't have to be that way, with a few easy design changes easily slashing that footprint by applying Sustainable Interaction Design.
+
+- Smarter web design to optimising websites so users find information quickly. 
+
 Practical steps you can take:
 
 - Switch to a greener energy provider for you home or office
@@ -115,4 +126,5 @@ Practical steps you can take:
 - Regularly delete the media you no longer need: films, videos and photos accumulate quickly and take up storage
 - Reflect on your social media habits
 - Question the need for AI support. When using AI chatbots, consult our [guide](https://www.techcarbonstandard.org/guides/reduce-ai-emissions), which contains information on prompt engineering and other strategies to minimise emissions. 
+
 
