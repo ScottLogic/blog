@@ -16,7 +16,7 @@ As part of the [latest update](https://blog.scottlogic.com/2025/09/04/technology
 
 Whilst the standard previously focused on hardware and software, content has emerged as a distinct and substantial source of carbon emissions that deserves its own analysis. Despite its growing environmental impact, content traditionally received less attention. As organisations produce and distribute content at exponential scales, the sustainability implications must be addressed.
 
-```
+
 > **_DISCLAIMER:_** This blog post generated an estimated xx CO2*
 > - A portion of the embodied carbon of my Dell laptop
 > - A portion of the embodied carbon of VSCode (my text editor)
@@ -26,7 +26,6 @@ Whilst the standard previously focused on hardware and software, content has eme
 > - 7 inferences on AI chatbots
 >
 > *This high level estimate doesn't take into consideration a number of factors such as electricity sources
-```
 
 ## The carbon journey of content ##
 
