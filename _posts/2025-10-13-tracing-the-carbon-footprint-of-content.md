@@ -14,12 +14,13 @@ author: hsauve
 
 As part of the [latest update](https://blog.scottlogic.com/2025/09/04/technology-carbon-standard-update-4-sept.html) of the [Technology Carbon Standard](https://www.techcarbonstandard.org/), the Sustainability Team at Scott Logic added a new category focusing on content. 
 
-Whilst the standard previously focused on hardware and software, content has emerged as a distinct and substantial source of carbon emissions that deserves its own analysis. Despite its growing environmental impact, content traditionally received less attention. As organisations produce and distribute content at exponential scales, the sustainability implications must be addressed.
+Whilst the standard previously focused on hardware and software, content has emerged as a distinct and substantial source of carbon emissions that deserves its own analysis. Despite its growing environmental impact, content has traditionally received less attention. As organisations produce and distribute content at exponential scales, the sustainability implications must be addressed.
 
 
 > **_DISCLAIMER:_** This blog post generated an estimated xx CO2*
 
 *This is a high level estimate based on a limited amount of factors:
+
 - A portion of the embodied carbon of my Dell laptop
 - A portion of the embodied carbon of VSCode (the text editor I used)
 - Power consumption of the laptop for approximately 10 hours
@@ -35,9 +36,9 @@ Whether content is treated as a commodity or public good, in the case of cultura
 
 We looked at ways to locate these emissions across all kinds of media, from news articles and blog posts through to photos, audio files and videos. This cluster includes everything from video and music streaming, video conferencing, social media, emails and inferences with [foundation models](https://www.adalovelaceinstitute.org/resource/foundation-models-explainer/), which we’ll explore further down in this article.
 
-![My Image]({{ site.baseurl }}/hsauve/assets/content/social-media.jpg "A person on social media")
+![My Image]({{ site.baseurl }}/hsauve/assets/content/social-media.jpg "Two people filming with a camera")
 
-<sub>*Photo by [Lisa from Pexels](https://www.pexels.com/@fotios-photos/) on [Pexels](https://www.pexels.com/photo/person-holding-midnight-black-samsung-galaxy-s8-turn-on-near-macbook-pro-1092671/)*</sub>
+<sub>*Photo by [Marcos Rocha](https://www.pexels.com/@fotios-photos/) on [Unsplash](https://unsplash.com/photos/man-in-red-long-sleeve-shirt-using-black-video-camera-_XgGN5yo1QE)*</sub>
 
 
 
