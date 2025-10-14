@@ -18,14 +18,16 @@ Whilst the standard previously focused on hardware and software, content has eme
 
 
 > **_DISCLAIMER:_** This blog post generated an estimated xx CO2*
-> - A portion of the embodied carbon of my Dell laptop
-> - A portion of the embodied carbon of VSCode (my text editor)
-> - Power consumption of the laptop for approximately 4 hours
-> - Around 15 web searches (AI overviews on the search engine have not been turned off). [8.2g CO2e 5 minutes web browsing from a laptop](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)
-> - Reading the stuff I found: 
-> - 7 inferences on AI chatbots
->
-> *This high level estimate doesn't take into consideration a number of factors such as electricity sources
+
+*This is a high level estimate based on a limited amount of factors:
+- A portion of the embodied carbon of my Dell laptop
+- A portion of the embodied carbon of VSCode (the text editor I used)
+- Power consumption of the laptop for approximately 10 hours
+- Around 20 web searches (AI overviews on the search engine have not been turned off). [8.2g CO2e 5 minutes web browsing from a laptop](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)
+- Reading the stuff I found: 
+- 7 inferences on AI chatbots
+
+
 
 ## The carbon journey of content ##
 
@@ -59,7 +61,6 @@ This category also encompasses the embodied carbon of <strong>network equipment<
 Modern organisations generate data at unprecedented rates, creating a growing demand for efficient storage and processing infrastructure. whether managing petabytes or gigabytes, the storage layer represents a significant emissions source. These emissions originate from data centre operations requiring substantial computation and cooling systems, as well as processing and transcoding needed before distribution.
 
 Beyond the primary content itself, organisations must store metadata: descriptions, comments, tags, translations, accessibility features and versioning information.
-PHOTO OF METADATA
 
 <strong>Data redundancy:</strong>
 To ensure reliability and availability, organisations typically store multiple copies of the same data. While redundancy is critical for data security, disaster recovery and performance optimisation, it carries a significant environmental cost.
@@ -75,9 +76,9 @@ This generally involves energy consumed by Content Delivery Networks (CDNs) to r
 Consumption represents the final, and for many organisations, the largest component of content's carbon footprint.
 These emissions, associated with device energy consumption, vary grately based on the local electricity grid, device type, content quality and resolution, and consumption duration. 
 
-Streaming has become a part of everyday life, but not all streaming services have the same environmental impact. One [study](https://www.researchgate.net/publication/358794471_Carbon_Footprint_of_The_Most_Popular_Social_Media_Platforms) found that watching one hour of video on Netflix produces six times more CO₂ than YouTube, with Netflix estimated at 1,681.56g CO₂e per hour. Netflix emerged as the most-used application with the highest CO₂ emissions among the four platforms compared.
+One [study from the International Energy Agency (IEA)](https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines) illustrates just how complex measuring downstream emissions can be, and how new demands for emerging technologies and artificial intelligence is rapidly changing the sector.
 
-[The BBC's analysis of streaming's carbon impact](https://www.bbc.co.uk/rd/blog/2021-06-bbc-carbon-footprint-energy-envrionment-sustainability) illustrates just how complex measuring downstream emissions can be.
+>  One hour of streaming video in 2019 is 36gCO2.
 
 [Social media carbon footprint calculator](https://www.comparethemarket.com.au/energy/features/social-carbon-footprint-calculator/)
  
