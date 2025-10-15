@@ -12,45 +12,48 @@ summary: Following the latest update of the Technology Carbon Standard, this blo
 author: hsauve
 ---
 
+> **_DISCLAIMER:_** This blog post generated an estimated xx CO2*
+
+
 As part of the [latest update](https://blog.scottlogic.com/2025/09/04/technology-carbon-standard-update-4-sept.html) of the [Technology Carbon Standard](https://www.techcarbonstandard.org/), the Sustainability Team at Scott Logic added a new category focusing on content. 
 
 Whilst the standard previously focused on hardware and software, content has emerged as a distinct and substantial source of carbon emissions that deserves its own analysis. Despite its growing environmental impact, content has traditionally received less attention. As organisations produce and distribute content at exponential scales, the sustainability implications must be addressed.
 
-
-> **_DISCLAIMER:_** This blog post generated an estimated xx CO2*
-
-
 ## The carbon journey of content ##
 
-Whether content is treated as a commodity or public good, in the case of cultural heritage for example, understanding the environmental impact of handling digital content requires examining its lifecycle. 
+Whether content is treated as a commodity or public good, in the case of cultural heritage with digital libraries as an example, understanding the environmental impact of handling digital content requires examining its lifecycle. 
 
 We looked at ways to locate these emissions across all kinds of media, from news articles and blog posts through to photos, audio files and videos. This cluster includes everything from video and music streaming, video conferencing, social media, emails and inferences with [foundation models](https://www.adalovelaceinstitute.org/resource/foundation-models-explainer/), which we’ll explore further down in this article.
 
 ![My Image]({{ site.baseurl }}/hsauve/assets/content/two-people-filming.jpg "Two people filming with a camera")
 
-<sub>*Photo by [Marcos Rocha](https://www.pexels.com/@fotios-photos/) on [Unsplash](https://unsplash.com/photos/man-in-red-long-sleeve-shirt-using-black-video-camera-_XgGN5yo1QE)*</sub>
+<sub>*Photo by [Marcos Rocha](https://unsplash.com/@marcosrochatv) on [Unsplash](https://unsplash.com/photos/man-in-red-long-sleeve-shirt-using-black-video-camera-_XgGN5yo1QE)*</sub>
 
 
 ### Content production ###
 
 Content production encompasses all activities directly involved in creating and editing digital content, and varies greatly based on content type and production scale. 
 
-Energy intensive activites include equipment operation (lighting, cameras, computers), physical production (sets, construction materials, costumes and props), location production and travel, and increasingly artificial Intelligence tools for editing and visual effects.
+Content production activites include energy consumption from equipment operation (lighting, cameras, computers), physical production (sets, construction materials, costumes and props), location production and travel, and increasingly artificial Intelligence tools for editing and visual effects.
+
+Repurposing set materials are just one way of reducing carbon emission. For instance, [BBC Series Wolf Hall sets were given to performing arts groups to stop them going to waste.](https://www.bbc.co.uk/news/articles/cj3m83pv5lyo).
 
 ### Production of hardware and software ###
 
 The journey of digital content begins long before creation. This category captures [upstream carbon emissions](https://www.techcarbonstandard.org/impact-categories/upstream) generated during the extraction, manufacturing and transportation of raw materials used throughout the content lifecycle. These emissions, although not directly resulting from an organisation's operations, are embedded in the products they use and should be accounted for.
 
-In the case of content, this could include cameras, microphones, headphones, memory cards, laptops hard drives and lighting equipment to name just a few. The software footprint on the other hand would be the result of the energy needed for coding, testing and deploying applications such as editing platforms or scriptwriting software.
+![My Image]({{ site.baseurl }}/hsauve/assets/content/editing.jpg "A laptop screen showing an editing software")
+
+<sub>*Photo by [Jakob Owens](https://unsplash.com/@jakobowens1) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-game-B4f_Kx5jvpg)*</sub>
+
+In the case of content, this could include cameras, microphones, headphones, memory cards, laptops hard drives and lighting equipment to name just a few. The software footprint on the other hand is the result of the energy needed for coding, testing and deploying applications such as editing platforms or scriptwriting software.
 This category also encompasses the embodied carbon of network equipment such as fiber optic cables, satellite systems and routing infrastructure.
 
 ### Storage and processing ###  
 
-Modern organisations generate data at unprecedented rates, creating a growing demand for efficient storage and processing infrastructure. Whether managing petabytes or gigabytes, the storage layer represents a significant emissions source. These emissions originate from operations requiring substantial computation and cooling systems, embordied carbon of data centre hardware as well as processing and transcoding needed before distribution. 
+Modern organisations generate data at unprecedented rates, creating a growing demand for efficient storage and processing infrastructure. Whether managing petabytes or gigabytes, the storage layer represents a significant emissions source. These emissions originate from operations requiring substantial computation and cooling systems, embodied carbon of data centre hardware as well as processing and transcoding needed before distribution. 
 
-[As an example, Meta reported:](https://sustainability.atmeta.com/blog/2024/09/10/estimating-embodied-carbon-in-data-center-hardware-down-to-the-individual-screws/)
-
-> In 2023, their carbon footprint was 7.5M metric tons of CO2e including 4.8 M for capital goods, which includes IT hardware purchases 
+> As an example, in 2023, Meta reported that their carbon footprint was [7.5M metric tons of CO2e including 4.8 M for capital goods, which includes IT hardware purchases.]((https://sustainability.atmeta.com/blog/2024/09/10/estimating-embodied-carbon-in-data-center-hardware-down-to-the-individual-screws/)) 
 
 Beyond the primary content itself, organisations must store metadata: descriptions, comments, tags, translations, accessibility features and versioning information, often located in separate databases, which adds up to the computing resources required.
 
@@ -59,9 +62,9 @@ To ensure reliability and availability, organisations typically store [multiple 
 
 ### Distribution and networking ###
 
-For organisations that treat content as their core product, distribution typically accounts for a substantial share of operational emissions. This phase encompasses the entire journey from data centre to end-user device.
+For organisations that treat content as their core product, distribution typically accounts for a substantial share of their [operational emissions](https://www.techcarbonstandard.org/impact-categories/operational). This phase encompasses the entire journey from data centre to end-user device.
 
-This generally involves energy consumed by Content Delivery Networks (CDNs) to reduce latency and improve performance, transmission networks moving data between data centres and end-user devices, cable modems and routers, and cloud infrastructure that scales dynamically based on demand. 
+This generally involves energy consumed by Content Delivery Networks (CDNs) to reduce latency and improve performance, transmission networks moving data between data centres and end-user devices, cable modems and routers, and cloud infrastructure that scales dynamically based on demand. Factors like data transfer distance, content resolution and the efficiency of the infrastructure all play a role.
 
 ### End-user consumption ###
 
@@ -71,13 +74,11 @@ This generally involves energy consumed by Content Delivery Networks (CDNs) to r
  
 
 Consumption represents the final, and for many organisations, the largest component of content's carbon footprint.
-These emissions, associated with device energy consumption, vary grately based on how the energy used is generated, device type, content quality and resolution, and consumption duration. 
+These [downstream emissions](https://www.techcarbonstandard.org/impact-categories/downstream), associated with device energy consumption, vary grately based on how the energy used is generated, device type, content quality and resolution, and consumption duration. 
 
-For example, [a 50-inch LED television consumes much more electricity than a smartphone (100 times) or laptop (5 times)](https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines) and whether you are based in France where electricity originates primarily from nuclear power, or Germany will determine your carbon footprint.
+For example, [a 50-inch LED television consumes much more electricity than a smartphone (100 times) or laptop (5 times)](https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines) and whether you are based in France where electricity originates primarily from nuclear power, or in a country that relies on coal for electricity generation will greatly affect your carbon footprint.
 
-The IEA study above also illustrates just how complex measuring downstream emissions can be, and how new demands for emerging technologies including artificial intelligence is rapidly changing the sector.
-
-[Social media carbon footprint calculator](https://www.comparethemarket.com.au/energy/features/social-carbon-footprint-calculator/)
+The IEA study quoted above also illustrates just how complex measuring downstream emissions can be, and how new demands for emerging technologies including artificial intelligence is rapidly changing the sector.
 
 
 ## AI-generated content ## 
@@ -100,22 +101,24 @@ AI data centres fundamentally differ from traditional data centres in their infr
 
 Understanding the true environmental cost of AI-generated content may enable organisations to make strategic decisions regarding the model they use, and how they use it.
 
-### What are the solutions to reduce our carbon footprint? ###
+### What are some solutions to reduce our carbon footprint? ###
 
-There are many aspects of our content consumption lie beyond individual and organisation control, as the energy manufacturing and powering our devices and data centres heavily relies on fossil fuels. However awareness that everything we do digitally has a carbon footprint serves as a starting point for a wider reflection.
+There are many aspects of our content consumption lie beyond individual and organisation control, as the energy manufacturing and powering our devices and data centres heavily relies on fossil fuels. However awareness that everything we do digitally has a carbon footprint serves as a starting point for a wider reflection. Furthermore, a carbon footprint reducing effort is often linked with cost savings
 
 An article by [WIRED](https://www.wired.com/story/youtube-digital-waste-interaction-design/) reports:
 
 > YouTube's annual carbon footprint is about 10Mt CO2e (Million Metric tons of carbon dioxide equivalent), according to researchers — about the output of a city the size of Glasgow. But it doesn't have to be that way, with a few easy design changes easily slashing that footprint by applying Sustainable Interaction Design.
 
 - Smarter web design to optimising websites so users find information quickly. 
+- Strategic deployment of CDNs can reduce energy use by minimiing the physical distance data travels.
+- Selecting CDN providers with strong environmental policies and a commitment to renewable energy
 
-Practical steps you can take:
+
+Other practical steps us as individuals can take:
 
 - Switch to a greener energy provider for you home or office
 - Choose an [eco-friendly search engine](https://www.choose-greener.com/eco-friendly-search-engines/) that offsets or minimise its carbon footprint
-- Unsubscribe unwanted emails as each email has a carbon footprint. According to English researcher and writer on carbon footprinting [Mike Berners-Lee](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf):
-> In 2019, the average email user received about 75 emails per day (of which 41 were spam). If you received this number, with all the non-spam being emails that take the sender just 10 seconds to write and you a mere 5 seconds to read, then the carbon footprint of writing, sending and reading would be around 3kg CO2e per year, or 12 million tonnes CO2e globally.
+- Unsubscribe unwanted emails as each email has a carbon footprint ([3kg CO2e per year per person, or 12 million tonnes CO2e globally](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf))
 - Regularly delete the media you no longer need: films, videos and photos accumulate quickly and take up storage
 - Reflect on your social media habits
 - Question the need for AI support. When using AI chatbots, consult our [guide](https://www.techcarbonstandard.org/guides/reduce-ai-emissions), which contains information on prompt engineering and other strategies to minimise emissions. 
