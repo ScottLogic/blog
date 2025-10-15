@@ -13,11 +13,11 @@ summary: "Introducing the latest enhancements to the Tech Carbon Standard Estima
 
 ## **Overview**
 
-The Technology Carbon Standard Estimator (TCSE) is designed to provide a high-level overview of the potential areas of carbon impact within your IT estate.
+The [Technology Carbon Standard Estimator](https://www.techcarbonstandard.org/estimator) (TCSE) is designed to provide a high-level overview of the potential areas of carbon impact within your IT estate.
 
 The estimations are framed within our proposed model of tech emissions — the Technology Carbon Standard — designed to help you map, measure, and improve the environmental impact of your technology.
 
-Since its inception in February 2024, the TCSE has undergone various updates, and we are excited to announce the next batch of feature enhancements. The idea behind these updates is to ensure the tool continues to be valuable across a variety of use cases, while laying the groundwork for future improvements.
+Since its inception in July 2024, the TCSE has undergone various updates, and we are excited to announce the next batch of feature enhancements. The idea behind these updates is to ensure the tool continues to be valuable across a variety of use cases, while laying the groundwork for future improvements.
 
 A big thank you to Daniel Moorhouse, Ben Stinchcombe, Max Nyamunda, and Matthew Griffin for all their hard work on these enhancements.
 
@@ -25,7 +25,7 @@ A big thank you to Daniel Moorhouse, Ben Stinchcombe, Max Nyamunda, and Matthew 
 
 ## **Schema Updates**
 
-The TCSE now uses the latest version of the [Tech Carbon Standard](https://github.com/ScottLogic/Technology-Carbon-Standard) schema. This is particularly important when it comes to data export, as we can now provide raw emission data in a predefined, consistent structure for users to ingest into their own tools or applications if required.
+The TCSE now uses the latest version of the [Tech Carbon Standard](https://www.techcarbonstandard.org/) schema. This is particularly important when it comes to data export, as we can now provide raw emission data in a predefined, consistent structure for users to ingest into their own tools or applications if required.
 
 ---
 
@@ -71,4 +71,4 @@ Hot on the heels of this v0.5.0 release, we expect v0.6.0 to be available soon. 
 
 ---
 
-If you’re interested in learning more about the Tech Carbon Standard Estimator, check out the project [here](https://github.com/ScottLogic/sl-tech-carbon-estimator).
+If you’re interested in learning more about the Tech Carbon Standard Estimator, check out the latest version here [here](https://www.techcarbonstandard.org/estimator) and the GutHub project [here](https://github.com/ScottLogic/sl-tech-carbon-estimator)
