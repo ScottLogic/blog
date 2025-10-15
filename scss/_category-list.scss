@@ -1,24 +1,24 @@
-@use 'colours';
+@use "colours";
 
 .category-list {
+  a {
+    font-weight: $font-regular;
+  }
+
+  li {
+    margin: 0.4rem 0;
+
     a {
-        font-weight: $font-regular;
+      font-weight: $font-light;
     }
 
-    li {
-    	margin: .4rem 0;
-
-    	a {
-    		font-weight: $font-light;
-    	}
-
-      display: inline;
-    }
+    display: inline;
+  }
 
   a:visited {
     color: colours.$black;
   }
-  
+
   span {
     background: colours.$light-orange;
     border-radius: 32px;
@@ -28,7 +28,8 @@
     white-space: nowrap;
   }
 
-  span:hover, span.active {
+  span:hover,
+  span.active {
     background: colours.$orange;
     color: colours.$white;
   }
