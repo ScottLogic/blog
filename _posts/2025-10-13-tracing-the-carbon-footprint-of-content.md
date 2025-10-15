@@ -19,16 +19,6 @@ Whilst the standard previously focused on hardware and software, content has eme
 
 > **_DISCLAIMER:_** This blog post generated an estimated xx CO2*
 
-<sub>*This is a high level estimate based on a limited amount of factors:</sub>
-
-- <sub>A portion of the embodied carbon of my Dell laptop</sub>
-- <sub>A portion of the embodied carbon of VSCode (the text editor I used)</sub>
-- <sub>Power consumption of the laptop for approximately 10 hours</sub>
-- <sub>Around 20 web searches (AI overviews on the search engine have not been turned off). [8.2g CO2e 5 minutes web browsing from a laptop](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)</sub>
-- <sub>Reading the stuff I found:</sub> 
-- <sub>7 inferences on AI chatbots</sub>
-
-
 
 ## The carbon journey of content ##
 
@@ -45,27 +35,27 @@ We looked at ways to locate these emissions across all kinds of media, from news
 
 Content production encompasses all activities directly involved in creating and editing digital content, and varies greatly based on content type and production scale. 
 
-Energy intensive activites include <strong>equipment operation</strong> (lighting, cameras, computers), <strong>physical production</strong> (sets, construction materials, costumes and props), <strong>location production and travel</strong>, and increasingly <strong>artificial Intelligence</strong> tools for editing and visual effects.
+Energy intensive activites include equipment operation (lighting, cameras, computers), physical production (sets, construction materials, costumes and props), location production and travel, and increasingly artificial Intelligence tools for editing and visual effects.
 
 ### Production of hardware and software ###
 
-The journey of digital content begins long before creation. This category captures carbon emissions generated during the extraction, manufacturing and transportation of raw materials used throughout the content lifecycle. 
+The journey of digital content begins long before creation. This category captures [upstream carbon emissions](https://www.techcarbonstandard.org/impact-categories/upstream) generated during the extraction, manufacturing and transportation of raw materials used throughout the content lifecycle. These emissions, although not directly resulting from an organisation's operations, are embedded in the products they use and should be accounted for.
 
-The <strong>hardware footprint</strong> includes cameras, microphones, headphones, memory cards, hard drives and lighting equipment. <strong>Software development</strong> requires energy for coding, testing and deploying applications.
-This category also encompasses the embodied carbon of <strong>network equipment</strong> such as fiber optic cables, satellite systems and routing infrastructure.
+In the case of content, this could include cameras, microphones, headphones, memory cards, laptops hard drives and lighting equipment to name just a few. The software footprint on the other hand would be the result of the energy needed for coding, testing and deploying applications such as editing platforms or scriptwriting software.
+This category also encompasses the embodied carbon of network equipment such as fiber optic cables, satellite systems and routing infrastructure.
 
 ### Storage and processing ###  
 
-Modern organisations generate data at unprecedented rates, creating a growing demand for efficient storage and processing infrastructure. whether managing petabytes or gigabytes, the storage layer represents a significant emissions source. These emissions originate from data centre operations requiring substantial computation and cooling systems, as well as processing and transcoding needed before distribution.
+Modern organisations generate data at unprecedented rates, creating a growing demand for efficient storage and processing infrastructure. Whether managing petabytes or gigabytes, the storage layer represents a significant emissions source. These emissions originate from operations requiring substantial computation and cooling systems, embordied carbon of data centre hardware as well as processing and transcoding needed before distribution. 
 
 [As an example, Meta reported:](https://sustainability.atmeta.com/blog/2024/09/10/estimating-embodied-carbon-in-data-center-hardware-down-to-the-individual-screws/)
 
-> In 2023, their carbon footprint was 7.5M metric tons of CO2e
+> In 2023, their carbon footprint was 7.5M metric tons of CO2e including 4.8 M for capital goods, which includes IT hardware purchases 
 
-Beyond the primary content itself, organisations must store metadata: descriptions, comments, tags, translations, accessibility features and versioning information.
+Beyond the primary content itself, organisations must store metadata: descriptions, comments, tags, translations, accessibility features and versioning information, often located in separate databases, which adds up to the computing resources required.
 
 <strong>Data redundancy:</strong>
-To ensure reliability and availability, organisations typically store multiple copies of the same data. While redundancy is critical for data security, disaster recovery and performance optimisation, it carries a significant environmental cost.
+To ensure reliability and availability, organisations typically store [multiple copies of the same data](https://www.ibm.com/think/topics/data-redundancy) across different locations, formats or systems. While redundancy is critical for data security, disaster recovery and performance optimisation, it carries a significant environmental cost.
 
 ### Distribution and networking ###
 
@@ -74,6 +64,11 @@ For organisations that treat content as their core product, distribution typical
 This generally involves energy consumed by Content Delivery Networks (CDNs) to reduce latency and improve performance, transmission networks moving data between data centres and end-user devices, cable modems and routers, and cloud infrastructure that scales dynamically based on demand. 
 
 ### End-user consumption ###
+
+![My Image]({{ site.baseurl }}/hsauve/assets/content/person-watching-netflix.jpg "A person watching Netflix")
+
+<sub>*Photo by [Mollie Sivaram](https://unsplash.com/@molliesivaram) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-11-yubCnXAA3H8)*</sub>
+ 
 
 Consumption represents the final, and for many organisations, the largest component of content's carbon footprint.
 These emissions, associated with device energy consumption, vary grately based on how the energy used is generated, device type, content quality and resolution, and consumption duration. 
@@ -84,10 +79,7 @@ The IEA study above also illustrates just how complex measuring downstream emiss
 
 [Social media carbon footprint calculator](https://www.comparethemarket.com.au/energy/features/social-carbon-footprint-calculator/)
 
-![My Image]({{ site.baseurl }}/hsauve/assets/content/person-watching-netflix.jpg "A person watching Netflix")
 
-<sub>*Photo by [Mollie Sivaram](https://unsplash.com/@molliesivaram) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-11-yubCnXAA3H8)*</sub>
- 
 ## AI-generated content ## 
 
 ![My Image]({{ site.baseurl }}/hsauve/assets/content/chatgpt.jpg "Introducing ChatGPT")
@@ -129,3 +121,11 @@ Practical steps you can take:
 - Question the need for AI support. When using AI chatbots, consult our [guide](https://www.techcarbonstandard.org/guides/reduce-ai-emissions), which contains information on prompt engineering and other strategies to minimise emissions. 
 
 
+*This is a high level estimate based on a limited amount of factors:
+
+- A portion of the embodied carbon of my Dell laptop
+- A portion of the embodied carbon of VSCode (the text editor I used)
+- Power consumption of the laptop for approximately 10 hours
+- Around 20 web searches (AI overviews on the search engine have not been turned off). [8.2g CO2e 5 minutes web browsing from a laptop](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)
+- Reading the stuff I found:
+- 7 inferences on AI chatbots
