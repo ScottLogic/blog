@@ -1,6 +1,8 @@
 @use "colours";
 @use 'fonts';
 
+$underline-height: 3px;
+
 .author-list {
   .author-grid {
     display: grid;
@@ -13,6 +15,7 @@
     font-weight: fonts.$font-bold;
     font-size: fonts.$baseFontSize * calc(10 / 16);
     text-align: center;
+    padding-bottom: $underline-height;
   }
 
     li {
@@ -27,7 +30,8 @@
 
   a:hover {
     color: colours.$black;
-    border-bottom: 3px solid colours.$teal;
+    padding-bottom: 0;
+    border-bottom: $underline-height solid colours.$teal;
   }
 
   a:visited {
