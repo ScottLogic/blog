@@ -18,18 +18,16 @@
         {% endfor %}
 
         {% for a in activeauthors limit:12 %}
-        <div>
-            <span class="author-icon">
-                <div class="avatar-metadata">
-                    {% assign author = a[1] %}
-                    {% assign author-id = a[0] %}
-                    {% include author_picture.html %}
-                </div>
-                <a class="{% if a[1].name == currentAuthorName %}active-author {% endif %}"
-                    href="{{ site.baseurl }}/{{ a[0] }}">
-                    {{ a[1].name }}
-                </a>
-            </span>
+        <div class="author-icon">
+            <div class="author-list-avatar">
+                {% assign author = a[1] %}
+                {% assign author-id = a[0] %}
+                {% include author_picture.html %}
+            </div>
+            <a class="{% if a[1].name == currentAuthorName %}active-author {% endif %}"
+                href="{{ site.baseurl }}/{{ a[0] }}">
+                {{ a[1].name }}
+            </a>
         </div>
         {% endfor %}
     </div>
