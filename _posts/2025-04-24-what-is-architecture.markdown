@@ -1,5 +1,5 @@
 ---
-title: What is Architecture??
+title: What is Architecture?
 date: 2025-04-24 09:23:00 Z
 categories:
 - Tech
