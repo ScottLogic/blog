@@ -102,6 +102,14 @@ When working with Copilot I found that I needed to rein it in to get good output
 
 By contrast, this approach worked poorly with Devin. I had to embrace the volume and run with it. I focused on the main logic and spotting larger design issues, then directed Devin to analyse and refactor the solution. This worked well, as it could operate independently and make large changes rapidly.
 
+| Aspect | Copilot | Devin |
+|--------|---------|-------|
+| Best phase | Early scaffolding, inline assistance | Mid/late feature expansion, parallel tasks |
+| Interaction style | Tight prompts; treat like junior | High-level goals; let it explore then refactor |
+| Risk | Over-generation in-file | Architectural drift, hidden debt |
+| Strength | Fast micro-completion | Multi-step autonomous execution |
+| Review need | Line-by-line | Strategic + targeted logic verification |
+
 ## When to Use AI Tools
 
 While the output is impressive, AI does not replace engineering skill — it augments it. Appropriate application is critical.
