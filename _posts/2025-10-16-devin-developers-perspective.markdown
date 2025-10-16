@@ -1,5 +1,5 @@
 ---
-title: Building the TCS Calculator with Devin: A Developer’s Perspective
+title: Building the TCS Calculator with Devin - A Developer’s Perspective
 date: 2025-10-16 09:00:00 Z
 categories:
 - AI
