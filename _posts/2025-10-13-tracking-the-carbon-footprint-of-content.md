@@ -56,8 +56,17 @@ Modern organisations generate data at unprecedented rates, creating a growing de
 
 Beyond the primary content itself, organisations must store metadata: descriptions, comments, tags, translations, accessibility features and versioning information, often located in separate databases, which adds up to the computing resources required.
 
-<strong>Data redundancy:</strong>
+- <strong>Data redundancy</strong>
+
 To ensure reliability and availability, organisations typically store [multiple copies of the same data](https://www.ibm.com/think/topics/data-redundancy) across different locations, formats or systems. While redundancy is critical for data security, disaster recovery and performance optimisation, it carries a significant environmental cost.
+
+- <strong>Dark data</strong>
+
+A vast majority of companies' stored data is considered "dark". It is either unusuable (the format is not appropriate to be read by integrated tools or doesn't contain the necessary metadata) and is not accessible to analytical tools, which makes it very hard to quantify. In an [article](https://www.ibm.com/think/topics/dark-data), IMB quote that in a global survey:
+
+> 60 percent of business and IT decision makers reported that half or more of their organisation’s data was considered dark. A full one-third of respondents reported this amount to be 75 percent or more.
+
+This staggering unused data is directly translatable into storage space and carbon emissions.
 
 ### Distribution and networking
 
@@ -72,7 +81,7 @@ This generally involves energy consumed by Content Delivery Networks (CDNs) to r
 <sub>_Photo by [Mollie Sivaram](https://unsplash.com/@molliesivaram) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-11-yubCnXAA3H8)_</sub>
 
 Consumption represents the final, and for many organisations, the largest component of content's carbon footprint.
-These [downstream emissions](https://www.techcarbonstandard.org/impact-categories/downstream), associated with device energy consumption, vary grately based on how the energy used is generated, device type, content quality and resolution, and consumption duration.
+These [downstream emissions](https://www.techcarbonstandard.org/impact-categories/downstream), associated with device energy consumption, vary greately based on how the energy used is generated, device type, content quality and resolution, and consumption duration.
 
 For example, [a 50-inch LED television consumes much more electricity than a smartphone (100 times) or laptop (5 times)](https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines) and whether your consumers are based in France where electricity originates primarily from nuclear power, or in a country that relies on coal for electricity generation will greatly affect your carbon footprint.
 
@@ -91,5 +100,6 @@ Here are just a few initiatives that organisations can take:
 - Smarter web design to optimise websites so users find information quickly.
 - Strategic deployment of CDNs to reduce energy use by minimising the physical distance data travels.
 - Selecting CDN providers with strong environmental policies and a commitment to renewable energy
+- Comprehensive data audit: organisations are often unaware of the existence of dark data but bringing it to the surface can considerably free up storage
 - Regular media cleanup: films, videos and photos accumulate quickly and take up storage
 - Unsubscribing from unwanted emails as each email has a carbon footprint ([3kg CO2e per year per person, or 12 million tonnes CO2e globally](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf))
