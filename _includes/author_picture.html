@@ -1,33 +1,33 @@
-{% if author.picture %}
-  {% if author-id %}
+{%- if author.picture -%}
+  {%- if author-id -%}
   <img
-    src="{{ site.baseurl }}/{{ author-id }}/{{ author.picture }}"
+    src="{{- site.baseurl -}}/{{- author-id -}}/{{- author.picture -}}"
     role="presentation"
-    alt="{{ author.name }}"
+    alt="{{- author.name -}}"
   />
-  {% elsif post.author %}
+  {%- elsif post.author -%}
   <img
-    src="{{ site.baseurl }}/{{ post.author }}/{{ author.picture }}"
-    role="presentation"
-    alt=""
-  />
-  {% elsif page.author %}
-  <img
-    src="{{ site.baseurl }}/{{ page.author }}/{{ author.picture }}"
+    src="{{- site.baseurl -}}/{{- post.author -}}/{{- author.picture -}}"
     role="presentation"
     alt=""
   />
-  {% else %}
+  {%- elsif page.author -%}
   <img
-    src="{{ site.baseurl }}/assets/avatar.png"
+    src="{{- site.baseurl -}}/{{- page.author -}}/{{- author.picture -}}"
     role="presentation"
     alt=""
   />
-  {% endif %}
-{% else %}
+  {%- else -%}
+  <img
+    src="{{- site.baseurl -}}/assets/avatar.png"
+    role="presentation"
+    alt=""
+  />
+  {%- endif -%}
+{%- else -%}
 <img
-  src="{{ site.baseurl }}/assets/avatar.png"
+  src="{{- site.baseurl -}}/assets/avatar.png"
   role="presentation"
   alt=""
 />
-{% endif %}
+{%- endif -%}

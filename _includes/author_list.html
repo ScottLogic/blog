@@ -1,34 +1,34 @@
-{% assign currentAuthorName = include.currentAuthorName %}
+{%- assign currentAuthorName = include.currentAuthorName %}
 <div class="author-list cell">
     <h4>Authors</h4>
     <div class="author-grid">
-        {% comment %}
+        {%- comment %}
         Create an array of maps to make the full name of authors the
         top level property. This is a workaround because it is not possible to sort
         on a sub-property in Jekyll.
-        {% endcomment %}
-        {% assign activeauthors = "" | split: ',' %}
-        {% for a in site.data.authors.authors %}
-            {% comment %}
+        {%- endcomment %}
+        {%- assign activeauthors = "" | split: ',' %}
+        {%- for a in site.data.authors.authors %}
+            {%- comment %}
             Create a map with one hash from the author's full name to their username
-            {% endcomment %}
-            {% if site.data.authors.active-authors contains a[0] %}
-                {% assign activeauthors = activeauthors | push: a %}
-            {% endif %}
-        {% endfor %}
+            {%- endcomment %}
+            {%- if site.data.authors.active-authors contains a[0] %}
+                {%- assign activeauthors = activeauthors | push: a %}
+            {%- endif %}
+        {%- endfor %}
 
-        {% for a in activeauthors %}
+        {%- for a in activeauthors %}
         <div class="author-icon">
-            <a class="{% if a[1].name == currentAuthorName %}active-author {% endif %}"
-               href="{{ site.baseurl }}/{{ a[0] }}">
+            <a class="{%- if a[1].name == currentAuthorName %}active-author {%- endif %}"
+               href="{{- site.baseurl -}}/{{- a[0] -}}">
                 <div class="author-list-avatar">
-                    {% assign author = a[1] %}
-                    {% assign author-id = a[0] %}
-                    {% include author_picture.html %}
+                    {%- assign author = a[1] %}
+                    {%- assign author-id = a[0] %}
+                    {%- include author_picture.html %}
                 </div>
-                {{ a[1].name }}
+                {{- a[1].name -}}
             </a>
         </div>
-        {% endfor %}
+        {%- endfor %}
     </div>
 </div>

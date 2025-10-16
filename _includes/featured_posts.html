@@ -1,28 +1,28 @@
-{% if include.categoryName == "Latest Articles" %}
-    {% assign featuredPosts = site.tags.featured %}
-{% else %}
-    {% assign featuredPosts = '' | split: '' %}
-    {% for post in include.postsToFilter %}
-        {% if post.tags contains 'featured' %}
-            {% assign featuredPosts = featuredPosts | push: post %}
-        {% endif %}
-    {% endfor %}
-{% endif %}
-{% assign numPosts = featuredPosts | size %}
-{% if numPosts > 0 %}
+{%- if include.categoryName == "Latest Articles" -%}
+    {%- assign featuredPosts = site.tags.featured -%}
+{%- else -%}
+    {%- assign featuredPosts = '' | split: '' -%}
+    {%- for post in include.postsToFilter -%}
+        {%- if post.tags contains 'featured' -%}
+            {%- assign featuredPosts = featuredPosts | push: post -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endif -%}
+{%- assign numPosts = featuredPosts | size -%}
+{%- if numPosts > 0 -%}
     <div class="featured-posts grid-x grid-margin-x grid-margin-y">
-        {% assign topPost = featuredPosts[0] %}
+        {%- assign topPost = featuredPosts[0] -%}
         <div class="featured-post {% include post_colour.html post=topPost %} cell large-12 grid-x">
-            {% include featured_post.html post=topPost %}
+            {%- include featured_post.html post=topPost -%}
         </div>
 
-        {% if numPosts >= 3 %}
-            {% assign splitPosts = featuredPosts | slice: 1, 2 %}
-            {% for post in splitPosts %}
+        {%- if numPosts >= 3 -%}
+            {%- assign splitPosts = featuredPosts | slice: 1, 2 -%}
+            {%- for post in splitPosts -%}
                 <div class="featured-post {% include post_colour.html post=post %} cell large-6 grid-x">
-                    {% include featured_post.html post=post %}
+                    {%- include featured_post.html post=post -%}
                 </div>
-            {% endfor %}
-        {% endif %}
+            {%- endfor -%}
+        {%- endif -%}
     </div>
-{% endif %}
+{%- endif -%}
