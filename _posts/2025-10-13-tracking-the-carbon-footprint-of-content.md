@@ -1,5 +1,5 @@
 ---
-title: Tracing the carbon footprint of content through its lifecycle
+title: Tracking the carbon footprint of content through its lifecycle
 date: 2025-10-13 00:00:00 Z
 categories:
   - Sustainability
@@ -78,28 +78,7 @@ For example, [a 50-inch LED television consumes much more electricity than a sma
 
 The IEA study quoted above also illustrates just how complex measuring downstream emissions can be, and how new demands for emerging technologies including artificial intelligence is rapidly changing the sector.
 
-## AI-generated content
-
-![My Image]({{ site.baseurl }}/hsauve/assets/content/chatgpt.jpg "Introducing ChatGPT")
-
-<sub>_Photo by [Shantanu Kumar](https://www.pexels.com/@theshantanukr/) on [Pexels](https://www.pexels.com/photo/chatgpt-webpage-open-on-iphone-16474955/)_</sub>
-
-While traditional content already poses sustainability challenges, the rise of AI-generated content introduces new complexities and a much larger scale of environmental impact.
-
-### The carbon cost of inference
-
-State-of-the-art models can produce multiple formats including text, image and video, with each "inference" (when a Large Language Model (LLM) takes a user's input, processes it and generates relevant outputs) carrying its own carbon footprint. In their [contribution to a global environmental standard for AI](https://mistral.ai/news/our-contribution-to-a-global-environmental-standard-for-ai) released earlier this year, Mistral estimated that a 400-token text response generated 1.14 gCO₂e and 45 mL of water. While this may seem negligible for a single query, the scale becomes staggering when multiplied across billions of daily interactions globally.
-When LLMs are used as SaaS, via chatbots for instance, each inference is not only generated but often stored and reused as contextual input for ongoing conversations. These inferences demand both storage capacity and computational power which creates a feedback loop; as more users interact with the model, the infrastructure must scale to handle both the real-time processing of new requests and the growing volume of stored context, further amplifying the environmental impact per interaction.
-
-### The hidden cost of training
-
-To accurately estimate their carbon footprints, organisations must also account for a proportional share of the training phase of the models they use. For instance training GPT-3 is estimated to have consumed [1,287 megawatt-hours (MWh) of electricity and emit over 550 metric tons of CO2e](https://arxiv.org/html/2505.09598v2) and [evaporated 700,000 litres of clean freshwater](https://arxiv.org/pdf/2304.03271), enough to fill an Olympic-sized swimming pool by nearly one-third.
-
-AI data centres fundamentally differ from traditional data centres in their infrastructure. The specialised hardware necessary for AI workloads involving Graphics Processing Units (GPUs) and Tensor Processing Units (TPUs) consumes substantially more power than standard CPUs.
-
-Understanding the true environmental cost of AI-generated content may enable organisations to make strategic decisions regarding the model they use, and how they use it.
-
-### What are some solutions to reduce our carbon footprint?
+### What are some solutions to reduce the carbon footprint of content?
 
 There are many aspects of our content consumption that lie beyond individual and organisation control, as the energy manufacturing and powering our devices and data centres heavily relies on fossil fuels. However awareness that everything we do digitally has a carbon footprint serves as a starting point for a wider reflection.
 
@@ -112,11 +91,5 @@ Here are just a few initiatives that organisations can take:
 - Smarter web design to optimise websites so users find information quickly.
 - Strategic deployment of CDNs to reduce energy use by minimising the physical distance data travels.
 - Selecting CDN providers with strong environmental policies and a commitment to renewable energy
-
-Other practical steps us as individuals can take:
-
-- Switching to a greener energy provider
+- Regular media cleanup: films, videos and photos accumulate quickly and take up storage
 - Unsubscribing from unwanted emails as each email has a carbon footprint ([3kg CO2e per year per person, or 12 million tonnes CO2e globally](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf))
-- Regularly deleting the media no longer needed: films, videos and photos accumulate quickly and take up storage
-- Reflecting on social media habits
-- Questioning the need for AI assistance. When using AI tools, consult our [guide](https://www.techcarbonstandard.org/guides/reduce-ai-emissions), which contains information on prompt engineering and other strategies to minimise emissions.
