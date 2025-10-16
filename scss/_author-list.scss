@@ -3,10 +3,15 @@
 .author-list {
   .author-grid {
     display: grid;
-    grid-template-columns: 5.75rem 5.75rem 5.75rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    row-gap: 0.5rem;
+    column-gap: 1rem;
   }
   a {
-    font-weight: $font-regular;
+    font-weight: $font-bold;
+    font-size: $baseFontSize * calc(10 / 16);
+    text-align: center;
   }
 
   li {
@@ -30,10 +35,16 @@
 
   .author-icon {
     width: fit-content;
-    avatar-metadata {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      border-radius: 50%;
+      max-height: 3rem;
+      max-width: 3rem;
+      filter: grayscale(100%);
+      height: 100%;
+      width: 100%;
     }
   }
 }
