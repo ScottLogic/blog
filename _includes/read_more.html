@@ -1,8 +1,8 @@
-{% assign author = include.author %}
-{% assign authorUsername = include.authorUsername %}
-{% assign page = include.page %}
+{%- assign author = include.author -%}
+{%- assign authorUsername = include.authorUsername -%}
+{%- assign page = include.page -%}
 
-{% assign allPosts = site.posts | where: "author", page.author %}
+{%- assign allPosts = site.posts | where: "author", page.author -%}
 <div class="grid-x grid-margin-y grid-padding-y">
     <div class="cell grid-x grid-margin-y grid-padding-y">
         <div class="read-more cell large-6 small-10 grid-margin-y">
@@ -15,7 +15,7 @@
             <h2>Read more</h2>
         </div>
         <div class="small-2 cell hide-for-large">
-            {% include social.html %}
+            {%- include social.html -%}
         </div>
     </div>
 </div>

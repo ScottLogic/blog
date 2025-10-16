@@ -1,28 +1,28 @@
-{% assign post = include.post %}
-{% assign read_more = include.read_more %}
-{% assign found_category = "false" %}
+{%- assign post = include.post -%}
+{%- assign read_more = include.read_more -%}
+{%- assign found_category = "false" -%}
 
 <span class="category">
-    {% for post_category in post.categories | downcase %}
-        {% if found_category == "true" %}
-            {% break %}
-        {% endif %}
-        {% for category in site.data.categories %}
-            {% if post_category == category.title | downcase %}
-                {% assign found_category = "true" %}
-                <a href="{{ site.baseurl }}{{ category.url }}">
-                    {% if read_more %}
-                        View all {{ category.title }} articles
-                    {% else %}
-                        {{ category.title }}
-                    {% endif %}
+    {%- for post_category in post.categories | downcase -%}
+        {%- if found_category == "true" -%}
+            {%- break -%}
+        {%- endif -%}
+        {%- for category in site.data.categories -%}
+            {%- if post_category == category.title | downcase -%}
+                {%- assign found_category = "true" -%}
+                <a href="{{- site.baseurl -}}{{- category.url -}}">
+                    {%- if read_more -%}
+                        View all {{- category.title -}} articles
+                    {%- else -%}
+                        {{- category.title -}}
+                    {%- endif -%}
                 </a>
-                {% break %}
-            {% endif %}
-        {% endfor %}
-    {% endfor %}
-    {% if post.layout == 'video_post' %}
+                {%- break -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endfor -%}
+    {%- if post.layout == 'video_post' -%}
     <span> &middot;</span>
-    <a href="{{ site.baseurl }}/category/videos.html">Video</a>
-    {% endif %}
+    <a href="{{- site.baseurl -}}/category/videos.html">Video</a>
+    {%- endif -%}
 </span>
