@@ -12,13 +12,13 @@ collections:
     title: Uploads
     output: true
 defaults:
-- scope:
-    path: ''
-    type: posts
-  values:
-    summary: a quick summary of your post
-    author: the name of the authers account
-    layout: default_post
+  - scope:
+      path: ''
+      type: posts
+    values:
+      summary: a quick summary of your post
+      author: the name of the authers account
+      layout: default_post
 repository: ScottLogic/blog
 name: Scott Logic
 description: This feed is brought to you by Scott Logic's team of technical authors
@@ -34,23 +34,27 @@ permalink: "/:year/:month/:day/:title.html"
 safe: true
 twitter_handle: Scott_Logic
 plugins:
-- jekyll-redirect-from
+  - jekyll-redirect-from
+  - jekyll-paginate-v2
 kramdown:
   input: kramdown
-paginate: 20
-excerpt_separator: 
+pagination:
+  enabled: true
+  per_page: 12
+  permalink: '/page/:num/'
+excerpt_separator:
 exclude:
-- CNAME
-- Gemfile
-- Gemfile.lock
-- lintPosts.js
-- scss
-- node_modules
-- package.json
-- README.md
-- ".spelling"
-- scripts/jquery-1.9.1.js
-- scripts/jquery.jscroll-2.2.4.js
-- scripts/tweet.js
-- scripts/search.js
-- vendor
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - lintPosts.js
+  - scss
+  - node_modules
+  - package.json
+  - README.md
+  - ".spelling"
+  - scripts/jquery-1.9.1.js
+  - scripts/jquery.jscroll-2.2.4.js
+  - scripts/tweet.js
+  - scripts/search.js
+  - vendor
