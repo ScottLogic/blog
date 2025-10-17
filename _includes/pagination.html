@@ -1,11 +1,52 @@
 <div class="pagination">
-    {%- if paginator.previous_page -%}
-        <a href="{{- paginator.previous_page_path | prepend: site.baseurl -}}">&leftarrow; Previous</a>
-    {%- endif -%}
-    <span>
-        {{- paginator.page -}}
-    </span>
-    {%- if paginator.next_page -%}
-        <a href="{{- paginator.next_page_path | prepend: site.baseurl -}}">Next &rightarrow;</a>
-    {%- endif -%}
+    <ul>
+        {%- assign min_offset = 3 -%}
+        {%- if paginator.previous_page -%}
+            <li>
+                <a href="{{- paginator.previous_page_path | prepend: site.baseurl -}}">&leftarrow; Previous</a>
+            </li>
+        {%- else -%}
+            <li class="disabled">
+                &leftarrow; Previous
+            </li>
+        {%- endif -%}
+        {%- if paginator.page > min_offset -%}
+            <li>
+                <a href="{{- paginator.first_page_path | prepend: site.baseurl -}}">{{- paginator.first_page -}}</a>
+            </li>
+            <li>
+                ...
+            </li>
+        {%- endif -%}
+        {%- if paginator.page_trail -%}
+            {% for trail in paginator.page_trail %}
+                {%- if page.url == trail.path -%}
+                    {%- assign class = "current" -%}
+                {%- else -%}
+                    {%- assign class = "" -%}
+                {%- endif -%}
+                <li class="{{- class -}}">
+                    <a href="{{- trail.path | prepend: site.baseurl -}}" title="{{- trail.title -}}">{{- trail.num -}}</a>
+                </li>
+            {% endfor %}
+        {%- endif -%}
+        {%- assign limit = paginator.total_pages | minus: min_offset -%}
+        {%- if paginator.page < limit -%}
+            <li>
+                ...
+            </li>
+            <li>
+                <a href="{{- paginator.last_page_path | prepend: site.baseurl -}}">{{- paginator.last_page -}}</a>
+            </li>
+        {%- endif -%}
+        {%- if paginator.next_page -%}
+            <li>
+                <a href="{{- paginator.next_page_path | prepend: site.baseurl -}}">Next &rightarrow;</a>
+            </li>
+        {%- else -%}
+            <li class="disabled">
+                &leftarrow; Previous
+            </li>
+        {%- endif -%}
+    </ul>
 </div>
