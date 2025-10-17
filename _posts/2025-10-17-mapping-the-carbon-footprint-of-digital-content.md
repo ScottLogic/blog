@@ -28,7 +28,7 @@ We looked at ways to locate these emissions across all kinds of media, from news
 
 ### Content production
 
-Content production activites include energy consumption from equipment operation (lighting, cameras, computers), physical production (sets, construction materials, costumes and props), location production and travel, and increasingly Artificial Intelligence tools for editing and visual effects.
+Content production activites include energy consumption from equipment operation (lighting, cameras, computers), physical production (sets, construction materials, costumes and props), location production and travel, and increasingly artificial intelligence tools for editing and visual effects.
 
 Carbon emissions associated with production vary considerably depending on methods and technologies used.
 In the television industry, a 2021 UCLA report comparing analog film rolls vs digital memory cards with HBO as a case study found that [capturing an hour of unedited footage on film generated 561.26 kg CO2e, whereas capturing an hour of unedited footage on a digital SD card produced only 164.70 kg CO2e, a difference of nearly 400 kg CO2e.](<(https://www.ioes.ucla.edu/wp-content/uploads/2024/07/UCLA-IoES-Practicum-HBO-Film-vs-Digital-Final-Report-2021.pdf)>) This data illustrates how technological choices can significantly impact a production's carbon footprint.
