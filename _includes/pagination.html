@@ -1,4 +1,11 @@
-{{- paginator.next_page -}}
 <div class="pagination">
-    <a class="next" href="{{- site.baseurl -}}/page{{- paginator.next_page -}}/">Next &raquo;</a>
+    {%- if paginator.previous_page -%}
+        <a href="{{- paginator.previous_page_path | prepend: site.baseurl -}}">&leftarrow; Previous</a>
+    {%- endif -%}
+    <span>
+        {{- paginator.page -}}
+    </span>
+    {%- if paginator.next_page -%}
+        <a href="{{- paginator.next_page_path | prepend: site.baseurl -}}">Next &rightarrow;</a>
+    {%- endif -%}
 </div>
