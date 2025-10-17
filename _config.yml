@@ -42,6 +42,10 @@ pagination:
   enabled: true
   per_page: 12
   permalink: '/page/:num/'
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
 excerpt_separator:
 exclude:
   - CNAME
