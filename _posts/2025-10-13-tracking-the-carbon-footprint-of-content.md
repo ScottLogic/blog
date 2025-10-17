@@ -20,15 +20,13 @@ Whilst the standard previously focused on hardware and software, content has eme
 
 Whether content is treated as a commodity or public good, in the case of cultural heritage with digital libraries as an example, understanding the environmental impact of handling digital content requires examining its lifecycle.
 
-We looked at ways to locate these emissions across all kinds of media, from news articles and blog posts through to photos, audio files and videos. This cluster includes everything from video and music streaming, video conferencing, social media, emails and inferences with [foundation models](https://www.adalovelaceinstitute.org/resource/foundation-models-explainer/), which we’ll explore further down in this article.
+We looked at ways to locate these emissions across all kinds of media, from news articles and blog posts through to photos, audio files and videos. This cluster includes everything from video and music streaming, video conferencing, social media and emails.
 
 ![My Image]({{ site.baseurl }}/hsauve/assets/content/two-people-filming.jpg "Two people filming with a camera")
 
 <sub>_Photo by [Marcos Rocha](https://unsplash.com/@marcosrochatv) on [Unsplash](https://unsplash.com/photos/man-in-red-long-sleeve-shirt-using-black-video-camera-_XgGN5yo1QE)_</sub>
 
 ### Content production
-
-Content production encompasses all activities directly involved in creating and editing digital content, and varies greatly based on content type and production scale.
 
 Content production activites include energy consumption from equipment operation (lighting, cameras, computers), physical production (sets, construction materials, costumes and props), location production and travel, and increasingly artificial Intelligence tools for editing and visual effects.
 
@@ -62,17 +60,19 @@ To ensure reliability and availability, organisations typically store [multiple 
 
 - <strong>Dark data</strong>
 
-A vast majority of companies' stored data is considered "dark". It is either unusuable (the format is not appropriate to be read by integrated tools or doesn't contain the necessary metadata) and is not accessible to analytical tools, which makes it very hard to quantify. In an [article](https://www.ibm.com/think/topics/dark-data), IMB quote that in a global survey:
+A vast majority of companies' stored data is considered "dark". It is unusuable (due to incompatible formats or missing metadata) and is not accessible to analytical tools, which makes it very hard to quantify. [IMB quoted in an article](https://www.ibm.com/think/topics/dark-data) that:
 
-> 60 percent of business and IT decision makers reported that half or more of their organisation’s data was considered dark. A full one-third of respondents reported this amount to be 75 percent or more.
+> 60% of business and IT decision makers reported that half or more of their organisation’s data was considered dark. A full one-third of respondents reported this amount to be 75% or more.
 
-This staggering unused data is directly translatable into storage space and carbon emissions.
+This staggering unused data doesn’t just gather digital dust, it consumes storage space, drives up energy demands, and directly contributes to avoidable carbon emissions.
 
 ### Distribution and networking
 
 For organisations that treat content as their core product, distribution typically accounts for a substantial share of their [operational emissions](https://www.techcarbonstandard.org/impact-categories/operational). This phase encompasses the entire journey from data centre to end-user device.
 
 This generally involves energy consumed by Content Delivery Networks (CDNs) to reduce latency and improve performance, transmission networks moving data between data centres and end-user devices, cable modems and routers, and cloud infrastructure that scales dynamically based on demand. Factors like data transfer distance, content resolution and the efficiency of the infrastructure all play a role.
+
+CDNs deploy caches closer to users than origin servers, reducing both server load and overall energy consumption through more efficient content distribution. Oxford University researchers propose a [carbon-intelligent content delivery scheduling](https://eng.ox.ac.uk/media/ixmfuz43/elzahr25cics.pdf) to helps streaming companies align operational efficiency with sustainability goals. Since carbon intensity varies significantly across regions and fluctuates hourly, daily and seasonally, carefully selecting time-slots can substantially minimise the carbon footprint of these operations.
 
 ### End-user consumption
 
