@@ -1,0 +1,54 @@
+name: Build and Deploy
+on:
+  pull_request:
+    branches:
+      - gh-pages
+      - 2025-redesign
+  push:
+    branches:
+      - gh-pages
+      - 2025-redesign # TODO: Remove before merge
+  workflow_dispatch:
+
+# Prevent concurrent deploys
+concurrency:
+  group: "pages"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+      - name: Setup node
+        uses: bahmutov/npm-install@v1
+      - name: Setup pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build Jekyll
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --profile
+        env:
+          JEKYLL_ENV: production
+          RUBYOPT: --yjit
+      - name: Upload
+        uses: actions/upload-pages-artifact@v4
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    # Only deploy on push, merge or manual
+    if: "github.event_name != 'pull_request'"
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
