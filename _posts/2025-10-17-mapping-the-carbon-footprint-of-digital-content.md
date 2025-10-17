@@ -28,7 +28,7 @@ We looked at ways to locate these emissions across all kinds of media, from news
 
 ### Content production
 
-Content production activites include energy consumption from equipment operation (lighting, cameras, computers), physical production (sets, construction materials, costumes and props), location production and travel, and increasingly artificial Intelligence tools for editing and visual effects.
+Content production activites include energy consumption from equipment operation (lighting, cameras, computers), physical production (sets, construction materials, costumes and props), location production and travel, and increasingly Artificial Intelligence tools for editing and visual effects.
 
 Carbon emissions associated with production vary considerably depending on methods and technologies used.
 In the television industry, a 2021 UCLA report comparing analog film rolls vs digital memory cards with HBO as a case study found that [capturing an hour of unedited footage on film generated 561.26 kg CO2e, whereas capturing an hour of unedited footage on a digital SD card produced only 164.70 kg CO2e, a difference of nearly 400 kg CO2e.](<(https://www.ioes.ucla.edu/wp-content/uploads/2024/07/UCLA-IoES-Practicum-HBO-Film-vs-Digital-Final-Report-2021.pdf)>) This data illustrates how technological choices can significantly impact a production's carbon footprint.
@@ -60,7 +60,7 @@ To ensure reliability and availability, organisations typically store [multiple 
 
 - <strong>Dark data</strong>
 
-A vast majority of companies' stored data is considered "dark". It is unusuable (due to incompatible formats or missing metadata) and is not accessible to analytical tools, which makes it very hard to quantify. [IMB quoted in an article](https://www.ibm.com/think/topics/dark-data) that:
+A vast majority of companies' stored data is considered "dark". It is unusuable (due to incompatible formats or missing metadata) and is not accessible to analytical tools, which makes it very hard to quantify. [IBM quoted in an article](https://www.ibm.com/think/topics/dark-data) that:
 
 > 60% of business and IT decision makers reported that half or more of their organisation’s data was considered dark. A full one-third of respondents reported this amount to be 75% or more.
 
@@ -72,7 +72,7 @@ For organisations that treat content as their core product, distribution typical
 
 This generally involves energy consumed by Content Delivery Networks (CDNs) to reduce latency and improve performance, transmission networks moving data between data centres and end-user devices, cable modems and routers, and cloud infrastructure that scales dynamically based on demand. Factors like data transfer distance, content resolution and the efficiency of the infrastructure all play a role.
 
-CDNs deploy caches closer to users than origin servers, reducing both server load and overall energy consumption through more efficient content distribution. Oxford University researchers propose a [carbon-intelligent content delivery scheduling](https://eng.ox.ac.uk/media/ixmfuz43/elzahr25cics.pdf) to helps streaming companies align operational efficiency with sustainability goals. Since carbon intensity varies significantly across regions and fluctuates hourly, daily and seasonally, carefully selecting time-slots can substantially minimise the carbon footprint of these operations.
+However, the environmental impact of distribution is not fixed. CDNs reduce both server load and energy consumption by deploying caches closer to users, enabling more efficient content delivery. Oxford University researchers have proposed a [carbon-intelligent content delivery scheduling](https://eng.ox.ac.uk/media/ixmfuz43/elzahr25cics.pdf) to helps streaming companies align operational efficiency with sustainability goals. Since carbon intensity varies significantly across regions and fluctuates hourly, daily and seasonally, carefully selecting time-slots can substantially minimise the carbon footprint of these operations.
 
 ### End-user consumption
 
@@ -91,15 +91,24 @@ The IEA study quoted above also illustrates just how complex measuring downstrea
 
 There are many aspects of our content consumption that lie beyond individual and organisation control, as the energy manufacturing and powering our devices and data centres heavily relies on fossil fuels. However awareness that everything we do digitally has a carbon footprint serves as a starting point for a wider reflection.
 
-An article by [WIRED](https://www.wired.com/story/youtube-digital-waste-interaction-design/) reports:
+Research demonstrates the potential for meaningful impact. An article by [WIRED](https://www.wired.com/story/youtube-digital-waste-interaction-design/) reports:
 
-> YouTube's annual carbon footprint is about 10Mt CO2e (Million Metric tons of carbon dioxide equivalent), according to researchers — about the output of a city the size of Glasgow. But it doesn't have to be that way, with a few easy design changes easily slashing that footprint by applying Sustainable Interaction Design.
+> YouTube's annual carbon footprint is about 10Mt CO2e (Million Metric tons of carbon dioxide equivalent), according to researchers — about the output of a city the size of Glasgow.
 
-Here are just a few initiatives that organisations can take:
+Encouragingly, the same research suggests that this footprint doesn't have to be inevitable; applying Sustainable Interaction Design principles could substantially reduce it.
 
-- Smarter web design to optimise websites so users find information quickly.
+For content platforms and organisations:
+
+- Smarter web design (e.g. faster loading time, image and content optimisation) so users find information quickly.
+- Eliminating "digital waste" of showing videos to users only listening to the audio
 - Strategic deployment of CDNs to reduce energy use by minimising the physical distance data travels.
 - Selecting CDN providers with strong environmental policies and a commitment to renewable energy
 - Comprehensive data audit: organisations are often unaware of the existence of dark data but bringing it to the surface can considerably free up storage
 - Regular media cleanup: films, videos and photos accumulate quickly and take up storage
-- Unsubscribing from unwanted emails as each email has a carbon footprint ([3kg CO2e per year per person, or 12 million tonnes CO2e globally](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf))
+
+For individual users:
+
+While individual actions have limited systemic impact, they contribute to broader awareness.
+
+- Unsubscribing from unwanted emails reduces unnecessary data transmission across networks (collectively, emails generate approximately [12 million tonnes CO2e globally per year](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)).
+- Being intentional about consumption. For instance streaming at appropriate quality levels rather than maximum resolution, and regularly deleting unused files minimises personal device energy use.
