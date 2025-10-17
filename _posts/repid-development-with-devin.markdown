@@ -49,7 +49,7 @@ This, as expected, failed in several ways, but the results were very interesting
 
 This early failure was useful. It showed me that Devin works best with a live, interactive codebase it can inspect, and struggles with desktop applications using technologies such as Electron.
 
-I also realised that it needed a repository to work with, which we connected via the backend.
+I also learned that it needed a connected repository to operate properly. Once linked via the backend, Devin could spin up a virtual environment, interact directly with the code, and raise PRs for me to review. It can do the clone as part of the request, but if it is configured properly, it can provision the VM with the correct repository present. This saves processing and increases speed.
 
 ### The Workflow
 
