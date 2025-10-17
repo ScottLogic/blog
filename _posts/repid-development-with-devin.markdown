@@ -2,9 +2,10 @@
 title: Rapid web app development with Devin - A Developer’s Perspective
 date: 2025-10-16 09:00:00 Z
 categories:
-- AI
+- Artificial Intelligence
 tags:
 - AI
+- Artificial Intelligence
 - Agentic AI
 - Devin
 - Copilot
