@@ -12,25 +12,29 @@ summary: Rebuilding a carbon emissions calculator with Devin vs Copilot, where a
 author: jcamilleri
 ---
 
-[Devin AI](https://devin.ai/) is a tool developed by Cognition Labs, positioned as a fully autonomous AI software engineer. Unlike traditional coding assistants, Devin is designed to independently handle the entire software development lifecycle, from planning and coding to testing and deployment, with minimal human oversight. Devin's work is measure in ACUs (Agent Compute Units), which are used in its pay as you go model.
+For the last couple of weeks, I've been experimenting with AI tools for code generation, more specifically, with agentic AI.
 
-When I first started experimenting with Devin, I wasn’t sure what to expect. The promise of an AI-powered development team sounded compelling, but I wanted to test it in a real-world scenario. I chose to revisit a sustainability project we’d previously shelved. I began work on a set of carbon emissions calculators to see how far I could get using Devin as my primary development partner. Using Devin, I was able to create a fully working, production ready, relatively complex application, in seven days. I found that Devin still requires technical software engineering skill to drive it to produce secure, maintainable results suitable for production.
+A regular AI (like a chatbot) answers questions when asked; an agentic AI takes initiative. It can plan tasks, make decisions, execute code, interact with tools or APIs, and adjust its behaviour based on feedback, all without needing constant human direction.
+
+[Devin](https://devin.ai/) is a tool developed by Cognition Labs, positioned as a fully autonomous AI software engineer. Unlike traditional coding assistants, Devin is designed to independently handle the entire software development lifecycle—from planning and coding to testing and deployment—with minimal human oversight. Devin’s work is measured in ACUs (Agent Compute Units), a usage-based metric that also determines cost.
+
+When I first started experimenting with Devin, I wasn’t sure what to expect. The promise of an AI-powered development team sounded compelling, but I wanted to test it in a real-world scenario. I chose to revisit a sustainability project we’d previously shelved. I began work on a set of carbon emissions calculators to see how far I could get using Devin as my primary development partner. I was able to create a production-ready, relatively complex application in seven days. I found that Devin still requires technical software engineering skill to drive it to produce secure, maintainable results suitable for production.
 
 I have to admit, it did feel like having my own development team.
 
 ## From Spreadsheet to Production-Ready Tool
 
-Last year I was part of a collaboration with the [Green Web Foundation](https://www.thegreenwebfoundation.org/) to test drive the [Technical Carbon Standard (TCS)](https://www.techcarbonstandard.org/) and examine the carbon emissions of their IT estate. During this project we used an Excel spreadsheet to record our findings and perform the calculations used in the estimates of the [case study](https://www.techcarbonstandard.org/case-studies/green-web-foundation).
+Last year I was part of a collaboration with the [Green Web Foundation](https://www.thegreenwebfoundation.org/) to test-drive the [Technical Carbon Standard (TCS)](https://www.techcarbonstandard.org/) and examine the carbon emissions of their IT estate. During this project we used an Excel spreadsheet to record our findings and perform the calculations used in the estimates of the [case study](https://www.techcarbonstandard.org/case-studies/green-web-foundation).
 
-Whilst we were very pleased with the results of the project, one issue that came up in our retrospective was that the spreadsheet was difficult to work with and error prone. As a follow up project, we decided to recreate the calculations in a web app to make it easier to work with by teams. Unfortunately, due to a variety of reasons the project never came to fruition. 
+Whilst we were very pleased with the results of the project, one issue that came up in our retrospective was that the spreadsheet was difficult to work with and error-prone. As a follow-up project, we decided to recreate the calculations in a web app to make it easier for teams to work with. Unfortunately, due to a variety of reasons the project never came to fruition. 
 
-- **Design by committee**: We all had some fairly strong opinions on the software architecture and no clear product owner for the tool. As a result, we over complicated the design and made it much harder to implement.
-- **Misaligned goals**: As the team members were using the project as a learning exercise, outside of commercial project work, we all had slightly different self development goals.
-- **New projects**: Finally, as the project progressed, our time was required for commercial engagements and the team became too small to complete the project.
+- **Design by committee**: We all had fairly strong opinions on the software architecture and no clear product owner for the tool. As a result, we overcomplicated the design and made it much harder to implement.
+- **Misaligned goals**: As team members were using the project as a learning exercise outside commercial project work, we all had slightly different self-development goals.
+- **New projects**: As the project progressed, our time was required for commercial engagements and the team became too small to complete the project.
 
-When I was asked to try out Devin and evaluate how it works, i picked up the old spreadsheet we used in the case study and decided to see if I could create an application based on it, using just Devin.
+When I was asked to try out Devin and evaluate how it works, I picked up the old spreadsheet we used in the case study and decided to see if I could create an application based on it using just Devin.
 
-In just over a week, I transformed those spreadsheets into a fully functional web application. Devin helped me implement all the original calculators, add two new ones, build a dashboard, and integrate export functionality, including support for the Tech Carbon Standard (TCS) schema.
+In just over a week, I transformed those spreadsheets into a fully functional web application. Devin helped me implement all the original calculators, add two new ones, build a dashboard, and integrate export functionality, including support for the Technical Carbon Standard (TCS) [schema](https://www.techcarbonstandard.org/schemas/implementation-guide).
 
 ## My Journey
 
@@ -39,9 +43,11 @@ In just over a week, I transformed those spreadsheets into a fully functional we
 I began my exploration of Devin not knowing anything about it. I've been developing software for over 15 years. In the last year, I've been learning about AI-assisted tools such as ChatGPT and GitHub Copilot, but I had no real understanding of how Devin differed from these tools other than that it was intended to be more independent.
 
 I began by attaching a copy of the Excel workbook to the Devin session. I then gave it a deliberately vague prompt just to see what it would do. I asked Devin to convert the attached spreadsheet into an Electron app.
-![A spreadsheet viewer of the TCS Calculator generated by Devin]({{ site.github.url }}/uploads/devin-spreadsheet-viewer.png "A Devin generated spreadsheet viewer")
+![A spreadsheet viewer of the TCS calculator generated by Devin]({{ site.github.url }}/uploads/devin-spreadsheet-viewer.png "Spreadsheet viewer generated by Devin")
 
-This, as expected, failed in several ways, but the results were very interesting. First of all it told me that because it was an Electron app, it wouldn't be able to interact with it fully, so I'd have to validate the output myself. Intriguing! It also produced a non-editable spreadsheet viewer that was of very little use.
+This, as expected, failed in several ways, but the results were very interesting. First, it told me that because it was an Electron app, it wouldn't be able to interact with it fully, so I'd have to validate the output myself. Intriguing! It also produced a non-editable spreadsheet viewer that was of very little use.
+
+This early failure was useful. It showed me that Devin works best with a live, interactive codebase it can inspect, and struggles with desktop applications using technologies such as Electron.
 
 I also realised that it needed a repository to work with, which we connected via the backend.
 
@@ -65,11 +71,11 @@ Having failed to produce anything useful with my first prompt, I started again w
 
 This time I changed from Electron to a simple TypeScript/React software stack. This allowed Devin to interact with the solution in real time and helped it produce better results. I also expanded my prompt to explain what I wanted and asked it to focus on creating just models for the calculations.
 
-![devin prompt to focus on the data collected and calculations being done]({{ site.github.url }}/uploads/devin-prompt.png "Conversation with from Devin")
+![Prompt to focus on the data collected and calculations being done]({{ site.github.url }}/uploads/devin-prompt.png "Conversation with Devin")
 
-It put together a basic structure and we iterated over some technical details — it had brought in a bit too much. It had scaffolded a large amount of UI components that I had not asked for and may never be needed. As a result, the node package install was taking a long time.
+It put together a basic structure and we iterated over some technical details—it had brought in a bit too much. It had scaffolded a large amount of UI components that I had not asked for and might never need. As a result, the node package install was taking a long time.
 
-Still, a much better starting point. I asked it to strip out unnecessary components and we begin to iterate over the solution.
+Still, a much better starting point. I asked it to strip out unnecessary components and we began to iterate over the solution.
 
 ![Devin's task completion output showing project structure and a description of the generated code.]({{ site.github.url }}/uploads/devin-sample-output.png "Task completion output from Devin")
 
@@ -79,39 +85,45 @@ Following this Devin and I worked together to add unit tests, round out the mode
 
 With the core calculations done, the next step was a UI so I could interact with it more easily and check it was producing the same output as the spreadsheet. The initial results were impressive.
 
-After a few iterations over the UI, we had a homepage, with placeholders for missing calculators marked as "coming soon" and the UI for our first calculator.
+After a few iterations over the UI, we had a homepage with placeholders for missing calculators marked as "coming soon" and the UI for our first calculator.
 
-![Early UI for the hardware calculator that estimates the carbon emissions of IT hardware.]({{ site.github.url }}/uploads/devin-initial-ui.png "The UI generated by Devin")
+![Early UI for the hardware calculator that estimates the carbon emissions of IT hardware.]({{ site.github.url }}/uploads/devin-initial-ui.png "Early hardware calculator UI")
 
 Following this were a series of sessions to iterate over the UI, spot issues, review the code (by me, Devin itself and Copilot), and improve the UI.
 
 The final result looked something like this:
-![Calculator homepage UI with TCS branding]({{ site.github.url }}/uploads/devin-final-ui.png "The branded UI generated by Devin")
+![Calculator homepage UI with TCS branding]({{ site.github.url }}/uploads/devin-final-ui.png "Branded calculator homepage")
 
 The solution has unit tests, Playwright tests and all the features I need, plus a few new ones. It is superior to the original spreadsheet in several ways.
 
 ## Observations
 
-I found this experiment very encouraging. Here are some observations from myself and from a feedback session that followed the work:
+I found this experiment very encouraging. Here are some observations from me and from a feedback session that followed the work:
 
-- **Speed and completeness**: In just seven working days I had a complete set of calculators that incorporated live carbon intensity data and useful utilities such as import/export. There is a robust set of both unit and end-to-end tests. I estimate this would have taken around eight to ten weeks to achieve the same results with a team of three engineers.
-- **Validation concerns**: Given the volume of code that Devin produces, it can be very challenging to verify its output. I could not read every single line of code. Instead I focused on important areas of logic rather than the UI and used testing to verify the output. I also found value in using other tools (both AI-based and static analysis such as linting) to assess the code.
-- **UI Design polish**: Devin produced a good UI design that I was able to apply branding to easily.
-- **Code Design bloat**: Left to its own devices, the code quickly became bloated and the design drifted. I had to examine its output and get it to refactor the code to address this.
-- **Technical debt**: Given free rein, LLM-based code generation will bake in large amounts of technical debt from minute one. It doesn't always look at the full project or make long-term decisions — it gives you what you ask for, not necessarily what you need.
-- **Refactoring is cheap**: Refactoring large changes is much easier in Devin. After adding a few calculators I saw the codebase was getting large and repetitive. I prompted Devin to analyse the codebase with an eye to this problem and it produced a comprehensive refactoring plan that I reviewed and agreed with. I fed this plan back in chunks to apply the refactor, which reduced the size of the project by about 60%.
-- **Context size management**: It is important to start new sessions regularly to avoid context rot. It takes experimentation to get a feel for when to let a session grow and when to start a new one.
-- **Cost concerns**: Devin uses a pay-as-you-go model. It was easy to start tasks without a clear sense of cost. We had to top up our account multiple times, which felt a bit like kids spending game tokens without understanding value. The application I developed used around 155 ACU and cost $350, plus the cost of my own time. Compared to other AI coding tools, this is expensive, but when compared to the cost of a team three engineers to achieve the same thing, it seems pretty cheap.
+- **Speed and completeness**: During the project I was able to create a complete set of calculators that incorporated live carbon intensity data and useful utilities such as import/export. There is a robust set of both unit and end-to-end tests. I estimate this would have taken around eight to ten weeks with a team of three engineers.
+- **Validation concerns**: Given the volume of code Devin produces, it is challenging to verify its output. I could not read every line. Instead I focused on important logic rather than the UI and used testing to verify the output. Other tools (both AI-based and static analysis such as linting) were useful for assessment.
+- **UI design polish**: Devin produced a good UI design that I was able to brand easily.
+- **Code design bloat**: Left to its own devices, the code quickly became bloated and the design drifted. I had to examine its output and get it to refactor.
+- **Technical debt**: Given free rein, LLM-based code generation bakes in large amounts of technical debt from minute one. It gives you what you ask for, not necessarily what you need.
+- **Refactoring is cheap**: After adding a few calculators I saw the codebase was getting large and repetitive. I prompted Devin to analyse the codebase with this in mind and it produced a comprehensive refactoring plan. I fed this plan back in chunks, reducing the size of the project by about 60%.
+- **Context size management**: It is important to start new sessions regularly to avoid context rot. It takes experimentation to learn when to let a session grow and when to start a new one.
+- **Cost concerns**: Devin uses a pay-as-you-go model. It was easy to start tasks without a clear sense of cost. We had to top up our account multiple times, which felt a bit like spending game tokens without knowing what each was worth. The application used around ≈155 ACUs and cost ≈$350, plus my time. Compared to other AI coding tools this is expensive, but compared to a team of three engineers producing the same thing it seems cheap. 
 
-Regarding my own workflow, I had some trouble with context switching between working with Devin and completing other tasks. Devin’s iterative workflow sat in an awkward middle ground — too slow to watch in real time, yet fast enough to interrupt deeper focus work. To manage this, I found two strategies that helped. For smaller, low-risk tasks like fixing minor bugs, I used a fire-and-forget approach: I’d start a session, move on to something else, and review the results later since Devin waits patiently. For larger pieces of work, I parallelised tasks that didn’t depend on each other, starting several sessions at once. Devin spun up the necessary VMs and feature branches, letting me review one task while others were still running.
+Please note that the ACU spend (≈155 ACUs, ≈$350) reflects a short exploratory build. It is not a proxy for the ongoing value or cost of an engineering team, which also delivers product discovery, architecture, security, UX, compliance, support and risk management. Figures are illustrative only.
 
-In many ways, using code generation tools is another layer of abstraction over high level languages, not dissimilar to how high level languages are an abstraction over assembler. There are cases when you will need to dive beneath the abstraction you are using to optimise the code. There are also use cases where the exact code generated or compiled is less of a priority. In the future, part of our job will be to recognise the best approach for the task at hand and use appropriate tooling, regardless of if this is generative AI, hand coding in high level languages such as Python or Java, or getting closer to the hardware using C or assembler.
+Regarding my own workflow, I had some trouble context switching between working with Devin and other tasks. Devin’s iterative workflow sat in an awkward middle ground—too slow to watch in real time, yet fast enough to interrupt deeper focus work. To manage this I used two strategies. For smaller, low-risk tasks (minor bugs) I used a fire-and-forget approach: start a session, move on, review later. For larger work I parallelised tasks that didn’t depend on each other, starting several sessions at once. Devin spun up the VMs and feature branches, letting me review one task while others were still running.
+
+These workflow lessons were as valuable as the code itself. Working effectively with agentic AI is about time management as well as technical direction.
+
+In many ways, using code generation tools is another layer of abstraction over high-level languages, similar to how high-level languages abstract over assembler. Sometimes you need to dive beneath the abstraction to optimise. Sometimes the precise generated code matters less than the behaviour. In future, part of the job will be recognising the best approach for the task and using appropriate tooling — generative AI, hand coding in high-level languages such as Python or Java, or getting closer to hardware with C or assembler.
 
 ## Comparing Copilot and Devin
 
-When working with Copilot I found that I needed to rein it in to get good output. Given too much freedom it would overproduce inappropriate code for the problem at hand and go down paths I wanted to avoid. The trick was to limit its focus and context, direct it on code style and patterns, and review the output like a junior developer's work. Keep PRs small and submit them for review to keep quality high. Don't swamp teammates with large volumes of AI-generated code — they will tune out and bugs and design issues will slip through.
+When working with Copilot I found I needed to rein it in to get good output. Given too much freedom it would overproduce inappropriate code and go down paths I wanted to avoid. The trick was to limit focus and context, direct code style and patterns, and review output like a junior developer's work. Keep PRs small to keep quality high. Don’t swamp teammates with large volumes of AI-generated code—bugs and design issues will slip through.
 
-By contrast, this approach worked poorly with Devin. I had to embrace the volume and run with it — treating the AI more like a fast-moving collaborator than a junior dev. Rather than reviewing every line, I focused on the broader architecture and main logic, making sure the design held up and the functional tests passed. Once the structure was sound, I directed Devin to analyse and refactor the implementation. This worked well, as it could operate independently and make large-scale changes rapidly.
+By contrast, this approach worked poorly with Devin. I had to embrace the volume—treating it more like a fast-moving collaborator than a junior dev. Rather than reviewing every line, I focused on architecture and key logic, ensuring design integrity and passing functional tests. Once the structure was sound, I directed Devin to analyse and refactor the implementation. This worked well, as it could operate independently and make large-scale changes rapidly.
+
+The contrast between Copilot and Devin became clear as I switched between them on similar tasks.
 
 | Aspect | Copilot | Devin |
 |--------|---------|-------|
@@ -120,34 +132,36 @@ By contrast, this approach worked poorly with Devin. I had to embrace the volume
 | Risk | Over-generation in-file | Architectural drift, hidden debt |
 | Strength | Fast micro-completion | Multi-step autonomous execution |
 | Review need | Line-by-line | Strategic + targeted logic verification |
+**Table:** A comparison of Copilot and Devin, contrasting a prompt-driven assistant with an autonomous agentic collaborator, and how each fits into different phases of software development.
+
 
 ## When to Use AI Tools
 
-While the output is impressive, AI does not replace engineering skill — it augments it. Appropriate application is critical.
+While the output is impressive, AI does not replace engineering skill—it augments it. Appropriate application is critical.
 
-For business-critical applications and core logic, skilled software engineers are still the safest approach. Tools like Copilot can relieve cognitive burden and allow focus on logic over syntax. However, without hands-on experience, developers cannot critically assess tool output. I would recommend against encouraging junior developers to rely heavily on these tools early in their careers.
+For business-critical applications and core logic, skilled software engineers are still the safest approach. Tools like Copilot can relieve cognitive burden and allow focus on logic over syntax. Without hands-on experience, developers cannot critically assess tool output. I would recommend against encouraging junior developers to rely heavily on these tools early in their careers.
 
-Devin could be driven by any user with enough business knowledge to describe features. This temptation should be resisted. Without engineering involvement, the product will accumulate hard-to-track bugs, security flaws and an unwieldy codebase that even the AI will struggle to keep in context.
+Devin could be driven by any user with enough business knowledge to describe features. This temptation should be resisted. Without engineering involvement the product will accumulate hard-to-track bugs, security flaws and an unwieldy codebase that even the AI will struggle to keep in context.
 
-For greenfield development at the very start, I found Copilot helpful and Devin clumsy. Early projects have interdependent tasks, leading to waiting. Copilot can automate small bits of boilerplate and scaffolding.
+For greenfield development at the very start, I found Copilot helpful and Devin clumsy. Early projects have interdependent tasks, leading to waiting. Copilot can automate boilerplate and scaffolding.
 
-Devin became effective once a baseline level of maturity was reached. I could then use it for self-contained features, bug fixes and adding test automation. These could be done in parallel and merged when ready.
+Devin became effective once a baseline level of maturity was reached. I could then use it for self-contained features, bug fixes and test automation. These could be done in parallel and merged when ready.
 
-So, for greenfield development, start with a real team, optionally using augmentation like Copilot. Then bring Devin online to accelerate delivery at an appropriate point. For example, in a recent project we had to make a major change to the auth system that broke all the Playwright tests. The testers had to update a large number of tests before proceeding, creating a bottleneck. With a system like Devin, we could have set it to correcting the Playwright tests while testers focused on higher-value feature validation.
+My recommendation for greenfield development is to start with a real team, optionally using augmentation like Copilot. Then bring Devin online to accelerate delivery at an appropriate point. For example, in a recent project we had to make a major change to the auth system that broke all the Playwright tests. The testers had to update a large number of tests before proceeding, creating a bottleneck. With a system like Devin, we could have set it to correcting the Playwright tests while testers focused on higher-value feature validation.
 
-I can also see Devin being effective for creating and maintaining standard end-to-end tests, freeing testers to focus on critical scenarios. Similarly, on the development side, there may be value in using agentic AI for routine bug fixing while the team focuses on feature development.
+I can also see Devin being effective for creating and maintaining standard end-to-end tests, freeing testers to focus on critical scenarios. Similarly, agentic AI may add value handling routine bug fixing while the team focuses on feature development.
 
-Finally, in the hands of non-engineers (designers, product owners, entrepreneurs), agentic AI can be used to rapidly prototype ideas before engaging the development team. But don't be fooled into thinking that a prototype or proof of concept created this way is appropriate in any way, shape, or form for production.
+In the hands of non-engineers (designers, product owners, entrepreneurs), agentic AI can rapidly prototype ideas before engaging the development team. But a prototype created this way is not suitable for production.
 
 ## Key Insights
 
-This experiment yielded several key insights:
-
 - **Devin is a productivity multiplier**, but only when paired with strong engineering discipline.
 - **Validation is non-negotiable**, especially for logic-heavy applications.
-- **AI-generated code can be overwhelming**, and tools like Copilot or Claude are useful for review.
-- **Design and UX still benefit from human input**, even when AI handles the scaffolding.
+- **AI-generated code can be overwhelming**; tools like Copilot or Claude help with review.
+- **Design and UX still benefit from human input**, even when AI handles scaffolding.
 
 ## Conclusion
 
-Devin is a powerful tool, but it’s not a shortcut to good software. It is a force multiplier for developers who know how to guide it, validate its output, and maintain what it builds. Used wisely, it can accelerate delivery, but it still needs a human engineer in the loop.
+The next logical step is to try using Devin with a large, existing codebase and use it to add new features and fix bugs. We can then assess its output and see how it copes with code patterns it did not create itself. It would also be instructive to compare Devin with other agentic tools to see how they compare in price and performance.
+
+Devin is a powerful tool, but it’s not a shortcut to good software. It is a force multiplier for developers who guide it, validate its output and maintain what it builds. Used wisely, it can accelerate delivery, but it still needs a human engineer in the loop.
