@@ -133,6 +133,7 @@ The contrast between Copilot and Devin became clear as I switched between them o
 | Risk | Over-generation in-file | Architectural drift, hidden debt |
 | Strength | Fast micro-completion | Multi-step autonomous execution |
 | Review need | Line-by-line | Strategic + targeted logic verification |
+
 **Table:** A comparison of Copilot and Devin, contrasting a prompt-driven assistant with an autonomous agentic collaborator, and how each fits into different phases of software development.
 
 
