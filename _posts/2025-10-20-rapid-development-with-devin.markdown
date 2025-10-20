@@ -1,6 +1,6 @@
 ---
 title: Rapid web app development with Devin - A Developer’s Perspective
-date: 2025-10-16 09:00:00 Z
+date: 2025-10-20 09:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
