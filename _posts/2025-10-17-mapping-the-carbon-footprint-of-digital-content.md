@@ -30,10 +30,7 @@ We looked at ways to locate these emissions across all kinds of media, from news
 
 Content production activites include energy consumption from equipment operation (lighting, cameras, computers), physical production (sets, construction materials, costumes and props), location production and travel, and increasingly artificial intelligence tools for editing and visual effects.
 
-Carbon emissions associated with production vary considerably depending on methods and technologies used.
-In the television industry, a 2021 UCLA report comparing analog film rolls vs digital memory cards with HBO as a case study found that [capturing an hour of unedited footage on film generated 561.26 kg CO2e, whereas capturing an hour of unedited footage on a digital SD card produced only 164.70 kg CO2e, a difference of nearly 400 kg CO2e.](<(https://www.ioes.ucla.edu/wp-content/uploads/2024/07/UCLA-IoES-Practicum-HBO-Film-vs-Digital-Final-Report-2021.pdf)>) This data illustrates how technological choices can significantly impact a production's carbon footprint.
-
-Organisations must identify best practices that can limit their environmental impact, and various strategies such as transitioning from film to digital capture or [repurposing set materials](https://www.bbc.co.uk/news/articles/cj3m83pv5lyo) are just some examples.
+Carbon emissions associated with production vary considerably depending on methods and technologies used. Organisations must identify best practices that can limit their environmental impact. Various strategies such as investing in energy-efficient technologies, working with sustainable suppliers and adopting responsible practices like [repurposing set materials](https://www.bbc.co.uk/news/articles/cj3m83pv5lyo) are just some examples.
 
 ### Production of hardware and software
 
@@ -72,7 +69,7 @@ For organisations that treat content as their core product, distribution typical
 
 This generally involves energy consumed by Content Delivery Networks (CDNs) to reduce latency and improve performance, transmission networks moving data between data centres and end-user devices, cable modems and routers, and cloud infrastructure that scales dynamically based on demand. Factors like data transfer distance, content resolution and the efficiency of the infrastructure all play a role.
 
-However, the environmental impact of distribution is not fixed. CDNs reduce both server load and energy consumption by deploying caches closer to users, enabling more efficient content delivery. Oxford University researchers have proposed a [carbon-intelligent content delivery scheduling](https://eng.ox.ac.uk/media/ixmfuz43/elzahr25cics.pdf) to helps streaming companies align operational efficiency with sustainability goals. Since carbon intensity varies significantly across regions and fluctuates hourly, daily and seasonally, carefully selecting time-slots can substantially minimise the carbon footprint of these operations.
+However, the environmental impact of distribution is not fixed. CDNs reduce both server load and energy consumption by deploying caches closer to users, enabling more efficient content delivery. Oxford University researchers have proposed a [carbon-intelligent content delivery scheduling](https://eng.ox.ac.uk/media/ixmfuz43/elzahr25cics.pdf) to help streaming companies align operational efficiency with sustainability goals. Since carbon intensity varies significantly across regions and fluctuates hourly, daily and seasonally, carefully selecting time-slots can substantially minimise the carbon footprint of these operations.
 
 ### End-user consumption
 
