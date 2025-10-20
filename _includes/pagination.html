@@ -1,6 +1,6 @@
 <div class="pagination">
     <ul>
-        {%- assign min_offset = 3 -%}
+        {%- assign min_offset = 4 -%}
         {%- if paginator.previous_page -%}
             <li>
                 <a href="{{- paginator.previous_page_path | prepend: site.baseurl -}}">&leftarrow; Previous</a>
@@ -17,6 +17,10 @@
             <li>
                 ...
             </li>
+        {%- elsif paginator.page == min_offset -%}
+            <li>
+                <a href="{{- paginator.first_page_path | prepend: site.baseurl -}}">{{- paginator.first_page -}}</a>
+            </li>
         {%- endif -%}
         {%- if paginator.page_trail -%}
             {% for trail in paginator.page_trail %}
@@ -30,11 +34,15 @@
                 </li>
             {% endfor %}
         {%- endif -%}
-        {%- assign limit = paginator.total_pages | minus: min_offset -%}
+        {%- assign limit = paginator.total_pages | minus: min_offset | plus: 1 -%}
         {%- if paginator.page < limit -%}
             <li>
                 ...
             </li>
+            <li>
+                <a href="{{- paginator.last_page_path | prepend: site.baseurl -}}">{{- paginator.last_page -}}</a>
+            </li>
+        {%- elsif paginator.page == limit -%}
             <li>
                 <a href="{{- paginator.last_page_path | prepend: site.baseurl -}}">{{- paginator.last_page -}}</a>
             </li>
@@ -45,7 +53,7 @@
             </li>
         {%- else -%}
             <li class="disabled">
-                &leftarrow; Previous
+                Next &rightarrow;
             </li>
         {%- endif -%}
     </ul>
