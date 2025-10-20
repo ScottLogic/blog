@@ -14,7 +14,9 @@ summary: Fluxnova is now live under FINOS, and with it comes a powerful new way 
   full trade lifecycle. From KYC to settlement, these templates combine subject matter
   expertise with engineering precision. Curious how it all came together? Read on.
 author: rgriffiths
-contributors: fvlachos
+contributors:
+- fvlachos
+- tyates
 ---
 
 Walk into any investment bank’s trading floor, and you step into a theatre of expertly controlled chaos. Behind the scenes of every trade, from the initial client enquiry to final settlement, lies a complex web of interconnected processes, each governed by regulations, risk controls, and institutional procedures that have evolved over decades. Yet despite this complexity being universal across financial institutions, the tools to model, standardise, and optimise these processes have remained fragmented, proprietary, and often inadequate.
@@ -25,7 +27,10 @@ This is where FINOS Fluxnova enters the picture. Launched at the Open Source in 
 
 Fluxnova is an open-source orchestration platform for designing and running end-to-end workflows at scale. Governed by FINOS under the Linux Foundation and released under the Apache 2.0 licence, it combines BPMN and DMN compatibility, migration tooling, and audit-ready execution from day one.
 
-At its core, Fluxnova provides financial institutions with a standardised way to describe, visualise, and execute business processes using internationally recognised notation. Think of it as a common language that allows different systems, teams, and even organisations to speak about complex workflows in the same terms, whether you are describing a simple KYC check or a multi-counterparty derivatives settlement process.
+At its core, Fluxnova provides financial institutions with a standardised way to describe, visualise, and execute business processes using internationally recognised notation. Think of it as a common language that allows different systems, teams, and even organisations to speak about complex workflows in the same terms, whether you are describing a simple KYC check (see below for an example flow) or a multi-counterparty derivatives settlement process.
+
+[![KYC onboarding  
+<sub><em>Click to enlarge</em></sub>](/uploads/01.Pre-Trade.01.KYC.BusinessProcessDefinition.png){: style="max-width:90%; border-radius:8px; display:block; margin:1.5em auto; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);"}](/uploads/01.Pre-Trade.01.KYC.BusinessProcessDefinition.png){: target="_blank" title="Click to view full-size"}
 
 Unlike static process documentation, these models are executable. They integrate with existing systems, enforce business rules, and provide audit trails, bridging the gap between business intent and system implementation.
 
@@ -90,6 +95,10 @@ The technical implementation of these BPMN flows was led by my colleague [Fanis 
 Although Fluxnova's modeler was not yet available at launch, we used Camunda Modeler to draft diagrams and adapted the exported BPMN XML for Fluxnova compatibility. This not only accelerated delivery but also showcased practical migration paths for institutions with existing Camunda 7 models.
 
 Each blueprint is more than illustrative: it is executable. Features such as boundary timers, escalation gateways, DMN decision tables, and parallel compute tasks are embedded to reflect real-world operational realities. Institutions can download a blueprint, adapt it to their own environment, and run it in Fluxnova with minimal friction.
+
+To make these blueprints genuinely executable rather than merely illustrative, we developed a comprehensive set of example data inputs and outputs, primarily in JSON format. These necessarily rely on fabricated data: we are not investment banks, nor do we have access to production systems such as WorldCheck for sanctions screening or LexisNexis for identity verification. Therefore, we created sample datasets covering successful processing scenarios, failure cases, and escalation pathways, capturing the range of outcomes a real workflow might encounter. Although AI assisted in generating initial data, every element was subsequently scrutinised, sanitised, and verified *by hand* by my colleague [Tim Yates](https://blog.scottlogic.com/tyates/).
+
+Names that bore unfortunate resemblances to public figures were changed, phone numbers were adjusted to avoid plausible real-world matches, and company names were carefully crafted to be clearly fabricated, with checks confirming they are not in use currently nor have been historically, at least within the UK. The result is a dataset we believe to be genuinely synthetic: practical examples that illustrate how data flows through these processes without any claim to operational authenticity. Not every workflow path or scenario has been populated in this initial release, although the skeleton structure exists, including empty files that can be populated later as the library evolves. These examples exist purely to provide context and aid understanding; they should never be mistaken for genuine institutional data.
 
 Each blueprint embeds regulatory logic, from SLA-driven escalation paths to audit-ready execution, supporting institutions in meeting evolving compliance demands.
 
