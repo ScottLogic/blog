@@ -18,6 +18,10 @@ author: lperrett
 
 Today, we stand before a different type of fire: Artificial Intelligence (AI).  Will it burn us, or will it warm us?  Like all powerful tools, that choice lies not in its existence, but in how we choose to use it.    
 
+While fire can warm us, it can also burn us.  Some of the most widely used chatbots are not designed for mental health, yet people turn to them anyway.  These tools have been linked to misinformation, emotional dependency, and even tragic deaths.  This reminds us that we must approach AI with care and caution, especially when it enters the human space of healing. 
+
+The rest of the article focuses on how AI can warm us, and how we can integrate it positively into our lives.  However, as a tech company, we must also critically evaluate both sides of the equation. 
+
 ## A New Presence in the Room 
 
 Imagine this: someone sits alone, overwhelmed, and unsure who to talk to.  They open an app, begin to write about how they are feeling, and within seconds, a gentle response appears – offering support, breathing techniques, grounding techniques, reflective prompts, and a quiet reminder - *“You are not alone”*.  This is AI therapy – not a replacement, but a calm, steady voice in moments of need.   
@@ -79,6 +83,7 @@ At its root, therapy is about human connection: holding a safe space, building t
 ## A Lasting Note 
 
 In a world where so many people feel unseen, unheard, and unsupported, therapy offers a vital anchor - a voice that says, *"I've got you"*. 
+
 Now, AI softly echoes back: *"I've got us"*.   
 
 Perhaps it is time we welcomed a little *"artificially intelligent"* love into our lives.   
