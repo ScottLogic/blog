@@ -16,11 +16,13 @@ author: lperrett
 
 ## A Different Kind of Fire 
 
-Today, we stand before a different type of fire: Artificial Intelligence (AI).  Will it burn us, or will it warm us?  Like all powerful tools, that choice lies not in its existence, but in how we choose to use it.    
+Today, we stand before a different type of fire: Artificial Intelligence (AI).  Will it burn us, or will it warm us?  Like all powerful tools, that choice lies not in its existence, but in how we choose to use it.   
 
-While fire can warm us, it can also burn us.  Some of the most widely used chatbots are not designed for mental health, yet people turn to them anyway.  These tools have been linked to misinformation, emotional dependency, and even tragic deaths.  This reminds us that we must approach AI with care and caution, especially when it enters the human space of healing. 
+While fire can warm us, it can also burn us.  Some of the most widely used chatbots are not designed for mental health, yet people turn to them anyway.  These tools have been linked to misinformation, emotional dependency, reinforcement of negative thought patterns, and even tragic deaths (Abrams, 2025; Wei, 2025).  This reminds us that we must approach AI with care and caution, especially when it enters the human space of healing. 
 
-The rest of the article focuses on how AI can warm us, and how we can integrate it positively into our lives.  However, as a tech company, we must also critically evaluate both sides of the equation. 
+Relying on AI alone can be risky: in some cases, chatbots have mirrored a user’s sense of despair simply to “please” them (Webster, 2023).  This shows us that while AI can be responsive to our needs, it cannot replace a qualified and experienced therapist.    
+
+The rest of the article explores how AI can warm us and how we can integrate it positively into our lives, while also critically evaluating both sides of the equation, which this section has addressed.
 
 ## A New Presence in the Room 
 
@@ -56,11 +58,11 @@ It invites curiosity, encourages deeper thinking, and feeds your thirst for know
 
 ## Discernment and Deep Learning 
 
-Of course, users must apply their own discernment.  AI can make mistakes, just like humans.  That is why Large Language Models (LLMs) are designed to learn, improve, analyse, and adapt by processing large volumes of data.  Additionally, they can echo bias, hallucinate facts, or offer overconfident advice.  When we correct AI, we are not just clarifying information, but we are participating in its evolutionary growth.  We are helping to build a future that delivers authentic, accurate, ethical, and meaningful responses for everyone.  Ultimately, it is important to contribute to the success of future AI models and their rapid growth in intelligence.   
+Of course, users must apply their own discernment.  AI can make mistakes, just like humans.  That is why Large Language Models (LLMs) are designed to learn, improve, analyse, and adapt by processing large volumes of data.  Additionally, they can echo bias, hallucinate facts, or offer overconfident advice (Ji et al., 2023).  When we correct AI, we are not just clarifying information, but we are participating in its evolutionary growth.  We are helping to build a future that delivers authentic, accurate, ethical, and meaningful responses for everyone.  Ultimately, it is important to contribute to the success of future AI models and their rapid growth in intelligence.    
 
 ## Ethics, Safety and Human-Centred Design 
 
-Even with this strong level of ability, ethical frameworks remain essential.  We must uphold standards of data protection, confidentiality, and transparency.  When it is used wisely, AI can help build a mental health infrastructure that is scalable, accessible, and resilient.  
+Even with this strong level of ability, ethical frameworks remain essential.  We must uphold standards of data protection, confidentiality, and transparency.  When it is used wisely, AI can help build a mental health infrastructure that is scalable, accessible, and resilient (World Health Organisation, 2021).  
 
 It must not fall behind the pace of innovation, nor should it race ahead of humanity.  Therefore, we must integrate AI into society with care, caution, compassion, and clarity by adopting a human-centered approach.  
 
@@ -86,4 +88,16 @@ In a world where so many people feel unseen, unheard, and unsupported, therapy o
 
 Now, AI softly echoes back: *"I've got us"*.   
 
-Perhaps it is time we welcomed a little *"artificially intelligent"* love into our lives.   
+Perhaps it is time we welcomed a little *"artificially intelligent"* love into our lives.
+
+## References
+
+Abrams, Z. (2025, March 12). *Using generic AI chatbots for mental health support: A dangerous trend.* APA Services. https://www.apaservices.org/practice/business/technology/artificial-intelligence-chatbots-therapists  
+
+Ji, Z., Lee, N., Frieske, R., et al. (2023). *Survey of Hallucination in Natural Language Generation.* ACM Computing Surveys.  
+
+Webster P. (2023). Medical AI chatbots: are they safe to talk to patients?. *Nature medicine, 29*(11), 2677–2679. https://doi.org/10.1038/s41591-023-02535-w  
+
+Wei, M. (2025, Sept 18). *Hidden Mental Health Dangers of AI Chatbots.* Psychology Today. https://www.psychologytoday.com/us/blog/urban-survival/202509/hidden-mental-health-dangers-of-artificial-intelligence-chatbots  
+
+World Health Organization. (2021). *Ethics and governance of artificial intelligence for health.* WHO. 
