@@ -134,9 +134,6 @@ The contrast between Copilot and Devin became clear as I switched between them o
 | Strength | Fast micro-completion | Multi-step autonomous execution |
 | Review need | Line-by-line | Strategic + targeted logic verification |
 
-**Table:** A comparison of Copilot and Devin, contrasting a prompt-driven assistant with an autonomous agentic collaborator, and how each fits into different phases of software development.
-
-
 ## When to Use AI Tools
 
 While the output is impressive, AI does not replace engineering skill—it augments it. Appropriate application is critical.
