@@ -2,9 +2,9 @@
 @use "fonts";
 
 .email-list-form {
-  position: absolute;
+  position: relative;
   position-anchor: --marker-group;
-  top: calc(anchor(bottom) + 2.125rem);
+  top: 2.125rem;
   label {
     font-size: fonts.$baseFontSize;
   }
