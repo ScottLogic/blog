@@ -119,4 +119,4 @@ While individual actions have limited systemic impact, they contribute to broade
 
 Through our work on the Technology Carbon Standard, it became apparent that the vast majority of digital content's environmental impact remains hidden. By examining the complete lifecycle, from production through to consumption, organisations can identify the key carbon hotspots within their operations and implement targeted measures to reduce their footprint.
 
-While some factors lie beyond individual control, both organisations and individuals have considerable agency in that space, starting with recognising that each of our digital interaction carries an environmental cost.
+While some factors lie beyond individual control, both organisations and individuals have considerable agency in that space, starting with recognising that each of our digital interactions carries an environmental cost.
