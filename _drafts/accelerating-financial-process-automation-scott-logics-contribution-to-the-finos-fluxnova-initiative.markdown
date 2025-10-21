@@ -13,9 +13,10 @@ summary: Fluxnova is now live under FINOS, and with it comes a powerful new way 
   the launch, contributing a suite of executable blueprint processes that span the
   full trade lifecycle. From KYC to settlement, these templates combine subject matter
   expertise with engineering precision. Curious how it all came together? Read on.
-author:
-- rgriffiths
+author: rgriffiths
+contributors:
 - fvlachos
+- tyates
 ---
 
 Walk into any investment bank’s trading floor, and you step into a theatre of expertly controlled chaos. Behind the scenes of every trade, from the initial client enquiry to final settlement, lies a complex web of interconnected processes, each governed by regulations, risk controls, and institutional procedures that have evolved over decades. Yet despite this complexity being universal across financial institutions, the tools to model, standardise, and optimise these processes have remained fragmented, proprietary, and often inadequate.
@@ -26,7 +27,10 @@ This is where FINOS Fluxnova enters the picture. Launched at the Open Source in 
 
 Fluxnova is an open-source orchestration platform for designing and running end-to-end workflows at scale. Governed by FINOS under the Linux Foundation and released under the Apache 2.0 licence, it combines BPMN and DMN compatibility, migration tooling, and audit-ready execution from day one.
 
-At its core, Fluxnova provides financial institutions with a standardised way to describe, visualise, and execute business processes using internationally recognised notation. Think of it as a common language that allows different systems, teams, and even organisations to speak about complex workflows in the same terms, whether you are describing a simple KYC check or a multi-counterparty derivatives settlement process.
+At its core, Fluxnova provides financial institutions with a standardised way to describe, visualise, and execute business processes using internationally recognised notation. Think of it as a common language that allows different systems, teams, and even organisations to speak about complex workflows in the same terms, whether you are describing a simple KYC check (see below for an example flow) or a multi-counterparty derivatives settlement process.
+
+[![KYC onboarding  
+<sub><em>Click to enlarge</em></sub>](/uploads/01.Pre-Trade.01.KYC.BusinessProcessDefinition.png){: style="max-width:90%; border-radius:8px; display:block; margin:1.5em auto; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);"}](/uploads/01.Pre-Trade.01.KYC.BusinessProcessDefinition.png){: target="_blank" title="Click to view full-size"}
 
 Unlike static process documentation, these models are executable. They integrate with existing systems, enforce business rules, and provide audit trails, bridging the gap between business intent and system implementation.
 
@@ -92,6 +96,10 @@ Although Fluxnova's modeler was not yet available at launch, we used Camunda Mod
 
 Each blueprint is more than illustrative: it is executable. Features such as boundary timers, escalation gateways, DMN decision tables, and parallel compute tasks are embedded to reflect real-world operational realities. Institutions can download a blueprint, adapt it to their own environment, and run it in Fluxnova with minimal friction.
 
+To make these blueprints genuinely executable rather than merely illustrative, we developed a comprehensive set of example data inputs and outputs, primarily in JSON format. These necessarily rely on fabricated data: we are not investment banks, nor do we have access to production systems such as WorldCheck for sanctions screening or LexisNexis for identity verification. Therefore, we created sample datasets covering successful processing scenarios, failure cases, and escalation pathways, capturing the range of outcomes a real workflow might encounter. Although AI assisted in generating initial data, every element was subsequently scrutinised, sanitised, and verified *by hand* by my colleague [Tim Yates](https://blog.scottlogic.com/tyates/).
+
+Names that bore unfortunate resemblances to public figures were changed, phone numbers were adjusted to avoid plausible real-world matches, and company names were carefully crafted to be clearly fabricated, with checks confirming they are not in use currently nor have been historically, at least within the UK. The result is a dataset we believe to be genuinely synthetic: practical examples that illustrate how data flows through these processes without any claim to operational authenticity. Not every workflow path or scenario has been populated in this initial release, although the skeleton structure exists, including empty files that can be populated later as the library evolves. These examples exist purely to provide context and aid understanding; they should never be mistaken for genuine institutional data.
+
 Each blueprint embeds regulatory logic, from SLA-driven escalation paths to audit-ready execution, supporting institutions in meeting evolving compliance demands.
 
 ## The Role of AI (or Lack Thereof)
@@ -148,69 +156,84 @@ While the full collection will be available on the [FINOS website](https://www.f
 
 * **A snippet from the BPMN file for the "Flash Risk" contains the following items:**
 <pre style="background:#2d2d2d; color:#ccc; padding:1em; overflow-x:auto; border-radius:6px; font-family:monospace; line-height:1.5;">
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_3"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Task_ProvideMarketData"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"Gateway_ForkCompute"</span> <span style="color:#569cd6;">/&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:startEvent</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"StartEvent_TradeCaptured"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Trade Captured"</span>&gt;
+  <span style="color:#569cd6;">&lt;bpmn:outgoing&gt;</span>Flow_0p1k1at<span style="color:#569cd6;">&lt;/bpmn:outgoing&gt;</span>
+<span style="color:#569cd6;">&lt;/bpmn:startEvent&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_4a"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Gateway_ForkCompute"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"Task_OnPremRiskJobs"</span> <span style="color:#569cd6;">/&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:userTask</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Task_SpecifyRiskMetrics"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Specify Risk Metrics"</span> 
+<span style="color:#9cdcfe;">camunda:assignee</span>=<span style="color:#ce9178;">"risk-dept"</span>&gt;
+  <span style="color:#569cd6;">&lt;bpmn:incoming&gt;</span>Flow_0lv50d1<span style="color:#569cd6;">&lt;/bpmn:incoming&gt;</span>
+  <span style="color:#569cd6;">&lt;bpmn:outgoing&gt;</span>Flow_1m5pqhl<span style="color:#569cd6;">&lt;/bpmn:outgoing&gt;</span>
+<span style="color:#569cd6;">&lt;/bpmn:userTask&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_4b"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Gateway_ForkCompute"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"Task_ProvisionCloud"</span> <span style="color:#569cd6;">/&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:userTask</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Task_ProvideMarketData"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Provide Market Data Snapshot"</span> 
+<span style="color:#9cdcfe;">camunda:assignee</span>=<span style="color:#ce9178;">"middle-office"</span>&gt;
+  <span style="color:#569cd6;">&lt;bpmn:incoming&gt;</span>Flow_1i10yrd<span style="color:#569cd6;">&lt;/bpmn:incoming&gt;</span>
+<span style="color:#569cd6;">&lt;/bpmn:userTask&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_4c"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Task_ProvisionCloud"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"Task_RunCloudRiskJobs"</span> <span style="color:#569cd6;">/&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:parallelGateway</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Gateway_ForkCompute"</span>&gt;
+  <span style="color:#569cd6;">&lt;bpmn:incoming&gt;</span>Flow_1m5pqhl<span style="color:#569cd6;">&lt;/bpmn:incoming&gt;</span>
+<span style="color:#569cd6;">&lt;/bpmn:parallelGateway&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_4d"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Task_RunCloudRiskJobs"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"Task_TearDownCloud"</span> <span style="color:#569cd6;">/&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:serviceTask</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Task_OnPremRiskJobs"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Run On-Prem Risk Jobs"</span> 
+<span style="color:#9cdcfe;">camunda:type</span>=<span style="color:#ce9178;">"external"</span> 
+<span style="color:#9cdcfe;">camunda:topic</span>=<span style="color:#ce9178;">"onprem-risk"</span> <span style="color:#569cd6;">/&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_4e"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Task_TearDownCloud"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"Gateway_JoinCompute"</span> <span style="color:#569cd6;">/&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:serviceTask</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Task_ProvisionCloud"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Provision Cloud Engine"</span> 
+<span style="color:#9cdcfe;">camunda:type</span>=<span style="color:#ce9178;">"external"</span> 
+<span style="color:#9cdcfe;">camunda:topic</span>=<span style="color:#ce9178;">"cloud-provision"</span> <span style="color:#569cd6;">/&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_4f"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Task_OnPremRiskJobs"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"Gateway_JoinCompute"</span> <span style="color:#569cd6;">/&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:serviceTask</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Task_RunCloudRiskJobs"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Run Cloud Risk Jobs"</span> 
+<span style="color:#9cdcfe;">camunda:type</span>=<span style="color:#ce9178;">"external"</span> 
+<span style="color:#9cdcfe;">camunda:topic</span>=<span style="color:#ce9178;">"cloud-risk"</span> <span style="color:#569cd6;">/&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_5"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Gateway_JoinCompute"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"Task_AggregateResults"</span> <span style="color:#569cd6;">/&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:serviceTask</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Task_TearDownCloud"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Tear Down Cloud Engine"</span> 
+<span style="color:#9cdcfe;">camunda:type</span>=<span style="color:#ce9178;">"external"</span> 
+<span style="color:#9cdcfe;">camunda:topic</span>=<span style="color:#ce9178;">"cloud-teardown"</span> <span style="color:#569cd6;">/&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_6"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Task_AggregateResults"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"Task_ReviewResults"</span> <span style="color:#569cd6;">/&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:parallelGateway</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Gateway_JoinCompute"</span> <span style="color:#569cd6;">/&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_7"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Task_ReviewResults"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"Gateway_RiskDecision"</span> <span style="color:#569cd6;">/&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:serviceTask</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Task_AggregateResults"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Aggregate Risk Results"</span> 
+<span style="color:#9cdcfe;">camunda:type</span>=<span style="color:#ce9178;">"external"</span> 
+<span style="color:#9cdcfe;">camunda:topic</span>=<span style="color:#ce9178;">"aggregate"</span> <span style="color:#569cd6;">/&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_8_accept"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Gateway_RiskDecision"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"EndEvent_Accept"</span>&gt;
-  <span style="color:#569cd6;">&lt;bpmn:conditionExpression</span> <span style="color:#9cdcfe;">xsi:type</span>=<span style="color:#ce9178;">"bpmn:tFormalExpression"</span>&gt;${riskAcceptable}<span style="color:#569cd6;">&lt;/bpmn:conditionExpression&gt;</span>
-<span style="color:#569cd6;">&lt;/bpmn:sequenceFlow&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:userTask</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Task_ReviewResults"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Review Results"</span> 
+<span style="color:#9cdcfe;">camunda:assignee</span>=<span style="color:#ce9178;">"risk-dept"</span> <span style="color:#569cd6;">/&gt;</span>
 
-<span style="color:#569cd6;">&lt;bpmn:sequenceFlow</span> 
-<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Flow_8_reject"</span> 
-<span style="color:#9cdcfe;">sourceRef</span>=<span style="color:#ce9178;">"Gateway_RiskDecision"</span> 
-<span style="color:#9cdcfe;">targetRef</span>=<span style="color:#ce9178;">"EndEvent_Escalate"</span>&gt;
-  <span style="color:#569cd6;">&lt;bpmn:conditionExpression</span> <span style="color:#9cdcfe;">xsi:type</span>=<span style="color:#ce9178;">"bpmn:tFormalExpression"</span>&gt;${riskAcceptable == false}<span style="color:#569cd6;">&lt;/bpmn:conditionExpression&gt;</span>
-<span style="color:#569cd6;">&lt;/bpmn:sequenceFlow&gt;</span>
+<span style="color:#569cd6;">&lt;bpmn:exclusiveGateway</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"Gateway_RiskDecision"</span> <span style="color:#569cd6;">/&gt;</span>
+
+<span style="color:#569cd6;">&lt;bpmn:endEvent</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"EndEvent_Accept"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Risk Acceptable"</span>&gt;
+  <span style="color:#569cd6;">&lt;bpmn:terminateEventDefinition /&gt;</span>
+<span style="color:#569cd6;">&lt;/bpmn:endEvent&gt;</span>
+
+<span style="color:#569cd6;">&lt;bpmn:endEvent</span> 
+<span style="color:#9cdcfe;">id</span>=<span style="color:#ce9178;">"EndEvent_Escalate"</span> 
+<span style="color:#9cdcfe;">name</span>=<span style="color:#ce9178;">"Risk Unacceptable"</span>&gt;
+  <span style="color:#569cd6;">&lt;bpmn:terminateEventDefinition /&gt;</span>
+<span style="color:#569cd6;">&lt;/bpmn:endEvent&gt;</span>
 </pre>
 
 
