@@ -90,7 +90,8 @@ The IEA study quoted above also illustrates just how complex measuring downstrea
 
 ### What are some solutions to reduce the carbon footprint of content?
 
-There are many aspects of our content consumption that lie beyond individual and organisation control, as the energy manufacturing and powering our devices and data centres heavily relies on fossil fuels. However awareness that everything we do digitally has a carbon footprint serves as a starting point for a wider reflection.
+There are many aspects of our content consumption that lie beyond individual and organisation control, as the energy manufacturing and powering our devices and data centres heavily relies on fossil fuels, and reliable carbon figures from big tech companies are absent.
+However awareness that everything we do digitally has a carbon footprint serves as a starting point for a wider reflection.
 
 Research demonstrates the potential for meaningful impact. An article by [WIRED](https://www.wired.com/story/youtube-digital-waste-interaction-design/) reports:
 
