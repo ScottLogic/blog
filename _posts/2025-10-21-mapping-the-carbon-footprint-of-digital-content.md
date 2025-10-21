@@ -1,6 +1,6 @@
 ---
 title: Mapping the carbon footprint of digital content
-date: 2025-10-17 00:00:00 Z
+date: 2025-10-21 00:00:00 Z
 categories:
   - Sustainability
   - Tech
