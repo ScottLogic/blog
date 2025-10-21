@@ -9,6 +9,8 @@ summary: Modern software is increasingly complex, made up of hundreds or thousan
   much do we know about these components that are an integral part of our products?
   What are the risks associated with their usage, and our exposure?
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/Pt1EjaN-YHE
 short-author-aside: true
 ---

@@ -12,6 +12,8 @@ summary: With APIs, Open Standards and modern tooling, the vision of GaaP is mor
   talk, I bring to life why I believe APIs are key to establishing digital foundations
   that will enable us to better serve citizens' personalised needs at scale.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/Wg4aCNgcwuU
 short-author-aside: true
 ---

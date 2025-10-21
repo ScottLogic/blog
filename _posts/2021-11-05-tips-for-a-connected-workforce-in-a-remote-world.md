@@ -7,6 +7,8 @@ author: ckoris
 summary: Drawn from my experiences leading delivery teams throughout the pandemic,
   I share new tips for taking the isolation out of remote working.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/MGGg8-rZLMw?start=1646
 short-author-aside: true
 ---

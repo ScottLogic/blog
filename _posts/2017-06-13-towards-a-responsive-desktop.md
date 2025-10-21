@@ -8,6 +8,8 @@ summary: Why don't we adopt responsive design on the desktop? In this talk I dem
   the power and fresh challenge of applying responsive design to desktop productivity
   applications.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/CjfuZWMps5k
 short-author-aside: true
 ---

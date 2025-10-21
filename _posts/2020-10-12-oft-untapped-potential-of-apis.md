@@ -9,6 +9,8 @@ summary: Genuine digital transformation is not possible unless Application Progr
   than just within technical teams. In this webinar, I tried to start taking non-technical
   folk on that journey.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/8YnCXXYAVKg
 short-author-aside: true
 ---

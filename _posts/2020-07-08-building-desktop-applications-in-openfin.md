@@ -8,6 +8,8 @@ summary: This technical webinar sets out the steps involved in migrating a legac
   application into the OpenFin desktop container, and introduces some of OpenFin's
   main features.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/iR-GDpeX50Q
 short-author-aside: true
 ---

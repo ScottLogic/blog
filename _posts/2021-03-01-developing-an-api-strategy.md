@@ -9,6 +9,8 @@ summary: An API Strategy is vital for focusing resources, aligning stakeholders 
   my perspective here on the major elements of an API strategy and discusses some
   of the areas to consider when designing one.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/_eoRPD8gnDo
 short-author-aside: true
 ---

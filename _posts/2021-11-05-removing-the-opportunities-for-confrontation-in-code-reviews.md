@@ -8,6 +8,8 @@ summary: While we are all working remotely, code reviews should be an opportunit
   to grow as a team, but too often they can become something we fear, hate and avoid.
   This talks suggests an approach to remove conflict while strengthening the team.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/MGGg8-rZLMw?start=587
 short-author-aside: true
 ---

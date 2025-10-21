@@ -8,6 +8,8 @@ summary: This technical webinar sets out the steps involved in migrating a legac
   application into the Finsemble desktop container, and introduces some of Finsemble's
   main features.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/AwOgrpOZiJ4
 short-author-aside: true
 ---

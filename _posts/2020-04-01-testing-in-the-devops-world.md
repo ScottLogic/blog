@@ -8,6 +8,8 @@ summary: This webinar shares practical advice on the types of testing that shoul
   be added to your CI/CD pipeline, and explores the ways that testers and developers
   can collaborate to improve continuous testing.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/7YsL6T-tLZ4
 short-author-aside: true
 ---

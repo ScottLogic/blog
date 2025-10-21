@@ -8,6 +8,8 @@ summary: 'Recently, WebAssembly has been a hot topic in tech and developer forum
   In this talk, I discuss one use-case: the creation of a UI that runs in browsers,
   which is powered by WebAssembly (compiled from Rust).'
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/mB9h4ykjyuo?start=1030
 short-author-aside: true
 ---

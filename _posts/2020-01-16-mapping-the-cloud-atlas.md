@@ -8,6 +8,8 @@ summary: In this webinar, James maps out a set of well-defined and understood st
   on an organisation's cloud journey, to help you plan your onward route towards cloud
   maturity.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/bcSBsplLi80
 short-author-aside: true
 ---

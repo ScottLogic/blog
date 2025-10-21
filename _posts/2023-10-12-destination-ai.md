@@ -14,6 +14,8 @@ author: ceberhardt
 video_url: https://www.youtube.com/embed/rtw3hrPgM1E
 short-author-aside: true
 layout: video_post
+tags:
+  - video_post
 ---
 
 The buzz and excitement around generative AI is continuing to grow as their capabilities rapidly expand. However, their ability to generate large quantities of textual content is just the starting point. In the past few months we’ve seen an emergent reasoning capability, which coupled with their intelligent use of tools, is what will make this technology truly transformational, and could mark the start of a new technology epoch.

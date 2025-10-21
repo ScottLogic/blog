@@ -1,4 +1,4 @@
-{%- assign allPosts = include.posts -%}
+{%- assign allPosts = paginator.posts -%}
 {%- assign categoryName = include.categoryName -%}
 {%- for category in site.data.categories -%}
     {%- if categoryName == category.title -%}
@@ -16,8 +16,8 @@
     <div class="hide-for-large">{%- include category_list_compact.html selectedIndex=categoryIndex -%}</div>
     <div class="cell grid-x grid-margin-y">
         <div class="cell large-8">
-            {%- include featured_posts.html postsToFilter=allPosts categoryName=categoryName -%}
-            {%- include post_summary_list.html posts=allPosts -%}
+            {%- include featured_posts.html categoryName=categoryName -%}
+            {%- include post_summary_list.html -%}
         </div>
         <div class="side-lists cell large-3 large-offset-1 grid-padding-y grid-margin-y">
             {%- include category_list.html selectedIndex=categoryIndex -%}

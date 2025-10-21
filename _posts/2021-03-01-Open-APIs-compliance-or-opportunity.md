@@ -10,6 +10,8 @@ summary: I talk in this session about the real use cases for Open APIs, and how 
   to future opportunities that OpenFinance may offer to consumers, to the adoption
   of Open APIs in other industry sectors.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/ZWCkQJJlJn4
 short-author-aside: true
 ---

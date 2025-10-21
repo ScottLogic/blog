@@ -9,6 +9,8 @@ summary: This session summarises the results of a survey showing that much of th
   percentage has high-level computer-related skills. This is something that we all
   need to consider when building software solutions.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/NwbzmsvgUa8
 short-author-aside: true
 ---

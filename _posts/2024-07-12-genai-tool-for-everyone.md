@@ -12,6 +12,8 @@ author: ceberhardt
 video_url: https://www.youtube.com/embed/hCi4D5C9Nak
 short-author-aside: true
 layout: video_post
+tags:
+  - video_post
 ---
 
 There is little doubt that GenAI will have an impact on almost every aspect of our business and personal lives. However, we are at an interesting juncture: models are becoming ever more powerful, with prototypes showing ever greater promise, but there remain significant challenges when it comes to the reality of putting this technology into practice. How do we take these astonishing experiments and turn them into something safe and reliable that can ultimately be trusted in the wild?
