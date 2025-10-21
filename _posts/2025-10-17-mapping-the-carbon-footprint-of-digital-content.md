@@ -43,9 +43,13 @@ The journey of digital content begins long before creation. This category captur
 In the case of content, this could include hardware such as cameras, microphones, headphones, memory cards, laptops hard drives and lighting equipment to name just a few. The software footprint on the other hand is the result of the energy needed for coding, testing and deploying applications such as editing platforms or scriptwriting software.
 This category also encompasses the embodied carbon of network equipment such as fiber optic cables, satellite systems and routing infrastructure.
 
+As technology advances and manufacturers release new models, encouraging consumers to replace their devices, e-waste has become one of the fastest growing solid waste streams in the world. In 2022 alone it is estimated that [62 million tonnes of e-waste were produced globally](<https://www.who.int/news-room/fact-sheets/detail/electronic-waste-(e-waste)>), highlighting a pressing environmental challenge.
+
 ### Storage and processing
 
 Modern organisations generate data at unprecedented rates, creating a growing demand for efficient storage and processing infrastructure. Whether managing petabytes or gigabytes, the storage layer represents a significant emissions source. These emissions originate from operations requiring substantial computation and cooling systems, embodied carbon of data centre hardware as well as processing and transcoding needed before distribution.
+
+The growth of cloud computing has been pivotal for many organisations, allowing them to store and process data remotely. However, this has also increased the demand for large-scale data centres which are incredibly energy-intensive.
 
 > As an example, in 2023, Meta reported that their data centre carbon footprint was [7.5M metric tons of CO2e including 4.8 M for capital goods, which includes IT hardware purchases.](<(https://sustainability.atmeta.com/blog/2024/09/10/estimating-embodied-carbon-in-data-center-hardware-down-to-the-individual-screws/)>)
 
