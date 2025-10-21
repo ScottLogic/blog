@@ -33,9 +33,6 @@
     height: 100%;
     width: 100%;
   }
-  @include util.breakpoint(large) {
-    margin-right: -75%;
-  }
 }
 
 .featured-posts {
