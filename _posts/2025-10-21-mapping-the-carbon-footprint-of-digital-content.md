@@ -114,3 +114,9 @@ While individual actions have limited systemic impact, they contribute to broade
 
 - Unsubscribing from unwanted emails reduces unnecessary data transmission across networks (collectively, emails generate approximately [12 million tonnes CO2e globally per year](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)).
 - Being intentional about consumption. For instance streaming at appropriate quality levels rather than maximum resolution, and regularly deleting unused files minimises personal device energy use.
+
+### Conclusion
+
+Through our work on the Technology Carbon Standard, it became apparent that the vast majority of digital content's environmental impact remains hidden. By examining the complete lifecycle, from production through to consumption, organisations can identify the key carbon hotspots within their operations and implement targeted measures to reduce their footprint.
+
+While some factors lie beyond individual control, both organisations and individuals have considerable agency in that space, starting with recognising that each of our digital interaction carries an environmental cost.
