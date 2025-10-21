@@ -4,13 +4,58 @@
 $underline-height: 3px;
 
 .author-list {
-  .author-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-items: center;
-    row-gap: 0.5rem;
-    column-gap: 1rem;
+  .gallery {
+    overflow: hidden;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    scroll-marker-group: after;
+    anchor-name: --carousel;
+
+    > .author-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: center;
+      row-gap: 0.5rem;
+      column-gap: 1rem;
+      width: 100%;
+      scroll-snap-stop: always;
+      scroll-snap-align: center;
+      scroll-behavior: smooth;
+    }
+
+    > .author-grid::scroll-marker {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: colours.$grey;
+      border-radius: 50%;
+    }
+
+    > .author-grid::scroll-marker:target-current {
+      background-color: colours.$black;
+    }
   }
+
+  .gallery::scroll-marker-group {
+    position: absolute;
+    position-anchor: --carousel;
+    top: calc(anchor(bottom) + 1.125rem);
+    justify-self: anchor-center;
+    anchor-name: --marker-group;
+
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 2rem;
+
+    background-color: #bfbfbf70;
+  }
+
   a {
     font-weight: fonts.$font-bold;
     font-size: fonts.$baseFontSize * calc(10 / 16);

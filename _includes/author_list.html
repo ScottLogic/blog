@@ -1,67 +1,65 @@
 {%- assign currentAuthorName = include.currentAuthorName %}
 <div class="author-list cell">
     <h4>Authors</h4>
-
-    {%- comment %}
-    Create an array of maps to make the full name of authors the
-    top level property. This is a workaround because it is not possible to sort
-    on a sub-property in Jekyll.
-    {%- endcomment %}
-    {%- assign activeauthors = "" | split: ',' %}
-    {%- for a in site.data.authors.authors %}
-    {%- comment %}
-    Create a map with one hash from the author's full name to their username
-    {%- endcomment %}
-    {%- if site.data.authors.active-authors contains a[0] %}
-    {%- assign activeauthors = activeauthors | push: a %}
-    {%- endif %}
-    {%- endfor %}
-    {%- assign pagesize_integer = 12 %}
-    {%- assign pagesize_float = pagesize_integer | times: 1.0 %}
-    {%- assign pagecount = activeauthors | size | divided_by: pagesize_integer %}
-    {%- assign remainder = activeauthors | size | modulo: pagesize_integer %}
-    remainder: {{ remainder }}
-    Pagecount: {{ pagecount }}
-    {%- assign maxpage = pagecount | minus: 1 %}
-    Max Page: {{ maxpage }}
-    {%- for i in (0..maxpage) %}
-    <div
-        class="author-grid author-grid{{- i -}} {%- if i == 0 %} author-grid-initial {%- endif %} {%- if (i == maxpage) %} {%- if (remainder == 0) %} author-grid-final {%- endif %} {%- endif %}">
-        {%- assign start = i | times: pagesize_integer %}
-        {%- assign next-iteration = i | plus: 1 %}
-        {%- assign end = next-iteration | times: pagesize_integer | minus: 1 %}
-        {%- for j in (start..end) %}
-        <div class="author-icon">
-            <a class="{%- if activeauthors[j][1].name == currentAuthorName %}active-author {%- endif %}"
-                href="{{- site.baseurl -}}/{{- activeauthors[j][0] -}}">
-                <div class="author-list-avatar">
-                    {%- assign author = activeauthors[j][1] %}
-                    {%- assign author-id = activeauthors[j][0] %}
-                    {%- include author_picture.html %}
-                </div>
-                {{- activeauthors[j][1].name -}}
-            </a>
+    <div class="gallery">
+        {%- comment %}
+        Create an array of maps to make the full name of authors the
+        top level property. This is a workaround because it is not possible to sort
+        on a sub-property in Jekyll.
+        {%- endcomment %}
+        {%- assign activeauthors = "" | split: ',' %}
+        {%- for a in site.data.authors.authors %}
+        {%- comment %}
+        Create a map with one hash from the author's full name to their username
+        {%- endcomment %}
+        {%- if site.data.authors.active-authors contains a[0] %}
+        {%- assign activeauthors = activeauthors | push: a %}
+        {%- endif %}
+        {%- endfor %}
+        {%- assign pagesize_integer = 12 %}
+        {%- assign pagesize_float = pagesize_integer | times: 1.0 %}
+        {%- assign pagecount = activeauthors | size | divided_by: pagesize_integer %}
+        {%- assign remainder = activeauthors | size | modulo: pagesize_integer %}
+        {%- assign maxpage = pagecount | minus: 1 %}
+        {%- for i in (0..maxpage) %}
+        <div id="author-grid{{- i -}}"
+            class="cell author-grid {%- if i == 0 %} author-grid-initial {%- endif %} {%- if (i == maxpage) %} {%- if (remainder == 0) %} author-grid-final {%- endif %} {%- endif %}">
+            {%- assign start = i | times: pagesize_integer %}
+            {%- assign next-iteration = i | plus: 1 %}
+            {%- assign end = next-iteration | times: pagesize_integer | minus: 1 %}
+            {%- for j in (start..end) %}
+            <div class="author-icon">
+                <a class="{%- if activeauthors[j][1].name == currentAuthorName %}active-author {%- endif %}"
+                    href="{{- site.baseurl -}}/{{- activeauthors[j][0] -}}">
+                    <div class="author-list-avatar">
+                        {%- assign author = activeauthors[j][1] %}
+                        {%- assign author-id = activeauthors[j][0] %}
+                        {%- include author_picture.html %}
+                    </div>
+                    {{- activeauthors[j][1].name -}}
+                </a>
+            </div>
+            {%- endfor %}
         </div>
         {%- endfor %}
-    </div>
-    {%- endfor %}
 
-    {%- if remainder > 0 %}
-    {%- assign last-grid-start = pagesize_integer | times: pagecount %}
-    <div class="author-grid author-grid-final">
-        {%- for a in activeauthors, offset: last-grid-start %}
-        <div class="author-icon">
-            <a class="{%- if a[1].name == currentAuthorName %}active-author {%- endif %}"
-                href="{{- site.baseurl -}}/{{- a[0] -}}">
-                <div class="author-list-avatar">
-                    {%- assign author = a[1] %}
-                    {%- assign author-id = a[0] %}
-                    {%- include author_picture.html %}
-                </div>
-                {{- a[1].name -}}
-            </a>
+        {%- if remainder > 0 %}
+        {%- assign last-grid-start = pagesize_integer | times: pagecount %}
+        <div class="cell author-grid author-grid-final" id="author-grid-{{- maxpage | plus: 1 -}}">
+            {%- for a in activeauthors, offset: last-grid-start %}
+            <div class="author-icon">
+                <a class="{%- if a[1].name == currentAuthorName %}active-author {%- endif %}"
+                    href="{{- site.baseurl -}}/{{- a[0] -}}">
+                    <div class="author-list-avatar">
+                        {%- assign author = a[1] %}
+                        {%- assign author-id = a[0] %}
+                        {%- include author_picture.html %}
+                    </div>
+                    {{- a[1].name -}}
+                </a>
+            </div>
+            {%- endfor %}
         </div>
-        {%- endfor %}
+        {%- endif %}
     </div>
-    {%- endif %}
 </div>
