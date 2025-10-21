@@ -8,6 +8,8 @@ summary: This webinar explored the potential of desktop container technologies t
   cultivate an integrated desktop ecosystem, and shares some techniques for taking
   a workflow-focused approach to software design.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/n7MDNTYFDEc
 short-author-aside: true
 ---

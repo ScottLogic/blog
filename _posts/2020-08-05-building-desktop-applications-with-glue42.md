@@ -8,6 +8,8 @@ summary: This technical webinar sets out the steps involved in migrating a legac
   application into the Glue42 desktop container, and introduces some of Glue42's main
   features.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/kxcMvyshMx8
 short-author-aside: true
 ---

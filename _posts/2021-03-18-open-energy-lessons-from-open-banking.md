@@ -14,6 +14,8 @@ author: phughes
 video_url: https://www.youtube.com/embed/QPIRG9HfAT8
 short-author-aside: true
 layout: video_post
+tags:
+  - video_post
 ---
 
 The global energy transition is well underway and the new licence directions relating to digitalisation and Open Data require a significant transformation in the UK power sector.

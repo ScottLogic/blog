@@ -9,6 +9,8 @@ summary: We’ve all played a game with Box2D physics (e.g. Angry Birds). Google
   talk, I ask whether we can salvage Google’s contributions and bring both these C++
   projects to the modern web using WebAssembly and TypeScript?
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/EuLZq48pJVo
 short-author-aside: true
 ---

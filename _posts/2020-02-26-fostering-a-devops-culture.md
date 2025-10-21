@@ -7,6 +7,8 @@ author: bjedrzejewski
 summary: In this webinar, Bartosz shares his experience and practical advice on how
   to increase your organisation's chances of DevOps success.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/1YP9wd1Ypo8
 short-author-aside: true
 ---

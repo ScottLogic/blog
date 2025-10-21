@@ -9,6 +9,8 @@ author: godds
 summary: A talk from NUX5 where I explore conversational UIs and conversational commerce.
 image: godds/assets/featured/make-banking-talk.png
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/Xugbvb1JlGE
 short-author-aside: true
 ---

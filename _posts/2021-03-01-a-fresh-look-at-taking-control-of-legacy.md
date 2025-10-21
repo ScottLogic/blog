@@ -8,6 +8,8 @@ summary: In this session, I consider how legacy dictates our view of APIs and ex
   how, with a fresh perspective, we can maintain focus on recognising the full value
   of APIs in achieving control of legacy.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/npVq_2R3M8U
 short-author-aside: true
 ---

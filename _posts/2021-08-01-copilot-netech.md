@@ -11,6 +11,8 @@ summary: Last month GitHub released Copilot, an AI powered tool that provides su
   allows it to provide amazingly accurate suggestions. This is no simple autocomplete,
   this is pair programming with a robot!
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/qUQakuaZrWI
 short-author-aside: true
 ---

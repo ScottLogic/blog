@@ -12,6 +12,8 @@ summary: Conversational Commerce drastically re-imagines the way services are de
   language interfaces such as voice. The following video captures some of our initial
   thoughts on how this might apply to financial services.
 layout: video_post
+tags:
+  - video_post
 video_url: https://player.vimeo.com/video/166816125
 short-author-aside: true
 ---

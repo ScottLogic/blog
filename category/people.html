@@ -6,10 +6,12 @@ image: "/assets/blog.png"
 redirect_from:
 - "/category/careers.html"
 - "/category/diversity.html"
+permalink: /category/peopl/
+pagination:
+  enabled: true
+  per_page: 4
+  category: People
+  permalink: /:num/
 ---
 
-{% assign posts = site.categories["People"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="People" %}
+{% include post_index.html categoryName="People" %}

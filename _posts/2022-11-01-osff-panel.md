@@ -10,6 +10,8 @@ summary: FINOS, in partnership with Linux Foundation Research, GitHub, Red Hat, 
   to, and governing open source in financial services. This panel dives into the research's
   key findings, as well as provides insight into how things have progressed year-over-year.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/YQiwjSCylFU
 short-author-aside: true
 ---

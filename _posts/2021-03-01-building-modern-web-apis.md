@@ -12,6 +12,8 @@ summary: In this talk, I explore a little of the history of the term API and cov
   round off with my predictions for the future of Web APIs and signposts some of the
   technology which is shaping that future.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/jBhhKBfLJkM
 short-author-aside: true
 ---

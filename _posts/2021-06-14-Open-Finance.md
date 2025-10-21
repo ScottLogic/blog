@@ -8,6 +8,8 @@ summary: In this talk, I delve further into the proposed transition from Open Ba
   to Open Finance, discussing some of the possible opportunities and challenges on
   the journey.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/c5-GvBWdvC0
 short-author-aside: true
 ---

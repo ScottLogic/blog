@@ -11,6 +11,8 @@ summary: Everyone’s mental wellbeing has been put under unprecedented strain i
   I explore the various stressors that affect our mental health and shares some strategies
   that will help you to improve your resilience.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/CzC_jN4W4Xc
 short-author-aside: true
 ---

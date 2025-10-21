@@ -10,6 +10,8 @@ summary: WebAssembly is a brand new W3C standard for a secure and load-time opti
   with practical examples. By the end of the talk you'll have a much better understanding
   of this exciting new technology.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/Xj2vQiY3upA
 short-author-aside: true
 ---

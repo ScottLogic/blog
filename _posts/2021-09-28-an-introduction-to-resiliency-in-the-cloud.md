@@ -9,6 +9,8 @@ summary: In this talk, I explore some of the foundations and common approaches f
   with our systems, by deliberately introducing failures, can help us better understand
   their behaviour.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/PE842URiHrI
 short-author-aside: true
 ---

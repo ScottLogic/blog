@@ -5,6 +5,8 @@ categories:
 - Tech
 author: shogarth
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/ZI1pWmq_CmQ
 short-author-aside: true
 summary: This talk from Bristech 2016 takes a look into the use of Redux for state

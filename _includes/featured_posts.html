@@ -2,7 +2,8 @@
     {%- assign featuredPosts = site.tags.featured -%}
 {%- else -%}
     {%- assign featuredPosts = '' | split: '' -%}
-    {%- for post in include.postsToFilter -%}
+    {%- assign toFilter = site.categories[include.categoryName] %}
+    {%- for post in toFilter -%}
         {%- if post.tags contains 'featured' -%}
             {%- assign featuredPosts = featuredPosts | push: post -%}
         {%- endif -%}

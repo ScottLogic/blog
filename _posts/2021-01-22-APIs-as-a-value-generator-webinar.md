@@ -10,6 +10,8 @@ summary: Our panel of experts — Jacqui Leggetter (Head of Integration (Deputy 
   and practical advice based on their experiences of using APIs as a strategic enabler
   and value generator.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/3QbDMRrJtR4
 short-author-aside: true
 ---
