@@ -6,13 +6,8 @@
     {%- endif -%}
 {%- endfor -%}
 <div class="post-index grid-container">
-    {%- if categoryName == "Latest Articles" -%}
     <h1 class="super-title">Blog</h1>
     <h2 class="cell sub-title">Our thoughts on technology and design</h2>
-    {%- else -%}
-    <h2 class="super-title"><a href="{{- site.github.url -}}">Blog</a></h2>
-    <h1 class="sub-title">{{- categoryName -}}</h1>
-    {%- endif -%}
     <div class="hide-for-large">{%- include category_list_compact.html selectedIndex=categoryIndex -%}</div>
     <div class="cell grid-x grid-margin-y">
         <div class="cell large-8">
