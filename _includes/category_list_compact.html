@@ -11,10 +11,7 @@
     >
       {%- for category in site.data.categories -%}
         <option
-          {%-
-            if selectedIndex=""
-            ="forloop.index0"
-          %}
+          {%- if selectedIndex=forloop.index0 %}
             selected="selected"
           {% endif -%}
           value="{{- site.baseurl -}}{{- category.url -}}"
