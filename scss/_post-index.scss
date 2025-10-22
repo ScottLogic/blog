@@ -8,11 +8,6 @@
     padding-top: 150px;
   }
 
-  padding-top: 125px;
-  @include util.breakpoint(large) {
-    padding-top: 150px;
-  }
-
   h1,
   h2 {
     text-align: left;
