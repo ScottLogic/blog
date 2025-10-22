@@ -1,20 +1,23 @@
-@use 'colours';
+@use "colours";
 @use "sizes";
 @use "fonts";
 
-html, body {
-    max-width: sizes.$max-width;
-    margin: 0 auto;
-    padding: 0;
-    height: 100%;
-    background-color: colours.$white;
+html,
+body {
+  max-width: sizes.$max-width;
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  background-color: colours.$white;
 }
 
 #off-canvas-wrapper {
   height: 100%;
 }
 
-.post-index, .default-post, .default-author {
+.post-index,
+.default-post,
+.default-author {
   min-height: 100%;
   padding-bottom: sizes.$footer-height;
   margin-bottom: -(sizes.$footer-height);
@@ -23,40 +26,45 @@ html, body {
 /* Font Settings */
 
 body {
-    font-family: fonts.$font-family;
+  font-family: fonts.$font-family;
 }
 
 a.link {
-    /* Links & Buttons   */
-    font-weight: fonts.$font-medium;
-    border-bottom: 5px solid;
-    padding-bottom: 0;
-    background-color: transparent;
-    -webkit-transition: background .15s cubic-bezier(0.33, 0.66, 0.66, 1);
-    -o-transition: background .15s cubic-bezier(0.33, 0.66, 0.66, 1);
-    transition: background .15s cubic-bezier(0.33, 0.66, 0.66, 1);
-    overflow-wrap: break-word;
-    word-break: break-word;
-    word-wrap: break-word;
-    line-height: 2em;
+  /* Links & Buttons   */
+  font-weight: fonts.$font-medium;
+  border-bottom: 5px solid;
+  padding-bottom: 0;
+  background-color: transparent;
+  -webkit-transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  -o-transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+  line-height: 2em;
 }
 
 a {
-    color: inherit;
-    text-decoration: inherit;
-    font-weight: fonts.$font-bold;
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: fonts.$font-bold;
 }
 
 a:hover {
   color: colours.$teal;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: fonts.$font-family;
 }
 
 h1 {
-	font-size: fonts.$baseFontSize * 2.5;
+  font-size: fonts.$baseFontSize * 2.5;
   font-weight: fonts.$font-bold;
   text-align: center;
 }
@@ -86,7 +94,7 @@ p {
   font-size: 16px;
   font-weight: fonts.$font-light;
   span {
-      font-weight: fonts.$font-medium
+    font-weight: fonts.$font-medium;
   }
 }
 
@@ -103,7 +111,8 @@ li {
   padding: 0;
 }
 
-blockquote, blockquote p {
+blockquote,
+blockquote p {
   color: colours.$black;
 }
 
@@ -121,7 +130,6 @@ header nav {
 }
 
 .header-nav_bottom {
-
   li {
     padding-left: 1.25rem;
   }
@@ -133,22 +141,26 @@ header nav {
     border-bottom: 5px solid transparent;
   }
 
-  li:nth-child(1),  li:nth-child(4) {
-    a:hover, a.active {
+  li:nth-child(1),
+  li:nth-child(4) {
+    a:hover,
+    a.active {
       color: colours.$black;
       border-bottom: 5px solid colours.$pink;
     }
   }
 
   li:nth-child(2) {
-    a:hover, a.active {
+    a:hover,
+    a.active {
       color: colours.$black;
       border-bottom: 5px solid colours.$teal;
     }
   }
 
   li:nth-child(3) {
-    a:hover, a.active {
+    a:hover,
+    a.active {
       color: colours.$black;
       border-bottom: 5px solid colours.$orange;
     }
@@ -165,7 +177,7 @@ header nav {
 
 .header-nav_top {
   ul {
-    margin: 0.625rem 0  0.625rem 0;
+    margin: 0.625rem 0 0.625rem 0;
   }
 
   li {

@@ -1,42 +1,41 @@
--  title: Latest Articles
-   url: /index.html
+- title: Latest Articles
+  url: /index.html
 
--  title: Resources
-   url: /category/resources/
+- title: Resources
+  url: /category/resources/
 
--  title: Cloud
-   url: /category/cloud/
+- title: Cloud
+  url: /category/cloud/
 
--  title: Tech
-   url: /category/tech/
+- title: Tech
+  url: /category/tech/
 
--  title: UX Design
-   url: /category/ux/
+- title: UX Design
+  url: /category/ux/
 
--  title: Delivery
-   url: /category/delivery/
+- title: Delivery
+  url: /category/delivery/
 
--  title: Testing
-   url: /category/testing/
+- title: Testing
+  url: /category/testing/
 
--  title: Artificial Intelligence
-   url: /category/ai/
+- title: Artificial Intelligence
+  url: /category/ai/
 
--  title: Sustainability
-   url: /category/sustainability/
+- title: Sustainability
+  url: /category/sustainability/
 
--  title: Data Engineering
-   url: /category/data-engineering/
+- title: Data Engineering
+  url: /category/data-engineering/
 
--  title: People
-   url: /category/people/
+- title: People
+  url: /category/people/
 
--  title: Videos
-   url: /category/videos/
+- title: Videos
+  url: /category/videos/
 
--  title: Open Source
-   url: /category/open-source/
+- title: Open Source
+  url: /category/open-source/
 
--  title: Podcast
-   url: /category/podcast/
-
+- title: Podcast
+  url: /category/podcast/

@@ -1,7 +1,6 @@
-@use 'util';
+@use "util";
 
 .error-page {
-
   padding-top: 80px;
   @include util.breakpoint(large) {
     padding-top: 150px;

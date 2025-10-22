@@ -1,18 +1,16 @@
 @mixin article-colour-scheme($primary-colour, $contrast-colour) {
-
   .social {
     color: $primary-colour;
     fill: $primary-colour;
   }
 
   .side-lists {
-
     a:hover {
       border-bottom: 3px solid $primary-colour;
     }
 
-    .back, .author-social-media-link {
-
+    .back,
+    .author-social-media-link {
       a {
         color: $primary-colour;
       }
@@ -24,9 +22,7 @@
     }
   }
 
-
   .post-content {
-
     a {
       border-bottom: 3px solid $primary-colour;
     }
@@ -37,7 +33,9 @@
     }
 
     code {
-      a, a:hover, a:visited {
+      a,
+      a:hover,
+      a:visited {
         text-decoration: none;
         color: black;
         border: none;
