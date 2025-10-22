@@ -1,29 +1,33 @@
-{%- if include.categoryName == "Latest Articles" -%}
-    {%- assign featuredPosts = site.tags.featured -%}
+{%- if include.categoryName == 'Latest Articles' -%}
+  {%- assign featuredPosts = site.tags.featured -%}
 {%- else -%}
-    {%- assign featuredPosts = '' | split: '' -%}
-    {%- assign toFilter = site.categories[include.categoryName] %}
-    {%- for post in toFilter -%}
-        {%- if post.tags contains 'featured' -%}
-            {%- assign featuredPosts = featuredPosts | push: post -%}
-        {%- endif -%}
-    {%- endfor -%}
+  {%- assign featuredPosts = '' | split: '' -%}
+  {%- assign toFilter = site.categories[include.categoryName] %}
+  {%- for post in toFilter -%}
+    {%- if post.tags contains 'featured' -%}
+      {%- assign featuredPosts = featuredPosts | push: post -%}
+    {%- endif -%}
+  {%- endfor -%}
 {%- endif -%}
 {%- assign numPosts = featuredPosts | size -%}
 {%- if numPosts > 0 -%}
-    <div class="featured-posts grid-x grid-margin-x grid-margin-y">
-        {%- assign topPost = featuredPosts[0] -%}
-        <div class="featured-post {% include post_colour.html post=topPost %} cell large-12 grid-x">
-            {%- include featured_post.html post=topPost -%}
-        </div>
-
-        {%- if numPosts >= 3 -%}
-            {%- assign splitPosts = featuredPosts | slice: 1, 2 -%}
-            {%- for post in splitPosts -%}
-                <div class="featured-post {% include post_colour.html post=post %} cell large-6 grid-x">
-                    {%- include featured_post.html post=post -%}
-                </div>
-            {%- endfor -%}
-        {%- endif -%}
+  <div class="featured-posts grid-x grid-margin-x grid-margin-y">
+    {%- assign topPost = featuredPosts[0] -%}
+    <div
+      class="featured-post {% include post_colour.html post=topPost %} cell large-12 grid-x"
+    >
+      {%- include featured_post.html post=topPost -%}
     </div>
+
+    {%- if numPosts >= 3 -%}
+      {%- assign splitPosts = featuredPosts | slice: 1, 2 -%}
+      {%- for post in splitPosts -%}
+        <div
+          class="featured-post {% include post_colour.html post=post %} cell large-6 grid-x"
+        >
+          {%- include featured_post.html post=post -%}
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
 {%- endif -%}

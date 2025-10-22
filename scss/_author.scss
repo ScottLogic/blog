@@ -1,5 +1,5 @@
-@use 'colours';
-@use 'fonts';
+@use "colours";
+@use "fonts";
 
 .default-author {
   .h4 {
@@ -64,7 +64,8 @@
     text-align: left;
   }
 
-  .author-name > h1, h2 {
+  .author-name > h1,
+  h2 {
     text-align: left;
   }
 }

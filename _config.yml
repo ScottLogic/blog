@@ -13,7 +13,7 @@ collections:
     output: true
 defaults:
   - scope:
-      path: ''
+      path: ""
       type: posts
     values:
       summary: a quick summary of your post
@@ -21,7 +21,8 @@ defaults:
       layout: default_post
 repository: ScottLogic/blog
 name: Scott Logic
-description: This feed is brought to you by Scott Logic's team of technical authors
+description:
+  This feed is brought to you by Scott Logic's team of technical authors
   and bloggers, covering topics including HTML5, iOS, C#, process, UX and practically
   anything else relating to software development.
 canonical:
@@ -41,7 +42,7 @@ kramdown:
 pagination:
   enabled: true
   per_page: 12
-  permalink: '/page/:num/'
+  permalink: "/page/:num/"
   sort_reverse: true
   trail:
     before: 2

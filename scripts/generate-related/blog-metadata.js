@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-(() =>{
+(() => {
   var data = [];
   // read all files from the folder
   const folder = "./scripts/generate-related/data/";
@@ -23,11 +23,13 @@ const fs = require("fs");
     }));
     const sortedDistances = distances.sort((a, b) => a.distance - b.distance);
 
-    output.push(`${filenameToUrl(d.file)}:\r\n  - ${filenameToUrl(sortedDistances[0].item.file)}\r\n  - ${filenameToUrl(sortedDistances[1].item.file)}`);
+    output.push(
+      `${filenameToUrl(d.file)}:\r\n  - ${filenameToUrl(sortedDistances[0].item.file)}\r\n  - ${filenameToUrl(sortedDistances[1].item.file)}`,
+    );
   });
 
   fs.writeFileSync("./_data/related.yml", output.join("\r\n"));
-}) ();
+})();
 
 function computeDistance(arr1, arr2) {
   let distance = 0;
@@ -42,7 +44,7 @@ function filenameToUrl(filename) {
   const month = filename.split("-")[1];
   const day = filename.split("-")[2];
 
-  if(filename.endsWith("html")) {
+  if (filename.endsWith("html")) {
     const name = filename.substring(11, filename.length);
 
     return `/${year}/${month}/${day}/${name}`;
