@@ -8,15 +8,10 @@
 
   li {
     margin: 0.4rem 0;
+    display: inline;
 
     a {
       font-weight: fonts.$font-regular;
-    }
-
-    a:hover {
-      color: colours.$black;
-      border-bottom: 3px solid colours.$teal;
-      display: inline;
     }
   }
 
