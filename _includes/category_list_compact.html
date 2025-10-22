@@ -8,7 +8,7 @@
         <select id="category-select" onchange="location = this.options[this.selectedIndex].value">
           {%- for category in site.data.categories -%}
             <option
-              {%- if selectedIndex == forloop.index0 -%} selected="selected" {%- endif -%}
+              {%- if selectedIndex == forloop.index0 %} selected="selected" {% endif -%}
               value="{{- site.baseurl -}}{{- category.url -}}"
             >
               {{- category.title -}}
