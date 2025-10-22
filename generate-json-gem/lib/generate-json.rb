@@ -33,5 +33,5 @@ Jekyll::Hooks.register(:site, :post_write) do |site|
         GenerateJson.generate(site)
     }
 
-    puts "Generate JSON:".rjust(20) + " Took #{(time * 1000.0).round(4)}ms"
+    puts "Generate JSON: ".rjust(20) + "Took #{(time * 1000.0).round(4)}ms"
 end
