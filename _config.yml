@@ -32,11 +32,12 @@ scottlogic:
 applause-button-api:
   url: https://ip2o6c571d.execute-api.eu-west-2.amazonaws.com/production
 permalink: "/:year/:month/:day/:title.html"
-safe: true
+safe: false
 twitter_handle: Scott_Logic
 plugins:
   - jekyll-redirect-from
   - jekyll-paginate-v2
+  - generate-json
 kramdown:
   input: kramdown
 pagination:
