@@ -38,6 +38,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-paginate-v2
   - generate-json
+  - jekyll-minifier
 kramdown:
   input: kramdown
 pagination:
