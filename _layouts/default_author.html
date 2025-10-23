@@ -22,11 +22,9 @@ paginated: false
 
 <div class="default-author grid-container">
   <div class="grid-padding-y">
+    <div class="cell">{%- include_cached author.html author=author -%}</div>
     <div class="cell">
-      {% include author.html author=author %}
-    </div>
-    <div class="cell">
-      {% include featured_posts.html postsToFilter=featuredPosts %}
+      {%- include_cached featured_posts.html postsToFilter=featuredPosts -%}
     </div>
     <div class="cell grid-x grid-margin-x">
       <div class="cell large-8 large-offset-1">

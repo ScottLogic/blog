@@ -36,6 +36,7 @@ group :jekyll_plugins do
 
     gem "tzinfo-data", "~> 1.2022"
 
+    gem "jekyll-include-cache"
 
     # Issue with ffi requiring a very recent rubygems version, not yet available
     # in many current linux docker images, so this must be locked down for now.

@@ -18,15 +18,15 @@
     <h2 class="super-title"><a href="{{ site.github.url }}">Blog</a></h2>
     <h1 class="sub-title">{{ categoryName }}</h1>
   {% endif %}
-  <div class="hide-for-large">{% include category_list_compact.html selectedIndex=categoryIndex %}</div>
-  {% include featured_posts.html postsToFilter=allPosts categoryName=categoryName %}
+  <div class="hide-for-large">{% include_cached category_list_compact.html selectedCategoryName=categoryName %}</div>
+  {% include_cached featured_posts.html postsToFilter=allPosts categoryName=categoryName %}
   <div class="cell grid-x">
     <div class="cell large-7 large-offset-1">
       {% include post_summary_list.html posts=allPosts paginated=paginated %}
     </div>
     <div class="side-lists cell large-2 large-offset-2 grid-padding-y grid-margin-y">
-      {% include category_list.html selectedIndex=categoryIndex %}
-      {% include author_list.html %}
+      {% include_cached category_list.html selectedCategoryName=categoryName %}
+      {% include_cached author_list.html %}
     </div>
   </div>
 </div>

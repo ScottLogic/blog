@@ -17,7 +17,7 @@ defaults:
       type: posts
     values:
       summary: a quick summary of your post
-      author: the name of the authers account
+      author: the name of the authors account
       layout: default_post
 repository: ScottLogic/blog
 name: Scott Logic
@@ -37,6 +37,7 @@ twitter_handle: Scott_Logic
 plugins:
   - jekyll-redirect-from
   - jekyll-paginate
+  - jekyll-include-cache
 kramdown:
   input: kramdown
 paginate: 20

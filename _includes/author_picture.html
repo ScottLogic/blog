@@ -1,5 +1,6 @@
-{% if author.picture %}
-  {% if author-id %}
+{%- assign author = include.author -%}
+{%- if author.picture -%}
+  {%- if author-id -%}
     <img
       src="{{ site.baseurl }}/{{ author-id }}/{{ author.picture }}"
       role="presentation"

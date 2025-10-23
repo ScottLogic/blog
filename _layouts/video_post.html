@@ -16,9 +16,12 @@ layout: default
       </div>
       {% if page.cta %}
         <div class="cell large-offset-2 medium-offset-1 small-offset-1">
-          <span class="cta"
-            ><a href="{{ page.cta.link }}">&rarr; {{ page.cta.text }}</a></span
-          >
+          <span class="cta">
+            <a href="{{- page.cta.link -}}">
+              &rarr;
+              {{- page.cta.text -}}
+            </a>
+          </span>
         </div>
       {% endif %}
     </div>
@@ -98,10 +101,10 @@ layout: default
   <div class="grid-x grid-margin-x grid-padding-y">
     <div class="cell primary-meta-data large-1 large-offset-1 grid-x">
       <div class="author-information cell medium-10 small-9 hide-for-large">
-        {% include author_picture.html %}
-        <a rel="author" href="{{ site.baseurl }}/{{ authorUsername }}">{{ author.name }}</a>
+        {%- include_cached author_picture.html author=author -%}
+        <a rel="author" href="{{- site.baseurl -}}/{{- authorUsername -}}">{{- author.name -}}</a>
       </div>
-      {% include social.html %}
+      {%- include_cached social.html author=author -%}
     </div>
     <div class="post-content cell large-6">
       <div class="cell">
@@ -109,12 +112,17 @@ layout: default
       </div>
       {% include watch_more.html %}
     </div>
-    <div class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y">
-      {% include author_summary.html author-id=page.author %}
-      {% for contributorId in page.contributors %}
-        {% include author_summary.html author-id=contributorId %}
-      {% endfor %}
-      {% include category_list.html selectedIndex=0 %}
+    <div
+      class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y"
+    >
+      {%- include_cached author_summary.html author-id=page.author -%}
+      {%- for contributorId in page.contributors -%}
+        {%-
+          include_cached author_summary.html
+          author-id=contributorId
+        -%}
+      {%- endfor -%}
+      {%- include_cached category_list.html -%}
       <div class="back cell">
         <a href="{{ site.baseurl }}/index.html">Back to all posts</a>
       </div>

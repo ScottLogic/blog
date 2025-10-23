@@ -157,6 +157,11 @@ npm run scripts
 npm run style
 ```
 
+##### Useful Options for Jekyll
+* `--livereload` - trigger a build on file change (excluding SCSS or JS) and refresh the browser once built
+* `--incremental` - use the experimental incremental build mode which after the initial build, only builds changed files
+* `RUBYOPT="--yjit"` - let ruby use its JIT (only macOS, Linux and BSD on x86-64 and arm64/aarch64 CPUs are supported)
+
 ### Running with Docker
 
 Use a bash-compatible shell; Git bash on Windows should work fine.
