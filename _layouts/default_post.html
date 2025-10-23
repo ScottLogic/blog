@@ -13,19 +13,19 @@ layout: default
         <span>&middot;</span>
         <span>{{- page.date | date: '%d %B %Y' -}}</span>
         <span>&middot;</span>
-        <span>{%- include reading_time.html post=post -%}</span>
+        <span>{%- include reading_time.html post=page -%}</span>
       </div>
       <div class="cell large-offset-2 medium-offset-1 small-offset-1">
         <h1 class="title">{{- page.title -}}</h1>
       </div>
       {%- if page.cta -%}
         <div class="cell large-offset-2 medium-offset-1 small-offset-1">
-          <span class="cta"
-            ><a href="{{- page.cta.link -}}"
-              >&rarr;
+          <span class="cta">
+            <a href="{{- page.cta.link -}}">
+              &rarr;
               {{- page.cta.text -}}
-            </a></span
-          >
+            </a>
+          </span>
         </div>
       {%- endif -%}
       {%- if page.canonical_url -%}
@@ -164,14 +164,14 @@ layout: default
   <div class="grid-x grid-margin-x grid-padding-y">
     <div class="cell primary-meta-data large-1 large-offset-1 grid-x">
       <div class="author-information cell medium-10 small-9 hide-for-large">
-        {%- include author_picture.html -%}
+        {%- include_cached author_picture.html author=author -%}
         <a rel="author" href="{{- site.baseurl -}}/{{- authorUsername -}}">{{- author.name -}}</a>
         {%- for contributorId in page.contributors -%}
           ,
-          {%- include author-link.html author-id=contributorId -%}
+          {%- include_cached author-link.html author-id=contributorId -%}
         {%- endfor -%}
       </div>
-      {%- include social.html -%}
+      {%- include_cached social.html author=author -%}
     </div>
     <div class="cell large-6">
       <div class="cell post-content">{{- content -}}</div>
@@ -192,17 +192,13 @@ layout: default
     <div
       class="side-lists cell large-3 large-offset-1 show-for-large grid-padding-y"
     >
-      {%- include author_summary.html author-id=page.author -%}
+      {%- include_cached author_summary.html author-id=page.author -%}
       {%- for contributorId in page.contributors -%}
         {%-
-          include author_summary.html
+          include_cached author_summary.html
           author-id=contributorId
         -%}
       {%- endfor -%}
-      {%-
-        include category_list.html
-        selectedIndex=0
-      -%}
       <div class="back cell">
         <a href="{{- site.baseurl -}}/index.html">Back to all posts</a>
       </div>

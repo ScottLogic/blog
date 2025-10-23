@@ -19,13 +19,13 @@
     {%- for a in activeauthors %}
       <div class="author-icon">
         <a
-          class="{%- if a[1].name == currentAuthorName %}active-author {%- endif %}"
+          class="{%- if a[1].name == currentAuthorName -%}active-author{%- endif -%}"
           href="{{- site.baseurl -}}/{{- a[0] -}}"
         >
           <div class="author-list-avatar">
             {%- assign author = a[1] %}
             {%- assign author-id = a[0] %}
-            {%- include author_picture.html %}
+            {%- include_cached author_picture.html author=author %}
           </div>
           {{- a[1].name -}}
         </a>

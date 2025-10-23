@@ -1,7 +1,7 @@
 {%- assign author-id = include['author-id'] -%}
 {%- assign author = site.data.authors.authors[author-id] -%}
 <div class="author-information cell">
-  {%- include author_picture.html author-id=author-id -%}
+  {%- include_cached author_picture.html author=author author-id=author-id -%}
   <a rel="author" href="{{- site.baseurl -}}/{{- author-id -}}">{{- author.name -}}</a>
 </div>
 <div class="cell">
@@ -9,8 +9,8 @@
   {%- if author['twitter-url'] -%}
     {%- assign twitter-url-split = author['twitter-url'] | split: '/' -%}
     <div class="author-social-media-link">
-      <a rel="author" href="{{- author.twitter-url-}}"
-        >@
+      <a rel="author" href="{{- author.twitter-url-}}">
+        @
         {{- twitter-url-split[3] -}}
       </a>
     </div>
