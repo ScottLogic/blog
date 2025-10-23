@@ -1,6 +1,6 @@
 ---
 title: Mapping the carbon footprint of digital content
-date: 2025-10-21 00:00:00 Z
+date: 2025-10-23 00:00:00 Z
 categories:
   - Sustainability
   - Tech
@@ -22,9 +22,9 @@ Whether content is treated as a commodity or public good, in the case of cultura
 
 We looked at ways to locate these emissions across all kinds of media, from news articles and blog posts through to photos, audio files and videos. This cluster includes everything from video and music streaming, video conferencing, social media and emails.
 
-![My Image]({{ site.baseurl }}/hsauve/assets/content/two-people-filming.jpg "Two people filming with a camera")
+![My Image]({{ site.baseurl }}/hsauve/assets/content/two-people-filming.jpg "A person wearing a red long-sleeved shirt operates a video camera, while another person observes the scene being filmed")
 
-<sub>_Photo by [Marcos Rocha](https://unsplash.com/@marcosrochatv) on [Unsplash](https://unsplash.com/photos/man-in-red-long-sleeve-shirt-using-black-video-camera-_XgGN5yo1QE)_</sub>
+<small>_Photo by [Marcos Rocha](https://unsplash.com/@marcosrochatv) on [Unsplash](https://unsplash.com/photos/man-in-red-long-sleeve-shirt-using-black-video-camera-_XgGN5yo1QE)_</small>
 
 ### Content production
 
@@ -36,32 +36,34 @@ Carbon emissions associated with production vary considerably depending on metho
 
 The journey of digital content begins long before creation. This category captures [upstream carbon emissions](https://www.techcarbonstandard.org/impact-categories/upstream) generated during the extraction, manufacturing and transportation of raw materials used throughout the content lifecycle. These emissions, although not directly resulting from an organisation's operations, are embedded in the products they use and should be accounted for.
 
-![My Image]({{ site.baseurl }}/hsauve/assets/content/editing.jpg "A laptop screen showing an editing software")
+![My Image]({{ site.baseurl }}/hsauve/assets/content/editing.jpg "An ultrawide monitor displaying a video editing software in use")
 
-<sub>_Photo by [Jakob Owens](https://unsplash.com/@jakobowens1) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-game-B4f_Kx5jvpg)_</sub>
+<small>_Photo by [Jakob Owens](https://unsplash.com/@jakobowens1) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-game-B4f_Kx5jvpg)_</small>
 
-In the case of content, this could include hardware such as cameras, microphones, headphones, memory cards, laptops hard drives and lighting equipment to name just a few. The software footprint on the other hand is the result of the energy needed for coding, testing and deploying applications such as editing platforms or scriptwriting software.
+In the case of content, this could include hardware such as cameras, microphones, headphones, memory cards, laptops, hard drives and lighting equipment to name just a few. The software footprint on the other hand is the result of the energy needed for coding, testing and deploying applications such as editing platforms or scriptwriting software.
 This category also encompasses the embodied carbon of network equipment such as fiber optic cables, satellite systems and routing infrastructure.
 
-As technology advances and manufacturers release new models, encouraging consumers to replace their devices, e-waste has become one of the fastest growing solid waste streams in the world. In 2022 alone it is estimated that [62 million tonnes of e-waste were produced globally](<https://www.who.int/news-room/fact-sheets/detail/electronic-waste-(e-waste)>), highlighting a pressing environmental challenge.
+As technology advances and manufacturers release new models, encouraging consumers to replace their devices, or forcing upgrades by refusing to update software, e-waste has become one of the fastest growing solid waste streams in the world. In 2022 alone it is estimated that [62 million tonnes of e-waste were produced globally](https://www.who.int/news-room/fact-sheets/detail/electronic-waste-%28e-waste%29), highlighting a pressing environmental challenge.
 
 ### Storage and processing
 
-Modern organisations generate data at unprecedented rates, creating a growing demand for efficient storage and processing infrastructure. Whether managing petabytes or gigabytes, the storage layer represents a significant emissions source. These emissions originate from operations requiring substantial computation and cooling systems, embodied carbon of data centre hardware as well as processing and transcoding needed before distribution.
+Modern organisations generate data at unprecedented rates, creating a growing demand for efficient storage and processing infrastructure. Whether managing gigabytes or petabytes, the storage layer represents a significant emissions source. These emissions originate from operations requiring substantial computation and cooling systems, embodied carbon of data centre hardware as well as processing and transcoding needed before distribution.
 
 The growth of cloud computing has been pivotal for many organisations, allowing them to store and process data remotely. However, this has also increased the demand for large-scale data centres which are incredibly energy-intensive.
 
-> As an example, in 2023, Meta reported that their data centre carbon footprint was [7.5M metric tons of CO2e including 4.8 M for capital goods, which includes IT hardware purchases.](<(https://sustainability.atmeta.com/blog/2024/09/10/estimating-embodied-carbon-in-data-center-hardware-down-to-the-individual-screws/)>)
+> As an example, in 2023, Meta reported that their data centre carbon footprint was [7.5M metric tons of CO2e including 4.8 M for capital goods, which includes IT hardware purchases.](https://sustainability.atmeta.com/blog/2024/09/10/estimating-embodied-carbon-in-data-center-hardware-down-to-the-individual-screws/)
 
 Beyond the primary content itself, organisations must store metadata: descriptions, comments, tags, translations, accessibility features and versioning information, often located in separate databases, which adds up to the computing resources required.
 
-- <strong>Data redundancy</strong>
+Versioning itself considerably increases storage volume as each new version of a file is a whole new copy, rather than an update to an existing copy.
+
+- **Data redundancy**
 
 To ensure reliability and availability, organisations typically store [multiple copies of the same data](https://www.ibm.com/think/topics/data-redundancy) across different locations, formats or systems. While redundancy is critical for data security, disaster recovery and performance optimisation, it carries a significant environmental cost.
 
-- <strong>Dark data</strong>
+- **Dark data**
 
-A vast majority of companies' stored data is considered "dark". It is unusuable (due to incompatible formats or missing metadata) and is not accessible to analytical tools, which makes it very hard to quantify. [IBM quoted in an article](https://www.ibm.com/think/topics/dark-data) that:
+A vast majority of companies' stored data is considered "dark". It is unusable (due to incompatible formats or missing metadata) and is not accessible to analytical tools, which makes it very hard to quantify. [According to a survey quoted by an IBM article](https://www.ibm.com/think/topics/dark-data) that:
 
 > 60% of business and IT decision makers reported that half or more of their organisation’s data was considered dark. A full one-third of respondents reported this amount to be 75% or more.
 
@@ -77,14 +79,14 @@ However, the environmental impact of distribution is not fixed. CDNs reduce both
 
 ### End-user consumption
 
-![My Image]({{ site.baseurl }}/hsauve/assets/content/person-watching-netflix.jpg "A person watching Netflix")
+![My Image]({{ site.baseurl }}/hsauve/assets/content/person-watching-netflix.jpg "A person watches Netflix with their feet up on a coffee table, wearing white socks")
 
-<sub>_Photo by [Mollie Sivaram](https://unsplash.com/@molliesivaram) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-11-yubCnXAA3H8)_</sub>
+<small>_Photo by [Mollie Sivaram](https://unsplash.com/@molliesivaram) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-11-yubCnXAA3H8)_</small>
 
 Consumption represents the final, and for many organisations, the largest component of content's carbon footprint.
 These [downstream emissions](https://www.techcarbonstandard.org/impact-categories/downstream), associated with device energy consumption, vary greately based on how the energy used is generated, device type, content quality and resolution, and consumption duration.
 
-For example, [a 50-inch LED television consumes much more electricity than a smartphone (100 times) or laptop (5 times)](https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines) and whether your consumers are based in France where electricity originates primarily from nuclear power, or in a country that relies on coal for electricity generation will greatly affect your carbon footprint.
+For example, [a 50-inch LED television consumes much more electricity than a smartphone (100 times) or laptop (5 times)](https://www.iea.org/commentaries/the-carbon-footprint-of-streaming-video-fact-checking-the-headlines) and the location your consumers are based in will greatly affect your carbon footprint. Indeed, consumers based in France where electricity originates primarily from nuclear power will have a much lower carbon impact than those living in countries that rely on coal for electricity generation.
 
 The IEA study quoted above also illustrates just how complex measuring downstream emissions can be, and how new demands for emerging technologies including artificial intelligence is rapidly changing the sector.
 
@@ -108,12 +110,10 @@ For content platforms and organisations:
 - Comprehensive data audit: organisations are often unaware of the existence of dark data but bringing it to the surface can considerably free up storage
 - Regular media cleanup: films, videos and photos accumulate quickly and take up storage
 
-For individual users:
+While individual actions have limited systemic impact, they contribute to broader awareness. Individual users should consider:
 
-While individual actions have limited systemic impact, they contribute to broader awareness.
-
-- Unsubscribing from unwanted emails reduces unnecessary data transmission across networks (collectively, emails generate approximately [12 million tonnes CO2e globally per year](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf)).
-- Being intentional about consumption. For instance streaming at appropriate quality levels rather than maximum resolution, and regularly deleting unused files minimises personal device energy use.
+- Unsubscribing from unwanted emails, to reduce unnecessary data transmission across networks. Collectively, emails generate approximately [12 million tonnes CO2e globally per year](https://profilebooks.com/wp-content/uploads/wpallimport/files/PDFs/9781788163811_preview.pdf).
+- Being intentional about consumption. For instance stream at appropriate quality levels rather than maximum resolution, and regularly delete unused files minimises personal device energy use.
 
 ### Conclusion
 
