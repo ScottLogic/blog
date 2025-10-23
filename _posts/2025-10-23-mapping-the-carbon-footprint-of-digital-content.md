@@ -22,7 +22,7 @@ Whether content is treated as a commodity or public good, in the case of cultura
 
 We looked at ways to locate these emissions across all kinds of media, from news articles and blog posts through to photos, audio files and videos. This cluster includes everything from video and music streaming, video conferencing, social media and emails.
 
-![My Image]({{ site.baseurl }}/hsauve/assets/content/two-people-filming.jpg "A person wearing a red long-sleeved shirt operates a video camera, while another person observes the scene being filmed")
+![A person wearing a red long-sleeved shirt operates a video camera, while another person observes the scene being filmed]({{ site.baseurl }}/hsauve/assets/content/two-people-filming.jpg "A person operating a video camera, while another person observes")
 
 <small>_Photo by [Marcos Rocha](https://unsplash.com/@marcosrochatv) on [Unsplash](https://unsplash.com/photos/man-in-red-long-sleeve-shirt-using-black-video-camera-_XgGN5yo1QE)_</small>
 
@@ -36,7 +36,7 @@ Carbon emissions associated with production vary considerably depending on metho
 
 The journey of digital content begins long before creation. This category captures [upstream carbon emissions](https://www.techcarbonstandard.org/impact-categories/upstream) generated during the extraction, manufacturing and transportation of raw materials used throughout the content lifecycle. These emissions, although not directly resulting from an organisation's operations, are embedded in the products they use and should be accounted for.
 
-![My Image]({{ site.baseurl }}/hsauve/assets/content/editing.jpg "An ultrawide monitor displaying a video editing software in use")
+![An ultrawide monitor displaying a video editing software in use]({{ site.baseurl }}/hsauve/assets/content/editing.jpg "A monitor displaying a video editing software")
 
 <small>_Photo by [Jakob Owens](https://unsplash.com/@jakobowens1) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-game-B4f_Kx5jvpg)_</small>
 
@@ -79,7 +79,7 @@ However, the environmental impact of distribution is not fixed. CDNs reduce both
 
 ### End-user consumption
 
-![My Image]({{ site.baseurl }}/hsauve/assets/content/person-watching-netflix.jpg "A person watches Netflix with their feet up on a coffee table, wearing white socks")
+![A person watches Netflix with their feet up on a coffee table, wearing white socks]({{ site.baseurl }}/hsauve/assets/content/person-watching-netflix.jpg "A person watching Netflix")
 
 <small>_Photo by [Mollie Sivaram](https://unsplash.com/@molliesivaram) on [Unsplash](https://unsplash.com/photos/black-flat-screen-tv-turned-on-displaying-11-yubCnXAA3H8)_</small>
 
