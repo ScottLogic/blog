@@ -1,5 +1,5 @@
 {%- assign hideCategory = include.hideCategory -%}
-{%- if include.posts == null -%}
+{%- if include.posts != null -%}
   {%- assign posts = include.posts -%}
   {%- assign paginated = false -%}
 {%- else -%}
