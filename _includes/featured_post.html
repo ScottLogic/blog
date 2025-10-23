@@ -10,15 +10,14 @@
   <div class="cell">{{- post.summary | truncatewords: 25 -}}</div>
   <div class="avatar-metadata cell">
     {%- assign author = site.data.authors.authors[post.author] -%}
-    {%- include author_picture.html -%}
+    {%- include_cached author_picture.html author=author -%}
     {%- include post_metadata.html post=post -%}
   </div>
 </div>
 <div class="shape cell large-3 medium-2 small-1 grid-y align-center">
   {%- comment -%} Allow shape to be overridden during include {%- endcomment -%}
   {%- if shape == null -%}
-    {%- capture shape -%}{%- include post_shape.html
-  post=post -%}{%- endcapture -%}
+    {%- capture shape -%}{%- include post_shape.html post=post -%}{%- endcapture -%}
     {%- assign shape = shape | strip -%}
   {%- endif -%}
   {%- case shape -%}

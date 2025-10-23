@@ -1,12 +1,21 @@
 {%- assign hideCategory = include.hideCategory -%}
+{%- if include.posts == null -%}
+  {%- assign posts = include.posts -%}
+  {%- assign paginated = false -%}
+{%- else -%}
+  {%- assign posts = paginator.posts -%}
+  {%- assign paginated = posts -%}
+{%- endif -%}
 <div class="post-summary-list grid-container fluid">
   <div class="content grid-x">
-    {%- for post in paginator.posts -%}
+    {%- for post in posts -%}
       {%-
         include post_summary.html post=post
         hideCategory=hideCategory
       -%}
     {%- endfor -%}
-    {%- include pagination.html -%}
+    {%- if paginated -%}
+      {%- include pagination.html -%}
+    {%- endif -%}
   </div>
 </div>

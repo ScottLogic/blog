@@ -1,4 +1,4 @@
-{%- assign selectedIndex = include.selectedIndex -%}
+{%- assign selectedCategory = include.selectedCategoryName -%}
 <div
   class="category-list-compact dropdown-menu grid-x grid-margin-y align-center"
 >
@@ -11,7 +11,7 @@
     >
       {%- for category in site.data.categories -%}
         <option
-          {%- if selectedIndex=forloop.index0 %}
+          {%- if category.title=selectedCategory %}
             selected="selected"
           {% endif -%}
           value="{{- site.baseurl -}}{{- category.url -}}"

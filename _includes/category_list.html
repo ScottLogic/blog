@@ -1,4 +1,4 @@
-{%- assign selectedIndex = include.selectedIndex -%}
+{%- assign selectedCategory = include.selectedCategoryName -%}
 <div class="category-list cell">
   <h4>Categories</h4>
   <ul>
@@ -6,7 +6,7 @@
       <li>
         <a href="{{- site.baseurl -}}{{- category.url -}}">
           <span
-            class="{%- if selectedIndex == forloop.index0 -%}active {%- endif -%}"
+            class="{%- if selectedCategory == category.title -%}active{%- endif -%}"
           >
             {{- category.title -}}
           </span>

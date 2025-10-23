@@ -20,7 +20,7 @@
       {%- endif -%}
     </div>
     <div class="avatar-metadata cell">
-      {%- include author_picture.html -%}
+      {%- include_cached author_picture.html author=author -%}
       {%-
         include post_metadata.html
         post=post
