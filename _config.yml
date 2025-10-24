@@ -68,6 +68,10 @@ exclude:
   - scripts/search.js
   - vendor
   - gems
+  - generate_pa11y_ci_urls_from_git_diff.sh
+  - package-lock.json
+  - PULL_REQUEST_TEMPLATE
+  - send-blogs-to-deploy-endpoint.js
 sass:
   style: compressed
   sourcemap: development
