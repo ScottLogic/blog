@@ -15,7 +15,7 @@ jobs:
       - name: Build Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
-          source: ''./'
+          source: './'
           destination: './_site'
       - name: Upload
         uses: actions/upload-pages-artifact@v4
