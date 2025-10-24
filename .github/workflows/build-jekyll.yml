@@ -4,19 +4,30 @@ on:
     branches:
       - gh-pages
       - 2025-redesign # TODO: Remove before merge
+  workflow_dispatch:
+
+# Prevent concurrent deploys
+concurrency:
+  group: "pages"
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
       - name: Setup pages
         uses: actions/configure-pages@v5
       - name: Build Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: './'
-          destination: './_site'
+        run: bundle exec build --baseurl "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
+          RUBYOPT: --yjit
       - name: Upload
         uses: actions/upload-pages-artifact@v4
   deploy:
