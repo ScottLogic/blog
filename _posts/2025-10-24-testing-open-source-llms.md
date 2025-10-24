@@ -1,6 +1,6 @@
 ---
 title: 'Beyond Benchmarks: Testing Open-Source LLMs in Multi-Agent Workflows'
-date: 2025-10-30 00:00:00 Z
+date: 2025-10-24 00:00:00 Z
 categories:
 - Artificial Intelligence
 - Open Source
