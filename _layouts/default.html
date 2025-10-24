@@ -56,8 +56,16 @@ repository: ScottLogic/new-blog
       <meta name="twitter:creator" content="@{{- site.data.authors.authors[page.author].twitter-handle -}}">
     {%- endif -%}
 
-    <link rel="stylesheet" href="{{ site.baseurl | remove_first: 'http:' }}/style.css" type="text/css">
-    <link rel="icon" type="image/png" href="{{ site.canonical.url }}/favicon.ico">
+    <link
+      rel="stylesheet"
+      href="{{- "assets/style.css" | relative_url -}}"
+      type="text/css"
+    >
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{- site.canonical.url -}}/favicon.ico"
+    >
 
     {% comment %} Only load analytics when on the main repo; it will fail to load on the forks {% endcomment %}
     {% if site.github.owner_name == 'ScottLogic' %}

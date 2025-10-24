@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-gem "jekyll"
+gem "jekyll", "~> 4"
 group :jekyll_plugins do
     # Deps from EOL github-pages gem minus themes
     gem "jekyll-avatar"
-    gem "jekyll-commonmark-ghpages"
+    gem "jekyll-commonmark"
     gem "jekyll-default-layout"
     gem "jekyll-feed"
     gem "jekyll-gist"

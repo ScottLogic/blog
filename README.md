@@ -152,9 +152,9 @@ The blog will then be available on [localhost][localhost].
 If you are working on fixes or new features, and need to re-compile the scripts or SCSS, you can use these npm scripts:
 
 ```shell
-npm ci
-npm run scripts
-npm run style
+npm ci           # Install deps
+npm run scripts  # Recompile scripts
+npm run prettier # Format non-post files
 ```
 
 ##### Useful Options for Jekyll

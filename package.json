@@ -38,7 +38,6 @@
     "generate-related": "node scripts/generate-related/blog-metadata.js",
     "remove-unused-images": "node scripts/images/remove-images.js",
     "spellcheck": "mdspell \"**/ceberhardt/_posts/*.md\" --en-gb -a -n -x -t",
-    "style": "sass --no-source-map --style=compressed scss/style.scss style.css",
     "scripts": "uglifyjs scripts/initialise-menu.js scripts/jquery-1.9.1.js scripts/jquery.jscroll-2.2.4.js scripts/load-clap-count.js scripts/elapsed.js scripts/graft-studio/header-scroll.js scripts/graft-studio/jquery.mmenu.all.js scripts/graft-studio/jquery.matchHeight.js node_modules/applause-button/dist/applause-button.js node_modules/cookieconsent/build/cookieconsent.min.js -o script.js",
     "prettier": "prettier -w --cache _layouts _includes _data scripts scss index.html package.json lintPosts.js send-blogs-to-deploy-endpoint.js _config.yml _prose.yml .pa11yci.js"
   },
