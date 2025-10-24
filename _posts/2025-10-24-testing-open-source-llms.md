@@ -56,7 +56,7 @@ We investigated models from several categories:
 
 ### Our Final Model Selection
 
-Our goal was to choose five models that could run efficiently on standard laptop hardware, focusing on speed, energy usage, and correctness. We began by reviewing the available models on LM Studio and found more information on the model cards on the respective companies' websites. We included two purely open-source models: `DeepSeek-R1-0528` and `Lfm2` by Liquid. Including `GPT-oss 20B` was important because it had just been released and matched our goal. `Qwen3-30B-A3B` was a runnable OS Mixture of Experts model that fit our criteria. To represent a major company, we chose `Gemma` from Google. For all but Gemma, only one model was available within the runnable range, so we selected the smallest model to compare with the smallest models of its competitors.
+Our goal was to choose five models that could run efficiently on standard laptop hardware, focusing on speed, energy usage, and correctness. We began by reviewing the available models on LM Studio and found more information on the model cards on the respective companies' websites. We included two purely open-source models: `DeepSeek-R1-0528` and `LFM2` by Liquid. Including `GPT-OSS 20B` was important because it had just been released and matched our goal. `Qwen3-30B-A3B` was a runnable OS Mixture of Experts model that fit our criteria. To represent a major company, we chose `Gemma` from Google. For all but Gemma, only one model was available within the runnable range, so we selected the smallest model to compare with the smallest models of its competitors.
 
 ### Hardware Constraints
 
@@ -84,7 +84,7 @@ Evaluating the quality of the generated reports presented its own challenges. We
 - **Seemingly correct:** Plausible claims that appeared accurate
 - **Incorrect:** Demonstrably false or misleading information 
 
-This manual approach was time-consuming and subjective. In the spirit of the project, we chose an automated response using GPT-5. We gave Microsoft Copilot both the ESG document and the greenwashing report, using the same prompt (bellow). This enabled us to get the same classifications as the manual process, but much faster.
+This manual approach was time-consuming and subjective. In the spirit of the project, we chose an automated response using GPT-5. We gave Microsoft Copilot both the ESG document and the greenwashing report, using the same prompt (below). This enabled us to get the same classifications as the manual process, but much faster.
 
 <details>
 <summary>Click to expand the evaluation prompt used for automated fact-checking</summary>
@@ -184,7 +184,7 @@ When including a file in OpenAI, the process is abstracted:
 3. Include the `file_search` tool in your API call with the vector store ID
 4. OpenAI handles retrieval and context injection automatically 
 
-Files are uploaded once, stored persistently with expiration policies, and the vector store automatically retrieves relevant chunks during conversations. This approach offers several advantages: it handles large documents that exceed context limits, provides semantic search capabilities, and offloads the computational overhead of document processing to OpenAI's infrastructure. {While our use case only requires the document for a single session, this doesn't fully utilize OpenAI's persistent storage capabilities, which are designed for multi-session document reuse.}
+Files are uploaded once, stored persistently with expiration policies, and the vector store automatically retrieves relevant chunks during conversations. This approach offers several advantages: it handles large documents that exceed context limits, provides semantic search capabilities, and offloads the computational overhead of document processing to OpenAI's infrastructure. While our use case only requires the document for a single session, this doesn't fully utilize OpenAI's persistent storage capabilities, which are designed for multi-session document reuse.
 
 ### LM Studio's Approach: Direct Context Injection 
 
