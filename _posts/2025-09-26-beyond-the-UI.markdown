@@ -3,12 +3,11 @@ title: beyond the UI
 date: 2025-09-25T00:00:00Z
 categories:
 - Testing
-- Mocking
 tags:
 - SoftwareEngineering
 - BackendTesting
 - QualityAssurance
-summary: 
+summary: This blog explores how mocking APIs can help teams test systems early, even when key parts aren’t ready. By simulating external services using tools like WireMock, developers can check data flows, handle errors, and improve quality without waiting for real APIs. Mocking supports faster development, better teamwork, and early bug detection. While it has limits—like needing updates when real APIs change—it’s a powerful way to build confidently. The experience shows that mocking isn’t just a shortcut; it’s a smart strategy for reliable software delivery.
 author: asaha
 ---
 
@@ -59,8 +58,8 @@ By mocking the storage APIs early, we were able to left-shift our quality assura
 - Catch integration bugs before the real APIs were available.
 - Ensure robustness by simulating failures.
 
-For instance, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.  
-WireMock allowed us to simulate that scenario repeatedly until we resolved the issue.
+For instance, WireMock could be configured to catch a problem with how a system creates unique IDs for each request. These IDs are meant to be different every time, so the system can keep track of things properly. But in test, WireMock kept returning a “409 Conflict” error, which it can be set up to do if it saw the same ID more than once.
+If we’d waited to test with the real API, we might not have noticed this issue straight away, because the live system may not yet be checking for duplicates yet. WireMock’s strict checks can help spot problem early.
 
 ## 5. The Trade-Offs: Mocking vs Reality
 
