@@ -8,23 +8,9 @@ summary: Organizations seeking cost-effective, privacy-conscious alternatives to
 author: osouthwell
 ---
 
-## Table of Contents
+Are open-source models viable for building internal corporate chatbots? Organizations seek cost-effective, privacy-conscious alternatives to proprietary solutions. We tested whether open-source LLMs could substitute OpenAI for internal agentic tasks, with the hypothesis that well-chosen open-source models can handle many agent roles and may be optimal for certain tasks.
 
-- [Beyond Standard Benchmarks: Why Enterprise Reality Demands Multi-Agent Testing](#beyond-standard-benchmarks-why-enterprise-reality-demands-multi-agent-testing)
-- [Real-World Testing: Enterprise ESG Analysis](#real-world-testing-enterprise-esg-analysis)
-- [Strategic Model Selection](#strategic-model-selection)
-- [Evaluation Framework](#evaluation-framework)
-- [Results](#results)
-- [Performance Analysis: Key Findings](#performance-analysis-key-findings)
-- [Technical Deep Dive: Architectural Approaches](#technical-deep-dive-architectural-approaches)
-- [Things to explore further](#things-to-explore-further)
-- [Conclusions](#conclusions)
-
----
-
-Are open-source models viable for building internal corporate chatbots? Organizations seek cost-effective, privacy-conscious alternatives to proprietary solutions.
-
-We tested whether open-source LLMs could substitute OpenAI for internal agentic tasks. Our hypothesis is that well-chosen open-source models can handle many agent roles and may be optimal for certain tasks.
+This article explores [why enterprise reality demands multi-agent testing beyond standard benchmarks](#beyond-standard-benchmarks-why-enterprise-reality-demands-multi-agent-testing), examining how traditional evaluation methods fall short of assessing real-world collaborative AI workflows. We dive into our [real-world testing using enterprise ESG analysis](#real-world-testing-enterprise-esg-analysis), detailing our [strategic model selection process](#strategic-model-selection) and comprehensive [evaluation framework](#evaluation-framework). After presenting our [results](#results) and [performance analysis with key findings](#performance-analysis-key-findings), we provide a [technical deep dive into architectural approaches](#technical-deep-dive-architectural-approaches) comparing different implementation strategies. Finally, we discuss [areas for further exploration](#things-to-explore-further) and share our [conclusions](#conclusions) about the viability of open-source LLMs in enterprise multi-agent systems.
 
 ## Beyond Standard Benchmarks: Why Enterprise Reality Demands Multi-Agent Testing
 A major challenge with LLMs is that they are difficult to test, as their outputs are non-deterministic and often generate plausible but inaccurate information when faced with uncertainty. This makes consistent and reliable evaluation difficult, as the same prompt can yield subtly different responses across runs or contexts. Yet, most existing benchmarks still focus on narrow, static tasks – such as answering trivia questions like 'How many R's are in 'strawberry?' – rather than dynamic, real-world workflows that require sustained reasoning, planning, and adaptability.
@@ -88,7 +74,7 @@ This manual approach was time-consuming and subjective. In the spirit of the pro
 <details>
 <summary>Click to expand the evaluation prompt used for automated fact-checking</summary>
 
-```
+~~~
 Task: Analyze factual claims in "Astrazeneca-gemma-3-1b-report.md" (a synthesized ESG report for AstraZeneca) using "AstraZeneca-Sustainability-Report-2023.pdf" as the only reference.
 
 Instructions:
@@ -115,7 +101,7 @@ Output Format:
 - Use commas as delimiters
 - Enclose multi-line text in quotes
 - Output ONLY a CSV file, no commentary or explanation
-```
+~~~
 
 </details> 
 
