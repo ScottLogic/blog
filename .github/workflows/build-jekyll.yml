@@ -1,5 +1,9 @@
 name: Build and Deploy
 on:
+  pull_request:
+    branches:
+      - gh-pages
+      - 2025-redesign
   push:
     branches:
       - gh-pages
@@ -42,6 +46,8 @@ jobs:
     permissions:
       pages: write
       id-token: write
+    # Only deploy on push, merge or manual
+    if: "github.event_name != 'pull_request'"
     steps:
       - name: Deploy
         id: deployment
