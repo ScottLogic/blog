@@ -24,7 +24,7 @@ jobs:
       - name: Setup pages
         uses: actions/configure-pages@v5
       - name: Build Jekyll
-        run: bundle exec build --baseurl "${{ steps.pages.outputs.base_path }}"
+        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
         env:
           JEKYLL_ENV: production
           RUBYOPT: --yjit
