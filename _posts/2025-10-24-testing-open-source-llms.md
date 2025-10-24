@@ -10,7 +10,6 @@ author: osouthwell
 
 ## Table of Contents
 
-- [Executive Summary](#executive-summary)
 - [Beyond Standard Benchmarks: Why Enterprise Reality Demands Multi-Agent Testing](#beyond-standard-benchmarks-why-enterprise-reality-demands-multi-agent-testing)
 - [Real-World Testing: Enterprise ESG Analysis](#real-world-testing-enterprise-esg-analysis)
 - [Strategic Model Selection](#strategic-model-selection)
