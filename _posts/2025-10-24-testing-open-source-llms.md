@@ -74,7 +74,6 @@ This manual approach was time-consuming and subjective. In the spirit of the pro
 <details>
 <summary>Click to expand the evaluation prompt used for automated fact-checking</summary>
 
-```
 Task: Analyze factual claims in "Astrazeneca-gemma-3-1b-report.md" (a synthesized ESG report for AstraZeneca) using "AstraZeneca-Sustainability-Report-2023.pdf" as the only reference.
 
 Instructions:
@@ -101,7 +100,6 @@ Output Format:
 - Use commas as delimiters
 - Enclose multi-line text in quotes
 - Output ONLY a CSV file, no commentary or explanation
-```
 
 </details> 
 
