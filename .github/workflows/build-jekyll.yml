@@ -1,4 +1,4 @@
-name: build-jekyll.yml
+name: Build and Deploy
 on:
   push:
     branches:
@@ -22,6 +22,7 @@ jobs:
           ruby-version: '3.4'
           bundler-cache: true
       - name: Setup pages
+        id: pages
         uses: actions/configure-pages@v5
       - name: Build Jekyll
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
