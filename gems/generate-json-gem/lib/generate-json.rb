@@ -1,9 +1,13 @@
 require 'json'
-require 'benchmark'
+require 'jekyll'
+require 'jekyll_plugin_support'
+require_relative './version'
 
-module GenerateJson
-    def generate(site)
-        author_counts = site.posts.docs.flat_map { |post|
+class JsonGenerator < JekyllSupport::JekyllGenerator
+    VERSION = GenerateJson::VERSION
+
+    def generate_impl
+        author_counts = @site.posts.docs.flat_map { |post|
             # post is a Jekyll::Document https://github.com/jekyll/jekyll/blob/master/lib/jekyll/document.rb
 
             if post.data.has_key?("contributors")
@@ -19,19 +23,18 @@ module GenerateJson
         # Tally returns hash of { value: occurrences } for each value in iter
         author_counts.default = 0
 
-        author_data = site.site_data["authors"]["authors"].keys.to_h {|author|
+        author_data = @site.site_data["authors"]["authors"].keys.to_h {|author|
             [author, {"post_count": author_counts[author]}]
         }
 
-        File.write("#{site.dest}/authors.json", author_data.to_json)
+        file = "authors.json"
+        out_file = "#{@site.dest}/#{file}"
+        bytes = File.write(out_file, author_data.to_json)
+        @logger.info { "Wrote #{bytes}B to #{out_file}" }
+
+        if File.file?(out_file)
+            # args 2, 3 and 4 get concated to build the full file path
+            @site.static_files << Jekyll::StaticFile.new(@site, @site.dest, "", file)
+        end
     end
-    module_function :generate
-end
-
-Jekyll::Hooks.register(:site, :post_write) do |site|
-    time = Benchmark.realtime {
-        GenerateJson.generate(site)
-    }
-
-    puts "Generate JSON: ".rjust(20) + "Took #{(time * 1000.0).round(4)}ms"
 end
