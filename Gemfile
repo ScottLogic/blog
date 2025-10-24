@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-gem "jekyll"
+gem "jekyll", "~> 4"
 group :jekyll_plugins do
     # Deps from EOL github-pages gem minus themes
     gem "jekyll-avatar"
-    gem "jekyll-commonmark-ghpages"
+    gem "jekyll-commonmark"
     gem "jekyll-default-layout"
     gem "jekyll-feed"
     gem "jekyll-gist"
@@ -36,8 +36,8 @@ group :jekyll_plugins do
 
     gem "tzinfo-data", "~> 1.2022"
 
-    gem "generate-json", "1.0.0", path: "generate-json-gem"
-    gem "custom-filters", "1.0.0", path: "custom-filters-gem"
+    gem "generate-json", "1.0.0", path: "gems/generate-json-gem"
+    gem "custom-filters", "1.0.0", path: "gems/custom-filters-gem"
 
     gem "jekyll-minifier"
 

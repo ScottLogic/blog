@@ -67,3 +67,8 @@ exclude:
   - scripts/tweet.js
   - scripts/search.js
   - vendor
+  - gems
+sass:
+  style: compressed
+  sourcemap: development
+  sass_dir: scss
