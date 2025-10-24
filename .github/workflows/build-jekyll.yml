@@ -20,3 +20,4 @@ jobs:
       - uses: jeffreytse/jekyll-deploy-action@v0.6.0
         with:
           provider: 'test' # TODO: Change to github before merge
+          token: ${{ secrets.GITHUB_TOKEN }}
