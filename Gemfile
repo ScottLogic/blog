@@ -37,9 +37,9 @@ group :jekyll_plugins do
     gem "tzinfo-data", "~> 1.2022"
 
     gem "generate-json", "1.0.0", path: "generate-json-gem"
+    gem "custom-filters", "1.0.0", path: "custom-filters-gem"
 
     gem "jekyll-minifier"
-    gem "jekyll-include-cache"
 
     # Issue with ffi requiring a very recent rubygems version, not yet available
     # in many current linux docker images, so this must be locked down for now.

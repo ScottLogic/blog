@@ -1,0 +1,28 @@
+@use "fonts";
+
+.author-summary-wrapper {
+  .author-information {
+    div,
+    img {
+      display: inline-block;
+    }
+
+    img {
+      border-radius: 50%;
+      max-height: 3rem;
+      max-width: 3rem;
+      margin-right: 0.25rem;
+      filter: grayscale(100%);
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .author-summary {
+    margin-top: 1rem;
+    p {
+      font-weight: fonts.$font-bold;
+      font-style: italic;
+    }
+  }
+}

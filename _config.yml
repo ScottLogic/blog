@@ -38,6 +38,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-paginate-v2
   - generate-json
+  - custom-filters
   - jekyll-minifier
   - jekyll-include-cache
 kramdown:
