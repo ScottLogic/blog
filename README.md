@@ -11,8 +11,7 @@ GitHub account.
 
 The blog is a static website, designed to be hosted on [GitHub pages][github-pages].
 
-The underlying content is generated through a series of Ruby gems and libraries, starting with a dedicated github-pages
-[gem][ruby-github-pages].
+The underlying content is generated through a series of Ruby gems and libraries.
 
 Within that stack, [Jekyll][jekyll-docs] is used as the static content generation engine,
 consuming template files written in either **HTML** or **Markdown** (syntax extended by [Kramdown][kramdown-syntax]).
@@ -90,7 +89,6 @@ rebuild.
 By far the easiest route is to use Docker: if you have it installed, you can [skip ahead][run-docker] now!
 
 The blog consists of static HTML pages with content generated using:
-- [github-pages][ruby-github-pages] for deployment hooks
 - [Jekyll][jekyll-docs] for static site generation generator
 - [Kramdown][kramdown-syntax] for an extended markdown syntax
 - [Liquid][ruby-liquid] for templating functionality
@@ -161,7 +159,7 @@ See [jekyll's docs](https://jekyllrb.com/docs/configuration/options/) for comman
 
 The blog will then be available on [localhost][localhost].
 
-If you are working on fixes or new features, and need to re-compile the scripts or SCSS, you can use these npm scripts:
+If you are working on fixes or new features, and need to re-compile the scripts, you can use these npm scripts:
 
 ```shell
 npm ci           # Install deps
@@ -246,7 +244,6 @@ changes. This workflow runs only on a manual dispatch on the `gh-pages` branch.
 [jekyll-docs]: https://jekyllrb.com/docs/
 [kramdown-syntax]: https://kramdown.gettalong.org/syntax.html
 [localhost]: http://localhost:4000
-[ruby-github-pages]: https://rubygems.org/gems/github-pages
 [ruby-bundler]: https://bundler.io/
 [rubyinstaller]: https://rubyinstaller.org/
 [ruby-installation-instructions]: https://www.ruby-lang.org/en/documentation/installation

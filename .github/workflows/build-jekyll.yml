@@ -21,6 +21,8 @@ jobs:
         with:
           ruby-version: '3.4'
           bundler-cache: true
+      - name: Setup node
+        uses: bahmutov/npm-install@v1
       - name: Setup pages
         id: pages
         uses: actions/configure-pages@v5
