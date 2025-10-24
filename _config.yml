@@ -72,3 +72,7 @@ sass:
   style: compressed
   sourcemap: development
   sass_dir: scss
+  quiet_deps: true
+  load_paths:
+    - "node_modules/applause-button/dist/"
+    - "node_modules/cookieconsent/build/"

@@ -1,11 +1,11 @@
 ---
 ---
 
-@use "../node_modules/applause-button/dist/applause-button" as upstream-applause;
+@use "applause-button" as upstream-applause;
 
 @use "foundation";
 
-@use "../node_modules/cookieconsent/build/cookieconsent.min";
+@use "cookieconsent.min";
 
 @use "blog-colour-schemes";
 @use "blog-main";
