@@ -5,21 +5,29 @@ on:
       - gh-pages
       - 2025-redesign # TODO: Remove before merge
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v4
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup pages
+        uses: actions/configure-pages@v5
+      - name: Build Jekyll
+        uses: actions/jekyll-build-pages@v1
         with:
-          path: |
-            .asdf/**
-            vendor/bundle
-          key: ${{runner.os}}-cache=${{hashFiles('**/cache.key')}}
-          restore-keys: |
-            ${{ runner.os }}-cache-
-        # Stuck with master until a new release https://github.com/jeffreytse/jekyll-deploy-action/issues/98#issuecomment-2982363972
-      - uses: jeffreytse/jekyll-deploy-action@master
-        with:
-          provider: 'test' # TODO: Change to github before merge
-          token: ${{ secrets.GITHUB_TOKEN }}
-          pre_build_commands: pacman -S --noconfirm nodejs
+          source: ''./'
+          destination: './_site'
+      - name: Upload
+        uses: actions/upload-pages-artifact@v4
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy
+        uses: actions/deploy-pages@v4
