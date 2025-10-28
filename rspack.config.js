@@ -15,6 +15,7 @@ export default defineConfig({
     ],
   },
   output: {
+    path: "_site/",
     filename: "script.js",
   },
   mode: process.env.JEKYLL_ENV === "production" ? "production" : "development",
