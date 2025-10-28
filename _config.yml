@@ -74,7 +74,7 @@ exclude:
   - send-blogs-to-deploy-endpoint.js
   - rspack.config.js
 keep_files:
-  - "assets/script.js"
+  - "script.js"
 sass:
   style: compressed
   sourcemap: development
