@@ -39,7 +39,7 @@ plugins:
   - jekyll-paginate-v2
   - generate-json
   - custom-filters
-  - jekyll-minifier
+  - bundle-js
   - jekyll-include-cache
 kramdown:
   input: kramdown
@@ -72,6 +72,9 @@ exclude:
   - package-lock.json
   - PULL_REQUEST_TEMPLATE
   - send-blogs-to-deploy-endpoint.js
+  - rspack.config.js
+keep_files:
+  - "assets/script.js"
 sass:
   style: compressed
   sourcemap: development

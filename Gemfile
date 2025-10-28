@@ -38,8 +38,9 @@ group :jekyll_plugins do
 
     gem "generate-json", "1.0.0", path: "gems/generate-json-gem"
     gem "custom-filters", "1.0.0", path: "gems/custom-filters-gem"
+    gem "bundle-js", "1.0.0", path: "gems/bundle-js-gem"
 
-    gem "jekyll-minifier"
+    gem "jekyll_plugin_support"
 
     # Issue with ffi requiring a very recent rubygems version, not yet available
     # in many current linux docker images, so this must be locked down for now.
