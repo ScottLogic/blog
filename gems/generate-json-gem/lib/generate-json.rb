@@ -28,7 +28,6 @@ class JsonGenerator < JekyllSupport::JekyllGenerator
                 [author, { "post_count": author_counts[author] }]
             }
 
-            file.con
             file.content = author_data.to_json
             file.data.merge!("layout" => nil)
             file.output
