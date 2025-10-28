@@ -1,4 +1,4 @@
-function initialiseMenu() {
+global.initialiseMenu = () => {
   jQuery(document).ready(function () {
     var $menu = jQuery("#mobileMenu").mmenu({});
 
@@ -24,4 +24,4 @@ function initialiseMenu() {
       jQuery(this).toggleClass("open");
     });
   });
-}
+};

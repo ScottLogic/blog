@@ -40,6 +40,7 @@ plugins:
   - generate-json
   - custom-filters
   - bundle-js
+  - html-minify
   - jekyll-include-cache
 kramdown:
   input: kramdown
@@ -72,7 +73,7 @@ exclude:
   - package-lock.json
   - PULL_REQUEST_TEMPLATE
   - send-blogs-to-deploy-endpoint.js
-  - rspack.config.js
+  - rspack.config.ts
   - ".prettierrc.json5"
 keep_files:
   - "script.js"

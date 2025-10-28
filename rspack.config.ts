@@ -1,4 +1,5 @@
 import { defineConfig } from "@rspack/cli";
+import rspack from "@rspack/core";
 
 export default defineConfig({
   entry: {
@@ -17,6 +18,13 @@ export default defineConfig({
   output: {
     path: "_site/",
     filename: "script.js",
+    scriptType: "text/javascript",
   },
+  plugins: [
+    new rspack.ProvidePlugin({
+      // We have jquery, trust
+      jQuery: "jquery",
+    }),
+  ],
   mode: process.env.JEKYLL_ENV === "production" ? "production" : "development",
 });

@@ -1,4 +1,4 @@
-function loadClapCount() {
+global.loadClapCount = () => {
   var elements = jQuery(".clap").toArray();
   var urls = elements.map(function (el) {
     return el.getAttribute("data-url");
@@ -25,4 +25,4 @@ function loadClapCount() {
         }
       });
     });
-}
+};
