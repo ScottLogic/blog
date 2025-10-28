@@ -73,6 +73,7 @@ exclude:
   - PULL_REQUEST_TEMPLATE
   - send-blogs-to-deploy-endpoint.js
   - rspack.config.js
+  - ".prettierrc.json5"
 keep_files:
   - "script.js"
 sass:

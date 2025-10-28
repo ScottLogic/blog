@@ -1,5 +1,11 @@
 {%- assign allPosts = paginator.posts -%}
-{%- assign categoryName = include.categoryName -%}
+{%- if page.pagination.category -%}
+  {%- assign categoryName = page.pagination.category -%}
+{%- elsif page.pagination.tag == 'video_post' -%}
+  {%- assign categoryName = 'Videos' -%}
+{%- else -%}
+  {%- assign categoryName = 'Latest Articles' -%}
+{%- endif -%}
 <div class="post-index grid-container">
   <h1 class="super-title">Blog</h1>
   <h2 class="cell sub-title">Our thoughts on technology and design</h2>
