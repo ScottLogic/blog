@@ -2,6 +2,7 @@
 title: 'Beyond the Hype: Is Agile now a dirty word?'
 date: 2025-10-22 08:00:00 Z
 categories:
+- Podcast
 - Delivery
 tags:
 - agile
