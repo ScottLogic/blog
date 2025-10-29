@@ -36,7 +36,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.3
+          ruby-version: 3.4
 
       - name: Install gems
         run: bundle config path vendor/bundle && bundle install
