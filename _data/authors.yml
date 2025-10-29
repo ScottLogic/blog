@@ -97,6 +97,7 @@ active-authors:
   - kjones
   - klau
   - lcollingwood
+  - lflinn
   - lpisani
   - lperrett
   - lvincent
@@ -692,6 +693,10 @@ authors:
     name: "Scott Logic Labs"
   lcollingwood:
     name: "Laurie Collingwood"
+    picture: picture.jpg
+  lflinn:
+    name: "Lisa Flinn"
+    author-summary: "<p>I am a Software Developer at Scott Logic based in the Glasgow office.</p>"
     picture: picture.jpg
   lpage:
     name: "Luke Page"
