@@ -54,27 +54,25 @@ pagination:
     after: 2
 excerpt_separator:
 exclude:
+  - ".prettierrc.json5"
+  - ".spelling"
   - CNAME
   - Gemfile
   - Gemfile.lock
-  - lintPosts.js
-  - scss
-  - node_modules
-  - package.json
+  - PULL_REQUEST_TEMPLATE
   - README.md
-  - ".spelling"
-  - scripts/jquery-1.9.1.js
-  - scripts/jquery.jscroll-2.2.4.js
-  - scripts/tweet.js
-  - scripts/search.js
-  - vendor
   - gems
   - generate_pa11y_ci_urls_from_git_diff.sh
+  - lintPosts.js
+  - node_modules
   - package-lock.json
-  - PULL_REQUEST_TEMPLATE
-  - send-blogs-to-deploy-endpoint.js
+  - package.json
   - rspack.config.ts
-  - ".prettierrc.json5"
+  - scripts
+  - scss
+  - send-blogs-to-deploy-endpoint.js
+  - tsconfig.json
+  - vendor
 keep_files:
   - "script.js"
 sass:

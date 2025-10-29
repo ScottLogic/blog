@@ -1,13 +1,30 @@
 import { defineConfig } from "@rspack/cli";
 import rspack from "@rspack/core";
 
+const isProd = process.env["JEKYLL_ENV"] === "production";
+
 export default defineConfig({
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        exclude: [/node_modules/],
+        loader: "builtin:swc-loader",
+        options: {
+          jsc: {
+            parser: {
+              syntax: "typescript",
+            },
+            target: "es2020",
+          },
+        },
+        type: "javascript/auto",
+      },
+    ],
+  },
   entry: {
     page: [
-      "./scripts/initialise-menu.js",
-      "./scripts/jquery-1.9.1.js",
-      "./scripts/load-clap-count.js",
-      "./scripts/elapsed.js",
+      "./scripts/index.ts",
       "./scripts/graft-studio/header-scroll.js",
       "./scripts/graft-studio/jquery.mmenu.all.js",
       "./scripts/graft-studio/jquery.matchHeight.js",
@@ -18,7 +35,7 @@ export default defineConfig({
   output: {
     path: "_site/",
     filename: "script.js",
-    scriptType: "text/javascript",
+    scriptType: "module",
   },
   plugins: [
     new rspack.ProvidePlugin({
@@ -26,5 +43,20 @@ export default defineConfig({
       jQuery: "jquery",
     }),
   ],
-  mode: process.env.JEKYLL_ENV === "production" ? "production" : "development",
+  resolve: {
+    extensions: [".js", ".json", ".wasm", ".ts"],
+  },
+  optimization: {
+    minimizer: [
+      new rspack.SwcJsMinimizerRspackPlugin({
+        minimizerOptions: {
+          compress: {
+            passes: 0,
+          },
+        },
+      }),
+    ],
+  },
+  mode: isProd ? "production" : "development",
+  devtool: isProd ? false : "source-map",
 });
