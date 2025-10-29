@@ -2,11 +2,6 @@
 
 const relativeUrls = require("./pa11y-ci-urls");
 
-const chromiumBin = process.env.CHROMIUM_BIN;
-if (!chromiumBin) {
-  throw new Error("CHROMIUM_BIN environment variable is not set");
-}
-
 const baseUrl = "http://localhost:4000";
 
 // Colour contrast is a known issue. If we ever fix the brand colours, this should be removed.
@@ -19,13 +14,7 @@ const colourContrastRuleIds = [
 
 module.exports = {
   defaults: {
-    chromeLaunchConfig: {
-      executablePath: chromiumBin,
-      args: ["--no-sandbox"],
-    },
     ignore: [...colourContrastRuleIds],
-    reporter: "cli",
-    runners: ["htmlcs"],
   },
   urls: relativeUrls.map((url) => `${baseUrl}${url}`),
 };
