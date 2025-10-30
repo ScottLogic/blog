@@ -139,10 +139,10 @@ jobs:
         if: steps.changes.outputs.changed == 'true'
         shell: bash
         run: |
-          git config --local user.email "${{ github.actor }}@users.noreply.github.com"
+          git config --local user.email {% raw %}"${{ github.actor }}@users.noreply.github.com"
           git config --local user.name "${{ github.actor }}"
           git add .
-          git commit -m "${{ github.event.inputs.commit_message || 'Auto-commit: Update screenshots' }} (by @${{ github.actor }})"
+          git commit -m "${{ github.event.inputs.commit_message || 'Auto-commit: Update screenshots' }} (by @${{ github.actor }})"{% endraw %}
           git push
 ~~~~
 

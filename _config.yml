@@ -41,8 +41,11 @@ plugins:
 kramdown:
   input: kramdown
 paginate: 20
-excerpt_separator:
+excerpt_separator: <!-- end_excerpt -->
 exclude:
+  - ".idea"
+  - ".prettierrc.json5"
+  - ".spelling"
   - CNAME
   - Gemfile
   - Gemfile.lock
@@ -51,7 +54,6 @@ exclude:
   - node_modules
   - package.json
   - README.md
-  - ".spelling"
   - scripts/jquery-1.9.1.js
   - scripts/jquery.jscroll-2.2.4.js
   - scripts/tweet.js

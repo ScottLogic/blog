@@ -184,7 +184,7 @@ render() {
     return (
         <div>
             <input value={this.state.text} onChange={this.onInputChange} 
-				style={{color: this.state.isRed ? "red" : "green"}} />
+				style={% raw %}{{color: this.state.isRed ? "red" : "green"}}{% endraw %} />
             <button onClick={() => this.setState({text: "Hi"})} />
         </div>
     )
@@ -226,7 +226,7 @@ export default class Parent extends Component {
 
     render() {
         return (
-            <ChildView props={{text: this.state.text, onInputChange: this.onInputChange}} />
+            <ChildView props={% raw %}{{text: this.state.text, onInputChange: this.onInputChange}}{% endraw %} />
         )
     }
 }

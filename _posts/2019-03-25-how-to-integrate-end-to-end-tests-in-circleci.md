@@ -54,7 +54,7 @@ Before writing the job itself, let’s have a look at the steps required to run 
 
 
 This translates into the following steps:
-
+{% raw %}
     e2e-test:
       working_directory: ~/repo
       docker:
@@ -94,6 +94,7 @@ This translates into the following steps:
            name: "Run the tests"
            command: |
                cd test/e2e && npm run test
+{% endraw %}
 
 Let’s explain some steps:
 
