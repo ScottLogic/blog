@@ -159,11 +159,10 @@ See [jekyll's docs](https://jekyllrb.com/docs/configuration/options/) for comman
 
 The blog will then be available on [localhost][localhost].
 
-If you are working on fixes or new features, and need to re-compile the scripts, you can use these npm scripts:
+If you are working on fixes or new features, you can use these npm scripts:
 
 ```shell
 npm ci           # Install deps
-npm run scripts  # Recompile scripts
 npm run prettier # Format non-post files
 ```
 

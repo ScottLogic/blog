@@ -38,8 +38,8 @@ group :jekyll_plugins do
 
     gem "generate-json", "1.0.0", path: "gems/generate-json-gem"
     gem "custom-filters", "1.0.0", path: "gems/custom-filters-gem"
-    gem "bundle-js", "1.0.0", path: "gems/bundle-js-gem"
     gem "html-minify", "1.0.0", path: "gems/html-minify-gem"
+    gem "hook-exec", "1.0.0", path: "gems/hook-exec-gem"
 
     gem "jekyll_plugin_support"
 
