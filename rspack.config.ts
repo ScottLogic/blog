@@ -28,7 +28,6 @@ export default defineConfig({
       "./scripts/graft-studio/header-scroll.js",
       "./scripts/graft-studio/jquery.mmenu.all.js",
       "./scripts/graft-studio/jquery.matchHeight.js",
-      "./scripts/post_counts.ts",
       "applause-button/dist/applause-button.js",
       "cookieconsent/build/cookieconsent.min.js",
     ],

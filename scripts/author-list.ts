@@ -12,6 +12,8 @@ export function loadAuthorList() {
     });
 }
 
+const PAGE_SIZE = 12;
+
 function loadAuthorListForLetter(letter: string) {
   const activeAuthors: Author[] = JSON.parse(
     localStorage.getItem("activeAuthors") ?? "",
@@ -24,36 +26,22 @@ function loadAuthorListForLetter(letter: string) {
   displayCarousel(filteredAuthors);
 }
 
-/*
- * Sort by number of posts descending, then by name
- */
-function compareAuthor(a: Author, b: Author) {
-  if (a.postCount > b.postCount) {
-    return -1;
-  }
-  if (a.postCount < b.postCount) {
-    return 1;
-  }
-  return a.name.localeCompare(b.name);
-}
-
 function displayCarousel(authorList: Author[]) {
   authorList.sort(compareAuthor);
 
-  const pageSize = 12;
-  const pageCount = Math.floor(authorList.length / pageSize);
-  const remainder = authorList.length % pageSize;
+  const pageCount = Math.floor(authorList.length / PAGE_SIZE);
+  const remainder = authorList.length % PAGE_SIZE;
 
   for (let i = 0; i < pageCount; i++) {
-    const start = i * pageSize;
-    const end = (i + 1) * pageSize;
+    const start = i * PAGE_SIZE;
+    const end = (i + 1) * PAGE_SIZE;
 
     const authorsForPage = authorList.slice(start, end);
     displayPage(i, authorsForPage);
   }
 
   if (remainder) {
-    const start = pageCount * pageSize;
+    const start = pageCount * PAGE_SIZE;
     const end = authorList.length;
 
     const authorsForPage = authorList.slice(start, end);
@@ -202,4 +190,17 @@ interface Author {
   authorId: string;
   postCount: number;
   isActive: boolean;
+}
+
+/*
+ * Sort by number of posts descending, then by name
+ */
+function compareAuthor(a: Author, b: Author) {
+  if (a.postCount > b.postCount) {
+    return -1;
+  }
+  if (a.postCount < b.postCount) {
+    return 1;
+  }
+  return a.name.localeCompare(b.name);
 }
