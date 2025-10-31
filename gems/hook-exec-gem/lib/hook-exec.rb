@@ -40,7 +40,7 @@ module HookExec
                         processed_cmd = cmd.render(arg_hash)
 
                         time = Benchmark::realtime do
-                            stdout, stderr, status = Open3.capture3(processed_env, processed_cmd)
+                            stdout, stderr, status = Open3.capture3(processed_env, "/bin/sh", "-c", processed_cmd)
                             logger.debug { "#{log_prefix} stdout:\n#{stdout}" }
                             unless status.success?
                                 logger.error { "#{log_prefix} stderr: #{stderr}" }
