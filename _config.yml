@@ -91,4 +91,4 @@ hook_exec:
       bundle-js:
         env:
           BASE_URL: "{{ site.baseurl }}"
-        cmd: "node_modules/.bin/rspack build"
+        cmd: "rspack build"
