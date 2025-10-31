@@ -1,26 +1,42 @@
-@use 'colours';
-@use 'fonts';
-@use 'article-colour-scheme' as scheme;
-@use 'util';
+@use "colours";
+@use "fonts";
+@use "article-colour-scheme" as scheme;
+@use "util";
 
 .default-post {
   &.teal {
-    @include scheme.hero-colour-scheme(colours.$light-teal, colours.$teal, colours.$white);
+    @include scheme.hero-colour-scheme(
+      colours.$light-teal,
+      colours.$teal,
+      colours.$white
+    );
     @include scheme.article-colour-scheme(colours.$teal, colours.$black);
   }
 
   &.orange {
-    @include scheme.hero-colour-scheme(colours.$light-orange, colours.$orange, colours.$white);
+    @include scheme.hero-colour-scheme(
+      colours.$light-orange,
+      colours.$orange,
+      colours.$white
+    );
     @include scheme.article-colour-scheme(colours.$orange, colours.$black);
   }
 
   &.pink {
-    @include scheme.hero-colour-scheme(colours.$light-pink, colours.$pink, colours.$white);
+    @include scheme.hero-colour-scheme(
+      colours.$light-pink,
+      colours.$pink,
+      colours.$white
+    );
     @include scheme.article-colour-scheme(colours.$pink, colours.$white);
   }
 
   &.yellow {
-    @include scheme.hero-colour-scheme(colours.$light-yellow, colours.$yellow, colours.$white);
+    @include scheme.hero-colour-scheme(
+      colours.$light-yellow,
+      colours.$yellow,
+      colours.$white
+    );
     @include scheme.article-colour-scheme(colours.$yellow, colours.$black);
   }
 

@@ -89,6 +89,9 @@ rebuild.
 By far the easiest route is to use Docker: if you have it installed, you can [skip ahead][run-docker] now!
 
 The blog consists of static HTML pages with content generated using:
+
+- [github-pages][ruby-github-pages] for deployment hooks
+
 - [Jekyll][jekyll-docs] for static site generation generator
 - [Kramdown][kramdown-syntax] for an extended markdown syntax
 - [Liquid][ruby-liquid] for templating functionality
@@ -135,11 +138,13 @@ gem install jekyll bundler nokogiri
 ```
 
 Optionally, configure Bundler to store project dependencies in `vendor/bundle`
+
 ```shell
 bundle config path vendor/bundle
 ```
 
 When in the root directory of your clone of the blog, install the project dependencies.
+
 ```shell
 cd PATH/TO/BLOG
 bundle install
@@ -155,6 +160,7 @@ Navigate to the root directory of your clone of the blog and execute Jekyll usin
 ```shell
 bundle exec jekyll serve
 ```
+
 See [jekyll's docs](https://jekyllrb.com/docs/configuration/options/) for command line flags.
 
 The blog will then be available on [localhost][localhost].
@@ -166,10 +172,12 @@ npm ci           # Install deps
 npm run prettier # Format non-post files
 ```
 
-##### Useful Options for Jekyll
-* `--livereload` - trigger a build on file change (excluding SCSS or JS) and refresh the browser once built
-* `--incremental` - use the experimental incremental build mode which after the initial build, only builds changed files
-* `RUBYOPT="--yjit"` - let ruby use its JIT (only macOS, Linux and BSD on x86-64 and arm64/aarch64 CPUs are supported)
+##### Useful Command Line Flags for Jekyll
+
+- `--livereload` - trigger a build on file change (excluding SCSS or JS) and refresh the brower once built
+
+- `--incremental` - use the experimental incremental build mode which after the initial build, only builds changed files
+- `RUBYOPT="--yjit"` - let ruby use its JIT (only macOS, Linux and BSD on x86-64 and arm64/aarch64 CPUs are supported)
 
 ### Running with Docker
 
@@ -235,10 +243,8 @@ changes. This workflow runs only on a manual dispatch on the `gh-pages` branch.
 
 [calibreapp-image-actions]: https://github.com/calibreapp/image-actions
 [confluence-getting-started]: https://scottlogic.atlassian.net/wiki/spaces/INT/pages/3577479175/Getting+started+with+the+Scott+Logic+blog
-[sparse-checkout-guide]: https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/#sparse-checkout-and-partial-clones
 
 [github-pages]: https://pages.github.com/
-[github-pages-docs]: https://docs.github.com/en/pages
 [run-docker]: #running-with-docker
 [jekyll-docs]: https://jekyllrb.com/docs/
 [kramdown-syntax]: https://kramdown.gettalong.org/syntax.html
