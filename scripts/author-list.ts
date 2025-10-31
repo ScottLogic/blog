@@ -1,7 +1,7 @@
 declare const BASE_URL: string;
 
 export function loadAuthorList() {
-  fetch(BASE_URL + "authors.json", {
+  fetch(BASE_URL + "/authors.json", {
     method: "GET",
     headers: { Accept: "application/json" },
   })

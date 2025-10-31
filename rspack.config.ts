@@ -44,7 +44,7 @@ export default defineConfig({
       jQuery: "jquery",
     }),
     new rspack.DefinePlugin({
-      BASE_URL: JSON.stringify(process.env["BASE_URL"] ?? "/"),
+      BASE_URL: JSON.stringify(process.env["BASE_URL"] ?? ""),
     }),
   ],
   resolve: {
