@@ -89,4 +89,6 @@ hook_exec:
   site:
     post_write:
       bundle-js:
+        env:
+          BASE_URL: "{{ site.baseurl }}"
         cmd: "node_modules/.bin/rspack build"

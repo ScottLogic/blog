@@ -3,6 +3,7 @@ import rspack from "@rspack/core";
 
 const isProd = process.env["JEKYLL_ENV"] === "production";
 
+// noinspection JSUnusedGlobalSymbols
 export default defineConfig({
   module: {
     rules: [
@@ -41,6 +42,9 @@ export default defineConfig({
     new rspack.ProvidePlugin({
       // We have jquery, trust
       jQuery: "jquery",
+    }),
+    new rspack.DefinePlugin({
+      BASE_URL: process.env["BASE_URL"] ?? "/",
     }),
   ],
   resolve: {

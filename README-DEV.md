@@ -69,11 +69,11 @@ with the `:` removed.
 
 Liquid templates have access to the following variables, depending on which hook they are running in:
 - `site` - hooks with `:site` owner
-  - [Jekyll site](https://github.com/jekyll/jekyll/blob/master/lib/jekyll/document.rb)
+  - Same as the `site` object in normal templates
 - `doc` - hooks with `:document` owner
   - [Jekyll document](https://github.com/jekyll/jekyll/blob/master/lib/jekyll/document.rb)
 - `page` - hooks with `:pages` owner
-  - [Jekyll page](https://github.com/jekyll/jekyll/blob/master/lib/jekyll/document.rb)
+  - Same as the `page` object in normal template
 - `payload` - hooks with either the `:pre_render` or `:post_render` event
   - a hash containing variables to be used during rendering (`:pre_render`) or their final values after rendering 
 (`:post_render`)

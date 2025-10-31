@@ -7,17 +7,17 @@ module HookExec
     def convert_arg_to_h_entry(arg)
         case arg.class
         when Jekyll::Site.class
-            ["site", arg]
+             {"site" => arg.to_liquid["site"] }
         when Hash.class
-            ["payload", arg]
+            {"payload" => arg}
         when Jekyll::Page.class
-            ["page", arg]
+            arg.to_liquid
         when Jekyll::Document.class
-            ["document", arg]
+            arg.to_liquid
         when Array.class
-            ["files", arg]
+            {"files" => arg}
         else
-            logger.warn { "Unknown argument type #{arg.class} for #{owner}.#{event} hook" }
+            Jekyll.logger.warn("Hook Exec") { "Unknown argument type #{arg.class} for #{owner}.#{event} hook" }
         end
     end
     module_function :convert_arg_to_h_entry
@@ -31,26 +31,27 @@ module HookExec
                     env = hook["env"] ||= {}
                     env.transform_values! { |v| Liquid::Template.parse(v) }
                     priority = hook["priority"] ||= Jekyll::Hooks::DEFAULT_PRIORITY
-                    logger = PluginMetaLogger.instance.new_logger("HookExec: #{owner}.#{event}.#{name}", PluginMetaLogger.instance.config)
+                    logger = PluginMetaLogger.instance.new_logger(HookExec, PluginMetaLogger.instance.config)
+                    log_prefix = "#{owner}.#{event}.#{name}"
 
                     Jekyll::Hooks.register(owner.to_sym, event.to_sym, priority: priority) do |*args|
-                        arg_hash = args.collect(&HookExec.method(:convert_arg_to_h_entry)).to_h
+                        arg_hash = args.collect(&HookExec.method(:convert_arg_to_h_entry)).reduce({}, :merge)
                         processed_env = env.transform_values {|v| v.render(arg_hash)}
                         processed_cmd = cmd.render(arg_hash)
 
                         time = Benchmark::realtime do
                             stdout, stderr, status = Open3.capture3(processed_env, processed_cmd)
-                            logger.debug { "stdout:\n#{stdout}" }
+                            logger.debug { "#{log_prefix} stdout:\n#{stdout}" }
                             unless status.success?
-                                logger.error { "stderr: #{stderr}" }
+                                logger.error { "#{log_prefix} stderr: #{stderr}" }
                                 raise "failed with status #{status.exitstatus}"
                             end
                         end
 
                         if time < 1.0
-                            logger.debug {"took #{(time * 1000).round(2)}ms"}
+                            logger.debug {"#{log_prefix} took #{(time * 1000).round(2)}ms"}
                         else
-                            logger.debug {"took #{time.round(2)}s"}
+                            logger.debug {"#{log_prefix} took #{time.round(2)}s"}
                         end
                     end
                     Jekyll.logger.info("HookExec") { "Registered #{owner}.#{event}.#{name} hook" }
