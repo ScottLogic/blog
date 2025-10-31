@@ -79,9 +79,9 @@ function displayAuthor(element: HTMLElement, author: Author) {
   image.role = "presentation";
   image.alt = author.name ?? "";
   if (author.picture) {
-    image.src = `/${author.authorId}/${author.picture}`;
+    image.src = BASE_URL + `/${author.authorId}/${author.picture}`;
   } else {
-    image.src = `/assets/avatar.png`;
+    image.src = BASE_URL + `/assets/avatar.png`;
   }
 
   const name = authorIcon.appendChild(document.createElement("div"));
