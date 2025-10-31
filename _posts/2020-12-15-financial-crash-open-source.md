@@ -5,13 +5,12 @@ categories:
 - Tech
 tags:
 - featured
+- video_post
 author: ceberhardt
 summary: A talk, from the Open Source Strategy Forums, where I compared some of the
   challenges facing open source (complexity, fragility, sustainability) to those which
   triggered the financial crisis of 2008.
 layout: video_post
-tags:
-  - video_post
 video_url: https://www.youtube.com/embed/Ru52tCtVl2c
 image: ceberhardt/assets/ossf/castle.jpeg
 short-author-aside: true

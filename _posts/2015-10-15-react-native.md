@@ -10,8 +10,6 @@ summary: ReactJS, Virtual DOM, JSX, a hackable editor, ES6 modules, classes, arr
 layout: video_post
 tags:
   - video_post
-tags:
-  - video_post
 video_url: https://www.youtube.com/embed/e6I5Yu8h5HY
 short-author-aside: true
 ---

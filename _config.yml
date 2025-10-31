@@ -89,4 +89,4 @@ hook_exec:
   site:
     post_write:
       bundle-js:
-        cmd: "rspack build"
+        cmd: "node_modules/.bin/rspack build"
