@@ -11,9 +11,9 @@
     >
       {%- for category in site.data.categories -%}
         <option
-          {%- if category.title=selectedCategory %}
+          {% if category.title == selectedCategory %}
             selected="selected"
-          {% endif -%}
+          {% endif %}
           value="{{- site.baseurl -}}{{- category.url -}}"
         >
           {{- category.title -}}
