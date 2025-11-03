@@ -23,6 +23,7 @@ module HtmlMinify
                     # Minify inline and "in document"
                     :minify_css => true,
                     :minify_js => true,
+                    :keep_input_type_text_attr => true,
                     # Don't do noncompliant stuff
                     :allow_noncompliant_unquoted_attribute_values => false,
                     :allow_optimal_entities => false,
