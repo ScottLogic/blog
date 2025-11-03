@@ -20,10 +20,10 @@
     <div
       class="side-lists cell large-3 large-offset-1 grid-padding-y grid-margin-y"
     >
-      {%- include search.html categoryName=categoryName -%}
+      {%- comment -%}{%- include search.html categoryName=categoryName -%}{%- endcomment -%}
       {%- include_cached category_list.html selectedCategoryName=categoryName -%}
       {%- include_cached author_list.html -%}
-      {%- include email_list.html -%}
+      {%- comment -%}{%- include email_list.html -%}{%- endcomment -%}
     </div>
   </div>
 </div>

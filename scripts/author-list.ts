@@ -72,7 +72,7 @@ function displayPage(pageNumber: number, authors: Author[]) {
 function displayAuthor(element: HTMLElement, author: Author) {
   const authorIcon = element.appendChild(document.createElement("a"));
   authorIcon.classList.add("author-icon");
-  authorIcon.href = `${author.authorId}`;
+  authorIcon.href = BASE_URL + `/${author.authorId}`;
   const avatar = authorIcon.appendChild(document.createElement("div"));
   avatar.classList.add("author-list-avatar");
   const image = avatar.appendChild(document.createElement("img"));

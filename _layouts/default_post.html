@@ -171,7 +171,7 @@ layout: default
           {%- include_cached author-link.html author-id=contributorId -%}
         {%- endfor -%}
       </div>
-      {%- include_cached social.html author=author -%}
+      {%- comment -%}{%- include_cached social.html author=author -%}{%- endcomment -%}
     </div>
     <div class="cell large-6">
       <div class="cell post-content">{{- content -}}</div>
