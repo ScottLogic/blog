@@ -10,8 +10,6 @@ $underline-height: 3px;
     overflow: hidden;
     display: flex;
     scroll-snap-type: x mandatory;
-    anchor-name: --carousel;
-    margin-bottom: 1.25rem;
     min-height: 25.3125rem;
     max-height: 28rem;
 
@@ -63,13 +61,13 @@ $underline-height: 3px;
     font-weight: fonts.$font-bold;
     font-size: fonts.$baseFontSize * calc(10 / 16);
     text-align: center;
-    padding-bottom: $underline-height;
   }
 
   a:hover {
     color: colours.$black;
-    padding-bottom: 0;
-    border-bottom: $underline-height solid colours.$teal;
+    img {
+      filter: initial;
+    }
   }
 
   a:visited {
