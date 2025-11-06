@@ -11,6 +11,8 @@ tags:
 - B Corp
 - government procurement
 - procurement
+- Featured
+- featured
 summary: Increasingly, I’m seeing that government procurement is not giving suppliers
   the chance to demonstrate their ability to deliver meaningful social value. In this
   blog, I explore what government procurement sets out to achieve, what is actually

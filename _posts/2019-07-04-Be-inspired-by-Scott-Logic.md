@@ -4,20 +4,21 @@ date: 2019-07-04 00:00:00 Z
 categories:
 - Tech
 tags:
-- News,
-- Jobs,
+- News
+- ''
+- Jobs
 - Graduate
-- Scheme,
+- Scheme
 - Altitude
-- Foundation,
+- Foundation
 - high
 - growth
-author: pdykes
-layout: default_post
-redirect_to: https://www.scottlogic.com/were-one-of-1000-companies-to-inspire-britain/
 summary: Scott Logic is proud to have been identified as one of 1000 Companies to
   Inspire Britain in 2019 by the London Stock Exchange Group (LSEG).
+author: pdykes
+redirect_to: https://www.scottlogic.com/news/were-one-1000-companies-inspire-britain
 image: pdykes/assets/1000-companies-to-inspire-Britain.jpg
+layout: default_post
 ---
 
 Scott Logic is proud to have been identified as one of **1000 Companies to Inspire Britain** in 2019 by the London Stock Exchange Group (LSEG).
@@ -28,7 +29,7 @@ Since 2014, the LSEG has [published this annual report](https://www.lseg.com/res
 
 In Financial Year 2018, Scott Logic’s **revenues grew by 33%** to £28.5 million and our consultant **workforce grew by 40%**, building on our previous company growth to justify our position in LSEG’s prestigious report.
 
-Through the fruits of our continued success, we are investing in our people, our business and the future of talented young people in a way that we believe is indeed truly inspiring. 
+Through the fruits of our continued success, we are investing in our people, our business and the future of talented young people in a way that we believe is indeed truly inspiring.
 
 ## Investing in our people
 

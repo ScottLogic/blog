@@ -8,6 +8,7 @@ tags:
 - FINOS
 - Business Process
 - Open Source
+- Fluxnova
 summary: Fluxnova is now live under FINOS, and with it comes a powerful new way to
   model financial workflows. In this post, we explore how Scott Logic helped shape
   the launch, contributing a suite of executable blueprint processes that span the
