@@ -71,4 +71,4 @@ Hot on the heels of this v0.5.0 release, we expect v0.6.0 to be available soon. 
 
 ---
 
-If you’re interested in learning more about the Tech Carbon Standard Estimator, check out the latest version here [here](https://www.techcarbonstandard.org/estimator) and the GutHub project [here](https://github.com/ScottLogic/sl-tech-carbon-estimator)
+If you’re interested in learning more about the Tech Carbon Standard Estimator, check out the latest version here [here](https://www.techcarbonstandard.org/estimator) and the GitHub project [here](https://github.com/ScottLogic/sl-tech-carbon-estimator)
