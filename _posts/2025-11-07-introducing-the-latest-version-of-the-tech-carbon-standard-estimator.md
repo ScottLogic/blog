@@ -1,6 +1,6 @@
 ---
 title: "Introducing the Latest Version of the Tech Carbon Standard Estimator"
-date: 2025-11-0907 00:00:00 Z
+date: 2025-11-09 00:00:00 Z
 categories:
   - Sustainability
   - Open Source
