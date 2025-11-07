@@ -1,6 +1,6 @@
 ---
 title: 'Artificial Intelligence (AI) in Mental Health Services: Will AI Burn Us or Warm Us?'
-date: 2025-11-06 00:00:00 Z
+date: 2025-11-07 00:00:00 Z
 categories:
 - Artificial Intelligence
 - People
