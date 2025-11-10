@@ -11,10 +11,39 @@
   h1,
   h2 {
     text-align: left;
+    width: fit-content;
   }
 
   h2 {
-    font-weight: fonts.$font-regular;
+    .svg-container {
+      display: flex;
+      align-items: center;
+      font-weight: fonts.$font-regular;
+      overflow: hidden;
+      width: fit-content;
+      padding-right: 0.125em;
+      :hover .div {
+        background-color: colours.$teal;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 40;
+        font-size: fonts.$baseFontSize * 2;
+      }
+      .chevron-wrapper {
+        padding-right: 0.225em;
+        margin-left: -0.225em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .svg-container:hover {
+      background-color: colours.$teal;
+    }
   }
 
   .sub-title {
@@ -26,9 +55,9 @@
   }
 
   h2.super-title {
-    font-size: fonts.$baseFontSize * 3;
+    font-size: fonts.$baseFontSize * 1.5;
     > a {
-      color: colours.$black;
+      color: colours.$teal;
       &:hover {
         color: colours.$white;
         background-color: colours.$teal;
@@ -38,10 +67,6 @@
 
   .main-content > div {
     display: inline-block;
-  }
-
-  .active {
-    // border-bottom: 3px solid colours.$teal;
   }
 
   .category-list-compact {

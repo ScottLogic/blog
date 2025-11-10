@@ -7,14 +7,30 @@
   {%- assign categoryName = 'Latest Articles' -%}
 {%- endif -%}
 <div class="post-index grid-container">
-  <h1 class="super-title">Blog</h1>
-  <h2 class="cell sub-title">Our thoughts on technology and design</h2>
+  {% if categoryName == 'Latest Articles' %}
+    <h1 class="super-title">Blog</h1>
+    <h2 class="cell sub-title">Our thoughts on technology and design</h2>
+  {% else %}
+    <h2 class="super-title">
+      <a href="{{ site.github.url }}">
+        <div class="svg-container">
+          <div class="chevron-wrapper">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </div>
+          <span class="text">Blog</span>
+        </div>
+      </a>
+    </h2>
+    <h1 class="sub-title">{{ categoryName }}</h1>
+  {% endif %}
   <div class="hide-for-large">
     {%- include_cached category_list_compact.html selectedCategoryName=categoryName -%}
   </div>
   <div class="cell grid-x grid-margin-y">
     <div class="cell large-8">
-      {%- include_cached featured_posts.html categoryName=categoryName -%}
+      {%- if paginator.page < 2 -%}
+        {%- include_cached featured_posts.html categoryName=categoryName -%}
+      {%- endif -%}
       {%- include post_summary_list.html -%}
     </div>
     <div
