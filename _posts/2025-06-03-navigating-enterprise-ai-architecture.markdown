@@ -10,7 +10,6 @@ tags:
 - architecture
 - Artificial Intelligence
 - ocronk
-- featured
 summary: From our experiences and chats with clients on deploying AI, we can perhaps
   identify what looks like a spectrum of architectural approaches for enterprise AI
   deployment. In this post, I explore this spectrum with the goal of helping you consider

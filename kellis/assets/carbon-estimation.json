@@ -1,0 +1,52 @@
+{
+  "values": {
+    "version": "0.0.0-semantically-released",
+    "upstreamEmissions": {
+      "employee": 13708.333333333334,
+      "server": 3625,
+      "network": 1300,
+      "software": 0
+    },
+    "directEmissions": {
+      "employee": 6484.5694,
+      "server": 26189.56176,
+      "network": 3093.2690302799997
+    },
+    "indirectEmissions": {
+      "cloud": 18626.227919999998,
+      "saas": 0,
+      "managed": 0
+    },
+    "downstreamEmissions": {
+      "endUser": 14760.952776716253,
+      "networkTransfer": 23902.916152040107,
+      "downstreamInfrastructure": 0
+    },
+    "totalEmissions": 111690.8303723697
+  },
+  "percentages": {
+    "version": "0.0.0-semantically-released",
+    "upstreamEmissions": {
+      "employee": 12.273463531098008,
+      "server": 3.2455663440897466,
+      "network": 1.1639272406390817,
+      "software": 0
+    },
+    "directEmissions": {
+      "employee": 5.8058207449804815,
+      "server": 23.448264886818162,
+      "network": 2.7694923745908677
+    },
+    "indirectEmissions": {
+      "cloud": 16.676595435723243,
+      "saas": 0,
+      "managed": 0
+    },
+    "downstreamEmissions": {
+      "endUser": 13.215903872774721,
+      "networkTransfer": 21.400965569285674,
+      "downstreamInfrastructure": 0
+    },
+    "totalEmissions": 111690.8303723697
+  }
+}
