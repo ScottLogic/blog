@@ -108,12 +108,6 @@ Now, AI softly echoes back: *"I've got us"*.
 
 Perhaps it is time we welcomed a little *"artificially intelligent"* love into our lives.
 
-In a world where so many people feel unseen, unheard, and unsupported, therapy offers a vital anchor - a voice that says, *"I've got you"*.  
-
-Now, AI softly echoes back: *"I've got us"*.   
-
-Perhaps it is time we welcomed a little *"artificially intelligent"* love into our lives.   
-
 ## References
 
 Abrams, Z. (2025, March 12). *Using generic AI chatbots for mental health support: A dangerous trend.* APA Services. https://www.apaservices.org/practice/business/technology/artificial-intelligence-chatbots-therapists 
