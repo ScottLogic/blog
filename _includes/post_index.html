@@ -6,6 +6,11 @@
 {%- else -%}
   {%- assign categoryName = 'Latest Articles' -%}
 {%- endif -%}
+{%- if categoryName == 'Latest Articles' -%}
+  {%- assign fullWidth = false -%}
+{%- else -%}
+  {%- assign fullWidth = true -%}
+{%- endif -%}
 <div class="post-index grid-container">
   {% if categoryName == 'Latest Articles' %}
     <h1 class="super-title">Blog</h1>
@@ -31,7 +36,7 @@
       {%- if paginator.page < 2 -%}
         {%- include_cached featured_posts.html categoryName=categoryName -%}
       {%- endif -%}
-      {%- include post_summary_list.html -%}
+      {%- include post_summary_list.html fullWidth=fullWidth -%}
     </div>
     <div
       class="side-lists cell large-3 large-offset-1 grid-padding-y grid-margin-y"

@@ -1,4 +1,5 @@
 {%- assign hideCategory = include.hideCategory -%}
+{%- assign fullWidth = include.fullWidth -%}
 {%- if include.posts != null -%}
   {%- assign posts = include.posts -%}
   {%- assign paginated = false -%}
@@ -12,6 +13,7 @@
       {%-
         include post_summary.html post=post
         hideCategory=hideCategory
+        fullWidth=fullWidth
       -%}
     {%- endfor -%}
     {%- if paginated -%}
