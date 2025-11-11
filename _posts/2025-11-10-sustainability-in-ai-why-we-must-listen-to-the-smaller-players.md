@@ -63,7 +63,7 @@ It is important to note that although fine-tuning can be extremely energy-intens
 
 Our research made clear that without examining the environmental impact of LLMs, there is a risk that the rapid advancements in the field will result in irreversible environmental harm.
 
-The unbridled way AI is currently being developed by big tech companies, which [Dr Sasha Luccioni likens to the big oil industry](https://www.ted.com/talks/sasha_luccioni_we_re_doing_ai_all_wrong_here_s_how_to_get_it_right) is not sustainable and only benefits a few. However there are many ways researchers and corporations can collectively work towards a more sustainable AI. In fact, many are already pioneering alternative approaches that prioritise sustainability and responsibility.
+The [unbridled way AI is currently being developed](https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html) by big tech companies, which [Dr Sasha Luccioni likens to the big oil industry](https://www.ted.com/talks/sasha_luccioni_we_re_doing_ai_all_wrong_here_s_how_to_get_it_right) is not sustainable and only benefits a few. However there are many ways researchers and corporations can collectively work towards a more sustainable AI. In fact, many are already pioneering alternative approaches that prioritise sustainability and responsibility.
 
 Among the papers reviewed, a few observations and actionable recommendations stood out:
 
