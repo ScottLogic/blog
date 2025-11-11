@@ -44,7 +44,7 @@ Inference does not only apply to commercial inference services, but is also incr
 
 ## Behind the curtain, the hidden impact of pre-training
 
-If inference is the front door through which most of us interact with LLMs, we must also examine what lies behind it: the carbon-intensive phases of data collection, storage, and preprocessing, as well as the pre-training process itself.
+If inference is the way most of us interact with LLMs, we must also examine what lies behind it: the carbon-intensive phases of data collection, storage, and preprocessing, as well as the pre-training process itself.
 
 To provide a sense of scale, training GPT-3 is estimated to have consumed 1,287 megawatt-hours (MWh) of electricity and emitted over 550 metric tons of CO2e [^6], and evaporated 700,000 litres of clean freshwater [^7], enough to fill an Olympic-sized swimming pool by nearly one-third.
 
