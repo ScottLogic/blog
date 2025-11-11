@@ -32,7 +32,7 @@ AI is increasing demand in AI chips and analysts have estimated that demand for 
 
 The embodied carbon of AI is far from negligeable. A comprehensive AI cradle-to-grave approach [^3] estimates that manufacturing emissions represent under 25% of AI carbon emissions and data centre construction emissions under 5%. 
 
-We believe that an [Life Cycle Assessment](https://www.techcarbonstandard.org/resources/glossary#life-cycle-assessment-lca) approach to the environmental impact of AI is necessary to correctly assess its impact outside [operational emissions](https://www.techcarbonstandard.org/impact-categories/operational) accounting and not lose sight of natural resources depletion, pollution and biodiversity loss associated with the development of AI systems. [^4]
+We believe that a [Life Cycle Assessment](https://www.techcarbonstandard.org/resources/glossary#life-cycle-assessment-lca) approach to the environmental impact of AI is necessary to correctly assess its impact outside [operational emissions](https://www.techcarbonstandard.org/impact-categories/operational) accounting and not lose sight of natural resources depletion, pollution and biodiversity loss associated with the development of AI systems. [^4]
 
 ## The cumulative cost of inference
 
