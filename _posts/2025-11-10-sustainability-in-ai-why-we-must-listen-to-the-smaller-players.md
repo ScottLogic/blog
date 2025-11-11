@@ -86,7 +86,7 @@ Among the papers reviewed, a few observations and actionable recommendations sto
 > Artificial intelligence should only be used in cases where it is the best technique to use.
 
 - The necessity of using AI should be critically considered in the first place, as it is unlikely that all applications will benefit from AI or that the benefits will always outweigh the costs.
-- The DNN model, processor and data centre should be carefully chosen
+- The DNN model, processor and data centre should be carefully chosen.
 - Existing models should be lightened and and faster GPUs used [^8] to both reduce the environmental damage of LLM training while maintaining results. However this comes with financial implications, which necessitates further research to make sustainable AI practices more accessible.
 - Short reasoning methods should be used for inference, for accuracy and carbon saving. Long LLM reasoning does not mean accuracy and correct answers are typically shorter than incorrect ones. [^13]
 
