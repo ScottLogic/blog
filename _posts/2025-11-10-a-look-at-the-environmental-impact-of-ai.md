@@ -12,11 +12,11 @@ summary: As AI systems scale to billions of daily interactions, their environmen
 author: hsauve
 ---
 
-As Large Language Models (LLMs) become increasingly adopted across all disciplines, their environmental impact remains largely unexplored, with limited transparency from major providers. With model sizes reaching hundreds of billions of parameters, training and developing state-of-the-art AI systems generates substantial carbon emissions and strains vital resources like electricity and water, particularly in certain regions of the world. 
+As Large Language Models (LLMs) become increasingly adopted across all disciplines, their environmental impact remains largely unexplored, with limited transparency from major providers. With model sizes reaching hundreds of billions of parameters, training and developing state-of-the-art AI systems generates staggering carbon emissions and strains vital resources like electricity and water, particularly in certain regions of the world. 
 
 The scale is staggering, a worst-case estimate suggests that Google's AI alone consumes ∼29.3 TWh annually, comparable to Ireland’s total energy consumption. [^1]
 
-While progress in the field of AI is undeniably revolutionising, addressing sustainability in innovation is essential not only to limit its ecological footprint and preserve natural resources but also to ensure the development of responsible, ethical and cost effective AI systems that can scale without compromising our societal and environmental future. 
+While progress in the field of AI is undeniably revolutionising, addressing sustainability in innovation is crucial not only to limit its ecological footprint and preserve natural resources but also to ensure the development of responsible, ethical and cost effective AI systems that can scale without compromising our [societal](https://blog.scottlogic.com/2025/05/14/are-we-sleepwalking-into-ai-driven-societal-challenges.html) and environmental future. 
 
 This blog post aims to complement the research carried out by the Sustainability Team at Scott Logic as part of the latest update of the [Technology Carbon Standard](https://www.techcarbonstandard.org/), following a thorough [literature review](https://blog.scottlogic.com/2025/09/16/greener-ai-lit-review.html).
 
@@ -26,13 +26,13 @@ This blog post aims to complement the research carried out by the Sustainability
 
 ## AI impacts on natural resources
 
-To get a better picture of the environmental footprint of AI, we deemed necessary to first examine its embodied carbon. This encompasses both [upstream emissions](https://www.techcarbonstandard.org/impact-categories/upstream) that is to say carbon emissions generated during the manufactue of hardware, including abiotic resources consumption and the fabrication of server components, as well as [downstream emissions](https://www.techcarbonstandard.org/impact-categories/downstream) which relates to the end-of-life and recycling stages of AI hardware.
+To get a better picture of the environmental footprint of AI, we deemed necessary to first examine its embodied carbon. This encompasses both [upstream emissions](https://www.techcarbonstandard.org/impact-categories/upstream), in other terms carbon emissions generated during the manufactue of hardware, including abiotic resources consumption and the fabrication of server components, as well as [downstream emissions](https://www.techcarbonstandard.org/impact-categories/downstream) which relate to the end-of-life and recycling stages of AI hardware.
 
-AI is increasing demand in AI chips and analysts have estimated that demand for Nvidia's prized AI chips is exceeding supply by at least 50%. [^2] 
+AI is increasing demand in AI chips and analysts have estimated that demand for Nvidia's prized AI chips is exceeding supply by at least 50%. [^2] In the UK alone, AI data centres are expected to [increase by almost a fifth over the next few years](https://www.bbc.co.uk/news/articles/clyr9nx0jrzo).
 
 The embodied carbon of AI is far from negligeable. A comprehensive AI cradle-to-grave approach [^3] estimates that manufacturing emissions represent under 25% of AI carbon emissions and data centre construction emissions under 5%. 
 
-We believe that such an approach is necessary to correctly assess the impact of AI outside of [operational emissions](https://www.techcarbonstandard.org/impact-categories/operational) accounting and not lose sight of natural resources depletion, pollution and biodiversity loss associated with the development of AI systems. [^4]
+We believe that having an all encompassing approach is necessary to correctly assess the impact of AI outside [operational emissions](https://www.techcarbonstandard.org/impact-categories/operational) accounting and not lose sight of natural resources depletion, pollution and biodiversity loss associated with the development of AI systems. [^4]
 
 ## The cumulative cost of inference
 
@@ -40,11 +40,13 @@ State-of-the-art models can produce multiple formats including text, image and v
 
 When LLMs are used as SaaS, via chatbots for instance, each inference is not only generated but often stored and reused as contextual input for ongoing conversations. These inferences demand both storage capacity and computational power which creates a feedback loop; as more users interact with the model, the infrastructure must scale to handle both the real-time processing of new requests and the growing volume of stored context, further amplifying the environmental impact per interaction.
 
-Inference does not only apply to commercial inference services, but is also increasingly integrated into systems such as search engines. As an example, Alphabet’s chairman indicated in February 2023 that interacting with an LLM could "likely cost 10 times more than a standard keyword search". [^5]
+Inference does not only apply to commercial inference services, but is also increasingly integrated into systems such as search engines. As an example, Alphabet’s chairman indicated in February 2023 that:
+
+> Interacting with an LLM could "likely cost 10 times more than a standard keyword search". [^5]
 
 If inference is the front door through which most of us connect with LLMs, we must look into the mechanisms that led to their creation.
 
-## Behind the curtain, the hidden impact of training
+## Behind the curtain, the hidden impact of pre-training
 
 To accurately estimate their carbon footprints, organisations using AI products must also account for a proportional share of the training phase of the models they use, as well as the prior phase of collecting, storing, and preprocessing data used for training. 
 
@@ -53,37 +55,28 @@ To provide a sense of scale, training GPT-3 is estimated to have consumed 1,287 
 AI data centres fundamentally differ from traditional data centres in their infrastructure. The specialised hardware necessary for AI workloads involving Graphics Processing Units (GPUs) and Tensor Processing Units (TPUs) consumes substantially more power than standard CPUs.
 Pre-training in general is almost always performed over multiple GPUs which incurs energy costs from communication between GPUs, and often also with gradient accumulation to accommodate large batches.
 
-### Fine-tuning
+### The case of fine-tuning
 
-The data on carbon emissions generated by fine-tuning is less well documented than that of pre-training, although fine-tuning accounts for a substantial part of energy consumption. As it is the case with pre-training, energy consumption depends on the hardware it is run on. 
-Researchers noticed that on average the A100 GPU decreased model training time by 62.6%. [^8]
+The data on carbon emissions generated by fine-tuning is less well documented than that of pre-training, although fine-tuning accounts for a substantial part of energy consumption. Although fine-tuning is less computationally expensive than pre-training due to the smaller amount of training data, its carbon footprint may be much bigger due to being intensively performed worldwide. [^12]
 
-Although fine-tuning is less computationally expensive than pre-training due to the smaller amount of training data, its carbon footprint may be much bigger due to being intensively performed worldwide. [^9]
+As it is the case with pre-training, energy consumption depends on the hardware it is run on, the type of task and the type of computation required to carry it out. And factors like data center location, energy mix, model complexity, and training duration matter.
 
-As with pre-training, factors like data center location, energy mix, model complexity, and training duration matter.
-
-Fine-tuning can be extremely energy-intensive, but it can also reduce long-term emissions by making models more efficient during inference. 
-
+It is important to note that although fine-tuning can be extremely energy-intensive, it can also reduce long-term emissions by making models more efficient during inference. 
 
 ## The future of AI is not yet written
 
-The research highlighted that without examining the environmental impact of LLMs, there is a risk that the rapid advancements in the field will result in irreversible environmental harm.
-The way AI is currently being developed by big tech companies is not sustainable but there are many ways researchers and corporations can collectively work towards a more sustainable AI. In fact, many alternative ways of conceiving AI more sustainably and responsibly is undergoing, despite the lack of media coverage tends to favor the loudest voices in the field.
+Our research made clear that without examining the environmental impact of LLMs, there is a risk that the rapid advancements in the field will result in irreversible environmental harm.
 
-As Assistant Research Professor at the University of Cambridge Dr Loïc Lannelongue puts it:
+The unbridled way AI is currently being developed by big tech companies, which [Dr Sasha Luccioni likens to the big oil industry](https://www.ted.com/talks/sasha_luccioni_we_re_doing_ai_all_wrong_here_s_how_to_get_it_right) is not sustainable and only benefits a few. However there are many ways researchers and corporations can collectively work towards a more sustainable AI. In fact, many are already pioneering alternative approaches that prioritise sustainability and responsibility.
 
-> Ultimately there will have to be an element of [personal responsibility](https://www.cam.ac.uk/stories/green-algorithms) when it comes to reducing the carbon footprint of computational science.
+### Standardised data needs to be available
 
-The research pointed out at tangible answers:
-
-1) The need for standardised data to be available
-
-- authors should report training time and sensitivity to hyperparameters to enable direct comparison between models
+- Authors should report training time and sensitivity to hyperparameters to enable direct comparison between models
 - need for standardised reporting. hindering development of standardised quantification methods
 - need for researchers to have access to high computing resources
 - This would enable corporations to make informed and sustainable decisions when training models.
 
-2) Sustainability needs to be put at the centre of AI innovation
+### Sustainability needs to be put at the centre of AI innovation
 
 To promote cost-effective and sustainable innovation in the context of limited resources by optimising efficiency and accessibility. 
 
@@ -92,7 +85,7 @@ To promote cost-effective and sustainable innovation in the context of limited r
 - Federated Learning offers a solution by decentralising the training process and offers several advantages such as reducing the time and bandwidth required for training and inference and lower the energy consumption associated with long-distance data transmission. [^9]
 - Efficiency should be an evaluation criterion so that ML practitioners compete to increase accuracy. [^10] Although this can also lead to a rebound effect whereby the more efficient the models are, the more they get used.
 
-3) Use the right AI for the right need at the right time. [^4]
+### Use the right AI for the right need at the right time. [^4]
 
 > Artificial intelligence should only be used in cases where it is the best technique to use.
 
@@ -102,7 +95,9 @@ To promote cost-effective and sustainable innovation in the context of limited r
 - Reduce training time - also helps more people to take part. [NLP researchers](https://www.techcarbonstandard.org/resources/glossary#natural-language-processing-nlp) don't have access to the same computational powers. [^11] They should prioritise developing efficient models and hardware. Improvements in state of the art accuracy are possible thanks to industry access to large-scale compute.
 - Short reasoning methods for inference, for accuracy and carbon saving. [^13] 
 - Long LLM reasoning does not mean accuracy: A study examines the relationship between reasoning trajectory length and correctness in reasoning LLMs and challenge the assumption of a correlation between increased average thinking length during inference and improved model performance. In their experimentations, the researchers observed that correct answers are typically shorter than incorrect ones. Training models on shorter reasoning sequences and advocate for models that reason more effectively with less computation. [^13]
-- Develop lighter models. In many cases, the tasks we entrust AI with do not need the vast amount of data LLMs have been trained on. Smaller models trained on carefully selected data require less computation power.
+
+### Smaller is better
+- Develop and use [smaller models](https://www.techcarbonstandard.org/guides/reduce-ai-emissions#model-size). In many cases, the tasks we entrust AI with do not need the vast amount of data LLMs have been trained on. Smaller models trained on carefully selected data require less computation power.
 
 ## References
 
