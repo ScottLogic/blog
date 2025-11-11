@@ -38,8 +38,6 @@ We believe that an [Life Cycle Assessment](https://www.techcarbonstandard.org/re
 
 State-of-the-art models can produce multiple formats including text, image and video, with each "inference" (when a Large Language Model (LLM) takes a user's input, processes it and generates relevant outputs) carrying its own carbon footprint. In their [contribution to a global environmental standard for AI](https://mistral.ai/news/our-contribution-to-a-global-environmental-standard-for-ai) released earlier this year, Mistral estimated that a 400-token text response generated 1.14 gCO₂e and 45 mL of water. While this may seem negligible for a single query, the scale becomes staggering when multiplied across billions of daily interactions globally. Indeed, Google reported that 60% of AI-related energy consumption from 2019 to 2021 stemmed from inference. [^1]
 
-When LLMs are used as SaaS, via chatbots for instance, each inference is not only generated but often stored and reused as contextual input for ongoing conversations. These inferences demand both storage capacity and computational power which creates a feedback loop; as more users interact with the model, the infrastructure must scale to handle both the real-time processing of new requests and the growing volume of stored context, further amplifying the environmental impact per interaction.
-
 Inference does not only apply to commercial inference services, but is also increasingly integrated into systems such as search engines. As an example, Alphabet’s chairman indicated in February 2023 that:
 
 > Interacting with an LLM could "likely cost 10 times more than a standard keyword search". [^5]
