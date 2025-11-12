@@ -102,15 +102,15 @@ Among the papers reviewed, a few observations and actionable recommendations sto
 
 [^3]: Ian Schneider, Hui Xu, Stephan Benecke, David Patterson, Keguo Huang, Parthasarathy Ranganathan, Cooper Elsworth (2025) "Life-Cycle Emissions of AI Hardware: A Cradle-To-Grave Approach and Generational Trends" [https://doi.org/10.48550/arXiv.2502.01671](https://doi.org/10.48550/arXiv.2502.01671)
 
-[^4]: Ludovic Arga, François Bélorgey, Arnaud Braud, Romain Carbou, Nathalie Charbonniaud, et al. Frugal AI: Introduction, Concepts, Development and Open Questions. 2025. ffhal-05049765f
+[^4]: Ludovic Arga, François Bélorgey, Arnaud Braud, Romain Carbou, Nathalie Charbonniaud, et al. [Frugal AI: Introduction, Concepts, Development and Open Questions. 2025. ffhal-05049765f](https://hal.science/hal-05049765/file/Frugal_AI_Introduction_Concepts_Development_and_Open_Questions_HAL.pdf)
 
-[^5]: Jeffrey Dastin, Stephen Nellis. "For tech giants, AI like Bing and Bard poses billion-dollar search problem". Reuters. February 22, 2023. https://www.reuters.com/technology/tech-giants-ai-like-bing-bard-poses-billion-dollar-search-problem-2023-02-22/.
+[^5]: Jeffrey Dastin, Stephen Nellis. "For tech giants, AI like Bing and Bard poses billion-dollar search problem". Reuters. February 22, 2023. [https://www.reuters.com/technology/tech-giants-ai-like-bing-bard-poses-billion-dollar-search-problem-2023-02-22/](https://www.reuters.com/technology/tech-giants-ai-like-bing-bard-poses-billion-dollar-search-problem-2023-02-22/).
 
 [^6]: Jegham, N., Abdelatti, M., Elmoubarki, L., & Hendawi, A. (2025). “How Hungry is AI? Benchmarking Energy, Water, and Carbon Footprint of LLM Inference”. University of Rhode Island, University of Tunis, Providence College. [https://doi.org/10.48550/arXiv.2505.09598](https://doi.org/10.48550/arXiv.2505.09598)
 
 [^7]: Pengfei Li, Jianyi Yang, Mohammad A. Islam, Shaolei Ren (2025). UC Riverside, UT Arlington. "Making AI Less “Thirsty: Uncovering and Addressing the Secret Water Footprint of AI Models". UC Riverside, UT Arlington. [https://doi.org/10.48550/arXiv.2304.03271](https://doi.org/10.48550/arXiv.2304.03271)
 
-[^8]: Vivian Liu, Yiqiao Yin (2024). Columbia University, University of Chicago. "Green AI: Exploring Carbon Footprints, Mitigation Strategies, and Trade Offs in Large Language Model Training" [7](https://doi.org/10.48550/arXiv.2404.01157)https://doi.org/10.48550/arXiv.2404.0115
+[^8]: Vivian Liu, Yiqiao Yin (2024). Columbia University, University of Chicago. "Green AI: Exploring Carbon Footprints, Mitigation Strategies, and Trade Offs in Large Language Model Training" [https://arxiv.org/abs/2404.01157](https://doi.org/10.48550/arXiv.2404.01157)
 
 [^9]: Iftikhar, S., Alsamhi, S. H., & Davy, S. (2025). “Enhancing Sustainability in LLM Training: Leveraging Federated Learning and Parameter-Efficient Fine-Tuning”. “IEEE Transactions on Sustainable Computing. [https://doi.org/10.1109/TSUSC.2025.3592043](https://doi.org/10.1109/TSUSC.2025.3592043).
 
@@ -118,11 +118,11 @@ Among the papers reviewed, a few observations and actionable recommendations sto
 
 [^11]: Emma Strubell, Ananya Ganesh, Andrew McCallum (2019). University of Massachusetts Amherst. "Energy and Policy Considerations for Deep Learning in NLP". [https://doi.org/10.48550/arXiv.1906.02243](https://doi.org/10.48550/arXiv.1906.02243)
 
-[^12]: Xiaorong Wang, Clara Na, Emma Strubell, Sorelle Friedler, Sasha Luccioni (2023). 1Haverford College, 2Carnegie Mellon University, 3Allen Institute for AI, 4Hugging Face. "Energy and Carbon Considerations of Fine-Tuning BERT". [https://doi.org/10.48550/arXiv.2311.10267](https://doi.org/10.48550/arXiv.2311.10267)
+[^12]: Xiaorong Wang, Clara Na, Emma Strubell, Sorelle Friedler, Sasha Luccioni (2023). Haverford College, Carnegie Mellon University, Allen Institute for AI, 4Hugging Face. "Energy and Carbon Considerations of Fine-Tuning BERT". [https://doi.org/10.48550/arXiv.2311.10267](https://doi.org/10.48550/arXiv.2311.10267)
 
 [^13]: Michael Hassid, Gabriel Synnaeve, Yossi Adi, Roy Schwartz (2025). The Hebrew University of Jerusalem. "Don't Overthink it. Preferring Shorter Thinking Chains for Improved LLM Reasoning". [https://doi.org/10.48550/arXiv.2505.17813](https://doi.org/10.48550/arXiv.2505.17813)
 
-[^14]: Peter Belcak, Greg Heinrich, Shizhe Diao, Yonggan Fu, Xin Dong, Saurav Muralidharan, Yingyan Celine Lin, Pavlo Molchanov (2025). Georgia Institute of Technology. "Small Language Models are the Future of Agentic AI" [https://doi.org/10.48550/arXiv.2506.02153]
+[^14]: Peter Belcak, Greg Heinrich, Shizhe Diao, Yonggan Fu, Xin Dong, Saurav Muralidharan, Yingyan Celine Lin, Pavlo Molchanov (2025). Georgia Institute of Technology. "Small Language Models are the Future of Agentic AI" [https://doi.org/10.48550/arXiv.2506.02153](https://doi.org/10.48550/arXiv.2506.02153)
 
 
 
