@@ -18,7 +18,7 @@ The scale is staggering, a worst-case estimate suggests that Google's AI alone c
 
 While progress in the field of AI continues apace, addressing sustainability in innovation is crucial not only to limit its ecological footprint and preserve natural resources but also to ensure the development of responsible, ethical and cost effective AI systems that can scale without compromising our [societal](https://blog.scottlogic.com/2025/05/14/are-we-sleepwalking-into-ai-driven-societal-challenges.html) and environmental future. 
 
-This blog post aims to complement the research carried out by the Sustainability Team at Scott Logic as part of the latest update of the [Technology Carbon Standard](https://www.techcarbonstandard.org/), following a thorough [literature review](https://blog.scottlogic.com/2025/09/16/greener-ai-lit-review.html).
+This blog post aims to complement the research carried out by the Sustainability Team at Scott Logic as part of the [latest update](https://blog.scottlogic.com/2025/09/04/technology-carbon-standard-update-4-sept.html) of the [Technology Carbon Standard](https://www.techcarbonstandard.org/), following a thorough [literature review](https://blog.scottlogic.com/2025/09/16/greener-ai-lit-review.html).
 
 ![A smartphone on top of a book on problem-solving agents, the phone displays OpenAI's ChatGPT. ]({{ site.baseurl }}/hsauve/assets/ai-sustainability/chatgpt.jpg "A smartphone displaying OpenAI's ChatGPT.")
 
