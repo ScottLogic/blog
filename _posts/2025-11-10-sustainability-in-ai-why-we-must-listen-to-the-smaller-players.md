@@ -48,8 +48,8 @@ If inference is the front door through which most of us interact with LLMs, we m
 
 To provide a sense of scale, training GPT-3 is estimated to have consumed 1,287 megawatt-hours (MWh) of electricity and emitted over 550 metric tons of CO2e [^6], and evaporated 700,000 litres of clean freshwater [^7], enough to fill an Olympic-sized swimming pool by nearly one-third.
 
-AI data centres fundamentally differ from traditional data centres in their infrastructure. The specialised hardware necessary for AI workloads involving Graphics Processing Units (GPUs) and Tensor Processing Units (TPUs) consumes substantially more power than standard CPUs.
-Pre-training in general is almost always performed over multiple GPUs which incurs energy costs from communication between GPUs, and often also with gradient accumulation to accommodate large batches.
+AI data centres fundamentally differ from traditional data centres in their infrastructure. The specialised hardware necessary for AI workloads - Graphics Processing Units (GPUs, the chips that process multiple calculations simultaneously) and Tensor Processing Units (TPUs, Google's custom AI chips) - consumes substantially more power than standard CPUs.
+Pre-training in general is almost always performed over multiple GPUs which incurs energy costs from communication between GPUs, and often also with gradient accumulation (a technique for processing large amounts of data in smaller chunks) to accommodate large batches.
 
 ### The less obvious case of fine-tuning
 
@@ -59,11 +59,21 @@ As is the case with pre-training, energy consumption depends on the hardware it 
 
 It is important to note that although fine-tuning can be extremely energy-intensive, it can also reduce long-term emissions by making models more efficient during inference. 
 
+### A path forward
+
+The scale of AI's environmental impact might seem overwhelming, but our research also revealed reasons for optimism. Across academia and industry, researchers are developing practical strategies to reduce AI's footprint without sacrificing accuracy. 
+
 ## The future of AI is not yet written
 
 Our research made clear that without examining the environmental impact of LLMs, there is a risk that the rapid advancements in the field will result in irreversible environmental harm.
 
-The unbridled way AI is currently being developed by big tech companies, which [Dr Sasha Luccioni likens to the big oil industry](https://www.ted.com/talks/sasha_luccioni_we_re_doing_ai_all_wrong_here_s_how_to_get_it_right) is not sustainable and only benefits a few. However there are many ways researchers and corporations can collectively work towards a more sustainable AI. In fact, many are already pioneering [alternative approaches]((https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html)) that prioritise sustainability and responsibility.
+The unbridled way AI is currently being developed by big tech companies, which [Dr Sasha Luccioni likens to the big oil industry](https://www.ted.com/talks/sasha_luccioni_we_re_doing_ai_all_wrong_here_s_how_to_get_it_right) is not sustainable and only benefits a few. 
+
+However there are many ways researchers and corporations can collectively work towards a more sustainable AI. In fact, many are already pioneering [alternative approaches]((https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html)) that prioritise sustainability and responsibility.
+
+### Learning from the smaller players
+
+While major tech companies dominate headlines with ever-larger models, smaller AI research groups and startups are charting a different course. Organisations like [Hugging Face](https://huggingface.co/) are championing open research into AI's carbon footprint and demonstrating that effective AI doesn't always require massive models and infrastructure. Academic institutions, working within resource constraints, have driven innovation in efficient architectures, proving that limitations can foster creativity rather than hinder it. As the poet Charles Baudelaire who said of poetry that "because the form is constrained, the idea springs forth more intensely". [^4] The same principle applies to sustainable AI: sometimes the most elegant solutions emerge not from unlimited resources, but from thoughtful constraints.
 
 Among the papers reviewed, a few observations and actionable recommendations stood out:
 
@@ -76,23 +86,25 @@ Among the papers reviewed, a few observations and actionable recommendations sto
 ### Sustainability must be put at the centre of AI innovation
 
 - Cost-effective and sustainable innovation in the context of limited resources should be promoted. 
-- **Frugal AI** innovation offers a vision of resource-conscious systems that are functional, robust, user-friendly, growing, affordable, and local. [^4]
-- **Federated Learning** offers a solution by decentralising the training process and offers several advantages such as reducing the time and bandwidth required for training and inference and lower the energy consumption associated with long-distance data transmission. [^9]
+- Frugal AI (a design philosophy emphasising resource-conscious systems) offers a vision of systems that are functional, robust, user-friendly, growing, affordable, and local. [^4]
+- Federated Learning (a method where AI models are trained across many devices without centralising data) offers a solution by decentralising the training process and offers several advantages such as reducing the time and bandwidth required for training and inference and lower the energy consumption associated with long-distance data transmission. [^9]
 - Efficiency should be an evaluation criterion so that ML practitioners compete to increase accuracy. [^10] Although this can also lead to a rebound effect whereby the more efficient models become, the more they get used.
 - Research should prioritise developing efficient models and hardware. Improvements in state of the art accuracy are possible thanks to industry access to large-scale compute. [^11]
 
-### The right AI should be used for the right need at the right time. [^4]
+### The right AI for the right need at the right time. 
 
-> Artificial intelligence should only be used in cases where it is the best technique to use.
+> Artificial intelligence should only be used in cases where it is the best technique to use. [^4]
 
 - The necessity of using AI should be critically considered in the first place, as it is unlikely that all applications will benefit from AI or that the benefits will always outweigh the costs.
 - The Deep Neural Network (DNN) model, processor and data centre should be carefully chosen.
-- Existing models should be lightened and and faster GPUs used [^8] to both reduce the environmental damage of LLM training while maintaining results. However this comes with financial implications, which necessitates further research to make sustainable AI practices more accessible.
+- Existing models should be lightened and faster GPUs used [^8] to both reduce the environmental damage of LLM training while maintaining results. However this comes with financial implications, which necessitates further research to make sustainable AI practices more accessible.
 - Short reasoning methods should be used for inference, for accuracy and carbon saving. Long LLM reasoning does not mean accuracy and correct answers are typically shorter than incorrect ones. [^13]
 
-### Smaller is better
+### Smaller models for smarter solutions
 
-- [Smaller models](https://www.techcarbonstandard.org/guides/reduce-ai-emissions#model-size) are sufficiently powerful for many tasks that we entrust AI with, and are considerably less energy-intensive as Small Language Models (SLMs) trained on carefully selected data require less computation power. This is particularly relevant in the context of agentic AI where LLMs are excessive and misaligned with the demands of most use cases, like using a sledgehammer to crack a nut. [^14] 
+- [Smaller models](https://www.techcarbonstandard.org/guides/reduce-ai-emissions#model-size) are sufficiently powerful for many tasks that we entrust AI with, and are considerably less energy-intensive as Small Language Models (SLMs) trained on carefully selected data require less computation power. 
+- This is particularly relevant in the context of agentic AI where LLMs are excessive and misaligned with the demands of most use cases, like using a sledgehammer to crack a nut. [^14] 
+- The shift to smaller, task-specific models represents perhaps the most immediate opportunity to reduce AI's environmental impact while maintaining practical utility.
 
 ## References
 
