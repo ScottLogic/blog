@@ -67,7 +67,7 @@ The scale of AI's environmental impact might seem overwhelming, but our research
 
 Our research made clear that without examining the environmental impact of LLMs, there is a risk that the rapid advancements in the field will result in irreversible environmental harm.
 
-The unbridled way AI is currently being developed by big tech companies, which [Dr Sasha Luccioni likens to the big oil industry](https://www.ted.com/talks/sasha_luccioni_we_re_doing_ai_all_wrong_here_s_how_to_get_it_right) is not sustainable and only benefits a few. 
+The unbridled way AI is currently being developed by big tech companies, which Dr Sasha Luccioni likens to the big oil industry is not sustainable and only benefits a few. 
 
 <div style="max-width:1024px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/sasha_luccioni_we_re_doing_ai_all_wrong_here_s_how_to_get_it_right" width="1024px" height="576px" title="We’re doing AI all wrong. Here’s how to get it right" style="position:absolute;left:0;top:0;width:100%;height:100%"  frameborder="0" scrolling="no" allowfullscreen onload="window.parent.postMessage('iframeLoaded', 'https://embed.ted.com')"></iframe></div></div>
 
