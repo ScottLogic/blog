@@ -69,6 +69,8 @@ Our research made clear that without examining the environmental impact of LLMs,
 
 The unbridled way AI is currently being developed by big tech companies, which [Dr Sasha Luccioni likens to the big oil industry](https://www.ted.com/talks/sasha_luccioni_we_re_doing_ai_all_wrong_here_s_how_to_get_it_right) is not sustainable and only benefits a few. 
 
+<div style="max-width:1024px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/sasha_luccioni_we_re_doing_ai_all_wrong_here_s_how_to_get_it_right" width="1024px" height="576px" title="We’re doing AI all wrong. Here’s how to get it right" style="position:absolute;left:0;top:0;width:100%;height:100%"  frameborder="0" scrolling="no" allowfullscreen onload="window.parent.postMessage('iframeLoaded', 'https://embed.ted.com')"></iframe></div></div>
+
 However there are many ways researchers and corporations can collectively work towards a more sustainable AI. In fact, many are already pioneering [alternative approaches]((https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html)) that prioritise sustainability and responsibility.
 
 ### Learning from the smaller players
