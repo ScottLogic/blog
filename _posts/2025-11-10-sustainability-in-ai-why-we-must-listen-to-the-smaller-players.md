@@ -28,7 +28,7 @@ This blog post aims to complement the research carried out by the Sustainability
 
 To get a more accurate picture of the environmental footprint of AI, we deemed necessary to first examine its embodied carbon. This encompasses both [upstream emissions](https://www.techcarbonstandard.org/impact-categories/upstream), in other terms carbon emissions generated during the manufactue of hardware, including abiotic resources consumption and the fabrication of server components, as well as [downstream emissions](https://www.techcarbonstandard.org/impact-categories/downstream) which relate to the end-of-life and recycling stages of AI hardware.
 
-AI is increasing demand in AI chips and analysts have estimated that demand for Nvidia's prized AI chips is exceeding supply by at least 50%. [^2] In the UK alone, AI data centres are expected to [increase by almost a fifth over the next few years](https://www.bbc.co.uk/news/articles/clyr9nx0jrzo).
+AI is increasing demand in AI chips and analysts have estimated that demand for Nvidia's prized AI chips is exceeding supply by at least 50%. [^2] In the UK alone, data centres are expected to [increase by almost a fifth over the next few years](https://www.bbc.co.uk/news/articles/clyr9nx0jrzo).
 
 The embodied carbon of AI is far from negligeable. A comprehensive AI cradle-to-grave approach [^3] estimates that manufacturing emissions represent under 25% of AI carbon emissions and data centre construction emissions under 5%. 
 
