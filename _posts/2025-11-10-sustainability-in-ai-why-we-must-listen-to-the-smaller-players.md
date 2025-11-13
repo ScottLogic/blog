@@ -65,7 +65,7 @@ The scale of AI's environmental impact might seem overwhelming, but our research
 
 ## The future of AI is not yet written
 
-Our research made clear that without examining the environmental impact of LLMs, there is a risk that the rapid advancements in the field will result in irreversible environmental harm.
+Our research made clear that without addressing the environmental impact of LLMs, there is a risk that the rapid advancements in the field will result in irreversible environmental harm.
 
 The unbridled way AI is currently being developed by big tech companies, which Dr Sasha Luccioni likens to the big oil industry is not sustainable and only benefits a few. 
 
