@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Demo</title>
+    <style>
+        body {
+          margin: 0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f5f5f5;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
+            h2 {
+                margin-top: 0;
+                color: #2c3e50;
+                border-bottom: 2px solid #3498db;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+            }
+        }
+
+        .counter-container, .computed-container, .data-container, .advanced-container {
+            padding: 15px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            
+            &:hover {
+                background-color: #2980b9;
+            }
+        }
+
+        .buttons {
+            margin-bottom: 15px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .notification {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 4px;
+            animation: fadeIn 0.5s;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function Context(initial = {}) {
+  const listeners = new Map();
+  const computed = new Map();
+  const notify = (key, value) => {
+    if (listeners.has(key)) {
+      listeners.get(key).forEach(fn => fn(value));
+    }
+  };
+
+  const handler = {
+    get(target, prop, receiver) {
+      if (computed.has(prop)) {
+        return computed.get(prop)(receiver); // compute dynamically
+      }
+      return Reflect.get(...arguments);
+    },
+    set(target, prop, value, receiver) {
+      const result = Reflect.set(...arguments);
+      notify(prop, value);
+      return result;
+    },
+    delete(target, prop) {
+      const result = Reflect.deleteProperty(...arguments);
+        if (computed.has(prop)) {
+          computed.delete(prop);
+        }
+        return result;
+      }
+    };
+
+  const proxy = new Proxy(initial, handler);
+
+  proxy.addListener = (prop, fn) => {
+    if (!listeners.has(prop)) {
+      listeners.set(prop, new Set());
+    }
+    listeners.get(prop).add(fn);
+  };
+
+  proxy.removeListener = (prop, fn) => {
+    if (listeners.has(prop)) {
+      listeners.get(prop).delete(fn);
+    }
+  };
+
+  proxy.compute = (prop, fn) => {
+    return computed.set(prop, fn);;
+  };
+
+  proxy.bidi = (prop, elm, attribute = 'value', event = 'input') => {
+    elm[attribute] = proxy[prop] || '';
+    elm.addEventListener(event, () => proxy[prop] = elm[attribute]);
+    proxy.addListener(prop, (newValue) => {
+      if (elm[attribute] !== newValue) {
+        elm[attribute] = newValue || '';
+      }
+    });
+  };
+
+  return proxy;
+}
+    </script>
+</head>
+<body>
+    <main class="container">
+    <section>
+        <h2>Basic Counter Example</h2>
+        <div class="counter-container">
+            <p>Current Count: <span id="countDisplay">0</span></p>
+            <div class="buttons">
+                <button onclick="state.count++;">Increment</button>
+                <button onclick="state.count && state.count--;">Decerement</button>
+                <button onclick="state.count=0;">Reset</button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Computed Signals Example</h2>
+        <label for="name"></label><input type="text" id="name" name="name" placeholder="Enter your name">
+        <p id="welcomeMessage"></p>
+        <div class="notification" id="notification" hidden>
+            Name has been reset because counter exceeded 10!
+        </div>
+    </section>
+</main>
+<script type="module">
+    document.addEventListener('DOMContentLoaded',() => {
+        const state = new Context({ count: 0 });
+
+        state.addListener('count', (newValue) => {
+            document.getElementById('countDisplay').textContent = newValue;
+            const notification = document.getElementById('notification');
+            
+            if (newValue > 10) {
+                state.name = '';
+                notification.hidden = false;
+            } else {
+                notification.hidden = true;
+            }
+        });
+
+        state.bidi('name', document.getElementById('name'));
+        state.addListener('name', (newValue) => {
+            document.getElementById('welcomeMessage').textContent = newValue.length > 0 ? `Welcome, ${newValue}!` : 'Enter your name';
+        });
+  
+      window.state = state; // exposing it to code within the html;
+    });
+</script>
+</body>
+</html>
