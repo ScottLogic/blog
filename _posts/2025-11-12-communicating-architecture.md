@@ -63,12 +63,6 @@ Choosing the right approach is always a trade-off between consistency, flexibili
 
 Once you've decided how structured your approach needs to be, the next step is choosing the right tools. 
 
-The following diagram shows how different tools fit into the spectrum of different approaches.
-
-![Tooling Spectrum]({{ site.baseurl }}/sbreingan/assets/diagram-spectrum.png)
-
-These tools tend to fit into a few key categories.
-
 ### Diagrams as Code
 
 Tools like PlantUML, Mermaid, and Structurizr DSL allow you to define diagrams using text. These are ideal for teams who treat architecture like code — enabling version control, CI/CD integration, and automated documentation.
@@ -80,18 +74,22 @@ They work particularly well when architecture needs to evolve alongside code. Di
 
 @startuml !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-LAYOUT_LEFT_RIGHT()
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-Person(user, “End User”, “Calls the public API”)
+Person(user, "End User", "Calls the public API")
 
-System_Boundary(sys, “Serverless API System”) { 
-  Container(apiGw, “API Gateway”, “Amazon API Gateway”, “Entry point for HTTPS clients; routing & auth”)
-  Container(lambdaFn, “Lambda Function”, “AWS Lambda”, “Executes business logic for incoming requests”)
-  ContainerDb(backend, “Backend Service”, “Database / Internal Service”, “Stores and retrieves application data”) 
+System_Boundary(sys, "Serverless API System") {
+    Container(apiGw, "API Gateway", "Amazon API Gateway", "Entry point for HTTPS clients")
+    Container(lambdaFn, "Lambda Function", "AWS Lambda", "Executes business logic for incoming requests")
+    ContainerDb(backend, "Backend Service", "DynamoDB", "Stores and retrieves application data")
 }
 
-Rel(user, apiGw, “Invokes API”, “HTTPS/JSON”) Rel(apiGw, lambdaFn, “Triggers”, “Lambda integration”)
-Rel(lambdaFn, backend, “Reads/Writes data”, “SDK / JDBC”)
+Rel(user, apiGw, "Invokes API", "HTTPS/JSON")
+Rel_R(apiGw, lambdaFn, "Triggers", "Lambda integration")
+Rel_D(lambdaFn, backend, "Reads/Writes data", "SDK / JDBC")
+
+@enduml
 
 @enduml
 ~~~
