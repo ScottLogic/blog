@@ -1,3 +1,14 @@
+---
+title: Communicating Architecture with Diagrams
+date: 2025-11-17 00:00:00 Z
+categories:
+- Architecture
+- Tech
+author: sbreingan
+summary: An overview of approaches on how we communicate architecture
+---
+
+
 # Communicating Architecture: From Whiteboards to Models
 
 One of the most important responsibilities of a software architect is **communicating architecture effectively**. Whether you're sketching out a new system or explaining how existing components fit together, the goal is always the same: help others understand the structure, purpose, and implications of the architecture.
@@ -67,6 +78,22 @@ Once you've decided how structured your approach needs to be, the next step is c
 Tools like PlantUML, Mermaid, and Structurizr DSL allow you to define diagrams using text. These are ideal for teams who treat architecture like code — enabling version control, CI/CD integration, and automated documentation.
 
 They work particularly well when architecture needs to evolve alongside code. Diagrams can live in the same repository, be reviewed like any other code change, and even be generated automatically as part of a pipeline. The trade-off is that layout control can be limited, and the output may lack the polish of a hand-crafted diagram.
+
+```plantuml
+
+@startuml !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_LEFT_RIGHT()
+
+Person(user, “End User”, “Calls the public API”)
+
+System_Boundary(sys, “Serverless API System”) { Container(apiGw, “API Gateway”, “Amazon API Gateway”, “Entry point for HTTPS clients; routing & auth”) Container(lambdaFn, “Lambda Function”, “AWS Lambda”, “Executes business logic for incoming requests”) ContainerDb(backend, “Backend Service”, “Database / Internal Service”, “Stores and retrieves application data”) }
+
+Rel(user, apiGw, “Invokes API”, “HTTPS/JSON”) Rel(apiGw, lambdaFn, “Triggers”, “Lambda integration”) Rel(lambdaFn, backend, “Reads/Writes data”, “SDK / JDBC”)
+
+@enduml
+
+```
 
 ![C4 Diagram]({{ site.baseurl }}/sbreingan/assets/diagram-c4.png)
 
