@@ -35,9 +35,9 @@ Trying to show everything in one diagram would be overwhelming. A CTO may care a
 This is why we create **multiple views**, each shaped by a specific **viewpoint** and tailored to its audience. The model remains the one source of truth; each view shows only the part that matters for a given concern.
 
 As an analogy, think about the the architectural plans of a house. A single structural model can be used to produce:
-- a **floor plan** for layout and navigation,
-- an **electrical plan** for wiring,
-- a **plumbing plan** for water and waste.
+  - a **floor plan** for layout and navigation,
+  - an **electrical plan** for wiring,
+  - a **plumbing plan** for water and waste.
 
 Each plan is a view of the same underlying structure, created from a different viewpoint. If an architect moves a wall but the electrical and plumbing plans aren't updated to reflect it, the result would be chaos!
 
