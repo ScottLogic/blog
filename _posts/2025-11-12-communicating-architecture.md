@@ -8,64 +8,56 @@ author: sbreingan
 summary: An overview of approaches on how we communicate architecture
 ---
 
-
 # Communicating Architecture: From Whiteboards to Models
 
-One of the most important responsibilities of a software architect is **communicating architecture effectively**. Whether you're sketching out a new system or explaining how existing components fit together, the goal is always the same: help others understand the structure, purpose, and implications of the architecture.
+One of the most important responsibilities of a software architect is communicating architecture effectively. Whether you're sketching out a new system or explaining how existing components fit together, the goal is always the same: help others understand the structure, purpose, and implications of the architecture.
 
-Architecture communication often needs to operate at multiple levels of abstraction. A CTO may want to understand strategic alignment, while an engineer might need to know how a service is deployed and monitored. The challenge is to tailor the message without losing coherence.
+Architecture communication often needs to operate at multiple levels of abstraction. A CTO may want to understand strategic alignment, while an engineer might need to know how a service is deployed and monitored. The challenge is tailoring the message without losing coherence.
 
-More often than not, this communication is **visual**. Diagrams are faster and clearer than text when conveying relationships between components, data flows, and infrastructure. But before drawing anything, we need to ask two fundamental questions:
+More often than not, this communication is visual. Diagrams are faster and clearer than text when conveying relationships between components, data flows, and infrastructure. But before drawing anything, we need to ask two fundamental questions:
 
 - **What** do we want to show?
 - **How** should we show it?
 
----
-
 ## Modelling vs Diagramming
 
-Many of us have been in meetings gathered around a whiteboard, sketching out boxes and arrows to explore ideas. These ad-hoc diagrams are great for rapid ideation — they help teams align quickly and visually. But they rarely survive beyond the moment. As systems grow in complexity, we need more than just sketches. We need to understand **what** we’re showing, not just **how** we’re showing it.
+Many of us have been in meetings gathered around a whiteboard, sketching out boxes and arrows to explore ideas. These ad-hoc diagrams are great for rapid ideation — they help teams align quickly — but they are rarely useful outside that moment. As systems grow in complexity, sketches alone aren’t enough. We need to understand not just what we are drawing, but the underlying structure it represents.
 
-This is where the distinction between **modelling** and **diagramming** becomes critical.
+This is where we distinguish between modelling and diagramming:
 
-- **Modelling** is the process of defining the structure of a system: its actors, components, relationships, and abstractions. It creates a consistent representation of the architecture, independent of how it's visualised.
-- **Diagramming** is the act of presenting that model — a visual slice tailored to a specific audience or concern.
+- **Modelling** defines the structure of a system: its actors, components, responsibilities, and relationships. It creates a consistent representation, independent of how it is visualised.
+- **Diagramming** presents that model — a visual slice tailored to a specific audience or concern.
 
-A diagram is a **view** onto a model. It highlights certain elements while omitting others, depending on the story we want to tell.
+A diagram is a **view** onto a model. It highlights certain elements while omitting others, depending on the story we want to tell and who needs to understand it.
 
-In organisations with complex digital estates, this becomes essential. Consider a single system:
-- What other systems does it interact with?
-- What components make up that system?
-- How do those components relate to the underlying infrastructure?
+Consider an organisation with multiple interacting systems. Each system may have different users (internal and external), logical components, and supporting infrastructure. The relationships between these layers can become complex very quickly.
 
-Trying to capture all of this in a single diagram is rarely helpful. Instead, we need **multiple views**, each shaped by a specific **viewpoint**.
+Trying to show all of this in a single diagram would be overwhelming. A CTO may care about high-level system interactions, while a security officer needs to understand low-level networking detail. Each stakeholder has different concerns — or **viewpoints** — and no single view can satisfy them all.
 
-Without an underpinning model, creating multiple diagrams can lead to confusion — inconsistent boundaries, conflicting relationships, and misaligned assumptions. A shared model ensures coherence across views.
+This is why we create multiple views, each shaped by a specific viewpoint and tailored to its audience. The model remains the single source of truth; the views simply expose different aspects of it.
 
-### 🧠 Analogy: Architecture as House Plans
+A helpful analogy is the architectural plans of a house. A single structural model can be used to generate:
+- a **floor plan** for layout and navigation,
+- an **electrical plan** for wiring and sockets,
+- a **plumbing plan** for water and waste systems.
 
-Think of the model like the structural blueprint of a house. From that blueprint, you can generate different plans:
-- A **floor plan** for layout and navigation.
-- An **electrical plan** for wiring and sockets.
-- A **plumbing plan** for water and waste systems.
+Each plan is a view of the same underlying structure, shaped by a particular discipline. If an architect moves a wall but doesn’t update the electrical or plumbing plans, the result would be chaos!
 
-Each plan is a **view** onto the same underlying structure. If the walls, doors, and rooms aren’t aligned across these views, you end up with serious problems — wires running through non-existent walls, or pipes with nowhere to go.
-
-Architecture works the same way. The model is your source of truth. Diagrams are tailored views that help different people understand and work with it.
-
----
+Software architecture works the same way. The model holds the truth about the system; diagrams are purposeful views that help different people understand and work with it.
 
 ## The Spectrum of Approaches
 
 When deciding how to model and create views, there’s no one-size-fits-all solution. Instead, there’s a spectrum — ranging from highly structured, formal modelling approaches to informal, free-form sketches. Each approach has its place depending on the context, audience, and longevity of the diagram.
 
-At one end of the spectrum, we have **heavyweight and structured approaches** such as UML and [ArchiMate These approaches enforce strict semantics and provide a rich modelling language. They are ideal for enterprise-scale architecture where consistency, traceability, and alignment with frameworks like TOGAF are essential. However, they come with trade-offs: they require significant effort to maintain, a steep learning curve, and may not be accessible to non-architects.
+At one end of the spectrum, we have heavyweight and structured approaches such as [UML](https://www.omg.org/uml/) and [ArchiMate](https://www.opengroup.org/archimate-forum/archimate-overview). These approaches enforce strict semantics and provide a rich modelling language. They are often used in enterprise-scale architecture where consistency, traceability, and alignment with frameworks like TOGAF are required. The trade-off is that they require significant effort to maintain, have steep learning curves, and may not be accessible to non-architects.
 
-Moving toward the middle, we find **lightweight but structured approaches** such as C4 Model and Structurizr DSL. These techniques strike a balance by offering structure without the overhead of a full meta-model. They encourage consistency and clarity while remaining agile enough for modern development practices. AWS reference architecture diagrams also fall into this category, using standardised icons to maintain clarity.
+In the middle, we find lightweight but structured approaches such as the [C4 Model](https://c4model.com/), which emphasise having a consistent model, but much more flexibilty and less rigous. This encourages an underlying model, but without the same level of prescriptiveness. This encourages consistency and clarity while remaining flexible enough that generating views does not become burdensome. 
 
-Finally, at the far end of the spectrum, we have **lightweight and unstructured approaches** — whiteboards, Miro, Lucidchart, and diagrams.net. These tools are perfect for early ideation and collaborative workshops. They are fast, intuitive, and flexible, but they lack an underlying model and can quickly become inconsistent as systems evolve.
+Cloud diagrams that use AWS or Azure icon sets also sit broadly in this category. They offer a standardised visual vocabulary that improves clarity and consistency, but they stop short of providing a true modelling approach.
 
-Choosing the right approach is always a trade-off between **consistency**, **flexibility**, and **complexity**. It depends on how long the diagram will live, who will maintain it, and how complex the system is.
+At the far end of the spectrum, we have lightweight and unstructured approaches - free-form diagrams created on whiteboards or tools such as  Miro, Lucidchart, and diagrams.net. These tools are perfect for generating quick and flexibile diagrams. They are fast, intuitive, and flexible, but they lack an underlying model and can quickly become inconsistent as systems evolve.
+
+Choosing the right approach is always a trade-off between consistency, flexibility, and complexity. It depends on how long the diagram will live, who will maintain it, and how complex the system is.
 
 ![Tooling Spectrum]({{ site.baseurl }}/sbreingan/assets/diagram-spectrum.png)
 
@@ -79,7 +71,8 @@ Tools like PlantUML, Mermaid, and Structurizr DSL allow you to define diagrams u
 
 They work particularly well when architecture needs to evolve alongside code. Diagrams can live in the same repository, be reviewed like any other code change, and even be generated automatically as part of a pipeline. The trade-off is that layout control can be limited, and the output may lack the polish of a hand-crafted diagram.
 
-```plantuml
+
+~~~ plantuml
 
 @startuml !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
@@ -92,8 +85,7 @@ System_Boundary(sys, “Serverless API System”) { Container(apiGw, “API Gate
 Rel(user, apiGw, “Invokes API”, “HTTPS/JSON”) Rel(apiGw, lambdaFn, “Triggers”, “Lambda integration”) Rel(lambdaFn, backend, “Reads/Writes data”, “SDK / JDBC”)
 
 @enduml
-
-```
+~~~
 
 ![C4 Diagram]({{ site.baseurl }}/sbreingan/assets/diagram-c4.png)
 
@@ -107,10 +99,11 @@ These tools are powerful but require discipline and effort to keep up to date. T
 
 ### ✍️ Visual Diagramming Tools
 
-Tools like Lucidchart, [Miro](https://www.miro.com), [draw.io](https://www.drawio.com/) prioriste collaboration and being simple to use. They mimic the experience of sketching on a whiteboard but add features like templates, real-time collaboration, and cloud storage.
+Tools like [Lucidchart](https://www.lucidchart.com/), [Miro](https://www.miro.com), [draw.io](https://www.drawio.com/) prioriste collaboration and being simple to use. They mimic the experience of sketching on a whiteboard but add features like templates, real-time collaboration, and cloud storage.
 
 These tools are great for workshops and stakeholder engagement, but they lack an underlying model. As a result, they can become inconsistent and hard to maintain as systems grow.
 
+![CloudCraft]({{ site.baseurl }}/sbreingan/assets/diagram-drawio.png)
 
 ### ☁️ Cloud-Specific Tools
 
@@ -120,55 +113,24 @@ These tools can even integrate with Infrastructure as Code (e.g., Terraform) to 
 
 ![CloudCraft]({{ site.baseurl }}/sbreingan/assets/diagram-cloudcraft.png)
 
+## What about AI-assisted diagrams?
 
----
+Automated diagramming tools already exist — cloud-native consoles can generate infrastructure maps and database tools can produce entity-relationship diagrams. These are useful, but they reflect the *raw state* of a system rather than a *modelled* view. They rarely show intent, abstraction, or logical groupings, and because they generate everything at once they are difficult to tailor for different audiences or architectural viewpoints.
 
-## Future Direction: AI-Generated Diagrams
+One of the most prominent uses of LLMs in software development is code generation. Diagram-as-code formats such as Mermaid and PlantUML make it possible to describe a model in natural language and let an LLM generate the diagram code. This can speed up early drafts, but the approach still has a major limitation: diagrams are spatial and visual, while LLMs only predict text. They cannot reliably judge whether the resulting layout is readable, balanced, or visually coherent.
 
-As systems grow more complex and teams become more distributed, the need for fast, accurate, and adaptive architecture communication increases. AI-generated diagrams offer a promising future direction.
+To address that gap, AI features are emerging inside visual diagramming tools themselves — for example [Miro](https://miro.com/ai/diagram-ai/), [Lucidchart](https://www.lucidchart.com/pages/use-cases/diagram-with-AI), and dedicated tools like [Eraser](https://www.eraser.io/). These combine language input with layout engines, constraint solving, and interactive prompts, giving them a better chance of producing structured, visually coherent diagrams while still keeping the human in control of the modelling.
 
-Imagine being able to ask:
-> “Show me how the payment service interacts with identity.”
+LLMs also have potential to support the modelling process more directly. By connecting to codebases or live infrastructure, they can answer natural-language questions (“which services call this API?”), help infer relationships, and assist with maintaining consistent architectural models that stay aligned with the real system.
 
-And instantly receive a diagram generated from your codebase, IaC templates, or telemetry data.
-
-### Potential Applications
-- **Code-to-diagram translation**: Automatically generate C4 or sequence diagrams from annotated code or Terraform scripts.
-- **Live system introspection**: Use observability data to generate real-time architecture views.
-- **Threat modelling automation**: AI interprets STRIDE or PASTA inputs and generates visual threat maps.
-- **Natural language prompts**: Query architecture in plain English and receive diagrams tailored to your question.
-
-### Benefits
-- Reduces manual effort and diagram drift.
-- Enables non-technical stakeholders to explore architecture visually.
-- Supports continuous documentation in CI/CD pipelines.
-
-### Challenges
-- Ensuring accuracy and trust in generated views.
-- Balancing automation with human intent and storytelling.
-- Integrating with existing modelling tools and repositories.
-
-### Tools to Watch
-- GPT-based plugins for Structurizr or Mermaid.
-- AI-enhanced IDEs that generate diagrams from code context.
-- Cloud-native AI visualizers that interpret Terraform or CloudFormation.
-
----
+Overall, AI in diagramming is most effective as an augmentation rather than full automation. By combining automated insights with natural-language interaction, these tools can reduce the effort required to create and maintain diagrams — while architects still provide the intent, abstraction, and viewpoint needed to communicate effectively.
 
 ## Choosing the Right Tool
 
-There’s no single “best” tool — the right choice depends on:
+There’s no single “best” approach to architecture diagrams. The right tool depends on:
 
-- **Why** the diagram is being created:
-  - Is it for a pitch deck or a long-lived artifact?
-  - Does it need to meet regulatory or audit requirements?
+- **Why** the diagram is being created  
+- **Who** will maintain it  
+- **How complex** the system is  
 
-- **Who** will maintain it:
-  - Are they comfortable with code-based tools?
-  - Is it part of a CI/CD workflow?
-
-- **How complex** the architecture is:
-  - Does it justify a formal model?
-  - Will multiple views need to stay consistent over time?
-
-Above all, ask: **Is this diagram useful?**  
+What matters far more than the tool itself is clarity of intent. Effective architectural communication starts with a solid model, chooses the right viewpoints for the audience, and uses diagrams to tell a clear and purposeful story.  
