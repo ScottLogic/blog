@@ -1,6 +1,6 @@
 ---
 title: "Evaluating Answers with Large Language Models: How InferESG and RAGAS Helped"
-date: 2025-10-29 00:00:00
+date: 2025-11-17 15:00:00
 author: Ana Fonseca
 description: "A comparison of open-source and proprietary LLMs for ESG report evaluation using InferESG and RAGAS."
 image: ""
