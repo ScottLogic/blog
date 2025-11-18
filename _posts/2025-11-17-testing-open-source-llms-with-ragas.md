@@ -25,15 +25,15 @@ For this study, we tested the following models: DeepSeek, Gemma-3-1B, GPT-4o, GP
 
 We tested the following models (links are provided where available):
 
-| Full model name | Short name | Params (B) | Producer | Date / notes | Link |
+| Full model name | Short name | Params (B) | Producer | Link |
 |---|---:|---:|---|---|---|
-| DeepSeek-R1-0528-Qwen3-8B | DeepSeek | 8 | DeepSeek AI | ~Mar 2025 | https://huggingface.co/unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF |
-| Gemma 3 1B | Gemma-3-1B | 1.0 | Google / DeepMind | ~Mar 2025 | https://huggingface.co/google/gemma-3-1b |
-| GPT-4o | GPT-4o | 200 | OpenAI | May 2024 | (see writeups) |
+| DeepSeek-R1-0528-Qwen3-8B | DeepSeek | 8 | DeepSeek AI | https://huggingface.co/unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF |
+| Gemma 3 1B | Gemma-3-1B | 1.0 | Google / DeepMind | https://huggingface.co/google/gemma-3-1b |
+| GPT-4o | GPT-4o | 200 | OpenAI | (see writeups) |
 | GPT-4o-mini | GPT-4o-mini | 8 | OpenAI | — | (see writeups) |
-| GPT-OSS-20B | GPT-OSS-20B | 20 | OpenAI | Aug 2025 | https://huggingface.co/openai/gpt-oss-20b |
-| LFM2-1.2 | LFM2-1.2 | 1.2 | LiquidAI | — | https://huggingface.co/LiquidAI/LFM2-1.2B |
-| Qwen3-30B-A3B | Qwen3-30B-A3B | 30.5 | Qwen | Aug 2025 | https://huggingface.co/Qwen/Qwen3-30B-A3B |
+| GPT-OSS-20B | GPT-OSS-20B | 20 | OpenAI |https://huggingface.co/openai/gpt-oss-20b |
+| LFM2-1.2 | LFM2-1.2 | 1.2 | LiquidAI | https://huggingface.co/LiquidAI/LFM2-1.2B |
+| Qwen3-30B-A3B | Qwen3-30B-A3B | 30.5 | Qwen |https://huggingface.co/Qwen/Qwen3-30B-A3B |
 
 ## The Role of InferESG
 
@@ -93,7 +93,7 @@ With the setup standardized, the following steps were executed to gather and int
 3.	Develop a comparative chart illustrating a single key metric across all models to facilitate visual comparison of their performance.
 
 
-## Results — summary by metric
+## Results 
 
 When comparing the metric charts average performance results of the different LLMs we could see that for:
 In terms of factual correctness, the results vary considerably across models. DeepSeek shows relatively low factual reliability, with an average score of about 0.15, suggesting that its answers often contain inaccuracies or incomplete information. Gemma-3.1b performs slightly better, averaging around 0.19, which indicates a modest improvement but still leaves room for error. GPT-4o and LFM2-1.2 both demonstrate lower factual correctness, around 0.08 and 0.14 respectively, implying that they tend to produce factually inconsistent statements. The strongest factual grounding is found in Qwen3-30b and GPT-OSS-20b, which reach approximately 0.28 and 0.20 on average. 
@@ -121,9 +121,8 @@ Among all evaluated models, Qwen3-30b demonstrates the most balanced performance
 
 
 
-## Performance and efficiency
+## What models performed best based on our selected metrics to evaluate the generated answers?
 
-We instrumented timing for each LLM call. Key runtime observations:
 
 Based on the selected evaluation metrics: factual correctness, answer accuracy, and semantic similarity, the models that performed best overall were Qwen3-30b and GPT-OSS-20b. Both demonstrated a strong balance between generating responses that were contextually relevant, accurate, and factually grounded.
 Qwen3-30b stood out as the most consistent and well-rounded model across all three dimensions. It achieved the highest semantic similarity scores, indicating that its responses were closely aligned in meaning and structure with reference answers. This suggests that Qwen3-30b not only understood the questions well but also produced answers that captured their intended nuance and context. Moreover, it performed above average in both factual correctness and answer accuracy, showing that its outputs were not just well-worded but also grounded in verifiable information. This combination of coherence, precision, and truthfulness positions Qwen3-30b as the most reliable model in this evaluation.
@@ -134,7 +133,7 @@ Overall, the comparison reveals that Qwen3-30b and GPT-OSS-20b represent the mos
 
 
 
-Performance and Efficiency of the AI models
+## Performance and Efficiency of the AI models
 
 In terms of execution duration, to calculate the duration of each call to LLMs, we instrumented our analysis code to record start and end times. For models other than Qwen3-30B, this approach proved an effective way of calculating the individual usage of each agent. For Qwen3-30B, individual model analysis exceeded the time-outs built into our analysis pipeline resulting in LMStudio queueing tasks. This invalidates the data we have derived for individual agents.
 
