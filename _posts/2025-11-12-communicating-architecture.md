@@ -46,17 +46,17 @@ Software architecture works the same way. The model holds the truth about the sy
 
 ## The Spectrum of Approaches
 
-When deciding how to model and create views, there’s no one-size-fits-all solution. Instead, there’s a spectrum — ranging from highly structured, formal modelling approaches to informal, free-form sketches. Each approach has its place depending on the context, audience, and longevity of the diagram.
+When deciding how to model and create views, there’s no one-size-fits-all solution. Instead, there’s a spectrum - ranging from highly structured, formal modelling approaches to informal, free-form sketches. Each approach has its place depending on the context, audience, and longevity of the diagram.
 
 At one end of the spectrum, we have **heavyweight and structured** approaches such as [UML](https://www.omg.org/uml/) and [ArchiMate](https://www.opengroup.org/archimate-forum/archimate-overview). These approaches enforce strict semantics and provide a rich modelling language. They are often used in enterprise-scale architecture where consistency, traceability, and alignment with frameworks like TOGAF are required. The trade-off is that they require significant effort to maintain, have steep learning curves, and may not be accessible to non-architects.
 
-In the middle, we find **lightweight but structured** approaches such as the [C4 Model](https://c4model.com/), which emphasise having a consistent model, but much more flexibility and less rigour. This provides an underlying model without the same level of prescriptiveness, supporting consistency and clarity while remaining flexible enough that generating views does not become burdensome.
+In the middle, we find **lightweight but structured** approaches such as the [C4 Model](https://c4model.com/), which emphasise maintaining a consistent underlying model, but with far less formality. This supports clarity and coherence without the prescriptiveness of a full modelling language, and makes producing and evolving views far more manageable.
 
 Cloud diagrams that use AWS or Azure icon sets also sit broadly in this category. They offer a standardised visual vocabulary that improves clarity and consistency, but they stop short of providing a true modelling approach.
 
-At the far end of the spectrum, we have **lightweight and unstructured** approaches - free-form diagrams created on whiteboards, both physical and virtual. This approach is perfect for generating quick and flexible diagrams. They are fast, intuitive, and flexible, but they lack an underlying model and can quickly become inconsistent as systems evolve.
+At the far end of the spectrum, we have **lightweight and unstructured** approaches - free-form diagrams created on whiteboards, both physical and virtual. These are ideal for exploring or conveying an idea quickly and for collaborative workshops. They are fast, intuitive, and unconstrained, but they lack an underlying model and can quickly become inconsistent as systems evolve.
 
-Choosing the right approach is always a trade-off between consistency, flexibility, and complexity. It depends on how long the diagram will live, who will maintain it, and how complex the system is.
+Choosing the right approach is always a trade-off between consistency, governance, and ease of use. It depends on how long the diagram will live, who will maintain it, and how complex the system is.
 
 ![Spectrum of Approaches]({{ site.baseurl }}/sbreingan/assets/spectrum-approach.png "Spectrum of different approaches")
 
@@ -111,19 +111,19 @@ These tools are great for workshops and stakeholder engagement, but they lack an
 
 ### Cloud-Specific Tools
 
-Tools like [Cloudcraft](https://www.cloudcraft.co/), [Hava](https://www.hava.io/) and [AWS Workload Discovery](https://aws.amazon.com/solutions/implementations/workload-discovery-on-aws/) integrate with live cloud environments to auto-generate diagrams. They can reflect the actual state of deployed systems which can be helpful for audits, onboarding, and operational visibility. These tools can also integrate with Infrastructure as Code (e.g., Terraform) to generate diagrams from real deployment scripts. 
+Tools like [Cloudcraft](https://www.cloudcraft.co/), [Hava](https://www.hava.io/), and [AWS Workload Discovery](https://aws.amazon.com/solutions/implementations/workload-discovery-on-aws/) integrate with live cloud environments to automatically generate diagrams. These tools reflect the *actual* state of deployed systems, which is invaluable for audits, onboarding, troubleshooting, and operational visibility. Many can also ingest Infrastructure as Code (e.g., Terraform) to visualise deployments directly from source.
 
-They are less useful for future-state design and offer limited control over layout and emphasis, meaning it can be hard to convey the logical meaning of what the instructure. 
+Although automation makes these diagrams quick to produce, it also constrains them. Because they mirror the raw cloud resources exactly as they exist, there is very little scope for layout, grouping, or abstraction. As a result, they are not well suited to **future-state design**, architectural storytelling, or conveying **logical intent** rather than physical infrastructure.
 
 ![CloudCraft]({{ site.baseurl }}/sbreingan/assets/diagram-aws.png "A diagram created in CloudCraft") 
 
 ## What about AI-assisted diagrams?
 
-Automated diagramming tools already exist — cloud-native consoles can generate infrastructure maps and database tools can produce entity-relationship diagrams. These are useful, but they reflect the *raw state* of a system rather than a *modelled* view. They rarely show intent, abstraction, or logical grouping, and because they generate everything at once they are difficult to tailor for different audiences or architectural viewpoints.
+LLMs introduce a new angle: because diagrams can be defined as code, we can now generate formats such as Mermaid or PlantUML directly from natural-language descriptions. This makes it much faster to produce early drafts and explore different ways of expressing a model.
 
-Because diagrams can be defined as code, we can use LLM's to help generate them in formats such as Mermaid or PlantUML from natural-language descriptions. This accelerates early drafts, but it has a core limitation: diagrams are spatial and visual, while LLMs only predict text. They cannot reliably assess whether the final layout will be readable, balanced, or meaningful.
+But this approach has a fundamental limitation: diagrams are spatial and visual, while LLMs predict text. An LLM can create valid syntax, but it cannot reliably judge whether a diagram will be readable, balanced, or visually coherent.
 
-To address that gap, AI features are emerging inside visual diagramming tools themselves — for example [Miro](https://miro.com/ai/diagram-ai/), [Lucidchart](https://www.lucidchart.com/pages/use-cases/diagram-with-AI), and dedicated tools like [Eraser](https://www.eraser.io/). These combine language input with layout engines, constraint solving, and interactive prompts, producing more coherent visuals while still keeping the human in control of the modelling.
+To address this gap, AI features are emerging inside visual diagramming tools themselves — for example [Miro](https://miro.com/ai/diagram-ai/), [Lucidchart](https://www.lucidchart.com/pages/use-cases/diagram-with-AI), and dedicated tools like [Eraser](https://www.eraser.io/). These combine language input with layout engines, constraint solving, and interactive prompts, producing more coherent visuals while still keeping the human in control of the modelling.
 
 LLMs also have potential to support the modelling process more directly. By connecting to codebases or live infrastructure, they can answer natural-language questions (“Which services call this API?”), help infer relationships, and assist in keeping architectural models aligned with the real system.
 
