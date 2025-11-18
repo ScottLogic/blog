@@ -10,11 +10,13 @@ summary: In this blog post I provide an overview of approaches in communicating 
 
 # How do we effectively communicate architecture?
 
-One of the most important responsibilities of a software architect is communicating architecture effectively. Whether you're sketching out a new system or explaining how existing components fit together, the goal is always the same: help others understand the structure, purpose, and implications of the architecture.
+One of the key responsibilities of a software architect is communicating architecture effectively. Architecture never exists in a vacuum — it exists to align people, guide decisions, and help teams move toward the same goals. Whether you're sketching a new system or explaining how existing components fit together, effective communication means helping others understand the structure, purpose, and implications of the architecture.
 
-More often than not, this communication is visual. Diagrams are faster and clearer than text when conveying relationships between components, data flows, and infrastructure. But before drawing anything, we need to ask two fundamental questions:
+While it’s possible to describe a system using a wall of text, it’s rarely the best way. Architecture is complex, and most of the time the fastest and clearest way to convey it is visually. Diagrams help people see relationships, boundaries, and flows at a glance.
 
-- **What** do we want to show?
+But before drawing anything, it’s important to pause and ask two fundamental questions:
+
+- **What** do we want to show?  
 - **How** should we show it?
 
 ## Modelling vs Diagramming
@@ -97,7 +99,7 @@ Enterprise tools such as Archi, Sparx Enterprise Architect, and Visual Paradigm 
 
 These tools are powerful but require discipline and effort to keep up to date. They are best suited for large organisations with formal architecture governance or regulated environments where long-lived models are essential.
 
-![Archi Mate]({{ site.baseurl }}/sbreingan/assets/diagram-archimate.png)
+![Archi Mate]({{ site.baseurl }}/sbreingan/assets/diagram-archimate.png "A diagram and model created in Archi")
 
 ### Visual Diagramming Tools
 
@@ -105,7 +107,7 @@ Tools like [Lucidchart](https://www.lucidchart.com/), [Miro](https://www.miro.co
 
 These tools are great for workshops and stakeholder engagement, but they lack an underlying model. As a result, they can become inconsistent and hard to maintain as systems grow.
 
-![CloudCraft]({{ site.baseurl }}/sbreingan/assets/diagram-drawio.png)
+![CloudCraft]({{ site.baseurl }}/sbreingan/assets/diagram-drawio.png "A diagram created in draw.io")
 
 ### Cloud-Specific Tools
 
@@ -113,7 +115,7 @@ Tools like [Cloudcraft](https://www.cloudcraft.co/), [Hava](https://www.hava.io/
 
 These tools can even integrate with Infrastructure as Code (e.g., Terraform) to generate diagrams from real deployment scripts. However, they are less useful for future-state design and offer limited control over layout and emphasis.
 
-![CloudCraft]({{ site.baseurl }}/sbreingan/assets/diagram-cloudcraft.png)
+![CloudCraft]({{ site.baseurl }}/sbreingan/assets/diagram-aws.png "A diagram created in CloudCraft") 
 
 ## What about AI-assisted diagrams?
 
