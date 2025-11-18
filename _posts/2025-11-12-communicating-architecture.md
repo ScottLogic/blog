@@ -34,7 +34,7 @@ Trying to show everything in one diagram would be overwhelming. A CTO may care a
 
 This is why we create **multiple views**, each shaped by a specific **viewpoint** and tailored to its audience. The model remains the one source of truth; each view shows only the part that matters for a given concern.
 
-As an analogy, think about the the architectural plans of a house. A single structural model can be used to produce:
+As an analogy, think about the architectural plans of a house. A single structural model can be used to produce:
   - a **floor plan** for layout and navigation,
   - an **electrical plan** for wiring,
   - a **plumbing plan** for water and waste.
@@ -53,9 +53,12 @@ In the middle, we find *lightweight but structured* approaches such as the [C4 M
 
 Cloud diagrams that use AWS or Azure icon sets also sit broadly in this category. They offer a standardised visual vocabulary that improves clarity and consistency, but they stop short of providing a true modelling approach.
 
-At the far end of the spectrum, we have *lightweight and unstructured* approaches - free-form diagrams created on whiteboards, both physical and virtual. This approach is perfect for generating quick and flexibile diagrams. They are fast, intuitive, and flexible, but they lack an underlying model and can quickly become inconsistent as systems evolve.
+At the far end of the spectrum, we have *lightweight and unstructured* approaches - free-form diagrams created on whiteboards, both physical and virtual. This approach is perfect for generating quick and flexible diagrams. They are fast, intuitive, and flexible, but they lack an underlying model and can quickly become inconsistent as systems evolve.
 
 Choosing the right approach is always a trade-off between consistency, flexibility, and complexity. It depends on how long the diagram will live, who will maintain it, and how complex the system is.
+
+![Spectrum of Approaches]({{ site.baseurl }}/sbreingan/assets/spectrum-approaches.png "Spectrum of different approaches")
+
 
 ## Tooling Landscape
 
@@ -85,8 +88,6 @@ Rel_R(apiGw, lambdaFn, "Triggers", "Lambda integration")
 Rel_D(lambdaFn, backend, "Reads/Writes data", "SDK / JDBC")
 
 @enduml
-
-@enduml
 ~~~
 
 ![C4 Diagram]({{ site.baseurl }}/sbreingan/assets/diagram-c4.png "A generated C4 Diagram from PlantUML")
@@ -105,13 +106,13 @@ Tools like [Lucidchart](https://www.lucidchart.com/), [Miro](https://www.miro.co
 
 These tools are great for workshops and stakeholder engagement, but they lack an underlying model. As a result, they can become inconsistent and hard to maintain as systems grow.
 
-![CloudCraft]({{ site.baseurl }}/sbreingan/assets/diagram-drawio.png "A diagram created in draw.io")
+![draw.io]({{ site.baseurl }}/sbreingan/assets/diagram-drawio.png "A diagram created in draw.io")
 
 ### Cloud-Specific Tools
 
-Tools like [Cloudcraft](https://www.cloudcraft.co/), [Hava](https://www.hava.io/), [AWS Workload Discovery](https://aws.amazon.com/solutions/implementations/workload-discovery-on-aws/), and Azure Resource Visualizer integrate with live cloud environments to auto-generate diagrams. They can reflect the actual state of deployed systems, which is invaluable for audits, onboarding, and operational visibility.
+Tools like [Cloudcraft](https://www.cloudcraft.co/), [Hava](https://www.hava.io/) and [AWS Workload Discovery](https://aws.amazon.com/solutions/implementations/workload-discovery-on-aws/) integrate with live cloud environments to auto-generate diagrams. They can reflect the actual state of deployed systems which can be helpful for audits, onboarding, and operational visibility. These tools can also integrate with Infrastructure as Code (e.g., Terraform) to generate diagrams from real deployment scripts. 
 
-These tools can even integrate with Infrastructure as Code (e.g., Terraform) to generate diagrams from real deployment scripts. However, they are less useful for future-state design and offer limited control over layout and emphasis.
+They are less useful for future-state design and offer limited control over layout and emphasis, meaning it can be hard to convey the logical meaning of what the instructure. 
 
 ![CloudCraft]({{ site.baseurl }}/sbreingan/assets/diagram-aws.png "A diagram created in CloudCraft") 
 
