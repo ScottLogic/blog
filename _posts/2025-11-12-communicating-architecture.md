@@ -8,8 +8,6 @@ author: sbreingan
 summary: In this blog post I provide an overview of approaches in communicating architecture and explore the variety of tools that can assist.
 ---
 
-# How do we effectively communicate architecture?
-
 One of the key responsibilities of a software architect is communicating architecture effectively. Architecture never exists in a vacuum — it exists to align people, guide decisions, and help teams move toward the same goals. Whether you're sketching a new system or explaining how existing components fit together, effective communication means helping others understand the structure, purpose, and implications of the architecture.
 
 While it’s possible to describe a system using a wall of text, it’s rarely the best way. Architecture is complex, and most of the time the fastest and clearest way to convey it is visually. Diagrams help people see relationships, boundaries, and flows at a glance.
