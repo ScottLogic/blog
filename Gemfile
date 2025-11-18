@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby '~> 3.3'
 
 gem "jekyll", "~> 4"
 group :jekyll_plugins do
