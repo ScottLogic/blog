@@ -35,6 +35,7 @@ Trying to show everything in one diagram would be overwhelming. A CTO may care a
 This is why we create **multiple views**, each shaped by a specific **viewpoint** and tailored to its audience. The model remains the one source of truth; each view shows only the part that matters for a given concern.
 
 As an analogy, think about the architectural plans of a house. A single structural model can be used to produce:
+
   - a **floor plan** for layout and navigation,
   - an **electrical plan** for wiring,
   - a **plumbing plan** for water and waste.
@@ -57,7 +58,7 @@ At the far end of the spectrum, we have **lightweight and unstructured** approac
 
 Choosing the right approach is always a trade-off between consistency, flexibility, and complexity. It depends on how long the diagram will live, who will maintain it, and how complex the system is.
 
-![Spectrum of Approaches]({{ site.baseurl }}/sbreingan/assets/spectrum-approaches.png "Spectrum of different approaches")
+![Spectrum of Approaches]({{ site.baseurl }}/sbreingan/assets/spectrum-approach.png "Spectrum of different approaches")
 
 
 ## Tooling Landscape
