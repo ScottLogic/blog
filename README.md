@@ -153,7 +153,6 @@ If you are working on fixes or new features, and need to re-compile the scripts 
 
 ```shell
 npm ci           # Install deps
-npm run scripts  # Recompile scripts
 npm run prettier # Format non-post files
 ```
 

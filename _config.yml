@@ -49,17 +49,26 @@ exclude:
   - CNAME
   - Gemfile
   - Gemfile.lock
-  - lintPosts.js
-  - scss
-  - node_modules
-  - package.json
+  - PULL_REQUEST_TEMPLATE
   - README.md
+  - gems
+  - generate_pa11y_ci_urls_from_git_diff.sh
+  - lintPosts.js
+  - node_modules
+  - package-lock.json
+  - package.json
+  - rspack.config.ts
+  - scripts
   - scripts/jquery-1.9.1.js
   - scripts/jquery.jscroll-2.2.4.js
-  - scripts/tweet.js
   - scripts/search.js
+  - scripts/tweet.js
+  - scss
+  - send-blogs-to-deploy-endpoint.js
+  - tsconfig.json
   - vendor
-  - gems
+keep_files:
+  - "script.js"
 sass:
   style: compressed
   sourcemap: development
@@ -68,3 +77,10 @@ sass:
   load_paths:
     - "node_modules/applause-button/dist/"
     - "node_modules/cookieconsent/build/"
+hook_exec:
+  site:
+    post_write:
+      bundle-js:
+        env:
+          BASE_URL: "{{ site.baseurl }}"
+        cmd: "./node_modules/.bin/rspack build"
