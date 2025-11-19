@@ -1,7 +1,9 @@
 {% capture url %}{{ site.canonical.url }}{{ page.url }}{% endcapture %}
 <div class="social">
-  <applause-button color="{% include post_colour_hex.html post=page %}"
+  <applause-button
+    color="{% include post_colour_hex.html post=page %}"
     url="{{ site.canonical.url }}{{ page.url }}"
     api="{{ site.applause-button-api.url }}"
-    multiclap="true"/>
+    multiclap="true"
+  />
 </div>

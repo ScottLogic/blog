@@ -1,5 +1,5 @@
-@use 'colours';
-@use 'fonts';
+@use "colours";
+@use "fonts";
 
 @mixin article-colour($colour) {
   .category {
@@ -28,7 +28,6 @@
 }
 
 .post-summary {
-
   .category {
     color: colours.$grey;
   }

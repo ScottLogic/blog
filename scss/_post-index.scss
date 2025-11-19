@@ -1,39 +1,39 @@
-@use 'colours';
-@use 'fonts';
-@use 'util';
+@use "colours";
+@use "fonts";
+@use "util";
 
 .post-index {
-
   padding-top: 125px;
   @include util.breakpoint(large) {
     padding-top: 150px;
   }
 
-	h1, h2 {
-		text-align: center;
-	}
+  h1,
+  h2 {
+    text-align: center;
+  }
 
   h2 {
     font-weight: fonts.$font-regular;
   }
 
-	.sub-title {
-		margin-bottom: 2rem;
-		@include util.breakpoint(large) {
-			margin-bottom: 3rem;
-		}
-	}
+  .sub-title {
+    margin-bottom: 2rem;
+    @include util.breakpoint(large) {
+      margin-bottom: 3rem;
+    }
+  }
 
-	h2.super-title {
-		font-size: fonts.$baseFontSize;
-		> a {
-			color: colours.$teal;
-			&:hover {
-				color: colours.$white;
-				background-color: colours.$teal;
-			}
-		}
-	}
+  h2.super-title {
+    font-size: fonts.$baseFontSize;
+    > a {
+      color: colours.$teal;
+      &:hover {
+        color: colours.$white;
+        background-color: colours.$teal;
+      }
+    }
+  }
 
   .main-content > div {
     display: inline-block;
@@ -47,7 +47,7 @@
     label {
       font-size: 20px;
       font-weight: 700;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
       text-align: center;
     }
   }

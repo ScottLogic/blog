@@ -1,13 +1,14 @@
-@use '../colours';
-@use '../util';
+@use "../colours";
+@use "../util";
 
-#mobileMenu:not( .mm-menu ) { display: none; }
-
+#mobileMenu:not(.mm-menu) {
+  display: none;
+}
 
 header {
   width: 100%;
   display: block;
-  border-bottom: 1px solid rgba(211,211,211,0.3);
+  border-bottom: 1px solid rgba(211, 211, 211, 0.3);
   position: absolute;
   padding: 2rem 0 2rem 0;
   -webkit-transition: all 0.3s;
@@ -23,17 +24,16 @@ header {
     justify-content: space-between;
   }
 
-
   h1.brand {
     display: block;
     margin: auto;
     padding: 0;
     width: 165px;
     @include util.breakpoint(medium) {
-      margin: 0 0 0 util.rem-calc(40px, 16px)
+      margin: 0 0 0 util.rem-calc(40px, 16px);
     }
     a {
-      background: url('./assets/logo.svg') no-repeat 0 0;
+      background: url("./assets/logo.svg") no-repeat 0 0;
       width: 183px;
       height: 40px;
       display: block;
@@ -43,7 +43,7 @@ header {
       margin: 0 0 util.rem-calc(32px, 16px) util.rem-calc(32px, 16px);
       width: 421px;
       a {
-        background: url('./assets/logo.svg') no-repeat 0 0;
+        background: url("./assets/logo.svg") no-repeat 0 0;
         width: 436px;
         height: 40px;
         display: block;
@@ -86,16 +86,16 @@ header {
 header.no-hero {
   width: 100%;
   display: block;
-  border-bottom: 1px solid rgba(211,211,211,0.3);
+  border-bottom: 1px solid rgba(211, 211, 211, 0.3);
   position: absolute;
   padding: 2rem 0 2rem 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   @include util.breakpoint(large) {
     position: fixed;
-    top:0;
+    top: 0;
     width: 100%;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 1.5rem 0 0 0;
     z-index: 99;
     border-bottom: 1px solid rgba(206, 210, 211, 0.3);
@@ -105,7 +105,7 @@ header.no-hero {
   }
 
   .mobile-search {
-    background: url('./assets/search-icon-black.svg') no-repeat 0 0;
+    background: url("./assets/search-icon-black.svg") no-repeat 0 0;
     width: util.rem-calc(15px, 16px);
     height: util.rem-calc(15px, 16px);
     display: block;
@@ -118,7 +118,7 @@ header.no-hero {
   }
 
   .mobile-nav-trigger {
-    background: url('./assets/hamburger-black.svg') no-repeat 0 0;
+    background: url("./assets/hamburger-black.svg") no-repeat 0 0;
     width: util.rem-calc(16px, 16px);
     height: util.rem-calc(13px, 16px);
     display: block;
@@ -137,7 +137,6 @@ header.no-hero {
   .header-nav_top {
     ul {
       li {
-
         a {
           color: colours.$black;
         }
@@ -155,20 +154,20 @@ header.no-hero {
     padding: 0;
     width: 165px;
     @include util.breakpoint(medium) {
-      margin-left: util.rem-calc(40px, 16px)
+      margin-left: util.rem-calc(40px, 16px);
     }
     a {
-      background: url('./assets/logo.svg') no-repeat 0 0;
+      background: url("./assets/logo.svg") no-repeat 0 0;
       width: 183px;
       height: 40px;
       display: block;
       text-indent: -9999px;
     }
     @include util.breakpoint(large) {
-      margin: rem-calc(24px, 16px) 0 0 0;
+      margin: util.rem-calc(24px, 16px) 0 0 0;
       width: 421px;
       a {
-        background: url('./assets/logo.svg') no-repeat 0 0;
+        background: url("./assets/logo.svg") no-repeat 0 0;
         width: 436px;
         height: 40px;
         display: block;
@@ -178,13 +177,12 @@ header.no-hero {
   }
 }
 
-
 header.fixed-header {
   @include util.breakpoint(large) {
     position: fixed;
-    top:0;
+    top: 0;
     width: 100%;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 0;
     z-index: 99;
     border-bottom: 0 solid rgba(206, 210, 211, 0.3);
@@ -214,17 +212,18 @@ header.fixed-header {
       padding: 0;
       width: 165px;
       a {
-        background: url('./assets/logo.svg') no-repeat 0 0;
+        background: url("./assets/logo.svg") no-repeat 0 0;
         width: 183px;
         height: 15px;
         display: block;
         text-indent: -9999px;
       }
       @include util.breakpoint(large) {
-        margin: util.rem-calc(27px, 16px) 0 util.rem-calc(24px, 16px) util.rem-calc(24px, 16px);
+        margin: util.rem-calc(27px, 16px) 0 util.rem-calc(24px, 16px)
+          util.rem-calc(24px, 16px);
         width: 421px;
         a {
-          background: url('./assets/logo.svg') no-repeat 0 0;
+          background: url("./assets/logo.svg") no-repeat 0 0;
           width: 436px;
           height: 40px;
           display: block;
@@ -233,16 +232,14 @@ header.fixed-header {
       }
     }
     .main-nav {
-        @include util.breakpoint(large) {
+      @include util.breakpoint(large) {
         margin-top: util.rem-calc(27px, 16px);
-        }
+      }
     }
   }
 }
 
-
-
-#nav-icon{
+#nav-icon {
   width: 16px;
   height: 13px;
   position: relative;
@@ -251,10 +248,10 @@ header.fixed-header {
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: .5s ease-in-out;
-  -moz-transition: .5s ease-in-out;
-  -o-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
   cursor: pointer;
 }
 
@@ -271,17 +268,18 @@ header.fixed-header {
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  -moz-transition: .25s ease-in-out;
-  -o-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 #nav-icon span:nth-child(1) {
   top: 0;
 }
 
-#nav-icon span:nth-child(2),#nav-icon span:nth-child(3) {
+#nav-icon span:nth-child(2),
+#nav-icon span:nth-child(3) {
   top: 6px;
 }
 

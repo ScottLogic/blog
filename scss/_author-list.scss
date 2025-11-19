@@ -1,18 +1,18 @@
-@use 'colours';
-@use 'fonts';
+@use "colours";
+@use "fonts";
 
 .author-list {
+  a {
+    font-weight: fonts.$font-regular;
+  }
+
+  li {
+    margin: 0.4rem 0;
+
     a {
-        font-weight: fonts.$font-regular;
+      font-weight: fonts.$font-light;
     }
-
-    li {
-    	margin: .4rem 0;
-
-    	a {
-    		font-weight: fonts.$font-light;
-    	}
-    }
+  }
 
   a:hover {
     color: colours.$black;

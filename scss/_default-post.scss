@@ -1,27 +1,42 @@
-@use 'colours';
-@use 'fonts';
-@use 'article-colour-scheme' as scheme;
-@use 'util';
+@use "colours";
+@use "fonts";
+@use "article-colour-scheme" as scheme;
+@use "util";
 
 .default-post {
-
   &.teal {
-    @include scheme.hero-colour-scheme(colours.$light-teal, colours.$teal, colours.$white);
+    @include scheme.hero-colour-scheme(
+      colours.$light-teal,
+      colours.$teal,
+      colours.$white
+    );
     @include scheme.article-colour-scheme(colours.$teal, colours.$black);
   }
 
   &.orange {
-    @include scheme.hero-colour-scheme(colours.$light-orange, colours.$orange, colours.$white);
+    @include scheme.hero-colour-scheme(
+      colours.$light-orange,
+      colours.$orange,
+      colours.$white
+    );
     @include scheme.article-colour-scheme(colours.$orange, colours.$black);
   }
 
   &.pink {
-    @include scheme.hero-colour-scheme(colours.$light-pink, colours.$pink, colours.$white);
+    @include scheme.hero-colour-scheme(
+      colours.$light-pink,
+      colours.$pink,
+      colours.$white
+    );
     @include scheme.article-colour-scheme(colours.$pink, colours.$white);
   }
 
   &.yellow {
-    @include scheme.hero-colour-scheme(colours.$light-yellow, colours.$yellow, colours.$white);
+    @include scheme.hero-colour-scheme(
+      colours.$light-yellow,
+      colours.$yellow,
+      colours.$white
+    );
     @include scheme.article-colour-scheme(colours.$yellow, colours.$black);
   }
 
@@ -31,7 +46,6 @@
   }
 
   .hero {
-
     margin-bottom: 1rem;
     @include util.breakpoint(large) {
       margin-bottom: 2rem;
@@ -69,12 +83,12 @@
   }
 
   .side-lists {
-
     a:hover {
       color: colours.$black;
     }
 
-    .back, .author-social-media-link {
+    .back,
+    .author-social-media-link {
       a:hover {
         color: colours.$white;
       }
@@ -88,7 +102,6 @@
   }
 
   .post-content {
-
     a {
       color: colours.$black;
       font-weight: fonts.$font-regular;
@@ -103,7 +116,8 @@
       margin-bottom: 1rem;
     }
 
-    ol, ul {
+    ol,
+    ul {
       list-style-position: outside;
       margin-block: 0 1rem;
       margin-inline: 1.25rem 0;
@@ -128,7 +142,8 @@
   }
 
   .author-information {
-    div, img {
+    div,
+    img {
       display: inline-block;
     }
 
@@ -136,12 +151,11 @@
       border-radius: 50%;
       max-height: 3rem;
       max-width: 3rem;
-      margin-right: .25rem;
+      margin-right: 0.25rem;
       filter: grayscale(100%);
       object-fit: cover;
       height: 100%;
       width: 100%;
     }
   }
-
 }
