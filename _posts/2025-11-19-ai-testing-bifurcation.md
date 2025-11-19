@@ -16,7 +16,7 @@ image: "/assets/ai-testing-header.png"
 layout: default_post
 ---
 
-<img src="{{ site.baseurl }}/dmcnamee/assets/ai-test-header.png" width="100%" alt="AI image" title="Future of AI Testing">
+<img src="{{ site.baseurl }}/dmcnamee/assets/ai-testing-header.png" width="100%" alt="AI image" title="Future of AI Testing">
 
 ## A Brief History of Testing
 The rise of Artificial Intelligence is the biggest paradigm shift in software development since Agile—and it’s fundamentally rewriting the role of the Test Engineer.
