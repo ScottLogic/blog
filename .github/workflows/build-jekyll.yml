@@ -3,11 +3,13 @@ on:
   pull_request:
     branches:
       - gh-pages
-      - 2025-redesign
+      - 2025-redesign # TODO: Remove before merge
+      - 2025-build-changes # TODO: Remove before merge
   push:
     branches:
       - gh-pages
       - 2025-redesign # TODO: Remove before merge
+      - 2025-build-changes # TODO: Remove before merge
   workflow_dispatch:
 
 # Prevent concurrent deploys
