@@ -14,11 +14,11 @@ author: hsauve
 
 As Large Language Models (LLMs) become increasingly adopted across all disciplines, their environmental impact remains opaque, with limited transparency from major providers. With model sizes reaching hundreds of billions of parameters, training and developing state-of-the-art AI systems generates substantial carbon emissions and strains vital resources like electricity and water, particularly in certain regions of the world. 
 
-The scale is staggering, a worst-case estimate suggests that Google's AI alone consumes ∼29.3 TWh annually, comparable to Ireland’s total energy consumption. [^1]
+The scale is staggering, a worst-case estimate suggests that Google's AI alone consumes ∼29.3 Terawatt hours (TWh) of electricity annually, comparable to Ireland’s total energy consumption. [^1]
 
-While progress in the field of AI continues apace, addressing sustainability in innovation is crucial not only to limit its ecological footprint and preserve natural resources but also to ensure the development of responsible, ethical and cost effective AI systems that can scale without compromising our [societal](https://blog.scottlogic.com/2025/05/14/are-we-sleepwalking-into-ai-driven-societal-challenges.html) and environmental future. 
+While progress in the field of AI continues apace, addressing sustainability in innovation is crucial not only to limit its ecological footprint and preserve natural resources but also to ensure the development of responsible, ethical and cost-effective AI systems that can scale without compromising our [societal](/2025/05/14/are-we-sleepwalking-into-ai-driven-societal-challenges.html) and environmental future. 
 
-This blog post aims to complement the research carried out by the Sustainability Team at Scott Logic as part of the [latest update](https://blog.scottlogic.com/2025/09/04/technology-carbon-standard-update-4-sept.html) of the [Technology Carbon Standard](https://www.techcarbonstandard.org/), following a thorough [literature review](https://blog.scottlogic.com/2025/09/16/greener-ai-lit-review.html).
+This blog post aims to complement the research carried out by the Sustainability Team at Scott Logic as part of the [latest update](/2025/09/04/technology-carbon-standard-update-4-sept.html) of the [Technology Carbon Standard](https://www.techcarbonstandard.org/), following a thorough [literature review](/2025/09/16/greener-ai-lit-review.html).
 
 ![A smartphone on top of a book on problem-solving agents, the phone displays OpenAI's ChatGPT. ]({{ site.baseurl }}/hsauve/assets/ai-sustainability/chatgpt.jpg "A smartphone displaying OpenAI's ChatGPT.")
 
@@ -28,9 +28,9 @@ This blog post aims to complement the research carried out by the Sustainability
 
 To get a more accurate picture of the environmental footprint of AI, we deemed necessary to first examine its embodied carbon. This encompasses both [upstream emissions](https://www.techcarbonstandard.org/impact-categories/upstream), in other terms carbon emissions generated during the manufactue of hardware, including abiotic resources consumption and the fabrication of server components, as well as [downstream emissions](https://www.techcarbonstandard.org/impact-categories/downstream) which relate to the end-of-life and recycling stages of AI hardware.
 
-AI is increasing demand in AI chips and analysts have estimated that demand for Nvidia's prized AI chips is exceeding supply by at least 50%. [^2] In the UK alone, data centres are expected to [increase by almost a fifth over the next few years](https://www.bbc.co.uk/news/articles/clyr9nx0jrzo).
+AI is increasing demand for AI chips and analysts have estimated that demand for Nvidia's prized AI chips is exceeding supply by at least 50%. [^2] In the UK alone, the number of data centres is expected to [increase by almost a fifth over the next few years](https://www.bbc.co.uk/news/articles/clyr9nx0jrzo).
 
-The embodied carbon of AI is far from negligeable. A comprehensive AI cradle-to-grave approach [^3] estimates that manufacturing emissions represent under 25% of AI carbon emissions and data centre construction emissions under 5%. 
+The embodied carbon of AI is far from negligible. A comprehensive AI cradle-to-grave approach [^3] estimates that manufacturing emissions represent up to 25% of AI carbon emissions and data centre construction emissions up to 5%. 
 
 We believe that a [Life Cycle Assessment](https://www.techcarbonstandard.org/resources/glossary#life-cycle-assessment-lca) approach to the environmental impact of AI is necessary to correctly assess its impact outside [operational emissions](https://www.techcarbonstandard.org/impact-categories/operational) accounting so as not to lose sight of natural resources depletion, pollution and biodiversity loss associated with the development of AI systems. [^4]
 
@@ -53,7 +53,7 @@ Pre-training in general is almost always performed over multiple GPUs which incu
 
 ### The less obvious case of fine-tuning
 
-The data on carbon emissions generated by fine-tuning is less well documented than that of pre-training, although fine-tuning accounts for a substantial part of energy consumption. Indeed, while fine-tuning is less computationally expensive than pre-training due to the smaller amount of training data, its carbon footprint may be much bigger due to being intensively performed worldwide. [^12]
+The data on carbon emissions generated by fine-tuning is less well documented than that of pre-training, although fine-tuning accounts for a substantial part of energy consumption. Indeed, while fine-tuning is less computationally expensive than pre-training due to the smaller amount of training data, its carbon footprint may be much bigger due to being intensively performed worldwide. [^8]
 
 As is the case with pre-training, energy consumption depends on the hardware it is run on, the type of task and the type of computation required to carry it out. Additional factors like data centre location, energy mix, model complexity, and training duration come into play.
 
@@ -71,27 +71,27 @@ The unbridled way AI is currently being developed by big tech companies, which D
 
 <div style="max-width:1024px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/sasha_luccioni_we_re_doing_ai_all_wrong_here_s_how_to_get_it_right" width="1024px" height="576px" title="We’re doing AI all wrong. Here’s how to get it right" style="position:absolute;left:0;top:0;width:100%;height:100%"  frameborder="0" scrolling="no" allowfullscreen onload="window.parent.postMessage('iframeLoaded', 'https://embed.ted.com')"></iframe></div></div>
 
-However there are many ways researchers and corporations can collectively work towards a more sustainable AI. In fact, many are already pioneering [alternative approaches]((https://blog.scottlogic.com/2025/02/20/there-is-more-than-one-way-to-do-genai.html)) that prioritise sustainability and responsibility.
+However there are many ways researchers and corporations can collectively work towards a more sustainable AI. In fact, many are already pioneering [alternative approaches](/2025/02/20/there-is-more-than-one-way-to-do-genai.html) that prioritise sustainability and responsibility.
 
 ### Learning from the smaller players
 
-While major tech companies dominate headlines with ever-larger models, smaller AI research groups and [novel companies](https://blog.scottlogic.com/2025/10/14/beyond-compliance-how-sustainable-technology-creates-value.html) are charting a different course. Organisations like [Hugging Face](https://huggingface.co/) are championing open research into AI's carbon footprint and demonstrating that effective AI doesn't always require massive models and infrastructure. Academic institutions, working within resource constraints, have driven innovation in efficient architectures, proving that limitations can foster creativity rather than hinder it. As the poet Charles Baudelaire who said of poetry that *because the form is constrained, the idea springs forth more intensely*. [^4] The same principle applies to sustainable AI: sometimes the most elegant solutions emerge not from unlimited resources, but from thoughtful constraints.
+While major tech companies dominate headlines with ever-larger models, smaller AI research groups and [novel companies](/2025/10/14/beyond-compliance-how-sustainable-technology-creates-value.html) are charting a different course. Organisations like [Hugging Face](https://huggingface.co/) are championing open research into AI's carbon footprint and demonstrating that effective AI doesn't always require massive models and infrastructure. Academic institutions, working within resource constraints, have driven innovation in efficient architectures, proving that limitations can foster creativity rather than hinder it. As the poet Charles Baudelaire said of poetry, *because the form is constrained, the idea springs forth more intensely*. [^4] The same principle applies to sustainable AI: sometimes the most elegant solutions emerge not from unlimited resources, but from thoughtful constraints.
 
 Among the papers reviewed, a few observations and actionable recommendations stood out:
 
 ### Standardised data needs to be available
 
 - The opacity around standardised reporting hinders independent verification and undermines efforts to regulate AI’s true environmental cost. [^6]
-- Authors should report training time and sensitivity to hyperparameters [^11] to enable direct comparison between models, which would enable corporations to make informed and sustainable decisions when training models.
-- Academic researchers need equitable access to large-scale compute to foster creativity and prevent the problematic “rich get richer” cycle of research funding. [^11] 
+- Authors should report training time and sensitivity to hyperparameters [^9] to enable direct comparison between models, which would enable corporations to make informed and sustainable decisions when training models.
+- Academic researchers need equitable access to large-scale compute to foster creativity and prevent the problematic “rich get richer” cycle of research funding. [^9] 
 
 ### Sustainability must be put at the centre of AI innovation
 
 - Cost-effective and sustainable innovation in the context of limited resources should be promoted. 
 - Frugal AI (a design philosophy emphasising resource-conscious systems) offers a vision of systems that are functional, robust, user-friendly, growing, affordable, and local. [^4]
-- Federated Learning (a method where AI models are trained across many devices without centralising data) offers a solution by decentralising the training process and offers several advantages such as reducing the time and bandwidth required for training and inference and lower the energy consumption associated with long-distance data transmission. [^9]
-- Efficiency should be an evaluation criterion so that ML practitioners compete to increase accuracy. [^10] Although this can also lead to a rebound effect whereby the more efficient models become, the more they get used.
-- Research should prioritise developing efficient models and hardware. Improvements in state of the art accuracy are possible thanks to industry access to large-scale compute. [^11]
+- Federated Learning (a method where AI models are trained across many devices without centralising data) offers a solution by decentralising the training process and offers several advantages such as reducing the time and bandwidth required for training and inference and lower the energy consumption associated with long-distance data transmission. [^10]
+- Efficiency should be an evaluation criterion so that ML practitioners compete to increase accuracy. [^11] However this can also lead to a rebound effect whereby the more efficient models become, the more they get used.
+- Research should prioritise developing efficient models and hardware. Improvements in state of the art accuracy are possible thanks to industry access to large-scale compute. [^10]
 
 ### The right AI for the right need at the right time. 
 
@@ -99,8 +99,8 @@ Among the papers reviewed, a few observations and actionable recommendations sto
 
 - The necessity of using AI should be critically considered in the first place, as it is unlikely that all applications will benefit from AI or that the benefits will always outweigh the costs.
 - The Deep Neural Network (DNN) model, processor and data centre should be carefully chosen.
-- Existing models should be lightened and faster GPUs used [^8] to both reduce the environmental damage of LLM training while maintaining results. However this comes with financial implications, which necessitates further research to make sustainable AI practices more accessible.
-- Short reasoning methods should be used for inference, for accuracy and carbon saving. Long LLM reasoning does not mean accuracy and correct answers are typically shorter than incorrect ones. [^13]
+- Existing models should be lightened and faster GPUs used [^12] to both reduce the environmental damage of LLM training while maintaining results. However this comes with financial implications, which necessitates further research to make sustainable AI practices more accessible.
+- Short reasoning methods should be used for inference, for accuracy and carbon saving. Long LLM reasoning does not mean greater accuracy and correct answers are typically shorter than incorrect ones. [^13]
 
 ### Smaller models for smarter solutions
 
@@ -124,22 +124,16 @@ Among the papers reviewed, a few observations and actionable recommendations sto
 
 [^7]: Pengfei Li, Jianyi Yang, Mohammad A. Islam, Shaolei Ren (2025). UC Riverside, UT Arlington. "Making AI Less “Thirsty: Uncovering and Addressing the Secret Water Footprint of AI Models". UC Riverside, UT Arlington. [https://doi.org/10.48550/arXiv.2304.03271](https://doi.org/10.48550/arXiv.2304.03271)
 
-[^8]: Vivian Liu, Yiqiao Yin (2024). Columbia University, University of Chicago. "Green AI: Exploring Carbon Footprints, Mitigation Strategies, and Trade Offs in Large Language Model Training" [https://arxiv.org/abs/2404.01157](https://doi.org/10.48550/arXiv.2404.01157)
+[^8]: Xiaorong Wang, Clara Na, Emma Strubell, Sorelle Friedler, Sasha Luccioni (2023). Haverford College, Carnegie Mellon University, Allen Institute for AI, 4Hugging Face. "Energy and Carbon Considerations of Fine-Tuning BERT". [https://doi.org/10.48550/arXiv.2311.10267](https://doi.org/10.48550/arXiv.2311.10267)
 
-[^9]: Iftikhar, S., Alsamhi, S. H., & Davy, S. (2025). “Enhancing Sustainability in LLM Training: Leveraging Federated Learning and Parameter-Efficient Fine-Tuning”. “IEEE Transactions on Sustainable Computing. [https://doi.org/10.1109/TSUSC.2025.3592043](https://doi.org/10.1109/TSUSC.2025.3592043).
+[^9]: Emma Strubell, Ananya Ganesh, Andrew McCallum (2019). University of Massachusetts Amherst. "Energy and Policy Considerations for Deep Learning in NLP". [https://doi.org/10.48550/arXiv.1906.02243](https://doi.org/10.48550/arXiv.1906.02243)
 
-[^10]: David Patterson, Joseph Gonzalez, Quoc Le, Chen Liang, Lluis-Miquel Munguia, Daniel Rothchild, David So, Maud Texier, Jeff Dean (2021) "Carbon Emissions and Large Neural Network Training" [https://doi.org/10.48550/arXiv.2104.10350](https://doi.org/10.48550/arXiv.2104.10350)
+[^10]: Iftikhar, S., Alsamhi, S. H., & Davy, S. (2025). “Enhancing Sustainability in LLM Training: Leveraging Federated Learning and Parameter-Efficient Fine-Tuning”. “IEEE Transactions on Sustainable Computing. [https://doi.org/10.1109/TSUSC.2025.3592043](https://doi.org/10.1109/TSUSC.2025.3592043).
 
-[^11]: Emma Strubell, Ananya Ganesh, Andrew McCallum (2019). University of Massachusetts Amherst. "Energy and Policy Considerations for Deep Learning in NLP". [https://doi.org/10.48550/arXiv.1906.02243](https://doi.org/10.48550/arXiv.1906.02243)
+[^11]: David Patterson, Joseph Gonzalez, Quoc Le, Chen Liang, Lluis-Miquel Munguia, Daniel Rothchild, David So, Maud Texier, Jeff Dean (2021) "Carbon Emissions and Large Neural Network Training" [https://doi.org/10.48550/arXiv.2104.10350](https://doi.org/10.48550/arXiv.2104.10350)
 
-[^12]: Xiaorong Wang, Clara Na, Emma Strubell, Sorelle Friedler, Sasha Luccioni (2023). Haverford College, Carnegie Mellon University, Allen Institute for AI, 4Hugging Face. "Energy and Carbon Considerations of Fine-Tuning BERT". [https://doi.org/10.48550/arXiv.2311.10267](https://doi.org/10.48550/arXiv.2311.10267)
+[^12]: Vivian Liu, Yiqiao Yin (2024). Columbia University, University of Chicago. "Green AI: Exploring Carbon Footprints, Mitigation Strategies, and Trade Offs in Large Language Model Training" [https://arxiv.org/abs/2404.01157](https://doi.org/10.48550/arXiv.2404.01157)
 
 [^13]: Michael Hassid, Gabriel Synnaeve, Yossi Adi, Roy Schwartz (2025). The Hebrew University of Jerusalem. "Don't Overthink it. Preferring Shorter Thinking Chains for Improved LLM Reasoning". [https://doi.org/10.48550/arXiv.2505.17813](https://doi.org/10.48550/arXiv.2505.17813)
 
 [^14]: Peter Belcak, Greg Heinrich, Shizhe Diao, Yonggan Fu, Xin Dong, Saurav Muralidharan, Yingyan Celine Lin, Pavlo Molchanov (2025). Georgia Institute of Technology. "Small Language Models are the Future of Agentic AI" [https://doi.org/10.48550/arXiv.2506.02153](https://doi.org/10.48550/arXiv.2506.02153)
-
-
-
-
-
-
