@@ -51,6 +51,7 @@ exclude:
   - Gemfile.lock
   - PULL_REQUEST_TEMPLATE
   - README.md
+  - README-DEV.md
   - gems
   - generate_pa11y_ci_urls_from_git_diff.sh
   - lintPosts.js
@@ -59,10 +60,6 @@ exclude:
   - package.json
   - rspack.config.ts
   - scripts
-  - scripts/jquery-1.9.1.js
-  - scripts/jquery.jscroll-2.2.4.js
-  - scripts/search.js
-  - scripts/tweet.js
   - scss
   - send-blogs-to-deploy-endpoint.js
   - tsconfig.json
