@@ -87,7 +87,7 @@ The test engineer of the future is an analytical, ethical, and strategic thinker
 
 The future of testing is smarter, faster, and hyper-focussed on value discovery through investigation. AI is not a competitor; it is the most powerful co-pilot we have ever had.
 
-<img src="{{ site.baseurl }}/dmcnamee/assets/integrated-future.png" width="100%" alt="AI image of a person and hologogram viewing a screen" title="Integrated future">
+<img src="{{ site.baseurl }}/dmcnamee/assets/dragon-hammer.png" width="100%" alt="AI image of a tamed dragon and ai hammer" title="Dragon Hammer">
 
 The future is a symbiotic one, built on the dual pillars of **Taming the AI Dragon** and **Wielding the AI Hammer**. The human tester's role is not replaced, but profoundly elevated; they evolve into strategists, critical thinkers, and ethical guardians in a landscape increasingly defined by machine intelligence.
 
