@@ -16,7 +16,7 @@ image: "/assets/ai-testing-header.png"
 layout: default_post
 ---
 
-<img src="{{ site.baseurl }}/dmcnamee/assets/ai-testing-header.png" width="100%" alt="AI image" title="Future of AI Testing">
+<img src="{{ site.baseurl }}/dmcnamee/assets/ai-test-header.png" width="100%" alt="AI image" title="Future of AI Testing">
 
 ## A Brief History of Testing
 The rise of Artificial Intelligence is the biggest paradigm shift in software development since Agile—and it’s fundamentally rewriting the role of the Test Engineer.
@@ -87,7 +87,7 @@ The test engineer of the future is an analytical, ethical, and strategic thinker
 
 The future of testing is smarter, faster, and hyper-focussed on value discovery through investigation. AI is not a competitor; it is the most powerful co-pilot we have ever had.
 
-<img src="{{ site.baseurl }}/dmcnamee/assets/dragon-hammer.png" width="100%" alt="AI image of a tamed dragon and ai hammer" title="Dragon Hammer">
+<img src="{{ site.baseurl }}/dmcnamee/assets/dragon-hammers.png" width="100%" alt="AI image of a tamed dragon and ai hammer" title="Dragon Hammer">
 
 The future is a symbiotic one, built on the dual pillars of **Taming the AI Dragon** and **Wielding the AI Hammer**. The human tester's role is not replaced, but profoundly elevated; they evolve into strategists, critical thinkers, and ethical guardians in a landscape increasingly defined by machine intelligence.
 
