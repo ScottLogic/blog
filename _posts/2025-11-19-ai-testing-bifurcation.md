@@ -103,4 +103,4 @@ The Test Engineer of tomorrow will not spend their day writing boilerplate autom
 
 To thrive in this new era, organisations and testers must embrace this bifurcation, investing in the necessary skills and methodologies to harness the full potential of AI and secure the next generation of software quality. This includes acknowledging the need for investment in talent and compute infrastructure for these AI-driven systems.
 
-Embrace the change. Start building your AI literacy and prompt engineering skills today, and secure your role as the augmented engineer—the one who works with the technology to elevate testing from a cost centre to a strategic business advantage, enabling faster, more confident releases, superior risk management, and ensuring ethical and compliant AI deployments.
+Embrace the change. Start building your AI literacy and prompt engineering skills today, learn to think as the augmented engineer—the one who works with the technology to elevate testing from a cost centre to a strategic business advantage, enabling faster, more confident releases, superior risk management, and ensuring ethical and compliant AI deployments.
