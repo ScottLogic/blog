@@ -33,6 +33,7 @@ Testers have evolved, are still evolving, and will need to evolve further. The f
 ## Path 1: Taming the AI Dragon (Testing AI-Based Systems)
 When the system under test is an AI or Machine Learning (ML) model, the nature of testing fundamentally changes. We are no longer testing against a fixed scroll of business rules; we're testing a probabilistic, evolving, and often non-deterministic black box. The core challenge shifts from verifying known deterministic paths to exploring probabilistic outcomes—it's like trying to predict the path of a river, not just checking if a pipe is leaking.
 
+<img src="{{ site.baseurl }}/dmcnamee/assets/path-finding.png" width="100%" alt="AI generated image of a person finding their way down a river" title="Path finding">
 
 ### The New Arsenal of the Tester
 The Quality Guardian's skillset must deepen its analytical focus, moving from the logic and structure of imperative code to the statistics and ethics of data:
@@ -85,6 +86,8 @@ AI integration will make testing faster, more resilient, and continuous:
 The test engineer of the future is an analytical, ethical, and strategic thinker—an orchestrator of AI tools, focussed on uncovering the deep, complex, and high-impact failures that only human insight and prompt-powered agility can find.
 
 The future of testing is smarter, faster, and hyper-focussed on value discovery through investigation. AI is not a competitor; it is the most powerful co-pilot we have ever had.
+
+<img src="{{ site.baseurl }}/dmcnamee/assets/integrated-future.png" width="100%" alt="AI image of a person and hologogram viewing a screen" title="Integrated future">
 
 The future is a symbiotic one, built on the dual pillars of **Taming the AI Dragon** and **Wielding the AI Hammer**. The human tester's role is not replaced, but profoundly elevated; they evolve into strategists, critical thinkers, and ethical guardians in a landscape increasingly defined by machine intelligence.
 
