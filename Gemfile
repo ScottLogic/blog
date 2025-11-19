@@ -37,7 +37,8 @@ group :jekyll_plugins do
 
     gem "tzinfo-data", "~> 1.2022"
 
-    gem "jekyll-include-cache"
+    gem "html-minify", "1.0.0", path: "gems/html-minify-gem"
+    gem "hook-exec", "1.0.0", path: "gems/hook-exec-gem"
 
     # Issue with ffi requiring a very recent rubygems version, not yet available
     # in many current linux docker images, so this must be locked down for now.
