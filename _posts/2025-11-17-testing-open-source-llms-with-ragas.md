@@ -105,7 +105,9 @@ These models show a greater capacity to produce information that is verifiably t
 ![Two line bars show which points to skip or keep going for each test type]({{ site.github.url }}/afonseca/assets/Factual_correctness.png)
 
 
-When examining answer accuracy, which evaluates whether a response directly and correctly addresses the question, performance differences again become clear. DeepSeek performs moderately well with an average of around 0.38, suggesting that it often understands and responds to the question’s intent even when its factual grounding is imperfect. Gemma-3.1b and GPT-4o-mini, by contrast, show lower accuracy, at approximately 0.09 and 0.28, this could mean that they frequently offer partial or tangential answers. GPT-OSS-20b achieves the highest answer accuracy at about 0.44, reflecting a strong ability to remain relevant and focused on the specific question. LFM2-1.2 and Qwen3-30b fall between these extremes, with averages around 0.13 and 0.40 respectively, indicating a mix of correct and incomplete responses. 
+When examining answer accuracy, which evaluates whether a response directly and correctly addresses the question, performance differences again become clear. 
+
+DeepSeek performs moderately well with an average of around 0.38, suggesting that it often understands and responds to the question’s intent even when its factual grounding is imperfect. Gemma-3.1b and GPT-4o-mini, by contrast, show lower accuracy, at approximately 0.09 and 0.28, this could mean that they frequently offer partial or tangential answers. GPT-OSS-20b achieves the highest answer accuracy at about 0.44, reflecting a strong ability to remain relevant and focused on the specific question. LFM2-1.2 and Qwen3-30b fall between these extremes, with averages around 0.13 and 0.40 respectively, indicating a mix of correct and incomplete responses. 
 
 From these results, it becomes evident that some models are capable of formulating coherent, targeted answers even without perfect factual precision, while others struggle to stay on topic or fully meet the informational requirements of the questions.
 
@@ -127,9 +129,13 @@ Among all evaluated models, Qwen3-30b demonstrates the most balanced performance
 
 
 Based on the selected evaluation metrics: factual correctness, answer accuracy, and semantic similarity, the models that performed best overall were Qwen3-30b and GPT-OSS-20b. Both demonstrated a strong balance between generating responses that were contextually relevant, accurate, and factually grounded.
+
 Qwen3-30b stood out as the most consistent and well-rounded model across all three dimensions. It achieved the highest semantic similarity scores, indicating that its responses were closely aligned in meaning and structure with reference answers. This suggests that Qwen3-30b not only understood the questions well but also produced answers that captured their intended nuance and context. Moreover, it performed above average in both factual correctness and answer accuracy, showing that its outputs were not just well-worded but also grounded in verifiable information. This combination of coherence, precision, and truthfulness positions Qwen3-30b as the most reliable model in this evaluation.
+
 GPT-OSS-20b also performed strongly, particularly in answer accuracy, where it achieved the highest scores among all models. Its responses were consistently relevant and directly addressed the questions, which indicates a strong capacity for comprehension and contextual reasoning. While its factual correctness was slightly lower than Qwen3-30b’s, GPT-OSS-20b still demonstrated a commendable ability to produce precise and logically consistent answers. This suggests that the model effectively balances understanding with factual recall, making it highly effective for question-answering tasks that require clarity and directness.
+
 In contrast, models such as DeepSeek, Gemma-3.1b, GPT-4o, and LFM2-1.2 displayed more variability. DeepSeek, for instance, produced semantically coherent responses but often lacked factual accuracy. Gemma-3.1b and GPT-4o exhibited a similar pattern, where linguistic fluency was strong, yet the factual grounding was limited. LFM2-1.2 showed moderate performance across the metrics but did not reach the level of reliability seen in the top-performing models. These results illustrate that while many models can generate convincing and contextually appropriate text, maintaining factual precision remains a key challenge.
+
 Overall, the comparison reveals that Qwen3-30b and GPT-OSS-20b represent the most capable and balanced performers in this evaluation. They managed to combine factual accuracy, question relevance, and semantic coherence more effectively than the others. This finding underscores the importance of both factual grounding and semantic understanding in producing trustworthy, high-quality answers, qualities that these two models consistently demonstrated.
 
 
@@ -147,7 +153,6 @@ GPT-4o-mini recorded a total of 1h18 min, with most of the time distributed betw
 
 Despite these variations, the shorter runtimes of GPT-4o and GPT-4o-mini make them far more usable in practice. Users are unlikely to wait extended periods for a local model to produce results, no matter how strong the final output, leading to frustration or a shift toward faster alternatives. This usability gap could be narrowed if local models were deployed on higher-performance hardware, reducing inference times and making them more practical for real-world use.
 The most efficient models are Liquid lfm2-1.2b (≈ 36 min) and Google Gemma-3-1B (≈ 2 min), with minimal durations across stages, making them ideal for lightweight or time-sensitive tasks, though less suited for workloads requiring extensive reasoning or data validation.
-
 
 Overall, this spectrum highlights a clear trade-off: Qwen3-30B-A3B handles the most complex tasks, DeepSeek and GPT-4o-mini balance performance and efficiency, GPT-4o provides advanced reasoning at moderate cost, and Gemma-3-1b and Liquid lfm2-1.2b excel in speed and efficiency for simpler or time-critical applications. 
 
