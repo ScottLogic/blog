@@ -11,7 +11,9 @@
   <div class="content grid-x">
     {%- for post in posts -%}
       {%-
-        include post_summary.html post=post
+        include post_summary.html 
+        post=post 
+        postIndex=forloop.index0
         hideCategory=hideCategory
         fullWidth=fullWidth
       -%}

@@ -13,8 +13,9 @@
 {%- if numPosts > 0 -%}
   <div class="featured-posts grid-x grid-margin-x grid-margin-y">
     {%- assign topPost = featuredPosts[0] -%}
+    {% assign randIdx = "now" | date: "%N" | modulo: 4 %} 
     <div
-      class="featured-post {% include post_colour.html post=topPost %} cell large-12 grid-x"
+      class="featured-post {% include post_colour.html post=topPost postIndex=randIdx %} cell large-12 grid-x"
     >
       {%- include featured_post.html post=topPost -%}
     </div>
@@ -22,8 +23,9 @@
     {%- if numPosts >= 3 -%}
       {%- assign splitPosts = featuredPosts | slice: 1, 2 -%}
       {%- for post in splitPosts -%}
+        {%- assign colourIndex = randIdx | plus: forloop.index -%}
         <div
-          class="featured-post {% include post_colour.html post=post %} cell large-6 grid-x"
+          class="featured-post {% include post_colour.html post=post postIndex=colourIndex %} cell large-6 grid-x"
         >
           {%- include featured_post.html post=post -%}
         </div>
