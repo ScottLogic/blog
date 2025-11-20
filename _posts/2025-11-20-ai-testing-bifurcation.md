@@ -1,6 +1,6 @@
 ---
 title: "Testers, testing and the future: A Bifurcation into Testing AI and AI-powered Testing."
-date: 2025-11-19 00:00:00 Z
+date: 2025-11-20 00:00:00 Z
 categories:
 - Testing
 - Artificial Intelligence
@@ -10,7 +10,7 @@ tags:
 - AI
 - Future
 - Testing
-summary: "The role of the Software Test Engineer is undergoing its most radical transformation since the advent of Agile. AI presents a fundamental bifurcation in the future of quality: Testing AI systems and Using AI to Test software. This post explores the evolution of testing from manual gatekeepers to modern, multi-skilled strategists. We detail the deep analytical skills required—from Prompt Engineering and AI-Augmented Toolsmithing to Ethical and Bias Testing—as the focus shifts from writing scripts to interpreting data and orchestrating advanced AI co-pilots. Learn how embracing this change elevates the Test Engineer to a crucial strategic role, driving superior quality, faster releases, and ethical AI deployment."
+summary: "The role of the Software Test Engineer is undergoing its most radical transformation since the advent of Agile. AI presents a fundamental bifurcation in the future of quality: Testing AI systems and Using AI to Test software. This post explores the evolution of testing from manual gatekeepers to modern, multi-skilled strategists."
 author: dmcnamee
 image: "/assets/ai-testing-header.png"
 layout: default_post
