@@ -13,7 +13,7 @@
     {% include format_date.html date=post.date %}
   </span>
   {% unless post.layout == 'video_post' %}
-    <span>&middot;</span>
+    <span> &middot;</span>
     <span>{% include reading_time.html post=post %}</span>
   {% endunless %}
 </div>
