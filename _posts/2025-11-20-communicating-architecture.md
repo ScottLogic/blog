@@ -1,6 +1,6 @@
 ---
 title: How Do We Effectively Communicate Architecture?
-date: 2025-11-17 00:00:00 Z
+date: 2025-11-20 00:00:00 Z
 categories:
 - Architecture
 - Tech
@@ -123,9 +123,9 @@ LLMs introduce a new angle: because diagrams can be defined as code, we can now 
 
 But this approach has a fundamental limitation: diagrams are spatial and visual, while LLMs predict text. An LLM can create valid syntax, but it cannot reliably judge whether a diagram will be readable, balanced, or visually coherent.
 
-To address this gap, AI features are emerging inside visual diagramming tools themselves — for example [Miro](https://miro.com/ai/diagram-ai/), [Lucidchart](https://www.lucidchart.com/pages/use-cases/diagram-with-AI), and dedicated tools like [Eraser](https://www.eraser.io/). These combine language input with layout engines, constraint solving, and interactive prompts, producing more coherent visuals while still keeping the human in control of the modelling.
+To address this gap, AI features are emerging inside visual diagramming tools themselves — for example [Miro](https://miro.com/ai/diagram-ai/), [Lucidchart](https://www.lucidchart.com/pages/use-cases/diagram-with-AI), and dedicated tools like [Eraser](https://www.eraser.io/). These may be able to more intelligently integrate with layout engines and can prompt a user to clarify their intent; producing more coherent visuals while still keeping a human in the loop. AI tools are also being integrated directly into code-bases to generate documenation, including diagrams - such as Google's [CodeWiki](https://codewiki.google/) or Devin's [DeepWiki][https://deepwiki.com/].
 
-LLMs also have potential to support the modelling process more directly. By connecting to codebases or live infrastructure, they can answer natural-language questions (“Which services call this API?”), help infer relationships, and assist in keeping architectural models aligned with the real system.
+LLMs also have potential to support the modelling process more directly. By connecting to codebases or live infrastructure, they can answer natural-language questions (“Which services call this API?”), help infer relationships, and assist in keeping architectural models aligned with the real system. Some examples are 
 
 AI-assisted diagramming is most effective as augmentation rather than automation. By combining automated insights with natural-language interaction, these tools have the potential to reduce the effort of creating and maintaining diagrams — while architects still provide the intent, abstraction, and viewpoint needed for effective communication.
 
