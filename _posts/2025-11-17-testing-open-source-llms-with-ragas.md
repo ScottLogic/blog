@@ -39,7 +39,7 @@ We tested the following models (links are provided where available):
 
 InferESG served as the core system in our experiment. Under the hood, InferESG uses an agentic solver that breaks down the user’s request into specific subtasks and leverages various API calls to LLMs, each with task-specific system contexts. The system takes a primary sustainability document, analyses it, and generates a comprehensive greenwashing report. This generated report then serves as the foundation for evaluating and comparing the performance of other large language models. 
 
-To ensure the accuracy of our generated reports before using them to build our test dataset, we first created a benchmark report. In this benchmark, GPT-5 extracted all factual statements and classified them. A manual verification was conducted at the end to ensure the generated report was consistent and accurate. For a better understanding of this process, you can refer to our blog, which provides a more detailed explanation of these steps.
+To ensure the accuracy of our generated reports before using them to build our test dataset, we first created a benchmark report. In this benchmark, GPT-5 extracted all factual statements and classified them. A manual verification was conducted at the end to ensure the generated report was consistent and accurate. For a better understanding of this process, you can refer to our [blog](https://blog.scottlogic.com/2025/10/27/testing-open-source-llms.html), which provides a more detailed explanation of these steps.
 
 
 ## Evaluating with RAGAS
@@ -102,7 +102,7 @@ In terms of factual correctness, the results vary considerably across models. De
 
 These models show a greater capacity to produce information that is verifiably true, especially regarding specific ESG commitments and targets. Overall, factual correctness appears uneven across the models, with newer and larger systems demonstrating a better ability to anchor their responses in reliable data.
 
-![Two line bars show which points to skip or keep going for each test type]({{ site.github.url }}/afonseca/assets/Fatual_correctness.png)
+![Two line bars show which points to skip or keep going for each test type]({{ site.github.url }}/afonseca/assets/Factual_correctness.png)
 
 
 When examining answer accuracy, which evaluates whether a response directly and correctly addresses the question, performance differences again become clear. DeepSeek performs moderately well with an average of around 0.38, suggesting that it often understands and responds to the question’s intent even when its factual grounding is imperfect. Gemma-3.1b and GPT-4o-mini, by contrast, show lower accuracy, at approximately 0.09 and 0.28, this could mean that they frequently offer partial or tangential answers. GPT-OSS-20b achieves the highest answer accuracy at about 0.44, reflecting a strong ability to remain relevant and focused on the specific question. LFM2-1.2 and Qwen3-30b fall between these extremes, with averages around 0.13 and 0.40 respectively, indicating a mix of correct and incomplete responses. 
@@ -151,7 +151,7 @@ The most efficient models are Liquid lfm2-1.2b (≈ 36 min) and Google Gemma-3-1
 
 Overall, this spectrum highlights a clear trade-off: Qwen3-30B-A3B handles the most complex tasks, DeepSeek and GPT-4o-mini balance performance and efficiency, GPT-4o provides advanced reasoning at moderate cost, and Gemma-3-1b and Liquid lfm2-1.2b excel in speed and efficiency for simpler or time-critical applications. 
 
-![Two line bars show which points to skip or keep going for each test type]({{ site.github.url }}/afonseca/assets/performance_graph.png)
+![Two line bars show which points to skip or keep going for each test type]({{ site.github.url }}/afonseca/assets/Performance_graph.png)
 
 ## Conclusions
 
