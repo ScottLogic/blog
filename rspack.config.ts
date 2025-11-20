@@ -1,5 +1,6 @@
 import { defineConfig } from "@rspack/cli";
 import rspack from "@rspack/core";
+import * as path from "node:path";
 
 const isProd = process.env["JEKYLL_ENV"] === "production";
 
@@ -34,7 +35,7 @@ export default defineConfig({
     ],
   },
   output: {
-    path: "_site/",
+    path: path.resolve(__dirname, "_site/"),
     filename: "script.js",
     scriptType: "module",
   },
