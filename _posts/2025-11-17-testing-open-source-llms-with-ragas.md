@@ -29,8 +29,8 @@ We tested the following models (links are provided where available):
 |---|---:|---:|---|---|---|
 | DeepSeek-R1-0528-Qwen3-8B | DeepSeek | 8 | DeepSeek AI | [HuggingFace](https://huggingface.co/unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF) |
 | Gemma 3 1B | Gemma-3-1B | 1.0 | Google / DeepMind | [HuggingFace](https://huggingface.co/google/gemma-3-1b) |
-| GPT-4o | GPT-4o | 200 | OpenAI |(see writeups) |
-| GPT-4o-mini | GPT-4o-mini | 8 | OpenAI |(see writeups) |
+| GPT-4o | GPT-4o | 200 | OpenAI |[OpenAI](https://platform.openai.com/docs/models/chatgpt-4o-latest) |
+| GPT-4o-mini | GPT-4o-mini | 8 | OpenAI |[OpenAI](https://platform.openai.com/docs/models/gpt-4o-mini) |
 | GPT-OSS-20B | GPT-OSS-20B | 20 | OpenAI |[HuggingFace](https://huggingface.co/openai/gpt-oss-20b)|
 | LFM2-1.2 | LFM2-1.2 | 1.2 | LiquidAI | [HuggingFace](https://huggingface.co/LiquidAI/LFM2-1.2B) |
 | Qwen3-30B-A3B | Qwen3-30B-A3B | 30.5 | Qwen |[HuggingFace](https://huggingface.co/Qwen/Qwen3-30B-A3B) |
