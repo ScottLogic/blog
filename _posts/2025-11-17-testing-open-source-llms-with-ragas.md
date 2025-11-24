@@ -9,23 +9,23 @@ categories:
 - Testing
 tags:
 - LLM
-- RAGAS
+- Ragas
 - ESG
 - InferESG
 - Evaluation
 ---
 
-# Evaluating Answers with Large Language Models: How InferESG and RAGAS Helped
+# Evaluating Answers with Large Language Models: How InferESG and Ragas Helped
 
 In our latest project, we set out to evaluate how different Large Language Models (LLMs) perform when responding to user prompts. Building on our existing platform, InferESG, which automatically generates greenwashing reports from ESG disclosures, our goal was not to determine which model is superior, but rather to assess whether open-source models can serve as viable alternatives to OpenAI’s proprietary models. 
 
-For this study, we tested the following models: DeepSeek, Gemma-3-1B, GPT-4o, GPT-4o-mini, GPT-OSS-20B, LFM2-1.2, and Qwen3-30B-A3B. The table below gives a better understanding of the models sizes and provides links with useful information about those models.
+For this study, we tested the following models: DeepSeek, Gemma-3-1B, GPT-4o, GPT-4o-mini, GPT-OSS-20B, LFM2-1.2, and Qwen3-30B-A3B. The table below gives a better understanding of the models-sizes and provides links with useful information about them.
 
 ## Models evaluated
 
 We tested the following models (links are provided where available):
 
-| Full model name | Short name | Params (B) | Producer | Link |
+| Full model name | Short name | Params (bn) | Producer | Link |
 |---|---:|---:|---|---|---|
 | DeepSeek-R1-0528-Qwen3-8B | DeepSeek | 8 | DeepSeek AI | [HuggingFace](https://huggingface.co/unsloth/DeepSeek-R1-0528-Qwen3-8B-GGUF) |
 | Gemma 3 1B | Gemma-3-1B | 1.0 | Google / DeepMind | [HuggingFace](https://huggingface.co/google/gemma-3-1b) |
@@ -39,26 +39,24 @@ We tested the following models (links are provided where available):
 
 InferESG served as the core system in our experiment. Under the hood, InferESG uses an agentic solver that breaks down the user’s request into specific subtasks and leverages various API calls to LLMs, each with task-specific system contexts. The system takes a primary sustainability document, analyses it, and generates a comprehensive greenwashing report. This generated report then serves as the foundation for evaluating and comparing the performance of other large language models. 
 
-To ensure the accuracy of our generated reports before using them to build our test dataset, we first created a benchmark report. In this benchmark, GPT-5 extracted all factual statements and classified them. A manual verification was conducted at the end to ensure the generated report was consistent and accurate. For a better understanding of this process, you can refer to our [blog](https://blog.scottlogic.com/2025/10/27/testing-open-source-llms.html), which provides a more detailed explanation of these steps.
+To ensure the accuracy of our generated reports before using them to build our test dataset, we first created a benchmark report. In this benchmark, GPT-5 extracted all factual statements and classified them. A manual verification was conducted at the end to ensure the generated report was consistent and accurate. For a better understanding of this process, you can refer to our blog post [Beyond Benchmarks: Testing Open-Source LLMs in Multi-Agent Workflows](https://blog.scottlogic.com/2025/10/27/testing-open-source-llms.html), which provides a more detailed explanation of these steps.
 
 
-## Evaluating with RAGAS
+## Evaluating with Ragas
 
 Ragas played a central role in both creating our test dataset and evaluating model outputs through a set of well-defined metrics.
 Initially, Ragas helped generate our test dataset by creating thirty question–answer (Q&A) pairs based on the generated report by GPT-4o. We provided Ragas with carefully crafted prompts and instructions to extract meaningful Q&A pairs, which were then manually verified to establish a ground truth dataset.
 
 The design of these prompts was critical: clear, well-structured prompts guided the model to produce focused, relevant, and consistent answers, directly impacting the quality and reliability of the resulting dataset. Conversely, poorly designed or ambiguous prompts could lead to off-target or inconsistent responses, introducing noise and reducing the accuracy of subsequent evaluations.
 
-Tip: One important point to keep in mind when working with LLMs is the risk of hallucinations, instances where a model generates content that sounds plausible but isn’t factually accurate. 
-
-In our experiments generating Q&A datasets, we found that setting the model temperature to 0 within Ragas significantly helped mitigate this issue, reducing speculative or fabricated responses and improving overall answer fidelity. However, even with this adjustment, manual verification remains essential to ensure the accuracy and reliability of the generated answers, especially in research or evaluation contexts where precision matters.
+In our experiments generating Q&A datasets, we found that setting the model temperature to 0 within Ragas significantly helped mitigate this issue, reducing speculative or fabricated responses and improving overall answer fidelity. However, even with this adjustment, manual verification remained essential to ensure the accuracy and reliability of the generated answers, especially in research or evaluation contexts where precision matters.
 
 Once our test dataset was ready, the next step involved selecting metrics to evaluate the accuracy and quality of answers generated by different LLMs. We built a script to automate this process, using the questions from the test dataset, the generated report, and each model’s answers as inputs.
 
 
 ## Refining our metrics
 
-Initially, we evaluated model performance using faithfulness, semantic similarity, and context precision. However, we quickly realized that faithfulness was not ideal for our case. 
+Initially, we evaluated model performance on faithfulness, semantic similarity, and context precision. However, we quickly realized that faithfulness was not ideal for our case. 
 
 The metric appeared to be influenced heavily by the length difference between the generated answer and the reference text: shorter reference answers often led to lower faithfulness scores, even when the generated responses were factually accurate. This discrepancy was particularly evident in the charts produced by Ragas, where faithfulness consistently underestimated the true quality of the responses upon manual review.
 
@@ -75,7 +73,7 @@ This refined combination of metrics provided a more balanced and reliable view o
 
 ## The evaluation pipeline
 
-As mentioned before on the Evaluation with Ragas we developed a systematic evaluation workflow, starting with a baseline Q&A dataset from AstraZeneca’s ESG report, using carefully crafted prompts to ensure consistent, high-quality answers for accurate performance assessment.
+As mentioned before on the evaluation with Ragas we developed a systematic evaluation workflow, starting with a baseline Q&A dataset from AstraZeneca’s ESG report, using carefully crafted prompts to ensure consistent, high-quality answers for accurate performance assessment.
 This baseline ensured that all models were tested under consistent and comparable conditions.
 
 Next, we created a wrapper around the InferESG API to automate the following sequence:
@@ -86,7 +84,7 @@ Next, we created a wrapper around the InferESG API to automate the following seq
 
 This automated pipeline was intentionally designed for repeatability, allowing us to alternate between different LLMs during the questioning phase and evaluate their performance under identical parameters.
 
-InferESG operated with a session-based cache to store reports generated in step (1). However, when switching between models, the cache would reset, leading to non-equivalent comparisons, each model was effectively responding to slightly different report inputs. To correct this, we temporarily adjusted the session cache to function deterministically, ensuring that every model used the same generated greenwashing report for evaluation.
+InferESG operated with a session-based cache to store reports generated in step 1. However, when switching between models, the cache would reset, leading to non-equivalent comparisons, each model was effectively responding to slightly different report inputs. To correct this, we temporarily adjusted the session cache to function deterministically, ensuring that every model used the same generated greenwashing report for evaluation.
 
 With the setup standardized, the following steps were executed to gather and interpret results:
 
@@ -97,13 +95,11 @@ With the setup standardized, the following steps were executed to gather and int
 
 ## Results 
 
-When comparing the metric charts average performance results of the different LLMs we could see that for:
-In terms of factual correctness, the results vary considerably across models. DeepSeek shows relatively low factual reliability, with an average score of about 0.15, suggesting that its answers often contain inaccuracies or incomplete information. Gemma-3.1b performs slightly better, averaging around 0.19, which indicates a modest improvement but still leaves room for error. GPT-4o and LFM2-1.2 both demonstrate lower factual correctness, around 0.08 and 0.14 respectively, implying that they tend to produce factually inconsistent statements. The strongest factual grounding is found in Qwen3-30b and GPT-OSS-20b, which reach approximately 0.28 and 0.20 on average. 
+When comparing the average performance results of the different LLMs, as displayed on the metric charts, we could see in terms of factual correctness, the results vary considerably across models. DeepSeek shows relatively low factual reliability, with an average score of about 0.15, suggesting that its answers often contain inaccuracies or incomplete information. Gemma-3.1b performs slightly better, averaging around 0.19, which indicates a modest improvement but still leaves room for error. GPT-4o and LFM2-1.2 both demonstrate lower factual correctness, around 0.08 and 0.14 respectively, implying that they tend to produce factually inconsistent statements. The strongest factual grounding is found in Qwen3-30b and GPT-OSS-20b, which reach approximately 0.28 and 0.20 on average. 
 
 These models show a greater capacity to produce information that is verifiably true, especially regarding specific ESG commitments and targets. Overall, factual correctness appears uneven across the models, with newer and larger systems demonstrating a better ability to anchor their responses in reliable data.
 
-![Two line bars show which points to skip or keep going for each test type]({{ site.github.url }}/afonseca/assets/Factual_correctness.png)
-
+![A bar chart showing the factual correctness score of multiple models across multiple questions, showing a large amount of variability in model scores with little pattern in which models score consistently]({{ site.github.url }}/afonseca/assets/Factual_correctness.png "Factual Correctness Scores by Question and LLM")
 
 When examining answer accuracy, which evaluates whether a response directly and correctly addresses the question, performance differences again become clear. 
 
@@ -111,13 +107,17 @@ DeepSeek performs moderately well with an average of around 0.38, suggesting tha
 
 From these results, it becomes evident that some models are capable of formulating coherent, targeted answers even without perfect factual precision, while others struggle to stay on topic or fully meet the informational requirements of the questions.
 
-![Two line bars show which points to skip or keep going for each test type]({{ site.github.url }}/afonseca/assets/Answer_accuracy.png)
+
+![A bar chart showing the answer acurracy score of multiple models across multiple questions, showing a large amount of variability in model scores with little pattern in which models score consistently]({{ site.github.url }}/afonseca/assets/Answer_accuracy.png) "Answer Accuracy Scores by Question and LLM"
+
 
 The third metric, semantic similarity, captures how closely the meaning and context of a model’s response align with an ideal reference answer. Here, the performance is consistently strong across nearly all models. Most systems achieve scores between 0.85 and 0.89, showing that even when the details are inaccurate, the responses tend to sound relevant, structured, and contextually appropriate. DeepSeek’s average of 0.88 suggests that it can produce text semantically close to reference answers despite factual inconsistencies. Gemma-3.1b, GPT-4o, and GPT-4o-mini score slightly lower, between 0.85 and 0.87, still demonstrating good linguistic and contextual alignment. 
 
 The highest semantic similarity belongs to Qwen3-30b, with an average close to 0.89, confirming that its answers are not only meaningful but also stylistically and contextually consistent with the expected responses. This overall trend indicates that language models are generally proficient at producing coherent and semantically aligned outputs, even when the underlying factual content is weak.
 
-![Two line bars show which points to skip or keep going for each test type]({{ site.github.url }}/afonseca/assets/Semantic_similarity.png)
+
+![A bar chart showing the semantic similarity score of multiple models across multiple questions, showing a large amount of variability in model scores with little pattern in which models score consistently]({{ site.github.url }}/afonseca/assets/Semantic_similarity.png) "Semantic Similarity Scores by Question and LLM"
+
 
 Taken together, these results highlight an important pattern: there is a noticeable trade-off between factual correctness and semantic fluency. Many models can produce convincing, well-phrased answers that align semantically with reference texts but fail to maintain factual integrity. Similarly, answer accuracy does not always correlate with factual correctness, some models provide responses that sound right but lack true substance, while others offer factually accurate information that only partially addresses the question. 
 
@@ -156,23 +156,29 @@ The most efficient models are Liquid lfm2-1.2b (≈ 36 min) and Google Gemma-3-1
 
 Overall, this spectrum highlights a clear trade-off: Qwen3-30B-A3B handles the most complex tasks, DeepSeek and GPT-4o-mini balance performance and efficiency, GPT-4o provides advanced reasoning at moderate cost, and Gemma-3-1b and Liquid lfm2-1.2b excel in speed and efficiency for simpler or time-critical applications. 
 
-![Two line bars show which points to skip or keep going for each test type]({{ site.github.url }}/afonseca/assets/Performance_graph.png)
+
+
+![A bar chart showing the sum duration time of the different models using different agents]({{ site.github.url }}/afonseca/assets/Performance_graph.png) "Performance and Effiency of the AI models"
+
+
+
 
 ## Conclusions
 
-Our evaluation demonstrates that Ragas a valuable tool for assessing LLM-generated answers using structured metrics, providing a clear framework for comparing models across multiple dimensions. However, several considerations are crucial for obtaining reliable results.
+Our evaluation demonstrates that Ragas is a valuable tool for assessing LLM-generated answers using structured metrics, providing a clear framework for comparing models across multiple dimensions. However, several considerations are crucial for obtaining reliable results.
 First, the quality of evaluation heavily depends on the clarity of questions and the quality of reference context.
 
 LLM outputs are context-sensitive, and poorly defined questions or insufficient reference material can significantly impact performance metrics.
 Second, hallucinations remain a concern with LLMs. In our experiments, setting the model temperature to 0 within Ragas helped mitigate this issue. Reducing the temperature controls the randomness of a model’s output and makes it more deterministic, increasing the likelihood of selecting the most probable next token. However, it also limits response diversity and nuance, making outputs more rigid and less adaptable to ambiguous queries.
 
 Overall, this helped reduce speculative or fabricated responses and improved answer fidelity.
+
 Third, prompt design is critical. Clear, well-structured prompts ensure that LLMs generate focused and relevant answers, which in turn supports more accurate evaluation outcomes.
 Overall, the results across all models were generally positive, particularly in terms of semantic similarity, which remained consistently high across the board, indicating that most models preserved the intended meaning of answers even when phrasing differed from the reference.
 
 On average, Qwen3-30B emerged as the strongest performer, excelling in factual correctness and maintaining high semantic similarity, making it the most robust and reliable model for generating accurate, contextually grounded, and relevant answers. GPT-OSS-20B also performed very well, with strong answer accuracy and semantic similarity, making it a solid choice for balanced performance.
 
-In terms of performance and efficiency, Qwen3-30B-A3B (31B params) is the most computationally intensive model, excelling at complex, high-reasoning tasks but with longer execution times, particularly noticeable on local hardware. GPT-4o (200B params) offers the most advanced reasoning capabilities, though its large size comes with substantial computational cost. Models such as DeepSeek (8B params) and GPT-4o-mini (8B params) strike a balance between performance and efficiency, providing strong results with moderate runtimes. Smaller models like Gemma-3-1B and LFM2-1.2B (1B params each) are highly efficient and fast, making them well-suited for lightweight or time-sensitive tasks, though they are less capable of handling workloads that require extensive reasoning.
+In terms of performance and efficiency, Qwen3-30B-A3B (31bn params) is the most computationally intensive model, excelling at complex, high-reasoning tasks but with longer execution times, particularly noticeable on local hardware. GPT-4o (200bn params) offers the most advanced reasoning capabilities, though its large size comes with substantial computational cost. Models such as DeepSeek (8bn params) and GPT-4o-mini (8bn params) strike a balance between performance and efficiency, providing strong results with moderate runtimes. Smaller models like Gemma-3-1B and LFM2-1.2B (1bn params each) are highly efficient and fast, making them well-suited for lightweight or time-sensitive tasks, though they are less capable of handling workloads that require extensive reasoning.
 
 These results align with the expectation that larger models generally perform better due to their increased parameter capacity but at the cost of speed and computational demand. Our experiments not only confirm this hypothesis but also quantify the extent of the trade-offs, demonstrating that careful model selection, considering both task complexity and hardware constraints, is crucial for optimizing performance in practice.
 
