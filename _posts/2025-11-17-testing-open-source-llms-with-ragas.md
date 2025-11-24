@@ -140,7 +140,6 @@ Overall, the comparison reveals that Qwen3-30b and GPT-OSS-20b represent the mos
 
 
 
-
 ## Performance and Efficiency of the AI models
 
 In terms of execution duration, to calculate the duration of each call to LLMs, we instrumented our analysis code to record start and end times. For models other than Qwen3-30B, this approach proved an effective way of calculating the individual usage of each agent. For Qwen3-30B, individual model analysis exceeded the time-outs built into our analysis pipeline resulting in LMStudio queueing tasks. This invalidates the data we have derived for individual agents.
