@@ -1,5 +1,5 @@
 ---
-title: Technology Carbon Standard Update – 4th September 2025
+title: Introducing AI-related emissions into the Technology Carbon Standard
 date: 2025-09-04 00:00:00 Z
 categories:
 - Sustainability

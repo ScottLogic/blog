@@ -127,7 +127,7 @@ By pairing the platform with the blueprint library started by Scott Logic, the t
 
 The future of financial services lies in collaborative innovation: sharing knowledge, tools, and best practice across the industry. Fluxnova embodies this philosophy, and Scott Logic is proud to have helped shape its launch.
 
-Ready to explore the possibilities? Visit the [FINOS website](https://www.finos.org/), explore the roadmap, and download the blueprint processes to get started.
+Read about [our Fluxnova Migration Service](https://www.scottlogic.com/what-we-do/fluxnova-migration). Ready to explore the possibilities? Visit the [FINOS Website](https://www.finos.org/), explore the roadmap, and download the blueprint processes to get started.
 
 [Robert Griffiths](https://blog.scottlogic.com/rgriffiths/)
 

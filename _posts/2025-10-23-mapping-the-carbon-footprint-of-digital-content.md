@@ -12,6 +12,7 @@ summary: Following the latest update of the Technology Carbon Standard, this blo
   explores the carbon footprint of digital content throughout its entire lifecycle,
   highlighting key carbon emissions hotspots and offering strategies to mitigate them.
 author: hsauve
+image: "/uploads/He%CC%81le%CC%80ne-Sauve%CC%81---Mapping%20the%20carbon%20footprint%20of%20digital%20content-01-f4766a.jpg"
 ---
 
 As part of the [latest update](https://blog.scottlogic.com/2025/09/04/technology-carbon-standard-update-4-sept.html) of the [Technology Carbon Standard](https://www.techcarbonstandard.org/), the Sustainability Team at Scott Logic added a new category focusing on content.
