@@ -108,7 +108,7 @@ DeepSeek performs moderately well with an average of around 0.38, suggesting tha
 From these results, it becomes evident that some models are capable of formulating coherent, targeted answers even without perfect factual precision, while others struggle to stay on topic or fully meet the informational requirements of the questions.
 
 
-![A bar chart showing the answer acurracy score of multiple models across multiple questions, showing a large amount of variability in model scores with little pattern in which models score consistently]({{ site.github.url }}/afonseca/assets/Answer_accuracy.png) "Answer Accuracy Scores by Question and LLM"
+![A bar chart showing the answer acurracy score of multiple models across multiple questions, showing a large amount of variability in model scores with little pattern in which models score consistently]({{ site.github.url }}/afonseca/assets/Answer_accuracy.png "Answer Accuracy Scores by Question and LLM")
 
 
 The third metric, semantic similarity, captures how closely the meaning and context of a model’s response align with an ideal reference answer. Here, the performance is consistently strong across nearly all models. Most systems achieve scores between 0.85 and 0.89, showing that even when the details are inaccurate, the responses tend to sound relevant, structured, and contextually appropriate. DeepSeek’s average of 0.88 suggests that it can produce text semantically close to reference answers despite factual inconsistencies. Gemma-3.1b, GPT-4o, and GPT-4o-mini score slightly lower, between 0.85 and 0.87, still demonstrating good linguistic and contextual alignment. 
@@ -116,7 +116,7 @@ The third metric, semantic similarity, captures how closely the meaning and cont
 The highest semantic similarity belongs to Qwen3-30b, with an average close to 0.89, confirming that its answers are not only meaningful but also stylistically and contextually consistent with the expected responses. This overall trend indicates that language models are generally proficient at producing coherent and semantically aligned outputs, even when the underlying factual content is weak.
 
 
-![A bar chart showing the semantic similarity score of multiple models across multiple questions, showing a large amount of variability in model scores with little pattern in which models score consistently]({{ site.github.url }}/afonseca/assets/Semantic_similarity.png) "Semantic Similarity Scores by Question and LLM"
+![A bar chart showing the semantic similarity score of multiple models across multiple questions, showing a large amount of variability in model scores with little pattern in which models score consistently]({{ site.github.url }}/afonseca/assets/Semantic_similarity.png "Semantic Similarity Scores by Question and LLM")
 
 
 Taken together, these results highlight an important pattern: there is a noticeable trade-off between factual correctness and semantic fluency. Many models can produce convincing, well-phrased answers that align semantically with reference texts but fail to maintain factual integrity. Similarly, answer accuracy does not always correlate with factual correctness, some models provide responses that sound right but lack true substance, while others offer factually accurate information that only partially addresses the question. 
@@ -157,7 +157,7 @@ Overall, this spectrum highlights a clear trade-off: Qwen3-30B-A3B handles the m
 
 
 
-![A bar chart showing the sum duration time of the different models using different agents]({{ site.github.url }}/afonseca/assets/Performance_graph.png) "Performance and Effiency of the AI models"
+![A bar chart showing the sum duration time of the different models using different agents]({{ site.github.url }}/afonseca/assets/Performance_graph.png "Performance and Effiency of the AI models")
 
 
 
