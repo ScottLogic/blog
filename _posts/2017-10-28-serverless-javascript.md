@@ -9,6 +9,8 @@ summary: JavaScript is the dominant force on the web and increasingly the deskto
   the context of serverless architectures, a cloud-computing pattern with zero configuration,
   automatic scaling and a pay-per execution model.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/NOQcWrUrvlo
 short-author-aside: true
 ---

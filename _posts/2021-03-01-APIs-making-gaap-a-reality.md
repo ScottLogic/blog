@@ -5,6 +5,7 @@ categories:
 - Tech
 tags:
 - featured
+- video_post
 author: godds
 summary: With APIs, Open Standards and modern tooling, the vision of GaaP is more
   readily achievable than ever before, but it requires a different understanding of

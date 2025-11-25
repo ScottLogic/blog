@@ -205,9 +205,9 @@ public static void main(String args[]) {
         // Loop ad infinitum
         do {
           // Build message object
-          JSONObject message = new JSONObject() {{
+          JSONObject message = new JSONObject() {% raw %}{{
             put("message", "The time is: " + Calendar.getInstance().getTime());
-          }};
+          }}{% endraw %};
           // Publish a message by invoking the update action
           provider.publish("update", message, new AckListener() {
             @Override
@@ -316,9 +316,9 @@ public static void main(String args[]) {
 
       // Construct a the context object for an instrument
       Context context = new Context("fdc3.instrument", "Apple");
-      context.put("id", new JSONObject() {{
+      context.put("id", new JSONObject() {% raw %}{{
         put("ticker", "aapl");
-      }});
+      }}{% endraw %});
 
       // If we have multiple applications that support the ViewChart intent
       // allow the user to pick which app to use

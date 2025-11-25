@@ -2,8 +2,6 @@ name: Lint Posts
 
 on:
   pull_request:
-    branches:
-      - 'gh-pages'  # Runs when a PR targets the gh-pages branch
 
 jobs:
     lint-posts:

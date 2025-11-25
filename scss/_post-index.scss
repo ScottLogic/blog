@@ -1,51 +1,79 @@
-@use 'colours';
+@use "colours";
+@use "fonts";
+@use "util";
 
 .post-index {
+  padding-top: 125px;
+  @include util.breakpoint(large) {
+    padding-top: 150px;
+  }
 
-	padding-top: 125px;
-	@include breakpoint(large) {
-		padding-top: 150px;
-	}
+  h1,
+  h2 {
+    text-align: left;
+    width: fit-content;
+  }
 
-	h1, h2 {
-		text-align: center;
-	}
+  h2 {
+    .svg-container {
+      display: flex;
+      align-items: center;
+      font-weight: fonts.$font-regular;
+      overflow: hidden;
+      width: fit-content;
+      padding-right: 0.125em;
+      :hover .div {
+        background-color: colours.$teal;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 40;
+        font-size: fonts.$baseFontSize * 2;
+      }
+      .chevron-wrapper {
+        padding-right: 0.225em;
+        margin-left: -0.225em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .svg-container:hover {
+      background-color: colours.$teal;
+    }
+  }
 
-	h2 {
-		font-weight: $font-regular;
-	}
+  .sub-title {
+    margin-bottom: 2rem;
+    font-size: fonts.$baseFontSize * 2;
+    @include util.breakpoint(large) {
+      margin-bottom: 3rem;
+    }
+  }
 
-	.sub-title {
-		margin-bottom: 2rem;
-		@include breakpoint(large) {
-			margin-bottom: 3rem;
-		}
-	}
+  h2.super-title {
+    font-size: fonts.$baseFontSize * 1.5;
+    > a {
+      color: colours.$teal;
+      &:hover {
+        color: colours.$white;
+        background-color: colours.$teal;
+      }
+    }
+  }
 
-	h2.super-title {
-		font-size: $baseFontSize;
-		> a {
-			color: colours.$teal;
-			&:hover {
-				color: colours.$white;
-				background-color: colours.$teal;
-			}
-		}
-	}
-
-	.main-content > div {
-		display: inline-block;
-	}
-
-  .active {
-    border-bottom: 3px solid colours.$teal;
+  .main-content > div {
+    display: inline-block;
   }
 
   .category-list-compact {
     label {
       font-size: 20px;
       font-weight: 700;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
       text-align: center;
     }
   }

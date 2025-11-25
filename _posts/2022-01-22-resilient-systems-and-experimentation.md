@@ -9,6 +9,8 @@ summary: Failures are inevitable. Although trying to prevent possible failures t
   adapt. In this talk, I explore the importance of resilience and how experimentation
   can help us build more resilient systems.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/JAtXMyOPH0k?start=1151
 short-author-aside: true
 ---

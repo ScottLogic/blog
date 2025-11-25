@@ -5,6 +5,7 @@ categories:
 - Tech
 tags:
 - featured
+- video_post
 author: ceberhardt
 summary: This talk, from London Node User Group, looked at some of the internals of
   WebAssembly, exploring how it works ‘under the hood’ with a demonstration of how

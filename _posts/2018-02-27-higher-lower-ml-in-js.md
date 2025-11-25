@@ -8,6 +8,8 @@ summary: This talk will introduce the recently launched TensorFlow.js library, d
   what’s possible right now (with some audience participation!) and ponder on the
   future directions this technology might take us.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/U866dA0u4eE
 short-author-aside: true
 ---

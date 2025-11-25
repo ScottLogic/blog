@@ -21,7 +21,6 @@ If you look up a definition of software Architecture, you might find various att
 
 * **Design:** This involves making sure that an organisation makes the right choice at a particular point in time. Often in Enterprise Architecture, this is within the context of software selection and system design.
 
-
 * **Governance:** Once choices are made, governance ensures that these choices are implemented as designed, adhering to best practices and standards, and continue to be appropriate.
 
 ![design_governance.png](/uploads/design_governance.png)
@@ -36,9 +35,7 @@ We believe that Architecture can bring a lot of value to organisations of all si
 
 * **Strategic alignment:** Ensuring that projects and initiatives align with broader organisational goals. This includes understanding the strategic objectives and making sure that the work being done supports these goals.
 
-
 * **Risk management:** Identifying and mitigating risks. Architects often have a holistic view of the organisation, allowing them to spot potential risks and understand the impact of changes.
-
 
 * **Efficiency:** Reducing costs by fixing issues early and reusing existing solutions. Sometimes, it's cheaper to fix a mistake on paper than after it's built. Architecture helps in making these early corrections.
 
@@ -80,15 +77,11 @@ Technical Architecture covers a broad range of technologies, each with their own
 
 * **Data Architecture:** Concerned with how data moves around an organisation, how it is gathered, stored, and distributed. Data Architects design data models, define data flows, and ensure efficient data management.
 
-
 * **Application Architecture:** Focuses on how applications are designed, integrated, and deployed. Application Architects ensure applications are scalable, maintainable, and secure, and that they integrate well with other systems.
-
 
 * **Network Architecture:** Deals with how physical or virtual infrastructure is connected and communicates reliably and safely. Network Architects design network topologies, configure devices, and ensure network performance and security.
 
-
 * **Cloud Architecture:** Focuses on the use, management, and configuration of cloud resources and services. Cloud Architects design cloud-based solutions, manage cloud infrastructure, and ensure scalability, performance, and security.
-
 
 * **Security Architecture:** Concerned with understanding threats and ensuring systems are designed with appropriate security controls. Security Architects identify risks, design security measures, and ensure compliance with security standards.
 

@@ -10,6 +10,8 @@ summary: In this talk, Hugh Wallace, Transformation Lead at the Scottish Governm
   on this partnership, drawing on Scott Logic’s experience of being delivery partner
   for the Scottish Government Payment Service.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/AXLrHVTQLX8
 short-author-aside: true
 ---

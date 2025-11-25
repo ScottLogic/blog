@@ -1,34 +1,52 @@
-{% assign allPosts = include.posts %}
-{% assign categoryName = include.categoryName %}
-{% for category in site.data.categories %}
-    {% if categoryName == category.title %}
-        {% assign categoryIndex = forloop.index0 %}
-    {% endif %}
-{% endfor %}
-{% if include.paginated %}
-    {% assign paginated = include.paginated %}
-{% else %}
-    {% assign paginated = false %}
-{% endif %}
+{%- assign allPosts = paginator.posts -%}
+{%- if page.pagination.category -%}
+  {%- assign categoryName = page.pagination.category -%}
+{%- elsif page.pagination.tag == 'video_post' -%}
+  {%- assign categoryName = 'Videos' -%}
+{%- else -%}
+  {%- assign categoryName = 'Latest Articles' -%}
+{%- endif -%}
+{%- if categoryName == 'Latest Articles' -%}
+  {%- assign fullWidth = false -%}
+{%- else -%}
+  {%- assign fullWidth = true -%}
+{%- endif -%}
 <div class="post-index grid-container">
-  {% if categoryName == "Latest Articles" %}
-  <h1 class="super-title">Blog</h1>
-  <h2 class="cell sub-title">Our thoughts on technology and design</h2>
+  {% if categoryName == 'Latest Articles' %}
+    <h1 class="super-title">Blog</h1>
+    <h2 class="cell sub-title">Our thoughts on technology and design</h2>
   {% else %}
-  <h2 class="super-title"><a href="{{ site.github.url }}">Blog</a></h2>
-  <h1 class="sub-title">{{ categoryName }}</h1>
+    <h2 class="super-title">
+      <a href="{{ site.github.url }}">
+        <div class="svg-container">
+          <div class="chevron-wrapper">
+            <span class="material-symbols-outlined"> chevron_left </span>
+          </div>
+          <span class="text">Blog</span>
+        </div>
+      </a>
+    </h2>
+    <h1 class="sub-title">{{ categoryName }}</h1>
   {% endif %}
-  <div class="hide-for-large">{% include category_list_compact.html selectedIndex=categoryIndex %}</div>
-  {% include featured_posts.html postsToFilter=allPosts categoryName=categoryName %}
-  <div class="cell grid-x">
-    <div class="cell large-7 large-offset-1">
-      {% include post_summary_list.html posts=allPosts paginated=paginated %}
+  <div class="hide-for-large">
+    {%- include_cached category_list_compact.html selectedCategoryName=categoryName -%}
+  </div>
+  <div class="cell grid-x grid-margin-y">
+    <div class="cell large-8">
+      {%- if paginator.page < 2 -%}
+        {%- include_cached featured_posts.html categoryName=categoryName -%}
+      {%- endif -%}
+      {%- include post_summary_list.html fullWidth=fullWidth -%}
     </div>
-    <div class="side-lists cell large-2 large-offset-2 grid-padding-y grid-margin-y">
-      {% include category_list.html selectedIndex=categoryIndex %}
-      {% include author_list.html %}
+    <div
+      class="side-lists cell large-3 large-offset-1 grid-padding-y grid-margin-y"
+    >
+      {%- comment -%}{%- include search.html categoryName=categoryName -%}{%- endcomment -%}
+      {%- include_cached category_list.html selectedCategoryName=categoryName -%}
+      {%- include_cached author_list.html -%}
+      {%- comment -%}{%- include email_list.html -%}{%- endcomment -%}
     </div>
   </div>
 </div>
 
-{% include site-footer.html %}
+{%- include site-footer.html -%}

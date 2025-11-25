@@ -5,6 +5,7 @@ categories:
 - UX Design
 tags:
 - featured
+- video_post
 author: godds
 summary: A talk from NUX5 where I explore conversational UIs and conversational commerce.
 image: godds/assets/featured/make-banking-talk.png

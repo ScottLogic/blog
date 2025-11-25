@@ -3,10 +3,11 @@ title: Cloud
 layout: default
 summary: Scott Logic's thoughts and ideas relating to Cloud Technologies
 image: "/assets/blog.png"
+permalink: /category/cloud/
+pagination:
+  enabled: true
+  per_page: 4
+  category: Cloud
+  permalink: /:num/
 ---
-
-{% assign posts = site.categories["Cloud"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="Cloud" %}
+{%- include post_index.html -%}

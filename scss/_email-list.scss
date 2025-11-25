@@ -1,0 +1,27 @@
+@use "colours";
+@use "fonts";
+
+.email-list-form {
+  label {
+    font-size: fonts.$baseFontSize;
+  }
+
+  input {
+    border-radius: 0.25rem;
+    margin-top: 0.5rem;
+    height: 3rem;
+    padding: 1rem;
+
+    &::placeholder {
+      font-style: italic;
+    }
+  }
+
+  button {
+    appearance: auto;
+    border: solid colours.$teal;
+    padding: 0.75rem;
+    width: 100%;
+    font-size: fonts.$baseFontSize * 0.9;
+  }
+}

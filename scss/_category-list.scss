@@ -1,24 +1,35 @@
-@use 'colours';
+@use "colours";
+@use "fonts";
 
 .category-list {
+  a {
+    font-weight: fonts.$font-regular;
+  }
+
+  li {
+    margin: 0.4rem 0;
+    display: inline;
+
     a {
-        font-weight: $font-regular;
+      font-weight: fonts.$font-regular;
     }
-
-    li {
-    	margin: .4rem 0;
-
-    	a {
-    		font-weight: $font-light;
-    	}
-    }
-
-  a:hover {
-    color: colours.$black;
-    border-bottom: 3px solid colours.$teal;
   }
 
   a:visited {
     color: colours.$black;
+  }
+
+  span {
+    background: colours.$light-orange;
+    border-radius: 32px;
+    padding: 0.2em 1em;
+    line-height: 32px;
+    white-space: nowrap;
+  }
+
+  span:hover,
+  span.active {
+    background: colours.$orange;
+    color: colours.$white;
   }
 }

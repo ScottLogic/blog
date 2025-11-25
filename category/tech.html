@@ -3,10 +3,11 @@ title: Tech
 layout: default
 summary: Scott Logic's thoughts and ideas relating to Tech
 image: "/assets/blog.png"
+permalink: /category/tech/
+pagination:
+  enabled: true
+  per_page: 4
+  category: Tech
+  permalink: /:num/
 ---
-
-{% assign posts = site.categories["Tech"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="Tech" %}
+{%- include post_index.html -%}

@@ -3,10 +3,11 @@ title: Data Engineering
 layout: default
 summary: Scott Logic's thoughts and ideas relating to Data Engineering
 image: "/assets/blog.png"
+permalink: /category/data-engineering/
+pagination:
+  enabled: true
+  per_page: 4
+  category: Data Engineering
+  permalink: /:num/
 ---
-
-{% assign posts = site.categories["Data Engineering"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="Data Engineering" %}
+{%- include post_index.html -%}

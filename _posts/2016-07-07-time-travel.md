@@ -8,6 +8,8 @@ summary: In this talk I'll review how the functional programming style of framew
   such as React, ImmutableJS and Redux have paved the way for novel techniques that
   once again support rapid  development cycles
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/K-OzXD6S_4Q
 short-author-aside: true
 ---

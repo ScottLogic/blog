@@ -2,104 +2,165 @@
 layout: default
 repository: ScottLogic/new-blog
 ---
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
-    <title>{% if page.title %}{{ page.title }}{% else %}Scott Logic{% endif %}</title>
-    <meta name="description" content="{{ page.summary }}" />
+    <title>
+      {%- if page.title -%}
+        {{- page.title -}}
+      {%- else -%}
+        Scott Logic
+      {%- endif -%}
+    </title>
+    <meta name="description" content="{{- page.summary -}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="alternate" type="application/atom+xml" href="{{ site.canonical.url }}/atom.xml" title="Scott Logic Blog">
-    <link rel="alternate" type="application/rss+xml" href="{{ site.canonical.url }}/feed.xml" title="Scott Logic Blog">
-    {% if page.canonical_url %}
-        <link rel="canonical" href="{{page.canonical_url}}">
-    {% else %}
-        <link rel="canonical" href="{{ site.canonical.url }}{{ page.url | replace:'index.html',''}}">
-    {% endif %}
-    {% if site.github.owner_name != 'ScottLogic' %}<meta name="robots" content="noindex, nofollow">{% endif %}
-    <script async type="text/javascript" src="//use.typekit.net/zhk0dtj.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-    <script type="text/javascript">siteGithubOwnerName = '{{ site.github.owner_name }}'</script>
-
-    {% comment %} OpenGraph MetaData - Twitter / Facebook {% endcomment %}
-    <meta property="og:title" content="{{ page.title | escape }}" />
-    <meta property="og:description" content="{{ page.summary | escape }}"/>
-    {% if page.image %}
-        {% assign thumbnailImage = page.image | prepend: '/' | replace : '//', '/' | prepend: site.github.url %}
-    {% else %}
-        {% assign thumbnailImage = site.github.url | append: '/assets/blog.png' %}
-    {% endif %}
-    <meta property="og:image" content="{{ thumbnailImage }}" />
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="{{ site.name }}"/>
-    <meta property="og:url" content="{{ site.canonical.url }}{{ page.url }}" />
-    {% unless page.tags == empty %}
-    <meta name="keywords" content="{{page.tags | join: ', '}}" />
-    {% endunless %}
-    {% comment %} Twitter {% endcomment %}
-    <meta name="twitter:card" content="{% if page.image %}summary_large_image{% else %}summary{% endif %}"/>
-    <meta name="twitter:site" content="@{{ site.twitter_handle }}"/>
-    <meta name="twitter:image" content="{{ thumbnailImage }}"/>
-    {% if page.author %}
-    <meta name="twitter:creator" content="@{{ site.data.authors.authors[page.author].twitter-handle }}">
-    {% endif %}
-
-    <link rel="stylesheet" href="{{ site.baseurl | remove_first: 'http:' }}/style.css" type="text/css">
-    <link rel="icon" type="image/png" href="{{ site.canonical.url }}/favicon.ico" />
-
-    {% comment %} Only load analytics when on the main repo; it will fail to load on the forks {% endcomment %}
-    {% if site.github.owner_name == 'ScottLogic' %}
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MMXGQRL');</script>
-    <!-- End Google Tag Manager -->
-    {% endif %}
-    <script>
-   (function(d) {
-     var config = {
-       kitId: 'iig6jdr',
-       scriptTimeout: 3000,
-       async: true
-     },
-     h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-   })(document);
-   </script>
-</head>
-<body>
-{% if site.github.owner_name == 'ScottLogic' %}
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMXGQRL"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-{% endif %}
-<div id="off-canvas-wrapper" style="">
-    {% include site-header.html %}
-    {{ content }}
-</div>
-
-<script src="{{ site.baseurl | remove_first: 'http:' }}/script.js" type="text/javascript"></script>
-<script type="text/javascript">jQuery.noConflict();</script>
-<script>
-initialiseMenu();
-loadClapCount();
-</script>
-
-{% if page.paginated %}
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      href="{{- site.canonical.url -}}/atom.xml"
+      title="Scott Logic Blog"
+    >
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      href="{{- site.canonical.url -}}/feed.xml"
+      title="Scott Logic Blog"
+    >
+    {%- if page.canonical_url -%}
+      <link rel="canonical" href="{{- page.canonical_url -}}">
+    {%- else -%}
+      <link
+        rel="canonical"
+        href="{{- site.canonical.url -}}{{- page.url | replace:'index.html','' -}}"
+      >
+    {%- endif -%}
+    {%- if site.github.owner_name != 'ScottLogic' -%}
+      <meta name="robots" content="noindex, nofollow">
+    {%- endif -%}
     <script type="text/javascript">
-        jQuery('.content').jscroll({
-            contentSelector: ".content",
-            nextSelector: '.next',
-            loadingHtml: '<div id="loadingSpinner"><div class="f_circleG" id="frotateG_01"></div><div class="f_circleG" id="frotateG_02"></div><div class="f_circleG" id="frotateG_03"></div><div class="f_circleG" id="frotateG_04"></div><div class="f_circleG" id="frotateG_05"></div><div class="f_circleG" id="frotateG_06"></div><div class="f_circleG" id="frotateG_07"></div><div class="f_circleG" id="frotateG_08"></div></div>',
-            callback: function() {
-                makeTimestampsRelative();
-                loadClapCount();
-            }
-        });
+      siteGithubOwnerName = '{{- site.github.owner_name -}}';
     </script>
-{% endif %}
-</body>
+
+    {%- comment -%} OpenGraph MetaData - Twitter / Facebook {%- endcomment -%}
+    <meta property="og:title" content="{{- page.title | escape -}}">
+    <meta property="og:description" content="{{- page.summary | escape -}}">
+    {%- if page.image -%}
+      {%- assign thumbnailImage = page.image | prepend: '/' | replace: '//', '/' | prepend: site.github.url -%}
+    {%- else -%}
+      {%- assign thumbnailImage = site.github.url | append: '/assets/blog.png' -%}
+    {%- endif -%}
+    <meta property="og:image" content="{{- thumbnailImage -}}">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="{{- site.name -}}">
+    <meta
+      property="og:url"
+      content="{{- site.canonical.url -}}{{- page.url -}}"
+    >
+    {%- unless page.tags == empty -%}
+      <meta name="keywords" content="{{-page.tags | join: ', '-}}">
+    {%- endunless -%}
+    {%- comment -%} Twitter {%- endcomment -%}
+    <meta
+      name="twitter:card"
+      content="{%- if page.image -%}summary_large_image{%- else -%}summary{%- endif -%}"
+    >
+    <meta name="twitter:site" content="@{{- site.twitter_handle -}}">
+    <meta name="twitter:image" content="{{- thumbnailImage -}}">
+    {%- if page.author -%}
+      <meta
+        name="twitter:creator"
+        content="@{{- site.data.authors.authors[page.author].twitter-handle -}}"
+      >
+    {%- endif -%}
+
+    <link
+      rel="stylesheet"
+      href="{{- "assets/style.css" | relative_url -}}"
+      type="text/css"
+    >
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{- site.canonical.url -}}/favicon.ico"
+    >
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=chevron_left"
+    >
+
+    {%- comment -%}
+      Only load analytics when on the main repo; it will fail to
+      load on the forks
+    {%- endcomment -%}
+    {%- if site.github.owner_name == 'ScottLogic' -%}
+      <!-- Google Tag Manager -->
+      <script>
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MMXGQRL');
+      </script>
+      <!-- End Google Tag Manager -->
+    {%- endif -%}
+    <script>
+      (function (d) {
+        var config = {
+            kitId: 'iig6jdr',
+            scriptTimeout: 3000,
+            async: true,
+          },
+          h = d.documentElement,
+          t = setTimeout(function () {
+            h.className = h.className.replace(/\bwf-loading\b/g, '') + ' wf-inactive';
+          }, config.scriptTimeout),
+          tk = d.createElement('script'),
+          f = false,
+          s = d.getElementsByTagName('script')[0],
+          a;
+        h.className += ' wf-loading';
+        tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function () {
+          a = this.readyState;
+          if (f || (a && a != 'complete' && a != 'loaded')) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    </script>
+  </head>
+  <body>
+    {%- if site.github.owner_name == 'ScottLogic' -%}
+      <!-- Google Tag Manager (noscript) -->
+      <noscript
+        ><iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-MMXGQRL"
+          height="0"
+          width="0"
+          style="display: none; visibility: hidden"
+        ></iframe
+      ></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    {%- endif -%}
+    <div id="off-canvas-wrapper" style="">
+      {%- include site-header.html -%}
+      {{- content -}}
+    </div>
+
+    <script
+      src="{{- site.baseurl | remove_first: 'http:' -}}/script.js"
+      type="module"
+    ></script>
+  </body>
 </html>

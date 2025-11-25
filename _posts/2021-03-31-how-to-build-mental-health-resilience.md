@@ -5,6 +5,7 @@ categories:
 - People
 tags:
 - featured
+- video_post
 author: lpisani
 summary: Everyone’s mental wellbeing has been put under unprecedented strain in the
   last 12 months, affecting all aspects of our work life and home life. In this talk,

@@ -3,10 +3,11 @@ title: UX Design
 layout: default
 summary: Scott Logic's thoughts and ideas relating to UX Design
 image: "/assets/blog.png"
+permalink: /category/ux/
+pagination:
+  enabled: true
+  per_page: 4
+  category: UX Design
+  permalink: /:num/
 ---
-
-{% assign posts = site.categories["UX Design"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="UX Design" %}
+{%- include post_index.html -%}

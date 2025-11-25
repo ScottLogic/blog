@@ -2,12 +2,10 @@
 title: Videos
 layout: default
 summary: Talks and presentations given by the Scott Logic team
+permalink: /category/videos/
+pagination:
+  enabled: true
+  tag: video_post
+  permalink: /:num/
 ---
-
-{% assign posts = "" | split: "," %}
-{% for post in site.posts %}
-    {% if post.layout == 'video_post' %}
-        {% assign posts = posts | push: post %}
-    {% endif %}
-{% endfor %}
-{% include post_index.html posts=posts categoryName="Videos" %}
+{%- include post_index.html -%}

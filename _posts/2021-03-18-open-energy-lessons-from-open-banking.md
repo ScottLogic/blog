@@ -5,6 +5,7 @@ categories:
 - Open Source
 tags:
 - featured
+- video_post
 summary: In this online event, we brought together an expert panel from Ofgem, Northern
   Powergrid and NatWest Group to explore the challenges and opportunities ahead for
   the energy industry, and the practical lessons that can be gained from a global

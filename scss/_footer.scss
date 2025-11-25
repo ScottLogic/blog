@@ -1,4 +1,6 @@
-@use 'colours';
+@use "colours";
+@use "sizes";
+@use "util";
 
 @mixin footer-colour-scheme($bg-colour, $fg-colour) {
   background-color: $bg-colour;
@@ -29,92 +31,93 @@
 }
 
 footer {
-	@include footer-colour-scheme(colours.$light-teal, colours.$teal);
-	&.pink {
-		@include footer-colour-scheme(colours.$light-pink, colours.$pink);
-	}
-	&.orange {
-		@include footer-colour-scheme(colours.$light-orange, colours.$orange);
-	}
-	&.yellow {
-		@include footer-colour-scheme(colours.$light-yellow, colours.$yellow);
-	}
-	
-	.footer_top-layer {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		height: rem-calc(120px, 16px);
-	}
-	
-	height: $footer-height;
-	width: 100%;
-	display: block;
-	padding: rem-calc(32px, 16px) rem-calc(16px, 16px) rem-calc(24px, 16px);
-	text-align: center;
+  @include footer-colour-scheme(colours.$light-teal, colours.$teal);
+  &.pink {
+    @include footer-colour-scheme(colours.$light-pink, colours.$pink);
+  }
+  &.orange {
+    @include footer-colour-scheme(colours.$light-orange, colours.$orange);
+  }
+  &.yellow {
+    @include footer-colour-scheme(colours.$light-yellow, colours.$yellow);
+  }
 
-	.footer-logo {
-		width: 135px;
-		height: 30px;
-		display: inline-block;
-		vertical-align: bottom;
-		a {
-			background: url('./assets/logo.svg') no-repeat;
-			width: 100%;
-			height: 100%;
-			display: block;
-			text-indent: -9999px;
-		}
-	}
+  .footer_top-layer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: util.rem-calc(120px, 16px);
+  }
 
-	.footer-links {
-		display: inline-block;
-		vertical-align: bottom;
-		margin-left: rem-calc(14px, 16px);
+  height: sizes.$footer-height;
+  width: 100%;
+  display: block;
+  padding: util.rem-calc(32px, 16px) util.rem-calc(16px, 16px)
+    util.rem-calc(24px, 16px);
+  text-align: center;
 
-		a {
-			display: inline-block;
-			font-size: rem-calc(14px, 16px);
-			margin-left: rem-calc(14px, 16px);
-			vertical-align: middle;
+  .footer-logo {
+    width: 135px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: bottom;
+    a {
+      background: url("./logo.svg") no-repeat;
+      width: 100%;
+      height: 100%;
+      display: block;
+      text-indent: -9999px;
+    }
+  }
 
-			&.footer-links_linkedin {
-				width: rem-calc(20px, 16px);
-				height: rem-calc(20px, 16px);
-			}
+  .footer-links {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: util.rem-calc(14px, 16px);
 
-			&.footer-links_youtube {
-				width: rem-calc(20px, 16px);
-				height: rem-calc(20px, 16px);
-			}
+    a {
+      display: inline-block;
+      font-size: util.rem-calc(14px, 16px);
+      margin-left: util.rem-calc(14px, 16px);
+      vertical-align: middle;
 
-			&.footer-links_bcorp {
-				width: rem-calc(50px, 16px);
-				height: rem-calc(73px, 16px);
-			}
-		}
-	}
+      &.footer-links_linkedin {
+        width: util.rem-calc(20px, 16px);
+        height: util.rem-calc(20px, 16px);
+      }
 
-	.footer_bottom-layer {
-		margin-top: rem-calc(16px, 16px);
-		ul {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-			li {
-				display: inline-block;
-				vertical-align: bottom;
-				font-size: rem-calc(12px, 16px);
-				padding: 0 rem-calc(7px, 16px);
-				color: colours.$black;
-				a {
-					color: colours.$black;
-					&:hover {
-						text-decoration: underline;
-					}
-				}
-			}
-		}
-	}
+      &.footer-links_youtube {
+        width: util.rem-calc(20px, 16px);
+        height: util.rem-calc(20px, 16px);
+      }
+
+      &.footer-links_bcorp {
+        width: util.rem-calc(50px, 16px);
+        height: util.rem-calc(73px, 16px);
+      }
+    }
+  }
+
+  .footer_bottom-layer {
+    margin-top: util.rem-calc(16px, 16px);
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline-block;
+        vertical-align: bottom;
+        font-size: util.rem-calc(12px, 16px);
+        padding: 0 util.rem-calc(7px, 16px);
+        color: colours.$black;
+        a {
+          color: colours.$black;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }

@@ -9,6 +9,8 @@ summary: In this talk, I present empathy as a skill that can be cultivated and e
   empathy within their team or workplace can learn here about different types of empathy,
   the ways it can empower us and its practical application in our day-to-day jobs.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/L4n9_KIicVw
 short-author-aside: true
 ---

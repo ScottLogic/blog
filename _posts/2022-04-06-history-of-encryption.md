@@ -9,6 +9,8 @@ summary: As far back as 600BC there is evidence of people encrypting messages to
   is used frequently in our daily life. In this talk, I describe how methods of encryption
   have changed through time.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/mB9h4ykjyuo?start=63
 short-author-aside: true
 ---

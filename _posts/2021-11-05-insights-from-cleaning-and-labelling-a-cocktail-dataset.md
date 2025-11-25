@@ -8,6 +8,8 @@ summary: In this talk, I summarise the first steps in creating a Seasonal Cockta
   Playlist by outlining how to apply Data Science skills when cleaning and labelling
   a cocktail data set.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/MGGg8-rZLMw?start=1139
 short-author-aside: true
 ---

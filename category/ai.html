@@ -3,10 +3,11 @@ title: Artificial Intelligence
 layout: default
 summary: Scott Logic's thoughts and ideas relating to Artificial Intelligence
 image: "/assets/blog.png"
+permalink: /category/ai/
+pagination:
+  enabled: true
+  per_page: 4
+  category: "Artificial Intelligence"
+  permalink: /:num/
 ---
-
-{% assign posts = site.categories["Artificial Intelligence"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="Artificial Intelligence" %}
+{%- include post_index.html -%}

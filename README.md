@@ -11,8 +11,7 @@ GitHub account.
 
 The blog is a static website, designed to be hosted on [GitHub pages][github-pages].
 
-The underlying content is generated through a series of Ruby gems and libraries, starting with a dedicated github-pages
-[gem][ruby-github-pages].
+The underlying content is generated through a series of Ruby gems and libraries.
 
 Within that stack, [Jekyll][jekyll-docs] is used as the static content generation engine,
 consuming template files written in either **HTML** or **Markdown** (syntax extended by [Kramdown][kramdown-syntax]).
@@ -53,8 +52,17 @@ root named after your Scott Logic username. Within this you will need a set of f
 be obvious what needs changing. Then add yourself to `_data/authors.yml`, again using an existing author as a template.
 You will need to add
 
-- an entry under `authors`
+- an entry under `authors` with the following fields where _italic_ fields are required
+  - _name_
+  - _picture_
+  - author-summary
+  - twitter-url
+  - twitter-handle
+  - linkedin-url
+  - linkedin-handle
 - your username under `active-authors`
+
+If both _social_-url and _social_-handle are provided, _social_-url is used.
 
 Finally, if you performed a _sparse checkout_ as recommended, you will need to add directory `_posts` in the root of
 your local copy.
@@ -81,7 +89,9 @@ rebuild.
 By far the easiest route is to use Docker: if you have it installed, you can [skip ahead][run-docker] now!
 
 The blog consists of static HTML pages with content generated using:
+
 - [github-pages][ruby-github-pages] for deployment hooks
+
 - [Jekyll][jekyll-docs] for static site generation generator
 - [Kramdown][kramdown-syntax] for an extended markdown syntax
 - [Liquid][ruby-liquid] for templating functionality
@@ -107,7 +117,7 @@ sudo apt-get install ruby2.3 ruby2.3-dev build-essential dh-autoreconf libxslt-d
 ```
 
 On Windows, if you use Chocolatey, simply run `choco install ruby` in a PowerShell instance
-with elevated priveleges. If you don't use Chocolatey, you can use [RubyInstaller][rubyinstaller]
+with elevated privileges. If you don't use Chocolatey, you can use [RubyInstaller][rubyinstaller]
 or see the Ruby website for [alternative ways to install Ruby][ruby-installation-instructions].
 You don't need to install any other dependencies on Windows at this stage.
 
@@ -127,16 +137,20 @@ gem update
 gem install jekyll bundler nokogiri
 ```
 
-Thirdly, configure Bundler to store project dependencies in `vendor/bundle`, and,
-when in the root directory of your clone of the blog, install the project dependencies.
+Optionally, configure Bundler to store project dependencies in `vendor/bundle`
 
 ```shell
 bundle config path vendor/bundle
+```
+
+When in the root directory of your clone of the blog, install the project dependencies.
+
+```shell
 cd PATH/TO/BLOG
 bundle install
 ```
 
-Finally, run `jekyll -v` to check whether Jekyll is working. If so, you're good to run the blog!
+Finally, run `bundle exec jekyll -v` to check whether Jekyll is working. If so, you're good to run the blog!
 
 #### Running in the native environment
 
@@ -147,15 +161,23 @@ Navigate to the root directory of your clone of the blog and execute Jekyll usin
 bundle exec jekyll serve
 ```
 
+See [jekyll's docs](https://jekyllrb.com/docs/configuration/options/) for command line flags.
+
 The blog will then be available on [localhost][localhost].
 
-If you are working on fixes or new features, and need to re-compile the scripts or SCSS, you can use these npm scripts:
+If you are working on fixes or new features, you can use these npm scripts:
 
 ```shell
-npm ci
-npm run scripts
-npm run style
+npm ci           # Install deps
+npm run prettier # Format non-post files
 ```
+
+##### Useful Command Line Flags for Jekyll
+
+- `--livereload` - trigger a build on file change (excluding SCSS or JS) and refresh the brower once built
+
+- `--incremental` - use the experimental incremental build mode which after the initial build, only builds changed files
+- `RUBYOPT="--yjit"` - let ruby use its JIT (only macOS, Linux and BSD on x86-64 and arm64/aarch64 CPUs are supported)
 
 ### Running with Docker
 
@@ -164,7 +186,7 @@ Use a bash-compatible shell; Git bash on Windows should work fine.
 #### Install gem dependencies
 
 First, we output gem dependencies to directory `container_gem_cache` on the host machine. This is analogous to running
-"npm install" for an npm package:
+"npm install" for a npm package:
 
 ```shell
 ./shell/docker-gem-install.sh
@@ -221,15 +243,12 @@ changes. This workflow runs only on a manual dispatch on the `gh-pages` branch.
 
 [calibreapp-image-actions]: https://github.com/calibreapp/image-actions
 [confluence-getting-started]: https://scottlogic.atlassian.net/wiki/spaces/INT/pages/3577479175/Getting+started+with+the+Scott+Logic+blog
-[sparse-checkout-guide]: https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/#sparse-checkout-and-partial-clones
 
 [github-pages]: https://pages.github.com/
-[github-pages-docs]: https://docs.github.com/en/pages
 [run-docker]: #running-with-docker
 [jekyll-docs]: https://jekyllrb.com/docs/
 [kramdown-syntax]: https://kramdown.gettalong.org/syntax.html
 [localhost]: http://localhost:4000
-[ruby-github-pages]: https://rubygems.org/gems/github-pages
 [ruby-bundler]: https://bundler.io/
 [rubyinstaller]: https://rubyinstaller.org/
 [ruby-installation-instructions]: https://www.ruby-lang.org/en/documentation/installation

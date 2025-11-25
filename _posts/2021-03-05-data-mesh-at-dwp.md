@@ -10,6 +10,8 @@ summary: Data Mesh is an emerging architectural paradigm for big data that addre
   talk, I define what it is, and Charlie Boundy, DWP Deputy Director and Head of Data
   Science, brings it to life through DWP's technology and data vision.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/fYsWnJPGEEI
 short-author-aside: true
 ---

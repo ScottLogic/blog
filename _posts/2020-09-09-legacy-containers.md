@@ -10,6 +10,8 @@ summary: 'There''s a standard approach to migrating legacy applications into des
   these drawbacks and opens up new opportunities for old tech. And I explain what
   on earth rollercoasters have to do with it.'
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/7eiSBu6mvi0
 short-author-aside: true
 ---

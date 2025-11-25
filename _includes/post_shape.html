@@ -1,5 +1,6 @@
-{% if include.post.header-shape %}
-  {{ include.post.header-shape }}
-{% else %}
-  shape{{ include.post.title | size | modulo:5 }}
-{% endif %}
+{%- if include.post['header-shape'] -%}
+  {{- include.post['header-shape'] -}}
+{%- else -%}
+  shape
+  {{- include.post.title | size | modulo: 5 -}}
+{%- endif -%}

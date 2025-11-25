@@ -8,6 +8,8 @@ summary: This webinar explores the potential and realities of an emerging vision
   a more integrated desktop application ecosystem, as facilitated by various open-source
   and vendor products.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/e0h1vJcIrdE
 short-author-aside: true
 ---

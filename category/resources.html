@@ -3,10 +3,11 @@ title: Resources
 layout: default
 summary: Scott Logic's white papers and guides
 image: "/assets/blog.png"
+permalink: /category/resources/
+pagination:
+  enabled: true
+  per_page: 4
+  category: Resources
+  permalink: /:num/
 ---
-
-{% assign posts = site.categories["Resources"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="Resources" %}
+{%- include post_index.html -%}

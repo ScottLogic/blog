@@ -9,6 +9,8 @@ summary: In this panel discussion, Ash Smith (GDS), Cheryl Stevens (DWP) and Mik
   including opportunities to improve the user experience and potential obstacles to
   overcome along the way.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/oSG7_aVa3m8
 short-author-aside: true
 ---

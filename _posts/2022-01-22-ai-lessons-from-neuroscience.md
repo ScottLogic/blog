@@ -7,6 +7,8 @@ author: mpace
 summary: In this talk, I share the key things AI can learn from Neuroscience, and
   why these two disciplines need each other in order to progress successfully.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/JAtXMyOPH0k?start=68
 short-author-aside: true
 ---

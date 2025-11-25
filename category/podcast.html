@@ -4,10 +4,11 @@ layout: default
 summary: Beyond the Hype is a monthly podcast from the Scott Logic team where we cast
   a practical eye over what is new and exciting in software development
 image: "/assets/blog.png"
+permalink: /category/podcast/
+pagination:
+  enabled: true
+  per_page: 4
+  category: Podcast
+  permalink: /:num/
 ---
-
-{% assign posts = site.categories["Podcast"] %}
-{% if posts %}
-  {% assign posts = posts | sort: 'date' | reverse | uniq %}
-{% endif %}
-{% include post_index.html posts=posts categoryName="Podcast" %}
+{%- include post_index.html -%}

@@ -5,6 +5,7 @@ categories:
 - Tech
 tags:
 - featured
+- video_post
 author: ceberhardt
 summary: This talk, from JSMonthly, looked at what's wrong with the way we are using
   JavaScript today and why we need WebAssembly.

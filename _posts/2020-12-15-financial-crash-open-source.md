@@ -5,6 +5,7 @@ categories:
 - Tech
 tags:
 - featured
+- video_post
 author: ceberhardt
 summary: A talk, from the Open Source Strategy Forums, where I compared some of the
   challenges facing open source (complexity, fragility, sustainability) to those which

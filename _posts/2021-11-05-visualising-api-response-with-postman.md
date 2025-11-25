@@ -7,6 +7,8 @@ author: jvolmut
 summary: Sometimes it’s important to show progress to people who don’t care about
   APIs and there is no time to put together an elaborate UI.
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/MGGg8-rZLMw?start=2113
 short-author-aside: true
 ---

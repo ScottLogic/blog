@@ -5,6 +5,7 @@ categories:
 - UX Design
 tags:
 - featured
+- video_post
 author: godds
 image: godds/assets/featured/make-banking-talk.png
 summary: Conversational Commerce drastically re-imagines the way services are delivered

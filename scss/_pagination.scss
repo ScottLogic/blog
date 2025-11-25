@@ -1,0 +1,24 @@
+@use "colours";
+
+.pagination {
+  color: colours.$teal;
+  margin: 2rem 0 4rem;
+
+  a {
+    color: colours.$teal;
+  }
+
+  li {
+    margin-right: 0.25rem;
+    &.current {
+      background-color: colours.$teal;
+      color: colours.$white;
+      padding: 0;
+      border-radius: 5px;
+
+      a {
+        color: colours.$white;
+      }
+    }
+  }
+}

@@ -8,6 +8,8 @@ summary: 'We celebrated International Women’s Day with a distinguished panel o
   leaders – Boohoo''s Jo Graham; DWP''s Jacqui Leggetter; and NatWest''s Mei Clark
   – discussing IWD2022’s theme: ‘Break the Bias’.'
 layout: video_post
+tags:
+  - video_post
 video_url: https://www.youtube.com/embed/Mm6r7kdYqDo
 short-author-aside: true
 ---

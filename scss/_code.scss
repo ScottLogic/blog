@@ -1,7 +1,12 @@
+@use "sizes";
+@use "fonts";
+@use "util";
+
 $codeBackground: #f9f2f4;
 
-code, pre {
-  font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+code,
+pre {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 code {
@@ -12,25 +17,25 @@ code {
 
 code.highlighter-rouge {
   padding: 2px 4px;
-  font-size: $monospaceFontSize;
+  font-size: fonts.$monospaceFontSize;
   color: #c7254e;
   background-color: $codeBackground;
-  border-radius: $smallLayoutUnit;
+  border-radius: sizes.$smallLayoutUnit;
 }
 
 pre {
   display: block;
-  padding: $layoutUnit;
-  margin: 0 0 $layoutUnit;
-  font-size: $monospaceFontSize;
+  padding: sizes.$layoutUnit;
+  margin: 0 0 sizes.$layoutUnit;
+  font-size: fonts.$monospaceFontSize;
   line-height: 1.42857143;
   -webkit-overflow-scrolling: touch;
   overflow-x: auto;
   background-color: $codeBackground;
   border: 1px solid #ccc;
-  border-radius: $smallLayoutUnit;
+  border-radius: sizes.$smallLayoutUnit;
 
-  @include breakpoint(large) {
+  @include util.breakpoint(large) {
     margin-left: calc((16.66667% + 0.9375rem) * -1);
     margin-right: calc((16.66667% + 0.9375rem) * -1);
   }

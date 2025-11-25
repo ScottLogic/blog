@@ -1,24 +1,108 @@
-@use 'colours';
+@use "colours";
+@use "fonts";
+
+$underline-height: 3px;
 
 .author-list {
-    a {
-        font-weight: $font-regular;
+  display: flex;
+  flex-direction: column;
+  .gallery {
+    overflow: hidden;
+    display: flex;
+    scroll-snap-type: x mandatory;
+    min-height: 25.3125rem;
+    max-height: 28rem;
+
+    > .author-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      justify-items: center;
+      row-gap: 0.5rem;
+      column-gap: 1rem;
+      width: 100%;
+      scroll-snap-stop: always;
+      scroll-snap-align: center;
+      scroll-behavior: smooth;
+    }
+  }
+
+  #scroll-marker-group {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    gap: 0.5rem;
+
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 2rem;
+
+    // Its not clear how transparency fits into the color scheme
+    background-color: #bfbfbf70;
+
+    width: fit-content;
+
+    .scroll-marker {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      background-color: colours.$grey;
+      border-radius: 50%;
     }
 
-    li {
-    	margin: .4rem 0;
-
-    	a {
-    		font-weight: $font-light;
-    	}
+    .scroll-marker.active {
+      background-color: colours.$black;
     }
+  }
+
+  a {
+    font-weight: fonts.$font-bold;
+    font-size: fonts.$baseFontSize * calc(10 / 16);
+    text-align: center;
+  }
 
   a:hover {
     color: colours.$black;
-    border-bottom: 3px solid colours.$teal;
+    img {
+      filter: initial;
+    }
   }
 
   a:visited {
     color: colours.$black;
+  }
+
+  .author-icon {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      border-radius: 50%;
+      max-height: 3rem;
+      max-width: 3rem;
+      filter: grayscale(100%);
+      height: 3rem;
+      width: 3rem;
+      object-fit: cover;
+    }
+  }
+
+  .author-post-count {
+    font-weight: fonts.$font-regular;
+  }
+
+  #letter-group {
+    font-weight: fonts.$font-regular;
+    font-size: fonts.$baseFontSize * 0.5;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-top: 1px solid colours.$even-lighter-grey;
+    color: colours.$grey;
   }
 }

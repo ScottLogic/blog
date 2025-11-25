@@ -12,16 +12,17 @@ collections:
     title: Uploads
     output: true
 defaults:
-- scope:
-    path: ''
-    type: posts
-  values:
-    summary: a quick summary of your post
-    author: the name of the authers account
-    layout: default_post
+  - scope:
+      path: ""
+      type: posts
+    values:
+      summary: a quick summary of your post
+      author: the name of the authors account
+      layout: default_post
 repository: ScottLogic/blog
 name: Scott Logic
-description: This feed is brought to you by Scott Logic's team of technical authors
+description:
+  This feed is brought to you by Scott Logic's team of technical authors
   and bloggers, covering topics including HTML5, iOS, C#, process, UX and practically
   anything else relating to software development.
 canonical:
@@ -31,26 +32,64 @@ scottlogic:
 applause-button-api:
   url: https://ip2o6c571d.execute-api.eu-west-2.amazonaws.com/production
 permalink: "/:year/:month/:day/:title.html"
-safe: true
+safe: false
 twitter_handle: Scott_Logic
 plugins:
-- jekyll-redirect-from
+  - jekyll-redirect-from
+  - jekyll-paginate-v2
+  - generate-json
+  - custom-filters
+  - html-minify
+  - hook-exec
+  - jekyll-include-cache
 kramdown:
   input: kramdown
-paginate: 20
-excerpt_separator: 
+pagination:
+  enabled: true
+  per_page: 12
+  permalink: "/page/:num/"
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
+baseurl: ""
+excerpt_separator: <!-- end_excerpt -->
 exclude:
-- CNAME
-- Gemfile
-- Gemfile.lock
-- lintPosts.js
-- scss
-- node_modules
-- package.json
-- README.md
-- ".spelling"
-- scripts/jquery-1.9.1.js
-- scripts/jquery.jscroll-2.2.4.js
-- scripts/tweet.js
-- scripts/search.js
-- vendor
+  - ".idea"
+  - ".prettierrc.json5"
+  - ".spelling"
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - PULL_REQUEST_TEMPLATE
+  - README.md
+  - README-DEV.md
+  - gems
+  - generate_pa11y_ci_urls_from_git_diff.sh
+  - lintPosts.js
+  - node_modules
+  - package-lock.json
+  - package.json
+  - rspack.config.ts
+  - scripts
+  - scss
+  - send-blogs-to-deploy-endpoint.js
+  - tsconfig.json
+  - vendor
+keep_files:
+  - "script.js"
+sass:
+  style: compressed
+  sourcemap: development
+  sass_dir: scss
+  quiet_deps: true
+  load_paths:
+    - "node_modules/applause-button/dist/"
+    - "node_modules/cookieconsent/build/"
+hook_exec:
+  site:
+    post_write:
+      bundle-js:
+        env:
+          BASE_URL: "{{ site.baseurl }}"
+        cmd: "./node_modules/.bin/rspack build"

@@ -1,28 +1,8 @@
-{% assign post = include.post %}
-{% assign read_more = include.read_more %}
-{% assign found_category = "false" %}
-
-<span class="category">
-    {% for post_category in post.categories | downcase %}
-        {% if found_category == "true" %}
-            {% break %}
-        {% endif %}
-        {% for category in site.data.categories %}
-            {% if post_category == category.title | downcase %}
-                {% assign found_category = "true" %}
-                <a href="{{ site.baseurl }}{{ category.url }}">
-                    {% if read_more %}
-                        View all {{ category.title }} articles
-                    {% else %}
-                        {{ category.title }}
-                    {% endif %}
-                </a>
-                {% break %}
-            {% endif %}
-        {% endfor %}
-    {% endfor %}
-    {% if post.layout == 'video_post' %}
-    <span> &middot;</span>
-    <a href="{{ site.baseurl }}/category/videos.html">Video</a>
-    {% endif %}
-</span>
+{%- comment -%} Better for caching to not use the whole post as the cache key {%- endcomment -%}
+{%- assign categories = include.post.categories -%}
+{%- if include.post.layout == 'video_post -%}
+  {%- assign is_video = true -%}
+{%- else -%}
+  {%- assign is_video = false -%}
+{%- endif -%}
+{%- include_cached category_display_inner.html categories=categories is_video=is_video -%}
