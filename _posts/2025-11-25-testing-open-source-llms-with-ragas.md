@@ -73,7 +73,7 @@ This refined combination of metrics provided a more balanced and reliable view o
 
 ## The evaluation pipeline
 
-As mentioned before on the evaluation with Ragas we developed a systematic evaluation workflow, starting with a baseline Q&A dataset from AstraZeneca’s ESG report, using carefully crafted prompts to ensure consistent, high-quality answers for accurate performance assessment.
+As mentioned before on the evaluation with Ragas we developed a systematic evaluation workflow, starting with a baseline Q&A dataset from [AstraZeneca’s ESG report](https://www.astrazeneca.com/content/dam/az/Sustainability/2024/pdf/AZ-Impact-Publication-2024.pdf), using carefully crafted prompts to ensure consistent, high-quality answers for accurate performance assessment.
 This baseline ensured that all models were tested under consistent and comparable conditions.
 
 Next, we created a wrapper around the InferESG API to automate the following sequence:
