@@ -17,7 +17,7 @@ tags:
 
 # Evaluating Answers with Large Language Models: How InferESG and Ragas Helped
 
-In our latest project, we set out to evaluate how different Large Language Models (LLMs) perform when responding to user prompts. Building on our existing platform, InferESG, which automatically generates greenwashing reports from ESG disclosures, our goal was not to determine which model is superior, but rather to assess whether open-source models can serve as viable alternatives to OpenAI’s proprietary models. 
+ In our latest project, we set out to evaluate how different Large Language Models (LLMs) perform when responding to user prompts. Our goal was not to determine which model is superior, but to assess whether open-source models can serve as viable alternatives to OpenAI’s proprietary models. We did this by building on our existing platform, [InferESG](https://blog.scottlogic.com/2025/04/02/inferesg-finding-the-right-architecture.html), which automatically generates reports from ESG disclosures.
 
 For this study, we tested the following models: DeepSeek, Gemma-3-1B, GPT-4o, GPT-4o-mini, GPT-OSS-20B, LFM2-1.2, and Qwen3-30B-A3B. The table below gives a better understanding of the models-sizes and provides links with useful information about them.
 
@@ -168,11 +168,13 @@ Our evaluation demonstrates that Ragas is a valuable tool for assessing LLM-gene
 First, the quality of evaluation heavily depends on the clarity of questions and the quality of reference context.
 
 LLM outputs are context-sensitive, and poorly defined questions or insufficient reference material can significantly impact performance metrics.
+
 Second, hallucinations remain a concern with LLMs. In our experiments, setting the model temperature to 0 within Ragas helped mitigate this issue. Reducing the temperature controls the randomness of a model’s output and makes it more deterministic, increasing the likelihood of selecting the most probable next token. However, it also limits response diversity and nuance, making outputs more rigid and less adaptable to ambiguous queries.
 
 Overall, this helped reduce speculative or fabricated responses and improved answer fidelity.
 
 Third, prompt design is critical. Clear, well-structured prompts ensure that LLMs generate focused and relevant answers, which in turn supports more accurate evaluation outcomes.
+
 Overall, the results across all models were generally positive, particularly in terms of semantic similarity, which remained consistently high across the board, indicating that most models preserved the intended meaning of answers even when phrasing differed from the reference.
 
 On average, Qwen3-30B emerged as the strongest performer, excelling in factual correctness and maintaining high semantic similarity, making it the most robust and reliable model for generating accurate, contextually grounded, and relevant answers. GPT-OSS-20B also performed very well, with strong answer accuracy and semantic similarity, making it a solid choice for balanced performance.
