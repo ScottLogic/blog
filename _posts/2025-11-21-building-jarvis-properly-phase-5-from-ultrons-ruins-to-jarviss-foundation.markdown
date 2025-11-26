@@ -2,7 +2,7 @@
 title: 'Building JARVIS Properly - Phase 5: From Ultron''s Ruins to JARVIS''s Foundation'
 date: 2025-11-21 16:50:00 Z
 categories:
-- AI
+- Artificial Intelligence
 tags:
 - AI
 - product owner
