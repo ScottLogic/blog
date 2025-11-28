@@ -37,7 +37,7 @@ We tested the following models (links are provided where available):
 
 ## The Role of InferESG
 
-InferESG served as the core system in our experiment. Under the hood, InferESG uses an agentic solver that breaks down the user’s request into specific subtasks and leverages various API calls to LLMs, each with task-specific system contexts. The system takes a primary sustainability document, analyses it, and generates a comprehensive greenwashing report. This generated report then serves as the foundation for evaluating and comparing the performance of other large language models. 
+InferESG served as the core system in our experiment. Under the hood, InferESG uses an agentic solver that breaks down the user’s request into specific subtasks and leverages various API calls to LLMs, each with task-specific system contexts. The system takes a primary sustainability document, analyses it, and generates a comprehensive report. This generated report then serves as the foundation for evaluating and comparing the performance of other large language models. 
 
 To ensure the accuracy of our generated reports before using them to build our test dataset, we first created a benchmark report. In this benchmark, GPT-5 extracted all factual statements and classified them. A manual verification was conducted at the end to ensure the generated report was consistent and accurate. For a better understanding of this process, you can refer to our blog post [Beyond Benchmarks: Testing Open-Source LLMs in Multi-Agent Workflows](https://blog.scottlogic.com/2025/10/27/testing-open-source-llms.html), which provides a more detailed explanation of these steps.
 
@@ -78,13 +78,13 @@ This baseline ensured that all models were tested under consistent and comparabl
 
 Next, we created a wrapper around the InferESG API to automate the following sequence:
 
-1.	Upload the published ESG report and produce a corresponding greenwashing report.
+1.	Upload the published ESG report and produce a corresponding report.
 2.	Ask predefined questions about AstraZeneca using the baseline Q&A dataset.
 3.	Record the model-generated responses in a structured format.
 
 This automated pipeline was intentionally designed for repeatability, allowing us to alternate between different LLMs during the questioning phase and evaluate their performance under identical parameters.
 
-InferESG operated with a session-based cache to store reports generated in step 1. However, when switching between models, the cache would reset, leading to non-equivalent comparisons, each model was effectively responding to slightly different report inputs. To correct this, we temporarily adjusted the session cache to function deterministically, ensuring that every model used the same generated greenwashing report for evaluation.
+InferESG operated with a session-based cache to store reports generated in step 1. However, when switching between models, the cache would reset, leading to non-equivalent comparisons, each model was effectively responding to slightly different report inputs. To correct this, we temporarily adjusted the session cache to function deterministically, ensuring that every model used the same generated report for evaluation.
 
 With the setup standardized, the following steps were executed to gather and interpret results:
 
