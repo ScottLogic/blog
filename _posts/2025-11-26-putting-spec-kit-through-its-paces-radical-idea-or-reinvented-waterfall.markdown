@@ -33,9 +33,9 @@ As an aside, it’s amazing how much things have changed in less than a year. I�
 
 I wanted to give SDD a try, but there are growing number of frameworks and approaches to choose from. Here are a few notable projects and tools relating to this nascent approach:
 
-* [GitHub Spec Kit](https://github.com/github/spec-kit/) (Sept 25) - An open source, AI agent agnostic toolkit, that encodes a multi-step spec workflow (Constitution → Specify → Plan → Tasks → Implement → PR)
-* [Tessl Framework and Registry](https://tessl.io/) (Sept 25) - A startup, "Tessl is pioneering spec-driven development"
-* [Amazon Kiro](https://kiro.dev/) (Nov 25) - Amazon's offering that “helps you do your best work by bringing structure to AI coding with spec-driven development.” (Requirements → Design → Tasks → Implement → PR)
+* [GitHub Spec Kit](https://github.com/github/spec-kit/) **(Sept 25)** - An open source, AI agent agnostic toolkit, that encodes a multi-step spec workflow (Constitution → Specify → Plan → Tasks → Implement → PR)
+* [Tessl Framework and Registry](https://tessl.io/) **(Sept 25)** - A startup, "Tessl is pioneering spec-driven development"
+* [Amazon Kiro](https://kiro.dev/) **(Nov 25)** - Amazon's offering that “helps you do your best work by bringing structure to AI coding with spec-driven development.” (Requirements → Design → Tasks → Implement → PR)
 
 While these tools all provide a form of SDD, their workflow to differ quite a bit. I’d definitely recommend reading Birgitta's post which outlines three different levels, [spec-first, spec-anchored and spec-as-source,](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html) which helps to understand the differences.
 
@@ -55,7 +55,7 @@ Rather than implement a new feature I decided to ‘surgically remove’ an exis
 
 ![kartlog.png](/uploads/kartlog.png)
 
-I removed this feature, reverting it to a simple string when recording sessions. This resulted in [~1000 lines of code being deleted].(https://github.com/ColinEberhardt/kartlog/commit/e2c31dab77b501c03dca92b08789079904ee9208)
+I removed this feature, reverting it to a simple string when recording sessions. This resulted in [~1000 lines of code being deleted](https://github.com/ColinEberhardt/kartlog/commit/e2c31dab77b501c03dca92b08789079904ee9208).
 
 My goal was to re-create this functionality using Spec Kit, evaluating whether this approach is superior to the current vibe engineering techniques I use (covered later). This felt like a good test case; a reasonably sizeable product increment of modest complexity (CRUD functionality, integration with existing data model, GPS integration), but also one where I could confidently write an unambiguous specification – because I’d already built it.
 
@@ -106,7 +106,7 @@ Executing this step took 8 minutes, and created a *lot* of markdown:
 * **444-line module contract** – a human-readable description of the persistence JavaScript module, which includes a lot of code snippets. Ironically this is 4x the length of the actual module itself (once implemented).
 * **395-line data model**– that has a few interesting migration details, but otherwise a lot of code snippets and excessive detail (in my opinion). Much of this feels like an obvious and valueless transformations of the spec (validation logic, lifecycle, ...)
 * **285-line plan** - reiterates tech stack, outlines folder structure
-* **500-line quick start **– details the** \*\*step by step implementation, plus test plan
+* **500-line quick start **– details the step by step implementation, plus test plan
 * **406-line research document** - including justification of decisions (e.g. why it is using the SMUI (Svelte Material UI) library? erm ... because every other page uses that!)
 
 It isn’t entirely clear whether you are supposed to review the output of the Plan step, but the contents detailed above feels quite excessive. Take a [look for yourself](https://github.com/ColinEberhardt/kartlog/commit/66763b0032147d20b5ecd3b35d4d672d91d01931#diff-fe1be781470cad9029e0ca9200fb7905bb9016dced6ef48dedb71ab1a7d54889).
