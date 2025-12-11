@@ -13,6 +13,7 @@ tags:
 summary: Rebuilding a carbon emissions calculator with Devin vs Copilot, where agentic
   AI speeds delivery and where human engineering remains essential.
 author: jcamilleri
+image: "/uploads/Rapid-web-app-development-with-Devin---A-Developer%E2%80%99s-Perspective-.jpg"
 ---
 
 For the last couple of weeks, I've been experimenting with AI tools for code generation, more specifically, with agentic AI.
