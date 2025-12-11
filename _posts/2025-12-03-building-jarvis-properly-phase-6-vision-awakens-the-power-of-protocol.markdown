@@ -2,7 +2,7 @@
 title: 'Building JARVIS Properly - Phase 6: Vision Awakens (The Power of Protocol)'
 date: 2025-12-03 10:54:00 Z
 categories:
-- AI
+- Artificial Intelligence
 tags:
 - AI
 summary: 'If Phase 5 was about building the mind, Phase 6 is about building the body.
