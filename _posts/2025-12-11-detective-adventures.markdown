@@ -1,6 +1,6 @@
 ---
 title: Detective Adventures
-date: 2025-12-04 10:00:00 Z
+date: 2025-12-11 10:00:00 Z
 categories:
 - Tech
 tags:
