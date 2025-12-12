@@ -119,7 +119,11 @@ So, I said this is a massive topic because sustainability covers so many areas a
 
 So, we're going to, yeah, we're going to focus mainly on, the kind of environmental impacts, and this will build on some of our previous episodes that, that many of our listeners will have, will have, will have listened to, including the episode we recorded with, with Hannah Smith about Grid Aware, and also the conversation we had with Jeremy Axe about technology sustainability, which we recorded a while back now. So that's, for those that haven't checked out those episodes, I highly recommend those as sort of introductory episodes to the topic we're going to talk about.
 
-And I'm really excited and actually heartened by the fact that mainstream media, the BBC and newspapers, have been reporting on the impacts of, AI and what, what its unchecked growth might, might look and what it, what it might do. So, yeah, let's, let's kick off, but we'll, we'll obviously get back into that. But before we do, let's, let's kick off with some introductions. So perhaps, James, if you can kick us off with an intro, please, that'd be great.
+And I'm really excited and actually heartened by the fact that mainstream media, the BBC and newspapers, have been reporting on the impacts of, AI and what, what its unchecked growth might, might look and what it, what it might do. 
+
+## Introductions
+
+So, yeah, let's, let's kick off, but we'll, we'll obviously get back into that. But before we do, let's, let's kick off with some introductions. So perhaps, James, if you can kick us off with an intro, please, that'd be great.
 
 **James Camilleri**
 
@@ -136,6 +140,8 @@ Thank you. I'm Hélène Sauvé. I'm a Software Developer in the Bristol office a
 **Oliver Cronk**
 
 Brilliant. Thank you. And James, actually, I wanted to start with what you just touched on in your intro, right? Because, we've been wanting to do something in this space for a while, having Tech Carbon Standard, also doing AI projects.
+
+## The narrative around AI sustainability
 
 We've been wanting to sort of connect up the dots somewhat and go actually what is, what is the narrative around AI sustainability and what practically can, can, can we do about it? What can our clients do about it? And so perhaps if you can perhaps kick us off with a bit of, yeah, your, your work that you've been doing to look at sustainable AI research.
 
@@ -156,6 +162,8 @@ Yeah. And Hélène, you are also looking at this and looking at the, the kind of
 Yes, absolutely. So first, the first thing is following the review that James mentioned, we introduced a new category called Content to account for content and data that foundation models are trained on, but also, digital content as a whole. And as you pointed out, I personally came into the research looking for carbon, and I did find carbon, but I also found water. And it's an interesting topic because it is less talked about it's perhaps less obvious but it's actually a very pressing issue that needs to be, needs to be talked about alongside the carbon footprint of AI.
 
 But the conclusion that, that I, I understood following that research is that both carbon footprint and AI footprint need to be thought together, they're not substitutable to each other and that in fact, optimising for one might hinder the other.
+
+## The role of water in AI
 
 **Oliver Cronk**
 
@@ -235,6 +243,8 @@ I wonder whether that played into it as well, do you think? Or is that just me b
 
 I think that's possible. Yeah. I think maybe more than protecting the French language, it's also the attraction of a product that is made in France.
 
+## Updates to the Tech Carbon Standard
+
 **Oliver Cronk**
 
 Before, yeah. Before we move on though, you, we, we potentially skipped over something quite important. You mentioned some of the updates you've made to the Tech Carbon Standard. I wonder if you could talk a little bit more about those.
@@ -244,6 +254,8 @@ Before, yeah. Before we move on though, you, we, we potentially skipped over som
 Yes, sure. So, when we made this latest update of the Tech Carbon Standard, we introduced AI-related carbon emissions. And in order to do that, we looked at the different actors and also the different scenarios of where AI is used. And that includes training, pre-training a foundation model, fine-tuning it, but also self-hosting and of, and of course, the case of inference, so querying an AI model.
 
 As I said, we introduced a new category called Content. And we also included new practical guides on how to reduce carbon emissions. And credit to my colleague, Sarah, who wrote those guides. The guides introduced are on how to reduce carbon emissions in AI, but also how to reduce carbon emissions in testing.
+
+## The difference between training and inference
 
 **Oliver Cronk**
 
@@ -276,6 +288,8 @@ But in some cases, it's sort of more of an accountancy thing rather than a full 
 I mean, so most of the studies we looked at used some form of lifecycle analysis, which is, which makes perfect sense because I, I mean, it's, it's a tried and tested way of looking at a full impact of whatever the system under scrutiny is. So, for those who don't know a lifecycle analysis goes right from dragging the materials out of the ground through to manufacturing, distribution then the, using the, the product, whatever it is, and then finally disposing of it. So it, it's proper cradle to grave kind of way of splitting up the problem and looking at each section. The problem is, is that when you're looking at tech, especially, although I suspect almost every industry has this problem, it's really hard to get data on that whole spectrum because we only exist in this tiny part of it, and often we don't see where our goods go after we manufacture them, or after we write software, we don't know much about, in the grand scheme of things, about where it's run, how long it's run for and that kind of thing.
 
 And it's quite hard to get data on all of those stages for even the laptop that, and the microphone that we're using right now. So, sometimes it does exist, but how, how reliable is that data?
+
+## The potential of smaller AI models
 
 **Oliver Cronk**
 
@@ -335,6 +349,8 @@ Especially when it results in less usage of, you know, being able to shut down c
 
 …yeah, the, yeah, exactly. So, it's, it, it again, it's intuitive that by using less, you emit less.
 
+## Running AI locally on personal devices
+
 **Oliver Cronk**
 
 I wanted to talk a bit about the sort of shift that I also sort have been speaking about recently, which is this sort of move from big, centralised sort of compute because you talked earlier, James, about, the thinking around training and thinking about inference. Now, clearly for, for those that don't know, training AI models is a lot easier if you have a big, centralised compute cluster, it's just a lot easier. It's challenging to try and do that in a distributed setting, but what strikes me is a lot of the sort of stories I'm seeing about sort of Apple in particular, they have some amazing capability on their devices for running AI locally. the M4 and M5 series of chips are particularly, very good at running AI models.
@@ -372,6 +388,8 @@ Which I guess is not far away from where we are with GPUs. right now, I'm, yeah,
 Our phones, right? They've got more compute power than, than a lot of mainframes and, and supercomputers of, of, of past eras. But they're also designed to be super-efficient, so they don't drain the battery. So, there's an interesting sort of, it's the one area, I suppose where there has been more focus on efficiency.
 
 I think there's a danger that, as developers sometimes we trade off developer efficiency with machine efficiency. I think we do that a lot. But in the mobile space, there, there is in things ARM processes and TPUs and other things, there's, there is sort of a general push towards efficiency, because I think people have realised, wow, this workload is one of the most inefficient power-hungry workloads we've ever created. We better get creative about how we run that, that workload.
+
+## The current AI sustainability narrative: Hype or not hype?
 
 Anyway, we've been chatting. Quite, quite a bit here. And I wanted to sort of start moving us towards the kind of classic, is it hype or is it not hype? So do, do you think the kind of sustainable AI as it's, I suppose currently being sort of touted is, is, is hype and if you think it is a hype, if you think it is hype, do you think it'll always be a pipe dream, or do you see signs that can be made more sustainable?
 

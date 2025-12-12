@@ -13,6 +13,7 @@ summary: 'In tech, upgrades are often seen as inevitable but are they always the
   reshaping the upgrade debate, and why purposeful progress beats change for change’s
   sake.'
 author: nhume
+image: "/uploads/_Longevity-without-lock-in--the-open-source-upgrade-alternative.jpg"
 ---
 
 ##When change isn’t the right kind of progress
