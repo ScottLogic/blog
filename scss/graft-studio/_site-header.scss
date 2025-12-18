@@ -17,6 +17,11 @@ header {
   z-index: 2;
   max-width: 1400px;
 
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
 
   h1.brand {
     display: block;
