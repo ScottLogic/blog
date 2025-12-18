@@ -1,6 +1,6 @@
 ---
 title: 'My AI Colleague: Claude, the good, the bad, the UglAI'
-date: 2025-12-16 13:00:00 Z
+date: 2025-12-18 09:00:00 Z
 categories:
 - Technology
 - Artificial Intelligence

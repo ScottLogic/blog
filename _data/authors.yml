@@ -166,6 +166,7 @@ active-authors:
   - tgilbert
   - thands
   - tjohnson
+  - twebb
   - tyates
   - vcisse
   - wboothclibborn
@@ -1031,6 +1032,10 @@ authors:
     name: "Tom Simmons"
     author-summary: "<p>I am a Senior Developer at Scott Logic.</p>"
     picture: picture.jpg
+  twebb:
+    name: "Toni Webb"
+    author-summary: "<p>I'm a Lead Delivery Manager with 15+ years of experience leading complex technical projects across financial services, utilities, and the public sector. At Scott Logic, I specialise in project recovery, digital transformation, and creating high-performing teams that deliver challenging projects on time and within budget while bridging technical and business needs.</p>"
+    picture: Toni-Webb.jpg
   wcaine:
     name: "Will Caine"
     author-summary: "Scott Logic Intern at the Newcastle office during the summer of 2018."
