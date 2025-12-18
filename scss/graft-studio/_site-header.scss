@@ -130,7 +130,7 @@ header.no-hero {
     }
   }
 
-  a, .header-nav_bottom a {
+  a {
     color: colours.$black;
   }
 
@@ -189,7 +189,7 @@ header.fixed-header {
     z-index: 99;
     border-bottom: 0px solid rgba(206, 210, 211, 0.3);
 
-    a, .header-nav_bottom a {
+    a {
       color: colours.$black;
     }
 
@@ -203,26 +203,6 @@ header.fixed-header {
             color: colours.$black;
             border-color: colours.$black;
             text-decoration: none;
-          }
-        }
-      }
-    }
-
-    .header-nav_bottom {
-      display: block;
-      ul {
-        li {
-          font-size: rem-calc(14px, 16px);
-          padding-left: rem-calc(10px, 16px);
-          @include breakpoint(large) {
-            padding-left: rem-calc(20px, 16px);
-          }
-          a {
-            padding-bottom: rem-calc(5px, 16px);
-            display: block;
-            &:hover {
-              padding-bottom: rem-calc(5px, 16px);
-            }
           }
         }
       }
