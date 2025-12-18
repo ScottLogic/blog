@@ -34,7 +34,7 @@ header {
       text-indent: -9999px;
     }
     @include breakpoint(large) {
-      margin: rem-calc(24px, 16px) 0 rem-calc(24px, 16px) rem-calc(24px, 16px);
+      margin: 0 0 rem-calc(32px, 16px) rem-calc(32px, 16px);
       width: 421px;
       a {
         background: url('./assets/logo.svg') no-repeat 0 0;
@@ -61,7 +61,7 @@ header {
       }
     }
   }
-
+  
 }
 
 .mobile-nav-trigger {
@@ -171,11 +171,6 @@ header.no-hero {
       }
     }
   }
-    .main-nav {
-        @include breakpoint(large) {
-        margin-top: rem-calc(27px, 16px);
-        }
-    }
 }
 
 
