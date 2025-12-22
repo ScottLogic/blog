@@ -7,7 +7,9 @@ author: ceberhardt
 image: ceberhardt/assets/flexbox.png
 ---
 
-A few days ago I read a post by Emil Stenstrom, which described how he had built a no-dependency Python HTML5 parser, by leaning heavily on coding agents. Not only was he able to build the parser quickly, it was more accurate than many other implementations, scoring a perfect 100% on the reference test suite.
+This post explores what makes agentic loops (where AI iteratively tests, debugs, and refines its own code) so powerful via a hands-on experiment: implementing a complete flexbox layout algorithm in just 3 hours by giving an AI agent the right feedback mechanisms and letting it work autonomously. Along the way, I share practical insights about designing effective loops, coaching agents through iterations, and when this approach works best.
+
+This journey started a few days ago I read a post by Emil Stenstrom, which described how he had built a no-dependency Python HTML5 parser, by leaning heavily on coding agents. Not only was he able to build the parser quickly, it was more accurate than many other implementations, scoring a perfect 100% on the reference test suite.
 
 An impressive results, especially given the following quote:
 
