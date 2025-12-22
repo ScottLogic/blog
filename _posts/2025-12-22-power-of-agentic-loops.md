@@ -7,9 +7,9 @@ author: ceberhardt
 image: ceberhardt/assets/flexbox.png
 ---
 
-This post explores what makes agentic loops (where AI iteratively tests, debugs, and refines its own code) so powerful via a hands-on experiment: implementing a complete flexbox layout algorithm in just 3 hours by giving an AI agent the right feedback mechanisms and letting it work autonomously. Along the way, I share practical insights about designing effective loops, coaching agents through iterations, and when this approach works best.
+This post explores what makes agentic loops (where AI iteratively tests, debugs, and refines its own code) so powerful via a hands-on experiment: implementing a complete flexbox layout algorithm in just 3 hours by giving an AI agent the right feedback mechanisms and letting it work autonomously. Along the way, I share thoughts about designing effective loops, coaching agents through iterations, and when this approach works best.
 
-This journey started a few days ago I read a post by Emil Stenstrom, which described how he had built a no-dependency Python HTML5 parser, by leaning heavily on coding agents. Not only was he able to build the parser quickly, it was more accurate than many other implementations, scoring a perfect 100% on the reference test suite.
+This journey started a few days ago when I read a post by Emil Stenstrom, which described how he had built a no-dependency Python HTML5 parser, leaning heavily on coding agents. Not only was he able to build the parser quickly, it was more accurate than many other implementations, scoring a perfect 100% on the reference test suite.
 
 An impressive results, especially given the following quote:
 
@@ -19,9 +19,9 @@ Emil's post is an excellent example of the power of agentic loops.
 
 ## What is an agentic loop?
 
-Pre-2025 when using LLMs to write code we were reliant on their ability to emit working code in a single pass (one shot) based on our prompts and additional context. As LLMs have become more advanced they can often emit 10s or 100s of lines of code and get it right first time, however, there are limits. In unfamiliar or complex domains there is a limit to the context you can supply. 
+Pre-2025 when using LLMs to write code we were reliant on their ability to emit working code in a single pass (one shot) based on a prompt and additional context. As LLMs have become more advanced they can often emit 10s or 100s of lines of code and get it right first time, however, the more code you ask them to 'one shot', the more likely it is to be wrong. Furthermore, in unfamiliar or complex domains this limit is reached sooner.
 
-Also, how much code can you write in your editor and be sure that it is correct without running it? Personally I'd struggle to get beyond 5 lines of code - I'm very impressed by the 'one shot' ability of LLMs.
+How much code can you write in your editor and be sure that it is correct without running it? Personally I'd struggle to get beyond 5 lines of code - I'm very impressed by the 'one shot' ability of LLMs.
 
 An agentic loop is where you supply a reasoning LLM with a goal, provide it with tools that allow it to evaluate its progress towards that goal, then allow it to iterate until the goal is eventually met.
 
@@ -33,17 +33,17 @@ Simon Willison considers [designing agentic loops](https://simonwillison.net/202
 
 I was eager to gain first hand experience in creating agentic loops, but rather that write an HTML parser I wanted to find a different problem to tackle.
 
-Casting my mind back 10 years ago, to the keynote for React.js Conf, I recall the wonderful Christopher Chedeau (AKA [Vjeux](https://blog.vjeux.com/)) describing how they had created a pure JavaScript implementation of the flexbox layout algorithm for use in React Native. His approach, described as 'extreme TDD', was to generate a comprehensive test suite using the browsers layout engine to create the expected values. Using this technique he was able to create a working implementation in two weeks - a feat which [received a round of applause](https://youtu.be/7rDsRXj9-cU?si=vzV7uWujpzSMeIRh&t=1181).
+Casting my mind back 10 years ago, to the keynote for React.js Conf, I recall the talented Christopher Chedeau (AKA [Vjeux](https://blog.vjeux.com/)) describing how he had created a pure JavaScript implementation of the flexbox layout algorithm for use in React Native. His approach, described as 'extreme TDD', was to generate a comprehensive test suite using the browser's layout engine to create the expected values. Using this technique he was able to create a working implementation in two weeks - a feat which [received a round of applause](https://youtu.be/7rDsRXj9-cU?si=vzV7uWujpzSMeIRh&t=1181).
 
 I decided to repeat this experiment, relying on agents, and agentic loops, as much as possible. I made use of GitHub Copilot (in Agent mode) using Claude Sonnet 4.5, giving it permission to execute specific commands, thereby allowing it to run autonomously.
 
 ## The plan and the seed
 
-My first step was a simple prompt asking an LLM to build an incremental plan for my layout engine. I also asked it to ensure that the first increment was as simple as possible. The generated plan started with "Single-line, row-direction, fixed-size items", with 9 further increments.
+My first step was a simple prompt asking an LLM to build an incremental plan for my layout engine. I also asked it to ensure that the first increment was as simple as possible. The generated plan started with "Single-line, row-direction, fixed-size items" and 9 further increments.
 
-In order to create an agentic loop you need some sort of seed, a codebase that the agent can execute and evaluate. I was confident thTat the first increment is something that the LLM could get right as a one shot implementation, so I prompted as follows:
+In order to create an agentic loop you need some sort of seed, a codebase that the agent can execute and evaluate. I was confident that the first increment is simple enough that the LLM could get it right as a one shot implementation, so I prompted as follows:
 
-> This module implements flexbox layout. It should expose a function that implements the algorithm outlines in plan.md - specifically the 'very simplest first iteration'
+> This module implements flexbox layout. It should expose a function that implements the algorithm outlines in `#file:plan.md` - specifically the 'very simplest first iteration'
 
 This created a ~10 line layout algorithm and an accompanying test suite that passed first time. A good starting point.
 
@@ -51,13 +51,13 @@ This created a ~10 line layout algorithm and an accompanying test suite that pas
 
 For this project the most valueable feedback loop is to compare the layout algorithm with a reference implementation from a browser. 
 
-I want to ensure that the test suite can be executed against both my layout algorithm and the browser. To ensure this, I prompted as follows:
+I want to ensure that the test suite can be executed against both my layout algorithm and the browser. So I prompted as follows:
 
-> Create a seperate test suite that validates the test cases using a browser engine
+> Create a separate test suite that validates the test cases using a browser engine
 
-Finally, I wanted a tool that would allow the agent to quickly execute the browsers layout enginer directly:
+Finally, I wanted a tool that would allow the agent to quickly execute the browsers layout engine directly:
 
-> Create a script that can be run on the command line that uses the same techniques as layout-browser.test.js to run the layout algorithm in a headless browser, but in this case take the input node tree via stdin, and output the layout via stdout
+> Create a script that can be run on the command line that uses the same techniques as `#file:layout-browser.test.js` to run the layout algorithm in a headless browser, but in this case take the input node tree via stdin, and output the layout via stdout
 
 ## Creating the loop
 
@@ -65,14 +65,14 @@ The project now has:
 
  - A trivial implementation of the flexbox algorithm
  - A small test suite, with JSON files describing the input and expected layout
- - The ability to run these tests against both the algorithm implementation and a browser (reference implementation)
+ - The ability to run these tests against both the current implementation and a browser (reference implementation)
  - A command line tool that provides a simple mechanism for running the browser's flexbox layout
 
 With these component parts, I have enough to create a loop. I prompted the agent as follows:
 
-> I would like you to incrementally and autonomously implement the layout engine, as detailed in the #file:plan.md - but first, let's write a copilot instructions file that details the process. When asked to implement an increment first build a suitable test suite (in a seperate file), validating that it works using the #file:browser-layout.js command line tool to extract the layout as generated by a browser (our reference implementation). Once a suitable test suite has been created and validated, implement our layout engine in #file:layout.js - again testing and bug-fixing iteratively. Only stop when all tests pass.
+> I would like you to incrementally and autonomously implement the layout engine, as detailed in the `#file:plan.md` - but first, let's write a copilot instructions file that details the process. When asked to implement an increment first build a suitable test suite (in a separate file), validating that it works using the `#file:browser-layout.js` command line tool to extract the layout as generated by a browser (our reference implementation). Once a suitable test suite has been created and validated, implement our layout engine in `#file:layout.js` - again testing and bug-fixing iteratively. Only stop when all tests pass.
 
-It generated a ~250 line `copilot-instructions.md` file, outlining the above approach together with the increments from the plan. With a few very minor tweaks I was happy with the result.
+It generated a ~250 line `copilot-instructions.md` file (see [this commit](https://github.com/ColinEberhardt/css-layout-agentic/commit/838c6cd9917dda7346393b2840db98cc71c3ad11)), outlining the above approach together with the increments from the plan. With a few very minor tweaks I was happy with the result.
 
 And it of course asked if it should start executing the plan. 
 
@@ -118,13 +118,29 @@ This is more AI-first, but can I make it more agentic? i.e. create a feedback lo
 
 That's more like it!
 
+Here is an example of some of the 'lessons learnt' it added on future iterations:
+
+~~~
+**Lessons Learned:**
+- Cross-axis alignment calculations must account for margins on both sides
+- `stretch` only applies when height is undefined (auto)
+- `align-self` on children overrides container's `align-items`
+- Browser sub-pixel rendering can cause minor floating-point differences (~0.005px)
+  - Solution: Use fuzzy comparison with 0.02px tolerance in tests
+- For `center` alignment: `y = paddingTop + marginTop + (availableSpace - height) / 2`
+- For `flex-end`: `y = paddingTop + contentHeight - marginBottom - height`
+- For `stretch`: height = `contentHeight - marginTop - marginBottom`
+~~~
+
+It's hard to know whether the above is genuinely useful, but it doesn't look too dissimilar to the type of notes a human might make if they were writing this algorithm.
+
 ## Increment #4: Cross-axis sizing + alignment
 
 > Proceed to implement increment 4
 
-By this point the process was running quite autonomously, I felt confident I could just instruct it to proceed to implement all the increments. However, I'm hear for the learning, I want to observe the agents behaviour and better understand how to guide it.
+By this point the process was running quite autonomously, I felt confident I could just instruct it to work through all the increments to completion. However, I'm here for the learning, I want to observe the agents behaviour and better understand how to guide it.
 
-One interesting thing I observed on this increment was the agent botch a file edit causing it to corrupt a file. It restored the file from git, then proceeded more cautiously with smaller edits. Other than that, it breezed through this iteration.
+One interesting thing I observed on this increment was the agent botched a file edit causing it to corrupt a file. It restored the file from git, then proceeded more cautiously with smaller edits. Other than that, it breezed through this iteration.
 
 By this point the layout algorithm was around 200 lines of code, with a suite of ~80 tests, and I'd spent about one hour on the whole exercise.
 
@@ -150,7 +166,7 @@ While I was impressed with the progress I'd made up to this point, I couldn't he
 
 I prompted the agent to build a visual test suite, which allayed my concerns:
 
-![flexbox layout](/ceberhardt/assets/flexbox.png)
+<img src="{{ site.baseurl }}/ceberhardt/assets/flexbox.png"/>
 
 I can trust my AI agent. That's a relief.
 
@@ -164,9 +180,11 @@ In the space of three hours I had achieved something which took Vjeux around two
 
 As a final validation, I ported the 2015 test suite to run against my implementation. It did uncover a couple of small edge cases, and some subtle differences due to different defaults (React Native used slightly different layout defaults from the browser). 
 
+If you're interested in the detail, the [project can be found on GitHub](https://github.com/ColinEberhardt/css-layout-agentic/). I've included the prompts I used within the commit messages.
+
 ## Lessons learnt
 
-I found the whole exercise to be a really interesting learning experience. While the agent was pushing through each increment, I made some notes and reflections.
+I found the exercise to be a really interesting learning experience. While the agent was pushing through each increment, I made some notes and reflections.
 
 ### Building the right feedback mechanism
 
