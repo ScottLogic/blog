@@ -200,7 +200,7 @@ With the first few increments I found myself tweaking the feedback loop and opti
 
 Based on these observations I made updates to the Copilot instructions, which were effectively the 'master' prompt for this process.
 
-No, I don't consider this prompt engineering. An engineering discipline implies care, precious and a meticulous approach. This was nothing of the sort. When I felt there were aspects of the 'loop' that could be optimised, I gave the agent a few sentences of explanation and let it update the instructions itself. That isn't engineering in my books. It's more like coaching.
+No, I don't consider this prompt engineering. An engineering discipline implies care, precision and a meticulous approach. This was nothing of the sort. When I felt there were aspects of the 'loop' that could be optimised, I gave the agent a few sentences of explanation and let it update the instructions itself. That isn't engineering in my books. It's more like coaching.
 
 ### Self improvement
 
@@ -210,17 +210,17 @@ It was interesting watching it create new tools that it could use for future ite
 
 ### Let it run free
 
-With my experiment I kept a watchful eye on it as it progressed through all of the final increments. Not because I was worried that it might make a mistake or do something destructive, rather, I wanted to watch and learn.
+With my experiment I kept a watchful eye on the agent as it progressed through all of the final increments. Not because I was worried that it might make a mistake or do something destructive, rather, I wanted to watch and learn. In reality, once the loop is optimised, you shouldn't sit and watch - you should get on with something more worthwhile!
 
-At this point my main learning was just how 'human' the whole process was. Reading the thought process felt so very familiar. Watching it encounter problems, pursue candidate solutions to eventual dead ends, back-up and try something new, all the while employing a range of creative approaches - debugging and scripting.
+My main learning from watching the agent was just how 'human' the whole process was. Reading the thought process felt so very familiar. Watching it encounter problems, pursue candidate solutions to eventual dead ends, back-up and try something new, all the while employing a range of creative approaches - debugging and scripting.
 
 Is anyone still making the [stochastic parrot](https://en.wikipedia.org/wiki/Stochastic_parrot) argument? Agents can clearly think.
 
 ### Not every problem is amenable to a feedback loop.
 
-It would be remiss of me not to point out that this experiment was an idealised case. The feedback loop was near perfect, both able to fully and exhaustively describe the desired behaviour, and near trivial to create due to the reference implementation. Furthermore, flexbox layout is a very familiar domain for the agent, with lots of relevant material within the underlying LLMs training dataset.
+It would be remiss of me not to point out that this experiment was an idealised case. The feedback loop was near perfect, both able to exhaustively describe the desired behaviour, and near trivial to create due to the reference implementation. Furthermore, flexbox layout is a very familiar domain for the agent, with lots of relevant material within the underlying LLMs training dataset.
 
-However, it has opened my eyes to just how productive AI agents can be given an effective feedback loop. In future, I'm going to invest a lot more time in considering how to create these loops, can you create a loop to support legacy migration? Can you use MCP to create a loop via UI automation? And what loops do humans use to validate their work (and can they be automated?
+However, it has opened my eyes to just how productive AI agents can be given an effective feedback loop. In future, I'm going to invest a lot more time in considering how to create these loops. Can I create a loop to support legacy migration? Can you use MCP to create a loop via UI automation? And what loops do humans use to validate their work (and can they be automated)?
 
-Once again, I'll echo Simon's remarks designing agentic loops is going to be a critical skill.
+Once again, I'll echo Simon's remark that designing agentic loops is going to be a critical skill.
 
