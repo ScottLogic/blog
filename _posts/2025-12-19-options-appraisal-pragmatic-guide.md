@@ -168,6 +168,7 @@ By the time I present the results, the decision itself should already feel famil
 At this point, the presentation is usually a formality — a chance to bring everyone together and make the decision explicit. Most of the hard work should already have happened earlier. If it doesn't feel that way, that's a signal to loop back and do more of that work.
 
 Stakeholders should now all be able to answer the same basic questions:
+
 - What options did we consider, and which ones did we rule out (and why)?
 - What mattered most in our context?
 - Where are the real trade-offs and risks?
