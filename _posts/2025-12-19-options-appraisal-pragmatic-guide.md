@@ -13,12 +13,12 @@ summary: A practical, lightweight way to compare options, surface trade-offs ear
 author: rvango
 ---
 
-Architecture decisions don't usually fail fast or in dramatic fashion. They fail quietly, long after the decision was made. It's often when stakeholders weren't aligned on what success meant, constraints stayed implicit until it was too late, or trade-offs were never made explicit and ownership slowly evaporated.
+Architecture decisions don't usually fail fast or in a dramatic fashion. They fail quietly, long after the decision was made. It's often when stakeholders weren't aligned on what success meant, constraints stayed implicit until it was too late, or trade-offs were never made explicit and ownership slowly evaporated.
 
 Options appraisal is one of the simplest ways I know to reduce those failure modes. It provides a structured approach to exploring alternatives, weighing trade-offs, and landing a recommendation that stakeholders can scrutinise.  
 It won't magically make decisions easy, but it does make them clearer, more collaborative, and much harder to undo for the wrong reasons.
 
-When people talk about options appraisal, they often mean technology selection. In practice, that's just one specialised case, and it usually comes with additional considerations. I use the same underlying technique in work where it's more about [strategy and direction, rather than selecting a tech stack](https://www.scottlogic.com/our-work/scottish-assessors-portal-modernisation-strategy), which is the focus here.
+When people talk about options appraisal, they often mean technology selection. In practice, that's just one specialised case, and it usually comes with additional considerations. I use the same underlying technique in work where it's more about [strategy and direction rather than selecting a tech stack](https://www.scottlogic.com/our-work/scottish-assessors-portal-modernisation-strategy), which is the focus here.
 
 ## When is an options appraisal worth it?
 
@@ -82,7 +82,7 @@ At this stage, the output can be very lightweight: a simple list or table with a
 - Are you prematurely dismissing options without justification?
 - Are rejected options documented transparently?
 - If options are scarce, have you revised constraints that may be too tight?
-- Have you gone beyond the usual sources, such colleagues, past projects, or web resources, to uncover a greater range of options?
+- Have you gone beyond the usual sources, such as colleagues, past projects, or web resources, to uncover a greater range of options?
 
 ## 3) Shortlist: gateway criteria and the "do nothing" baseline
 
