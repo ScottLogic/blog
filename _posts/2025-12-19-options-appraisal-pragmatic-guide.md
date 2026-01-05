@@ -31,7 +31,8 @@ I don't reach for options appraisal by default. I reach for options appraisal wh
 - success is multi-dimensional (*cost* AND *speed* AND *risk* AND *operability*...)
 - I can already see future-me asking "why did we choose this again?"
 
-If it's a low-risk choice or you're still exploring, a quick spike, PoC, or desk-based research is often enough.
+If it's a low-risk choice or you're still exploring, a quick spike, proof of concept, or desk-based research is often enough.
+
 
 ## The process (and the important bit: the loops)
 
