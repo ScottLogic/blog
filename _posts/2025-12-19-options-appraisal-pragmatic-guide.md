@@ -13,7 +13,7 @@ summary: A practical, lightweight way to compare options, surface trade-offs ear
 author: rvango
 ---
 
-Architecture decisions don't usually fail fast or in a dramatic fashion. They fail quietly, long after the decision was made. It's often when stakeholders weren't aligned on what success meant, constraints stayed implicit until it was too late, or trade-offs were never made explicit and ownership slowly evaporated.
+Architecture decisions don’t usually fail fast or in a dramatic fashion. They fail quietly, long after the decision was made. That’s usually because stakeholders weren’t aligned on what success meant, constraints stayed implicit, trade-offs were never made explicit, and no one clearly owned the decision once delivery began.
 
 Options appraisal is one of the simplest ways I know to reduce those failure modes. It provides a structured approach to exploring alternatives, weighing trade-offs, and landing a recommendation that stakeholders can scrutinise.  
 It won't magically make decisions easy, but it does make them clearer, more collaborative, and much harder to undo for the wrong reasons.
