@@ -20,9 +20,7 @@ It won't magically make decisions easy, but it does make them clearer, more coll
 
 When people talk about options appraisal, they often mean technology selection. In practice, that's just one specialised case, and it usually comes with additional considerations. I use the same underlying technique in work where it's more about [strategy and direction rather than selecting a tech stack](https://www.scottlogic.com/our-work/scottish-assessors-portal-modernisation-strategy), which is the focus here.
 
-## When is an options appraisal worth it?
-
-Short answer: not always.
+## Is an options appraisal always worth it?
 
 I don't reach for options appraisal by default. I reach for options appraisal when:
 
@@ -57,16 +55,14 @@ Requirements are where hidden assumptions like to hide, particularly when differ
 
 That's why this step is about building a shared understanding, not producing a perfect specification. Treat the result as a snapshot, not a contract - it will quite likely evolve.
 
-**Quick checklist**
+**Some considerations:**
 
-- Have you got the right diversity of stakeholders?
-- Have you engaged the stakeholders early?
-- Have you captured what success looks like from their different perspectives?
-- Do all stakeholders share a common understanding of the objectives and constraints?
-- Is the scope clearly understood, including what is out of scope?
-- Have you identified key organisational constraints, such as delivery timelines, budget, and team capabilities?
-- Do you have a good understanding of the current architecture principles and technology stack?
-- Are you aware of previous organisational decisions relevant to this topic?
+- *Do you have sufficient diversity of stakeholders, and have they been engaged early enough?*
+- *Have you captured what success looks like from their different perspectives?*
+- *Do all stakeholders share a common understanding of the objectives and what is explicitly out of scope?*
+- *Have you identified key organisational constraints, such as delivery timelines, budget, and team capabilities?*
+- *Do you understand the current architectural principles that are expected to guide this decision?*
+- *Are you aware of previous organisational decisions relevant to this topic?*
 
 ## 2) Long list: maximise learning, not consensus
 
@@ -78,12 +74,12 @@ I try to keep the long list broad (often no more than ~10 options), and I explic
 
 At this stage, the output can be very lightweight: a simple list or table with a short description of each option and why it's meaningfully different is usually enough.
 
-**Quick checklist**
+**Some considerations:**
 
-- Are you prematurely dismissing options without justification?
-- Are rejected options documented transparently?
-- If options are scarce, have you revised constraints that may be too tight?
-- Have you gone beyond the usual sources, such as colleagues, past projects, or web resources, to uncover a greater range of options?
+- *Are you prematurely dismissing options without justification?*
+- *When options are rejected, are the reasons recorded transparently?*
+- *Have any assumptions or constraints been tightened too early, limiting the option space?*
+- *Have you looked beyond familiar patterns, past projects, or the immediate team to broaden the set of options?*
 
 ## 3) Shortlist: gateway criteria and the "do nothing" baseline
 
@@ -100,12 +96,12 @@ If the gateway criteria eliminate everything, that's usually a signal that:
 
 And that's very ok, it's now time to loop back.
 
-**Quick checklist**
+**Some considerations:**
 
-- Do you have a methodology to define some gateway criteria?
-- Have you explicitly included the “Do Nothing” option?
-- Have you reviewed and agreed the shortlist with the stakeholders?
-- Are your options holistic enough, covering the main commercial, organisational, operational, and technical aspects?
+- *Are the gateway criteria genuinely non-negotiable, rather than strong preferences?*
+- *Have you reviewed and agreed the shortlist with the stakeholders?*
+- *Does the shortlist still represent a meaningful range of approaches and trade-offs, across commercial, organisational, operational, and technical dimensions?*
+- *Have you explicitly included the "Do Nothing" option?*
 
 ## 4) Criteria and weightings: force the priority conversation
 
@@ -121,13 +117,11 @@ In practice, I usually capture this as a simple table or list of criteria with r
 
 If you're struggling to agree weightings, that's not a process failure. It's the process doing its job: forcing the trade-off conversation early.
 
-**Quick checklist**
+**Some considerations:**
 
-- Are your criteria clearly linked to the previously defined objectives and requirements?
-- Do they reflect both functional and non-functional priorities?
-- Have you included long-term factors (e.g. total cost of ownership, maintainability, future scalability)?
-- Have the criteria and weightings been reviewed and agreed with stakeholders?
-- Have any new requirements or constraints surfaced that should prompt you to iterate earlier steps?
+- *Are your criteria clearly derived from the previously agreed objectives and requirements?*
+- *Do the criteria cover both short-term delivery concerns and longer-term considerations such as operability, security, and total cost of ownership?*
+- *Have the criteria and weightings been reviewed and agreed with stakeholders?*
 
 ## 5) Scoring: evidence, notes, and healthy challenge
 
@@ -139,13 +133,11 @@ Evidence can come from desk research, conversations with specialists, small prot
 
 I also strongly prefer group scoring with a small set of stakeholders. In practice, it reduces bias and builds shared ownership far better than scoring in isolation.
 
-**Quick checklist**
+**Some considerations:**
 
-- Are the scores based on objective evidence rather than opinion?
-- Are you involving the right stakeholders in scoring and weighting discussions?
-- Have you documented rationale for unusually high or low scores?
-- Do you need further research or validation (PoC, vendor input, etc…) to score confidently?
-- Have any new requirements or constraints emerged during scoring that should fed back into earlier steps?
+- *Are you involving the right stakeholders in scoring and weighting discussions?*
+- *Are scores grounded in evidence (research, prototypes, operational experience) rather than opinion?*
+- *Are unusually high or low scores being challenged, discussed, and documented?*
 
 ### A simple scoring example
 
@@ -181,13 +173,6 @@ I'll often include charts or totals as a summary, but I treat them as supporting
 
 If views are still split at this stage, that's not a failure. In the past, I've explicitly asked stakeholders to make the call, sometimes even to vote, but only once the trade-offs are fully visible and understood. Even when people disagree on the outcome, they're usually aligned on *why* it was chosen.
 
-**Quick checklist**
-
-- What did we consider, and what did we exclude (and why)?
-- What mattered most (criteria + weightings), and who agreed it?
-- Where are the real trade-offs and risks?
-- What would make us change our mind?
-
 ## 7) Record the decision: future-you will thank you
 
 **What you're trying to achieve:** a durable decision trail.
@@ -199,15 +184,6 @@ In practice, I'll usually work with the client's existing ways of capturing deci
 What's worth recording isn't just the outcome, but the context around it: the options that were considered, the trade-offs that were accepted, and any assumptions or review points that shaped the choice.
 
 It helps avoid the familiar “why are we doing this again?” conversation — usually at the exact moment when the original context has faded from memory.
-
-**Quick checklist**
-
-- Is there an existing governance or appraisal process you should follow?
-- Have you surfaced trade-offs and non-obvious insights in your documentation?
-- Does the output provide enough context for stakeholders to understand the recommendation?
-- Have you presented the recommendation objectively without overstepping into the decision?
-- Have you ensured the recommendation won't come as a surprise to stakeholders?
-- Does the preferred option align with organisational realities and political appetite?
 
 ## Final thoughts
 
