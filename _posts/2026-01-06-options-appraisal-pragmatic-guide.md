@@ -9,7 +9,7 @@ tags:
 - options-appraisal
 - trade-offs
 - architecture-decision-records
-summary: A practical, lightweight way to compare options, surface trade-offs early, and leave a decision trail your future self will thank you for.
+summary: A practical, lightweight way to compare options, surface trade-offs early, and leave a decision trail the rest of the organisation will thank you for.
 author: rvango
 ---
 
