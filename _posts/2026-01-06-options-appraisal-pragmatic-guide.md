@@ -1,6 +1,6 @@
 ---
 title: "Options appraisal: a pragmatic guide for architecture decisions"
-date: 2025-12-19 00:00:00 Z
+date: 2025-06-01 00:00:00 Z
 categories:
 - Tech
 tags:
