@@ -1,6 +1,6 @@
 ---
 title: Functional Optics for Modern Java - Part 1
-date: 2026-01-05 00:00:00 Z
+date: 2026-01-09 00:00:00 Z
 categories:
 - Tech
 tags:
@@ -632,4 +632,4 @@ By the end of this series, you'll not want to update nested data manually again.
 
 ### Next time
 
-Next time we dig into the three main optics: lenses, prisms, and traversals.  [Part 2: Optics Fundamentals]({{site.baseurl}}/2026/01/05/optics-fundamentals.html)
+Next time, in Part 2 we dig into the three main optics: lenses, prisms, and traversals.
