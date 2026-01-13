@@ -7,9 +7,8 @@ tags:
 - Java, Functional Programming, Optics
 author: magnussmith
 summary: This article dives deep into the three core optic types - lenses for product types, prisms for sum types, and traversals for collections. 
-image: magnussmith/assets/java.jpg
+image: magnussmith/assets/mfj_logo.jpg
 ---
-
 
 # Optics: Lenses, Prisms, and Traversals in Practice
 
@@ -94,7 +93,6 @@ With the dependencies in place, we're ready to explore each optic type in depth.
 ### Running the Examples
 
 
-
 ---
 
 ## Article Code
@@ -173,17 +171,7 @@ The `modify` operation is particularly powerful: it combines get and set in a si
 
 The real power emerges when you compose lenses. The `andThen` method chains lenses to reach deeper into nested structures:
 
-~~~~
-┌──────────────┐      ┌─────────────┐      ┌────────────┐
-│   Employee   │─────▶│   Address   │─────▶│   String   │
-│              │      │             │      │  (street)  │
-└──────────────┘      └─────────────┘      └────────────┘
-       │                    │                    │
-       │    addressLens     │    streetLens      │
-       │                    │                    │
-       └────────────────────┴────────────────────┘
-                employeeStreet (composed)
-~~~~
+![ofLensComposition.png]({{site.baseurl}}/magnussmith/assets/optics/ofLensComposition.png "Lens Composition")
 
 ~~~~ java
 // Compose: Employee → Address → String
@@ -277,17 +265,7 @@ public final class ShapePrisms {
 
 Prisms provide different operations than lenses, reflecting their optional nature:
 
-~~~~
-                          match (might fail)
-    ┌───────────┐     ─────────────────────▶     ┌───────────┐
-    │   Shape   │        Optional<Circle>        │  Circle   │
-    │           │     ◀─────────────────────     │           │
-    └───────────┘        build (always works)    └───────────┘
-         │                                             │
-         ├─── Circle ──┐                               │
-         ├─── Rectangle│  (only one variant matches)   │
-         └─── Triangle─┘                               │
-~~~~
+![ofUsingPrisms.png]({{site.baseurl}}/magnussmith/assets/optics/ofUsingPrisms.png "Using Prisms")
 
 ~~~~ java
 Prism<Shape, Circle> circlePrism = ShapePrisms.circle();
@@ -659,11 +637,12 @@ In Part 3, we'll apply these fundamentals to build the expression language AST, 
 
 ### Optics Theory and History
 
+- **Edward Kmett, [Lenses: A Functional Imperative](https://www.youtube.com/watch?v=efv0SQNde5Q&list=PLEDE5BE0C69AF6CCE)** (BASE, 2011): An excellent, accessible introduction to lens theory in Scala.
+
 - **Edward Kmett, [lens library](https://hackage.haskell.org/package/lens)**: The Haskell library that established modern optics. Dense but comprehensive; the README alone is an education.
 
 - **Julien Truffaut, [Monocle](https://www.optics.dev/Monocle/)**: Scala's premier optics library, with excellent documentation that bridges theory and practice.
 
-- **Simon Peyton Jones, ["Lenses: Compositional Data Access and Manipulation"](https://www.youtube.com/watch?v=k-QwBL9Dia0)** (Skills Matter, 2013): An accessible introduction to lens theory from one of functional programming's luminaries.
 
 ### Critical Perspectives
 
