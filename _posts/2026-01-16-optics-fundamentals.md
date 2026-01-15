@@ -1,12 +1,12 @@
 ---
 title: Functional Optics for Modern Java - Part 2
-date: 2026-01-05 00:00:00 Z
+date: 2026-01-16 00:00:00 Z
 categories:
 - Tech
 tags:
 - Java, Functional Programming, Optics
 author: magnussmith
-summary: This article dives deep into the three core optic types - lenses for product types, prisms for sum types, and traversals for collections. 
+summary: We continue the series by diving deeper into the three core optics - lenses for product types, prisms for sum types, and traversals for collections. 
 image: magnussmith/assets/mfj_logo.jpg
 ---
 
@@ -14,9 +14,9 @@ image: magnussmith/assets/mfj_logo.jpg
 
 *Part 2 of the Functional Optics for Modern Java series*
 
-In [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html), we identified the immutability gap: modern Java excels at reading nested data through pattern matching, but provides no elegant solution for writing. We introduced optics as the missing piece: composable abstractions that treat access paths as first-class values.
+In [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html), we identified the immutability gap: modern Java excels at reading nested data through pattern matching, but provides little help for writing. We introduced optics as the missing piece, providing composable abstractions that treat access paths as first-class values.
 
-Now it's time to get practical. This article dives deep into the three core optic types: lenses for product types, prisms for sum types, and traversals for collections. By the end, you'll understand not just how to use each, but when and why.
+Now it's time to get practical. This time we go deeper into the three core optic types: lenses for product types, prisms for sum types, and traversals for collections. By the end, you'll understand not just how to use each, but when and why.
 
 ---
 
@@ -88,22 +88,21 @@ java {
 </build>
 ~~~~
 
-With the dependencies in place, we're ready to explore each optic type in depth.
+With the dependencies in place, we're ready to get started.
 
 ### Running the Examples
-
 
 ---
 
 ## Article Code
 
-**[All code examples in this article have runnable demos in the companion code:](https://github.com/higher-kinded-j/expression-language-example)**
+**[All code examples in this article have runnable demos in the companion code repository:](https://github.com/higher-kinded-j/expression-language-example)**
 
 - **[LensDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article2/demo/LensDemo.java)**: Basic lens operations and composition
-- **[PrismDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article2/demo/PrismDemo.java)**: Prism operations and type-safe downcasting
+- **[PrismDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article2/demo/PrismDemo.java)**: Prism operations and type-safe down casting
 - **[TraversalDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article2/demo/TraversalDemo.java)**: List traversals and filtering
 - **[CompositionDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article2/demo/CompositionDemo.java)**: Deep path composition for nested updates
-- **[ExpressionPreviewDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article2/demo/ExpressionPreviewDemo.java)**: Preview of the expression language from Part 3
+- **[ExpressionPreviewDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article2/demo/ExpressionPreviewDemo.java)**: Preview of the expression language we will develop in Part 3
 
 The domain classes use Higher-Kinded-J's annotation-driven generation, defined in [`org.higherkindedj.article2.domain`](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article2/domain/).
 
@@ -169,7 +168,7 @@ The `modify` operation is particularly powerful: it combines get and set in a si
 
 ### Lens Composition
 
-The real power emerges when you compose lenses. The `andThen` method chains lenses to reach deeper into nested structures:
+The real power emerges when you compose lenses. The `andThen` method chains lenses to reach further down into nested structures:
 
 ![ofLensComposition.png]({{site.baseurl}}/magnussmith/assets/optics/ofLensComposition.png "Lens Composition")
 
@@ -184,7 +183,7 @@ Employee updated = employeeStreet.set("200 Oak Avenue", employee);
 Employee transformed = employeeStreet.modify(s -> s + " (verified)", employee);
 ~~~~
 
-Each composed lens handles all the intermediate reconstruction automatically. That twenty-five-line copy-constructor cascade from Part 1? It's now implicit in the lens composition.
+Each composed lens handles all the intermediate reconstruction automatically. That twenty-five-line copy-constructor cascade from Part 1? It's now implicitly taken care of in the lens composition.
 
 ### Lens Laws
 
@@ -283,7 +282,7 @@ boolean isCircle = circlePrism.matches(shape);
 Shape doubled = circlePrism.modify(c -> new Circle(c.radius() * 2), shape);
 ~~~~
 
-The `modify` on a prism is particularly elegant: it applies the transformation only if the prism matches, otherwise returning the original value unchanged. No explicit pattern matching is required.
+The `modify` on a prism is particularly elegant in that it applies the transformation only if the prism matches, otherwise returning the original value unchanged. No explicit pattern matching is required.
 
 ### Composing Prisms with Lenses
 
@@ -305,11 +304,11 @@ Optional<Double> radius = shapeRadius.getOptional(shape);
 Shape modified = shapeRadius.modify(r -> r * 2, shape);
 ~~~~
 
-Notice the type: composing a `Prism` with a `Lens` yields an `Affine`. This reflects the reality: we might find zero elements (if it's not a circle) or one element (if it is). The affine handles both cases elegantly.
+Notice the type: composing a `Prism` with a `Lens` yields an `Affine`. This reflects that we might find zero elements (if it's not a circle) or one element (if it is). The affine handles both cases elegantly.
 
-### Pattern: Type-Safe Downcasting
+### Pattern: Type-Safe Down casting
 
-Prisms provide type-safe downcasting without the need for explicit `instanceof` checks:
+Prisms provide type-safe down casting without the need for explicit `instanceof` checks:
 
 ~~~~ java
 // Traditional approach
@@ -380,7 +379,7 @@ Department updated = Traversals.modify(allStaffStreets, s -> s + " (relocated)",
 List<String> streets = Traversals.getAll(allStaffStreets, dept);
 ~~~~
 
-One composed traversal replaces what would otherwise be nested loops with manual reconstruction at each level.
+One composed the traversal replaces what would otherwise be nested loops with manual reconstruction at each level.
 
 ### Filtered Traversals
 
@@ -604,7 +603,7 @@ We'll implement:
 - Dead code elimination (removing unreachable branches)
 - A complete interpreter using stateful evaluation
 
-The expression language is small enough to understand completely, yet it is rich enough to demonstrate every optics pattern you would need for real-world tree manipulation.
+The expression language is small enough to understand completely, yet it is rich enough to demonstrate every optics pattern you would likely need for real-world tree manipulation.
 
 ---
 
