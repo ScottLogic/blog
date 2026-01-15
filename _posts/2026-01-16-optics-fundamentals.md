@@ -14,7 +14,7 @@ image: magnussmith/assets/mfj_logo.jpg
 
 *Part 2 of the Functional Optics for Modern Java series*
 
-In [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html), we identified the immutability gap: modern Java excels at reading nested data through pattern matching, but provides little help for writing. We introduced optics as the missing piece, providing composable abstractions that treat access paths as first-class values.
+In [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html), we identified the immutability gap: modern Java excels at reading nested data through pattern matching, but it provides little help for writing. We introduced optics as the missing piece, providing composable abstractions that treat access paths as first-class values.
 
 Now it's time to get practical. This time we go deeper into the three core optic types: lenses for product types, prisms for sum types, and traversals for collections. By the end, you'll understand not just how to use each, but when and why.
 
@@ -23,7 +23,7 @@ Now it's time to get practical. This time we go deeper into the three core optic
 ## Setting Up Higher-Kinded-J
 
 Before we explore optics in depth, let's configure our project to use Higher-Kinded-J's annotation-driven generation.  
-To follow along you will need Java 25 and if you are using Gradle, then 9.2.1 or newer.
+To follow along, you will need Java 25, and if you are using Gradle, then 9.2.1 or newer.
 
 ### Gradle Configuration
 
