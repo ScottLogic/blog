@@ -36,7 +36,8 @@ Traditionally retrospectives function akin to a regular team self-audit, during 
 
   + What skills did you learn/develop?
 
-  + If this Sprint were a résumé bullet, what would it say?
+  + If this Sprint were a CV bullet, what would it say?
+
 
 Prompting feedback in retrospectives is a small, almost trivial change that unlocks a disproportionately large benefit. It invites teams to shift improvement from being purely operational to more deeply human.  Empowering teams to explore new dimensions of continuous improvement, by reflecting on their own growth, and better aligning personal development with team success and organizational goals.
 
