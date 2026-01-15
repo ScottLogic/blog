@@ -28,7 +28,7 @@ Unfortunately, some teams treat retrospectives with deep suspicion and an unshak
 
   + Focus on identifying actionable improvements, each with designated owners to be followed up with regularly until completed.
 
-Traditionally retrospectives function akin to a regular team self-audit, during which personal development feedback is often generated. The focus of this blog post is more purposefully leveraging retrospectives as sources of valuable feedback. To further ensure personal development is prioritized alongside productivity. Valuable insights can be surfaced with one slight adjustment, by just adding a question as a prompt for the team. The best questions are ones thoughtfully designed with careful consideration paid to both the team, and the valuable insights you are seeking to be volunteered. Here are a few examples:
+Traditionally, retrospectives function akin to a regular team self-audit, during which personal development feedback is often generated. The focus of this blog post is more purposefully leveraging retrospectives as sources of valuable feedback. To further ensure personal development is prioritised alongside productivity. Valuable insights can be surfaced with one slight adjustment, by just adding a question as a prompt for the team. The best questions are ones thoughtfully designed with careful consideration paid to both the team, and the valuable insights you want individuals to volunteer. Here are a few examples:
 
   + What strengths did you see in others?
 
@@ -56,4 +56,5 @@ Importantly, feedback in retrospectives helps individuals better align their per
 Over time, teams that consistently prompt more frequent feedback build stronger feedback cultures. The result isn’t a perfect team or a flawless process, but something far more valuable: steady improvement driven by clear information, fewer illusions, and a shared understanding that removes the guesswork from growth.
 
 ### Conclusion
+
 By recognising and enhancing retrospectives value to generate feedback we can better foster learning and growth, both for individuals and the team. It reinforces the idea that people are central to delivery and that their growth is inseparable from team success, better aligning personal development with team outcomes and reinforcing the principle that improvement applies as much to people as it does to processes.
