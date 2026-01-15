@@ -15,7 +15,8 @@ In Agile, a retrospective is a regular meeting held at the end of a time-boxed d
 
 Various teams make great use of these meetings by providing a safe space to share challenges, and observations openly. The focus is on learning and continuous improvement, with the team being able to identify and agree on actionable improvements. These are then carried forward into future development cycles, helping teams to iteratively refine their ways of working.
 
-Unfortunately, some teams treat retrospectives with deep suspicion and an unshakable belief that they are a terrible use of time. Curiously, these are usually the teams who would benefit from them most. More common still are teams that struggle to get the most out of retrospectives. There is, of course, a lot that can be said about helping teams make retrospectives work better. Each team is different requiring tailored measures to address unique challenges. However, there are a plethora of eminently fixable problems:
+Unfortunately, some teams treat retrospectives with deep suspicion and an unshakeable belief that they are a terrible use of time. Curiously, these are usually the teams who would benefit from them most. More common still are teams that struggle to get the most out of retrospectives. There is, of course, a lot that can be said about helping teams make retrospectives work better. Each team is different, requiring tailored measures to address unique challenges. However, there are a plethora of eminently fixable problems:
+
 
   + Invite those directly involved in the development cycle being discussed. If there is not enough time for everyone to contribute you have invited too many people!
 
