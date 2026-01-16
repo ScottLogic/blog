@@ -16,7 +16,7 @@ image: magnussmith/assets/mfj_logo.jpg
 
 In [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html), we identified the immutability gap: modern Java excels at reading nested data through pattern matching, but it provides little help for writing. We introduced optics as the missing piece, providing composable abstractions that treat access paths as first-class values.
 
-Now it's time to get practical. This time we go deeper into the three core optic types: lenses for product types, prisms for sum types, and traversals for collections. By the end, you'll understand not just how to use each, but when and why.
+This time we go deeper into practical code with the three core optic types: lenses for product types, prisms for sum types, and traversals for collections. By the end, you'll understand not just how to use each, but when and why.
 
 ---
 
@@ -96,7 +96,7 @@ With the dependencies in place, we're ready to get started.
 
 ## Article Code
 
-**[All code examples in this article have runnable demos in the companion code repository:](https://github.com/higher-kinded-j/expression-language-example)**
+**All code examples from this article have [runnable demos:](https://github.com/higher-kinded-j/expression-language-example)**
 
 - **[LensDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article2/demo/LensDemo.java)**: Basic lens operations and composition
 - **[PrismDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article2/demo/PrismDemo.java)**: Prism operations and type-safe down casting
@@ -183,7 +183,7 @@ Employee updated = employeeStreet.set("200 Oak Avenue", employee);
 Employee transformed = employeeStreet.modify(s -> s + " (verified)", employee);
 ~~~~
 
-Each composed lens handles all the intermediate reconstruction automatically. That twenty-five-line copy-constructor cascade from Part 1? It's now implicitly taken care of in the lens composition.
+Each composed lens handles all the intermediate reconstruction automatically. That twenty-five-line copy-constructor cascade from [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html#nested-update)? It's now implicitly taken care of in the lens composition.
 
 ### Lens Laws
 
@@ -217,7 +217,8 @@ Think of a lens as a "structural pointer" for your objects. Just as `/employee/a
 
 ## Prisms: Sum Type Access
 
-Where lenses focus on fields that always exist (product types), prisms focus on variants that might exist (sum types). A prism represents an "is-a" relationship: a `Shape` *might be a* `Circle`; an `Expr` *might be a* `Binary`.
+Where lenses provide access to parts of a whole that are always present (product types). Prisms, conversely, attempt to access variants that might be absent (sum types). Think of a prism as a selective window: it only 'sees' the `Shape` if it happens to be a `Circle`.
+
 
 ### The Optional Nature of Prisms
 
@@ -431,16 +432,6 @@ Set<String> uniqueCities = Traversals.getAll(allStaffCities, department)
     .stream()
     .collect(Collectors.toSet());
 ~~~~
-
-**Understanding Monoids (the Java way):** The term "monoid" might sound unfamiliar, but you actually already use them frequently in Java:
-
-- **Addition**: combine with `+`, start with `0`
-- **Multiplication**: combine with `*`, start with `1`
-- **String concatenation**: combine with `+`, start with `""`
-- **List concatenation**: combine with `addAll`, start with an empty list
-- **Set union**: combine with `union`, start with an empty set
-
-A monoid is simply: (1) a way to combine two values, and (2) an "empty" starting value. That's exactly what `Stream.reduce(identity, combiner)` expects! When the documentation mentions monoids, think "something I can reduce over."
 
 ---
 

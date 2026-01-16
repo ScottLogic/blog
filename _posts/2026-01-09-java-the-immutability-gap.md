@@ -71,7 +71,7 @@ But there's a problem.
 
 ---
 
-## The Nested Update Problem
+## The Nested Update Problem {#nested-update}
 
 Reading nested immutable data is elegant. Writing it is not.
 
