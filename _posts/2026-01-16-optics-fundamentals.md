@@ -183,7 +183,7 @@ Employee updated = employeeStreet.set("200 Oak Avenue", employee);
 Employee transformed = employeeStreet.modify(s -> s + " (verified)", employee);
 ~~~~
 
-Each composed lens handles all the intermediate reconstruction automatically. That twenty-five-line copy-constructor cascade from [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html#nested-update)? It's now implicitly taken care of in the lens composition.
+Each composed lens handles all the intermediate reconstruction automatically. That [twenty-five-line]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html#nested-update) copy-constructor cascade from Part 1? It's now implicitly taken care of in the lens composition.
 
 ### Lens Laws
 
