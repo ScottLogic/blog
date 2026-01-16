@@ -17,7 +17,6 @@ Various teams make great use of these meetings by providing a safe space to shar
 
 Unfortunately, some teams treat retrospectives with deep suspicion and an unshakeable belief that they are a terrible use of time. Curiously, these are usually the teams who would benefit from them most. More common still are teams that struggle to get the most out of retrospectives. There is, of course, a lot that can be said about helping teams make retrospectives work better. Each team is different, requiring tailored measures to address unique challenges. However, there are a plethora of eminently fixable problems:
 
-
   + Invite those directly involved in the development cycle being discussed. If there is not enough time for everyone to contribute you have invited too many people!
 
   + Foster a safe and inclusive environment that invites everyone to contribute.
@@ -28,7 +27,7 @@ Unfortunately, some teams treat retrospectives with deep suspicion and an unshak
 
   + Focus on identifying actionable improvements, each with designated owners to be followed up with regularly until completed.
 
-Traditionally, retrospectives function akin to a regular team self-audit, during which personal development feedback is often generated. The focus of this blog post is more purposefully leveraging retrospectives as sources of valuable feedback. To further ensure personal development is prioritised alongside productivity. Valuable insights can be surfaced with one slight adjustment, by just adding a question as a prompt for the team. The best questions are ones thoughtfully designed with careful consideration paid to both the team, and the valuable insights you want individuals to volunteer. Here are a few examples:
+Traditionally, retrospectives function akin to a regular team self-audit, during which personal development feedback is often generated. We can more purposefully leverage retrospectives as sources of valuable feedback, to further ensure personal development is prioritised alongside productivity. Meaningful insights can be surfaced with one slight adjustment, by just adding a question as a prompt for the team. The best questions are ones thoughtfully designed with careful consideration paid to both the team, and the insights you are seeking to be volunteered. Here are a few examples:
 
   + What strengths did you see in others?
 
@@ -38,12 +37,9 @@ Traditionally, retrospectives function akin to a regular team self-audit, during
 
   + If this Sprint were a CV bullet, what would it say?
 
-
-Prompting feedback in retrospectives is a small, almost trivial change that unlocks a disproportionately large benefit. It invites teams to shift improvement from being purely operational to more deeply human. It empowers teams to explore new dimensions of continuous improvement by reflecting on their own growth, and better aligning personal development with team success and organisational goals.
-
+Prompting feedback in retrospectives is a small, almost trivial change that unlocks a disproportionately large benefit. It invites teams to shift improvement from being purely focused on process and consider a more human centred approach. It empowers teams to explore new dimensions of continuous improvement by reflecting on their own growth, and better aligning personal development with team success and organisational goals.
 
 Reflecting on experiences while they are still fresh is invaluable, particularly in fast-moving technical or product-driven environments. The closer feedback is to the work, the clearer, more specific, and more useful it becomes. Our peers who witness the everyday moments are uniquely placed to give us insight into how our skills, behaviours, and contributions are perceived in real time. When these observations are shared in a group, something subtle but powerful occurs: a common understanding emerges, and improvement becomes a collective rather than an individual effort.
-
 
 By shifting growth into the rhythm of weeks instead of months, improvement becomes incremental and habitual, not a yearly reckoning that comes too late to change anything and leaves people feeling judged rather than empowered. It rescues personal development from the bureaucratic oubliette of the annual performance review: an event so distant from the work itself that it often resembles archaeology.
 
@@ -56,5 +52,5 @@ Importantly, feedback in retrospectives helps individuals better align their per
 Over time, teams that consistently prompt more frequent feedback build stronger feedback cultures. The result isn’t a perfect team or a flawless process, but something far more valuable: steady improvement driven by clear information, fewer illusions, and a shared understanding that removes the guesswork from growth.
 
 ### Conclusion
-
 By recognising and enhancing retrospectives value to generate feedback we can better foster learning and growth, both for individuals and the team. It reinforces the idea that people are central to delivery and that their growth is inseparable from team success, better aligning personal development with team outcomes and reinforcing the principle that improvement applies as much to people as it does to processes.
+
