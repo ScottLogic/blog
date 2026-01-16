@@ -7,7 +7,7 @@ tags:
 - Agile
 - Team
 - Retrospective
-summary: Adapting retrospectives to spark feedback that grows people, and fosters a culture where recognition comes naturally.
+summary: By adapting retrospectives, teams can spark feedback that grows people, and nutures a culture where recognition comes naturally.
 author: dallsop
 ---
 
@@ -53,4 +53,5 @@ Over time, teams that consistently prompt more frequent feedback build stronger 
 
 ### Conclusion
 By recognising and enhancing retrospectives value to generate feedback we can better foster learning and growth, both for individuals and the team. It reinforces the idea that people are central to delivery and that their growth is inseparable from team success, better aligning personal development with team outcomes and reinforcing the principle that improvement applies as much to people as it does to processes.
+
 
