@@ -1,6 +1,6 @@
 ---
-title: Detective Adventures
-date: 2025-12-12 10:00:00 Z
+title: Detective Adventures - on debugging UI issues
+date: 2026-01-16 10:00:00 Z
 categories:
 - Tech
 tags:
@@ -41,6 +41,8 @@ Alternatively, I could’ve added a condition to the “double-click-protection�
 
 Another suggestion we have considered was to use HTML-based summary/details elements to show/hide the secondary actions, thus eliminating the need for JavaScript. Unfortunately, the design team was not in favour of this solution due to time constraints on their part.
 
-There is a key takeaway about the [difference](https://www.enonic.com/blog/what-is-the-difference-between-server-side-and-client-side) between form-based applications (server-side rendering for that matter) and web-based applications. The former is extremely limited in its capabilities, and I can see why designers would find it too restricting. Personally, I find that it forces a certain simplicity that is healthy for code maintenance as well as the user’s mental model.
+There is a key takeaway about the [difference](https://www.enonic.com/blog/what-is-the-difference-between-server-side-and-client-side) between form-based applications (server-side rendering for that matter) and web-based applications. The former is extremely limited in its capabilities, and I can see why designers would find it too restricting. Personally, I find that it forces a certain simplicity in keeping a minimalistic client-side code that is healthy for code maintenance as well as the user’s mental model.
+
+## Conclusion
 
 The landscape of software development is constantly changing, with modern technologies, frameworks, and methodologies. This, as I have mentioned in the past, can be quite overwhelming for junior developers. I hope that this experience I have shared gives a better view on the type of problems we are dealing with. As developers, we are required to understand the client needs and produce the best software, regardless of the tech stack.
