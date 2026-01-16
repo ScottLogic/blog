@@ -6,13 +6,10 @@ active-authors:
   - abirch
   - acarr
   - acaulfield
-  - afonseca 
-  - ahickman
   - alaws
   - alee
   - amcgill
   - amjones
-  - asaha
   - asegrove
   - ashing
   - bcoke
@@ -22,9 +19,6 @@ active-authors:
   - bpritchard
   - bwallis
   - ceberhardt
-  - cferguson
-  - cfisher
-  - cfreestone
   - chayes
   - ckoris
   - colive
@@ -80,7 +74,6 @@ active-authors:
   - jisted
   - jleftley
   - jjgray
-  - jmcevoy
   - jmoore
   - jporter
   - jspruce
@@ -91,7 +84,6 @@ active-authors:
   - jwren
   - kangel
   - kclark
-  - kcoombes
   - kdavis
   - kday
   - kellis
@@ -99,7 +91,6 @@ active-authors:
   - klau
   - lcollingwood
   - lpisani
-  - lperrett
   - lvincent
   - magnussmith
   - masmith
@@ -114,8 +105,6 @@ active-authors:
   - mmorgan
   - mmoxon
   - mnyamunda
-  - mpace
-  - mphillips
   - mrichards
   - mridene
   - mwallace
@@ -153,7 +142,6 @@ active-authors:
   - sgladstone
   - shamiltonritchie
   - shunton
-  - sjurics
   - slaing
   - slinsley
   - smartin
@@ -166,6 +154,7 @@ active-authors:
   - tgilbert
   - thands
   - tjohnson
+  - twebb
   - tyates
   - vcisse
   - wboothclibborn
@@ -254,7 +243,7 @@ authors:
     author-summary: "I'm a Technical architect at Scott Logic, in Bristol. I have a full-stack .Net background, but lately I'm most interested in all sorts of web technology."
     picture: picture.png
   amjones:
-    author-summary: "<p>Last miner in the North East.</p>"
+    author-summary: "<p>I'm Andy. Lead Developer at Scott Logic, based in Newcastle. Addicted to web dev, games dev and electronics.</p>"
     name: "Andrew Jones"
     picture: picture.png
   amorgan:
@@ -1031,6 +1020,10 @@ authors:
     name: "Tom Simmons"
     author-summary: "<p>I am a Senior Developer at Scott Logic.</p>"
     picture: picture.jpg
+  twebb:
+    name: "Toni Webb"
+    author-summary: "<p>I'm a Lead Delivery Manager with 15+ years of experience leading complex technical projects across financial services, utilities, and the public sector. At Scott Logic, I specialise in project recovery, digital transformation, and creating high-performing teams that deliver challenging projects on time and within budget while bridging technical and business needs.</p>"
+    picture: Toni-Webb.jpg
   wcaine:
     name: "Will Caine"
     author-summary: "Scott Logic Intern at the Newcastle office during the summer of 2018."
@@ -1107,8 +1100,7 @@ authors:
     picture: picture.jpg
   magnussmith:
     name: "Magnus Smith"
-    author-summary: "<p>Lead Developer at Scott Logic, based in Newcastle. I've 25 years working with Java and passionate about modern JVM technologies.</p>"
-    twitter-url: "https://bsky.app/profile/ultramagn3tic.bsky.social"
+    author-summary: "<p>Lead Developer at Scott Logic, Creator of <a href=\"https://higher-kinded-j.github.io/\">Higher-Kinded-J</a>. I've 25 years working with Java and passionate about modern JVM technologies.</p><p><a href=\"https://bsky.app/profile/ultramagn3tic.bsky.social\">ultramagn3tic@blusky</a></p>"
     picture: picture.jpg
   hashbyha:
     name: "Hugh Ashby-Hayter"
@@ -1647,7 +1639,7 @@ authors:
   rvango:
     name: "Remi Van Goethem"
     email: rvgoethem@scottlogic.com
-    author-summary: "I am a Lead Dev in the Edinburgh office. I take ideas, add a dash of design, a sprinkle of code, et voilà!"
+    author-summary: "I am a Lead Architect in the Edinburgh office. I take ideas, add a dash of design, a sprinkle of code, et voilà!"
     picture: picture.png
   crobb:
     name: "Callum Robb"

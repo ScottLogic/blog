@@ -11,14 +11,13 @@ tags:
 - ESG
 - InferESG
 - Evaluation
-author: afonseca
 summary: A comparison of open-source and proprietary LLMs for ESG report evaluation
   using InferESG and RAGAS.
+author: afonseca
+image: "/uploads/Evaluating-Answers-with-Large-Language-Models--How-InferESG-and-RAGAS-Helped-01-3d5099.jpg"
 ---
 
-# Evaluating Answers with Large Language Models: How InferESG and Ragas Helped
-
- In our latest project, we set out to evaluate how different Large Language Models (LLMs) perform when responding to user prompts. Our goal was not to determine which model is superior, but to assess whether open-source models can serve as viable alternatives to OpenAI’s proprietary models. We did this by building on our existing platform, [InferESG](https://blog.scottlogic.com/2025/04/02/inferesg-finding-the-right-architecture.html), which automatically generates reports from ESG disclosures.
+In our latest project, we set out to evaluate how different Large Language Models (LLMs) perform when responding to user prompts. Our goal was not to determine which model is superior, but to assess whether open-source models can serve as viable alternatives to OpenAI’s proprietary models. We did this by building on our existing platform, [InferESG](https://blog.scottlogic.com/2025/04/02/inferesg-finding-the-right-architecture.html), which automatically generates reports from ESG disclosures.
 
 For this study, we tested the following models: DeepSeek, Gemma-3-1B, GPT-4o, GPT-4o-mini, GPT-OSS-20B, LFM2-1.2, and Qwen3-30B-A3B. The table below gives a better understanding of the models-sizes and provides links with useful information about them.
 

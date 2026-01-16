@@ -17,6 +17,11 @@ header {
   z-index: 2;
   max-width: 1400px;
 
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
 
   h1.brand {
     display: block;
@@ -26,9 +31,6 @@ header {
     @include breakpoint(medium) {
       margin: 0 0 0 rem-calc(40px, 16px)
     }
-    @include breakpoint(large) {
-      margin: rem-calc(24px, 16px) 0 0 0;
-    }
     a {
       background: url('./assets/logo.svg') no-repeat 0 0;
       width: 183px;
@@ -37,7 +39,7 @@ header {
       text-indent: -9999px;
     }
     @include breakpoint(large) {
-      margin: rem-calc(24px, 16px) 0 0 0;
+      margin: 0 0 rem-calc(32px, 16px) rem-calc(32px, 16px);
       width: 421px;
       a {
         background: url('./assets/logo.svg') no-repeat 0 0;
@@ -64,38 +66,7 @@ header {
       }
     }
   }
-
-  .header-nav_top {
-    ul {
-      margin-bottom: rem-calc(10px, 16px);
-      li {
-        font-size: rem-calc(11px, 16px);
-        padding-left: rem-calc(10px, 16px);
-        &.current-menu-item {
-          a {
-            text-decoration: underline
-          }
-        }
-      }
-    }
-  }
-
-  .header-nav_bottom {
-    display: block;
-    ul {
-      li {
-        font-size: rem-calc(14px, 16px);
-        padding-left: rem-calc(10px, 16px);
-        @include breakpoint(large) {
-          padding-left: rem-calc(20px, 16px);
-        }
-        a {
-          padding-bottom: rem-calc(35px, 16px);
-          display: block;
-        }
-      }
-    }
-  }
+  
 }
 
 .mobile-nav-trigger {
@@ -159,7 +130,7 @@ header.no-hero {
     }
   }
 
-  a, .header-nav_bottom a {
+  a {
     color: colours.$black;
   }
 
@@ -186,9 +157,6 @@ header.no-hero {
     @include breakpoint(medium) {
       margin-left: rem-calc(40px, 16px)
     }
-    @include breakpoint(large) {
-      margin: rem-calc(38px, 16px) 0 0 0;
-    }
     a {
       background: url('./assets/logo.svg') no-repeat 0 0;
       width: 183px;
@@ -197,7 +165,7 @@ header.no-hero {
       text-indent: -9999px;
     }
     @include breakpoint(large) {
-      margin: rem-calc(38px, 16px) 0 0 0;
+      margin: rem-calc(24px, 16px) 0 0 0;
       width: 421px;
       a {
         background: url('./assets/logo.svg') no-repeat 0 0;
@@ -208,7 +176,6 @@ header.no-hero {
       }
     }
   }
-
 }
 
 
@@ -222,7 +189,7 @@ header.fixed-header {
     z-index: 99;
     border-bottom: 0px solid rgba(206, 210, 211, 0.3);
 
-    a, .header-nav_bottom a {
+    a {
       color: colours.$black;
     }
 
@@ -241,34 +208,11 @@ header.fixed-header {
       }
     }
 
-    .header-nav_bottom {
-      display: block;
-      ul {
-        li {
-          font-size: rem-calc(14px, 16px);
-          padding-left: rem-calc(10px, 16px);
-          @include breakpoint(large) {
-            padding-left: rem-calc(20px, 16px);
-          }
-          a {
-            padding-bottom: rem-calc(5px, 16px);
-            display: block;
-            &:hover {
-              padding-bottom: rem-calc(5px, 16px);
-            }
-          }
-        }
-      }
-    }
-
     h1.brand {
       display: block;
       margin: auto;
       padding: 0;
       width: 165px;
-      @include breakpoint(large) {
-        margin: rem-calc(27px, 16px) 0 0 0;
-      }
       a {
         background: url('./assets/logo.svg') no-repeat 0 0;
         width: 183px;
@@ -277,7 +221,7 @@ header.fixed-header {
         text-indent: -9999px;
       }
       @include breakpoint(large) {
-        margin: rem-calc(27px, 16px) 0 rem-calc(22px, 16px) 0;
+        margin: rem-calc(27px, 16px) 0 rem-calc(24px, 16px) rem-calc(24px, 16px);
         width: 421px;
         a {
           background: url('./assets/logo.svg') no-repeat 0 0;
@@ -287,6 +231,11 @@ header.fixed-header {
           text-indent: -9999px;
         }
       }
+    }
+    .main-nav {
+        @include breakpoint(large) {
+        margin-top: rem-calc(27px, 16px);
+        }
     }
   }
 }
