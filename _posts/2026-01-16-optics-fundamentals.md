@@ -432,7 +432,7 @@ Set<String> uniqueCities = Traversals.getAll(allStaffCities, department)
     .collect(Collectors.toSet());
 ~~~~
 
-**Understanding Monoids (the Java way):** The term "monoid" might sound unfamiliar, but you use them daily:
+**Understanding Monoids (the Java way):** The term "monoid" might sound unfamiliar, but you actually already use them frequently in Java:
 
 - **Addition**: combine with `+`, start with `0`
 - **Multiplication**: combine with `*`, start with `1`
