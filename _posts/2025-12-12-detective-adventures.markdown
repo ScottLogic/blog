@@ -35,7 +35,7 @@ It was this piece of code (adding the hidden field to the button’s form) that 
 
 At this point, the solution was easy – I replaced the “double-click-protection” with a simple [debounce](https://dev.to/nilebits/javascript-performance-optimization-debounce-vs-throttle-explained-5768) mechanism (which prevents sending events too frequently), allowing my event to still run properly and get caught by my own event listener. 
 
-Alternatively, I could’ve added a condition to the “double-click-protection” code to check if the button has an attribute `double-click-protection="false"`; add that attribute to my button that I can now listen to using JavaScript and send the PDF, as I originally planned. It would have been a simpler, safer way to do it (less breaking of existing code), but I felt it would just a patch over another instead of actually solving the problem.
+Alternatively, I could’ve added a condition to the “double-click-protection” code to check if the button has an attribute `double-click-protection="false"`; add that attribute to my button that I can now listen to using JavaScript and send the PDF, as I originally planned. It would have been a simpler, safer way to do it (less breaking of existing code), but I felt it would just patch over instead of actually solve the problem.
 
 <img src="{{ site.baseurl }}/osharon/assets/detective-adventures/state-3.jpg" alt="Alternative design"/>
 
