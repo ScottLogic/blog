@@ -47,7 +47,12 @@ Reviewing code is also easier with AI - more than once has a quick AI check spot
 The necessary caveat: AI does make mistakes. Even with plenty of context, it often defaults to ‘standard’ answers that won’t work for your project. When you use AI tools in your development, you are still responsible for every line of code you commit so make sure to double check everything.  
 
 ## TLDR
-Names hold great power, use your words with kindness and clarity, own your mistakes, do it right the first time, and use the tools available to you (including AI, with caution) to make your life easier and your code better. 
+- Names (and naming conventions) hold great power
+- Use your words with kindness and clarity
+- Own your mistakes
+- Do it right the first time
+- Use the tools available to you (including AI, with caution) to make your life easier and your code better. 
 
-That’s a wrap for 3 years of coding. 
+That’s a wrap for 3 years of coding.
+
 Can't wait to see what the next few years will teach me.
