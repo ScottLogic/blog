@@ -2,9 +2,9 @@
 title: What I’ve learned over 3 years of writing code
 date: 2026-01-19 10:00:00 Z
 categories:
-- Tech
+- People
 tags:
-- people
+- software engineering
 summary: What has three years of writing code taught me?
 author: dhinrichs
 ---
