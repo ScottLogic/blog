@@ -55,4 +55,4 @@ The necessary caveat: AI does make mistakes. Even with plenty of context, it oft
 
 That’s a wrap for 3 years of coding.
 
-Can't wait to see what the next few years will teach me.
+I can't wait to see what the next few years will teach me.
