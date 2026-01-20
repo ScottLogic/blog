@@ -30,7 +30,7 @@ On the topic of making progress fast: It’s usually better to take a few more h
 That being said: Sometimes you do need to pivot and take a ticket that has scope-crept into an entire epic and break it up into smaller tasks. Just make sure you do those small tasks right the first time.
 
 ## Coding with style
-As I’m writing this blog post, my text editor autocorrects small mistakes and shows me a red squiggly line to tell me that “devs” is not a real word. Did you know that code editors can do the same thing for code quality, indentation, naming conventions and more? Incredible! Which is why I am flabbergasted on the rare occasion that I come across a codebase that clearly doesn’t use them. 
+As I’m writing this blog post, my text editor autocorrects small mistakes and shows me a red squiggly line to tell me that “devs” is not a real word. Did you know that code editors can do the same thing for code quality, formatting, indentation, naming conventions and more? Incredible! Which is why I am flabbergasted on the rare occasion that I come across a codebase that clearly doesn’t use them. 
 
 I could tell you about cognitive load and how a visually clear structure reduces it, or about the effort of reviewing a PR with multiple typos in it, but I think you already get the point. 
 
