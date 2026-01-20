@@ -15,7 +15,7 @@ At the beginning of 2023 I kick-started my career in tech with Scott Logic’s g
 ## Names
 Solid naming conventions make a huge difference. A branch named “ticket-42-add-intergalactic-microservice” is far better than simply “42”. A commit message “ticket 42: added controller” is easier to work with than “made changes”. 
 
-And when you work with users, product owners, testers, and other teams, making sure that we all know that we are talking about the same thing becomes absolutely necessary for making progress. Consistency is vital, and I wouldn’t shy away from adding definitions into the README or add an intranet page explaining the terminology different teams use. At the end of the day it doesn’t matter if we call it a spaceship_id, ship-key, or transportIdentifier, as long as we use whichever word we pick consistently in our  code and conversations.
+And when you work with users, product owners, testers, and other teams, making sure that we all know that we are talking about the same thing becomes absolutely necessary for making progress. Consistency is vital, and I wouldn’t shy away from adding definitions into the README or add an intranet page explaining the terminology different teams use. At the end of the day it doesn’t matter if we call it a spaceship_id, ship-key, or transportIdentifier, as long as we use whichever naming styles and naming conventions we pick consistently in our  code and conversations.
 
 Speaking of conversations – let’s talk about people next.
 
