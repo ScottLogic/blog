@@ -1,108 +1,100 @@
-@use 'colours';
+@use "colours";
+@use "sizes";
+@use "fonts";
 
-$max-width: 1400px;
-
-$baseFontSize: 16px;
-$monospaceFontSize: $baseFontSize * 0.9;
-$smallLayoutUnit: 5px;
-$layoutUnit: 10px;
-
-$footer-height: 216px;
-
-$font-family: "objektiv-mk1", Helvetica, Arial, sans-serif !important;
-
-html, body {
-    max-width: $max-width;
-    margin: 0 auto;
-    padding: 0;
-    height: 100%;
-    background-color: colours.$white;
+html,
+body {
+  max-width: sizes.$max-width;
+  margin: 0 auto;
+  padding: 0;
+  height: 100%;
+  background-color: colours.$white;
 }
 
 #off-canvas-wrapper {
   height: 100%;
 }
 
-.post-index, .default-post, .default-author {
+.post-index,
+.default-post,
+.default-author {
   min-height: 100%;
-  padding-bottom: $footer-height;
-  margin-bottom: -$footer-height;
+  padding-bottom: sizes.$footer-height;
+  margin-bottom: -(sizes.$footer-height);
 }
 
 /* Font Settings */
-/* 
-Sizes set to PX here, but if base size is set to 16px, you can
-replace with REM.
-*/
-$font-light: 300;
-$font-regular: 400;
-$font-medium: 500;
-$font-bold: 700;
+
 body {
-    font-family: $font-family;
+  font-family: fonts.$font-family;
 }
 
 a.link {
-    /* Links & Buttons   */
-    font-weight: $font-medium;
-    border-bottom: 5px solid;
-    padding-bottom: 0;
-    background-color: transparent;
-    -webkit-transition: background .15s cubic-bezier(0.33, 0.66, 0.66, 1);
-    -o-transition: background .15s cubic-bezier(0.33, 0.66, 0.66, 1);
-    transition: background .15s cubic-bezier(0.33, 0.66, 0.66, 1);
-    overflow-wrap: break-word;
-    word-break: break-word;
-    word-wrap: break-word;
-    line-height: 2em;
+  /* Links & Buttons   */
+  font-weight: fonts.$font-medium;
+  border-bottom: 5px solid;
+  padding-bottom: 0;
+  background-color: transparent;
+  -webkit-transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  -o-transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  transition: background 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+  line-height: 2em;
 }
 
 a {
-    color: inherit;
-    text-decoration: inherit;
-    font-weight: $font-bold;
+  color: inherit;
+  text-decoration: inherit;
+  font-weight: fonts.$font-bold;
 }
 
 a:hover {
   color: colours.$teal;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: $font-family;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: fonts.$font-family;
 }
 
 h1 {
-	font-size: $baseFontSize * 2.5;
-  font-weight: $font-bold;
+  font-size: fonts.$baseFontSize * 2.5;
+  font-weight: fonts.$font-bold;
   text-align: center;
 }
 
 h2 {
-  font-size: $baseFontSize * 1.5;
-  font-weight: $font-bold;
+  font-size: fonts.$baseFontSize * 1.5;
+  font-weight: fonts.$font-bold;
 }
 
 h3 {
-  font-size: $baseFontSize * 1.25;
-  font-weight: $font-bold;
+  font-size: fonts.$baseFontSize * 1.25;
+  font-weight: fonts.$font-bold;
 }
 
 h4 {
-  font-size: $baseFontSize;
-  font-weight: $font-bold;
+  font-size: fonts.$baseFontSize;
+  font-weight: fonts.$font-bold;
 }
 h5 {
-  font-weight: $font-medium;
+  font-weight: fonts.$font-medium;
 }
 h6 {
-  font-weight: $font-regular;
+  font-weight: fonts.$font-regular;
 }
 
 p {
   font-size: 16px;
-  font-weight: $font-light;
+  font-weight: fonts.$font-light;
   span {
-      font-weight: $font-medium
+    font-weight: fonts.$font-medium;
   }
 }
 
@@ -119,7 +111,8 @@ li {
   padding: 0;
 }
 
-blockquote, blockquote p {
+blockquote,
+blockquote p {
   color: colours.$black;
 }
 
@@ -137,47 +130,50 @@ header nav {
 }
 
 .main-nav {
-
   li {
     padding: 1rem;
   }
 
   .menu a {
-
     padding: 0 0 0.25rem 0;
     display: block;
     border-bottom: 5px solid transparent;
   }
 
   li:nth-child(1) {
-    a:hover, a.active {
-      color: colours.$black;
-      border-bottom: 5px solid colours.$teal;
-    }
-  }
-
-  li:nth-child(2) {
-    a:hover, a.active {
-      color: colours.$black;
-      border-bottom: 5px solid colours.$orange;
-    }
-  }
-
-  li:nth-child(3) {
-    a:hover, a.active {
+    a:hover,
+    a.active {
       color: colours.$black;
       border-bottom: 5px solid colours.$pink;
     }
   }
 
-    li:nth-child(4) {
-    a:hover, a.active {
+  li:nth-child(2) {
+    a:hover,
+    a.active {
+      color: colours.$black;
+      border-bottom: 5px solid colours.$teal;
+    }
+  }
+
+  li:nth-child(3) {
+    a:hover,
+    a.active {
+      color: colours.$black;
+      border-bottom: 5px solid colours.$pink;
+    }
+  }
+
+  li:nth-child(4) {
+    a:hover,
+    a.active {
       color: colours.$black;
       border-bottom: 5px solid colours.$yellow;
     }
   }
-    li:nth-child(5) {
-    a:hover, a.active {
+  li:nth-child(5) {
+    a:hover,
+    a.active {
       color: colours.$black;
       border-bottom: 5px solid colours.$green;
     }
@@ -185,9 +181,9 @@ header nav {
 }
 
 .category > a {
-  font-weight: $font-light;
+  font-weight: fonts.$font-light;
 }
 
 .cta > a {
-  font-weight: $font-bold;
+  font-weight: fonts.$font-bold;
 }

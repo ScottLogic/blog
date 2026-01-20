@@ -1,13 +1,17 @@
-{% assign selectedIndex = include.selectedIndex %}
+{%- assign selectedCategory = include.selectedCategoryName -%}
 <div class="category-list cell">
-    <h4>Categories</h4>
-    <ul>
-        {% for category in site.data.categories %}
-            <li>
-                <a href="{{ site.baseurl }}{{ category.url }}">
-                    <span class="{% if selectedIndex == forloop.index0 %}active {% endif %}">{{ category.title }}</span>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+  <h4>Categories</h4>
+  <ul>
+    {% for category in site.data.categories %}
+      <li>
+        <a href="{{- site.baseurl -}}{{- category.url -}}">
+          <span
+            class="{%- if selectedCategory == category.title -%}active{%- endif -%}"
+          >
+            {{- category.title -}}
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
 </div>

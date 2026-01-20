@@ -3,12 +3,13 @@ const fetch = require("node-fetch");
 const fs = require("fs");
 const { markdownToTxt } = require("markdown-to-txt");
 
-
 (async () => {
-  const outputPath = './scripts/generate-related/data';
+  const outputPath = "./scripts/generate-related/data";
   if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath);
-  
-  const paths = await glob('./_posts/**/20{[1][3-9],[2][0-9]}-*.{md,markdown,html}').then((paths) => {
+
+  const paths = await glob(
+    "./_posts/**/20{[1][3-9],[2][0-9]}-*.{md,markdown,html}",
+  ).then((paths) => {
     return paths;
   });
 
@@ -20,7 +21,7 @@ const { markdownToTxt } = require("markdown-to-txt");
       await summarisePost(formatContent(path), file).then((embedding) => {
         fs.writeFileSync(filename, JSON.stringify(embedding, null, 2));
       });
-    } 
+    }
   }
 })();
 
@@ -30,7 +31,7 @@ const formatContent = (post) => {
   let text = markdownToTxt(body);
   text = text.replace(
     /\{% highlight [a-zA-Z]* %\}[\s\S]*\{% endhighlight %\}/g,
-    " "
+    " ",
   );
   // remove whitespace and preserve ~2048 tokens (approx 1000 words)
   return text.split(/[\s]+/).slice(0, 1000).join(" ");
@@ -39,28 +40,26 @@ const formatContent = (post) => {
 const summarisePost = async (data, file) => {
   const OPENAI_API_KEY = process.env.npm_config_openai_api_key;
 
-  return await fetch(
-    "https://api.openai.com/v1/embeddings",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + OPENAI_API_KEY,
-      },
-      body: JSON.stringify({
-        input: data,
-        model: "text-embedding-ada-002"
-      }),
-    })
+  return await fetch("https://api.openai.com/v1/embeddings", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + OPENAI_API_KEY,
+    },
+    body: JSON.stringify({
+      input: data,
+      model: "text-embedding-ada-002",
+    }),
+  })
     .then((res) => {
-      if(res.status !== 200) {
-        console.log("failed to embed: " +  file)
-        if(res.status === 401) {
+      if (res.status !== 200) {
+        console.log("failed to embed: " + file);
+        if (res.status === 401) {
           throw Error(res.statusText + " - check your OpenAI API key");
         }
         throw Error(res.statusText);
       }
-      return res.json()
+      return res.json();
     })
     .then((json) => {
       if (json.data) {

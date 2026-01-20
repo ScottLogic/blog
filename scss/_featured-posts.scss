@@ -1,4 +1,5 @@
-@use 'colours';
+@use "colours";
+@use "util";
 
 @mixin featured-colours($bg-colour, $fg-colour) {
   .summary {
@@ -17,27 +18,27 @@
 .avatar-metadata {
   z-index: 1;
   margin-top: 0.75rem;
-  div, img {
-      display: inline-block;
-      vertical-align: middle;
+  div,
+  img {
+    display: inline-block;
+    vertical-align: middle;
   }
   img {
-      border-radius: 50%;
-      max-height: 3rem;
-      max-width: 3rem;
-      margin-right: 0.25rem;
-      filter: grayscale(100%);
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
+    border-radius: 50%;
+    max-height: 3rem;
+    max-width: 3rem;
+    margin-right: 0.25rem;
+    filter: grayscale(100%);
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
   }
-  @include breakpoint(large) {
+  @include util.breakpoint(large) {
     margin-right: -75%;
   }
 }
 
 .featured-posts {
-
   margin-bottom: 1rem;
 
   .featured-post {

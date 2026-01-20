@@ -1,0 +1,12 @@
+{
+  plugins: ["@shopify/prettier-plugin-liquid"],
+  overrides: [
+    // Treat all html as liquid html
+    {
+      "files": "*.html",
+      "options": {
+        parser: "liquid-html"
+      }
+    }
+  ]
+}

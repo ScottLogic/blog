@@ -152,10 +152,14 @@ The blog will then be available on [localhost][localhost].
 If you are working on fixes or new features, and need to re-compile the scripts or SCSS, you can use these npm scripts:
 
 ```shell
-npm ci
-npm run scripts
-npm run style
+npm ci           # Install deps
+npm run prettier # Format non-post files
 ```
+
+##### Useful Options for Jekyll
+* `--livereload` - trigger a build on file change (excluding SCSS or JS) and refresh the browser once built
+* `--incremental` - use the experimental incremental build mode which after the initial build, only builds changed files
+* `RUBYOPT="--yjit"` - let ruby use its JIT (only macOS, Linux and BSD on x86-64 and arm64/aarch64 CPUs are supported)
 
 ### Running with Docker
 
