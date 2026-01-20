@@ -20,7 +20,7 @@ And when you work with users, product owners, testers, and other teams, making s
 Speaking of conversations – let’s talk about people next.
 
 ## People
-When I first started to learn coding someone told me: “In software development, all problems that aren’t math problems are people problems”. After three years I think I’m starting to get an idea of what they meant.
+When I first started to learn coding someone told me: “In software development, all problems that aren’t maths problems are people problems”. After three years I think I’m starting to get an idea of what they meant.
 
 The best developers I know are not just technically excellent, but also know how to talk to colleagues and stakeholders alike with kindness and clarity. They know how to explain complicated processes in a simple terms, they don’t overuse jargon just for the sake of it, and most importantly: They take ego out of the equation. If they mess up, they don’t try to brush it under the carpet hoping that no one will notice, they own their mistakes and fix them as soon as possible. For more junior staff it makes a big difference to see your seniors and leads model this kind of growth-mindset; it creates a safe culture for learning and making progress fast.
 
