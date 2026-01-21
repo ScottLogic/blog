@@ -2,7 +2,7 @@
 title: How Do We Effectively Communicate Architecture?
 date: 2025-11-21 00:00:00 Z
 categories:
-- Tech
+- Architecture
 summary: One of the key responsibilities of a software architect is communicating
   effectively—more often than not, that means using visuals rather than relying on
   text. This post explores approaches and tools for modelling architecture and creating

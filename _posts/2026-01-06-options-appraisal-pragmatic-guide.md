@@ -2,7 +2,7 @@
 title: 'Options appraisal: a pragmatic guide for architecture decisions'
 date: 2026-01-06 00:00:00 Z
 categories:
-- Tech
+- Architecture
 tags:
 - architecture
 - decision-making
