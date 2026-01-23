@@ -118,6 +118,7 @@ active-authors:
   - pdykes
   - pgraham
   - pling
+  - pmarsh
   - rbeckett
   - rgarside
   - rgriffiths
@@ -223,9 +224,9 @@ authors:
     name: "Avril Fiddes"
     picture: picture.png
   afonseca:
-   name: "Ana Fonseca"
-   author-summary: "I'm a Tester Engineer at Bristol office."
-   picture: picture.jpg
+    name: "Ana Fonseca"
+    author-summary: "I'm a Tester Engineer at Bristol office."
+    picture: picture.jpg
   agard:
     author-summary: '<p>I am an intern going into my fourth year at Edinburgh Napier univeristy, and I have been working on a <a href="https://github.com/ScottLogic/foyer-screen">foyer screen</a> for the offices.</p>'
     name: "Alec Gard"
@@ -1100,7 +1101,7 @@ authors:
     picture: picture.jpg
   magnussmith:
     name: "Magnus Smith"
-    author-summary: "<p>Lead Developer at Scott Logic, Creator of <a href=\"https://higher-kinded-j.github.io/\">Higher-Kinded-J</a>. I've 25 years working with Java and passionate about modern JVM technologies.</p><p><a href=\"https://bsky.app/profile/ultramagn3tic.bsky.social\">ultramagn3tic@blusky</a></p>"
+    author-summary: '<p>Lead Developer at Scott Logic, Creator of <a href="https://higher-kinded-j.github.io/">Higher-Kinded-J</a>. I''ve 25 years working with Java and passionate about modern JVM technologies.</p><p><a href="https://bsky.app/profile/ultramagn3tic.bsky.social">ultramagn3tic@blusky</a></p>'
     picture: picture.jpg
   hashbyha:
     name: "Hugh Ashby-Hayter"
