@@ -21,6 +21,13 @@ summary: Energy trading is a complex domain. Having just finished my first proje
 
 Do you picture a scene like The Wolf of Wall Street when you imagine a trading floor? Do you see hordes of wide-eyed guys in suits shouting down telephones to customers, hustle and bustle, and huge parties when big deals are made? The truth is that trading happens in quiet offices where calm, focused and very qualified individuals study numbers in grids that stretch across ranks of computer monitors. They know how to use the data, how to analyse trends, how to calculate to maximise a profit, and how to get the best outcomes for their business. And they know the systems and rules of trading in and out. As a developer (or tester or designer) working on a trading application, you will also need to gain a basic understanding of the domain.
 
+<a id='hkZKAzwNTbp_D_unNNyMIg' class='gie-single' href='https://www.gettyimages.com/detail/699097867' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>
+  Embed from Getty Images
+</a>
+<script>
+  window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'hkZKAzwNTbp_D_unNNyMIg',sig:'ehGedNoyiHvdnoNX6kekK42OvuANRtoSvXkIPfzL9t0=',w:'509px',h:'339px',items:'699097867',caption: true ,tld:'com',is360: false })});</script>
+<script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>
+
 I just completed my first software project in the energy sector. Over the two years, aside from improving my dev skills, I learned a lot of interesting stuff about the complexities of sending electricity around the world! What follows is a summary of what I learned about energy trading and the energy market written in simple terms: A quick-start guide for novices that I wish that I’d had at the start of the project.
 
 ## Energy
@@ -40,6 +47,14 @@ For complicated physics reasons (ask a scientist) the grid must stay **balanced*
 Remember how each country has its own grid\*? Well, there are cables that connect each grid to neighbouring ones - for instance, France’s grid will be linked to Spain’s. This means that electricity produced in Spain can be bought and used in France, which is useful if Spain cannot produce enough electricity to meet their demand or if France’s production is greener or cheaper.
 
 \*_Sidenote: sometimes a country’s grid can be split by region. For example, Germany has 4 separate control areas which are operated by different people. When you send/receive energy from Germany you send/receive from a specific control area as if they were separate grids. For the sake of simplicity, the article is written as though each country has one grid._
+
+<a id='JrpXdtTgR_hkrucRgnWL7w' class='gie-single' href='https://www.gettyimages.com/detail/1316185179' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>
+  Embed from Getty Images
+</a>
+<script>
+  window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'JrpXdtTgR_hkrucRgnWL7w',sig:'2qguowlaojUI1n2pxBDwPrIGN3c910SwRad9juji0OU=',w:'509px',h:'339px',items:'1316185179',caption: true ,tld:'com',is360: false })});
+</script>
+<script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>
 
 But you can only transfer a limited amount of electricity from one country to another. That’s because the linking cables can only carry a limited amount of electricity without getting damaged. The amount of energy that can be transferred from one country to another in a time period is called the **transmission capacity**. Before transmitting energy across a border, traders must bid for and book capacity, which is a separate system from the electricity market (at least when markets are not coupled – see the next section).
 
@@ -63,6 +78,14 @@ Energy prices, much like the price of everything else in the world, is mostly a 
 
 There are different ways of generating electricity. Take, for example, nuclear powered (break down nuclear matter -> gain electricity), gas powered (burn gas -> gain electricity) and solar powered (absorb sunlight -> gain electricity). It is not important to understand exactly how these work, but it is useful to know that they each cost different amounts of money to run. For instance, solar panels cost some money to set up but once they’re there, the sunlight it uses to make the electricity is free. On the other hand, a gas-powered plant will cost a lot of money to build and set up, and then even more money to buy the gas that gets burned to generate the electricity. That’s not to mention maintenance costs and paying the people that work there. Therefore, a company that owns solar panels might be more willing to sell their electricity at lower prices than a company that owns a gas-powered plant.
 
+<a id='330UzePMS0hUoTHrMHMSPA' class='gie-single' href='https://www.gettyimages.com/detail/1450272068' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>
+  Embed from Getty Images
+</a>
+<script>
+  window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'330UzePMS0hUoTHrMHMSPA',sig:'2BjwuPx2tdZREuHo6NKQ5aDvFqIlgx9r0DxmcpfuQis=',w:'509px',h:'339px',items:'1450272068',caption: true ,tld:'com',is360: false })});
+</script>
+<script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>
+
 Different ways of electricity generation also have different startup and shutdown times, with shorter startup and shutdown times providing more **flexibility**. A solar farm that is already in the sun can be switched on and off with no wait at all, which means that on a sunny day it is useful for meeting last-minute demand and balancing the grid. On the other hand, consider a nuclear power plant. While able to produce more power more consistently and over a longer time, it can take several hours to start or stop producing electricity, so it is much less able to respond to fluctuating demand. For this reason, if there is a sudden rush of demand for electricity needed in the next five minutes, it could cost a high price since fewer power stations are able to respond to that. However, if we can forecast a large demand of energy in a week’s time, then we have plenty of time to choose how we will generate that power and start up the relevant power station. Therefore, the electricity can be sold more cheaply.
 
 Here’s something that surprised me: Occasionally, electricity sells for negative prices! Imagine that lots of people are forecasted to use electricity at 6pm on Thursday because they’re all sitting down to watch an exciting new TV programme. So all the gas power plants are planned to startup to deliver the required electricity… But then the programme is cancelled last minute! These gas plants are still generating electricity and feeding it to the grid and there are no consumers to use it. In this case the providers might pay consumers to use up this energy, otherwise there will be a grid imbalance.
@@ -75,9 +98,11 @@ The market, or exchange, is where people (retail suppliers, generators, especial
 
 Once you have access to the market, what are you actually trading? We must start by understanding **contracts**\*. A contract is the combination of a **delivery period** and a place (**delivery area**), for instance a contract might be “Monday 3pm to 4pm in Germany”, or “Thursday 6:30am to 6:45am in Italy”. A trader will be able to buy and sell against these contracts to create **trades**. A trade is a legal promise that involves a contract, a buyer, a seller, a price and a quantity\*\*. An example trade would be “Jerry will deliver 10 MW of power to Tommy in France between 3:30pm and 4pm. Tommy will pay €30 to Jerry”.
 
-\*I am told that Nordpool uses the term Product instead. I was frequently bamboozled by the terms Contract and Product while on my project. Our client sometimes used them interchangeably, but EPEX used Contract as defined above, while using product to describe a type of contract, e.g. “hourly”, “half-houly”. This is why it is important to read the specs when you’re building an app for a new system!
+\*_I am told that Nordpool uses the term Product instead. I was frequently bamboozled by the terms Contract and Product while on my project. Our client sometimes used them interchangeably, but EPEX used Contract as defined above, while using product to describe a type of contract, e.g. “hourly”, “half-houly”. This is why it is important to read the specs when you’re building an app for a new system!_
 
-This is relevant because energy trades have a quantity, and that is a quantity of power (at least for EPEX). The above trade between Jerry and Tommy says “Jerry will deliver a continuous power of 10 MW between 3:30pm and 4pm, which is the same as 5MWh of energy". As you’re developing, make sure you know whether quantities refer to amounts of energy or power.
+\*\*_A note on energy and power: Energy is the actual physical thing that lets you do stuff, i.e. light a room. Power is that rate of energy transfer. Power is measured in watts (W) while energy is measured in watt-hours (Wh). If you transfer energy at a rate of 1 Watt for exactly one hour, then you have transferred one watt-hour of energy. A lightbulb with a power of 60W will transfer 60Wh in one hour, 30Wh in half an hour, 120Wh in 2 hours and so on._
+
+_This is relevant because energy trades have a quantity, and that is a quantity of power (at least for EPEX). The above trade between Jerry and Tommy says “Jerry will deliver a continuous power of 10 MW between 3:30pm and 4pm, which is the same as 5MWh of energy". As you’re developing, make sure you know whether quantities refer to amounts of energy or power._
 
 Traders show that they wish to trade by placing limit **orders** on the market (there are different types of orders but that’s an explanation for another blog). They place each order against contract (reminder – that’s a delivery period and a delivery area) and it details the amount that they want to trade and the amount that they would like to buy or sell it for. An example order might be “For the period 12:00-13:00 in Germany, Jeff would like to buy 12 MW of power for €40”. Another order might be “For the period 12:00-13:00 in Germany, Sarah would like to sell 30 MW of power for €30”. For these cases, Jeff is willing to pay up to €40 (**bid** price) for that 12MW of energy that he needs, meanwhile Sarah is asking for at least €30 (**ask** price) for the 30MW of energy that she wants to sell. The market will see these two orders, see that Sarah could buy Jeff’s energy, and create that trade for them: 12 MW of power for €30.
 
@@ -101,11 +126,27 @@ While the energy market is there for several reasons – to connect providers to
 
 As discussed, the price of energy is constantly in flux. If you sell energy when the price is high, you will earn more money. If you buy energy when the price is low, you will spend less. The difficulty, and the art, is in predicting how prices will change ahead of time. It’s a complicated enough task that companies will sometimes have entire departments dedicated to this effort, observing market trends and leveraging as much data as they can (household use throughout the day, weather trends and mountain snowmelt just to name a few) to produce the most accurate model possible. At the end of the day, it’s a data science problem.
 
+<a id='jqXFhcjFR0RbVQ0rnK462A' class='gie-single' href='https://www.gettyimages.com/detail/1358927461' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>
+  Embed from Getty Images
+</a>
+<script>
+  window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'jqXFhcjFR0RbVQ0rnK462A',sig:'FihLQNrD9M2zOV2n42PUc-O5jwBCkzUVr8wsC57b1lM=',w:'509px',h:'339px',items:'1358927461',caption: true ,tld:'com',is360: false })});
+</script>
+<script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>
+
 ## Asset–Backed Trading
 
 The most obvious way to make money on the energy market is by selling energy from your power station (Known as **asset-backed trading**). This is the least risky way to trade because you are selling a very real thing that you can provide. In terms of balancing the grid, if you only sell energy that you know you can generate and the person that buys it uses it all, then that trade results in zero grid imbalance. You should be savvy though because you’ll probably want to sell enough energy at high cost to cover the fuel and operational costs of your power station.
 
-If you are a company that controls a hydroelectric dam then you have some extra tactics at your disposal. We call this pumped storage. A dam generates energy by releasing stored water downstream through a turbine. Picture a dam as a giant battery: More water in the dam represents more electricity that can be generated. The battery charges when it rains, or mountain snow melts and rivers flow to feed the dam. You can also charge the battery by using energy to pump water from downstream back up into the dam, which is where opportunity arises! Imagine buying energy at night when there is less demand and prices are low and using that energy to pump water into the dam. Then later during the day, when the prices are higher you can release that energy you stored, earning you a profit .
+If you are a company that controls a hydroelectric dam then you have some extra tactics at your disposal. We call this pumped storage. A dam generates energy by releasing stored water downstream through a turbine. Picture a dam as a giant battery: More water in the dam represents more electricity that can be generated. The battery charges when it rains, or mountain snow melts and rivers flow to feed the dam - a perfect way of harnessing the environment for clean energy. You can also charge the battery by using energy to pump water from downstream back up into the dam, which is where a unique opportunity arises! Imagine buying energy at night when there is less demand and prices are low and using that energy to pump water into the dam. Then later during the day, when the prices are higher you can release that energy you stored, earning you a profit.
+
+<a id='2YCiLMrVQi5K8S1Puu2x6Q' class='gie-single' href='https://www.gettyimages.com/detail/1313708210' target='_blank' style='color:#a7a7a7;text-decoration:none;font-weight:normal !important;border:none;display:inline-block;'>
+  Embed from Getty Images
+</a>
+<script>
+  window.gie=window.gie||function(c){(gie.q=gie.q||[]).push(c)};gie(function(){gie.widgets.load({id:'2YCiLMrVQi5K8S1Puu2x6Q',sig:'YOLyfeETrI64BBe8dgQlXF-a46WugKTNm-_aQ51drEQ=',w:'479px',h:'359px',items:'1313708210',caption: true ,tld:'com',is360: false })});
+</script>
+<script src='//embed-cdn.gettyimages.com/widgets.js' charset='utf-8' async></script>
 
 ## Speculative Trading
 
