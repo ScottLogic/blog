@@ -799,7 +799,7 @@ authors:
     picture: PL_Headshot.JPG
   pmarsh:
     name: "Peter Marsh"
-    author-summary: "A keen and creative developer based in Edinburgh. Loves making music, drawing and the great outdoors"
+    author-summary: '<p>A keen and creative developer based in Edinburgh. Loves making music, drawing and the great outdoors. Find me on <a href="https://peterkaku.com/"> my website</a>. </p>'
     picture: picture.jpg
   pshek:
     name: "Paulin Shek"
