@@ -1,6 +1,6 @@
 ---
 title: Introduction to Energy Trading for Novices
-date: 2026-01-28 00:00:00 Z
+date: 2026-01-27 00:00:00 Z
 categories:
   - Resources
 tags:
