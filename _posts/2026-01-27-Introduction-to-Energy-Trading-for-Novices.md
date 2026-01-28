@@ -34,7 +34,7 @@ I just completed my first software project in the energy sector. Over the two ye
 
 ## Energy
 
-Let’s go from the start: with Energy. Energy is a hugely useful resource that people and businesses pay good money for. Other parties own power plants that burn gas, break down nuclear materials, or capture the movement of wind and water to generate the electricity that is then sent to all the people that use it.
+Let’s go from the start: with Energy. Energy is a hugely useful resource that people and businesses pay good money for. Energy companies own power plants that burn gas, break down nuclear materials, or capture the movement of wind and water to generate the electricity that is then sent to all the people that use it.
 
 Energy can be traded in the form of electricity, or as oil and gas. In this article I focus on electricity, especially in the European market.
 
