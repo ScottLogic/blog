@@ -15,9 +15,12 @@ image: magnussmith/assets/mfj_logo.jpg
 
 
 In [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html) and [Part 2]({{site.baseurl}}/2026/01/16/optics-fundamentals.html), 
-we established why optics matter and how they work. In Part 3, we built our expression language AST and applied basic optics (lenses for field access and prisms for variant matching).  We even created a simple optimiser. But there's a fundamental limitation we need to address: how do we visit *all* nodes in a tree, not just the top level?
+we established why optics matter and how they work. In [Part 3]({{site.baseurl}}/2026/01/23/ast-basic-optics.html),
+we built our expression language AST and applied basic optics using lenses for field access and prisms for variant matching.  
+finally, we created a simple optimiser, but left things hanging with a fundamental limitation that we shall address now:
+_How do we visit *all* nodes in a tree, not just the top level?_
 
-This is where traversals become the essential tool. A traversal focuses on zero or more elements within a structure, making it perfect for recursive tree operations.
+This is where traversals come into play as the essential tool. A traversal focuses on zero or more elements within a structure, making it perfect for recursive tree operations.
 
 The [Focus DSL](https://higher-kinded-j.github.io/latest/optics/ch4_intro.html) provides `TraversalPath`: a fluent wrapper around traversals that makes collection navigation elegant and composable. By the end of this article, you'll be writing code like:
 
@@ -60,6 +63,7 @@ new Binary(
 ~~~~
 
 Visualised as a tree:
+![mfj-traversal-rewrite-1.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-1.png "Binary Tree")
 
 ```
                     Binary(*)
@@ -212,6 +216,7 @@ The choice between bottom-up and top-down matters:
 Here's the traversal order visualised:
 
 ```
+![mfj-traversal-rewrite-2.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-2.png "Bottom-up Top-down Trees")
 Bottom-up (leaves → root):              Top-down (root → leaves):
 
         Binary(*)  ⑦                            Binary(*)  ①
@@ -646,7 +651,7 @@ public final class ExprOptimiser {
 ~~~~
 
 The fixed-point iteration ensures we catch cascading simplifications:
-
+![mfj-traversal-rewrite-3.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-3.png "Optimisation Pipeline")
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                    Optimisation Pipeline                    │
@@ -735,7 +740,7 @@ EitherPath<String, String> eitherNickname =
 ### What's Ahead: The Effect Path API
 
 Beyond optics and the Focus DSL, Higher-Kinded-J provides the **Effect Path API**: a fluent interface for computations that might fail, accumulate errors, or require deferred execution. The Effect Path types follow the "railway" metaphor where values travel along success or failure tracks:
-
+![mfj-traversal-rewrite-4.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-4.png "Railway")
 ```
 Success Track:  ----[value]----> [transform] ----> [result]
                         \            |
@@ -797,7 +802,7 @@ ValidationPath<List<Error>, Company> validated = Path.valid(company, Semigroups.
 ### The Railway Model
 
 Effect Paths follow the "railway" pattern where values travel along success or failure tracks:
-
+![mfj-traversal-rewrite-5.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-5.png "Railway pattern")
 ```
 Input: Company with employees to validate
          |
@@ -934,4 +939,10 @@ We'll see how `Validated` differs from `Either` (accumulating all errors rather 
 
 ---
 
-*Next: [Psrt 5: The Effect Path API: Railway-Style Error Handling](article-5-effect-polymorphic-optics.md)*
+### Next time
+
+Real compilers and interpreters need more. Type checking should report all errors, not just the first one. 
+Interpretation must track variable bindings as it descends through the tree. 
+These are effects, and they change everything.
+
+In Part 5 we will take a closer look into effects and how they help structure out code.
