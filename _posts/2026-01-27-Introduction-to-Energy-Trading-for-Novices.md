@@ -182,4 +182,4 @@ We call this **position management**, and it is a top concern of any trader. Alw
 
 Trading is a complicated beast, and energy is a unique resource which comes with its own challenges. The energy market serves to maintain balance on the grid and to make sure consumers get the energy they need, when they need it, and at sensible prices. We have covered the energy grid and capacity management, energy pricing, the mechanics of putting orders on the market and making trades and the basic ideas of making money.
 
-Like most things, this domain is a rabbit hole and there is plenty more to uncover, however this should give you a solid foundation. Armed with this knowledge you should be able to walk confidently into your project meetings and understand the mechanisms behind whatever application you are building!
+Like most things, this domain is a rabbit hole and there is plenty more to uncover, however this should give you a solid foundation. Armed with this knowledge, you should be able to walk confidently into your project meetings and understand the mechanisms behind whatever application you are building!
