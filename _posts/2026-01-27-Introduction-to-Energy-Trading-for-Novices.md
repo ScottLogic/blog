@@ -34,7 +34,7 @@ I just completed my first software project in the energy sector. Over the two ye
 
 ## Energy
 
-Let’s go from the start: with Energy. Energy is a hugely useful resource that people and businesses pay good money for. Other parties own power plants that burn gas, break down nuclear materials, or capture the movement of wind and water to generate the electricity that is then sent to all the people that use it.
+Let’s go from the start: with Energy. Energy is a hugely useful resource that people and businesses pay good money for. Energy companies own power plants that burn gas, break down nuclear materials, or capture the movement of wind and water to generate the electricity that is then sent to all the people that use it.
 
 Energy can be traded in the form of electricity, or as oil and gas. In this article I focus on electricity, especially in the European market.
 
@@ -71,7 +71,7 @@ And, to worsen Antoni’s day, while focusing on the French market he has unknow
 
 To solve this, certain countries have banded together to organise what’s known as a **coupled market**. Take Europe’s **Single Intraday Coupling (SIDC)** initiative, and **Cross-Border IntraDay (XBID)**, the IT system that powers it. Tereza, a trader in Austria, can make use of this. She can look at one screen which shows this coupled market, containing orders and trading opportunities from all countries involved in the SIDC initiative. Better yet, the orders that appear to her are only those that can be made with the capacity available at the relevant borders, so she doesn’t need to worry about checking the capacity system. When she spots an opportunity, she quickly makes the trade, and the correct capacity is automatically allocated. It’s a good day for Tereza!
 
-Now Tereza is trading electricity that will be delivered between 3pm and 4pm. As soon as the clock hits 2:55pm (5 minutes before delivery, though this depends on the country), we observe what is known as **gate closure**. At this time anybody intending to send electricity across grid borders is locked in and they may no longer book further capacity. As such, Tereza’s view of the market changes. After gate closure she only sees the orders for Austria, her own country, and can only make trades with others within Austria. Thanks to SIDC, this is all handled automatically for her and there is no chance of her accidentally making cross-border trades after gate closure.
+Now Tereza is trading electricity that will be delivered between 3pm and 4pm. As soon as the clock hits 2:55pm (5 minutes before delivery, though this depends on the border), we observe what is known as **gate closure**. At this time anybody intending to send electricity across grid borders is locked in and they may no longer book further capacity. As such, Tereza’s view of the market changes. After gate closure she only sees the orders for Austria, her own country, and can only make trades with others within Austria. Thanks to SIDC, this is all handled automatically for her and there is no chance of her accidentally making cross-border trades after gate closure.
 
 Traders within countries involved in SIDC enjoy these advantages offered by the coupled market. Meanwhile those outside SIDC must come up with their own systems to make the most of opportunities occurring across different borders, and to avoid making trades they don’t have capacity for.
 
