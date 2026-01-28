@@ -48,7 +48,7 @@ For complicated physics reasons (ask a scientist) the grid must stay **balanced*
 
 Remember how each country has its own grid\*? Well, there are cables that connect each grid to neighbouring ones - for instance, France’s grid will be linked to Spain’s. This means that electricity produced in Spain can be bought and used in France, which is useful if Spain cannot produce enough electricity to meet their demand or if France’s production is greener or cheaper.
 
-\*_Sidenote: sometimes a country’s grid can be split by region. For example, Germany has 4 separate control areas which are operated by different people. When you send/receive energy from Germany you send/receive from a specific control area as if they were separate grids. For the sake of simplicity, the article is written as though each country has one grid._
+\*_Side note: sometimes a country’s grid can be split by region. For example, Germany has 4 separate control areas which are operated by different people. When you send/receive energy from Germany you send/receive from a specific control area as if they were separate grids. For the sake of simplicity, the article is written as though each country has one grid._
 
 <p>
   <figure>
