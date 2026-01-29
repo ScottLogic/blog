@@ -6,7 +6,7 @@ categories:
 tags:
 - Java, Functional Programming, Optics
 author: magnussmith
-summary: In Part 4 ...
+summary: This time we examine how the Focus DSL lets you express complex tree traversals and optimisations in fluent, composable chains; turning verbose recursion into declarative paths like .departments().each().employees().each().salary(). 
 image: magnussmith/assets/mfj_logo.jpg
 ---
 # The Focus DSL: Traversals and Pattern Rewrites
@@ -17,12 +17,12 @@ image: magnussmith/assets/mfj_logo.jpg
 In [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html) and [Part 2]({{site.baseurl}}/2026/01/16/optics-fundamentals.html), 
 we established why optics matter and how they work. In [Part 3]({{site.baseurl}}/2026/01/23/ast-basic-optics.html),
 we built our expression language AST and applied basic optics using lenses for field access and prisms for variant matching.  
-finally, we created a simple optimiser, but left things hanging with a fundamental limitation that we shall address now:
+Finally, we created a simple optimiser, but left things hanging with a fundamental limitation that we shall address now:
 _How do we visit *all* nodes in a tree, not just the top level?_
 
 This is where traversals come into play as the essential tool. A traversal focuses on zero or more elements within a structure, making it perfect for recursive tree operations.
 
-The [Focus DSL](https://higher-kinded-j.github.io/latest/optics/ch4_intro.html) provides `TraversalPath`: a fluent wrapper around traversals that makes collection navigation readable and composable. By the end of this article, you'll be writing code like:
+The [Focus DSL](https://higher-kinded-j.github.io/latest/optics/ch4_intro.html) provides `TraversalPath`: a fluent wrapper around traversals that makes collection navigation more readable and composable. By the end of this article, you'll be writing code like:
 
 ~~~~ java
 // Navigate all employees in all departments, modify their salaries
@@ -42,9 +42,9 @@ No manual recursion. No reconstruction boilerplate. Just a fluent path that desc
 
 Before diving into code, consider an analogy. Imagine you're pruning a tree in a garden. You need to visit every branch, decide what to do at each one, and rebuild the tree with your changes. You have two strategies:
 
-- **Bottom-up (leaves first)**: Start at the leaf tips, prune outward branches, then work your way down. Each branch is trimmed after its sub-branches are done. This is perfect when you need to see the final state of sub-branches before deciding on the parent.
+- **Bottom-up (leaves first)**: Start at the leaf tips, prune outward branches, then work your way down. Each branch is trimmed after its subbranches are done. This is perfect when you need to see the final state of subbranches before deciding on the parent.
 
-- **Top-down (trunk first)**: Start at the trunk, make decisions about major branches first, then work outward. Each branch is examined before its sub-branches. This works when you want to make early decisions that affect the whole subtree.
+- **Top-down (trunk first)**: Start at the trunk, make decisions about major branches first, then work outward. Each branch is examined before its subbranches. This works when you want to make early decisions that affect the whole subtree.
 
 In programming, a *traversal* is exactly this: a systematic way to visit every node in a tree structure, with a strategy for when to act on each node relative to its children. The Focus DSL makes this as natural as describing which branches to visit.
 
@@ -67,7 +67,7 @@ Visualised as a tree:
 
 This tree has seven nodes: three `Binary` expressions, two `Variable` nodes, and two `Literal` nodes. If we want to find all variables, we can't just look at the top level; we need to descend into every branch.
 
-As we discussed in Article 3, the traditional Visitor pattern requires substantial boilerplate: an interface, accept methods in each node, and a visitor implementation for every operation. Even with Java 25's pattern matching, we still face the reconstruction cascade for transformations.
+As we discussed in Part 3, the traditional Visitor pattern requires substantial boilerplate: an interface, accept methods in each node, and a visitor implementation for every operation. Even with Java 25's pattern matching, we still face the reconstruction cascade for transformations.
 
 Traversals offer something better: define the traversal structure once, then use it for any operation.
 
@@ -892,4 +892,4 @@ Real compilers and interpreters need more. Type checking should report all error
 Interpretation must track variable bindings as it descends through the tree. 
 These are effects, and they change everything.
 
-In Part 5 we will take a closer look into effects and how they help structure out code.
+Next time, in Part 5 we take a closer look at how effects help structure our code.
