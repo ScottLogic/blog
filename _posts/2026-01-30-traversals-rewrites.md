@@ -22,7 +22,7 @@ _How do we visit *all* nodes in a tree, not just the top level?_
 
 This is where traversals come into play as the essential tool. A traversal focuses on zero or more elements within a structure, making it perfect for recursive tree operations.
 
-The [Focus DSL](https://higher-kinded-j.github.io/latest/optics/ch4_intro.html) provides `TraversalPath`: a fluent wrapper around traversals that makes collection navigation elegant and composable. By the end of this article, you'll be writing code like:
+The [Focus DSL](https://higher-kinded-j.github.io/latest/optics/ch4_intro.html) provides `TraversalPath`: a fluent wrapper around traversals that makes collection navigation readable and composable. By the end of this article, you'll be writing code like:
 
 ~~~~ java
 // Navigate all employees in all departments, modify their salaries
@@ -64,14 +64,6 @@ new Binary(
 
 Visualised as a tree:
 ![mfj-traversal-rewrite-1.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-1.png "Binary Tree")
-
-```
-                    Binary(*)
-                   /         \
-            Binary(+)        Binary(+)
-           /        \       /        \
-     Variable(x)  Literal(1)  Variable(y)  Literal(2)
-```
 
 This tree has seven nodes: three `Binary` expressions, two `Variable` nodes, and two `Literal` nodes. If we want to find all variables, we can't just look at the top level; we need to descend into every branch.
 
@@ -215,16 +207,8 @@ The choice between bottom-up and top-down matters:
 
 Here's the traversal order visualised:
 
-```
 ![mfj-traversal-rewrite-2.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-2.png "Bottom-up Top-down Trees")
-Bottom-up (leaves → root):              Top-down (root → leaves):
 
-        Binary(*)  ⑦                            Binary(*)  ①
-       /         \                             /         \
-   Binary(+) ④   Binary(+) ⑥              Binary(+) ②   Binary(+) ⑤
-   /       \     /        \               /       \     /        \
- x ①    1 ②    y ③     2 ⑤             x ③    1 ④    y ⑥     2 ⑦
-```
 
 For constant folding, bottom-up is essential: we need to evaluate `1 + 2` at the leaves before we can recognise that the parent is now `3 * 5`.
 
@@ -614,7 +598,7 @@ public static Located<Expr> transformPreservingLocation(
 }
 ~~~~
 
-For more sophisticated location handling (like updating locations when inlining code), indexed optics become valuable. We'll explore those in Article 5.
+For more sophisticated location handling (like updating locations when inlining code), indexed optics become valuable. We'll explore those in Part 5.
 
 ---
 
@@ -652,28 +636,11 @@ public final class ExprOptimiser {
 
 The fixed-point iteration ensures we catch cascading simplifications:
 ![mfj-traversal-rewrite-3.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-3.png "Optimisation Pipeline")
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Optimisation Pipeline                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  Input ──▶ [Constant Fold] ──▶ [Simplify] ──▶ [Dead Branch] │
-│              │                                     │        │
-│              └─────────────◀── Loop ◀─────────────┘         │
-│                           (until fixed point)               │
-│                                  │                          │
-│                                  ▼                          │
-│                               Output                        │
-└─────────────────────────────────────────────────────────────┘
-```
 
-For example:
+ For example:
 
-```
-(0 * x) + (1 + 2)
-→ 0 + 3         (constant folding, identity)
-→ 3             (identity simplification)
-```
+![mfj-traversal-rewrite-4.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-4.png "Optimisation example")
+
 
 ### Example: Complex Optimisation
 
@@ -694,6 +661,7 @@ Expr optimised = ExprOptimiser.optimise(complex);
 ~~~~
 
 The optimiser:
+
 1. Folds `1 < 2` → `true`
 2. Simplifies `true && true` → `true`
 3. Eliminates the dead else-branch
@@ -740,12 +708,7 @@ EitherPath<String, String> eitherNickname =
 ### What's Ahead: The Effect Path API
 
 Beyond optics and the Focus DSL, Higher-Kinded-J provides the **Effect Path API**: a fluent interface for computations that might fail, accumulate errors, or require deferred execution. The Effect Path types follow the "railway" metaphor where values travel along success or failure tracks:
-![mfj-traversal-rewrite-4.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-4.png "Railway")
-```
-Success Track:  ----[value]----> [transform] ----> [result]
-                        \            |
-Failure Track:           `--------->[error]------> [accumulated errors]
-```
+![mfj-traversal-rewrite-5.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-5.png "Railway")
 
 The core Effect Path types include:
 
@@ -774,7 +737,7 @@ These types integrate seamlessly with Focus paths via bridge methods:
 ~~~~ java
 // Navigate to a field, then enter the Effect Path world
 FocusPath<User, String> emailPath = UserFocus.email();
-```
+~~~~
 
 ### Effect Paths with Traversals
 
@@ -803,20 +766,7 @@ ValidationPath<List<Error>, Company> validated = Path.valid(company, Semigroups.
 
 Effect Paths follow the "railway" pattern where values travel along success or failure tracks:
 ![mfj-traversal-rewrite-5.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-5.png "Railway pattern")
-```
-Input: Company with employees to validate
-         |
-         v
-   +--[Employee 1]---> [validate] ---> Valid ----+
-   |                                              |
-   +--[Employee 2]---> [validate] ---> Invalid --+---> Accumulate
-   |                                              |
-   +--[Employee 3]---> [validate] ---> Valid ----+
-         |
-         v
-Output: ValidationPath<List<Error>, Company>
-        (all errors collected, or valid company)
-```
+
 
 This pattern enables comprehensive validation rather than fail-fast behaviour. The `ValidationPath` accumulates all errors using a `Semigroup`, so users see every problem at once.
 
@@ -885,7 +835,7 @@ But we've been working with pure transformations. Real compilers need effects:
 - **Interpretation** needs to track variable bindings (state)
 - **Optimisation** might need logging for debugging
 
-In Article 5, we'll explore effect-polymorphic optics with `modifyF`. The Focus DSL integrates seamlessly:
+In Part 5, we'll explore effect-polymorphic optics with `modifyF`. The Focus DSL integrates seamlessly:
 
 ~~~~ java
 // Preview: effectful modification through Focus paths
@@ -909,13 +859,10 @@ We'll see how `Validated` differs from `Either` (accumulating all errors rather 
 
 - **Patrick Thomson, ["An Introduction to Recursion Schemes"](https://blog.sumtypeofway.com/posts/introduction-to-recursion-schemes.html)**: A gentle introduction to the theory behind generic tree traversal patterns like catamorphisms and anamorphisms.
 
-- **Jeremy Gibbons & Bruno Oliveira, ["The Essence of the Iterator Pattern"](https://www.cs.ox.ac.uk/jeremy.gibbons/publications/iterator.pdf)** (JFP, 2009): The seminal paper showing how `Applicative` (which Higher-Kinded-J provides) enables effect-polymorphic traversals.
-
 ### Compiler Optimisation
 
 - **Andrew Appel, *Modern Compiler Implementation in ML***: Classic text covering constant folding, dead code elimination, and the other optimisations we've implemented. Available in Java and C editions.
 
-- **Keith Cooper & Linda Torczon, *Engineering a Compiler*** (2nd ed.): Comprehensive coverage of program analysis and transformation passes.
 
 ### Term Rewriting
 
