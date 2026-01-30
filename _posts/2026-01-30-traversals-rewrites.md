@@ -1,12 +1,12 @@
 ---
 title: Functional Optics for Modern Java - Part 4
-date: 2026-01-23 00:00:00 Z
+date: 2026-01-30 00:00:00 Z
 categories:
 - Tech
 tags:
 - Java, Functional Programming, Optics
 author: magnussmith
-summary: This time we examine how the Focus DSL lets you express complex tree traversals and optimisations in fluent, composable chains; turning verbose recursion into declarative paths like .departments().each().employees().each().salary(). 
+summary: This time we examine how the Focus DSL lets you express complex tree traversals and optimisations in fluent, composable chains; turning verbose recursion into declarative paths like <span style="font-weight: bold; font-style: italic;">.departments().each().employees().each().salary()</span>. 
 image: magnussmith/assets/mfj_logo.jpg
 ---
 # The Focus DSL: Traversals and Pattern Rewrites
@@ -35,6 +35,19 @@ Company updated = CompanyFocus.departments()
 ~~~~
 
 No manual recursion. No reconstruction boilerplate. Just a fluent path that describes what you want.
+
+### Running the Examples
+
+---
+
+## Article Code
+
+**All code examples from this article have [runnable demos:](https://github.com/higher-kinded-j/expression-language-example)**
+
+- **[TraversalDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article4/demo/TraversalDemo.java)**: Using Higher-Kinded-J's Traversal interface for composable, type-safe tree manipulation.
+- **[OptimiserDemo](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article4/demo/OptimiserDemo.java)**: Constant folding, identity simplification, and cascading optimisation using traversal-based passes.
+
+The AST types are defined in [`org.higherkindedj.article4.ast`](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article4/ast/), with transformations in [`org.higherkindedj.article4.transform`](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article4/transform/) and traversals in [`org.higherkindedj.article4.traversal`](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article4/traversal/).
 
 ---
 
@@ -75,9 +88,9 @@ Traversals offer something better: define the traversal structure once, then use
 
 ## Building a Universal Expression Traversal
 
-A `Traversal<S, A>` focuses on zero or more `A` values within an `S` structure. For expressions, we want `Traversal<Expr, Expr>`: a traversal that visits all sub-expressions within an expression.
+A `Traversal<S, A>` focuses on zero or more `A` values within an `S` structure. For expressions, we want `Traversal<Expr, Expr>`: a traversal that visits all subexpressions within an expression.
 
-First, let's define what "all sub-expressions" means for each variant:
+First, let's define what "all subexpressions" means for each variant:
 
 | Expression Type | Sub-expressions |
 |-----------------|-----------------|
@@ -118,7 +131,7 @@ public final class ExprTraversal {
 }
 ~~~~
 
-This is effect-polymorphic: the same traversal works with any `Applicative` functor. We can use it for pure transformations, error-accumulating validation, or stateful operations.
+This is effect-polymorphic: the same traversal works with any `Applicative` functor. We can use it for pure transformations, error-accumulating validation, or stateful operations. (Don't worry if "effect-polymorphic" is unfamiliar; we'll explore this concept in the Effect Path section below. For now, just know it means this same traversal code works whether you're doing pure transformations, error handling, or validation.)
 
 For simpler use cases, Higher-Kinded-J provides the `Traversals.modify` utility:
 
@@ -276,7 +289,7 @@ private static void collectVariables(Expr expr, Set<String> accumulator) {
 }
 ~~~~
 
-With the Focus DSL, we can make this more elegant:
+With the Focus DSL, we can make this more readable:
 
 ~~~~ java
 public static Set<String> findVariables(Expr expr) {
@@ -536,7 +549,7 @@ private static Expr eliminateDeadBranch(Expr expr) {
 
 ### Pass 4: Common Subexpression Detection
 
-Identify repeated subexpressions (useful for let-binding in future articles):
+Identify repeated subexpressions (useful for let-binding which we will see to in Part 5):
 
 ~~~~ java
 public static Map<Expr, Integer> findCommonSubexpressions(Expr expr) {
@@ -674,6 +687,12 @@ All through composable, declarative transformations.
 
 ## Bridging to the [Effect Path API](https://higher-kinded-j.github.io/latest/effect/ch_intro.html)
 
+### What is effect-polymorphism?
+
+In functional programming, an effect is any computational context beyond returning a plain value; things like "might fail," "might be absent," "accumulates errors," or "carries state."
+Effect-polymorphism means writing code once that works with any of these contexts. Instead of writing separate versions of a traversal for "transform purely," "transform with possible failure," and "transform while accumulating errors," you write a single generic version parameterised by the effect type. The traversal doesn't care which effect you use; it just requires that the effect supports certain operations (specifically, the `Applicative` interface).
+This is what `modifyF` provides: the `F` is a placeholder for any effect, so the same traversal logic handles pure transformations, validation, state threading, or any other effect you plug in.
+
 The TraversalPath we've built throughout this article navigates and transforms data structures. But what happens when transformations might fail, or when we need to accumulate errors from multiple elements?
 
 Higher-Kinded-J's **Effect Path API** provides the answer. Effect Paths wrap computations in contexts like `Maybe` (optional), `Either` (fail-fast errors), or `Validated` (accumulated errors). The Focus DSL bridges directly to these effect types.
@@ -805,7 +824,7 @@ This article introduced traversals and the Focus DSL's `TraversalPath` for recur
 5. **Deep Traversal**: Bottom-up and top-down recursive descent
 6. **Composable Optimiser**: Multiple passes running to fixed point
 
-The key insight: the Focus DSL separates *what* to visit from *what* to do. Build paths declaratively, then apply operations fluently. This is the optics philosophy made accessible.
+The Focus DSL separates *what* to visit from *what* to do. Build paths declaratively, then apply operations fluently. This is the optics philosophy made accessible.
 
 ### The Higher-Kinded-J Advantage for Tree Operations
 
@@ -876,7 +895,7 @@ We'll see how `Validated` differs from `Either` (accumulating all errors rather 
 
 ### Higher-Kinded-J
 
-- **[Traversal Documentation](https://github.com/higher-kinded-j/higher-kinded-j/blob/main/hkj-core/src/main/java/org/higherkindedj/optics/Traversal.java)**: API reference for working with multi-focus optics.
+- **[Traversal Documentation](https://github.com/higher-kinded-j/higher-kinded-j/blob/main/hkj-api/src/main/java/org/higherkindedj/optics/Traversal.java)**: API reference for working with multi-focus optics.
 
 - **[Traversals Utility Class](https://github.com/higher-kinded-j/higher-kinded-j/blob/main/hkj-core/src/main/java/org/higherkindedj/optics/util/Traversals.java)**: Helper methods for `getAll`, `modify`, and fold operations.
 

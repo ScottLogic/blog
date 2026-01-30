@@ -706,6 +706,6 @@ We'll also tackle dead code elimination and common subexpression elimination, de
 
 ### Next time
 
-Next time in Part 4 we look at how we visit *all* nodes in the tree, not just the top level. This is where traversals become essential. A traversal focuses on zero or more elements within a structure, making it perfect for recursive tree operations.
+Next time in [Part 4]({{site.baseurl}}/2026/01/30/traversals-rewrites.html) we look at how we visit *all* nodes in the tree, not just the top level. This is where traversals become essential. A traversal focuses on zero or more elements within a structure, making it perfect for recursive tree operations.
 
 
