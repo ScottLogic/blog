@@ -6,7 +6,7 @@ categories:
 tags:
 - Java, Functional Programming, Optics
 author: magnussmith
-summary: This time we examine how the Focus DSL lets you express complex tree traversals and optimisations in fluent, composable chains; turning verbose recursion into declarative paths like <span style="font-weight: bold; font-style: italic;">.departments().each().employees().each().salary()</span>. 
+summary: This time we examine how the Focus DSL lets you express complex tree traversals and optimisations in fluent, composable chains; turning verbose recursion into declarative paths like .departments().each().employees().each().salary(). 
 image: magnussmith/assets/mfj_logo.jpg
 ---
 # The Focus DSL: Traversals and Pattern Rewrites
