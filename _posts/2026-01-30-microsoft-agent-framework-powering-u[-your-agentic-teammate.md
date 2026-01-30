@@ -12,10 +12,11 @@ layout: default_post
 summary: Using Microsoft Agent Framework to build and agentic teammate interacting with email.
 ---
 
-# Microsoft Agent Framework - powering up your agentic teammate
+
 Recently our sister company Marra built an agentic "teammate" for user onboarding using Microsoft Power Platform exploring new AI features available. They asked Scott Logic to do the same using Microsoft Agent Framework.  Luckily I was on the small team who got involved.
 
 The project was to ultimately compare the two teams experiences, find the advantages and challenges of each and to exploring agentic technology.  This post focuses on our work with Microsoft Agent Framework rather than comparison.
+
 
 ## Our Task
 We were tasked to build an agentic system for user onboarding with human-in-the-loop.  Onboarded users should be saved on two downstream systems: HubSpot and LeavePlanner (SharePoint hosted Excel Workbook).
@@ -23,6 +24,7 @@ We were tasked to build an agentic system for user onboarding with human-in-the-
 The objective is to communicate as you would with a "teammate".  This as a time-boxed exercise (three weeks to investigate, build, and present).
 
 ![high level sequence overview]({{ site.github.url }}/dhunter/assets/maf-teammate/1-sequence-overview.png)
+
 
 ## Our Build
 Microsoft Agent Framework was up to the challenge.  We built a single entry point minimal multi-agent solution.  We hosted our agentic workflow in Azure as a container, not quite on Microsoft Foundry as we would have liked, but next time we might get there.
@@ -37,6 +39,7 @@ To understand what we've built I have a couple more sequence diagrams:
 A traditional system could have been written to do this without the use of an LLM.  The exercise was to use an existing Microsoft based communication system as a teammate.  The LLM gives us easy data extraction from free text in an email string, then tools enable us to write custom actions we could expect the LLM to execute.
 
 The solution discussed here is built entirely as an exploratory exercise proof of concept, we would need to do a fair amount of work for a productions hardened system.
+
 
 ## Our Journey
 Our team brought relevant experience from previous LLM-powered projects and other agentic solutions.
@@ -69,6 +72,7 @@ We opted to have the email polling done using an Azure Function and submit the b
 
 Then the human-in-the-loop point where the agent requests the 365 account creation before proceeding to onboard the user, gives us some security before accounts are simply created.
 
+
 ## Our Agent Breakdown
 Perhaps the most interesting part is what our agents actually do.  We have various agents implementing different techniques and tools which lend themselves well to our scenario.
 
@@ -95,10 +99,12 @@ The Onboarding Agent runs entity extraction. Then given success on email, the us
 
 Here we hand off to multiple agents at once: HubSpot agent and SharePoint (Leave Planner shared Excel workbook).
 
+Future growth here migh be that the user administrator could decide to exclude some systems to onboard to or have different systems based on user role.
+
 ### HubSpot Agent
 Our first external system to onboard the user, simply call the API to create the user.  To do this we've built a custom tool for the operation that we provide to the agent.
 
-Our actual tool has some logic for error handling but we'd see future growth where the agent could have more functionality.  Search, update and delete (securely, of course) tools could be available in a more production hardened solution.
+Our tool has some logic for error handling but we'd see future growth where the agent could have more functionality.  Search, update and delete (securely, of course) tools could be available in a more production hardened solution.
 
 The end result then continues to the Completion Agent.
 
@@ -112,6 +118,7 @@ The end result then continues to the Completion Agent.
 ### Completion Agent
 The one we want to see green on DevUI when using example prompts.  This is less of an agent and more a point to connect the workflow back to a resolution.  Check the results from inbound agents, send success emails to systems the user has been onboarded to, and report any issues encountered to the IT department.
 
+
 ## Challenges
 
 ### Entra ID
@@ -124,6 +131,7 @@ Ideally we'd have deployed our agent here but we ran into issues and ran out of 
 
 ### Time limits
 We'd like to have done more.  On the Scott Logic side we were interested in looking further into Microsoft Foundry hosting. Perhaps streamlining our agent, and investigation other human-in-the-loop communications, tightening up security through data connections, checkpoint specifics.
+
 
 ## Outcomes
 Overall this was a fast-moving, interesting project, providing a better understanding of where agentic systems add value and the parts of an agentic approach.  I've reflected on a previous LLM powered systems I worked on, and how dedicated agents could give a more robust solution than a large single prompt.
