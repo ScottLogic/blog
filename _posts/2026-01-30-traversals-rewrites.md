@@ -18,11 +18,11 @@ In [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html) and [Par
 we established why optics matter and how they work. In [Part 3]({{site.baseurl}}/2026/01/23/ast-basic-optics.html),
 we built our expression language AST and applied basic optics using lenses for field access and prisms for variant matching.  
 Finally, we created a simple optimiser, but left things hanging with a fundamental limitation that we shall address now:
-_How do we visit *all* nodes in a tree, not just the top level?_
+_How do we visit **all** nodes in a tree, not just the top level?_
 
 This is where traversals come into play as the essential tool. A traversal focuses on zero or more elements within a structure, making it perfect for recursive tree operations.
 
-The [Focus DSL](https://higher-kinded-j.github.io/latest/optics/ch4_intro.html) provides `TraversalPath`: a fluent wrapper around traversals that makes collection navigation more readable and composable. By the end of this article, you'll be writing code like:
+The [Focus DSL](https://higher-kinded-j.github.io/latest/optics/ch4_intro.html) provides `TraversalPath`: a fluent wrapper around traversals that makes collection navigation more readable and composable. By the end of this article, we'll be writing code like:
 
 ~~~~ java
 // Navigate all employees in all departments, modify their salaries
@@ -131,7 +131,7 @@ public final class ExprTraversal {
 }
 ~~~~
 
-This is effect-polymorphic: the same traversal works with any `Applicative` functor. We can use it for pure transformations, error-accumulating validation, or stateful operations. (Don't worry if "effect-polymorphic" is unfamiliar; we'll explore this concept in the Effect Path section below. For now, just know it means this same traversal code works whether you're doing pure transformations, error handling, or validation.)
+This is effect-polymorphic: the same traversal works with any `Applicative` functor. We can use it for pure transformations, error-accumulating validation, or stateful operations. (Don't worry if "effect-polymorphic" is unfamiliar; we'll explore this concept further. For now, just know it means this same traversal code works whether you're doing pure transformations, error handling, or validation.)
 
 For simpler use cases, Higher-Kinded-J provides the `Traversals.modify` utility:
 
@@ -255,7 +255,8 @@ Company relocated = allEmployeeAddresses.modifyAll(
 );
 ~~~~
 
-With navigators enabled, cross-type navigation happens automatically. No explicit `via()` calls, no manual composition. The path reads like English: "company's departments, each one's employees, each one's address."
+With navigators enabled, cross-type navigation happens automatically. No explicit `via()` calls, no manual composition. The path reads like English: _"company's departments, each one's employees, each one's address."_
+
 
 ---
 
@@ -599,7 +600,7 @@ public record Located<T>(T value, SourceLocation location) {
 }
 ~~~~
 
-Now we can create `Located<Expr>` to track positions. But there's a challenge: when we transform an expression, what happens to the location?
+Now we can create `Located<Expr>` to track positions. Here lies a question in that when we transform an expression, what happens to the location?
 
 ### Preserving Locations Through Transformations
 
@@ -689,8 +690,9 @@ All through composable, declarative transformations.
 
 ### What is effect-polymorphism?
 
-In functional programming, an effect is any computational context beyond returning a plain value; things like "might fail," "might be absent," "accumulates errors," or "carries state."
-Effect-polymorphism means writing code once that works with any of these contexts. Instead of writing separate versions of a traversal for "transform purely," "transform with possible failure," and "transform while accumulating errors," you write a single generic version parameterised by the effect type. The traversal doesn't care which effect you use; it just requires that the effect supports certain operations (specifically, the `Applicative` interface).
+In functional programming, an effect is any computational context beyond returning a plain value; things like _"might fail," "might be absent," "accumulates errors," or "carries state."_
+
+Effect-polymorphism means writing code once that works with any of these contexts. Instead of writing separate versions of a traversal for _"transform purely," "transform with possible failure," and "transform while accumulating errors,"_ we write a single generic version that is parameterised by the effect type. The traversal doesn't care which effect you use; it just requires that the effect supports certain operations (specifically, the `Applicative` interface).
 This is what `modifyF` provides: the `F` is a placeholder for any effect, so the same traversal logic handles pure transformations, validation, state threading, or any other effect you plug in.
 
 The TraversalPath we've built throughout this article navigates and transforms data structures. But what happens when transformations might fail, or when we need to accumulate errors from multiple elements?
@@ -727,6 +729,7 @@ EitherPath<String, String> eitherNickname =
 ### What's Ahead: The Effect Path API
 
 Beyond optics and the Focus DSL, Higher-Kinded-J provides the **Effect Path API**: a fluent interface for computations that might fail, accumulate errors, or require deferred execution. The Effect Path types follow the "railway" metaphor where values travel along success or failure tracks:
+
 ![mfj-traversal-rewrite-5.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-traversal-rewrite-5.png "Railway")
 
 The core Effect Path types include:
@@ -791,7 +794,7 @@ This pattern enables comprehensive validation rather than fail-fast behaviour. T
 
 ### Preview: Effect-Polymorphic Traversals
 
-In Part 5, we'll explore the Effect Path API in depth. The key insight is that the same Focus paths work with different effect types:
+In Part 5, we'll explore the Effect Path API in depth. The key takeaway is that the same Focus paths work with different effect types:
 
 ~~~~ java
 // Same path, different effects
