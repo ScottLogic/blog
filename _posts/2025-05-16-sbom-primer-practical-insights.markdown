@@ -2,7 +2,7 @@
 title: An SBOM primer with some practical insights
 date: 2025-05-16 11:21:00 Z
 categories:
-- Tech
+- Architecture
 tags:
 - SBOM
 - Software Bill of Materials

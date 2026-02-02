@@ -9,7 +9,7 @@ author: magnussmith
 summary: Java 25 embraces immutability with records and pattern matching. When it
   comes to deeply nested data then pattern matching solves reading, but provides no
   help for writing.
-image: magnussmith/assets/java.jpg
+image: magnussmith/assets/mfj_logo.jpg
 ---
 
 # The Immutability Gap: Why Java Records Need Optics
@@ -71,7 +71,7 @@ But there's a problem.
 
 ---
 
-## The Nested Update Problem
+## The Nested Update Problem {#nested-update}
 
 Reading nested immutable data is elegant. Writing it is not.
 
@@ -337,33 +337,7 @@ Every employee's salary is updated. The traversal handled the iteration internal
 
 Optics form a hierarchy based on their focusing power. The diagram below shows how they relate. Read it from bottom to top: more specific optics (at the bottom) can always be used where more general ones (at the top) are expected.
 
-~~~~ 
-                  ┌─────────────┐
-                  │  Traversal  │  Zero or more targets
-                  │  (0..n)     │
-                  └──────┬──────┘
-                         │
-              ┌──────────┴──────────┐
-              │                     │
-       ┌──────┴──────┐       ┌──────┴──────┐
-       │   Affine    │       │    Fold     │  (read-only)
-       │   (0..1)    │       │             │
-       └──────┬──────┘       └─────────────┘
-              │
-    ┌─────────┴─────────┐
-    │                   │
-┌───┴───┐          ┌────┴────┐
-│ Lens  │          │  Prism  │
-│ (1)   │          │ (0..1)  │
-└───┬───┘          └────┬────┘
-    │                   │
-    └─────────┬─────────┘
-              │
-        ┌─────┴─────┐
-        │    Iso    │  Exactly one, reversible
-        │   (1↔1)   │
-        └───────────┘
-~~~~ 
+![jigOpticsHierachy.png]({{site.baseurl}}/magnussmith/assets/optics/jigOpticsHierachy.png "The optics Hierachy")
 
 **Reading the diagram:**
 
@@ -396,6 +370,7 @@ Both Affine and Prism focus on zero or one value, so what's the difference?
 **Affine**: Cannot construct, only access. Looking up a key in a map might fail, but you cannot "build" a map from a single value. Affines are for optional access without construction.
 
 The practical distinction:
+
 - **Use Prism** for sealed interface variants, enum cases, or any "is-a" relationship where you might want to construct the parent type
 - **Use Affine** for optional fields, map lookups, list indexing, or paths through a prism followed by a lens
 
@@ -634,4 +609,4 @@ By the end of this series, you'll not want to update nested data manually again.
 
 ### Next time
 
-Next time, in Part 2 we dig into the three main optics: lenses, prisms, and traversals.
+Next time, in [Part 2]({{site.baseurl}}/2026/01/16/optics-fundamentals.html) we dig into the three main optics: lenses, prisms, and traversals.

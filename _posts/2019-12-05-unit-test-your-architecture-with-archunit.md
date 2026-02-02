@@ -2,7 +2,7 @@
 title: Unit Test Your Architecture with ArchUnit
 date: 2019-12-05 00:00:00 Z
 categories:
-- Tech
+- Architecture
 tags:
 - Java
 author: shogarth
