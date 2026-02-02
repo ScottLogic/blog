@@ -1,6 +1,6 @@
 ---
 title: Detective Adventures - on debugging UI issues
-date: 2026-01-16 10:00:00 Z
+date: 2026-02-02 10:00:00 Z
 categories:
 - Tech
 tags:
@@ -13,11 +13,11 @@ Most developers enjoy working on exciting new projects and technologies. It is n
 
 A while back a client had a page with a list of documents the user managed. Each row in the table had information about the document and three actions as links - `Edit`, `Delete` and `Download (PDF)`. When the client wished to add a couple more actions, we realised the table became exceedingly wide. The design team suggested having a drop-down with the various actions to save space.
 
-<img src="{{ site.baseurl }}/osharon/assets/detective-adventures/state-1.jpg" alt="The original design"/>
+![The original design: table with links per row]({{ site.baseurl }}/osharon/assets/detective-adventures/state-1.jpg)
 
 However, the application is a Python form-based application. This means that every action the user submits will cause the page to refresh for the changes to take effect. Previously the “Download” action was a simple link that opened the PDF in a new window. But as the page reloaded, how can we trigger the opening of the new window?
 
-<img src="{{ site.baseurl }}/osharon/assets/detective-adventures/state-2.jpg" alt="The final design"/>
+![The final design: a drop-down per row]({{ site.baseurl }}/osharon/assets/detective-adventures/state-2.jpg)
 
 A simple solution would be to include a small inline JavaScript that will trigger the opening of a new window with the PDF.  However, the client had an extremely strict security policy, prohibiting inline scripts for security reasons, so that would not work. We produced a different solution - we used a hidden iframe element which triggered the download.
 The solution seemed great and worked well. However, QA picked up an unexpected issue: If the user downloaded the file and immediately refreshed the page, the form action “download” would be resubmitted, and the PDF would automatically download again.
@@ -37,7 +37,7 @@ At this point, the solution was easy – I replaced the “double-click-protecti
 
 Alternatively, I could’ve added a condition to the “double-click-protection” code to check if the button has an attribute `double-click-protection="false"`; add that attribute to my button that I can now listen to using JavaScript and send the PDF, as I originally planned. It would have been a simpler, safer way to do it (less breaking of existing code), but I felt it would just patch over instead of actually solve the problem.
 
-<img src="{{ site.baseurl }}/osharon/assets/detective-adventures/state-3.jpg" alt="Alternative design"/>
+![Alternative design: some links available, some hidden behind "..."]({{ site.baseurl }}/osharon/assets/detective-adventures/state-3.jpg)
 
 Another suggestion we have considered was to use HTML-based summary/details elements to show/hide the secondary actions, thus eliminating the need for JavaScript. Unfortunately, the design team was not in favour of this solution due to time constraints on their part.
 
