@@ -1,6 +1,7 @@
 ---
 title: Leadership learnings from ‘Empowering Women’
 date: 2022-01-20 00:00:00 Z
+published: false
 categories:
 - People
 summary: 'Empowering Women to Lead Digital Transformation in Scotland (EWLDT) is a

@@ -5,16 +5,16 @@ categories:
 - People
 tags:
 - featured
-author: sforeshew-cain
-canonical_url: https://www.computing.co.uk/sponsored/4041024/partner-insight-create-normal-leadership
 summary: I believe strongly that it's vital to showcase the women leaders in our industry;
   to me, it's the key to addressing the gender imbalance that holds our industry back.
   We all know representation matters - what you can see, you can be. But more than
   this, it’s the normalisation of women being in leadership positions that’s essential
   in closing the authority gap.
+author: sforeshew-cain
+canonical_url: https://www.computing.co.uk/sponsored/4041024/partner-insight-create-normal-leadership
 image: sforeshew-cain/assets/new-normal-leadership.png
-layout: default_post
 short-author-aside: true
+layout: default_post
 ---
 
 When we were asked to sponsor one of the categories at the Women in Tech Excellence Awards, the choice was simple: IT Leader of the Year. With such a wide range of great categories to choose from, that might sound a little surprising – but as I’ll explain, there are a number of reasons why it isn’t surprising at all.
@@ -41,7 +41,7 @@ At Scott Logic, who you are won’t limit what you can achieve.
 
 We’ve made solid progress this year, improving our employment policies to make Scott Logic a more attractive place for women—and everyone else—to work. I’ve had the privilege to welcome onto the executive team our new Chief Talent Officer, Myra Cooke, who will be creating our future People Strategy with a heavy focus on culture and inclusive practices to foster a work environment where all our colleagues can thrive. 
 
-We’ve also welcomed senior leaders like Cat Koris and Marsia Brancken into our consultancy, and not only are they ensuring excellence in delivery to our clients, they’re also actively inspiring future leaders at Scott Logic and beyond. Cat is on the programme panel for [Empowering Women to Lead Digital Transformation in Scotland](https://www.scottlogic.com/news/were-sponsoring-empowering-women-lead-digital-transformation), an initiative we’re proud to sponsor. She’s actively involved in supporting the cohort of future leaders on the programme, which includes one of our own Lead UX Designers, Atika Bennamane.
+We’ve also welcomed senior leaders like Cat Koris and Marsia Brancken into our consultancy, and not only are they ensuring excellence in delivery to our clients, they’re also actively inspiring future leaders at Scott Logic and beyond. Cat is on the programme panel for [Empowering Women to Lead Digital Transformation in Scotland](https://www.scottlogic.com/news/were-sponsoring-empowering-women-lead-digital-transformation), an initiative we’re proud to sponsor. She’s actively involved in supporting the cohort of future leaders on the programme.
 
 As crucially important as it is for us to support programmes and initiatives like these, I’m determined that our work in this area strives for more fundamental, structural outcomes. We deliberately phrased our strategic bet in this area in this way: “we believe actively tackling the lack of gender diversity in our business and industry will result in some initial steps toward the societal norm where all feel they belong.” 
 
