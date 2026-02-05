@@ -15,13 +15,13 @@ summary: Using Microsoft Agent Framework to build and agentic teammate interacti
 
 Recently our sister company Marra built an agentic "teammate" for user onboarding using Microsoft Power Platform exploring new AI features available. They asked Scott Logic to do the same using Microsoft Agent Framework.  Luckily I was on the small team who got involved.
 
-The project was to ultimately compare the two teams experiences, find the advantages and challenges of each and to exploring agentic technology.  This post focuses on our work with Microsoft Agent Framework rather than comparison.
+The project was to ultimately compare the two teams' experiences, find the advantages and challenges of each and to explore agentic technology. This post focuses on our work with Microsoft Agent Framework rather than comparison.
 
 
 ## Our Task
 We were tasked to build an agentic system for user onboarding with human-in-the-loop.  Onboarded users should be saved on two downstream systems: HubSpot and LeavePlanner (SharePoint hosted Excel Workbook).
 
-The objective is to communicate as you would with a "teammate".  This as a time-boxed exercise (three weeks to investigate, build, and present).
+The objective was to communicate as you would with a "teammate".  This was a time-boxed exercise (three weeks to investigate, build, and present).
 
 ![high level sequence overview]({{ site.github.url }}/dhunter/assets/maf-teammate/1-sequence-overview.png)
 
@@ -36,9 +36,9 @@ To understand what we've built I have a couple more sequence diagrams:
 ![sequence diagram demonstrating flow or user requests that have been approved]({{ site.github.url }}/dhunter/assets/maf-teammate/3-sequence-onboard.png)
 
 ### Disclaimer
-A traditional system could have been written to do this without the use of an LLM.  The exercise was to use an existing Microsoft based communication system as a teammate.  The LLM gives us easy data extraction from free text in an email string, then tools enable us to write custom actions we could expect the LLM to execute.
+A traditional system could have been written to do this without the use of an LLM.  The exercise was to use an existing Microsoft based communication system as a teammate.  The LLM gave us easy data extraction from free text in an email string, then tools enabled us to write custom actions we could expect the LLM to execute.
 
-The solution discussed here is built entirely as an exploratory exercise proof of concept, we would need to do a fair amount of work for a productions hardened system.
+The solution discussed here was built entirely as an exploratory exercise proof of concept, we would have needed to do a fair amount of work for a production hardened system.
 
 
 ## Our Journey
@@ -49,13 +49,13 @@ On initial investigation, Microsoft Agent Framework was very interesting.  We co
 This gave us a quick start to get moving with code samples from the [github repo](https://github.com/microsoft/agent-framework) and some [documentation](https://learn.microsoft.com/en-us/agent-framework/overview/agent-framework-overview).
 
 ### Microsoft Agent Framework
-The Microsoft Agent Framework and Microsoft Foundry was our primary focus, this is relatively new and brings together previous frameworks Semantic Kernel and AutoGen.
+The Microsoft Agent Framework and Microsoft Foundry was our primary focus, this was relatively new and brought together previous frameworks Semantic Kernel and AutoGen.
 
-We could have many small agents working together to perform a bigger task by handing off to each other.  The advantage here with the small dedicated tasks means we can keep the system and user prompts super short and to the point.  The smaller context per agent gives us a much higher chance of getting exactly what we wanted from our LLM.
+We could have many small agents working together to perform a bigger task by handing off to each other.  The advantage here with the small dedicated tasks meant we could keep the system and user prompts super short and to the point. The smaller context per agent gave us a much higher chance of getting exactly what we wanted from our LLM.
 
 We quickly configured the Microsoft Foundry GPT-5 nano model and started planning our onboarding agent.
 
-We implemented DevUI (included with Microsoft Agent Framework), it is a nice addition for quickly visualising your agentic workflow and testing as you build. Also very useful when demonstrating functionality to stakeholders.
+We implemented DevUI (included with Microsoft Agent Framework), it was a nice addition for quickly visualising our agentic workflow and testing as we built.  Also very useful when demonstrating functionality to stakeholders.
 
 Example of the approval steps:
 
@@ -66,77 +66,63 @@ Example of the onboard steps:
 ![devui example of onboarded user]({{ site.github.url }}/dhunter/assets/maf-teammate/5-devui-onboard.png)
 
 ### Teammate and Human in the loop
-We needed to include our agent as a "teammate", inital thoughts gave us email with GraphAPI (polling or subscription), Microsoft Teams, or even email Adaptive Cards for Outlook Actionable Message.  After considerable team debate and research, we opted for Graph API with email polling due to its setup simplicity and faster configuration.
+We needed to include our agent as a "teammate", initial thoughts gave us email with GraphAPI (polling or subscription), Microsoft Teams, or even email Adaptive Cards for Outlook Actionable Message.  After considerable team debate and research, we opted for Graph API with email polling due to its setup simplicity and faster configuration.
 
-We opted to have the email polling done using an Azure Function and submit the body as prompts to the agent rather than have the agent read the mailbox directly.  So the flow is that the user sends an email to their "teammate" and this is forwarded to the agent which can reply to email as necessary.
+We opted to have the email polling done using an Azure Function and submit the body as prompts to the agent rather than have the agent read the mailbox directly.  So the flow was that the user sent an email to their "teammate" and this was forwarded to the agent which could reply to email as necessary.
 
-Then the human-in-the-loop point where the agent requests the 365 account creation before proceeding to onboard the user, gives us some security before accounts are simply created.
+Then the human-in-the-loop point where the agent requested the 365 account creation before proceeding to onboard the user, gave us some security before accounts were simply created.
 
 
 ## Our Agent Breakdown
-Perhaps the most interesting part is what our agents actually do.  We have various agents implementing different techniques and tools which lend themselves well to our scenario.
+Perhaps the most interesting part was what our agents actually did.  We had various agents implementing different techniques and tools which lent themselves well to our scenario.
 
 ### Intent Agent
-Simply determine the intent of the request.  Our scenario has two paths: a request from a user sent by email to go to IT for approval, or a request to go to the onboarding agent.
+Simply determine the intent of the request.  Our scenario had two paths: a request from a user sent by email to go to IT for approval, or a request to go to the onboarding agent.
 
-The agent figures this out based on its system prompt (a short instruction and a few brief examples) and the email request body, the email body is a simple sentence, not CSV content or any specific format we want the user to remember.  Next step is then delegate to either the IT Agent or the Onboarding Agent.
+The agent figured this out based on its system prompt (a short instruction and a few brief examples) and the email request body, the email body was a simple sentence, not CSV content or any specific format we wanted the user to remember. Next step was then delegate to either the IT Agent or the Onboarding Agent.
 
-We sent the actual request to the agent using an Azure Function that extracted the email body text.  This could have been done by the agent and is likely something we would investigate given extra time.
+We sent the actual request to the agent using an Azure Function that extracted the email body text.  This could have been done by the agent and was likely something we would have investigated given extra time.
 
 Future growth here is pretty big as we could add many more scenarios that the agent handles, change job role, remove user etc - if it gets too much then simply plug in a couple of other agents as necessary.
 
 ### IT Agent
-This agent hands the request off to a human, the flow requires that the user is initially created for the business and we have this approved by IT and later reply by email to our agent (with the users 365 email address, again in free text).
+This agent handed the request off to a human, the flow required that the user was initially created for the business and we had this approved by IT and later replied by email to our agent (with the users 365 email address, again in free text).
 
-The IT Agent performs entity extraction to get the user's name, job role and line manager.
+The IT Agent performed entity extraction to get the user's name, job role and line manager.
 
-The IT Agent has a custom send email tool (using Microsoft Graph API - authenticated with Entra ID).  The tool sends an email request for onboarding to the human administrator to complete the request.  Alternatively, if the entity extraction determined data was missing, an explanation is sent to the user.
+The IT Agent had a custom send email tool (using Microsoft Graph API - authenticated with Entra ID).  The tool sent an email request for onboarding to the human administrator to complete the request. Alternatively, if the entity extraction determined data was missing, an explanation was sent to the user.
 
 ### Onboarding Agent
-This is the second time around.  The administrator has now created a new business user account and provided the 365 email/username to our Intent Agent.  The admin has replying to the email (which the Azure Function is sending back to the agent).  This time the Intent Agent has determined this and handed over to the Onboarding Agent.
+This was the second time around. The administrator had now created a new business user account and provided the 365 email/username to our Intent Agent. The admin had replied to the email (which the Azure Function was sending back to the agent).  This time the Intent Agent had determined this and handed over to the Onboarding Agent.
 
-The Onboarding Agent runs entity extraction. Then given success on email, the user's name, job role and line manager, starts onboarding.
+The Onboarding Agent ran entity extraction.  Then given success on email, the user's name, job role and line manager, started onboarding.
 
-Here we hand off to multiple agents at once: HubSpot agent and SharePoint (Leave Planner shared Excel workbook).
+Here we handed off to multiple agents at once: HubSpot agent and SharePoint (Leave Planner shared Excel workbook).
 
-Future growth here migh be that the user administrator could decide to exclude some systems to onboard to or have different systems based on user role.
+Future growth here might be that the user administrator could decide to exclude some systems to onboard to or have different systems based on user role.
 
 ### HubSpot Agent
-Our first external system to onboard the user, simply call the API to create the user.  To do this we've built a custom tool for the operation that we provide to the agent.
+Our first external system to onboard the user, simply call the API to create the user.  To do this we built a custom tool for the operation that we provided to the agent.
 
-Our tool has some logic for error handling but we'd see future growth where the agent could have more functionality.  Search, update and delete (securely, of course) tools could be available in a more production hardened solution.
+Our tool had some logic for error handling but we'd see future growth where the agent could have more functionality.  Search, update and delete (securely, of course) tools could be available in a more production hardened solution.
 
-The end result then continues to the Completion Agent.
+The end result then continued to the Completion Agent.
 
 ### SharePoint Agent
-The task here is simple, insert a record for the new user in the fictional LeavePlanner holiday system, which is an Excel workbook on SharePoint.  The agent has a single tool to insert the row in the workbook.
+The task here was simple, insert a record for the new user in the fictional LeavePlanner holiday system, which was an Excel workbook on SharePoint. The agent had a single tool to insert the row in the workbook.
 
 Of course, this could get considerably more complicated and could offer more tools such as update, delete and select.
 
-The end result then continues to the Completion Agent.
+The end result then continued to the Completion Agent.
 
 ### Completion Agent
-The one we want to see green on DevUI when using example prompts.  This is less of an agent and more a point to connect the workflow back to a resolution.  Check the results from inbound agents, send success emails to systems the user has been onboarded to, and report any issues encountered to the IT department.
-
-
-## Challenges
-
-### Entra ID
-We required various setup points here for Authentication to call models, and then secruing the agent tools.  SharePoint, Excel, and email security needed to be considered, especially when giving control to an LLM with tools.
-
-In the team we had some knowledge of how to set up the authentication, but given it was on a service as opposed to user context it was very helpful to have the expertise of our IT colleagues at hand to make sure email accounts and SharePoint were securely configured.
-
-### Microsoft Foundry
-Ideally we'd have deployed our agent here but we ran into issues and ran out of time.  There is limited region support, this will likely change as Microsoft has recently introduced the new Foundry portal.  Given the advantage of having LLMs and agents under one roof, it's certainly appealing and worth keeping an eye on.
-
-### Time limits
-We'd like to have done more.  On the Scott Logic side we were interested in looking further into Microsoft Foundry hosting. Perhaps streamlining our agent, and investigation other human-in-the-loop communications, tightening up security through data connections, checkpoint specifics.
+Here we wanted to see green on DevUI when using example prompts.  This was less of an agent and more a point to connect the workflow back to a resolution. Check the results from inbound agents, send success emails to systems the user had been onboarded to, and report any issues encountered to the IT department.
 
 
 ## Outcomes
 Overall this was a fast-moving, interesting project, providing a better understanding of where agentic systems add value and the parts of an agentic approach.  I've reflected on a previous LLM powered systems I worked on, and how dedicated agents could give a more robust solution than a large single prompt.
 
-Microsoft Agent Framework is definitely going to be a point of interest in any upcoming LLM-powered solutions we build.
+Microsoft Agent Framework is definitely going to be a point of interest in any upcoming LLM-powered solutions our team build.
 
 As for the email a "teammate" interaction we investigated. Do people want to communicate with an AI-powered "teammate" rather than having another system to use that submits requests through a traditional form.  I can definitely see this being preferable is various situations.
 
