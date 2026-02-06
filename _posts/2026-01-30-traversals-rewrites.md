@@ -917,4 +917,4 @@ Real compilers and interpreters need more. Type checking should report all error
 Interpretation must track variable bindings as it descends through the tree. 
 These are effects, and they change everything.
 
-Next time, in Part 5 we take a closer look at how effects help structure our code.
+Next time, in [Part 5]({{site.baseurl}}/2026/02/06/effect-polymorphic-optics.html) we take a closer look at how effects help structure our code.
