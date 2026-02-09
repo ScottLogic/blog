@@ -69,6 +69,8 @@ tasks.withType<JavaExec> {
 
 <properties>
     <hkj.version>0.3.4</hkj.version>
+    <maven.compiler.release>25</maven.compiler.release>
+    <maven.compiler.enablePreview>true</maven.compiler.enablePreview>
 </properties>
 
 <dependencies>
@@ -81,6 +83,17 @@ tasks.withType<JavaExec> {
 
 <build>
     <plugins>
+        <!-- Required: enable preview features for application execution -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <configuration>
+                <executable>java</executable>
+                <arguments>
+                    <argument>--enable-preview</argument>
+                </arguments>
+            </configuration>
+        </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>

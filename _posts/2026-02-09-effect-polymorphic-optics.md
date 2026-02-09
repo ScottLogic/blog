@@ -1,12 +1,12 @@
 ---
 title: Functional Optics for Modern Java - Part 5
-date: 2026-02-06 00:00:00 Z
+date: 2026-02-09 00:00:00 Z
 categories:
 - Tech
 tags:
-- Java, Functional Programming, Optics
+- Java, Functional Programming, Optics, Effects
 author: magnussmith
-summary: This time we examine effect polymorphism and how effects structure our code with Higher-Kinded-J's Effect Path API; a fluent interface for computations that might fail, accumulate errors, or require deferred execution. 
+summary: A unique feature of Higher-Kinded-J is uniting Optics with Effects in a fluent api. In Part 5 we dive into effect polymorphism and how effects structure our code with Higher-Kinded-J's Effect Path API; a fluent interface for computations that might fail, accumulate errors, or require deferred execution. 
 image: magnussmith/assets/mfj_logo.jpg
 ---
 
