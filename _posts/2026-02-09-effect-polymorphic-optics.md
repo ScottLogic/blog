@@ -62,7 +62,7 @@ The Effect Path API gives you these different assembly line configurations, lett
 
 ---
 
-## The Railway Model
+## The Railway Model {#the-railway-model}
 
 Effect Paths follow the "railway" metaphor that was popularised by Scott Wlaschin. Values travel along tracks, and computations can switch between success and failure:
 
@@ -123,7 +123,7 @@ IOPath<Unit> sideEffect = Path.ioRunnable(() -> System.out.println("Hello"));
 
 ---
 
-## MaybePath: Optional Values
+## MaybePath: Optional Values {#maybepath-optional-values}
 
 `MaybePath<A>` represents a computation that might not produce a value. It wraps Higher-Kinded-J's `Maybe` type.
 
@@ -217,7 +217,7 @@ EitherPath<String, Integer> fallback =
 
 ---
 
-## ValidationPath: Error Accumulation
+## ValidationPath: Error Accumulation {#validationpath-error-accumulation}
 
 `ValidationPath<E, A>` is the key type for comprehensive error reporting. Unlike `EitherPath`, which stops at the first error, `ValidationPath` collects all errors.
 
@@ -397,7 +397,7 @@ IOPath<String> resilient = Path.io(() -> httpClient.get(url))
 
 ---
 
-## VTaskPath: Virtual Thread Concurrency
+## VTaskPath: Virtual Thread Concurrency {#vtaskpath-virtual-thread-concurrency}
 
 `VTaskPath<A>` represents a computation that runs on Java's virtual threads. It brings the lightweight concurrency of Project Loom to the Effect Path API, letting you write simple blocking code that scales to millions of concurrent operations.
 
@@ -908,7 +908,7 @@ The Effect Path API makes effect polymorphism practical. The same patterns that 
 
 We've now built a substantial expression language: AST definition, optics generation, tree traversals, optimisation passes, type checking, and the Effect Path API for error accumulation.
 
-In the final Part 6, we'll step back and reflect on what we've built:
+In the final [Part 6]({{site.baseurl}}/2026/02/10/mfj-from-theory-to-practice.html), we'll step back and reflect on what we've built:
 
 - **The complete pipeline**: From source text through parsing, type checking, optimisation, and evaluation
 - **Design patterns**: Emergent patterns for effect-polymorphic code that work well

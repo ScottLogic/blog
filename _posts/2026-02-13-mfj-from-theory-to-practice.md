@@ -6,7 +6,7 @@ categories:
 tags:
 - Java, Functional Programming, Optics, Effects
 author: magnussmith
-summary: Part 6 steps back from the code to ask when do functional patterns like optics and effect types actually pay for themselves in Java, and when should you keep it simple? It maps out Higher-Kinded-J's three-layer architecture — from HKT simulation to monad transformers to the fluent APIs most developers will use. We make the case that this is Java-native functional programming, not Haskell ported awkwardly. Investing in these patterns today becomes even more valuable as the Java language evolves.
+summary: In the final Part 6 we step back from the code to ask when do functional patterns like optics and effect types actually pay for themselves in Java, and when should you keep it simple? We map out Higher-Kinded-J's three-layer architecture and we make the case that this is Java-native functional programming, not Haskell ported awkwardly and investing in these patterns today will become even more valuable as the Java language evolves.
 image: magnussmith/assets/mfj_logo.jpg
 ---
 
@@ -22,7 +22,7 @@ Now it's time to see everything working together, and to be honest about when to
 
 ## The Complete Toolkit
 
-Think of a surgeon's instruments. The **Focus DSL** provides the scalpels: precise tools for navigating to exactly the right location and making targeted modifications. The **Effect Path API** provides the monitors: tracking what can go wrong, accumulating diagnostics, coordinating concurrent operations. Neither replaces the other. Together, they enable surgical precision on complex data structures.
+Like surgical instruments the **Focus DSL** provides precision tools for navigating to exactly the right location and making targeted modifications. The **Effect Path API** provides the monitors: tracking what can go wrong, accumulating diagnostics, coordinating concurrent operations. Neither replaces the other. Together, they enable surgical precision on complex data structures.
 
 ![mfj-theory-practice-1.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-theory-practice-1.png "HKJ The Complete Toolkit")
 
@@ -35,11 +35,11 @@ Higher-Kinded-J is built in layers, each serving a different audience:
 
 ![mfj-theory-practice-2.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-theory-practice-2.png "Higher-Kinded-J Architecture")
 
-**Layer 1** provides the mathematical foundation: higher-kinded type simulation via the Witness pattern. This is what allows generic code to work across `List`, `Option`, `Either`, and `Future`.
+- **Layer 1** provides the mathematical foundation: higher-kinded type simulation via the Witness pattern. This is what allows generic code to work across `List`, `Option`, `Either`, and `Future`.
 
-**Layer 2** provides the standard monad transformers (`EitherT`, `StateT`, `ReaderT`). In Scala libraries like Cats, these are the primary user-facing types. But in Java, `EitherT<CompletableFutureKind, Error, User>` is syntactically intimidating.
+- **Layer 2** provides the standard monad transformers (`EitherT`, `StateT`, `ReaderT`). In Scala libraries like Cats, these are the primary user-facing types. But in Java, `EitherT<CompletableFutureKind, Error, User>` is syntactically intimidating.
 
-**Layer 3** is where most code lives. The Effect Path API wraps transformers into fluent, concrete classes. When you call `Path.either(value)`, the library internally constructs the appropriate transformer stack. You never see `Kind<F, A>` unless you want to.
+- **Layer 3** is where most code lives. The Effect Path API wraps transformers into fluent, concrete classes. When you call `Path.either(value)`, the library internally constructs the appropriate transformer stack. You never see `Kind<F, A>` unless you want to.
 
 This layering acknowledges a key insight: **Java developers prefer fluent interfaces over type class constraints**. The Effect Path API is essentially a Domain Specific Language (DSL) for monad transformers, designed to feel like Java's Stream API rather than Haskell's do-notation.
 
@@ -49,7 +49,7 @@ The Focus DSL provides the same treatment for optics: fluent navigation without 
 
 ## The Pipeline in Action
 
-With all our pieces in place, we have a complete expression language implementation. The [`Pipeline`](https://github.com/higher-kinded-j/higher-kinded-j/blob/main/blog/src/main/java/org/higherkindedj/article6/pipeline/Pipeline.java) class composes four phases, each using the appropriate effect type:
+With all our pieces in place, we have a complete expression language implementation. The [`Pipeline`](https://github.com/higher-kinded-j/expression-language-example/blob/main/blog/src/main/java/org/higherkindedj/article6/pipeline/Pipeline.java) class composes four phases, each using the appropriate effect type:
 
 ![mfj-theory-practice-3.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-theory-practice-3.png "Expression Language Pipeline")
 
@@ -70,11 +70,11 @@ public Either<PipelineError, Object> run(String source, Environment env) {
 }
 ~~~~
 
-Notice how [`PipelineError`](https://github.com/higher-kinded-j/higher-kinded-j/blob/main/blog/src/main/java/org/higherkindedj/article6/pipeline/PipelineError.java) is a sealed interface with variants for each failure mode. Pattern matching on the result gives exhaustive error handling.
+Notice how [`PipelineError`](https://github.com/higher-kinded-j/expression-language-example/blob/main/blog/src/main/java/org/higherkindedj/article6/pipeline/PipelineError.java) is a sealed interface with variants for each failure mode. Pattern matching on the result gives exhaustive error handling.
 
 ### Parallel Pipeline
 
-For concurrent operations, [`ParallelPipeline`](https://github.com/higher-kinded-j/higher-kinded-j/blob/main/blog/src/main/java/org/higherkindedj/article6/pipeline/ParallelPipeline.java) demonstrates VTask with Scope:
+For concurrent operations, [`ParallelPipeline`](https://github.com/higher-kinded-j/expression-language-example/blob/main/blog/src/main/java/org/higherkindedj/article6/pipeline/ParallelPipeline.java) demonstrates VTask with Scope:
 
 ~~~~java
 List<Validated<List<TypeError>, Type>> results =
@@ -91,10 +91,10 @@ The `Scope` API provides structured concurrency patterns:
 
 See [VTask documentation](https://higher-kinded-j.github.io/latest/monads/vtask_monad.html) for details.
 
-Run the demo yourself:
+[Run the demo yourself](https://https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article6/demo/Article6Demo.java):
 
 ~~~~bash
-./gradlew :blog:run -PmainClass=org.higherkindedj.article6.demo.Article6Demo
+./gradlew :run -PmainClass=org.higherkindedj.article6.demo.Article6Demo
 ~~~~
 
 ---
@@ -105,7 +105,7 @@ The patterns we've developed solve real problems. Here's how they compare to tra
 
 | Challenge | Traditional Java | Higher-Kinded-J | Details                                                                               |
 |-----------|------------------|-----------------|---------------------------------------------------------------------------------------|
-| Deep updates | Copy-constructor cascade (25+ lines) | Lens composition (1 line) | [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html#the-nested-update-problem)                 |
+| Deep updates | Copy-constructor cascade (25+ lines) | Lens composition (1 line) | [Part 1]({{site.baseurl}}/2026/01/09/java-the-immutability-gap.html#nested-update)                 |
 | Null handling | `if (x != null)` chains | `MaybePath` makes absence explicit | [Part 5]({{site.baseurl}}/2026/02/09/effect-polymorphic-optics.html#maybepath-optional-values)            |
 | Error handling | Nested try-catch pyramids | `EitherPath` railway model | [Part 5]({{site.baseurl}}/2026/02/09/effect-polymorphic-optics.html#the-railway-model)                    |
 | Validation | First-error-only | `ValidationPath` accumulates ALL errors | [Part 5]({{site.baseurl}}/2026/02/09/effect-polymorphic-optics.html#validationpath-error-accumulation)    |
@@ -173,8 +173,8 @@ public Either<DomainError, User> getUser(@PathVariable String id) {
 |------------|--------------|
 | [Zero-config](https://higher-kinded-j.github.io/latest/spring/spring_boot_integration.html#quick-start) | Add dependency, return `Either`/`Validated` from controllers |
 | [Auto status mapping](https://higher-kinded-j.github.io/latest/spring/spring_boot_integration.html#error-type-http-status-mapping) | Error class names map to HTTP status codes |
-| [Error accumulation](https://higher-kinded-j.github.io/latest/spring/spring_boot_integration.html#2-validated-accumulating-multiple-errors) | `Validated<List<Error>, User>` returns ALL validation errors |
-| [Async support](https://higher-kinded-j.github.io/latest/spring/spring_boot_integration.html#3-completablefuturepath-async-operations-with-typed-errors) | `CompletableFuturePath` for non-blocking operations |
+| [Error accumulation](https://higher-kinded-j.github.io/latest/spring/spring_boot_integration.html#validated-accumulating-multiple-errors) | `Validated<List<Error>, User>` returns ALL validation errors |
+| [Async support](https://higher-kinded-j.github.io/latest/spring/spring_boot_integration.html#completablefuturepath-async-operations-with-typed-errors) | `CompletableFuturePath` for non-blocking operations |
 | [Actuator metrics](https://higher-kinded-j.github.io/latest/spring/spring_boot_integration.html#monitoring-with-spring-boot-actuator) | Track success/error rates, latency percentiles |
 | [Security integration](https://higher-kinded-j.github.io/latest/spring/spring_boot_integration.html#spring-security-integration) | `ValidatedUserDetailsService` for functional authentication |
 | [JSON serialisation](https://higher-kinded-j.github.io/latest/spring/spring_boot_integration.html#json-serialisation) | Configurable formats (TAGGED, UNWRAPPED, DIRECT) |
@@ -222,7 +222,7 @@ curl http://localhost:8080/actuator/hkj
 }
 ~~~~
 
-**Try it now:**
+**[Try it now](https://github.com/higher-kinded-j/higher-kinded-j/blob/main/hkj-spring/example/TESTING.md):**
 
 ~~~~bash
 ./gradlew :hkj-spring:example:bootRun
@@ -397,18 +397,6 @@ Higher-Kinded-J already embraces structured concurrency through VTask and Scope.
 
 The pattern is clear: Java is evolving toward richer data-oriented features, and Higher-Kinded-J is positioned to take advantage of each advance. Learning optics and effects today is an investment that becomes more valuable as Java matures.
 
-### Future Directions
-
-With core optics (including profunctor optics with `contramap`, `map`, and `dimap`), effect paths, and virtual thread support complete, future development focuses on:
-
-- **Enhanced IDE tooling** - Better autocomplete and navigation for optic composition
-- **Framework integrations** - Deeper Spring Boot support, plus Quarkus and Micronaut
-- **Performance optimisation** - Specialised paths for hot code paths
-- **Value type support** - Zero-cost optic wrappers when Valhalla lands
-- **Carrier class support** - Extending `@GenerateLenses` beyond records
-
-For Java developers, the combination of the Focus DSL, Effect Path API, external type support, and Spring integration offers a native functional programming experience—one that will only improve as Java itself evolves.
-
 ---
 
 ## Completing the Picture
@@ -441,7 +429,7 @@ The two APIs work in harmony. Together, they provide a complete functional progr
 
 A theme running through this series is composition. Focus paths compose with `via()`. Collection navigation composes with `each()`. Effects compose via type classes. Each composition multiplies capability without multiplying complexity.
 
-This is the payoff of principled abstraction. When your building blocks follow laws (lens laws, functor laws, applicative laws), composition just works. You don't verify each combination manually; the laws guarantee sensible behaviour.
+This is the result of principled abstraction. When your building blocks follow laws (lens laws, functor laws, applicative laws), composition just works. You don't verify each combination manually; the laws guarantee sensible behaviour.
 
 Eric Normand captures this in his work on data-oriented programming: build with small pieces that combine predictably. Rich Hickey emphasises simplicity over ease: simple things compose, easy things often don't. The Focus DSL and Effect Path API embody these principles in Java.
 
@@ -459,19 +447,18 @@ Eric Normand captures this in his work on data-oriented programming: build with 
 
 ### Higher-Kinded-J Documentation
 
-
 - **[Focus DSL Guide](https://higher-kinded-j.github.io/latest/optics/focus_dsl.html)** - Complete Focus DSL reference
 - **[Effect Path API](https://higher-kinded-j.github.io/latest/effect/ch_intro.html)** - Effect types and patterns
 - **[VTask and Scope](https://higher-kinded-j.github.io/latest/monads/vtask_monad.html)** - Virtual thread concurrency
 - **[Optics for External Types](https://higher-kinded-j.github.io/latest/optics/importing_optics.html)** - `@ImportOptics` for JDK and library types
 - **[Spring Boot Integration](https://higher-kinded-j.github.io/latest/spring/spring_boot_integration.html)** - Using HKJ with Spring
 - **[Migration Guide](https://higher-kinded-j.github.io/latest/spring/migrating_to_functional_errors.html)** - From exceptions to functional errors
-- **[Tutorials home](https://higher-kinded-j.github.io/latest/tutorials/ch_intro.html)** - Higher-Kinded-J Tutorials
+- **[Tutorials home](https://higher-kinded-j.github.io/latest/tutorials/ch_intro.html)** - Learn Higher-Kinded-J following tutorials
 
 ### Background
 
-- **Brian Goetz, ["Data-Oriented Programming in Java"](https://www.infoq.com/articles/data-oriented-programming-java/)** - DOP principles for Java
-- **Rich Hickey, ["Simple Made Easy"](https://www.infoq.com/presentations/Simple-Made-Easy/)** - Simple vs easy
+- **Brian Goetz, [Data-Oriented Programming in Java](https://www.infoq.com/articles/data-oriented-programming-java/)** - DOP principles for Java
+- **Rich Hickey, [Simple Made Easy](https://www.infoq.com/presentations/Simple-Made-Easy/)** - Simple vs easy
 - **Edward Kmett's [lens library](https://hackage.haskell.org/package/lens)** - The Haskell gold standard
 - **Chris Penner, [*Optics by Example*](https://leanpub.com/optics-by-example)** - A major influence on Higher-Kinded-J; the best practical guide to optics
 
