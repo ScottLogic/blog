@@ -49,7 +49,7 @@ The Focus DSL provides the same treatment for optics: fluent navigation without 
 
 ## The Pipeline in Action
 
-With all our pieces in place, we have a complete expression language implementation. The [`Pipeline`](https://github.com/higher-kinded-j/expression-language-example/blob/main/blog/src/main/java/org/higherkindedj/article6/pipeline/Pipeline.java) class composes four phases, each using the appropriate effect type:
+With all our pieces in place, we have a complete expression language implementation. The [`Pipeline`](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article6/pipeline/Pipeline.java) class composes four phases, each using the appropriate effect type:
 
 ![mfj-theory-practice-3.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-theory-practice-3.png "Expression Language Pipeline")
 
