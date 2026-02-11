@@ -70,11 +70,11 @@ public Either<PipelineError, Object> run(String source, Environment env) {
 }
 ~~~~
 
-Notice how [`PipelineError`](https://github.com/higher-kinded-j/expression-language-example/blob/main/blog/src/main/java/org/higherkindedj/article6/pipeline/PipelineError.java) is a sealed interface with variants for each failure mode. Pattern matching on the result gives exhaustive error handling.
+Notice how [`PipelineError`](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article6/pipeline/PipelineError.java) is a sealed interface with variants for each failure mode. Pattern matching on the result gives exhaustive error handling.
 
 ### Parallel Pipeline
 
-For concurrent operations, [`ParallelPipeline`](https://github.com/higher-kinded-j/expression-language-example/blob/main/blog/src/main/java/org/higherkindedj/article6/pipeline/ParallelPipeline.java) demonstrates VTask with Scope:
+For concurrent operations, [`ParallelPipeline`](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article6/pipeline/ParallelPipeline.java) demonstrates VTask with Scope:
 
 ~~~~java
 List<Validated<List<TypeError>, Type>> results =
@@ -91,7 +91,7 @@ The `Scope` API provides structured concurrency patterns:
 
 See [VTask documentation](https://higher-kinded-j.github.io/latest/monads/vtask_monad.html) for details.
 
-[Run the demo yourself](https://https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article6/demo/Article6Demo.java):
+[Run the demo yourself](https://github.com/higher-kinded-j/expression-language-example/blob/main/src/main/java/org/higherkindedj/article6/demo/Article6Demo.java):
 
 ~~~~bash
 ./gradlew :run -PmainClass=org.higherkindedj.article6.demo.Article6Demo
@@ -293,6 +293,7 @@ Adoption can be incremental. Start small, prove the pattern, then expand:
 Each step is independent. You don't need to convert everything at once.
 
 For complete guidance, see:
+
 - [Focus DSL Tutorial](https://higher-kinded-j.github.io/latest/tutorials/optics/focus_dsl_journey.html)
 - [Error Handling Journey](https://higher-kinded-j.github.io/latest/tutorials/coretypes/error_handling_journey.html)
 - [VTask Journey](https://higher-kinded-j.github.io/latest/tutorials/concurrency/vtask_journey.html)
