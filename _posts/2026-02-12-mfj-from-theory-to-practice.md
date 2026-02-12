@@ -1,12 +1,12 @@
 ---
 title: Functional Optics for Modern Java - Part 6
-date: 2026-02-10 00:00:00 Z
+date: 2026-02-12 00:00:00 Z
 categories:
 - Tech
 tags:
 - Java, Functional Programming, Optics, Effects
 author: magnussmith
-summary: In the final Part 6 we step back from the code to ask when do functional patterns like optics and effect types actually pay for themselves in Java, and when should you keep it simple? We map out Higher-Kinded-J's three-layer architecture and we make the case that this is Java-native functional programming, not Haskell ported awkwardly and investing in these patterns today will become even more valuable as the Java language evolves.
+summary: In the series finale, we move from theory to practice to ask when functional patterns actually pay for themselves. We break down Higher-Kinded-J’s architecture to demonstrate what ‘Java-native’ FP looks like, avoiding awkward ports, and explain why investing in these patterns today creates a distinct advantage as the Java language evolves.
 image: magnussmith/assets/mfj_logo.jpg
 ---
 
@@ -14,15 +14,15 @@ image: magnussmith/assets/mfj_logo.jpg
 
 *Part 6 of the Functional Optics for Modern Java series*
 
-We set out with a frustration: Java handles *reading* nested structures elegantly, but *writing* them remains painful. Over five articles, we built a response: optics for navigation, effects for error handling, and a bridge between them.
+We set out noting a frustration that Java handles *reading* nested structures elegantly, but *writing* them remains painful. Over five articles, we built a response: optics for navigation, effects for error handling, and a bridge between them.
 
-Now it's time to see everything working together, and to be honest about when to use these patterns and when simpler approaches suffice.
+Now it's time to see everything working together and to be honest about when to use these patterns and when simpler approaches suffice.
 
 ---
 
 ## The Complete Toolkit
 
-Like surgical instruments the **Focus DSL** provides precision tools for navigating to exactly the right location and making targeted modifications. The **Effect Path API** provides the monitors: tracking what can go wrong, accumulating diagnostics, coordinating concurrent operations. Neither replaces the other. Together, they enable surgical precision on complex data structures.
+Like surgical instruments, the **Focus DSL** provides precision tools for navigating to exactly the right location and making targeted modifications. The **Effect Path API** provides the monitors: tracking what can go wrong, accumulating diagnostics, coordinating concurrent operations. Neither replaces the other. Together, they enable surgical precision on complex data structures.
 
 ![mfj-theory-practice-1.png]({{site.baseurl}}/magnussmith/assets/optics/mfj-theory-practice-1.png "HKJ The Complete Toolkit")
 
@@ -41,7 +41,7 @@ Higher-Kinded-J is built in layers, each serving a different audience:
 
 - **Layer 3** is where most code lives. The Effect Path API wraps transformers into fluent, concrete classes. When you call `Path.either(value)`, the library internally constructs the appropriate transformer stack. You never see `Kind<F, A>` unless you want to.
 
-This layering acknowledges a key insight: **Java developers prefer fluent interfaces over type class constraints**. The Effect Path API is essentially a Domain Specific Language (DSL) for monad transformers, designed to feel like Java's Stream API rather than Haskell's do-notation.
+This layering acknowledges a key insight: **Java developers prefer fluent interfaces over type class constraints**. The Effect Path API is essentially a Domain-Specific Language (DSL) for monad transformers, designed to feel like Java's Stream API rather than Haskell's do-notation.
 
 The Focus DSL provides the same treatment for optics: fluent navigation without explicit optic composition. And the bridge between them (`path.focus(lens).modify(fn)`) enables surgical precision for data even when wrapped in effects.
 
