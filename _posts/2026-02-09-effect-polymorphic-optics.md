@@ -908,7 +908,7 @@ The Effect Path API makes effect polymorphism practical. The same patterns that 
 
 We've now built a substantial expression language: AST definition, optics generation, tree traversals, optimisation passes, type checking, and the Effect Path API for error accumulation.
 
-In the final [Part 6]({{site.baseurl}}/2026/02/10/mfj-from-theory-to-practice.html), we'll step back and reflect on what we've built:
+In the final [Part 6]({{site.baseurl}}/2026/02/12/mfj-from-theory-to-practice.html), we'll step back and reflect on what we've built:
 
 - **The complete pipeline**: From source text through parsing, type checking, optimisation, and evaluation
 - **Design patterns**: Emergent patterns for effect-polymorphic code that work well
