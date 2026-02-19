@@ -14,11 +14,12 @@ tags:
 - intraday
 - day
 - ahead
-author: pmarsh
-layout: default_post
 summary: Energy trading is a complex domain. Having just finished my first project
   in the energy sector I've written this quick-start guide to exaplain all the concepts
   and terminology I wish I'd known at the start of the project.
+author: pmarsh
+image: "/uploads/Peter-Marsh-blog-quote-01.jpg"
+layout: default_post
 ---
 
 Do you picture a scene like The Wolf of Wall Street when you imagine a trading floor? Do you see hordes of wide-eyed guys in suits shouting down telephones to customers, hustle and bustle, and huge parties when big deals are made? The truth is that trading happens in quiet offices where calm, focused and very qualified individuals study numbers in grids that stretch across ranks of computer monitors. They know how to use the data, how to analyse trends, how to calculate to maximise a profit, and how to get the best outcomes for their business. And they know the systems and rules of trading inside and out. As a developer (or tester or designer) working on a trading application, you will also need to gain a basic understanding of the domain.

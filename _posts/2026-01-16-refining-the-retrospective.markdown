@@ -10,6 +10,7 @@ tags:
 summary: By adapting retrospectives, teams can spark feedback that grows people, and
   nutures a culture where recognition comes naturally.
 author: dallsop
+image: "/uploads/Dan-Allsop-blog-social.jpg"
 ---
 
 In Agile, a retrospective is a regular meeting held at the end of a time-boxed development cycle (typically biweekly or monthly). During these meetings the team reflects collaboratively to identify opportunities for improvement that can be actioned during the next development cycle.

@@ -37,7 +37,7 @@ repositories {
     mavenCentral()
 }
 // This is the current version of HKJ
-val hkjVersion = "0.3.0" 
+val hkjVersion = "0.3.4" 
 
 dependencies {
     // Core library with optics
@@ -52,6 +52,15 @@ java {
         languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
+
+tasks.withType<JavaCompile> {
+    options.compilerArgs.addAll(listOf("--enable-preview"))
+}
+
+tasks.withType<JavaExec> {
+    jvmArgs("--enable-preview")
+}
+
 ~~~~
 
 ### Maven Configuration
@@ -59,7 +68,9 @@ java {
 ~~~~ xml
 
 <properties>
-    <hkj.version>0.3.0</hkj.version>
+    <hkj.version>0.3.4</hkj.version>
+    <maven.compiler.release>25</maven.compiler.release>
+    <maven.compiler.enablePreview>true</maven.compiler.enablePreview>
 </properties>
 
 <dependencies>
@@ -72,6 +83,17 @@ java {
 
 <build>
     <plugins>
+        <!-- Required: enable preview features for application execution -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <configuration>
+                <executable>java</executable>
+                <arguments>
+                    <argument>--enable-preview</argument>
+                </arguments>
+            </configuration>
+        </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
@@ -381,7 +403,7 @@ Department updated = Traversals.modify(allStaffStreets, s -> s + " (relocated)",
 List<String> streets = Traversals.getAll(allStaffStreets, dept);
 ~~~~
 
-One composed the traversal replaces what would otherwise be nested loops with manual reconstruction at each level.
+Once composed the traversal replaces what would otherwise be nested loops with manual reconstruction at each level.
 
 ### Filtered Traversals
 

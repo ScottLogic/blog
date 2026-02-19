@@ -10,6 +10,7 @@ tags:
 - Testing
 summary: How might Google Gemini's video analysis support software development?
 author: amjones
+image: "/uploads/Andrew-Jones-blog-quote.jpg"
 ---
 
 Google recently released their Gemini 3 model, which reminded me about its capability to accept video inputs. Their advertisements showed how this could be used to "analyse your pickleball video", however I wondered if and how this could be used to support web development, particularly for less commonly attempted tasks like exploratory testing.

@@ -13,6 +13,7 @@ summary: Ever tried adding a simple feature to a legacy system, only to uncover 
   more maintainable solution. If you enjoy tales of real-world debugging, legacy surprises,
   and problem-solving under constraints, this one’s worth the read.
 author: osharon
+image: "/uploads/Oded-Sharon-blog-quote---Detective-social.jpg"
 ---
 
 Most developers enjoy working on exciting new projects and technologies. It is not only because of the sense of ownership and freedom but it is also about not trudging through old, badly written code filled with technical debt issues no one wants to deal with because they are so dreary. That said, I find satisfaction in looking at an existing system, with all the constraints it entails. And like a detective story, I try to figure out what went on in the previous developer’s mind when they wrote the code that I am now staring at. In fairness, that previous developer is often six-month-ago me, who thought he was very smart when he wrote that code.

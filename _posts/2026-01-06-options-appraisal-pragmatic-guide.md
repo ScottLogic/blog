@@ -12,6 +12,7 @@ tags:
 summary: A practical, lightweight way to compare options, surface trade-offs early,
   and leave a decision trail the rest of the organisation will thank you for.
 author: rvango
+image: "/uploads/Remi-blog-quote-social.jpg"
 ---
 
 Architecture decisions don’t usually fail fast or in a dramatic fashion. They fail quietly, long after the decision was made. That’s usually because stakeholders weren’t aligned on what success meant, constraints stayed implicit, trade-offs were never made explicit, and no one clearly owned the decision once delivery began.

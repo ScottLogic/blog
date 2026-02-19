@@ -615,7 +615,7 @@ public static Located<Expr> transformPreservingLocation(
 }
 ~~~~
 
-For more sophisticated location handling (like updating locations when inlining code), indexed optics become valuable. We'll explore those in Part 5.
+For more sophisticated location handling (like updating locations when inlining code), [indexed optics become valuable](https://higher-kinded-j.github.io/latest/optics/indexed_optics.html).
 
 ---
 
@@ -897,7 +897,7 @@ We'll see how `Validated` differs from `Either` (accumulating all errors rather 
 
 ### Algebraic Data Types in Java
 
-- **["Algebraic Data Types with Java"](https://blog.scottlogic.com/2025/01/20/algebraic-data-types-with-java.html)** (Scott Logic, 2025): A thorough introduction to algebraic data types using Java's sealed interfaces and records. Covers how sum types (like our expression AST) and product types compose to model complex domains.
+- **[Algebraic Data Types with Java](https://blog.scottlogic.com/2025/01/20/algebraic-data-types-with-java.html)** (Scott Logic, 2025): A thorough introduction to algebraic data types using Java's sealed interfaces and records. Covers how sum types (like our expression AST) and product types compose to model complex domains.
 
 ### Higher-Kinded-J
 
@@ -917,4 +917,4 @@ Real compilers and interpreters need more. Type checking should report all error
 Interpretation must track variable bindings as it descends through the tree. 
 These are effects, and they change everything.
 
-Next time, in Part 5 we take a closer look at how effects help structure our code.
+Next time, in [Part 5]({{site.baseurl}}/2026/02/09/effect-polymorphic-optics.html) we take a closer look at how effects help structure our code.
