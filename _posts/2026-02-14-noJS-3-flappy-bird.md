@@ -73,7 +73,7 @@ So next, we stack a bunch of radio buttons on top of each other (I actually used
   Demonstration of the hidden labels used for randomisation
 </video>
 
-The key thing to remember is that in the actual game, the shaded regions are completely grey. The css logic looks like..
+The key thing to remember is that in the actual game, the shaded regions are completely grey. The CSS logic looks like..
 
 ```css
   --bird-frame-top: calc(
@@ -83,7 +83,7 @@ The key thing to remember is that in the actual game, the shaded regions are com
 
 `--click-box-height` is the height of the label; this does mean that there is a precision limit based simply on how large the labels are. `--bird-frame-base-top` is just a base value for the position of the bird frame (bird and labels). `--active-number` is determined by the most recent label clicked; each value is just an integer indicating its position. `--bird-delta-y` is the animated variable from earlier.
 
-The code above changes the nature of the animation, but we still need to reset the animation on each click. This is done by simply having two sets of inputs, which swap in and out on every click. Each set has a full collection for setting `--active-number`, they set a different identical animation. The changing of the animation resets it.
+The code above changes the nature of the animation, but we still need to reset the animation on each click. This is done by simply having two sets of inputs, which swap in and out on every click. Each set has a full collection for setting `--active-number`. However, as seen below, they set a different identical animation. The reason is that when `jumpAndFall` is active and we change it to `jumpAndFall2`, CSS does not detect that they are identical and hence forces the animation to restart. The start of the animation is the bird jumping.
 
 ~~~css
 :root:has(input[id$="fall1"]:checked) {
@@ -100,7 +100,7 @@ The code above changes the nature of the animation, but we still need to reset t
   /* Duplicate */
 }
 
-/* Ensure that the jump-holders (divs contains labels) swap in and out on every click */
+/* Ensure that the jump-holders (divs containing labels) swap in and out on every click */
 div:has(input[id$="fall1"]:checked) ~ * #jump-label-holder-2,
 #jump-label-holder-1
 {
@@ -116,11 +116,11 @@ div:has(input[id$="fall1"]:checked) ~ * #jump-label-holder-1,
 
 All the radio buttons have the same `name`, which means that only one can be selected at any one time. So when one from `#jump-label-holder-2` is selected, it deselects the one from `#jump-label-holder-1`.
 
-If a user clicks down on a label, it is possible for that label to move out of the way, and another label takes its place, then no selection is detected. To deal with this, we can increase the height of the label when the user presses down by making use of the `:active` label. We can also use `:active` to animate the wings by simply swapping out the image.
+If a user clicks down on a label, it is possible for that label to move out of the way, and another label takes its place, before the user releases. The result is that no selection is detected. To deal with this, we can increase the height of the label when the user presses down by making use of the `:active` label. We can also use `:active` to animate the wings by simply swapping out the image.
 
 ### Pipes and "Randomness"
 
-Next, we need to create some pipes. Drawing and animating them is pretty straightforward. To avoid creating a div for each new pipe, we simply need to create 3 and have them repeat. But how do we vary their heights? First, we create an `@Property`, call it `--score` and animate it to increase every time the pipe goes off screen (we can do this just by knowing the time it takes). Each pipe is then given a `--pipe-number` (1, 2, 3). The below maths then ensure that each pipe has a `--pipe-index` that jumps up by 3 exactly when it completes one passthrough.
+Next, we need to create some pipes. Drawing and animating them is pretty straightforward. To avoid creating a `div` for each new pipe, we simply need to create 3 and have them repeat. But how do we vary their heights? First, we create an `@Property`, call it `--score` and animate it to increase every time the pipe goes off screen (we can do this just by knowing the time it takes). Each pipe is then given a `--pipe-number` (1, 2, 3). The below maths then ensure that each pipe has a `--pipe-index` that jumps up by 3 exactly when it completes one passthrough.
 
 ~~~css
 .pipe-frame {
@@ -131,11 +131,11 @@ Next, we need to create some pipes. Drawing and animating them is pretty straigh
   --pipe-index: calc(var(--integer) * 3 + var(--pipe-number));
 }
 
-Then, by using some trig functions and playing around with them, I was able to create pseudorandom positions for the pipes. And by animating another variable, which pauses once the user closes the pop-up, a "random" seed can be chosen to make the game different each time. Then a simple use of a css [counter](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters) gives us our visual score. 
+Then, by using some trig functions and playing around with them, I was able to create pseudorandom positions for the pipes. And by animating another variable, which pauses once the user closes the pop-up, a "random" seed can be chosen to make the game different each time. Then a simple use of a CSS [counter](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters) gives us our visual score. 
 
 ~~~
 
-### Collision Detection and game end
+### Collision Detection and Game End
 
 Pipes are great and all, but what's the point if they don't hurt the bird? Here is a simplified version of my collision detection, which is done independently by each pipe.
 
@@ -160,14 +160,14 @@ Pipes are great and all, but what's the point if they don't hurt the bird? Here 
 }
 ~~~
 
-The calculation is split into an overlap in x and in y. The first bit of the x calculation determines if the bird's right side is past the pipe's left side; the first max returns a `0px` if not. Similarly, the second bit determines if the bird's left side is behind the pipe's right side; if both of these are true, the pipe and the bird overlap in the x dimension and the value of `--overlap-in-x` will be none-zero There is an equivalent calculation for y (that takes into account the gap between pipes).
-The result of this calculation is that if there is an overlap of a pipe with the bird, `--collision` will be non-zero. Once we have this, we simply create a game-ending div which has a height of `200vh * var(--collision)`, forcing the user to hover on it. On hover, this div pauses all animations and remains on screen. 
+The calculation is split into an overlap in x and in y. The first bit of the x calculation determines if the bird's right side is past the pipe's left side; the first max returns a `0px` if not. Similarly, the second bit determines if the bird's left side is behind the pipe's right side; if both of these are true, the pipe and the bird overlap in the x dimension and the value of `--overlap-in-x` will be non-zero. There is an equivalent calculation for y (that takes into account the gap between pipes).
+The result of this calculation is that if there is an overlap of a pipe with the bird, `--collision` will be non-zero. Once we have this, we simply create a game-ending `div` which has a height of `200vh * var(--collision)`, forcing the user to hover on it. On hover, this `div` pauses all animations and remains on screen. 
 
 ### A few fun things I found
 
 I had to do a lot of debugging in this; the use of counters and [this trick](https://www.youtube.com/shorts/ii-lSK2_Nu4) helped. I imagine the former is unlikely to come up day to day, however, I look forward to using the second. 
 
-If a div changes its position or height as a result of a `transform` being animated, it will not cause the `:hover` state to be recalculated, as shown above. It works for properties directly, so our game-ending logic still works. Finally, dimensions are important in css, while making my collision detection formula, I has some issue and realised it's because I was assigning things like `1px*1px` to something wanting a length.
+If a `div` changes its position or height as a result of a `transform` being animated, it will not cause the `:hover` state to be recalculated, as shown above. It works for properties directly, so our game-ending logic still works. Finally, dimensions are important in CSS, while making my collision detection formula, I has some issue and realised it's because I was assigning things like `1px*1px` to something wanting a length.
 
 ## FAQ
 
@@ -175,7 +175,7 @@ If a div changes its position or height as a result of a `transform` being anima
 I've never heard of CSS being used for styling, but anything is possible, I guess.
 
 #### Why is the bird square?
-I have a square bird for ornithological accuracy and not because I think it made collision detection easier, and I was too lazy to get back to it.
+I have a square bird for ornithological accuracy and not because it made collision detection easier.
 
 ## Wrap up
 
