@@ -51,7 +51,7 @@ Since that conversation, more new models have been released, and there's a signi
 
 ## AI is like an unreliable teleportation device
 
-Imagine you have a teleportation device that becomes less reliable exponentially the further you travel. Traveling one metre is not a problem. Traveling a hundred metres, as cool as it may be, and you might find yourself somewhere very different. Traveling more than a kilometre, and there's a growing chance you'll turn into a [fly](https://en.wikipedia.org/wiki/The_Fly_(Langelaan_short_story)).  
+Imagine you have a teleportation device that becomes less reliable exponentially the further you travel. Travelling one metre is not a problem. Travel a hundred metres, as cool as it may be, and you might find yourself somewhere very different. Travel more than a kilometre, and there's a growing chance you'll turn into a [fly](https://en.wikipedia.org/wiki/The_Fly_(Langelaan_short_story)).  
 I learned the hard way that any mistake in the system will worsen with every additional step you take if not addressed. The solution I settled on was sacrificing efficiency and making tiny, measurable steps instead of reckless leaps of faith. If one side of the spectrum is mere autocomplete (which has truly improved significantly over the years), and the other side is "build an app that does X," my lesson learned was not to venture further than adding a single feature at a time and making sure it was added properly, passing all its tests, and working for end users. That said, I felt I reached nirvana when I asked to implement a particular feature and it nailed it almost completely on the first try.
 
 ## Unit tests come with limited warranty
