@@ -21,8 +21,7 @@ The only thing I wrote was HTML and CSS. No HAML, SCSS or any other preprocessor
 
 The fundamental aspect of the game, click a button, and a bird jumps up, before falling to the ground ( or in my case, off the screen ). 
 
-Motion is simple. I played around and found an animation setting that looked close enough. I'm not going to explain the `cubic-bezier` here. Just know that by setting up the example below, we can animate the CSS variable `--bird-delta-y` to go up and then down in a falling manner. By adding this value to the bird's position, the bird is animated.
-
+Motion is simple. I played around and found an animation setting that looked close enough. I'm not going to explain the `cubic-bezier` here. Just know that it lets you create different animation timing functions, so that animations can vary in speed as you need. By setting up the example below, we can animate the CSS variable `--bird-delta-y` to go up and then down in a falling manner. Animating a variable just means we have a variable whose value is changing. By adding this value to the bird's position, the bird is animated. It makes it mimic the motion of a jump followed by a fall.
 
 ~~~css
 @property --bird-delta-y {
@@ -40,56 +39,60 @@ Motion is simple. I played around and found an animation setting that looked clo
     --bird-delta-y: 0;
     animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
+  /* 0% to 25% is the jump */
   25% {
     --bird-delta-y: calc(-1 * var(--jump-height));
     animation-timing-function: cubic-bezier(0.68, 0, 1, 0.26);
   }
+  /* 25% to 100% is the subsequent fall */
   100% {
     --bird-delta-y: var(--fall-distance)
   }
 }
 
 .bird {
-  position: absolute;
-  top: calc(30px + var(--furthest-click-dist))
+  top: var(---bird-delta-y)
 }
 ~~~
 
-Next, we need to reset the jump and start it from a new location when the player clicks their mouse. It's not possible to just read the current value of `--bird-delta-y` and base new calculations off it; this is because CSS works in a declarative manner, not an imperative one. It's also not possible to do an event listener in CSS, but I can use radio input buttons. CSS can detect a checked radio button and can thus apply styles or modify variables. And the nature of radio buttons is such that if another one is clicked, the first one becomes unchecked. So the value of `--active-number` below will always be the value of the most recently clicked radio button.
+Next, we need to reset the jump and start it from a new location when the player clicks their mouse. It's not possible to just read the current value of `--bird-delta-y` and base new calculations off it; this is because CSS works in a declarative manner, not an imperative one. It's also not possible to do an event listener in CSS. But I can use radio input buttons. CSS can detect a checked radio button and can thus apply styles or modify variables. And the nature of radio buttons is such that if another one is clicked, the first one becomes unchecked. So the value of `--active-number` below will always be the value of the most recently clicked radio button.
 
 ~~~css
-:root:has(input[id^="1"]:checked) {
+:root:has(input#fall1:checked) {
   --active-number: 1;
+}
+:root:has(input#fall2:checked) {
+  --active-number: 2;
 }
 /* And so on */
 ~~~
 
-Above, I make use of the [has selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has), which is relatively new; it allows you to select a parent element or a previous sibling element with respect to a reference element. In this case, it will select `:root` (`html`) when it has an `input[id^="1"]:checked`. `^=` is a begins with selector.
+Above, we make use of the [has selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has), which is relatively new; it allows you to select a parent element or a previous sibling element with respect to a reference element. In this case, it will select `:root` (`html`) when it has an `input#fall1:checked` (or another number instead of 1) inside it. `^=` is a 'begins with' selector. So above, we are setting the variable `--active-number` on the `:root` based on the most recently clicked box.
 
-So next, we stack a bunch of radio buttons on top of each other (I actually used [label elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label)). And animate them along with the bird. By restricting the user to only be able to click the button in a specific position, we can make calculations based on the radio button selected on where the bird needs to jump from. This is best understood from the animation below.
+So we stack a bunch of labels (clicking labels triggers radio buttons) on top of each other. And animate them along with the bird. By covering up most of the buttons and opening a small slit, we can have the button available to the user change with the animation. More specifically, at any point, the button available to the user is entirely dependent on the position of the bird. This is best understood from the animation below. The key thing to remember is that in the actual game, the shaded regions are completely opaque.
 
 <video autoplay controls loop>
   <source src="{{site.baseurl}}/garora/assets/noJs3/ClickToJump.mp4" type="video/mp4" />
-  Demonstration of the hidden labels used for randomisation
+  Demonstration of how clicking to jump works
 </video>
 
-The key thing to remember is that in the actual game, the shaded regions are completely grey. The CSS logic looks like..
-
-```css
-  --bird-frame-top: calc(
-    var(--bird-frame-base-top) + var(--bird-delta-y) + var(--active-number) * var(--click-box-height)
-  );
-```
-
-`--click-box-height` is the height of the label; this does mean that there is a precision limit based simply on how large the labels are. `--bird-frame-base-top` is just a base value for the position of the bird frame (bird and labels). `--active-number` is determined by the most recent label clicked; each value is just an integer indicating its position. `--bird-delta-y` is the animated variable from earlier.
-
-The code above changes the nature of the animation, but we still need to reset the animation on each click. This is done by simply having two sets of inputs, which swap in and out on every click. Each set has a full collection for setting `--active-number`. However, as seen below, they set a different identical animation. The reason is that when `jumpAndFall` is active and we change it to `jumpAndFall2`, CSS does not detect that they are identical and hence forces the animation to restart. The start of the animation is the bird jumping.
+Then we change the calculation of the bird's position to:
 
 ~~~css
-:root:has(input[id$="fall1"]:checked) {
+.bird {
+  top: calc(var(--bird-delta-y) + var(--active-number) * var(--click-box-height))
+}
+~~~
+
+`--click-box-height` is the height of the label. `--active-number` is determined by the most recent label clicked; each value is just an integer indicating its position. `--bird-delta-y` is the animated variable from earlier. The result of this is that we adjust the height of the bird based on where the most recent jump started from.
+
+But there is a problem, this does not make the animation restart, so the bird will not jump. CSS only starts the animation when it's first added. So what we can do is create two identical animations and then, on each click, swap them out. This tricks CSS into starting the "new" animation from the start. We now need two sets of inputs, each are complete for the purpose of setting the bird's starting position as described above. They will be `div#jump-holder-1` and `div#jump-holder-2`. However, they set a different animation. So when one input is clicked, it sets the bird's position, sets the animation `jumpAndFall`, hides it's parent and causes the other one to appear.
+
+~~~css
+:root:has(#jump-holder-1:has(input:checked)) {
   animation-name: jumpAndFall2;
 }
-:root:has(input[id$="fall2"]:checked) {
+:root:has(#jump-holder-2:has(input:checked)) {
   animation-name: jumpAndFall;
 }
 
@@ -101,26 +104,39 @@ The code above changes the nature of the animation, but we still need to reset t
 }
 
 /* Ensure that the jump-holders (divs containing labels) swap in and out on every click */
-div:has(input[id$="fall1"]:checked) ~ * #jump-label-holder-2,
-#jump-label-holder-1
-{
-  display: flex;
-}
-
-div:has(input[id$="fall1"]:checked) ~ * #jump-label-holder-1,
-#jump-label-holder-2
+#jump-holder-1:has(input:checked),
+#jump-holder-2:has(input:checked)
 {
   display: none;
 }
 ~~~
 
-All the radio buttons have the same `name`, which means that only one can be selected at any one time. So when one from `#jump-label-holder-2` is selected, it deselects the one from `#jump-label-holder-1`.
-
-If a user clicks down on a label, it is possible for that label to move out of the way, and another label takes its place, before the user releases. The result is that no selection is detected. To deal with this, we can increase the height of the label when the user presses down by making use of the `:active` label. We can also use `:active` to animate the wings by simply swapping out the image.
+All the radio buttons have the same `name`, which means that only one can be selected at a time. So when one from `#jump-holder-2` is selected, it deselects the one from `#jump-holder-1`. This results in `#jump-holder-1` being visible again and the animation `jumpAndFall2` being removed.
 
 ### Pipes and "Randomness"
 
-Next, we need to create some pipes. Drawing and animating them is pretty straightforward. To avoid creating a `div` for each new pipe, we simply need to create 3 and have them repeat. But how do we vary their heights? First, we create an `@Property`, call it `--score` and animate it to increase every time the pipe goes off screen (we can do this just by knowing the time it takes). Each pipe is then given a `--pipe-number` (1, 2, 3). The below maths then ensure that each pipe has a `--pipe-index` that jumps up by 3 exactly when it completes one passthrough.
+Next, we need to create some pipes. Drawing and animating them is pretty straightforward; we simply animate their position to move left across the screen. To avoid creating a `div` for each new pipe, we simply need to create 3 and have them repeat. By having the `div`s restart their animation once they are off-screen, it looks like there is an infinite amount. The following code causes each pipe to slide across the screen and then jump back to the start before repeating.
+
+~~~css
+.pipe-frame {
+  animation-name: pipe;
+  animation-duration: var(--pipe-duration);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite; 
+  animation-delay: /* Vary this for every pipe */
+}
+
+@keyframes pipe {
+  0% {
+   left: var(--pipe-start);
+  }
+  100% {
+   left: var(--pipe-end);
+  }
+}
+~~~
+
+But how do we vary their heights? First, we create an `@Property`, call it `--score` and animate it to increase every time the pipe goes off screen (we can do this just by knowing the time it takes). Each pipe is then given a `--pipe-number` (1, 2, 3). The below maths then ensure that each pipe has a `--pipe-index` that jumps up by 3 exactly when it completes one passthrough. We want this because it means each iteration of each pipe has a different `--pipe-index`.
 
 ~~~css
 .pipe-frame {
@@ -130,15 +146,15 @@ Next, we need to create some pipes. Drawing and animating them is pretty straigh
   );
   --pipe-index: calc(var(--integer) * 3 + var(--pipe-number));
 }
-
-Then, by using some trig functions and playing around with them, I was able to create pseudorandom positions for the pipes. And by animating another variable, which pauses once the user closes the pop-up, a "random" seed can be chosen to make the game different each time. Then a simple use of a CSS [counter](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters) gives us our visual score. 
-
 ~~~
+
+Then, by using some trig functions on `--pipe-index` and playing around with them, I was able to create pseudorandom positions for the pipes. So all the heights now vary, but each game is exactly the same? To get around this, the calculations take a seed, and the seed varies each game. How? By animating another variable, which pauses once the user closes the pop-up. If the animation is fast enough, it should lead to a different value each game.
+
+A simple use of a CSS [counter](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters) gives us our visual score. 
 
 ### Collision Detection and Game End
 
 Pipes are great and all, but what's the point if they don't hurt the bird? Here is a simplified version of my collision detection, which is done independently by each pipe.
-
 
 ~~~css
 .pipe-frame {
@@ -146,13 +162,13 @@ Pipes are great and all, but what's the point if they don't hurt the bird? Here 
     (
         max(
             0px,
-            var(--brid-x) + var(--bird-width) -
+            var(--bird-x) + var(--bird-width) -
               var(--pipe-x)
           ) / 1px
       ) *
-      max(
+      max(s
         0px,
-        var(--pipe-x) + var(--pipe-width) - var(--brid-x)
+        var(--pipe-x) + var(--pipe-width) - var(--bird-x)
       )
   );
   /* Similar for --overlap-in-y */
@@ -160,14 +176,11 @@ Pipes are great and all, but what's the point if they don't hurt the bird? Here 
 }
 ~~~
 
-The calculation is split into an overlap in x and in y. The first bit of the x calculation determines if the bird's right side is past the pipe's left side; the first max returns a `0px` if not. Similarly, the second bit determines if the bird's left side is behind the pipe's right side; if both of these are true, the pipe and the bird overlap in the x dimension and the value of `--overlap-in-x` will be non-zero. There is an equivalent calculation for y (that takes into account the gap between pipes).
-The result of this calculation is that if there is an overlap of a pipe with the bird, `--collision` will be non-zero. Once we have this, we simply create a game-ending `div` which has a height of `200vh * var(--collision)`, forcing the user to hover on it. On hover, this `div` pauses all animations and remains on screen. 
+This bit can be hard to read, but it’s not too complicated. The calculation is split into an overlap in x and in y. The x calculation is based on two things. Is the bird’s right side past the pipe’s left side? Is the bird’s left side behind the pipe’s right side? Take a moment to convince yourself that if both of these are true, the bird and the pipe overlap in the x dimension. The value of `--overlap-in-x` will be 0px if there is no overlap and a positive value otherwise. There is a similar calculation for overlap in y. If there is an overlap in the x and y dimensions, we have a collision! If there is a collision, `--collision` will be above 0, otherwise it’s 0.
 
-### A few fun things I found
+Then we create out endgame screen and give it a height of `100vh * var(--collision)`. It will then only appear when a collision occurs. To finish it off, pause the animation of the bird and the pipes whenever the end game screen has the user hovering over it.
 
-I had to do a lot of debugging in this; the use of counters and [this trick](https://www.youtube.com/shorts/ii-lSK2_Nu4) helped. I imagine the former is unlikely to come up day to day, however, I look forward to using the second. 
-
-If a `div` changes its position or height as a result of a `transform` being animated, it will not cause the `:hover` state to be recalculated, as shown above. It works for properties directly, so our game-ending logic still works. Finally, dimensions are important in CSS, while making my collision detection formula, I has some issue and realised it's because I was assigning things like `1px*1px` to something wanting a length.
+An aside which isn't critical to operations. Dimensions are important in CSS, while making my collision detection formula, I has some issue and realised it's because I was assigning things like `1px*1px` to something wanting a length.
 
 ## FAQ
 
