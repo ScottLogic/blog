@@ -1,6 +1,6 @@
 ---
 title: Things to expect when starting to work with Copilot
-date: 2026-02-20 10:00:00 Z
+date: 2026-02-23 10:00:00 Z
 categories:
 - Artificial Intelligence
 - Tech
@@ -22,9 +22,9 @@ I initially tried working with the free version of [GitHub Copilot](https://gith
 
 There were no epiphanies or light-bulb moments but over time I learned to write better prompts. I also broke the tasks into smaller, more reasonable, clear instructions. I also switched to the paid version, which made life much easier as it gave me a larger context window. With the right prompts, you can achieve a lot with the paid version. Unless you don't have the budget or enjoy challenging yourself, I'd argue that life's much more comfortable with bigger contexts.
 
-My attitude towards Copilot changed over time. From "go write an application" which led to utter disasters, I reverted to "plan, review & implement". It was considerably slower, but gave me a better chance to course-correct whenever it veered in the wrong direction.
+My attitude towards Copilot changed over time. From "go write an application" which led to utter disasters, I pivoted to "plan, review & implement". It was considerably slower, but gave me a better chance to course-correct whenever it veered in the wrong direction.
 
-Copilot, however, was very eager and often wrote bits of code directly into the spec files, despite me explicitly instructing it not to write any code before I'm happy with the suggested design. It always asked to let it jump to implementation stage, even in the initial stages.
+Copilot, however, was very eager and often wrote bits of code directly into the spec files, despite me explicitly instructing it not to write any code before I'm happy with the suggested design. It always asked to let it jump to the implementation stage, even in the initial stages.
 
 ## Context matters
 
