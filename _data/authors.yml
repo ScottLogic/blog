@@ -90,6 +90,7 @@ active-authors:
   - kjones
   - klau
   - lcollingwood
+  - lhancock-scottlogic
   - lpisani
   - lvincent
   - magnussmith
@@ -687,6 +688,10 @@ authors:
     name: "Scott Logic Labs"
   lcollingwood:
     name: "Laurie Collingwood"
+    picture: picture.jpg
+  lhancock-scottlogic:
+    name: "Lucy Hancock"
+    author-summary: "I am a full-stack developer at Scott Logic, based in the Newcastle office. I like to make art and do fun coding projects."
     picture: picture.jpg
   lpage:
     name: "Luke Page"
