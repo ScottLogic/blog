@@ -3,9 +3,7 @@ title: AI Concerns regarding Developers
 title-short: AI Concerns regarding Developers
 date: 2026-02-25 00:00:00 Z
 categories:
-  - colive
   - Artificial Intelligence
-  - People
 tags:
   - blog
   - artificial intelligence
