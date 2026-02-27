@@ -9,7 +9,7 @@ tags:
 - Agentic AI
 - Devin
 - Prototyping
-- Developers
+- Developer
 summary: Brief thoughts on the impact of Devin AI on software engineering.
 author: dallsop
 ---
@@ -32,9 +32,11 @@ AI tools amplify workflows in ways that are deeply influenced by organizational 
 
 However as previously mentioned Devin role as a proactive contributor means it has the potential to be a productivity multiplier in a way that generative AI tooling cannot. This is by reducing cognitive burden on routine work. Some examples are:
 
-+ Testing: Devin can generate and maintain “happy path” tests automatically, reducing manual effort, though complex edge cases and nuanced domain logic still require human oversight.
-+ Debugging: Devin can run code, inspect logs, trace issues, apply corrections, and retry, transforming debugging from an emotionally draining task into a procedural exercise. More complex bugs still require human judgment.
-+ Task Execution: Devin excels at completing smaller, well-defined tasks quickly, though its focus on task completion over long-term architecture can introduce technical debt that requires regular refactoring.
++ **Testing**: Devin can generate and maintain “happy path” tests automatically, reducing manual effort, though complex edge cases and nuanced domain logic still require human oversight.
+
++ **Debugging**: Devin can run code, inspect logs, trace issues, apply corrections, and retry, transforming debugging from an emotionally draining task into a procedural exercise. More complex bugs still require human judgment.
+
++ **Task Execution**: Devin excels at completing smaller, well-defined tasks quickly, though its focus on task completion over long-term architecture can introduce technical debt that requires regular refactoring.
 
 The precision of the prompts play a crucial role in improving the quality of the output. Vague instructions can lead to confidently executed but misaligned solutions. This can be mitigated in part buy using the Ask feature which accesses codebase specific insights to refine a prompt before execution. This involves asking Devin to critique the proposed prompt for ambiguity, missing constraints, unclear success criteria, etc. Better prompts produce disproportionately better outcomes and prevent unnecessary iterations saving time and money.
 
