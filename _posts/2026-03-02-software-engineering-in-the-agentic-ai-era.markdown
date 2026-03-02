@@ -4,8 +4,8 @@ date: 2026-03-02 00:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
-- AI
 - Artificial Intelligence
+- AI
 - Agentic AI
 - Devin
 - Prototyping
@@ -47,3 +47,4 @@ Human engineers remain essential for judgment, strategy, creativity, and respons
 By automating routine setup and procedural tasks, prototyping basic ideas becomes accessible to a wider range of stakeholders, empowering them to explore and refine ideas independently. This can lead to clearer higher-quality ideas forming the starting point for collaborative work.
 
 Additionally, as agentic AI acts as a proactive contributor, human developers can delegate routine tasks and shift their focus toward defining outcomes, evaluating trade-offs, and guiding strategic innovation.
+
