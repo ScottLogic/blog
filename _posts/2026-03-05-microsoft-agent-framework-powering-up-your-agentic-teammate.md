@@ -1,6 +1,6 @@
 ---
 title: Microsoft Agent Framework - powering up your agentic teammate
-date: 2026-01-30 16:00:00 Z
+date: 2026-03-05 11:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
@@ -13,7 +13,7 @@ summary: Using Microsoft Agent Framework to build and agentic teammate interacti
 ---
 
 
-Recently our sister company Marra built an agentic "teammate" for user onboarding using Microsoft Power Platform exploring new AI features available. They asked Scott Logic to do the same using Microsoft Agent Framework.  Luckily I was on the small team who got involved.
+Recently our sister company [Marra](https://marra.co.uk/) built an agentic "teammate" for user onboarding using Microsoft Power Platform exploring new AI features available. They asked Scott Logic to do the same using Microsoft Agent Framework.  Luckily I was on the small team who got involved.
 
 The project was to ultimately compare the two teams' experiences, find the advantages and challenges of each and to explore agentic technology. This post focuses on our work with Microsoft Agent Framework rather than comparison.
 
