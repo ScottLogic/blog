@@ -9,7 +9,7 @@ tags:
 - Microsoft Agent Framework
 author: dhunter
 layout: default_post
-summary: Using Microsoft Agent Framework to build and agentic teammate interacting with email.
+summary: Building an Agentic AI teammate using Microsoft Agent Framework to handle user onboarding through email, with humans in the loop.
 ---
 
 
@@ -59,11 +59,11 @@ We implemented DevUI (included with Microsoft Agent Framework), it was a nice ad
 
 Example of the approval steps:
 
-![devui example of approval user]({{ site.github.url }}/dhunter/assets/maf-teammate/4-devui-approval.png)
+![devui example of approval user]({{ site.github.url }}/dhunter/assets/maf-teammate/4-devui-approval.jpg)
 
 Example of the onboard steps:
 
-![devui example of onboarded user]({{ site.github.url }}/dhunter/assets/maf-teammate/5-devui-onboard.png)
+![devui example of onboarded user]({{ site.github.url }}/dhunter/assets/maf-teammate/5-devui-onboard.jpg)
 
 ### Teammate and Human in the loop
 We needed to include our agent as a "teammate", initial thoughts gave us email with GraphAPI (polling or subscription), Microsoft Teams, or even email Adaptive Cards for Outlook Actionable Message.  After considerable team debate and research, we opted for Graph API with email polling due to its setup simplicity and faster configuration.
