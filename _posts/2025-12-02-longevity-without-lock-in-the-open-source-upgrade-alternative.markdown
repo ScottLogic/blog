@@ -59,7 +59,7 @@ This collaborative model offers two major benefits:
 
 ##Fluxnova: A real-world example
 
-A great example of this principle in action is [Fluxnova](https://fluxnova.finos.org/), the open-source fork of Camunda. When Camunda announced a licensing change for their product, many organisations faced uncertainty about the future of their workflow platforms. Rather than being locked into a vendor-driven roadmap, a core community rallied with [FINOS](https://www.finos.org/) (Fintech Open Source Foundation) to create Fluxnova, publicly launched in October 2025. Read more about [Scott Logic's Fluxnova Migration Service]((https://www.scottlogic.com/what-we-do/fluxnova-migration)).
+A great example of this principle in action is [Fluxnova](https://fluxnova.finos.org/), the open-source fork of Camunda. When Camunda announced a licensing change for their product, many organisations faced uncertainty about the future of their workflow platforms. Rather than being locked into a vendor-driven roadmap, a core community rallied with [FINOS](https://www.finos.org/) (Fintech Open Source Foundation) to create Fluxnova, publicly launched in October 2025. Read more about [Scott Logic's Fluxnova Migration Service](https://www.scottlogic.com/what-we-do/fluxnova-migration).
 
 [Fluxnova (Project Page on FINOS's GitHub Repo)](https://github.com/finos#Fluxnova) offers a choice for those where an upgrade isn’t their chosen path; the current version does what is needed and underpins a vast array of business-critical processes. In this scenario, new features aren’t as valuable as being able to maintain the current business operations and continuing to use a familiar, stable product without disruption.
 
