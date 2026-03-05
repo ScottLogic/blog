@@ -55,13 +55,13 @@ We could have many small agents working together to perform a bigger task by han
 
 We quickly configured the Microsoft Foundry GPT-5 nano model and started planning our onboarding agent.
 
-We implemented DevUI (included with Microsoft Agent Framework), it was a nice addition for quickly visualising our agentic workflow and testing as we built.  Also very useful when demonstrating functionality to stakeholders.
+We implemented DevUI (included with Microsoft Agent Framework), it was a nice addition for quickly visualising our agentic workflow and testing as we built.  Also very useful when demonstrating functionality to stakeholders, see screen grabs of workflows below.
 
-Example of the approval steps:
+Microsoft Agent Framework DevUI - Example of the approval steps:
 
 ![devui example of approval user]({{ site.github.url }}/dhunter/assets/maf-teammate/4-devui-approval.jpg)
 
-Example of the onboard steps:
+Microsoft Agent Framework DevUI - Example of the onboard steps:
 
 ![devui example of onboarded user]({{ site.github.url }}/dhunter/assets/maf-teammate/5-devui-onboard.jpg)
 
@@ -86,7 +86,7 @@ We sent the actual request to the agent using an Azure Function that extracted t
 Future growth here is pretty big as we could add many more scenarios that the agent handles, change job role, remove user etc - if it gets too much then simply plug in a couple of other agents as necessary.
 
 ### IT Agent
-This agent handed the request off to a human, the flow required that the user was initially created for the business and we had this approved by IT and later replied by email to our agent (with the users 365 email address, again in free text).
+This agent handed the request off to a human.  The onboarding flow required that the 365 user account was created by a human, so a request for IT to do this would be sent by email.  This enabled the human operator to interact with the agent by replying to the email with the new users 365 email address.
 
 The IT Agent performed entity extraction to get the user's name, job role and line manager.
 
@@ -109,7 +109,7 @@ Our tool had some logic for error handling but we'd see future growth where the 
 The end result then continued to the Completion Agent.
 
 ### SharePoint Agent
-The task here was simple, insert a record for the new user in the fictional LeavePlanner holiday system, which was an Excel workbook on SharePoint. The agent had a single tool to insert the row in the workbook.
+The task here was simple, insert a record for the new user in the fictional LeavePlanner holiday system, which was represented by an Excel workbook on SharePoint. The agent had a single tool to insert the row in the workbook.
 
 Of course, this could get considerably more complicated and could offer more tools such as update, delete and select.
 
