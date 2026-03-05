@@ -16,6 +16,7 @@ summary: 'The rise of AI coding assistants has exposed an uncomfortable truth: m
   upstream. So what do we need to rethink and relearn as part of adopting a spec-driven
   approach?'
 author: ocronk
+image: "/uploads/New-logo-blog-thumbnail_quote---Ollie-01-5ad4c7.jpg"
 ---
 
 The rise of AI coding assistants has exposed an uncomfortable truth: many people struggle to articulate what they actually want to build. Machines struggle to understand the messy realities of brownfield projects and changes to software. We've spent decades optimising for implementation speed whilst specification skills have atrophied. Now AI can handle much of the implementation, and suddenly the bottleneck has shifted upstream. My colleague [Colin recently wrote about his practical experiences with spec-driven development](https://blog.scottlogic.com/2025/11/26/putting-spec-kit-through-its-paces-radical-idea-or-reinvented-waterfall.html) so do check that out alongside this article, although note we don’t always agree on everything! (This is one of beauties of the Scott Logic blog – we sometimes publish differing positions as long as they are well researched and articulated).

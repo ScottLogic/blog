@@ -7,6 +7,7 @@ tags:
 - software engineering
 summary: What has three years of writing code taught me?
 author: dhinrichs
+image: "/uploads/Doro-Hinrichs-blog.jpg"
 ---
 
 # Three years of writing code
