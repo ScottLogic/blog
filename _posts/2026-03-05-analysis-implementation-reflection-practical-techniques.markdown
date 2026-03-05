@@ -1,31 +1,21 @@
 ---
-title: Analysis → Implementation → Reflection – a practical technique for issue resolution
-  with AI
-date: 2026-03-04 14:00:00 Z
+title: Analysis → Implementation → Reflection – a practical technique for issue resolution with agentic AI
+date: 2026-03-05 00:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
-- AI
 - Artificial Intelligence
+- AI
 - Agentic AI
-summary: This guide presents Analysis / Implementation / Reflection, a simple pattern
-  for issue resolution with agentic AI
+summary: This article presents Analysis / Implementation / Reflection, a simple pattern for resolving issues. While the core of this pattern, the implementation, is quite conventional, there are a couple of novel additions. In the analysis phase, the agent is used to explore the issue and create a suitable harness to evaluate the solution. While the reflection phase probes the agent to provide a qualitative assessment of the implementation.
 author: dkerr
 ---
 
-## Agentic Engineering Practices
-
-Agentic Engineering is a new, and rapidly evolving field, involving the use of coding agents (e.g. Claude Code, GitHub Copilot, Codex), to develop software. Given the complexity of coding agents, and their wide variety of usage patterns, there isn’t a single technique for using these tools. There is no right way to use them, and no wrong way either. Instead, effective usage patterns and practices are emerging and evolving.
-
-Agentic Engineering Practices is our attempt to capture useful and practices techniques for applying this technology. Small, focussed guides that provide practical advice. They are intended to be a source of inspiration. You’re encouraged to read, but more importantly, try these practices for yourself; to find out which one’s work for you.
-
-## Introduction
-
-This guide presents Analysis / Implementation / Reflection, a simple pattern for resolving issues. While the core of this pattern, the implementation, is quite conventional, there are a couple of novel additions. In the analysis phase, the agent is used to explore the issue and create a suitable harness to evaluate the solution. While the reflection phase probes the agent to provide a qualitative assessment of the implementation. Together, these provide a high degree of confidence in the solution (both functional correctness and overall quality) and ensure that you, the developer, are comfortable with the solution and able to ‘own’ the outcome.
+This article presents Analysis / Implementation / Reflection, a simple pattern for resolving issues. While the core of this pattern, the implementation, is quite conventional, there are a couple of novel additions. In the analysis phase, the agent is used to explore the issue and create a suitable harness to evaluate the solution. While the reflection phase probes the agent to provide a qualitative assessment of the implementation. Together, these provide a high degree of confidence in the solution (both functional correctness and overall quality) and ensure that you, the developer, are comfortable with the solution and able to ‘own’ the outcome.
 
 ## Establishing Project Baselines
 
-![generate-copilot-instructions.png](/uploads/generate-copilot-instructions.png)
+![Image depicting the generate copilot instructions dropdown]({{site.baseurl}}/dkerr/assets/generate-copilot-instructions.png)
 
 Before diving into any issue, it is useful to establish project baselines via generating copilot instructions for your workspace. These help define coding standards, library preferences and architectural patterns before the agent attempts to make any adjustments to the codebase. These are included by default in every chat prompt, meaning it saves you the headache of including them yourself manually each time, or expecting the agent to infer these standards itself.
 
@@ -43,11 +33,11 @@ Try not to limit yourself to textual based summarisations either, modern multimo
 
 ## Analysis → Implementation → Reflection loop
 
-![workflow-diagram.png](/uploads/workflow-diagram.png)
+![Diagram illustrating the analysis -> implementation -> reflection loop]({{site.baseurl}}/dkerr/assets/workflow-diagram.png)
 
 Closing the feedback loop, effectively allowing an agent to evaluate the quality of its own output, is especially important for AI augmented software development. With the right constraints (e.g. a tightly bounded problem and comprehensive tests) agents can port large codebases with [relative ease](https://ikyle.me/blog/2025/swift-justhtml-porting-html5-parser-to-swift) and swiftness.
 
-Scaling this approach down to individual issues is just as powerful. This section outlines a simple Analysis → Implementation → Reflection loop when working through an issue. Breaking the work into three distinct phases gives the flexibility to interject whenever the agent starts to struggle or drift off course.
+Scaling this approach down to individual issues is just as powerful. Breaking the work into three distinct phases gives the flexibility to interject whenever the agent starts to struggle or drift off course.
 
 ### Analysis
 
@@ -71,7 +61,7 @@ Arguably, this is the most important step of the loop, where you take on respons
 
 Typical lines of questioning include:
 
-Architectural Integrity
+#### Architectural Integrity
 
 * **What alternative solutions did you consider, why did you choose this one?** Outlines other potential pathways to a solution that may be preferrable
 
@@ -79,11 +69,11 @@ Architectural Integrity
 
 * **Are there any specific scenarios where this solution might introduce a race condition or state inconsistency?** Useful for any asynchronous or multi-threaded work
 
-Maintainability
+#### Maintainability
 
 * **If a junior team member had to maintain this code in six months, what part would be the hardest for them to understand?** Neat trick to force AI to identify complex and/or unreadable logic that may warrant refactoring or commenting
 
-Security
+#### Security
 
 * **Are there any hidden performance bottlenecks or scaling issues in this approach?** Good catch-all for performance / inefficiency
 
