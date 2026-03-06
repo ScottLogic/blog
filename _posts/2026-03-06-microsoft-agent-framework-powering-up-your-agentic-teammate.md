@@ -1,6 +1,6 @@
 ---
 title: Microsoft Agent Framework - powering up your agentic teammate
-date: 2026-03-05 11:00:00 Z
+date: 2026-03-06 10:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
