@@ -67,7 +67,7 @@ Next, we need to reset the jump and start it from a new location when the player
 /* And so on */
 ~~~
 
-Above, we make use of the [has selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has), which is relatively new; it allows you to select a an element based on the properties of its children or later siblings. In this case, it will select `:root` (`html`) when it has an `input#fall1:checked` (or another number instead of 1) inside it. So above, we are setting the variable `--active-number` on the `:root` based on the most recently clicked box.
+Above, we make use of the [has selector](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:has), which is relatively new; it allows you to select an element based on the properties of its children or later siblings. In this case, it will select `:root` (`html`) when it has an `input#fall1:checked` (or another number instead of 1) inside it. So above, we are setting the variable `--active-number` on the `:root` based on the most recently clicked box.
 
 So we stack a bunch of labels (clicking labels triggers their respective radio buttons) on top of each other. And animate them along with the bird. By covering up most of the buttons and opening a small slit, we can have the button available to the user change with the animation. More specifically, at any point, the button available to the user is entirely dependent on the position of the bird. This is best understood from the animation below. The key thing to remember is that in the actual game, the shaded regions of the button column are completely opaque, so the user only sees what looks like an unmoving button.
 
