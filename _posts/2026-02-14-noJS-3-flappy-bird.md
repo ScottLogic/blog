@@ -181,7 +181,7 @@ This bit can be hard to read, but it’s not too complicated. The calculation is
 Then we create our endgame screen and give it a height of `100vh * var(--collision)`. It will then only appear when a collision occurs. To finish it off, pause the animation of the bird and the pipes whenever the end game screen has the user hovering over it.
 
 An aside which isn't critical to operations: units are important in CSS.
-You may have noticed a `/1px` in the above code. This is because otherwise we would assigning the result of something like `1px*1px` to something wanting a length. But `1px*1px` is technically an area. This is surprisingly important to CSS even though it doesn't deal with areas.
+You may have noticed a `/1px` in the above code. This is because otherwise we would be assigning the result of something like `1px*1px` to something wanting a length. But `1px*1px` is technically an area. This is surprisingly important to CSS even though it doesn't deal with areas.
 
 ## FAQ
 
