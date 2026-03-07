@@ -13,7 +13,7 @@ Previously, I created a [calculator](https://blog.scottlogic.com/2022/01/20/noJS
 
 
 ## Rules
-The only thing I wrote was HTML and CSS. No HAML, SCSS or any other preprocessors. No JavaScript is enforced by testing the app with JavaScript disabled in the browser settings. You can view my full codebase, including other creations [here](https://github.com/QuarkNerd/noJS/).
+The only thing I wrote was HTML and CSS. No HAML, SCSS, or any other preprocessors. No JavaScript is enforced by testing the app with JavaScript disabled in the browser settings. You can view my full codebase, including other creations [here](https://github.com/QuarkNerd/noJS/).
 
 ## How did I make it?
 
@@ -86,7 +86,7 @@ Then we change the calculation of the bird's position to:
 
 `--click-box-height` is the height of the label. `--active-number` is determined by the most recent label clicked; each value is just an integer indicating its position. `--bird-delta-y` is the animated variable from earlier. The result of this is that we adjust the height of the bird based on where the most recent jump started from.
 
-But there is a problem, this does not make the animation restart, so the bird will not jump. CSS only starts the animation when it's first added. So what we can do is create two identical animations and then, on each click, swap them out. This tricks CSS into starting the "new" animation from the start. We now need two sets of inputs, each are complete for the purpose of setting the bird's starting position as described above. They will be `div#jump-holder-1` and `div#jump-holder-2`. However, they set a different animation. So when one input is clicked, it sets the bird's position, sets the animation `jumpAndFall`, hides its parent and causes the other one to appear.
+But there is a problem, this does not make the animation restart, so the bird will not jump. CSS only starts the animation when it's first added. So what we can do is create two identical animations and then, on each click, swap them out. This tricks CSS into starting the "new" animation from the start. We now need two sets of inputs, each are complete for the purpose of setting the bird's starting position as described above. They will be `div#jump-holder-1` and `div#jump-holder-2`. However, they set a different animation. So when one input is clicked, it sets the bird's position, sets the animation `jumpAndFall`, hides its parent, and causes the other one to appear.
 
 ~~~css
 :root:has(#jump-holder-1:has(input:checked)) {
@@ -136,7 +136,7 @@ Next, we need to create some pipes. Drawing and animating them is pretty straigh
 }
 ~~~
 
-But how do we vary their heights? First, we create an `@Property`, call it `--score` and animate it to increase every time the pipe goes off screen (we can do this just by knowing the time it takes). Each pipe is then given a `--pipe-number` (1, 2, 3). The below maths then ensures that each pipe has a `--pipe-index` that jumps up by 3 exactly when it completes one passthrough. We want this because it means each iteration of each pipe has a different `--pipe-index`.
+But how do we vary their heights? First, we create an `@Property`, call it `--score`, and animate it to increase every time the pipe goes off screen (we can do this just by knowing the time it takes). Each pipe is then given a `--pipe-number` (1, 2, 3). The below maths then ensures that each pipe has a `--pipe-index` that jumps up by 3 exactly when it completes one passthrough. We want this because it means each iteration of each pipe has a different `--pipe-index`.
 
 ~~~css
 .pipe-frame {
