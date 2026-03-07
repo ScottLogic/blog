@@ -9,7 +9,7 @@ category: Tech
 image: garora/assets/noJs3/bird.svg
 ---
 
-Previously, I created a [calculator](https://blog.scottlogic.com/2022/01/20/noJS-making-a-calculator-in-pure-css-html.html) and [tic-tac-toe](https://blog.scottlogic.com/2024/05/17/noJS-2-stochastic-boogaloo.html) with a "random" computer player, both entirely in CSS. I also once made a game of Flappy Bird in [D3](https://d3js.org/), however, not in any way that warranted a blog post. Recently, a colleague misremembered these as "Flappy Bird in CSS". The thought was amusing. I knew it would be technically possible with the use of animated radio buttons for every single possible state, but that didn't feel interesting. Over the next few weeks, I didn't actively pursue the idea but kept getting thoughts in the back of my mind about how different aspects could be achieved. Finally I was forced to sit down and make it, you can play around with it [here](https://quarknerd.github.io/noJS/flappybird/). In this <del>cry for help</del> blog post, I explain how I made it.
+Previously, I created a [calculator](https://blog.scottlogic.com/2022/01/20/noJS-making-a-calculator-in-pure-css-html.html) and [tic-tac-toe](https://blog.scottlogic.com/2024/05/17/noJS-2-stochastic-boogaloo.html) with a "random" computer player, both entirely in CSS. I also once made a game of Flappy Bird in [D3](https://d3js.org/), however, not in any way that warranted a blog post. Recently, a colleague misremembered these as "Flappy Bird in CSS". The thought was amusing. I knew it would be technically possible with the use of animated radio buttons for every single possible state, but that didn't feel interesting. Over the next few weeks, I didn't actively pursue the idea but kept getting thoughts in the back of my mind about how different aspects could be achieved. Eventually, I was forced to sit down and make it, you can play around with it [here](https://quarknerd.github.io/noJS/flappybird/). In this <del>cry for help</del> blog post, I explain how I made it.
 
 
 ## Rules
@@ -17,11 +17,11 @@ The only thing I wrote was HTML and CSS. No HAML, SCSS or any other preprocessor
 
 ## How did I make it?
 
-### Click to jump
+### Click to flap
 
 The fundamental aspect of the game is to click a button, and a bird jumps up, before falling to the ground (or in my case, off the screen). 
 
-Motion is simple. I played around and found an animation setting that looked close enough. I'm not going to explain the `cubic-bezier` here. Just know that it lets you create different animation timing functions, so that animations can vary in speed as you need. By setting up the example below, we can animate the CSS variable `--bird-delta-y` to go up and then down in a falling manner. Animating a variable just means we have a variable whose value is changing. By adding this value to the bird's `top` position, the bird is animated. It makes it mimic the motion of a jump followed by a fall.
+Motion is simple. I played around and found an animation setting that looked close enough. I'm not going to explain the `cubic-bezier` here. Just know that it lets you create different animation timing functions, so that animations can vary in speed as you need. By setting up the example below, we can animate the CSS variable `--bird-delta-y` to go up and then down in a falling manner. Animating a variable just means we have a variable whose value is changing. By adding this value to the bird's `top` position, the bird is animated. It makes it mimic the motion of a flap upwards followed by a fall.
 
 ~~~css
 @property --bird-delta-y {
@@ -73,7 +73,7 @@ So we stack a bunch of labels (clicking labels triggers their respective radio b
 
 <video autoplay controls loop style="width: 100%">
   <source src="{{site.baseurl}}/garora/assets/noJs3/ClickToJump.mp4" type="video/mp4" />
-  Demonstration of how clicking to jump works
+  Demonstration of how clicking to flap works
 </video>
 
 Then we change the calculation of the bird's position to:
