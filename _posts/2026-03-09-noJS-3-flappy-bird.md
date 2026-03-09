@@ -55,7 +55,7 @@ Motion is simple. I played around and found an animation setting that looked clo
 }
 ~~~
 
-Next, we need to reset the jump and start it from a new location when the player clicks their mouse. It's not possible to just read the current value of `--bird-delta-y` and base new calculations off it; this is because CSS works in a declarative manner, not an imperative one. It's also not possible to do an event listener in CSS. But I can use radio input buttons. CSS can detect a checked radio button and can thus apply styles or modify variables based in them. And the nature of radio buttons is such that if another one is clicked, the first one becomes unchecked. So the value of `--active-number` below will always be the value of the most recently clicked radio button.
+Next, we need to reset the jump and start it from a new location when the player clicks their mouse. It's not possible to just read the current value of `--bird-delta-y` and base new calculations off it; this is because CSS works in a declarative manner, not an imperative one. It's also not possible to do an event listener in CSS. But we can use radio input buttons. CSS can detect a checked radio button and can thus apply styles or modify variables based in them. And the nature of radio buttons is such that if another one is clicked, the first one becomes unchecked. So the value of `--active-number` below will always be the value of the most recently clicked radio button.
 
 ~~~css
 :root:has(input#fall1:checked) {
@@ -148,7 +148,7 @@ But how do we vary their heights? First, we create an `@Property`, call it `--sc
 }
 ~~~
 
-Then, by using some trig functions on `--pipe-index` and playing around with them, I was able to create pseudorandom positions for the pipes. So all the heights now vary, but each game is still exactly the same! To get around this, the calculations take a seed, and the seed varies each game. How? By animating another variable, which pauses once the user closes the pop-up. If the animation is fast enough, it should lead to a different value each game.
+Then, by using some trig functions on `--pipe-index` and playing around with them, we can create pseudorandom positions for the pipes. So all the heights now vary, but each game is still exactly the same! To get around this, the calculations take a seed, and the seed varies each game. How? By animating another variable, which pauses once the user closes the pop-up. If the animation is fast enough, it should lead to a different value each game.
 
 A simple use of a CSS [counter](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Counter_styles/Using_counters) gives us our visual score. 
 
