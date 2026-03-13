@@ -22,7 +22,7 @@ Modern life can easily distract you away from most of your thinking time. Howeve
 had recently, this is what I've been pondering. Below are my thoughts on the change in nature of software development
 in light of the new AI tooling world we are all being thrown into.
 
-To start, I want to make comment on the worst-case scenario. Are we all going to be out of a job soon?
+To start, I want to comment on the worst-case scenario. Are we all going to be out of a job soon?
 
 ## Developers are not a dying breed
 
@@ -67,29 +67,37 @@ simple task reduces the chance of model hallucination too. I often make no chang
 they're simply good enough.
 
 Additionally, it's worth noting that unit tests are a numbers game and quantity is arguably as important as quality.
-A good unit test suite should have a test fail whenever a line changes (and it should point straight to the issue).
+A good unit test suite should fail when any change is made to the output of any publicly accessible method (and the failing test should point straight to the issue). 
 This is best achieved with plentiful unit testing, where more complex tests that don't point to specific "units" of
 code are worse than 1000s of tiny highly specific ones. It is also an area where following clean code principles is less
 necessary (for example, repeated code in unit tests, if written more readably as a result, is fine and in my opinion
-preferred. Feel free to fight me on this in the merge requests).
+preferred. Feel free to fight me on this in the merge requests). 
+
+It should also be noted that large comprehensive testing suites help guide changes made by these AI tools. 
+Granular and specific tests that fail with clear errors will return plain text explanations back to the models when they break something, allowing them to avoid changing functionality they don't intend to change and ensuring what they do indent to do 
+has no side affects.
 
 ## Things that are certainly a concern
 
 ### Junior developers and their on-project learning opportunities
 
-I'll happily accept to many readers my ~5 years of experience is a relatively weak position to be taking an opinion on this.
+I'll happily accept that, to many readers, my roughly 5 years of experience puts me in a relatively weak position to be taking an opinion on this. 
 Regardless, since the early 2020s AI tooling has gone from experimentally useful and very occasionally available to
 actively being pushed on everyone to use.
 
 My first 2-3 years was spent building things I directly wrote into the IDE and
 although search engines had started to begin to show generated summaries of search results, real people's content was
-how I solved problems. Posts of stack overflow, sites like W3School, Mozilla Developer, GeeksForGeeks and _speaking to other humans_
+how I solved problems. Posts of Stack Overflow, sites like W3School, Mozilla Developer, GeeksForGeeks and _speaking to other humans_
 were my way of figuring out how to technically tackle something. That lower level of engagement into what you're doing
 teaches you if what you're doing is any good or not, a crucial skill for not just writing code but learning how to
 judge it's quality.
 
 If new developers spend the beginning of their careers leaning on LLMs to generate code, yet are still required to
 review, approve and sign off changes, what good will their approval be?
+
+I think the best solution to this is to allow junior developers access to these tools, but preserve the current review process. Using a tool to generate a solution to a problem can be much faster than typing it by hand, but it of 
+course runs the risk that it can be done without understanding why it works. As long as changes still require human review, we can question changes line by line like and enforce whoever is writing them to understand what it is they have written. 
+If a team has the capacity to ask open ended questions and give time to discussion on MRs (e.g. "Why did you choose to use this package?" or "I think extracting this out to a new method would be cleaner, what do you think?"), I think they should. That way, junior developers can write changes quickly and still learn deeply how they work.
 
 ### Quality, especially within new frameworks and languages
 
@@ -103,36 +111,30 @@ know how to fix it?
 ### The first unreputable layer of abstraction
 
 If you imagine "AI tools generating code" as the latest layer of abstraction in software development above high level languages and
-frameworks, this is the first where we have complete uncertainty of how consistently reliable it will be. A C# developer can
-rely on machine code working - the code has been written critically, published once and tested by many people around the world to be
-considered reputable. The application developer atop the C# language can treat it in the same way - popular, highly regarded languages
-have stood the test of time. There is no need to delve deeper into how it works.
+frameworks, this is the first where we have complete uncertainty of how consistently reliable it will be. An application developer can rely on a programming language working reliably as it has been critically reviewed, published many times and used around the world by many people over a long period of time. A developer using that application within their project can treat it in the same way, as long as it follows the same principles.
 
-Code generated by an LLM will not be 100% reliable and therefore needs proper review. If we treat the AI code generation
-layer like all the others where we don't bother understanding how it works under the hood, we won't know how to fix it when it breaks down.
-AI generated code does not have the reputability of an industry grade language - it was born yesterday and must be treated as such.
+Code generated by an LLM will not be 100% reliable and therefore needs proper review. If this is not carried out consistently 
+across the industry (which based on how easy it is to generate code now is likely) we run the risk of developing on mass terribly 
+buggy and brittle programs. Unlike the other layers, code generated by LLMs can easily look good on the surface, but without due diligence and testing be unstable. We have to be more cautious depending on any code written by these tools; There's no knowing what standard of quality the codebase is written to, not even by the developer themselves!
 
 ### Junior job opportunities
 
 The obvious one - if these tools are cheaper than new hires and can already outperform them,
-what will happen to the new hires? And if _that's_ the case (just like the depopulation problem),
+what will happen to the new hires? And if _that's_ the case, 
 what will happen to the senior developers down the line when no backfill exists?
 
 ### Developers becoming maintainers
 
 Finally, it's worth acknowledging what will likely happen to our roles. AI, like the humans it was trained on, will
-make mistakes. Very soon the bottleneck of all development will be the speed at which humans can intervene and fix
-problems the LLMs write, removing all developers from the front lines entirely. I think a lot of developers favourite
-part of programming is the creative problem-solving we get to do, and I suspect our transition to becoming maintainers
-of projects will remove a lot of this style of work.
+make mistakes. Very soon the bottleneck of all software development will be the speed at which humans can intervene and fix
+problems the LLMs write. I think a lot of developers favourite part of programming is the creative problem-solving we get to do, and I suspect our transition to becoming maintainers of projects will remove a lot of this style of work.
 
 ## But AI will fix these problems for us!
 Potentially. I'll happily admit most of these concerns are only tangible if LLM generated code continues to be
-mistake-prone and unable to always fully understand the context required. Perhaps model makers will improve their models
-quality to such a high level these "when things go wrong" scenarios stop happening entirely. But I highly doubt it.
+mistake-prone and unable to always fully understand the context required. Perhaps model makers will improve their models' quality to such a high level these "when things go wrong" scenarios stop happening entirely. But I highly doubt it.
 The training data LLMs rely on for their pre-trained transformers contain the errors developers both produce and
 fix for a living. Any clever post-training patching solutions that don't fix that underlying principle will never
-eradicate a model's ability to hallucinate, make mistakes or simply misinterpret its context.
+eradicate a model's ability to hallucinate, make mistakes, implement out-of-date solutions or simply misinterpret its context.
 
 I suppose the truth is none of us really know what will happen, how big or structurally sound this AI bubble is.
 Only water-cooled model-weight calculating time will tell.
