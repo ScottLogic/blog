@@ -2,20 +2,27 @@
 title: 'Why Open Source Isn’t One-Size-Fits-All—and How to Find Your Fit'
 date: 2026-04-10 08:18:00 Z
 categories:
-- People
 - Open Source
 tags:
 - open-soure
 - contributions
-summary: Many developers experience stagnation in their day jobs, feeling limited by repetitive work and lack of growth. Open source offers a powerful way to break out of this cycle by providing real-world opportunities to learn, collaborate, and explore new technologies beyond the constraints of a traditional role. However, success in open source is not just about picking any project—it’s about finding the *right fit*. This article follows the author’s personal journey, contrasting her initial failed attempt with her later successful engagement in open source, highlighting how she evolved from hesitation to active participation and meaningful contribution.
+summary: Developers often feel stuck in repetitive roles, and open source provides a powerful path to break that cycle by offering real-world opportunities to learn, collaborate, and grow. This article shares the author’s journey—from an initial failed attempt to a successful, well‑aligned project—to show why choosing the right open-source fit makes all the difference.
 author: smendis-scottlogic
 ---
 
-Feeling stuck in your day job? Tinkering with the same libraries, juggling different versions, or endlessly maintaining old code? You’re not alone. I’ve been there. When I worked as a developer in software product companies, I felt truly alive and curious only when I changed roles and faced new challenges. In consultancy, things moved too fast for deep learning—leaving me stagnant. This feeling isn’t uncommon. Talk to experienced engineers at meetups or your workplace, and you’ll find almost everyone has felt like a “frog in the well” at some point in their career.
+Feeling stuck in your day job? Tinkering with the same libraries, juggling different versions, or endlessly maintaining old code? You’re not alone. I’ve been there. When I worked as a developer in software product companies, I felt truly alive and curious only when I changed roles and faced new challenges. In consultancy, things moved too fast for deep learning—leaving me stagnant.
 
-## Transition: Breaking Out of the Bubble
+This feeling isn’t uncommon. Talk to experienced engineers at meetups or your workplace, and you’ll find almost everyone has felt like a “frog in the well” at some point in their career.
 
-There are many ways to break out of this bubble without constantly changing jobs. One of the most rewarding ways I’ve found is contributing to open source projects. Maybe you’ve wanted to try a new role but never had the chance. Maybe you’ve wanted to explore a new language or framework. Open source gives you that opportunity—on real projects that people actually use, not just small hobby experiments that fade away. Along the way, you’ll discover that contributing to open source:
+## Beyond the Bubble
+
+There are many ways to break out of this bubble without constantly changing jobs. One path that often comes up is contributing to open source projects. It’s frequently seen as a go-to way to learn, explore, and grow—but in my experience, it’s not quite that simple.
+
+Maybe you’ve wanted to try a new role but never had the chance. Maybe you’ve wanted to explore a new language or framework. Open source can offer those opportunities—on real projects that people actually use, not just small hobby experiments that fade away.
+
+But as I’ve learned, it’s not a one-size-fits-all solution. And figuring out whether it works for you is just as important as jumping in.
+
+Along the way, you’ll discover that contributing to open source:
 
 * Connects you with new people 
 * Exposes you to different expectations and workflows 
