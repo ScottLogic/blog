@@ -1,6 +1,6 @@
 ---
 title: 'Why Open Source Isn’t One-Size-Fits-All—and How to Find Your Fit'
-date: 2026-04-10 08:18:00 Z
+date: 2026-04-09 08:18:00 Z
 categories:
 - People
 - Open Source
@@ -33,7 +33,7 @@ Open source software is:
 * Free to use, study, modify, and share 
 * Transparent in how it’s developed 
 * Built collaboratively by diverse communities of enthusiasts 
-* Licensed under open source licenses like MIT, Apache, GPL, or LGPL 
+* Licensed under open source licenses like MIT, Apache, GPL, LGPL, etc. 
 
 Since the GNU Project in 1983, open source development has grown tremendously. Today, it’s hard to imagine building proprietary software—or even doing your daily work—without relying on open source libraries, platforms, or tools. Just to name a few major projects that have shaped modern software: Node.js, Docker, Apache, Linux, MySQL, and the AWS CDK toolkit. These projects touch almost every developer’s workflow, often without us realizing it.
 
