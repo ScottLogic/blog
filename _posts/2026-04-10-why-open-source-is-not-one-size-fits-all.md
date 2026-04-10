@@ -1,6 +1,6 @@
 ---
 title: 'Why Open Source Isn’t One-Size-Fits-All—and How to Find Your Fit'
-date: 2026-04-09 08:18:00 Z
+date: 2026-04-10 08:18:00 Z
 categories:
 - People
 - Open Source
@@ -8,8 +8,7 @@ tags:
 - open-soure
 - contributions
 summary: Many developers experience stagnation in their day jobs, feeling limited by repetitive work and lack of growth. Open source offers a powerful way to break out of this cycle by providing real-world opportunities to learn, collaborate, and explore new technologies beyond the constraints of a traditional role. However, success in open source is not just about picking any project—it’s about finding the *right fit*. This article follows the author’s personal journey, contrasting her initial failed attempt with her later successful engagement in open source, highlighting how she evolved from hesitation to active participation and meaningful contribution.
-
-author: smendis
+author: smendis-scottlogic
 ---
 
 Feeling stuck in your day job? Tinkering with the same libraries, juggling different versions, or endlessly maintaining old code? You’re not alone. I’ve been there. When I worked as a developer in software product companies, I felt truly alive and curious only when I changed roles and faced new challenges. In consultancy, things moved too fast for deep learning—leaving me stagnant. This feeling isn’t uncommon. Talk to experienced engineers at meetups or your workplace, and you’ll find almost everyone has felt like a “frog in the well” at some point in their career.
