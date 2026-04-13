@@ -1,26 +1,24 @@
 ---
-title: 'Why Open Source Isn’t One-Size-Fits-All—and How to Find Your Fit'
-date: 2026-04-10 08:18:00 Z
+title: 'Open Source Is Not One-Size-Fits-All — Find Your Fit'
+date: 2026-04-13 08:18:00 Z
 categories:
 - Open Source
 tags:
-- open-soure
+- open-source
 - contributions
 summary: Developers often feel stuck in repetitive roles, and open source provides a powerful path to break that cycle by offering real-world opportunities to learn, collaborate, and grow. This article shares the author’s journey—from an initial failed attempt to a successful, well‑aligned project—to show why choosing the right open-source fit makes all the difference.
 author: smendis-scottlogic
 ---
 
-Feeling stuck in your day job? Tinkering with the same libraries, juggling different versions, or endlessly maintaining old code? You’re not alone. I’ve been there. When I worked as a developer in software product companies, I felt truly alive and curious only when I changed roles and faced new challenges. In consultancy, things moved too fast for deep learning—leaving me stagnant.
+Feeling stuck in your day job? Tinkering with the same libraries, juggling different versions, or endlessly maintaining old code? You’re not alone. I’ve been there. When I worked as a developer in software product companies, I felt truly alive and curious only when I changed roles and faced new challenges. In consultancy, things moved too fast to go deep—leaving me stagnant.
 
 This feeling isn’t uncommon. Talk to experienced engineers at meetups or your workplace, and you’ll find almost everyone has felt like a “frog in the well” at some point in their career.
 
 ## Beyond the Bubble
 
-There are many ways to break out of this bubble without constantly changing jobs. One path that often comes up is contributing to open source projects. It’s frequently seen as a go-to way to learn, explore, and grow—but in my experience, it’s not quite that simple.
+There are many ways to break out of this bubble without constantly changing jobs. One path that often comes up is contributing to open source projects. It’s frequently seen as a go-to way to learn, explore, and grow—and it absolutely can be. The key is finding the right fit.
 
 Maybe you’ve wanted to try a new role but never had the chance. Maybe you’ve wanted to explore a new language or framework. Open source can offer those opportunities—on real projects that people actually use, not just small hobby experiments that fade away.
-
-But as I’ve learned, it’s not a one-size-fits-all solution. And figuring out whether it works for you is just as important as jumping in.
 
 Along the way, you’ll discover that contributing to open source:
 
@@ -47,32 +45,23 @@ Since the GNU Project in 1983, open source development has grown tremendously. T
 
 In 2011, I was working as a developer on a product that used Adobe Flex for its frontend. It was my first job after graduating in 2010. I was doing well—confident in my skills and comfortable in my role.
 
-At the same time, I saw some of my former batchmates contributing to open source projects and getting recognized for their work. That world intrigued me. I wanted to be part of it.
+At the same time, I saw some of my former classmates contributing to open source projects and getting recognized for their work. That world intrigued me.
 
 The first piece of advice I received was simple: *find something close to your work and your interests*.
 
-So I chose Apache Flex. Adobe had just open-sourced Flex and donated it to the Apache Software Foundation. It felt like the perfect fit—it was the same technology I used every day.
+So I chose [Apache Flex](https://flex.apache.org/). Adobe had just open-sourced Flex and donated it to the Apache Software Foundation. It felt like the perfect fit—it was the same technology I used every day.
 
 I joined the mailing list, excited and motivated to contribute.
 
-That excitement didn’t last long.
+That excitement didn’t last long. Almost immediately, I was flooded with emails—threads full of experienced contributors discussing topics I barely understood. My confidence started to fade. The same person who felt capable at work suddenly felt completely out of place.
 
-Almost immediately, I was flooded with emails—threads full of experienced contributors discussing topics I barely understood. It felt like everyone was speaking a language I didn’t know. My confidence started to fade.
-
-The same person who felt capable at work suddenly felt completely out of place.
-
-Still, I pushed myself to pick up an issue that seemed simple. But once I started, I was lost. I didn’t know where to begin, and more importantly, I didn’t know where to ask for help.
-
-This wasn’t like my workplace, where there were clear roles—tech leads, architects, teammates I could turn to. Here, everything felt unstructured and distant.
+Still, I pushed myself to pick up an issue that seemed simple. But once I started, I was lost. I didn’t know where to begin, and more importantly, I didn’t know where to ask for help. This wasn’t like my workplace, where there were clear roles, teammates I could turn to. Here, everything felt unstructured and distant.
 
 I hesitated to ask questions on the mailing list. I didn’t want to sound inexperienced or “silly.”
 After struggling for quite some time, I managed to put together a fix and opened a pull request.
-And then… nothing.
+And then… nothing. It wasn’t prioritized. There were bigger issues the maintainers were focusing on.
 
-It wasn’t prioritized. There were bigger issues the maintainers were focusing on. I waited for feedback, but none came.
-Eventually, I gave up.
-
-I left the mailing list, stopped following the project, and never went back to that pull request again.
+I waited for feedback, but none came. Eventually, I gave up. I left the mailing list, stopped following the project, and never went back to that pull request again.
 
 ## Why it Failed?
 
@@ -99,43 +88,28 @@ One important thing to clarify: the initial advice I received—to find a projec
 
 The problem wasn’t the choice of project. Apache Flex was a good fit for my skills at the time. The real issue was how I approached the contribution process. I focused only on what to contribute, not how to contribute within a community.
 
-With over 15 years of experience now, I can confidently say that the community was likely more welcoming than I assumed. If I had taken the time to engage—join discussions, attend calls, or simply ask for help—I would have had a very different experience.
+To be fair, this was before many open-source projects widely adopted Codes of Conduct to make participation more welcoming and inclusive. Based on my limited interaction, I can’t judge the community fairly. But with over 15 years of experience now, I believe it was likely more welcoming than I assumed—if I had taken the time to engage.
 
-But at that stage in my career, I wasn’t ready. And that’s okay.
+At that stage in my career, I simply wasn’t ready. And that’s okay.
 
 ## My Second Attempt (Success Story)
 
-In 2023—more than a decade after my first failed attempt—I found myself back in the open source world. This time, it wasn’t entirely by choice. I was assigned to work on an open source project that my company was supporting.
+In 2023—more than a decade after my first failed attempt—I found myself back in the open source world. This time, it wasn’t entirely by choice. I was assigned to work on an open source project that my company was supporting. But something was different this time.
 
-But something was different this time.
+Instead of jumping straight into contributing code, I started by listening. I joined community calls regularly—even before the project had a name. At first, I was just there because it was part of my job. But soon, the idea of reshaping how cloud services could be used in the future started to fascinate me. I began observing how the community worked. Who spoke? Who made decisions? What problems were being discussed?
 
-Instead of jumping straight into contributing code, I started by listening. I joined community calls regularly—even before the project had a name. At first, I was just there because it was part of my job. But soon, the idea of reshaping how cloud services could be used in the future started to fascinate me.
+One thing quickly stood out. There were many subject matter experts—people with deep knowledge in areas like threat modelling and security controls. But there was a gap.
+No one was actually doing the groundwork. There were ideas, discussions, and expertise—but no clear structure, no roadmap, and no one driving things forward.
 
-I began observing how the community worked. Who spoke? Who made decisions? What problems were being discussed?
-
-One thing quickly stood out.
-
-There were many subject matter experts—people with deep knowledge in areas like threat modelling and security controls. But there was a gap.
-No one was actually doing the groundwork.
-
-There were ideas, discussions, and expertise—but no clear structure, no roadmap, and no one driving things forward.
-
-This time, instead of feeling overwhelmed by the ambiguity, I leaned into it.
-I started small. Before each community call, I spent a few hours doing my own research. I didn’t fully understand threat modelling, but I tried to piece together what the project might need.
-
-Then I shared my thoughts openly—with no expectation of being “right.”
+This time, instead of feeling overwhelmed by the ambiguity, I leaned into it. I started small. Before each community call, I spent a few hours doing my own research. I didn’t fully understand threat modelling, but I tried to piece together what the project might need. Then I shared my thoughts openly—with no expectation of being “right.”
 
 To my surprise, the community responded very positively. People started reaching out, thanking me for driving the project forward and asking for my opinion. That was a turning point—I realized I had gone from being an outsider to someone whose contributions actually mattered.
 
-What started as small contributions—notes, ideas, early drafts—began to shape the direction of the project, FINOS Common Cloud Controls. Slowly, we started building a framework together. Not because anyone had a perfect plan, but because we were making progress step by step.
+What started as small contributions—notes, ideas, early drafts—began to shape the direction of the project, [FINOS Common Cloud Controls](https://ccc.finos.org/). Slowly, we started building a framework together. Not because anyone had a perfect plan, but because we were making progress step by step.
 
 After two months, I was moved off the project to focus on a client engagement. But by then, something had changed. I had built a connection with the project and the community. Out of curiosity—and a genuine sense of ownership—I requested to continue contributing in my own time as a representative of my company.
 
-Over time, my role in the FINOS CCC evolved. People came and went. New contributors and organizations joined. But the vision remained the same: to shape how cloud services are used in financial institutions, with the right level of controls in place.
-
-I went from being a contributor, to an active participant, then to a project maintainer, a working group lead, and eventually an ambassador—speaking about the project at FINOS conferences.
-
-What started as an assignment became something much more meaningful.
+Over time, my role in the FINOS CCC evolved. People came and went. New contributors and organizations joined. But the vision remained the same: to shape how cloud services are used in financial institutions, with the right level of controls in place. I went from being a contributor, to an active participant, then to a project maintainer, a working group lead, and eventually an ambassador—speaking about the project at FINOS conferences. What started as an assignment became something much more meaningful.
 
 ## Why the Second Attempt Worked
 
@@ -147,31 +121,34 @@ The biggest difference wasn’t the project—it was me.
 
 In 2011, ambiguity overwhelmed me. In 2023, I embraced it. With over a decade of experience, I had learned that not having all the answers is normal. I trusted myself to figure things out along the way.
 
-#### 2. Focusing on contribution, not perfection
+#### 2. Not doing it alone
+
+This time, I wasn’t a lone contributor. I had a small group of colleagues alongside me, and that made a huge difference. Even though we hadn’t worked closely before, we quickly became a support system for each other. It felt like stepping into something new with familiar faces—safer and more encouraging.
+
+#### 3. Focusing on contribution, not perfection
 
 Earlier, I hesitated because I didn’t want to be wrong. This time, I shared ideas freely—even when they were incomplete. That openness helped move the project forward.
 
-#### 3. Active participation in the community
+#### 4. Active participation in the community
 
 I didn’t just show up to contribute code—I showed up to listen, learn, and engage. Attending calls regularly helped me understand the vision, the people, and the direction of the project. Nothing felt “over my head” anymore because I was part of the conversation.
 
-#### 4. Leveraging what I already knew
+#### 5. Leveraging what I already knew
 
 I wasn’t a security expert. I didn’t know much about threat modelling or writing controls. But I knew AWS. And I knew that if the project involved cloud systems, that knowledge would be useful. Instead of focusing on what I lacked, I contributed what I had.
 
-#### 5. Growth beyond technical skills
+#### 6. Growth beyond technical skills
 
 One of the biggest surprises was how much I learned outside of coding. I learned by listening to principals and CTOs handle tough questions. I learned how to communicate ideas clearly, how to ask for resources, and how to encourage collaboration.
 
 I was pushed into areas I had never explored before—public speaking, facilitating meetings, and leading discussions.
 
-#### 6. A sense of ownership
+#### 7. A sense of ownership
 
-Over time, the project stopped feeling like “just work.” It became something I cared deeply about. I wanted it to succeed—not because I had to, but because I was invested in it.
+Over time, the project stopped feeling like “just work.” It became something I cared deeply about. I wanted it to succeed—not because I had to, but because I was invested in it. 
 
-In the end, the relationship was mutual.
+In the end, the relationship was mutual: the project benefited from my contributions, and I grew because of it.
 
-The project benefited from my contributions, and I grew immensely because of it. It was truly a win-win situation.
 
 ## How to Find the Right Project
 
@@ -232,7 +209,9 @@ Documentation, testing, reporting bugs, improving examples, or even helping othe
 ### Myth 4: “Open source communities are unwelcoming”
 **Reality:** Most communities are supportive and encouraging.
 
-While every community is different, most open source projects genuinely want contributors to succeed. In my own experience, once I started engaging, I found people willing to guide, support, and collaborate.
+While every community is different, most open source projects genuinely want contributors to succeed. Many have adopted Codes of Conduct (such as the Contributor Covenant) to make participation safer, more respectful, and inclusive.
+
+From my own experience, the biggest barrier wasn’t the community—it was my assumption about it. Once I started engaging, I found people far more helpful and welcoming than I expected.
 
 ---
 
