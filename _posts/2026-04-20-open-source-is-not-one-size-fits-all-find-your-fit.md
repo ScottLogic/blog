@@ -1,6 +1,6 @@
 ---
 title: 'Open Source Is Not One-Size-Fits-All — Find Your Fit'
-date: 2026-04-13 00:01:00 Z
+date: 2026-04-20 00:01:00 Z
 categories:
 - Open Source
 tags:
