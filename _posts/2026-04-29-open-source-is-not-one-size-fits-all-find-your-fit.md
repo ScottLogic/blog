@@ -32,14 +32,7 @@ If you’re new to open source, here’s a quick primer:
 
 > Open source software is publicly accessible software that anyone can view, modify, and distribute. It’s built by communities of contributors from around the world. 
 
-Open source software is:
-
-* Free to use, study, modify, and share 
-* Transparent in how it’s developed 
-* Built collaboratively by diverse communities of enthusiasts 
-* Licensed under open source licenses like MIT, Apache, GPL, LGPL, etc. 
-
-Since the GNU Project in 1983, open source development has grown tremendously. Today, it’s hard to imagine building proprietary software—or even doing your daily work—without relying on open source libraries, platforms, or tools. Just to name a few major projects that have shaped modern software: Node.js, Docker, Apache, Linux, MySQL, and the AWS CDK toolkit. These projects touch almost every developer’s workflow, often without us realizing it.
+Since the GNU Project in 1983, open source development has grown tremendously. Today, it’s hard to imagine building proprietary software—or even doing your daily work—without relying on open source libraries, platforms, or tools. 
 
 ## My First Attempt (Failure Story)
 
