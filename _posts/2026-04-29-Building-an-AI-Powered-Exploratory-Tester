@@ -1,3 +1,19 @@
+---
+author: wtrimble
+date: 2026-04-29 00:00:00 Z
+title: Building an AI-Powered Exploratory Tester
+categories:
+- Testing
+tags:
+- Testing
+- Transformation
+layout: default_post
+summary: How I built a tool that uses LLMs and Playwright to autonomously test web applications — and what I learned along the way
+---
+
+
+
+
 # Building an AI-Powered Exploratory Tester: From Concept to Production
 
 *How I built a tool that uses LLMs and Playwright to autonomously test web applications — and what I learned along the way.*
@@ -1053,21 +1069,6 @@ The thread that ties this together: Quality Engineering says quality is an engin
 - **Security penetration testing mode**: The explorer already stumbles into security findings — IDOR via ID manipulation, privilege escalation via URL guessing, auth boundary failures across roles. But it finds them *incidentally*, as a side effect of exploratory testing. A dedicated pen testing mode would find them *systematically*. The infrastructure is almost entirely reusable — the ToolRouter, LLM providers, role-based execution, IssueOps, dashboards, and token tracking are all testing-mode-agnostic. What has to change is the *persona*. You can't just tell an exploratory tester to "also check for XSS" in the `testing-scope.md`. The exploratory prompt's mindset is "explore and observe" — it navigates pages, tries edge cases, reports what seems wrong. A pen tester's mindset is "assume hostile intent" — it actively tries to break authentication, escalate privileges, inject payloads, and chain vulnerabilities. That's a fundamentally different system prompt, not a config tweak. The report format changes too: instead of "Bug / UX Issue / Accessibility," it's OWASP Top 10 categories (A01–A10) with CWE IDs, proof-of-concept steps, impact assessment, and remediation recommendations. The issue categories, severity model, and grounding rules all shift from "is this behaving correctly?" to "can this be exploited?" A `--mode=security` flag that swaps the prompt, categories, and report template — while reusing everything else — is already prototyped on a feature branch. Next steps are security-specific context files (`security-scope.md` describing known attack surfaces and auth mechanisms), an HTTP-level MCP server for raw request manipulation (header/cookie/token tampering that Playwright can't do), and security-aware issue filing with CVSS-style severity labels.
 
 ---
-
-## Try It
-
-```bash
-git clone https://github.com/Trimble006/exploratorytester.git
-cd exploratorytester
-npm install
-npm run build
-npm start -- https://your-app.example.com
-```
-
-Set `GEMINI_API_KEY` in `.env`, point it at any web application, and watch an AI agent do exploratory testing. Add context files, historical bugs, and role configurations to make it genuinely useful for your application.
-
-The code is open source. Contributions and feedback are welcome.
-
 ---
 
 *Exploratory Tester is built with TypeScript, Google Gemini / OpenAI-compatible LLMs, Playwright MCP, and a healthy respect for the unpredictability of real web applications.*
