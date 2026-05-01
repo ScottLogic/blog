@@ -9,7 +9,7 @@ tags:
 - Testing
 - Transformation
 layout: default_post
-summary: The engineering behind an AI exploratory tester: architecture, prompt failures, context window management, rate limiting, and the specific problems that shaped the design.
+summary: The engineering behind an AI exploratory tester, describing architecture, prompt failures, context window management, rate limiting, and the specific problems that shaped the design.
 
 ---
 
