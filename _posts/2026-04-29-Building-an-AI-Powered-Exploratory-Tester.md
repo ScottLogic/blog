@@ -218,7 +218,6 @@ Everything is tuneable via `settings.json` per app profile. The [README](https:/
 ## What's Next
 
 - **Live bug filing during runs**: discovering bugs and filing them in real time, not batching at the end
-- **Visual regression**: screenshot comparison for CSS/layout issues the text snapshot misses
 - **Cross-role scenario chains**: coordinated multi-role workflows where one agent's actions create preconditions for another
 - **Security penetration testing mode**: the same architecture with an adversarial mindset, systematically probing OWASP Top 10 categories
 - **Alternative interaction surfaces**: mobile via Appium, API-only via OpenAPI, or both simultaneously for cross-layer verification
