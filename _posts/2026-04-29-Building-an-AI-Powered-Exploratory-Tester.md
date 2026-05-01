@@ -211,7 +211,7 @@ The tool has grown beyond basic "point at URL, explore, report." A few capabilit
 - **Pre-execution test plans**: Before testing begins, the tool generates a risk-prioritised plan document for human review. It doesn't feed into execution; its value is as an audit trail and a comparator for post-run analysis.
 - **Run analysis**: Automated post-run summary covering budget utilisation, infrastructure issues, rate limiting pressure, cross-role duplicate findings, and coverage gaps.
 
-Everything is tuneable via `settings.json` per app profile. The [README](https://github.com/Trimble006/exploratorytester) covers the full configuration surface.
+Everything is tuneable via `settings.json` per app profile.
 
 ---
 
