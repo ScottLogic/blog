@@ -1,7 +1,7 @@
 ---
 author: wtrimble
 date: 2026-04-29 00:00:00 Z
-title: Building an AI-Powered Exploratory Tester
+title: Building an AI-Powered Exploratory Tester- Part 2
 categories:
 - Testing
 - Artificial Intelligence
