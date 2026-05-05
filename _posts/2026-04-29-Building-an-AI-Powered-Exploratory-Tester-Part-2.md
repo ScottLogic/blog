@@ -17,10 +17,6 @@ summary: The engineering behind an AI exploratory tester, describing architectur
 
 *The engineering behind an AI exploratory tester: architecture, prompt failures, context window management, rate limiting, and the specific problems that shaped the design.*
 
-*Part of an ongoing series on AI-augmented testing. See also:*
-- *[Building an AI-Powered Exploratory Testing Agent: What I Found](/blog/exploratory-tester-what-i-found) — the concept, what it found, and what it means for testers*
-- *[Where the Explorer Fits](/blog/exploratory-tester-where-it-fits) — pipelines, cloud-native, and the cost of late bugs*
-
 ---
 
 ## The Architecture
@@ -29,7 +25,7 @@ The system has six components: an LLM provider layer (supporting Gemini and any 
 
 ```
                     ┌──────────────┐
-                    │  LLM Provider │ (Gemini / OpenAI-compatible / Ollama)
+                    │  LLM Provider │ (i / OpenAI-compatible / Ollama)
                     └──────┬───────┘
                            │
                     ┌──────┴───────┐
@@ -94,7 +90,7 @@ Context compression deserves a closer look because it's where the model's limita
 
 A 500-iteration session generates hundreds of conversation entries: tool calls, tool results (many containing full page snapshots), agent reasoning, and observations. At some point, the total token count approaches the model's context window limit. When that happens, response quality drops: the agent's responses become incoherent, repetitive, or contradictory. It forgets its testing strategy.
 
-The compression algorithm keeps the system prompt (always first), summarises the middle section into a digest, and preserves the most recent N entries (default: 20). This means the agent always knows *who it is* (system prompt), has a rough summary of *what it's done* (compressed middle), and has full detail on *what just happened* (recent window).
+The compression algorithm keeps the system prompt (always first), summarises the middle section into a digest, and preserves the most recent N entries (default: 20). This means the agent always know its **identity, capabilities and objectives** (system prompt), has a rough summary of *what it's done* (compressed middle), and has full detail on *what just happened* (recent window).
 
 The tradeoffs:
 
@@ -118,8 +114,6 @@ Lest you think this is purely a local-model problem: **Gemini produces malformed
 This isn't a bug in Gemini; it's a fundamental tension in the design. The explorer's job is to poke at the application in adversarial ways, which means the data flowing back through tool results is exactly the kind of content safety filters are trained to flag. A page snapshot containing `'; DROP TABLE users; --` (which the agent itself typed into a form field) looks like a prompt injection attack to the safety layer. An error response containing a stack trace with internal paths looks like sensitive data exposure. The tool's own test behaviour triggers the model's defences.
 
 The engineering response is defensive: treat every LLM response as potentially incomplete. Null-coalesce all token metadata (`?? 0`), handle empty tool call arrays, retry on safety blocks, and never let a single malformed response crash a multi-hour run. Google's SDK issue tracker documents these edge cases (safety blocks returning incomplete metadata was a P1 bug), but even with SDK fixes, the underlying tension remains: exploratory and security testing will always generate content that sits close to safety filter boundaries.
-
-The practical split: **local models for prompt development** (is the new directive producing better behaviour? does the report format look right? is the agent exploring deeply enough?) and **cloud models for production runs** (Gemini 2.5 Flash is noticeably better at multi-step reasoning, creative data-driven connections, and following the full system prompt without losing track). The multi-provider architecture makes this a single env var change. But both need the same resilience layer underneath.
 
 ---
 
@@ -225,8 +219,3 @@ Everything is tuneable via `settings.json` per app profile.
 A future post in this series picks up the orchestration thread: the explorer becoming an MCP-exposed tool driven by an agent that can be steered midflight by humans or by deployment events, learning and re-prioritising while the run is still in progress.
 
 ---
-
-*Part of an ongoing series on AI-augmented testing. See also:*
-- *[Building an AI-Powered Exploratory Testing Agent: What I Found](/blog/exploratory-tester-what-i-found) — the concept and findings*
-- *[Where the Explorer Fits](/blog/exploratory-tester-where-it-fits) — pipelines, cloud-native, and the cost of late bugs*
-
