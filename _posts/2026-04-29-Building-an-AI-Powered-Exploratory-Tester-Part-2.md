@@ -197,7 +197,7 @@ Plus NDJSON token usage logs for cost analysis across all runs.
 
 ## What Else It Does
 
-The tool has grown beyond basic "point at URL, explore, report." A few capabilities worth mentioning briefly (the repo has full documentation):
+The tool has grown beyond basic "point at URL, explore, report." A few capabilities worth mentioning briefly:
 
 - **Feature flag testing**: Configure flags with interaction relationships, and the agent toggles them during runs to observe effects and test combinations.
 - **External systems cross-checking**: After triggering errors, the agent can check Kibana, Grafana, or Sentry to verify the right things were logged. (Infrastructure in place; still being validated.)
