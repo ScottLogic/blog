@@ -16,6 +16,7 @@ active-authors:
   - awhitmell
   - bell-jones
   - bheyman
+  - blogan
   - bpritchard
   - bwallis
   - ceberhardt
@@ -294,6 +295,11 @@ authors:
     twitter-url: "https://twitter.com/e4developer"
     twitter-handle: e4developer
     picture: picture.jpg
+  blogan:
+    name: "Benjamin Logan"
+    author-summary: "Data Engineer at Scott Logic, based in the Glasgow office"
+    picture: blogan.jpg
+    email: blogan@scottlogic.com
   bmacdonald:
     name: "Brendan MacDonald"
     author-summary: "Senior Test Engineer working at Scott Logic based in the Edinburgh office."
