@@ -16,10 +16,11 @@ Today a lot of data engineering projects leverage Cloud SaaS offerings like Data
 
 In this scenario, we are creating a solution for a small data project. All data will be consumed from Kafka and there will be no more than a few hundred messages per day. 
 The components used in this example are:
--	Kafka
--	Docker
--	Prefect
--	Postgres
+
+* Kafka
+* Docker
+* Prefect
+* Postgres
  
 In this example, messages enter the system via Kafka and are stored in Postgres using a medallion layer architecture. Prefect orchestrates the data pipelines, handling ingestion from Kafka to Postgres and performing additional ETL operations across the medallion layers. Although Postgres isn't traditionally associated with medallion architectures, it can be effectively adapted for this purpose. Its support for multiple databases and tables enables the creation of distinct bronze, silver, and gold layers, each tailored to meet different consumer requirements.
 All the components are underpinned by docker containers and since all the components are open source, running the containers will be the main infrastructure cost of the project. In production this project could be run on something like ECS Fargate with deployment pipelines pushing between environments. An alternative approach could be to run it on Kubernetes however this will increase complexity and cost therefore I think it would be better to not use it. Furthermore, when doing local development, you will not incur any cluster costs that you would when running on something like Databricks.
@@ -216,6 +217,7 @@ class DBAdapter:
 As shown above, since Prefect is purely python we can create classes such as this DBAdapter class. This allows us to create cleaner code that is more maintainable and easier to read. Furthermore, this class can be mocked during unit testing to allow for the pipeline code itself to be tested. 
 Unit testing is a lot easier in a pure python environment as you have a broader range of tools that can be used compared to what is available when using notebooks. Moreover, notebooks don’t lend themselves well to unit tests since they do not possess the ability to import anything from another notebook. 
 In summary there are multiple advantages to being able to use pure python files over notebooks. These advantages include:
+
 1.	Not locked into spark
 2.	Better code structure
 3.	Can use common code patterns easier
@@ -237,47 +239,58 @@ For the purposes of breaking down the benefits and draw backs of both types I am
 ## SaaS Big Data Platform
 
 This is the equivalent of an all-inclusive holiday. Everything is included from breakfast to flights. SaaS offerings abstract the details of managing infrastructure like setting up a delta lake or provisioning an EC2 instance to run your spark cluster on. It’s all handled by the platform.
+
 **Benefits**
-•	Quick set up for a project
-•	Easy to get started
-•	Infrastructure managed by platform
-•	Security is easier to manage
+* Quick set up for a project
+* Easy to get started
+* Infrastructure managed by platform
+* Security is easier to manage
 **Drawbacks**
-•	High cost
-•	Often you will spend time developing “workarounds” for limitations of the platform
-•	Notebook development
-•	Can be a steep learning curve after the initial set up for developers
-•	Testing can be difficult
+* High cost
+* Often you will spend time developing “workarounds” for limitations of the platform
+* Notebook development
+* Can be a steep learning curve after the initial set up for developers
+* Testing can be difficult
 We don’t really talk enough about how steep the learning curve to fully master a SaaS platform can be. There are similarities between the different offerings however someone who has mastered Fabric will need to relearn a lot to master Databricks. It is like having expert skills in AWS and working on Azure. 
 
 ## Lightweight Platform
 
 This is the equivalent of booking every detail of the holiday yourself. You book the flights, research restaurants and sorted out all the individual parts yourself and saved money in the process! 
 A lightweight platform which uses open-source applications allows you to pick each piece of the tech stack. You will have less infrastructure costs, but it will result in a larger development time as there will be more devops tasks and coding work to do. The size of the project will dictate whether this approach will produce any benefit. 
+
 **Benefits**
-•	More selection of tools and services
-•	More control over each part
-•	Cheaper infrastructure costs
-•	More transferable skills 
+
+*	More selection of tools and services
+*	More control over each part
+*	Cheaper infrastructure costs
+*	More transferable skills 
+
 A benefit that perhaps should be considered more is developers having more transferrable skills. You do not need to be a master at Databricks for this to be feasible. A developer who has used python and docker will have a very shallow learning curve for the example project I have demonstrated in this article. This approach will more easily allow software engineers to act as data engineers.
+
 **Drawbacks**
-•	Maintaining the platform can be expensive
-•	Development time will be longer
-•	Only useful for smaller projects
-•	Must be skilled in operating all the individual tech
-•	Have to stand-up the runtime platform unless using cloud services
-•	Reliability/availability can be harder to achieve
-•	Monitoring
+
+*	Maintaining the platform can be expensive
+*	Development time will be longer
+*	Only useful for smaller projects
+*	Must be skilled in operating all the individual tech
+*	Have to stand-up the runtime platform unless using cloud services
+*	Reliability/availability can be harder to achieve
+*	Monitoring
 
 # Conclusion
 The perfect solution does not exist, but the question is – does a lightweight architecture provide a better way to do data engineering? I think personally it provides a better approach when you know that there will be one type of data source that will not produce large amounts of data. SaaS offerings will be better for other use cases.
+
 **Pros of this project**
-1.	Better code structure
-2.	Better unit testing
-3.	Cost of development will be less as more can be ran on local machines instead of incurring cluster costs when developing
+
+1. Better code structure
+2. Better unit testing
+3. Cost of development will be less as more can be ran on local machines instead of incurring cluster costs when developing
+
 **Cons of this Project**
-1.	More complicated as there are more parts
-2.	Developers need knowledge of multiple services instead of just Databricks or Microsoft Fabric
-3.	More work needed to set up and maintain the platform which could cost a lot
+
+1. More complicated as there are more parts
+2. Developers need knowledge of multiple services instead of just Databricks or Microsoft Fabric
+3. More work needed to set up and maintain the platform which could cost a lot
+
 A final thought that could become a positive for open source
 Having done a few projects on cloud SaaS offerings, I would be interested to know how much time engineers spend  working on fixes for limitations of the SaaS platform. It is something that is not normally recorded and can be quite repetitive as you will likely have to put the same work arounds in every time you use the SaaS product.
