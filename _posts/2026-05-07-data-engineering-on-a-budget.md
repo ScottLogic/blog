@@ -23,7 +23,9 @@ The components used in this example are:
 * Postgres
  
 In this example, messages enter the system via Kafka and are stored in Postgres using a medallion layer architecture. Prefect orchestrates the data pipelines, handling ingestion from Kafka to Postgres and performing additional ETL operations across the medallion layers. Although Postgres isn't traditionally associated with medallion architectures, it can be effectively adapted for this purpose. Its support for multiple databases and tables enables the creation of distinct bronze, silver, and gold layers, each tailored to meet different consumer requirements.
-All the components are underpinned by docker containers and since all the components are open source, running the containers will be the main infrastructure cost of the project. In production this project could be run on something like ECS Fargate with deployment pipelines pushing between environments. An alternative approach could be to run it on Kubernetes however this will increase complexity and cost therefore I think it would be better to not use it. Furthermore, when doing local development, you will not incur any cluster costs that you would when running on something like Databricks.
+
+All the components are underpinned by docker containers and since all the components are open source, running the containers will be the main infrastructure cost of the project. In production this project could be run on something like ECS Fargate with deployment pipelines pushing between environments. An alternative approach could be to run it on Kubernetes however this will increase complexity and cost. As a result I think it would be better to not use it.
+
 An example docker compose file for this project is displayed below:
 
 ~~~yaml
@@ -126,11 +128,13 @@ services:
 ## Why Postgres?
 
 There are many open-source database options available—so why choose Postgres? While other databases could certainly do the job, I prefer Postgres for its powerful capabilities in querying JSON data stored in database columns in its jsonb format. In this example, the initial data ingestion from Kafka into the bronze layer arrives in JSON format, so the payload is stored in a jsonb column. This allows us to take full advantage of Postgres’s robust JSON querying features when transforming data from the bronze to the silver layer.
+
 In addition, I chose Postgres because it is better suited to lightweight workloads. While lakehouses are the industry standard in Data Engineering sometimes projects do not need the large scalability of a lakehouse. A lakehouse can take petabytes of data in different formats, but not all projects have petabytes of data and multiple formats. If there is one data source with a consistent format, that is not producing a huge amount of data, then using a database can be preferable.
 
 ## What is Prefect? 
 
 Prefect is a python-only application that allows developers to create pipelines. It performs a similar role as Apache Airflow since they are both workflow orchestration tools. In Prefect, pipelines contain tasks that represent a stage of the pipeline. These pipelines can be integrated with packages like PySpark and Dask. The advantages of using Prefect that I will outline aren’t Prefect specific but rather apply to most open-source options.
+
 Firstly, you aren’t locked into Spark. Spark is normally used by default but packages like Dask can be a good alternative. Spark does scale better than Dask when using data volumes above 100GB however if you are using data less than 100GB then Dask may be a better option. See [Spark vs Dask: Environmental Big Data Analytics Tools Compared - Round Table Environmental Informatics](https://rtei.net/spark-vs-dask-environmental-big-data-analytics-tools-compared/) for an interesting read on this. By using Dask you can get around managing Spark clusters and the learning curve should be less but will depend on your previous knowledge. Dask also works better for local development as it can be run from a simple python file without much setup whereas PySpark can be quite hard to set up locally.
 
 ~~~python
