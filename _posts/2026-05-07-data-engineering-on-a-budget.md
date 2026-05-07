@@ -241,16 +241,20 @@ For the purposes of breaking down the benefits and draw backs of both types I am
 This is the equivalent of an all-inclusive holiday. Everything is included from breakfast to flights. SaaS offerings abstract the details of managing infrastructure like setting up a delta lake or provisioning an EC2 instance to run your spark cluster on. It’s all handled by the platform.
 
 **Benefits**
+
 * Quick set up for a project
 * Easy to get started
 * Infrastructure managed by platform
 * Security is easier to manage
+
 **Drawbacks**
+
 * High cost
 * Often you will spend time developing “workarounds” for limitations of the platform
 * Notebook development
 * Can be a steep learning curve after the initial set up for developers
 * Testing can be difficult
+
 We don’t really talk enough about how steep the learning curve to fully master a SaaS platform can be. There are similarities between the different offerings however someone who has mastered Fabric will need to relearn a lot to master Databricks. It is like having expert skills in AWS and working on Azure. 
 
 ## Lightweight Platform
