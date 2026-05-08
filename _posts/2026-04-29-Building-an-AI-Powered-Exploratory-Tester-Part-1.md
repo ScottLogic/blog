@@ -4,10 +4,10 @@ date: 2026-04-29 00:00:00 Z
 title: Building an AI-Powered Exploratory Tester
 categories:
 - Testing
-- Artificial Intelligence
 tags:
 - Testing
 - Transformation
+- Artificial Intelligence
 layout: default_post
 summary: What happens when you point an AI agent at a web application and tell it to test like an experienced human? This post is the story of an experiment that started with a simple question from my test team about their future. Their concern resonated with my own experience of seismic shifts in our industry; from dumb terminals to serverless, I've seen technology change, but the people with transferable skills endure. This project honed in on the unique value of exploratory testing and ended up revealing some uncomfortable truths about the future of our industry.
 
