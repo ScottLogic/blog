@@ -4,12 +4,12 @@ date: 2026-05-06 00:00:00 Z
 title: Building an AI-Powered Exploratory Tester - Where it lives
 categories:
 - Testing
-- Artificial Intelligence
 tags:
 - Testing
 - Transformation
+- Artificial Intelligence
 layout: default_post
-summary: Part 3 of an ongoing series on AI-augmented testing. Part 1 told the story of what an exploratory testing agent found and what that meant for testers. Part 2 went under the bonnet. This one answers a question that's harder than it sounds: where in your delivery process does this thing actually live?.
+summary: Part 3 of an ongoing series on AI-augmented testing. Part 1 told the story of what an exploratory testing agent found and what that meant for testers. Part 2 went under the bonnet. This one answers a question that's harder than it sounds. Where in your delivery process does this thing actually live?.
 
 ---
 
