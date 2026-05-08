@@ -4,10 +4,10 @@ date: 2026-04-29 00:00:00 Z
 title: Building an AI-Powered Exploratory Tester- Part 2
 categories:
 - Testing
-- Artificial Intelligence
 tags:
 - Testing
 - Transformation
+- Artificial Intelligence
 layout: default_post
 summary: The engineering behind an AI exploratory tester, describing architecture, prompt failures, context window management, rate limiting, and the specific problems that shaped the design.
 
