@@ -4,10 +4,10 @@ date: 2026-05-06 00:00:00 Z
 title: Building an AI-Powered Exploratory Tester - Where the harness hit its limits
 categories:
 - Testing
-- Artificial Intelligence
 tags:
 - Testing
 - Transformation
+- Artificial Intelligence
 layout: default_post
 summary: Part 4 of an ongoing series on AI-augmented testing. Parts 1 to 3 built the harness, deployed it, and worked out where it lives. This one is about what the harness couldn't do, and what we built next.
 
