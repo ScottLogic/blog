@@ -1,7 +1,7 @@
 ---
 title: Data Engineering on a Budget
 author: blogan
-date: 2026-05-07
+date: 2026-05-12
 summary: An exploration of a lightweight, open-source alternative to traditional SaaS data engineering platforms, highlighting the benefits and trade-offs of each approach.
 category: Data Engineering
 ---
