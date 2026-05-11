@@ -157,22 +157,7 @@ The original implementation was tightly coupled to Google Gemini. Running agains
 
 Multiple apps, multiple environments, multiple runs per day: without structure, outputs become chaos.
 
-**Solution**: Every run produces timestamped, hierarchically organised outputs:
-
-```
-apps/BookingPlatform/local/outputs/localhost/2026-04-26T07-35-21-608Z/
-  role-reports/
-    platform-admin-localhost-2026-04-26T07-35-21-608Z.md
-    tenant-admin-localhost-2026-04-26T07-35-21-608Z.md
-    user-localhost-2026-04-26T07-35-21-608Z.md
-    maintenance-localhost-2026-04-26T07-35-21-608Z.md
-  combined/
-    test-plan-localhost-2026-04-26T07-35-21-608Z.md
-    combined-summary-localhost-2026-04-26T07-35-21-608Z.md
-  artifacts/
-```
-
-Plus NDJSON token usage logs for cost analysis across all runs.
+**Solution**: Every run produces timestamped, hierarchically organised outputs, plus NDJSON token usage logs for cost analysis across all runs.
 
 ---
 
