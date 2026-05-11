@@ -23,25 +23,6 @@ summary: The engineering behind an AI exploratory tester, describing architectur
 
 The system has six components: an LLM provider layer (supporting Gemini and any OpenAI-compatible model including local ones via Ollama), a Tool Router that manages MCP server connections, the agent loop itself, an orchestrator handling multi-role execution, a settings system, and GitHub IssueOps for bidirectional issue tracking.
 
-```
-                    ┌──────────────┐
-                    │  LLM Provider │ (i / OpenAI-compatible / Ollama)
-                    └──────┬───────┘
-                           │
-                    ┌──────┴───────┐
-                    │  Agent Loop  │
-                    └──────┬───────┘
-                           │
-                    ┌──────┴───────┐
-                    │ Tool Router  │
-                    └──┬───────┬───┘
-                       │       │
-              ┌────────┴──┐ ┌──┴──────────┐
-              │ Playwright │ │ Extra MCP   │
-              │ MCP Server │ │ Servers     │
-              └────────────┘ └─────────────┘
-```
-
 The design choice that matters most is the Tool Router's use of MCP as its protocol. Because MCP is just a protocol for tool interaction, the agent doesn't know or care what's behind its tools. Today it drives Playwright for web testing. But the same agent, same system prompt, same context docs could drive Appium for mobile apps, a Swagger/OpenAPI server for API testing, or both simultaneously for cross-layer verification. The agent's testing reasoning (check permissions, probe boundaries, exploit observed data) is surface-agnostic.
 
 This isn't equally valuable on all surfaces. The explorer shines brightest where the interaction surface is *undefined*: web UIs, mobile apps, and especially cross-layer integration (UI + API together). It adds less value for well-spec'd APIs where Copilot or Schemathesis can generate exhaustive deterministic tests directly from the spec. For APIs, the explorer's value is in what the spec doesn't cover: business logic ("can you book a slot that overlaps with a maintenance window?"), cross-endpoint sequences, and auth boundary probing beyond what the RBAC spec defines.
