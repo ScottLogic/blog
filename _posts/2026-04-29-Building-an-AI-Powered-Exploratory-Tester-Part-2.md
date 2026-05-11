@@ -151,7 +151,7 @@ The current GitHub IssueOps integration extracts findings from each role's final
 
 The original implementation was tightly coupled to Google Gemini. Running against a local model for development or cost control, or using a different cloud provider, would require rewriting the agent.
 
-**Solution**: A full LLM provider abstraction layer (`src/llm/`). The `LLMProvider` interface is provider-neutral: `generateContent()` accepts canonical `LLMMessage` types and returns canonical `LLMGenerateResult`. Two providers ship today: `GeminiProvider` (with context caching, shared rate limiting, and cache expiry auto-recreation) and `OpenAICompatibleProvider` (supporting Ollama, vLLM, and any OpenAI-compatible endpoint). Switching providers is a single env var: `LLM_PROVIDER=openai-compatible LLM_BASE_URL=http://localhost:11434/v1 LLM_MODEL=qwen2.5:14b`.
+**Solution**: A full LLM provider abstraction layer (`src/llm/`). The `LLMProvider` interface is provider-neutral: `generateContent()` accepts canonical `LLMMessage` types and returns canonical `LLMGenerateResult`. Two providers ship today: `GeminiProvider` (with context caching, shared rate limiting, and cache expiry auto-recreation) and `OpenAICompatibleProvider` (supporting Ollama, vLLM, and any OpenAI-compatible endpoint). Switching providers is just a matter of updating a single environment variable.
 
 ### Problem: Results Were Hard to Track Across Runs
 
