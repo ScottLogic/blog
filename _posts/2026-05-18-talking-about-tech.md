@@ -5,6 +5,7 @@ author: ceberhardt
 categories:
 - Tech
 date: 2026-05-18 00:00:00 Z
+image: /ceberhardt/assets/presentation-skills/speaking.jpg
 ---
 
 Software engineering is something we’d all consider to be a technical profession (whatever that might mean), and we’d like to believe that those who are the most technically proficient are the most prominent. However, this isn’t always the case. You’ll often find that the people who are the most knowledgeable, or have the deepest insights, are the quietest. Unfortunately, those that possess the sharpest communication skills, the gift of the gab as it is known colloquially, often have the greatest influence.
