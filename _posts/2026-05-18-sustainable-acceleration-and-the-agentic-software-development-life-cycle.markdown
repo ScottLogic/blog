@@ -30,25 +30,25 @@ Human engineers move up the value chain focusing less on implementation and more
 
 The surge in AI generated activity is already exponential, placing significant infrastructure and scaling pressure on platforms such as GitHub. However human attention does not scale exponentially. As AI generated activity such as pull requests continues to increase a psychological strain can emerge in the form of mounting expectations for human engineers to review, comment and merge in increasingly compressed timelines. Let us take a moment to consider the Japanese concept of ma (間) which refers to intentional space or pause in both physical and temporal contexts. Hayao Miyazaki, co-founder of Studio Ghibli, once described it by clapping repeatedly and explaining “The time in between my clapping is ma. If you just have non-stop action with no breathing space at all, it’s just busyness.”. As human engineers begin collaborating with AI agents intentional pacing becomes essential to supporting them as effective stewards of their systems. This is not inefficiency but instead actively preserving long-term coherence in systems adapting to accelerated delivery:
 
-  + For human engineers, this means providing sufficient time to properly evaluate changes before signoff, enabling them to act as a stabilising force.
+- For human engineers, this means providing sufficient time to properly evaluate changes before signoff, enabling them to act as a stabilising force.
 
-  + For teams, this means allotting deliberate pauses for reflection, continuous learning and iterative improvement of collaborative AI agent workflows.
+- For teams, this means allotting deliberate pauses for reflection, continuous learning and iterative improvement of collaborative AI agent workflows.
 
-  + For codebases, this means protecting system robustness by mitigating the effect of code churn at machine scale. In practice, this may require introducing cooldown periods after high entropy changes, or throttling the volume of AI agent pull requests.
+- For codebases, this means protecting system robustness by mitigating the effect of code churn at machine scale. In practice, this may require introducing cooldown periods after high entropy changes, or throttling the volume of AI agent pull requests.
 
 One emerging anti-pattern of Agentic AI is the overproduction of engineering artifacts (especially markdown files) at a volume and pace that cannot be comfortably consumed by human engineers. Organisations need to maintain their information architectures by actively reducing file fragmentation, removing file duplication, standardising naming, and maintaining reliable knowledge sources. These measures are essential for helping human engineers navigate information, understand systems, and avoid cognitive saturation. Furthermore, there needs to be a focus on making sure generated content is not hostile for humans to engage with. This requires actively reducing cognitive entropy:
 
-  + Providing rendered views instead of raw markdown.
+- Providing rendered views instead of raw markdown.
 
-  + Generating diagrams and visual explanations.
+- Generating diagrams and visual explanations.
 
-  + Adapting information density to meet the needs of the reader. 
+- Adapting information density to meet the needs of the reader. 
 
-  + Choose information structures better suited to the context. For example: 
+- Choose information structures better suited to the context. For example: 
 
-    + Logs for a production outage investigation might best take the form of chronological timelines. 
+    - Logs for a production outage investigation might best take the form of chronological timelines. 
 
-    + Meeting discussion notes might best be clustered semantically into conceptual units such as “Decisions Made“, “Action Items”, “Open Questions”, etc.
+    - Meeting discussion notes might best be clustered semantically into conceptual units such as “Decisions Made“, “Action Items”, “Open Questions”, etc.
 
 Many enterprise systems have been optimised solely for human interaction. As AI adoption increases organisations should consider evolving these systems to better support collaboration with AI agents. Exposing clearer APIs, workflows and AI agent friendly interfaces that enable AI agents to operate more efficiently at scale. Organisations that modernise their platforms in this way will be better positioned than those relying on legacy systems designed for manual workflows and human paced decision making.
 
