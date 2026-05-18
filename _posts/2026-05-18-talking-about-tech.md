@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Finding Your Voice: A Guide to Technical Communication"
 summary: If you’re nervous about communicating your ideas, either in a formal presentation setting, or more informally, in meetings and small group conversations, this brief guide is for you. It’s a simple collection of thoughts and ideas; practical steps that you can take to build confidence, or feel more secure.
 author: ceberhardt
