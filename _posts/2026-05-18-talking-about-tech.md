@@ -3,6 +3,9 @@ layout: post
 title: "Finding Your Voice: A Guide to Technical Communication"
 summary: If you’re nervous about communicating your ideas, either in a formal presentation setting, or more informally, in meetings and small group conversations, this brief guide is for you. It’s a simple collection of thoughts and ideas; practical steps that you can take to build confidence, or feel more secure.
 author: ceberhardt
+categories:
+- Tech
+date: 2026-05-18 00:00:00 Z
 ---
 
 Software engineering is something we’d all consider to be a technical profession (whatever that might mean), and we’d like to believe that those who are the most technically proficient are the most prominent. However, this isn’t always the case. You’ll often find that the people who are the most knowledgeable, or have the deepest insights, are the quietest. Unfortunately, those that possess the sharpest communication skills, the gift of the gab as it is known colloquially, often have the greatest influence.
