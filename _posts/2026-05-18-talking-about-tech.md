@@ -15,9 +15,13 @@ There’s a wealth of materials that help build your technical skills, through c
 
 This guide isn’t going to fix all of this, but it aims to help empower the quieter or less confident among us to speak with real confidence. 
 
+![boat on the water]({{ site.github.url }}/ceberhardt/assets/presentation-skills/boat.avif)
+<small>image courtesy of [Joahnnes Plenio](https://unsplash.com/photos/rule-of-thirds-photography-of-man-on-boat-NYDTneTcSdo)</small>
+
 If you’re nervous about communicating your ideas, either in a formal presentation setting, or more informally, in meetings and small group conversations, this brief guide is for you. It’s a simple collection of thoughts and ideas; practical steps that you can take to build confidence, or feel more secure. You don’t need to try them all at once, building communication skills and confidence in yourself takes time. It’s better to introduce them little-by-little.
 
 Anyhow, enough of the introduction, let’s move onto something more practical.
+
 
 ## Table of Contents
 
@@ -46,6 +50,9 @@ Anyhow, enough of the introduction, let’s move onto something more practical.
    - [The perils of live coding](#the-perils-of-live-coding)
    - [Avoid 'bigging yourself up'](#avoid-bigging-yourself-up)
 4. [Smile](#smile)
+
+![playing piano]({{ site.github.url }}/ceberhardt/assets/presentation-skills/piano.avif)
+<small>image courtesy of [Clark Young](https://unsplash.com/photos/person-playing-upright-piano-tq7RtEvezSY)</small>
 
 ## Practice, practice and practice some more! 
 
@@ -108,6 +115,8 @@ It might be worth keeping a notebook, often you’ll find ideas come to mind whe
 
 Finally, there is no harm in asking a friend of a colleague, “would you be interested in a talk on ….?”
 
+![cranes]({{ site.github.url }}/ceberhardt/assets/presentation-skills/cranes.avif)
+<small>image courtesy of [EJ Yao Young](https://unsplash.com/photos/several-cranes-above-the-buildings-D46mXLsQRJw)</small>
 
 ## Constructing a presentation 
 
@@ -244,6 +253,9 @@ If you’d like to ask questions, be prepared for a few situations:
 * Sometimes you will not get any questions, which can be quite embarrassing if you’re not ready for this. I’d have a line ready “I’ve clearly left you with a lot to think about, once it has sunk in, do catch me later for a chat”
 
 Although, repeating the above, you don’t have to take questions, and if you’re new to presenting, I’d recommend avoiding putting yourself on the spot like that. At least not the first time around.
+
+![conference]({{ site.github.url }}/ceberhardt/assets/presentation-skills/conference.avif)
+<small>image courtesy of [Headway](https://unsplash.com/photos/crowd-of-people-sitting-on-chairs-inside-room-F2KRf_QfCqw)</small>
 
 
 ## Delivering Technical Talks 
