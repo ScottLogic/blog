@@ -40,8 +40,8 @@ One emerging anti-pattern of Agentic AI is the overproduction of engineering art
 - Generating diagrams and visual explanations.
 - Adapting information density to meet the needs of the reader. 
 - Choose information structures better suited to the context. For example: 
-    - Logs for a production outage investigation might best take the form of chronological timelines. 
-    - Meeting discussion notes might best be clustered semantically into conceptual units such as “Decisions Made“, “Action Items”, “Open Questions”, etc.
+  - Logs for a production outage investigation might best take the form of chronological timelines. 
+  - Meeting discussion notes might best be clustered semantically into conceptual units such as “Decisions Made“, “Action Items”, “Open Questions”, etc.
 
 Many enterprise systems have been optimised solely for human interaction. As AI adoption increases organisations should consider evolving these systems to better support collaboration with AI agents. Exposing clearer APIs, workflows and AI agent friendly interfaces that enable AI agents to operate more efficiently at scale. Organisations that modernise their platforms in this way will be better positioned than those relying on legacy systems designed for manual workflows and human paced decision making.
 
