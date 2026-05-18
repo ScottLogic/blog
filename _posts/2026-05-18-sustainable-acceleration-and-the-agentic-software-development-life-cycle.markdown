@@ -14,7 +14,7 @@ tags:
 - People
 - Cognitive Entropy
 - Delivery
-- summary: A discussion of how to successfully leverage agentic AI to raise the productivity ceiling depends on human oversight, governance, and disciplined engineering practices that preserve stability.
+summary: A discussion of how to successfully leverage agentic AI to raise the productivity ceiling depends on human oversight, governance, and disciplined engineering practices that preserve stability.
 author: dallsop
 ---
 
