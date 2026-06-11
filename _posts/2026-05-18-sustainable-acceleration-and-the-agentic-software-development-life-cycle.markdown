@@ -18,7 +18,7 @@ summary: A discussion of how to successfully leverage agentic AI to raise the pr
 author: dallsop
 ---
 
-The traditional Software Development Life Cycle (SDLC) treats requirements, design, implementation, verification, and maintenance as separate phases coordinated by humans. Transitioning to Agentic Software Development Life Cycle (ASDLC) sees AI agents actively participating in reasoning, planning, validation, and optimisation across each of the phases of the SDLC. This presents new challenges to absorb, govern, review, and sustain the pace of change AI enables. In pursuit of raising the ceiling to productivity what do we need to remain mindful of?
+The traditional Software Development Life Cycle (SDLC) treats requirements, design, implementation, verification, and maintenance as separate phases coordinated by humans. Transitioning to Agentic Software Development Life Cycle (ASDLC) sees AI agents actively participating in reasoning, planning, validation, and optimisation across each of the phases of the SDLC. This presents new challenges to absorb, govern, review, and sustain the pace of change AI enables. In pursuit of raising the productivity ceiling what do we need to remain mindful of?
 
 Transitioning to ASDLC is underpinned by organisational processes, governance, and culture. AI amplifies existing engineering culture and so organisations with fragmented processes, inconsistent standards, or weak architectural discipline will discover that AI scales disorder just as efficiently as it scales productivity. Thus organisations must take steps to review and strengthen the foundations of their SDLC to ensure that AI serves to accelerate value delivery.
 
