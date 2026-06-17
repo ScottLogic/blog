@@ -1,6 +1,6 @@
 ---
 title: Sustainable acceleration and the Agentic Software Development Life Cycle
-date: 2026-05-18 00:00:00 Z
+date: 2026-06-17 00:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
