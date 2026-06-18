@@ -1,6 +1,6 @@
 ---
 title: Working Effectively with Claude Code
-date: 2026-06-17 09:09:00 Z
+date: 2026-06-18 09:09:00 Z
 categories:
 - Artificial Intelligence
 tags:
