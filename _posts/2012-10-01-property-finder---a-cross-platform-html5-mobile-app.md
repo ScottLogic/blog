@@ -92,7 +92,7 @@ I’ll give a very brief summary of the tools and frameworks I have used to deve
 
 **JavaScript Intellisense** – To be honest Visual Studio is not the best tool for authoring JavaScript, personally I think Eclipse has the edge. However, developing in Visual Studio does allow you to quickly build and deploy the Windows Phone version of the code. Visual Studio provides JavaScript Intellisense via pseudo-execution of your code, this is needed because JavaScript is dynamic, so the IDE cannot comprehend your code by static analysis alone. In order to use this effectively you need to ensure that the IDE can discover all of your files. For this reason I have the following file in my project which informs Visual Studio of all the JavaScript files in my project which I would like to include in Intellisense:
 
-```
+~~~
 /// Ensure that all the files listed below are included, so that VS provides
 /// Intellisense
 ///
@@ -110,14 +110,14 @@ I’ll give a very brief summary of the tools and frameworks I have used to deve
 /// <reference path="viewModel//PropertyViewModel.js" />
 /// <reference path="viewModel//SearchResultsViewModel.js" />
 /// <reference path="lib//knockout-2.1.0.js" />
-```
+~~~
 
 All JavaScript files reference the above ‘contents’ file as follows:   
   
 
-```
+~~~
 /// <reference path="..//intellisense.js" />
-```
+~~~
 
 **Firefox and Firebug** – You can develop Cordova apps using the Windows Phone emulator, however the startup times and poor JavaScript instrumentation make this a very painful process! Because the core of your application will be plain-old JavaScript it is possible to run it within a desktop browser. My preference has been Firefox with the Firebug plugin for a long time, however more recently I have started using the Chrome development tools. One thing’s for sure, they both beat the IE tools hands-down!  
   
@@ -131,7 +131,7 @@ When developing a Cordova app, you can add your HTML, JavaScript and CSS files t
 The Cordova APIs are [documented on the PhoneGap website](http://docs.phonegap.com/en/2.0.0/index.html), I will not describe them in detail here. One important thing to note is that you must wait for the deviceready event before making use of any of the other API methods. If you inspect the index.html file generated from the Visual Studio Cordova Application Template you can see that it waits until the device is ready before updating the UI:  
   
 
-```
+~~~
 <script type="text/javascript">
 
   document.addEventListener("deviceready",onDeviceReady,false);
@@ -144,7 +144,7 @@ The Cordova APIs are [documented on the PhoneGap website](http://docs.phonegap.c
 
   }
 </script>
-```
+~~~
 
 You can develop your applications by making changes to your HTML / JavaScript, compiling and deploying to the emulator or device, however there is a quicker way. As your Cordova application is simply a HTML / JavaScript application you can run it in a desktop browser directly. However, you have to provide mock implementations of any Cordova APIs you use. For example, to run the application created by the Visual Studio template, you can mock the ‘device’ object that Cordova adds to ‘window’ then invoke onDeviceReady:   
   
@@ -160,7 +160,7 @@ You will often find yourself using a small subset of the Cordova APIs, so deskto
  If you download the Property Finder source code and view the index.html file in your browser you will find that the application starts immediately. This is thanks to the following little piece of JavaScript:   
   
 
-```jscript
+~~~jscript
 $(document).ready(function () {
   if (window.device) {
     document.addEventListener("deviceready", initializeViewModel, false);
@@ -169,7 +169,7 @@ $(document).ready(function () {
     initializeViewModel();
   }
 });
-```
+~~~
 
 If the Cordova created window.device is not present, then the code is being run from a desktop browser, so we immediately create the view models and start the application. Otherwise, we wait for the deviceready event, then start the app.   
   
@@ -184,24 +184,24 @@ Before delving into the details of the application itself, I want to say a thing
 With Knockout examples you will often see a couple of different methods for creating view models, the first is the use of object literals:  
   
 
-```jscript
+~~~jscript
 var viewModel = {
     firstname : ko.observable("Bob")
 };
 
 ko.applyBindings(viewModel );
-```
+~~~
 
 And the second is to define a constructor function for your view model, invoking this function with the new operator to create an instance:   
   
 
-```jscript
+~~~jscript
 var ViewModel = function() {
     this.firstname = ko.observable("Bob");
 };
 
 ko.applyBindings(new ViewModel ());
-```
+~~~
 
 My preference is the second, because it allows you to create multiple instances of the same ‘type’ of view models.   
   
@@ -211,28 +211,28 @@ My preference is the second, because it allows you to create multiple instances 
 JavaScript does not have a built-in mechanism for namespacing or packaging. As an alternative, objects can be used to organise code into namespaces. Within the Property Finder application I define three objects which act as namespaces:   
 var View = View || {};  
 
-```jscript
+~~~jscript
 var Model = Model || {};
 var ViewModel = ViewModel || {};
-```
+~~~
 
 The logical OR operator used above is equivalent to the C# null coalesce operator (??).  
   
 The view model constructor functions are then defined as properties of these objects:   
   
 
-```jscript
+~~~jscript
 ViewModel.PropertyViewModel = function () {
   // ...view model code goes here
 }
-```
+~~~
 
 These constructor functions are then accessed via their ‘namespace’:  
   
 
-```jscript
+~~~jscript
 var viewModel = new ViewModel.PropertyViewModel();
-```
+~~~
 
 ### Object Oriented JavaScript
 
@@ -245,7 +245,7 @@ You can certainly write object-oriented application with JavaScript, however, yo
 There are a couple of popular patterns for defining classes. The first uses protoypes:  
   
 
-```jscript
+~~~jscript
 function Book(title) {
     this.title = title;
 }
@@ -256,7 +256,7 @@ Book.prototype.getTitle = function () {
 
 var myBook = new Book('War and Peace');
 alert(myBook.getTitle()); // outputs 'War and Peace'
-```
+~~~
 
 In the above example we define the constructor function and the title variable. We then add a method (a method is a function which is associated with an object), via the prototype. A prototype is an object from which an object inherits properties. In the above example, adding the function to the Book prototype will ensure that it is accessible to any instance of the Book object.  
   
@@ -264,7 +264,7 @@ In the above example we define the constructor function and the title variable. 
 
 An alternative approach to defining the same Book class is as follows:
 
-```jscript
+~~~jscript
 function Book(title) {
     this.title = title;
 
@@ -275,7 +275,7 @@ function Book(title) {
 
 var myBook = new Book('War and Peace');
 alert(myBook.getTitle()); // outputs 'War and Peace'
-```
+~~~
 
 Here the `getTitle`method is added to the Book object within the constructor function rather than via the prototype.  
   
@@ -283,7 +283,7 @@ One advantage of this approach is that it allows information via closures becaus
 
 The following is a trivial example of how closures can be used to create private variables and methods (although strictly speaking in this context they are actually functions!):
 
-```jscript
+~~~jscript
 function Book(title) {
 
   // this variable is private
@@ -305,7 +305,7 @@ function Book(title) {
 var myBook = new Book('War and Peace');
 alert(myBook.getTitle()); // outputs 'War and Peace : 1'
 alert(myBook.getTitle()); // outputs 'War and Peace : 2'
-```
+~~~
 
 Douglas Crockford describes this pattern in [much more detail on his website](http://javascript.crockford.com/private.html).
 
@@ -327,7 +327,7 @@ Let’s dive into the details of each layer …
 
 From the model layer, `PropertyDataSource` provides the rest of the application with an interface for querying the Nestoria APIs. This is exposed via a couple of simple methods, one which queries via a plain-text search string (e.g. “London”), and one via geolocation (latitude and longitude). Internally, this class makes use of `JSONDataSource`, which encapsulates the logic to perform the actual web requests, the source of which is shown below:
 
-```jscript
+~~~jscript
 /// <reference path="..//intellisense.js" />
 
 /*global $, Model */
@@ -399,13 +399,13 @@ Model.JSONDataSource = function () {
     ajaxRequest(query, params, callback, errorCallback);
   };
 };
-```
+~~~
 
 The above code makes use of the jQuery-JSONP plugin in order to be able to specify a timeout for the query. As an aside, if you are not sure what the difference is between JSON and JSONP, and why we need to use JSONP in this instance, take a look at this [StackOverflow answer for a good overview](http://stackoverflow.com/questions/2067472/please-explain-jsonp).
 
 Separating the code that makes the request to the Nestoria APIs from the code which parses the response allows us to easily inject test data. The class above can be substituted for the following, which waits 1 second before returning a ‘canned’ response:
 
-```jscript
+~~~jscript
 /// <reference path="..//intellisense.js" />
 
 /*global $, Model, setTimeout */
@@ -428,13 +428,13 @@ Model.JSONFileDataSource = function () {
     setTimeout(fetchData, 1000);
   };
 };
-```
+~~~
 
 This is very useful for testing against web services, where you do not have any direct control over the returned response. As you can see, the above code returns a couple of different types of response in order to allow for more thorough testing.
 
 The `ProperyDataSource` class takes the JSON response provided by `JSONDataSource`, and parses into a format which is more suitable for the Property Finder application. It also handles the various response codes and returning a suitable response:
 
-```jscript
+~~~jscript
 /// <reference path="..//intellisense.js" />
 
 /*global $, Property, Location, setTimeout, Model */
@@ -539,33 +539,33 @@ Model.PropertyDataSource = function (config) {
     }, errorCallback);
   };
 };
-```
+~~~
 
 The various response codes that are handled above are detailed in the [Nestoria API documentation](http://www.nestoria.co.uk/help/api-return-codes).
 
 The code above highlights an interesting design decision that I made; the various model objects returned, Location, `Property`, `PropertyDataSourceResponse`, are all created using a constructor function. Take for example the code which creates a Location:
 
-```jscript
+~~~jscript
 location = new Model.Location({
   longTitle: value.long_title,
   placeName: value.place_name,
   title: value.title
 });
-```
+~~~
 
 As these are model objects, they do not have any methods or any kind of functionality beyond being carriers of data. The above code could be modified to create an equivalent object using literal notation:
 
-```jscript
+~~~jscript
 location = {
   longTitle: value.long_title,
   placeName: value.place_name,
   title: value.title
 };
-```
+~~~
 
 Using the above, the application would still work just fine. So why have I gone to the effort of creating these model objects? The `Location` object shown below illustrates why:
 
-```jscript
+~~~jscript
 /// <reference path="..//intellisense.js" />
 
 /*global $, Model */
@@ -583,7 +583,7 @@ Model.Location = function (config) {
   // the query name
   this.placeName = config.placeName;
 };
-```
+~~~
 
 The model objects to do not add anything to the functionality of the application, however, they make the code much more readable, providing a place for documentation and a way to specify the ‘shape’ of objects which are being passed around.
 
@@ -591,22 +591,22 @@ Note that the `config` object allows for a more concise and readable constructio
 
 Here is a quick example with the use of the `config` constructor:
 
-```jscript
+~~~jscript
 location = new Model.Location({
   longTitle: value.long_title,
   placeName: value.place_name,
   title: value.title
 });
-```
+~~~
 
 And the same without:
 
-```jscript
+~~~jscript
 location = new Model.Location();
 location.longTitle = value.long_title;
 location.placeName = value.place_name;
 location.title = value.title;
-```
+~~~
 
 In summary, the model layer is really quite simple, providing a think wrapper on the Nestoria APIs.
 
@@ -620,7 +620,7 @@ The application has a single instance of an `ApplicationViewModel`, which manage
 
 When the back-stack has more than one view model, the Cordova hardware back button event is handled, in order to capture the back button press (which would otherwise exit the application, it is a single Silverlight page after all!) and remove the top-most view model from the stack.
 
-```jscript
+~~~jscript
 /// <reference path="..//intellisense.js" />
 
 /*global $, ViewModel, ko, window, propertySearchViewModel, hydrateObject */
@@ -662,7 +662,7 @@ ViewModel.ApplicationViewModel = function () {
     this.viewModelBackStack.pop();
   };
 };
-```
+~~~
 
 ### app.js
 
@@ -672,7 +672,7 @@ The Property Finder is structured in a similar manner to the classic Silverlight
 
 The app.js file is the entry-point for the application, creating an instance of the `ApplicationViewModel` and a `PropertySearchViewModel` (the first page of the app), then pushing this view model onto the application back-stack.
 
-```jscript
+~~~jscript
 /// <reference path="..//intellisense.js" />
 
 /*global $, PropertyDataSource, PropertySearchViewModel, Location, PropertyViewModel,
@@ -732,7 +732,7 @@ $(document).ready(function () {
   }
 });<span style="white-space: normal; ">
 </span>
-```
+~~~
 
 You can see that the above code makes use of the `ApplicationViewModel.backButtonRequired` property, which is a [computed observable](http://knockoutjs.com/documentation/computedObservables.html), which changes state between true / false, depending on whether the application needs to handle the back button.
 
@@ -742,7 +742,7 @@ I like to think of `app.js` as roughly equivalent to the Silverlight Application
 
 The `PropertySearchViewModel` presents the front-page of the application, which gives the user a text field to input their search term. A snippet of this view model is shown below:
 
-```jscript
+~~~jscript
 /// <reference path="..//intellisense.js" />
 
 /*global $, ViewModel, ko, propertyDataSource, Model, navigator, application */
@@ -769,11 +769,11 @@ ViewModel.PropertySearchViewModel = function () {
 }<span style="white-space: normal; ">
 </span> <span style="white-space: normal; ">
 </span>
-```
+~~~
 
 The template property of each view model is used to identify the names jQuery Template that renders its UI. The template for the `PropertySearchViewModel` is shown below:
 
-```html
+~~~html
 <script id="propertySearchView" type="text/x-jquery-tmpl">
   <div class="content noScroll">
     <h2>Property Finder UK</h2>
@@ -825,7 +825,7 @@ The template property of each view model is used to identify the names jQuery Te
     </div>
   </div>
 </script>
-```
+~~~
 
 As you can see from the above, this is pretty straightforward Knockout stuff. There are a few points worth noting …
 
@@ -837,7 +837,7 @@ At the bottom of this template there is a div which creates an app-bar. The proj
 
 There is a small amount of code in app.js which adds various event handlers to the app-bar to give it the show / hide behaviour:
 
-```jscript
+~~~jscript
 // wire up event handlers for various UI elements
 function wireUpUI() {
   $(".appBar .more").click(function () {
@@ -854,7 +854,7 @@ function wireUpUI() {
     }
   });
 }
-```
+~~~
 
 ![appBar]({{ site.baseurl }}/ceberhardt/assets/codeproject/appBar.jpg)
 
@@ -866,7 +866,7 @@ The Nestoria APIs allow you to search via a plain-text search string or a geoloc
 
 One for geolocation based searches:
 
-```jscript
+~~~jscript
 /// <reference path="..//intellisense.js" />
 
 /*global $, ViewModel, propertyDataSource, ko*/
@@ -900,11 +900,11 @@ ViewModel.GeolocationViewModel = function () {
   };
 
 };
-```
+~~~
 
 And one for text-based searches:
 
-```jscript
+~~~jscript
 /// <reference path="..//intellisense.js" />
 
 /*global $, propertyDataSource, ViewModel, ko*/
@@ -948,13 +948,13 @@ ViewModel.LocationViewModel = function () {
     propertyDataSource.findProperties(this.searchString, pageNumber, callback, errorCallback);
   };
 };
-```
+~~~
 
 Each of these view models has its own `executeSearch` method, which uses the `PropertyDataSource` described earlier to perform the required search. Giving the responsibility of executing the search to the objects which represent each type of search removes the need for a nasty ‘type-based’ switch to invoke the required search method.
 
 An example of how these are used is when the user hits the ‘My location’ button, which is handled by the `PropertySearchViewModel`. Here the `navigation.geolocation` object, which is part of the HTML5 Geolocation specification, is used to find the current location, an instance of `GeolocationViewModel` created and a search executed.
 
-```jscript
+~~~jscript
 this.searchMyLocation = function () {
   /// <summary>
   /// Performs a search based on the current geolocation
@@ -985,11 +985,11 @@ this.searchMyLocation = function () {
   navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 };<span style="white-space: normal; ">
 </span>
-```
+~~~
 
 The code that executes the search represented by the searchLocation instance is shown below:
 
-```jscript
+~~~jscript
 this.executeSearch = function () {
   /// <summary>
   /// Executes a search based on the current search string
@@ -1042,7 +1042,7 @@ this.executeSearch = function () {
 
   this.searchLocation.executeSearch(1, successCallback, errorCallback);
 };
-```
+~~~
 
 If you are wondering why I switch between ‘this’ and ‘that’, you probably need to read about how JavaScript handles the ‘this’ keyword, it is not the same as C#! It is common practice to assign a ‘that’ or ‘self’ variable to this within an object in order to [maintain a reference to the containing object when the context changes](http://www.alistapart.com/articles/getoutbindingsituations).
 
@@ -1050,7 +1050,7 @@ If you are wondering why I switch between ‘this’ and ‘that’, you probabl
 
 When a search executes successfully, the application navigates to the `SearchResultsViewModel`:
 
-```jscript
+~~~jscript
 /*global $, ViewModel, ko, propertyDataSource */
 
 ViewModel.SearchResultsViewModel = function () {
@@ -1096,11 +1096,11 @@ ViewModel.SearchResultsViewModel = function () {
 
   };
 };
-```
+~~~
 
 This is a simple view model that presents a collection of `PropertyViewModel` instances using the template given below:
 
-```html
+~~~html
 <script id="searchResultsView" type="text/x-jquery-tmpl">
   <div class="content">
     <div>
@@ -1132,11 +1132,11 @@ This is a simple view model that presents a collection of `PropertyViewModel` in
     </div>
   </div>
 </script>
-```
+~~~
 
 The template which renders each individual property is defined separately as follows:
 
-```html
+~~~html
 <script id="propertyThumbnailView" type="text/x-jquery-tmpl">
   <li class="property"
       data-bind="click: select">
@@ -1150,7 +1150,7 @@ The template which renders each individual property is defined separately as fol
     </ul>
   </li>
 </script>
-```
+~~~
 
 If there are more pages of data, a ‘Load more …’ button is displayed at the end of the list:  
    
@@ -1162,16 +1162,16 @@ Hopefully the previous sections are enough to give you a flavour of how the Prop
 
 The one area I wanted to detail a bit further is state persistence. Within `app.js` property changed handlers are added to all the view model properties that we would like to persist between application sessions:
 
-```jscript
+~~~jscript
 // handle changes in persistent state
 propertySearchViewModel.favourites.subscribe(persistentStateChanged);
 propertySearchViewModel.recentSearches.subscribe(persistentStateChanged);
 propertySearchViewModel.locationEnabled.subscribe(persistentStateChanged);
-```
+~~~
 
 When the state changes, a JSON representation of these various objects is saved to local storage:
 
-```jscript
+~~~jscript
 // save app state to persistent storage
 function persistentStateChanged() {
 
@@ -1184,13 +1184,13 @@ function persistentStateChanged() {
 
   localStorage.setItem("state", jsonState);
 }
-```
+~~~
 
 Cordova does its magic here, replacing the `localStorage` object with its own equivalent that provides a platform specific mechanism for saving state, i.e. for Windows Phone it uses isolated storage via the Silverlight APIs.
 
 When the application restarts, we check for any previously saved state and re-load it:
 
-```jscript
+~~~jscript
 function initializeViewModel() {
 
    // create the view model
@@ -1235,13 +1235,13 @@ function setState(jsonState) {
     propertySearchViewModel.locationEnabled(state.locationEnabled);
   }
 }
-```
+~~~
 
 The saved application state is in JSON format, for we can easily re-create our view model objects, using the `ko.fromJSON` utility function for example. However, this will provide objects that *look* like our view models, but they will lack the methods we have added to these objects within their constructor function.
 
 For this reason I have created a utility function, `hydrateObject`, that recursively re-constructs view models, where each has its constructor function identified by a `factoryName` property:
 
-```jscript
+~~~jscript
 /// <reference path="..//intellisense.js" />
 
 /*global ko, $, window */
@@ -1300,7 +1300,7 @@ function hydrateObject(state) {
 
   return viewModel;
 }
-```
+~~~
 
 ## Property Finder iOS
 
@@ -1318,13 +1318,13 @@ Unfortunately, as I mentioned previously, Knockout and jQuery Mobile do not play
 
 What was previously a simple button:
 
-```html
+~~~html
 <button type="submit" data-bind="enable: isSearchEnabled, click: executeSearch">Go</button>
-```
+~~~
 
 Now becomes this monstrosity:
 
-```html
+~~~html
 <div class="ui-btn ui-btn-inline ui-btn-corner-all ui-shadow ui-btn-up-c">
   <span class="ui-btn-inner ui-btn-corner-all">
     <span class="ui-btn-text">Go</span>
@@ -1333,7 +1333,7 @@ Now becomes this monstrosity:
                   data-bind="enable: isSearchEnabled,
                                     click: executeSearch"/>
 </div>
-```
+~~~
 
 The extra HTML elements are required in order to support the jQuery Mobile CSS (If only HTML / CSS had the equivalent of Silverlight templates!).
 
@@ -1361,7 +1361,7 @@ iScroll also has some very nice extra features, such as pull-to-refresh. I was a
 
 The code which handles this is a bit messy, as it is outside of the elegant Knockout view model-driven code:
 
-```jscript
+~~~jscript
  function wireUpUI($view) {
 
   // fade in images as they appear
@@ -1415,13 +1415,13 @@ The code which handles this is a bit messy, as it is outside of the elegant Knoc
     }
   }
 }
-```
+~~~
 
 It should be possible to create a version of iScroll which has proper binding support, the Knockout framework is quite easy to extend to add custom bindings … but that’s a job for another day!
 
 The `fadeImages` function adds a cool little effect to the image thumbnails, fading them in as they load. This is achieved using a CSS3 opacity transition:
 
-```css
+~~~css
 img.ui-li-thumb
 {
   -webkit-transition<span class="code-none"><span class="code-none"><span class="code-none">: opacity 1s ease-in-out<span class="code-none"><span class="code-none"><span class="code-none">;
@@ -1435,27 +1435,27 @@ img.shown
   opacity<span class="code-none"><span class="code-none"><span class="code-none">: 1<span class="code-none"><span class="code-none"><span class="code-none">;
 <span class="code-none"><span class="code-none"><span class="code-none">}<span style="white-space: normal; ">
 </span></</span></span></</span>span></</span></span></span></span></span></span></span></span></span>span>span></</span>
-```
+~~~
 
 Which is triggered by adding the `shown` class to images when they have loaded:
 
-```jscript
+~~~jscript
 function fadeImages() {
   $("img.ui-li-thumb:not(.shown)").bind("load", function () {
     $(this).addClass("shown");
   });
 }
-```
+~~~
 
 ### The Project Structure and Build
 
 Other than the cosmetic changes detailed above, all of the core application functionality, including geolocation and state persistence, work s unchanged on iOS. In order to facilitate the development of the iOS version, I created a simple batch file which copies the shared code from the Windows Phone project into my iOS folders:
 
-```
+~~~
 copy ..\HTML5PropertySearch\www\viewModel\*.js viewModel /Y
 copy ..\HTML5PropertySearch\www\model\*.js model /Y
 copy ..\HTML5PropertySearch\www\lib\*.js lib /Y
-```
+~~~
 
 The iOS version is not built with Visual Studio, so I cannot use VS file references!
 
@@ -1463,7 +1463,7 @@ In order to deploy the application to an iPhone, it needs to be Cordova wrapped 
 
 You can build your Cordova application online via the [PhoneGap Build](https://build.phonegap.com/) service. For Property Finder, the application assets are accompanied with this XML file:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8"?>
 <widget xmlns    = "http://www.w3.org/ns/widgets"
   xmlns:gap  = "http://phonegap.com/ns/1.0"
@@ -1499,7 +1499,7 @@ You can build your Cordova application online via the [PhoneGap Build](https://b
 
 </widget><span style="white-space: normal; ">
 </span>
-```
+~~~
 
 On uploading the code, plus this configuration file, the Build service builds your code of a range of devices. Here is what the online portal looks like:
 

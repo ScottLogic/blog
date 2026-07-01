@@ -72,7 +72,7 @@ Simple Silverlight controls have simple interfaces, composed of a few dependency
 
 The `RelationshipGraph` control takes an `INodeList` as its source of data:
 
-```csharp
+~~~csharp
 public interface INodeList : IList<INode>
 {
 }
@@ -94,13 +94,13 @@ public interface INode
   /// </summary>
   List<INodeRelationship> Relationships { get; }
 }
-```
+~~~
 
 Where each `INode` has a `Name` property, which for the Stack Overflow graph shown earlier is the name of the tag (e.g. C#, Python, Java, …) and a
 `Count`, which indicates the frequency of this node. This determines the size of the segment that renders this node. Finally, each node has a collection of relationships defined by the
 `INodeRelationship` interface:
 
-```csharp
+~~~csharp
 public interface INodeRelationship
 {
   /// <summary>
@@ -113,7 +113,7 @@ public interface INodeRelationship
   /// </summary>
   double Strength { get; }
 }
-```
+~~~
 
 Each relationship indicates the name of the related node via its `To`property, and the strength of the relationship. In the case of our Stack Overflow graph the strength indicates the number of questions that share both tags.
 
@@ -121,13 +121,13 @@ Each relationship indicates the name of the related node via its `To`property, a
 
 So as a starting point we define a custom control that exposes a `Data`property of type `INodeList`:
 
-```csharp
+~~~csharp
 [SnippetDependencyProperty(property = "Data", defaultValue = "null",
                             type = "INodeList", containerType = "RelationshipGraph")]
 public partial class RelationshipGraph : Control
 {
 }
-```
+~~~
 
 ## A Quick Note on Code Generation
 
@@ -136,7 +136,7 @@ If you are developing a control with the intention that it will be highly flexib
 A little while back I wrote a code project article about
 [the automation of code snippets via the built-in Visual Studio T4 templates](http://www.codeproject.com/Articles/184031/Declarative-Codesnippet-Automation-with-T4-Templat). Given the following code snippet:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8" ?>
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
@@ -211,11 +211,11 @@ A little while back I wrote a code project article about
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>
-```
+~~~
 
 The T4 templates generate a corresponding attribute:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Defines a DependencyProperty
 /// </summary>
@@ -249,21 +249,21 @@ public class SnippetDependencyProperty  : Attribute
     public string defaultValue = "null";
 
 }
-```
+~~~
 
 If you apply this attribute to a class, and mark it as partial:
 
-```csharp
+~~~csharp
 [SnippetDependencyProperty(property = "Data", defaultValue = "null",
                             type = "INodeList", containerType = "RelationshipGraph")]
 public partial class RelationshipGraph : Control
 {
 }
-```
+~~~
 
 The T4 templates will generate the dependency property code snippet in a corresponding partial class, using the values you supply to the attribute:
 
-```csharp
+~~~csharp
 public partial class RelationshipGraph
 {
 
@@ -294,7 +294,7 @@ public partial class RelationshipGraph
       control.OnDataPropertyChanged(e);
   }
 }
-```
+~~~
 
 This project uses various code snippets for automating dependency properties and CLR property that raise change notifications.
 You can see the T4 templates that perform this code generation in the `CodeGen`folder, the snippets plus their generated attributes
@@ -332,7 +332,7 @@ The node segment is described by a number of properties as illustrated in the di
 Using the code generation technique described earlier, these properties are added to our
 `NodeSegment` custom control:
 
-```csharp
+~~~csharp
 [SnippetDependencyProperty(property = "StartAngle", defaultValue = "0.0",
                             type = "double", containerType = "NodeSegment")]
 [SnippetDependencyProperty(property = "SweepAngle", defaultValue = "0.0",
@@ -347,13 +347,13 @@ public partial class NodeSegment : Control, INotifyPropertyChanged
 {
 
 }
-```
+~~~
 
 It is relatively easy to create a path that produces our desired shape using a couple of arcs and connecting lines. We can construct
 a `Path` and add it to the template of our `NodeSegment` control, binding these properties to the various figures
 and segments that describe our segment:
 
-```xml
+~~~xml
 <Style TargetType="local:NodeSegment">
   <Setter Property="Template">
     <Setter.Value>
@@ -381,7 +381,7 @@ and segments that describe our segment:
     </Setter.Value>
   </Setter>
 </Style>
-```
+~~~
 
 The problem is … what properties do we bind to? The interface of the `NodeSegment`control is expressed
 in terms of a centre point, radii and angles, i.e. a polar coordinate system. Whereas, the
@@ -401,7 +401,7 @@ pattern](http://www.scottlogic.co.uk/blog/colin/2009/08/the-mini-viewmodel-patte
 `NodeSegment` user control exposes a number of CLR properties, again,
 these properties and the implementation of `INotifyPropertyChanged` itself, are generated via code-snippet automation:
 
-```csharp
+~~~csharp
 [SnippetINotifyPropertyChanged]
 [SnippetPropertyINPC(property = "S1", field = "_s1",
                     type = "Point", defaultValue = "EMPTY_POINT")]
@@ -423,13 +423,13 @@ public partial class NodeSegmentViewModel : INotifyPropertyChanged
 
   private static readonly Size EMPTY_SIZE = new Size();
 }
-```
+~~~
 
 Within the `NodeSegment` control we create an instance of this view model and expose it via a property. The
 `DataContext` of the root element of
 the `NodeSegment` is also set to itself:
 
-```csharp
+~~~csharp
 public partial class NodeSegment : Control, INotifyPropertyChanged
 {
   private NodeSegmentViewModel _viewmodel = new NodeSegmentViewModel();
@@ -479,7 +479,7 @@ public partial class NodeSegment : Control, INotifyPropertyChanged
     UpdateViewModel();
   }
 }
-```
+~~~
 
 The `UpdateViewModel` method makes extensive use of a simple utility function for converting from radial coordinates to cartesian.
 Whenever any of the dependency properties of `NodeSegment` change, we simply invoke
@@ -487,7 +487,7 @@ Whenever any of the dependency properties of `NodeSegment` change, we simply inv
 
 With this view model in place, we are now able to bind the `Path` that sits within the control’s template:
 
-```xml
+~~~xml
 <Style TargetType="local:NodeSegment">
   <Setter Property="Template">
     <Setter.Value>
@@ -519,7 +519,7 @@ With this view model in place, we are now able to bind the `Path` that sits with
     </Setter.Value>
   </Setter>
 </Style>
-```
+~~~
 
 Note that the `DataContext` of the path is bound to the exposed
 `ViewModel` property. This simplifies the bindings of the child elements, for example
@@ -527,13 +527,13 @@ Note that the `DataContext` of the path is bound to the exposed
 
 With the above code in place, we can now use the `NodeSegment` from code-behind or XAML just like any other shape:
 
-```xml
+~~~xml
 <local:NodeSegment InnerRadius="200" OuterRadius="250"
                     StartAngle="35" SweepAngle="45"
                     Center="100,80"
                     Background="Blue"
                     Stroke="Black" StrokeThickness="5"/>
-```
+~~~
 
 ## Generating the NodeSegments
 
@@ -541,7 +541,7 @@ Now that we have the first of our two shapes we can start assembling the graph. 
 `RelationshipGraph` simply contains a `Grid` which
 we populate dynamically with the segments:
 
-```xml
+~~~xml
 <Style TargetType="local:RelationshipGraph">
   <Setter Property="Template">
     <Setter.Value>
@@ -556,12 +556,12 @@ we populate dynamically with the segments:
     </Setter.Value>
   </Setter>
 </Style>
-```
+~~~
 
 In order to render our data, firstly a few properties are added to the `RelationshipGraph`that express the various radii as a factor of the graph height / width.
 Then a `Render` method is invoked which simply iterates over the supplied data and adds a node segment of the required angle and sweep angle:
 
-```csharp
+~~~csharp
 [SnippetDependencyProperty(property = "InnerRadius", defaultValue = "0.7",
                             type = "double", containerType = "RelationshipGraph")]
 [SnippetDependencyProperty(property = "OuterRadius", defaultValue = "0.8",
@@ -624,22 +624,22 @@ public partial class RelationshipGraph : Control
     }
   }
 }
-```
+~~~
 
 With the above code in place, we simply create an instance of this control in XAML:
 
-```xml
+~~~xml
 <UserControl x:Class="CircularRelationshipGraph.MainPage"
     ...>
   <Grid x:Name="LayoutRoot" Background="White">
     <local:RelationshipGraph x:Name="graph" />
   </Grid>
 </UserControl>
-```
+~~~
 
 And feed in some data in XML format, via a Linq-to-XML:
 
-```csharp
+~~~csharp
 var doc = XDocument.Parse(_xml);
 var data = doc.Descendants("tag")
             .Select(el => new Node()
@@ -655,11 +655,11 @@ var data = doc.Descendants("tag")
             }).Cast<INode>();
 
 graph.Data = new NodeList(data);
-```
+~~~
 
 In this case, the data is in an XML format which I created using a simple console application that queries the latest 1000 Stack Overflow questions:
 
-```xml
+~~~xml
  <tags>
   <tag name='android' count='107'>
     <rel name='java' count='34' />
@@ -694,7 +694,7 @@ In this case, the data is in an XML format which I created using a simple consol
   </tag>
   ...
 </tags>
-```
+~~~
 
 With the above code in place, the graph is starting to take shape …
 
@@ -716,7 +716,7 @@ Again, the mini-ViewModel is used to expose the required co-ordinates to the
 `TextBlock` that renders the label. The complete XAML for the
 `NodeSegment` is shown below:
 
-```xml
+~~~xml
 <Style TargetType="local:NodeSegment">
   <Setter Property="Canvas.ZIndex" Value="100"/>
   <Setter Property="Template">
@@ -797,7 +797,7 @@ Again, the mini-ViewModel is used to expose the required co-ordinates to the
     </Setter.Value>
   </Setter>
 </Style>
-```
+~~~
 
 There are a few interesting new features here – the `TextBlock` that is used to label each segment is positioned, as expected, via various render transforms
 and attached `Canvas` properties that are bound to the view model. The
@@ -818,14 +818,14 @@ into a color value (You could also use a more complex interpolator, that allows 
 With a `SegmentFillInterpolator` dependency property added to the graph, and a simple bit of code added to convert connector count to a color,
 we can now specify a colour range as follows:
 
-```xml
+~~~xml
 <local:RelationshipGraph x:Name="graph" FontSize="10"
                           LabelRadius="0.73" OuterRadius="0.7" InnerRadius="0.6">
   <local:RelationshipGraph.SegmentFillInterpolator>
     <datavis:SolidColorBrushInterpolator From="Blue" To="Orange"/>
   </local:RelationshipGraph.SegmentFillInterpolator>
 </local:RelationshipGraph>
-```
+~~~
 
 Which results in the following graph:
 
@@ -846,7 +846,7 @@ The `From` and `To` locations are the contact points with the segments, whereas 
 
 The connection is simply an `ArcSegment`:
 
-```xml
+~~~xml
 <Style TargetType="local:NodeConnection">
   <Setter Property="Template">
     <Setter.Value>
@@ -890,7 +890,7 @@ The connection is simply an `ArcSegment`:
     </Setter.Value>
   </Setter>
 </Style>
-```
+~~~
 
 Again, a highlighted visual state is applied.
 
@@ -900,7 +900,7 @@ of the graph need to be straight, whereas those between neighbouring segments sh
 which tends to infinity at `PI / 2`, to the angle between the `To`and `From` points as described by a circle centred on `Via`.
 The code which updates the view model is shown below:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Gets the angle between the point from and to on a circle with
 /// the given center. The returned value is in the range -360 to 360.
@@ -926,11 +926,11 @@ private void UpdateViewModel()
   _viewModel.Size = new Size(func, func);
   _viewModel.SweepDirection = Math.Abs(angle) < 180 ? SweepDirection.Counterclockwise : SweepDirection.Clockwise;
 }
-```
+~~~
 
 The `Render` code for the `RelationshipGraph` is then extended to render the connections after the segments have been constructed:
 
-```csharp
+~~~csharp
 double maxRelation = Data.SelectMany(d => d.Relationships).Max(d => d.Strength);
 double minRelation = Data.SelectMany(d => d.Relationships).Min(d => d.Strength);
 
@@ -985,7 +985,7 @@ foreach (INode fromNode in sortedData)
     _graphContainer.Children.Add(conn);
   }
 }
-```
+~~~
 
 Most of the above code is pretty straightforward, when the segments are produced they are added to the `_segmentForNode` dictionary so that we can rapidly map
 from node to segment. Also, I have added another interpolator for the connector colour and a double-range that is used to determine the connector thickness.
@@ -1012,7 +1012,7 @@ In order to animate changes in sort order, I need to make the process of applyin
 
 In order to support an atomic sort, I have introduced the following interface:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Takes a list of nodes and sorts them.
 /// </summary>
@@ -1020,14 +1020,14 @@ public interface ISortOrderProvider
 {
   INodeList Sort(INodeList nodes);
 }
-```
+~~~
 
 With the relationship graph accepting an instance of `ISortOrderProvider`via a dependency property. Before the segments and connections are rendered,
 this provider is used to sort the supplied list of nodes.
 
 A trivial implementation of this interface is shown below:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A sort order provider that doesn't actually perform any sorting.
 /// </summary>
@@ -1038,11 +1038,11 @@ public class NaturalSortOrderProvider : ISortOrderProvider
     return nodes;
   }
 }
-```
+~~~
 
 This doesn’t actually sort the data at all, and is the default behaviour. I have also created a more generic provider that sorts via a delegate, as shown below:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A sort provider that orders the nodes via the given delegate
 /// </summary>
@@ -1060,19 +1060,19 @@ public class DelegateSortOrderProvider : ISortOrderProvider
     return new NodeList(_func(nodes));
   }
 }
-```
+~~~
 
 With this approach, you can cause the graph to sort by node count as follows:
 
-```csharp
+~~~csharp
 graph.SortOrderProvider = new DelegateSortOrderProvider(nodes =>
                                  nodes.OrderBy(node => node.Count));
-```
+~~~
 
 Rather than re-rendering the graph when the `SortOrderProvider` property changes, the pieces are animated to their new location.
 The partial method that is invoked when the dependency property changes invokes a method which performs the animation:
 
-```csharp
+~~~csharp
 partial void OnSortOrderProviderPropertyChanged(DependencyPropertyChangedEventArgs e)
 {
   var sortedData = SortOrderProvider.Sort(Data);
@@ -1123,7 +1123,7 @@ private static DoubleAnimation CreateDoubleAnimation(double from, double to, IEa
   Storyboard.SetTargetProperty(db, new PropertyPath(propertyPath));
   return db;
 }
-```
+~~~
 
 It is quite neat how the way that because the `To` / `From` property of connectors are bound to the
 `ConnectorPoint` properties of their respective
@@ -1153,7 +1153,7 @@ You can view an [interactive version of this graph on my blog](http://www.scottl
 
 This example has the various debts owed between countries stored in an XML file:
 
-```xml
+~~~xml
 <debt>
   <country name='France' debt='4200' text='Europes second biggest economy owes the UK, the US and Germany ...'>
     <owes name='Italy' amount='37.6'/>
@@ -1181,7 +1181,7 @@ This example has the various debts owed between countries stored in an XML file:
   </country>
   ...
 </debt>
-```
+~~~
 
 A very similar piece of Linq-to-XML is used to parse this data in order to construct nodes and relationships.
 The one thing to note here is that the ‘text’ attribute is used to populate a
@@ -1192,7 +1192,7 @@ The XAML for this example, includes a right-hand column which displays this text
 `HighlightedNode` property which
 the graph exposes, then binding to the node `Name` and `Tag`:
 
-```xml
+~~~xml
 <Grid x:Name="LayoutRoot"
       Background="White">
   <Grid Margin="15">
@@ -1241,7 +1241,7 @@ the graph exposes, then binding to the node `Name` and `Tag`:
     </Grid>
   </Grid>
 </Grid>
-```
+~~~
 
 In other words, no code-behind is required to produce the interactivity. This makes me happy!
 

@@ -52,9 +52,9 @@ the most basic task of creating objects.
 I know what you are thinking; creating objects in JavaScript
 is a trivial task. Here you go:
 
-```jscript
+~~~jscript
 var myObject = {};
-```
+~~~
 
 How can you write an entire article on the subject?
 
@@ -73,30 +73,30 @@ Objects are dynamic in that you can add and remove
 properties after they have been created. The code below creates an 'empty'
 object then adds a couple of properties:
 
-```jscript
+~~~jscript
 var shape = {};
 shape.color = 'red';
 shape.borderThickness = '2.0';
-```
+~~~
 
 You could achieve the same result using the slightly more
 convenient object initializer:
 
-```jscript
+~~~jscript
 var shape = {
     color : 'red',
     borderThickness : '2.0'
 }
-```
+~~~
 
 Both forms result in exactly the same object.
 
 There is a third form, where you use the `Object` constructor
 function:
 
-```jscript
+~~~jscript
 var shape = new Object();
-```
+~~~
 
 Which is again equivalent to the other two forms shown
 above, but we'll ignore that one for now!
@@ -168,7 +168,7 @@ Before diving into constructor functions, which solve this
 little problem, we should make the example a little more realistic by adding a function
 to this object:
 
-```jscript
+~~~jscript
 var shape = {
     color : 'red',
     borderThickness : '2.0',
@@ -177,7 +177,7 @@ var shape = {
            this.borderThickness + " thick");
     }
 }
-```
+~~~
 
 This adds a function to the shape object (i.e., a
 method). If you inspect it via the console, you can see that `describe` is a
@@ -192,19 +192,19 @@ of constructor functions comes in handy.
 We'll start by creating a constructor function that creates
 an object with the color and `borderThickness` properties:
 
-```jscript
+~~~jscript
 function Shape(color, borderThickness) {
     this.color = color;
     this.borderThickness = borderThickness;
 }
-```
+~~~
 
 You use a constructor function to create an object by
 invoking it with the `new` keyword:
 
-```jscript
+~~~jscript
 var shape = new Shape('red', 2.0);
-```
+~~~
 
 Again you can use your JavaScript debugging tools to inspect
 the nature of the object that this constructor function creates:
@@ -226,7 +226,7 @@ object within the constructor function, however, this creation pattern provides
 a much more powerful alternative. You can add methods to the prototype property
 of the constructor function as follows:
 
-```jscript
+~~~jscript
 function Shape(color, borderThickness) {
     this.color = color;
     this.borderThickness = borderThickness;
@@ -236,7 +236,7 @@ Shape.prototype.describe = function() {
     console.log("I am a " + this.color + " shape, with a border that is " +
         this.borderThickness + " thick");
 };
-```
+~~~
 
 If you create a shape instance then inspect it, you will
 find the following:
@@ -281,13 +281,13 @@ So what's happened here? Because the `Shape` constructor function lacks an expli
 
 Well, that's easily fixed:
 
-```jscript
+~~~jscript
 function Shape(color, borderThickness) {
     this.color = color;
     this.borderThickness = borderThickness;
     return this;
 }
-```
+~~~
 
 When invoked as a constructor via the new keyword this will work just as before. But what about if we omit the
 `new` keyword again?
@@ -318,19 +318,19 @@ One important feature of any type system is the ability to ask an object what ty
 
 With the shape object you should find that the following are both true:
 
-```jscript
+~~~jscript
 shape.__proto__ == Shape.prototype
 shape.__proto__.__proto__ == Object.prototype
-```
+~~~
 
 And because the prototype reference of an object is immutable it is safe to assume that the above will always be true.
 Rather than manually navigating the prototype chain, JavaScript provides an
 `instanceof` keyword that performs this check for you. You should also find that the following statements are true for our shape:
 
-```jscript
+~~~jscript
 shape instanceof Shape;
 shape instanceof Object;
-```
+~~~
 
 The `instanceof` keyword navigates the prototype chain, returning true if anywhere in the chain is the object pointed to by the given constructor function's `prototype` property.
 
@@ -338,7 +338,7 @@ From the previous section recall that the first thing the new keyword does is co
 `instanceof` check for this should return true. We can use this knowledge to protect against the use of the constructor function without the
 `new` keyword as follows:
 
-```jscript
+~~~jscript
  function Shape(color, borderThickness) {
     if (!(this instanceof Shape)) {
         return new Shape(color, borderThickness);
@@ -346,7 +346,7 @@ From the previous section recall that the first thing the new keyword does is co
     this.color = color;
     this.borderThickness = borderThickness;
 }
-```
+~~~
 
 The above code checks whether this is bound to a `Shape` instance, and if not invokes the constructor using the
 `new` keyword, with an explicit return.
@@ -425,9 +425,9 @@ So what's the practical use of this property?
 
 In our example, because `Shape.prototype` becomes the prototype for all shape instances, they all automatically inherit this constructor property, giving them a reference back to the constructor function.You can confirm this as follows:
 
-```jscript
+~~~jscript
 shape.constructor == Shape
-```
+~~~
 
 You could use this property as a way of creating new objects. For example, the following creates a new string instance via the constructor property:
 
@@ -449,7 +449,7 @@ Now that we have well and truly dissected how objects are created, it is time to
 
 It is very common to want to invoke a method on an object in response to a DOM event. So let's give that a try …
 
-```jscript
+~~~jscript
 // create a shape
 var shape = new Shape('red', 2.0);
 
@@ -458,19 +458,19 @@ shape.describe();
 
 // wire this method up to a DOM event handler
 $('#foo').click(shape.describe);
-```
+~~~
 
 When the above code runs and the `shape.describe` method is invoked, the console output is as expected:
 
-```
+~~~
 I am a red shape, with a border that is 2 thick
-```
+~~~
 
 However, when you click the 'foo' DOM element, the result isn't what you might expect:
 
-```
+~~~
 I am a undefined shape, with a border that is undefined thick
-```
+~~~
 
 This sucks!
 
@@ -478,15 +478,15 @@ You might already know how to solve this problem, by use of the `bind`function, 
 
 If you simply wrap the invocation in a function as follows:
 
-```jscript
+~~~jscript
 $('#foo').click(function() { shape.describe(); });
-```
+~~~
 
 You will find that it now works:
 
-```
+~~~
 I am a red shape, with a border that is 2 thick
-```
+~~~
 
 Confused? I must admit, I was the first time I encountered this!
 
@@ -501,15 +501,15 @@ Without wishing to go into too much detail, the important thing to note here is 
 
 So why does this fail:
 
-```jscript
+~~~jscript
 $('#foo').click(shape.describe);
-```
+~~~
 
 But this works?
 
-```jscript
+~~~jscript
 $('#foo').click(function() { shape.describe(); });
-```
+~~~
 
 In the first example, `shape.describe` simply passes a reference to the
 `describe` function. The click event invokes this function directly, rather than invoking it via
@@ -528,7 +528,7 @@ As you can see, this has the same effect. Executing the detached function does n
 
 It is worth pointing out that this is nothing to do with our use of a constructor function. You would observe exactly the same behaviour with a shape created via an initializer:
 
-```jscript
+~~~jscript
 var shape = {
     color : 'red',
     borderThickness : '2.0',
@@ -537,14 +537,14 @@ var shape = {
             this.borderThickness + " thick");
     }
 }
-```
+~~~
 
 A pretty standard solution to this problem is to use the `bind` function, which as you will have seen earlier is on
 `Function.prototype`, so is inherited by all functions. The bind method returns a function that when called has this bound to a given value. In our case we want this to be our shape, so can bind as follows:
 
-```jscript
+~~~jscript
 $('#foo').click(shape.describe.bind(shape));
-```
+~~~
 
 Personally I really dislike this.
 
@@ -553,7 +553,7 @@ Personally I really dislike this.
 (and no, not those private parts)
 The final thing I want to discuss regarding JavaScript objects is private properties and functions. One of the key tenants of object oriented programming is the ability of objects to hide state and logic in order to exposure a simple interface. Most object oriented languages have access modifiers which allow you to make methods, properties or variables private (or protected). JavaScript does not have a first-class language feature that supports information hiding in the context of object creation.So how do we create private state with JavaScript? Continuing the 'shape' example, if you wish to access some private state from within the describe function, the only option available to you is to use a pseudo-private variable:
 
-```jscript
+~~~jscript
 function Shape(color, borderThickness) {
     this.color = color;
     this.borderThickness = borderThickness;
@@ -564,7 +564,7 @@ Shape.prototype.describe = function() {
     console.log("I am a " + this.color + " shape, with a border that is " +
         this.borderThickness + " thick. I have told you this " + this._describeCount++ + " times.");
 };
-```
+~~~
 
 Do you see the private `describeCount` variable in the code above? No? Of course not. The code cunningly relies on the fact that as a developer you have a blind spot for variables prefixed with an underscore.
 
@@ -579,7 +579,7 @@ So far I have focused on prototypical inheritance and constructor functions, whi
 The current `Shape` constructor function adds the color and
 `borderThickness` properties to the newly constructed object. There is nothing stopping you adding the describe function directly to the object within the constructor as follows:
 
-```jscript
+~~~jscript
 function Shape(color, borderThickness) {
     this.color = color;
     this.borderThickness = borderThickness;
@@ -589,7 +589,7 @@ function Shape(color, borderThickness) {
             this.borderThickness + " thick");
     }
 }
-```
+~~~
 
 So what difference does this make? Any newly constructed `Shape` instance will have a
 `describe` method, however it will be a method directly on the object itself rather than one it inherits via the prototype.
@@ -600,7 +600,7 @@ So what advantage does this pattern give us?
 
 One major advantage that this pattern provides is information hiding. The example shown above, where the describe function records the number of times it has been invoked, can be implemented as follows:
 
-```jscript
+~~~jscript
 function Shape(color, borderThickness) {
     var describeCount = 0;
 
@@ -612,7 +612,7 @@ function Shape(color, borderThickness) {
             this.borderThickness + " thick - ", describeCount++);
     }
 }
-```
+~~~
 
 The `describeCount` variable is visible to the describe function after the constructor function has returned due to a concept called 'closures'. If you create a shape instance via the function above and inspect the result via your JavaScript developer tools, you will find no mention of
 `describeCount`. It is well and truly hidden.
@@ -620,7 +620,7 @@ The `describeCount` variable is visible to the describe function after the const
 Closures can also be used to solve another nasty little problem with JavaScript objects –
 `this` binding. Recall that previously I demonstrated how you have to take care when wiring a method invocation to a DOM event handler. With the creation pattern above you can 'store' the reference to the object being created within the same closure, as shown below:
 
-```jscript
+~~~jscript
 function Shape(color, borderThickness) {
     var describeCount = 0,
         self = this;
@@ -633,7 +633,7 @@ function Shape(color, borderThickness) {
             self.borderThickness + " thick. I have told you this " + describeCount++ + " times.");
     }
 }
-```
+~~~
 
 The describe function, when invoked, will always have the correct reference to the owning object via the self variable - another advantage over the 'prototype' style of object creation. The only slightly less attractive feature of this pattern is that you need to remember to substitute self for this in any publicly exposed function.
 
@@ -645,7 +645,7 @@ Both the forms of object creation I have written about, prototypes vs. closures,
 
 Finally, one of my colleagues recently introduced me to a slight variation on the closures pattern:
 
-```jscript
+~~~jscript
 function Shape(color, borderThickness) {
     var describeCount = 0,
         instance = {};
@@ -660,7 +660,7 @@ function Shape(color, borderThickness) {
 
     return instance;
 }
-```
+~~~
 
 So what is going on in the above code? A new object 'instance' is created within the constructor function, and the properties / methods are added to this object which
 is then returned. This pattern still benefits from the use of closures to provide private state, however you no longer have to substitute self for this (which is easy to forget),

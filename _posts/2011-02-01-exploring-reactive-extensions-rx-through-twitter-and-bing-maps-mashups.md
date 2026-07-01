@@ -47,7 +47,7 @@ Once downloaded and installed, add references to `System.Reactive`, `System.Obse
 
 Probably the easiest way to gain a quick understanding of Rx is to compare it with Linq. The following example shows some simple logic that finds all the odd numbers in a short sequence:
 
-```csharp
+~~~csharp
 List<int> numbers = new List<int>()
 {
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10
@@ -60,31 +60,31 @@ foreach (int number in numbers)
     Debug.WriteLine(number);
   }
 }
-```
+~~~
 
 Running the above code produces the following output:
 
-```
+~~~
 1
 3
 5
 7
 9
-```
+~~~
 
 We can re-write this simple algorithm using the Linq `Where` operator as follows:
 
-```csharp
+~~~csharp
 var oddNumbers = numbers.Where(n => n % 2 == 1);
 foreach (int number in oddNumbers)
 {
   Debug.WriteLine(number);
 }
-```
+~~~
 
 The Linq version of our code to find the odd numbers produces the same result as the ‘manual’ approach, however, the way in which it is executed is quite different. The Linq query is constructed by applying the `Where` operator to our source data, however, at this point the condition is not evaluated on the source. If we expand the `foreach` loop, we can see that it uses an enumerator which is obtained from the result for our query.
 
-```csharp
+~~~csharp
 IEnumerable<int> oddNumbers = numbers.Where(n => n % 2 == 1);
 
 IEnumerator<int> enumerator = oddNumbers.GetEnumerator();
@@ -92,7 +92,7 @@ while (enumerator.MoveNext())
 {
   Debug.WriteLine((int)enumerator.Current);
 }
-```
+~~~
 
 (**NOTE**: The expansion actually adds a `try` / `finally` block, see the [C# language reference](http://msdn.microsoft.com/en-us/library/aa664754%28VS.71%29.aspx))  
   
@@ -102,7 +102,7 @@ Each call to the `MoveNext` method on the enumerator is ‘pulling’ data from 
 
 We can achieve exactly the same result, creating a list of odd numbers, using the Rx library as follows:
 
-```csharp
+~~~csharp
 List<int> numbers = new List<int>()
 {
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10
@@ -111,7 +111,7 @@ List<int> numbers = new List<int>()
 var observableNumbers = numbers.ToObservable();
 var oddNumbers = observableNumbers.Where(n => n % 2 == 1);
 oddNumbers.Subscribe(number => Debug.WriteLine(number));
-```
+~~~
 
 Again, the output of the above code is exactly the same as the Linq equivalent. The `ToObservable` extension method returns an `IObservable` which is the Rx analogue of the `IEnumerable` interface in that it is a source of items. The Rx library defines many Linq-like extension methods for manipulating `IObservable` sources of data, if you explore the above code via Intellisense, you will find many familiar methods (`Where`, `Select`, `Max`, `SelectMany` ...).
 
@@ -129,18 +129,18 @@ The above trivial example was selected in order to highlight the similarities be
 
 You can create an observable source from an even via the `FromEvent` factory method where you supply the event source (in our case a `TextBox`) and the name of the event. When you subscribe to this source, your code is executed each time the event is fired.
 
-```csharp
+~~~csharp
 // create an observable source from a TextChanged event
 var textChangedSource = Observable.FromEvent<TextChangedEventArgs>
 	(searchTextBox, "TextChanged");
 
 // subscribe to this source
 textChangedSource.Subscribe(e => Debug.WriteLine(((TextBox)e.Sender).Text));
-```
+~~~
 
 Typing in the text ‘reactive’ yields the following output:
 
-```
+~~~
 r
 re
 rea
@@ -149,13 +149,13 @@ react
 reacti
 reactiv
 reactive
-```
+~~~
 
 *NOTE: If the hard-coded event string in the above example offends, there is a slightly more cumbersome FromEvent overload which allows you to specify add and remove handler actions explicitly.*  
   
 Whilst the above example is not terribly exciting, now that we have the event packaged as an observable, we can perform Linq-style queries. In the following example, a `Select` projection operator is used to create an observable which contains just the text of the `TextBox`. This is then transformed via a second `Select` to create an observable which provides length changed ‘events’.
 
-```csharp
+~~~csharp
 // create an observable source from a TextChanged event
 var textChanged = Observable.FromEvent<TextChangedEventArgs>
 	(searchTextBox, "TextChanged")
@@ -167,11 +167,11 @@ var textLengthChanged = textChanged.Select(txt => txt.Length);
 // subscribe to these two sources
 textLengthChanged.Subscribe(len => Debug.WriteLine("Length: " + len.ToString()));
 textChanged.Subscribe(txt => Debug.WriteLine("Text: " + txt));
-```
+~~~
 
 Again, typing reactive gives the following output:
 
-```
+~~~
 Length: 1
 Text: r
 Length: 2
@@ -188,13 +188,13 @@ Length: 7
 Text: reactiv
 Length: 8
 Text: reactive
-```
+~~~
 
 ### The Über Rx Example
 
 With Rx, it is possible to perform quite powerful logic based on events in a concise manner. If you paste the following code into a new Silverlight project, it gives a simple drawing application:
 
-```csharp
+~~~csharp
 // transform the mouse move event into an observable source of screen coordinates
 var mouseMoveEvent = Observable.FromEvent<MouseEventArgs>(this, "MouseMove")
                                 .Select(e => e.EventArgs.GetPosition(this));
@@ -230,7 +230,7 @@ draggingEvents.Subscribe(
       line.Y2 = p.Y2;
       this.LayoutRoot.Children.Add(line);
     });
-```
+~~~
 
 ![rxRox.png]({{ site.baseurl }}/ceberhardt/assets/codeproject/rxRox.png)
 
@@ -246,17 +246,17 @@ This first example application provides a [Google Instant](http://www.google.co.
 
 We’ll start off with a new Silverlight project and add a `TextBox` to *MainPage.xaml*:
 
-```xml
+~~~xml
 <UserControl x:Class="TwitterRx.MainPage" ...>
   <Grid x:Name="LayoutRoot" Background="White">
     <TextBox x:Name="searchTextBox"/>
   </Grid>
 </UserControl>
-```
+~~~
 
 In the constructor for `MainPage`, we can then use Rx to create an observable source from the `TextChanged` events:
 
-```csharp
+~~~csharp
 Observable.FromEvent<TextChangedEventArgs>(searchTextBox, "TextChanged")
           .Select(e => ((TextBox)e.Sender).Text)			// #1
           .Where(text => text.Length > 2)				// #2
@@ -268,7 +268,7 @@ private void Log(string text)
 {
   Debug.WriteLine("[" + Thread.CurrentThread.ManagedThreadId + "] " + text);
 }
-```
+~~~
 
 The above Rx query does a few things:
 
@@ -280,7 +280,7 @@ The above Rx query does a few things:
 
 If I type “reactive library” with a small pause between words, the output looks like this:
 
-```
+~~~
 [1] TextChanged: rea
 [1] TextChanged: reac
 [1] TextChanged: react
@@ -297,7 +297,7 @@ If I type “reactive library” with a small pause between words, the output lo
 [1] TextChanged: reactive librar
 [1] TextChanged: reactive library
 [5] Throttle TextChanged: reactive library
-```
+~~~
 
 The output is as expected; however, if you look at the numbers in brackets, which output the managed thread ID, something a little surprising is going on here. The logging at step #3 is on thread #1, which is the UI thread, however, the logging at step #5 is on thread #5. The Throttle step requires the use of a timer, so in order to free up the UI thread, the Rx library has marshalled our observations onto a threadpool thread.  
   
@@ -305,7 +305,7 @@ It is great that Rx handles switching between threads for us, however Silverligh
   
 Adding a `ListBox` to our application, we can then output the text which we would like to search Twitter for by adding it to a collection bound to the `ListBox`:
 
-```csharp
+~~~csharp
 var textToSearch = new ObservableCollection<string>();
 searchResults.ItemsSource = textToSearch;
 
@@ -315,7 +315,7 @@ Observable.FromEvent<TextChangedEventArgs>(searchTextBox, "TextChanged")
           .Throttle(TimeSpan.FromMilliseconds(400))
           .ObserveOnDispatcher()
           .Subscribe(txt => textToSearch.Add(txt));
-```
+~~~
 
 ## ![twitterInstant.png]({{ site.baseurl }}/ceberhardt/assets/codeproject/twitterInstant.png)
 
@@ -329,7 +329,7 @@ With `HttpWebRequest`, you invoke `BeginGetResponse` supplying the callback meth
   
 The following code snippet shows how to query the twitter search API and read the result into a `string`:
 
-```csharp
+~~~csharp
 public MainPage()
 {
   InitializeComponent();
@@ -354,18 +354,18 @@ private string WebResponseToString(WebResponse webResponse)
     return reader.ReadToEnd();
   }
 }
-```
+~~~
 
 With Rx, the `FromAsyncPattern` method can be used to create a function (i.e. an anonymous delegate) which when invoked supplies an observable source which performs the web request. Subscribing to this source will give the response. The Rx equivalent to the above is as follows:
 
-```csharp
+~~~csharp
 var request = HttpWebRequest.Create(new Uri
 	("http://search.twitter.com/search.atom?q=twitter"));
 var twitterSearch = Observable.FromAsyncPattern<WebResponse>
 	(request.BeginGetResponse, request.EndGetResponse);
 twitterSearch().Select(webResponse => WebResponseToString(webResponse))
                .Subscribe(responseString => Debug.WriteLine(responseString));
-```
+~~~
 
 You should be able to use the above pattern for any classes that follow the `IAsyncResult` pattern, for example Visual Studio generated web service client proxies.
 
@@ -373,7 +373,7 @@ You should be able to use the above pattern for any classes that follow the `IAs
 
 The problem with the above `twitterSearch` function is that it will always perform the same search. We can fix that by creating a delegate that takes the search term as an input argument using one of the generically typed `Func` delegates:
 
-```csharp
+~~~csharp
 private string _twitterUrl = "http://search.twitter.com/search.atom?rpp=20&since_id=0&q=";
 
 Func<string, IObservable<string>> searchTwitter = searchText =>
@@ -383,11 +383,11 @@ Func<string, IObservable<string>> searchTwitter = searchText =>
 		(request.BeginGetResponse, request.EndGetResponse);
   return twitterSearch().Select(res => WebResponseToString(res));
 };
-```
+~~~
 
 We can now combine this function with our event handling logic search Twitter:
 
-```csharp
+~~~csharp
 Observable.FromEvent<TextChangedEventArgs>(searchTextBox, "TextChanged")
           .Select(e => ((TextBox)e.Sender).Text)
           .Where(text => text.Length > 2)
@@ -396,11 +396,11 @@ Observable.FromEvent<TextChangedEventArgs>(searchTextBox, "TextChanged")
           .Select(searchRes => ParseTwitterSearch(searchRes))
           .ObserveOnDispatcher()
           .Subscribe(tweets => searchResults.ItemsSource = tweets);
-```
+~~~
 
 The `SelectMany` operator is used to bind the input text to a new observable source that performs our twitter search. The `ParseTwitterSearch` method takes the resultant response string and uses a simple bit of Linq to XML to create a `IEnumerable` of `Tweet` objects.
 
-```csharp
+~~~csharp
 private IEnumerable<Tweet> ParseTwitterSearch(string response)
 {
   var doc = XDocument.Parse(response);
@@ -424,7 +424,7 @@ private string ParseTwitterName(string name)
   int bracketLocation = name.IndexOf("(");
   return name.Substring(0, bracketLocation - 1);
 }
-```
+~~~
 
 The subscription takes this ‘collection’ of `Tweet` objects and sets them as the `ItemsSource` for our search results list box. The `ToString` method on the `Tweet` value object simply returns the `Title`, giving the following result:
 
@@ -438,7 +438,7 @@ Finally, we can jazz up the Twitter Instant application by applying a template t
   
 The Rx query has a few `Do` operators added to update the UI state:
 
-```csharp
+~~~csharp
 Observable.FromEvent<TextChangedEventArgs>(searchTextBox, "TextChanged")
           .Select(e => ((TextBox)e.Sender).Text)
           .Where(text => text.Length > 2)
@@ -455,7 +455,7 @@ Observable.FromEvent<TextChangedEventArgs>(searchTextBox, "TextChanged")
           .Do(s => searchResults.Opacity = 1)                          // return the list
 							       // opacity to one
           .Subscribe(tweets => searchResults.ItemsSource = tweets);
-```
+~~~
 
 ![twitterInstant4.png]({{ site.baseurl }}/ceberhardt/assets/codeproject/twitterInstant4.png)
 
@@ -477,7 +477,7 @@ British people love to talk about the weather, and there is nothing that gets us
 
 In common with the previous example, the uksnow mashup uses an observable pipeline. The first few steps of the pipeline are shown below:
 
-```csharp
+~~~csharp
 Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(30))
           .SelectMany(ticks => searchTwitter("%23uksnow", _lastTweetId))
           .Select(searchResult => ParseTwitterSearch(searchResult))
@@ -485,13 +485,13 @@ Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(30))
           .Do(tweet => AddTweets(tweet))
           .Do(tweets => UpdateLastTweetId(tweets))
           ...
-```
+~~~
 
 This time, the `Observable.Timer` extension method is used to create a ‘tick’ every thirty seconds. A slightly modified version of the `searchTwitter` function we saw in the previous example is used to query Twitter and the results are parsed. The tweets are then pushed onto the UI thread so that can be added to the view, the `AddTweets` method simply adds them to the list on the right of the UI, whilst ensuring that there is a maximum of 100 tweets present.  
   
 The modified `searchTwitter` function takes a `lastId` argument which is used to find all the Tweets since a given Id, so that we just add recent tweets with this hashtag to the list with each 30 second timer tick:
 
-```csharp
+~~~csharp
 private string _twitterUrl = "http://search.twitter.com/search.atom?rpp=100&since_id=";
 
 Func<string, long, IObservable<string>> searchTwitter = (searchText, lastId) =>
@@ -502,11 +502,11 @@ Func<string, long, IObservable<string>> searchTwitter = (searchText, lastId) =>
 		(request.BeginGetResponse, request.EndGetResponse);
     return twitterSearch().Select(res => WebResponseToString(res));
   };
-```
+~~~
 
 The `UpdateLastTweetId` method updates the `_lastTweetId` field:
 
-```csharp
+~~~csharp
 private long _lastTweetId = 0;
 
 /// <summary>
@@ -519,13 +519,13 @@ private void UpdateLastTweetId(IEnumerable<Tweet> tweets)
     _lastTweetId = Math.Max(_lastTweetId, tweets.Max(t => t.Id));
   }
 }
-```
+~~~
 
 Note, because the observable pipeline is updating a field, we have to be careful about potential concurrency issues. In our case, the `ObserveOnDispatcher` operator means that the above code will always be called on the UI thread, however, the second step of our pipeline reads the value of `_lastTweetId` and will not be executed on the UI thread. If the timer ticks were reduced, this code could cause some problems if locking were not introduced.  
   
 Before moving onto the next few pipeline steps, we’ll look at the items being passed along the pipeline:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A tweet!
 /// </summary>
@@ -593,7 +593,7 @@ public class GeoCodedUKSnowTweet : UKSnowTweet
   {
   }
 }
-```
+~~~
 
 The first part of the pipeline creates `Tweet` objects, some of which might contain a postcode and snowfactor, so we are able to create `UKSnowTweets` from them. Finally, if geocoding is successful, we can create a `GeoCodedUKSnowTweet`.
 
@@ -601,7 +601,7 @@ The first part of the pipeline creates `Tweet` objects, some of which might cont
 
 Let’s look at the next steps which complete our pipeline:
 
-```csharp
+~~~csharp
 Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(30))
           .SelectMany(ticks => searchTwitter("%23uksnow", _lastTweetId))
           .Select(searchResult => ParseTwitterSearch(searchResult))
@@ -614,11 +614,11 @@ Observable.Timer(TimeSpan.Zero, TimeSpan.FromSeconds(30))
           .SelectMany(snowTweet => searchBing(snowTweet))
           .ObserveOnDispatcher()
           .Subscribe(geoTweet => AddSnow(geoTweet));
-```
+~~~
 
 After updating the last tweet ID, a `SelectMany` operator is used to project the `IEnumerable<Tweet>` items being passed down the pipeline into individual `Tweet` items, which are then passed to the next pipeline step. The next `SelectMany` uses the `ParseTweetToUKSnow` to match the postcode and snowfactors in the tweet. For example `"Ben_fisher: #uksnow so51 1/10 hoping for a 10 :)"` is a ‘valid’ uksnow tweet. The `SelectMany` has the nice side-effect that if a tweet cannot be parsed, it does not proceed to the next pipeline step. Here is the parsing method:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Parses the given tweet returning a UKSnowTweet if the postcode and snow
 /// regexes match
@@ -636,11 +636,11 @@ private IEnumerable<UKSnowTweet> ParseTweetToUKSnow(Tweet tweet)
     };
   }
 }
-```
+~~~
 
 Following this, the Bing Maps API is used to geocode the postcode, again via a `SelectMany`. Just like our Twitter search, the observable `FromAsynchPattern` is used to build a suitable function:
 
-```csharp
+~~~csharp
 Func<UKSnowTweet, IObservable<GeoCodedUKSnowTweet>> searchBing = tweet =>
 {
   var uri = _geoCodeUrl + tweet.Postcode + "?o=xml&key=" + _mapKey;
@@ -654,13 +654,13 @@ Func<UKSnowTweet, IObservable<GeoCodedUKSnowTweet>> searchBing = tweet =>
       Location= loc
     });
 };
-```
+~~~
 
 A `UKSnowTweet` is passed in, and observable returned, which when subscribed to, returns a `GeoCodedUKSnowTweet` if the geocode is a success. The `ExtractLocationFromBingGeoCode` method is again a simple bit of Linq to XML which parses the XML response.
 
 Finally, we `ObserveOnDispatcher` and subscribe, with the resulting geocoded tweets pushed to our `AddSnow` method. This method adds a snow image as a child of a Bing Maps control, using the `MapLayer` attached properties to add it at the required latitude / longitude.
 
-```csharp
+~~~csharp
 /// <summary>
 /// Adds the given tweet to the map
 /// </summary>
@@ -680,7 +680,7 @@ private void AddSnow(GeoCodedUKSnowTweet geoTweet)
   MapLayer.SetPosition(image, location);
   MapLayer.SetPositionOrigin(image, PositionOrigin.Center);
 }
-```
+~~~
 
 And with that, our mashup is complete ...
 

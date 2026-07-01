@@ -94,7 +94,7 @@ If the application log is the only detailed source of information available to t
 
 Whether an application executes a task successfully or not is often highly dependent on the input from the user. As a result, this contextual information may be vital when trying to diagnose a fault. Unfortunately, these vital last bits of information are often missing. Take, for example, the quintessential software example of an Automated Teller Machine (ATM - or cashpoint). An application log might look like this:
 
-```
+~~~
 2009-06-05 08:15:23 [INFO] User credentials entered
 2009-06-05 08:15:23 [WARN] Incorrect PIN
 2009-06-05 08:15:37 [INFO] User credentials entered
@@ -104,13 +104,13 @@ Whether an application executes a task successfully or not is often highly depen
 Acme.ATM.Integration.ServerException: Unable to connect to bank server
   at Acme.ATM.Integration.WithdrawalService.Connect(): line 23
   ...
-```
+~~~
 
 If we were performing a daily audit of the ATM logs in identifying issues, what does the above log file excerpt tell us? Some user logged on successfully after two attempts, requested a cash withdrawal, however, this request could not be serviced due to a communication error. The logged stack trace gives us the line of code where the exception was thrown; however, this same code may have executed successfully a few thousand times in the same day. Basically, the above tells us very little, it informs us that a problem occurred, but gives us precious little information in order to diagnose and hopefully fix it. The problem could relate to the specific user, a specific bank server, or something else.
 
 The main piece of information missing in the above log is context. If we simply added the credentials of the user, this would probably lead us to a wealth of information, such as their account details, or the bank which they have an account with (could it be this bank's server that is down?). A few simple additional details relating to the context make the world of difference:
 
-```
+~~~
 2009-06-05 08:15:23 [INFO] User credentials entered, Acc=123765987
 2009-06-05 08:15:23 [WARN] Incorrect PIN
 2009-06-05 08:15:37 [INFO] User credentials entered, Acc=123765987
@@ -120,7 +120,7 @@ The main piece of information missing in the above log is context. If we simply 
 Acme.ATM.Integration.ServerException: Unable to connect to bank server
   at Acme.ATM.Integration.WithdrawalService.Connect(): line 23
   ...
-```
+~~~
 
 This time, we know which user, how much was requested, and the address of the server. With this additional information, we now stand a fighting chance of tracking the bug down. Or, even if we are unable to from this log message - a pattern may emerge from future failures, leading us to the fault.
 
@@ -130,21 +130,21 @@ In summary, a log message without context information is often as useful as no l
 
 While we are on the subject of formatting logged messages, it is worth thinking about applying a standard format to your logged messages. This can prove very valuable if you need to analyse large log files (where tools like [grep](http://en.wikipedia.org/wiki/Grep) are indispensible). For example, a log message which includes a username might look like the following:
 
-```
+~~~
 2009-06-05 08:15:37 [INFO] User credentials entered, User=Bob Smith, Acc=123765987
-```
+~~~
 
 However, enclosing the values of the user and account variables makes it much easier to create a Regular Expression, or another form of pattern match, to locate specific values in a large log file:
 
-```
+~~~
 2009-06-05 08:15:37 [INFO] User credentials entered, User={Bob Smith}, Acc={123765987}
-```
+~~~
 
 ### Logging in a concurrent environment
 
 We will continue with our hypothetical ATM example to illustrate our next point. The above example showed the interaction of a single user with a system. Let's assume that our ATM business logic is centralised, with multiple ATM terminals interacting with our software (a client-server, just like a web server, and its remote clients). A log snippet might look like the following:
 
-```
+~~~
 2009-06-05 08:15:23 [INFO] User credentials entered, Acc={123765987}
 2009-06-05 08:15:23 [WARN] Incorrect PIN
 2009-06-05 08:15:37 [INFO] User credentials entered, Acc={567993322}
@@ -153,7 +153,7 @@ We will continue with our hypothetical ATM example to illustrate our next point.
 2009-06-05 08:15:37 [INFO] User credentials validated
 2009-06-05 08:15:23 [WARN] Account locked - reset required
 2009-06-05 08:15:46 [INFO] Cash withdrawal requested, Amount={450.00}
-```
+~~~
 
 In the above example, we now have a situation where there are two ATM users operating concurrently. We can see that there has been a couple of failed login attempts, with one user having their account locked, whereas the other makes a successful withdrawal, but which customer is which?
 
@@ -161,7 +161,7 @@ The problem we have here, again, is lack of context; however, the additional com
 
 Here is the same example as above, with a sequential session ID created at the point the user enters their credentials:
 
-```
+~~~
 2009-06-05 08:15:23 [INFO] User credentials entered, Acc={123765987}, Session={5789}
 2009-06-05 08:15:23 [WARN] Incorrect PIN, Session={5789}
 2009-06-05 08:15:37 [INFO] User credentials entered, Acc={567993322}, Session={5790}
@@ -170,7 +170,7 @@ Here is the same example as above, with a sequential session ID created at the p
 2009-06-05 08:15:37 [INFO] User credentials validated, Session={791}
 2009-06-05 08:15:23 [WARN] Account locked - reset required, Session={5790}
 2009-06-05 08:15:46 [INFO] Cash withdrawal requested, Amount={450.00}, Session={5791}
-```
+~~~
 
 In the above example, it is now quite easy to see which log message related to each account. As a side-note, some logging framework can be configured to add context information such as the thread, or user identity (see the `%thread` or `%identity` tokens in the [log4net pattern layout](http://logging.apache.org/log4net/release/sdk/log4net.Layout.PatternLayout.html)). However, in a server environment, a user request might be serviced by different threads each time, so some other form of session information is required.
 
@@ -191,7 +191,7 @@ The simple fact is, highly detailed log messages regarding each and every method
 
 A commonly observed paradigm is the following:
 
-```csharp
+~~~csharp
 try
 {
   ComponentX.DoStuff();
@@ -200,7 +200,7 @@ catch (Exception e)
 {
   log.Error("ComponentX threw an exception", e);
 }
-```
+~~~
 
 Every single time an exception is caught, an ERROR level message is sent to the log. The problem with this is that, quite often, exceptions are anticipated or even expected. With the definition given above, ERROR level messages are intended for those where the user experience is affected or degraded in some way. When catching an exception, think twice before logging it as an ERROR ...
 
@@ -210,7 +210,7 @@ Large applications are typically composed of numerous components of great comple
 
 Our application code already has a naming system which is used to organise it, that of class name and namespace. A common logging paradigm makes use of this existing organisation, by associating a logger with each class that logs information via its name:
 
-```csharp
+~~~csharp
 namespace Acme.Components.Things
 {
   class WidgetClass
@@ -220,11 +220,11 @@ namespace Acme.Components.Things
     // other class members go here
   }
 }
-```
+~~~
 
 Or alternatively, you can remove the need for a string literal by using the `FullName` of the class:
 
-```csharp
+~~~csharp
 namespace Acme.Components.Things
 {
   class WidgetClass
@@ -234,7 +234,7 @@ namespace Acme.Components.Things
     // other class members go here
   }
 }
-```
+~~~
 
 Any messages logged by this class' logger instance will bear the name `Acme.Components.Things.WidgetClass`, allowing them to be unambiguously associated with this class.
 
@@ -254,7 +254,7 @@ So, why is it that you rarely see logging code tested? In my entire software car
 
 It is probably because the code is tightly coupled to a logging framework that is configured to write log messages to a file. Configuring the chosen logging framework for unit test, reading the message, and cleaning up afterwards is not an easy task. However, with the SLF, this is no longer a problem; when unit testing, we can simply plug in a logger which holds the logged messages in memory, ready for replay when we validate our tests. Here is a simple example:
 
-```csharp
+~~~csharp
 public class CommunicationLogic
 {
   /// <summary>
@@ -287,11 +287,11 @@ public class CommunicationLogic
     }
   }
 }
-```
+~~~
 
 The above class has a dependency on some other component, `IRemoteService`, and a single method, `SendMessage`, which we wish to test. The implementation of this method is trivial; it simply delegates to `IRemoteService` in order to send the message. A positive test, where we create a stub of this dependent service, might look like this:
 
-```csharp
+~~~csharp
 [TestMethod]
 public void SendMessage_RemoteServiceOK_MessageSent()
 {
@@ -319,13 +319,13 @@ private class StubbedRemoteService : IRemoteService
     SentMessage = message;
   }
 }
-```
+~~~
 
 Here, we provide a 'stubbed' implementation of the service which simply records the message being sent. Hence this is a true unit test.
 
 Now, we wish to verify that if the remote service should throw an exception, resulting in our message being unsent that this failure is logged. In order to do this, we first extend our stub implementation to force a failure:
 
-```csharp
+~~~csharp
 private class StubbedRemoteService : IRemoteService
 {
   public bool FailOnSend = false;
@@ -341,11 +341,11 @@ private class StubbedRemoteService : IRemoteService
     }
   }
 }
-```
+~~~
 
 Then, we simply configure SLF to supply a `TestLogger` to our class under test. We are now able to verify that the failure was logged:
 
-```csharp
+~~~csharp
 [TestMethod]
 public void SendMessage_RemoteServiceFails_FailureLogged()
 {
@@ -375,7 +375,7 @@ public void SendMessage_RemoteServiceFails_FailureLogged()
   Assert.AreEqual(LogLevel.Warn, logger.LoggedItems[0].LogLevel);
   Assert.IsNotNull(logger.LoggedItems[0].Exception);
 }
-```
+~~~
 
 Simple! Note that whilst we could have unit tested the message that was logged, this would have tightly coupled the unit test to the implementation. What really matters is that the message was logged at the given level and that the exception was included.
 

@@ -27,7 +27,7 @@ Personally, I find one of the most frustrating aspects of Silverlight and WPF de
 
 Take for example the following dependency property declaration:
 
-```csharp
+~~~csharp
 public double Maximum
 {
     get { return (double)GetValue(MaximumProperty); }
@@ -49,7 +49,7 @@ private void OnMaximumPropertyChanged(DependencyPropertyChangedEventArgs e)
 {
     // do something
 }
-```
+~~~
 
 The above code defines a dependency property (DP), `Maximum`, providing a type and default value, a CLR property wrapper, and a method which is invoked on property change. We have 21 lines of quite densely packed code, which does so little! Furthermore, dependency property declarations can be quite error prone; if incorrectly specified, the resultant error can easily go undetected and unreported, wasting precious hours ...
 
@@ -75,7 +75,7 @@ The templates themselves are executed when you save changes to them, and before 
 
 Here's a very simple example. The following template (which has an almost ASP.NET-like syntax) creates a *.cs* file, whilst the template language itself is C#.
 
-```csharp
+~~~csharp
 <#@ output extension="cs" #>
 <#@ template language="C#" #>
 public class HelloWorld
@@ -92,13 +92,13 @@ public class HelloWorld
         #>
     }
 }
-```
+~~~
 
 **Note**: The CodeProject syntax highlighter does not recognise T4 template code, hence it performs some slightly odd and random highlighting on the template code!
 
 And, here is the output:
 
-```csharp
+~~~csharp
 public class HelloWorld
 {
     public void DoSomething()
@@ -110,7 +110,7 @@ public class HelloWorld
         this.Write("Hello World #4");
     }
 }
-```
+~~~
 
 **Note**: The above will not work within a Silverlight project; for details of why and how to solve this problem, see the 'Other Issues' section.
 
@@ -125,7 +125,7 @@ Templates are composed of four main parts:
 
 T4 templates are quite script-like in that they do not contain classes or any other Object Oriented concepts. The only mechanism available for code re-use is [class feature blocks](http://www.olegsych.com/2008/02/t4-class-feature-blocks/), which have the following syntax: `<#+ FeatureBlock #>`, and are effectively helper functions, The following is a simple example:
 
-```csharp
+~~~csharp
 <#@ template language="C#"#>
 <# HelloWorld(); #>
 <#+
@@ -134,7 +134,7 @@ T4 templates are quite script-like in that they do not contain classes or any ot
         this.Write("Hello World");
     }
 #>
-```
+~~~
 
 Here, a class feature block containing a single helper function `HelloWorld` has been defined (you can, however, define multiple helper functions in one block) and is invoked just once.
 
@@ -154,7 +154,7 @@ Visual Studio uses your project references to run T4 templates within your proje
 
 In order to use T4 templates within Silverlight projects, you need to use the `assembly` directive, which adds assembly references, just for executing the T4 template, to your template, as follows:
 
-```
+~~~
 <#@ assembly name="C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\System.dll" #>
 <#@ assembly name="C:\Program Files\Reference Assemblies\Microsoft\
                    Framework\v3.5\System.Core.dll" #>
@@ -164,15 +164,15 @@ In order to use T4 templates within Silverlight projects, you need to use the `a
 
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Xml.Linq" #>
-```
+~~~
 
 The *System.dll* assembly is the only assembly you need for a simple T4 template; however, I found the other three were required to use LINQ to XML, which I use later in this article. Notice also the `import` directive which has the same role as the `using` keyword within C# files.
 
 Another thing to watch for is that if you want to load files from your T4 template, you have to bear in mind the working directory. If you simply want to reference another template file, you can use the `include` directive:
 
-```
+~~~
 <#@ include file="DependencyObjectTemplate.tt" #>
-```
+~~~
 
 However, if you want to load an XML file for example, you have to reference the complete path of the file. This is because the working directory for your T4 templates is Visual Studio's working directory, rather than your current project location.
 
@@ -184,7 +184,7 @@ T4 templates are clearly a good candidate for generating DP code; however, how c
 
 If we can create a suitable representation of our DPs within our T4 template, the process of generating all the DPs for a class is quite straightforward, as illustrated below:
 
-```csharp
+~~~csharp
 public partial class <#= className #>
 {
 <#
@@ -212,7 +212,7 @@ foreach(var dp in dps)
 } // end foreach dps
 #>
 }
-```
+~~~
 
 The above code registers a DP with the associated CLR wrapper and gives a default value. I will consider how to add change notification in the next section. This leaves the problem of how to specify the DPs in a concise and simple manner. I decided that the simplest approach would be to define the DPs for each class within an XML file, the template can load the XML file, use LINQ to query it, then generate the required partial classes.
 
@@ -222,7 +222,7 @@ I usually like to define an XML schema for my XML files for a number of reasons.
 
 Here is a simple XML schema for our DP specification:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
     targetNamespace="http://www.scottlogic.co.uk/DependencyObject"
@@ -256,11 +256,11 @@ Here is a simple XML schema for our DP specification:
   </xs:complexType>
 
 </xs:schema>
-```
+~~~
 
 An example instance document is given below, which describes the DPs for a pair of classes: a `RangeControl` and an `AmountControl`:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8" ?>
 <dependencyObjects
   xmlns="http://www.scottlogic.co.uk/DependencyObject"
@@ -281,11 +281,11 @@ An example instance document is given below, which describes the DPs for a pair 
   </dependencyObject>
 
 </dependencyObjects>
-```
+~~~
 
 We can define a helper method (within a class feature block) which loads this XML file, and generates the partial class for a named class within our XML file:
 
-```csharp
+~~~csharp
 <#@ output extension="cs" #>
 <#@ template language="C#v3.5" #>
 <#@ assembly name="C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\System.dll" #>
@@ -368,7 +368,7 @@ private void GenerateDependencyProperty(...)
      ...
 }
 #>
-```
+~~~
 
 The `GenerateClass` function takes two arguments: the fully qualified name of the class to generate, and the location of the XML file (with its full path specified). It creates an X-DOM from the file, then uses LINQ queries to locate the `dependencyObject` XML element for our named class and the `dependencyProperty` elements which it contains. The partial class is constructed within the correct namespace, then the DPs collection is iterated over to output each dependency property.
 
@@ -376,19 +376,19 @@ The `GenerateCLRAccessor` helper function constructs a CLR wrapper for the DP, w
 
 In order to use the above template, we create a very simple template file which references it and invokes the `GenerateClass` function:
 
-```csharp
+~~~csharp
 <#@ include file="DependencyObject.tt" #>
 <#
 GenerateClasses("SilverlightTemplates.RangeControl",
     @"C:\Projects\...\DependencyObjects.xml");
 #>
-```
+~~~
 
 ### Property Change Notification
 
 The above examples demonstrate how to generate dependency properties of a given type for a class. However, a common requirement is the need to add a callback when a dependency property changes. This is specified as part of the dependency property metadata; revisiting our initial example DP, it is used as follows:
 
-```csharp
+~~~csharp
 public static readonly DependencyProperty MaximumProperty =
     DependencyProperty.Register("Maximum", typeof(double),
     typeof(RangeControl), new PropertyMetadata(0.0, OnMaximumPropertyChanged));
@@ -404,7 +404,7 @@ private void OnMaximumPropertyChanged(DependencyPropertyChangedEventArgs e)
 {
     // do something
 }
-```
+~~~
 
 In the above example, the DP declaration provides a method `OnMaximumPropertyChanged` which will be called each time this property changes. The method must be static; therefore, in order to forward this change event to the correct instance of our class, we have to cast the `DependencyObject` argument, then invoke the non-static `OnMaximumPropertyChanged` method.
 
@@ -428,7 +428,7 @@ You can either cut-and-paste the template and follow the instructions to get sta
 
 **Note**: If used within a WPF project, you can remove the assembly reference directives.
 
-```csharp
+~~~csharp
 <#@ output extension="cs" #>
 
 <#@ template language="C#v3.5" #>
@@ -694,11 +694,11 @@ namespace <#= classNamespace #>
 <#+
 }
 #>
-```
+~~~
 
 ### The XML Schema
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema
     targetNamespace="http://www.scottlogic.co.uk/DependencyObject"
@@ -741,7 +741,7 @@ namespace <#= classNamespace #>
   </xs:complexType>
 
 </xs:schema>
-```
+~~~
 
 ### A Quick User Guide
 
@@ -764,14 +764,14 @@ The `dependencyProperty` element has the following attributes:
 
 Finally, if I require additional `using` statements (other than those defined in the *DependeycObjectTemplate.tt* file), I typically add them to the simple templates that invoke the `GenerateClasses` function:
 
-```csharp
+~~~csharp
 <#@ include file="DependencyObject.tt" #>
 // additional using statements go here ...
 using System.Collections.Generic;
 <#
     GenerateClasses(@"C:\Projects\...\DependencyObjects.xml");
 #>
-```
+~~~
 
 ### A Worked Example
 
@@ -779,7 +779,7 @@ As an example, this section will illustrate the development of a simple Silverli
 
 Here is the XML description of our `RangeControl` class:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8" ?>
 <dependencyObjects
   xmlns="http://www.scottlogic.co.uk/DependencyObject"
@@ -796,21 +796,21 @@ Here is the XML description of our `RangeControl` class:
   </dependencyObject>
 
 </dependencyObjects>
-```
+~~~
 
 Here is the T4 template which uses our generic *DependencyObjectTemplate.tt* to generate the class:
 
-```csharp
+~~~csharp
 <#@ include file="DependencyObjectTemplate.tt" #>
 <#
     GenerateClass("SilverlightTemplates.RangeControl",
         @"C:\Projects\...\RangeControl.xml");
 #>
-```
+~~~
 
 The generated class is illustrated below:
 
-```csharp
+~~~csharp
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -897,11 +897,11 @@ namespace SilverlightTemplates
 
     }
 }
-```
+~~~
 
 Here is our XAML:
 
-```xml
+~~~xml
 <UserControl x:Class="SilverlightTemplates.RangeControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -912,11 +912,11 @@ Here is our XAML:
         <TextBox Name="maxTextBox" Width="50"/>
     </StackPanel>
 </UserControl>
-```
+~~~
 
 And finally, our code-behind file for the XAML is as follows:
 
-```csharp
+~~~csharp
 namespace SilverlightTemplates
 {
     public partial class RangeControl : UserControl
@@ -960,7 +960,7 @@ namespace SilverlightTemplates
         }
     }
 }
-```
+~~~
 
 As you can see from this simple example, the generated class is more than double the size of our code-behind implementation! Also, any changes to our DP declarations can be applied rapidly by simply changing our *RangeControl.xml* file and regenerating.
 

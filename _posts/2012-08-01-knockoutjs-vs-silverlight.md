@@ -64,7 +64,7 @@ Within this article we’ll focus most of our attention on the `QuestionViewMode
 
 The Silverlight view-model is shown below:
 
-```csharp
+~~~csharp
 public class QuestionViewModel : ViewModelBase
 {
   private AnswerViewModel _selectedAnswer;
@@ -99,13 +99,13 @@ public class QuestionViewModel : ViewModelBase
     }
   }
 }
-```
+~~~
 
 The above view model is pretty standard in that it contains a number of properties which will be bound to the UI. These properties fall into two classes, the first which we consider to be immutable (i.e. their value does not change) which are just regular properties; and the second, which change as a result of UI interactions or application logic, these are implemented to raise change notifications via `INotifyPropertyChanged`.
 
 Because of the boiler-plate code involved with `INotifyPropertyChanged`, the view-model extends a common base class:
 
-```csharp
+~~~csharp
 public class ViewModelBase : INotifyPropertyChanged
 {
   #region INotifyPropertyChanged Members
@@ -122,13 +122,13 @@ public class ViewModelBase : INotifyPropertyChanged
 
   #endregion
 }
-```
+~~~
 
 Which is also quite common practice.
 
 So let’s have a look at the equivalent Knockout view-model:
 
-```jscript
+~~~jscript
 QuestionViewModel = function (index, config) {
 
   // ------ properties
@@ -144,7 +144,7 @@ QuestionViewModel = function (index, config) {
 
   // detailed later!
 };
-```
+~~~
 
 One of the first differences here is that the view-model itself is a function rather than a class. This is because JavaScript is not a strongly-typed language, i.e. you do not define your own types (classes) then construct instances of them. Instead, objects can be built dynamically by adding properties and functions to them. The above code defines the view-model using a Constructor Function, in other words `QuestionViewModel` is a function which constructs an object, dynamically adding properties to the object and setting their values. For further details I would recommend reading the article ["Object Oriented Programming in JavaScript"](http://mckoss.com/jscript/object.htm) by Mike Koss.
 
@@ -152,11 +152,11 @@ In common with the Silverlight view-model there are properties which we do not e
 
 It is worth noting that in Silverlight properties and property accessors are a first-class feature of the language, where an auto property with a private setter provides a convenient shorthand for creating immutable properties. JavaScript on the other hand does not widely support the concept of getters and setters (this is a [recent language feature that some browser do support](http://ejohn.org/blog/javascript-getters-and-setters)), but in order to maximize ‘reach’ Knockout does not use it). As a result of this, JavaScript does not support immutable properties. Furthermore, the lack of getters and setters means that the use of `ko.observable` means that the `selectedAnswer` property cannot be set like a regular property, instead it must be *invoked*.
 
-```jscript
+~~~jscript
 var viewModel = new QuestionViewModel(…)
 viewModel.selectedAnswer = foo; // this will fail – badly!
 viewModel.selectedAnswer(foo); // that’s better ;-)
-```
+~~~
 
 Because this is a slightly unnatural syntax, I must admit I find myself making this mistake all too often!
 
@@ -166,15 +166,15 @@ In brief, Knockout view-models are much more compact, but lack immutable propert
 
 Before launching into a complete view, we’ll take a look at the binding syntax of each framework. Both share the concept of a data-context, where the regions of the application UI are ‘backed’ by a view model, such that it is the source for any binding defined within that region. With Silverlight you simply set the DataContext of the view to the view model:
 
-```csharp
+~~~csharp
 this.DataContext = new QuestionViewModel(...);
-```
+~~~
 
 Whereas in Knockout you invoke the applyBindings function:
 
-```jscript
+~~~jscript
 ko.applyBindings(new QuestionViewModel(...));
-```
+~~~
 
 Not much difference there!
 
@@ -182,19 +182,19 @@ Note that Knockout has the concept of a data-context, which is called the bindin
 
 With Silverlight you can bind to any dependency property of an element within the visual tree. Bindings are typically defined using the `{Binding}` markup extension:
 
-```xml
+~~~xml
 <StackPanel Orientation="Horizontal">
   <TextBlock Text="Q"/>
   <TextBlock Text="{Binding Path=Index}"/>
   <TextBlock Text=")"/>
 </StackPanel>
-```
+~~~
 
 Whereas Knockout uses a [HTML5 custom data attribute](http://ejohn.org/blog/html-5-data-attributes/), data-bind, as shown in the following example:
 
-```html
+~~~html
 <div class="index">Q<span data-bind="text: index" />)</div>
-```
+~~~
 
 The above `text` binding will render the value of the index property within the body of the span element. Knockout has a small handful of built-in bindings for `text`, `css` and `visibility`, together with a generic `attr` binding that can be used to bind and attribute of the element to a view-model property.
 
@@ -208,7 +208,7 @@ Now that we have a basic understanding of view models and bindings, we’ll look
 
 The `MainPage.xaml` which is the starting point for our application contains a single instance of `QuizWizardView`:
 
-```xml
+~~~xml
 <UserControl x:Class="EcoQuiz.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -220,11 +220,11 @@ The `MainPage.xaml` which is the starting point for our application contains a s
     <local:QuizWizardView />
   </Grid>
 </UserControl>
-```
+~~~
 
 Which is a user control that renders the green background, title and the current question:
 
-```xml
+~~~xml
 <UserControl x:Class="EcoQuiz.View.QuizWizardView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -258,11 +258,11 @@ Which is a user control that renders the green background, title and the current
     </Grid>
   </Border>
 </UserControl>
-```
+~~~
 
 We’ll leave detailing the `QuestionView` until later. In our application, the ‘root’ view-model is constructed when the application starts, within the `App.xaml.cs` file, as shown below:
 
-```csharp
+~~~csharp
 private void Application_Startup(object sender, StartupEventArgs e)
 {
   QuizWizardViewModel quiz = new QuizWizardViewModel();
@@ -270,7 +270,7 @@ private void Application_Startup(object sender, StartupEventArgs e)
 
   ((FrameworkElement)this.RootVisual).DataContext = quiz;
 }
-```
+~~~
 
 The visual tree `DataContext` inheritance will ensure that the `DataContext` of our `QuizWizardView` is the `QuizWizardViewModel` instance created above. Running the application with the code so far, we see a beautifully shaded square with round borders, plus our quiz title:
 
@@ -278,7 +278,7 @@ The visual tree `DataContext` inheritance will ensure that the `DataContext` of 
 
 With Knockout, the approach is quite similar. Our application runs within the context of a HTML page, which includes the various scripts.  The views are defined as jQuery templates, which allow re-use of the same UI markup:
 
-```html
+~~~html
 <!DOCTYPE html>
 <html>
 <head>
@@ -309,22 +309,22 @@ With Knockout, the approach is quite similar. Our application runs within the co
   </div>
 </body>
 </html>
-```
+~~~
 
 The `template` binding creates an instance of the named template at the given location within our HTML document. The ‘root’ view-model is constructed and bound to the UI within the `app.js` file:
 
-```jscript
+~~~jscript
 $(document).ready(function () {
   viewModel = new QuizWizardViewModel();
   ko.applyBindings(viewModel);
 });
-```
+~~~
 
 Whilst the way in which the UI is constructed is very similar between Silverlight and Knockout, both of which have a mechanism for creating views via user controls and templates respectively, the markup for the UI itself is quite different. Anyone who has created UIs from XAML and HTML will understand that the two are quite different. XAML is geared towards creating applications, whereas HTML is geared towards presenting content. For this reason, something which is quite trivial in Silverlight, such as vertically centring content is [actually pretty tricky in HTML](http://phrogz.net/css/vertical-align/index.html), and conversely, creating a graceful flowing responsive magazine-style layout is almost impossible in Silverlight.
 
 Another significant difference between Silverlight and Knockout applications is styling. In brief, Silverlight styles are simply collections of property values that are applied to elements via explicit references to the style. HTML is styled via CSS, which provides a complete separation between markup and style, where elements are matched using CSS selectors. The CSS for the quiz application is given below:
 
-```css
+~~~css
 #app
 {
   position: relative;
@@ -351,7 +351,7 @@ body
   font-size: 25px;
   font-family: Georgia, Serif;
 }
-```
+~~~
 
 (Note the use of vendor specific prefixes for the background gradient and border radius properties).
 
@@ -365,16 +365,16 @@ Now that we’ve seen how the view is defined in both Silverlight and Knockout, 
 
 The Silverlight `QuestionViewModel` has a string property, `Category`. In order to render this within the view, it is bound to the Source property of an Image element:
 
-```xml
+~~~xml
 <Image Source="{Binding Path=Category, Converter={StaticResource CategoryToImageConverter}}"
         Grid.Row="0" Margin="0,0,0,10"
         HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         Stretch="UniformToFill"/>
-```
+~~~
 
 However, the `Source` property is of type `ImageSource`, so we need to apply a value converter, constructing a `BitmapImage` from the string view-model property:
 
-```csharp
+~~~csharp
 public class CategoryToImageConverter : IValueConverter
 {
   public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -389,14 +389,14 @@ public class CategoryToImageConverter : IValueConverter
     throw new NotImplementedException();
   }
 }
-```
+~~~
 
 This sort of thing is much easier with Knockout. Firstly, the src property of an image element can simply be set to a string value, so we are able to bind to it directly. Secondly, Knockout permits you to use expressions directly within the bindings themselves, removing the need for value converters:
 
-```html
+~~~html
 <img class="picture"
      data-bind="attr: { src: 'view/' + category + '.jpg' }"/>
-```
+~~~
 
 Note that Knockout doesn’t have a specific binding for the `src` property, so we use the generic `attr` binding.
 
@@ -412,7 +412,7 @@ The `QuestionViewModel` exposes a collection of potential answers. Within the Si
 
 For the Silverlight version of the quiz application, a ListBox is used to render the answers associated with a question:
 
-```xml
+~~~xml
 <!-- the question -->
 <TextBlock Text="{Binding Path=Text}" Grid.Column="1" TextWrapping="Wrap"/>
 
@@ -433,7 +433,7 @@ For the Silverlight version of the quiz application, a ListBox is used to render
     </DataTemplate>
   </ListBox.ItemTemplate>
 </ListBox>
-```
+~~~
 
 Which yields the UI shown below:
 
@@ -443,7 +443,7 @@ Again, a value converter is being used, this time to convert the index of each a
 
 Knockout supports collection binding via a `template` with a `foreach` property. The markup below iterates over each of the items within the answers array, rendering an instance of the `answerView` template for each of the items. Any databindings within the `answerView` template have the answer instance as their datacontext:
 
-```html
+~~~html
 <script id="questionView" type="text/x-jquery-tmpl">
   ...
 
@@ -460,11 +460,11 @@ Knockout supports collection binding via a `template` with a `foreach` property.
           class="answerText"/>
   </li>
 </script>
-```
+~~~
 
 We add a little bit of CSS:
 
-```css
+~~~css
 ul.answers
 {
   margin: 0;
@@ -478,7 +478,7 @@ ul.answers li
   margin-top: 5px;
   cursor: pointer;
 }
-```
+~~~
 
 Resulting in a UI which looks exactly the same as the Silverlight one:
 
@@ -486,9 +486,9 @@ Resulting in a UI which looks exactly the same as the Silverlight one:
 
 Again, the Knockout collection binding is very similar to Silverlight, you can bind to collections that do not raise change notifications, for example in Silverlight you can use an `ItemsControl` to render a regular `List`, while in Knockout a `foreach` binding can render a regular JavaScript array. For change notification Silverlight uses the `INotifyCollectionChanged` interface (most typically via `ObservableCollection`), whereas Knockout uses [observable arrays](http://knockoutjs.com/documentation/observableArrays.html). An observable array is defined in exactly the same way as a regular (single-valued) observable property:
 
-```jscript
+~~~jscript
 this.answers = ko.observableArray();
-```
+~~~
 
 Both frameworks take care of handling when items are added and removed from collections in order to keep the view synchronised.
 
@@ -498,27 +498,27 @@ In the previous section it was shown how both Silverlight and Knockout collectio
 
 Within the Silverlight version of the quiz application we can bind the `SelectedItem` property of the `ListBox` to a property of our view-model. When the quiz is complete we can simply total the number of questions where `question.SelectedAnswer.IsCorrect` is true.
 
-```xml
+~~~xml
 <ListBox ItemsSource="{Binding Path=Answers}"
          SelectedItem="{Binding Path=SelectedAnswer, Mode=TwoWay}">
-```
+~~~
 
 The Knockout UI is HTML, which does not really support the concept of controls and as a result the `ul` / `li` elements used to render the answers for a question do not support the concept of selection. With the Knockout implementation we have to add a click event binding which invoked a method on one of our view models:
 
-```html
+~~~html
 <script id="answerView" type="text/x-jquery-tmpl">
   <li data-bind="click: $parent.answerClicked">
     <span data-bind="text: String.fromCharCode(index + 64)" class="index"/>.
     <span data-bind="text: text" class="answerText"/>
   </li>
 </script>
-```
+~~~
 
 (We’ll look at what that special `$parent` pseudo-variable does in one of the later sections).
 
 The `answerClicked` function is defined on the `QuestionViewModel`, which simply sets the `selectedAnswer` observable, yielding the same result as the Silverlight `ListBox.SelectedItem` binding:
 
-```jscript
+~~~jscript
 QuestionViewModel = function (index, config) {
 
   var that = this;
@@ -534,7 +534,7 @@ QuestionViewModel = function (index, config) {
     that.selectedAnswer(answer);
   }
 };
-```
+~~~
 
 Knockout does have a [selectedOptions binding](http://knockoutjs.com/documentation/selectedOptions-binding.html) which is almost what we are after here. As a general observation, Silverlight has a much stronger concept of UI controls, which can expose control-specific properties that can be bound to. This allows for complex UIs to be built quite rapidly from a suite of common controls, of which Silverlight has around 30 as part of the SDK and many more via third party suppliers.
 
@@ -544,7 +544,7 @@ The current quiz application is a little plain, we’ll try to make it more inte
 
 With Silverlight, transitions can be specified using the visual state manager. Controls are able to define visual states, such as `checked`, `focussed` and `mouseover`, you can then use the visual state manager to define the UI for each state and how to transitions between states. For our quiz application we’ll create a subtle highlight effect on mouse over:
 
-```xml
+~~~xml
 <Style TargetType="ListBoxItem" x:Key="ListBoxItemStyle">
   <Setter Property="Padding" Value="3" />
   <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -582,15 +582,15 @@ With Silverlight, transitions can be specified using the visual state manager. C
     </Setter.Value>
   </Setter>
 </Style>
-```
+~~~
 
 The style above defines the template and visual state transitions for the `ListBoxItem`, which is generated by the `ListBox` as a container for each item within the list. In order to use the above style, we set the `ItemContainerStyle`:
 
-```xml
+~~~xml
 <ListBox ItemsSource="{Binding Path=Answers}"
          SelectedItem="{Binding Path=SelectedAnswer, Mode=TwoWay}" Grid.Row="1"
          ItemContainerStyle="{StaticResource ListBoxItemStyle}">
-```
+~~~
 
 This gives a subtle mouse over effect for each answer, which acts as a handy visual cue that these items are clickable:
 
@@ -600,7 +600,7 @@ Visual states are another facet of the Silverlight concept of ‘controls’ and
 
 We can use the hover pseudo-selector to specify the mouse-over colour of each answer. But how do we create the subtle fade in / out effect? With CSS3 this is very simple. We can simply specify a transition for the `background-color` property:
 
-```css
+~~~css
 ul.answers li
 {
   ...
@@ -612,7 +612,7 @@ ul.answers li:hover
 {
   background-color: rgba(0,0,0,0.2);
 }
-```
+~~~
 
 The transition indicates that any change in the background colour property should transition from the previous colour to the new over a period of 400 milliseconds.
 
@@ -628,7 +628,7 @@ The `QuizWizardViewModel` exposes the current question view model via its `Curre
 
 The `QuizWizardViewModel` within the Silverlight application exposes a `NextQuestion` command:
 
-```csharp
+~~~csharp
 public ICommand NextQuestionCommand
 {
   get
@@ -636,11 +636,11 @@ public ICommand NextQuestionCommand
     return new NextQuestionCommand(this);
   }
 }
-```
+~~~
 
 Where the command implementation simply invokes the `NextQuestion` method on the view-model:
 
-```csharp
+~~~csharp
 public class NextQuestionCommand : ICommand
 {
   private QuizWizardViewModel _quiz;
@@ -662,33 +662,33 @@ public class NextQuestionCommand : ICommand
     _quiz.NextQuestion();
   }
 }
-```
+~~~
 
 In a more complex application this would be a good candidate for using a generic [‘delegate command’](%28http://wpftutorial.net/DelegateCommand.html), but as this application only has a single command, we’ll follow the [YAGNI](http://en.wikipedia.org/wiki/You_ain%27t_gonna_need_it) principle and use the above implementation.
 
 Within the view we include a button that binds to this command so that when it is clicked, the above code is invoked:
 
-```xml
+~~~xml
 <Button Command="{Binding Parent.NextQuestionCommand}"
         Style="{StaticResource NextButtonStyle}"/>
-```
+~~~
 
 (We’ll look at the ‘Parent’ in the above binding in the next section)
 
 Knockout does not have the concept of commands, instead events are bound directly to functions defined on the view-model:
 
-```html
+~~~html
 <a href="#" data-bind="click: $parent.nextQuestion"
    class="next">
   Next
 </a>
-```
+~~~
 
 (Again, we’ll look at `$parent` in the next section!)
 
 The `nextQuestion` function is simply defined on the view model as follows:
 
-```jscript
+~~~jscript
 QuizWizardViewModel = function (config) {
 
   // ...
@@ -699,7 +699,7 @@ QuizWizardViewModel = function (config) {
   }
 
 };
-```
+~~~
 
 The Knockout implementation of this functionality is again much simpler than the Silverlight version. The Silverlight concept of commands is more powerful than simple event-to-function wire-up, with features such as command-properties and the `ICommand.CanExecute` property which can be used to automatically disable a button (or other UI control) when a command cannot be executed. Although, in practice, these extra features are often not required, furthermore, command binding can be a little patchy within the Silverlight APIs, some controls which really *should* support commands do not, leading people to use solutions such as [MVVM Light’s EventToCommand behaviour](http://geekswithblogs.net/lbugnion/archive/2009/11/05/mvvm-light-toolkit-v3-alpha-2-eventtocommand-behavior.aspx). In order to avoid the whole command complexity, the Blend Interactivity SDK includes event triggers and a `CallMethodAction` that allows you to [wire an event directly to a method invocation](http://www.codeproject.com/Articles/160892/Binding-Events-to-Methods-in-the-Silverlight-MVVM), just like Knockout.
 
@@ -711,7 +711,7 @@ In the previous section which looked at command binding we saw how the `QuizWiza
 
 Within Silverlight there is no direct support for this scenario. However, the solution to this problem is relatively simple, we add a relationship from the `QuestionViewModel` back to the `QuizWizardViewModel` as follows:
 
-```csharp
+~~~csharp
 public class QuestionViewModel : ViewModelBase
 {
   ...
@@ -725,14 +725,14 @@ public class QuestionViewModel : ViewModelBase
 
   ...
 }
-```
+~~~
 
 This allows us to bind to the command exposed by the parent view model from within the `QuestionView` user control:
 
-```xml
+~~~xml
 <Button Command="{Binding Parent.NextQuestionCommand}"
         Style="{StaticResource NextButtonStyle}"/>
-```
+~~~
 
 You can also solve this issue via some sort of fancy relative-source bindings.
 
@@ -740,16 +740,16 @@ Even though the solution is relatively simple, I would rather not have to mainta
 
 The Knockout solution to this problem couldn’t be simpler. Whenever the binding context changes through a `template` binding (or `with` binding), the parent view model is accessible via the `$parent` pseudo variable. You can even locate the n’th parent via the `$parents` array, or locate the top-most view model via `$root`. As a result, the Knockout binding for the ‘next’ button click does not require any changes to our view-models:
 
-```html
+~~~html
 <a href="#" data-bind="click: $parent.nextQuestion"
     class="next">
   Next
 </a>
-```
+~~~
 
 Another very useful feature of Knockout is computed observables (previous called dependant observables). The `QuizWizardViewModel` for both the Silverlight and Knockout implementations stores the current question as an index into the array of questions. The Silverlight `QuizWizardViewModel` exposes the current question as follows:
 
-```csharp
+~~~csharp
 public QuestionViewModel CurrentQuestion
 {
   get
@@ -757,18 +757,18 @@ public QuestionViewModel CurrentQuestion
     return _questionIndex >= Questions.Count ? null : Questions[_questionIndex];
   }
 }
-```
+~~~
 
 This is pretty straightforward stuff, however, when creating properties that are derived from other properties of your view-model you must be careful to raise property change correctly. In the example above, whenever `_questionIndex` changes, we need to raise a property changed event for the `CurrentQuestion` property. This is pretty trivial in the above example, however with view-models that have properties that are derived from a number of other properties, this can become something of a maintenance nightmare.
 
 Knockout has a very elegant solution to this problem, you simply create a computed observable, defining a function which is used to determine its value:
 
-```jscript
+~~~jscript
 this.currentQuestion = ko.computed(function () {
   return this.currentQuestionIndex() < this.questions().length ?
       this.questions()[this.currentQuestionIndex()] : null;
 }, this);
-```
+~~~
 
 ... and Knockout takes care of the rest!
 
@@ -782,7 +782,7 @@ When the user has answered all of the questions, the number of correct answers a
 
 The Silverlight implementation uses a Linq `Count` query to count the number of correct answers:
 
-```csharp
+~~~csharp
 public void NextQuestion()
 {
   _questionIndex++;
@@ -795,7 +795,7 @@ public void NextQuestion()
 
   OnPropertyChanged("CurrentQuestion");
 }
-```
+~~~
 
 As a result of setting the `Results` property, the `ResultsView` is rendered:
 
@@ -803,7 +803,7 @@ As a result of setting the `Results` property, the `ResultsView` is rendered:
 
 The Knockout implementation looks quite similar:
 
-```jscript
+~~~jscript
 this.nextQuestion = function () {
   that.currentQuestionIndex(that.currentQuestionIndex() + 1);
 
@@ -814,7 +814,7 @@ this.nextQuestion = function () {
     that.results(new ResultsViewModel(that.questions().length, correctAnswers.length));
   }
 }
-```
+~~~
 
 However the way in which the number of correct answers is totalled highlights an interesting difference between the frameworks. Silverlight applications have access to a huge range of utility classes, APIs and tools which are all part of the [.NET Base Class Library](http://en.wikipedia.org/wiki/Base_Class_Library) (BCL). The Linq `Count` query used in the code above is part of this standard library and can be employed within a WPF, ASP.NET, WP7 or any other .NET application.
 
@@ -828,7 +828,7 @@ So far we have looked at the view-models that define how the user interacts with
 
 With the Silverlight application the quiz is defined in XML:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8"?>
 <quiz title="Eco-Quiz">
   <question text="How much household waste does each person create a year?"
@@ -870,11 +870,11 @@ With the Silverlight application the quiz is defined in XML:
             isCorrect="true"/>
   </question>
 </quiz>
-```
+~~~
 
 With each view-model being responsible for transforming their corresponding XML elements in to the required property values. For example, the `QuizWizardViewModel` identifies obtains the quiz title attribute, then constructs a `QuestioNViewModel` instance from each question element:
 
-```csharp
+~~~csharp
 public class QuizWizardViewModel : ViewModelBase
 {
 
@@ -890,11 +890,11 @@ public class QuizWizardViewModel : ViewModelBase
 
   // ...
 }
-```
+~~~
 
 The `QuestionViewModel` constructor does the same:
 
-```csharp
+~~~csharp
 public class QuestionViewModel : ViewModelBase
 {
 
@@ -912,25 +912,25 @@ public class QuestionViewModel : ViewModelBase
 
   // ...
 }
-```
+~~~
 
 Creating the view-models from the XML data is quite straightforward. But how does the end-user of our application supply this XML? Any files we add as resources or embedded resources are compiled within the XAP file or application DLLs, so we need to find some other way of externalising this data.  
 When a Silverlight application is instantiated you can specify a number of input parameters. The
 
 EcoQuiz application expects a ‘data’ parameter which identifies the location of the XML file:
 
-```xml
+~~~xml
 <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
   width="100%" height="100%">
   <param name="source" value="ClientBin/EcoQuiz.xap" />
   <param name="initParams" value="data=quiz.xml" />
   ...
 </object>
-```
+~~~
 
 In order to use this parameter, we read its value when the application starts, then use a `WebClient` to download the XML file:
 
-```csharp
+~~~csharp
 private void Application_Startup(object sender, StartupEventArgs e)
 {
   this.RootVisual = new MainPage();
@@ -950,11 +950,11 @@ private void WebClient_DownloadStringCompleted(object sender, DownloadStringComp
 
   ((FrameworkElement)this.RootVisual).DataContext = quiz;
 }
-```
+~~~
 
 With the Knockout implementation the view-model constructor functions also expect to be passed the configuration data, and again the `QuizWizardViewModel` sets its title property and creates the question instances:
 
-```jscript
+~~~jscript
 QuizWizardViewModel = function (config) {
 
   var that = this;
@@ -972,11 +972,11 @@ QuizWizardViewModel = function (config) {
 
   // ...
 }
-```
+~~~
 
 And again, the `QuestionViewModel` sets its property values and constructs the answer view-models:
 
-```jscript
+~~~jscript
 QuestionViewModel = function (index, config) {
 
   var that = this;
@@ -1006,11 +1006,11 @@ QuestionViewModel = function (index, config) {
   // ...
 
 };
-```
+~~~
 
 So with Knockout, how do we create the quiz data that is used to construct our view-models? With JavaScript XML is not the most practical data format, most applications use JSON (JavaScript Object Notation) which has the advantage that it can be parsed directly to construct JavaScript objects. Creating the quiz is as simple as the following:
 
-```jscript
+~~~jscript
 var quiz =
 {
   title : "Eco-Quiz",
@@ -1061,7 +1061,7 @@ $(document).ready(function () {
   viewModel = new QuizWizardViewModel(quiz);
   ko.applyBindings(viewModel);
 });
-```
+~~~
 
 This makes it quite a bit easier to create a re-useable quiz application where users can supply their own data.
 

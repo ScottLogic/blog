@@ -38,7 +38,7 @@ property definitions based on attributes](http://www.scottlogic.co.uk/blog/colin
 `ItemsSource` property to a class you simply add an attribute as
 follows:
 
-```csharp
+~~~csharp
 [DependencyPropertyDecl("ItemsSource", typeof(IEnumerable), null,
      "Gets or sets a collection used to generate the content of the JumpList")]
 public partial class JumpList : Control
@@ -48,11 +48,11 @@ public partial class JumpList : Control
     this.DefaultStyleKey = typeof(JumpList);
   }
 }
-```
+~~~
 
 Which results in the generation of the following code:
 
-```csharp
+~~~csharp
 public partial class JumpList
 {
     #region ItemsSource
@@ -86,7 +86,7 @@ public partial class JumpList
 
     #endregion
 }
-```
+~~~
 
 I have found this to be a great time-saver and use the same code in every single
 Silverlight / WPF project that I work on.  
@@ -134,7 +134,7 @@ properties of the codesnippet. As an example, the following snippet is one that 
 created for adding CLR properties to a class which implements
 `INotifyPropertyChanged`:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8" ?>
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
@@ -207,7 +207,7 @@ created for adding CLR properties to a class which implements
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>
-```
+~~~
 
 To use this snippet declaratively we need an attribute which has the properties, i.e.
 type, property, field and defaultValue. There are a number of technologies that could
@@ -222,7 +222,7 @@ CSV, it really is a powerful language!
   
 The following simple XSLT document transforms a codesnippet into an attribute:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:msxsl="urn:schemas-microsoft-com:xslt"
@@ -299,7 +299,7 @@ namespace Snippets
     </xsl:choose>
   </xsl:template>
 </xsl:stylesheet>
-```
+~~~
 
 The transform above is really quite simple, the first template matches the document
 root, outputting a namespace and using statement. Any child `CodeSnippet`
@@ -331,7 +331,7 @@ example.
 The result of running this XSLT transformation with the above codesnippet as the input
 is the following attribute:
 
-```csharp
+~~~csharp
 using System;
 
 namespace Snippets
@@ -400,7 +400,7 @@ namespace Snippets
   }
 
 }
-```
+~~~
 
 With the above XSLT it is possible to generate a corresponding attribute for any
 codesnippet.
@@ -441,7 +441,7 @@ queries all the ProjectItems to find those that have the extension .snippet. It 
 executes the `GenerateAttributes` method, which runs the XSLT transform
 adding the generated output to the project:
 
-```
+~~~
 <#@ template language="C#" hostSpecific="true" debug="true" #>
 <#@ output extension="cs" #>
 <#@ include file="Util.tt" #>
@@ -482,12 +482,12 @@ public void GenerateAttributes(Project project)
   }
 }
 #>
-```
+~~~
 
 The code for `RunTransform` is given below, it is another utility method
 that I have used in a few Env.DTE/T4 projects:
 
-```csharp
+~~~csharp
 /// <summary
 /// Executes the given transform on the given source, adding the
 /// generated output to the given project.
@@ -526,7 +526,7 @@ public void SaveOutput(string outputFileName, Project project)
   // add to the project
   project.ProjectItems.AddFromFile(outputFilePath);
 }
-```
+~~~
 
 The `SaveOutput` method is also a useful addition to the toolbox, it
 saves the output of a T4 template into a file and adds it to the project. It is very
@@ -548,7 +548,7 @@ We"ll start with a simple example, a class that implements
 the implementation of `INotifyPropertyChanged` itself. The following snippet
 is added to the project:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8" ?>
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
@@ -588,11 +588,11 @@ is added to the project:
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>
-```
+~~~
 
 Which, when the T4 templates are run, generates the following attribute:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Implementation of INotifyPropertyChanged
 /// </summary>
@@ -629,13 +629,13 @@ $end$";
   }
 
 }
-```
+~~~
 
 We can then use these attributes to "declare"
 that a class implements `INotifyPropertyChanged` and has a property that
 raises this event:
 
-```csharp
+~~~csharp
 [SnippetINotifyPropertyChanged]
 [SnippetPropertyINPC(field = "_height", type = "int", property = "Height", defaultValue = "1")]
 public partial class SomeViewModel : INotifyPropertyChanged
@@ -644,7 +644,7 @@ public partial class SomeViewModel : INotifyPropertyChanged
   {
   }
 }
-```
+~~~
 
  Note that this is a partial class, a language feature
 which Visual Studio uses extensively for keeping designer generated code separate from
@@ -662,7 +662,7 @@ We"ll use the techniques described above,
 Linq-to-Env.DTE, to locate the classes within our project that have one or more of our
 snippet attributes associated with them.
 
-```
+~~~
 <#@ template language="C#" hostSpecific="true" debug="true" #>
 <#@ output extension="cs" #>
 <#@ import namespace="System.Text.RegularExpressions"#>
@@ -707,7 +707,7 @@ public List<CodeElement> AllElements { get; set; }
 public string Includes { get; set; }
 
 #>
-```
+~~~
 
 The T4 template above first captures the output of
 `Includes.tt` into a string, this is used to add the
@@ -723,7 +723,7 @@ The `GenerateClass` method adds the boiler plate stuff, the namespace,
 partial class and then iterates over all the snippet attributes,
 invoking the `GenerateSnippet` method for each:
 
-```
+~~~
 <#+
 /// <summary
 /// Generates a class with snippets
@@ -753,12 +753,12 @@ namespace <#= classNamespace #>
   <#+
 }
 #>
-```
+~~~
 
 The `GenerateSnippet` method is where the fun
 begins:
 
-```
+~~~
 <#+
 /// <summary
 /// Generates the given snippet
@@ -818,14 +818,14 @@ private void GenerateSnippet(CodeAttribute attribute)
   #><#=snippetText#><#+
 }
 #>
-```
+~~~
 
 This method locates the attribute itself then uses Linq to
 extract the fields for the snippet. For each field, we extract the default value from
 the attribute. This makes use of the following Env.DTE utility method that captures the
 text for a `CodeElement`:
 
-```csharp
+~~~csharp
 <#+
 /// <summary>
 /// Extracts the code that the given element represents
@@ -838,14 +838,14 @@ public string GetElementText(CodeElement element)
     return edit.GetText(ep);
 }
 #>
-```
+~~~
 
 The following regular expression is used to extract field
 instance values from the attribute associated with the class:
 
-```csharp
+~~~csharp
 field.Name + @""(?:[^""]|"""")*""|""(?:\\.|[^\\""])*"")"
-```
+~~~
 
 The above expression matches both string literals and verbatim strings, and yes, I did
 need a bit of help to find the right expression ([thank
@@ -860,7 +860,7 @@ GetSnippet method, and the field tokens within the snippet are replaced.
   
 Revisiting our class:
 
-```
+~~~
 [SnippetINotifyPropertyChanged]
 [SnippetPropertyINPC(field = "_height", type = "int", property = "Height", defaultValue = "1")]
 public partial class SomeViewModel : INotifyPropertyChanged
@@ -869,7 +869,7 @@ public partial class SomeViewModel : INotifyPropertyChanged
   {
   }
 }
-```
+~~~
 
 When the T4 templates are executed, the following partial class is generated:
 
@@ -878,7 +878,7 @@ the field tokens within the snippet are replaced.
 
 Revisiting our class:
 
-```csharp
+~~~csharp
 [SnippetINotifyPropertyChanged]
 [SnippetPropertyINPC(field = "_height", type = "int", property = "Height", defaultValue = "1")]
 public partial class SomeViewModel : INotifyPropertyChanged
@@ -939,7 +939,7 @@ namespace CodeSnippetAutomation
     }
   }
 }
-```
+~~~
 
 Note that the snippet for
 `INotifyPropertyChanged` adds the event and a protected method for invoking
@@ -975,7 +975,7 @@ partial methods must be void.
   
 We can modify the snippet as follows:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8" ?>
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
@@ -1020,12 +1020,12 @@ We can modify the snippet as follows:
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>
-```
+~~~
 
 This means that we can now add code to our class which has declarative snippet
 generation as follows:
 
-```csharp
+~~~csharp
 [SnippetINotifyPropertyChanged]
 [SnippetPropertyINPC(field ="_foo", property ="Foo", defaultValue = "\"FOO\"")]
 public partial class SomeOtherViewModel
@@ -1035,7 +1035,7 @@ public partial class SomeOtherViewModel
     // invoked when the Foo property changes
   }
 }
-```
+~~~
 
 This means that we can now add code to our class which has
 declarative snippet generation as follows:
@@ -1076,7 +1076,7 @@ you the freedom to create a more meaningful inheritance hierarchy).
 Two of the properties had logic within their setters, this is replaced by partial
 methods as shown below:
 
-```csharp
+~~~csharp
 [SnippetINotifyPropertyChanged]
 [SnippetPropertyINPC(property="SelectedSecondaryIndex", type="int", field="_selectedSecondaryIndex", defaultValue="1",
   summary="The Index of the selected series in the secondary combo box.")]
@@ -1110,7 +1110,7 @@ public partial class TelemetryChannelViewModel : INotifyPropertyChanged
     ...
 
 }
-```
+~~~
 
 The net result of the above is to remove much of the
 un-interesting boiler-plate code, with the code-generation creating a corresponding
@@ -1127,7 +1127,7 @@ approach.
   
 A suitable snippet for dependency properties is shown below:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="utf-8" ?>
 <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
   <CodeSnippet Format="1.0.0">
@@ -1202,13 +1202,13 @@ A suitable snippet for dependency properties is shown below:
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>
-```
+~~~
 
 Taking the `GForceControl` as an example, this
 control defines two dependency properties. These can now be replaced by the following
 attributes and partial methods which are invoked on property change:
 
-```csharp
+~~~csharp
 [SnippetDependencyProperty(property = "Lateral", type = "double", containerType = "GForceControl",
   summary = "Lateral G-Force", defaultValue = "0.0")]
 [SnippetDependencyProperty(property = "Long", type = "double", containerType = "GForceControl",
@@ -1236,7 +1236,7 @@ public partial class GForceControl : Control
 
   ...
 }
-```
+~~~
 
 The dependency property code-snippet generates code which contains
 `DependencyObject` and other classes from the `System.Windows`
@@ -1244,7 +1244,7 @@ namespace. Therefore, the `Includes.tt` template which contains code which
 is added to the top of every generated class is updated to include these
 namespaces:
 
-```csharp
+~~~csharp
 <#@ template language="C#" #>
 
 <# // the following template outputs code that is added to the start of every generated file #>
@@ -1252,7 +1252,7 @@ using System.ComponentModel;
 using Visiblox.Charts;
 using System.Windows;
 using System;
-```
+~~~
 
 Running the T4 templates results in the generation of a 73 line generated class
 containing the dependency property boiler-plate code:

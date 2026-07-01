@@ -55,9 +55,9 @@ The final part of the query filters the *product* elements. It finds the colour 
 
 The LINQ to XML API is powerful and expressive, but how were these query methods, that match sibling, ancestor, descendant elements selected? For this, the LINQ to XML developers borrowed from an existing technology for querying XML, that of XPath. The equivalent XPath query to the one given above in LINQ is:
 
-```
+~~~
 //order//product[colour='Red']
-```
+~~~
 
 XPath allows you to create a query by assembling a number of expressions and predicates, each one acting on the node-set which is the result of applying the preceding expressions. This is analogous to the LINQ to XML execution described above.
 
@@ -81,7 +81,7 @@ The problem is, there is no common interface for defining a tree structure; for 
 
 In order to traverse a tree structure, at each node, all you need are methods to navigate to the parent or children. The following generic interface provides methods for traversing a tree of objects of type '`T`':
 
-```csharp
+~~~csharp
 /// <summary>
 /// Defines an adapter that must be implemented in order to use the LinqToTree
 /// extension methods
@@ -105,11 +105,11 @@ public interface ILinqToTree<T>
     /// </summary>
     T Item { get; }
 }
-```
+~~~
 
 This interface then allows us to create extension methods for navigating the different axes for a specific node of type '`T`'.
 
-```csharp
+~~~csharp
 /// <summary>
 /// Returns a collection of descendant elements.
 /// </summary>
@@ -152,7 +152,7 @@ public static IEnumerable<ILinqToTree<T>>
         yield return child;
     }
 }
-```
+~~~
 
 (I have omitted the 'AndSelf' implementations; these are quite trivial; if you are interested, download the sample code for this article.)
 
@@ -160,7 +160,7 @@ However, as we saw in the LINQ to XML section above, these methods allow us to n
 
 The `IEnumerable` equivalents of the above axes methods are given below:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Applies the given function to each of the items in the supplied
 /// IEnumerable.
@@ -204,7 +204,7 @@ public static IEnumerable<ILinqToTree<T>>
 {
     return items.DrillDown(i => i.Elements());
 }
-```
+~~~
 
 (Again, 'AndSelf' implementations have been omitted.)
 
@@ -212,7 +212,7 @@ In the above code, you can clearly see the relationship between the methods that
 
 An implementation of the `ILinqToTree` interface can be created to wrap any tree structure, allowing it to be queried using this API. To see how the `ILinqToTree` interface is used in practice, we will create an adapter that allows us to query the WPF visual tree:
 
-```csharp
+~~~csharp
 /// <summary>
 /// An adapter for DependencyObject which implements ILinqToTree in
 /// order to allow Linq queries on the visual tree
@@ -251,11 +251,11 @@ public class VisualTreeAdapter : ILinqToTree<DependencyObject>
         }
     }
 }
-```
+~~~
 
 The visual tree is composed of `DependencyObject` instances, and their relationships can be determined from the `VisualTreeHelper`. With the above adapter, we can now apply LINQ queries to our visual tree. The following is a simple example, where a `Window` with the following XAML markup is queried:
 
-```xml
+~~~xml
 <Window x:Class="LinqToTreeWPF.Window1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -296,11 +296,11 @@ The visual tree is composed of `DependencyObject` instances, and their relations
         </StackPanel>
     </Grid>
 </Window>
-```
+~~~
 
 The following examples demonstrate a few queries executed against the visual tree. Each example is given in both LINQ query syntax and extension method (or fluent) syntax:
 
-```csharp
+~~~csharp
 // get all the TextBox's which have a Grid as direct parent
 var itemsFluent = new VisualTreeAdapter(this).Descendants()
                                              .Where(i => i.Parent is Grid)
@@ -324,7 +324,7 @@ var items2Query = from i in
                        select v).Descendants()
                   where i.Item is StackPanel
                   select i.Item;
-```
+~~~
 
 Each of these queries follows a similar pattern. First, the root of the visual tree is wrapped in the `VisualTreeAdapter` (which implements `ILinqToTree`); this is followed by the query itself; finally, a `Select` clause is used to unwrap each of the items that satisfies our query criteria.
 
@@ -332,7 +332,7 @@ In my opinion, queries against tree structures are most often more readable in f
 
 Whilst this mechanism works quite well, there are a few not-so-nice features. Firstly, the addition of our adapter means that we are continually wrapping and un-wrapping the nodes of our tree. A second issue is a little more subtle. It would be nice to add extension methods for the common tasks of filtering an axis by type; for example, allowing us to find the descendants of type '`TextBox`'. The following should fit the bill:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Returns a collection of descendant elements.
 /// </summary>
@@ -341,14 +341,14 @@ public static IEnumerable<ILinqToTree<T>>
 {
     return adapter.Descendants().Where(i => i.Item is K);
 }
-```
+~~~
 
 The above method does indeed produce the desired outcome, filtering the descendant nodes for those with a type given by `K`. However, while the existing method has a single type parameter that can be inferred by the compiler, the method above has two type parameters, and inference no longer takes place. This means that we not only have to specify the type we are searching for, but also the type being queried, as illustrated below:
 
-```csharp
+~~~csharp
 // find all descendant text boxes
 var textBoxes = new VisualTreeAdapter(this).Descendants<DependencyObject, TextBox>();
-```
+~~~
 
 If anyone can suggest an extension method that does not have this problem, I would love to know! Please leave a comment below...
 
@@ -360,7 +360,7 @@ T4 templates are built in to Visual Studio, and provide a mechanism for generati
 
 Here is the template (**Note**: I have only included the descendants axis in this code snippet; the other axes and their 'AndSelf' counterparts are all in the code associated with this article):
 
-```csharp
+~~~csharp
 <#@ template language="C#" #>
 
 using System.Linq;
@@ -481,7 +481,7 @@ namespace <#=targetNamespace#>
 }<#+
 }
 #>
-```
+~~~
 
 The code within the template is very similar to that given in the previous sections. The main difference being that the use of the `ILinqToTree` adapter is now scoped within each extension method so that the LINQ to Tree API operates directly on the type itself. This removes the need for the generic type parameters on the 'regular' methods, allowing us to use a single type parameter for searching the collection for a specific type.
 
@@ -489,7 +489,7 @@ The code within the template is very similar to that given in the previous secti
 
 In order to generate a LINQ to Visual Tree API, we first create an `ILinqTree` implementation:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Adapts a DependencyObject to provide methods required for generate
 /// a Linq To Tree API
@@ -520,11 +520,11 @@ public class VisualTreeAdapter : ILinqTree<DependencyObject>
         }
     }
 }
-```
+~~~
 
 Then, execute the T4 template using the required types:
 
-```csharp
+~~~csharp
 <#@ template language="C#v3.5" #>
 <#@ include file="..\LinqToTreeCodeGen.tt" #>
 <#
@@ -534,11 +534,11 @@ string targetNamespace = "LinqToVisualTree";
 GenerateLinqMethods(typeName, adapterType, targetNamespace);
 
 #>
-```
+~~~
 
 From these few lines of code, the T4 template generates a ~400 line API that allows you to query the tree making use of all the XPath axes described earlier. For example, the generated `Descendants` method looks like this:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Returns a collection of descendant elements.
 /// </summary>
@@ -555,11 +555,11 @@ public static IEnumerable<DependencyObject> Descendants(this DependencyObject it
         }
     }
 }
-```
+~~~
 
 I am not going to reproduce the whole LINQ to Visual tree API in this article, the code itself is really not that interesting! (You can find the full API in the code attached to this article.) What is more interesting is that fact that we now have a generic LINQ API for tree structures that can be tailored for generating the API for a specific tree type in just a few lines of code. Before we explore its application to some other tree-like structures, let's revisit the queries that we applied earlier to the visual tree. With the new API, the queries are much more succinct:
 
-```csharp
+~~~csharp
 // get all the TextBox's which have a Grid as direct parent
 var itemsFluent = this.Descendants<TextBox>()
                       .Where(i => i.Ancestors().FirstOrDefault() is Grid);
@@ -576,7 +576,7 @@ var items2Query = from i in
                      (from v in this.Descendants<StackPanel>()
                       select v).Descendants<StackPanel>()
                   select i;
-```
+~~~
 
 ### LINQ to Windows Forms
 
@@ -586,7 +586,7 @@ Another commonly encountered tree structure is the hierarchical control structur
 
 Creating our LINQ to Windows Forms API is again simply a matter of creating our `ILinqToTree` adapter for a `Control`:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Adapts a Control to provide methods required for generate
 /// a Linq To Tree API
@@ -616,11 +616,11 @@ class WindowsFormsTreeAdapter : ILinqTree<control />
         }
     }
 }
-```
+~~~
 
 And, creating our T4 template that makes use of our API generation template described earlier:
 
-```
+~~~
 <#@ template language="C#v3.5" #>
 <#@ include file="..\LinqToTreeCodeGen.tt" #>
 <#
@@ -630,11 +630,11 @@ string targetNamespace = "LinqToWindowsForms";
 
 GenerateLinqMethods(typeName, adapterType, targetNamespace);
 #>
-```
+~~~
 
 And, here are a couple of simple queries that use this generated API:
 
-```csharp
+~~~csharp
 // find any buttons that are within GroupBoxes
 var buttons = this.Descendants<Button>()
                     .Where(i => i.Ancestors<GroupBox>().Any());
@@ -643,7 +643,7 @@ var buttons = this.Descendants<Button>()
 var textBox = this.Descendants<TextBox>()
                   .Cast<TextBox>()
                   .Where(t => t.Visible);
-```
+~~~
 
 ### LINQ to Filesystem
 
@@ -651,7 +651,7 @@ I think you probably know the drill by now...
 
 The following is the `ILinqToTree` implementation that adapts classes of type `DirectoryInfo`:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Adapts a DirectoryInfo to provide methods required for generate
 /// a Linq To Tree API
@@ -694,11 +694,11 @@ class FileSystemTreeAdapter : ILinqTree<DirectoryInfo>
         }
     }
 }
-```
+~~~
 
 I have also added another extension method to `DirectoryInfo` to adapt the '`GetFiles`' method which returns an array into something more LINQ friendly. For those of you familiar with XPath, files in this context can be seen as analogous to attributes in an XML document, and form another axis which can be queried.
 
-```csharp
+~~~csharp
 public static class DirectoryInfoExtensions
 {
     /// <summary>
@@ -711,13 +711,13 @@ public static class DirectoryInfoExtensions
         return dir.GetFiles().AsEnumerable();
     }
 }
-```
+~~~
 
 Here are a few examples which use this API.
 
 Personally, I have a vast number of Visual Studio projects littered around my hard disk, the fruits of many ideas, some good and some bad, but all somehow lacking in organisation. I tend to keep the better ones in Subversion (SVN). The following query finds all the projects which I have added to SVN:
 
-```csharp
+~~~csharp
 var dir = new DirectoryInfo(@"C:\Projects");
 
 // find all directories that contain projects checked into SVN
@@ -729,13 +729,13 @@ foreach (var d in dirs)
 {
     Debug.WriteLine(d.FullName);
 }
-```
+~~~
 
 The first `where` clause in the query finds any directories that contain a '*.svn*' sub directory. The second `where` clause matches those which do not have a direct parent which itself contains a '*.svn*' directory (when you add a project to SVN, all folders will have a *.svn* folder added to them).
 
 Here's another fun example that provides an interesting mix of query and fluent syntax:
 
-```csharp
+~~~csharp
 // find all 'bin' directories that contain XML files, and output
 // the number of XML files they contain.
 var dirsWithXML =
@@ -748,11 +748,11 @@ foreach (var d in dirsWithXML)
 {
     Debug.WriteLine(d.Directory + " [" + d.XmlCount + "]");
 }
-```
+~~~
 
 The first part of the query, the '`in`' clause, finds all *bin* directories and selects all of their descendant directories; the '`let`' clause assigns the count of the number of XML files in each directory to a variable '`xmlCount`'; the `where` clause selects those where the count is >0; finally, the `selects` clause creates an anonymous type containing the directory and the number of XML files. The output looks something like this:
 
-```
+~~~
 ...
 C:\Projects\SLF\Source\Facades\SLF.BitFactoryFacade\bin\Debug [1]
 C:\Projects\SLF\Source\Facades\SLF.BitFactoryFacade\bin\Release [3]
@@ -761,23 +761,23 @@ C:\Projects\SLF\Source\Facades\SLF.EntLib20Facade\bin\Release [4]
 C:\Projects\SLF\Source\Facades\SLF.EntLib41Facade\bin\Debug [2]
 C:\Projects\SLF\Source\Facades\SLF.EntLib41Facade\bin\Release [3]
 ...
-```
+~~~
 
 ## Conclusions, and One Last Example
 
 I'll finish this article with one last example, for a bit of fun. Returning to the example XAML used in our LINQ to VisualTree implementation above. The following one line query:
 
-```csharp
+~~~csharp
 string tree = this.DescendantsAndSelf().Aggregate("",
     (bc, n) => bc + n.Ancestors().Aggregate("",
       (ac, m) => (m.ElementsAfterSelf().Any() ? "| " : "  ") + ac,
     ac => ac + (n.ElementsAfterSelf().Any() ? "+-" : "\\-")) +
       n.GetType().Name + "\n");
-```
+~~~
 
 Outputs an ASCII representation of the tree structure:
 
-```
+~~~
 \-Window1
   \-Border
     \-AdornerDecorator
@@ -856,7 +856,7 @@ Outputs an ASCII representation of the tree structure:
       |             +-ScrollBar
       |             \-ScrollBar
       \-AdornerLayer
-```
+~~~
 
 This same query could, of course, be applied to any of the LINQ to Tree APIs generated in this article.
 

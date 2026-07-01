@@ -117,7 +117,7 @@ One of the two demo applications I have attached to this article is a very simpl
 
 The view model consists of a couple of simple classes, FeedViewModel which queries twitter and exposes a collection of FeedItemViewModel instances, one for each tweet. The TwitterView user control uses an ItemsControl to render the results:
 
-```xml
+~~~xml
 <Grid x:Name="LayoutRoot" Background="White">
   <StackPanel Orientation="Vertical">
     <Image Source="/Resources/Twitter_logo.jpg"/>
@@ -143,11 +143,11 @@ The view model consists of a couple of simple classes, FeedViewModel which queri
   </StackPanel>
 </Grid><span class="Apple-style-span" style="white-space: normal; ">
 </span>
-```
+~~~
 
 The starting point of a Silverlight application is a UserControl, which is set as the RootVisual of our application. In the VisualStudioSilverlight project template, the control used as the root is called MainPage. In this simple twitter example, the MainPage.xaml file instantiates the view model in code behind, and includes the view as follows:
 
-```xml
+~~~xml
 <UserControl x:Class="SLUGUK.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -156,7 +156,7 @@ The starting point of a Silverlight application is a UserControl, which is set a
     <view:TwitterView/>
   </Grid>
 </UserControl>
-```
+~~~
 
 The resulting application looks like the following:
 
@@ -170,7 +170,7 @@ The WPF solution has much the same structure as the Silverlight one; however, al
 
 With WPF, the starting point of our application is a Window, a concept which does not exist in Silverlight. The window that is shown when the application starts is defined by the StartupUri of the application. Within the WPF twitter application, the view model is instantiated in the MainWindow class, with the view included as follows:
 
-```xml
+~~~xml
 <Window x:Class="SLUGUK.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -180,7 +180,7 @@ With WPF, the starting point of our application is a Window, a concept which doe
     <view:TwitterView/>
   </Grid>
 </Window>
-```
+~~~
 
 The resulting application looks like the following:
 
@@ -250,7 +250,7 @@ By default, Silverlight projects have the `SILVERLIGHT` symbol defined. Using th
 
 We can use this in the above twitter example, by changing the code so that rather than querying twitter, it loads a file with a saved search response built into the assembly; we start to hit upon framework differences. The following code shows how the `SILVERLIGHT` symbol is used to provide different implementations of a `ReadFileToString` resolving differences in URI and file API between Silverlight and WPF:
 
-```csharp
+~~~csharp
 public void Update()
   {
     // previous mechanism for fetching XML from twitter commented out
@@ -285,7 +285,7 @@ public void Update()
 
 #endif
   }
-```
+~~~
 
 There is another method available for employing conditional compilation without the use of the `#if` / `#endif` directives. You can mark a method with the [Conditional attribute](http://msdn.microsoft.com/en-us/library/system.diagnostics.conditionalattribute.aspx), which means that the method will only be invoked (and included into the compiled IL) if the given symbol is present. However, the code is always compiled by Visual Studio, so this technique can only be used for tackling a subset of framework differences.
 
@@ -299,7 +299,7 @@ The above example, where the logic to read a file is different in WPF and Silver
 
 The common `FeedViewModel`:
 
-```csharp
+~~~csharp
 public partial class FeedViewModel
 {
   ...
@@ -310,11 +310,11 @@ public partial class FeedViewModel
 
 }<span class="Apple-style-span" style="white-space: normal; ">
 </span>
-```
+~~~
 
 And the Silverlight specific specialisation of this class via partial classes (saved in a file `FeedViewModelSilverlight.cs`):
 
-```csharp
+~~~csharp
 public partial class FeedViewModel
 {
   private string ReadFileToString(string filename)
@@ -327,11 +327,11 @@ public partial class FeedViewModel
     return xml;
   }
 }
-```
+~~~
 
 The WPF project includes the common FeedViewModel as a link, but adds the `FeedViewModelWPF.cs` directly into the solution:
 
-```csharp
+~~~csharp
 public partial class FeedViewModel
 {
   private string ReadFileToString(string filename)
@@ -345,7 +345,7 @@ public partial class FeedViewModel
     }
   }
 }
-```
+~~~
 
 Whilst conditional compilation provides a good mechanism for small pieces of framework specific code, partial classes are a more elegant solution for larger. They provide a cleaner separation of the framework specific code and remove the ‘dead’ sections of code that are ignored by the compiler when the given conditional symbol is not preset.
 
@@ -355,7 +355,7 @@ The above techniques are good for detail-level differences between the framework
 
 To resolve this issue we can call on one of the classic software engineering patterns, the [adapter pattern](http://en.wikipedia.org/wiki/Adapter_pattern). Using this approach, you first define an interface which gives the functionality you require. For example, for model dialogs, the following interface allows you to display `UserControl` in a modal manner:
 
-```csharp
+~~~csharp
 /// <summary>
 /// An interface which provides a host for some content which should be rendered
 /// as a modal dialog
@@ -388,7 +388,7 @@ public interface IModalDialogHost
 /// </summary>
 public delegate void DialogClosed(IModalDialogHost host)<span class="Apple-style-span" style="white-space: normal; ">
 </span>
-```
+~~~
 
 It is a relatively straightforward process to create a WPF or Silverlight implementation for this interface. For more details, and a working example, see [my earlier blog post](http://www.scottlogic.co.uk/blog/colin/2010/06/modal-dialogs-in-cross-platform-wpfsilverlight-applications/ ).
 
@@ -433,7 +433,7 @@ Finally, XAML resources, if you use the file linking approach within your WPF pr
 
 A nice resolution for this issue, [courtesy of Alan Mendelevich](http://devblog.ailon.org/devblog/post/2010/01/13/Writing-WPFSilverlight-compatible-code-Part-6-Adding-XAML-files-as-links.aspx), is to have all of your XAML resources in the project root, then use `MergedDictionaries` to include the required resources in your generic.xaml file:
 
-```xml
+~~~xml
 <ResourceDictionary
      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -441,7 +441,7 @@ A nice resolution for this issue, [courtesy of Alan Mendelevich](http://devblog.
      <ResourceDictionary Source="/WpfControl;component/Themes/MyTemplatedControl.xaml" />
   </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
-```
+~~~
 
 ## Adapting to each Platform
 
@@ -521,7 +521,7 @@ The `TabItems` collection is bound directly to the `ItemsSource` of a `TabContro
 
 The `PopOutCommand` moves the view model from the `TabItems` collection to the `FloatingItems` collection. The creating of a `Window` to host a popped-out view model is performed by the application, which handles collection changed events raised by the `FloatingItems` collection:
 
-```csharp
+~~~csharp
 private XAMLFinanceViewModel _model = new XAMLFinanceViewModel();
 
 public MainWindow()
@@ -544,11 +544,11 @@ private void FloatingViewModels_CollectionChanged(object sender, NotifyCollectio
   }
 }<span class="Apple-style-span" style="white-space: normal; ">
 </span>
-```
+~~~
 
 When a view model is added, a `ViewModelHost` window is created with the view model supplied as the `DataContext`. The `ViewModelHost` simply contains a `ContentControl`:
 
-```xml
+~~~xml
 <Window x:Class="XAMLFinance.ViewModelHost"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -562,13 +562,13 @@ When a view model is added, a `ViewModelHost` window is created with the view mo
                         HorizontalAlignment="Stretch"/>
     </Grid>
 </Window>
-```
+~~~
 
 When the `Closed` event is raised, the `PopInCommand` is executed (by simply invoking this command via code-behind), which results in the view model being moved back into the `TabItems` collection.
 
 The selection of a suitable view for the bound view model is performed via implicit `DataTemplates`, with the following XAML merged into the application resources:
 
-```xml
+~~~xml
 <ResourceDictionary
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -587,7 +587,7 @@ The selection of a suitable view for the bound view model is performed via impli
         <view:HeatMapView/>
     </DataTemplate>
 </ResourceDictionary>
-```
+~~~
 
 Other than the addition of floating windows, the WPF and Silvelight applications are very similar, sharing view models, with the extensions described above, and much of the view code (XAML) as well.
 
@@ -603,7 +603,7 @@ The WP7 landing page makes use of the popular `Panorama` control, and the ‘til
 
 Rather than display the Panorama immediately, the UI is hidden while the data is loaded. The `XAMLFinanceViewModel` (the WP7 specific extension), initialises its various child view models immediately. As the state of each changes, various conditions are checked. When all the children are fully populated, the boolean `IsLoaded` property is set to true:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Initialises the various view-models required for the panorama
 /// </summary>
@@ -633,11 +633,11 @@ private void CheckChildViewModelsLoaded()
             FTSE100Price.Count > 0;
 }<span class="Apple-style-span" style="white-space: normal; ">
 </span>
-```
+~~~
 
 The code-behind for the page which hosts the panorama control checks the state of the `IsLoaded` property, hiding the loading indicator when all the view models are fully populated:
 
-```csharp
+~~~csharp
 public PanoramaIndex()
 {
   InitializeComponent();
@@ -672,7 +672,7 @@ private void DataLoadComplete()
   LoadingIndicator.Visibility = Visibility.Collapsed;
 }<span class="Apple-style-span" style="white-space: normal; ">
 </span>
-```
+~~~
 
 Another place where the WP7 application differs is the FTSE100 Heatmap, this provides a view of share performance, indicated by colour, versus [market capitalization](http://en.wikipedia.org/wiki/Market_capitalization), indicated by size. The heatmap is further structured by industry sector. The WPF and Silverlight toolkits provide a TreeMap control which is ideal for visualising this kind of data, by using nested TreeMaps it is possible to create this heatmap purely within XAML. Clicking on any of the shares executes a bound command which adds the required view model to the collection of tabbed items.
 

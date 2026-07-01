@@ -43,7 +43,7 @@ This article describes the development of a Jump List control.
 
 The first step when building a new control is to determine a suitable starting point, i.e., an existing framework class to extend. The jump list should support selection, so the framework `Selector` class (which `ListBox` subclasses) is a potential; however, it does not expose a public constructor, so that is a nonstarter! This just leaves `Control`, so we'll just have to start from there:
 
-```csharp
+~~~csharp
 public class JumpList : Control
 {
   public JumpList()
@@ -51,11 +51,11 @@ public class JumpList : Control
     DefaultStyleKey = typeof(JumpList);
   }
 }
-```
+~~~
 
 By extending `Control`, we are creating a 'custom control' (or as the Visual Studio 'Add New Item' dialog confusingly calls them, 'Silverlight Templated Control'). The 'look' of the control, i.e., the various visual elements that are constructed to represent the control on screen, are defined as a `Style`:
 
-```xml
+~~~xml
 <Style TargetType="local:JumpList">
     <Setter Property="Template">
         <Setter.Value>
@@ -68,15 +68,15 @@ By extending `Control`, we are creating a 'custom control' (or as the Visual Stu
         </Setter.Value>
     </Setter>
 </Style>
-```
+~~~
 
 Setting the `DefaultStyleKey` of the `JumpList` in the constructor to reference the style above ensures that this style is applied to any `JumpList` instance that we create. The style sets a single property of the control, the `Template`, to render a `Border`. The various properties of the `Border` are bound to various properties that we have inherited from `Control`. The `JumpList` control doesn't really do much yet, although we can create an instance and set its various border properties:
 
-```xml
+~~~xml
 <local:JumpList Background="Pink"
                             BorderBrush="White" BorderThickness="5"
                             Width="100" Height="100"/>
-```
+~~~
 
 ![control.png]({{ site.baseurl }}/ceberhardt/assets/codeproject/control.png)
 
@@ -86,7 +86,7 @@ The `JumpList` needs to render a collection of items that the user supplies, whe
 
 Adding a dependency property is as simple as this ...
 
-```csharp
+~~~csharp
 [DependencyPropertyDecl("ItemsSource", typeof(IEnumerable), null,
      "Gets or sets a collection used to generate the content of the JumpList")]
 public partial class JumpList : Control
@@ -96,11 +96,11 @@ public partial class JumpList : Control
     this.DefaultStyleKey = typeof(JumpList);
   }
 }
-```
+~~~
 
 which results in the generation of the following code:
 
-```csharp
+~~~csharp
 public partial class JumpList
 {
     #region ItemsSource
@@ -134,11 +134,11 @@ public partial class JumpList
 
     #endregion
 }
-```
+~~~
 
 In order to render the list of items that the user supplies via the `ItemSource` property, we also need to expose a property that allows the user to specify how they want their items rendered. Following with the `ItemsControl` naming conventions, we'll add an `ItemTemplate` property to the `JumpList`:
 
-```csharp
+~~~csharp
 [DependencyPropertyDecl("ItemsSource", typeof(IEnumerable), null,
      "Gets or sets a collection used to generate the content of the JumpList")]
 [DependencyPropertyDecl("ItemTemplate", typeof(DataTemplate), null,
@@ -150,13 +150,13 @@ public partial class JumpList : Control
     this.DefaultStyleKey = typeof(JumpList);
   }
 }
-```
+~~~
 
 Again, the dependency property itself is added to the T4 template code-generated partial class.
 
 In order to render the items that the user supplies to the `ItemsSource` property (either by binding or by directly setting the property), we need to somehow add them to the visual tree of our JumpList when it is rendered. We could add them directly to the visual tree at runtime; however, the framework `ItemsControl` provides a mechanism for rendering a bound collection of items within a panel, providing a simpler and more flexible solution. A collection of `ContentControl`s are created in the code-behind, one for each of the bound items (later, this collection will also include group headings as well as the items themselves):
 
-```csharp
+~~~csharp
 /// <summary>
 /// Gets the categorised list of items
 /// </summary>
@@ -187,11 +187,11 @@ private void RebuildCategorisedList()
   }
   FlattenedCategories = jumpListItems;
 }
-```
+~~~
 
 When the `ItemsSource` property of the `JumpList` is set, the above method, `RebuildCategorisedList`, creates a list of `ContentControl`s which the `JumpList` exposes via the `FlattenedCategories` property. All we have to do now to add them to the visual tree of our `JumpList` is add an `ItemsControl` to the template, binding it to the `FlattenedCategories` property via a `RelativeSource`-`TemplatedParent` binding.
 
-```xml
+~~~xml
 <Style TargetType="local:JumpList">
   <Setter Property="Template">
     <Setter.Value>
@@ -224,11 +224,11 @@ When the `ItemsSource` property of the `JumpList` is set, the above method, `Reb
     </Setter.Value>
   </Setter>
 </Style>
-```
+~~~
 
 Our control is now able to render a collection of items, for example, if a `JumpList` is instantiated with the following template, where the `ItemsSource` is a collection of `Person` objects (with properties of `Surname` and `Forename`):
 
-```xml
+~~~xml
 <local:JumpList>
   <local:JumpList.ItemTemplate>
     <DataTemplate>
@@ -249,7 +249,7 @@ Our control is now able to render a collection of items, for example, if a `Jump
     </DataTemplate>
   </local:JumpList.ItemTemplate>
 </local:JumpList>
-```
+~~~
 
 The `JumpList` would render as follows:
 
@@ -259,7 +259,7 @@ The `JumpList` would render as follows:
 
 The `ItemsSource` property is of type `IEnumerable`, which is the only requirement we have on the supplied data in order to render it. This gives the user great flexibility; they can supply a `List`, `Array`, or assign the `ItemsSource` directly to the result of a LINQ query. However, they may also set (or bind) this property to an `ObservableCollection`, with the expectation that the `JumpList` is updated when they add or remove items from the list. In order to support this requirement, we need to 'probe' the `ItemsSource` to see if it implements `INotifyCollectionChanged` (the interface that makes `ObservableCollection` work), and update our list accordingly:
 
-```csharp
+~~~csharp
 // invoked when the ItemsSource dependency property changes
 partial void OnItemsSourcePropertyChanged(DependencyPropertyChangedEventArgs e)
 {
@@ -282,7 +282,7 @@ private void ItemsSource_CollectionChanged(object sender,
 {
   RebuildCategorisedList();
 }
-```
+~~~
 
 Note that the above code could be optimized to inspect the `NotifyCollectionChangedEventArgs.Action` parameter, modifying our exposed list, rather than completely rebuilding it where appropriate.
 
@@ -290,7 +290,7 @@ Note that the above code could be optimized to inspect the `NotifyCollectionChan
 
 So far the control simply renders the list of items, doing nothing more than an `ItemsControl` would. In order to make this into a jump list, we need to assign items to categories. In order to provide flexibility regarding how items are assigned to categories, we give the user of the control this responsibility via the `ICategoryProvider` interface:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A category provider assigns items to categories and details
 /// the full category list for a set of items.
@@ -306,11 +306,11 @@ public interface ICategoryProvider
   /// </summary>
   List<object> GetCategoryList(IEnumerable items);
 }
-```
+~~~
 
 Adding a dependency property to our control:
 
-```csharp
+~~~csharp
 ...
 [DependencyPropertyDecl("CategoryProvider", typeof(ICategoryProvider), null,
     "Gets or sets a category provider which groups the items " +
@@ -319,11 +319,11 @@ public partial class JumpList : Control, INotifyPropertyChanged
 {
   ...
 }
-```
+~~~
 
 A category provider is responsible for assigning each object within the list to a category, and also for providing a list of all the categories. The list of categories might depend on the list being rendered, e.g., the dates of events, or it might be some fixed list, e.g., letters of the alphabet. The following shows an implementation of this interface which assigns items to categories based on the first letter of a named property, `PropertyName`. The category list is the complete alphabet, in order:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A category provider that categorizes items
 /// based on the first character of the
@@ -351,21 +351,21 @@ public class AlphabetCategoryProvider : ICategoryProvider
             .ToList();
   }
 }
-```
+~~~
 
 Here you can see that the category list is always the full alphabet and does not depend on the items that are currently rendered by the `JumpList`. The user of the control can simply set the `CategoryProvider` to an instance of the provider above. For example, if the control is being used to render `Person` objects (which have properties of `Surname` and `Forename`), the XAML for the `JumpList` would be as follows:
 
-```xml
+~~~xml
 <local:JumpList>
   <local:JumpList.CategoryProvider>
     <local:AlphabetCategoryProvider PropertyName="Surname"/>
   </local:JumpList.CategoryProvider>
 </local:JumpList>
-```
+~~~
 
 The `RebuildCategorisedList` method described above which creates a list of `ContentControl`s, one for each item in the list, can now be updated to add the category headings (i.e., the jump-buttons). We want the user of the `JumpList` to be able to style these jump buttons, so some further dependency properties are added:
 
-```csharp
+~~~csharp
 ...
 [DependencyPropertyDecl("JumpButtonItemTemplate", typeof(DataTemplate), null,
   "Gets or sets the DataTemplate used to display the Jump buttons. " +
@@ -379,13 +379,13 @@ public class JumpList : Control
 {
   ...
 }
-```
+~~~
 
 These three properties give the user complete control over how the buttons are rendered; if they want to simply set the width, height, or some other basic property, they can set the `JumpButtonStyle`; if they want to change the template, or add an icon for example, they can set the `JumpButtonTemplate`; finally, they can specify how the 'object' that represents each item's category is rendered via the `JumpButtonItemTemplate`, this allows them to format a date, for example.
 
 The `RebuildCategorisedList` is expanded to group the items based on the category provider via a simple LINQ query. Buttons are added to the collection of objects exposed to the `ItemsControl` within the `JumpList` template:
 
-```csharp
+~~~csharp
 private void RebuildCategorisedList()
 {
   if (ItemsSource == null)
@@ -425,13 +425,13 @@ private void JumpButton_Click(object sender, RoutedEventArgs e)
 {
   IsCategoryViewShown = true;
 }
-```
+~~~
 
 Note that a `Button.Click` event handler is added to each of the buttons that are created - more on this later!
 
 We can set the default values for the three jump-button properties by adding property setters to the `JumpList` default style (in the *generic.xaml* file):
 
-```xml
+~~~xml
 <Style TargetType="l:JumpList">
   <!-- style the buttons to be left aligned with some padding -->
   <Setter Property="JumpButtonStyle">
@@ -491,7 +491,7 @@ We can set the default values for the three jump-button properties by adding pro
   </Setter>
   ...
 </Style>
-```
+~~~
 
 As you can see from the above XAML, the `JumpButtonStyle` and `JumpButtonItemTemplate` property values are quite simple. The `JumpButtonTemplate` is a little more complex; here we are defining the template used to render our buttons. Rather than using the default button template, which is black with a white border, the jump buttons are templated to be a solid rectangle filled with the phone's accent colour (a user-specified colour which is used for live tiles etc...). The `VisualStateManager` markup has a single `VisualState` defined which makes the button turn white when it is pressed.
 
@@ -505,7 +505,7 @@ When a user clicks on a jump button, we want to display a menu which allows them
 
 We can expand the method which builds our categorized list of items and jump buttons to expose a list of categories:
 
-```csharp
+~~~csharp
 private void RebuildCategorisedList()
 {
   // adds each item into a category
@@ -531,13 +531,13 @@ private void RebuildCategorisedList()
     button.Click += CategoryButton_Click;
   }
 }
-```
+~~~
 
 The above code creates a list of buttons, one for each category. The enabled state of each button is determined by whether there are any items within this category in the user-supplied list. Again, we allow the user to specify how the button is rendered via the template, style, and item-template properties.
 
 The following markup is added to the template, binding an items control to a `CategoryList` property, using the same technique as the items control which renders the jump list:
 
-```xml
+~~~xml
 <ItemsControl x:Name="CategoryItems"
               Visibility="Collapsed"
               ItemsSource="{Binding RelativeSource= {RelativeSource
@@ -555,7 +555,7 @@ The following markup is added to the template, binding an items control to a `Ca
     </ControlTemplate>
   </ItemsControl.Template>
 </ItemsControl>
-```
+~~~
 
 The style, item-template, and template for the category buttons are similar to those of the jump buttons; however, the category button adds extra styling for the Disabled state, rendering the button in a dark gray colour. The above markup arranges the buttons using the Silverlight Toolkit `WrapPanel`, which gives the following result:
 
@@ -567,7 +567,7 @@ The control now has two different 'views', one which is the categorized list of 
 
 In order to show / hide the category views and list views that are defined in the `JumpList` template, we need to obtain references to them. With `UserControl`, elements named with the `x:Name` attribute are automatically wired-up to fields in the corresponding code-behind class. However, with custom controls, you have to do this wire-up yourself. The following code locates the `ItemsControl`s for the jump list and category view:
 
-```csharp
+~~~csharp
 private ItemsControl _jumpListControl;
 private ItemsControl _categoryItemsControl;
 public override void OnApplyTemplate()
@@ -576,13 +576,13 @@ public override void OnApplyTemplate()
   _jumpListControl = this.GetTemplateChild("JumpListItems") as ItemsControl;
   _categoryItemsControl = this.GetTemplateChild("CategoryItems") as ItemsControl;
 }
-```
+~~~
 
 Note: the name passed to `GetTemplateChild` matches the `x:Name` for each of these elements.
 
 The code generated for each dependency property adds a call to a partial method which is invoked when the property changes. This allows you to add logic that is executed as a result of the property change. The following method is invoked each time the `IsCategoryViewShown` property is changed, it simply shows / hides the items control:
 
-```csharp
+~~~csharp
 partial void OnIsCategoryViewShownPropertyChanged(DependencyPropertyChangedEventArgs e)
 {
   if ((bool)e.NewValue == true)
@@ -596,7 +596,7 @@ partial void OnIsCategoryViewShownPropertyChanged(DependencyPropertyChangedEvent
     _categoryItemsControl.Visibility = Visibility.Collapsed;
   }
 }
-```
+~~~
 
 ### Making the jump
 
@@ -604,7 +604,7 @@ We have already seen that the method `RebuildCategorisedList` adds a `Click` eve
 
 The first thing we need to do is locate the `VirtualizingStackPanel`. Unlike the other named elements in our template, this element cannot be retrieved by `GetTemplateChild` within `OnApplyTemplate` because it is in a different XAML namespace (also, it may not be created initially, if the `ItemsControl` does not have any items to render). In order to locate the `VirtualizingStackPanel` when we need it, we can use [LINQ-to-VisualTree](http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/) to query the descendant elements of our `ItemsControl` to locate the element of the required type:
 
-```csharp
+~~~csharp
  /// <summary>
 /// Gets the stack panel that hosts our jump list items
 /// </summary>
@@ -621,11 +621,11 @@ private VirtualizingStackPanel ItemsHostStackPanel
     return _stackPanel;
   }
 }
-```
+~~~
 
 When a category button is clicked, we find the corresponding jump-button (both have the same `Content`, i.e., the category returned by the `ICategoryProvider`). Once the corresponding button is found, we can find its index, offset the `VirtualizingStackPanel`, then switch back to the jump-list view:
 
-```csharp
+~~~csharp
 private void CategoryButton_Click(object sender, RoutedEventArgs e)
 {
   var categoryButton = sender as Button;
@@ -643,7 +643,7 @@ private void CategoryButton_Click(object sender, RoutedEventArgs e)
     IsCategoryViewShown = false;
   }
 }
-```
+~~~
 
 We now have a fully functioning `JumpList` control!
 
@@ -655,7 +655,7 @@ The control we have developed so far works well; however, it is lacking in flare
 
 When the jump list control switches between the category and list views, the following code simply shows / hides the respective items controls for each of these views:
 
-```csharp
+~~~csharp
 partial void OnIsCategoryViewShownPropertyChanged(DependencyPropertyChangedEventArgs e)
 {
   if ((bool)e.NewValue == true)
@@ -669,11 +669,11 @@ partial void OnIsCategoryViewShownPropertyChanged(DependencyPropertyChangedEvent
     _categoryItemsControl.Visibility = Visibility.Collapsed;
   }
 }
-```
+~~~
 
 It would be nice if we could use a fade or some other transition effect to switch between these two views. A while back, I [wrote a blog post](http://www.scottlogic.co.uk/blog/colin/2009/09/helpful-extension-methods-for-show-hide-animations-in-silverlight/) which presented a couple of simple `FrameworkElement` extension methods, `Show()` and `Hide()`, which inspect the element resources to find a storyboard which can be used to show or hide the element. If no storyboard is present, the `Visibility` property is set instead. Applying this method, the above code becomes:
 
-```csharp
+~~~csharp
 partial void OnIsCategoryViewShownPropertyChanged(DependencyPropertyChangedEventArgs e)
 {
   if ((bool)e.NewValue == true)
@@ -687,11 +687,11 @@ partial void OnIsCategoryViewShownPropertyChanged(DependencyPropertyChangedEvent
     _categoryItemsControl.Hide();
   }
 }
-```
+~~~
 
 Here is the updated XAML for the `ItemsControl` which renders the jump list, to include storyboards which alter the control's opacity in order to provide a fade-in / fade-out effect:
 
-```xml
+~~~xml
 <l:JumpListItemsControl x:Name="JumpListItems"
               ItemsSource="{Binding RelativeSource={RelativeSource
                            TemplatedParent}, Path=FlattenedCategories}">
@@ -720,7 +720,7 @@ Here is the updated XAML for the `ItemsControl` which renders the jump list, to 
     </ControlTemplate>
   </l:JumpListItemsControl.Template>
 </l:JumpListItemsControl>
-```
+~~~
 
 For details of the `Show()` / `Hide()` extension methods, please refer to my [earlier blog post](http://www.scottlogic.co.uk/blog/colin/2009/09/helpful-extension-methods-for-show-hide-animations-in-silverlight/).
 
@@ -734,18 +734,18 @@ When a category button is clicked, we initially show a simple loading message, t
 
 This simple loading indicator is added to the jump list template:
 
-```xml
+~~~xml
 <Grid IsHitTestVisible="False"
       x:Name="LoadingIndicator"
       Opacity="0">
   <TextBlock Text="Loading ..."
               HorizontalAlignment="Right"/>
 </Grid>
-```
+~~~
 
 The code which handles the `IsCategoryViewShown` property changed is updated to show this loading indicator the first time the category view is shown. The next time it is shown, we do not need the loading indicator because the category view UI is already built and has just been hidden by setting its opacity to zero.
 
-```csharp
+~~~csharp
 partial void OnIsCategoryViewShownPropertyChanged(DependencyPropertyChangedEventArgs e)
 {
   if ((bool)e.NewValue == true)
@@ -794,7 +794,7 @@ private void CategoryItemsControl_LayoutUpdated(object sender, EventArgs e)
     _categoryItemsControl.Show();
   });
 }
-```
+~~~
 
 I have refined the above into a more general approach to deferring the rendering of some UI elements, creating a `DeferredLoadContentControl` which initially displays a 'loading...' message whilst the more complex content is constructed. You can read about this control on my blog.
 
@@ -804,15 +804,15 @@ The jump list control described so far sets the vertical offset of our list dire
 
 The vertical offset of our list is changed via the following code:
 
-```csharp
+~~~csharp
 ItemsHostStackPanel.SetVerticalOffset(index);
-```
+~~~
 
 Unfortunately, the vertical offset is not exposed as a dependency property, so we cannot animate it directly via a storyboard. A simple solution to this problem is to add a private dependency property to our jump list control which we can animate. We can then handle the property changed callback for this dependency property in order to set the vertical offset as above.
 
 Here's the private dependency property, with the callback that sets the vertical offset:
 
-```csharp
+~~~csharp
 /// <summary>
 /// VerticalOffset, a private DP used to animate the scrollviewer
 /// </summary>
@@ -830,11 +830,11 @@ private void OnVerticalOffsetChanged(DependencyPropertyChangedEventArgs e)
 {
   ItemsHostStackPanel.SetVerticalOffset((double)e.NewValue);
 }
-```
+~~~
 
 We can then create a suitable storyboard in the constructor of the jump list control. Here, a simple `DoubleAnimation` which uses a Sine easing function, which accelerates at the start and decelerates at the end (providing a smoother experience), is created:
 
-```csharp
+~~~csharp
 public JumpList()
 {
   DefaultStyleKey = typeof(JumpList);
@@ -850,11 +850,11 @@ public JumpList()
   // Make the Storyboard a resource.
   Resources.Add("anim", _scrollStoryboard);
 }
-```
+~~~
 
 We can make this functionality more flexible by adding a `ScrollDuration` dependency property to the `JumpList` control. All that is left to do is use the above animation when the category button is clicked:
 
-```csharp
+~~~csharp
 private void CategoryButton_Click(object sender, RoutedEventArgs e)
 {
   var categoryButton = sender as Button;
@@ -882,7 +882,7 @@ private void CategoryButton_Click(object sender, RoutedEventArgs e)
     IsCategoryViewShown = false;
   }
 }
-```
+~~~
 
 ### Animating the category button 'tiles'
 
@@ -890,7 +890,7 @@ The switch from the jump list to the category view is now a bit more interesting
 
 To support this, the category button template is extended, adding storyboards for showing and hiding the category buttons, in much the same was as the `Show()` / `Hide()` extension methods described above. In the example below, a storyboard is defined that shows the category button by scaling and rotating the tile, with the reverse being used to hide it:
 
-```xml
+~~~xml
 <Setter Property="CategoryButtonTemplate">
   <Setter.Value>
     <ControlTemplate TargetType="Button">
@@ -938,11 +938,11 @@ To support this, the category button template is extended, adding storyboards fo
     </ControlTemplate>
   </Setter.Value>
 </Setter>
-```
+~~~
 
 In order to play the above animation to reveal the tiles, we have to locate the storyboards that will be created for each tile. In order to make the 'reveal' effect more interesting, the following code 'prepares' each of the category tile storyboards by setting their `BeginTime` property based on the desired delay between the animations for neighboring tiles firing:
 
-```csharp
+~~~csharp
 // sets the begin time for each animation
 private static void PrepareCategoryViewStoryboards(ItemsControl itemsControl,
                     TimeSpan delayBetweenElement)
@@ -978,11 +978,11 @@ private static Storyboard GetStoryboardFromRootElement(
   FrameworkElement rootElement = element.Elements().Cast<FrameworkElement>().First();
   return rootElement.Resources[storyboardName] as Storyboard;
 }
-```
+~~~
 
 In order to reveal the category view, we simply iterate over all the tiles, firing the animations:
 
-```csharp
+~~~csharp
 // plays the animations associated with each child element
 public static void ShowChildElements(ItemsControl itemsControl,
                                      TimeSpan delayBetweenElement)
@@ -1002,7 +1002,7 @@ public static void ShowChildElements(ItemsControl itemsControl,
     }
   }
 }
-```
+~~~
 
 This gives the control a much more interesting transition between the two views:
 

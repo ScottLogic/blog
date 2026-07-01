@@ -61,7 +61,7 @@ Be inspired, but do not copy.
 
 The application is a to-do list in its most basic form, items can be added, removed and their text edited. The individual items in the list are represented by a `ToDoItemViewModel`:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A single todo item.
 /// </summary>
@@ -118,7 +118,7 @@ public class ToDoItemViewModel : INotifyPropertyChanged
     }
   }
 }
-```
+~~~
 
 Each item has a `Text` property which describes the task, and further properties which describe whether the task is complete and its color. The UI for the application renders
 the list of items colored such that they fade from red at the top to yellow at the bottom, hence the presence of a `Color` property for the to-do item (it is this property
@@ -126,7 +126,7 @@ that makes it a ViewModel rather than just a Model).
 
 The collection of items is contained within the `ToDoListViewModel`:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A collection of todo items
 /// </summary>
@@ -164,13 +164,13 @@ public class ToDoListViewModel
     };
   }
 }
-```
+~~~
 
 The collection of items is exposed as a `ResettableObservableCollection`, a subclass of `ObservableCollection` that allows us to raise ‘Reset’ collection changed events (more on this later). This view model also handles the `CollectionChanged` event internally so that we can update the color of each item whenever the list changes.
 
 The XAML for the UI uses an `ItemsControl` to render the items, using a simple template and a few basic value converters:
 
-```xml
+~~~xml
 <phone:PhoneApplicationPage
     ...>
 
@@ -210,11 +210,11 @@ The XAML for the UI uses an `ItemsControl` to render the items, using a simple t
     </Grid>
 </Grid>
 </phone:PhoneApplicationPage>
-```
+~~~
 
 The item gradient is an application-level resource because it is used elsewhere in the application:
 
-```xml
+~~~xml
 <Application.Resources>
   <LinearGradientBrush EndPoint="0,1" StartPoint="0,0" x:Key="itemGradient">
     <GradientStop Color="#22FFFFFF"/>
@@ -223,7 +223,7 @@ The item gradient is an application-level resource because it is used elsewhere 
     <GradientStop Color="#22000000" Offset="1"/>
   </LinearGradientBrush>
 </Application.Resources>
-```
+~~~
 
 The above XAML produces the following, simple UI, where a very subtle gradient for each item is used to distinguish
 neighboring items:
@@ -243,7 +243,7 @@ In this context, an interaction is a series of gestures that the user performs i
 
 Each interaction must implement the following interface:
 
-```csharp
+~~~csharp
 /// <summary>
 /// An interaction is handles gestures from the UI in order to perform actions
 /// on the model. Interactions have the concpet of Enabled and Active in order
@@ -278,7 +278,7 @@ public interface IInteraction
   /// </summary>
   event EventHandler DeActivated;
 }
-```
+~~~
 
 The `Initialise` method provides the list of model items, together with the
 `ItemsControl` that renders them. Interactions have state, `IsActive`, which indicates that the user is currently ‘executing’ this interaction. With our earlier ‘reorder’ interaction example, if the user has performed a tap-and-hold gesture and is currently dragging the item, the interaction is active. Interactions also have an
@@ -291,7 +291,7 @@ The project also includes `InteractionBase`, which is an abstract class that imp
 
 The task of managing the various interactions falls to the `InteractionManager`:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Manages a collection of interactions, multicasting various functions to each interaction (such
 /// as the need to attached to a new element), and also manages the enabled state of each interaction.
@@ -336,7 +336,7 @@ public class InteractionManager
     }
   }
 }
-```
+~~~
 
 This simple class performs a few tasks, it ensures that when an interaction becomes active, all other interactions are disabled, and when an interaction becomes de-activated (i.e. completes), all interactions become enabled. Because interactions use a wide range of gestures and other events, there is no easy way to disable interactions in a centralised fashion, so each must ensure that the ‘honor’ their own
 `IsEnabled` property. Finally, the `InteractionManager` ‘multicasts’ the
@@ -345,7 +345,7 @@ This simple class performs a few tasks, it ensures that when an interaction beco
 Adding interactions to our UI is as simple as creating them and adding them to the manager. As new to-do items are loaded, we handle the
 `Loaded` event of the template used to render each item, and present this to the manager, which informs each interaction in turn, allowing them to add event handlers. The complete code-behind for our view is shown below:
 
-```csharp
+~~~csharp
 public partial class MainPage : PhoneApplicationPage
 {
   // the model objects
@@ -390,7 +390,7 @@ public partial class MainPage : PhoneApplicationPage
     _interactionManager.AddElement(sender as FrameworkElement);
   }
 }
-```
+~~~
 
 This feels quite elegant!
 
@@ -418,18 +418,18 @@ In the to-do application a horizontal swipe to the right sets a todo as being co
 In order to support these gestures we handle the `ManipulationDelta` and
 `ManipulationCompleted` event for each element as they are added to the list:
 
-```csharp
+~~~csharp
 public override void AddElement(FrameworkElement element)
 {
   element.ManipulationDelta += Element_ManipulationDelta;
   element.ManipulationCompleted += Element_ManipulationCompleted;
 }<span style="white-space: normal; ">
 </span>
-```
+~~~
 
 The `ManipulationDelta` handler has to perform a couple of tasks. If the interaction is not active, it needs to determine how far the user has dragged the element to see whether we consider this to be a drag gesture. Whereas, if the interaction is active, the delta is used to offset the element being dragged:
 
-```csharp
+~~~csharp
 // the drag distance required to consider this a swipe interaction
 private static readonly double DragStartedDistance = 5.0;
 
@@ -459,7 +459,7 @@ private void Element_ManipulationDelta(object sender, ManipulationDeltaEventArgs
   }
 }<span style="white-space: normal; ">
 </span>
-```
+~~~
 
 Note, as mentioned previously, each interaction has to handle their own enabled state. But what are these mysterious methods,
 `SetHorizontalOffset` and `GetHorizontalOffset` in the above code? They are not found on
@@ -468,7 +468,7 @@ Note, as mentioned previously, each interaction has to handle their own enabled 
 `GetHortizontalOffset` extension methods. These methods also handle the case where an element does not yet have a
 `TranslateTransform` applied:
 
-```csharp
+~~~csharp
 public static void SetHorizontalOffset(this FrameworkElement fe, double offset)
 {
   var translateTransform = fe.RenderTransform as TranslateTransform;
@@ -511,13 +511,13 @@ public struct Offset
   public double Value { get; set; }
   public TranslateTransform Transform { get; set; }
 }
-```
+~~~
 
 The reason for returning the offset as an `Offset` struct will become clearer later on when we animate the position of elements.
 
 When the manipulation has completed, we need to determine whether the element has been dragged further than half way across the screen, or whether it has sufficient velocity for us to consider this to be a flick gesture. In either case we delete or mark-complete the item depending on the direction of movement.
 
-```csharp
+~~~csharp
 private static readonly double FlickVelocity = 2000.0;
 
 private void Element_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
@@ -546,11 +546,11 @@ private void Element_ManipulationCompleted(object sender, ManipulationCompletedE
   IsActive = false;
 }<span style="white-space: normal; ">
 </span>
-```
+~~~
 
 If neither threshold is reached, the item bounces back into place, this is achieved by the following ‘action’:
 
-```csharp
+~~~csharp
 private void ToDoItemBounceBackAction(FrameworkElement fe)
 {
   var trans = fe.GetHorizontalOffset().Transform;
@@ -561,12 +561,12 @@ private void ToDoItemBounceBackAction(FrameworkElement fe)
     Bounces = 2
   });
 }
-```
+~~~
 
 Animate is another extension method which I created in order to quickly create
 `DoubeAnimations` for the properties of an element:
 
-```csharp
+~~~csharp
 public static void Animate(this DependencyObject target, double from, double to,
                           object propertyPath, int duration, int startTime,
                           IEasingFunction easing = null, Action completed = null)
@@ -596,11 +596,11 @@ public static void Animate(this DependencyObject target, double from, double to,
   sb.Begin();
 }<span style="white-space: normal; ">
 </span>
-```
+~~~
 
 When an item is dragged or flicked to the right, the following ‘action’ is invoked, which sets the view model state, and re-uses the bounce-back ‘action’ to return the item to its original location:
 
-```csharp
+~~~csharp
 private void ToDoItemCompletedAction(FrameworkElement fe)
 {
   // set the ToDoItem to complete
@@ -612,7 +612,7 @@ private void ToDoItemCompletedAction(FrameworkElement fe)
   ToDoItemBounceBack(fe);
 }<span style="white-space: normal; ">
 </span>
-```
+~~~
 
 The bindings take care of updating the UI so that our item is now green. I also added a
 `Line` element which has its `Visibility` bound to the
@@ -622,7 +622,7 @@ The bindings take care of updating the UI so that our item is now green. I also 
 
 If instead the use slides or flicks to the left we’d like to delete the item. The method that performs the deletion is shown below:
 
-```csharp
+~~~csharp
 private void ToDoItemDeletedAction(FrameworkElement deletedElement)
 {
   _deleteSound.Play();
@@ -674,7 +674,7 @@ private void ToDoItemDeletedAction(FrameworkElement deletedElement)
     }
   });
 }
-```
+~~~
 
 There’s actually rather a lot going on in that method. Firstly the deleted item is animated so that it flies off the screen to the left. Once this animation is complete, we’d like to make the items below ‘shuffle’ up to fill the space. In order to do this, we measure the size of the deleted items, then iterate over all the items within the current view that are below the deleted item, and apply an animation to each one. The code makes use of the
 `GetItemsInView` extension method that I wrote for the
@@ -687,7 +687,7 @@ Once all the elements have shuffled up, our UI now contains a number of
 `Reset` method, which fires a collection changed event that will force any
 `ItemsControl` bound to the collection to completely re-render themselves:
 
-```csharp
+~~~csharp
 public class ResettableObservableCollection<T> : ObservableCollection<T>
 {
   public void Reset()
@@ -696,7 +696,7 @@ public class ResettableObservableCollection<T> : ObservableCollection<T>
       NotifyCollectionChangedAction.Reset));
   }
 }
-```
+~~~
 
 The result of this delete animation looks pretty cool …
 
@@ -712,7 +712,7 @@ The todo-list application uses gestures to delete / complete an item, however, t
 In order to help the user understand the slightly novel interface, we’ll add some very simple contextual cues. In the XAML below a
 `TickAndCross` control has been added to the item template:
 
-```xml
+~~~xml
 <Grid>
 
   <!-- task text -->
@@ -729,11 +729,11 @@ In order to help the user understand the slightly novel interface, we’ll add s
   <local:TickAndCross Opacity="0" x:Name="tickAndCross"/>
 
 </Grid>
-```
+~~~
 
 The `TickAndCross` control is a simple user control that renders a tick off-screen to the right and a cross off-screen to the left:
 
-```xml
+~~~xml
 <UserControl ...>
   <Canvas>
     <TextBlock Text="×" FontWeight="Bold" FontSize="35"
@@ -742,7 +742,7 @@ The `TickAndCross` control is a simple user control that renders a tick off-scre
                              Canvas.Left="-50" Canvas.Top="8"/>
   </Canvas>
 </UserControl>
-```
+~~~
 
 When the swipe interaction is initiated, we can locate this control using
 [LINQ-to-VisualTree](http://www.scottlogic.co.uk/blog/colin/2010/03/linq-to-visual-tree/), then set the opacity so that it fades into view, with the tick and cross elements becoming more pronounced the further the user swipes:
@@ -761,7 +761,7 @@ The easiest way to allow the user to ‘pick up’ and drag the item is to clone
 We’ll create a `DragImage` user control that contains an image together with a couple of subtle gradients which use
 `TranslateTransforms` to push them above and below the item:
 
-```xml
+~~~xml
  <UserControl ...>
 
   <Grid x:Name="LayoutRoot">
@@ -799,7 +799,7 @@ We’ll create a `DragImage` user control that contains an image together with a
     </Rectangle>
   </Grid>
 </UserControl>
-```
+~~~
 
 An instance of this control is added to *MainPage.xaml* and passed to the
 `DragReOrderInteraction`.
@@ -807,7 +807,7 @@ An instance of this control is added to *MainPage.xaml* and passed to the
 The interaction handles various events on each element that is added to the list, just like the swipe interaction. When a
 `Hold` event occurs, we clone the item being pressed upon and fade out the rest of the list:
 
-```csharp
+~~~csharp
 private void Element_Hold(object sender, GestureEventArgs e)
 {
   if (IsEnabled == false)
@@ -831,14 +831,14 @@ private void Element_Hold(object sender, GestureEventArgs e)
 
   _initialDragIndex = _todoItems.IndexOf(((ToDoItemViewModel)draggedItem.DataContext));
 }
-```
+~~~
 
 ![dragStart]({{ site.baseurl }}/ceberhardt/assets/codeproject/dragStart.jpg)
 
 Dragging the item is simply a matter of handling
 `ManipulatonDelta` and offsetting the item:
 
-```csharp
+~~~csharp
 private void Element_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
 {
   if (!IsActive)
@@ -852,14 +852,14 @@ private void Element_ManipulationDelta(object sender, ManipulationDeltaEventArgs
 
   ShuffleItemsOnDrag();
 }
-```
+~~~
 
 `SetVerticalOffset` is another extension method that applies a
 `TranslateTransform`.
 
 The `ShuffleItemsOnDrag` method is where the fun starts, we’ll get to that shortly. First we’ll take a look at a simple utility method that is used to determine the index that the item being dragged would occupy if it were dropped at the present location. This is achieved by a simple measurement:
 
-```csharp
+~~~csharp
  // Determines the index that the dragged item would occupy when dropped
 private int GetDragIndex()
 {
@@ -870,7 +870,7 @@ private int GetDragIndex()
   dragIndex = Math.Min(_todoItems.Count - 1, dragIndex);
   return dragIndex;
 }
-```
+~~~
 
 The above code needs to take the current scroll location into consideration, which is where the reference to
 `_scrollViewer`, which is the `ScrollViewer` that hosts
@@ -880,7 +880,7 @@ Within `ShuffleItemsOnDrag` we want to create an effect where the dragged item �
 
 The method below iterates over all of the items in the list to determine whether they need to be offset. An item needs to be offset if it is between the current dragged item index and the items original location.
 
-```csharp
+~~~csharp
 private void ShuffleItemsOnDrag()
 {
   // find its current index
@@ -907,12 +907,12 @@ private void ShuffleItemsOnDrag()
     }
   }
 }
-```
+~~~
 
 The `OffsetItem` method performs the actual offset by animating the Y position of each item. The target location is stored in the elements
 `Tag` property so that we don’t repeatedly fire the same animation on an element.
 
-```csharp
+~~~csharp
  private void OffsetItem(double offset, FrameworkElement item)
 {
   double targetLocation = item.Tag != null ? (double)item.Tag : 0;
@@ -924,7 +924,7 @@ The `OffsetItem` method performs the actual offset by animating the Y position o
     _moveSound.Play();
   }
 }
-```
+~~~
 
 ![shuffle]({{ site.baseurl }}/ceberhardt/assets/codeproject/shuffle.jpg)
 
@@ -939,7 +939,7 @@ When the user stops dragging the item, the `ManipulationCompleted` event is fire
 
 This sounds like a lot of work, but our `Animate` utility method makes it quite simple:
 
-```csharp
+~~~csharp
 private void Element_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
 {
   IsActive = false;
@@ -968,14 +968,14 @@ private void Element_ManipulationCompleted(object sender, ManipulationCompletedE
         => _dragImage.Visibility = Visibility.Collapsed);
     });
 }
-```
+~~~
 
 The current implementation only allows the user to drag the item within the bounds of the current screen. What if the list is larger than the screen and the users want to drag right from the bottom to the top?
 
 A common solution to this problem is to auto-scroll the list if the item is dragged near to the top. The following method is invoked periodically by a timer to see whether the item has been dragged within the top or bottom ‘scroll zones’. The velocity of the scroll is proportional to just how far within these zones the item has been dragged. Scrolling is simply a matter of setting the scroll location on the
 `ScrollViewer` we located earlier:
 
-```csharp
+~~~csharp
  // checks the current location of the item being dragged, and scrolls if it is
 // close to the top or the bottom
 private void AutoScrollList()
@@ -996,7 +996,7 @@ private void AutoScrollList()
     _scrollViewer.ScrollToVerticalOffset(_scrollViewer.VerticalOffset + velocity);
   }
 }
-```
+~~~
 
 You can see the scroll-zones illustrated below:
 
@@ -1011,7 +1011,7 @@ Now that we can mark-complete, delete and move items, it’s time to add some ed
 To support this, we’ll modify the item template so that it includes a `TextBox` as well as the readonly
 `TextBlock`, both of which will render the same task text:
 
-```xml
+~~~xml
 <Grid Background="{StaticResource itemGradient}">
   <!-- task text -->
   <TextBlock Text="{Binding Text}"
@@ -1029,14 +1029,14 @@ To support this, we’ll modify the item template so that it includes a `TextBox
 
 	...
 </Grid>
-```
+~~~
 
 I did try making do with just a `TextBox` and setting it to read only when not in edit mode, but found that it interfered with my other gestures.
 
 The
 `TapEditInteraction` just handles the `Tap` event, when this event occurs, we find the various components of the todo item UI (`FindNamedDescendant` is a utility method built on Linq-to-VisualTree) and fade out all of the other items:
 
-```csharp
+~~~csharp
  private TextBlock _taskText;
 private TextBox _taskTextEdit;
 private string _originalText;
@@ -1096,7 +1096,7 @@ private void EditFieldVisible(bool visible)
   _taskText.Visibility = visible ? Visibility.Collapsed : Visibility.Visible;
 
 }
-```
+~~~
 
 With the above code in place, tapping on an item allows the user to edit the text:
 
@@ -1107,7 +1107,7 @@ All that remains is to ‘commit’ the updated text when the user stops editing
 There are a couple of ways that the edit can finish, either when the user hits the enter key, or if the
 `TextBox` looses focus:
 
-```csharp
+~~~csharp
 private void ItemsControl_KeyUp(object sender, KeyEventArgs e)
 {
   if (e.Key == Key.Enter)
@@ -1130,7 +1130,7 @@ private void TaskTextEdit_LostFocus(object sender, RoutedEventArgs e)
   EditFieldVisible(false);
   IsActive = false;
 }
-```
+~~~
 
 We do not need to set the `Text` property of the `ToDoItemViewModel` directly because it is bound to the UI via a
 `TwoWay` binding.
@@ -1146,7 +1146,7 @@ The pull-down gesture is becoming quite popular, most typically used to refresh 
 `RenderTransform` to the content of a `ScrollViewer`, we can watch for the presence of this transform in order to detect a compression. But before we get to that point we’ll add a new user control,
 `PullDownItem`, which is the placeholder that is pulled down from the top of the screen by this interaction:
 
-```xml
+~~~xml
 <UserControl ...>
 
   <Grid Background="Red"
@@ -1161,7 +1161,7 @@ The pull-down gesture is becoming quite popular, most typically used to refresh 
     </Grid>
   </Grid>
 </UserControl>
-```
+~~~
 
 As with the drag interaction, an instance of this user control is added to the
 *MainPage.xaml* and a reference passed to our interaction.
@@ -1169,7 +1169,7 @@ As with the drag interaction, an instance of this user control is added to the
 The `PullToAddNewInteraction` detects the `MouseMove` event on the
 `ScrollViewer` (which sits within the template of our `ItemsControl`), in order to detect compression:
 
-```csharp
+~~~csharp
 private void ScrollViewer_MouseMove(object sender, MouseEventArgs e)
 {
   if (!IsEnabled)
@@ -1199,7 +1199,7 @@ private void ScrollViewer_MouseMove(object sender, MouseEventArgs e)
     _pullDownItem.Opacity = Math.Min(1.0, _distance / ToDoItemHeight);
   }
 }
-```
+~~~
 
 (Don’t ask me why you need to detect mouse events to achieve this effect – we are ‘hacking’ into the internals of the framework a little here, so we just go with whatever works!)
 
@@ -1209,7 +1209,7 @@ When the correct conditions are detected the `PullDownItem` control is offset so
 
 When the user releases the list, a `MouseLeftButtonUp` is fired (yes, mouse events are fired even though this is a touch device!). The interaction handles the event, checks how far the user has pulled down, and if the threshold has been exceeded, adds a new item to the list.
 
-```csharp
+~~~csharp
 private void ScrollViewer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 {
   if (!IsActive)
@@ -1232,7 +1232,7 @@ private void ScrollViewer_MouseLeftButtonUp(object sender, MouseButtonEventArgs 
   IsActive = false;
   _effectPlayed = false;
 }
-```
+~~~
 
 When the new item is added to our list of model objects it is not immediately added to the UI, this happened asynchronously. In order to allow the user to edit this newly created item we need to wait for the item to render. The
 `InvokeOnNextLayoutUpdated` extension method does just that, it executes the supplied action after the next
@@ -1248,7 +1248,7 @@ The one final interaction we’ll add to the application is a pinch which allows
 
 In order to determine when the pinch interaction starts, the touch frame reported event is handled. Firstly the number of touch points is inspected to see if two fingers have been placed on the screen. If so, the two items that the user has placed their fingers on are located. If the two items are neighbouring, the pinch interaction is initiated, this includes recording the initial delta (vertical distance between fingers), positioning the placeholder (which is the same user control that is used by the pull-to-add-new interaction) and applying a translate transform to all the elements in the list:
 
-```csharp
+~~~csharp
 private void Touch_FrameReported(object sender, TouchFrameEventArgs e)
 {
   ...
@@ -1299,13 +1299,13 @@ private void Touch_FrameReported(object sender, TouchFrameEventArgs e)
     }
   }
 }
-```
+~~~
 
 While the interaction is active, when subsequent touch frames are reported, the current delta is used to determine by how much the user has pinched the list. During pinch, the items I the list are offset in order to ‘part’ around the pinch location, and the placeholder element is scaled and has an opacity ‘fade’ applied. When pinch is wide enough that the placeholder is fully visible a ‘pop’ sounds is played.
 
 If, however, a touch frame indicates that the user no longer has two fingers on screen, the interaction ends, with the edit interaction being used to edit the newly added item:
 
-```csharp
+~~~csharp
 private void Touch_FrameReported(object sender, TouchFrameEventArgs e)
 {
 
@@ -1377,7 +1377,7 @@ private void Touch_FrameReported(object sender, TouchFrameEventArgs e)
 ...
 
 }
-```
+~~~
 
 ![pinchToAdd2]({{ site.baseurl }}/ceberhardt/assets/codeproject/pinchToAdd2.jpg)
 

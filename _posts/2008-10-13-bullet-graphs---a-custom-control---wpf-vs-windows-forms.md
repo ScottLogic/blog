@@ -59,7 +59,7 @@ I implemented the WinForms Bullet Graph as a User Control; this gives you a blan
 
 I will not cover how each component of the Bullet Graph is assembled within the WinForms control, it is all pretty plain and obvious, a few simple algorithms and some drawing code. Here is a snippet of the code which renders the scale bars, featured measure and comparative measure, just to provide a little flavour (full source code is, of course, given with this article):
 
-```csharp
+~~~csharp
 private void BulletGraph_Paint(object sender, PaintEventArgs e)
 {
     Rectangle rec = bulletBackground.ClientRectangle;
@@ -127,11 +127,11 @@ private void BulletGraph_Paint(object sender, PaintEventArgs e)
     comparativeMeasureRect.Location = controlRec.Location;
     comparativeMeasureRect.Size = controlRec.Size;
 }
-```
+~~~
 
 As you can see, it is pretty straightforward, although it is a little difficult from the inspection of the code to see exactly how the rendering and layout is actually performed. One feature of note is that any point plotted on the X axis is passed through a transformation function, like the one below:
 
-```csharp
+~~~csharp
 PointF transform(PointF point, Rectangle container)
 {
     if (flowDirection == FlowDirection.LeftToRight)
@@ -142,7 +142,7 @@ PointF transform(PointF point, Rectangle container)
         return new PointF(x, point.Y);
     }
 }
-```
+~~~
 
 This was done to support the requirement that it should be possible to render the Bullet Graph in a right-to-left orientation to highlight measures that have a negative impact on the business (defect count, for example).
 
@@ -160,7 +160,7 @@ The image below shows a couple of Bullet Graphs of different sizes, demonstratin
 
 Windows Forms provides some very good facilities for Designer support, allowing you to provide a design time interface for configuring the run-time properties of each control instance. For the Bullet Graph, I used the most basic of features. The control properties are exposed as Common Language Runtime (CLR) properties, with the `Category` and `Description` attributes specified. One feature which I particularly like is the `ExpandableObjectConverter`; when this attribute is present, it allows in-line editing within the property grid, as illustrated below:
 
-```csharp
+~~~csharp
 [TypeConverter(typeof(ExpandableObjectConverter))]
 public class QualitativeRange
 {
@@ -184,7 +184,7 @@ public QualitativeRange[] QualitativeRanges
     get { return qualitativeRanges; }
     set { qualitativeRanges = value; }
 }
-```
+~~~
 
 ![winforms_expandableobject.jpg]({{ site.baseurl }}/ceberhardt/assets/codeproject/winforms_expandableobject.jpg)
 
@@ -200,7 +200,7 @@ With the Bullet Graph control implemented and data binding support added, it wou
 
 The code-behind for this control is very un-interesting; it simply defines the same properties as the bullet graph, delegating to the bullet graph which it contains:
 
-```csharp
+~~~csharp
 [Category("Bullet Graph")]
 public int ComparativeMeasure
 {
@@ -214,7 +214,7 @@ public int FeaturedMeasure
     get { return bulletGraph1.FeaturedMeasure; }
     set { bulletGraph1.FeaturedMeasure = value; }
 }
-```
+~~~
 
 The above is required because Windows Forms does not have the concept of property value inheritance that WPF does.
 
@@ -232,7 +232,7 @@ I made the deliberate design aim to minimise the use of code-behind, favouring t
 
 The layout of the `BulletGraph` User Control is defined as a `Grid` composed of three rows, as follows:
 
-```xml
+~~~xml
 <Grid.RowDefinitions>
     <!-- houses the upper scale bar -->
     <RowDefinition Height="*"/>
@@ -242,7 +242,7 @@ The layout of the `BulletGraph` User Control is defined as a `Grid` composed of 
     <!-- houses the lower scale bar with axis labels -->
     <RowDefinition Height="3*"/>
 </Grid.RowDefinitions>
-```
+~~~
 
 This divides the ‘canvas’ of the `UserControl` into three sections, with a ratio of 1:4:3. In the following sections, we will see how the various component parts are constructed.
 
@@ -250,7 +250,7 @@ This divides the ‘canvas’ of the `UserControl` into three sections, with a r
 
 The Qualitative Ranges are defined as a Collection Dependency Property of our `UserControl`, with the `QualitativeRange` class being the same as the one used in the WinForms control (see above). They are rendered with the following XAML:
 
-```xml
+~~~xml
 <UserControl ... x:Name="bulletGraph" >
    ...
   <UserControl.Resources>
@@ -288,13 +288,13 @@ The Qualitative Ranges are defined as a Collection Dependency Property of our `U
   </ItemsControl>
   ...
 </UserControl>
-```
+~~~
 
 The above XAML defines an `ItemsControl` which has its `ItemsSource` bound to the `QualitativeRanges` Dependency Property. The `ItemsPanel` template is specified so that the items are placed on a `Grid`, simply for the flexibility that a `Grid` provides in arranging elements.
 
 Each `QualitativeRange` is rendered as a rectangle with its `Fill` color bound to the `Color` property. The interesting part of this layout is the way that the `Width` of each rectangle is determined. The rectangle `Width` property is bound via a `MultiBinding` which uses the `ScalingMultiConverter` value converter. This converter takes three parameters, maximum value, value to scale, and the range to scale the value over; with which it performs a simple linear scaling. The value converter code is given below. This simple converter is used extensively within the User Control (and in a number of other WPF projects I have worked on).
 
-```csharp
+~~~csharp
 class ScalingMultiConverter : IMultiValueConverter
 {
     public object Convert(object[] values, Type targetType,
@@ -326,7 +326,7 @@ class ScalingMultiConverter : IMultiValueConverter
         throw new NotImplementedException();
     }
 }
-```
+~~~
 
 The net effect of the above XAML and value converter is that each quantitative range is rendered as a rectangle, with its length (i.e. width) specified by its maximum value. The one caveat of this approach is that the ranges must be supplied to the `ItemsControl` in descending size order, or some of them will become hidden. This is an unreasonable constraint to place on the client of this user control, so instead, the ranges are suitably sorted in the code-behind. This is the only code-behind for the Bullet Graph control.
 
@@ -338,7 +338,7 @@ The qualitative measure rendering is shown below, with `ShowGridLines` enabled f
 
 The XAML for rendering the featured measure is quite similar to that for the qualitative ranges, with a single rectangle rendered as follows:
 
-```xml
+~~~xml
 <!-- featured measure -->
 <Rectangle x:Name="featuredMeasure" Grid.Row="1" Fill="Black"
                 HorizontalAlignment="Left"
@@ -363,7 +363,7 @@ The XAML for rendering the featured measure is quite similar to that for the qua
         </StackPanel>
     </Rectangle.ToolTip>
 </Rectangle>
-```
+~~~
 
 The height of the rectangle is bound to the `ActuaHeight` of the qualitative range. The `ActualHeight` and `ActualWidth` properties of `FrameworkElement`s are updated during the various layout passes when elements are rendered. This binding makes use of a simpler scaling value converter which takes a fixed scaling factor. In this case, it can be seen that the featured measure will be one-third of the height of the qualitative range bar.
 
@@ -377,7 +377,7 @@ The addition of a tooltip to the featured measure is a very easy task, with all 
 
 ### Scale Bar
 
-```xml
+~~~xml
 <UserControl ... x:Name="bulletGraph" >
    ...
   <UserControl.Resources>
@@ -419,7 +419,7 @@ The addition of a tooltip to the featured measure is a very easy task, with all 
   </ItemsControl>
 ...
 </UserControl>
-```
+~~~
 
 Again, an `ItemsControl` is being used to render the scale bar where each `Item` is a single tick. The tick mark itself is a simple line, with bindings used to ensure that its height occupies the full height of the row which contains it. The interesting part is how the X position of each tick mark is located.
 
@@ -435,7 +435,7 @@ The Bullet Graph with both scale bars is shown below. The border of the scale ba
 
 For readers who might be interested, the algorithm that converts the scale bar maximum value into an array of tick marks is given below:
 
-```csharp
+~~~csharp
 class ScaleBarConverter : IValueConverter
 {
     // the maximum number of ticks which should be rendered
@@ -479,13 +479,13 @@ class ScaleBarConverter : IValueConverter
         throw new NotImplementedException();
     }
 }
-```
+~~~
 
 The algorithm determines the tick-spacing via an iterative approach. Starting with a spacing of one, on each iteration, it determines how many ticks would be present if that spacing were used, and compares that to the maximum accepted number (in this case, hard-coded to seven). If the test fails, the tick-spacing is increased by a certain amount. It is these amounts, determined by an array of multiplication factors, which result in an aesthetic scale bar.
 
 The following example shows how the tick spacing for a scale bar with a maximum of 300 is computed, where ‘m’ indicates the multiplier array.
 
-```
+~~~
 1 => gives 300 tick marks
 
 1 * (m[0]=2.5)   = 2.5 =>  120 tick marks
@@ -497,7 +497,7 @@ The following example shows how the tick spacing for a scale bar with a maximum 
 10 *(m[0]=2.5)   = 25 =>  12 tick marks
 
 25 * (m[1]=2)    = 50  =>  6 tick marks
-```
+~~~
 
 A tick spacing of 50 units is the first one to result in less than 7 tick-marks; therefore, this is selected as the tick spacing.
 

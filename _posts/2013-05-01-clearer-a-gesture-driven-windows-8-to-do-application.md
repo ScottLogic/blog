@@ -35,13 +35,13 @@ The first step I took in porting the application was to fire up Visual Studio 20
 
 As expected, the view models required very little modification in order to make them build for Windows 8. The only change I needed to make was one namespace change for a property of type `Color`:
 
-```csharp
+~~~csharp
 System.Windows.Media.Color => Windows.UI.Color System.Windows.Media.Color => Windows.UI.Color
-```
+~~~
 
 With the view models in place I added some to-do items to the `MainPage.xaml` and set it as the `DataContext`:
 
-```csharp
+~~~csharp
 private ToDoListViewModel _viewModel;
 public MainPage()
 {
@@ -54,11 +54,11 @@ public MainPage()
   _viewModel.Items.Add(new ToDoItem("Simplify my life"));
   this.DataContext = _viewModel;
 }
-```
+~~~
 
 The XAML used for the Windows Phone version of the to-do list application, was quite simple, containing an `ItemsControl` for rendering the above list of items and a relatively simple template for each item. For Windows Phone I added a subtle gradient to each item, but for Windows 8 I decided to go for a simpler ‘flat’ look. The XAML is shown below:
 
-```xml
+~~~xml
 <Page ...>
   <Page.Resources>
     <conv:ColorToBrushConverter x:Key="ColorToBrushConverter"/>
@@ -97,7 +97,7 @@ The XAML used for the Windows Phone version of the to-do list application, was q
     </ItemsControl>
   </Grid>
 </Page>
-```
+~~~
 
 The above XAML is pretty much a direct copy from the Windows Phone version. Although there were a few minor tweaks required:
 
@@ -118,7 +118,7 @@ I also added a background image to add a bit of ‘texture’ to the interface.
 
 In order to support the ‘detail’ view on the left of the screen, I added a `SelectedItem` to the view model:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A collection of todo items
 /// </summary>
@@ -144,21 +144,21 @@ public class ToDoListViewModel : INotifyPropertyChanged
     …
   }
 }
-```
+~~~
 
 I then replaced the `ItemsControl` which renders the list of items with a `ListBox` and bound the `ItemsSource` and `SelectedItem` properties accordingly.
 
-```xml
+~~~xml
 <ListBox ItemsSource="{Binding Items}"
          SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"
          x:Name="todoList">
   ...
 </ListBox>
-```
+~~~
 
 The `DataContext` of the Grid, which is the root element of the ‘details’ area on the left of the screen, is then bound to the `SelectedItem` property of the view model. Child elements of the `Grid` can then bind directly to properties of the selected to-do item:
 
-```xml
+~~~xml
 <Grid x:Name="itemDetailGrid"
       DataContext="{Binding SelectedItem}">
   <Image Source="Assets/StoreLogo.png"
@@ -174,13 +174,13 @@ The `DataContext` of the Grid, which is the root element of the ‘details’ ar
            TextWrapping="Wrap" FontSize="25" Foreground="White"
            AcceptsReturn="True/>
 </Grid>
-```
+~~~
 
 I really like this style of binding, where you ‘switch’ `DataContext` in order to create ‘islands’ within your UI that are bound to different objects.
 
 In switching the `ItemsControl` to the `ListBox` the list now has the standard highlight to indicate focus and selection. The default light blue box doesn’t really fit with the UI for this application, so I template the `ItemsControl` to add a simple ‘dot’ next to the highlighted item. I was able to strip out most of the generic bindings for the template, but was still left with quite a big block of XAML:
 
-```xml
+~~~xml
 <ControlTemplate TargetType="ListBoxItem" x:Key="listBoxItemTemplate">
   <Border x:Name="LayoutRoot">
     <VisualStateManager.VisualStateGroups>
@@ -226,7 +226,7 @@ In switching the `ItemsControl` to the `ListBox` the list now has the standard h
     </Grid>
   </Border>
 </ControlTemplate>
-```
+~~~
 
 The visual states simply show / hide the dot based on selection state.
 
@@ -246,7 +246,7 @@ Looking at the samples that ship with VS2012, or examples from the web you can s
 
 So … I went ahead and added some visual states that show / hide various elements when the application is snapped. I opted to create a second list for rendering the items in a snapped view so that I could more easily control the `ItemTemplate` and other properties:
 
-```xml
+~~~xml
 <Page ...>
   <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}"
         x:Name="ContentRoot">
@@ -281,7 +281,7 @@ So … I went ahead and added some visual states that show / hide various elemen
     </VisualStateManager.VisualStateGroups>
   </Grid>
 </Page>
-```
+~~~
 
 However much to my confusion, this did not work!
 
@@ -326,7 +326,7 @@ This was a bit of a blow to my application!
 
 The workaround that I came up with was to add little ‘thumb’ controls to each item in the to-do list. These are user controls which are located to the left and right edges of each item, and accept the manipulations required to perform the swipe gestures:
 
-```xml
+~~~xml
 <DataTemplate x:Key="toDoItemTemplate">
   <Border Height="55" x:Name="todoItem">
     <Grid Margin="2"
@@ -357,7 +357,7 @@ The workaround that I came up with was to add little ‘thumb’ controls to eac
     </Grid>
   </Border>
 </DataTemplate>
-```
+~~~
 
 You can see the ‘thumb’ controls in the image below:
 
@@ -399,7 +399,7 @@ The documentation [provides a great overview of all the tile notification types]
 
 Sending an XML message that updated the tile state really isn’t that difficult. I updated the `ToDoListViewModel` to detect changes in its own state and notify the live tile using the following code:
 
-```csharp
+~~~csharp
 private void UpdateTileStatus()
 {
   XmlDocument tileXml = TileUpdateManager.GetTemplateContent(TileTemplateType.TileWideBlockAndText01);
@@ -412,19 +412,19 @@ private void UpdateTileStatus()
   SetElementText(tileXml, 5, "Left to-do");
   TileUpdateManager.CreateTileUpdaterForApplication().Update(new TileNotification(tileXml));
 }
-```
+~~~
 
-```csharp
+~~~csharp
 private void SetElementText(XmlDocument doc, int index, string text)
 {
   var element = (XmlElement)doc.GetElementsByTagName("text")[index];
   element.AppendChild(doc.CreateTextNode(text));
 }
-```
+~~~
 
 This generates XML of the following format:
 
-```xml
+~~~xml
 <tile>
   <visual>
     <binding template="TileWideBlockAndText01">
@@ -437,7 +437,7 @@ This generates XML of the following format:
     </binding>
   </visual>
 </tile>
-```
+~~~
 
 The only minor issue I found here is that the simulator does not support live tiles, to test the above code you have to run the application on your ‘local machine’. Other than that, live tiles are a breeze to use. The screen shot below shows the app live tile which lists the four top-most items in the to-do list together with the number of items left to complete:
 
@@ -447,20 +447,20 @@ The only minor issue I found here is that the simulator does not support live ti
 
 Windows 8 has a charms bar which collects together features and functions that are common across most applications. One contract that it makes sense for the to-do application to implement is search. Handling search input is as easy as handling the `QuerySubmitted` event as shown below:
 
-```csharp
+~~~csharp
 protected override void OnWindowCreated(WindowCreatedEventArgs args)
 {
   // Register QuerySubmitted handler for the window at window creation time and only registered once
   // so that the app can receive user queries at any time.
   SearchPane.GetForCurrentView().QuerySubmitted += OnQuerySubmitted;
 }
-```
+~~~
 
 In the to-do list application I handled this at the application-level, sending the search input to the MainPage using a static singleton (gasp!).
 
 I added a `SearchText` property to the view model and modified the Items property which exposes the collection of to-do items to filter the collection is the `SearchText` property has been set:
 
-```csharp
+~~~csharp
 public ObservableCollectionEx<ToDoItem> Items
 {
   get
@@ -476,7 +476,7 @@ public ObservableCollectionEx<ToDoItem> Items
     }
   }
 }
-```
+~~~
 
 That’s pretty much all you need to handle basic search operations:
 

@@ -98,18 +98,18 @@ I’m not going to describe the model layer in detail, it’s pretty un-interest
 
 The Nestoria APIs allows you to search by a text-based search string or a geo-location. The model layer has an interface which described this service:
 
-```csharp
+~~~csharp
 public interface IJsonPropertySearch
 {
   void FindProperties(string location, int pageNumber, Action<string> callback);
 
   void FindProperties(double latitude, double longitude, int pageNumber, Action<string> callback);
 }
-```
+~~~
 
 The implementation of this interface is quite straightforward, each of the above methods uses a different query URL, so we’ll just look at the implementation of one of them:
 
-```csharp
+~~~csharp
 public void FindProperties(string location, int pageNumber, Action<string> callback, Action<Exception> error)
 {
   var parameters = new Dictionary<string,object>(_commonParams);
@@ -118,11 +118,11 @@ public void FindProperties(string location, int pageNumber, Action<string> callb
   string url = "http://api.nestoria.co.uk/api?" + ToQueryString(parameters);
   ExecuteWebRequest(url, callback, error);
 }
-```
+~~~
 
 `ToQueryString` is a utility method that creates a URL, adding query string parameters using the supplied dictionary:
 
-```csharp
+~~~csharp
 private string ToQueryString(Dictionary<string, object> parameters)
 {
   var items = parameters.Keys.Select(
@@ -130,11 +130,11 @@ private string ToQueryString(Dictionary<string, object> parameters)
 
   return String.Join("&", items);
 }
-```
+~~~
 
 The `ExecuteWebRequest` method uses the `WebClient` class to perform an asynchronous request. But this is where things get a little complicated:
 
-```csharp
+~~~csharp
 private void ExecuteWebRequest (string url, Action<string> callback, Action<Exception> error)
 {
   WebClient webClient = new WebClient();
@@ -166,7 +166,7 @@ private void ExecuteWebRequest (string url, Action<string> callback, Action<Exce
 
   webClient.DownloadStringAsync(new Uri(url));
 }
-```
+~~~
 
 There are a couple of areas where the above code differs from the code you would most likely write if this was not being shared with a MonoTouch application …
 
@@ -176,7 +176,7 @@ The second difference is in the usage of `WebClient`. When used on a Windows pla
 
 To solve this issue, the above code uses an instance of the following interface:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A service which marshals invocations onto the UI thread.
 /// </summary>
@@ -184,11 +184,11 @@ public interface IMarshalInvokeService
 {
   void Invoke(Action action);
 }
-```
+~~~
 
 The Windows Phone implementation does nothing, other than invoke the action immediately …
 
-```csharp
+~~~csharp
 public class MarshalInvokeService : IMarshalInvokeService
 {
   public void Invoke(Action action)
@@ -197,11 +197,11 @@ public class MarshalInvokeService : IMarshalInvokeService
     action();
   }
 }
-```
+~~~
 
 Whereas the iOS version uses the `NSObject.InvokeOnMainThread` method to marshal the event back onto the UI thread:
 
-```csharp
+~~~csharp
  public class MarshalInvokeService : IMarshalInvokeService
 {
   private NSObject _obj = new NSObject();
@@ -215,13 +215,13 @@ Whereas the iOS version uses the `NSObject.InvokeOnMainThread` method to marshal
     _obj.InvokeOnMainThread(() => action());
   }
 }
-```
+~~~
 
 I will cover this approach to resolving framework differences that impact the model and presenter layer using ‘services’ in a bit more detail later. For now it is interesting to note how the requirement to share this code between Windows Phone and iOS has had a small impact on the code structure.
 
 Because this is a C# application (as opposed to JavaScript), string-based JSON data returned by `IJsonPropertySearch` is not the most natural format to be passing between application layers. The `PropertyDataSource` class is the primary interface for the model layer, and is responsible for converting the JSON data into an equivalent C# representation:
 
-```csharp
+~~~csharp
 public class PropertyDataSource
 {
   private IJsonPropertySearch _jsonPropertySearch;
@@ -282,11 +282,11 @@ public class PropertyDataSource
     };
   }
 }
-```
+~~~
 
 Each of the model objects returned by `PropertyDataSource` takes the JSON response as a constructor argument, with the model objects being responsible for conversion. For example, if the search term is recognised and an array of properties is returned, a `PropertyListingResult` is constructed:
 
-```csharp
+~~~csharp
 public class PropertyListingsResult : PropertyDataSourceResult
 {
   public PropertyListingsResult(JObject json)
@@ -312,7 +312,7 @@ public class PropertyListingsResult : PropertyDataSourceResult
 
   public List<Property> Data { get; private set; }
 }
-```
+~~~
 
 The `Property` model object performs a similar function, creating a C# model object from a JSON representation of a single property.
 
@@ -332,7 +332,7 @@ We’ll start with the `PropertySearchPresenter`, which ‘backs’ the front pa
 
 If we ignore the ‘My location’ button for now, the presenter that allows the user to enter text and click ‘go’ is quite simple …
 
-```
+~~~
 /// <summary>
 /// A presenter for the front-page of this application. This presenter allows the
 /// user to search by a text string or their current location.
@@ -430,7 +430,7 @@ PropertyDataSource dataSource, INavigationService navigationService)
     });
   }
 }
-```
+~~~
 
 A view model for this screen might expose a `SearchString` property and a `GoButtonClickedCommand` which would be bound to the UI using XAML bindings. With the `PropertyFinderPresenter` these are replaced by an inner interface `PropertyFinderPresenter.View` – Note, this certainly doesn’t have to be an inner interface, but my feeling is that this is so tightly coupled to the presenter that it makes sense to define it as such.
 
@@ -448,7 +448,7 @@ The view layer for the iOS and Windows Phone versions of the application differ 
 
 For the Windows Phone version of the application, the corresponding `PropertyFinderView` is implemented as a regular page, with the XAML shown below:
 
-```xml
+~~~xml
 <Grid Margin="10">
   <Grid.RowDefinitions>
     ...
@@ -486,13 +486,13 @@ For the Windows Phone version of the application, the corresponding `PropertyFin
               Grid.Row="4"
               Margin="0,20,0,20"/>
 </Grid>
-```
+~~~
 
 Notice that there are no XAML bindings and that the elements all have an `x:Name` property, and various event handlers.
 
 The code-behind for this page implements the `PropertyFinderPresenter.View` interface, setting the state of the UI elements and performing the required logic when events occur. The presenter is also constructed within the `OnNavigatedTo` method, with the view set to ‘this’:
 
-```csharp
+~~~csharp
 public partial class PropertyFinderView : PhoneApplicationPage, PropertyFinderPresenter.View
 {
   // Constructor
@@ -567,7 +567,7 @@ public partial class PropertyFinderView : PhoneApplicationPage, PropertyFinderPr
 #endregion
 
 }
-```
+~~~
 
 I can hear the MVVM purists leaping up and down with fury at the presence of code-behind!
 
@@ -587,7 +587,7 @@ MonoDevelop automatically generates a C# partial class with references to the co
 
 The view controller for the front page performs a similar set of tasks as the corresponding Windows Phone page, implementing the ‘view’ interface required by the presenter:
 
-```csharp
+~~~csharp
 public partial class PropertyFinderViewController : UIViewController, PropertyFinderPresenter.View
 {
   private PropertyFinderPresenter _presenter;
@@ -711,7 +711,7 @@ public partial class PropertyFinderViewController : UIViewController, PropertyFi
 
   // ...
 }
-```
+~~~
 
 Some of the above code might look a bit alien, `UIColors`, `UITextFieldDelegate` etc … but I am sure you will find it quite readable, it is all C# after all!
 
@@ -721,7 +721,7 @@ All of the other presenters / views for the application follow a similar pattern
 
 The `PropertyFinderPresenter` takes as constructor arguments the `PropertyDataSource`, which is the ‘interface’ exposed by the model layer, together with the various other ‘services’ that it requires. For example the navigation service:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A service which provides navigation from page to page.
 /// </summary>
@@ -732,7 +732,7 @@ public interface INavigationService
   /// </summary>
   void PushPresenter(object presenter);
 }
-```
+~~~
 
 There are a number of functions that the presenter needs to perform, such as navigation, access to Geolocation and state persistence that cannot be provided by the core .NET APIs. As an example, the navigation API for iOS (as exposed by the MonoTouch APIs) is quite different from the navigation API for Windows Phone.
 
@@ -746,7 +746,7 @@ The model and presenter layers are shared across all platforms, with any platfor
 
 The `INavigationService` interface shown above makes use of the fact that both Windows Phone and iOS have ‘stack’ base approach to navigation. The Windows Phone implementation the uses the platform-specific `System.Windows.Navigation.NavigationService`, mapping presenters to pages.
 
-```csharp
+~~~csharp
 using WPNavigationService = System.Windows.Navigation.NavigationService;
 
 public class NavigationService : INavigationService
@@ -777,11 +777,11 @@ public class NavigationService : INavigationService
   }
 }<span style="font-size: 14px; white-space: normal; ">
 </span>
-```
+~~~
 
 Whereas the iOS version creates instances of the required view controllers which are ‘pushed’ to the `UINavigationController` instance supplied:
 
-```csharp
+~~~csharp
 public class NavigationService : INavigationService
 {
 
@@ -818,7 +818,7 @@ public class NavigationService : INavigationService
   #endregion
 
 }
-```
+~~~
 
 The same approach is used for state persistence and geo-location.
 

@@ -41,7 +41,7 @@ Unfortunately, the background section to this article paints a rosy picture of W
 
 The main problem with the `ListView` control is that while the XAML to insert this control is quite simple, as illustrated below, it actually hides quite a lot of complexity. If you browse the visual tree for the `ListView` with a debugger tool such as [Mole](http://www.codeproject.com/KB/WPF/MoleForWPF.aspx), you will see that the `ListView` is composed of many visual elements, many of which you would like to style.
 
-```xml
+~~~xml
 <ListView>
     <ListView.View>
         <GridView>
@@ -49,7 +49,7 @@ The main problem with the `ListView` control is that while the XAML to insert th
         </GridView>
     </ListView.View>
 </ListView>
-```
+~~~
 
 There are a number of great blog posts which describe how to style the various visual aspects of the `ListView`, including [Styling the ListView](http://www.designerwpf.com/the-wpf-designers-guide-to-styling-the-listview/), which describes how to style the `ItemContainer` which (as you might expect!) contains the items in the list, the `CellTemplate` for each `GridViewColumn`, the `ColumnHeaderContainerStyle`, and more. The basic principle being that the `ListView` exposes the templates and styles of the visual elements which it constructs as properties of the `ListView` itself. The hard part is knowing which of these properties to use in order to achieve the effect you are after.
 
@@ -59,7 +59,7 @@ Back to the subject of creating an auto-filter, the image below shows the contro
 
 To achieve the above, it is the contents of the column header which we need to modify rather than the visual style of the entire header itself. Therefore, the data template of the column header is the correct place to add these controls. The XAML below illustrates how this is done.
 
-```xml
+~~~xml
 <DataTemplate x:Key="FilterGridHeaderTemplate">
     <StackPanel Orientation="Horizontal">
         <!-- render the header text -->
@@ -95,13 +95,13 @@ To achieve the above, it is the contents of the column header which we need to m
         </Popup>
     </StackPanel>
 </DataTemplate>
-```
+~~~
 
 If you have read the blog post referenced above, you will know that each `GridViewColumn` has a `HeaderTemplate` property which can be used to provide a data template for the column header. We could simply specify that when a developer uses the `FilterableListView` that they set the `HeaderTemplate` for each column accordingly; however, it makes the control much more useable if the above template automatically becomes the data template for the column header.
 
 In order to do this, we programmatically assign the `HeaderTemplate` property in the `OnInitialised` method of our `ListView`, as follows:
 
-```csharp
+~~~csharp
 protected override void OnInitialized(EventArgs e)
 {
     base.OnInitialized(e);
@@ -120,7 +120,7 @@ protected override void OnInitialized(EventArgs e)
         }
     }
 }
-```
+~~~
 
 ## Step Three: Displaying the Popup
 
@@ -135,7 +135,7 @@ When the `FilterableListView` handles the `ShowFilter` command, it needs to dete
 
 The easiest way of discovering this information is to navigate the visual tree, first up to the column header, to obtain the name of the property to filter, then down from the header to locate the associated popup window. The `VisualTreeHelper` class provides a number of static utility methods for navigating the tree, which Andrew Whiddett has wrapped up in a [`WPFHelper`](http://blogs.msdn.com/karstenj/archive/2006/04/19/579233.aspx) class which enhances this functionality, allowing you to search the visual tree for classes that match certain criteria (name, type, etc.).
 
-```csharp
+~~~csharp
 public FilterableListView()
 {
     CommandBindings.Add(new CommandBinding(ShowFilter, ShowFilterCommand));
@@ -189,13 +189,13 @@ private void ShowFilterCommand(object sender, ExecutedRoutedEventArgs e)
         listView.SelectionChanged += SelectionChangedHandler;
     }
 }
-```
+~~~
 
 ## Step Four: Applying the Filter
 
 The final step is simply to handle the `SelectionChange` event from the filter `ListView`, constructing the appropriate filters and applying them to the `Item`s in the list. When using a `FilterableList` view which has a filter set on one of the columns and you wish to apply a filter to one of the other columns, you would expect that the drop down only displays the items that are present as a result of the first filter. In other words, the filters are AND-ed together. Interestingly, this functionality comes for free! This is because we populated the drop-down filter list by iterating over the `Items` property of our `ListView`. `Items` derives from `System.Windows.Data.CollectionView` which, as the name suggests, is a view on the bound data which is the effect of applying grouping, sorting, filtering etc.
 
-```csharp
+~~~csharp
 // construct a filter and apply it
 Items.Filter = delegate(object item)
 {
@@ -225,13 +225,13 @@ Items.Filter = delegate(object item)
     }
     return match;
 };
-```
+~~~
 
 ## Using the Control in Practice
 
 Using the `FilterableListView` is as simple as using a regular `ListView`. The only difference is the addition of an extra property `SortPropertyName`, which is the property which is sorted / filtered for a specific column.
 
-```xml
+~~~xml
 <slogic:FilterableListView ItemsSource="{Binding}">
     <ListView.View>
         <GridView>
@@ -250,7 +250,7 @@ Using the `FilterableListView` is as simple as using a regular `ListView`. The o
         </GridView>
     </ListView.View>
 </slogic:FilterableListView>
-```
+~~~
 
 The `FilterableListView` does, however, suffer from the same problem as the `ListView`. The control is composed of a number of other controls which the developer does not explicitly construct within their XAML code. `FilterableListView` uses the same approach as `ListView`; it exposes the properties of the visual elements it includes to the developer via dependency properties. The `FilterButtonActive` and `FilterButtonInactive` properties can be used to style the drop-down button. (Note: I have not exposed all the potential properties that one might be interested in, I leave this as an exercise for the reader!)
 

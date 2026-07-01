@@ -39,7 +39,7 @@ This application has quite a basic UI, which is composed of full-screen map, whi
 
 The application UI is defined in XAML as follows:
 
-```xml
+~~~xml
 <Grid util:GridUtils.RowDefinitions="Auto, *">
 
   <!-- title -->
@@ -94,13 +94,13 @@ The application UI is defined in XAML as follows:
     </Grid>
   </Grid>
 </Grid>
-```
+~~~
 
 `GridUtils` is a utility class, [which I wrote a number of years ago](http://www.scottlogic.co.uk/blog/colin/2010/12/a-simplified-grid-markup-for-silverlight-and-wpf/), that provides convenient shorthand for defining grid columns and rows (for WPF, Silverlight and WindowsPhone). If you are following along, by building this running app from scratch, then in order to add the map, you will have to include the following namespace definition:
 
-```
+~~~
 xmlns:maps="clr-namespace:Microsoft.Phone.Maps.Controls;assembly=Microsoft.Phone.Maps"
-```
+~~~
 
 Before building and running the application, you have to include the mapping ‘capability’. To do this open up '''WPAppManifest.xml''', navigate to the Capabilities tab and check the `ID_CAP_MAP` checkbox. While you’re there, you may as well include `ID_CAP_LOCATION` as well:
 
@@ -112,13 +112,13 @@ With these capabilities included, build and run the application and you should s
 
 One of the improvements in the maps control is that it is fully vector-based (The Windows Phone 7 map is image-tile-based), this creates a much more smooth transition when the map is zoomed, and also allows for 3D transformations (as we will see a little later on). The map control also has a few other useful features for our running app, pedestrian-features and landmarks. These can be enabled as follows:
 
-```xml
+~~~xml
 <!-- the map -->
 <maps:Map x:Name="Map"
       PedestrianFeaturesEnabled="True"
       LandmarksEnabled="True"
       ZoomLevel="16"/>
-```
+~~~
 
 With these features enabled the map illustrates useful features such as stairs, crossings and 3D landmarks:
 
@@ -132,7 +132,7 @@ The Windows Phone 8 maps have many more new features that I have not used in thi
 
 When the '''Start''' button is tapped the application tracks the user’s location using the phone’s built in GPS receiver, in order to mark their path on the map. It also times their run duration and generates various statistics of interest. We’ll start with the simpler of the two, timing the run. When the start button is clicked a `DispatcherTimer` is started and the time of the button tap recorded. On each timer ‘tick’ the label which indicates the elapsed run time is updated:
 
-```csharp
+~~~csharp
 public partial class MainPage : PhoneApplicationPage
 {
   private DispatcherTimer _timer = new DispatcherTimer();
@@ -167,7 +167,7 @@ public partial class MainPage : PhoneApplicationPage
     }
   }
 }
-```
+~~~
 
 With the above code in place, tapping the '''start''' button starts the timer.
 
@@ -175,7 +175,7 @@ With the above code in place, tapping the '''start''' button starts the timer.
 
 The next step is to track the location whilst the timer is running. The Windows Phone API has a `GeoCoordinateWatcher` class which fires a `PositionChanged` event which can be used to track the user’s location. It is very easy to render the user’s movements on a map via a `MapPolyLine`, which is a line path which is defined in terms of geocoordinates. Each time the event is fired, a new point is added to the line as follows:
 
-```csharp
+~~~csharp
 public partial class MainPage : PhoneApplicationPage
 {
   private GeoCoordinateWatcher _watcher = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
@@ -225,7 +225,7 @@ public partial class MainPage : PhoneApplicationPage
     _line.Path.Add(coord);
   }
 }
-```
+~~~
 
 With these few lines of extra code, the path of the user’s run is added to the map:
 
@@ -233,7 +233,7 @@ With these few lines of extra code, the path of the user’s run is added to the
 
 The `PositionChanged` event handler can be developed further to compute the total run distance, calories burnt and pace. This makes use of the `GeoCoordinate.GetDistanceTo` method which can be used to compute the distance between two locations:
 
-```csharp
+~~~csharp
 private double _kilometres;
 private long _previousPositionChangeTick;
 
@@ -263,7 +263,7 @@ private void Watcher_PositionChanged(object sender, GeoPositionChangedEventArgs<
   _line.Path.Add(coord);
   _previousPositionChangeTick = System.Environment.TickCount;
 }
-```
+~~~
 
 Runner’s do not measure pace in miles or kilometers per hour. Instead, pace is measured in terms of the time taken to travel a set distance. This method of measurement makes it much easier to determine your overall race time, e.g. if you are running at 4:00 minute-kilometers pace, you will complete a 5k race in 20 minutes.
 
@@ -281,22 +281,22 @@ Because of the vector nature of the Windows Phone 8 map it is possible to transf
 
 Adding this feature to the running app is really easy, firstly setting the map Pitch is simply done in the XAML:
 
-```xml
+~~~xml
 <!-- the map -->
 <maps:Map x:Name="Map"
       PedestrianFeaturesEnabled="True"
       LandmarksEnabled="True"
       Pitch="55"
       ZoomLevel="18"/>
-```
+~~~
 
 Computing the heading is a little more complicated. In the previous section the current and previous location was used to compute pace and distance traveled. These two locations can be used to compute the heading, although the calculation is a little more involved. Fortunately I found a .NET library that contains some useful geolocation utilities, including one that computes heading. Using the [.NET Extra library](http://www.dotnextra.com/), finding and setting the heading is quite straightforward:
 
-```csharp
+~~~csharp
 PositionHandler handler = new PositionHandler();
 var heading = handler.CalculateBearing(new Position(previousPoint), new Position(coord));
 Map.SetView(coord, Map.ZoomLevel, heading, MapAnimationKind.Parabolic);
-```
+~~~
 
 Also, note that the above code uses the map `SetView` method rather than setting each property independently. If you set the properties directly, the map state changes immediately, which means that the view will ‘jump’ from one location/heading to another. Whereas `SetView` transitions from one location to another, producing a much more fluid UI.
 
@@ -310,7 +310,7 @@ With Windows Phone 7 you could run the foreground applications under the lock sc
 
 In order to turn on this feature you have to edit '''WMAppManifest.xml''' by hand, to do this right-click the file and select '''View code'''. Then locate the `Tasks` element and add the following.
 
-```xml
+~~~xml
 <Tasks>
   <DefaultTask Name="_default" NavigationPage="MainPage.xaml">
     <BackgroundExecution>
@@ -318,7 +318,7 @@ In order to turn on this feature you have to edit '''WMAppManifest.xml''' by han
     </BackgroundExecution>
   </DefaultTask>
 </Tasks>
-```
+~~~
 
 And that’s it!
 
@@ -330,14 +330,14 @@ Windows Phone 8 adds yet more tile templates, we’ll use the new ‘Iconic Temp
 
 Updating the tile state is as simple as sending a notification. Each time the location changes the following code is executed:
 
-```csharp
+~~~csharp
 ShellTile.ActiveTiles.First().Update(new IconicTileData()
 {
   Title = "WP8Runner",
   WideContent1 = string.Format("{0:f2} km", _kilometres),
   WideContent2 = string.Format("{0:f0} calories", _kilometres * 65),
 });
-```
+~~~
 
  Now if you pin the application to the start screen and use a wide tile format, while the location is being tracked in the background, the tile updates:
 

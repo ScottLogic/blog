@@ -30,7 +30,7 @@ It’s been a while since I last dabbled with Windows 8, so I thought I’d have
 
 The Reversi game is ‘backed’ by the `GameBoardViewModel` which exposes the game state via a set of properties such as the current score, the player whose turn it is next, and the state of the board itself as a collection of `GameBoardSquareViewModel` instances:
 
-```csharp
+~~~csharp
 public class GameBoardViewModel : ViewModelBase
 {
 
@@ -101,13 +101,13 @@ public class GameBoardViewModel : ViewModelBase
     BlackScore = 0;
   }
 }
-```
+~~~
 
 The `ViewModelBase` class is a pretty standard view model base class that simplifies the process of creating classes that implement `INotifyPropertyChanged`, via the `SetField` method. The `GameBoardViewModel` constructor creates the 8x8 board squares, whilst the `InitialiseGame` method sets the initial state (see Wikipedia for the [rules on the game including the initial set-up](http://en.wikipedia.org/wiki/Reversi))
 
 The `GameBoardSquareViewModel` exposes the row, column and current state of an individual board square:
 
-```csharp
+~~~csharp
  public class GameBoardSquareViewModel : ViewModelBase
 {
   private BoardSquareState _state;
@@ -131,18 +131,18 @@ The `GameBoardSquareViewModel` exposes the row, column and current state of an i
     set { SetField<BoardSquareState>(ref _state, value, "State"); }
   }
 }
-```
+~~~
 
 Where the state is described by the following enumeration:
 
-```csharp
+~~~csharp
 public enum BoardSquareState
 {
   EMPTY,
   BLACK,
   WHITE
 }
-```
+~~~
 
 ## Creating the Game Graphics
 
@@ -188,7 +188,7 @@ In order to make re-usable UI components typically you would construct user cont
 
 The `ReversiView` defines a number of templates as follows:
 
-```xml
+~~~xml
 <ControlTemplate x:Key="BlackScoreTemplate">
   <Viewbox>
     <Grid Width="150" Height="150">
@@ -248,13 +248,13 @@ The `ReversiView` defines a number of templates as follows:
     </Grid>
   </Viewbox>
 </ControlTemplate>
-```
+~~~
 
 Each of these templates defines a re-usable UI component, each of which uses a PNG file which is rendered using a number of different layers from the GIMP graphics. Note that a few of these templates make use of the `Viewbox` control which is very useful for scaling your application UI in order to accommodate different screen sizes.
 
 The `ReversiView` content is as follows:
 
-```xml
+~~~xml
  <Grid>
 
   <VisualStateManager.VisualStateGroups>
@@ -326,7 +326,7 @@ The `ReversiView` content is as follows:
                     Template="{StaticResource WhiteScoreTemplate}"/>
   </Grid>
 </Grid>
-```
+~~~
 
 As you can see in the above code the application has three distinct layouts, where the `VisualStateManager` shows / hides each layout based on the current application view state. The use of `ContentControls` ensures full re-use of the view components, it also allows you to clearly see the various layouts.
 
@@ -346,7 +346,7 @@ The `ItemsControl` creates a `ContentPresenter` to host each `BoardSquareView` i
 
 As a workaround for this problem, the `BoardSquareView` sets up the required bindings in code:
 
-```csharp
+~~~csharp
 public sealed partial class BoardSquareView : UserControl
 {
   public BoardSquareView()
@@ -373,7 +373,7 @@ public sealed partial class BoardSquareView : UserControl
     });
   }
 }
-```
+~~~
 
 This pretty much covers all the interesting points relating to the view, so it’s time to take a closer look at the game logic…
 
@@ -395,7 +395,7 @@ When the player taps a cell, the following sequence of events occurs:
 
 This all takes place within the following method expose by `GameBoardViewModel`:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Makes the given move for the current player. Score are updated and play then moves
 /// to the next player.
@@ -428,7 +428,7 @@ public void MakeMove(int row, int col)
   BlackScore = _squares.Count(s => s.State == BoardSquareState.BLACK);
   WhiteScore = _squares.Count(s => s.State == BoardSquareState.WHITE);
 }
-```
+~~~
 
 We’ll have a look at how the view model determines whether a move is valid, within `I``sValidMove`, in a bit more detail.
 
@@ -436,7 +436,7 @@ With the game of Reversi a move is valid if it surrounds one or more of the oppo
 
 Firstly I defined a delegate which is used to update the row and column that is passed to it. The view model creates 8 instances of this delegate, one to represent each direction that the board can be navigated in:
 
-```csharp
+~~~csharp
 delegate void NavigationFunction(ref int row, ref int col);
 
 private static List<NavigationFunction> _navigationFunctions = new List<NavigationFunction>();
@@ -452,11 +452,11 @@ static GameBoardViewModel()
   _navigationFunctions.Add(delegate(ref int row, ref int col) { col++; });
   _navigationFunctions.Add(delegate(ref int row, ref int col) { col--; });
 }
-```
+~~~
 
 The view model uses these navigation functions in order to provide a list of squares that are encountered when navigating in a certain direction from a specific starting point:
 
-```csharp
+~~~csharp
 /// <summary>
 /// A list of board squares that are yielded via the given navigation function.
 /// </summary>
@@ -470,13 +470,13 @@ private IEnumerable<GameBoardSquareViewModel> NavigateBoard(NavigationFunction n
     navigationFunction(ref column, ref row);
   }
 }
-```
+~~~
 
 This neatly wraps up both the logic of navigating the board in a certain direction together with the need to check the bounds of the board.
 
 `IsValidMove` uses the collection of navigation functions to determine whether a move is valid, as you can see by the use of the `Any` Linq method:
 
-```
+~~~
 /// <summary>
 /// Determines whether the given move is valid
 /// </summary>
@@ -489,11 +489,11 @@ public bool IsValidMove(int row, int col, BoardSquareState state)
   // if counters are surrounded in any direction, the move is valid
   return _navigationFunctions.Any(navFunction => MoveSurroundsCounters(row, col, navFunction, state));
 }
-```
+~~~
 
 The `Any` query uses the `MoveSurroundsCounter` method, which provides the ‘guts’ of the logic:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Determines whether the given move 'surrounds' any of the opponents pieces.
 /// </summary>
@@ -535,13 +535,13 @@ private bool MoveSurroundsCounters(int row, int column,
 
   return false;
 }
-```
+~~~
 
 In the above code you can see that it makes use of the `NavigateBoard` function in order to traverse the squares in the direction dictated by the navigation function.
 
 If a move is valid, the pieces that are surrounded in each of the 8 directions are ‘flipped’. Again, this makes use of the navigation functions.
 
-```csharp
+~~~csharp
 /// <summary>
 /// Flips all the opponents pieces that are surrounded by the given move.
 /// </summary>
@@ -565,11 +565,11 @@ private void FlipOpponentsCounters(int row, int column, BoardSquareState state)
     }
   }
 }
-```
+~~~
 
 Finally, the check to see whether the game is over simply takes the brute force approach of checking each and every square to see if it is a valid move for each player:
 
-```csharp
+~~~csharp
 private bool HasGameFinished()
 {
     return  !CanPlayerMakeAMove(BoardSquareState.BLACK) &&
@@ -594,7 +594,7 @@ private bool CanPlayerMakeAMove(BoardSquareState state)
     }
     return false;
 }
-```
+~~~
 
 This completes the game logic!
 
@@ -606,7 +606,7 @@ If you haven’t got anyone to play against, do not despair, we’ll create you 
 
 The class which represents the computer opponent is initialized with the game view model, which it observes in order to determine when it is the computer turn:
 
-```csharp
+~~~csharp
 public class ComputerOpponent
 {
   private int _maxDepth;
@@ -634,11 +634,11 @@ public class ComputerOpponent
   }
   ...
 }
-```
+~~~
 
 The computer takes a brute force approach to determining the move to make. It analyses every single potential next move, then scores them, picking the best one:
 
-```csharp
+~~~csharp
 private void MakeNextMove()
 {
   Move bestMove = new Move()
@@ -674,7 +674,7 @@ private void MakeNextMove()
   }
 }<span style="white-space: normal;">
 </span>
-```
+~~~
 
 As you can see in the above code, the `GameBoardViewModel` has a handy copy constructor which allows the computer opponent to perform the required what-if analysis.
 
@@ -698,7 +698,7 @@ The approach described here is a [minimax algorithm](http://en.wikipedia.org/wik
 
 In order to make use of the minimax algorithm, the `ScoreForBoard` computes the score for each move recursively:
 
-```csharp
+~~~csharp
 // Computes the score for the given board
 private int ScoreForBoard(GameBoardViewModel board, int depth)
 {
@@ -743,17 +743,17 @@ private int ScoreForBoard(GameBoardViewModel board, int depth)
 
   return minMax;
 }
-```
+~~~
 
 You can see in the above code that the algorithm used to compute the score is inverted when `depth%2==0`, i.e. on alternating turns. This reflects the previous description where one player is maximizing the score whilst the other player minimizes the same value.
 
 Putting the computer into action is as simple as creating an instance of this class:
 
-```csharp
+~~~csharp
 var vm = new GameBoardViewModel();
 var comp = new ComputerOpponent(vm, BoardSquareState.WHITE, 5);
 DataContext = vm;
-```
+~~~
 
 Of course whilst a greater search depth will make the computer player smarter, it will also make it slower.
 

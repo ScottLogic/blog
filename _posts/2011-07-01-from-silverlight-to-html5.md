@@ -92,7 +92,7 @@ Time to stop worrying about the right way to do things, and write some code!
 
 My test page has the following simple markup:
 
-```html
+~~~html
 <html>
 <head>
     <script type="text/javascript" src="jquery-1.6.1.js"></script>
@@ -103,7 +103,7 @@ My test page has the following simple markup:
     <div class="jumpList" style="width:200px; height:300px"/>
 </body>
 </html>
-```
+~~~
 
 Where the `div` with the class `jumpList` is the DOM element where I would like to create my control.
 
@@ -111,7 +111,7 @@ Incidentally, I made the mistake of making the script tags self-closing elements
 
 My first-cut at the JumpList JavaScript code creates an array of `people` objects (using some code I found on the internet for [creating random names](http://leapon.net/files/namegen.html)), which is sorted by surname. The code then iterates over this array, adding a new `li` element for each within a parent `ul` with the class `itemList`.
 
-```jscript
+~~~jscript
 // create the test data
 var people = [];
 for (var i=0;i<20;i++) {
@@ -142,7 +142,7 @@ $(document).ready(function () {
   // add the item list
   $jumpList.append($itemList);
 });
-```
+~~~
 
 The best way to see the structure that this code creates is via a browser based developer tool such as Firefox’s Firebug or the built-in Chrome developer tools:
 
@@ -150,9 +150,9 @@ The best way to see the structure that this code creates is via a browser based 
 
 Most of the above JavaScript code is probably relatively easy to follow for a C# developer, however the dollar functions $() are probably worth a mention. jQuery defines a global function with the name ‘$’ which is used to create a jQuery object, by supplying a CSS selector or an HTML snippet. jQuery is well known for its Fluent interface which allows you to chain function calls:
 
-```jscript
+~~~jscript
 $("div.test").add("p.quote").addClass("blue").slideDown("slow");
-```
+~~~
 
 This Fluent style is familiar to C# developers who use the (extension method) LINQ syntax. However, the way the two work is quite different. The Fluent C# LINQ APIs rely on extension methods defined on the `IEnumerable` interface, where each method returns an `IEnumerable`. With jQuery, the jQuery object (which is the object returned by the dollar function) wraps a collection of DOM nodes, each function manipulates these nodes and returns a jQuery object.
 
@@ -162,16 +162,16 @@ In the above code, I have prefixed all variables that are jQuery objects with a 
 
 So far the code above has created a nested `ul` which contains our list of elements. The Windows Phone 7 control I am replicating allows you to scroll a long list of data, so the nested `ul` needs to be cropped to the height of its parent, allowing you to scroll its contents. The CSS `overflow` property enables this functionality:
 
-```css
+~~~css
 .itemList
 {
     overflow-y: auto;
 }
-```
+~~~
 
 The `ul` and `li` elements are also styled to remove the bullet-points, and padding that are applied by standard to these elements:
 
-```css
+~~~css
 ul.itemList
 {
     padding: 0;
@@ -181,17 +181,17 @@ ul.itemlist li
 {
     list-style-type: none;
 }
-```
+~~~
 
 For this to work, the `itemList` div needs to have the same height as its parent. Unfortunately, this is not so easily achieved with CSS alone. The Silverlight JumpList control uses a grid layout in order that the item list and category list share the same content area. However, there is no such direct equivalent in HTML. The lack of decent grid support is why there are so many hacked approaches for creating classic web-page layouts, like the three-columns and footer layout (and which is why I still quite happily use tables!). Some of the future CSS features like the [Grid Layout Module](http://www.w3.org/TR/css3-grid/) and [Template Layout Module](http://www.w3.org/TR/2009/WD-css3-layout-20090402/) look very promising, but neither appears to have got to the stage of even a preliminary implementation in a browser.
 
 At the moment, the best solution to this problem is to use JavaScript:
 
-```jscript
+~~~jscript
 // set the height of the itemList to that of the container
 $itemList.height($jumpList.height());
 $itemList.width($jumpList.width());
-```
+~~~
 
 This gives the desired effect:
 
@@ -207,7 +207,7 @@ My code so far is not terribly re-useable, with the div element where the contro
 
 Re-writing the above code as a jQueryUI widget is a straightforward process, following the simple pattern described in the referenced blog post. An object is created with an `options` property which allows variables to be passed in when a widget is created. The `_init` function is used to build the required UI for the widget, which uses the same code as above. The only difference being that rather than hard coding a CSS selector to the div in the test HTML document, the widget framework sets the `this.element` property to the DOM element where the widget is to be constructed.
 
-```jscript
+~~~jscript
 var JumpList = {
   // initial values are stored in the widget's prototype
   options: {
@@ -237,21 +237,21 @@ var JumpList = {
 
   }
 };
-```
+~~~
 
 Finally, before we can use this widget, we must register it as follows:
 
-```jscript
+~~~jscript
 $.widget("ui.jumpList", JumpList);
-```
+~~~
 
 Using it in the test HTML document is as simple as the following:
 
-```jscript
+~~~jscript
 $(".jumpList").jumpList({
   items: people
 });
-```
+~~~
 
 The net result is that we now have a re-useable widget, where the above syntax gives us the potential to create multiple widget instances simply by using a CSS selector that matches multiple DOM elements.
 
@@ -267,7 +267,7 @@ The forgiving nature of the JavaScript language and its numerous gotchas (or “
 
 A particularly interesting issue which JSLint picked up on with my code is with the following snippet:
 
-```jscript
+~~~jscript
 var $jumpList = $(this.element),
         $itemList = $("<ul class='itemList'>");
 
@@ -278,11 +278,11 @@ for (var i = 0; i < this.options.items.length; i++) {
                        person.surname + ", " + person.forename);
   $itemList.append($jumpListItem);
 }
-```
+~~~
 
 For the above code, JSLint advises that I should “Move `var` declarations to the top of the function”. This highlights another feature of the JavaScript language that C# developers struggle with. Firstly, if you omit the `var` keyword, you will not create a local variable, instead you will create what is effectively a global variable. Secondly, JavaScript does not have block-level scope, therefore the `$jumpListItem` variable defined in the above code will be scoped to the function that contains it. JSLint encourages you to group all variable declarations to the start of each function to avoid confusion:
 
-```jscript
+~~~jscript
 var $jumpList = $(this.element),
         $itemList = $("<ul class='itemList'>"),
         $jumpListItem,
@@ -296,7 +296,7 @@ for (i = 0; i < this.options.items.length; i++) {
                       person.surname + ", " + person.forename);
     $itemList.append($jumpListItem);
 }
-```
+~~~
 
 ## Editors and IDEs
 
@@ -320,7 +320,7 @@ With the current work-in-progress, the surname and forename properties are hard-
 
 The API for the templates plug-in is very simple, adding just a couple of functions to the jQuery object. To use this feature, I added an `itemTemplate` property to the options for the widget. When the widget is initialized, this template is compiled using the `$.template` function, with each item rendered using this template via the `$.tmpl` function:
 
-```jscript
+~~~jscript
 // 'compile' the template
 $.template("itemTemplate", this.options.itemTemplate);
 
@@ -334,16 +334,16 @@ for (i = 0; i < this.options.items.length; i++) {
   // add the the jumplist
   $itemList.append($jumpListItem);
 }
-```
+~~~
 
 The widget is now totally decoupled from the array of objects that it renders, with the template passed to the widget on instantiation as follows:
 
-```jscript
+~~~jscript
 $(".jumpList").jumpList({
   items: people,
   itemTemplate : "<b>${surname}</b>, ${forename}"
 });
-```
+~~~
 
 The above template renders the surname in bold as shown below:
 
@@ -355,7 +355,7 @@ In order to turn the list of items into a jump list, we need a way to assign eac
 
 Another options property is added to the widget, ‘`categoryFunction`’, which maps each item to a category. Here we take the first letter of the surname:
 
-```jscript
+~~~jscript
 $(".jumpList").jumpList({
     items: people,
     itemTemplate: "${surname}, ${forename}",
@@ -363,11 +363,11 @@ $(".jumpList").jumpList({
         return person.surname.substring(0,1).toUpperCase();
     }
 });
-```
+~~~
 
 The loop that builds the item list now adds jump buttons:
 
-```jscript
+~~~jscript
 this._$itemList = $("<div class='itemList'/>");
 
 // create the item list with jump buttons
@@ -401,13 +401,13 @@ for (i = 0; i < this.options.items.length; i++) {
     // add the item to the list
     $categoryItem.append($itemMarkup);
 }
-```
+~~~
 
 Notice above the use of the jQuery `data()` function, this is a great little feature that allows you to associate arbitrary data with a DOM element. Here I am creating a relationship between the items supplied to the jump list and the DOM elements that represent them. I have called this the `DataContext` as a nod to the Silverlight functionality this imitates!
 
 Supplying some suitable CSS:
 
-```css
+~~~css
 a.jumpButton
 {
     background: #55FF55;
@@ -421,7 +421,7 @@ a.jumpButton
 {
     margin: 10px;
 }
-```
+~~~
 
 The jump list is starting to take shape:
 
@@ -431,7 +431,7 @@ Notice that the style creates quite large buttons and has a wide margin around e
 
 Adding click event handlers can be done via the jQuery `click()` function, and my first attempt at handling jump button clicks looked like this:
 
-```jscript
+~~~jscript
 // create the item list with jump buttons
 for (i = 0; i < this.options.items.length; i++) {
   ...
@@ -449,7 +449,7 @@ for (i = 0; i < this.options.items.length; i++) {
 
   ...
 }
-```
+~~~
 
 However, this doesn’t function in quite the way you might expect! Clicking on any of the jump buttons reports:
 
@@ -459,13 +459,13 @@ While confusing at first, the reason for this is actually quite simple. We have 
 
 This problem can be solved via a very interesting language feature that is like nothing found in C# / Java. The following modification to the click handler results in the desired behavior:
 
-```jscript
+~~~jscript
 $jumpButton.click(function (cat) {
   return function () {
     alert("category clicked: " + cat);
   };
 } (category));
-```
+~~~
 
 So what’s going on here? This is a mixture of two interesting concepts in JavaScript. The first is an immediate function, a function which is being executed immediately on its creation. In this case, we are creating a function and immediately invoking it passing the category. The second is a closure, where references to variables within the scope of a function are ‘captured’.
 
@@ -477,7 +477,7 @@ I wanted to move this event handler outside of the initialization code, in order
 
 In order to solve this, the various jQuery objects that ‘wrap’ the components parts of the widget are pulled out of the initialization function and made properties of the JumpList object. The click event handler for the parent div that contains the items and the jump buttons is registered using the `bind()` function, which allows you to add data that will be passed to the event handler function. Here, a reference to the jump list is passed. The event handler can then obtain a reference to the jump list via the `event.data` property, and the source element (i.e., the jump button or item) via the `event.target` property:
 
-```jscript
+~~~jscript
 var JumpList = {
 
   // jQuery-UI initialization method
@@ -532,20 +532,20 @@ var JumpList = {
 
   ...
 };
-```
+~~~
 
 The above event handler shows the category view if a jump button is clicked (more on this later) and implements a very simple selection mechanism, adding a `selected` class to the clicked item and raising a `selectionChanged` event. Here you can see the use of the jQuery `data()` function to extract the ‘bound’ item that the DOM element represents, emulating the Silverlight `DataContext` concept.
 
 We can add a handler for this event when the widget is constructed:
 
-```jscript
+~~~jscript
 $(".jumpList").jumpList({
     ...
     selectionChanged: function (event, selectedItem) {
         console.log(selectedItem);
     }
 });
-```
+~~~
 
 It is impressive how selection can be implemented with just 5 lines of code, with the event created automatically.
 
@@ -555,7 +555,7 @@ The code that creates the category buttons is pretty similar to the code which c
 
 The DOM elements created on initialization of the jump list result in the following structure:
 
-```html
+~~~html
 <div class="jumpList">
   <ul class="itemList">
     <li class="category">
@@ -578,7 +578,7 @@ The DOM elements created on initialization of the jump list result in the follow
         ...
   </div>
 </div>
-```
+~~~
 
 The categoryList `div` is styled in CSS so that it overlays the `itemList` and is initially hidden.
 
@@ -590,7 +590,7 @@ Let’s see how easy it is to reproduce this using CSS / HTML / JavaScript …
 
 The CSS3 specification adds support for transformation, allowing you to scale, rotate, and skew elements. This provides very similar functionality to Silverlight’s `RenderTransform`. We can define styles for the `categoryButton` states as follows:
 
-```css
+~~~css
 a.categoryButton
 {
     opacity: 0;
@@ -602,25 +602,25 @@ a.categoryButton.show
     opacity: 1;
     -webkit-transform: scale(1.0, 1.0) rotate(0deg);
 }
-```
+~~~
 
 The initial state for a category button is transparent, with a scale of zero and rotated by -180 degrees. When the `show` class is added, the button becomes visible and is scaled / rotated to its original positions.
 
 Applying the `show` class will change these properties instantly. In order to smoothly animate the rotation, scale, and opacity change, we can use the new CSS3 transition feature:
 
-```css
+~~~css
 a.categoryButton
 {
     -webkit-transition-property: -webkit-transform , opacity;
     -webkit-transition-duration: 0.3s;
 }
-```
+~~~
 
 Finally, in order to fire the animations for each element in sequence, a little bit of code is required …
 
 The following function iterates over the items in a jQuery list of elements, firing some action (i.e., function) on each element with a short delay in between. A boolean value is also passed to the function to indicate when the last element has been reached:
 
-```jscript
+~~~jscript
 // A function that invokes the given function for each of the elements in
 // the passed jQuery node-set, with a small delay between each invocation
 _fireAnimations: function ($elements, func) {
@@ -632,11 +632,11 @@ _fireAnimations: function ($elements, func) {
     }, index * 20);
   });
 },
-```
+~~~
 
 We can use this function to animate the hiding of the category buttons as follows, where the ‘`show`’ class is removed from each element, which will cause a CSS3 transition back to the original state. When the last element is reached, the parent div is hidden removing the category list:
 
-```jscript
+~~~jscript
 // hide the category buttons
 jumpList._fireAnimations(jumpList._$categoryList.children(),
           function ($element, isLast) {
@@ -645,7 +645,7 @@ jumpList._fireAnimations(jumpList._$categoryList.children(),
     jumpList._$categoryList.removeClass('visible');
   }
 });
-```
+~~~
 
 The net result is something which is surprisingly similar to my original Windows Phone 7 implementation:
 
@@ -655,7 +655,7 @@ The implementation of this effect is considerably simpler and more concise than 
 
 At this point, it is worth saying something about vendor specific CSS properties. Currently, because the CSS specification for transitions and transformations are not finalized, browsers which support them use a vendor specific prefix before each property name. Unfortunately, this means that if you want to use some of these more recent CSS features, you are faced with a lot of duplication. For example, I want to disable text selection within the jump list. This requires the following CSS in order to ensure cross platform support:
 
-```css
+~~~css
 .jumpList
 {
     -webkit-user-select: none;
@@ -664,7 +664,7 @@ At this point, it is worth saying something about vendor specific CSS properties
     -o-user-select: none;
     user-select: none;
 }
-```
+~~~
 
 These prefixes can be very frustrating and something of a maintenance issue. However, they are a necessary evil. Past experience has shown that allowing vendors to implement CSS features too early can cause massive problems, as Eric Meyer describes in his article [“Prefix or Posthack”](http://www.alistapart.com/articles/prefix-or-posthack/).
 
@@ -676,10 +676,10 @@ The `for` loop that generates the category buttons uses the jQuery `data()` func
 
 The final task to make the jump list fully functional is to scroll the list to the correct location when the category button is clicked. This can be achieved using the jQuery `scrollTop` function. We simply add the jump button position to the current scroll location as follows:
 
-```jscript
+~~~jscript
 jumpList._$itemListContainer.scrollTop(
      $jumpButton.position().top + jumpList._$itemListContainer.scrollTop());
-```
+~~~
 
 Again, implementing the scroll feature has proven very simple in comparison to the Silverlight jump list.
 

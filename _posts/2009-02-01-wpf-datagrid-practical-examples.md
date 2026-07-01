@@ -50,7 +50,7 @@ For this example, and the others in this article, I am using the ubiquitous Nort
 
 The simplest method for displaying the `Customers` table within the WPF `DataGrid` is to add the control to our window as shown below. Note the addition of the "*http://schemas.microsoft.com/wpf/2008/toolkit*" namespace:
 
-```xml
+~~~xml
 <Window x:Class="WPFDataGridExamples.DataSetCRUDExample"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -61,11 +61,11 @@ The simplest method for displaying the `Customers` table within the WPF `DataGri
         <dg:DataGrid ItemsSource="{Binding}"/>
     </Grid>
 </Window>
-```
+~~~
 
 Then, construct an instance of our typed `dataset`, and populate it using the generated Table Adapter:
 
-```csharp
+~~~csharp
 public DataSetCRUDExample()
 {
     InitializeComponent();
@@ -80,7 +80,7 @@ public DataSetCRUDExample()
     // use the Customer table as the DataContext for this Window
     this.DataContext = dataset.Customers.DefaultView;
 }
-```
+~~~
 
 The resulting window will contain a grid which displays all the columns of the `Customers` table, thanks to the `AutoGenerateColumns` property of the `DataGrid` which defaults to `true`.
 
@@ -92,7 +92,7 @@ An alternative method for providing data to your controls is through the use of 
 
 The following class effectively performs the same `dataset` population steps as above:
 
-```csharp
+~~~csharp
 public class CustomerDataProvider
 {
     private CustomersTableAdapter adapter;
@@ -111,11 +111,11 @@ public class CustomerDataProvider
         return dataset.Customers.DefaultView;
     }
 }
-```
+~~~
 
 And, the modified XAML below uses the `ObjectDataPerovider` class to define an instance of the above class as our data source. Note that we are still binding the `DataGrid`'s `ItemsSource` to the inherited `DataContext`.
 
-```xml
+~~~xml
 <Window ...>
 
     <Window.Resources>
@@ -132,7 +132,7 @@ And, the modified XAML below uses the `ObjectDataPerovider` class to define an i
         <dg:DataGrid ItemsSource="{Binding}" Name="dataGrid"/>
     </DockPanel>
 </Window>
-```
+~~~
 
 With the above code, the design-time support of the `DataGrid` is now available, allowing you to configure which columns are present, their bindings, sorting, etc.
 
@@ -146,7 +146,7 @@ When the user edits the `Customers` data within the `DataGrid`, the bound in-mem
 
 The following example shows how the `RowChanged` and `RowDeleted` events can be handled so that changes in the `DataTable` state are written to the database each time the user changes a row:
 
-```csharp
+~~~csharp
 public CustomerDataProvider()
 {
     NorthwindDataSet dataset = new NorthwindDataSet();
@@ -164,7 +164,7 @@ void CustomersRowModified(object sender, NorthwindDataSet.CustomersRowChangeEven
 {
     adapter.Update(dataset.Customers);
 }
-```
+~~~
 
 The complete example above can be found in the `DataSetCRUDExample` class which shows how a CRUD interface can be created for a `DataSet` with a few lines of code.
 
@@ -176,7 +176,7 @@ In this example, synchronized views of the `Customer` (master) and `Orders` (det
 
 The XAML below demonstrates how a master / detail view may be achieved. A second data source is added, again via the `ObjectDataProvider`, with the window displaying two `DataGrid`s, each bound to their respective data sources.
 
-```xml
+~~~xml
 <Window ... >
 
     <Window.Resources>
@@ -216,11 +216,11 @@ The XAML below demonstrates how a master / detail view may be achieved. A second
 
     </Grid>
 </Window>
-```
+~~~
 
 The `OrdersDataProvider` class looks almost exactly the same as the `CustomersDataProvider`. The one difference being the presence of the `GetOrdersByCustomer` method. This method takes a `CustomerID` as a parameter, using it to construct a filter that selects the `Order` rows which relate to the given customer. The `ObjectDataProvider` within the XAML is able to pass parameters to this method, which is shown below:
 
-```csharp
+~~~csharp
 /// <summary>
 /// Obtains all the orders for the given customer.
 /// </summary>
@@ -235,11 +235,11 @@ public DataView GetOrdersByCustomer(string customerId)
     view.RowFilter = string.Format("CustomerID='{0}'", customerId);
     return view;
 }
-```
+~~~
 
 When this method is invoked for the first time, an empty string is supplied as the `CustomerID`, and no rows are returned. When the user selects a new customer in the upper grid, the `SelectionChanged` event is raised. The event handler is shown below:
 
-```csharp
+~~~csharp
 private void CustomerGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
 {
     DataGrid grid = sender as DataGrid;
@@ -248,7 +248,7 @@ private void CustomerGrid_SelectionChanged(object sender, SelectionChangedEventA
     ObjectDataProvider orderProvider = this.FindResource("Orders") as ObjectDataProvider;
     orderProvider.MethodParameters[0] = grid.SelectedValue;
 }
-```
+~~~
 
 The above code simply sets the first `MethodParameter` on the *Orders* `ObjectDataProvider` to the newly selected `CustomerID`, which is obtained from the `Customer` grid's `SelectedValue` property (note that this is because the `SelectedValuePath` is set to `CustomerID`). The `ObjectDataProvider` takes care of notifying any control which is bound to it that the data has changed. The complete example is shown below:
 
@@ -258,7 +258,7 @@ Any updates / deletions to the `Customer` or `Order` rows are written to the dat
 
 The first step is to use the "Generate Columns" command on the Visual Studio Designer. We can then remove both the generated `OrderID` column and the `CustomerID` foreign key column:
 
-```xml
+~~~xml
 <dg:DataGrid Grid.Row="1" ItemsSource="{Binding Source={StaticResource Orders}}"
              AutoGenerateColumns="True" RowEditEnding="DataGrid_RowEditEnding">
  <dg:DataGrid.Columns>
@@ -292,11 +292,11 @@ The first step is to use the "Generate Columns" command on the Visual Studio Des
       Binding="{Binding Path=ShipCountry}" Header="ShipCountry" />
  </dg:DataGrid.Columns>
 </dg:DataGrid>
-```
+~~~
 
 A handler for the `RowEditEnding` event is added so that the `CustomerID` can be obtained from the `SelectedValue` property of the `Customer`s `DataGrid` prior to committing the edited `Order` row:
 
-```csharp
+~~~csharp
 private void DataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
 {
     // drill down from DataGridRow, through row view to our order row
@@ -308,7 +308,7 @@ private void DataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArg
     // set the foreign key to the customer ID
     orderRow.CustomerID = CustomerGrid.SelectedValue as string;
 }
-```
+~~~
 
 The complete example above is found in the `MasterDetailExample` class. However, please note that any exception that occurs when the data is being updated is not being handled, which will result in the in-memory `DataTable` no longer being synchronized with the database.
 
@@ -328,7 +328,7 @@ The key classes within this architecture are shown below:
 
 The Data Access Layer exposes an interface for managing the lifecycle of the Customer Data Objects. The class which implements this interface uses a typed `DataSet` as a database integration layer; however, this is hidden from the clients of the DAL. The presence of this layer means that we are not directly coupled to the database schema or the generated dataset schema, i.e., we can change our schema, yet still provide the interface given below to our clients:
 
-```csharp
+~~~csharp
 public interface ICustomerDataAccessLayer
 {
     /// Return all the persistent customers
@@ -348,7 +348,7 @@ public class CustomerDataObject
 
     public string ContactName { get; set; }
 }
-```
+~~~
 
 As you can see, there are no UI framework specific interfaces or classes (such as `ObservableCollection`) exposed by the DAL. The problem here is how to bind the customers returned by `ICustomerDataAccess.GetCustomers` to our `DataGrid` and ensure that changes are synchronised with the database.
 
@@ -358,7 +358,7 @@ We could bind the `DataGrid` directly to our customer collection, `List<Customer
 
 The `ObservableCollection` class is a good candidate for our data binding needs. It exposes a `CollectionChanged` event which is fired whenever items are added or removed from the collection. If we copy our `customer` data into an `ObservableCollection` and bind this to the `DataGrid`, we can handle the `CollectionChanged` event and perform the required operation on the DAL. The following code snippet shows how the `CustomerObjectDataProvider` (which is defined as an `ObjectDataProvider` in the XAML) constructs an `ObservableCollection` of `CustomerUIObject`s. These UI objects simply wrap their data object counterparts in order to expose the same properties.
 
-```csharp
+~~~csharp
 public CustomerObjectDataProvider()
 {
     dataAccessLayer = new CustomerDataAccessLayer();
@@ -395,7 +395,7 @@ void CustomersCollectionChanged(object sender, NotifyCollectionChangedEventArgs 
         }
     }
 }
-```
+~~~
 
 When a user deletes a row with the `DataGrid` control, the `CollectionChanged` event is fired on the bound collection. In the event handler, we invoke the DAL `DeleteCustomer` method with the wrapped data object passed as the parameter.
 
@@ -407,7 +407,7 @@ To determine when a user finishes editing a bound item, we need to delve a littl
 
 In order to notify the `CustomerDataObjectProvider` that `EndEdit` has been invoked on one of the objects in the bound collection, the `CustomerUIObject` implements `IEditableObject` as follows:
 
-```csharp
+~~~csharp
 public delegate void ItemEndEditEventHandler(IEditableObject sender);
 
 public event ItemEndEditEventHandler ItemEndEdit;
@@ -427,11 +427,11 @@ public void EndEdit()
 }
 
 #endregion
-```
+~~~
 
 When items are added to the `CustomerUIObjects` collection, this event is handled for all the items in the collection, with the handler simply forwarding the event:
 
-```csharp
+~~~csharp
 public class CustomerUIObjects : ObservableCollection<CustomerDataObject>
 {
     protected override void InsertItem(int index, CustomerUIObject item)
@@ -453,11 +453,11 @@ public class CustomerUIObjects : ObservableCollection<CustomerDataObject>
 
     public event ItemEndEditEventHandler ItemEndEdit;
 }
-```
+~~~
 
 The `CustomerObjectDataProvider` can now handle this event to receive the notification of `CommitEdit` being invoked on any of the bound items. It can then invoke the DAL methods to synchronise the database state:
 
-```csharp
+~~~csharp
 public CustomerUIObjects GetCustomers()
 {
     // populate our list of customers from the data access layer
@@ -484,7 +484,7 @@ void CustomersItemEndEdit(IEditableObject sender)
     // use the data access layer to update the wrapped data object
     dataAccessLayer.UpdateCustomer(customerObject.GetDataObject());
 }
-```
+~~~
 
 The above code will handle both insert and update operations.
 
@@ -504,7 +504,7 @@ This article will present a few common validation scenarios, demonstrating how t
 
 A common approach to validation is to have your object's property setters throw an exception if the passed value is not valid for whatever reason. The WPF Framework includes a validation rule, `ExceptionValidationRule`, for this very purpose. It simply catches any exception thrown when the bound property is set, and extracts the exception message. The .NET 3.5 SP1 framework provides a useful shorthand for utilizing this rule. The following XAML snippet shows two equivalent bindings, with the second making use of the `ValidatesOnException` property on the `Binding` class which simply adds the appropriate `ExceptionValidationRule` instance to the `ValidationRules` collection:
 
-```xml
+~~~xml
 <!-- explicit addition of ExceptionValidationRule -->
 <TextBox>
     <TextBox.Text>
@@ -518,11 +518,11 @@ A common approach to validation is to have your object's property setters throw 
 
 <!-- implicit addition of ExceptionValidationRule -->
 <TextBox Text="{Binding Path=Name, ValidatesOnExceptions=True}"/>
-```
+~~~
 
 To demonstrate how a `DataGrid` can catch validation exceptions, this example will utilise a simple data object:
 
-```csharp
+~~~csharp
 public class Person
 {
     private readonly Regex nameEx = new Regex(@"^[A-Za-z ]+$");
@@ -560,7 +560,7 @@ public class Person
         }
     }
 }
-```
+~~~
 
 If we simply enable validation for a `DataGrid` which is bound to a collection of the above data type with `ValidatesOnException` enabled, we can see that validation is being applied because any cell that contains a validation error is indicated with a red outline:
 
@@ -570,7 +570,7 @@ However, there is no feedback to the user regarding the nature of the error, and
 
 Often, validation failures are displayed as a tooltip relating to the data input control, as follows (see the aforementioned [CodeProject article](http://www.codeproject.com/KB/WPF/wpfvalidation.aspx) for further details and examples):
 
-```xml
+~~~xml
 <Style TargetType="{x:Type TextBox}">
     <Style.Triggers>
         <Trigger Property="Validation.HasError" Value="true">
@@ -580,13 +580,13 @@ Often, validation failures are displayed as a tooltip relating to the data input
         </Trigger>
     </Style.Triggers>
 </Style>
-```
+~~~
 
 However, implicit styles do not work for elements generated by `DataGrid` columns. Instead, styles can be applied to `DataGrid` cells via the `ElementStyle` and `EditingElementStyle` properties. However, there is one final twist: the code for `DataGridTextColumn` programmatically applies a few styles to the `TextBox` which it generates when the cell is in edit mode. We have to replicates these styles, namely zero padding and border thickness, in our applied style.
 
 The XAML to display this data object within a `DataGrid` that reports validation errors is given below:
 
-```xml
+~~~xml
 <Window ... >
     <Window.Resources>
 
@@ -628,7 +628,7 @@ The XAML to display this data object within a `DataGrid` that reports validation
 
     </DockPanel>
 </Window>
-```
+~~~
 
 Which gives the following result:
 
@@ -636,7 +636,7 @@ Which gives the following result:
 
 A common interface feature of the `DataGrid` is the presence of an indicator which alerts the user to an error on a particular row. The WPF `DataGrid` has this feature; however, it is only displayed if the `Validation.HasError` attached property is `true` for the row. In order to enable this, we add a dummy validation rule to the grid as follows:
 
-```xml
+~~~xml
 <dg:DataGrid Name="dataGrid" AutoGenerateColumns="False" ItemsSource="{Binding}">
 
     <dg:DataGrid.RowValidationRules>
@@ -653,7 +653,7 @@ A common interface feature of the `DataGrid` is the presence of an indicator whi
     </dg:DataGrid.Columns>
 
 </dg:DataGrid>
-```
+~~~
 
 This validation rule simply returns `ValidationResult.ValidResult` regardless of the input value. The net result being that the validation error indicator is now displayed against the row, as illustrated below:
 
@@ -663,7 +663,7 @@ This validation rule simply returns `ValidationResult.ValidResult` regardless of
 
 A popular alternative to the previous example, where exceptions are thrown on the property setters of the data objects, is the use of the `IDataErrorInfo` interface. Objects that implement this interface are validated on demand, rather than each time their state changes. For a discussion of how this can make your business objects more useable, the article [Fort Knox Business Objects](http://karlshifflett.wordpress.com/2008/04/20/fort-knox-business-objects-yes-no/) makes interesting reading. They also have the advantage that they are able to validate state which depends on multiple properties; there is clearly a synergy here with `BindingGroup`s. The following example is a business object that shares similar constraints to the previous `Person` object; however, this object has a further rule that `StartDate` must be before `EndDate`.
 
-```csharp
+~~~csharp
 public class Appointment : IDataErrorInfo
 {
     private readonly Regex nameEx = new Regex(@"^[A-Za-z ]+$");
@@ -733,11 +733,11 @@ public class Appointment : IDataErrorInfo
 
     #endregion
 }
-```
+~~~
 
 These objects are bound to a grid with the following XAML:
 
-```xml
+~~~xml
 <dg:DataGrid  Name="dataGrid" AutoGenerateColumns="False"
               RowStyle="{StaticResource RowStyle}" ItemsSource="{Binding}">
 
@@ -753,11 +753,11 @@ These objects are bound to a grid with the following XAML:
     </dg:DataGrid.Columns>
 
 </dg:DataGrid>
-```
+~~~
 
 The row validation rule in the above example is given below:
 
-```csharp
+~~~csharp
 public class RowDataInfoValidationRule : ValidationRule
 {
     public override ValidationResult Validate(object value,
@@ -787,7 +787,7 @@ public class RowDataInfoValidationRule : ValidationRule
         return ValidationResult.ValidResult;
     }
 }
-```
+~~~
 
 This rule iterates over all of the items within the binding group (i.e., the `DataGrid` row) probing them for errors. In this case, the `IDataErrorInfo.Error` property is used for object level validation.
 
@@ -797,7 +797,7 @@ The image below shows the use of `IDataErrorInfo` in action:
 
 Note also that because the validation error does not relate to an individual property of our business object, none of the `DataGrid` cells are highlighted. In order to make the failure more obvious, the style of the row has been modified to add a red border.
 
-```xml
+~~~xml
 <!-- Row Style-->
 <Style x:Key="RowStyle" TargetType="{x:Type dg:DataGridRow}">
     <Style.Triggers>
@@ -810,11 +810,11 @@ Note also that because the validation error does not relate to an individual pro
         </Trigger>
     </Style.Triggers>
 </Style>
-```
+~~~
 
 The WPF Framework also has a stock validation rule for use with objects that implement `IDataErrorInfo`. This can be automatically added to the validation rules for a binding via the `ValidatesOnDataError` property. This works fine when editing an existing row; however, when a new row is added, for some reason, validation is applied to the newly created object, and re-validation attempts fail to remove the error. I delved into the implementation of `BindingExpression`, but got rather lost along the way! A simple solution is to implement a validation rule which uses the `IDataErrorInfo` interface, but simply probes for the error of the bound property, as follows:
 
-```csharp
+~~~csharp
 public class CellDataInfoValidationRule : ValidationRule
 {
     public override ValidationResult Validate(object value,
@@ -837,7 +837,7 @@ public class CellDataInfoValidationRule : ValidationRule
         return ValidationResult.ValidResult;
     }
 }
-```
+~~~
 
 With the above rule associated with our column bindings, you can now give feedback regarding which cell has a validation error (in the case where the validation error relates to an individual object property):
 
@@ -851,7 +851,7 @@ When a new row or changes to an existing row is committed to a `DataTable`, cons
 
 The workaround given here uses validation to ensure that all the `DataTable` constraints are satisfied before the updates are committed. The following slightly lengthy validation rule can be applied at cell and row level. The rule will check a column (or all the row's columns) for length, unique, and null constraints.
 
-```csharp
+~~~csharp
 public class DataRowValidation : ValidationRule
 {
     public override ValidationResult Validate(object value,
@@ -950,7 +950,7 @@ public class DataRowValidation : ValidationRule
         return ValidationResult.ValidResult;
     }
 }
-```
+~~~
 
 The example in the attached source code presents a UI for editing the `Customer` table. One other subtlety of this example is that the primary key is read only, because the generated `DataSet`'s update methods assume that the primary key has not been modified. However, when the data grid selection changes to the empty row at the bottom, the column's read-only state is toggled to allow the user to add a new Customer row.
 
@@ -966,7 +966,7 @@ The WPF `DataGrid` has columns of type `Text`, `Hyperlink`, `CheckBox`, and `Com
 
 The following example uses the `DatePicker` control, which is also part of the WPF Toolkit, to provide a more intuitive interface for selecting a date:
 
-```xml
+~~~xml
 <!-- defines a custom column -->
 <dg:DataGridTemplateColumn Header="Date Of Birth" >
     <!-- editing template -->
@@ -990,7 +990,7 @@ The following example uses the `DatePicker` control, which is also part of the W
         </DataTemplate>
     </dg:DataGridTemplateColumn.CellTemplate>
 </dg:DataGridTemplateColumn>
-```
+~~~
 
 An example is given below:
 
@@ -1002,7 +1002,7 @@ Note also that the read-only view of this cell uses the `StringFormat` property 
 
 The standard validation error indicator is a red exclamation mark which is displayed at the left hand side of the row. The `DataGridRow` has a `ValidationErrorTemplate` which defines the appearance of this indicator. With the example given below, the exclamation mark is rendered within a red circle in order to give it a more striking appearance. Also, a tooltip is defined that displays the validation error message. The templated control which displays the error indicator is a child of the `DataGridRow`; therefore, we can obtain the validation errors from the row via a `FindAncestor` `RelativeSource` binding.
 
-```xml
+~~~xml
 <Style x:Key="RowStyle" TargetType="{x:Type dg:DataGridRow}">
     <Setter Property="ValidationErrorTemplate">
         <Setter.Value>
@@ -1021,7 +1021,7 @@ The standard validation error indicator is a red exclamation mark which is displ
         </Setter.Value>
     </Setter>
 </Style>
-```
+~~~
 
 ![customerrorindicator.png]({{ site.baseurl }}/ceberhardt/assets/codeproject/customerrorindicator.png)
 
@@ -1031,7 +1031,7 @@ The WPF `DataGrid` has an interesting feature called `RowDetails`, which is an a
 
 The following example shows a `DataGrid` bound to an XML source (the latest photos tagged with "cat" from Flickr). The `RowDetails` displays the image thumbnail and its associated tags:
 
-```xml
+~~~xml
 <XmlNamespaceMappingCollection x:Key="map">
     <XmlNamespaceMapping Prefix="media" Uri="http://search.yahoo.com/mrss/"/>
 </XmlNamespaceMappingCollection>
@@ -1074,7 +1074,7 @@ The following example shows a `DataGrid` bound to an XML source (the latest phot
 
     </dg:DataGrid>
 </Grid>
-```
+~~~
 
 ![rowdetails.png]({{ site.baseurl }}/ceberhardt/assets/codeproject/rowdetails.png)
 
@@ -1086,7 +1086,7 @@ The `ColumnHeader` template contains a `DataGridHeaderBorder`. This element is u
 
 The following example shows how sort arrows can be manually added to the header template in order to replace this behaviour:
 
-```xml
+~~~xml
 <Style x:Key="HeaderStyle" TargetType="{x:Type dg:DataGridColumnHeader}">
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="Background" Value="Pink" />
@@ -1142,7 +1142,7 @@ The following example shows how sort arrows can be manually added to the header 
         </Setter.Value>
     </Setter>
 </Style>
-```
+~~~
 
 Property triggers on the control template are used to toggle the visibility of the named paths, with the result shown below:
 
