@@ -37,7 +37,7 @@ Because of the more direct interaction that touch allows, mobile and tablet inte
 
 The mobile multi-touch interface allows for much more control and expression than a simple mouse pointer device. Standard gestures have been developed such as pinch/stretch, flick, pan, tap-and-hold, however these are quite rarely used; one notable exception being pinch/stretch which is the standard mechanism for manipulating images. Despite the expressive nature of touch, we still fall back to the same old UI paradigms, buttons, slides and checkboxes.
 
-When an application comes along that makes great use of gestures, it really stands out from the crowds. One such application is the [iPhone ‘Clear’ application](http://www.realmacsoftware.com/clear/) by Realmac software, a simple todo-list with not one button or checkbox in sight. You can see the app in action below:
+When an application comes along that makes great use of gestures, it really stands out from the crowds. One such application is the [iPhone ‘Clear’ application](http://www.realmacsoftware.com/clear/) by Realmac software, a simple todo-list with not one button or checkbox in sight. You can see the app in action below:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/S00H-rz7fGo" frameborder="0" allowfullscreen></iframe>
 

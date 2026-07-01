@@ -339,7 +339,7 @@ ShellTile.ActiveTiles.First().Update(new IconicTileData()
 });
 ```
 
- Now if you pin the application to the start screen and use a wide tile format, while the location is being tracked in the background, the tile updates:
+ Now if you pin the application to the start screen and use a wide tile format, while the location is being tracked in the background, the tile updates:
 
 ![WP8RunnerLiveTile]({{ site.baseurl }}/ceberhardt/assets/codeproject/WP8RunnerLiveTile.png)
 
@@ -351,4 +351,4 @@ Windows Phone 8 has some pretty cool new features that allow you to extend the c
 
 Clearly the application illustrated here is not complete! Why not have a go at developing it further yourself - why not try using isolated storage for recording your run history? or add summary statistics as charts? You could try using some of the other new Windows Phone 8 APIs such as voice-commands to control the start / stop of each run? Have fun!
 
-So, is this app really just 100 lines of code? You can download the sourcecode, , and see for yourself that  '''MainPage.xaml.cs''' is exactly 100 lines.
+So, is this app really just 100 lines of code? You can download the sourcecode, , and see for yourself that  '''MainPage.xaml.cs''' is exactly 100 lines.

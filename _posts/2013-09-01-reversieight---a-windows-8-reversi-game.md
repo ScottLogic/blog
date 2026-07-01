@@ -13,7 +13,7 @@ summary: Describes the development of a Reversi game for Windows 8 using MVVM, c
 
 *This article was originally published on CodeProject, which has since shut down.*
 
-- [View the project on github](https://github.com/ColinEberhardt/ReversiEight) ( contains GIMP graphics as well as source code)
+- [View the project on github](https://github.com/ColinEberhardt/ReversiEight) ( contains GIMP graphics as well as source code)
 
 ![ReversiEight]({{ site.baseurl }}/ceberhardt/assets/codeproject/ReversiEight.png)
 
@@ -757,7 +757,7 @@ DataContext = vm;
 
 Of course whilst a greater search depth will make the computer player smarter, it will also make it slower.
 
-For a bit of fun, why not create two computer players and watch it play itself? 
+For a bit of fun, why not create two computer players and watch it play itself? 
 
 ## Conclusions
 

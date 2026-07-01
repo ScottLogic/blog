@@ -157,7 +157,7 @@ You can develop your applications by making changes to your HTML / JavaScript, c
   
 You will often find yourself using a small subset of the Cordova APIs, so desktop browser-based testing becomes a viable and rapid-turnaround option. For the Property Finder application I describe later, the vast majority of the development was done against FireFox and FireBug.  
   
- If you download the Property Finder source code and view the index.html file in your browser you will find that the application starts immediately. This is thanks to the following little piece of JavaScript:   
+ If you download the Property Finder source code and view the index.html file in your browser you will find that the application starts immediately. This is thanks to the following little piece of JavaScript:   
   
 
 ```jscript
@@ -260,7 +260,7 @@ alert(myBook.getTitle()); // outputs 'War and Peace'
 
 In the above example we define the constructor function and the title variable. We then add a method (a method is a function which is associated with an object), via the prototype. A prototype is an object from which an object inherits properties. In the above example, adding the function to the Book prototype will ensure that it is accessible to any instance of the Book object.  
   
- The use of protoypes for defining the methods of an object is a popular JavaScript pattern for object oriented programming. However, it does not allow information hiding, i.e. private methods and variables.
+ The use of protoypes for defining the methods of an object is a popular JavaScript pattern for object oriented programming. However, it does not allow information hiding, i.e. private methods and variables.
 
 An alternative approach to defining the same Book class is as follows:
 
@@ -277,11 +277,11 @@ var myBook = new Book('War and Peace');
 alert(myBook.getTitle()); // outputs 'War and Peace'
 ```
 
-Here the `getTitle`method is added to the Book object within the constructor function rather than via the prototype.  
+Here the `getTitle`method is added to the Book object within the constructor function rather than via the prototype.  
   
-One advantage of this approach is that it allows information via closures because the `getTitle`function will have access to all of the variables defined within the constructor function even after it has returned.
+One advantage of this approach is that it allows information via closures because the `getTitle`function will have access to all of the variables defined within the constructor function even after it has returned.
 
-The following is a trivial example of how closures can be used to create private variables and methods (although strictly speaking in this context they are actually functions!):
+The following is a trivial example of how closures can be used to create private variables and methods (although strictly speaking in this context they are actually functions!):
 
 ```jscript
 function Book(title) {
@@ -1237,9 +1237,9 @@ function setState(jsonState) {
 }
 ```
 
-The saved application state is in JSON format, for we can easily re-create our view model objects, using the `ko.fromJSON` utility function for example. However, this will provide objects that *look* like our view models, but they will lack the methods we have added to these objects within their constructor function.
+The saved application state is in JSON format, for we can easily re-create our view model objects, using the `ko.fromJSON` utility function for example. However, this will provide objects that *look* like our view models, but they will lack the methods we have added to these objects within their constructor function.
 
-For this reason I have created a utility function, `hydrateObject`, that recursively re-constructs view models, where each has its constructor function identified by a `factoryName` property:
+For this reason I have created a utility function, `hydrateObject`, that recursively re-constructs view models, where each has its constructor function identified by a `factoryName` property:
 
 ```jscript
 /// <reference path="..//intellisense.js" />
@@ -1335,9 +1335,9 @@ Now becomes this monstrosity:
 </div>
 ```
 
-The extra HTML elements are required in order to support the jQuery Mobile CSS (If only HTML / CSS had the equivalent of Silverlight templates!).
+The extra HTML elements are required in order to support the jQuery Mobile CSS (If only HTML / CSS had the equivalent of Silverlight templates!).
 
-Using this slightly verbose approach, I was able to create HTML templates that make use of the jQuery Mobile CSS resulting in iOS screens which look very much like a native application:
+Using this slightly verbose approach, I was able to create HTML templates that make use of the jQuery Mobile CSS resulting in iOS screens which look very much like a native application:
 
 ![propFinderiOS2]({{ site.baseurl }}/ceberhardt/assets/codeproject/propFinderiOS2.jpg)
 

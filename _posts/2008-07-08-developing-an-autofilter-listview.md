@@ -45,7 +45,7 @@ The main problem with the `ListView` control is that while the XAML to insert th
 <ListView>
     <ListView.View>
         <GridView>
-            <GridViewColumn Header=â€Column Headerâ€œ/>
+            <GridViewColumn Header="Column Header"/>
         </GridView>
     </ListView.View>
 </ListView>

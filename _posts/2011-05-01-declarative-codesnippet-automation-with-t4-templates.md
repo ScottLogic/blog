@@ -310,7 +310,7 @@ same namespace in order to successfully match them.
   
 The template which matches the `CodeSnippet` element outputs the attribute
 class and selects the XPath
-`â€œ//s:Declarations/s:Literalâ€` which matches
+`"//s:Declarations/s:Literalâ€` which matches
 a nodeset with a node for each Literal element in the snippet XML document, i.e. the
 properties of the snippet. The template also selects the element which contains the
 snippet code itself.  
@@ -646,7 +646,7 @@ public partial class SomeViewModel : INotifyPropertyChanged
 }
 ```
 
- Note that this is a partial class, a language feature
+ Note that this is a partial class, a language feature
 which Visual Studio uses extensively for keeping designer generated code separate from
 our own code. Here is it being used so that we can generate another partial counterpart
 to the class above, with the code that corresponds to the attributes. It is also

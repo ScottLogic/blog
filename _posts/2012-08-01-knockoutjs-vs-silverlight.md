@@ -15,7 +15,7 @@ summary: Compares Silverlight and KnockoutJS by implementing the same quiz appli
 
 ## Overview
 
-This article compares Silverlight and KnockoutJS (<http://knockoutjs.com/>) by looking at the implementation of the same application with both frameworks.  During this comparison we’ll see that there are a great many similarities between the two frameworks, with the same concepts appearing in each. However, the execution / realisation of these concepts is quite different. Finally, we’ll look at the all-important question: **"Which is better, Silverlight or Knockout?"**
+This article compares Silverlight and KnockoutJS (<http://knockoutjs.com/>) by looking at the implementation of the same application with both frameworks.  During this comparison we’ll see that there are a great many similarities between the two frameworks, with the same concepts appearing in each. However, the execution / realisation of these concepts is quite different. Finally, we’ll look at the all-important question: **"Which is better, Silverlight or Knockout?"**
 
 *Let the battle commence ...*
 
@@ -276,7 +276,7 @@ The visual tree `DataContext` inheritance will ensure that the `DataContext` of 
 
 ![BasicLayout]({{ site.baseurl }}/ceberhardt/assets/codeproject/BasicLayout.jpg)
 
-With Knockout, the approach is quite similar. Our application runs within the context of a HTML page, which includes the various scripts.  The views are defined as jQuery templates, which allow re-use of the same UI markup:
+With Knockout, the approach is quite similar. Our application runs within the context of a HTML page, which includes the various scripts.  The views are defined as jQuery templates, which allow re-use of the same UI markup:
 
 ```html
 <!DOCTYPE html>

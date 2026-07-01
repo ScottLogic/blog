@@ -397,7 +397,7 @@ It is a relatively straightforward process to create a WPF or Silverlight implem
 As stated previously, the WPF framework features which are missing from Silverlight are, for the most part, features that I would consider to be nice-to-haves. However, if you do need to use them, for whatever reason, there are a couple of approaches that you can take to resolve this issue:
 
 1. Implement the feature yourself, copying the WPF API to ensure compatibility. Unfortunately, in most cases this does not work because you will find yourself faced with sealed classes and ‘closed’ APIs.
-2. Implement an equivalent feature. Rather than copy the WPF framework feature, create an equivalent and implement it in both Silverlight and WPF. I have done this a few times in the past, the most popular one I have published is a [MultiBinding solution for WPF and Silverlight](http://www.scottlogic.co.uk/blog/colin/2010/05/silverlight-multibinding-solution-for-silverlight-4/).  The API is a little different from the WPF MultiBinding API, but it does provide compatibility between both frameworks, so is useable in cross-platform contexts
+2. Implement an equivalent feature. Rather than copy the WPF framework feature, create an equivalent and implement it in both Silverlight and WPF. I have done this a few times in the past, the most popular one I have published is a [MultiBinding solution for WPF and Silverlight](http://www.scottlogic.co.uk/blog/colin/2010/05/silverlight-multibinding-solution-for-silverlight-4/).  The API is a little different from the WPF MultiBinding API, but it does provide compatibility between both frameworks, so is useable in cross-platform contexts
 
 ### Missing Controls
 
@@ -712,6 +712,6 @@ Three applications for the price of one (or one-and-a-half), a real bargain!
 
 ## Change History
 
-- ****22 Sep 2011** - Fixed broken links**
+- ****22 Sep 2011** - Fixed broken links**
 - **21 Sep 2011** - Added a video for the WP7 version
 - **19 Sep 2011** - Initial article upload

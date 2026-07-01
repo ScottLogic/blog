@@ -60,7 +60,7 @@ The next one is topical, it illustrates the debt of various countries, and the a
 
 ![world debt]({{ site.baseurl }}/ceberhardt/assets/codeproject/world-debt.png)
 
-You can view an [interactive version of this graph on my blog](http://www.scottlogic.co.uk/blog/colin/plotting-circular-relationships-graphs-with-silverlight/).
+You can view an [interactive version of this graph on my blog](http://www.scottlogic.co.uk/blog/colin/plotting-circular-relationships-graphs-with-silverlight/).
 
 ## Creating a Source of Data
 
@@ -396,7 +396,7 @@ although considering the number of segments that are to be rendered and the numb
 
 Instead I will use a pattern I have described previously,
 [which I call the mini-ViewModel
-pattern](http://www.scottlogic.co.uk/blog/colin/2009/08/the-mini-viewmodel-pattern/), where a view model is constructed within a user control in order to assist the binding framework in a localized manner.
+pattern](http://www.scottlogic.co.uk/blog/colin/2009/08/the-mini-viewmodel-pattern/), where a view model is constructed within a user control in order to assist the binding framework in a localized manner.
 
 `NodeSegment` user control exposes a number of CLR properties, again,
 these properties and the implementation of `INotifyPropertyChanged` itself, are generated via code-snippet automation:
@@ -1001,7 +1001,7 @@ With this code in place, the graph is complete:
 
 ![GraphPartThree]({{ site.baseurl }}/ceberhardt/assets/codeproject/GraphPartThree.png)
 
-You can view an [interactive version of this graph on my blog](http://www.scottlogic.co.uk/blog/colin/plotting-circular-relationships-graphs-with-silverlight/).
+You can view an [interactive version of this graph on my blog](http://www.scottlogic.co.uk/blog/colin/plotting-circular-relationships-graphs-with-silverlight/).
 
 ## Sorting the Data
 
@@ -1149,7 +1149,7 @@ my final example is a graph of Eurozone debt, with data (and concepts!) taken fr
 
 ![world debt]({{ site.baseurl }}/ceberhardt/assets/codeproject/world-debt.png)
 
-You can view an [interactive version of this graph on my blog](http://www.scottlogic.co.uk/blog/colin/plotting-circular-relationships-graphs-with-silverlight/).
+You can view an [interactive version of this graph on my blog](http://www.scottlogic.co.uk/blog/colin/plotting-circular-relationships-graphs-with-silverlight/).
 
 This example has the various debts owed between countries stored in an XML file:
 

@@ -15,7 +15,7 @@ summary: Documents the experience of porting a gesture-driven Windows Phone to-d
 
 ## Introduction
 
-A while back I wrote a CodeProject article about a [gesture-driven to-do list application for Windows Phone](http://www.codeproject.com/Articles/428088/A-Gesture-Driven-Windows-Phone-To-Do-List) that eschews the use of buttons and checkboxes in favour of swipes, pinches and other gestures. Windows 8 development is quite similar to Windows Phone, both share the use of XAML, C# and have a similar application lifecycle. In this article I’ll describe my own experiences of porting a Windows Phone application to Windows 8 so that it could be added to the Windows Store.
+A while back I wrote a CodeProject article about a [gesture-driven to-do list application for Windows Phone](http://www.codeproject.com/Articles/428088/A-Gesture-Driven-Windows-Phone-To-Do-List) that eschews the use of buttons and checkboxes in favour of swipes, pinches and other gestures. Windows 8 development is quite similar to Windows Phone, both share the use of XAML, C# and have a similar application lifecycle. In this article I’ll describe my own experiences of porting a Windows Phone application to Windows 8 so that it could be added to the Windows Store.
 
 ![Clearer2]({{ site.baseurl }}/ceberhardt/assets/codeproject/Clearer2.jpg)
 
@@ -230,7 +230,7 @@ In switching the `ItemsControl` to the `ListBox` the list now has the standard h
 
 The visual states simply show / hide the dot based on selection state.
 
-Windows 8 applications can exist in two states, full screen or snapped. If you do not have a touch interface you can enter snapped mode by hitting `‘Windows Key’ + ‘.’` .
+Windows 8 applications can exist in two states, full screen or snapped. If you do not have a touch interface you can enter snapped mode by hitting `‘Windows Key’ + ‘.’` .
 
 The UI for the to-do application uses a `Grid` with two ‘star’ width columns to divide the screen into the left and right panes. This will quite happily scale when the application is snapped, but the end result isn’t too pretty:
 

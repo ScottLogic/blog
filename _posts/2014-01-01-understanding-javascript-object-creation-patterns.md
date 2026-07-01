@@ -40,7 +40,7 @@ keyword which was a somewhat failed attempt to make the language feel familiar
 to Java developers.
 
 Rather than tackle this problem directly, many developers
-rely on frameworks such as [prototype.js](http://prototypejs.org/learn/class-inheritance) which provide classical
+rely on frameworks such as [prototype.js](http://prototypejs.org/learn/class-inheritance) which provide classical
 inheritance patterns so that they can return to something familiar. As did I.
 However, I soon become dissatisfied with my lack of knowledge and wanted to
 know how the language really works.

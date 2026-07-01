@@ -851,6 +851,6 @@ I finished my previous article with some bullet-points that summarised my though
 - **Avoid using HTML5 to match the native look and feel.** In my opinion you will make the most of HTML5 if you do not try to match the native look and feel of each platform. Instead, create an application with its own visual identity, and use that across all platforms. This will maximise the code shared between each platform.
 - **HTML5 is not the only cross-platform technology**, for a no-compromises approach, give Xamarin a try! Personally I find the technology industry’s fixation with HTML5 to be a little tiring. For cross-platform mobile application development there are other proven alternatives and in my opinion Xamarin is clearly a viable alternative.
 
-You can download the sourcecode for this application here:  - or alternatively [visit the github  project](https://github.com/ColinEberhardt/PropertyCross) for the most up-to-date code.
+You can download the sourcecode for this application here:  - or alternatively [visit the github  project](https://github.com/ColinEberhardt/PropertyCross) for the most up-to-date code.
 
 To expand on my last point above, if you want to explore more alternatives, including of jQuery Mobile, Sencha Touch, Xamarin, Adobe AIR, Titanium and native development – take a look at [PropertyCross](http://www.propertycross.com/).
