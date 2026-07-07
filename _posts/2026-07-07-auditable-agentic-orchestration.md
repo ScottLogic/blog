@@ -29,6 +29,8 @@ Agentic systems are rediscovering problems that workflow engines have solved for
 
 With the rise of distributed systems, these workflow engines adapted to better coordinate microservices at scale and manage long-running, fault-tolerant workflows. Many sectors, including financial services, healthcare, and the public sector require their workflows to be auditable and reproducible, so workflow engines are commonly built to maintain audit trails for regulatory compliance.
 
+![Simple BPMN]({{ site.github.url }}/tstavert/assets/fluxnova/simple_bpmn_workflow_example.png "Simple example of a BPMN diagram")
+
 Workflow engines typically represent business processes using process models: flowcharts that non-technical business users can easily read and understand, acting as a shared contract between business intent and execution. Business Process Model & Notation (BPMN) emerged as a standardised modelling notation for business processes in the early 2000s and BPMN 2.0, which goes beyond just diagrams to define precise execution semantics, became a formally published ISO standard in 2013.  
 
 These process models are also a great way of representing the multiple reasoning steps that AI agents must make when being used in complex business processes. These easily understood flowcharts allow networks of agents to be visualised and understood, even by non-technical personnel, allowing for unprecedented visibility and understandability for even advanced agentic workflows.
@@ -42,8 +44,6 @@ As agentic workflows are adopted for long-running tasks which span hours or even
 Observability is another key offering of process orchestration software. When a regulator questions what happened with a particular business process, the business must be able to answer exactly what happened, when, and why, and reproduce the results. Anyone who has tried to demo an agent being given complete control over a task will be able to tell you that understanding the reasons for its outputs is often challenging, and reproducing exact results is next to impossible. 
 
 As well as restricting the influence that agents have on workflows, modelling agentic workflows in workflow engines ensures that any decisions made by an AI agent can be traced and explained through audit logs. This positions workflow engines as the perfect tool for agentic orchestration when there is a need for traceability and auditability for regulatory compliance.
-
-![Simple BPMN]({{ site.github.url }}/tstavert/assets/fluxnova/simple_bpmn_workflow_example.png "Simple example of a BPMN diagram")
 
 It bears repeating: agentic systems are rediscovering problems that workflow engines have solved for decades. These systems need the same operational guarantees as traditional distributed systems, just with probabilistic decision-making layered on top. Rather than reinventing the wheel, why not take advantage of existing process orchestration software to add visibility and reliability to agentic workflows?
 
