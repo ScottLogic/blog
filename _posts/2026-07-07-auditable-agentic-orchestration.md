@@ -1,6 +1,6 @@
 ---
 title: 'Auditable Agentic Orchestration: From Autonomous Systems to Governed Execution'
-date: 2026-07-07 00:00:00 Z
+date: 2026-07-08 00:00:00 Z
 categories:
 - Artificial Intelligence
 summary: Giving AI agents free rein is easy. Trusting their output is hard. This post explores how workflow engines like Fluxnova, and its new Agentic Subprocess, bring auditability and control to agentic orchestration without sacrificing the flexibility that makes agents valuable.
