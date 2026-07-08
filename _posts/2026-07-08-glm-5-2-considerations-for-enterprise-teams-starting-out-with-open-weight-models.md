@@ -3,7 +3,7 @@ title: 'GLM-5.2: Considerations for enterprise teams starting out with open-weig
 date: 2026-07-08 12:00:00 Z
 categories:
 - Artificial Intelligence
-summary: 'Setting yourself up to try out open-weight models for agentic development isn’t difficult, but it isn’t as straightforward as downloading a coding agent from one of the handful of well-known AI vendors. In preparation for the latest round of our AI productivity experiments, we've recently been through this process. Read on for the choices we made, the considerations at play, and what made our situation unusual.'
+summary: "Setting yourself up to try out open-weight models for agentic development isn’t difficult, but it isn’t as straightforward as downloading a coding agent from one of the handful of well-known AI vendors. In preparation for the latest round of our AI productivity experiments, we've recently been through this process. Read on for the choices we made, the considerations at play, and what made our situation unusual."
 author: rwilliams
 contributors:
 - cprice
