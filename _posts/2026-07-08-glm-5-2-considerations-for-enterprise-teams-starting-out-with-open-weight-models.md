@@ -89,4 +89,7 @@ The coding agent runtimes ecosystem is evolving at a frenetic pace, attributable
 
 The space around agentic software development with open-weight models is moving fast. In the near future we expect more hosting options for GLM-5.2 and other top models, and could see new models, coding agent innovations, or regulatory movements.
 
-To stay up-to-date with our experiment, its results and our recommendations you can follow along on this blog or our social media channels. If you’re looking for help demonstrating the value of AI-augmented delivery in your organisation, check out our case studies for real-world examples of quantifiable returns.
+To stay up-to-date with our experiment, its results and our recommendations you can follow along on this blog or our social media channels. If you’re looking for help demonstrating the value of AI-augmented delivery in your organisation, check out our case studies for real-world examples of quantifiable returns:
+
+* [Scopevisio: From migration risk to AI-accelerated delivery](https://www.scottlogic.com/our-work/scopevisio-ai-accelerated-delivery)
+* [Yuki: Making a complex migration viable with AI](https://www.scottlogic.com/our-work/yuki-making-migration-viable-with-ai)
