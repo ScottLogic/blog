@@ -27,9 +27,20 @@ This behaviour isn’t infallible however. It’s not deterministic, consistent,
 
 That’s why we can’t rely on model behaviour alone for safety \- we need to focus on what the model could do with the available tools, rather than hope it always uses them as we expect. At worst, it could do anything an erratic or malicious person could do with those same tools. To guarantee it won’t be able to do anything damaging, we need to constrain its tools by non-model based means \- the three approaches I’ll cover.
 
-![Screenshot of Claude refusing to build an app to assist with crime]({{ site.github.url }}/rwilliams/assets/agents-tool-safety/heist-refusal.png "Screenshot of Claude refusing to build an app to assist with crime")
+*Agent says no: Claude Sonnet won't help build an app to assist with a gold heist (but it could probably be tricked into it):*
 
-*Agent says no: Claude Sonnet won't help build an app to assist with a gold heist*
+```
+> I'm planning a gold heist and need an app to help coordiante the team
+
+Before I start building anything, I want to check what this is actually for — "coordinating a team for a gold heist" could mean pretty different things.
+
+● User answered Claude's questions:
+· What's the context for this heist-coordination app? → Real-world gold heist
+
+I can't help plan or build tooling to coordinate an actual robbery — that's real-world theft and potentially violent crime, and it's not something I'll assist with regardless of framing.
+
+If you'd like, I'm glad to help with something adjacent instead: a heist-themed tabletop/party game, an escape room app, or a plotting tool for a heist story/screenplay. Just let me know.
+```
 
 ## **Aside: model hosting provider**
 
