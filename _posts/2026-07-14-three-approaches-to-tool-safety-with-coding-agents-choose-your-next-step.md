@@ -3,29 +3,29 @@ title: "Three approaches to tool safety with coding agents - choose your next st
 date: 2026-07-14 12:00:00 Z
 categories:
 - Artificial Intelligence
-summary: "The trio of models, agentic coding runtimes (e.g. Claude Code), and agent tools (e.g. file write) are what makes agentic software development possible. It works safely most of the time, but the default setup many of us fall into does carry some risks - and occasionally someone’s lost database or exfiltrated credentials makes the news. In this post, I’ll explore some things you could consider doing to make your own setup safer - or at least help you understand its limitations."
+summary: "In coding agents, the trio of models, runtimes (e.g. Claude Code), and tools (e.g. file write) are what makes agentic software development possible. While they work safely most of the time, the default setup many of us fall into does carry risk. In this post, I’ll explore some things you could consider to make your own setup safer - or at least help you understand its limitations."
 author: rwilliams
 ---
 
-The trio of models, agentic coding runtimes (e.g. Claude Code), and agent tools (e.g. file write) are what makes agentic software development possible. It works safely most of the time, but the default setup many of us fall into does carry some risks \- and occasionally someone’s lost database or exfiltrated credentials makes the news. In this post, I’ll explore some things you could consider doing to make your own setup safer \- or at least help you understand its limitations.
+In coding agents, the trio of models, runtimes (e.g. Claude Code), and tools (e.g. file write) are what makes agentic software development possible. While they work safely most of the time, the default setup many of us fall into does carry risk. In this post, I’ll explore some things you could consider to make your own setup safer \- or at least help you understand its limitations.
 
 ## **Agents and their tools**
 
-In the world of agents, tools are programs offered by the agent runtime to the model that it can request to be executed in order to observe or manipulate the environment around it. Models without tools are limited to direct conversational interactions, but tools (e.g. reading and writing files, executing a program) give them agency \- to take action over the environment around them to complete a task.
+In the world of agents, the runtime offers the model a list of tools. The model can then request the runtime executes these on its behalf, in order to observe or manipulate the environment around it.. Models without tools are limited to direct conversational interactions, but tools (e.g. reading and writing files, executing a program) give them agency \- to take action over the environment around them to complete a task.
 
-This usually all works nicely, but models can also go off the rails \- either with good intentions, or through attacks such as prompt injection (through various channels). When that happens, the same tools can be used to damaging effect. The internet is abound with stories of wiped out production systems, data leaks and losses, and more.
+This usually all works nicely, but models can also go off the rails \- either with good intentions, or through attacks such as prompt injection (through various channels). When that happens, the same tools can be used to damaging effect. The internet is abound with stories of wiped out production systems, data leaks, data losses, and more.
 
-Fortunately there are a few principal approaches to preventing those outcomes, while still providing models with the tools they need to do useful work, and without needing constant human supervision.
+Fortunately there are a few principal approaches to preventing those outcomes, while still providing models with the tools they need to do useful work, and without needing constant human supervision. Requiring human approval for tool calls degrades the productivity of both the agent and human, and is prone to be ineffective for safety due to permission fatigue \- when we get so used to clicking “allow” that we tend to do it without looking at or thinking.
 
-## **Model good behaviour**
+## **Model alignment to avoid doing harm**
 
 This is the first line of defence, but it’s not robust enough to be counted as one of the three approaches.
 
-As part of their alignment training, models learn what things are considered harmful, and that they shouldn’t do those things or anything that remotely assists with them. It would be very difficult to convince most models to assist with planning crime, build an app to administer a scam, or make a tool call to delete your operating system directory. This built-in strong aversion makes them unlikely to honour a direct ask, or to consider such things in the course of normal work.
+As part of their alignment training, models learn what things are considered harmful, and that they shouldn’t do those things or anything that remotely assists with them. It would be difficult to convince most models to assist with planning crime, build an app to administer a scam, or make a tool call to delete your operating system directory. This built-in strong aversion makes them unlikely to honour a direct ask, or to consider such things in the course of normal work.
 
-This behaviour isn’t infallible however. It’s not deterministic, consistent, documented, or even defined \- such is the nature of models. There might be an input (prompt, skill, data, etc.) that could be engineered, or a situation that could emerge, that would get the model to decide that deleting your production database or sending your environment variables to a remote attacker’s server is the right thing to do.
+This behaviour isn’t infallible however. It’s not deterministic, consistent, documented, or even defined \- such is the nature of models. There will be some input (prompt, skill, data, etc.) that could be engineered, or a situation that could emerge, that would get the model to decide that deleting your production database or sending your environment variables to a remote attacker’s server is the right thing to do. Despite the behavioural training, [they can be tricked/jailbroken](https://fortune.com/2026/07/10/openai-gpt-5-6-sol-jailbreaks-cyber-attacks-similar-to-security-flaw-that-led-u-s-government-to-force-anthropic-to-disable-fable-5/) into doing harmful work.
 
-That’s why we can’t rely on model behaviour alone for safety \- we need to focus on what the model could do with the available tools, rather than hope it always uses them as we expect. At worst, it could do anything an erratic or malicious person could do with those same tools. To guarantee it won’t be able to do anything damaging, we need to constrain its tools by non-model based means \- the three approaches I’ll cover.
+That’s why we can’t rely on model behaviour alone for safety \- we need to focus on what the model could do with the available tools, rather than hope it always uses them as we expect. At worst, it could do anything an erratic or malicious person could do with those same tools. To guarantee it won’t be able to do anything damaging, we need to constrain its tools by deterministic (programmatic, not model-based) based means \- the three approaches I’ll cover.
 
 *Agent says no: Claude Sonnet won't help build an app to assist with a gold heist (but it could probably be tricked into it):*
 
@@ -46,71 +46,28 @@ If you'd like, I'm glad to help with something adjacent instead: a heist-themed 
 
 Unless you’re running models on your own hardware, you’ll be consuming models run by a 3rd party, via their API. For proprietary models, this will either be the company that created the model (e.g. Anthropic), or a party licensed by them (e.g. AWS Bedrock). In the case of open weight models, it could also be any company that you choose. If you access models through a centralised marketplace like OpenRouter, you won’t by default need to select the underlying model hosting providers, or even be aware of which one your calls are being routed to at any given moment.
 
-From a tool safety perspective, the provider shares the same capability as the model itself to request tool calls to be executed by our agent runtime. They could simply programmatically tack additional tool calls onto real model responses. While this scenario has the prerequisite of a security breach at the provider or direct malicious intent, it illustrates that without any protections in place, our local agent runtime would run any tool it’s told to with parameters as given. This could effectively be a facility for remote arbitrary code execution on our machine.
+From a tool safety perspective, the provider shares the same capability as the model itself to request tool calls to be executed by our agent runtime. They could simply programmatically tack additional tool calls onto real model responses. While this scenario has the prerequisite of a security breach at the provider or direct malicious intent, it illustrates that without any protections in place, our local agent runtime would run any tool it’s told to with parameters as given. This is effectively a facility for remote arbitrary code execution on our machine \- a remote access trojan (RAT).
 
 ## **\#1 Pre-execution tool guardrails (e.g. permissions)**
 
 In this approach, the model’s tool call request is assessed by the agent runtime to determine whether to proceed with executing it. It has several forms:
 
-* Configurable allow/deny/ask permission rules, using pattern matching  
-* Model-based decision based on the call and wider context, using a separate classifier model  
-* Programmatic logic in pre-tool-use hooks, for more complex decisions than pattern rules can handle
+1. Configurable allow/deny/ask permission rules, using pattern matching  
+2. Model-based decision based on the call and wider context, using a separate classifier model  
+3. Programmatic logic in pre-tool-use hooks, for more complex decisions than pattern rules can handle
 
-*Example: configuring pattern based permission rules for Claude -*
-
-~~~json
-{
-  "permissions": {
-    "allow": [
-      "Bash(pnpm run *)",
-      "WebFetch(domain:developer.mozilla.org)"
-    ]
-  }
-}
-~~~
-
-*Example: giving Claude's tool call classifier model more information so it can make better decisions -*
-
-~~~json
-{
-  "autoMode": {
-    "environment": [
-      "$defaults",
-      "Production environments: sim, prod"
-    ]
-  }
-}
-~~~
-
-*Example: configuring Claude with a complex permission check done by program code using a hook -*
-
-~~~json
-{
-  "hooks": {
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node .claude/hooks/situational-tool-use-guard.js"
-          }
-        ]
-      }
-    ]
-  }
-}
-~~~
-
-The former two of those is probably what most people are using today, not least because it’s the easy path to reducing incessant permission approval requests \- set up some allow rules, or perhaps enable your agent runtime’s model auto classifier mode.
+The first two of those are probably what most people are using today, not least because it’s the easy path to reducing incessant permission approval requests \- set up some allow rules, or perhaps enable your agent runtime’s model auto classifier mode.
 
 By their nature, the main limitation of pre-execution tool guardrails is that they are only stop/go guards at the point of execution. They don’t do anything to constrain what the executed tool then goes on to do. The most any pre-execution guardrail could ever do is try and work out beforehand what a tool execution would do (e.g. by inspecting its code), but typical pre-execution tool guardrails are far from being so advanced.
 
-To illustrate their limitations, consider a couple of examples:
+Consider this example to illustrate the crux of the limitation:
+
+* A guardrail allows the agent to run code that it itself has written or modified, because without that agents can’t do much useful work. This gives it the ability to run arbitrary code unconstrained, including code that circumvents all other guardrails (e.g. reading from a prohibited directory, or making arbitrary network requests).
+
+At a more immediate level, consider these examples:
 
 * A pattern-based rule for shell command execution is circumvented by creative reordering or obfuscation of the command and its parameters.  
-* A guardrail allows the agent to run self written one-off utility scripts to help with the task at hand, or existing build scripts that it also has permission to modify. This gives it the ability to run arbitrary code unconstrained, including code that circumvents all other guardrails (e.g. reading from a prohibited directory, or making arbitrary network requests).  
-* A prompt injection convinces or confuses a model-based classifier guardrail into allowing a tool call it shouldn’t.  
-* A collection of guardrails for the web search and fetch tools limits them to pre-approved domains, which improves safety at the expense of usefulness.
+* A prompt injection convinces or confuses a model-based classifier guardrail into allowing a tool call it shouldn’t.
 
 ## **\#2 Process sandboxing**
 
@@ -125,25 +82,9 @@ With agent runtimes, sandboxing can be employed at two levels:
 
 The latter approach means all the agent’s child processes, including all tools and MCP servers, are run within the sandbox \- not just the shell command tool.
 
-It’s worth familiarising with the default behaviours and configuration options of your sandboxing tool, as I found some that users may wish to change. Claude Code’s sandboxed Bash terminal tool by default exposes environment variables to the sandboxed process, and has read access to the entire computer it’s running on. Another perhaps surprising default behaviour is that when a command fails due to sandbox restrictions, the agent/model is allowed to analyse the problem and decide to retry it outside the sandbox. I’ve [written about defaults](https://blog.scottlogic.com/2018/11/22/default-values-in-code-and-configuration.html) before, and some of them are certainly product decisions \- balancing user needs with the goals and constraints of whomever is setting them.
+DIAGRAM of 1,2
 
-*Example: enabling Bash sandboxing in Claude, and overriding the defaults to ensure it's always used -*
-
-~~~json
-{
-  "sandbox": {
-    "enabled": true,
-    "failIfUnavailable": true,
-    "allowUnsandboxedCommands": false
-  }
-}
-~~~
-
-*Example: running Claude wholly in a sandbox -*
-
-~~~bash
-npm run @anthropic-ai/sandbox-runtime claude
-~~~
+It’s worth familiarising with the default behaviours and configuration options of your sandboxing tool, as I found some that users may wish to change. Claude Code’s sandboxed Bash terminal tool by default exposes environment variables to the sandboxed process, and has read access to the entire computer it’s running on. I’ve [written about defaults](https://blog.scottlogic.com/2018/11/22/default-values-in-code-and-configuration.html) before, and some of them are certainly product decisions \- balancing user needs with the goals and constraints of whomever is setting them.
 
 ### **Operating system support**
 
@@ -171,7 +112,7 @@ Much of what we have today revolves around a person being a user with an identit
 
 Agentic tools typically run as the user who’s driving them \- just like most other programs we run on our machines. The power of these tools to act autonomously with agency however raises the question of whether this is ultimately the right approach \- or just the convenient one for now. That approaches are being designed to constrain them is perhaps in part because they’re operating as us, in our space.
 
-It may be that this changes in future, or at least options could become available. Agents could have their own identities, or perhaps sub-identities. How this should be is likely a complex debate including the topics of safety, responsibility, and human identity.
+It may be that this changes in future, or at least options could become available. Agents could have their own identities, or perhaps sub-identities. How this should be is likely a complex debate including the topics of safety, responsibility, human identity, and business. Purveyors of agentic development tools seeking to drive adoption might prefer to minimise friction by continuing to have agents adopt their users’ identities.
 
 ## **Next steps for projects**
 
@@ -179,4 +120,4 @@ As AI coding tools move from being supervised assistants to agentic development 
 
 The approaches to safety are all quite different, and specific tools/implementations are moving fast. Some are clearly not ready yet. I expect the principal approaches outlined above are here to stay however \- different ones will suit different contexts.
 
-I think the current questions for a software project are \- what do we think of our tool safety as it stands, and what (if anything) is our next step? Projects may want to ask them again in a couple of months.
+I think the current questions for a software project are \- what do we think of our tool safety as it stands, and what is our next step? Projects may want to ask them again in a couple of months.
