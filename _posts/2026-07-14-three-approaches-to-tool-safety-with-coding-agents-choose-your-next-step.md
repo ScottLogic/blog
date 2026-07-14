@@ -27,6 +27,10 @@ This behaviour isn’t infallible however. It’s not deterministic, consistent,
 
 That’s why we can’t rely on model behaviour alone for safety \- we need to focus on what the model could do with the available tools, rather than hope it always uses them as we expect. At worst, it could do anything an erratic or malicious person could do with those same tools. To guarantee it won’t be able to do anything damaging, we need to constrain its tools by non-model based means \- the three approaches I’ll cover.
 
+![Screenshot of Claude refusing to build an app to assist with crime]({{ site.github.url }}/rwilliams/assets/agents-tool-safety/heist-refusal.png "Screenshot of Claude refusing to build an app to assist with crime")
+
+*Agent says no: Claude Sonnet won't help build an app to assist with a gold heist*
+
 ## **Aside: model hosting provider**
 
 Unless you’re running models on your own hardware, you’ll be consuming models run by a 3rd party, via their API. For proprietary models, this will either be the company that created the model (e.g. Anthropic), or a party licensed by them (e.g. AWS Bedrock). In the case of open weight models, it could also be any company that you choose. If you access models through a centralised marketplace like OpenRouter, you won’t by default need to select the underlying model hosting providers, or even be aware of which one your calls are being routed to at any given moment.
