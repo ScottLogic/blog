@@ -45,9 +45,50 @@ In this approach, the model’s tool call request is assessed by the agent runti
 * Model-based decision based on the call and wider context, using a separate classifier model  
 * Programmatic logic in pre-tool-use hooks, for more complex decisions than pattern rules can handle
 
-\<code snippet \- rules\>  
-\<code snippet \- classifier config\>  
-\<code snippet \- pretooluse hook\>
+*Example: configuring pattern based permission rules for Claude -*
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm run *)",
+      "WebFetch(domain:developer.mozilla.org)"
+    ]
+  }
+}
+```
+
+*Example: giving Claude's tool call classifier model more information so it can make better decisions -*
+
+```json
+{
+  "autoMode": {
+    "environment": [
+      "$defaults",
+      "Production environments: sim, prod"
+    ]
+  }
+}
+```
+
+*Example: configuring Claude with a complex permission check done by program code using a hook -*
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/hooks/situational-tool-use-guard.js"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 The former two of those is probably what most people are using today, not least because it’s the easy path to reducing incessant permission approval requests \- set up some allow rules, or perhaps enable your agent runtime’s model auto classifier mode.
 
@@ -75,8 +116,23 @@ The latter approach means all the agent’s child processes, including all tools
 
 It’s worth familiarising with the default behaviours and configuration options of your sandboxing tool, as I found some that users may wish to change. Claude Code’s sandboxed Bash terminal tool by default exposes environment variables to the sandboxed process, and has read access to the entire computer it’s running on. Another perhaps surprising default behaviour is that when a command fails due to sandbox restrictions, the agent/model is allowed to analyse the problem and decide to retry it outside the sandbox. I’ve [written about defaults](https://blog.scottlogic.com/2018/11/22/default-values-in-code-and-configuration.html) before, and some of them are certainly product decisions \- balancing user needs with the goals and constraints of whomever is setting them.
 
-\<code snippet \- claude disable unsandboxed commands, and scrub environment variable\>  
-\<code snippet \- command to run whole claude in sandbox\>
+*Example: enabling Bash sandboxing in Claude, and overriding the defaults to ensure it's always used -*
+
+```json
+{
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "allowUnsandboxedCommands": false
+  }
+}
+```
+
+*Example: running Claude wholly in a sandbox -*
+
+```bash
+npm run @anthropic-ai/sandbox-runtime claude
+```
 
 ### **Operating system support**
 
