@@ -47,7 +47,7 @@ In this approach, the model’s tool call request is assessed by the agent runti
 
 *Example: configuring pattern based permission rules for Claude -*
 
-```json
+~~~json
 {
   "permissions": {
     "allow": [
@@ -56,11 +56,11 @@ In this approach, the model’s tool call request is assessed by the agent runti
     ]
   }
 }
-```
+~~~
 
 *Example: giving Claude's tool call classifier model more information so it can make better decisions -*
 
-```json
+~~~json
 {
   "autoMode": {
     "environment": [
@@ -69,11 +69,11 @@ In this approach, the model’s tool call request is assessed by the agent runti
     ]
   }
 }
-```
+~~~
 
 *Example: configuring Claude with a complex permission check done by program code using a hook -*
 
-```json
+~~~json
 {
   "hooks": {
     "PreToolUse": [
@@ -88,7 +88,7 @@ In this approach, the model’s tool call request is assessed by the agent runti
     ]
   }
 }
-```
+~~~
 
 The former two of those is probably what most people are using today, not least because it’s the easy path to reducing incessant permission approval requests \- set up some allow rules, or perhaps enable your agent runtime’s model auto classifier mode.
 
@@ -118,7 +118,7 @@ It’s worth familiarising with the default behaviours and configuration options
 
 *Example: enabling Bash sandboxing in Claude, and overriding the defaults to ensure it's always used -*
 
-```json
+~~~json
 {
   "sandbox": {
     "enabled": true,
@@ -126,13 +126,13 @@ It’s worth familiarising with the default behaviours and configuration options
     "allowUnsandboxedCommands": false
   }
 }
-```
+~~~
 
 *Example: running Claude wholly in a sandbox -*
 
-```bash
+~~~bash
 npm run @anthropic-ai/sandbox-runtime claude
-```
+~~~
 
 ### **Operating system support**
 
