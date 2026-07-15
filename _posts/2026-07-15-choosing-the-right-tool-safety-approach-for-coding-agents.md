@@ -1,5 +1,5 @@
 ---
-title: "Choosing the Right Tool Safety Approach for Coding Agents"
+title: "Choosing the right tool safety approach for coding agents"
 date: 2026-07-15 12:00:00 Z
 categories:
 - Artificial Intelligence
