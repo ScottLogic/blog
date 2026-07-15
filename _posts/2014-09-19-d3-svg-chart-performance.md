@@ -18,7 +18,7 @@ Check out [the d3fc project](https://d3fc.io/) to see what some of the ideas in 
 
 ---
 
-In this post, we'll take a look at some of the performance issues you might encounter when making interactive charts using SVG, and how you might go about fixing them. We'll use the chart component developed in <a href="{{site.baseurl}}{% post_url tsimmons/2014-08-19-an-ohlc-chart-component-for-d3 %}">this post</a> to make a basic OHLC stock chart with zooming/panning. While the chart will be implemented using the [D3](http://d3js.org/) library, the performance considerations are the same for any interactive chart using SVG. We're aiming to be able to smoothly pan and zoom an OHLC chart which shows multiple years of OHLC bars.
+In this post, we'll take a look at some of the performance issues you might encounter when making interactive charts using SVG, and how you might go about fixing them. We'll use the chart component developed in <a href="{{site.baseurl}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">this post</a> to make a basic OHLC stock chart with zooming/panning. While the chart will be implemented using the [D3](http://d3js.org/) library, the performance considerations are the same for any interactive chart using SVG. We're aiming to be able to smoothly pan and zoom an OHLC chart which shows multiple years of OHLC bars.
 
 ## Zooming and Panning
 There are 2 general approaches we can take to get our chart series to zoom (and pan). They are *Semantic* zooming and *Geometric* zooming. With Geometric zooming, we'll apply a single transformation to the element which contains the OHLC bars. Zooming in will (without steps to prevent it) make the OHLC bars thicker. Semantic zooming on the other hand means that we will transform the position of each OHLC bar individually. Zooming in will keep the OHLC bars the same thickness, and the bars will spread out to reflect their recalculated positions.
@@ -33,7 +33,7 @@ var zoom = d3.behavior.zoom()
 
 Here, we're passing in the time scale of our chart (`xScale`) as the scale that the zoom behaviour should operate on. The zoom behaviour will automatically adjust the domain of the scale when zooming. We'll handle the zooming itself in the `zoomed` function.
 
-In the <a href="{{site.baseurl}}{% post_url tsimmons/2014-08-19-an-ohlc-chart-component-for-d3 %}">earlier OHLC post</a>, we set up a static chart with an OHLC series in a group element which we called the 'plotArea'. Now we'll put another element in this group - a `rect` element with the same width and height as the 'plotArea'. We'll call the zoom behaviour on this element.
+In the <a href="{{site.baseurl}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">earlier OHLC post</a>, we set up a static chart with an OHLC series in a group element which we called the 'plotArea'. Now we'll put another element in this group - a `rect` element with the same width and height as the 'plotArea'. We'll call the zoom behaviour on this element.
 
 {% highlight javascript %}
 plotArea.append('rect')
