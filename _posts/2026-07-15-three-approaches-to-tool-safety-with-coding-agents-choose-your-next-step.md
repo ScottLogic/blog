@@ -3,11 +3,11 @@ title: "Three approaches to tool safety with coding agents - choose your next st
 date: 2026-07-15 12:00:00 Z
 categories:
 - Artificial Intelligence
-summary: "In coding agents, the trio of models, runtimes (e.g. Claude Code), and tools (e.g. file write) are what makes agentic software development possible. While they work safely most of the time, the default setup many of us fall into does carry risk. In this post, I’ll explore some things you could consider to make your own setup safer - or at least help you understand its limitations."
+summary: "In coding agents, the trio of: models, runtimes (e.g. Claude Code), and tools (e.g. file write) are what makes agentic software development possible. While they work safely most of the time, the (unsafe) default setup many of us fall into does carry risk. In this post, I’ll explore some things you could consider to make your own setup safer - or at least help you understand its limitations."
 author: rwilliams
 ---
 
-In coding agents, the trio of models, runtimes (e.g. Claude Code), and tools (e.g. file write) are what makes agentic software development possible. While they work safely most of the time, the default setup many of us fall into does carry risk. In this post, I’ll explore some things you could consider to make your own setup safer \- or at least help you understand its limitations.
+In coding agents, the trio of: models, runtimes (e.g. Claude Code), and tools (e.g. file write) are what makes agentic software development possible. While they work safely most of the time, the (unsafe) default setup many of us fall into does carry risk. In this post, I’ll explore some things you could consider to make your own setup safer \- or at least help you understand its limitations.
 
 ## **Agents and their tools**
 
@@ -31,7 +31,7 @@ That’s why we can’t rely on model behaviour alone for safety \- we need to f
 
 Unless you’re running models on your own hardware, you’ll be consuming models run by a 3rd party, via their API. For proprietary models, this will either be the company that created the model (e.g. Anthropic), or a party licensed by them (e.g. AWS Bedrock). In the case of open weight models, it could also be any company that you choose. If you access models through a centralised marketplace like OpenRouter, you won’t by default need to select the underlying model hosting providers, or even be aware of which one your calls are being routed to at any given moment.
 
-From a tool safety perspective, the provider shares the same capability as the model itself to request tool calls to be executed by our agent runtime. They could simply programmatically tack additional tool calls onto real model responses. While this scenario has the prerequisite of a security breach at the provider or direct malicious intent, it illustrates that without any protections in place, our local agent runtime would run any tool it’s told to with parameters as given. This is effectively a facility for remote arbitrary code execution on our machine \- a remote access trojan (RAT).
+From a tool safety perspective, the provider shares the same capability as the model itself to request tool calls be executed by our agent runtime. They could simply programmatically tack additional tool calls onto real model responses. While this scenario has the prerequisite of a security breach at the provider or direct malicious intent, it illustrates that without any protections in place, our local agent runtime would run any tool it’s told to with parameters as given. This is effectively a facility for remote arbitrary code execution on our machine \- a remote access trojan (RAT).
 
 ## **\#1 Pre-execution tool guardrails (e.g. permissions)**
 
