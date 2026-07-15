@@ -56,7 +56,7 @@ At a more immediate level, consider these examples:
 * A pattern-based rule for shell command execution is circumvented by creative reordering or obfuscation of the command and its parameters.  
 * A prompt injection convinces or confuses a model-based classifier guardrail into allowing a tool call it shouldn’t.
 
-If pre-execution guardrails aren’t enough, we can step up to use process sandboxing.
+If pre-execution guardrails aren’t enough, we can *add* process sandboxing.
 
 ## **\#2 Process sandboxing**
 
