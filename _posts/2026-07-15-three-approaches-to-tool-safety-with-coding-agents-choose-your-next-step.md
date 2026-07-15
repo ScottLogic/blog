@@ -73,7 +73,7 @@ The latter approach means all the agent’s child processes, including all tools
 
 ![Diagrams illustrating the two levels of sandboxing]({{ site.github.url }}/rwilliams/assets/agents-tool-safety/sandbox-approaches.png "Diagrams illustrating the two levels of sandboxing")
 
-It’s worth familiarising yourself with the default behaviours and configuration options of your sandboxing tool, as I found the defaults are surprising to some users. Claude Code’s sandboxed Bash terminal tool by default exposes environment variables to the sandboxed process, and has read access to the entire computer it’s running on. I’ve [written about defaults](https://blog.scottlogic.com/2018/11/22/default-values-in-code-and-configuration.html) before, and some of them are certainly product decisions \- balancing user needs with the goals and constraints of whomever is setting them.
+It’s worth familiarising yourself with the default behaviours and configuration options of your sandboxing tool, as I found the defaults may be surprising. Claude Code’s sandboxed Bash terminal tool by default exposes environment variables to the sandboxed process, and has read access to the entire computer it’s running on. I’ve [written about defaults](https://blog.scottlogic.com/2018/11/22/default-values-in-code-and-configuration.html) before, and some of them are certainly product decisions \- balancing user needs with the goals and constraints of whomever is setting them. The defaults appear to prioritise ease of use by minimising configuration effort, and agents' success at tasks by reducing potential for runtime obstacles.
 
 #### **Operating system support**
 
