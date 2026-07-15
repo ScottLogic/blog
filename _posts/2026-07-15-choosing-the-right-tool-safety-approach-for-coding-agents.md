@@ -1,5 +1,5 @@
 ---
-title: "Three approaches to tool safety with coding agents - choose your next step"
+title: "Choosing the Right Tool Safety Approach for Coding Agents"
 date: 2026-07-15 12:00:00 Z
 categories:
 - Artificial Intelligence
@@ -116,4 +116,3 @@ Safety practices are often driven by what’s reasonably or easily possible rath
 The approaches to safety are all quite different, and development of agent runtimes is moving fast. Some are clearly not ready yet, and there might not be any good solution at the moment depending on your environment and technology stack. I expect the principal approaches outlined above are here to stay however \- different ones will suit different contexts.
 
 I think the pertinent questions for a team are \- what do we think of our tool safety as it stands, what are our next steps, and when will we review this? Take an active position on it. It’s far preferable to ask these questions proactively rather than as part of an incident post-mortem.
-
