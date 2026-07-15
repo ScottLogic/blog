@@ -2,26 +2,26 @@
   - /2014/01/31/propertycross-1-3-released.html
   - /2014/10/27/xplatform-mobile-cordova-ionic.html
 /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html:
-  - /2013/01/07/codeproject-mvp-2013.html
-  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
+  - /2013/03/28/html5-it-just-got-real-a-one-day-conference-in-london-14th-may.html
+  - /2016/05/05/software-testing-at-scott-logic-an-insight-into-how-we-work.html
 /2013/01/07/codeproject-mvp-2013.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
+  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
 /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html
 /2013/02/15/linq-to-objective-c.html:
   - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
   - /2014/02/28/arrow-functions-in-knockoutjs.html
 /2013/02/25/windows-phone-8-running-app-article-wins-codeproject-competition.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2013/03/01/a-windows-phone-8-run-tracking-app-in-100-lines-of-code.html:
   - /2013/05/01/clearer-a-gesture-driven-windows-8-to-do-application.html
   - /2013/01/01/property-finder-a-cross-platform-xamarin-monotouch-mobile-app.html
 /2013/03/07/illusions-in-css.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2013/03/08/extends-in-less.html:
   - /2015/07/02/surprising-things-about-js.html
   - /2016/09/01/highlights-from-jsconfis.html
@@ -29,11 +29,11 @@
   - /2013/04/08/comparing-kendoui-and-knockout-with-a-bit-of-jquerymobile-on-the-side.html
   - /2014/02/28/developing-large-scale-knockoutjs-applications.html
 /2013/03/08/less-vs-sass-vs-stylus.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2013/03/28/html5-it-just-got-real-a-one-day-conference-in-london-14th-may.html:
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
+  - /2016/05/05/software-testing-at-scott-logic-an-insight-into-how-we-work.html
 /2013/04/08/comparing-kendoui-and-knockout-with-a-bit-of-jquerymobile-on-the-side.html:
   - /2013/03/08/knockout-js-node-js-what-js.html
   - /2014/02/28/developing-large-scale-knockoutjs-applications.html
@@ -44,14 +44,14 @@
   - /2013/01/01/property-finder-a-cross-platform-xamarin-monotouch-mobile-app.html
   - /2013/03/01/a-windows-phone-8-run-tracking-app-in-100-lines-of-code.html
 /2013/05/16/html5-it-just-got-real-slides.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2013/05/22/reversieight-a-windows-8-reversi-game.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2013/06/03/new-ios-article-how-to-make-a-custom-control.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2013/06/05/scala-macros-part-1.html:
   - /2013/06/07/scala-macros-part-3.html
   - /2013/06/17/scala-macros-part-4.html
@@ -59,8 +59,8 @@
   - /2013/06/07/scala-macros-part-3.html
   - /2013/06/05/scala-macros-part-1.html
 /2013/06/07/isolated-scrum-does-scrum-need-to-be-complemented-with-extreme-programming-to-succeed.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2013/06/07/scala-macros-part-3.html:
   - /2013/06/17/scala-macros-part-4.html
   - /2013/06/05/scala-macros-part-1.html
@@ -135,7 +135,7 @@
   - /2019/05/21/analysing-electron-performance-chromium-tracing.html
 /2014/01/01/understanding-javascript-object-creation-patterns.html:
   - /2013/11/27/javascript-object-creation-patterns.html
-  - /2016/04/04/a-functional-front-end-with-react.html
+  - /2021/06/28/union-types.html
 /2014/01/29/ios7-by-tutorials-in-print.html:
   - /2013/09/19/ios-book-published.html
   - /2014/09/18/swift-by-tutorials.html
@@ -167,11 +167,11 @@
   - /2014/07/10/statistical-analysis-ios-android.html
   - /2013/10/14/assessing-android_fragmentation.html
 /2014/04/12/app-colour-analysis.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2014/05/08/rapid-software-testing.html:
-  - /2014/11/18/open-testing-standards.html
-  - /2016/01/12/a-glimpse-into-our-2015-graduate-projects.html
+  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2014/05/11/reactivecocoa-tableview-binding.html:
   - /2014/11/04/mutable-array-binding-reactivecocoa.html
   - /2014/07/07/mvvm-reactive-cocoa.html
@@ -182,8 +182,8 @@
   - /2015/04/24/first-look-reactive-cocoa-3.html
   - /2019/07/19/swift-the-beautiful-language.html
 /2014/07/07/School-of-Testing.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2014/07/07/mvvm-reactive-cocoa.html:
   - /2014/07/24/mvvm-reactivecocoa-swift.html
   - /2015/05/15/mvvm-reactive-cocoa-3.html
@@ -233,8 +233,8 @@
   - /2014/08/11/a-piecemeal-approach-to-introducing-agile.html
   - /2014/08/22/how-does-the-nature-of-an-engagement-affect-how-we-introduce-agile.html
 /2014/08/19/an-ohlc-chart-component-for-d3.html:
-  - /2014/09/26/an-interactive-stock-comparison-chart-with-d3.html
   - /2014/09/19/d3-svg-chart-performance.html
+  - /2014/09/26/an-interactive-stock-comparison-chart-with-d3.html
 /2014/08/20/starting-from-scratch-2014-intern-project.html:
   - /2013/12/04/on-running-a-code-club.html
   - /2016/05/23/an-animated-chart-with-html5-canvas.html
@@ -320,8 +320,8 @@
   - /2014/08/28/bollinger.html
   - /2017/08/23/market-profile.html
 /2014/11/18/open-testing-standards.html:
-  - /2014/05/08/rapid-software-testing.html
-  - /2016/01/12/a-glimpse-into-our-2015-graduate-projects.html
+  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2014/11/20/swift-initialisation.html:
   - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
   - /2015/02/11/swift-kvo-alternatives.html
@@ -359,8 +359,8 @@
   - /2022/10/10/when-should-we-automate.html
   - /2019/07/03/Demystifying-test-automation.html
 /2015/01/16/7-things-to-look-for-when-testing-with-agility.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2015/01/20/typescript-compiler-api.html:
   - /2017/05/02/typescript-compiler-api-revisited.html
   - /2015/08/10/ts-vs-proj.html
@@ -389,8 +389,8 @@
   - /2025/02/12/playwright-visual-testing.html
   - /2014/03/19/simulator-enhancements.html
 /2015/03/03/blink.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2015/03/04/webdriverjs-and-promises.html:
   - /2020/01/13/selenium-vs-puppeteer.html
   - /2016/04/25/UsingWebdriverIO-Part2.html
@@ -443,14 +443,14 @@
   - /2015/04/24/first-look-reactive-cocoa-3.html
   - /2014/07/24/mvvm-reactivecocoa-swift.html
 /2015/05/22/strictly-testing.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2015/06/10/learn-es6-from-airbnb.html:
   - /2015/07/02/surprising-things-about-js.html
   - /2021/09/06/how-to-write-an-es-lint-rule-for-beginners.html
 /2015/06/17/making-the-leap-from-academia-to-industry.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2015/06/19/aurelia-part-one.html:
   - /2015/06/29/aurelia-part-two.html
   - /2015/12/07/angular-2.html
@@ -482,8 +482,8 @@
   - /2015/01/20/typescript-compiler-api.html
   - /2013/09/10/typescript-0.9.html
 /2015/08/14/day-by-day-week-one-as-a-scott-logic-graduate.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2015/09/03/d3-without-d3.html:
   - /2018/09/21/d3-financial-chart.html
   - /2016/08/17/building-components-with-d3-data-join.html
@@ -509,7 +509,7 @@
   - /2019/07/03/Demystifying-test-automation.html
   - /2016/03/09/lonely-tester.html
 /2015/10/20/Fun-effective-bug-hunts.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2015/12/01/i-dont-have-a-computer-science-degree-can-i-still-work-in-software-development.html
   - /2013/01/07/codeproject-mvp-2013.html
 /2015/10/27/destroying-monoliths-at-dddnorth.html:
   - /2013/10/18/getting-functional-at-dddnorth.html
@@ -536,7 +536,7 @@
   - /2020/01/03/rethinking-the-java-dto.html
   - /2019/04/24/domain-modelling-and-persistence-with-ef-core-part-2.html
 /2015/12/01/i-dont-have-a-computer-science-degree-can-i-still-work-in-software-development.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
+  - /2015/10/20/Fun-effective-bug-hunts.html
   - /2013/01/07/codeproject-mvp-2013.html
 /2015/12/07/angular-2.html:
   - /2016/01/05/angular2-with-immutablejs.html
@@ -557,11 +557,11 @@
   - /2015/12/07/angular-2.html
   - /2014/07/30/spa-angular-knockout.html
 /2016/01/01/about.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/01/04/most-popular-tech-blog-posts-of-2015.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/01/05/angular2-with-immutablejs.html:
   - /2015/12/07/angular-2.html
   - /2016/01/25/angular2-time-travel-with-redux.html
@@ -572,8 +572,8 @@
   - /2016/07/05/audio-api-electron.html
   - /2015/09/03/d3-without-d3.html
 /2016/01/12/a-glimpse-into-our-2015-graduate-projects.html:
-  - /2014/05/08/rapid-software-testing.html
-  - /2014/11/18/open-testing-standards.html
+  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/01/13/introduction-to-hadoop-and-map-reduce.html:
   - /2017/02/07/the-rise-of-big-data-streaming.html
   - /2018/10/23/automating-terraform-abstracting-terraform-behind-a-web-service.html
@@ -635,8 +635,8 @@
   - /2018/02/14/interaction18.html
   - /2015/06/26/ux-scotland-2015.html
 /2016/03/08/tacklingthemythsaroundasoftwaretestingcareer.html:
-  - /2019/11/18/talking-to-devs-about-testing.html
-  - /2020/04/17/not-loving-lockdown.html
+  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/03/09/As-It-Stands-Electron-Security.html:
   - /2016/06/01/An-update-on-Electron-Security.html
   - /2023/02/01/webview2-electron-challengers-and-slightly-lighter-desktop-web-applications.html
@@ -647,14 +647,14 @@
   - /2016/03/18/d3fc-love-canvas.html
   - /2019/05/28/drawing-2d-charts-with-webgl.html
 /2016/03/10/why-the-pushforparity-is-a-slow-burn.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/03/11/independent-testers-question.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/03/16/bristech-story-of-a-meet-up.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/03/18/d3fc-love-canvas.html:
   - /2016/03/10/d3-path-what-is-it-good-for.html
   - /2020/05/01/rendering-one-million-points-with-d3.html
@@ -662,8 +662,8 @@
   - /2016/04/19/mondo-bank-webhook-to-pebble-watch-timeline-using-aws-labmda-functions.html
   - /2024/03/20/how-open-banking-is-reshaping-the-sector.html
 /2016/04/01/the-2016-bcswomen-lovelace-colloquium-a-retrospective.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/04/04/a-functional-front-end-with-react.html:
   - /2014/07/23/frp-with-bacon-and-d3.html
   - /2014/10/28/Scala-Vs-Clojure.html
@@ -686,8 +686,8 @@
   - /2016/02/29/Cross-site-scripting.html
   - /2016/02/11/SQL-injection.html
 /2016/05/05/software-testing-at-scott-logic-an-insight-into-how-we-work.html:
+  - /2016/09/05/there-is-no-such-thing-as-the-wrong-degree.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
 /2016/05/16/Data-visualisation-and-Scale-Leveraging-the-macro-and-the-micro.html:
   - /2017/06/29/change-presented-two-ways.html
   - /2018/11/30/Big-Data-London.html
@@ -710,8 +710,8 @@
   - /2014/02/04/intro-to-ixd.html
   - /2018/03/23/when-technology-meets-the-arts.html
 /2016/05/26/DefectsInDefectDensity.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/05/26/big-data-logging-elk-stack.html:
   - /2014/12/19/elk-3-things-i-wish-id-known.html
   - /2017/02/07/the-rise-of-big-data-streaming.html
@@ -725,8 +725,8 @@
   - /2016/07/04/a-snapshot-of-testers-in-2016.html
   - /2018/12/21/so-you-heard-about-testing.html
 /2016/06/07/chaining custom locators.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/06/10/six-tips-for-cleaner-promises.html:
   - /2015/02/02/generators.html
   - /2017/09/14/asynchronous-recursion.html
@@ -755,8 +755,8 @@
   - /2020/04/22/Async-Iterators-Across-Execution-Contexts.html
   - /2015/08/06/an-adventure-in-svg-filter-land.html
 /2016/06/29/graduate-projects-building-a-game.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/07/04/a-snapshot-of-testers-in-2016.html:
   - /2016/06/05/why-its-difficult-to-hire-us.html
   - /2018/12/21/so-you-heard-about-testing.html
@@ -767,8 +767,8 @@
   - /2016/02/05/a-lazy-isomorphic-react-experiment.html
   - /2016/09/01/highlights-from-jsconfis.html
 /2016/07/18/how-you-can-have-a-whole-bot-of-fun-at-scott-logic.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/07/28/java-enums-how-to-use-them-smarter.html:
   - /2025/01/20/algebraic-data-types-with-java.html
   - /2019/02/14/4-things-I-learned-to-love-about-Swift.html
@@ -776,14 +776,14 @@
   - /2018/01/31/looking-at-r.html
   - /2016/11/09/r-twitter-mining-and-sentiment-analysis.html
 /2016/08/11/day-by-day-week-one-as-a-scott-logic-2016-graduate.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/08/17/building-components-with-d3-data-join.html:
   - /2015/09/03/d3-without-d3.html
   - /2019/05/09/building-a-better-d3-axis.html
 /2016/08/22/building-the-next-generation-of-technology-professionals.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/08/26/interview-question-explorer.html:
   - /2018/08/30/the-scott-logic-internship.html
   - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
@@ -806,8 +806,8 @@
   - /2016/01/20/restful-api-with-aspnet50.html
   - /2015/05/14/aspnet50-intro.html
 /2016/09/05/there-is-no-such-thing-as-the-wrong-degree.html:
+  - /2016/05/05/software-testing-at-scott-logic-an-insight-into-how-we-work.html
   - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
-  - /2013/01/07/codeproject-mvp-2013.html
 /2016/09/08/why-can-no-one-agree-on-a-definition-of-mvc.html:
   - /2013/12/06/JavaScript-MVC-frameworks.html
   - /2014/02/28/developing-large-scale-knockoutjs-applications.html
@@ -824,8 +824,8 @@
   - /2017/04/19/help-testers-succeed.html
   - /2018/06/06/we-need-to-talk.html
 /2016/10/04/insight-into-our-2016-intern-projects.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/10/07/lets-have-a-conversation.html:
   - /2016/09/05/do-you-need-a-conversational-ui.html
   - /2016/06/16/catch22-of-conversational-uis.html
@@ -833,8 +833,8 @@
   - /2014/05/19/html5-at-enterprise-scale.html
   - /2020/07/22/web-or-desktop.html
 /2016/10/20/the-ins-and-outs-of-bitcoin.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/10/25/testbash2016.html:
   - /2018/03/26/test-bash-newbie-heads-to-brighton.html
   - /2016/09/27/learning-to-talk.html
@@ -851,11 +851,11 @@
   - /2016/10/25/testbash2016.html
   - /2016/08/03/exploring-data-with-shiny-and-r.html
 /2016/11/14/digital-transformation-in-partnership.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/11/15/testing-is-boring-how-we-can-all-help-destroy-the-myth.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/11/22/spring-boot-and-mongodb.html:
   - /2019/07/15/Getting-to-grips-with-Spring.html
   - /2023/02/27/testing-spring-boot-with-testcontainers.html
@@ -869,11 +869,11 @@
   - /2013/09/19/ios-book-published.html
   - /2014/01/29/ios7-by-tutorials-in-print.html
 /2016/12/01/how-are-businesses-using-big-data.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/12/07/once-upon-a-time.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2016/12/15/semantic-versioning-is-not-enough.html:
   - /2017/06/06/does-npm5-deprecate-yarn.html
   - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
@@ -893,14 +893,14 @@
   - /2015/06/26/ux-scotland-2015.html
   - /2016/06/17/ux-scotland-2016.html
 /2017/01/11/digital-transformation-getting-started-and-avoiding-common-pitfalls.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2017/01/15/testing-trading.html:
   - /2016/03/09/lonely-tester.html
   - /2016/01/18/know-your-bugs.html
 /2017/01/19/our-most-popular-tech-blog-posts-of-2016.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2017/01/26/london-marathon-visualising.html:
   - /2017/02/28/london-marathon-training-visualisation.html
   - /2022/09/12/how-data-has-improved-the-amateur-runner.html
@@ -908,8 +908,8 @@
   - /2013/07/29/spark-stream-analysis.html
   - /2018/07/06/comparing-streaming-frameworks-pt1.html
 /2017/02/08/scott-logic-bugathon-what-to-expect.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2017/02/20/initial-impressions-of-alteryx-11.html:
   - /2016/09/19/inspire-europe.html
   - /2020/12/14/alteryxing-the-advent-of-code-2020-week-2.html
@@ -935,20 +935,20 @@
   - /2016/05/30/writing-a-docker-volume-plugin.html
   - /2016/06/17/docker-swarm.html
 /2017/03/08/beboldforchange-and-beat-the-elephant-in-the-room.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2017/03/09/relogic-2.html:
   - /2017/02/28/relogic.html
   - /2018/06/11/pros-cons-of-redux-form.html
 /2017/03/14/voxxed-days-2017-learning-from-the-best-in-tech.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2017/03/20/cassandra-vs-mariadb-scaling.html:
   - /2017/03/01/cassandra-vs-mariadb.html
   - /2017/10/06/cassandra-eventual-consistency.html
 /2017/03/21/working-in-a-consultancy-and-working-in-house-a-view-from-the-inside.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2017/04/05/interactive-responsive-small-multiples.html:
   - /2018/09/21/d3-financial-chart.html
   - /2019/05/14/building-a-more-flexible-d3-chart.html
@@ -1256,14 +1256,14 @@
   - /2017/06/06/does-npm5-deprecate-yarn.html
   - /2016/03/03/modularizing-client-side-dependencies-with-jspm.html
 /2018/04/12/qa-qa-who-the-funk.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2018/04/16/a-hire-standard.html:
   - /2024/10/30/our-differentiated-approach-to-testing.html
   - /2018/09/27/thoughts-from-the-software-testing-conference-north.html
 /2018/04/17/BCSWomen-Lovelace-Colloquium.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2018/04/17/comparing-big-data-messaging.html:
   - /2023/11/14/data-distribution.html
   - /2017/10/13/MetOfficeKafka.html
@@ -1682,8 +1682,8 @@
   - /2016/08/26/interview-question-explorer.html
   - /2014/08/29/foyer-screen.html
 /2019/08/19/three-year-journey.html:
-  - /2021/03/15/the-inside-track-how-established-talent-is-recruited-by-scott-logic.html
   - /2018/11/20/starting-as-a-graduate-developer-at-scott-logic.html
+  - /2021/03/15/the-inside-track-how-established-talent-is-recruited-by-scott-logic.html
 /2019/08/19/working-hard-and-playing-hard-that-s-a-career-in-tech.html:
   - /2019/08/30/from-university-to-industry-a-small-step-or-a-giant-leap.html
   - /2018/08/30/the-scott-logic-internship.html
@@ -1727,8 +1727,8 @@
   - /2019/11/18/drawing-lines-with-webgl.html
   - /2019/11/27/drawing-area-polygons-with-webgl.html
 /2019/10/23/On-the-dangers-of-sending-your-testers-to-conferences.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2019/10/25/How-we-run-our-first-Design-Sprint.html:
   - /2014/12/02/agile-projects-a-case-study.html
   - /2015/06/26/ux-scotland-2015.html
@@ -1743,7 +1743,7 @@
   - /2023/05/31/rabbitmq-deep-dive-part-two.html
 /2019/10/31/building-microservices-with-spring-boot.html:
   - /2020/08/24/microservices-for-life.html
-  - /2017/07/17/successful-microservices-with-12factor-app.html
+  - /2019/11/19/building-microservices-with-spring-boot-2.html
 /2019/11/04/(Didn't)-Nail-Polish.html:
   - /2016/09/01/highlights-from-jsconfis.html
   - /2016/09/27/learning-to-talk.html
@@ -1757,8 +1757,8 @@
   - /2019/11/27/drawing-area-polygons-with-webgl.html
   - /2019/10/17/sculpting-shapes-with-webgl-fragment-shader.html
 /2019/11/18/talking-to-devs-about-testing.html:
-  - /2016/03/08/tacklingthemythsaroundasoftwaretestingcareer.html
-  - /2020/04/17/not-loving-lockdown.html
+  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2019/11/19/building-microservices-with-spring-boot-2.html:
   - /2019/10/31/building-microservices-with-spring-boot.html
   - /2019/07/15/Getting-to-grips-with-Spring.html
@@ -1946,8 +1946,8 @@
   - /2014/03/11/a-developers-intro-to-webgl.html
   - /2019/11/18/drawing-lines-with-webgl.html
 /2020/04/17/not-loving-lockdown.html:
-  - /2016/03/08/tacklingthemythsaroundasoftwaretestingcareer.html
-  - /2019/11/18/talking-to-devs-about-testing.html
+  - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2020/04/21/starting-with-pulumi.html:
   - /2020/01/21/beginners-terraform-serverless.html
   - /2018/10/08/infrastructure-as-code-getting-started-with-terraform.html
@@ -2429,8 +2429,8 @@
   - /2021/11/17/reminiscence-of-a-scrum-master-part-ii.html
   - /2018/03/12/evolving-beyond-the-need-for-a-sprint-retrospective.html
 /2022/02/23/Grad-Week-Feb22.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2022/02/23/word-embedding-recommendations.html:
   - /2023/06/01/generative-terminology.html
   - /2021/12/08/narrative-dashboard.html
@@ -2990,8 +2990,8 @@
   - /2019/02/25/how-diversity-and-inclusion-can-improve-testing.html
   - /2022/01/05/new-normal-for-leadership.html
 /2024/05/28/a-software-developers-perspective-on-the-european-accessibility-act.html:
-  - /2013/01/04/codeproject-article-on-xamarin-cross-platform-development.html
   - /2013/01/07/codeproject-mvp-2013.html
+  - /2013/02/11/improving-raphael-performance-on-ios-with-css-transitions.html
 /2024/06/03/beyond-the-hype-can-we-do-better-than-carbon-aware-computing.html:
   - /2025/03/13/beyond-the-hype-is-architecture-for-ai-even-necessary.html
   - /2026/04/01/beyond-the-hype-is-ai-taking-fun-out-of-software-development.html
@@ -3559,6 +3559,9 @@
 /2026/07/08/glm-5-2-considerations-for-enterprise-teams-starting-out-with-open-weight-models.html:
   - /2025/10/27/testing-open-source-llms.html
   - /2023/11/16/OpenAI-Outage-November-2023.html
+/2026/07/15/choosing-the-right-tool-safety-approach-for-coding-agents.html:
+  - /2026/07/08/glm-5-2-considerations-for-enterprise-teams-starting-out-with-open-weight-models.html
+  - /2016/05/03/Account-management.html
 /2026/07/15/reflections-form-our-ai-event.html:
   - /2025/05/23/bridging-the-AI-valley-of-doubt.html
   - /2025/05/14/are-we-sleepwalking-into-ai-driven-societal-challenges.html
