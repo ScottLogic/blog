@@ -3,6 +3,7 @@ const fetch = require("node-fetch");
 const fs = require("fs");
 const { markdownToTxt } = require("markdown-to-txt");
 
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 (async () => {
   const outputPath = './scripts/generate-related/data';
@@ -20,7 +21,8 @@ const { markdownToTxt } = require("markdown-to-txt");
       await summarisePost(formatContent(path), file).then((embedding) => {
         fs.writeFileSync(filename, JSON.stringify(embedding, null, 2));
       });
-    } 
+      await sleep(200);
+    }
   }
 })();
 
@@ -36,12 +38,11 @@ const formatContent = (post) => {
   return text.split(/[\s]+/).slice(0, 1000).join(" ");
 };
 
-const summarisePost = async (data, file) => {
+const summarisePost = async (data, file, retries = 5) => {
   const OPENAI_API_KEY = process.env.npm_config_openai_api_key;
 
-  return await fetch(
-    "https://api.openai.com/v1/embeddings",
-    {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const res = await fetch("https://api.openai.com/v1/embeddings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,24 +50,33 @@ const summarisePost = async (data, file) => {
       },
       body: JSON.stringify({
         input: data,
-        model: "text-embedding-ada-002"
+        model: "text-embedding-ada-002",
       }),
-    })
-    .then((res) => {
-      if(res.status !== 200) {
-        console.log("failed to embed: " +  file)
-        if(res.status === 401) {
-          throw Error(res.statusText + " - check your OpenAI API key");
-        }
-        throw Error(res.statusText);
-      }
-      return res.json()
-    })
-    .then((json) => {
-      if (json.data) {
-        return json.data[0].embedding;
-      } else {
-        return [];
-      }
     });
+
+    if (res.status === 429) {
+      const json = await res.json();
+      if (json.error && json.error.code === "insufficient_quota") {
+        throw Error("OpenAI quota exceeded - check your plan and billing details");
+      }
+      if (attempt < retries) {
+        const retryAfter = res.headers.get("retry-after");
+        const delay = retryAfter ? parseFloat(retryAfter) * 1000 : Math.pow(2, attempt + 2) * 1000;
+        console.log(`rate limited on ${file}, retrying in ${Math.round(delay / 1000)}s...`);
+        await sleep(delay);
+        continue;
+      }
+    }
+
+    if (res.status !== 200) {
+      console.log("failed to embed: " + file);
+      if (res.status === 401) {
+        throw Error(res.statusText + " - check your OpenAI API key");
+      }
+      throw Error(res.statusText);
+    }
+
+    const json = await res.json();
+    return json.data ? json.data[0].embedding : [];
+  }
 };

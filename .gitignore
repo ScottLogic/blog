@@ -26,3 +26,5 @@ Gemfile.lock
 .yarn/
 .yarnrc.yml
 yarn.lock
+
+.claude
