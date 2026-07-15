@@ -15,7 +15,9 @@ In the world of agents, the runtime offers the model a list of tools. The model 
 
 This usually all works nicely, but models can also go off the rails \- either with good intentions, or through attacks such as prompt injection (through various channels). When that happens, the same tools can be used to damaging effect. The internet is abounds with stories of wiped out production systems, data leaks, data losses, and more.
 
-Fortunately there are a few principal approaches to preventing those outcomes, while still providing models with the tools they need to do useful work, and without needing constant human supervision. Requiring human approval for tool calls degrades the productivity of both agent and human, and is also likely ineffective due to permission fatigue \- when we get so used to clicking “allow” that we tend to do it without looking or thinking.
+The most basic defence is for the harness to seek permission before any action is taken. However, requiring human approval for tool calls degrades the productivity of both agent and human, and is also likely ineffective due to permission fatigue - when we get so used to clicking “allow” that we tend to do it without looking or thinking.
+
+Fortunately there are a few principal approaches to preventing those outcomes, while still providing models with the tools they need to do useful work, and without needing constant human supervision.
 
 ## **Aligned models**
 
