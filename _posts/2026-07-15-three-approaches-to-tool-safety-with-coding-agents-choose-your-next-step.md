@@ -73,7 +73,7 @@ The latter approach means all the agent’s child processes, including all tools
 
 It’s worth familiarising yourself with the default behaviours and configuration options of your sandboxing tool, as I found the defaults are surprising to some users. Claude Code’s sandboxed Bash terminal tool by default exposes environment variables to the sandboxed process, and has read access to the entire computer it’s running on. I’ve [written about defaults](https://blog.scottlogic.com/2018/11/22/default-values-in-code-and-configuration.html) before, and some of them are certainly product decisions \- balancing user needs with the goals and constraints of whomever is setting them.
 
-### **Operating system support**
+#### **Operating system support**
 
 The most prominent OS level sandboxing tools used by agent runtimes are Bubblewrap on Linux (or WSL2), Seatbelt on macOS, and Process Containers on Windows. These have all been around for over a decade, however Process Containers came to non-server variants of Windows only much more recently. In the last couple of months, experimental alternatives for Windows have appeared \- WSLC for WSL, and Isolation Sessions for native Windows.
 
@@ -93,7 +93,7 @@ Existing developer environments (i.e. local deployment of the system, and develo
 
 While sandboxes and containers can isolate agents on the local machine, to be at their most useful, agents still require privileges to integrate with services that aren’t on the local machine \- e.g. source control, issue tracker, documentation websites. And not just in read only mode. We could quickly get to the point where we’ve given them most of the privileges the developer had on their local machine to begin with. This illustrates why a holistic approach to tool safety with coding agents is required \- considering which methods are used where, for what reasons, and with which trade offs.
 
-### **Containers vs. dev containers**
+#### **Containers vs. dev containers**
 
 Containers in the Docker flavour are designed for consistently deploying and running applications in different environments \- their original and primary purpose was not to isolate software development tools. Dev containers on the other hand are deeply integrated with local development tools (e.g. IDEs), bringing the benefits of easy to deploy consistent local development environments while preserving the developer experience of a local machine dev setup. Tools can run in the dev container, while the user interfaces to those tools (e.g. IDEs, terminals) run outside \- there’s no need to ssh into the container to do everything.
 
