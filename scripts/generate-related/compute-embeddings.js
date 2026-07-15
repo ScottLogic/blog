@@ -21,7 +21,6 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
       await summarisePost(formatContent(path), file).then((embedding) => {
         fs.writeFileSync(filename, JSON.stringify(embedding, null, 2));
       });
-      await sleep(200);
     }
   }
 })();
@@ -39,7 +38,7 @@ const formatContent = (post) => {
 };
 
 const summarisePost = async (data, file, retries = 5) => {
-  const OPENAI_API_KEY = process.env.npm_config_openai_api_key;
+  const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
   for (let attempt = 0; attempt <= retries; attempt++) {
     const res = await fetch("https://api.openai.com/v1/embeddings", {

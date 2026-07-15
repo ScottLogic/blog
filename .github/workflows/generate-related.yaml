@@ -14,8 +14,16 @@ jobs:
         with:
           node-version: 24.x
           cache: npm
+      - name: Cache embeddings
+        uses: actions/cache@v4
+        with:
+          path: scripts/generate-related/data
+          key: embeddings-${{ hashFiles('_posts/**') }}
+          restore-keys: embeddings-
       - run: npm install
-      - run: npm run compute-embeddings --OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}
+      - run: npm run compute-embeddings
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       - run: npm run generate-related
       - name: Create Pull Request if Needed
         uses: peter-evans/create-pull-request@v4
