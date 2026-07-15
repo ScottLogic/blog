@@ -166,9 +166,10 @@ var body: some View {
 
 In React, we could similarly set the text color by calculating the boolean. However, it is also possible to introduce isRed as a new piece of state, which we update in response to the `onChange` event. This state can now get out of sync with the number of characters in the text field. As a contrived example, we start out in an invalid state in the code below due to the initial values of the state being out of sync. It would probably be easy to avoid this mistake in a simple case like this one, but in more complex systems it is easy to introduce bugs in this way.
 
+{% raw %}
 ~~~javascript
 constructor(props) {
-    super(props);    
+    super(props);
     this.onInputChange = this.onInputChange.bind(this);
 }
 state = {
@@ -183,13 +184,14 @@ onInputChange(e) {
 render() {
     return (
         <div>
-            <input value={this.state.text} onChange={this.onInputChange} 
+            <input value={this.state.text} onChange={this.onInputChange}
 				style={{color: this.state.isRed ? "red" : "green"}} />
             <button onClick={() => this.setState({text: "Hi"})} />
         </div>
     )
 }
 ~~~
+{% endraw %}
 
 ### @Binding vs Props
 
@@ -214,6 +216,7 @@ struct ParentView: View {
 
 In contrast because `props` are read-only, in order for a child to mutate its parent's state in React, the parents has to pass a lambda function as part of `props` so that it can be called in response to an event.
 
+{% raw %}
 ~~~javascript
 export default class Parent extends Component {
     state = {
@@ -241,6 +244,7 @@ class Child extends Component {
     }
 }
 ~~~
+{% endraw %}
 
 Using `@Binding` in SwiftUI means you only have to pass one property to a child compared to two properties in React. In addition, it tightly couples the value of the state to the changing of the state, whereas in React the Child is reliant on the Parent passing a function which changes the correct piece of state, making the system more flexible but more open to error.
 
