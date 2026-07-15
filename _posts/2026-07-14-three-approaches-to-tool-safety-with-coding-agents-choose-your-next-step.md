@@ -11,13 +11,13 @@ In coding agents, the trio of models, runtimes (e.g. Claude Code), and tools (e.
 
 ## **Agents and their tools**
 
-In the world of agents, the runtime offers the model a list of tools. The model can then request the runtime executes these on its behalf, in order to observe or manipulate the environment around it.. Models without tools are limited to direct conversational interactions, but tools (e.g. reading and writing files, executing a program) give them agency \- to take action over the environment around them to complete a task.
+In the world of agents, the runtime offers the model a list of tools. The model can then request the runtime executes these on its behalf, in order to observe or manipulate the environment around it. Models without tools are limited to direct conversational interactions, but tools (e.g. reading and writing files, executing a program) give them agency \- to take action over the environment around them to complete a task.
 
-This usually all works nicely, but models can also go off the rails \- either with good intentions, or through attacks such as prompt injection (through various channels). When that happens, the same tools can be used to damaging effect. The internet is abound with stories of wiped out production systems, data leaks, data losses, and more.
+This usually all works nicely, but models can also go off the rails \- either with good intentions, or through attacks such as prompt injection (through various channels). When that happens, the same tools can be used to damaging effect. The internet is abounds with stories of wiped out production systems, data leaks, data losses, and more.
 
-Fortunately there are a few principal approaches to preventing those outcomes, while still providing models with the tools they need to do useful work, and without needing constant human supervision. Requiring human approval for tool calls degrades the productivity of both the agent and human, and is prone to be ineffective for safety due to permission fatigue \- when we get so used to clicking “allow” that we tend to do it without looking at or thinking.
+Fortunately there are a few principal approaches to preventing those outcomes, while still providing models with the tools they need to do useful work, and without needing constant human supervision. Requiring human approval for tool calls degrades the productivity of both agent and human, and is also likely ineffective due to permission fatigue \- when we get so used to clicking “allow” that we tend to do it without looking or thinking.
 
-## **Model alignment to avoid doing harm**
+## **Aligned models**
 
 This is the first line of defence, but it’s not robust enough to be counted as one of the three approaches.
 
@@ -25,22 +25,7 @@ As part of their alignment training, models learn what things are considered har
 
 This behaviour isn’t infallible however. It’s not deterministic, consistent, documented, or even defined \- such is the nature of models. There will be some input (prompt, skill, data, etc.) that could be engineered, or a situation that could emerge, that would get the model to decide that deleting your production database or sending your environment variables to a remote attacker’s server is the right thing to do. Despite the behavioural training, [they can be tricked/jailbroken](https://fortune.com/2026/07/10/openai-gpt-5-6-sol-jailbreaks-cyber-attacks-similar-to-security-flaw-that-led-u-s-government-to-force-anthropic-to-disable-fable-5/) into doing harmful work.
 
-That’s why we can’t rely on model behaviour alone for safety \- we need to focus on what the model could do with the available tools, rather than hope it always uses them as we expect. At worst, it could do anything an erratic or malicious person could do with those same tools. To guarantee it won’t be able to do anything damaging, we need to constrain its tools by deterministic (programmatic, not model-based) based means \- the three approaches I’ll cover.
-
-*Agent says no: Claude Sonnet won't help build an app to assist with a gold heist (but it could probably be tricked into it):*
-
-```
-> I'm planning a gold heist and need an app to help coordiante the team
-
-Before I start building anything, I want to check what this is actually for — "coordinating a team for a gold heist" could mean pretty different things.
-
-● User answered Claude's questions:
-· What's the context for this heist-coordination app? → Real-world gold heist
-
-I can't help plan or build tooling to coordinate an actual robbery — that's real-world theft and potentially violent crime, and it's not something I'll assist with regardless of framing.
-
-If you'd like, I'm glad to help with something adjacent instead: a heist-themed tabletop/party game, an escape room app, or a plotting tool for a heist story/screenplay. Just let me know.
-```
+That’s why we can’t rely on model behaviour alone for safety \- we need to focus on what the model could do with the available tools, rather than hope it always uses them as we expect. At worst, it could do anything an erratic or malicious person could do with those same tools. To guarantee it won’t be able to do anything damaging, we need to constrain its tools independently of model behaviour \- the three approaches I’ll cover.
 
 ## **Aside: model hosting provider**
 
@@ -56,7 +41,7 @@ In this approach, the model’s tool call request is assessed by the agent runti
 2. Model-based decision based on the call and wider context, using a separate classifier model  
 3. Programmatic logic in pre-tool-use hooks, for more complex decisions than pattern rules can handle
 
-The first two of those are probably what most people are using today, not least because it’s the easy path to reducing incessant permission approval requests \- set up some allow rules, or perhaps enable your agent runtime’s model auto classifier mode.
+The first two of those are probably what most people are using today, not least because they’re the easy path to reducing incessant permission approval requests \- set up some allow rules, or perhaps enable your agent runtime’s model-based auto classifier mode.
 
 By their nature, the main limitation of pre-execution tool guardrails is that they are only stop/go guards at the point of execution. They don’t do anything to constrain what the executed tool then goes on to do. The most any pre-execution guardrail could ever do is try and work out beforehand what a tool execution would do (e.g. by inspecting its code), but typical pre-execution tool guardrails are far from being so advanced.
 
@@ -69,9 +54,11 @@ At a more immediate level, consider these examples:
 * A pattern-based rule for shell command execution is circumvented by creative reordering or obfuscation of the command and its parameters.  
 * A prompt injection convinces or confuses a model-based classifier guardrail into allowing a tool call it shouldn’t.
 
+If pre-execution guardrails aren’t enough, we can step up to use process sandboxing.
+
 ## **\#2 Process sandboxing**
 
-Process sandboxing is a relatively low effort way of constraining agents, because the agent and everything else still runs in the same environment as was previously used for development work. There’s no need to re-engineer local development machine setups, which for some stacks can be a complex upheaval task. However the price for this is weaker isolation than containers, and support on Windows is immature \- more on these in a bit.
+Process sandboxing is a relatively low effort way of constraining agents, because the agent and everything else still runs in the same environment as was previously used for development work. There’s no need to re-engineer local development machine setups, which for some stacks can be a complex upheaval task. However, the price for this is weaker isolation than containers, and immature support on Windows \- more on these in a bit.
 
 To constrain what a program can do and has access to while executing, we need to wrap it in something. Sandboxing does this by using operating system capabilities to isolate a process \- only allowing specified filesystem paths and defined network access, while otherwise being transparent to the wrapped process. Sandboxing is transitive, so any other processes launched by a sandboxed process are subject to the same sandbox.
 
@@ -82,29 +69,33 @@ With agent runtimes, sandboxing can be employed at two levels:
 
 The latter approach means all the agent’s child processes, including all tools and MCP servers, are run within the sandbox \- not just the shell command tool.
 
-DIAGRAM of 1,2
+![Diagrams illustrating the two levels of sandboxing]({{ site.github.url }}/rwilliams/assets/agents-tool-safety/sandbox-approaches.png "Diagrams illustrating the two levels of sandboxing")
 
-It’s worth familiarising with the default behaviours and configuration options of your sandboxing tool, as I found some that users may wish to change. Claude Code’s sandboxed Bash terminal tool by default exposes environment variables to the sandboxed process, and has read access to the entire computer it’s running on. I’ve [written about defaults](https://blog.scottlogic.com/2018/11/22/default-values-in-code-and-configuration.html) before, and some of them are certainly product decisions \- balancing user needs with the goals and constraints of whomever is setting them.
+It’s worth familiarising yourself with the default behaviours and configuration options of your sandboxing tool, as I found the defaults are surprising to some users. Claude Code’s sandboxed Bash terminal tool by default exposes environment variables to the sandboxed process, and has read access to the entire computer it’s running on. I’ve [written about defaults](https://blog.scottlogic.com/2018/11/22/default-values-in-code-and-configuration.html) before, and some of them are certainly product decisions \- balancing user needs with the goals and constraints of whomever is setting them.
 
 ### **Operating system support**
 
 The most prominent OS level sandboxing tools used by agent runtimes are Bubblewrap on Linux (or WSL2), Seatbelt on macOS, and Process Containers on Windows. These have all been around for over a decade, however Process Containers came to non-server variants of Windows only much more recently. In the last couple of months, experimental alternatives for Windows have appeared \- WSLC for WSL, and Isolation Sessions for native Windows.
 
-One level above those tools are cross-platform sandboxing frameworks, which abstract away the underlying approach to each OS. Anthropic has their [sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) (which uses a separate local user account), and Microsoft has their [Microsoft eXecution Container (MXC)](https://github.com/microsoft/mxc) runtime. They were launched in October 2025 and June 2026 (last month) respectively, and both are described as experimental. Visual Studio code [uses](https://code.visualstudio.com/docs/agents/concepts/trust-and-safety#_os-level-enforcement) Seatbelt and Bubblewrap directly, and MXC for Windows \- it appears likely that eventually only MXC would be used, pushing down all the cross-OS complexity.
+One level above those tools are cross-platform sandboxing frameworks, which abstract away the underlying approach to each OS. Anthropic has their [sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) (which uses a separate local user account), and Microsoft has their [Microsoft eXecution Container (MXC)](https://github.com/microsoft/mxc) runtime. They were launched in October 2025 and June 2026 (last month) respectively, and both are described as experimental. Visual Studio Code [uses](https://code.visualstudio.com/docs/agents/concepts/trust-and-safety#_os-level-enforcement) Seatbelt and Bubblewrap directly, and MXC for Windows \- it appears likely that eventually only MXC would be used, pushing down all the cross-OS complexity.
 
 The overall picture is that while OS support for process sandboxing of agents is labelled as experimental, on Windows it’s *much* more experimental. The tools don’t appear to work out of the box, they’ve not been around nearly as long, and the methods used haven’t yet been settled.
+
+If you need stronger isolation, or if process sandboxing isn’t really ready yet for your operating system, or if you have other compelling reasons \- we can consider stepping up to containers.
 
 ## **\#3 Container environment**
 
 Containers are the next level up to stronger isolation of the agent, and usually in terms of setup effort required. They also bring other benefits, here mainly consistency for all team members and ease of running anywhere \- such as on cloud development environments (e.g. GitHub Codespaces). That could be beneficial if your local machine doesn’t have the grunt to run separate container environments for each parallel agent you’re running.
 
-Containers in the Docker flavour are designed for consistently deploying and running applications in different environments \- their original and primary purpose was not to isolate software development tools. Dev containers on the other hand are deeply integrated with local development tools (e.g. IDEs), bringing the benefits of easy to deploy consistent local development environments while preserving the developer experience of a local machine dev setup. Tools can run in the dev container, while the user interfaces to those tools (e.g. IDEs, terminals) run outside \- there’s no need to ssh into the container to do everything.
-
 In contrast to process sandboxing which controls disk and network access to the host machine, containers have their own of almost everything \- file system, shells (e.g. Bash), and language runtimes (e.g. Node). Source code can either be checked out in the container, or mounted into the container from a folder on the host computer. The other contrast is that the tools for containerisation are much more mature than those for process sandboxing.
 
 Existing developer environments (i.e. local deployment of the system, and developer tools) need to be adapted to work in and with containers. Depending on the complexity and technology stack of that environment, this could be anywhere from pretty straightforward \- to quite a lot of work or not reasonably feasible.
 
-While containers can strongly isolate agents, agents do still need privileges to be at their post useful. Perhaps you want them to be able to work with your source control, issue tracker, and internal documentation \- and not just in read only mode. Perhaps also access the internet to query documentation and research bug reports. We could quickly get to the point where we’ve given them most of the privileges the developer had on their local machine to begin with. This illustrates why a holistic approach to tool safety with coding agents is required \- considering which methods are used where, for what reasons, and with which trade offs.
+While sandboxes and containers can isolate agents on the local machine, to be at their most useful, agents still require privileges to integrate with services that aren’t on the local machine \- e.g. source control, issue tracker, documentation websites. And not just in read only mode. We could quickly get to the point where we’ve given them most of the privileges the developer had on their local machine to begin with. This illustrates why a holistic approach to tool safety with coding agents is required \- considering which methods are used where, for what reasons, and with which trade offs.
+
+### **Containers vs. dev containers**
+
+Containers in the Docker flavour are designed for consistently deploying and running applications in different environments \- their original and primary purpose was not to isolate software development tools. Dev containers on the other hand are deeply integrated with local development tools (e.g. IDEs), bringing the benefits of easy to deploy consistent local development environments while preserving the developer experience of a local machine dev setup. Tools can run in the dev container, while the user interfaces to those tools (e.g. IDEs, terminals) run outside \- there’s no need to ssh into the container to do everything.
 
 ## **Agent identity**
 
@@ -116,8 +107,10 @@ It may be that this changes in future, or at least options could become availabl
 
 ## **Next steps for projects**
 
-As AI coding tools move from being supervised assistants to agentic development tools, teams and organisations will need to strike some trade offs on agent autonomy, safety, supervision, and setup effort.
+As AI coding tools move from being completion assistants to agentic actors, teams and organisations need to take stock of the safety implications. Many are likely running with more risk than they should, or than they realise. It might only be a matter of time before that goes wrong.
 
-The approaches to safety are all quite different, and specific tools/implementations are moving fast. Some are clearly not ready yet. I expect the principal approaches outlined above are here to stay however \- different ones will suit different contexts.
+Safety practices are often driven by what’s reasonably or easily possible rather than what is safe. There’s a complex balance to be struck between agent autonomy, productivity of people and agents, safety, supervision, and setup effort. Although agent runtimes do offer some features of varying readiness to help with this, the default path they lead us on doesn’t really encourage us to think too much about it.
 
-I think the current questions for a software project are \- what do we think of our tool safety as it stands, and what is our next step? Projects may want to ask them again in a couple of months.
+The approaches to safety are all quite different, and development of agent runtimes is moving fast. Some are clearly not ready yet, and there might not be any good solution at the moment depending on your environment and technology stack. I expect the principal approaches outlined above are here to stay however \- different ones will suit different contexts.
+
+I think the pertinent questions for a team are \- what do we think of our tool safety as it stands, what are our next steps, and when will we review this? Take an active position on it. It’s far preferable to ask these questions proactively rather than as part of an incident post-mortem.
