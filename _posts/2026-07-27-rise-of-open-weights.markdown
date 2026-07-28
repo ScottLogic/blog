@@ -5,7 +5,7 @@ categories:
 - Artificial Intelligence
 summary: Chinese-led open-weight AI models have closed the capability gap with frontier labs like OpenAI and Anthropic, challenging the assumption that massive investments guarantee lasting competitive advantage. By 2026, open-weight alternatives offer equivalent or superior performance at a fraction of the cost, along with greater ownership and data privacy, fundamentally disrupting the commercial AI landscape.
 author: ceberhardt
-image: 
+image: /ceberhardt/assets/open-weights.png
 ---
 
 Artificial Intelligence (AI) has dominated the technology and mainstream media headlines for years. Names like OpenAI and ChatGPT have become household terms. But the dominant position of these tech giants, known as frontier labs, led by OpenAI and Anthropic, who have grown their revenues faster than almost any tech company before them, is now under threat from so-called open weights models — predominantly emanating from China.
