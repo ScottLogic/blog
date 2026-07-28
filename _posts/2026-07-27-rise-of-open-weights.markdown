@@ -3,7 +3,7 @@ title: The Rise of Open Weights; And the fall of commercial AI?
 date: 2026-07-27
 categories:
 - Artificial Intelligence
-summary: 
+summary: Chinese-led open-weight AI models have closed the capability gap with frontier labs like OpenAI and Anthropic, challenging the assumption that massive investments guarantee lasting competitive advantage. By 2026, open-weight alternatives offer equivalent or superior performance at a fraction of the cost, along with greater ownership and data privacy, fundamentally disrupting the commercial AI landscape.
 author: ceberhardt
 image: 
 ---
@@ -14,7 +14,7 @@ This is the story of open weights AI models: what they are, where they come from
 
 But to understand how we got here—and this is a story with more twists, reversals and ironies than you might expect—we need to start our journey a few years earlier, in the run-up to GPT-3 and ChatGPT, when this technology first began making headlines.
 
-**NOTE:** If you want to read a more visual version of this story (which is quite long), I have created a [long-scroll version](/ceberhardt/rise-of-open-weights/).
+**NOTE:** If you want to read a more visual version of this story (which is quite long), I have created a [long-scroll version]({{ site.baseurl }}/ceberhardt/rise-of-open-weights/).
 
 - [2015–2022 — The road to ChatGPT](#20152022--the-road-to-chatgpt)
 - [2023 — "We have no moat"](#2023--we-have-no-moat)
