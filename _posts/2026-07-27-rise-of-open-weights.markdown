@@ -16,18 +16,20 @@ But to understand how we got here—and this is a story with more twists, revers
 
 **NOTE:** If you want to read a more visual version of this story (which is quite long), I have created a [long-scroll version]({{ site.baseurl }}/ceberhardt/rise-of-open-weights/).
 
-- [2015–2022 — The road to ChatGPT](#20152022--the-road-to-chatgpt)
-- [2023 — "We have no moat"](#2023--we-have-no-moat)
-- [Open weights, open source and the four freedoms](#open-weights-open-source-and-the-four-freedoms)
-- [2023 — The LLaMA leak](#2023--the-llama-leak)
-- [2023–2024 — The scaling arms race](#20232024--the-scaling-arms-race)
-- [January 2025 — The DeepSeek moment](#january-2025--the-deepseek-moment)
-- [2025 — Just a few steps behind](#2025--just-a-few-steps-behind)
-- [2026 — The Fable 5 backlash](#2026--the-fable-5-backlash)
-- […and the end of cheap AI](#and-the-end-of-cheap-ai)
-- [Mid-2026 — The gap closes](#mid-2026--the-gap-closes)
-- [Why open weights matter](#why-open-weights-matter)
-- [The fall of commercial AI?](#the-fall-of-commercial-ai)
+## Contents 
+
+- **2015–2022 — The road to ChatGPT**
+- **2023 — "We have no moat"**
+- **Open weights, open source and the four freedoms**
+- **2023 — The LLaMA leak**
+- **2023–2024 — The scaling arms race**
+- **January 2025 — The DeepSeek moment**
+- **2025 — Just a few steps behind**
+- **2026 — The Fable 5 backlash**
+- **…and the end of cheap AI**
+- **Mid-2026 — The gap closes**
+- **Why open weights matter**
+- **The fall of commercial AI?**
 
 ## 2015–2022 — The road to ChatGPT
 
