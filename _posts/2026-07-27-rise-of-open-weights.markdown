@@ -243,6 +243,4 @@ The frontier labs spend tens of billions of dollars developing what may be seen 
 
 This story still isn't quite over, the US government are increasingly exercising control over who gains access to US frontier AI technology, and are even considering a ban on Chinese open weights models, although how they would enforce that is anyone's guess. Most of the AI community see this as a very bad move, with more than 50 organisations (including Nvidia, Microsoft, Meta, Mistral, Palantir, IBM, a16z, Hugging Face, Mozilla, the Linux Foundation) having signed an open letter opposing this move.
 
-Although the one question I keep coming back to is this: creating frontier-level AI is still an incredibly expensive business, will there always be suitable incentives for organisations to share in the fruits of this investment? In all honestly, it is not entirely clear why the Chinese labs are sharing something of such great value. As the story so far has shown us, there have been many twists and turns in the journey to this point in time. I am quite certain the future will be just as unpredictable! 
-
-
+The frontier labs still lead. They still build the best products. But for the first time since ChatGPT, they no longer have a monopoly on frontier capability. Whether open weights ultimately destroy the commercial AI market or simply force it to evolve remains to be seen. Either way, the balance of power has already changed.
