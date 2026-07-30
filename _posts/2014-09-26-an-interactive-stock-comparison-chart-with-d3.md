@@ -20,8 +20,8 @@ Check out [the d3fc project](https://d3fc.io/) to see what some of the ideas in 
 
 Comparison charts, as their name suggests, are great for comparing the percentage price change of multiple stocks in time. In this post, we'll make one using [D3](http://d3js.org/).
 
-This post continues a series of posts on making financial charts using D3. We've seen how to use the pattern of reusable components to make <a href="{{site.baseurl}}{% post_url tsimmons/2014-08-19-an-ohlc-chart-component-for-d3 %}">simple OHLC and candlestick charts</a> with 
-<a href="{{site.baseurl}}{% post_url aaiken/2014-08-26-two-line-components-for-d3-charts %}">annotations</a>, <a href="{{site.baseurl}}{% post_url aaiken/2014-08-28-bollinger %}">technical studies</a> and <a href="{{site.baseurl}}{% post_url aaiken/2014-09-19-interactive %}">interactive navigators</a>, as well as how to <a href="{{site.baseurl}}{% post_url tsimmons/2014-09-19-d3-svg-chart-performance %}">boost performance</a> when panning and zooming.
+This post continues a series of posts on making financial charts using D3. We've seen how to use the pattern of reusable components to make <a href="{{site.baseurl}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">simple OHLC and candlestick charts</a> with 
+<a href="{{site.baseurl}}{% post_url 2014-08-26-two-line-components-for-d3-charts %}">annotations</a>, <a href="{{site.baseurl}}{% post_url 2014-08-28-bollinger %}">technical studies</a> and <a href="{{site.baseurl}}{% post_url 2014-09-19-interactive %}">interactive navigators</a>, as well as how to <a href="{{site.baseurl}}{% post_url 2014-09-19-d3-svg-chart-performance %}">boost performance</a> when panning and zooming.
 
 Here's what we'll be making.
 
@@ -217,7 +217,7 @@ sl.svg.gridlines = function () {
 {% endhighlight %}
 
 ## Putting it Together
-One of the biggest strengths of the component pattern is the ease in which we can add new components to an existing chart, or swap out components of an existing chart to make a new one. Suppose we had a chart set up with margins, scales, axes, a plot area, and a series (like the OHLC chart from <a href="{{site.baseurl}}{% post_url tsimmons/2014-08-19-an-ohlc-chart-component-for-d3 %}">this post</a>). Then we can build a comparison chart with gridlines using our new components very easily.
+One of the biggest strengths of the component pattern is the ease in which we can add new components to an existing chart, or swap out components of an existing chart to make a new one. Suppose we had a chart set up with margins, scales, axes, a plot area, and a series (like the OHLC chart from <a href="{{site.baseurl}}{% post_url 2014-08-19-an-ohlc-chart-component-for-d3 %}">this post</a>). Then we can build a comparison chart with gridlines using our new components very easily.
 
 First we make instances of our components.
 {% highlight javascript %}
@@ -245,7 +245,7 @@ plotArea.append('g')
     .call(series);
 {% endhighlight %}
 
-We'll get zooming and panning working by using a D3 zoom behaviour. We'll implement <a href="{{site.baseurl}}{% post_url tsimmons/2014-09-19-d3-svg-chart-performance %}">semantic zooming</a>, and we'll use <a href="{{site.baseurl}}{% post_url aaiken/2014-09-19-interactive %}">Andy Aiken's trick</a> of limiting the panning extent by compensating for any overshoot of the zoom behaviour's x translation. Our `zoomed` listener looks like this:
+We'll get zooming and panning working by using a D3 zoom behaviour. We'll implement <a href="{{site.baseurl}}{% post_url 2014-09-19-d3-svg-chart-performance %}">semantic zooming</a>, and we'll use <a href="{{site.baseurl}}{% post_url 2014-09-19-interactive %}">Andy Aiken's trick</a> of limiting the panning extent by compensating for any overshoot of the zoom behaviour's x translation. Our `zoomed` listener looks like this:
 
 {% highlight javascript %}
 function zoomed() {
@@ -282,7 +282,7 @@ yAxis.tickFormat(d3.format('%'));
 
 ## Geometric Zooming
 <!-- Talked earlier about geometric zooming, how it's usually faster -->
-In an <a href="{{site.baseurl}}{% post_url tsimmons/2014-09-19-d3-svg-chart-performance %}">earlier post</a>, we discussed the differences between semantic zooming (redraw an element to reflect new scale domains) and geometric zooming (transform the element to where it should be given the new scale domains). We saw that geometric zooming generally performed better, with some caveats.
+In an <a href="{{site.baseurl}}{% post_url 2014-09-19-d3-svg-chart-performance %}">earlier post</a>, we discussed the differences between semantic zooming (redraw an element to reflect new scale domains) and geometric zooming (transform the element to where it should be given the new scale domains). We saw that geometric zooming generally performed better, with some caveats.
 
 A disadvantage of geometric zooming was the relative complexity of the  implementation compared to semantic zooming with features like an automatically updating y scale. This is true for our comparison series component as well. On zoom, we can't just apply a single transformation to the comparison series element - the series lines need to be moved independently to their new positions.
 

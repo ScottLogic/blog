@@ -16,12 +16,12 @@ oldlink: http://www.scottlogic.com/blog/2013/06/17/scala-macros-part-4.html
 disqus-id: "/2013/06/17/scala-macros-part-4.html"
 ---
 
-In <a href="{{site.baseurl}}{% post_url jphillpotts/2013-06-05-scala-macros-part-1 %}">the</a>
-<a href="{{site.baseurl}}{% post_url jphillpotts/2013-06-06-scala-macros-part-2 %}">previous</a>
-<a href="{{site.baseurl}}{% post_url jphillpotts/2013-06-07-scala-macros-part-3 %}">articles</a> I 
+In <a href="{{site.baseurl}}{% post_url 2013-06-05-scala-macros-part-1 %}">the</a>
+<a href="{{site.baseurl}}{% post_url 2013-06-06-scala-macros-part-2 %}">previous</a>
+<a href="{{site.baseurl}}{% post_url 2013-06-07-scala-macros-part-3 %}">articles</a> I 
 built up a macro that generates a RESTful API from a case class model in a Play 
 application. We now want to add a database to this API - in 
-<a href="{% post_url jphillpotts/2013-06-07-scala-macros-part-3 %}">part 3</a> we used a simple
+<a href="{% post_url 2013-06-07-scala-macros-part-3 %}">part 3</a> we used a simple
 map-based in memory data store, which wouldn't really be that useful in the real world.
 
 Step up [MongoDB](http://www.mongodb.org/), a Scala library for interacting with it, 
@@ -109,7 +109,7 @@ Now let's look at `Write`. We're need to take an object of type `T`, find the
 corresponding record, and update its state to that provided. To find the record we
 need the ID, but the object we have is of type `T <: AnyRef`, so we don't have
 access to its ID. Simple enough - we introduced the `WithId` abstract class in the
-<a href="{{site.baseurl}}{% post_url jphillpotts/2013-06-07-scala-macros-part-3 %}">last article</a> -
+<a href="{{site.baseurl}}{% post_url 2013-06-07-scala-macros-part-3 %}">last article</a> -
 we can update it to use `ObjectId`, and make sure the type parameter is bound to
 extend `AnyRef`:
 

@@ -48,7 +48,7 @@ Make sure you `--save` or `--save-dev` the package first.
 This keeps dependent packages listed in package.json, so that `npx` can use the local version instead of downloading it to the npm cache.
 
 `npx` is a useful tool for easily running `npm` packages. Just be wary of *typos* as this method increases the chance of being
-[typosquatted]({{ site.baseurl }}{% post_url cburbridge/2018-02-27-hunting-typosquatters-on-npm %}).
+[typosquatted]({{ site.baseurl }}{% post_url 2018-02-27-hunting-typosquatters-on-npm %}).
 
 
 

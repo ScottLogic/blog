@@ -18,8 +18,8 @@ disqus-id: "/2013/06/07/scala-macros-part-3.html"
 
 ## A RESTful<a id="footnotebody1" href="#footnote1"><sup>1</sup></a> API
 
-In parts <a href="{{site.baseurl}}{% post_url jphillpotts/2013-06-05-scala-macros-part-1 %}">1</a> and
-<a href="{{site.baseurl}}{% post_url jphillpotts/2013-06-06-scala-macros-part-2 %}">2</a> we used a 
+In parts <a href="{{site.baseurl}}{% post_url 2013-06-05-scala-macros-part-1 %}">1</a> and
+<a href="{{site.baseurl}}{% post_url 2013-06-06-scala-macros-part-2 %}">2</a> we used a 
 macro to generate some regular expressions and match them against a path to extract IDs. 
 Now we're going to use that pattern matching to call an API.
 
@@ -193,7 +193,7 @@ generation, so we end up with:
 <script src="https://gist.github.com/mrpotes/93ffc44db30e32ae5cf6.js?file=model.scala"> </script>
 
 And there we have it - run the Play application, and you've got a working REST service.
-In the <a href="{{site.baseurl}}{% post_url jphillpotts/2013-06-17-scala-macros-part-4 %}">next 
+In the <a href="{{site.baseurl}}{% post_url 2013-06-17-scala-macros-part-4 %}">next 
 article</a> we'll try using something a bit more useful than an in-memory map by
 implementing a MongoDB data accessor.
 
