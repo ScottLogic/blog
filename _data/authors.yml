@@ -1,55 +1,32 @@
 active-authors:
   - aaiken
-  - abagdonaite
-  - abarron
   - aberrill
-  - abirch
   - acarr
   - acaulfield
   - alaws
   - alee
-  - amcgill
   - amjones
-  - asegrove
-  - ashing
   - bcoke
-  - awhitmell
   - bell-jones
   - bheyman
-  - blogan
-  - bpritchard
-  - bwallis
   - ceberhardt
   - chayes
-  - ckoris
   - colive
-  - cpratt
   - cprice
-  - crobb
   - csalt
   - cstephen
   - cwilton
   - dallsop
-  - dalucas
   - daustin
-  - dgrew
-  - dhinrichs
-  - dhope
   - dhunter
   - dkerr
-  - dmcnamee
   - dnicholas
   - dogle
   - drees
   - dsmith
-  - dtitterton
-  - ebrown
   - emason
   - epearce
-  - fhubin
-  - fvlachos
   - garora
-  - gkendall
   - glewis-scottlogic
   - godds
   - gsingh
@@ -59,73 +36,45 @@ active-authors:
   - hbellamy
   - hlogan
   - hsauve
-  - hubinf
-  - imladjenovic
   - jarnstein
-  - jbeckles
-  - jbickleywallace
   - jcamilleri
   - jcarstairs
   - jcwright
   - jdunleavy
-  - jgrant
-  - jharris
-  - jhenderson
   - jheward
   - jisted
   - jleftley
-  - jjgray
   - jmoore
   - jporter
-  - jspruce
   - jstrachan
   - jstrong
-  - jwalledge
-  - jwhite
-  - jwren
   - jzhou
-  - kangel
-  - kclark
   - kdavis
-  - kday
   - kellis
   - kjones
   - klau
   - lcollingwood
   - lhancock-scottlogic
-  - lpisani
   - lvincent
   - magnussmith
   - masmith
-  - mbuhagiar
-  - mcooke
   - mdunsdon
-  - mgrabara
   - mgriffin
   - mhowie
-  - mmcalroy
   - mmcmahon
   - mmorgan
-  - mmoxon
   - mnyamunda
   - mrichards
-  - mridene
   - mthomas
-  - mwallace
-  - mwalkerrose
-  - nbetts
-  - ocronk
+  - nmathams
   - oforeman
   - osharon
   - osouthwell
-  - pchamberlin
   - pdykes
   - pgraham
   - pling
   - pmarsh
   - rbeckett
-  - rgarside
-  - rgriffiths
   - rlewis
   - rnewsome
   - rpilling
@@ -137,41 +86,29 @@ active-authors:
   - sangell
   - sashford
   - sashley
-  - sbaker
   - sbenson
   - sbreingan
-  - sburnstone
   - sconway
   - sdewar
-  - sforeshew-cain
-  - sgladstone
-  - shamiltonritchie
-  - shunton
-  - slaing
   - slinsley
   - smartin
   - smendis-scottlogic
   - snandal
-  - ssibanda
   - swoods
   - taddison
   - tclarke-scottlogic
   - tgilbert
-  - thands
   - tjohnson
   - tstavert
   - twebb
   - tyates
   - vcisse
-  - wboothclibborn
-  - wduncan
   - wmckenzie
   - wreilly
   - wtrimble
   - xchen
   - yblowers
   - zrubin
-  - zwali
 authors:
   asaha:
     name: "Asrut Saha"
@@ -788,6 +725,10 @@ authors:
     author-summary: "I'm a delivery-focused leader with 20+ years of experience ensuring successful outcomes across public and private sectors. Proven track record of driving complex initiatives from concept to completion, aligning teams, stakeholders, and technology to deliver valuable outcomes. Currently a Delivery Principal based at Scott Logic's London office."
     name: "Nick Hume"
     picture: nhume.jpeg
+  nmathams:
+    author-summary: "<p>I’m a Principal Consultant based in Scott Logic’s London office."
+    name: "Nel Mathams"
+    picture: Nel-Mathams.jpg  
   nowen:
     author-summary: "<p>I'm a Senior Developer at Scott Logic, with many years of C# experience. Recently I've immersed myself in JavaScript, including Angular and React."
     name: "Nick Owen"

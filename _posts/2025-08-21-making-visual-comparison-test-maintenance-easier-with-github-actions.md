@@ -108,6 +108,7 @@ permissions:
 
 This workflow runs on `workflow_dispatch`, which means it only runs when manually triggered by a user. The inputs allow for a custom commit message to be passed to the workflow, with a default set. Permissions are configured to allow the workflow to write to GitHub — in this case, it will commit changes to the branch it was run against.
 
+{% raw %}
 ~~~~ yaml
 jobs:
   playwright_screenshots:
@@ -145,6 +146,7 @@ jobs:
           git commit -m "${{ github.event.inputs.commit_message || 'Auto-commit: Update screenshots' }} (by @${{ github.actor }})"
           git push
 ~~~~
+{% endraw %}
 
 We use a matrix strategy to run tests on both Windows and Linux environments simultaneously. The steps are as follows:
 

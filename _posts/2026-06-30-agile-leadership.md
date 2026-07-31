@@ -2,10 +2,12 @@
 title: Agile Leadership
 date: 2026-06-30 00:00:00 Z
 categories:
-- Agile
+- Delivery
 tags:
 - Agile
-summary: This is a summary.
+- Self-Organizing Teams
+- Delivery
+summary: Agile teams are built on more than frameworks and processes. This article explores why effective leadership, trust and delegation are fundamental to true organisational agility, drawing lessons from the British Army's Mission Command philosophy.
 author: dogle
 image: "/uploads/agile-leadership.png"
 ---
@@ -48,9 +50,9 @@ No conversation on teams, trust and leadership is complete without considering c
 
 > [Leaders] are expected to work within the intent of superiors at least two levels above them, and to ensure their directions are resourced and understood at least two levels below.
  
- For a team to function efficiently, it is just as important in software that senior stakeholders are aware of the direction and goals of a team at a high level as it is for the more junior developers to understand what the aims of a project or sprint are in a larger context than the particular piece of work they are currently developing.
+For a team to function efficiently, it is just as important in software that senior stakeholders are aware of the direction and goals of a team at a high level as it is for the more junior developers to understand what the aims of a project or sprint are in a larger context than the particular piece of work they are currently developing.
 
- Stakeholders need to know where a project is heading and to trust that direction is aligned with their intent. Where stakeholders are kept out of the loop it causes tensions and loss of trust meaning stakeholders feel the need to take a tighter control and restrict the teams freedoms to act independently. It can also waste time if the project drifts significantly away from the intended direction and needs work to bring it back in-line or even to undo changes that have been made entirely.
+Stakeholders need to know where a project is heading and to trust that direction is aligned with their intent. Where stakeholders are kept out of the loop it causes tensions and loss of trust meaning stakeholders feel the need to take a tighter control and restrict the teams freedoms to act independently. It can also waste time if the project drifts significantly away from the intended direction and needs work to bring it back in-line or even to undo changes that have been made entirely.
 
 At the other end, team members cannot make good decisions when faced with problems or choices in their work without an understanding of the wider context. If intent is not propagated down the chain, individuals are discouraged from making independent decisions and more likely to routinely run any decisions they encounter through those above them, this in turn encourages a culture where leaders are used to being directly involved in every decision and can cripple the overall goals of mission command style leadership and agility in general.
 

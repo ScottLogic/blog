@@ -189,6 +189,7 @@ The Channels API should be used when we want to integrate asynchronous calls int
 
 If we retain our example from above, our provider is the Java app, and the React app is our client.
 
+{% raw %}
 ~~~java
 ****** Java Start ******
 public static void main(String args[]) {
@@ -236,6 +237,7 @@ public static void main(String args[]) {
 }
 ****** Java End ******
 ~~~
+{% endraw %}
 
 ~~~typescript
 ****** Typescript Start ******
@@ -302,6 +304,7 @@ Using FDC3, provider apps simply register what their intent is, and then wait fo
 
 In order to enable FDC3 support in our OpenFin app, we need to add `"fdc3Api": true` to our _startup_app_ property in the app manifest. Note, that in older version of the OpenFin runtime (< 17.85.55) required FDC3 to be registered as a service in the application's manifest file. This is no longer a requirement.
 
+{% raw %}
 ~~~java
 ****** Java Start ******
 public static void main(String args[]) {
@@ -341,6 +344,7 @@ public static void main(String args[]) {
 }
 ****** Java End ******
 ~~~
+{% endraw %}
 
 ~~~typescript
 ****** Typescript Start ******
