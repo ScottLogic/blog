@@ -16,17 +16,17 @@ Often, leadership and agility are discussed as separate concerns. In this post, 
 
 ## Leadership and Agility
 
-Some time back I gave a short talk on [Agile2](https://agile2.net/) to the Scott Logic Agile Community of Practice. It's a concept that I came across by accident, which bills itself as "the next iteration of agile". Agile2 seeks toconti, in their own words:
+Some time back I gave a short talk on [Agile2](https://agile2.net/) to the Scott Logic Agile Community of Practice. It's a concept that I came across by accident, which bills itself as "the next iteration of agile". Agile2 seeks to, in their own words:
 
 > [make] a fresh start ... not an incremental one: a start that is informed by the first Agile experiment, but that does not hesitate to make major departures: a new beginning.
 
-One of the things that struck me while researching the topic was the huge focus on leadership; indeed, a whole section of the documentation is devoted to it. The authors claimed that the original manifesto "dismissed the importance of leadership" the first time round and by making it such focus they seemed to be implicitly including leadership as part of their definition of what it means to be agile.
+One of the things that struck me while researching the topic was the huge focus on leadership; indeed, a whole section of the documentation is devoted to it. The authors claimed that the original manifesto "dismissed the importance of leadership" the first time round and by making it such a major focus they seemed to be implicitly including leadership as part of their definition of what it means to be agile.
 
 I remember thinking at the time that I didn't wholly agree that leadership was necessarily "dismissed" as not important; rather, it felt like a separate topic to the concerns of the manifesto and its principles, which focus more on process and teams than on the nuances of leadership. This, however, raises the question of whether leadership is indeed a separate concern from agility. Leadership is always a factor in a team's success or failure, but does it exist independently of that team's ability to be agile? We often talk of agility as something that, while of course augmented or facilitated by good leadership, is nonetheless independent of it. Can agility help to prop up or even be a substitute for poor leadership, or is it instead the case that poor leadership restricts how agile you can be? Likewise, can we substitute agility with good leadership? Is our ability to be agile less important if we have good leadership overall?
 
 ## Mission Command
 
-In his book [The Habit of Excellence](https://www.army.mod.uk/support-and-training/our-schools-and-colleges/centre-for-army-leadership/the-habit-of-excellence/), Lt Col. Langley Sharp (MBE) describes the British Army's approach to leadership, how it has evolved, and why it works. He draws parallels between the Army's changing approach to leadership in the years following the Second World War and agile software development in industry. Most importantly, he describes the introduction to the British Army of the Mission Command philosophy:
+In his book [The Habit of Excellence](https://www.army.mod.uk/support-and-training/our-schools-and-colleges/centre-for-army-leadership/the-habit-of-excellence/), Lt Col. Langley Sharp (MBE) describes the British Army's approach to leadership, how it has evolved, and why it works. He draws parallels between the Army's changing approach to leadership in the years following the Second World War and agile software development in industry. A topic I found especially interesting was his description of the introduction to the British Army of the Mission Command philosophy:
 
 > ... this is an approach which empowers subordinate commanders and promotes initiative as well as freedom and speed of action. Critically, it focuses on achievement of higher intent through mission-type orders. It empowers leaders at every level and is intended to generate agility and tempo.
 
@@ -40,7 +40,7 @@ While the context is of course different, similar problems exist in software dev
 
 ## Trust and Communication
 
-A crucial facet of this, in both military and civilian contexts, is trust. Leaders must trust their people — not blindly, but by setting out the intent and facilitating the mission, empowering them to make decisions and ask questions as needed. Followers, in turn, need confidence that their leaders are setting the right direction and that they will be given the freedom to make decisions and make mistakes without blame. At a peer-to-peer level, team members must also trust each other to get the job done and to work in the best interests of the team. This deep and multi-layered application of trust can be challenging to build but is essential to a Mission Command style of leadership and also to an agile team.
+A crucial facet of this, in both military and civilian contexts, is trust. Leaders must trust their people — not blindly, but by setting out the intent and facilitating the mission, empowering them to make decisions and ask questions as needed. Followers, in turn, need confidence that their leaders are setting the right direction and that they will be given the freedom to make decisions and inevitably mistakes without blame. At a peer-to-peer level, team members must also trust each other to get the job done and to work in the best interests of the team. This deep and multi-layered application of trust can be challenging to build but is essential to a Mission Command style of leadership and also to an agile team.
 
 ![detail scale]({{site.baseurl}}/dogle/assets/agile-leadership/team2.jpg)
 
@@ -50,8 +50,12 @@ No conversation on teams, trust and leadership is complete without considering c
  
  For a team to function efficiently, it is just as important in software that senior stakeholders are aware of the direction and goals of a team at a high level as it is for the more junior developers to understand what the aims of a project or sprint are in a larger context than the particular piece of work they are currently developing.
 
+ Stakeholders need to know where a project is heading and to trust that direction is aligned with their intent. Where stakeholders are kept out of the loop it causes tensions and loss of trust meaning stakeholders feel the need to take a tighter control and restrict the teams freedoms to act independently. It can also waste time if the project drifts significantly away from the intended direction and needs work to bring it back in-line or even to undo changes that have been made entirely.
+
+At the other end, team members cannot make good decisions when faced with problems or choices in their work without an understanding of the wider context. If intent is not propagated down the chain, individuals are discouraged from making independent decisions and more likely to routinely run any decisions they encounter through those above them, this in turn encourages a culture where leaders are used to being directly involved in every decision and can cripple the overall goals of mission command style leadership and agility in general.
+
 ## Final thoughts
 
 Rather than being separate concerns, I believe that leadership and agility are fundamentally intertwined. Leadership may be a broader discipline than agility, but agility itself depends upon effective leadership. It is enabled by it, shaped by it, and I would go as far as to say that it cannot truly exist without it. An agile team is not simply one that follows agile practices, but a team that has an agile mindset and way of working which is ultimately enabled by leadership.
 
-The Mission Command approach is an example of what this looks like in practice: leaders communicate intent, establish clear boundaries and trust those closest to the work to make decisions in pursuit of the wider mission. The same principle applies in software development. Teams become more adaptable, responsive and effective when leaders create an environment built on trust, delegation and shared understanding, rather than control. If agility is the goal, then leadership is not merely a supporting factor; it is the foundation that makes it possible.
+The Mission Command approach is an example of what this looks like in practice: leaders communicate intent, establish clear boundaries, and trust those closest to the work to make decisions in pursuit of the wider mission. The same principle applies in software development. Teams become more adaptable, responsive and effective when leaders create an environment built on trust, delegation and shared understanding, rather than control. If agility is the goal, then leadership is not merely a supporting factor; it is the foundation that makes it possible.
