@@ -10,6 +10,7 @@ summary: 'Agentic AI is impacting every part of an organisation, from customer j
   strategy projects; they want action. They want to quickly and safely deploy agents
   to production and deliver value fast. '
 author: ssear
+image: "/uploads/How-to-accelerate-agentic-adoption---Simon-Sear.jpg"
 ---
 
 Agentic AI is impacting every part of an organisation, from customer journeys to back office, supply chains and software engineering. Everything is changing at an accelerating speed, all at the same time, everywhere, all at once. In response, organisations don't want drawn-out analysis engagements with consultants or long strategy projects; they want action. They want to quickly and safely deploy agents to production and deliver value fast. 
