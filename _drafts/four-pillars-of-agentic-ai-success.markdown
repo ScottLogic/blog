@@ -1,6 +1,6 @@
 ---
 title: Four pillars of agentic AI success
-date: 2026-07-31 15:47:00 Z
+date: 2026-07-29 15:47:00 Z
 categories:
 - Artificial Intelligence
 author: ssear
