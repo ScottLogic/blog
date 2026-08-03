@@ -6,6 +6,10 @@ active-authors:
   - alaws
   - alee
   - amjones
+  - ascotland
+  - asegrove
+  - ashing
+  - awhitmell
   - bcoke
   - bell-jones
   - bheyman
@@ -86,7 +90,9 @@ active-authors:
   - sangell
   - sashford
   - sashley
+  - sbaker
   - sbenson
+  - sbevan
   - sbreingan
   - sconway
   - sdewar
@@ -94,6 +100,9 @@ active-authors:
   - smartin
   - smendis-scottlogic
   - snandal
+  - sperridge
+  - ssear
+  - ssibanda
   - swoods
   - taddison
   - tclarke-scottlogic
@@ -1630,3 +1639,19 @@ authors:
     name: "Kieran Ellis"
     author-summary: "I'm a Lead Test Engineer based in the Bristol office"
     picture: picture.jpg
+  sperridge:
+    name: 'Sam Perridge'
+    picture: picture.jpg
+    author-summary: "I'm Scott Logic's Head of Hyperscaler Partnerships, and Energy, Commodities & Utilities Director. I've spent 20 years in software development, the majority with Scott Logic, crafting solutions for clients in a variety of sectors."
+  ssear:
+    name: 'Simon Sear'
+    picture: picture.jpg
+    author-summary: "I'm Scott Logic's Chief Innovation Officer, focusing on delivering growth in Data, AI and Product services."
+  ascotland:
+    name: 'Andy Scotland'
+    picture: picture.jpg
+    author-summary: "I'm currently leading Scott Logic's Financial Services Team. I'm passionate about shaping strategies and developing capabilities that deliver real impact."
+  sbevan:
+    name: 'Stuart Bevan'
+    picture: picture.jpg
+    author-summary: "I'm an independent consultant who previously spent 30 years working for capital markets firms."
