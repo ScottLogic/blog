@@ -3,6 +3,17 @@ title: How to accelerate agentic adoption
 date: 2026-08-05 08:37:00 Z
 categories:
 - Artificial Intelligence
+tags:
+- AI
+- Artificial Intelligence
+- artificial intelligence
+- claude
+- Automation
+- Business Process
+- apps
+- Software engineering
+- adoption
+- AI adoption spectrum
 summary: 'Agentic AI is impacting every part of an organisation, from customer journeys
   to back office, supply chains and software engineering. Everything is changing at
   an accelerating speed, all at the same time, everywhere, all at once. In response,
