@@ -4,6 +4,7 @@ date: 2026-07-29 15:47:00 Z
 categories:
 - Artificial Intelligence
 author: ssear
+image: "/uploads/Four-pillars-of-agentic-ai-success---blog.jpg"
 ---
 
 Everyone is talking about agentic AI. That’s not surprising. The promise is huge: AI agents that can plan, reason, use tools, work across systems and get real work done. In software engineering, that could mean faster delivery and better quality. In operations, it could mean complex processes moving with less manual effort, fewer handovers and better decisions. 
