@@ -14,6 +14,11 @@ tags:
 - data governance
 - AI-accelerated development
 - accessibility
+summary: 'Everyone is talking about agentic AI. That’s not surprising. The promise
+  is huge: AI agents that can plan, reason, use tools, work across systems and get
+  real work done. In software engineering, that could mean faster delivery and better
+  quality. In operations, it could mean complex processes moving with less manual
+  effort, fewer handovers and better decisions. '
 author: ssear
 image: "/uploads/Four-pillars-of-agentic-ai-success---blog.jpg"
 ---
