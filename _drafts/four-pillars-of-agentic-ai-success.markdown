@@ -3,6 +3,17 @@ title: Four pillars of agentic AI success
 date: 2026-07-29 15:47:00 Z
 categories:
 - Artificial Intelligence
+- Delivery
+tags:
+- Artificial Intelligence
+- AI
+- legacy modernisation
+- data architecture
+- governance
+- Data Strategy
+- data governance
+- AI-accelerated development
+- accessibility
 author: ssear
 image: "/uploads/Four-pillars-of-agentic-ai-success---blog.jpg"
 ---
