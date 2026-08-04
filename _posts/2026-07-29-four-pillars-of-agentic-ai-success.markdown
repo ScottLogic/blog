@@ -43,7 +43,7 @@ Agentic AI is only as effective as the data and architecture that support it. Ag
 
 For many organisations, that means looking beyond the model and asking harder questions about data quality, ownership, metadata, lineage, access and integration. Can an agent find the information it needs? Is that information current? Does it have the right permissions? Can its outputs be traced back to the evidence it used? Can it interact with enterprise systems in a controlled and reliable way? 
 
-The goal is to turn fragmented data and disconnected systems into an AI-ready architecture. Without that foundation, agentic AI quickly becomes brittle. With it, agents can operate with greater reliability because they are grounded in the realities of the organisation, not just the general capabilities of a language model. 
+The goal is to turn fragmented data and disconnected systems into an AI-ready architecture. Without that foundation, agentic AI quickly becomes brittle. With it, agents can operate with greater reliability because they are grounded in the realities of the organisation, not just the general capabilities of a large language model. 
 
 ## **3. Governance and risk: keeping humans in control of intent, accountability and impact** 
 
