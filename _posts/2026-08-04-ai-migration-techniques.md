@@ -1,13 +1,19 @@
 ---
-author: pedwin-scottlogic
 title: Confidence Techniques for Guiding AI Migration
-summary: |
-  Migrating a legacy codebase of any reasonable complexity has always been challenging, but AI tools have fundamentally changed the economics of the process. Generating code is now cheap and fast, but we still need confidence that the generated code is as good as, or better than, code we'd write ourselves.
-category: Artificial Intelligence
+date: 2026-08-04 00:00:00 Z
+categories:
+- Artificial Intelligence
 tags:
-  - AI
-  - Rust
-  - testing
+- AI
+- Rust
+- testing
+author: pedwin-scottlogic
+summary: 'Migrating a legacy codebase of any reasonable complexity has always been
+  challenging, but AI tools have fundamentally changed the economics of the process.
+  Generating code is now cheap and fast, but we still need confidence that the generated
+  code is as good as, or better than, code we''d write ourselves.
+
+'
 ---
 
 Migrating a legacy codebase of any reasonable complexity has always been a challenging activity, but the economics of this migration have changed with the introduction of AI tools that can help with that process. Generating the code is cheap and quick, but we need to be confident that the generated code is as good (or better) than if we'd written it ourselves.
