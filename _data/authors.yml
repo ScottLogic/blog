@@ -75,6 +75,7 @@ active-authors:
   - osharon
   - osouthwell
   - pdykes
+  - pedwin-scottlogic
   - pgraham
   - pling
   - pmarsh
@@ -1655,3 +1656,17 @@ authors:
     name: 'Stuart Bevan'
     picture: picture.jpg
     author-summary: "I'm an independent consultant who previously spent 30 years working for capital markets firms."
+  pedwin-scottlogic:
+    name: "Paul Edwin"
+    email: pedwin@scottlogic.com
+    author-summary: >
+      <p>Lead Developer at Scott Logic, based in Newcastle. Over 30 years
+      of commercial software development experience, half of those with Scott
+      Logic.</p>
+
+      <p>Away from the keyboard, I'm often found running or on two wheels, or
+      dragging my dog to the pub for "rehydration". 🐕🏃🚵‍♂️🏍️🍺</p>
+
+      <p>Find me on <a rel="me" href="https://hachyderm.io/@paul_edwin">
+      Mastodon</a></p>
+    picture: profile00.jpg
