@@ -3,6 +3,8 @@ title: How to accelerate agentic adoption
 date: 2026-08-06 08:37:00 Z
 categories:
 - Artificial Intelligence
+- Delivery
+- AI
 tags:
 - AI
 - Artificial Intelligence
