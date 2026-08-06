@@ -1,6 +1,6 @@
 ---
 title: How to accelerate agentic adoption
-date: 2026-08-05 08:37:00 Z
+date: 2026-08-06 08:37:00 Z
 categories:
 - Artificial Intelligence
 tags:
