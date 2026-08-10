@@ -1,6 +1,6 @@
 ---
 title: Agile Leadership
-date: 2026-08-03 00:00:00 Z
+date: 2026-08-10 00:00:00 Z
 categories:
 - Delivery
 tags:
