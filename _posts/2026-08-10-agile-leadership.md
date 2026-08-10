@@ -7,7 +7,10 @@ tags:
 - Agile
 - Self-Organizing Teams
 - Delivery
-summary: Agile teams are built on more than frameworks and processes. This article explores why effective leadership, trust and delegation are fundamental to true organisational agility, drawing lessons from the British Army's Mission Command philosophy.
+summary: Agile teams are built on more than frameworks and processes. This article
+  explores why effective leadership, trust and delegation are fundamental to true
+  organisational agility, drawing lessons from the British Army's Mission Command
+  philosophy.
 author: dogle
 image: "/uploads/agile-leadership.png"
 ---
