@@ -1,4 +1,6 @@
 name: Remove Unused Images
+env:
+  HUSKY: 0
 
 on:
   workflow_dispatch:
