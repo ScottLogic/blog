@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="640" viewBox="0 0 1600 640" font-family="Helvetica, Arial, sans-serif">
+
+  <!-- Data maturity spectrum
+       Palette: ink #252525 | light green #E7F2DE | green #7FC460
+       All text is live text and fully editable. -->
+
+  <rect width="1600" height="640" fill="#FFFFFF"/>
+
+  <!-- Stage 01 -->
+  <g id="stage-01">
+    <rect x="50" y="40" width="355" height="390" rx="14" fill="#E7F2DE" stroke="#C6DFB2" stroke-width="1.5"/>
+    <rect x="50" y="40" width="355" height="28" rx="4" fill="#7FC460"/>
+    <rect x="50" y="57" width="355" height="11" fill="#7FC460"/>
+    <text x="82" y="143" font-size="48" font-weight="bold" fill="#7FC460">01</text>
+    <text x="82" y="201" font-size="26" font-weight="bold" fill="#252525">On paper</text>
+    <text x="82" y="269" font-size="19" fill="#252525" opacity="0.8">
+      <tspan x="82" dy="0">Ledgers, forms and</tspan>
+      <tspan x="82" dy="34">filing cabinets.</tspan>
+      <tspan x="82" dy="34">The data exists, but</tspan>
+      <tspan x="82" dy="34">nobody can see across it.</tspan>
+    </text>
+    <line x1="227.5" y1="430" x2="227.5" y2="483" stroke="#252525" stroke-width="1.5" opacity="0.25"/>
+  </g>
+
+  <!-- Stage 02 -->
+  <g id="stage-02">
+    <rect x="432" y="40" width="355" height="390" rx="14" fill="#E7F2DE" stroke="#C6DFB2" stroke-width="1.5"/>
+    <rect x="432" y="40" width="355" height="28" rx="4" fill="#7FC460"/>
+    <rect x="432" y="57" width="355" height="11" fill="#7FC460"/>
+    <text x="464" y="143" font-size="48" font-weight="bold" fill="#7FC460">02</text>
+    <text x="464" y="201" font-size="26" font-weight="bold" fill="#252525">Digitised, in silos</text>
+    <text x="464" y="269" font-size="19" fill="#252525" opacity="0.8">
+      <tspan x="464" dy="0">Every function buys</tspan>
+      <tspan x="464" dy="34">its own system.</tspan>
+      <tspan x="464" dy="34">The data is captured,</tspan>
+      <tspan x="464" dy="34">and trapped.</tspan>
+    </text>
+    <line x1="609.5" y1="430" x2="609.5" y2="483" stroke="#252525" stroke-width="1.5" opacity="0.25"/>
+  </g>
+
+  <!-- Stage 03 -->
+  <g id="stage-03">
+    <rect x="814" y="40" width="355" height="390" rx="14" fill="#E7F2DE" stroke="#C6DFB2" stroke-width="1.5"/>
+    <rect x="814" y="40" width="355" height="28" rx="4" fill="#7FC460"/>
+    <rect x="814" y="57" width="355" height="11" fill="#7FC460"/>
+    <text x="846" y="143" font-size="48" font-weight="bold" fill="#7FC460">03</text>
+    <text x="846" y="201" font-size="26" font-weight="bold" fill="#252525">Connected</text>
+    <text x="846" y="269" font-size="19" fill="#252525" opacity="0.8">
+      <tspan x="846" dy="0">Warehouses, lakes</tspan>
+      <tspan x="846" dy="34">and lakehouses.</tspan>
+      <tspan x="846" dy="34">Datasets start talking and</tspan>
+      <tspan x="846" dy="34">one version of the truth.</tspan>
+    </text>
+    <line x1="991.5" y1="430" x2="991.5" y2="483" stroke="#252525" stroke-width="1.5" opacity="0.25"/>
+  </g>
+
+  <!-- Stage 04 -->
+  <g id="stage-04">
+    <rect x="1196" y="40" width="355" height="390" rx="14" fill="#E7F2DE" stroke="#C6DFB2" stroke-width="1.5"/>
+    <rect x="1196" y="40" width="355" height="28" rx="4" fill="#7FC460"/>
+    <rect x="1196" y="57" width="355" height="11" fill="#7FC460"/>
+    <text x="1228" y="143" font-size="48" font-weight="bold" fill="#7FC460">04</text>
+    <text x="1228" y="201" font-size="26" font-weight="bold" fill="#252525">Democratised</text>
+    <text x="1228" y="269" font-size="19" fill="#252525" opacity="0.8">
+      <tspan x="1228" dy="0">Self service BI and AI.</tspan>
+      <tspan x="1228" dy="34">Anyone can ask a</tspan>
+      <tspan x="1228" dy="34">question and get a</tspan>
+      <tspan x="1228" dy="34">trustworthy answer.</tspan>
+    </text>
+    <line x1="1373.5" y1="430" x2="1373.5" y2="483" stroke="#252525" stroke-width="1.5" opacity="0.25"/>
+  </g>
+
+  <!-- Spectrum arrow -->
+  <g id="spectrum-arrow">
+    <path d="M 50 482 L 1495 482 L 1495 462 L 1555 505 L 1495 548 L 1495 528 L 50 528 Z"
+          fill="#7FC460"/>
+  </g>
+
+  <!-- Stage markers -->
+  <g id="markers">
+    <circle cx="227.5" cy="505" r="11" fill="#FFFFFF" stroke="#252525" stroke-width="2"/>
+    <circle cx="609.5" cy="505" r="11" fill="#FFFFFF" stroke="#252525" stroke-width="2"/>
+    <circle cx="991.5" cy="505" r="11" fill="#FFFFFF" stroke="#252525" stroke-width="2"/>
+    <circle cx="1373.5" cy="505" r="11" fill="#FFFFFF" stroke="#252525" stroke-width="2"/>
+  </g>
+
+  <!-- End labels -->
+  <text x="50" y="591" font-size="20" fill="#252525">Data captured</text>
+  <text x="1555" y="591" font-size="20" font-weight="bold" fill="#252525" text-anchor="end">Value released</text>
+
+</svg>
