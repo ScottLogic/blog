@@ -9,12 +9,17 @@ tags:
 - data democratisation
 - Artificial Intelligence
 - AI
+summary: Organisations increasingly recognise the value of making data more accessible,
+  but concerns around control, risk and governance often stand in the way. In this
+  post, I explore why data democratisation doesn't require organisations to sacrifice
+  oversight, and how data products, platforms and agent factories can unlock innovation
+  while maintaining trust, compliance and accountability.
 author: ascotland
 ---
 
 The promised benefits of AI-powered data democratisation are highly compelling. They include more innovation, faster decision-making, better customer outcomes, and reduced reliance on specialist teams. So, what’s stopping organisations from taking advantage of those benefits?
 
-Frankly, it’s because the desire to unlock value is in tension with the need to maintain control. And this is an entirely rational position for organisations to take, especially those operating in highly regulated environments. However, in this blog post, I’m going to explain that it’s possible to maintain control *and *unlock the benefits of data democratisation. I’ll also set out the incremental steps you can take. But first, I’ll illustrate what democratising data might look like in Financial Services.
+Frankly, it’s because the desire to unlock value is in tension with the need to maintain control. And this is an entirely rational position for organisations to take, especially those operating in highly regulated environments. However, in this blog post, I’m going to explain that it’s possible to maintain control *and* unlock the benefits of data democratisation. I’ll also set out the incremental steps you can take. But first, I’ll illustrate what democratising data might look like in Financial Services.
 
 ## What data democratisation might look like
 
@@ -32,7 +37,7 @@ I’ve seen this play out throughout my career. Back in the 1990s and 2000s, the
 
 So, we moved into the Platform Era, where organisations focused on consolidating data into the smallest possible number of platforms and aiming towards a ‘single source of truth’. Data platforms, dashboards and reporting functions gave organisations better control, but there was still a fragmented landscape; you might find three different trading divisions with data siloed in separate systems. Ultimately, the platform era didn’t democratise access. Business users still relied on data specialists to retrieve and interpret information.
 
-Now, in the Agentic Era, expectations have changed utterly. We no longer want to request a report; we want to get an answer to our question, and fast. Organisations are being compelled to resolve a tension they’ve been navigating for years: how to make data widely available without losing control, trust and accountability. This *is *possible, but it relies on changing how you think about your data.
+Now, in the Agentic Era, expectations have changed utterly. We no longer want to request a report; we want to get an answer to our question, and fast. Organisations are being compelled to resolve a tension they’ve been navigating for years: how to make data widely available without losing control, trust and accountability. This *is* possible, but it relies on changing how you think about your data.
 
 ## From silos to marketplaces
 
@@ -62,9 +67,9 @@ The word ‘product’ immediately evokes ideas of user need, and that’s what 
 
 I’ve also seen organisations try to boil the ocean when working towards this goal, and that’s a mistake. The approach should be incremental. You don't need to redesign your entire data estate before seeing value. Instead, you can start with a specific user need or business outcome and create a data product that brings together trusted information, clear ownership, quality standards and governance around that outcome. Having demonstrated the data product’s value, you can build from there.
 
-Once data is organised into products, you need a way to make those products available safely. This is where the data platform principle comes into play. A **Data Platform **provides the guardrails that allow wider access without creating a chaotic free-for-all. It’s this that creates the marketplace, governing who can access what, monitoring how data is used, and providing the transparency and auditability required in regulated environments. Importantly, this is not about replacing one set of barriers with another; done well, the guardrails are enablers, making broader access possible in the first place.
+Once data is organised into products, you need a way to make those products available safely. This is where the data platform principle comes into play. A \*\*Data Platform \*\*provides the guardrails that allow wider access without creating a chaotic free-for-all. It’s this that creates the marketplace, governing who can access what, monitoring how data is used, and providing the transparency and auditability required in regulated environments. Importantly, this is not about replacing one set of barriers with another; done well, the guardrails are enablers, making broader access possible in the first place.
 
-With trusted data products and appropriate guardrails in place, you can begin putting data in the hands of people and AI agents in new ways. This is where the **Agent Factory **principle becomes useful. Rather than building a single AI solution, an Agent Factory gives you the capability to experiment, prototype and scale agent use cases incrementally and safely. In this way, business users can explore new ideas and workflows rapidly, with successful concepts being brought into production within the controls established by the platform.
+With trusted data products and appropriate guardrails in place, you can begin putting data in the hands of people and AI agents in new ways. This is where the \*\*Agent Factory \*\*principle becomes useful. Rather than building a single AI solution, an Agent Factory gives you the capability to experiment, prototype and scale agent use cases incrementally and safely. In this way, business users can explore new ideas and workflows rapidly, with successful concepts being brought into production within the controls established by the platform.
 
 If Conway's Law explains how many organisations ended up with siloed data, these three principles provide a framework for how you move beyond that model.
 
