@@ -9,6 +9,11 @@ tags:
 - data democratisation
 - Artificial Intelligence
 - AI
+- governance
+- data products
+- data platform
+- agent factory
+- Conway's Law
 summary: Organisations increasingly recognise the value of making data more accessible,
   but concerns around control, risk and governance often stand in the way. In this
   post, I explore why data democratisation doesn't require organisations to sacrifice
@@ -67,9 +72,9 @@ The word ‘product’ immediately evokes ideas of user need, and that’s what 
 
 I’ve also seen organisations try to boil the ocean when working towards this goal, and that’s a mistake. The approach should be incremental. You don't need to redesign your entire data estate before seeing value. Instead, you can start with a specific user need or business outcome and create a data product that brings together trusted information, clear ownership, quality standards and governance around that outcome. Having demonstrated the data product’s value, you can build from there.
 
-Once data is organised into products, you need a way to make those products available safely. This is where the data platform principle comes into play. A \*\*Data Platform \*\*provides the guardrails that allow wider access without creating a chaotic free-for-all. It’s this that creates the marketplace, governing who can access what, monitoring how data is used, and providing the transparency and auditability required in regulated environments. Importantly, this is not about replacing one set of barriers with another; done well, the guardrails are enablers, making broader access possible in the first place.
+Once data is organised into products, you need a way to make those products available safely. This is where the data platform principle comes into play. A **Data Platform** provides the guardrails that allow wider access without creating a chaotic free-for-all. It’s this that creates the marketplace, governing who can access what, monitoring how data is used, and providing the transparency and auditability required in regulated environments. Importantly, this is not about replacing one set of barriers with another; done well, the guardrails are enablers, making broader access possible in the first place.
 
-With trusted data products and appropriate guardrails in place, you can begin putting data in the hands of people and AI agents in new ways. This is where the \*\*Agent Factory \*\*principle becomes useful. Rather than building a single AI solution, an Agent Factory gives you the capability to experiment, prototype and scale agent use cases incrementally and safely. In this way, business users can explore new ideas and workflows rapidly, with successful concepts being brought into production within the controls established by the platform.
+With trusted data products and appropriate guardrails in place, you can begin putting data in the hands of people and AI agents in new ways. This is where the **Agent Factory** principle becomes useful. Rather than building a single AI solution, an Agent Factory gives you the capability to experiment, prototype and scale agent use cases incrementally and safely. In this way, business users can explore new ideas and workflows rapidly, with successful concepts being brought into production within the controls established by the platform.
 
 If Conway's Law explains how many organisations ended up with siloed data, these three principles provide a framework for how you move beyond that model.
 
