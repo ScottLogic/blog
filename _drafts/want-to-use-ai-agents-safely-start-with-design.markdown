@@ -90,7 +90,7 @@ Deterministic systems have always been designed with deterministic guardrails, u
 
 Guardrails can go a long way in exercising control over AI. However, it’s important to say that the more you use non-deterministic systems, the more you have to accept that the probability of failure is higher than with a deterministic system. This must be weighed against the value that you’re gaining by harnessing the non-deterministic AI, and also against the probability of failure with previous, human-centred processes.
 
-Due to this higher probability of failure, the role played by observability is more important than before.
+Due to the higher probability of failure, the role played by observability is more important than before.
 
 ## Observability helps you understand what’s happening
 
