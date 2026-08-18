@@ -20,9 +20,9 @@ summary: Concerns about control are one of the biggest barriers to adopting agen
   AI, particularly in regulated environments. In this post, we discuss how organisations
   can harness AI safely by designing processes around the strengths of both humans
   and machines, then applying the right controls, guardrails and monitoring.
-author:
-- ceberhardt
-- ascotland
+author: ceberhardt
+contributors: ascotland
+image: 
 ---
 
 Time and again, the biggest concern we hear from clients about agentic AI is a loss of control.
