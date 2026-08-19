@@ -5,7 +5,8 @@ categories:
 - Artificial Intelligence
 - Open Source
 tags:
-- featured
+- Artificial Intelligence
+- AI
 summary: While AI changes the way in which we write software, how do we ensure that
   our open-source contributions remain valuable and are welcomed by maintainers? This
   blog post explores this topic in the context of the Depository Trust & Clearing

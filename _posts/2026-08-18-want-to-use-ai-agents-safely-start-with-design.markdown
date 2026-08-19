@@ -16,6 +16,7 @@ tags:
 - operational resilience
 - guardrails
 - risk management
+- featured
 summary: Concerns about control are one of the biggest barriers to adopting agentic
   AI, particularly in regulated environments. In this post, we discuss how organisations
   can harness AI safely by designing processes around the strengths of both humans
