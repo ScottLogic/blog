@@ -3,6 +3,17 @@ title: Why agentic AI starts with legacy modernisation
 date: 2026-08-21 09:33:00 Z
 categories:
 - Artificial Intelligence
+tags:
+- Artificial Intelligence
+- legacy modernisation
+- legacy
+- data
+- operational risk
+- risk management
+- governance
+- integration
+- agentic AI
+- AI agents
 summary: Organisations are increasingly excited by the potential of agentic AI, but
   many overlook the legacy obstacles that stand in the way. In this post, I explore
   why successful AI adoption depends on tackling fragmented data, brittle processes
@@ -17,7 +28,7 @@ I can see why there is a lot of excitement, as Agentic AI promises something gen
 
 But there is a question I find myself asking organisations with growing frequency:
 
-## **What exactly will those agents connect to?**
+**What exactly will those agents connect to?**
 
 Because while the conversation has moved on to agentic AI, many organisations are still operating on technology estates designed decades ago. If organisations want to realise the full value of agentic AI, they first need to remove the legacy obstacles standing in the way.
 
