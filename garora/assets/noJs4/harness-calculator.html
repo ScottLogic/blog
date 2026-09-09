@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pure CSS Calculator — Natural + Decimal Entry (No JavaScript)</title>
+<style>
+  /* =========================================================
+     TYPED VARS — <integer> forces calc() rounding for counters.
+     --A-int / --B-int hold the (rounded) integer part of each
+     operand; counters can only read integers.
+     ========================================================= */
+  @property --ip-hi  { syntax: "<integer>"; initial-value: 0; inherits: true; }
+  @property --ip-lo  { syntax: "<integer>"; initial-value: 0; inherits: true; }
+  @property --dec    { syntax: "<integer>"; initial-value: 0; inherits: true; }
+  @property --sign-i { syntax: "<integer>"; initial-value: 0; inherits: true; }
+  @property --A-int  { syntax: "<integer>"; initial-value: 0; inherits: true; }
+  @property --B-int  { syntax: "<integer>"; initial-value: 0; inherits: true; }
+
+  @counter-style pad6 {
+    system: numeric; symbols: "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"; pad: 6 "0";
+  }
+  @counter-style signstyle { system: numeric; symbols: "" ""; }
+
+  /* =========================================================
+     DIGIT VALUES — each checked radio maps to its number.
+     Slots per operand:  ai1 ai2 ai3 . af1 af2   (A)
+                         bi1 bi2 bi3 . bf1 bf2   (B)
+     "i" = integer place, "f" = fractional place.
+     ========================================================= */
+  :root { --ai1:0; --ai2:0; --ai3:0; --ai4:0; --ai5:0; --af1:0; --af2:0;
+          --bi1:0; --bi2:0; --bi3:0; --bi4:0; --bi5:0; --bf1:0; --bf2:0;
+          --A-frac:0; --B-frac:0;
+          --plus:1; --minus:0; --times:0; --divide:0; }
+
+  :root:has(#ai1-0:checked){--ai1:0} :root:has(#ai1-1:checked){--ai1:1} :root:has(#ai1-2:checked){--ai1:2}
+  :root:has(#ai1-3:checked){--ai1:3} :root:has(#ai1-4:checked){--ai1:4} :root:has(#ai1-5:checked){--ai1:5}
+  :root:has(#ai1-6:checked){--ai1:6} :root:has(#ai1-7:checked){--ai1:7} :root:has(#ai1-8:checked){--ai1:8}
+  :root:has(#ai1-9:checked){--ai1:9}
+  :root:has(#ai2-0:checked){--ai2:0} :root:has(#ai2-1:checked){--ai2:1} :root:has(#ai2-2:checked){--ai2:2}
+  :root:has(#ai2-3:checked){--ai2:3} :root:has(#ai2-4:checked){--ai2:4} :root:has(#ai2-5:checked){--ai2:5}
+  :root:has(#ai2-6:checked){--ai2:6} :root:has(#ai2-7:checked){--ai2:7} :root:has(#ai2-8:checked){--ai2:8}
+  :root:has(#ai2-9:checked){--ai2:9}
+  :root:has(#ai3-0:checked){--ai3:0} :root:has(#ai3-1:checked){--ai3:1} :root:has(#ai3-2:checked){--ai3:2}
+  :root:has(#ai3-3:checked){--ai3:3} :root:has(#ai3-4:checked){--ai3:4} :root:has(#ai3-5:checked){--ai3:5}
+  :root:has(#ai3-6:checked){--ai3:6} :root:has(#ai3-7:checked){--ai3:7} :root:has(#ai3-8:checked){--ai3:8}
+  :root:has(#ai3-9:checked){--ai3:9}
+  :root:has(#ai4-0:checked){--ai4:0} :root:has(#ai4-1:checked){--ai4:1} :root:has(#ai4-2:checked){--ai4:2}
+  :root:has(#ai4-3:checked){--ai4:3} :root:has(#ai4-4:checked){--ai4:4} :root:has(#ai4-5:checked){--ai4:5}
+  :root:has(#ai4-6:checked){--ai4:6} :root:has(#ai4-7:checked){--ai4:7} :root:has(#ai4-8:checked){--ai4:8}
+  :root:has(#ai4-9:checked){--ai4:9}
+  :root:has(#ai5-0:checked){--ai5:0} :root:has(#ai5-1:checked){--ai5:1} :root:has(#ai5-2:checked){--ai5:2}
+  :root:has(#ai5-3:checked){--ai5:3} :root:has(#ai5-4:checked){--ai5:4} :root:has(#ai5-5:checked){--ai5:5}
+  :root:has(#ai5-6:checked){--ai5:6} :root:has(#ai5-7:checked){--ai5:7} :root:has(#ai5-8:checked){--ai5:8}
+  :root:has(#ai5-9:checked){--ai5:9}
+  :root:has(#af1-0:checked){--af1:0} :root:has(#af1-1:checked){--af1:1} :root:has(#af1-2:checked){--af1:2}
+  :root:has(#af1-3:checked){--af1:3} :root:has(#af1-4:checked){--af1:4} :root:has(#af1-5:checked){--af1:5}
+  :root:has(#af1-6:checked){--af1:6} :root:has(#af1-7:checked){--af1:7} :root:has(#af1-8:checked){--af1:8}
+  :root:has(#af1-9:checked){--af1:9}
+  :root:has(#af2-0:checked){--af2:0} :root:has(#af2-1:checked){--af2:1} :root:has(#af2-2:checked){--af2:2}
+  :root:has(#af2-3:checked){--af2:3} :root:has(#af2-4:checked){--af2:4} :root:has(#af2-5:checked){--af2:5}
+  :root:has(#af2-6:checked){--af2:6} :root:has(#af2-7:checked){--af2:7} :root:has(#af2-8:checked){--af2:8}
+  :root:has(#af2-9:checked){--af2:9}
+  :root:has(#bi1-0:checked){--bi1:0} :root:has(#bi1-1:checked){--bi1:1} :root:has(#bi1-2:checked){--bi1:2}
+  :root:has(#bi1-3:checked){--bi1:3} :root:has(#bi1-4:checked){--bi1:4} :root:has(#bi1-5:checked){--bi1:5}
+  :root:has(#bi1-6:checked){--bi1:6} :root:has(#bi1-7:checked){--bi1:7} :root:has(#bi1-8:checked){--bi1:8}
+  :root:has(#bi1-9:checked){--bi1:9}
+  :root:has(#bi2-0:checked){--bi2:0} :root:has(#bi2-1:checked){--bi2:1} :root:has(#bi2-2:checked){--bi2:2}
+  :root:has(#bi2-3:checked){--bi2:3} :root:has(#bi2-4:checked){--bi2:4} :root:has(#bi2-5:checked){--bi2:5}
+  :root:has(#bi2-6:checked){--bi2:6} :root:has(#bi2-7:checked){--bi2:7} :root:has(#bi2-8:checked){--bi2:8}
+  :root:has(#bi2-9:checked){--bi2:9}
+  :root:has(#bi3-0:checked){--bi3:0} :root:has(#bi3-1:checked){--bi3:1} :root:has(#bi3-2:checked){--bi3:2}
+  :root:has(#bi3-3:checked){--bi3:3} :root:has(#bi3-4:checked){--bi3:4} :root:has(#bi3-5:checked){--bi3:5}
+  :root:has(#bi3-6:checked){--bi3:6} :root:has(#bi3-7:checked){--bi3:7} :root:has(#bi3-8:checked){--bi3:8}
+  :root:has(#bi3-9:checked){--bi3:9}
+  :root:has(#bi4-0:checked){--bi4:0} :root:has(#bi4-1:checked){--bi4:1} :root:has(#bi4-2:checked){--bi4:2}
+  :root:has(#bi4-3:checked){--bi4:3} :root:has(#bi4-4:checked){--bi4:4} :root:has(#bi4-5:checked){--bi4:5}
+  :root:has(#bi4-6:checked){--bi4:6} :root:has(#bi4-7:checked){--bi4:7} :root:has(#bi4-8:checked){--bi4:8}
+  :root:has(#bi4-9:checked){--bi4:9}
+  :root:has(#bi5-0:checked){--bi5:0} :root:has(#bi5-1:checked){--bi5:1} :root:has(#bi5-2:checked){--bi5:2}
+  :root:has(#bi5-3:checked){--bi5:3} :root:has(#bi5-4:checked){--bi5:4} :root:has(#bi5-5:checked){--bi5:5}
+  :root:has(#bi5-6:checked){--bi5:6} :root:has(#bi5-7:checked){--bi5:7} :root:has(#bi5-8:checked){--bi5:8}
+  :root:has(#bi5-9:checked){--bi5:9}
+  :root:has(#bf1-0:checked){--bf1:0} :root:has(#bf1-1:checked){--bf1:1} :root:has(#bf1-2:checked){--bf1:2}
+  :root:has(#bf1-3:checked){--bf1:3} :root:has(#bf1-4:checked){--bf1:4} :root:has(#bf1-5:checked){--bf1:5}
+  :root:has(#bf1-6:checked){--bf1:6} :root:has(#bf1-7:checked){--bf1:7} :root:has(#bf1-8:checked){--bf1:8}
+  :root:has(#bf1-9:checked){--bf1:9}
+  :root:has(#bf2-0:checked){--bf2:0} :root:has(#bf2-1:checked){--bf2:1} :root:has(#bf2-2:checked){--bf2:2}
+  :root:has(#bf2-3:checked){--bf2:3} :root:has(#bf2-4:checked){--bf2:4} :root:has(#bf2-5:checked){--bf2:5}
+  :root:has(#bf2-6:checked){--bf2:6} :root:has(#bf2-7:checked){--bf2:7} :root:has(#bf2-8:checked){--bf2:8}
+  :root:has(#bf2-9:checked){--bf2:9}
+
+  /* operator flags */
+  :root:has(#op-plus:checked)  { --plus:1; --minus:0; --times:0; --divide:0; }
+  :root:has(#op-minus:checked) { --plus:0; --minus:1; --times:0; --divide:0; }
+  :root:has(#op-times:checked) { --plus:0; --minus:0; --times:1; --divide:0; }
+  :root:has(#op-divide:checked){ --plus:0; --minus:0; --times:0; --divide:1; }
+
+  /* =========================================================
+     COMPOSE — integer part by digit count, fractional part by
+     digit count (scaled by place value). Later (more-digit)
+     rule wins, so "5"->5, "53"->53; ".5"->0.5, ".53"->0.53.
+     ========================================================= */
+  :root:has([name="ai1"]:checked){ --A-int: var(--ai1); }
+  :root:has([name="ai2"]:checked){ --A-int: calc(var(--ai1)*10 + var(--ai2)); }
+  :root:has([name="ai3"]:checked){ --A-int: calc(var(--ai1)*100 + var(--ai2)*10 + var(--ai3)); }
+  :root:has([name="ai4"]:checked){ --A-int: calc(var(--ai1)*1000 + var(--ai2)*100 + var(--ai3)*10 + var(--ai4)); }
+  :root:has([name="ai5"]:checked){ --A-int: calc(var(--ai1)*10000 + var(--ai2)*1000 + var(--ai3)*100 + var(--ai4)*10 + var(--ai5)); }
+  :root:has([name="af1"]:checked){ --A-frac: calc(var(--af1) / 10); }
+  :root:has([name="af2"]:checked){ --A-frac: calc((var(--af1)*10 + var(--af2)) / 100); }
+
+  :root:has([name="bi1"]:checked){ --B-int: var(--bi1); }
+  :root:has([name="bi2"]:checked){ --B-int: calc(var(--bi1)*10 + var(--bi2)); }
+  :root:has([name="bi3"]:checked){ --B-int: calc(var(--bi1)*100 + var(--bi2)*10 + var(--bi3)); }
+  :root:has([name="bi4"]:checked){ --B-int: calc(var(--bi1)*1000 + var(--bi2)*100 + var(--bi3)*10 + var(--bi4)); }
+  :root:has([name="bi5"]:checked){ --B-int: calc(var(--bi1)*10000 + var(--bi2)*1000 + var(--bi3)*100 + var(--bi4)*10 + var(--bi5)); }
+  :root:has([name="bf1"]:checked){ --B-frac: calc(var(--bf1) / 10); }
+  :root:has([name="bf2"]:checked){ --B-frac: calc((var(--bf1)*10 + var(--bf2)) / 100); }
+
+  /* full operand values (integer + fractional) */
+  :root { --A: calc(var(--A-int) + var(--A-frac));
+          --B: calc(var(--B-int) + var(--B-frac)); }
+
+  /* =========================================================
+     COMPUTE
+     ========================================================= */
+  :root {
+    --safe-b: max(var(--B), 0.0000001);
+    --raw: calc(
+        var(--plus)   * (var(--A) + var(--B))
+      + var(--minus)  * (var(--A) - var(--B))
+      + var(--times)  * (var(--A) * var(--B))
+      + var(--divide) * (var(--A) / var(--safe-b))
+    );
+    --abs:    max(var(--raw), -1 * var(--raw));
+    /* Split the integer part into a "millions" half (hi) and the lower six
+       digits (lo). Each piece stays below 1e6, so the float-backed <integer>
+       @property storage holds it exactly. Previously the full integer part
+       (up to ~1e8 for a 5-digit operand) overflowed that precision and the
+       (abs - int) cancellation produced an out-of-range --dec, which made the
+       whole shared counter-reset invalid and blanked every counter to 0. */
+    --ip-hi:  round(down, calc(var(--abs) / 1000000), 1);
+    --ip-lo:  calc(round(down, var(--abs), 1) - var(--ip-hi) * 1000000);
+    /* fractional part read straight off the full-precision --abs via mod(),
+       avoiding the catastrophic cancellation of (abs - int). */
+    --dec:    calc(mod(var(--abs), 1) * 1000000);
+    /* Division-free sign: +1 / 0 / -1. Avoids the old abs/raw which was 0/0
+       (NaN) for a zero result and could blank every counter. */
+    --sign-i: clamp(-1, calc(var(--raw) * 1000000000), 1);
+    /* 0/1 flags used to toggle padding & the decimal point without JS */
+    --has-frac: min(var(--dec), 1);
+    --has-hi:   min(var(--ip-hi), 1);
+    /* divide-by-zero: 1 only when the operator is ÷ and B is exactly 0.
+       (smallest non-zero B is 0.01, so B*1e6 >= 1 whenever B > 0). */
+    --b-zero: calc(1 - min(var(--B) * 1000000, 1));
+    --err:    calc(var(--divide) * var(--b-zero));
+  }
+
+  /* =========================================================
+     PRESENTATION
+     ========================================================= */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; place-items: center;
+    font-family: "Segoe UI", system-ui, sans-serif; background: #0f172a; color: #e2e8f0;
+  }
+  .calc { position: relative; width: 300px; background: #1e293b; border-radius: 18px; padding: 20px;
+          box-shadow: 0 20px 50px rgba(0,0,0,.45); }
+  h1 { font-size: 13px; font-weight: 600; margin: 0 0 12px; color: #94a3b8; letter-spacing: .4px; }
+
+  .reset {
+    position: absolute; top: 16px; right: 16px; padding: 5px 12px; border-radius: 8px;
+    background: #475569; color: #fff; text-decoration: none; font-size: 12px; font-weight: 700;
+    letter-spacing: .5px;
+  }
+  .reset:hover { background: #64748b; }
+
+  .calc input { position: absolute; opacity: 0; pointer-events: none; }
+
+  .screen {
+    counter-reset: cAint var(--A-int) dAf1 var(--af1) dAf2 var(--af2)
+                   cBint var(--B-int) dBf1 var(--bf1) dBf2 var(--bf2)
+                   c-sgn var(--sign-i) c-iphi var(--ip-hi) c-iplo var(--ip-lo) c-dec var(--dec);
+    background: #0b1220; border-radius: 12px; padding: 12px 14px; margin-bottom: 14px;
+    text-align: right; font-variant-numeric: tabular-nums; min-height: 86px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .hint { color: #38bdf8; font-size: 12px; text-align: left; min-height: 16px; }
+  .hint::after { content: "Enter the first number"; }
+  :root:has([name="ai1"]:checked):not(:has([name="op"]:checked)):not(:has(#adot:checked)) .hint::after { content: "Keep typing, add \".\", or pick an operator"; }
+  :root:has(#adot:checked):not(:has([name="op"]:checked)) .hint::after { content: "Enter decimal digits, or pick an operator"; }
+  :root:has([name="op"]:checked):not(:has([name="bi1"]:checked)) .hint::after { content: "Enter the second number"; }
+  :root:has([name="bi1"]:checked) .hint::after { content: "Live result — AC to reset"; }
+
+  .expr { color: #94a3b8; font-size: 17px; min-height: 22px; }
+  .expr span { display: none; }
+  :root:has([name="ai1"]:checked) .expr .pa-int { display: inline; }
+  :root:has(#adot:checked)        .expr .pa-dot { display: inline; }
+  :root:has([name="af1"]:checked) .expr .pa-f1  { display: inline; }
+  :root:has([name="af2"]:checked) .expr .pa-f2  { display: inline; }
+  :root:has([name="op"]:checked)  .expr .pop    { display: inline; }
+  :root:has([name="bi1"]:checked) .expr .pb-int { display: inline; }
+  :root:has(#bdot:checked)        .expr .pb-dot { display: inline; }
+  :root:has([name="bf1"]:checked) .expr .pb-f1  { display: inline; }
+  :root:has([name="bf2"]:checked) .expr .pb-f2  { display: inline; }
+  :root:has([name="bi1"]:checked) .expr .peq    { display: inline; }
+  .expr .pa-int::after { content: counter(cAint); }
+  .expr .pa-dot::after { content: "."; }
+  .expr .pa-f1::after  { content: counter(dAf1); }
+  .expr .pa-f2::after  { content: counter(dAf2); }
+  .expr .pop::after    { content: " ? "; }
+  :root:has(#op-plus:checked)   .expr .pop::after { content: " + "; }
+  :root:has(#op-minus:checked)  .expr .pop::after { content: " \2212 "; }
+  :root:has(#op-times:checked)  .expr .pop::after { content: " \00D7 "; }
+  :root:has(#op-divide:checked) .expr .pop::after { content: " \00F7 "; }
+  .expr .pb-int::after { content: counter(cBint); }
+  .expr .pb-dot::after { content: "."; }
+  .expr .pb-f1::after  { content: counter(dBf1); }
+  .expr .pb-f2::after  { content: counter(dBf2); }
+  .expr .peq::after    { content: " ="; }
+
+  /* Result font shrinks to fit the fixed-width box. We always pad the
+     fraction to 6 places, so a large integer part + ".123456" can be up to
+     sign + 10 int digits + "." + 6 dp. Scale down using the same 0/1 flags
+     (no JS): -10px when a fraction is shown, -8px more when the integer part
+     has a millions half. white-space:nowrap keeps it on one line; the sizes
+     are chosen so the worst case still fits ~232px of inner width. */
+  .result { font-size: calc((36 - var(--has-frac)*10 - var(--has-hi)*8) * 1px);
+            font-weight: 700; color: #f8fafc; line-height: 1.15; min-height: 42px;
+            white-space: nowrap; display: none; }
+  :root:has([name="bi1"]:checked) .result { display: block; }
+  /* numeric result; collapses to nothing on a divide-by-zero error */
+  .result .num { font-size: calc((1 - var(--err)) * 1em); }
+  .result .sgn::after { content: counter(c-sgn, signstyle); }
+  /* integer part = hi · 1e6 + lo. When hi is present the low half must be
+     zero-padded to 6 digits; otherwise it prints bare. Two stacked spans,
+     each collapsed via font-size, pick the right form without a JS branch. */
+  .result .ip-hi      { font-size: calc(var(--has-hi) * 1em); }
+  .result .ip-hi::after      { content: counter(c-iphi); }
+  .result .ip-lo-pad  { font-size: calc(var(--has-hi) * 1em); }
+  .result .ip-lo-pad::after  { content: counter(c-iplo, pad6); }
+  .result .ip-lo-raw  { font-size: calc((1 - var(--has-hi)) * 1em); }
+  .result .ip-lo-raw::after  { content: counter(c-iplo); }
+  /* show the fractional part only when the result actually has one:
+     --has-frac is 0 (whole) or 1 (fraction); scaling font-size by it
+     collapses ".000000" to nothing without needing a JS branch. */
+  .result .frac { display: inline; font-size: calc(var(--has-frac) * 1em); }
+  .result .frac::after { content: "." counter(c-dec, pad6); }
+  /* divide-by-zero message replaces the (meaningless) number. Uses a fixed
+     px size via the --err flag so it is independent of the numeric shrink. */
+  .result .err { font-size: calc(var(--err) * 24px); color: #f87171; }
+  .result .err::after { content: "Error: \00F7 by 0"; }
+
+  /* ---- one keypad position; layers stacked & revealed in turn ---- */
+  .pad { display: grid; }
+  .layer { grid-area: 1 / 1; display: none; gap: 8px; }
+  .g3   { grid-template-columns: repeat(3, 1fr); }
+  .g4   { grid-template-columns: repeat(4, 1fr); }
+  .gops { grid-template-columns: repeat(2, 1fr); }
+  .gdo  { grid-template-columns: repeat(3, 1fr); }
+  .gone { grid-template-columns: 1fr; }
+  .layer label {
+    display: flex; align-items: center; justify-content: center; padding: 15px 0;
+    background: #334155; color: #e2e8f0; border-radius: 10px; cursor: pointer;
+    user-select: none; font-size: 19px; font-weight: 600; transition: background .12s, transform .05s;
+  }
+  .layer label:hover { background: #475569; }
+  .layer label:active { transform: scale(.94); }
+  .layer .zero2 { grid-column: span 2; }
+  .layer .zero3 { grid-column: span 3; }
+  .layer .op  { background: #ea580c; color: #fff; font-size: 22px; }
+  .layer .op:hover  { background: #f97316; }
+  .layer .dot { background: #0ea5e9; color: #fff; font-size: 24px; }
+  .layer .dot:hover { background: #38bdf8; }
+  .done-note { grid-area: 1 / 1; place-items: center; display: none; color: #94a3b8;
+               font-size: 14px; text-align: center; padding: 22px 0; }
+
+  /* progressive reveal: exactly one layer visible per step --------- */
+  /* operand A */
+  :root:not(:has([name="ai1"]:checked)) .L-a1 { display: grid; }
+  :root:has([name="ai1"]:checked):not(:has([name="ai2"]:checked)):not(:has(#adot:checked)):not(:has([name="op"]:checked)) .L-a2 { display: grid; }
+  :root:has([name="ai2"]:checked):not(:has([name="ai3"]:checked)):not(:has(#adot:checked)):not(:has([name="op"]:checked)) .L-a3 { display: grid; }
+  :root:has([name="ai3"]:checked):not(:has([name="ai4"]:checked)):not(:has(#adot:checked)):not(:has([name="op"]:checked)) .L-a4 { display: grid; }
+  :root:has([name="ai4"]:checked):not(:has([name="ai5"]:checked)):not(:has(#adot:checked)):not(:has([name="op"]:checked)) .L-a5 { display: grid; }
+  :root:has([name="ai5"]:checked):not(:has(#adot:checked)):not(:has([name="op"]:checked)) .L-aDot { display: grid; }
+  :root:has(#adot:checked):not(:has([name="af1"]:checked)):not(:has([name="op"]:checked)) .L-af1 { display: grid; }
+  :root:has([name="af1"]:checked):not(:has([name="af2"]:checked)):not(:has([name="op"]:checked)) .L-af2 { display: grid; }
+  :root:has([name="af2"]:checked):not(:has([name="op"]:checked)) .L-aOp { display: grid; }
+  /* operand B (only reachable after an operator is chosen) */
+  :root:has([name="op"]:checked):not(:has([name="bi1"]:checked)) .L-b1 { display: grid; }
+  :root:has([name="bi1"]:checked):not(:has([name="bi2"]:checked)):not(:has(#bdot:checked)) .L-b2 { display: grid; }
+  :root:has([name="bi2"]:checked):not(:has([name="bi3"]:checked)):not(:has(#bdot:checked)) .L-b3 { display: grid; }
+  :root:has([name="bi3"]:checked):not(:has([name="bi4"]:checked)):not(:has(#bdot:checked)) .L-b4 { display: grid; }
+  :root:has([name="bi4"]:checked):not(:has([name="bi5"]:checked)):not(:has(#bdot:checked)) .L-b5 { display: grid; }
+  :root:has([name="bi5"]:checked):not(:has(#bdot:checked)) .L-bDot { display: grid; }
+  :root:has(#bdot:checked):not(:has([name="bf1"]:checked)) .L-bf1 { display: grid; }
+  :root:has([name="bf1"]:checked):not(:has([name="bf2"]:checked)) .L-bf2 { display: grid; }
+  :root:has([name="bf2"]:checked) .L-done { display: grid; }
+</style>
+</head>
+<body>
+  <main class="calc">
+    <h1>PURE CSS CALCULATOR</h1>
+    <a class="reset" href="">AC</a>
+
+    <div class="screen">
+      <div class="hint"></div>
+      <div class="expr">
+        <span class="pa-int"></span><span class="pa-dot"></span><span class="pa-f1"></span><span class="pa-f2"></span>
+        <span class="pop"></span>
+        <span class="pb-int"></span><span class="pb-dot"></span><span class="pb-f1"></span><span class="pb-f2"></span>
+        <span class="peq"></span>
+      </div>
+      <div class="result"><span class="num"><span class="sgn"></span><span class="ip-hi"></span><span class="ip-lo-pad"></span><span class="ip-lo-raw"></span><span class="frac"></span></span><span class="err"></span></div>
+    </div>
+
+    <!-- all radios live here; labels in the stacked pad drive them -->
+    <input type="radio" name="ai1" id="ai1-0" /><input type="radio" name="ai1" id="ai1-1" /><input type="radio" name="ai1" id="ai1-2" />
+    <input type="radio" name="ai1" id="ai1-3" /><input type="radio" name="ai1" id="ai1-4" /><input type="radio" name="ai1" id="ai1-5" />
+    <input type="radio" name="ai1" id="ai1-6" /><input type="radio" name="ai1" id="ai1-7" /><input type="radio" name="ai1" id="ai1-8" />
+    <input type="radio" name="ai1" id="ai1-9" />
+    <input type="radio" name="ai2" id="ai2-0" /><input type="radio" name="ai2" id="ai2-1" /><input type="radio" name="ai2" id="ai2-2" />
+    <input type="radio" name="ai2" id="ai2-3" /><input type="radio" name="ai2" id="ai2-4" /><input type="radio" name="ai2" id="ai2-5" />
+    <input type="radio" name="ai2" id="ai2-6" /><input type="radio" name="ai2" id="ai2-7" /><input type="radio" name="ai2" id="ai2-8" />
+    <input type="radio" name="ai2" id="ai2-9" />
+    <input type="radio" name="ai3" id="ai3-0" /><input type="radio" name="ai3" id="ai3-1" /><input type="radio" name="ai3" id="ai3-2" />
+    <input type="radio" name="ai3" id="ai3-3" /><input type="radio" name="ai3" id="ai3-4" /><input type="radio" name="ai3" id="ai3-5" />
+    <input type="radio" name="ai3" id="ai3-6" /><input type="radio" name="ai3" id="ai3-7" /><input type="radio" name="ai3" id="ai3-8" />
+    <input type="radio" name="ai3" id="ai3-9" />
+    <input type="radio" name="ai4" id="ai4-0" /><input type="radio" name="ai4" id="ai4-1" /><input type="radio" name="ai4" id="ai4-2" />
+    <input type="radio" name="ai4" id="ai4-3" /><input type="radio" name="ai4" id="ai4-4" /><input type="radio" name="ai4" id="ai4-5" />
+    <input type="radio" name="ai4" id="ai4-6" /><input type="radio" name="ai4" id="ai4-7" /><input type="radio" name="ai4" id="ai4-8" />
+    <input type="radio" name="ai4" id="ai4-9" />
+    <input type="radio" name="ai5" id="ai5-0" /><input type="radio" name="ai5" id="ai5-1" /><input type="radio" name="ai5" id="ai5-2" />
+    <input type="radio" name="ai5" id="ai5-3" /><input type="radio" name="ai5" id="ai5-4" /><input type="radio" name="ai5" id="ai5-5" />
+    <input type="radio" name="ai5" id="ai5-6" /><input type="radio" name="ai5" id="ai5-7" /><input type="radio" name="ai5" id="ai5-8" />
+    <input type="radio" name="ai5" id="ai5-9" />
+    <input type="radio" name="adot" id="adot" />
+    <input type="radio" name="af1" id="af1-0" /><input type="radio" name="af1" id="af1-1" /><input type="radio" name="af1" id="af1-2" />
+    <input type="radio" name="af1" id="af1-3" /><input type="radio" name="af1" id="af1-4" /><input type="radio" name="af1" id="af1-5" />
+    <input type="radio" name="af1" id="af1-6" /><input type="radio" name="af1" id="af1-7" /><input type="radio" name="af1" id="af1-8" />
+    <input type="radio" name="af1" id="af1-9" />
+    <input type="radio" name="af2" id="af2-0" /><input type="radio" name="af2" id="af2-1" /><input type="radio" name="af2" id="af2-2" />
+    <input type="radio" name="af2" id="af2-3" /><input type="radio" name="af2" id="af2-4" /><input type="radio" name="af2" id="af2-5" />
+    <input type="radio" name="af2" id="af2-6" /><input type="radio" name="af2" id="af2-7" /><input type="radio" name="af2" id="af2-8" />
+    <input type="radio" name="af2" id="af2-9" />
+    <input type="radio" name="op" id="op-plus" /><input type="radio" name="op" id="op-minus" />
+    <input type="radio" name="op" id="op-times" /><input type="radio" name="op" id="op-divide" />
+    <input type="radio" name="bi1" id="bi1-0" /><input type="radio" name="bi1" id="bi1-1" /><input type="radio" name="bi1" id="bi1-2" />
+    <input type="radio" name="bi1" id="bi1-3" /><input type="radio" name="bi1" id="bi1-4" /><input type="radio" name="bi1" id="bi1-5" />
+    <input type="radio" name="bi1" id="bi1-6" /><input type="radio" name="bi1" id="bi1-7" /><input type="radio" name="bi1" id="bi1-8" />
+    <input type="radio" name="bi1" id="bi1-9" />
+    <input type="radio" name="bi2" id="bi2-0" /><input type="radio" name="bi2" id="bi2-1" /><input type="radio" name="bi2" id="bi2-2" />
+    <input type="radio" name="bi2" id="bi2-3" /><input type="radio" name="bi2" id="bi2-4" /><input type="radio" name="bi2" id="bi2-5" />
+    <input type="radio" name="bi2" id="bi2-6" /><input type="radio" name="bi2" id="bi2-7" /><input type="radio" name="bi2" id="bi2-8" />
+    <input type="radio" name="bi2" id="bi2-9" />
+    <input type="radio" name="bi3" id="bi3-0" /><input type="radio" name="bi3" id="bi3-1" /><input type="radio" name="bi3" id="bi3-2" />
+    <input type="radio" name="bi3" id="bi3-3" /><input type="radio" name="bi3" id="bi3-4" /><input type="radio" name="bi3" id="bi3-5" />
+    <input type="radio" name="bi3" id="bi3-6" /><input type="radio" name="bi3" id="bi3-7" /><input type="radio" name="bi3" id="bi3-8" />
+    <input type="radio" name="bi3" id="bi3-9" />
+    <input type="radio" name="bi4" id="bi4-0" /><input type="radio" name="bi4" id="bi4-1" /><input type="radio" name="bi4" id="bi4-2" />
+    <input type="radio" name="bi4" id="bi4-3" /><input type="radio" name="bi4" id="bi4-4" /><input type="radio" name="bi4" id="bi4-5" />
+    <input type="radio" name="bi4" id="bi4-6" /><input type="radio" name="bi4" id="bi4-7" /><input type="radio" name="bi4" id="bi4-8" />
+    <input type="radio" name="bi4" id="bi4-9" />
+    <input type="radio" name="bi5" id="bi5-0" /><input type="radio" name="bi5" id="bi5-1" /><input type="radio" name="bi5" id="bi5-2" />
+    <input type="radio" name="bi5" id="bi5-3" /><input type="radio" name="bi5" id="bi5-4" /><input type="radio" name="bi5" id="bi5-5" />
+    <input type="radio" name="bi5" id="bi5-6" /><input type="radio" name="bi5" id="bi5-7" /><input type="radio" name="bi5" id="bi5-8" />
+    <input type="radio" name="bi5" id="bi5-9" />
+    <input type="radio" name="bdot" id="bdot" />
+    <input type="radio" name="bf1" id="bf1-0" /><input type="radio" name="bf1" id="bf1-1" /><input type="radio" name="bf1" id="bf1-2" />
+    <input type="radio" name="bf1" id="bf1-3" /><input type="radio" name="bf1" id="bf1-4" /><input type="radio" name="bf1" id="bf1-5" />
+    <input type="radio" name="bf1" id="bf1-6" /><input type="radio" name="bf1" id="bf1-7" /><input type="radio" name="bf1" id="bf1-8" />
+    <input type="radio" name="bf1" id="bf1-9" />
+    <input type="radio" name="bf2" id="bf2-0" /><input type="radio" name="bf2" id="bf2-1" /><input type="radio" name="bf2" id="bf2-2" />
+    <input type="radio" name="bf2" id="bf2-3" /><input type="radio" name="bf2" id="bf2-4" /><input type="radio" name="bf2" id="bf2-5" />
+    <input type="radio" name="bf2" id="bf2-6" /><input type="radio" name="bf2" id="bf2-7" /><input type="radio" name="bf2" id="bf2-8" />
+    <input type="radio" name="bf2" id="bf2-9" />
+
+    <div class="pad">
+      <!-- A: first integer digit (digits only) -->
+      <div class="layer g3 L-a1">
+        <label for="ai1-7">7</label><label for="ai1-8">8</label><label for="ai1-9">9</label>
+        <label for="ai1-4">4</label><label for="ai1-5">5</label><label for="ai1-6">6</label>
+        <label for="ai1-1">1</label><label for="ai1-2">2</label><label for="ai1-3">3</label>
+        <label class="zero3" for="ai1-0">0</label>
+      </div>
+      <!-- A: 2nd integer digit, OR ".", OR an operator -->
+      <div class="layer g4 L-a2">
+        <label for="ai2-7">7</label><label for="ai2-8">8</label><label for="ai2-9">9</label><label class="op" for="op-divide">&divide;</label>
+        <label for="ai2-4">4</label><label for="ai2-5">5</label><label for="ai2-6">6</label><label class="op" for="op-times">&times;</label>
+        <label for="ai2-1">1</label><label for="ai2-2">2</label><label for="ai2-3">3</label><label class="op" for="op-minus">&minus;</label>
+        <label class="zero2" for="ai2-0">0</label><label class="dot" for="adot">.</label><label class="op" for="op-plus">+</label>
+      </div>
+      <!-- A: 3rd integer digit, OR ".", OR an operator -->
+      <div class="layer g4 L-a3">
+        <label for="ai3-7">7</label><label for="ai3-8">8</label><label for="ai3-9">9</label><label class="op" for="op-divide">&divide;</label>
+        <label for="ai3-4">4</label><label for="ai3-5">5</label><label for="ai3-6">6</label><label class="op" for="op-times">&times;</label>
+        <label for="ai3-1">1</label><label for="ai3-2">2</label><label for="ai3-3">3</label><label class="op" for="op-minus">&minus;</label>
+        <label class="zero2" for="ai3-0">0</label><label class="dot" for="adot">.</label><label class="op" for="op-plus">+</label>
+      </div>
+      <!-- A: 4th integer digit, OR ".", OR an operator -->
+      <div class="layer g4 L-a4">
+        <label for="ai4-7">7</label><label for="ai4-8">8</label><label for="ai4-9">9</label><label class="op" for="op-divide">&divide;</label>
+        <label for="ai4-4">4</label><label for="ai4-5">5</label><label for="ai4-6">6</label><label class="op" for="op-times">&times;</label>
+        <label for="ai4-1">1</label><label for="ai4-2">2</label><label for="ai4-3">3</label><label class="op" for="op-minus">&minus;</label>
+        <label class="zero2" for="ai4-0">0</label><label class="dot" for="adot">.</label><label class="op" for="op-plus">+</label>
+      </div>
+      <!-- A: 5th integer digit, OR ".", OR an operator -->
+      <div class="layer g4 L-a5">
+        <label for="ai5-7">7</label><label for="ai5-8">8</label><label for="ai5-9">9</label><label class="op" for="op-divide">&divide;</label>
+        <label for="ai5-4">4</label><label for="ai5-5">5</label><label for="ai5-6">6</label><label class="op" for="op-times">&times;</label>
+        <label for="ai5-1">1</label><label for="ai5-2">2</label><label for="ai5-3">3</label><label class="op" for="op-minus">&minus;</label>
+        <label class="zero2" for="ai5-0">0</label><label class="dot" for="adot">.</label><label class="op" for="op-plus">+</label>
+      </div>
+      <!-- A: 5 integer digits reached — choose "." or an operator -->
+      <div class="layer gdo L-aDot">
+        <label class="dot" for="adot">.</label><label class="op" for="op-plus">+</label><label class="op" for="op-minus">&minus;</label>
+        <label class="op" for="op-times">&times;</label><label class="op" for="op-divide">&divide;</label>
+      </div>
+      <!-- A: 1st decimal digit, OR an operator -->
+      <div class="layer g4 L-af1">
+        <label for="af1-7">7</label><label for="af1-8">8</label><label for="af1-9">9</label><label class="op" for="op-divide">&divide;</label>
+        <label for="af1-4">4</label><label for="af1-5">5</label><label for="af1-6">6</label><label class="op" for="op-times">&times;</label>
+        <label for="af1-1">1</label><label for="af1-2">2</label><label for="af1-3">3</label><label class="op" for="op-minus">&minus;</label>
+        <label class="zero3" for="af1-0">0</label><label class="op" for="op-plus">+</label>
+      </div>
+      <!-- A: 2nd decimal digit, OR an operator -->
+      <div class="layer g4 L-af2">
+        <label for="af2-7">7</label><label for="af2-8">8</label><label for="af2-9">9</label><label class="op" for="op-divide">&divide;</label>
+        <label for="af2-4">4</label><label for="af2-5">5</label><label for="af2-6">6</label><label class="op" for="op-times">&times;</label>
+        <label for="af2-1">1</label><label for="af2-2">2</label><label for="af2-3">3</label><label class="op" for="op-minus">&minus;</label>
+        <label class="zero3" for="af2-0">0</label><label class="op" for="op-plus">+</label>
+      </div>
+      <!-- A: 2 decimal digits reached — must choose an operator -->
+      <div class="layer gops L-aOp">
+        <label class="op" for="op-plus">+</label><label class="op" for="op-minus">&minus;</label>
+        <label class="op" for="op-times">&times;</label><label class="op" for="op-divide">&divide;</label>
+      </div>
+
+      <!-- B: first integer digit (digits only) -->
+      <div class="layer g3 L-b1">
+        <label for="bi1-7">7</label><label for="bi1-8">8</label><label for="bi1-9">9</label>
+        <label for="bi1-4">4</label><label for="bi1-5">5</label><label for="bi1-6">6</label>
+        <label for="bi1-1">1</label><label for="bi1-2">2</label><label for="bi1-3">3</label>
+        <label class="zero3" for="bi1-0">0</label>
+      </div>
+      <!-- B: 2nd integer digit, OR "." -->
+      <div class="layer g3 L-b2">
+        <label for="bi2-7">7</label><label for="bi2-8">8</label><label for="bi2-9">9</label>
+        <label for="bi2-4">4</label><label for="bi2-5">5</label><label for="bi2-6">6</label>
+        <label for="bi2-1">1</label><label for="bi2-2">2</label><label for="bi2-3">3</label>
+        <label class="zero2" for="bi2-0">0</label><label class="dot" for="bdot">.</label>
+      </div>
+      <!-- B: 3rd integer digit, OR "." -->
+      <div class="layer g3 L-b3">
+        <label for="bi3-7">7</label><label for="bi3-8">8</label><label for="bi3-9">9</label>
+        <label for="bi3-4">4</label><label for="bi3-5">5</label><label for="bi3-6">6</label>
+        <label for="bi3-1">1</label><label for="bi3-2">2</label><label for="bi3-3">3</label>
+        <label class="zero2" for="bi3-0">0</label><label class="dot" for="bdot">.</label>
+      </div>
+      <!-- B: 4th integer digit, OR "." -->
+      <div class="layer g3 L-b4">
+        <label for="bi4-7">7</label><label for="bi4-8">8</label><label for="bi4-9">9</label>
+        <label for="bi4-4">4</label><label for="bi4-5">5</label><label for="bi4-6">6</label>
+        <label for="bi4-1">1</label><label for="bi4-2">2</label><label for="bi4-3">3</label>
+        <label class="zero2" for="bi4-0">0</label><label class="dot" for="bdot">.</label>
+      </div>
+      <!-- B: 5th integer digit, OR "." -->
+      <div class="layer g3 L-b5">
+        <label for="bi5-7">7</label><label for="bi5-8">8</label><label for="bi5-9">9</label>
+        <label for="bi5-4">4</label><label for="bi5-5">5</label><label for="bi5-6">6</label>
+        <label for="bi5-1">1</label><label for="bi5-2">2</label><label for="bi5-3">3</label>
+        <label class="zero2" for="bi5-0">0</label><label class="dot" for="bdot">.</label>
+      </div>
+      <!-- B: 5 integer digits reached — choose "." (or read result / AC) -->
+      <div class="layer gone L-bDot">
+        <label class="dot" for="bdot">.</label>
+      </div>
+      <!-- B: 1st decimal digit -->
+      <div class="layer g3 L-bf1">
+        <label for="bf1-7">7</label><label for="bf1-8">8</label><label for="bf1-9">9</label>
+        <label for="bf1-4">4</label><label for="bf1-5">5</label><label for="bf1-6">6</label>
+        <label for="bf1-1">1</label><label for="bf1-2">2</label><label for="bf1-3">3</label>
+        <label class="zero3" for="bf1-0">0</label>
+      </div>
+      <!-- B: 2nd decimal digit -->
+      <div class="layer g3 L-bf2">
+        <label for="bf2-7">7</label><label for="bf2-8">8</label><label for="bf2-9">9</label>
+        <label for="bf2-4">4</label><label for="bf2-5">5</label><label for="bf2-6">6</label>
+        <label for="bf2-1">1</label><label for="bf2-2">2</label><label for="bf2-3">3</label>
+        <label class="zero3" for="bf2-0">0</label>
+      </div>
+      <!-- both operands fully entered -->
+      <div class="done-note L-done">Result shown above — press <strong>AC</strong> to start over.</div>
+    </div>
+  </main>
+</body>
+</html>
