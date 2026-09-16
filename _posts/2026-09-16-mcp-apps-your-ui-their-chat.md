@@ -1,6 +1,6 @@
 ---
 title: "MCP Apps: Your UI, Their Chat"
-date: 2026-09-09 07:00:00 Z
+date: 2026-09-16 07:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
