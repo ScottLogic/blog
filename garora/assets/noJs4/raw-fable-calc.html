@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS-only Calculator</title>
+  <style>
+    /* ==========================================================================
+   CSS-only calculator (no JavaScript)
+   - Every key stacks one invisible radio per input step. Only the radio for
+     the current step is displayed, so clicks always record the next digit.
+   - :has() reads the checked radios and sets custom properties.
+   - calc() / round() / abs() / mod() do the arithmetic.
+   - CSS counters turn the numbers into visible digits.
+   ========================================================================== */
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background: radial-gradient(circle at top, #2b3040, #14161c 70%);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #e8e8ec;
+}
+
+@counter-style pad6 {
+  system: extends decimal;
+  pad: 6 "0";
+}
+
+/* --------------------------------------------------------------------------
+   State & arithmetic. Everything lives on .calc and is inherited by .display
+   -------------------------------------------------------------------------- */
+
+.calc {
+  width: min(100%, 24rem);
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 1.75rem;
+  background: #262a35;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* digit of each step (0 when nothing pressed) and 'was this step pressed' flags */
+  --a1: 0; --s-a1: 0;
+  --a2: 0; --s-a2: 0;
+  --a3: 0; --s-a3: 0;
+  --a4: 0; --s-a4: 0;
+  --a5: 0; --s-a5: 0;
+  --a6: 0; --s-a6: 0;
+  --b1: 0; --s-b1: 0;
+  --b2: 0; --s-b2: 0;
+  --b3: 0; --s-b3: 0;
+  --b4: 0; --s-b4: 0;
+  --b5: 0; --s-b5: 0;
+  --b6: 0; --s-b6: 0;
+
+  /* build each operand digit by digit: value = previous * 10 + digit,
+     but only multiply by 10 if that step was actually pressed */
+  --a-1: var(--a1);
+  --a-2: calc(var(--a-1) * (1 + 9 * var(--s-a2)) + var(--a2));
+  --a-3: calc(var(--a-2) * (1 + 9 * var(--s-a3)) + var(--a3));
+  --a-4: calc(var(--a-3) * (1 + 9 * var(--s-a4)) + var(--a4));
+  --a-5: calc(var(--a-4) * (1 + 9 * var(--s-a5)) + var(--a5));
+  --a-6: calc(var(--a-5) * (1 + 9 * var(--s-a6)) + var(--a6));
+  --a: var(--a-6);
+  --b-1: var(--b1);
+  --b-2: calc(var(--b-1) * (1 + 9 * var(--s-b2)) + var(--b2));
+  --b-3: calc(var(--b-2) * (1 + 9 * var(--s-b3)) + var(--b3));
+  --b-4: calc(var(--b-3) * (1 + 9 * var(--s-b4)) + var(--b4));
+  --b-5: calc(var(--b-4) * (1 + 9 * var(--s-b5)) + var(--b5));
+  --b-6: calc(var(--b-5) * (1 + 9 * var(--s-b6)) + var(--b6));
+  --b: var(--b-6);
+
+  /* default operation, overridden by the operator rules below */
+  --result: calc(var(--a) + var(--b));
+
+  /* split the result: sign, integer part (in two 6-digit chunks so it fits
+     in a 32-bit counter) and six decimal digits */
+  --abs: abs(var(--result));
+  --int: round(down, var(--abs), 1);
+  --hi: round(down, var(--int) / 1000000, 1);
+  --lo: calc(var(--int) - var(--hi) * 1000000);
+  --micro: round(nearest, (var(--abs) - var(--int)) * 1000000, 1);
+  --f1: mod(round(down, var(--micro) / 100000, 1), 10);
+  --f2: mod(round(down, var(--micro) / 10000, 1), 10);
+  --f3: mod(round(down, var(--micro) / 1000, 1), 10);
+  --f4: mod(round(down, var(--micro) / 100, 1), 10);
+  --f5: mod(round(down, var(--micro) / 10, 1), 10);
+  --f6: mod(var(--micro), 10);
+
+  /* 0/1 flags that show or hide parts of the display */
+  --is-neg: clamp(0, var(--result) * -1000000, 1);
+  --has-hi: clamp(0, var(--hi), 1);
+  --show-frac: clamp(0, var(--micro), 1);
+  --show-f2: clamp(0, mod(var(--micro), 100000), 1);
+  --show-f3: clamp(0, mod(var(--micro), 10000), 1);
+  --show-f4: clamp(0, mod(var(--micro), 1000), 1);
+  --show-f5: clamp(0, mod(var(--micro), 100), 1);
+  --show-f6: clamp(0, mod(var(--micro), 10), 1);
+}
+
+/* ---- read the pressed digits ---- */
+.calc:has([name=a1]:checked) { --s-a1: 1; }
+.calc:has([name=a1][value="1"]:checked){--a1:1} .calc:has([name=a1][value="2"]:checked){--a1:2} .calc:has([name=a1][value="3"]:checked){--a1:3} .calc:has([name=a1][value="4"]:checked){--a1:4} .calc:has([name=a1][value="5"]:checked){--a1:5} .calc:has([name=a1][value="6"]:checked){--a1:6} .calc:has([name=a1][value="7"]:checked){--a1:7} .calc:has([name=a1][value="8"]:checked){--a1:8} .calc:has([name=a1][value="9"]:checked){--a1:9}
+.calc:has([name=a2]:checked) { --s-a2: 1; }
+.calc:has([name=a2][value="1"]:checked){--a2:1} .calc:has([name=a2][value="2"]:checked){--a2:2} .calc:has([name=a2][value="3"]:checked){--a2:3} .calc:has([name=a2][value="4"]:checked){--a2:4} .calc:has([name=a2][value="5"]:checked){--a2:5} .calc:has([name=a2][value="6"]:checked){--a2:6} .calc:has([name=a2][value="7"]:checked){--a2:7} .calc:has([name=a2][value="8"]:checked){--a2:8} .calc:has([name=a2][value="9"]:checked){--a2:9}
+.calc:has([name=a3]:checked) { --s-a3: 1; }
+.calc:has([name=a3][value="1"]:checked){--a3:1} .calc:has([name=a3][value="2"]:checked){--a3:2} .calc:has([name=a3][value="3"]:checked){--a3:3} .calc:has([name=a3][value="4"]:checked){--a3:4} .calc:has([name=a3][value="5"]:checked){--a3:5} .calc:has([name=a3][value="6"]:checked){--a3:6} .calc:has([name=a3][value="7"]:checked){--a3:7} .calc:has([name=a3][value="8"]:checked){--a3:8} .calc:has([name=a3][value="9"]:checked){--a3:9}
+.calc:has([name=a4]:checked) { --s-a4: 1; }
+.calc:has([name=a4][value="1"]:checked){--a4:1} .calc:has([name=a4][value="2"]:checked){--a4:2} .calc:has([name=a4][value="3"]:checked){--a4:3} .calc:has([name=a4][value="4"]:checked){--a4:4} .calc:has([name=a4][value="5"]:checked){--a4:5} .calc:has([name=a4][value="6"]:checked){--a4:6} .calc:has([name=a4][value="7"]:checked){--a4:7} .calc:has([name=a4][value="8"]:checked){--a4:8} .calc:has([name=a4][value="9"]:checked){--a4:9}
+.calc:has([name=a5]:checked) { --s-a5: 1; }
+.calc:has([name=a5][value="1"]:checked){--a5:1} .calc:has([name=a5][value="2"]:checked){--a5:2} .calc:has([name=a5][value="3"]:checked){--a5:3} .calc:has([name=a5][value="4"]:checked){--a5:4} .calc:has([name=a5][value="5"]:checked){--a5:5} .calc:has([name=a5][value="6"]:checked){--a5:6} .calc:has([name=a5][value="7"]:checked){--a5:7} .calc:has([name=a5][value="8"]:checked){--a5:8} .calc:has([name=a5][value="9"]:checked){--a5:9}
+.calc:has([name=a6]:checked) { --s-a6: 1; }
+.calc:has([name=a6][value="1"]:checked){--a6:1} .calc:has([name=a6][value="2"]:checked){--a6:2} .calc:has([name=a6][value="3"]:checked){--a6:3} .calc:has([name=a6][value="4"]:checked){--a6:4} .calc:has([name=a6][value="5"]:checked){--a6:5} .calc:has([name=a6][value="6"]:checked){--a6:6} .calc:has([name=a6][value="7"]:checked){--a6:7} .calc:has([name=a6][value="8"]:checked){--a6:8} .calc:has([name=a6][value="9"]:checked){--a6:9}
+.calc:has([name=b1]:checked) { --s-b1: 1; }
+.calc:has([name=b1][value="1"]:checked){--b1:1} .calc:has([name=b1][value="2"]:checked){--b1:2} .calc:has([name=b1][value="3"]:checked){--b1:3} .calc:has([name=b1][value="4"]:checked){--b1:4} .calc:has([name=b1][value="5"]:checked){--b1:5} .calc:has([name=b1][value="6"]:checked){--b1:6} .calc:has([name=b1][value="7"]:checked){--b1:7} .calc:has([name=b1][value="8"]:checked){--b1:8} .calc:has([name=b1][value="9"]:checked){--b1:9}
+.calc:has([name=b2]:checked) { --s-b2: 1; }
+.calc:has([name=b2][value="1"]:checked){--b2:1} .calc:has([name=b2][value="2"]:checked){--b2:2} .calc:has([name=b2][value="3"]:checked){--b2:3} .calc:has([name=b2][value="4"]:checked){--b2:4} .calc:has([name=b2][value="5"]:checked){--b2:5} .calc:has([name=b2][value="6"]:checked){--b2:6} .calc:has([name=b2][value="7"]:checked){--b2:7} .calc:has([name=b2][value="8"]:checked){--b2:8} .calc:has([name=b2][value="9"]:checked){--b2:9}
+.calc:has([name=b3]:checked) { --s-b3: 1; }
+.calc:has([name=b3][value="1"]:checked){--b3:1} .calc:has([name=b3][value="2"]:checked){--b3:2} .calc:has([name=b3][value="3"]:checked){--b3:3} .calc:has([name=b3][value="4"]:checked){--b3:4} .calc:has([name=b3][value="5"]:checked){--b3:5} .calc:has([name=b3][value="6"]:checked){--b3:6} .calc:has([name=b3][value="7"]:checked){--b3:7} .calc:has([name=b3][value="8"]:checked){--b3:8} .calc:has([name=b3][value="9"]:checked){--b3:9}
+.calc:has([name=b4]:checked) { --s-b4: 1; }
+.calc:has([name=b4][value="1"]:checked){--b4:1} .calc:has([name=b4][value="2"]:checked){--b4:2} .calc:has([name=b4][value="3"]:checked){--b4:3} .calc:has([name=b4][value="4"]:checked){--b4:4} .calc:has([name=b4][value="5"]:checked){--b4:5} .calc:has([name=b4][value="6"]:checked){--b4:6} .calc:has([name=b4][value="7"]:checked){--b4:7} .calc:has([name=b4][value="8"]:checked){--b4:8} .calc:has([name=b4][value="9"]:checked){--b4:9}
+.calc:has([name=b5]:checked) { --s-b5: 1; }
+.calc:has([name=b5][value="1"]:checked){--b5:1} .calc:has([name=b5][value="2"]:checked){--b5:2} .calc:has([name=b5][value="3"]:checked){--b5:3} .calc:has([name=b5][value="4"]:checked){--b5:4} .calc:has([name=b5][value="5"]:checked){--b5:5} .calc:has([name=b5][value="6"]:checked){--b5:6} .calc:has([name=b5][value="7"]:checked){--b5:7} .calc:has([name=b5][value="8"]:checked){--b5:8} .calc:has([name=b5][value="9"]:checked){--b5:9}
+.calc:has([name=b6]:checked) { --s-b6: 1; }
+.calc:has([name=b6][value="1"]:checked){--b6:1} .calc:has([name=b6][value="2"]:checked){--b6:2} .calc:has([name=b6][value="3"]:checked){--b6:3} .calc:has([name=b6][value="4"]:checked){--b6:4} .calc:has([name=b6][value="5"]:checked){--b6:5} .calc:has([name=b6][value="6"]:checked){--b6:6} .calc:has([name=b6][value="7"]:checked){--b6:7} .calc:has([name=b6][value="8"]:checked){--b6:8} .calc:has([name=b6][value="9"]:checked){--b6:9}
+
+/* ---- operation ---- */
+.calc:has([name=op][value=div]:checked) { --result: calc(var(--a) / var(--b)); }
+.calc:has([name=op][value=div]:checked) .eop::before { content: "÷"; }
+.calc:has([name=op][value=mul]:checked) { --result: calc(var(--a) * var(--b)); }
+.calc:has([name=op][value=mul]:checked) .eop::before { content: "×"; }
+.calc:has([name=op][value=sub]:checked) { --result: calc(var(--a) - var(--b)); }
+.calc:has([name=op][value=sub]:checked) .eop::before { content: "−"; }
+.calc:has([name=op][value=add]:checked) { --result: calc(var(--a) + var(--b)); }
+.calc:has([name=op][value=add]:checked) .eop::before { content: "+"; }
+
+/* --------------------------------------------------------------------------
+   Which input layer is active (the "state machine")
+   -------------------------------------------------------------------------- */
+
+.in { display: none; }
+
+.calc:not(:has([name=a1]:checked)):not(:has([name=op]:checked)) .in-a1 { display: block; }
+.calc:has([name=a1]:checked):not(:has([name=a2]:checked)):not(:has([name=op]:checked)) .in-a2 { display: block; }
+.calc:has([name=a2]:checked):not(:has([name=a3]:checked)):not(:has([name=op]:checked)) .in-a3 { display: block; }
+.calc:has([name=a3]:checked):not(:has([name=a4]:checked)):not(:has([name=op]:checked)) .in-a4 { display: block; }
+.calc:has([name=a4]:checked):not(:has([name=a5]:checked)):not(:has([name=op]:checked)) .in-a5 { display: block; }
+.calc:has([name=a5]:checked):not(:has([name=a6]:checked)):not(:has([name=op]:checked)) .in-a6 { display: block; }
+.calc:not(:has(.bd:checked)) .in-op { display: block; }
+.calc:has([name=op]:checked):not(:has([name=b1]:checked)) .in-b1 { display: block; }
+.calc:has([name=b1]:checked):not(:has([name=b2]:checked)):not(:has(.in-eq:checked)) .in-b2 { display: block; }
+.calc:has([name=b2]:checked):not(:has([name=b3]:checked)):not(:has(.in-eq:checked)) .in-b3 { display: block; }
+.calc:has([name=b3]:checked):not(:has([name=b4]:checked)):not(:has(.in-eq:checked)) .in-b4 { display: block; }
+.calc:has([name=b4]:checked):not(:has([name=b5]:checked)):not(:has(.in-eq:checked)) .in-b5 { display: block; }
+.calc:has([name=b5]:checked):not(:has([name=b6]:checked)):not(:has(.in-eq:checked)) .in-b6 { display: block; }
+.calc:has([name=b1]:checked):not(:has(.in-eq:checked)) .in-eq { display: block; }
+
+/* --------------------------------------------------------------------------
+   Display
+   -------------------------------------------------------------------------- */
+
+.display {
+  min-height: 6.75rem;
+  padding: 0.85rem 1rem;
+  border-radius: 1.1rem;
+  background: #0d0f14;
+  box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.8);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+  counter-reset:
+    a var(--a)
+    b var(--b)
+    hi var(--hi)
+    lo var(--lo)
+    f1 var(--f1) f2 var(--f2) f3 var(--f3)
+    f4 var(--f4) f5 var(--f5) f6 var(--f6);
+}
+
+/* history line: "A op B =" appears piece by piece */
+.expr {
+  min-height: 1.6em;
+  font-size: 1.05rem;
+  color: #8b93a7;
+  white-space: nowrap;
+}
+.ea, .eop, .eb, .eeq { display: none; }
+.ea::before  { content: counter(a); }
+.eop::before { margin: 0 0.35em; }
+.eb::before  { content: counter(b); }
+.eeq { margin-left: 0.35em; }
+.calc:has([name=op]:checked) .ea,
+.calc:has([name=op]:checked) .eop { display: inline; }
+.calc:has(.bd:checked) .eb { display: inline; }
+.calc:has(.in-eq:checked) .eeq { display: inline; }
+
+/* main line: the number being typed, then the result after "=" */
+.cur {
+  display: none;
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #f4f5f8;
+  white-space: nowrap;
+}
+.cur-a::before { content: counter(a); }
+.cur-b::before { content: counter(b); }
+
+.calc:not(:has(.bd:checked)) .cur-a { display: block; }
+.calc:has(.bd:checked):not(:has(.in-eq:checked)) .cur-b { display: block; }
+.calc:has(.in-eq:checked) .cur-r { display: block; }
+
+/* division by zero: "=" pressed, operator is ÷, and no non-zero b digit exists */
+.calc:has(.in-eq:checked):has([name=op][value=div]:checked):not(:has(.bd:checked:not([value="0"]))) .cur-r { display: none; }
+.calc:has(.in-eq:checked):has([name=op][value=div]:checked):not(:has(.bd:checked:not([value="0"]))) .cur-err { display: block; color: #ff6b6b; }
+
+/* result: shrink a little when it gets long */
+.cur-r {
+  font-size: calc(2.6rem - var(--has-hi) * 0.7rem - var(--show-frac) * 0.5rem);
+}
+/* pieces are hidden by collapsing their font-size to 0 */
+.sign   { font-size: calc(var(--is-neg) * 1em); }
+.hi     { font-size: calc(var(--has-hi) * 1em); }
+.hi::before     { content: counter(hi); }
+.lo-pad { font-size: calc(var(--has-hi) * 1em); }
+.lo-pad::before { content: counter(lo, pad6); }
+.lo     { font-size: calc((1 - var(--has-hi)) * 1em); }
+.lo::before     { content: counter(lo); }
+.frac   { font-size: calc(var(--show-frac) * 1em); }
+.f1::before { content: counter(f1); }
+.f2 { font-size: calc(var(--show-f2) * 1em); } .f2::before { content: counter(f2); }
+.f3 { font-size: calc(var(--show-f3) * 1em); } .f3::before { content: counter(f3); }
+.f4 { font-size: calc(var(--show-f4) * 1em); } .f4::before { content: counter(f4); }
+.f5 { font-size: calc(var(--show-f5) * 1em); } .f5::before { content: counter(f5); }
+.f6 { font-size: calc(var(--show-f6) * 1em); } .f6::before { content: counter(f6); }
+
+/* --------------------------------------------------------------------------
+   Keypad
+   -------------------------------------------------------------------------- */
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 0.6rem;
+}
+
+.key {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 0.9rem;
+  background: #363b49;
+  color: #eef0f5;
+  font: inherit;
+  font-size: 1.5rem;
+  font-weight: 500;
+  user-select: none;
+  box-shadow: 0 3px 0 #1d2028;
+  transition: background 0.12s, transform 0.06s, box-shadow 0.06s;
+}
+.key:hover { background: #434959; }
+
+/* the active radio covers the whole key and takes the click */
+.key .in {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  appearance: none;
+}
+.key:has(.in:active), .ac:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #1d2028;
+}
+.key:has(.in:focus-visible), .ac:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.ac {
+  grid-column: span 3;
+  aspect-ratio: auto;
+  cursor: pointer;
+  background: #d9534f;
+  box-shadow: 0 3px 0 #8f2f2c;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+}
+.ac:hover { background: #e4645f; }
+
+.op { background: #5b4fd9; box-shadow: 0 3px 0 #3b3290; }
+.op:hover { background: #6b60e6; }
+.op:has(.in:checked) { background: #f5a623; color: #1c1f26; box-shadow: 0 3px 0 #b8781a; }
+
+.zero { grid-column: span 2; aspect-ratio: auto; }
+
+.eq { grid-column: span 2; aspect-ratio: auto; background: #f5a623; color: #1c1f26; box-shadow: 0 3px 0 #b8781a; }
+.eq:hover { background: #ffb63a; }
+
+.note {
+  margin: 0;
+  text-align: center;
+  font-size: 0.72rem;
+  color: #6d7590;
+}
+.note code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: #8b93a7;
+}
+
+  </style>
+</head>
+<body>
+  <form class="calc" aria-label="Calculator">
+
+    <!-- Display: every number here is rendered with CSS counters -->
+    <div class="display" aria-live="polite">
+      <div class="expr">
+        <span class="ea"></span><span class="eop"></span><span class="eb"></span><span class="eeq">=</span>
+      </div>
+      <div class="cur cur-a"></div>
+      <div class="cur cur-b"></div>
+      <div class="cur cur-r"><span class="sign">−</span><span class="hi"></span><span class="lo-pad"></span><span class="lo"></span><span class="frac"><span class="dot">.</span><span class="f1"></span><span class="f2"></span><span class="f3"></span><span class="f4"></span><span class="f5"></span><span class="f6"></span></span></div>
+      <div class="cur cur-err">Error</div>
+    </div>
+
+    <!--
+      Keypad. Each key holds one invisible radio per input step
+      (a1..a6 for the first number, b1..b6 for the second).
+      CSS shows only the radio for the step you are currently on,
+      so clicking a key always records the *next* digit.
+    -->
+    <div class="keys">
+      <button type="reset" class="key ac">AC</button>
+      <div class="key op"><span>÷</span>
+        <input type="radio" name="op" value="div" class="in in-op" aria-label="÷">
+      </div>
+      <div class="key digit"><span>7</span>
+        <input type="radio" name="a1" value="7" class="in in-a1 ad" aria-label="7">
+        <input type="radio" name="a2" value="7" class="in in-a2 ad" aria-label="7">
+        <input type="radio" name="a3" value="7" class="in in-a3 ad" aria-label="7">
+        <input type="radio" name="a4" value="7" class="in in-a4 ad" aria-label="7">
+        <input type="radio" name="a5" value="7" class="in in-a5 ad" aria-label="7">
+        <input type="radio" name="a6" value="7" class="in in-a6 ad" aria-label="7">
+        <input type="radio" name="b1" value="7" class="in in-b1 bd" aria-label="7">
+        <input type="radio" name="b2" value="7" class="in in-b2 bd" aria-label="7">
+        <input type="radio" name="b3" value="7" class="in in-b3 bd" aria-label="7">
+        <input type="radio" name="b4" value="7" class="in in-b4 bd" aria-label="7">
+        <input type="radio" name="b5" value="7" class="in in-b5 bd" aria-label="7">
+        <input type="radio" name="b6" value="7" class="in in-b6 bd" aria-label="7">
+      </div>
+      <div class="key digit"><span>8</span>
+        <input type="radio" name="a1" value="8" class="in in-a1 ad" aria-label="8">
+        <input type="radio" name="a2" value="8" class="in in-a2 ad" aria-label="8">
+        <input type="radio" name="a3" value="8" class="in in-a3 ad" aria-label="8">
+        <input type="radio" name="a4" value="8" class="in in-a4 ad" aria-label="8">
+        <input type="radio" name="a5" value="8" class="in in-a5 ad" aria-label="8">
+        <input type="radio" name="a6" value="8" class="in in-a6 ad" aria-label="8">
+        <input type="radio" name="b1" value="8" class="in in-b1 bd" aria-label="8">
+        <input type="radio" name="b2" value="8" class="in in-b2 bd" aria-label="8">
+        <input type="radio" name="b3" value="8" class="in in-b3 bd" aria-label="8">
+        <input type="radio" name="b4" value="8" class="in in-b4 bd" aria-label="8">
+        <input type="radio" name="b5" value="8" class="in in-b5 bd" aria-label="8">
+        <input type="radio" name="b6" value="8" class="in in-b6 bd" aria-label="8">
+      </div>
+      <div class="key digit"><span>9</span>
+        <input type="radio" name="a1" value="9" class="in in-a1 ad" aria-label="9">
+        <input type="radio" name="a2" value="9" class="in in-a2 ad" aria-label="9">
+        <input type="radio" name="a3" value="9" class="in in-a3 ad" aria-label="9">
+        <input type="radio" name="a4" value="9" class="in in-a4 ad" aria-label="9">
+        <input type="radio" name="a5" value="9" class="in in-a5 ad" aria-label="9">
+        <input type="radio" name="a6" value="9" class="in in-a6 ad" aria-label="9">
+        <input type="radio" name="b1" value="9" class="in in-b1 bd" aria-label="9">
+        <input type="radio" name="b2" value="9" class="in in-b2 bd" aria-label="9">
+        <input type="radio" name="b3" value="9" class="in in-b3 bd" aria-label="9">
+        <input type="radio" name="b4" value="9" class="in in-b4 bd" aria-label="9">
+        <input type="radio" name="b5" value="9" class="in in-b5 bd" aria-label="9">
+        <input type="radio" name="b6" value="9" class="in in-b6 bd" aria-label="9">
+      </div>
+      <div class="key op"><span>×</span>
+        <input type="radio" name="op" value="mul" class="in in-op" aria-label="×">
+      </div>
+      <div class="key digit"><span>4</span>
+        <input type="radio" name="a1" value="4" class="in in-a1 ad" aria-label="4">
+        <input type="radio" name="a2" value="4" class="in in-a2 ad" aria-label="4">
+        <input type="radio" name="a3" value="4" class="in in-a3 ad" aria-label="4">
+        <input type="radio" name="a4" value="4" class="in in-a4 ad" aria-label="4">
+        <input type="radio" name="a5" value="4" class="in in-a5 ad" aria-label="4">
+        <input type="radio" name="a6" value="4" class="in in-a6 ad" aria-label="4">
+        <input type="radio" name="b1" value="4" class="in in-b1 bd" aria-label="4">
+        <input type="radio" name="b2" value="4" class="in in-b2 bd" aria-label="4">
+        <input type="radio" name="b3" value="4" class="in in-b3 bd" aria-label="4">
+        <input type="radio" name="b4" value="4" class="in in-b4 bd" aria-label="4">
+        <input type="radio" name="b5" value="4" class="in in-b5 bd" aria-label="4">
+        <input type="radio" name="b6" value="4" class="in in-b6 bd" aria-label="4">
+      </div>
+      <div class="key digit"><span>5</span>
+        <input type="radio" name="a1" value="5" class="in in-a1 ad" aria-label="5">
+        <input type="radio" name="a2" value="5" class="in in-a2 ad" aria-label="5">
+        <input type="radio" name="a3" value="5" class="in in-a3 ad" aria-label="5">
+        <input type="radio" name="a4" value="5" class="in in-a4 ad" aria-label="5">
+        <input type="radio" name="a5" value="5" class="in in-a5 ad" aria-label="5">
+        <input type="radio" name="a6" value="5" class="in in-a6 ad" aria-label="5">
+        <input type="radio" name="b1" value="5" class="in in-b1 bd" aria-label="5">
+        <input type="radio" name="b2" value="5" class="in in-b2 bd" aria-label="5">
+        <input type="radio" name="b3" value="5" class="in in-b3 bd" aria-label="5">
+        <input type="radio" name="b4" value="5" class="in in-b4 bd" aria-label="5">
+        <input type="radio" name="b5" value="5" class="in in-b5 bd" aria-label="5">
+        <input type="radio" name="b6" value="5" class="in in-b6 bd" aria-label="5">
+      </div>
+      <div class="key digit"><span>6</span>
+        <input type="radio" name="a1" value="6" class="in in-a1 ad" aria-label="6">
+        <input type="radio" name="a2" value="6" class="in in-a2 ad" aria-label="6">
+        <input type="radio" name="a3" value="6" class="in in-a3 ad" aria-label="6">
+        <input type="radio" name="a4" value="6" class="in in-a4 ad" aria-label="6">
+        <input type="radio" name="a5" value="6" class="in in-a5 ad" aria-label="6">
+        <input type="radio" name="a6" value="6" class="in in-a6 ad" aria-label="6">
+        <input type="radio" name="b1" value="6" class="in in-b1 bd" aria-label="6">
+        <input type="radio" name="b2" value="6" class="in in-b2 bd" aria-label="6">
+        <input type="radio" name="b3" value="6" class="in in-b3 bd" aria-label="6">
+        <input type="radio" name="b4" value="6" class="in in-b4 bd" aria-label="6">
+        <input type="radio" name="b5" value="6" class="in in-b5 bd" aria-label="6">
+        <input type="radio" name="b6" value="6" class="in in-b6 bd" aria-label="6">
+      </div>
+      <div class="key op"><span>−</span>
+        <input type="radio" name="op" value="sub" class="in in-op" aria-label="−">
+      </div>
+      <div class="key digit"><span>1</span>
+        <input type="radio" name="a1" value="1" class="in in-a1 ad" aria-label="1">
+        <input type="radio" name="a2" value="1" class="in in-a2 ad" aria-label="1">
+        <input type="radio" name="a3" value="1" class="in in-a3 ad" aria-label="1">
+        <input type="radio" name="a4" value="1" class="in in-a4 ad" aria-label="1">
+        <input type="radio" name="a5" value="1" class="in in-a5 ad" aria-label="1">
+        <input type="radio" name="a6" value="1" class="in in-a6 ad" aria-label="1">
+        <input type="radio" name="b1" value="1" class="in in-b1 bd" aria-label="1">
+        <input type="radio" name="b2" value="1" class="in in-b2 bd" aria-label="1">
+        <input type="radio" name="b3" value="1" class="in in-b3 bd" aria-label="1">
+        <input type="radio" name="b4" value="1" class="in in-b4 bd" aria-label="1">
+        <input type="radio" name="b5" value="1" class="in in-b5 bd" aria-label="1">
+        <input type="radio" name="b6" value="1" class="in in-b6 bd" aria-label="1">
+      </div>
+      <div class="key digit"><span>2</span>
+        <input type="radio" name="a1" value="2" class="in in-a1 ad" aria-label="2">
+        <input type="radio" name="a2" value="2" class="in in-a2 ad" aria-label="2">
+        <input type="radio" name="a3" value="2" class="in in-a3 ad" aria-label="2">
+        <input type="radio" name="a4" value="2" class="in in-a4 ad" aria-label="2">
+        <input type="radio" name="a5" value="2" class="in in-a5 ad" aria-label="2">
+        <input type="radio" name="a6" value="2" class="in in-a6 ad" aria-label="2">
+        <input type="radio" name="b1" value="2" class="in in-b1 bd" aria-label="2">
+        <input type="radio" name="b2" value="2" class="in in-b2 bd" aria-label="2">
+        <input type="radio" name="b3" value="2" class="in in-b3 bd" aria-label="2">
+        <input type="radio" name="b4" value="2" class="in in-b4 bd" aria-label="2">
+        <input type="radio" name="b5" value="2" class="in in-b5 bd" aria-label="2">
+        <input type="radio" name="b6" value="2" class="in in-b6 bd" aria-label="2">
+      </div>
+      <div class="key digit"><span>3</span>
+        <input type="radio" name="a1" value="3" class="in in-a1 ad" aria-label="3">
+        <input type="radio" name="a2" value="3" class="in in-a2 ad" aria-label="3">
+        <input type="radio" name="a3" value="3" class="in in-a3 ad" aria-label="3">
+        <input type="radio" name="a4" value="3" class="in in-a4 ad" aria-label="3">
+        <input type="radio" name="a5" value="3" class="in in-a5 ad" aria-label="3">
+        <input type="radio" name="a6" value="3" class="in in-a6 ad" aria-label="3">
+        <input type="radio" name="b1" value="3" class="in in-b1 bd" aria-label="3">
+        <input type="radio" name="b2" value="3" class="in in-b2 bd" aria-label="3">
+        <input type="radio" name="b3" value="3" class="in in-b3 bd" aria-label="3">
+        <input type="radio" name="b4" value="3" class="in in-b4 bd" aria-label="3">
+        <input type="radio" name="b5" value="3" class="in in-b5 bd" aria-label="3">
+        <input type="radio" name="b6" value="3" class="in in-b6 bd" aria-label="3">
+      </div>
+      <div class="key op"><span>+</span>
+        <input type="radio" name="op" value="add" class="in in-op" aria-label="+">
+      </div>
+      <div class="key digit zero"><span>0</span>
+        <input type="radio" name="a1" value="0" class="in in-a1 ad" aria-label="0">
+        <input type="radio" name="a2" value="0" class="in in-a2 ad" aria-label="0">
+        <input type="radio" name="a3" value="0" class="in in-a3 ad" aria-label="0">
+        <input type="radio" name="a4" value="0" class="in in-a4 ad" aria-label="0">
+        <input type="radio" name="a5" value="0" class="in in-a5 ad" aria-label="0">
+        <input type="radio" name="a6" value="0" class="in in-a6 ad" aria-label="0">
+        <input type="radio" name="b1" value="0" class="in in-b1 bd" aria-label="0">
+        <input type="radio" name="b2" value="0" class="in in-b2 bd" aria-label="0">
+        <input type="radio" name="b3" value="0" class="in in-b3 bd" aria-label="0">
+        <input type="radio" name="b4" value="0" class="in in-b4 bd" aria-label="0">
+        <input type="radio" name="b5" value="0" class="in in-b5 bd" aria-label="0">
+        <input type="radio" name="b6" value="0" class="in in-b6 bd" aria-label="0">
+      </div>
+      <div class="key eq"><span>=</span>
+        <input type="checkbox" name="eq" class="in in-eq" aria-label="equals">
+      </div>
+    </div>
+  </form>
+</body>
+</html>
