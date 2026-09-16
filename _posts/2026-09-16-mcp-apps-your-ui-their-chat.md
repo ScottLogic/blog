@@ -1,5 +1,5 @@
 ---
-title: "MCP Apps: Your UI, Their Chat"
+title: 'MCP Apps: Your UI, Their Chat'
 date: 2026-09-16 07:00:00 Z
 categories:
 - Artificial Intelligence
@@ -8,9 +8,9 @@ tags:
 - MCP
 - Artificial Intelligence
 summary: A lot of focus has been put on the statelessness introduced as part of the
-  new MCP specification, but the formalisation of extensions, including MCP Apps, is
-  also worth attention. Using FastMCP and Prefab, I put together an MCP app and show
-  it running in ChatGPT.
+  new MCP specification, but the formalisation of extensions, including MCP Apps,
+  is also worth attention. Using FastMCP and Prefab, I put together an MCP app and
+  show it running in ChatGPT.
 author: jstrong
 image: "/jstrong/assets/mcp-apps/carousel-engineering.png"
 ---
