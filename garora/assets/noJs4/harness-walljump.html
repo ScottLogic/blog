@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pipe Jumper (CSS only, no JS)</title>
+<style>
+
+  @property --char-lift {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+  }
+
+  @property --pipe-x {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 720px;
+  }
+
+  @property --score {
+    syntax: "<integer>";
+    inherits: true;
+    initial-value: 0;
+  }
+
+  :root {
+    --char-x: 50px;
+    --char-w: 30px;
+    --pipe-w: 36px;
+    --ground-h: 34px;
+
+    /* which keyframe each restartable animation should currently run;
+       flipped between the two identical copies below to force a restart */
+    --jump-name: none;
+    --score-name: score-inc;
+    --pipe-name: pipe-move;
+    --ground-name: scroll-ground;
+  }
+
+  /* :root's own animations: the jump arc (plays once per click) and the
+     score clock (runs continuously). Selecting the keyframe name through a
+     variable lets both be reset independently without a combinatorial
+     explosion of `animation:` shorthand rules. */
+  :root {
+    animation-name: var(--jump-name), var(--score-name);
+    animation-duration: 0.62s, 100000s;
+    animation-timing-function: linear, linear;
+    animation-iteration-count: 1, infinite;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    background: #1b1f2a;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: #eee;
+  }
+
+  h1 { margin: 0; font-size: 1.4rem; letter-spacing: 1px; }
+  p.hint { margin: 0; color: #9aa2b1; font-size: 0.9rem; }
+
+  /* ---------- Jump arc (drives --char-lift on the root) ---------- */
+
+  @keyframes jump-arc {
+    0%   { --char-lift: 0px;    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1); }
+    40%  { --char-lift: 150px;  animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0); }
+    100% { --char-lift: 0px; }
+  }
+  @keyframes jump-arc-2 {
+    0%   { --char-lift: 0px;    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1); }
+    40%  { --char-lift: 150px;  animation-timing-function: cubic-bezier(0.32, 0, 0.67, 0); }
+    100% { --char-lift: 0px; }
+  }
+
+  :root:has(#jump-a:checked) { --jump-name: jump-arc; }
+  :root:has(#jump-b:checked) { --jump-name: jump-arc-2; }
+
+  /* ---------- Score (drives --score on the root, once per second) ---------- */
+
+  @keyframes score-inc   { from { --score: 0; } to { --score: 100000; } }
+  @keyframes score-inc-2 { from { --score: 0; } to { --score: 100000; } }
+
+  .hud {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    z-index: 10;
+    padding: 4px 10px;
+    background: rgba(10, 10, 15, 0.55);
+    border-radius: 4px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    counter-reset: score var(--score);
+  }
+  .hud::after { content: "Score: " counter(score); }
+
+  /* ---------- Restart (flips --*-name pairs so every animation replays from 0) ---------- */
+
+  :root:has(#restart-a:checked) {
+    --score-name: score-inc-2;
+    --pipe-name: pipe-move-2;
+    --ground-name: scroll-ground-2;
+  }
+  :root:has(#restart-b:checked) {
+    --score-name: score-inc;
+    --pipe-name: pipe-move;
+    --ground-name: scroll-ground;
+  }
+
+  /* ---------- Pause whenever the pointer leaves the playing field ----------
+     Everything is paused by default; it only runs while the pointer is
+     actually over .game. Moving off the field pauses it (and moving back on
+     resumes exactly where things left off). */
+
+  :root,
+  .pipe,
+  .ground,
+  .character .leg {
+    animation-play-state: paused;
+  }
+
+  :root:has(.game:hover),
+  :root:has(.game:hover) .pipe,
+  :root:has(.game:hover) .ground,
+  :root:has(.game:hover) .character .leg {
+    animation-play-state: running;
+  }
+
+  /* ---------- Game over: collision forces a pause too ----------
+     .game-over is a fixed, full-viewport overlay, so whenever it has any
+     height (i.e. --collision > 0) it sits over the pointer no matter where
+     within the viewport the pointer is — including while it's still over
+     .game. This rule has the exact same selector specificity as the
+     "running while hovering .game" rule above, so being declared *after* it
+     wins the tie: colliding always overrides "still hovering the field" and
+     forces the pause, which is what makes the crash actually stick instead
+     of the pipe sliding straight through the character. */
+
+  :root:has(.game-over:hover),
+  :root:has(.game-over:hover) .pipe,
+  :root:has(.game-over:hover) .ground,
+  :root:has(.game-over:hover) .character .leg {
+    animation-play-state: paused;
+  }
+
+  /* ---------- Game frame ---------- */
+
+  .game {
+    position: relative;
+    width: 720px;
+    max-width: 95vw;
+    height: 300px;
+    overflow: hidden;
+    border: 3px solid #3a4159;
+    border-radius: 8px;
+    background: linear-gradient(#7ec8ff 0%, #cdeeff 75%, #cdeeff 100%);
+  }
+
+  /* full-canvas click targets that swap which one is on top after every click,
+     so every click always lands on a *currently unchecked* radio and restarts
+     the jump animation from frame zero. Sits above the ground/character/pipes
+     (z-index 20+, higher than any of those) so a click anywhere in the game —
+     not just empty background — registers as a jump; .game-over (999) still
+     sits above this so it can intercept clicks once a collision happens. */
+  .jump-input { position: absolute; opacity: 0; pointer-events: none; }
+
+  .jump-hit {
+    position: absolute;
+    inset: 0;
+    z-index: 21;
+    cursor: pointer;
+  }
+  label[for="jump-b"] { z-index: 20; }
+
+  .game:has(#jump-a:checked) label[for="jump-a"] { z-index: 20; }
+  .game:has(#jump-a:checked) label[for="jump-b"] { z-index: 22; }
+  .game:has(#jump-b:checked) label[for="jump-b"] { z-index: 20; }
+  .game:has(#jump-b:checked) label[for="jump-a"] { z-index: 22; }
+
+  /* ---------- Scrolling ground ---------- */
+
+  .ground {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--ground-h);
+    background:
+      repeating-linear-gradient(90deg,
+        #6abf4b 0px, #6abf4b 24px,
+        #5aab3d 24px, #5aab3d 48px);
+    border-top: 3px solid #4c8f31;
+    animation-name: var(--ground-name);
+    animation-duration: 1.4s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes scroll-ground {
+    from { background-position-x: 0px; }
+    to   { background-position-x: -48px; }
+  }
+  @keyframes scroll-ground-2 {
+    from { background-position-x: 0px; }
+    to   { background-position-x: -48px; }
+  }
+
+  /* ---------- Character ---------- */
+
+  .character {
+    position: absolute;
+    left: var(--char-x);
+    bottom: var(--ground-h);
+    width: var(--char-w);
+    height: 34px;
+    transform: translateY(calc(-1 * var(--char-lift)));
+    z-index: 3;
+  }
+
+  .character .body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 24px;
+    background: #ff5a4e;
+    border: 2px solid #a5241a;
+    border-radius: 6px 6px 3px 3px;
+  }
+
+  .character .head {
+    position: absolute;
+    top: -10px;
+    left: 4px;
+    width: 20px;
+    height: 14px;
+    background: #ffd7a8;
+    border: 2px solid #a5241a;
+    border-radius: 50% 50% 40% 40%;
+  }
+
+  .character .leg {
+    position: absolute;
+    bottom: -8px;
+    width: 8px;
+    height: 10px;
+    background: #a5241a;
+    border-radius: 2px;
+    /* longhand (not the `animation` shorthand) so it doesn't implicitly
+       reset animation-play-state and fight the pause/run rules below */
+    animation-name: run-legs;
+    animation-duration: 0.28s;
+    animation-timing-function: steps(2);
+    animation-iteration-count: infinite;
+  }
+  .character .leg.left  { left: 2px; }
+  .character .leg.right { left: 16px; animation-delay: 0.14s; }
+
+  @keyframes run-legs {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(4px); }
+  }
+
+  /* ---------- Pipes ---------- */
+
+  .pipe {
+    position: absolute;
+    bottom: var(--ground-h);
+    width: var(--pipe-w);
+    /* deliberately no z-index here: a numbered z-index on a positioned
+       element creates a *stacking context*, which would trap .game-over
+       (a fixed, z-index:999 descendant used for the collision overlay) at
+       this element's own stacking level instead of letting it out-rank
+       everything else in the game. Leaving this z-index:auto lets pipes
+       stack purely by DOM order (after .ground, so still above it, and
+       below .character which has its own explicit z-index) while letting
+       .game-over's z-index escape all the way up to the real top. */
+    background: linear-gradient(90deg, #3fae4a 0%, #57c96a 45%, #3fae4a 100%);
+    border: 2px solid #235c29;
+    border-radius: 3px 3px 0 0;
+    animation-name: var(--pipe-name);
+    animation-duration: 4.2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /* holds at the 0% keyframe (off-screen right) during the start-up delay
+       below, instead of an undefined `left` before the animation kicks in */
+    animation-fill-mode: backwards;
+  }
+  .pipe::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -4px;
+    right: -4px;
+    height: 12px;
+    background: #3fae4a;
+    border: 2px solid #235c29;
+    border-radius: 3px;
+  }
+
+  /* the usual -1.4s/-2.8s negative offsets (for an evenly-staggered stream)
+     shifted forward by a flat 3.8s grace period, so every pipe starts its
+     lap parked off-screen instead of already partway across at the very
+     start (or right after a restart) */
+  .pipe-1 { height: 60px;  animation-delay: 3.8s; }
+  .pipe-2 { height: 95px;  animation-delay: 2.4s; }
+  .pipe-3 { height: 50px;  animation-delay: 1.0s; }
+
+  @keyframes pipe-move {
+    from { --pipe-x: 760px; left: var(--pipe-x); }
+    to   { --pipe-x: -40px; left: var(--pipe-x); }
+  }
+  @keyframes pipe-move-2 {
+    from { --pipe-x: 760px; left: var(--pipe-x); }
+    to   { --pipe-x: -40px; left: var(--pipe-x); }
+  }
+
+  /* ---------- Collision detection (per pipe, no JS) ---------- */
+
+  .pipe {
+    --pipe-h: 100%;                 /* overridden per pipe below via inline custom prop */
+    --pipe-right: calc(var(--pipe-x) + var(--pipe-w));
+    --char-right: calc(var(--char-x) + var(--char-w));
+
+    --x-overlap: calc(
+      (max(0px, var(--pipe-right) - var(--char-x)) / 1px) *
+      (max(0px, var(--char-right) - var(--pipe-x)) / 1px)
+    );
+    --y-collision: calc(max(0px, var(--pipe-h) - var(--char-lift)) / 1px);
+    --collision: calc(var(--x-overlap) * var(--y-collision));
+  }
+
+  .pipe-1 { --pipe-h: 60px; }
+  .pipe-2 { --pipe-h: 95px; }
+  .pipe-3 { --pipe-h: 50px; }
+
+  .game-over {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(100vh * min(1, var(--collision)));
+    overflow: hidden;
+    z-index: 999;
+    background: rgba(10, 10, 15, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #fff;
+    text-align: center;
+    font-family: inherit;
+  }
+  .game-over h2 { font-size: 2.6rem; margin: 0; color: #ff5a4e; letter-spacing: 2px; }
+  .game-over p { margin: 0; color: #cfd3dc; }
+  .game-over .final-score {
+    counter-reset: score var(--score);
+  }
+  .game-over .final-score::after { content: "Score: " counter(score); }
+
+  /* restart button: same on-top-swap trick as the jump control, scoped to
+     a small hit area instead of the full screen */
+  .restart-btn {
+    position: relative;
+    padding: 10px 22px;
+    border-radius: 6px;
+    background: #3fae4a;
+    border: 2px solid #235c29;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .restart-hit {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+  .restart-hit[for="restart-b"] { z-index: 0; }
+
+  :root:has(#restart-a:checked) .restart-hit[for="restart-a"] { z-index: 0; }
+  :root:has(#restart-a:checked) .restart-hit[for="restart-b"] { z-index: 2; }
+  :root:has(#restart-b:checked) .restart-hit[for="restart-b"] { z-index: 0; }
+  :root:has(#restart-b:checked) .restart-hit[for="restart-a"] { z-index: 2; }
+
+</style>
+</head>
+<body>
+
+  <h1>PIPE JUMPER</h1>
+  <p class="hint">Click / tap the game to jump. Don't hit a pipe — score climbs the longer you survive.</p>
+
+  <div class="game">
+    <input class="jump-input" type="radio" name="jump" id="jump-a">
+    <input class="jump-input" type="radio" name="jump" id="jump-b">
+    <input class="jump-input" type="radio" name="restart" id="restart-a">
+    <input class="jump-input" type="radio" name="restart" id="restart-b">
+    <label class="jump-hit" for="jump-a"></label>
+    <label class="jump-hit" for="jump-b"></label>
+
+    <div class="hud"></div>
+
+    <div class="ground"></div>
+
+    <div class="character">
+      <div class="head"></div>
+      <div class="body"></div>
+      <div class="leg left"></div>
+      <div class="leg right"></div>
+    </div>
+
+    <div class="pipe pipe-1">
+      <div class="game-over">
+        <h2>GAME OVER</h2>
+        <p class="final-score"></p>
+        <div class="restart-btn">
+          <label class="restart-hit" for="restart-a"></label>
+          <label class="restart-hit" for="restart-b"></label>
+          <span>Restart</span>
+        </div>
+      </div>
+    </div>
+    <div class="pipe pipe-2">
+      <div class="game-over">
+        <h2>GAME OVER</h2>
+        <p class="final-score"></p>
+        <div class="restart-btn">
+          <label class="restart-hit" for="restart-a"></label>
+          <label class="restart-hit" for="restart-b"></label>
+          <span>Restart</span>
+        </div>
+      </div>
+    </div>
+    <div class="pipe pipe-3">
+      <div class="game-over">
+        <h2>GAME OVER</h2>
+        <p class="final-score"></p>
+        <div class="restart-btn">
+          <label class="restart-hit" for="restart-a"></label>
+          <label class="restart-hit" for="restart-b"></label>
+          <span>Restart</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
