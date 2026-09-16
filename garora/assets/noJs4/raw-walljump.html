@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CSS Jump Runner</title>
+<style>
+  :root {
+    --ground: 80px;
+    --char-size: 48px;
+    --speed: 1.8s;      /* time for a wall to cross the screen */
+    --jump-time: 0.7s;  /* duration of a jump */
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #0f172a;
+    color: #e2e8f0;
+    gap: 16px;
+    user-select: none;
+  }
+
+  h1 { font-size: 20px; font-weight: 600; letter-spacing: 0.5px; }
+  p  { font-size: 13px; color: #94a3b8; }
+
+  /* The focusable game area. Press SPACE (or click) to jump. */
+  .game {
+    position: relative;
+    width: 640px;
+    max-width: 92vw;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #1e293b 0%, #334155 70%, #475569 100%);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.05);
+    outline: none;
+    cursor: pointer;
+  }
+  .game:focus-visible { box-shadow: 0 0 0 3px #38bdf8, 0 12px 40px rgba(0,0,0,0.45); }
+
+  /* Scrolling ground */
+  .ground {
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: var(--ground);
+    background:
+      repeating-linear-gradient(90deg, #64748b 0 40px, #52607a 40px 80px);
+    animation: scroll-ground var(--speed) linear infinite;
+    background-size: 80px 100%;
+  }
+  @keyframes scroll-ground {
+    from { background-position: 0 0; }
+    to   { background-position: -80px 0; }
+  }
+
+  /* The character */
+  .character {
+    position: absolute;
+    left: 70px;
+    bottom: var(--ground);
+    width: var(--char-size);
+    height: var(--char-size);
+    border-radius: 10px 10px 6px 6px;
+    background: radial-gradient(circle at 32% 30%, #fcd34d, #f59e0b);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    z-index: 3;
+  }
+  .character::before,
+  .character::after {
+    content: "";
+    position: absolute;
+    top: 14px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #1e293b;
+  }
+  .character::before { left: 10px; }
+  .character::after  { right: 10px; }
+
+  /* Jump animation runs while the game area is active (space/click held) */
+  .game:active .character {
+    animation: jump var(--jump-time) ease-out;
+  }
+  @keyframes jump {
+    0%   { transform: translateY(0); }
+    40%  { transform: translateY(-135px); }
+    55%  { transform: translateY(-135px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* Walls that scroll toward the player */
+  .wall {
+    position: absolute;
+    bottom: var(--ground);
+    width: 34px;
+    height: 60px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #ef4444, #b91c1c);
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,0.15);
+    z-index: 2;
+    animation: move-wall var(--speed) linear infinite;
+  }
+  .wall.w2 { animation-delay: calc(var(--speed) * 0.5); height: 44px; }
+  .wall.w3 { animation-delay: calc(var(--speed) * 1.15); height: 70px; }
+
+  @keyframes move-wall {
+    from { left: 100%; }
+    to   { left: -60px; }
+  }
+
+  /* Simple sky clouds for depth */
+  .cloud {
+    position: absolute;
+    top: 30px;
+    width: 70px; height: 22px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 20px;
+    animation: move-wall calc(var(--speed) * 4) linear infinite;
+  }
+  .cloud.c2 { top: 60px; width: 50px; animation-delay: calc(var(--speed) * -2); }
+</style>
+</head>
+<body>
+  <h1>CSS Jump Runner</h1>
+  <p>Click the arena (or focus it and hold SPACE) to jump over the red walls.</p>
+
+  <div class="game" tabindex="0">
+    <div class="cloud"></div>
+    <div class="cloud c2"></div>
+
+    <div class="wall w1"></div>
+    <div class="wall w2"></div>
+    <div class="wall w3"></div>
+
+    <div class="character"></div>
+
+    <div class="ground"></div>
+  </div>
+</body>
+</html>
