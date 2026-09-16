@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wall Jump – a pure HTML/CSS game</title>
+<style>
+/* ==========================================================================
+   WALL JUMP  –  HTML + CSS only, no JavaScript.
+
+   How it works
+   ------------
+   * The wall strip (20 walls of five different heights, irregular gaps)
+     scrolls left forever from the moment the page loads (6610px every
+     20.66s), even behind the title and game-over screens.  Walls that sit
+     inside the first screen-width of the strip have twins one strip-length
+     later, so the loop wraps seamlessly.  Because that motion is fully
+     deterministic, a second animation on .world with the
+     same duration sets --hit to the wall's height tier (1 = 50px … 5 = 90px)
+     during the exact percentages where that wall overlaps the player's body.
+   * A round only starts when you press Play.  Nothing in CSS is random, but
+     the instant you click is – so the phase of the strip, and therefore the
+     sequence of walls you meet, differs every round.
+   * Play / Play again are plain links to #play-a or #play-b – the two
+     invisible full-stage jump buttons.  :target picks one of two identical
+     "round" copies; the other is display:none, which resets all of its
+     animations, transitions and latched state.  No reload.  Because the
+     fragment target is the button itself, it also receives keyboard focus,
+     so Space keeps working after a mouse-clicked restart.
+   * Holding the jump button (or Space) makes it :active.
+     That sets a latched --j flag which plays the jump animation on the
+     player and, on a wrapper element, an --air animation that follows the
+     same parabola and holds the highest wall tier the player's feet clear.
+   * Container style queries on .latch check, per tier, "--hit is N AND
+     --air is below N" (and the 1.5s GET READY grace period is over).  When
+     true they set --dead: 1, latched through a transition with a huge delay.
+   * --dead freezes the player and score and shows the game-over overlay.
+   ========================================================================== */
+
+@property --j    { syntax: '<integer>'; inherits: true;  initial-value: 0; }
+@property --dead { syntax: '<integer>'; inherits: true;  initial-value: 0; }
+@property --score{ syntax: '<integer>'; inherits: false; initial-value: 0; }
+
+:root {
+  --w: 800px;            /* stage width  */
+  --h: 320px;            /* stage height */
+  --ground: 40px;        /* ground thickness */
+  --strip: 6610px;     /* length of the wall strip = one loop */
+  --loop: 20.65625s;        /* time for one loop (320px per second) */
+  --jump-time: .6s;
+  --grace: 1.5s;         /* invulnerable "get ready" time at round start */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  gap: 16px;
+  background: #1b1d2a;
+  color: #dfe3f0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  user-select: none;
+}
+
+h1 { margin: 24px 0 0; font-weight: 600; letter-spacing: .04em; }
+p.help { margin: 0 0 24px; opacity: .7; text-align: center; max-width: 60ch; }
+kbd {
+  background: #2c2f40; border: 1px solid #4a4e66; border-bottom-width: 3px;
+  border-radius: 4px; padding: 0 .4em; font: inherit;
+}
+
+/* ---------- Stage ------------------------------------------------------ */
+.game {
+  width: var(--w);
+  height: var(--h);
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px #0008;
+  background: linear-gradient(#5aa9e6 0%, #9fd4ff 60%, #d8f0ff 100%);
+}
+
+/* --hit holds a wall's height tier while that wall overlaps the player's
+   body (player spans x 80–116, walls are 28px wide, 2px of forgiveness):
+   window = ((p-114)/6610 , (p-54)/6610).  Generated from the wall list. */
+.world { position: absolute; inset: 0; --hit: 0; animation: hits var(--loop) linear infinite; }
+@keyframes hits {
+    0.000%,   2.804% { --hit: 0; }
+    2.814%,   3.722% { --hit: 3; }   /* wall  1: p=300, 70px */
+    3.732%,   7.342% { --hit: 0; }
+    7.352%,   8.260% { --hit: 1; }   /* wall  2: p=600, 50px */
+    8.270%,  13.697% { --hit: 0; }
+   13.707%,  14.614% { --hit: 5; }   /* wall  3: p=1020, 90px */
+   14.624%,  17.630% { --hit: 0; }
+   17.640%,  18.548% { --hit: 2; }   /* wall  4: p=1280, 60px */
+   18.558%,  22.925% { --hit: 0; }
+   22.935%,  23.843% { --hit: 4; }   /* wall  5: p=1630, 80px */
+   23.853%,  27.161% { --hit: 0; }
+   27.171%,  28.079% { --hit: 5; }   /* wall  6: p=1910, 90px */
+   28.089%,  33.818% { --hit: 0; }
+   33.828%,  34.735% { --hit: 1; }   /* wall  7: p=2350, 50px */
+   34.745%,  38.507% { --hit: 0; }
+   38.517%,  39.425% { --hit: 3; }   /* wall  8: p=2660, 70px */
+   39.435%,  42.592% { --hit: 0; }
+   42.602%,  43.510% { --hit: 2; }   /* wall  9: p=2930, 60px */
+   43.520%,  48.341% { --hit: 0; }
+   48.351%,  49.259% { --hit: 5; }   /* wall 10: p=3310, 90px */
+   49.269%,  52.274% { --hit: 0; }
+   52.284%,  53.192% { --hit: 4; }   /* wall 11: p=3570, 80px */
+   53.202%,  57.267% { --hit: 0; }
+   57.277%,  58.185% { --hit: 3; }   /* wall 12: p=3900, 70px */
+   58.195%,  63.318% { --hit: 0; }
+   63.328%,  64.236% { --hit: 1; }   /* wall 13: p=4300, 50px */
+   64.246%,  67.706% { --hit: 0; }
+   67.716%,  68.623% { --hit: 2; }   /* wall 14: p=4590, 60px */
+   68.633%,  71.639% { --hit: 0; }
+   71.649%,  72.557% { --hit: 5; }   /* wall 15: p=4850, 90px */
+   72.567%,  77.085% { --hit: 0; }
+   77.095%,  78.003% { --hit: 3; }   /* wall 16: p=5210, 70px */
+   78.013%,  81.624% { --hit: 0; }
+   81.634%,  82.542% { --hit: 4; }   /* wall 17: p=5510, 80px */
+   82.552%,  88.129% { --hit: 0; }
+   88.139%,  89.047% { --hit: 1; }   /* wall 18: p=5940, 50px */
+   89.057%,  92.365% { --hit: 0; }
+   92.375%,  93.283% { --hit: 2; }   /* wall 19: p=6220, 60px */
+   93.293%,  97.509% { --hit: 0; }
+   97.519%,  98.427% { --hit: 4; }   /* wall 20: p=6560, 80px */
+   98.437%, 100.000% { --hit: 0; }
+}
+
+/* ---------- Scenery (never pauses) -------------------------------------- */
+.clouds {
+  position: absolute; inset: 0 0 var(--ground) 0;
+  background:
+    radial-gradient(closest-side, #fff 70%, #fff0 72%) 120px 40px / 90px 40px no-repeat,
+    radial-gradient(closest-side, #fff 70%, #fff0 72%) 150px 28px / 70px 44px no-repeat,
+    radial-gradient(closest-side, #fff 70%, #fff0 72%) 560px 70px / 110px 44px no-repeat,
+    radial-gradient(closest-side, #fff 70%, #fff0 72%) 600px 56px / 80px 48px no-repeat;
+  opacity: .85;
+  animation: clouds 24s linear infinite;
+}
+@keyframes clouds { to { background-position-x: -680px, -650px, -240px, -200px; } }
+
+.hills {
+  position: absolute; left: 0; right: 0; bottom: var(--ground); height: 90px;
+  background:
+    radial-gradient(60% 100% at 30% 100%, #7ccf7a 99%, #0000 100%) 0 0 / 800px 90px repeat-x,
+    radial-gradient(70% 100% at 70% 100%, #5db35d 99%, #0000 100%) 300px 10px / 800px 90px repeat-x;
+  animation: hills 12s linear infinite;
+}
+@keyframes hills { to { background-position-x: -800px, -500px; } }
+
+.ground {
+  position: absolute; left: 0; right: 0; bottom: 0; height: var(--ground);
+  background:
+    linear-gradient(#3e8f3a 0 8px, #0000 8px),
+    repeating-linear-gradient(90deg, #7a4d2b 0 40px, #6a4124 40px 80px);
+  border-top: 3px solid #2f6e2c;
+  animation: ground .25s linear infinite;   /* 80px per tick = 320px/s, same as the walls */
+}
+@keyframes ground { to { background-position-x: 0, -80px; } }
+
+/* ---------- Walls ------------------------------------------------------ */
+.walls { position: absolute; inset: 0; left: 0; animation: walls-scroll var(--loop) linear infinite; }
+@keyframes walls-scroll { to { left: calc(-1 * var(--strip)); } }
+
+.wall {
+  position: absolute; bottom: var(--ground); width: 28px;
+  background:
+    repeating-linear-gradient(#0000 0 14px, #0003 14px 16px),
+    linear-gradient(90deg, #b5533d, #8e3a28);
+  border: 2px solid #5c2416; border-bottom: 0; border-radius: 3px 3px 0 0;
+  box-shadow: inset 0 0 0 2px #d6765f40;
+}
+.wall::before {
+  content: ""; position: absolute; left: -6px; right: -6px; top: -8px; height: 10px;
+  background: #6f2c1c; border-radius: 3px;
+}
+.w1  { left: 300px; height: 70px; }   /* tier 3 */
+.w2  { left: 600px; height: 50px; }   /* tier 1 */
+.w3  { left: 1020px; height: 90px; }   /* tier 5 */
+.w4  { left: 1280px; height: 60px; }   /* tier 2 */
+.w5  { left: 1630px; height: 80px; }   /* tier 4 */
+.w6  { left: 1910px; height: 90px; }   /* tier 5 */
+.w7  { left: 2350px; height: 50px; }   /* tier 1 */
+.w8  { left: 2660px; height: 70px; }   /* tier 3 */
+.w9  { left: 2930px; height: 60px; }   /* tier 2 */
+.w10 { left: 3310px; height: 90px; }   /* tier 5 */
+.w11 { left: 3570px; height: 80px; }   /* tier 4 */
+.w12 { left: 3900px; height: 70px; }   /* tier 3 */
+.w13 { left: 4300px; height: 50px; }   /* tier 1 */
+.w14 { left: 4590px; height: 60px; }   /* tier 2 */
+.w15 { left: 4850px; height: 90px; }   /* tier 5 */
+.w16 { left: 5210px; height: 70px; }   /* tier 3 */
+.w17 { left: 5510px; height: 80px; }   /* tier 4 */
+.w18 { left: 5940px; height: 50px; }   /* tier 1 */
+.w19 { left: 6220px; height: 60px; }   /* tier 2 */
+.w20 { left: 6560px; height: 80px; }   /* tier 4 */
+/* Seam twins: walls that sit inside the first screen-width of the strip are
+   repeated one strip-length later, so when the strip wraps they are already
+   on screen in the same place instead of popping in.  They never reach the
+   player, so they need no --hit window.                                   */
+.w1d { left: 6910px; height: 70px; }   /* twin of wall 1 */
+.w2d { left: 7210px; height: 50px; }   /* twin of wall 2 */
+
+/* ---------- Input ------------------------------------------------------
+   Two invisible buttons cover the stage (one per round, so each can be a
+   link target).  Hold either (mouse, touch or Space) to jump.  The huge
+   scroll-margin stops the page jumping when the fragment changes.         */
+.jump {
+  position: absolute; inset: 0; z-index: 5; scroll-margin-block: 100vh;
+  background: none; border: 0; padding: 0; margin: 0;
+  cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* ---------- Rounds ------------------------------------------------------
+   Two identical copies; only the one matching the URL fragment is shown.
+   Hiding a copy resets everything inside it.                               */
+.round { position: absolute; inset: 0; z-index: 6; display: none; pointer-events: none; }
+.game:has(#play-a:target) #round-a,
+.game:has(#play-b:target) #round-b { display: block; }
+
+/* --live becomes 1 after the grace period (no backwards fill => 0 before) */
+.round { --live: 0; animation: live 1ms var(--grace) linear forwards; }
+@keyframes live { from, to { --live: 1; } }
+
+/* Jump latch: pressing sets --j to 1 instantly; releasing lets it fall back
+   only after the jump duration, so a quick tap still gives a full jump.  */
+.jl  { position: absolute; inset: 0; --j: 0; transition: --j 0s var(--jump-time); }
+.game:has(.jump:active) .jl { --j: 1; transition: none; }
+
+/* --air = highest wall tier the player's feet (body + 8px legs) clear right
+   now, derived from the same 150px parabola as the visual jump:
+   feet above 58px -> 1, 68px -> 2, 78px -> 3, 88px -> 4, 98px -> 5.        */
+.air { position: absolute; inset: 0; --air: 0; }
+@container style(--j: 1) {
+  .air { animation: air var(--jump-time) linear forwards; }
+}
+@keyframes air {
+    0.000%,  10.942% { --air: 0; }
+   10.952%,  13.323% { --air: 1; }
+   13.333%,  15.704% { --air: 2; }
+   15.714%,  18.085% { --air: 3; }
+   18.095%,  20.657% { --air: 4; }
+   20.667%,  79.333% { --air: 5; }
+   79.343%,  81.905% { --air: 4; }
+   81.915%,  84.286% { --air: 3; }
+   84.296%,  86.667% { --air: 2; }
+   86.677%,  89.048% { --air: 1; }
+   89.058%, 100.000% { --air: 0; }
+}
+
+/* Death latch */
+.latch { position: absolute; inset: 0; --dead: 0; transition: --dead 0s 9999s; }
+@container style(--live: 1) and style(--hit: 1) and (style(--air: 0)) {
+  .latch { --dead: 1; transition: none; }
+}
+@container style(--live: 1) and style(--hit: 2) and (style(--air: 0) or style(--air: 1)) {
+  .latch { --dead: 1; transition: none; }
+}
+@container style(--live: 1) and style(--hit: 3) and (style(--air: 0) or style(--air: 1) or style(--air: 2)) {
+  .latch { --dead: 1; transition: none; }
+}
+@container style(--live: 1) and style(--hit: 4) and (style(--air: 0) or style(--air: 1) or style(--air: 2) or style(--air: 3)) {
+  .latch { --dead: 1; transition: none; }
+}
+@container style(--live: 1) and style(--hit: 5) and (style(--air: 0) or style(--air: 1) or style(--air: 2) or style(--air: 3) or style(--air: 4)) {
+  .latch { --dead: 1; transition: none; }
+}
+
+.scene { position: absolute; inset: 0; }
+
+/* ---------- Player ----------------------------------------------------- */
+.player {
+  position: absolute; left: 80px; bottom: var(--ground); width: 36px; height: 44px;
+  background: linear-gradient(#ffd166, #f4a742);
+  border: 2px solid #8a4b12; border-radius: 10px 10px 6px 6px;
+  transform-origin: 50% 100%;
+}
+.player::before {                      /* eyes */
+  content: ""; position: absolute; top: 12px; left: 8px; width: 6px; height: 8px;
+  background: #222; border-radius: 50%;
+  box-shadow: 12px 0 0 #222;
+}
+.player::after {                       /* legs */
+  content: ""; position: absolute; bottom: -8px; left: 6px; width: 8px; height: 8px;
+  background: #8a4b12; border-radius: 0 0 3px 3px;
+  box-shadow: 14px 0 0 #8a4b12;
+  animation: run .25s steps(2) infinite;
+}
+@keyframes run { to { translate: 0 -3px; } }
+
+@container style(--j: 1) {
+  .player { animation: jump var(--jump-time) linear forwards; }
+  .player::after { animation: none; }
+}
+/* Parabola h = 150 * (1 - (2t - 1)^2), sampled every 10% with linear
+   easing so the visual height matches the --air tiers exactly.           */
+@keyframes jump {
+  0%   { translate: 0 0;      }
+  10%  { translate: 0 -54px;  }
+  20%  { translate: 0 -96px;  }
+  30%  { translate: 0 -126px; }
+  40%  { translate: 0 -144px; }
+  50%  { translate: 0 -150px; }
+  60%  { translate: 0 -144px; }
+  70%  { translate: 0 -126px; }
+  80%  { translate: 0 -96px;  }
+  90%  { translate: 0 -54px;  }
+  100% { translate: 0 0;      }
+}
+
+/* Grace period: translucent player + badge */
+.ready {
+  position: absolute; left: 50%; top: 110px; translate: -50% 0;
+  padding: 8px 18px; border-radius: 999px; background: #ffd166; color: #3a2408;
+  font-weight: 800; letter-spacing: .12em; display: none;
+  animation: pulse .5s ease-in-out infinite alternate;
+}
+@keyframes pulse { to { scale: 1.08; } }
+@container style(--live: 0) {
+  .player { opacity: .55; }
+  .ready  { display: block; }
+}
+
+/* ---------- Score ------------------------------------------------------ */
+.score {
+  position: absolute; top: 12px; right: 16px;
+  font: 700 22px/1 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color: #fff; text-shadow: 0 2px 0 #0006;
+  animation: count 1000s linear forwards;      /* 10 points per second */
+  counter-reset: score var(--score);
+}
+.score::before { content: "SCORE "; font-size: 12px; letter-spacing: .1em; opacity: .8; }
+.score::after  { content: counter(score, decimal-leading-zero); }
+@keyframes count { to { --score: 10000; } }
+
+.hint {
+  position: absolute; left: 50%; top: 24px; translate: -50% 0;
+  padding: 6px 14px; border-radius: 999px; background: #0006; color: #fff;
+  font-size: 14px; white-space: nowrap;
+  animation: fade 1s 3s forwards;
+}
+@keyframes fade { to { opacity: 0; } }
+
+/* ---------- Title & game over ------------------------------------------- */
+.title, .overlay {
+  position: absolute; inset: 0; z-index: 10; pointer-events: auto;
+  display: grid; place-content: center; text-align: center; gap: 12px;
+  background: #0009; color: #fff; backdrop-filter: blur(2px);
+}
+.title h2, .overlay h2 { margin: 0; font-size: 42px; letter-spacing: .06em; }
+.title p, .overlay p { margin: 0; opacity: .9; }
+.title a, .overlay a {
+  display: inline-block; justify-self: center; padding: 10px 26px; border-radius: 999px;
+  background: #ffd166; color: #3a2408; font-weight: 700; text-decoration: none;
+}
+.title a:hover, .overlay a:hover { background: #ffe08a; }
+.title a:focus-visible, .overlay a:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.game:has(.jump:target) .title { display: none; }
+.overlay { display: none; }
+
+@container style(--dead: 1) {
+  .overlay { display: grid; }
+  .score, .player { animation-play-state: paused; }
+  .player  { rotate: -90deg; translate: 0 6px; transition: rotate .3s, translate .3s; }
+  .player::after { animation: none; }
+  .hint, .ready { display: none; }
+}
+
+/* Fit narrow screens by scaling the fixed-size stage */
+@media (max-width: 800px) {
+  .game { zoom: calc(100vw / 800); }
+}
+</style>
+</head>
+<body>
+
+<h1>Wall Jump</h1>
+<p class="help">Press <strong>Play</strong>, then hold <kbd>Space</kbd>, click, or tap to jump over the walls. Hit one and it's game over.</p>
+
+<div class="game">
+  <div class="world">
+    <div class="clouds"></div>
+    <div class="hills"></div>
+    <div class="ground"></div>
+
+    <div class="walls">
+        <div class="wall w1"></div>
+        <div class="wall w2"></div>
+        <div class="wall w3"></div>
+        <div class="wall w4"></div>
+        <div class="wall w5"></div>
+        <div class="wall w6"></div>
+        <div class="wall w7"></div>
+        <div class="wall w8"></div>
+        <div class="wall w9"></div>
+        <div class="wall w10"></div>
+        <div class="wall w11"></div>
+        <div class="wall w12"></div>
+        <div class="wall w13"></div>
+        <div class="wall w14"></div>
+        <div class="wall w15"></div>
+        <div class="wall w16"></div>
+        <div class="wall w17"></div>
+        <div class="wall w18"></div>
+        <div class="wall w19"></div>
+        <div class="wall w20"></div>
+        <div class="wall w1d"></div>
+        <div class="wall w2d"></div>
+    </div>
+
+    <button class="jump" id="play-a" aria-label="Jump"></button>
+    <button class="jump" id="play-b" aria-label="Jump"></button>
+
+      <div class="round" id="round-a">
+        <div class="jl"><div class="air"><div class="latch"><div class="scene">
+          <div class="player"></div>
+          <div class="score"></div>
+          <div class="ready">GET READY</div>
+          <div class="hint">Hold Space, click or tap to jump</div>
+          <div class="overlay">
+            <h2>GAME OVER</h2>
+            <p>You ran into a wall.</p>
+            <a href="#play-b">Play again</a>
+          </div>
+        </div></div></div></div>
+      </div>
+      <div class="round" id="round-b">
+        <div class="jl"><div class="air"><div class="latch"><div class="scene">
+          <div class="player"></div>
+          <div class="score"></div>
+          <div class="ready">GET READY</div>
+          <div class="hint">Hold Space, click or tap to jump</div>
+          <div class="overlay">
+            <h2>GAME OVER</h2>
+            <p>You ran into a wall.</p>
+            <a href="#play-a">Play again</a>
+          </div>
+        </div></div></div></div>
+      </div>
+
+    <div class="title">
+      <h2>WALL JUMP</h2>
+      <p>Hold Space, click or tap to jump. Every round is different.</p>
+      <a href="#play-a">Play</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
