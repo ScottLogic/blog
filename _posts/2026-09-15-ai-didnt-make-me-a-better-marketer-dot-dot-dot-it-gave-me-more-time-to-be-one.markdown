@@ -29,7 +29,9 @@ And if I'm honest, I've become significantly more productive because of it.
 
 But here's the thing nobody seems to talk about enough: 
 
-**AI hasn't fundamentally changed what marketing is.** Has it changed how quickly I can execute a task?  
+**AI hasn't fundamentally changed what marketing is.** 
+
+Has it changed how quickly I can execute a task?  
 
 Sure.  
 
