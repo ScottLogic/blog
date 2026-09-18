@@ -29,9 +29,7 @@ And if I'm honest, I've become significantly more productive because of it.
 
 But here's the thing nobody seems to talk about enough: 
 
-**AI hasn't fundamentally changed what marketing is. 
-**
-Has it changed how quickly I can execute a task?  
+**AI hasn't fundamentally changed what marketing is.** Has it changed how quickly I can execute a task?  
 
 Sure.  
 
@@ -190,8 +188,8 @@ I don't believe the future belongs to marketers who resist AI.
 
 Nor do I believe it belongs to those who use it for everything. 
 
-**The marketers who will thrive are those who combine technological efficiency with human understanding and a laser sharp focus on commercial outcomes.  
-**
+**The marketers who will thrive are those who combine technological efficiency with human understanding and a laser sharp focus on commercial outcomes.**
+
 * The ones who use AI to eliminate low-value effort. 
 * The ones who use the time they recover to better understand customers. 
 * The ones who spend less time producing and more time thinking. 
