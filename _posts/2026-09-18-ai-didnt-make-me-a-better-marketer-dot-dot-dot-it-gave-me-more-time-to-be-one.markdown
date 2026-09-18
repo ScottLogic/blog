@@ -1,6 +1,6 @@
 ---
 title: AI didn't make me a better marketer... It gave me more time to be one
-date: 2026-09-15 13:44:00 Z
+date: 2026-09-18 13:44:00 Z
 categories:
 - ai
 - AI
