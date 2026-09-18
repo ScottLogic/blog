@@ -13,6 +13,11 @@ tags:
 - Artificial Intelligence
 - artificial intelligence
 - marketing
+summary: AI is transforming how marketers work, helping them complete routine tasks
+  faster and freeing up valuable time. But while productivity tools can accelerate
+  execution, they can’t replace human insight. In this blog, Craig Stephen explores
+  why understanding customer psychology, exercising judgement, and thinking strategically
+  remain the skills that drive marketing success.
 author: cstephen
 ---
 
