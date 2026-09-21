@@ -58,7 +58,7 @@ For growth-focused organisations, the value lies in compressing time-to-market. 
 
 ### 3. Legacy modernisation and risk reduction
 
-Legacy estates are often difficult to change because the business logic is poorly documented, knowledge is concentrated in a small number of people and the cost of getting something wrong is high. AI can help teams understand legacy systems, generate characterisation tests and accelerate analysis — but it needs to be applied within a disciplined modernisation approach. Scott Logic’s modernisation work stresses that AI changes the economics of modernisation, not the fundamentals: clear strategy, sound technical decisions and a strong understanding of business context still matter.
+Legacy estates are often difficult to change because the business logic is poorly documented, knowledge is concentrated in a small number of people and the cost of getting something wrong is high. AI can help teams understand legacy systems, generate characterisation tests and accelerate analysis, but it needs to be applied within a disciplined modernisation approach. Scott Logic’s modernisation work stresses that AI changes the economics of modernisation, not the fundamentals: clear strategy, sound technical decisions and a strong understanding of business context still matter.
 
 ### 4. Quality assurance and delivery balance
 
@@ -82,7 +82,7 @@ A good business case should be measurable without pretending that every benefit 
 
 * **Legacy maintenance effort:** the proportion of budget and capability consumed by keeping old systems running.
 
-The most useful investment cases combine financial measures with operational measures. This helps avoid the trap of claiming value from activity — such as tool adoption or lines of code produced — rather than outcomes, such as faster delivery of working software, lower operational risk or reduced maintenance burden.
+The most useful investment cases combine financial measures with operational measures. This helps avoid the trap of claiming value from activity (such as tool adoption or lines of code produced) rather than outcomes, such as faster delivery of working software, lower operational risk or reduced maintenance burden.
 
 ### What to include in the business case
 
@@ -122,4 +122,4 @@ Agentic software development is not a shortcut around good engineering. It is a 
 
 The strongest business cases will not be built on generic productivity claims or enthusiasm for the latest tools. They will be built on evidence: where work slows down today, what that delay costs, how agentic workflows could improve flow, and how the organisation will govern the risks.
 
-For technology leaders, the opportunity is clear. Used pragmatically, agentic software development can help teams move faster, reduce waste and modernise more safely. But the business case has to start with the delivery system as a whole — not just the speed of the person writing the code.
+For technology leaders, the opportunity is clear. Used pragmatically, agentic software development can help teams move faster, reduce waste and modernise more safely. But the business case has to start with the delivery system as a whole, not just the speed of the person writing the code.
