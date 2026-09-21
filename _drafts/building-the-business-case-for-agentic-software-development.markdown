@@ -70,11 +70,11 @@ A good business case should be measurable without pretending that every benefit 
 
 * **Cycle time:** how long it takes for work to move from initial development to production.
 
-* **Flow efficiency: **how much of that time is active work versus waiting in queues.
+* **Flow efficiency:** how much of that time is active work versus waiting in queues.
 
 * **Deployment frequency:** whether teams can release more often without increasing risk.
 
-* **Change failure rate and recovery time: **whether faster delivery is being achieved safely.
+* **Change failure rate and recovery time:** whether faster delivery is being achieved safely.
 
 * **Rework cost:** the effort required to correct AI-generated defects, weak specifications or non-compliant outputs.
 
