@@ -13,6 +13,7 @@ active-authors:
   - bcoke
   - bell-jones
   - bheyman
+  - cairey
   - ceberhardt
   - chayes
   - colive
@@ -261,6 +262,10 @@ authors:
     email: bpritchard@scottlogic.com
     author-summary: "A developer at Scott Logic, based in Newcastle. Interested in all things cloud. Partial to loud music, video games, and hanging out with my cat."
     picture: bpritchard.jpg
+  cairey:
+    name: "Chris Airey"
+    author-summary: "I am working with Scott Logic as an AI Transformation and Value Creation Partner; understanding where AI can genuinely move the needle for your organisation, then bringing the right Scott Logic expertise to deliver it."
+    picture: chris_airey.jpg
   cburbidge:
     name: "Chester Burbidge"
     author-summary: "Software Engineer at Scott Logic. Experienced in dotnet but interested in all areas of software development, especially 'devops' and functional programming."
