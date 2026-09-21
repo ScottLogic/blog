@@ -9,7 +9,7 @@ summary: AI coding tools can make individual developers faster, but that does no
   automatically make software delivery faster. To realise meaningful value from agentic
   software development, organisations need to look beyond tool adoption and build
   the business case around flow, quality, governance and measurable business outcomes.
-author: Chris Airey
+author: cairey
 ---
 
 AI coding tools can make individual developers faster, but that does not automatically make software delivery faster. To realise meaningful value from agentic software development, organisations need to look beyond tool adoption and build the business case around flow, quality, governance and measurable business outcomes.
