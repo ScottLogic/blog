@@ -25,7 +25,7 @@ author: acooper
 
 The ever-growing capability of AI has sparked some interesting debates in my team at Scott Logic around the shape, size and speed of discovery and alpha phases. Those debates often led back to the same question: what is the core value these phases need to deliver?
 
-On the one hand, there’s the race to an MVP. With the cost of building a proof of concept or a demo shrinking by the day, and mounting pressure to deliver, discovery and alpha can feel like an opportunity for a quick win. But then there’s the goal of reducing uncertainty about the bigger transformation, which is what GDS guidance recommends. 
+On the one hand, there’s the race to an MVP. With the cost of building a proof of concept or a demo shrinking by the day, and mounting pressure to deliver, discovery and alpha can feel like an opportunity for a quick win. But then there’s the goal of reducing uncertainty about the bigger transformation, which is what GDS guidance recommends.
 
 In a discussion at a recent roundtable hosted by the Institute for Government in partnership with Scott Logic, the discussions highlighted the difficulty of achieving this under time pressure, often when a team is still only just forming, and with pressure to find a politically ‘right’ answer. Sometimes this leads people away from “what do we need to learn first” to "what can we ship first?"
 
@@ -57,13 +57,16 @@ Fortunately for the public sector, the GDS delivery approach contains guidance t
 
 Easy to say; harder to do. In my experience, a few things are needed in order to achieve that:
 
-Supportive leadership that isn’t driving toward fixed timelines and outcomes. Leadership has to see the value of tackling the riskiest elements first, so that they can protect the team when other parties chafe at what can look like slow progress at the start. Without that advocacy and support, doing things ‘right’ will often be done in spite of the process, not because of it.
+* **Supportive leadership that isn’t driving toward fixed timelines and outcomes.** Leadership has to see the value of tackling the riskiest elements first, so that they can protect the team when other parties chafe at what can look like slow progress at the start. Without that advocacy and support, doing things ‘right’ will often be done in spite of the process, not because of it.
 
-A realistic amount of time must be dedicated to discovery and Alpha. In order to discover the biggest risks, project teams need enough time to develop an "appropriate" level of understanding of users, policy, realistic delivery options, and the trade-offs a team or its leadership will need to decide on. Then, they need enough time to properly explore and test the biggest risks discovery has found.
 
-A genuinely multidisciplinary team with the time and licence to have deep conversations.  Discovery is hard. It should involve people with different expertise and experiences. If they end up arguing with each other, that is a sign that progress is about to be made. They need time to understand where the complexity really lies, and to decide what to do about it.
+* **A realistic amount of time must be dedicated to discovery and Alpha.** In order to discover the biggest risks, project teams need enough time to develop an "appropriate" level of understanding of users, policy, realistic delivery options, and the trade-offs a team or its leadership will need to decide on. Then, they need enough time to properly explore and test the biggest risks discovery has found.
 
-An assessment process, where one applies, that judges the quality of thinking and the understanding of risk. Too often assessments are based on performative elements such as the level of documentation produced, while giving no weight to the quality of the thinking in that documentation.
+
+* **A genuinely multidisciplinary team with the time and licence to have deep conversations.** Discovery is hard. It should involve people with different expertise and experiences. If they end up arguing with each other, that is a sign that progress is about to be made. They need time to understand where the complexity really lies, and to decide what to do about it.
+
+
+* **An assessment process, where one applies, that judges the quality of thinking and the understanding of risk.** Too often assessments are based on performative elements such as the level of documentation produced, while giving no weight to the quality of the thinking in that documentation.
 
 I admit that the word "appropriate" in that second point is doing a lot of work. GDS has guidance on how long discovery and alpha should run, but I've worked on discoveries anywhere from six weeks to six months(!).
 
