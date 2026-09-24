@@ -3,6 +3,7 @@ active-authors:
   - aberrill
   - acarr
   - acaulfield
+  - acooper
   - alaws
   - alee
   - amjones
@@ -173,6 +174,10 @@ authors:
   acheshire:
     name: "Alexander Cheshire"
     picture: picture.jpg
+  acooper:
+    author-summary: "<p>I'm a Client Principal in Scott Logic's Public Sector Team, with extensive experience in leading teams to design and deliver complex, high-profile digital citizen services.</p>"
+    name: "Ann Cooper"
+    picture: Ann-Cooper.jpg
   afiddes:
     name: "Avril Fiddes"
     picture: picture.png
