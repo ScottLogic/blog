@@ -1,6 +1,25 @@
 ---
 title: 'Start at the beginning: how to get the most out of discovery and alpha'
 date: 2026-09-24 15:10:00 Z
+categories:
+- Delivery
+tags:
+- Discovery
+- Alpha
+- MVP
+- AI
+- Institute for Government
+- digital government
+- digital transformation
+- delivery
+- uncertainty
+- complexity
+summary: AI is making it faster and easier than ever to build proofs of concept and
+  MVPs, but in this post I argue that discovery and alpha phases deliver the most
+  value when they focus on reducing uncertainty and testing the biggest risks. Drawing
+  on discussions with public sector leaders, I explore how teams can avoid optimising
+  for early activity and instead build the understanding, evidence and flexibility
+  needed for successful long-term transformation.
 author: acooper
 ---
 
