@@ -16,10 +16,7 @@ tags:
 - complexity
 summary: AI is making it faster and easier than ever to build proofs of concept and
   MVPs, but in this post I argue that discovery and alpha phases deliver the most
-  value when they focus on reducing uncertainty and testing the biggest risks. Drawing
-  on discussions with public sector leaders, I explore how teams can avoid optimising
-  for early activity and instead build the understanding, evidence and flexibility
-  needed for successful long-term transformation.
+  value when they focus on reducing uncertainty and testing the biggest risks.
 author: acooper
 ---
 
@@ -88,7 +85,7 @@ This shift in mindset was also referenced in Suzanne’s blog “[rethinking tra
 
 The best early delivery decisions I've seen increase future freedom rather than optimise a single use case. The strongest architectural choices are the ones that enable a service to adapt as the picture changes to preserve the transformational goal, rather than locking the service into today's reality.
 
-[Transformation at the Bank of England](https://www.nao.org.uk/press-releases/bank-of-england-successfully-navigates-complex-modernisation-of-uks-critical-payment-system/) came up repeatedly at the roundtable as an example of this done well — not because its design phase was long, but because real effort went into understanding the challenge properly. Alternative solutions were genuinely explored, leadership accepted accountability for the choices made, and implementation followed directly from that understanding, rather than running in parallel with it.
+[Transformation at the Bank of England](https://www.nao.org.uk/press-releases/bank-of-england-successfully-navigates-complex-modernisation-of-uks-critical-payment-system/) came up repeatedly at the roundtable as an example of this done well – not because its design phase was long, but because real effort went into understanding the challenge properly. Alternative solutions were genuinely explored, leadership accepted accountability for the choices made, and implementation followed directly from that understanding, rather than running in parallel with it.
 
 ## Working to find the balance
 
