@@ -184,6 +184,10 @@ Then you can navigate to [localhost][localhost] in your browser.
 Note that if you performed a _sparse checkout_ as recommended, and if this is your first post, then you won't see any
 blog posts when the site loads unless you've already added a file for your new blog post.
 
+### Pushing to GitHub
+
+We now have a pre-push hook defined that will perform linting against changed blog posts before any push command goes ahead. This should ensure that errors in the metadata for posts are caught before they are built, as it can be much harder to determine why your post is not appearing from the pages-build-deployment GitHub action logs. If you have run `npm install` then it should automatically take care of setting up the hooks using [Husky](https://typicode.github.io/husky/). If for any reason this is blocking you from pushing and you really need to, you can skip the hook by running `git push --no-verify`.
+
 ## CI/CD
 
 We use GitHub Actions for CI/CD. The workflow definitions are in YAML files
