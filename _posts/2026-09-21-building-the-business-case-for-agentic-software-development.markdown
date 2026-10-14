@@ -2,7 +2,7 @@
 title: Building the business case for agentic software development
 date: 2026-09-21 10:37:00 Z
 categories:
-- AI
+- Artificial Intelligence
 tags:
 - AI
 summary: AI coding tools can make individual developers faster, but that does not
