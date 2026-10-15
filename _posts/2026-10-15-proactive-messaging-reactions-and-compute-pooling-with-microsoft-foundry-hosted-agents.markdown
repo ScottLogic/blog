@@ -95,9 +95,9 @@ The gist of relaying simple text messages is as follows:
 2. Make a Responses API call to the Foundry Agent Service, including the message text and user identity taken from the message activity.  
 3. When the reply comes back, send it back to the Bot Service as a `message` activity.
 
-To associate Bot Service and Agent Service conversations with each other, we need to store a mapping table of conversation IDs. This needs to be in persistent storage if conversations are to be long-lived.
-
 ![]({{ site.github.url }}/rwilliams/assets/foundry-middle-tier/image4.png)
+
+To associate Bot Service and Agent Service conversations with each other, we need to store a mapping table of conversation IDs. This needs to be in persistent storage if conversations are to be long-lived.
 
 ### Deploying and publishing
 
