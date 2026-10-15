@@ -1,9 +1,15 @@
 ---
-title: 'Proactive messaging, reactions, and compute pooling with Microsoft Foundry hosted agents'
+title: Proactive messaging, reactions, and compute pooling with Microsoft Foundry
+  hosted agents
 date: 2026-10-15 08:00:00 Z
 categories:
 - Artificial Intelligence
-summary: 'In the course of building a Foundry hosted agent for Microsoft Teams, we found that while it was straightforward to get a basic code-based agent working, we quickly ran into use cases that weren’t supported. We wanted our agent to contact users proactively rather than only respond directly to their messages, and we wanted it to be in the loop for message reactions and other rich communication beyond simple text messages.'
+summary: In the course of building a Foundry hosted agent for Microsoft Teams, we
+  found that while it was straightforward to get a basic code-based agent working,
+  we quickly ran into use cases that weren’t supported. We wanted our agent to contact
+  users proactively rather than only respond directly to their messages, and we wanted
+  it to be in the loop for message reactions and other rich communication beyond simple
+  text messages.
 author: rwilliams
 ---
 
