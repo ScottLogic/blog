@@ -93,7 +93,7 @@ The gist of relaying simple text messages is as follows:
 
 1. Listen for activity of type `message` on the Bot Service side.  
 2. Make a Responses API call to the Foundry Agent Service, including the message text and user identity taken from the message activity.  
-3. When the reply comes back, send it back to the Bot Service as a \`message\` activity.
+3. When the reply comes back, send it back to the Bot Service as a `message` activity.
 
 To associate Bot Service and Agent Service conversations with each other, we need to store a mapping table of conversation IDs. This needs to be in persistent storage if conversations are to be long-lived.
 
@@ -103,7 +103,7 @@ To associate Bot Service and Agent Service conversations with each other, we nee
 
 The introduction of the gateway means we can no longer use Foundry’s “Publish” feature to create a Bot Service for the agent and publish an app to Teams. That feature creates a Bot Service that uses the agent’s own identity, meaning they can only talk directly \- whereas now they need to go via the gateway.
 
-Instead, we create our own identity for the Bot Service, and create the Bot Service to talk to the gateway with it. Foundry Agent Service requires the calling identity (that of the gateway itself) to have the `UserIdentityImpersonation` permission, to permit the \`x-ms-user-identity\` header to be passed.
+Instead, we create our own identity for the Bot Service, and create the Bot Service to talk to the gateway with it. Foundry Agent Service requires the calling identity (that of the gateway itself) to have the `UserIdentityImpersonation` permission, to permit the `x-ms-user-identity` header to be passed.
 
 Finally, because the Teams app’s manifest needs the Bot Service’s App ID, and we created it ourselves, we now also have to build the manifest with this ID and zip up the installation package.
 
