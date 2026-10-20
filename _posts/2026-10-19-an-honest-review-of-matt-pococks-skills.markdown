@@ -3,7 +3,10 @@ title: An honest review of Matt Pocock's Skills framework
 date: 2026-10-19 00:00:00 Z
 categories:
 - Artificial Intelligence
-summary: I put Matt Pocock's popular agent Skills framework to the test by rebuilding a real app from scratch, with decidedly mixed results. The Skills are refreshingly simple and promote sound engineering practices, but at times they simulate the rituals of software engineering without the judgement that makes them valuable.
+summary: I put Matt Pocock's popular agent Skills framework to the test by rebuilding
+  a real app from scratch, with decidedly mixed results. The Skills are refreshingly
+  simple and promote sound engineering practices, but at times they simulate the rituals
+  of software engineering without the judgement that makes them valuable.
 author: ceberhardt
 image: "/ceberhardt/assets/pocock-skills.png"
 layout: default_post
