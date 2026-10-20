@@ -3,8 +3,9 @@ title: An honest review of Matt Pocock's Skills framework
 date: 2026-10-19 00:00:00 Z
 categories:
 - Artificial Intelligence
-summary:
+summary: I put Matt Pocock's popular agent Skills framework to the test by rebuilding a real app from scratch, with decidedly mixed results. The Skills are refreshingly simple and promote sound engineering practices, but at times they simulate the rituals of software engineering without the judgement that makes them valuable.
 author: ceberhardt
+image: "/ceberhardt/assets/pocock-skills.png"
 layout: default_post
 ---
 
@@ -13,6 +14,8 @@ There is a vast and ever-growing array of frameworks, skills and platforms that 
 Last month I listened to Gergely Orosz (Pragmatic Engineer) [interview Matt Pocock on his podcast](https://newsletter.pragmaticengineer.com/p/ai-skills-with-matt-pocock) and found the conversation fascinating. Matt's approach to Skill design is really interesting, and the interview is well worth listening to in full. One specific point that jumped out at me was his consideration of an agent's "priors", the inherent knowledge gained through training, and how prompting can unlock latent behaviour.  
 
 Given that Matt is the author of 'skills', possibly the most popular agentic engineering skills framework (as of today, 294k GitHub stars), I thought it was worth trying out his framework to see if it could change my perspective. This blog post is a brief write-up of my experiences, which were decidedly mixed.
+
+![AI Skills for Real Engineers]({{ site.github.url }}/ceberhardt/assets/pocock-skills.png)
 
 ## A promising start
 
