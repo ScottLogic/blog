@@ -1,4 +1,6 @@
 name: Check accessibility of changed content
+env:
+  HUSKY: 0
 
 on:
   pull_request:
