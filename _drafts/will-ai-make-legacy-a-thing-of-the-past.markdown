@@ -25,6 +25,8 @@ contributors:
 - jcamilleri
 ---
 
+<iframe title="Embed Player" src="https://play.libsyn.com/embed/episode/id/43751444/height/192/theme/modern/size/large/thumbnail/yes/custom-color/ffffff/time-start/00:00:00/playlist-height/200/direction/backward/download/yes/font-color/252525" height="192" width="100%" scrolling="no" allowfullscreen="" webkitallowfullscreen="true" mozallowfullscreen="true" oallowfullscreen="true" msallowfullscreen="true" style="border-width: medium; border-style: none; border-color: currentcolor; border-image: none;"></iframe>
+
 In this episode, I'm joined by James Camilleri and Alan Froggatt to ask whether AI could make legacy software a thing of the past. We explore how AI is changing the economics of modernisation, making previously expensive and time-consuming migrations dramatically faster.
 
 But writing code is only part of the challenge. AI can help document unfamiliar systems, generate tests and accelerate migration. However, it can’t easily capture the unwritten knowledge of the people who understand how those systems really work or why they matter.
