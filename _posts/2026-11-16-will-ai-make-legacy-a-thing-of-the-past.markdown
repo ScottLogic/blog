@@ -19,7 +19,7 @@ summary: 'AI is making it dramatically easier to understand, migrate and rewrite
   of how systems really work, the organisational context around them, and the judgement
   to decide not just what can be changed, but what should be.'
 author: ceberhardt
-image: 
+image: "/uploads/BTH%20Blue%20E33%20social.png"
 contributors:
 - afroggatt
 - jcamilleri
