@@ -42,3 +42,9 @@ Together, we consider a future where legacy becomes much easier to escape, while
 * [HEY's Rails-to-Rust rewrite](https://bitzesty.com/blog/rails-rewrite-rust-dhh-hey/)
 
 * [Matt Pocock's “grill-me” skill](https://github.com/mattpocock/skills/blob/main/docs/productivity/grill-me.md)
+
+## Subscribe to the podcast
+
+* [Apple Podcasts](https://podcasts.apple.com/dk/podcast/beyond-the-hype/id1612265563)
+
+* [Spotify](https://open.spotify.com/show/2BlwBJ7JoxYpxU4GBmuR4x)
