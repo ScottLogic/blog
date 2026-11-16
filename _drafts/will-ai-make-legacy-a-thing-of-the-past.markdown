@@ -32,7 +32,11 @@ But writing code is only part of the challenge. AI can help document unfamiliar 
 Together, we consider a future where legacy becomes much easier to escape, while asking an equally important question: just because AI makes it possible to replace an ageing system, does that mean you should?
 
 ## Useful links for this episode
-Bun: Rewriting Bun in Rust
-Cloudflare: Next.js applications, powered by Vite
-HEY's Rails-to-Rust rewrite
-Matt Pocock's “grill-me” skill
+
+* [Bun: Rewriting Bun in Rust](https://bun.com/blog/bun-in-rust)
+
+* [Cloudflare: Next.js applications, powered by Vite](https://blog.cloudflare.com/vinext-nextjs-on-vite/)
+
+* [HEY's Rails-to-Rust rewrite](https://bitzesty.com/blog/rails-rewrite-rust-dhh-hey/)
+
+* [Matt Pocock's “grill-me” skill](https://github.com/mattpocock/skills/blob/main/docs/productivity/grill-me.md)
