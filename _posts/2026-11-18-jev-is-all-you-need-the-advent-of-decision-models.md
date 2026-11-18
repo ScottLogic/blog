@@ -1,6 +1,6 @@
 ---
 title: Jev Is All You Need? The Advent of Decision Models
-date: 2026-11-20 07:00:00 Z
+date: 2026-11-18 07:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
@@ -26,7 +26,7 @@ First thing to say: it's not an LLM, but a decision model. In fact, Jev does not
 
 Alongside these decisions, Jev directly outputs a probability for each. For a Noul, it's a probability of an affirmative answer. For a set of options, each choice gets a probability, all summing to 1 - this goes for score also. An extra value is also bundled alongside each decision - confidence (except Noul). The confidence value is not produced by the model itself, but is instead provided in the API response as a calculation based on the number of options and the probability values from the model - generally how spread out the probabilities are. As it is calculated from the model's own probabilities, confidence tells you how certain the model is of its decisions.
 
-The creators of Jev, [TypeSafe AI](https://typesafe.ai/), describe this as being an example of 'System One' thinking - that is, thinking that is fast and needs no effortful reasoning. Effortful reasoning is 'System Two' (which recent LLMs have been [getting better and better at](https://openai.com/index/navier-stokes-solution/)). Both terms were [made popular by psychologist Daniel Kahneman](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow).  
+The creators of Jev, [TypeSafe AI](https://typesafe.ai/), describe this as being an example of 'System One' thinking - that is, thinking that is fast and needs no effortful reasoning. Effortful reasoning is 'System Two' (which recent LLMs have been [getting better and better at](https://openai.com/index/navier-stokes-solution/)). Both terms were [made popular by psychologist Daniel Kahneman](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow).
 
 Whilst LLMs are able to solve longstanding problems in mathematics, are they not overkill for the 'smart if statement' which many applications desire? That question is the premise behind Jev, and part of why many people are so excited about its arrival.
 
