@@ -1,6 +1,6 @@
 ---
-title: Jev Is All You Need?
-date: 2026-11-11 07:00:00 Z
+title: Jev Is All You Need? The Advent of Decision Models
+date: 2026-11-20 07:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
@@ -9,24 +9,24 @@ tags:
 - Decision Models
 - Jev
 - Doom
-summary: TypeSafe AI's Jev produces decisions rather than tokens, and it has spawned a whole new class of 'decision models'. I look at what makes it different and show some practical use cases, as well as one more doomonstrative.
+summary: TypeSafe AI's Jev produces decisions rather than tokens, and it has spawned a whole new class of 'decision models'. I look at what makes it different and show some practical use cases, as well as one more 'doomonstrative'.
 author: jstrong
 image: "/jstrong/assets/jev-is-all-you-need/doom_4_jevs.webp"
 ---
 
-Since the [introduction of Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) on the 15th of September, there has been boundless discussion and experimentation on its capabilities and potential use cases. I've been following the discourse since the start. Here, I'll look at what Jev is, whether it is just a case of good marketing, and whether it is the start of a new paradigm.
+Since the [introduction of Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) on the 15th of September, there has been boundless discussion and experimentation on its capabilities and potential use cases. I've been following the discourse since the start. Here, I'll look at what Jev is, whether it is just a case of good marketing, whether it is the start of a new paradigm of 'decision models', and how well it does in a Doom deathmatch.
 
 ## What is Jev?
 
-First thing to say: it's not an LLM. In fact, Jev does not output words (tokens) at all (though you can [make it chat](https://github.com/kyle-pena-nlp/jevchat/), if you really want). Instead, Jev outputs _decisions_ in a few forms:
+First thing to say: it's not an LLM, but a decision model. In fact, Jev does not output words (tokens) at all (though you can [make it chat](https://github.com/kyle-pena-nlp/jevchat/), if you really want). Instead, Jev outputs _decisions_ in a few forms:
 
 - A Yes or a No (Noul)
 - A choice from a fixed set of options
 - A score, e.g. 1-5, Small-Medium-Large, a list of options with an ordering
 
-Alongside these decisions, Jev directly outputs a probability for each. For a Noul, it's a probability of an affirmative answer. For a set of options, each choice gets a probability, all summing to 1 - this goes for score also. An extra value is also bundled alongside each decision - confidence (except Noul). The confidence value is not produced by the model itself, but is instead provided in the API response as a calculation based on the number of options and the probability values from the model - generally how spread out the probabilities are. Confidence tells you how certain the model is of its decisions.
+Alongside these decisions, Jev directly outputs a probability for each. For a Noul, it's a probability of an affirmative answer. For a set of options, each choice gets a probability, all summing to 1 - this goes for score also. An extra value is also bundled alongside each decision - confidence (except Noul). The confidence value is not produced by the model itself, but is instead provided in the API response as a calculation based on the number of options and the probability values from the model - generally how spread out the probabilities are. As it is calculated from the model's own probabilities, confidence tells you how certain the model is of its decisions.
 
-The creators of Jev, [TypeSafe AI](https://typesafe.ai/), describe this as being an example of 'System One' thinking - that is, thinking that is fast and needs no effortful reasoning (the latter constitutes 'System Two' thinking which recent LLMs have been [getting better and better at](https://openai.com/index/navier-stokes-solution/)).
+The creators of Jev, [TypeSafe AI](https://typesafe.ai/), describe this as being an example of 'System One' thinking - that is, thinking that is fast and needs no effortful reasoning. Effortful reasoning is 'System Two' (which recent LLMs have been [getting better and better at](https://openai.com/index/navier-stokes-solution/)). Both terms were [made popular by psychologist Daniel Kahneman](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow).  
 
 Whilst LLMs are able to solve longstanding problems in mathematics, are they not overkill for the 'smart if statement' which many applications desire? That question is the premise behind Jev, and part of why many people are so excited about its arrival.
 
@@ -55,7 +55,7 @@ I think this combination of being different, and being general, is what has allo
 With the release of Jev has come an influx of similar solutions, generally termed 'decision models'. Here are but a few:
 
 - [**SemIf**](https://openjev.com/): Formerly OpenJev, and standing for Semantic If, this was an early open-source Jev-like. This approach uses an open-weights LLM at its core but does not output token-by-token as usual. Instead, it normalises across the subset of the logits pertinent to your chosen options to produce probabilities (these probabilities are not synonymous with the calibrated confidence values output by Jev).
-- [**Laya**](https://laya.convaiinnovations.com/): I first came across what would be Laya a couple of days after the Jev announcement, [on the LocalLLaMA subreddit](https://www.reddit.com/r/LocalLLaMA/comments/1wijo3e/i_literally_built_the_jev_architecture_one_year/). The post boiled down to claiming that TypeSafe AI had stolen the thunder from an idea they had a year ago, and lamenting the lack of support for individual contributors. A couple more days later, Laya arrived and was nigh immediately lauded as _the_ open-source Jev competitor. Laya has the same three primitives (choice, score, noul) and performs well in benchmarks compared directly to Jev. There is one big caveat: Laya is a base to build on top of and does not work 'zero-shot' (without any modification) on a wide variety of tasks (unless you want a model to do no better than random). It needs fine-tuning on a particular domain to compete with Jev.
+- [**Laya**](https://laya.convaiinnovations.com/): I first came across what would be Laya a couple of days after the Jev announcement, [on the LocalLLaMA subreddit](https://www.reddit.com/r/LocalLLaMA/comments/1wijo3e/i_literally_built_the_jev_architecture_one_year/). The post boiled down to claiming that TypeSafe AI had stolen the thunder from an idea they had a year ago, and lamenting the lack of support for individual contributors. A couple more days later, Laya arrived and was nigh immediately lauded as _the_ open-source Jev competitor. Laya has the same three primitives (choice, score, Noul) and performs well in benchmarks compared directly to Jev. There is one big caveat: Laya is a base to build on top of and does not work 'zero-shot' (without any modification) on a wide variety of tasks (unless you want a model to do no better than random). It needs fine-tuning on a particular domain to compete with Jev.
 - [**OpenAI Decisions API**](https://developers.openai.com/api/docs/guides/decisions): Announced on the 29th of September at the 2026 OpenAI DevDay, this appears to be a direct response by a frontier lab to the popularity of Jev. Sam Altman described it as being an "exciting speed update", which could answer in "a fraction of a second". He also detailed that it is a GPT Luna model with "a pre-defined set of options" to choose from - and that it is that limited choice which allows it to be "extremely fast".
 - [**Cloudflare Clef**](https://blog.cloudflare.com/clef-decision-models/): Based on open-weights Qwen models, Cloudflare's entry into the fray was announced on the 1st of October. Clef and Clef-flash are based on Qwen3.8-27B and Qwen3.5-9B respectively and are free to download [from Hugging Face](https://huggingface.co/Cloudflare/clef).
 - [**Microsoft-Decision-1**](https://commandline.microsoft.com/microsoft-decision-1-model-foundry/): Microsoft has also joined in with its excitingly titled model. It's a post-train of Qwen3.5-9B, like Clef-flash, and does well on many benchmarks concerning both response quality and latency.
@@ -101,7 +101,7 @@ Notice that the above code does not just give a category for the email, it also 
 
 ### Agent Routing
 
-Routing can supercharge an agent/harness by choosing the right model for the right moment. However, until now, the router has usually been another LLM indicating which agent is best-suited to a task - such limited categorisation was never the forte of LLMs, and nor should such a limited choice between a handful of options take multiple seconds to complete. The dedicated `choice` primitive and its fast output (without going back and forth 'wait what about this, but wait!') make Jev well-suited for this task.
+Routing can supercharge an agent/harness by choosing the right model for the right moment. However, until now, the router has usually been another LLM indicating which agent is best-suited to a task - such limited categorisation was never the forte of LLMs, and nor should such a limited choice between a handful of options take multiple seconds to complete. Jev is well-suited to this task: a single, fast (no going back and forth 'wait what about this, but wait!') call can ask whether human intervention is necessary (Noul) and which agent should take over (choice).
 
 ![Example diagram showcasing possible workflow for agent delegation using Jev.]({{site.baseurl}}/jstrong/assets/jev-is-all-you-need/agent_router_diagram.webp)
 
