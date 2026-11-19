@@ -4,6 +4,7 @@ active-authors:
   - acarr
   - acaulfield
   - acooper
+  - afroggatt
   - alaws
   - alee
   - amjones
@@ -185,6 +186,10 @@ authors:
     name: "Ana Fonseca"
     author-summary: "I'm a Tester Engineer at Bristol office."
     picture: picture.jpg
+  afroggatt:
+    name: "Alan Froggatt"
+    author-summary: "I'm a Technical Principal at Scott Logic's Bristol office."
+    picture: afroggatt.jpg
   agard:
     author-summary: '<p>I am an intern going into my fourth year at Edinburgh Napier univeristy, and I have been working on a <a href="https://github.com/ScottLogic/foyer-screen">foyer screen</a> for the offices.</p>'
     name: "Alec Gard"
