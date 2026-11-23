@@ -14,7 +14,7 @@ author: jstrong
 image: "/jstrong/assets/jev-is-all-you-need/doom_4_jevs.webp"
 ---
 
-Since the [introduction of Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) on the 15th of September, there has been boundless discussion and experimentation on its capabilities and potential use cases. I've been following the discourse since the start. Here, I'll look at what Jev is, whether it is just a case of good marketing, whether it is the start of a new paradigm of 'decision models', and how well it does in a Doom deathmatch.
+Since the [introduction of Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) on the 15th of September, there has been boundless discussion and experimentation on its capabilities and potential use cases. I've been following the discourse since the start. Here, I'll look at what Jev is, whether it is just a case of good marketing, whether it is the start of a new paradigm of 'decision models', and how well it does in [a Doom deathmatch](#expanding-on-jevs-doomo).
 
 ## What is Jev?
 
@@ -24,7 +24,7 @@ First thing to say: it's not an LLM, but a decision model. In fact, Jev does not
 - A choice from a fixed set of options
 - A score, e.g. 1-5, Small-Medium-Large, a list of options with an ordering
 
-Alongside these decisions, Jev directly outputs a probability for each. For a Noul, it's a probability of an affirmative answer. For a set of options, each choice gets a probability, all summing to 1 - this goes for score also. An extra value is also bundled alongside each decision - confidence (except Noul). The confidence value is not produced by the model itself, but is instead provided in the API response as a calculation based on the number of options and the probability values from the model - generally how spread out the probabilities are. As it is calculated from the model's own probabilities, confidence tells you how certain the model is of its decisions.
+Alongside these decisions, Jev directly outputs a probability for each. For a Noul, it's a probability of an affirmative answer. For a set of options, each choice gets a probability, all summing to 1 - this goes for score also. An extra value is also bundled alongside each decision - confidence (except Noul). The confidence value is not produced by the model itself, but a calculation based on the number of options and the probability values from the model - generally how spread out the probabilities are. As it is calculated from the model's own probabilities, confidence tells you how certain the model is of its decisions.
 
 The creators of Jev, [TypeSafe AI](https://typesafe.ai/), describe this as being an example of 'System One' thinking - that is, thinking that is fast and needs no effortful reasoning. Effortful reasoning is 'System Two' (which recent LLMs have been [getting better and better at](https://openai.com/index/navier-stokes-solution/)). Both terms were [made popular by psychologist Daniel Kahneman](https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow).
 
@@ -38,7 +38,7 @@ The first rumour is that transformers are still being used. A lot of people conf
 
 Secondly, unlike most frontier LLMs of the day, Jev is not autoregressive. Autoregression (AR) is the process by which language models output tokens: one at a time, after looking back over all the past tokens. AR is an inherently sequential, and therefore slow, process. Jev, however, outputs all its decisions in a single pass, in parallel. This means that its responses come back orders of magnitude faster than what is usually expected of modern AI (hundreds of milliseconds vs tens of seconds). It also means that output 'tokens' cost nothing!
 
-Lastly, instead of RLHF (Reinforcement Learning from Human Feedback) through which foundation models are fine-tuned into instruction-following LLMs that aim to please people (or indeed RLAIF, Reinforcement Learning from Artificial Intelligence Feedback), Jev uses RLCD (Reinforcement Learning for Calibrated Decisions), whose aim is to provide reliable probabilities on outputs. This is much more suited to automation, where decisions should not depend on human preference.
+Lastly, whilst foundation models are typically fine-tuned with RLHF (Reinforcement Learning from Human Feedback) into instruction-following LLMs that aim to please people (or indeed RLAIF, Reinforcement Learning from Artificial Intelligence Feedback), Jev uses RLCD (Reinforcement Learning for Calibrated Decisions), whose aim is to provide reliable probabilities on outputs. This is much more suited to automation, where decisions should not depend on human preference.
 
 ## Why use Jev?
 
@@ -99,6 +99,8 @@ print(result.scores["sentiment"].score)   # e.g. 0.1, firmly negative
 
 Notice that the above code does not just give a category for the email, it also discerns its sentiment at the very same time. In the past, you would have had to run two different models or make two API calls to get both answers.
 
+As simple and easy as it is to point Jev at a problem and have it work, working out-of-the-box generally is not equivalent to working well out-of-the-box for everything. Due to this, evals should not be forgone altogether and you should prove it works for your use case with a handful of evaluations (much less data required than training from scratch, or even fine-tuning!).
+
 ### Agent Routing
 
 Routing can supercharge an agent/harness by choosing the right model for the right moment. However, until now, the router has usually been another LLM indicating which agent is best-suited to a task - such limited categorisation was never the forte of LLMs, and nor should such a limited choice between a handful of options take multiple seconds to complete. Jev is well-suited to this task: a single, fast (no going back and forth 'wait what about this, but wait!') call can ask whether human intervention is necessary (Noul) and which agent should take over (choice).
@@ -109,18 +111,20 @@ Routing can supercharge an agent/harness by choosing the right model for the rig
 
 Now that we've covered 'useful' examples, let's try our luck with a DMDM - a Decision Model Death Match inspired by the [doomo](https://typesafe.ai/blog/introducing-system-one-models-and-jev#:~:text=the%20team%E2%80%99s%20favorites%3A-,Doom,-We%20love%20how) shown in TypeSafe's Jev announcement post.
 
+For my version, I put together four Jevs in a free-for-all deathmatch:
+
 <video controls muted playsinline preload="metadata" poster="{{site.baseurl}}/jstrong/assets/jev-is-all-you-need/doom_4_jevs.webp" width="100%">
   <source src="{{site.baseurl}}/jstrong/assets/jev-is-all-you-need/doom_4_jevs.mp4" type="video/mp4">
   4 Jev Models in 1v1v1v1
 </video>
 
-I couldn't find any code for the demo in the original Jev post, so the first task was to determine what was already out there that could help. Luckily, people have been tinkering with Doom for decades, and they have also been trying to get AI to play Doom well for years. The two main projects which made this possible were Freedoom and ViZDoom. Freedoom is a project which provides free replacements of the game data (such as levels, graphics, and sounds) to go with Doom's engine, whose source code id Software released under GPL (General Public License) in 1999. It is included with ViZDoom (which is itself based on ZDoom - too many Dooms to keep track of!) which is a platform designed to provide environments for machine learning and, in particular, reinforcement learning - all centred around Doom.
+I couldn't find any code for the demo in the original Jev post, so the first task was to determine what was already out there that could help. Luckily, people have been tinkering with Doom for decades, and they have also been trying to get AI to play Doom well for years. The two main projects which made this possible were [Freedoom](https://freedoom.github.io/) and [ViZDoom](https://github.com/Farama-Foundation/ViZDoom). Freedoom is a project which provides free replacements of the game data (such as levels, graphics, and sounds) to go with Doom's engine, whose [source code](https://github.com/id-software/doom) id Software released under GPL (General Public License) in 1999. It is included with ViZDoom (which is itself based on [ZDoom](https://zdoom.org/index) - too many Dooms to keep track of!) which is a platform designed to provide environments for machine learning and, in particular, reinforcement learning - all centred around Doom.
 
 Instead of testing out custom RL-trained Doom models, as intended with ViZDoom, I wired up various 'brains' powered by decision models. Given the extensive information and labelling around game state provided by ViZDoom, describing to each model where it is and what it can see proved a smooth process. Every model got the same text description, with no screenshots. Pairing this with calls to OpenRouter, and putting together a workflow with choices and code to execute: we have Jev playing Doom.
 
 The process was not without hiccups and the initial iteration played just about as poorly as random. However, with evolution of the workflow including the information provided and the choices given to the models, their behaviour started to resemble something sensical (though not championship-winning). The final workflow offered the models higher-level choices: a general goal such as `scout` and actions such as `walk_to_target` rather than `move_forward`.
 
-And here is the workflow which each model ran through for every decision:
+And here is the workflow which each model ran through for every decision (no need to pore over every detail of this now - each model's preferred behaviour will be explored later on):
 
 ![Diagram showing simple steps of the workflow each 'player' follows in the Decision Model Death Match.]({{site.baseurl}}/jstrong/assets/jev-is-all-you-need/doom_workflow_diagram.webp)
 
@@ -145,6 +149,8 @@ You may also wonder how the game plays in real time or deals with delays and how
 - **Speed** (real-time): The game itself runs as normal. Whilst a model decides, its character continues to execute its prior decision. If it takes over a second, its character becomes idle. This mode prioritises decision speed over quality.
 
 ![Visualisation of timelines comparing speed and fair mode. Fair mode has the game pause every 4 tics whilst models make their decisions. In speed mode, the game never stops and models which take over a second stand still.]({{site.baseurl}}/jstrong/assets/jev-is-all-you-need/doom_modes_timeline.webp)
+
+#### The Deathmatch: Jev vs the Jeviverse
 
 Jev playing Doom is itself interesting, but we've just about seen that before, albeit not multiplayer. So far, we've only seen Jev facing off against itself, but how will it fare against its competitors - or rather, its opponents? Next, we see which decision model comes out on top. In the matches below, the players are controlled by the following:
 
