@@ -1,6 +1,6 @@
 ---
 title: Jev Is All You Need? The Advent of Decision Models
-date: 2026-11-23 07:00:00 Z
+date: 2026-11-24 07:00:00 Z
 categories:
 - Artificial Intelligence
 tags:
