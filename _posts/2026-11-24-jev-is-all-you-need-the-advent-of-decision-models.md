@@ -9,7 +9,9 @@ tags:
 - Decision Models
 - Jev
 - Doom
-summary: TypeSafe AI's Jev produces decisions rather than tokens, and it has spawned a whole new class of 'decision models'. I look at what makes it different and show some practical use cases, as well as one more 'doomonstrative'.
+summary: TypeSafe AI's Jev produces decisions rather than tokens, and it has spawned
+  a whole new class of 'decision models'. I look at what makes it different and show
+  some practical use cases, as well as one more 'doomonstrative'.
 author: jstrong
 image: "/jstrong/assets/jev-is-all-you-need/doom_4_jevs.webp"
 ---
