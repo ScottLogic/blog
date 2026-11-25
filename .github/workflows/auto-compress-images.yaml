@@ -1,4 +1,6 @@
 name: Compress Images Once a Month - Creates Pull Request
+env:
+  HUSKY: 0
 
 on:
   schedule:
